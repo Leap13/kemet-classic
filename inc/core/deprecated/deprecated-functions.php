@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.23
  */
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Kemet functions and definitions.
- * Text Domain: astra
+ * Text Domain: kemet
  * When using a child theme (see http://codex.wordpress.org/Theme_Development
  * and http://codex.wordpress.org/Child_Themes), you can override certain
  * functions (those wrapped in a function_exists() call) by defining them first
@@ -18,7 +18,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -68,22 +68,22 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		 */
 		function setup_theme() {
 
-			do_action( 'astra_class_loaded' );
+			do_action( 'kemet_class_loaded' );
 
 			/**
 			 * Content Width
 			 */
 			if ( ! isset( $content_width ) ) {
-				$content_width = apply_filters( 'astra_content_width', 700 );
+				$content_width = apply_filters( 'kemet_content_width', 700 );
 			}
 
 			/**
 			 * Make theme available for translation.
 			 * Translations can be filed in the /languages/ directory.
 			 * If you're building a theme based on Next, use a find and replace
-			 * to change 'astra' to the name of your theme in all the template files.
+			 * to change 'kemet' to the name of your theme in all the template files.
 			 */
-			load_theme_textdomain( 'astra', KEMET_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'kemet', KEMET_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support
@@ -142,11 +142,11 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			if ( apply_filters( 'astra_theme_editor_style', true ) ) {
+			if ( apply_filters( 'kemet_theme_editor_style', true ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
-			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
+			if ( apply_filters( 'kemet_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 				add_filter( 'oembed_result', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
@@ -167,10 +167,10 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
 
-			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
+			$add_kemet_oembed_wrapper = apply_filters( 'kemet_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'astra_allowed_fullwidth_oembed_providers', array(
+				'kemet_allowed_fullwidth_oembed_providers', array(
 					'vimeo.com',
 					'youtube.com',
 					'youtu.be',
@@ -179,8 +179,8 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 				)
 			);
 
-			if ( astra_strposa( $url, $allowed_providers ) ) {
-				if ( $add_astra_oembed_wrapper ) {
+			if ( kemet_strposa( $url, $allowed_providers ) ) {
+				if ( $add_kemet_oembed_wrapper ) {
 					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 				}
 			}

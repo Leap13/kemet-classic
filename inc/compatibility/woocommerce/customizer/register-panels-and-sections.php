@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.1.0
  */
 
@@ -16,7 +16,7 @@ $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-group',
 		array(
-			'title'    => __( 'WooCommerce', 'astra' ),
+			'title'    => __( 'WooCommerce', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'priority' => 60,
 		)
@@ -27,7 +27,7 @@ $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-general',
 		array(
-			'title'    => __( 'General', 'astra' ),
+			'title'    => __( 'General', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'section'  => 'section-woo-group',
 			'priority' => 5,
@@ -38,7 +38,7 @@ $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop',
 		array(
-			'title'    => __( 'Shop', 'astra' ),
+			'title'    => __( 'Shop', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'section'  => 'section-woo-group',
 			'priority' => 10,
@@ -50,7 +50,7 @@ $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop-single',
 		array(
-			'title'    => __( 'Single Product', 'astra' ),
+			'title'    => __( 'Single Product', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'section'  => 'section-woo-group',
 			'priority' => 15,
@@ -62,7 +62,7 @@ $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop-cart',
 		array(
-			'title'    => __( 'Cart Page', 'astra' ),
+			'title'    => __( 'Cart Page', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'section'  => 'section-woo-group',
 			'priority' => 20,

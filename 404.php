@@ -10,23 +10,23 @@
 
 get_header(); ?>
 
-<?php if ( astra_page_layout() == 'left-sidebar' ) : ?>
+<?php if ( kemet_page_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 
 <?php endif ?>
 
-	<div id="primary" <?php astra_primary_class(); ?>>
+	<div id="primary" <?php kemet_primary_class(); ?>>
 
-		<?php astra_primary_content_top(); ?>
+		<?php kemet_primary_content_top(); ?>
 
-		<?php astra_404_content_template(); ?>		
+		<?php kemet_404_content_template(); ?>		
 
-		<?php astra_primary_content_bottom(); ?>
+		<?php kemet_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( astra_page_layout() == 'right-sidebar' ) : ?>
+<?php if ( kemet_page_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 

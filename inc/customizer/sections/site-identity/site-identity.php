@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
-			'default'           => astra_get_option( 'ast-header-retina-logo' ),
+			'default'           => kemet_get_option( 'ast-header-retina-logo' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'esc_url_raw',
 		)
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
 				'section'        => 'title_tagline',
 				'priority'       => 5,
-				'label'          => __( 'Retina Logo', 'astra' ),
+				'label'          => __( 'Retina Logo', 'kemet' ),
 				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 			)
 		)
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,
-				'label'       => __( 'Logo Width', 'astra' ),
+				'label'       => __( 'Logo Width', 'kemet' ),
 				'input_attrs' => array(
 					'min'  => 50,
 					'step' => 1,
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[display-site-title]', array(
-			'default'           => astra_get_option( 'display-site-title' ),
+			'default'           => kemet_get_option( 'display-site-title' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-site-title]', array(
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
-			'label'    => __( 'Display Site Title', 'astra' ),
+			'label'    => __( 'Display Site Title', 'kemet' ),
 			'priority' => 6,
 		)
 	);
@@ -104,7 +104,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[display-site-tagline]', array(
-			'default'           => astra_get_option( 'display-site-tagline' ),
+			'default'           => kemet_get_option( 'display-site-tagline' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'priority'          => 5,
@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-site-tagline]', array(
 			'type'    => 'checkbox',
 			'section' => 'title_tagline',
-			'label'   => __( 'Display Site Tagline', 'astra' ),
+			'label'   => __( 'Display Site Tagline', 'kemet' ),
 		)
 	);
 
@@ -124,7 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[logo-title-inline]', array(
-			'default'           => astra_get_option( 'logo-title-inline' ),
+			'default'           => kemet_get_option( 'logo-title-inline' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[logo-title-inline]', array(
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
-			'label'    => __( 'Inline Logo & Site Title', 'astra' ),
+			'label'    => __( 'Inline Logo & Site Title', 'kemet' ),
 			'priority' => 10,
 		)
 	);

@@ -55,21 +55,21 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 		 */
 		function beaver_builder_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kemet_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
 			global $post;
-			$id = astra_get_post_id();
+			$id = kemet_get_post_id();
 
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$page_builder_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
 				if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );

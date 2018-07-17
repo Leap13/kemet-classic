@@ -11,7 +11,7 @@
  *
  * @return  post meta
  */
-if ( ! function_exists( 'astra_get_post_meta' ) ) {
+if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 
 	/**
 	 * Post meta
@@ -20,7 +20,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 	 * @param  string $separator Separator.
 	 * @return string            post meta markup.
 	 */
-	function astra_get_post_meta( $post_meta, $separator = '/' ) {
+	function kemet_get_post_meta( $post_meta, $separator = '/' ) {
 
 		$output_str = '';
 		$loop_count = 1;
@@ -31,16 +31,16 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 
 				case 'author':
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-					$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
+					$output_str .= esc_html( kemet_default_strings( 'string-blog-meta-author-by', false ) ) . kemet_post_author();
 					break;
 
 				case 'date':
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-					$output_str .= astra_post_date();
+					$output_str .= kemet_post_date();
 					break;
 
 				case 'category':
-					$category = astra_post_categories();
+					$category = kemet_post_categories();
 					if ( '' != $category ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $category;
@@ -48,7 +48,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 					break;
 
 				case 'tag':
-					$tags = astra_post_tags();
+					$tags = kemet_post_tags();
 					if ( '' != $tags ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $tags;
@@ -56,14 +56,14 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 					break;
 
 				case 'comments':
-					$comment = astra_post_comments();
+					$comment = kemet_post_comments();
 					if ( '' != $comment ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $comment;
 					}
 					break;
 				default:
-					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
+					$output_str = apply_filters( 'kemet_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
 
 			}
 
@@ -80,17 +80,17 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_date' ) ) {
+if ( ! function_exists( 'kemet_post_date' ) ) {
 
 	/**
 	 * Function to get Date of Post
 	 *
 	 * @return html                Markup.
 	 */
-	function astra_post_date() {
+	function kemet_post_date() {
 
 		$output        = '';
-		$format        = apply_filters( 'astra_post_date_format', '' );
+		$format        = apply_filters( 'kemet_post_date_format', '' );
 		$time_string   = esc_html( get_the_date( $format ) );
 		$modified_date = esc_html( get_the_modified_date( $format ) );
 		$posted_on     = sprintf(
@@ -105,7 +105,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 		$output       .= '<span class="published" itemprop="datePublished"> ' . $posted_on . '</span>';
 		$output       .= '<span class="updated" itemprop="dateModified"> ' . $modified_on . '</span>';
 		$output       .= '</span>';
-		return apply_filters( 'astra_post_date', $output );
+		return apply_filters( 'kemet_post_date', $output );
 	}
 }
 
@@ -115,7 +115,7 @@ if ( ! function_exists( 'astra_post_date' ) ) {
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_author' ) ) {
+if ( ! function_exists( 'kemet_post_author' ) ) {
 
 	/**
 	 * Function to get Author of Post
@@ -123,7 +123,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 	 * @param  string $output_filter Filter string.
 	 * @return html                Markup.
 	 */
-	function astra_post_author( $output_filter = '' ) {
+	function kemet_post_author( $output_filter = '' ) {
 		$output = '';
 
 		$byline = sprintf(
@@ -133,7 +133,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 
 		$output .= '<span class="posted-by vcard author" itemtype="https://schema.org/Person" itemscope="itemscope" itemprop="author"> ' . $byline . '</span>';
 
-		return apply_filters( 'astra_post_author', $output, $output_filter );
+		return apply_filters( 'kemet_post_author', $output, $output_filter );
 	}
 }
 
@@ -143,7 +143,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_link' ) ) {
+if ( ! function_exists( 'kemet_post_link' ) ) {
 
 	/**
 	 * Function to get Read More Link of Post
@@ -151,15 +151,15 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 	 * @param  string $output_filter Filter string.
 	 * @return html                Markup.
 	 */
-	function astra_post_link( $output_filter = '' ) {
+	function kemet_post_link( $output_filter = '' ) {
 
-		$enabled = apply_filters( 'astra_post_link_enabled', '__return_true' );
+		$enabled = apply_filters( 'kemet_post_link_enabled', '__return_true' );
 		if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
 			return $output_filter;
 		}
 
-		$read_more_text    = apply_filters( 'astra_post_read_more', __( 'Read More &raquo;', 'astra' ) );
-		$read_more_classes = apply_filters( 'astra_post_read_more_class', array() );
+		$read_more_text    = apply_filters( 'kemet_post_read_more', __( 'Read More &raquo;', 'kemet' ) );
+		$read_more_classes = apply_filters( 'kemet_post_read_more_class', array() );
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
@@ -168,10 +168,10 @@ if ( ! function_exists( 'astra_post_link' ) ) {
 
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
 
-		return apply_filters( 'astra_post_link', $output, $output_filter );
+		return apply_filters( 'kemet_post_link', $output, $output_filter );
 	}
 }
-add_filter( 'excerpt_more', 'astra_post_link', 1 );
+add_filter( 'excerpt_more', 'kemet_post_link', 1 );
 
 /**
  * Function to get Number of Comments of Post
@@ -179,7 +179,7 @@ add_filter( 'excerpt_more', 'astra_post_link', 1 );
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_comments' ) ) {
+if ( ! function_exists( 'kemet_post_comments' ) ) {
 
 	/**
 	 * Function to get Number of Comments of Post
@@ -187,7 +187,7 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 	 * @param  string $output_filter Output filter.
 	 * @return html                Markup.
 	 */
-	function astra_post_comments( $output_filter = '' ) {
+	function kemet_post_comments( $output_filter = '' ) {
 
 		$output = '';
 
@@ -199,9 +199,9 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 				/**
 				 * Get Comment Link
 				 *
-				 * @see astra_default_strings()
+				 * @see kemet_default_strings()
 				 */
-				comments_popup_link( astra_default_strings( 'string-blog-meta-leave-a-comment', false ), astra_default_strings( 'string-blog-meta-one-comment', false ), astra_default_strings( 'string-blog-meta-multiple-comment', false ) );
+				comments_popup_link( kemet_default_strings( 'string-blog-meta-leave-a-comment', false ), kemet_default_strings( 'string-blog-meta-one-comment', false ), kemet_default_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
 
 				<!-- Comment Schema Meta -->
@@ -216,7 +216,7 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
 
 		$output = ob_get_clean();
 
-		return apply_filters( 'astra_post_comments', $output, $output_filter );
+		return apply_filters( 'kemet_post_comments', $output, $output_filter );
 	}
 }
 
@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_post_comments' ) ) {
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_tags' ) ) {
+if ( ! function_exists( 'kemet_post_tags' ) ) {
 
 	/**
 	 * Function to get Tags applied of Post
@@ -234,18 +234,18 @@ if ( ! function_exists( 'astra_post_tags' ) ) {
 	 * @param  string $output_filter Output filter.
 	 * @return html                Markup.
 	 */
-	function astra_post_tags( $output_filter = '' ) {
+	function kemet_post_tags( $output_filter = '' ) {
 
 		$output = '';
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'astra' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'kemet' ) );
 
 		if ( $tags_list ) {
 			$output .= '<span class="tags-links">' . $tags_list . '</span>';
 		}
 
-		return apply_filters( 'astra_post_tags', $output, $output_filter );
+		return apply_filters( 'kemet_post_tags', $output, $output_filter );
 	}
 }
 
@@ -255,7 +255,7 @@ if ( ! function_exists( 'astra_post_tags' ) ) {
  * @since 1.0.0
  * @return html
  */
-if ( ! function_exists( 'astra_post_categories' ) ) {
+if ( ! function_exists( 'kemet_post_categories' ) ) {
 
 	/**
 	 * Function to get Categories applied of Post
@@ -263,18 +263,18 @@ if ( ! function_exists( 'astra_post_categories' ) ) {
 	 * @param  string $output_filter Output filter.
 	 * @return html                Markup.
 	 */
-	function astra_post_categories( $output_filter = '' ) {
+	function kemet_post_categories( $output_filter = '' ) {
 
 		$output = '';
 
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'astra' ) );
+		$categories_list = get_the_category_list( __( ', ', 'kemet' ) );
 
 		if ( $categories_list ) {
 			$output .= '<span class="cat-links">' . $categories_list . '</span>';
 		}
 
-		return apply_filters( 'astra_post_categories', $output, $output_filter );
+		return apply_filters( 'kemet_post_categories', $output, $output_filter );
 	}
 }
 
@@ -283,17 +283,17 @@ if ( ! function_exists( 'astra_post_categories' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! function_exists( 'astra_blog_layout_class' ) ) {
+if ( ! function_exists( 'kemet_blog_layout_class' ) ) {
 
 	/**
 	 * Layout class
 	 *
 	 * @param  string $class Class.
 	 */
-	function astra_blog_layout_class( $class = '' ) {
+	function kemet_blog_layout_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', astra_get_blog_layout_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', kemet_get_blog_layout_class( $class ) ) ) . '"';
 	}
 }
 
@@ -304,14 +304,14 @@ if ( ! function_exists( 'astra_blog_layout_class' ) ) {
  * @param string|array $class One or more classes to add to the class list.
  * @return array Array of classes.
  */
-if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
+if ( ! function_exists( 'kemet_get_blog_layout_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the body element as an array.
 	 *
 	 * @param string $class Class.
 	 */
-	function astra_get_blog_layout_class( $class = '' ) {
+	function kemet_get_blog_layout_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
@@ -331,14 +331,14 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 					break;
 
 				case 'image':
-								$has_image = astra_get_first_image_from_post();
+								$has_image = kemet_get_first_image_from_post();
 					if ( empty( $has_image ) || is_single() ) {
 						$classes[] = 'ast-no-thumb';
 					}
 					break;
 
 				case 'video':
-								$post_featured_data = astra_get_video_from_post( get_the_ID() );
+								$post_featured_data = kemet_get_video_from_post( get_the_ID() );
 					if ( empty( $post_featured_data ) ) {
 						$classes[] = 'ast-no-thumb';
 					}
@@ -360,7 +360,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 					break;
 
 				case 'audio':
-								$has_audio = astra_get_audios_from_post( get_the_ID() );
+								$has_audio = kemet_get_audios_from_post( get_the_ID() );
 					if ( empty( $has_audio ) || is_single() ) {
 						$classes[] = 'ast-no-thumb';
 					} else {
@@ -390,7 +390,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
 		/**
 		 * Filter primary div class names
 		 */
-		$classes = apply_filters( 'astra_blog_layout_class', $classes, $class );
+		$classes = apply_filters( 'kemet_blog_layout_class', $classes, $class );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
 
@@ -404,7 +404,7 @@ if ( ! function_exists( 'astra_get_blog_layout_class' ) ) {
  * @since 1.2.7
  * @return html
  */
-if ( ! function_exists( 'astra_the_content_more_link' ) ) {
+if ( ! function_exists( 'kemet_the_content_more_link' ) ) {
 
 	/**
 	 * Filters the Read More link text.
@@ -413,15 +413,15 @@ if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 	 * @param  string $more_link_text Read More text.
 	 * @return html                Markup.
 	 */
-	function astra_the_content_more_link( $more_link_element = '', $more_link_text = '' ) {
+	function kemet_the_content_more_link( $more_link_element = '', $more_link_text = '' ) {
 
-		$enabled = apply_filters( 'astra_the_content_more_link_enabled', '__return_true' );
+		$enabled = apply_filters( 'kemet_the_content_more_link_enabled', '__return_true' );
 		if ( ( is_admin() && ! wp_doing_ajax() ) || ! $enabled ) {
 			return $more_link_element;
 		}
 
-		$more_link_text    = apply_filters( 'astra_the_content_more_string', __( 'Read More &raquo;', 'astra' ) );
-		$read_more_classes = apply_filters( 'astra_the_content_more_link_class', array() );
+		$more_link_text    = apply_filters( 'kemet_the_content_more_string', __( 'Read More &raquo;', 'kemet' ) );
+		$read_more_classes = apply_filters( 'kemet_the_content_more_link_class', array() );
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
@@ -430,7 +430,7 @@ if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 
 		$more_link_element = ' &hellip;<p class="ast-the-content-more-link"> ' . $post_link . '</p>';
 
-		return apply_filters( 'astra_the_content_more_link', $more_link_element, $more_link_text );
+		return apply_filters( 'kemet_the_content_more_link', $more_link_element, $more_link_text );
 	}
 }
-add_filter( 'the_content_more_link', 'astra_the_content_more_link', 10, 2 );
+add_filter( 'the_content_more_link', 'kemet_the_content_more_link', 10, 2 );

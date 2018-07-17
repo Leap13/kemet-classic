@@ -4,7 +4,7 @@
  *
  * @package   Kemet
  * @copyright Copyright (c) 2018, Kemet
- * @link      http://wpastra.com/
+ * @link      http://wpkemet.com/
  * @since     Kemet 1.0.10
  */
 
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $type = 'astra-pro';
+		public $type = 'kemet-pro';
 
 		/**
 		 * Custom pro button URL.

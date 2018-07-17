@@ -137,11 +137,11 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-attachment' ).hide();
 			
 			control.container.find( '.more-settings' ).attr('data-direction', 'down');
-			control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+			control.container.find( '.more-settings' ).find('.message').html( kemetCustomizerControlBackground.moreSettings );
 			control.container.find( '.more-settings' ).find('.icon').html( '↓' );
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+				preview.removeClass().addClass( 'placeholder' ).html( kemetCustomizerControlBackground.placeholder );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();
@@ -158,11 +158,11 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			if( 'down' === $(this).attr( 'data-direction' ) )
 			{
 				$(this).attr('data-direction', 'up');
-				$(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				$(this).find('.message').html( kemetCustomizerControlBackground.lessSettings )
 				$(this).find('.icon').html( '↑' );
 			} else {
 				$(this).attr('data-direction', 'down');
-				$(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				$(this).find('.message').html( kemetCustomizerControlBackground.moreSettings )
 				$(this).find('.icon').html( '↓' );
 			}
 		});

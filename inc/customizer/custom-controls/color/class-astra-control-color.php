@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -70,8 +70,8 @@ class Kemet_Control_Color extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/color/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/color/';
 
-		wp_enqueue_script( 'astra-color', $js_uri . 'color.js', array( 'astra-color-alpha' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-color', $css_uri . 'color.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-color', $js_uri . 'color.js', array( 'kemet-color-alpha' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-color', $css_uri . 'color.css', null, KEMET_THEME_VERSION );
 	}
 
 	/**

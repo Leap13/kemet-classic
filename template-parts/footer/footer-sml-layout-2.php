@@ -5,12 +5,12 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
-$section_1 = astra_get_small_footer( 'footer-sml-section-1' );
-$section_2 = astra_get_small_footer( 'footer-sml-section-2' );
+$section_1 = kemet_get_small_footer( 'footer-sml-section-1' );
+$section_2 = kemet_get_small_footer( 'footer-sml-section-2' );
 $sections  = 0;
 
 if ( '' != $section_1 ) {

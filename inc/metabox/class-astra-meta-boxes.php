@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 
 				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
 
-					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
+					remove_meta_box( 'kemet_settings_meta_box', 'fl-theme-layout', 'side' );
 				}
 			}
 		}
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			 * @see http://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
-				'astra_meta_box_options', array(
+				'kemet_meta_box_options', array(
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
@@ -146,13 +146,13 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 
 			$post_types['fl-theme-layout'] = 'fl-theme-layout';
 
-			$metabox_name = astra_get_theme_name() . __( ' Settings', 'astra' );
+			$metabox_name = kemet_get_theme_name() . __( ' Settings', 'kemet' );
 			// Enable for all posts.
 			foreach ( $post_types as $type ) {
 
 				if ( 'attachment' !== $type ) {
 					add_meta_box(
-						'astra_settings_meta_box',              // Id.
+						'kemet_settings_meta_box',              // Id.
 						$metabox_name,                          // Title.
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 		 */
 		function markup_meta_box( $post ) {
 
-			wp_nonce_field( basename( __FILE__ ), 'astra_settings_meta_box' );
+			wp_nonce_field( basename( __FILE__ ), 'kemet_settings_meta_box' );
 			$stored = get_post_meta( $post->ID );
 
 			// Set stored and override defaults.
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 
 			$show_meta_field = ! Kemet_Meta_Boxes::is_bb_themer_layout();
-			do_action( 'astra_meta_box_markup_before', $meta );
+			do_action( 'kemet_meta_box_markup_before', $meta );
 
 			/**
 			 * Option: Sidebar
@@ -209,13 +209,13 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			?>
 			<div class="site-sidebar-layout-meta-wrap">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Sidebar', 'kemet' ); ?> </strong>
 				</p>
 				<select name="site-sidebar-layout" id="site-sidebar-layout">
-					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
-					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
-					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
+					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'kemet' ); ?></option>
+					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'kemet' ); ?></option>
+					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'kemet' ); ?></option>
+					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'kemet' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -225,14 +225,14 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			?>
 			<div class="site-content-layout-meta-wrap">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Content Layout', 'kemet' ); ?> </strong>
 				</p>
 				<select name="site-content-layout" id="site-content-layout">
-					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
-					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
+					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'kemet' ); ?></option>
+					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'kemet' ); ?></option>
+					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'kemet' ); ?></option>
+					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'kemet' ); ?></option>
+					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'kemet' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -242,15 +242,15 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			?>
 			<div class="disable-section-meta-wrap">
 				<p class="post-attributes-label-wrapper">
-					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Disable Sections', 'kemet' ); ?> </strong>
 				</p>
 				<div class="disable-section-meta">
-					<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
+					<?php do_action( 'kemet_meta_box_markup_disable_sections_before', $meta ); ?>
 
 					<div class="ast-main-header-display-option-wrap">
 						<label for="ast-main-header-display">
 							<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Primary Header', 'kemet' ); ?>
 						</label>
 					</div>
 
@@ -258,49 +258,49 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 						<div class="site-post-title-option-wrap">
 							<label for="site-post-title">
 								<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-								<?php esc_html_e( 'Disable Title', 'astra' ); ?>
+								<?php esc_html_e( 'Disable Title', 'kemet' ); ?>
 							</label>
 						</div>
 
 						<div class="ast-featured-img-option-wrap">
 							<label for="ast-featured-img">
 								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-								<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
+								<?php esc_html_e( 'Disable Featured Image', 'kemet' ); ?>
 							</label>
 						</div>
 					<?php } ?>
 
 					<?php
-					$footer_adv_layout = astra_get_option( 'footer-adv' );
+					$footer_adv_layout = kemet_get_option( 'footer-adv' );
 
 					if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
 					?>
 					<div class="footer-adv-display-option-wrap">
 						<label for="footer-adv-display">
 							<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Footer Widgets', 'kemet' ); ?>
 						</label>
 					</div>
 
 					<?php
 					}
-					$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
+					$footer_sml_layout = kemet_get_option( 'footer-sml-layout' );
 					if ( 'disabled' != $footer_sml_layout ) {
 					?>
 					<div class="footer-sml-layout-option-wrap">
 						<label for="footer-sml-layout">
 							<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Footer Bar', 'kemet' ); ?>
 						</label>
 					</div>
 					<?php } ?>
 
-					<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
+					<?php do_action( 'kemet_meta_box_markup_disable_sections_after', $meta ); ?>
 				</div>
 			</div>
 			<?php
 
-			do_action( 'astra_meta_box_markup_after', $meta );
+			do_action( 'kemet_meta_box_markup_after', $meta );
 		}
 
 		/**
@@ -314,7 +314,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['astra_settings_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['kemet_settings_meta_box'] ) && wp_verify_nonce( $_POST['kemet_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {

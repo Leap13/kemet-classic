@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'section-container-layout',
 				'priority'    => 10,
-				'label'       => __( 'Container Width', 'astra' ),
+				'label'       => __( 'Container Width', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 768,

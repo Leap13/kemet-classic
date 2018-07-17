@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.23
  */
 
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'astra_do_action_deprecated' ) ) {
+if ( ! function_exists( 'kemet_do_action_deprecated' ) ) {
 	/**
 	 * Kemet Filter Deprecated
 	 *
@@ -24,7 +24,7 @@ if ( ! function_exists( 'astra_do_action_deprecated' ) ) {
 	 * @param string $replacement Optional. The hook that should have been used. Default false.
 	 * @param string $message     Optional. A message regarding the change. Default null.
 	 */
-	function astra_do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+	function kemet_do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
 		if ( function_exists( 'do_action_deprecated' ) ) { /* WP >= 4.6 */
 			do_action_deprecated( $tag, $args, $version, $replacement, $message );
 		} else {

@@ -795,12 +795,12 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	KemetToggleMenu = function( astra_menu_toggle ) {
+	KemetToggleMenu = function( kemet_menu_toggle ) {
 		
 		/* Submenu button click */
-		for (var i = 0; i < astra_menu_toggle.length; i++) {
+		for (var i = 0; i < kemet_menu_toggle.length; i++) {
 
-			astra_menu_toggle[i].addEventListener( 'click', function ( event ) {
+			kemet_menu_toggle[i].addEventListener( 'click', function ( event ) {
 				event.preventDefault();
 
 				var parent_li = this.parentNode;
@@ -885,13 +885,13 @@ var toggleClass = function ( el, className ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				KemetNavigationMenu( parentList );
 			 	
-			 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-				KemetToggleMenu( astra_menu_toggle );
+			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
+				KemetToggleMenu( kemet_menu_toggle );
 			}
 		};
 	}
 	
-	document.body.addEventListener("astra-header-responsive-enabled", function() {
+	document.body.addEventListener("kemet-header-responsive-enabled", function() {
 
 		if ( __main_header_all.length > 0 ) {
 
@@ -922,7 +922,7 @@ var toggleClass = function ( el, className ) {
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
-		var break_point = astra.break_point,
+		var break_point = kemet.break_point,
 			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
 
 		if ( headerWrap.length > 0  ) {
@@ -949,13 +949,13 @@ var toggleClass = function ( el, className ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
 						document.body.classList.remove( "ast-header-break-point" );
-						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
+						var responsive_enabled = new CustomEvent( "kemet-header-responsive-enabled" );
 						document.body.dispatchEvent( responsive_enabled );
 
 					} else {
 
 						document.body.classList.add( "ast-header-break-point" );
-						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
+						var responsive_disabled = new CustomEvent( "kemet-header-responsive-disabled" );
 						document.body.dispatchEvent( responsive_disabled );
 					}
 				}
@@ -995,7 +995,7 @@ var toggleClass = function ( el, className ) {
 	get_browser();
 	
 	/* Search Script */
-	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
+	var SearchIcons = document.getElementsByClassName( 'kemet-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
 		SearchIcons[i].onclick = function(event) {

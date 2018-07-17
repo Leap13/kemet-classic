@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 4,
-				'label'    => __( 'Heading 1 (H1)', 'astra' ),
+				'label'    => __( 'Heading 1 (H1)', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h1]', array(
-			'default'           => astra_get_option( 'font-size-h1' ),
+			'default'           => kemet_get_option( 'font-size-h1' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 5,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 9,
-				'label'    => __( 'Heading 2 (H2)', 'astra' ),
+				'label'    => __( 'Heading 2 (H2)', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h2]', array(
-			'default'           => astra_get_option( 'font-size-h2' ),
+			'default'           => kemet_get_option( 'font-size-h2' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 10,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 14,
-				'label'    => __( 'Heading 3 (H3)', 'astra' ),
+				'label'    => __( 'Heading 3 (H3)', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -120,7 +120,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h3]', array(
-			'default'           => astra_get_option( 'font-size-h3' ),
+			'default'           => kemet_get_option( 'font-size-h3' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -132,7 +132,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 15,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h4]', array(
-				'label'    => __( 'Heading 4 (H4)', 'astra' ),
+				'label'    => __( 'Heading 4 (H4)', 'kemet' ),
 				'section'  => 'section-content-typo',
 				'type'     => 'ast-divider',
 				'priority' => 19,
@@ -164,7 +164,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h4]', array(
-			'default'           => astra_get_option( 'font-size-h4' ),
+			'default'           => kemet_get_option( 'font-size-h4' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 20,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -197,7 +197,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 24,
-				'label'    => __( 'Heading 5 (H5)', 'astra' ),
+				'label'    => __( 'Heading 5 (H5)', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -208,7 +208,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h5]', array(
-			'default'           => astra_get_option( 'font-size-h5' ),
+			'default'           => kemet_get_option( 'font-size-h5' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -220,7 +220,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 25,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -238,7 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h6]', array(
-				'label'    => __( 'Heading 6 (H6)', 'astra' ),
+				'label'    => __( 'Heading 6 (H6)', 'kemet' ),
 				'section'  => 'section-content-typo',
 				'type'     => 'ast-divider',
 				'priority' => 29,
@@ -252,7 +252,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-h6]', array(
-			'default'           => astra_get_option( 'font-size-h6' ),
+			'default'           => kemet_get_option( 'font-size-h6' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -264,7 +264,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 30,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -302,7 +302,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'section'  => 'section-content-typo',
 					'priority' => 35,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),
 				)
 			)

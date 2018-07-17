@@ -288,7 +288,7 @@
       "default_value": "toolset_use_theme_setting"
     },
     {
-      "name": "astra_pagination_enabled",
+      "name": "kemet_pagination_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -315,7 +315,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_the_title_enabled",
+      "name": "kemet_the_title_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -342,7 +342,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_featured_image_enabled",
+      "name": "kemet_featured_image_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -369,7 +369,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_single_post_meta_enabled",
+      "name": "kemet_single_post_meta_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"

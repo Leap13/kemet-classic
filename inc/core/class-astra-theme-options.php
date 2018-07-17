@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 		public static function defaults() {
 			// Defaults list of options.
 			return apply_filters(
-				'astra_theme_defaults', array(
+				'kemet_theme_defaults', array(
 					// Blog Single.
 					'blog-single-post-structure'       => array(
 						'single-image',
@@ -137,9 +137,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Footer - Small.
 					'footer-sml-layout'                => 'footer-sml-layout-1',
 					'footer-sml-section-1'             => 'custom',
-					'footer-sml-section-1-credit'      => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+					'footer-sml-section-1-credit'      => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'kemet' ),
 					'footer-sml-section-2'             => '',
-					'footer-sml-section-2-credit'      => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+					'footer-sml-section-2-credit'      => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'kemet' ),
 					'footer-sml-dist-equal-align'      => true,
 					'footer-sml-divider'               => 1,
 					'footer-sml-divider-color'         => '#7a7a7a',
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-layouts'                   => 'header-main-layout-1',
 					'header-main-rt-section'           => 'none',
 					'header-display-outside-menu'      => false,
-					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
+					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',
 					'header-main-layout-width'         => 'content',

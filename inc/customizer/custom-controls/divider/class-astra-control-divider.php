@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -43,7 +43,7 @@ class Kemet_Control_Divider extends WP_Customize_Control {
 	public function enqueue() {
 
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/divider/';
-		wp_enqueue_style( 'astra-divider-css', $css_uri . 'divider.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_style( 'kemet-divider-css', $css_uri . 'divider.css', null, KEMET_THEME_VERSION );
 	}
 
 	/**

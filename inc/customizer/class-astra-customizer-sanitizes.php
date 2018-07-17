@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 */
 		static public function validate_email( $validity, $value ) {
 			if ( ! is_email( $value ) ) {
-				$validity->add( 'required', __( 'Enter valid email address!', 'astra' ) );
+				$validity->add( 'required', __( 'Enter valid email address!', 'kemet' ) );
 			}
 			return $validity;
 		}

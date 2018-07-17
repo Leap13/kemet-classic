@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -37,8 +37,8 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/spacing/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/spacing/';
 
-		wp_enqueue_script( 'astra-spacing', $js_uri . 'spacing.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-spacing', $css_uri . 'spacing.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-spacing', $js_uri . 'spacing.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-spacing', $css_uri . 'spacing.css', null, KEMET_THEME_VERSION );
 
 	}
 

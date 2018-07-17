@@ -24,7 +24,7 @@
 		 */
 	    triggerHook: function( hook, args )
 	    {
-	    	$( 'body' ).trigger( 'astra-control-trigger.' + hook, args );
+	    	$( 'body' ).trigger( 'kemet-control-trigger.' + hook, args );
 	    },
 
 	    /**
@@ -37,7 +37,7 @@
 	     */
 	    addHook: function( hook, callback )
 	    {
-	    	$( 'body' ).on( 'astra-control-trigger.' + hook, callback );
+	    	$( 'body' ).on( 'kemet-control-trigger.' + hook, callback );
 	    },
 
 	    /**
@@ -50,7 +50,7 @@
 	     */
 	    removeHook: function( hook, callback )
 	    {
-		    $( 'body' ).off( 'astra-control-trigger.' + hook, callback );
+		    $( 'body' ).off( 'kemet-control-trigger.' + hook, callback );
 	    },
 	};
 

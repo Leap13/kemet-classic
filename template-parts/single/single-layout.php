@@ -5,40 +5,40 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
 ?>
 
-<div <?php astra_blog_layout_class( 'single-layout-1' ); ?>>
+<div <?php kemet_blog_layout_class( 'single-layout-1' ); ?>>
 
-	<?php astra_single_header_before(); ?>
+	<?php kemet_single_header_before(); ?>
 
-	<header class="entry-header <?php astra_entry_header_class(); ?>">
+	<header class="entry-header <?php kemet_entry_header_class(); ?>">
 
-		<?php astra_single_header_top(); ?>
+		<?php kemet_single_header_top(); ?>
 
-		<?php astra_blog_post_thumbnai_and_title_order(); ?>
+		<?php kemet_blog_post_thumbnai_and_title_order(); ?>
 
-		<?php astra_single_header_bottom(); ?>
+		<?php kemet_single_header_bottom(); ?>
 
 	</header><!-- .entry-header -->
 
-	<?php astra_single_header_after(); ?>
+	<?php kemet_single_header_after(); ?>
 
 	<div class="entry-content clear" itemprop="text">
 
-		<?php astra_entry_content_before(); ?>
+		<?php kemet_entry_content_before(); ?>
 
 		<?php the_content(); ?>
 
 		<?php
-			astra_edit_post_link(
+			kemet_edit_post_link(
 
 				sprintf(
 					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'astra' ),
+					esc_html__( 'Edit %s', 'kemet' ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				),
 				'<span class="edit-link">',
@@ -46,12 +46,12 @@
 			);
 		?>
 
-		<?php astra_entry_content_after(); ?>
+		<?php kemet_entry_content_after(); ?>
 
 		<?php
 			wp_link_pages(
 				array(
-					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
+					'before'      => '<div class="page-links">' . esc_html( kemet_default_strings( 'string-single-page-links-before', false ) ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-link">',
 					'link_after'  => '</span>',

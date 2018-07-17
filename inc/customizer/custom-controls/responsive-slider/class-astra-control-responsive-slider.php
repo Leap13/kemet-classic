@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -82,8 +82,8 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-slider/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-slider/';
 
-		wp_enqueue_script( 'astra-responsive-slider', $js_uri . 'responsive-slider.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-slider', $css_uri . 'responsive-slider.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-responsive-slider', $js_uri . 'responsive-slider.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-responsive-slider', $css_uri . 'responsive-slider.css', null, KEMET_THEME_VERSION );
 	}
 
 	/**
@@ -156,7 +156,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
-					<div class="astra_range_value">
+					<div class="kemet_range_value">
 						<input type="number" data-id='desktop' class="ast-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#
@@ -165,7 +165,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper tablet">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
-					<div class="astra_range_value">
+					<div class="kemet_range_value">
 						<input type="number" data-id='tablet' class="ast-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#
@@ -174,7 +174,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper mobile">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
-					<div class="astra_range_value">
+					<div class="kemet_range_value">
 						<input type="number" data-id='mobile' class="ast-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#

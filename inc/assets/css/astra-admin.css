@@ -8,8 +8,8 @@
 	font-weight: normal;
 	font-style: normal;
 }
-#wp-admin-bar-astra .ab-icon:before,
-#toplevel_page_astra .wp-menu-image:before,
+#wp-admin-bar-kemet .ab-icon:before,
+#toplevel_page_kemet .wp-menu-image:before,
 [class^="ast-icon-"],
 [class*=" ast-icon-"] {
 	/* use !important to prevent issues with browser extensions that change fonts */
@@ -26,17 +26,17 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-#wp-admin-bar-astra .ab-icon:before,
-#toplevel_page_astra .wp-menu-image:before,
+#wp-admin-bar-kemet .ab-icon:before,
+#toplevel_page_kemet .wp-menu-image:before,
 .ast-icon-logo:before {
 	content: "\e900" !important;
 }
 
-#side-sortables #astra_settings_meta_box select {
+#side-sortables #kemet_settings_meta_box select {
 	min-width: 100%;
 }
 
-#normal-sortables #astra_settings_meta_box select {
+#normal-sortables #kemet_settings_meta_box select {
 	min-width: 200px;
 }
 

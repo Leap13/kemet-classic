@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.1.0
  */
 
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-woo-shop',
 				'priority'    => 10,
-				'label'       => __( 'Shop Columns', 'astra' ),
+				'label'       => __( 'Shop Columns', 'kemet' ),
 				'input_attrs' => array(
 					'step' => 1,
 					'min'  => 1,
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[shop-no-of-products]', array(
-			'default'           => astra_get_option( 'shop-no-of-products' ),
+			'default'           => kemet_get_option( 'shop-no-of-products' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[shop-no-of-products]', array(
 			'section'     => 'section-woo-shop',
-			'label'       => __( 'Products Per Page', 'astra' ),
+			'label'       => __( 'Products Per Page', 'kemet' ),
 			'type'        => 'number',
 			'priority'    => 15,
 			'input_attrs' => array(
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[shop-hover-style]', array(
-			'default'           => astra_get_option( 'shop-hover-style' ),
+			'default'           => kemet_get_option( 'shop-hover-style' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -83,12 +83,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-woo-shop',
 			'priority' => 20,
-			'label'    => __( 'Product Image Hover Style', 'astra' ),
+			'label'    => __( 'Product Image Hover Style', 'kemet' ),
 			'choices'  => apply_filters(
-				'astra_woo_shop_hover_style',
+				'kemet_woo_shop_hover_style',
 				array(
-					''     => __( 'None', 'astra' ),
-					'swap' => __( 'Swap Images', 'astra' ),
+					''     => __( 'None', 'kemet' ),
+					'swap' => __( 'Swap Images', 'kemet' ),
 				)
 			),
 		)
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
-			'default'           => astra_get_option( 'shop-product-structure' ),
+			'default'           => kemet_get_option( 'shop-product-structure' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -110,14 +110,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-woo-shop',
 				'priority' => 30,
-				'label'    => __( 'Shop Product Structure', 'astra' ),
+				'label'    => __( 'Shop Product Structure', 'kemet' ),
 				'choices'  => array(
-					'title'      => __( 'Title', 'astra' ),
-					'price'      => __( 'Price', 'astra' ),
-					'ratings'    => __( 'Ratings', 'astra' ),
-					'short_desc' => __( 'Short Description', 'astra' ),
-					'add_cart'   => __( 'Add To Cart', 'astra' ),
-					'category'   => __( 'Category', 'astra' ),
+					'title'      => __( 'Title', 'kemet' ),
+					'price'      => __( 'Price', 'kemet' ),
+					'ratings'    => __( 'Ratings', 'kemet' ),
+					'short_desc' => __( 'Short Description', 'kemet' ),
+					'add_cart'   => __( 'Add To Cart', 'kemet' ),
+					'category'   => __( 'Category', 'kemet' ),
 				),
 			)
 		)
@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
-			'default'           => astra_get_option( 'shop-archive-width' ),
+			'default'           => kemet_get_option( 'shop-archive-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -152,10 +152,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-woo-shop',
 			'priority' => 220,
-			'label'    => __( 'Shop Archive Content Width', 'astra' ),
+			'label'    => __( 'Shop Archive Content Width', 'kemet' ),
 			'choices'  => array(
-				'default' => __( 'Default', 'astra' ),
-				'custom'  => __( 'Custom', 'astra' ),
+				'default' => __( 'Default', 'kemet' ),
+				'custom'  => __( 'Custom', 'kemet' ),
 			),
 		)
 	);
@@ -177,7 +177,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'section-woo-shop',
 				'priority'    => 225,
-				'label'       => __( 'Enter Width', 'astra' ),
+				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 768,

@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Kemet_Meta_Box_Operations' ) ) {
 
 			if ( is_singular() ) {
 				add_action( 'wp_head', array( $this, 'primary_header' ) );
-				add_filter( 'astra_the_title_enabled', array( $this, 'post_title' ) );
+				add_filter( 'kemet_the_title_enabled', array( $this, 'post_title' ) );
 				add_filter( 'body_class', array( $this, 'body_class' ) );
 			}
 		}
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Kemet_Meta_Box_Operations' ) ) {
 
 			if ( 'disabled' == $display_header ) {
 
-				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 			}
 		}
 

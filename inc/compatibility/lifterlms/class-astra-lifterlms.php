@@ -48,17 +48,17 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			add_action( 'wp', array( $this, 'lifterlms_init' ), 1 );
 			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
 			add_action( 'after_setup_theme', array( $this, 'add_theme_support' ) );
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kemet_theme_assets', array( $this, 'add_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_dynamic_styles' ) );
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
-			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			// Sidebar Layout.
-			add_filter( 'astra_page_layout', array( $this, 'sidebar_layout' ) );
+			add_filter( 'kemet_page_layout', array( $this, 'sidebar_layout' ) );
 			// Content Layout.
-			add_filter( 'astra_get_content_layout', array( $this, 'content_layout' ) );
+			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'lifterlms_after_main_content', array( $this, 'before_main_content_end' ) );
@@ -91,11 +91,11 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				}
 
 				if ( 'disabled' === $main_header_display ) {
-					remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+					remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 				}
 
 				if ( 'disabled' === $footer_layout ) {
-					remove_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
+					remove_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
 				}
 			}
 
@@ -111,11 +111,11 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				}
 
 				if ( 'disabled' === $main_header_display ) {
-					remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+					remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 				}
 
 				if ( 'disabled' === $footer_layout ) {
-					remove_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
+					remove_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
 				}
 			}
 
@@ -125,16 +125,16 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 
 			if ( is_lesson() ) {
 				remove_action( 'lifterlms_single_lesson_after_summary', 'lifterlms_template_lesson_navigation', 20 );
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-				add_action( 'astra_entry_after', 'lifterlms_template_lesson_navigation' );
+				remove_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
+				add_action( 'kemet_entry_after', 'lifterlms_template_lesson_navigation' );
 			}
 
 			if ( is_quiz() ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+				remove_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
 			}
 
 			if ( is_singular( 'llms_assignment' ) ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+				remove_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
 			}
 
 			remove_action( 'lifterlms_single_course_after_summary', 'lifterlms_template_single_reviews', 100 );
@@ -211,7 +211,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			if ( get_post_meta( get_the_ID(), '_llms_display_reviews', true ) ) {
 			?>
 				<div id="old_reviews">
-				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'astra' ) ); ?></h3>
+				<h3><?php echo apply_filters( 'lifterlms_reviews_section_title', _e( 'What Others Have Said', 'kemet' ) ); ?></h3>
 				<?php
 				$args        = array(
 					'posts_per_page'   => get_post_meta( get_the_ID(), '_llms_num_reviews', true ),
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 					<div class="llms_review" style="background-color:<?php echo esc_attr( $styles['background-color'] ); ?>;">
 						<h5 style="color:<?php echo esc_attr( $styles['title-color'] ); ?>;"><strong><?php echo esc_html( get_the_title( $post->ID ) ); ?></strong></h5>
 						<?php /* translators: 1 Author Name. */ ?>
-						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'astra' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
+						<h6 style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo sprintf( esc_html__( 'By: %s', 'kemet' ), get_the_author_meta( 'display_name', get_post_field( 'post_author', $post->ID ) ) ); ?></h5>
 						<p style="color:<?php echo esc_attr( $styles['text-color'] ); ?>;"><?php echo get_post_field( 'post_content', $post->ID ); ?></p>
 					</div>
 					<?php
@@ -277,26 +277,26 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				if ( get_post_meta( get_the_ID(), '_llms_multiple_reviews_disabled', true ) && $posts_array ) {
 				?>
 					<div id="thank_you_box">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'kemet' ) ); ?></h2>
 					</div>
 					<?php
 				} else {
 					?>
 					<div class="review_box" id="review_box">
-					<h3><?php _e( 'Write a Review', 'astra' ); ?></h3>
+					<h3><?php _e( 'Write a Review', 'kemet' ); ?></h3>
 					<!--<form method="post" name="review_form" id="review_form">-->
-						<input type="text" name="review_title" placeholder="<?php _e( 'Review Title', 'astra' ); ?>" id="review_title">
-						<h5 style="color:red; display:none" id="review_title_error"><?php _e( 'Review Title is required.', 'astra' ); ?></h5>
-						<textarea name="review_text" placeholder="<?php _e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
-						<h5 style="color:red; display:none" id="review_text_error"><?php _e( 'Review Text is required.', 'astra' ); ?></h5>
+						<input type="text" name="review_title" placeholder="<?php _e( 'Review Title', 'kemet' ); ?>" id="review_title">
+						<h5 style="color:red; display:none" id="review_title_error"><?php _e( 'Review Title is required.', 'kemet' ); ?></h5>
+						<textarea name="review_text" placeholder="<?php _e( 'Review Text', 'kemet' ); ?>" id="review_text"></textarea>
+						<h5 style="color:red; display:none" id="review_text_error"><?php _e( 'Review Text is required.', 'kemet' ); ?></h5>
 						<?php wp_nonce_field( 'submit_review', 'submit_review_nonce_code' ); ?>
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
-						<input type="submit" class="button" value="<?php _e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
+						<input type="submit" class="button" value="<?php _e( 'Leave Review', 'kemet' ); ?>" id="llms_review_submit_button">
 					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
-						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); ?></h2>
+						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'kemet' ) ); ?></h2>
 					</div>
 					<?php
 				}
@@ -312,7 +312,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 */
 		function course_grid( $grid ) {
 
-			$course_grid = astra_get_option( 'llms-course-grid' );
+			$course_grid = kemet_get_option( 'llms-course-grid' );
 			if ( ! empty( $course_grid['desktop'] ) ) {
 				return $course_grid['desktop'];
 			}
@@ -328,9 +328,9 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 */
 		function course_responsive_grid( $classes ) {
 
-			$llms_grid = astra_get_option( 'llms-course-grid' );
+			$llms_grid = kemet_get_option( 'llms-course-grid' );
 			if ( in_array( 'llms-membership-list', $classes ) ) {
-				$llms_grid = astra_get_option( 'llms-membership-grid' );
+				$llms_grid = kemet_get_option( 'llms-membership-grid' );
 
 				if ( ! empty( $llms_grid['desktop'] ) ) {
 					$default_class = array( 'cols-1', 'cols-2', 'cols-3', 'cols-4', 'cols-5', 'cols-6' );
@@ -365,27 +365,27 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			/**
 			 * - Variable Declaration
 			 */
-			$theme_color  = astra_get_option( 'theme-color' );
-			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
-			$link_h_color = astra_get_option( 'link-h-color' );
+			$theme_color  = kemet_get_option( 'theme-color' );
+			$link_color   = kemet_get_option( 'link-color', $theme_color );
+			$text_color   = kemet_get_option( 'text-color' );
+			$link_h_color = kemet_get_option( 'link-h-color' );
 
-			$theme_forground_color = astra_get_foreground_color( $link_color );
-			$btn_color             = astra_get_option( 'button-color' );
+			$theme_forground_color = kemet_get_foreground_color( $link_color );
+			$btn_color             = kemet_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
 				$btn_color = $theme_forground_color;
 			}
 
-			$btn_h_color = astra_get_option( 'button-h-color' );
+			$btn_h_color = kemet_get_option( 'button-h-color' );
 			if ( empty( $btn_h_color ) ) {
-				$btn_h_color = astra_get_foreground_color( $link_h_color );
+				$btn_h_color = kemet_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $link_color );
-			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
+			$btn_bg_color   = kemet_get_option( 'button-bg-color', '', $link_color );
+			$btn_bg_h_color = kemet_get_option( 'button-bg-h-color', '', $link_h_color );
 
-			$btn_border_radius      = astra_get_option( 'button-radius' );
-			$btn_vertical_padding   = astra_get_option( 'button-v-padding' );
-			$btn_horizontal_padding = astra_get_option( 'button-h-padding' );
+			$btn_border_radius      = kemet_get_option( 'button-radius' );
+			$btn_vertical_padding   = kemet_get_option( 'button-v-padding' );
+			$btn_horizontal_padding = kemet_get_option( 'button-h-padding' );
 
 			$css_output = array(
 				'a.llms-button-primary, .llms-button-secondary, .llms-button-action, button.llms-field-button, a.llms-field-button' => array(
@@ -394,8 +394,8 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 					'background-color' => $btn_bg_color,
 				),
 				'a.llms-button-primary, .llms-button-secondary, .llms-button-action, .llms-field-button, .llms-button-action.large' => array(
-					'border-radius' => astra_get_css_value( $btn_border_radius, 'px' ),
-					'padding'       => astra_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . astra_get_css_value( $btn_horizontal_padding, 'px' ),
+					'border-radius' => kemet_get_css_value( $btn_border_radius, 'px' ),
+					'padding'       => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 				'a.llms-button-primary:hover, a.llms-button-primary:focus, .llms-button-secondary:hover, .llms-button-secondary:focus, .llms-button-action:hover, .llms-button-action:focus, button.llms-field-button:hover, button.llms-field-button:focus, a.llms-field-button:hover, a.llms-field-button:focus' => array(
 					'color'            => $btn_h_color,
@@ -430,9 +430,9 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			);
 
 			/* Parse CSS from array() */
-			$css_output = astra_parse_css( $css_output );
+			$css_output = kemet_parse_css( $css_output );
 
-			wp_add_inline_style( 'lifterlms-styles', apply_filters( 'astra_theme_lifterlms_dynamic_css', $css_output ) );
+			wp_add_inline_style( 'lifterlms-styles', apply_filters( 'kemet_theme_lifterlms_dynamic_css', $css_output ) );
 
 		}
 
@@ -443,14 +443,14 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 * @return void
 		 */
 		function before_main_content_start() {
-			$site_sidebar = astra_page_layout();
+			$site_sidebar = kemet_page_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
 			?>
 			<div id="primary" class="content-area primary">
 
-				<?php astra_primary_content_top(); ?>
+				<?php kemet_primary_content_top(); ?>
 
 				<main id="main" class="site-main" role="main">
 					<div class="ast-lifterlms-container">
@@ -468,11 +468,11 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 					</div> <!-- .ast-lifterlms-container -->
 				</main> <!-- #main -->
 
-				<?php astra_primary_content_bottom(); ?>
+				<?php kemet_primary_content_bottom(); ?>
 
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = astra_page_layout();
+			$site_sidebar = kemet_page_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
@@ -512,7 +512,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 * @return array List of updated assets.
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-lifterlms'] = 'compatibility/lifterlms';
+			$assets['css']['kemet-lifterlms'] = 'compatibility/lifterlms';
 			return $assets;
 		}
 
@@ -527,9 +527,9 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 
 			if ( ( is_lifterlms() ) || is_llms_account_page() || is_llms_checkout() ) {
 
-				$llms_sidebar = astra_get_option( 'lifterlms-sidebar-layout' );
+				$llms_sidebar = kemet_get_option( 'lifterlms-sidebar-layout' );
 				if ( is_lesson() || is_course() ) {
-					$llms_sidebar = astra_get_option( 'lifterlms-course-lesson-sidebar-layout' );
+					$llms_sidebar = kemet_get_option( 'lifterlms-course-lesson-sidebar-layout' );
 				}
 
 				if ( 'default' !== $llms_sidebar ) {
@@ -546,7 +546,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				} elseif ( is_course_taxonomy() ) {
 					$shop_sidebar = 'default';
 				} else {
-					$shop_sidebar = astra_get_option_meta( 'site-sidebar-layout', '', true );
+					$shop_sidebar = kemet_get_option_meta( 'site-sidebar-layout', '', true );
 				}
 
 				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
@@ -568,7 +568,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 
 			if ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) {
 
-				$llms_layout = astra_get_option( 'lifterlms-content-layout' );
+				$llms_layout = kemet_get_option( 'lifterlms-content-layout' );
 
 				if ( 'default' !== $llms_layout ) {
 
@@ -584,7 +584,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				} elseif ( is_course_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
-					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					$shop_layout = kemet_get_option_meta( 'site-content-layout', '', true );
 				}
 
 				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
@@ -608,7 +608,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
 				'id'        => 'ast-main-header-display',
-				'label'     => esc_html__( 'Disable Primary Header', 'astra' ),
+				'label'     => esc_html__( 'Disable Primary Header', 'kemet' ),
 				'switch_on' => 'disabled',
 				'type'      => 'switch',
 			);
@@ -616,59 +616,59 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				$disable_fields[] = array(
 					'attribute' => 'site-post-title',
 					'id'        => 'site-post-title',
-					'label'     => esc_html__( 'Disable Title', 'astra' ),
+					'label'     => esc_html__( 'Disable Title', 'kemet' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
 			}
-			if ( $show_meta_field && 'disabled' != astra_get_option( 'footer-adv' ) ) {
+			if ( $show_meta_field && 'disabled' != kemet_get_option( 'footer-adv' ) ) {
 				$disable_fields[] = array(
 					'attribute' => 'footer-adv-display',
 					'id'        => 'footer-adv-display',
-					'label'     => esc_html__( 'Disable Footer Widgets', 'astra' ),
+					'label'     => esc_html__( 'Disable Footer Widgets', 'kemet' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
 			}
-			if ( 'disabled' != astra_get_option( 'footer-sml-layout' ) ) {
+			if ( 'disabled' != kemet_get_option( 'footer-sml-layout' ) ) {
 				$disable_fields[] = array(
 					'attribute' => 'footer-sml-layout',
 					'id'        => 'footer-sml-layout',
-					'label'     => esc_html__( 'Disable Footer Bar', 'astra' ),
+					'label'     => esc_html__( 'Disable Footer Bar', 'kemet' ),
 					'switch_on' => 'disabled',
 					'type'      => 'switch',
 				);
 			}
 			$fields['KEMET_THEME_SETTINGS'] = array(
-				'title'      => __( 'Kemet Settings', 'astra' ),
+				'title'      => __( 'Kemet Settings', 'kemet' ),
 				'toggleable' => true,
 				'fields'     => apply_filters(
-					'astra_theme_lifterlms_settings',
+					'kemet_theme_lifterlms_settings',
 					array(
 						array(
 							array(
 								'attribute' => 'site-sidebar-layout',
 								'id'        => 'site-sidebar-layout',
-								'label'     => esc_html__( 'Sidebar', 'astra' ),
+								'label'     => esc_html__( 'Sidebar', 'kemet' ),
 								'type'      => 'select',
 								'options'   => array(
-									'default'       => esc_html__( 'Customizer Setting', 'astra' ),
-									'left-sidebar'  => esc_html__( 'Left Sidebar', 'astra' ),
-									'right-sidebar' => esc_html__( 'Right Sidebar', 'astra' ),
-									'no-sidebar'    => esc_html__( 'No Sidebar', 'astra' ),
+									'default'       => esc_html__( 'Customizer Setting', 'kemet' ),
+									'left-sidebar'  => esc_html__( 'Left Sidebar', 'kemet' ),
+									'right-sidebar' => esc_html__( 'Right Sidebar', 'kemet' ),
+									'no-sidebar'    => esc_html__( 'No Sidebar', 'kemet' ),
 								),
 							),
 							array(
 								'attribute' => 'site-content-layout',
 								'id'        => 'site-content-layout',
-								'label'     => esc_html__( 'Content Layout', 'astra' ),
+								'label'     => esc_html__( 'Content Layout', 'kemet' ),
 								'type'      => 'select',
 								'options'   => array(
-									'default'         => esc_html__( 'Customizer Setting', 'astra' ),
-									'boxed-container' => esc_html__( 'Boxed', 'astra' ),
-									'content-boxed-container' => esc_html__( 'Content Boxed', 'astra' ),
-									'plain-container' => esc_html__( 'Full Width / Contained', 'astra' ),
-									'page-builder'    => esc_html__( 'Full Width / Stretched', 'astra' ),
+									'default'         => esc_html__( 'Customizer Setting', 'kemet' ),
+									'boxed-container' => esc_html__( 'Boxed', 'kemet' ),
+									'content-boxed-container' => esc_html__( 'Content Boxed', 'kemet' ),
+									'plain-container' => esc_html__( 'Full Width / Contained', 'kemet' ),
+									'page-builder'    => esc_html__( 'Full Width / Stretched', 'kemet' ),
 								),
 							),
 						),

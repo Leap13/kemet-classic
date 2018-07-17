@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-archive-typo',
 				'priority' => 0,
-				'label'    => __( 'Archive Summary Box Title', 'astra' ),
+				'label'    => __( 'Archive Summary Box Title', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
-			'default'           => astra_get_option( 'font-size-archive-summary-title' ),
+			'default'           => kemet_get_option( 'font-size-archive-summary-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-archive-typo',
 				'priority'    => 4,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-divider',
 				'section'  => 'section-archive-typo',
 				'priority' => 5,
-				'label'    => __( 'Blog Post Title', 'astra' ),
+				'label'    => __( 'Blog Post Title', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
-			'default'           => astra_get_option( 'font-size-page-title' ),
+			'default'           => kemet_get_option( 'font-size-page-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-responsive',
 				'section'     => 'section-archive-typo',
 				'priority'    => 10,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'section'  => 'section-archive-typo',
 					'priority' => 15,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),
 				)
 			)

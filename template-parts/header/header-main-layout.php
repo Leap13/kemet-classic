@@ -10,7 +10,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -18,13 +18,13 @@
 
 <div class="main-header-bar-wrap">
 	<div class="main-header-bar">
-		<?php astra_main_header_bar_top(); ?>
+		<?php kemet_main_header_bar_top(); ?>
 		<div class="ast-container">
 
 			<div class="ast-flex main-header-container">
-				<?php astra_masthead_content(); ?>
+				<?php kemet_masthead_content(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- ast-row -->
-		<?php astra_main_header_bar_bottom(); ?>
+		<?php kemet_main_header_bar_bottom(); ?>
 	</div> <!-- Main Header Bar -->
 </div> <!-- Main Header Bar Wrap -->

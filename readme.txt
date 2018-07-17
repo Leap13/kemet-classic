@@ -1,7 +1,7 @@
 -------------------------------------------------------
 Welcome to ASTRA!
 -------------------------------------------------------
-Website: http://wpastra.com/
+Website: http://wpkemet.com/
 Email: support@bsf.io
 
 -------------------------------------------------------
@@ -26,7 +26,7 @@ ASTRA Child Theme
 
 There are multiple ways you can use a child theme with the Kemet Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/brainstormforce/astra-child/releases/latest/
+1. Download the child theme from Github - https://github.com/brainstormforce/kemet-child/releases/latest/
 2. Using Plugin One click Child theme - https://wordpress.org/plugins/one-click-child-theme/
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 

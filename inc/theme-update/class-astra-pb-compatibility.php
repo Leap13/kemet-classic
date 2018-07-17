@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.13
  */
 
@@ -54,8 +54,8 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 		 */
 		public function page_builder_compatibility() {
 
-			$offset_comp = get_option( '_astra_pb_compatibility_offset', false );
-			$comp_time   = get_option( '_astra_pb_compatibility_time', false );
+			$offset_comp = get_option( '_kemet_pb_compatibility_offset', false );
+			$comp_time   = get_option( '_kemet_pb_compatibility_time', false );
 
 			if ( ! $offset_comp || ! $comp_time ) {
 				return;
@@ -106,10 +106,10 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 
 			if ( $continue ) {
 				$offset_comp += 30;
-				update_option( '_astra_pb_compatibility_offset', $offset_comp );
+				update_option( '_kemet_pb_compatibility_offset', $offset_comp );
 			} else {
-				delete_option( '_astra_pb_compatibility_offset' );
-				delete_option( '_astra_pb_compatibility_time' );
+				delete_option( '_kemet_pb_compatibility_offset' );
+				delete_option( '_kemet_pb_compatibility_time' );
 			}
 		}
 
@@ -122,32 +122,32 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 		 */
 		public function update_meta_values( $id ) {
 
-			$layout_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$layout_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 			if ( empty( $layout_flag ) ) {
 				$site_content = get_post_meta( $id, 'site-content-layout', true );
 
 				if ( 'default' == $site_content ) {
 					$post_type = get_post_type( $id );
 					if ( 'page' == $post_type ) {
-						$site_content = astra_get_option( 'single-page-content-layout', '' );
+						$site_content = kemet_get_option( 'single-page-content-layout', '' );
 					} elseif ( 'post' == $post_type ) {
-						$site_content = astra_get_option( 'single-post-content-layout', '' );
+						$site_content = kemet_get_option( 'single-post-content-layout', '' );
 					}
 
 					if ( 'default' == $site_content ) {
-						$site_content = astra_get_option( 'site-content-layout', '' );
+						$site_content = kemet_get_option( 'site-content-layout', '' );
 					}
 				}
 
 				$elementor = get_post_meta( $id, '_elementor_edit_mode', true );
 				$vc        = get_post_meta( $id, '_wpb_vc_js_status', true );
 				if ( 'page-builder' === $site_content ) {
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 				} elseif ( 'builder' === $elementor || true === $vc || 'true' === $vc ) {
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 				}
 			}
 		}

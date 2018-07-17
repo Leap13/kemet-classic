@@ -57,7 +57,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		 */
 		function elementor_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kemet_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
@@ -67,14 +67,14 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 
 			global $post;
-			$id = astra_get_post_id();
+			$id = kemet_get_post_id();
 
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$page_builder_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
 				if ( empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );
@@ -91,19 +91,19 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
-						'astra_page_layout', function() {
+						'kemet_page_layout', function() {
 							return 'no-sidebar';
 						}
 					);
 
 					add_filter(
-						'astra_get_content_layout', function () {
+						'kemet_get_content_layout', function () {
 							return 'page-builder';
 						}
 					);
 
-					add_filter( 'astra_the_post_title_enabled', '__return_false' );
-					add_filter( 'astra_featured_image_enabled', '__return_false' );
+					add_filter( 'kemet_the_post_title_enabled', '__return_false' );
+					add_filter( 'kemet_featured_image_enabled', '__return_false' );
 				}
 			}
 		}

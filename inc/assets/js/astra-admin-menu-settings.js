@@ -72,23 +72,23 @@
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
-				.html( astra.btnActivating );
+				.html( kemet.btnActivating );
 
 			// WordPress adds "Activate" button after waiting for 1000ms. So we will run our activation after that.
 			setTimeout( function() {
 
 				$.ajax({
-					url: astra.ajaxUrl,
+					url: kemet.ajaxUrl,
 					type: 'POST',
 					data: {
-						'action'            : 'astra-sites-plugin-activate',
+						'action'            : 'kemet-sites-plugin-activate',
 						'init'              : $init,
 					},
 				})
 				.done(function (result) {
 
 					if( result.success ) {
-						var output = '<a href="'+ astra.astraSitesLink +'" aria-label="'+ astra.astraSitesLinkTitle +'">' + astra.astraSitesLinkTitle +' </a>'
+						var output = '<a href="'+ kemet.kemetSitesLink +'" aria-label="'+ kemet.kemetSitesLinkTitle +'">' + kemet.kemetSitesLinkTitle +' </a>'
 						$message.removeClass( 'ast-sites-inactive ast-sites-notinstalled button button-primary install-now activate-now updating-message' )
 							.html( output );
 

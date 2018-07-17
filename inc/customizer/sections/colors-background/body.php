@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[theme-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'Theme Color', 'astra' ),
+				'label'    => __( 'Theme Color', 'kemet' ),
 			)
 		)
 	);
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[link-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'Link Color', 'astra' ),
+				'label'    => __( 'Link Color', 'kemet' ),
 			)
 		)
 	);
@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[text-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 10,
-				'label'    => __( 'Text Color', 'astra' ),
+				'label'    => __( 'Text Color', 'kemet' ),
 			)
 		)
 	);
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[link-h-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 15,
-				'label'    => __( 'Link Hover Color', 'astra' ),
+				'label'    => __( 'Link Hover Color', 'kemet' ),
 			)
 		)
 	);

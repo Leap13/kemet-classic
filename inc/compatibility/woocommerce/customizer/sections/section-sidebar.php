@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
-			'default'           => astra_get_option( 'woocommerce-sidebar-layout' ),
+			'default'           => kemet_get_option( 'woocommerce-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -42,12 +42,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'WooCommerce', 'astra' ),
+			'label'    => __( 'WooCommerce', 'kemet' ),
 			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
-			'default'           => astra_get_option( 'single-product-sidebar-layout' ),
+			'default'           => kemet_get_option( 'single-product-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -67,12 +67,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Single Product', 'astra' ),
+			'label'    => __( 'Single Product', 'kemet' ),
 			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);

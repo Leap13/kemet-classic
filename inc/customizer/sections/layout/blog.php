@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-post-content]', array(
-			'default'           => astra_get_option( 'blog-post-content' ),
+			'default'           => kemet_get_option( 'blog-post-content' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -26,12 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[blog-post-content]', array(
 			'section'  => 'section-blog',
-			'label'    => __( 'Blog Post Content', 'astra' ),
+			'label'    => __( 'Blog Post Content', 'kemet' ),
 			'type'     => 'select',
 			'priority' => 50,
 			'choices'  => array(
-				'full-content' => __( 'Full Content', 'astra' ),
-				'excerpt'      => __( 'Excerpt', 'astra' ),
+				'full-content' => __( 'Full Content', 'kemet' ),
+				'excerpt'      => __( 'Excerpt', 'kemet' ),
 			),
 		)
 	);
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-post-structure]', array(
-			'default'           => astra_get_option( 'blog-post-structure' ),
+			'default'           => kemet_get_option( 'blog-post-structure' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -52,10 +52,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
 				'priority' => 100,
-				'label'    => __( 'Blog Post Structure', 'astra' ),
+				'label'    => __( 'Blog Post Structure', 'kemet' ),
 				'choices'  => array(
-					'image'      => __( 'Featured Image', 'astra' ),
-					'title-meta' => __( 'Title & Blog Meta', 'astra' ),
+					'image'      => __( 'Featured Image', 'kemet' ),
+					'title-meta' => __( 'Title & Blog Meta', 'kemet' ),
 				),
 			)
 		)
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-meta]', array(
-			'default'           => astra_get_option( 'blog-meta' ),
+			'default'           => kemet_get_option( 'blog-meta' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -77,13 +77,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
 				'priority' => 105,
-				'label'    => __( 'Blog Meta', 'astra' ),
+				'label'    => __( 'Blog Meta', 'kemet' ),
 				'choices'  => array(
-					'comments' => __( 'Comments', 'astra' ),
-					'category' => __( 'Category', 'astra' ),
-					'author'   => __( 'Author', 'astra' ),
-					'date'     => __( 'Publish Date', 'astra' ),
-					'tag'      => __( 'Tag', 'astra' ),
+					'comments' => __( 'Comments', 'kemet' ),
+					'category' => __( 'Category', 'kemet' ),
+					'author'   => __( 'Author', 'kemet' ),
+					'date'     => __( 'Publish Date', 'kemet' ),
+					'tag'      => __( 'Tag', 'kemet' ),
 				),
 			)
 		)
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-width]', array(
-			'default'           => astra_get_option( 'blog-width' ),
+			'default'           => kemet_get_option( 'blog-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -118,10 +118,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-blog',
 			'priority' => 115,
-			'label'    => __( 'Blog Content Width', 'astra' ),
+			'label'    => __( 'Blog Content Width', 'kemet' ),
 			'choices'  => array(
-				'default' => __( 'Default', 'astra' ),
-				'custom'  => __( 'Custom', 'astra' ),
+				'default' => __( 'Default', 'kemet' ),
+				'custom'  => __( 'Custom', 'kemet' ),
 			),
 		)
 	);
@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog',
 				'priority'    => 120,
-				'label'       => __( 'Enter Width', 'astra' ),
+				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 768,
@@ -180,7 +180,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'section'  => 'section-blog',
 					'priority' => 125,
 					'label'    => '',
-					'help'     => __( 'More Options Available for Blog in Kemet Pro!', 'astra' ) . '<a href="' . astra_get_pro_url( 'https://wpastra.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => __( 'More Options Available for Blog in Kemet Pro!', 'kemet' ) . '<a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/blog-archive-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),
 				)
 			)

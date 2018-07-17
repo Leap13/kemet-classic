@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.15
  */
 
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
-				'label'   => __( 'Widget Title Color', 'astra' ),
+				'label'   => __( 'Widget Title Color', 'kemet' ),
 				'section' => 'section-footer-adv-color-bg',
 			)
 		)
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-text-color]', array(
-				'label'   => __( 'Text Color', 'astra' ),
+				'label'   => __( 'Text Color', 'kemet' ),
 				'section' => 'section-footer-adv-color-bg',
 			)
 		)
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
-				'label'   => __( 'Link Color', 'astra' ),
+				'label'   => __( 'Link Color', 'kemet' ),
 				'section' => 'section-footer-adv-color-bg',
 			)
 		)
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
-				'label'   => __( 'Link Hover Color', 'astra' ),
+				'label'   => __( 'Link Hover Color', 'kemet' ),
 				'section' => 'section-footer-adv-color-bg',
 			)
 		)
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
-			'default'           => astra_get_option( 'footer-adv-bg-obj' ),
+			'default'           => kemet_get_option( 'footer-adv-bg-obj' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
 				'type'    => 'ast-background',
 				'section' => 'section-footer-adv-color-bg',
-				'label'   => __( 'Background', 'astra' ),
+				'label'   => __( 'Background', 'kemet' ),
 			)
 		)
 	);

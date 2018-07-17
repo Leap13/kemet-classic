@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0
  */
 
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $plugin_slug
 		 */
-		static public $plugin_slug = 'astra';
+		static public $plugin_slug = 'kemet';
 
 		/**
 		 * Default Menu position
@@ -94,15 +94,15 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Kemet Options', 'astra' ) );
-			self::$page_title      = apply_filters( 'astra_page_title', __( 'Kemet', 'astra' ) );
+			self::$menu_page_title = apply_filters( 'kemet_menu_page_title', __( 'Kemet Options', 'kemet' ) );
+			self::$page_title      = apply_filters( 'kemet_page_title', __( 'Kemet', 'kemet' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 				// Let extensions hook into saving.
-				do_action( 'astra_admin_settings_scripts' );
+				do_action( 'kemet_admin_settings_scripts' );
 
 				self::save_settings();
 			}
@@ -113,22 +113,22 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
-			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
+			add_action( 'kemet_menu_general_action', __CLASS__ . '::general_page' );
 
-			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
+			add_action( 'kemet_header_right_section', __CLASS__ . '::top_header_right_section' );
 
-			add_filter( 'admin_title', __CLASS__ . '::astra_admin_title', 10, 2 );
+			add_filter( 'admin_title', __CLASS__ . '::kemet_admin_title', 10, 2 );
 
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_cloudways_scetion', 14 );
+			add_action( 'kemet_welcome_page_right_sidebar_content', __CLASS__ . '::kemet_welcome_page_starter_sites_section', 10 );
+			add_action( 'kemet_welcome_page_right_sidebar_content', __CLASS__ . '::kemet_welcome_page_knowledge_base_scetion', 11 );
+			add_action( 'kemet_welcome_page_right_sidebar_content', __CLASS__ . '::kemet_welcome_page_community_scetion', 12 );
+			add_action( 'kemet_welcome_page_right_sidebar_content', __CLASS__ . '::kemet_welcome_page_five_star_scetion', 13 );
+			add_action( 'kemet_welcome_page_right_sidebar_content', __CLASS__ . '::kemet_welcome_page_cloudways_scetion', 14 );
 
-			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
+			add_action( 'kemet_welcome_page_content', __CLASS__ . '::kemet_welcome_page_content' );
 
 			// AJAX.
-			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
+			add_action( 'wp_ajax_kemet-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
 		}
 
 		/**
@@ -140,11 +140,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 				$actions            = array(
 					'general' => array(
-						'label' => __( 'Welcome', 'astra' ),
+						'label' => __( 'Welcome', 'kemet' ),
 						'show'  => ! is_network_admin(),
 					),
 				);
-				self::$view_actions = apply_filters( 'astra_menu_options', $actions );
+				self::$view_actions = apply_filters( 'kemet_menu_options', $actions );
 			}
 
 			return self::$view_actions;
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			}
 
 			// Let extensions hook into saving.
-			do_action( 'astra_admin_settings_save' );
+			do_action( 'kemet_admin_settings_save' );
 		}
 
 		/**
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * @since 1.2.1
 		 */
 		static public function customizer_scripts() {
-			$color_palettes = json_encode( astra_color_palette() );
+			$color_palettes = json_encode( kemet_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'astra-admin', KEMET_THEME_URI . 'inc/assets/css/astra-admin.css', array(), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'kemet-admin', KEMET_THEME_URI . 'inc/assets/css/kemet-admin.css', array(), KEMET_THEME_VERSION );
 
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 			$assets_js_uri = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
 
-			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'kemet-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), KEMET_THEME_VERSION, true );
 		}
 
 		/**
@@ -201,17 +201,17 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'astra-admin-settings', KEMET_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'kemet-admin-settings', KEMET_THEME_URI . 'inc/assets/css/kemet-admin-menu-settings.css', array(), KEMET_THEME_VERSION );
 			// Script.
-			wp_enqueue_script( 'astra-admin-settings', KEMET_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KEMET_THEME_VERSION );
+			wp_enqueue_script( 'kemet-admin-settings', KEMET_THEME_URI . 'inc/assets/js/kemet-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KEMET_THEME_VERSION );
 
 			$localize = array(
 				'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
-				'btnActivating'       => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'      => admin_url( 'themes.php?page=astra-sites' ),
-				'astraSitesLinkTitle' => __( 'See Library »', 'astra' ),
+				'btnActivating'       => __( 'Activating Importer Plugin ', 'kemet' ) . '&hellip;',
+				'kemetSitesLink'      => admin_url( 'themes.php?page=kemet-sites' ),
+				'kemetSitesLinkTitle' => __( 'See Library »', 'kemet' ),
 			);
-			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
+			wp_localize_script( 'kemet-admin-settings', 'kemet', apply_filters( 'kemet_theme_js_localize', $localize ) );
 		}
 
 		/**
@@ -223,10 +223,10 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * @param string $title Title.
 		 * @return string
 		 */
-		static public function astra_admin_title( $admin_title, $title ) {
+		static public function kemet_admin_title( $admin_title, $title ) {
 
 			$screen = get_current_screen();
-			if ( 'appearance_page_astra' == $screen->id ) {
+			if ( 'appearance_page_kemet' == $screen->id ) {
 
 				$view_actions = self::get_view_actions();
 
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
+			if ( apply_filters( 'kemet_dashboard_admin_menu', true ) ) {
 				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 			} else {
 				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
@@ -298,9 +298,9 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
 
-			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
-			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com' );
-			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
+			$ast_icon           = apply_filters( 'kemet_page_top_icon', true );
+			$ast_visit_site_url = apply_filters( 'kemet_site_url', 'https://wpkemet.com' );
+			$ast_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
 			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
@@ -309,18 +309,18 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
-									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
-								<?php do_action( 'astra_welcome_page_header_title' ); ?>
+								<?php do_action( 'kemet_welcome_page_header_title' ); ?>
 								</a>
 							</div>
 
-							<?php do_action( 'astra_header_right_section' ); ?>
+							<?php do_action( 'kemet_header_right_section' ); ?>
 
 						</div>
 					</div>
 
-				<?php do_action( 'astra_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
+				<?php do_action( 'kemet_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
 			</div>
 			<?php
 		}
@@ -339,61 +339,61 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_starter_sites_section() {
+		static public function kemet_welcome_page_starter_sites_section() {
 			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Site', 'astra' ) ) ); ?></span>
+					<span><?php echo esc_html( apply_filters( 'kemet_sites_menu_page_title', __( 'Import Starter Site', 'kemet' ) ) ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
 						<?php
-							$astra_starter_sites_doc_link      = apply_filters( 'astra_starter_sites_documentation_link', astra_get_pro_url( 'https://wpastra.com/ready-websites/installing-importing-astra-sites/', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) );
-							$astra_starter_sites_doc_link_text = apply_filters( 'astra_starter_sites_doc_link_text', __( 'Starter Site Templates?', 'astra' ) );
+							$kemet_starter_sites_doc_link      = apply_filters( 'kemet_starter_sites_documentation_link', kemet_get_pro_url( 'https://wpkemet.com/ready-websites/installing-importing-kemet-sites/', 'kemet-dashboard', 'how-kemet-sites-works', 'welcome-page' ) );
+							$kemet_starter_sites_doc_link_text = apply_filters( 'kemet_starter_sites_doc_link_text', __( 'Starter Site Templates?', 'kemet' ) );
 							printf(
 								/* translators: %1$s: Starter site link. */
-								esc_html__( 'Did you know %1$s offers a free library of %2$s ', 'astra' ),
+								esc_html__( 'Did you know %1$s offers a free library of %2$s ', 'kemet' ),
 								self::$page_title,
-								! empty( $astra_starter_sites_doc_link ) ? '<a href=' . esc_url( $astra_starter_sites_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_starter_sites_doc_link_text ) . '</a>' :
-								esc_html( $astra_starter_sites_doc_link_text )
+								! empty( $kemet_starter_sites_doc_link ) ? '<a href=' . esc_url( $kemet_starter_sites_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $kemet_starter_sites_doc_link_text ) . '</a>' :
+								esc_html( $kemet_starter_sites_doc_link_text )
 							);
 						?>
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Import your favorite site one click and start your project in style!', 'astra' );
+							esc_html_e( 'Import your favorite site one click and start your project in style!', 'kemet' );
 						?>
 					</p>
 						<?php
 						// Kemet Sites - Installed but Inactive.
 						// Kemet Premium Sites - Inactive.
-						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+						if ( file_exists( WP_PLUGIN_DIR . '/kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-pro-sites/kemet-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-inactive';
-							$button_text = __( 'Activate Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
+							$button_text = __( 'Activate Importer Plugin', 'kemet' );
+							$data_slug   = 'kemet-sites';
+							$data_init   = '/kemet-sites/kemet-sites.php';
 
 							// Kemet Sites - Not Installed.
 							// Kemet Premium Sites - Inactive.
-						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-pro-sites/kemet-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-notinstalled';
-							$button_text = __( 'Install Importer Plugin', 'astra' );
-							$data_slug   = 'astra-sites';
-							$data_init   = '/astra-sites/astra-sites.php';
+							$button_text = __( 'Install Importer Plugin', 'kemet' );
+							$data_slug   = 'kemet-sites';
+							$data_init   = '/kemet-sites/kemet-sites.php';
 
 							// Kemet Premium Sites - Active.
-						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
+						} elseif ( is_plugin_active( 'kemet-pro-sites/kemet-pro-sites.php' ) ) {
 							$class       = 'active';
-							$button_text = __( 'See Library »', 'astra' );
-							$link        = admin_url( 'themes.php?page=astra-sites' );
+							$button_text = __( 'See Library »', 'kemet' );
+							$link        = admin_url( 'themes.php?page=kemet-sites' );
 						} else {
 							$class       = 'active';
-							$button_text = __( 'See Library »', 'astra' );
-							$link        = admin_url( 'themes.php?page=astra-sites' );
+							$button_text = __( 'See Library »', 'kemet' );
+							$link        = admin_url( 'themes.php?page=kemet-sites' );
 						}
 
 						printf(
@@ -418,27 +418,27 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_knowledge_base_scetion() {
+		static public function kemet_welcome_page_knowledge_base_scetion() {
 			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-book"></span>
-					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
+					<span><?php esc_html_e( 'Knowledge Base', 'kemet' ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
-						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'astra' ); ?>
+						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'kemet' ); ?>
 					</p>
 					<?php
-					$astra_knowledge_base_doc_link      = apply_filters( 'astra_knowledge_base_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ) );
-					$astra_knowledge_base_doc_link_text = apply_filters( 'astra_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base »', 'astra' ) );
+					$kemet_knowledge_base_doc_link      = apply_filters( 'kemet_knowledge_base_documentation_link', kemet_get_pro_url( 'https://wpkemet.com/docs/', 'kemet-dashboard', 'visit-documentation', 'welcome-page' ) );
+					$kemet_knowledge_base_doc_link_text = apply_filters( 'kemet_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base »', 'kemet' ) );
 
 					printf(
 						/* translators: %1$s: Kemet Knowledge doc link. */
 						'%1$s',
-						! empty( $astra_knowledge_base_doc_link ) ? '<a href=' . esc_url( $astra_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_knowledge_base_doc_link_text ) . '</a>' :
-						esc_html( $astra_knowledge_base_doc_link_text )
+						! empty( $kemet_knowledge_base_doc_link ) ? '<a href=' . esc_url( $kemet_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $kemet_knowledge_base_doc_link_text ) . '</a>' :
+						esc_html( $kemet_knowledge_base_doc_link_text )
 					);
 					?>
 				</div>
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_community_scetion() {
+		static public function kemet_welcome_page_community_scetion() {
 			?>
 
 			<div class="postbox">
@@ -461,7 +461,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						<?php
 						printf(
 							/* translators: %1$s: Kemet Theme name. */
-							esc_html__( '%1$s Community', 'astra' ),
+							esc_html__( '%1$s Community', 'kemet' ),
 							self::$page_title
 						);
 						?>
@@ -471,20 +471,20 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						<?php
 						printf(
 							/* translators: %1$s: Kemet Theme name. */
-							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'astra' ),
+							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'kemet' ),
 							self::$page_title
 						);
 						?>
 					</p>
 					<?php
-					$astra_community_group_link      = apply_filters( 'astra_community_group_link', 'https://www.facebook.com/groups/wpastra' );
-					$astra_community_group_link_text = apply_filters( 'astra_community_group_link_text', __( 'Join Our Facebook Group »', 'astra' ) );
+					$kemet_community_group_link      = apply_filters( 'kemet_community_group_link', 'https://www.facebook.com/groups/wpkemet' );
+					$kemet_community_group_link_text = apply_filters( 'kemet_community_group_link_text', __( 'Join Our Facebook Group »', 'kemet' ) );
 
 					printf(
 						/* translators: %1$s: Kemet Knowledge doc link. */
 						'%1$s',
-						! empty( $astra_community_group_link ) ? '<a href=' . esc_url( $astra_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_community_group_link_text ) . '</a>' :
-						esc_html( $astra_community_group_link_text )
+						! empty( $kemet_community_group_link ) ? '<a href=' . esc_url( $kemet_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $kemet_community_group_link_text ) . '</a>' :
+						esc_html( $kemet_community_group_link_text )
 					);
 					?>
 				</div>
@@ -497,33 +497,33 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_five_star_scetion() {
+		static public function kemet_welcome_page_five_star_scetion() {
 			?>
 
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-sos"></span>
-					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
+					<span><?php esc_html_e( 'Five Star Support', 'kemet' ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
 						<?php
 						printf(
 							/* translators: %1$s: Kemet Theme name. */
-							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'astra' ),
+							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'kemet' ),
 							self::$page_title
 						);
 						?>
 					</p>
 					<?php
-						$astra_support_link      = apply_filters( 'astra_support_link', astra_get_pro_url( 'https://wpastra.com/contact/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ) );
-						$astra_support_link_text = apply_filters( 'astra_support_link_text', __( 'Submit a Ticket »', 'astra' ) );
+						$kemet_support_link      = apply_filters( 'kemet_support_link', kemet_get_pro_url( 'https://wpkemet.com/contact/', 'kemet-dashboard', 'submit-a-ticket', 'welcome-page' ) );
+						$kemet_support_link_text = apply_filters( 'kemet_support_link_text', __( 'Submit a Ticket »', 'kemet' ) );
 
 						printf(
 							/* translators: %1$s: Kemet Knowledge doc link. */
 							'%1$s',
-							! empty( $astra_support_link ) ? '<a href=' . esc_url( $astra_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_support_link_text ) . '</a>' :
-							esc_html( $astra_support_link_text )
+							! empty( $kemet_support_link ) ? '<a href=' . esc_url( $kemet_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $kemet_support_link_text ) . '</a>' :
+							esc_html( $kemet_support_link_text )
 						);
 					?>
 				</div>
@@ -536,36 +536,36 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.6
 		 */
-		static public function astra_welcome_page_cloudways_scetion() {
+		static public function kemet_welcome_page_cloudways_scetion() {
 			?>
 
 			<div class="postbox">
 				<h2 class="hndle">
 					<span class="dashicons dashicons-heart"></span>
-					<span><?php esc_html_e( 'Recommended Hosting', 'astra' ); ?></span>
+					<span><?php esc_html_e( 'Recommended Hosting', 'kemet' ); ?></span>
 				</h2>
 					<div class="inside">
 						<p>
-							<?php esc_html_e( 'A fast theme gets faster with a great host!', 'astra' ); ?>
+							<?php esc_html_e( 'A fast theme gets faster with a great host!', 'kemet' ); ?>
 						</p>
 						<p>
 							<?php
 								printf(
 									/* translators: %1$s: Kemet Theme name. */
-									esc_html__( '%1$s proudly recommends Cloudways to anyone looking for speedy hosting.', 'astra' ),
+									esc_html__( '%1$s proudly recommends Cloudways to anyone looking for speedy hosting.', 'kemet' ),
 									self::$page_title
 								);
 							?>
 						</p>
 						<?php
-						$astra_cloudways_link      = apply_filters( 'astra_cloudways_link', 'http://pxlme.me/ETClRjv5' );
-						$astra_cloudways_link_text = apply_filters( 'astra_astra_cloudways_link_text', __( 'Check Cloudways Hosting »', 'astra' ) );
+						$kemet_cloudways_link      = apply_filters( 'kemet_cloudways_link', 'http://pxlme.me/ETClRjv5' );
+						$kemet_cloudways_link_text = apply_filters( 'kemet_kemet_cloudways_link_text', __( 'Check Cloudways Hosting »', 'kemet' ) );
 
 						printf(
 							/* translators: %1$s: Kemet Cloudways Hosting link. */
 							'%1$s',
-							! empty( $astra_cloudways_link ) ? '<a href=' . esc_url( $astra_cloudways_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_cloudways_link_text ) . '</a>' :
-							esc_html( $astra_cloudways_link_text )
+							! empty( $kemet_cloudways_link ) ? '<a href=' . esc_url( $kemet_cloudways_link ) . ' target="_blank" rel="noopener">' . esc_html( $kemet_cloudways_link_text ) . '</a>' :
+							esc_html( $kemet_cloudways_link_text )
 						);
 						?>
 				</div>
@@ -579,50 +579,50 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		static public function astra_welcome_page_content() {
+		static public function kemet_welcome_page_content() {
 
-			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Kemet Pro!', 'astra' ) );
+			$kemet_addon_tagline = apply_filters( 'kemet_addon_list_tagline', __( 'More Options Available with Kemet Pro!', 'kemet' ) );
 
 			// Quick settings.
 			$quick_settings = apply_filters(
-				'astra_quick_settings', array(
+				'kemet_quick_settings', array(
 					'logo-favicon' => array(
-						'title'     => __( 'Upload Logo', 'astra' ),
+						'title'     => __( 'Upload Logo', 'kemet' ),
 						'dashicon'  => 'dashicons-format-image',
 						'quick_url' => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
 					),
 					'colors'       => array(
-						'title'     => __( 'Set Colors', 'astra' ),
+						'title'     => __( 'Set Colors', 'kemet' ),
 						'dashicon'  => 'dashicons-admin-customizer',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-colors-background' ),
 					),
 					'typography'   => array(
-						'title'     => __( 'Customize Fonts', 'astra' ),
+						'title'     => __( 'Customize Fonts', 'kemet' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-typography' ),
 					),
 					'layout'       => array(
-						'title'     => __( 'Layout Options', 'astra' ),
+						'title'     => __( 'Layout Options', 'kemet' ),
 						'dashicon'  => 'dashicons-layout',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-layout' ),
 					),
 					'header'       => array(
-						'title'     => __( 'Header Options', 'astra' ),
+						'title'     => __( 'Header Options', 'kemet' ),
 						'dashicon'  => 'dashicons-align-center',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-header' ),
 					),
 					'blog-layout'  => array(
-						'title'     => __( 'Blog Layouts', 'astra' ),
+						'title'     => __( 'Blog Layouts', 'kemet' ),
 						'dashicon'  => 'dashicons-welcome-write-blog',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-blog-group' ),
 					),
 					'footer'       => array(
-						'title'     => __( 'Footer Settings', 'astra' ),
+						'title'     => __( 'Footer Settings', 'kemet' ),
 						'dashicon'  => 'dashicons-admin-generic',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
 					'sidebars'     => array(
-						'title'     => __( 'Sidebar Options', 'astra' ),
+						'title'     => __( 'Sidebar Options', 'kemet' ),
 						'dashicon'  => 'dashicons-align-left',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-sidebars' ),
 					),
@@ -630,218 +630,218 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			);
 
 			$extensions = apply_filters(
-				'astra_addon_list', array(
+				'kemet_addon_list', array(
 					'colors-and-background' => array(
-						'title'     => __( 'Colors & Background', 'astra' ),
+						'title'     => __( 'Colors & Background', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'typography'            => array(
-						'title'     => __( 'Typography', 'astra' ),
+						'title'     => __( 'Typography', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'spacing'               => array(
-						'title'     => __( 'Spacing', 'astra' ),
+						'title'     => __( 'Spacing', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'blog-pro'              => array(
-						'title'     => __( 'Blog Pro', 'astra' ),
+						'title'     => __( 'Blog Pro', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'header-sections'       => array(
-						'title'     => __( 'Header Sections', 'astra' ),
+						'title'     => __( 'Header Sections', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'transparent-header'    => array(
-						'title'     => __( 'Transparent Header', 'astra' ),
+						'title'     => __( 'Transparent Header', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/transparent-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/transparent-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'sticky-header'         => array(
-						'title'     => __( 'Sticky Header', 'astra' ),
+						'title'     => __( 'Sticky Header', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-headers'      => array(
-						'title'           => __( 'Page Headers', 'astra' ),
+						'title'           => __( 'Page Headers', 'kemet' ),
 						// 'icon'            => KEMET_EXT_URI . 'assets/img/advanced-headers.png',
-						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'astra' ),
+						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'kemet' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
-						'title_url'       => astra_get_pro_url( 'https://wpastra.com/pro', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kemet_get_pro_url( 'https://wpkemet.com/pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/pro', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-hooks'        => array(
-						'title'           => __( 'Custom Layouts', 'astra' ),
-						// 'icon'            => KEMET_EXT_URI . 'assets/img/astra-advanced-hooks.png',
-						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
+						'title'           => __( 'Custom Layouts', 'kemet' ),
+						// 'icon'            => KEMET_EXT_URI . 'assets/img/kemet-advanced-hooks.png',
+						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'kemet' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
-						'title_url'       => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kemet_get_pro_url( 'https://wpkemet.com/docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'site-layouts'          => array(
-						'title'     => __( 'Site Layouts', 'astra' ),
+						'title'     => __( 'Site Layouts', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-footer'       => array(
-						'title'     => __( 'Footer Widgets', 'astra' ),
+						'title'     => __( 'Footer Widgets', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'scroll-to-top'         => array(
-						'title'     => __( 'Scroll To Top', 'astra' ),
+						'title'     => __( 'Scroll To Top', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'woocommerce'           => array(
-						'title'     => __( 'WooCommerce', 'astra' ),
+						'title'     => __( 'WooCommerce', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'learndash'             => array(
-						'title'       => __( 'LearnDash', 'astra' ),
-						'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'astra' ),
+						'title'       => __( 'LearnDash', 'kemet' ),
+						'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'kemet' ),
 						'class'       => 'ast-addon',
-						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/learndash-integration-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'   => kemet_get_pro_url( 'https://wpkemet.com/docs/learndash-integration-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'lifterlms'             => array(
-						'title'     => __( 'LifterLMS', 'astra' ),
+						'title'     => __( 'LifterLMS', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'white-label'           => array(
-						'title'     => __( 'White Label', 'astra' ),
+						'title'     => __( 'White Label', 'kemet' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/introducing-white-label/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/introducing-white-label/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'astra' ),
+								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
 						),
@@ -851,7 +851,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
+				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'kemet' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -873,8 +873,8 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			<?php self::min_addon_version_message(); ?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
-					<?php do_action( 'astra_addon_bulk_action' ); ?>
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $kemet_addon_tagline ); ?></span>
+					<?php do_action( 'kemet_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
 						<?php
@@ -921,7 +921,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
-						'message' => __( 'No plugin specified', 'astra' ),
+						'message' => __( 'No plugin specified', 'kemet' ),
 					)
 				);
 			}
@@ -942,7 +942,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			wp_send_json_success(
 				array(
 					'success' => true,
-					'message' => __( 'Plugin Successfully Activated', 'astra' ),
+					'message' => __( 'Plugin Successfully Activated', 'kemet' ),
 				)
 			);
 
@@ -955,27 +955,27 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 */
 		static public function min_addon_version_message() {
 
-			$astra_global_options = get_option( 'kemet-settings' );
+			$kemet_global_options = get_option( 'kemet-settings' );
 
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'KEMET_EXT_VER' ) ) {
+			if ( isset( $kemet_global_options['kemet-addon-auto-version'] ) && defined( 'KEMET_EXT_VER' ) ) {
 
-				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
+				if ( version_compare( $kemet_global_options['kemet-addon-auto-version'], '1.2.1' ) < 0 ) {
 
 					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
-					$astra_addon_name        = astra_get_addon_name();
-					$update_astra_addon_link = astra_get_pro_url( 'https://wpastra.com/?p=25258', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' );
+					$kemet_addon_name        = kemet_get_addon_name();
+					$update_kemet_addon_link = kemet_get_pro_url( 'https://wpkemet.com/?p=25258', 'kemet-dashboard', 'update-to-kemet-pro', 'welcome-page' );
 					if ( class_exists( 'Kemet_Ext_White_Label_Markup' ) ) {
 						$plugin_data = Kemet_Ext_White_Label_Markup::$branding;
-						if ( ! empty( $plugin_data['astra-pro']['name'] ) ) {
-							$update_astra_addon_link = '';
+						if ( ! empty( $plugin_data['kemet-pro']['name'] ) ) {
+							$update_kemet_addon_link = '';
 						}
 					}
 
 					$class   = 'ast-notice ast-notice-error';
 					$message = sprintf(
 						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kemet Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ),
-						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
+						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'kemet' ),
+						( ! empty( $update_kemet_addon_link ) ) ? '<a href=' . esc_url( $update_kemet_addon_link ) . ' target="_blank" rel="noopener">' . $kemet_addon_name . '</a>' : $kemet_addon_name
 					);
 
 					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
@@ -991,9 +991,9 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		static public function top_header_right_section() {
 
 			$top_links = apply_filters(
-				'astra_header_top_links', array(
-					'astra-theme-info' => array(
-						'title' => __( 'Stylish, Lightning Fast & Easily Customizable Theme!', 'astra' ),
+				'kemet_header_top_links', array(
+					'kemet-theme-info' => array(
+						'title' => __( 'Stylish, Lightning Fast & Easily Customizable Theme!', 'kemet' ),
 					),
 				)
 			);

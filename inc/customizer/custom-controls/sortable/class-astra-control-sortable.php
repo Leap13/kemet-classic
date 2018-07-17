@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -37,8 +37,8 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
 
-		wp_enqueue_script( 'astra-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-sortable-css', $css_uri . 'sortable.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-sortable-css', $css_uri . 'sortable.css', null, KEMET_THEME_VERSION );
 
 	}
 

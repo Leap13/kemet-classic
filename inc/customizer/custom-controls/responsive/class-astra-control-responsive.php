@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -45,8 +45,8 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive/';
 
-		wp_enqueue_script( 'astra-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-css', $css_uri . 'responsive.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-responsive-css', $css_uri . 'responsive.css', null, KEMET_THEME_VERSION );
 
 	}
 

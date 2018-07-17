@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
-			'default'           => astra_get_option( 'blog-single-post-structure' ),
+			'default'           => kemet_get_option( 'blog-single-post-structure' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -29,10 +29,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
-				'label'    => __( 'Single Post Structure', 'astra' ),
+				'label'    => __( 'Single Post Structure', 'kemet' ),
 				'choices'  => array(
-					'single-image'      => __( 'Featured Image', 'astra' ),
-					'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
+					'single-image'      => __( 'Featured Image', 'kemet' ),
+					'single-title-meta' => __( 'Title & Blog Meta', 'kemet' ),
 				),
 			)
 		)
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
-			'default'           => astra_get_option( 'blog-single-meta' ),
+			'default'           => kemet_get_option( 'blog-single-meta' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -54,13 +54,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
-				'label'    => __( 'Single Post Meta', 'astra' ),
+				'label'    => __( 'Single Post Meta', 'kemet' ),
 				'choices'  => array(
-					'comments' => __( 'Comments', 'astra' ),
-					'category' => __( 'Category', 'astra' ),
-					'author'   => __( 'Author', 'astra' ),
-					'date'     => __( 'Publish Date', 'astra' ),
-					'tag'      => __( 'Tag', 'astra' ),
+					'comments' => __( 'Comments', 'kemet' ),
+					'category' => __( 'Category', 'kemet' ),
+					'author'   => __( 'Author', 'kemet' ),
+					'date'     => __( 'Publish Date', 'kemet' ),
+					'tag'      => __( 'Tag', 'kemet' ),
 				),
 			)
 		)
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[blog-single-width]', array(
-			'default'           => astra_get_option( 'blog-single-width' ),
+			'default'           => kemet_get_option( 'blog-single-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -95,10 +95,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-blog-single',
 			'priority' => 15,
-			'label'    => __( 'Single Post Content Width', 'astra' ),
+			'label'    => __( 'Single Post Content Width', 'kemet' ),
 			'choices'  => array(
-				'default' => __( 'Default', 'astra' ),
-				'custom'  => __( 'Custom', 'astra' ),
+				'default' => __( 'Default', 'kemet' ),
+				'custom'  => __( 'Custom', 'kemet' ),
 			),
 		)
 	);
@@ -120,7 +120,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog-single',
 				'priority'    => 20,
-				'label'       => __( 'Enter Width', 'astra' ),
+				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 768,
@@ -157,7 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Single Post in Kemet Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Single Post in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),
 				)
 			)

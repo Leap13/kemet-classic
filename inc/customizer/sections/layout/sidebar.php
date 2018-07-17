@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-sidebar-layout]', array(
-			'default'           => astra_get_option( 'site-sidebar-layout' ),
+			'default'           => kemet_get_option( 'site-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -29,11 +29,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Default Layout', 'astra' ),
+			'label'    => __( 'Default Layout', 'kemet' ),
 			'choices'  => array(
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
-			'default'           => astra_get_option( 'single-page-sidebar-layout' ),
+			'default'           => kemet_get_option( 'single-page-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -67,12 +67,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Pages', 'astra' ),
+			'label'    => __( 'Pages', 'kemet' ),
 			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-			'default'           => astra_get_option( 'single-post-sidebar-layout' ),
+			'default'           => kemet_get_option( 'single-post-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -92,12 +92,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Blog Posts', 'astra' ),
+			'label'    => __( 'Blog Posts', 'kemet' ),
 			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
-			'default'           => astra_get_option( 'archive-post-sidebar-layout' ),
+			'default'           => kemet_get_option( 'archive-post-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -117,12 +117,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
-			'label'    => __( 'Blog Post Archives', 'astra' ),
+			'label'    => __( 'Blog Post Archives', 'kemet' ),
 			'choices'  => array(
-				'default'       => __( 'Default', 'astra' ),
-				'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-				'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-				'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
 	);
@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'ast-slider',
 				'section'     => 'section-sidebars',
 				'priority'    => 15,
-				'label'       => __( 'Sidebar Width', 'astra' ),
+				'label'       => __( 'Sidebar Width', 'kemet' ),
 				'suffix'      => '%',
 				'input_attrs' => array(
 					'min'  => 15,
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'section'  => 'section-sidebars',
 				'priority' => 15,
 				'label'    => '',
-				'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'astra' ),
+				'help'     => __( 'Sidebar width will apply only when one of the above sidebar is set.', 'kemet' ),
 				'settings' => array(),
 			)
 		)

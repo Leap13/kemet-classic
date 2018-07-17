@@ -32,7 +32,7 @@ $wp_customize->add_control(
  */
 $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[learndash-content-layout]', array(
-		'default'           => astra_get_option( 'learndash-content-layout' ),
+		'default'           => kemet_get_option( 'learndash-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
@@ -42,14 +42,14 @@ $wp_customize->add_control(
 		'type'        => 'select',
 		'section'     => 'section-container-layout',
 		'priority'    => 68,
-		'label'       => __( 'Container for LearnDash', 'astra' ),
-		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
+		'label'       => __( 'Container for LearnDash', 'kemet' ),
+		'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'kemet' ),
 		'choices'     => array(
-			'default'                 => __( 'Default', 'astra' ),
-			'boxed-container'         => __( 'Boxed', 'astra' ),
-			'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-			'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+			'default'                 => __( 'Default', 'kemet' ),
+			'boxed-container'         => __( 'Boxed', 'kemet' ),
+			'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
+			'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
+			'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
 		),
 	)
 );

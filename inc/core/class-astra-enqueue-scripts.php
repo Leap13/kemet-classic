@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 
 		}
@@ -60,16 +60,16 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js'  => array(
-					'astra-theme-js' => 'style',
+					'kemet-theme-js' => 'style',
 				),
 
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'astra-theme-css' => 'style',
+					'kemet-theme-css' => 'style',
 				),
 			);
 
-			return apply_filters( 'astra_theme_assets', $default_assets );
+			return apply_filters( 'kemet_theme_assets', $default_assets );
 		}
 
 		/**
@@ -77,14 +77,14 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family = astra_get_option( 'body-font-family' );
-			$font_weight = astra_get_option( 'body-font-weight' );
+			$font_family = kemet_get_option( 'body-font-family' );
+			$font_weight = kemet_get_option( 'body-font-weight' );
 
 			Kemet_Fonts::add_font( $font_family, $font_weight );
 
 			// Render headings font.
-			$font_family = astra_get_option( 'headings-font-family' );
-			$font_weight = astra_get_option( 'headings-font-weight' );
+			$font_family = kemet_get_option( 'headings-font-family' );
+			$font_weight = kemet_get_option( 'headings-font-weight' );
 
 			Kemet_Fonts::add_font( $font_family, $font_weight );
 		}
@@ -94,9 +94,9 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$astra_enqueue = apply_filters( 'astra_enqueue_theme_assets', true );
+			$kemet_enqueue = apply_filters( 'kemet_enqueue_theme_assets', true );
 
-			if ( ! $astra_enqueue ) {
+			if ( ! $kemet_enqueue ) {
 				return;
 			}
 
@@ -148,14 +148,14 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', Kemet_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'astra-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
+			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
 
-			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
+			$kemet_localize = array(
+				'break_point' => kemet_header_break_point(),    // Header Break Point.
 			);
 
-			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			wp_localize_script( 'kemet-theme-js', 'kemet', apply_filters( 'kemet_theme_js_localize', $kemet_localize ) );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

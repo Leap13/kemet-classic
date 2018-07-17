@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_partial_site_tagline() {
 
-			$site_tagline = astra_get_option( 'display-site-tagline' );
+			$site_tagline = kemet_get_option( 'display-site-tagline' );
 
 			if ( true == $site_tagline ) {
 				return get_bloginfo( 'description', 'display' );
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_partial_site_title() {
 
-			$site_title = astra_get_option( 'display-site-title' );
+			$site_title = kemet_get_option( 'display-site-title' );
 
 			if ( true == $site_title ) {
 				return get_bloginfo( 'name', 'display' );
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_header_main_rt_section_html() {
 
-			$right_section_html = astra_get_option( 'header-main-rt-section-html' );
+			$right_section_html = kemet_get_option( 'header-main-rt-section-html' );
 
 			return do_shortcode( $right_section_html );
 		}
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_sml_section_1_credit() {
 
-			$output = astra_get_small_footer_custom_text( 'footer-sml-section-1-credit' );
+			$output = kemet_get_small_footer_custom_text( 'footer-sml-section-1-credit' );
 			return do_shortcode( $output );
 		}
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_sml_section_2_credit() {
 
-			$output = astra_get_small_footer_custom_text( 'footer-sml-section-2-credit' );
+			$output = kemet_get_small_footer_custom_text( 'footer-sml-section-2-credit' );
 			return do_shortcode( $output );
 		}
 	}

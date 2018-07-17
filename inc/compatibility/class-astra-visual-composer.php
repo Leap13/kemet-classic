@@ -57,11 +57,11 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		 */
 		function vc_update_meta_setting( $id ) {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kemet_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
-			update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+			update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 			update_post_meta( $id, 'site-post-title', 'disabled' );
 			update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 			update_post_meta( $id, 'ast-featured-img', 'disabled' );
@@ -86,8 +86,8 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		function vc_frontend_default_setting() {
 
 			global $post;
-			$id                = astra_get_post_id();
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$id                = kemet_get_post_id();
+			$page_builder_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 
 			if ( empty( $page_builder_flag ) ) {
 				if ( $id > 0 && empty( $post->post_content ) ) {
@@ -105,9 +105,9 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		function vc_default_setting() {
 
 			global $post;
-			$id = astra_get_post_id();
+			$id = kemet_get_post_id();
 
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$page_builder_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 				$vc_active = get_post_meta( $id, '_wpb_vc_js_status', true );

@@ -157,19 +157,19 @@
 /**
  * Upgred To Kemet Pro
 */
-.control-section-astra-pro h3 {
+.control-section-kemet-pro h3 {
     margin: 0;
    	padding: 1px 0;
    	border: 0;
     position: relative;
 }
-.control-section-astra-pro h3 a {
+.control-section-kemet-pro h3 a {
     background: #FFF;
     display: block;
     padding: 11px 14px 12px 10px;
     text-decoration: none;
 }
-.control-section-astra-pro h3 a:after {
+.control-section-kemet-pro h3 a:after {
 	content: "\f345";
 	position: absolute;
 	top: 11px;
@@ -187,6 +187,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.rtl .control-section-astra-pro h3 a:after {
+.rtl .control-section-kemet-pro h3 a:after {
     content: "\f341";
 }

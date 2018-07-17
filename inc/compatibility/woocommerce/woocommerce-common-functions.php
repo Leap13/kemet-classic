@@ -7,14 +7,14 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.1.0
  */
 
 /**
  * Shop page - Products Title markup updated
  */
-if ( ! function_exists( 'astra_woo_shop_products_title' ) ) :
+if ( ! function_exists( 'kemet_woo_shop_products_title' ) ) :
 
 	/**
 	 * Shop Page product titles with anchor
@@ -23,7 +23,7 @@ if ( ! function_exists( 'astra_woo_shop_products_title' ) ) :
 	 *
 	 * @since 1.1.0
 	 */
-	function astra_woo_shop_products_title() {
+	function kemet_woo_shop_products_title() {
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
 
 		echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
@@ -36,7 +36,7 @@ endif;
 /**
  * Shop page - Parent Category
  */
-if ( ! function_exists( 'astra_woo_shop_parent_category' ) ) :
+if ( ! function_exists( 'kemet_woo_shop_parent_category' ) ) :
 	/**
 	 * Add and/or Remove Categories from shop archive page.
 	 *
@@ -44,8 +44,8 @@ if ( ! function_exists( 'astra_woo_shop_parent_category' ) ) :
 	 *
 	 * @since 1.1.0
 	 */
-	function astra_woo_shop_parent_category() {
-		if ( apply_filters( 'astra_woo_shop_parent_category', true ) ) : ?>
+	function kemet_woo_shop_parent_category() {
+		if ( apply_filters( 'kemet_woo_shop_parent_category', true ) ) : ?>
 			<span class="ast-woo-product-category">
 				<?php
 				global $product;
@@ -67,7 +67,7 @@ endif;
 /**
  * Shop page - Out of Stock
  */
-if ( ! function_exists( 'astra_woo_shop_out_of_stock' ) ) :
+if ( ! function_exists( 'kemet_woo_shop_out_of_stock' ) ) :
 	/**
 	 * Add Out of Stock to the Shop page
 	 *
@@ -75,9 +75,9 @@ if ( ! function_exists( 'astra_woo_shop_out_of_stock' ) ) :
 	 *
 	 * @since 1.1.0
 	 */
-	function astra_woo_shop_out_of_stock() {
+	function kemet_woo_shop_out_of_stock() {
 		$out_of_stock        = get_post_meta( get_the_ID(), '_stock_status', true );
-		$out_of_stock_string = apply_filters( 'astra_woo_shop_out_of_stock_string', __( 'Out of stock', 'astra' ) );
+		$out_of_stock_string = apply_filters( 'kemet_woo_shop_out_of_stock_string', __( 'Out of stock', 'kemet' ) );
 		if ( 'outofstock' === $out_of_stock ) {
 		?>
 			<span class="ast-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
@@ -90,7 +90,7 @@ endif;
 /**
  * Shop page - Short Description
  */
-if ( ! function_exists( 'astra_woo_shop_product_short_description' ) ) :
+if ( ! function_exists( 'kemet_woo_shop_product_short_description' ) ) :
 	/**
 	 * Product short description
 	 *
@@ -98,7 +98,7 @@ if ( ! function_exists( 'astra_woo_shop_product_short_description' ) ) :
 	 *
 	 * @since 1.1.0
 	 */
-	function astra_woo_shop_product_short_description() {
+	function kemet_woo_shop_product_short_description() {
 	?>
 	<?php if ( has_excerpt() ) { ?>
 		<div class="ast-woo-shop-product-description">
@@ -111,7 +111,7 @@ endif;
 /**
  * Product page - Availability: in stock
  */
-if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
+if ( ! function_exists( 'kemet_woo_product_in_stock' ) ) :
 	/**
 	 * Availability: in stock string updated
 	 *
@@ -120,7 +120,7 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 	 *
 	 * @since 1.1.0
 	 */
-	function astra_woo_product_in_stock( $markup, $product ) {
+	function kemet_woo_product_in_stock( $markup, $product ) {
 
 		if ( is_product() ) {
 			$product_avail  = $product->get_availability();
@@ -130,7 +130,7 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 				ob_start();
 				?>
 				<p class="ast-stock-detail">
-					<span class="ast-stock-avail"><?php esc_html_e( 'Availability:', 'astra' ); ?></span>
+					<span class="ast-stock-avail"><?php esc_html_e( 'Availability:', 'kemet' ); ?></span>
 					<span class="stock in-stock"><?php echo esc_html( $availability ); ?></span>
 				</p>
 				<?php
@@ -142,12 +142,12 @@ if ( ! function_exists( 'astra_woo_product_in_stock' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) {
+if ( ! function_exists( 'kemet_woo_woocommerce_template_loop_product_title' ) ) {
 
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
-	function astra_woo_woocommerce_template_loop_product_title() {
+	function kemet_woo_woocommerce_template_loop_product_title() {
 
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';
 			woocommerce_template_loop_product_title();
@@ -155,20 +155,20 @@ if ( ! function_exists( 'astra_woo_woocommerce_template_loop_product_title' ) ) 
 	}
 }
 
-if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
+if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
-	function astra_woo_woocommerce_shop_product_content() {
+	function kemet_woo_woocommerce_shop_product_content() {
 
-		$shop_structure = apply_filters( 'astra_woo_shop_product_structure', astra_get_option( 'shop-product-structure' ) );
+		$shop_structure = apply_filters( 'kemet_woo_shop_product_structure', kemet_get_option( 'shop-product-structure' ) );
 
 		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 
-			do_action( 'astra_woo_shop_before_summary_wrap' );
-			echo '<div class="astra-shop-summary-wrap">';
-			do_action( 'astra_woo_shop_summary_wrap_top' );
+			do_action( 'kemet_woo_shop_before_summary_wrap' );
+			echo '<div class="kemet-shop-summary-wrap">';
+			do_action( 'kemet_woo_shop_summary_wrap_top' );
 
 			foreach ( $shop_structure as $value ) {
 
@@ -177,73 +177,73 @@ if ( ! function_exists( 'astra_woo_woocommerce_shop_product_content' ) ) {
 						/**
 						 * Add Product Title on shop page for all products.
 						 */
-						do_action( 'astra_woo_shop_title_before' );
-						astra_woo_woocommerce_template_loop_product_title();
-						do_action( 'astra_woo_shop_title_after' );
+						do_action( 'kemet_woo_shop_title_before' );
+						kemet_woo_woocommerce_template_loop_product_title();
+						do_action( 'kemet_woo_shop_title_after' );
 						break;
 					case 'price':
 						/**
 						 * Add Product Price on shop page for all products.
 						 */
-						do_action( 'astra_woo_shop_price_before' );
+						do_action( 'kemet_woo_shop_price_before' );
 						woocommerce_template_loop_price();
-						do_action( 'astra_woo_shop_price_after' );
+						do_action( 'kemet_woo_shop_price_after' );
 						break;
 					case 'ratings':
 						/**
 						 * Add rating on shop page for all products.
 						 */
-						do_action( 'astra_woo_shop_rating_before' );
+						do_action( 'kemet_woo_shop_rating_before' );
 						woocommerce_template_loop_rating();
-						do_action( 'astra_woo_shop_rating_after' );
+						do_action( 'kemet_woo_shop_rating_after' );
 						break;
 					case 'short_desc':
-						do_action( 'astra_woo_shop_short_description_before' );
-						astra_woo_shop_product_short_description();
-						do_action( 'astra_woo_shop_short_description_after' );
+						do_action( 'kemet_woo_shop_short_description_before' );
+						kemet_woo_shop_product_short_description();
+						do_action( 'kemet_woo_shop_short_description_after' );
 						break;
 					case 'add_cart':
-						do_action( 'astra_woo_shop_add_to_cart_before' );
+						do_action( 'kemet_woo_shop_add_to_cart_before' );
 						woocommerce_template_loop_add_to_cart();
-						do_action( 'astra_woo_shop_add_to_cart_after' );
+						do_action( 'kemet_woo_shop_add_to_cart_after' );
 						break;
 					case 'category':
 						/**
 						 * Add and/or Remove Categories from shop archive page.
 						 */
-						do_action( 'astra_woo_shop_category_before' );
-						astra_woo_shop_parent_category();
-						do_action( 'astra_woo_shop_category_after' );
+						do_action( 'kemet_woo_shop_category_before' );
+						kemet_woo_shop_parent_category();
+						do_action( 'kemet_woo_shop_category_after' );
 						break;
 					default:
 						break;
 				}
 			}
 
-			do_action( 'astra_woo_shop_summary_wrap_bottom' );
+			do_action( 'kemet_woo_shop_summary_wrap_bottom' );
 			echo '</div>';
-			do_action( 'astra_woo_shop_after_summary_wrap' );
+			do_action( 'kemet_woo_shop_after_summary_wrap' );
 		}
 	}
 }
 
-if ( ! function_exists( 'astra_woo_shop_thumbnail_wrap_start' ) ) {
+if ( ! function_exists( 'kemet_woo_shop_thumbnail_wrap_start' ) ) {
 
 	/**
 	 * Thumbnail wrap start.
 	 */
-	function astra_woo_shop_thumbnail_wrap_start() {
+	function kemet_woo_shop_thumbnail_wrap_start() {
 
-		echo '<div class="astra-shop-thumbnail-wrap">';
+		echo '<div class="kemet-shop-thumbnail-wrap">';
 	}
 }
 
-if ( ! function_exists( 'astra_woo_shop_thumbnail_wrap_end' ) ) {
+if ( ! function_exists( 'kemet_woo_shop_thumbnail_wrap_end' ) ) {
 
 	/**
 	 * Thumbnail wrap end.
 	 */
-	function astra_woo_shop_thumbnail_wrap_end() {
+	function kemet_woo_shop_thumbnail_wrap_end() {
 
 		echo '</div>';
 	}
@@ -253,7 +253,7 @@ if ( ! function_exists( 'astra_woo_shop_thumbnail_wrap_end' ) ) {
 /**
  * Woocommerce filter - Widget Products Tags
  */
-if ( ! function_exists( 'astra_widget_product_tag_cloud_args' ) ) {
+if ( ! function_exists( 'kemet_widget_product_tag_cloud_args' ) ) {
 
 	/**
 	 * Woocommerce filter - Widget Products Tags
@@ -261,32 +261,32 @@ if ( ! function_exists( 'astra_widget_product_tag_cloud_args' ) ) {
 	 * @param  array $args Tag arguments.
 	 * @return array       Modified tag arguments.
 	 */
-	function astra_widget_product_tag_cloud_args( $args = array() ) {
+	function kemet_widget_product_tag_cloud_args( $args = array() ) {
 
-		$sidebar_link_font_size            = astra_get_option( 'font-size-body' );
+		$sidebar_link_font_size            = kemet_get_option( 'font-size-body' );
 		$sidebar_link_font_size['desktop'] = ( '' != $sidebar_link_font_size['desktop'] ) ? $sidebar_link_font_size['desktop'] : 15;
 
 		$args['smallest'] = intval( $sidebar_link_font_size['desktop'] ) - 2;
 		$args['largest']  = intval( $sidebar_link_font_size['desktop'] ) + 3;
 		$args['unit']     = 'px';
 
-		return apply_filters( 'astra_widget_product_tag_cloud_args', $args );
+		return apply_filters( 'kemet_widget_product_tag_cloud_args', $args );
 	}
-	add_filter( 'woocommerce_product_tag_cloud_widget_args', 'astra_widget_product_tag_cloud_args', 90 );
+	add_filter( 'woocommerce_product_tag_cloud_widget_args', 'kemet_widget_product_tag_cloud_args', 90 );
 
 }
 
 /**
  * Woocommerce shop/product div close tag.
  */
-if ( ! function_exists( 'astra_woocommerce_div_wrapper_close' ) ) :
+if ( ! function_exists( 'kemet_woocommerce_div_wrapper_close' ) ) :
 
 	/**
 	 * Woocommerce shop/product div close tag.
 	 *
 	 * @return void
 	 */
-	function astra_woocommerce_div_wrapper_close() {
+	function kemet_woocommerce_div_wrapper_close() {
 
 		echo '</div>';
 

@@ -5,45 +5,45 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
-add_action( 'astra_masthead_toggle_buttons', 'astra_masthead_toggle_buttons_primary' );
-add_action( 'astra_masthead', 'astra_masthead_primary_template' );
-add_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
-add_filter( 'wp_nav_menu_items', 'astra_masthead_custom_nav_menu_items', 10, 2 );
-add_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
-add_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
-add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
-add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
-add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
-add_action( 'astra_masthead_content', 'astra_header_custom_item_outside_menu', 10 );
+add_action( 'kemet_masthead_toggle_buttons', 'kemet_masthead_toggle_buttons_primary' );
+add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
+add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
+add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
+add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
+add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
+add_action( 'kemet_entry_content_404_page', 'kemet_entry_content_404_page_template' );
+add_action( 'kemet_footer_content', 'kemet_advanced_footer_markup', 1 );
+add_action( 'kemet_masthead_content', 'kemet_header_custom_item_outside_menu', 10 );
 
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
+if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 
 	/**
 	 * Custom Menu Item Markup
 	 *
 	 * => Used in hooks:
 	 *
-	 * @see astra_masthead_get_menu_items
-	 * @see astra_masthead_custom_nav_menu_items
+	 * @see kemet_masthead_get_menu_items
+	 * @see kemet_masthead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_get_menu_items( $display_outside_markup = false ) {
+	function kemet_masthead_get_menu_items( $display_outside_markup = false ) {
 
 		// Get selected custom menu items.
 		$markup = '';
 
-		$section                    = astra_get_option( 'header-main-rt-section' );
-		$sections                   = astra_get_dynamic_header_content( 'header-main-rt-section' );
-		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
+		$section                    = kemet_get_option( 'header-main-rt-section' );
+		$sections                   = kemet_get_dynamic_header_content( 'header-main-rt-section' );
+		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
 
 		if ( $disable_primary_navigation || $display_outside_markup ) {
@@ -52,7 +52,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'astra_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
+			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
 			?>
 			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
@@ -67,7 +67,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 			$markup = ob_get_clean();
 		}
 
-		return apply_filters( 'astra_masthead_get_menu_items', $markup );
+		return apply_filters( 'kemet_masthead_get_menu_items', $markup );
 	}
 
 endif;
@@ -75,7 +75,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_custom_page_menu_items' ) ) :
+if ( ! function_exists( 'kemet_masthead_custom_page_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -88,13 +88,13 @@ if ( ! function_exists( 'astra_masthead_custom_page_menu_items' ) ) :
 	 * @param  array $args Array of arguments.
 	 * @return array       Modified menu item array.
 	 */
-	function astra_masthead_custom_page_menu_items( $args ) {
+	function kemet_masthead_custom_page_menu_items( $args ) {
 
-		if ( isset( $args['theme_location'] ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args['theme_location'] ) && ! kemet_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
-				$markup = astra_masthead_get_menu_items();
+				$markup = kemet_masthead_get_menu_items();
 
 				if ( $markup ) {
 					$args['after'] = $markup . '</ul>';
@@ -110,7 +110,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
+if ( ! function_exists( 'kemet_masthead_custom_nav_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -124,13 +124,13 @@ if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
 	 * @param  array $args  Nav menu item arguments array.
 	 * @return array       Modified menu item array.
 	 */
-	function astra_masthead_custom_nav_menu_items( $items, $args ) {
+	function kemet_masthead_custom_nav_menu_items( $items, $args ) {
 
-		if ( isset( $args->theme_location ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args->theme_location ) && ! kemet_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
 
-				$markup = astra_masthead_get_menu_items();
+				$markup = kemet_masthead_get_menu_items();
 
 				if ( $markup ) {
 					$items .= $markup;
@@ -146,7 +146,7 @@ endif;
 /**
  * Header toggle buttons
  */
-if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
+if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
 
 	/**
 	 * Header toggle buttons
@@ -157,17 +157,17 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_toggle_buttons_primary() {
+	function kemet_masthead_toggle_buttons_primary() {
 
-		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
-		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
-		$display_outside_menu       = astra_get_option( 'header-display-outside-menu' );
+		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
+		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
+		$display_outside_menu       = kemet_get_option( 'header-display-outside-menu' );
 
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
-			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
-			$menu_icon           = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_title          = trim( apply_filters( 'kemet_main_menu_toggle_label', kemet_get_option( 'header-main-menu-label' ) ) );
+			$menu_icon           = apply_filters( 'kemet_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
-			$screen_reader_title = __( 'Main Menu', 'astra' );
+			$screen_reader_title = __( 'Main Menu', 'kemet' );
 			if ( '' !== $menu_title ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
@@ -194,7 +194,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 /**
  * Small Footer
  */
-if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
+if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 
 	/**
 	 * Small Footer
@@ -205,9 +205,9 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_footer_small_footer_template() {
+	function kemet_footer_small_footer_template() {
 
-		$small_footer_layout = astra_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
+		$small_footer_layout = kemet_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
 		$small_footer_layout = apply_filters( 'ast_footer_sml_layout', $small_footer_layout );
 
 		if ( 'disabled' != $small_footer_layout ) {
@@ -226,7 +226,7 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 /**
  * Primary Header
  */
-if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
+if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
 
 	/**
 	 * Primary Header
@@ -237,7 +237,7 @@ if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_primary_template() {
+	function kemet_masthead_primary_template() {
 		get_template_part( 'template-parts/header/header-main-layout' );
 	}
 }
@@ -245,7 +245,7 @@ if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
 /**
  * Single post markup
  */
-if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
+if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 
 	/**
 	 * Single post markup
@@ -256,7 +256,7 @@ if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_single_template() {
+	function kemet_entry_content_single_template() {
 		get_template_part( 'template-parts/single/single-layout' );
 	}
 }
@@ -264,7 +264,7 @@ if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
 /**
  * Blog post list markup for blog & search page
  */
-if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
+if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 
 	/**
 	 * Blog post list markup for blog & search page
@@ -276,7 +276,7 @@ if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_blog_template() {
+	function kemet_entry_content_blog_template() {
 		get_template_part( 'template-parts/blog/blog-layout' );
 	}
 }
@@ -284,7 +284,7 @@ if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
 /**
  * 404 markup
  */
-if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
+if ( ! function_exists( 'kemet_entry_content_404_page_template' ) ) {
 
 	/**
 	 * 404 markup
@@ -295,9 +295,9 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_404_page_template() {
+	function kemet_entry_content_404_page_template() {
 
-		$layout_404 = astra_get_option( 'ast-404-layout' );
+		$layout_404 = kemet_get_option( 'ast-404-layout' );
 		$layout_404 = str_replace( '404-layout-', '', $layout_404 );
 
 		// Default 404 is nothing but the 404 layout 1.
@@ -312,7 +312,7 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 /**
  * Footer widgets markup
  */
-if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
+if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -321,12 +321,12 @@ if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 	 *
 	 * @since 1.0.12
 	 */
-	function astra_advanced_footer_markup() {
+	function kemet_advanced_footer_markup() {
 
-		$advanced_footer_layout = astra_get_option( 'footer-adv' );
-		$advanced_footer_meta   = astra_get_option_meta( 'footer-adv-display' );
+		$advanced_footer_layout = kemet_get_option( 'footer-adv' );
+		$advanced_footer_meta   = kemet_get_option_meta( 'footer-adv-display' );
 
-		if ( apply_filters( 'astra_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
+		if ( apply_filters( 'kemet_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
 			return;
 		}
 
@@ -339,7 +339,7 @@ if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 /**
  * Header menu item outside custom menu
  */
-if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
+if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -348,10 +348,10 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 	 *
 	 * @since 1.0.12
 	 */
-	function astra_header_custom_item_outside_menu() {
+	function kemet_header_custom_item_outside_menu() {
 
-		if ( astra_get_option( 'header-display-outside-menu' ) ) {
-			$markup = astra_masthead_get_menu_items( true );
+		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
+			$markup = kemet_masthead_get_menu_items( true );
 
 			echo $markup;
 		}

@@ -43,7 +43,7 @@ if ( ! class_exists( 'Kemet_BNE_Flyout' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kemet_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Kemet_BNE_Flyout' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['astra-bne-flyout'] = 'compatibility/bne-flyout';
+			$assets['css']['kemet-bne-flyout'] = 'compatibility/bne-flyout';
 			return $assets;
 		}
 

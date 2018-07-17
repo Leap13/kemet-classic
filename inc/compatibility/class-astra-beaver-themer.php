@@ -64,7 +64,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 			$post_type = get_post_type();
 
 			if ( 'fl-theme-layout' == $post_type ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+				remove_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
 			}
 
 			if ( empty( $ids ) && 'fl-theme-layout' != $post_type ) {
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			if ( count( $result ) > 0 ) {
 				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
-				add_filter( 'astra_post_link_enabled', '__return_false' );
+				add_filter( 'kemet_post_link_enabled', '__return_false' );
 			}
 			return $classes;
 		}
@@ -117,8 +117,8 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			// If we have a header, remove the theme header and hook in Theme Builder's.
 			if ( ! empty( $header_ids ) ) {
-				remove_action( 'astra_header', 'astra_header_markup' );
-				add_action( 'astra_header', 'FLThemeBuilderLayoutRenderer::render_header' );
+				remove_action( 'kemet_header', 'kemet_header_markup' );
+				add_action( 'kemet_header', 'FLThemeBuilderLayoutRenderer::render_header' );
 			}
 
 			// Get the footer ID.
@@ -126,8 +126,8 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			// If we have a footer, remove the theme footer and hook in Theme Builder's.
 			if ( ! empty( $footer_ids ) ) {
-				remove_action( 'astra_footer', 'astra_footer_markup' );
-				add_action( 'astra_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
+				remove_action( 'kemet_footer', 'kemet_footer_markup' );
+				add_action( 'kemet_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
 
 			// BB Themer Support.
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 					if ( 'default' !== $sidebar ) {
 						add_filter(
-							'astra_page_layout', function( $page_layout ) use ( $sidebar ) {
+							'kemet_page_layout', function( $page_layout ) use ( $sidebar ) {
 
 								return $sidebar;
 							}
@@ -154,7 +154,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 					$content_layout = get_post_meta( $template_id, 'site-content-layout', true );
 					if ( 'default' !== $content_layout ) {
 						add_filter(
-							'astra_get_content_layout', function( $layout ) use ( $content_layout ) {
+							'kemet_get_content_layout', function( $layout ) use ( $content_layout ) {
 
 								return $content_layout;
 							}
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 					if ( 'disabled' === $main_header_display ) {
 
 						if ( 'archive' === $template_type ) {
-							remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+							remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 						} else {
 							add_filter(
 								'ast_main_header_display', function( $display_header ) {
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 					$footer_widgets = get_post_meta( $template_id, 'footer-adv-display', true );
 					if ( 'disabled' === $footer_widgets ) {
 						add_filter(
-							'astra_advanced_footer_disable', function() {
+							'kemet_advanced_footer_disable', function() {
 								return true;
 							}
 						);
@@ -211,49 +211,49 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 				array(
 					'label' => 'Page',
 					'hooks' => array(
-						'astra_body_top'    => __( 'Before Page', 'astra' ),
-						'astra_body_bottom' => __( 'After Page', 'astra' ),
+						'kemet_body_top'    => __( 'Before Page', 'kemet' ),
+						'kemet_body_bottom' => __( 'After Page', 'kemet' ),
 					),
 				),
 				array(
 					'label' => 'Header',
 					'hooks' => array(
-						'astra_header_before' => __( 'Before Header', 'astra' ),
-						'astra_header_after'  => __( 'After Header', 'astra' ),
+						'kemet_header_before' => __( 'Before Header', 'kemet' ),
+						'kemet_header_after'  => __( 'After Header', 'kemet' ),
 					),
 				),
 				array(
 					'label' => 'Content',
 					'hooks' => array(
-						'astra_primary_content_top'    => __( 'Before Content', 'astra' ),
-						'astra_primary_content_bottom' => __( 'After Content', 'astra' ),
+						'kemet_primary_content_top'    => __( 'Before Content', 'kemet' ),
+						'kemet_primary_content_bottom' => __( 'After Content', 'kemet' ),
 					),
 				),
 				array(
 					'label' => 'Footer',
 					'hooks' => array(
-						'astra_footer_before' => __( 'Before Footer', 'astra' ),
-						'astra_footer_after'  => __( 'After Footer', 'astra' ),
+						'kemet_footer_before' => __( 'Before Footer', 'kemet' ),
+						'kemet_footer_after'  => __( 'After Footer', 'kemet' ),
 					),
 				),
 				array(
 					'label' => 'Sidebar',
 					'hooks' => array(
-						'astra_sidebars_before' => __( 'Before Sidebar', 'astra' ),
-						'astra_sidebars_after'  => __( 'After Sidebar', 'astra' ),
+						'kemet_sidebars_before' => __( 'Before Sidebar', 'kemet' ),
+						'kemet_sidebars_after'  => __( 'After Sidebar', 'kemet' ),
 					),
 				),
 				array(
 					'label' => 'Posts',
 					'hooks' => array(
-						'loop_start'                 => __( 'Loop Start', 'astra' ),
-						'astra_entry_top'            => __( 'Before Post', 'astra' ),
-						'astra_entry_content_before' => __( 'Before Post Content', 'astra' ),
-						'astra_entry_content_after'  => __( 'After Post Content', 'astra' ),
-						'astra_entry_bottom'         => __( 'After Post', 'astra' ),
-						'astra_comments_before'      => __( 'Before Comments', 'astra' ),
-						'astra_comments_after'       => __( 'After Comments', 'astra' ),
-						'loop_end'                   => __( 'Loop End', 'astra' ),
+						'loop_start'                 => __( 'Loop Start', 'kemet' ),
+						'kemet_entry_top'            => __( 'Before Post', 'kemet' ),
+						'kemet_entry_content_before' => __( 'Before Post Content', 'kemet' ),
+						'kemet_entry_content_after'  => __( 'After Post Content', 'kemet' ),
+						'kemet_entry_bottom'         => __( 'After Post', 'kemet' ),
+						'kemet_comments_before'      => __( 'Before Comments', 'kemet' ),
+						'kemet_comments_after'       => __( 'After Comments', 'kemet' ),
+						'loop_end'                   => __( 'Loop End', 'kemet' ),
 					),
 				),
 			);
@@ -268,13 +268,13 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		function builder_before_render_content( $post_id ) {
 
 		?>
-			<?php if ( 'left-sidebar' === astra_page_layout() ) : ?>
+			<?php if ( 'left-sidebar' === kemet_page_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
 			<?php endif ?>
 
-			<div id="primary" <?php astra_primary_class(); ?>>
+			<div id="primary" <?php kemet_primary_class(); ?>>
 		<?php
 		}
 
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		?>
 			</div><!-- #primary -->
 
-			<?php if ( 'right-sidebar' === astra_page_layout() ) : ?>
+			<?php if ( 'right-sidebar' === kemet_page_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 

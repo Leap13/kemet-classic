@@ -32,7 +32,7 @@ $wp_customize->add_control(
  */
 $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
-		'default'           => astra_get_option( 'learndash-sidebar-layout' ),
+		'default'           => kemet_get_option( 'learndash-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
@@ -42,13 +42,13 @@ $wp_customize->add_control(
 		'type'        => 'select',
 		'section'     => 'section-sidebars',
 		'priority'    => 5,
-		'label'       => __( 'LearnDash', 'astra' ),
-		'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
+		'label'       => __( 'LearnDash', 'kemet' ),
+		'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'kemet' ),
 		'choices'     => array(
-			'default'       => __( 'Default', 'astra' ),
-			'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-			'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-			'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+			'default'       => __( 'Default', 'kemet' ),
+			'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+			'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+			'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 		),
 	)
 );

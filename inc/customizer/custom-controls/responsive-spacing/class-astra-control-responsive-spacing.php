@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -53,8 +53,8 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
 
-		wp_enqueue_script( 'astra-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-responsive-spacing', $css_uri . 'responsive-spacing.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-responsive-spacing', $css_uri . 'responsive-spacing.css', null, KEMET_THEME_VERSION );
 	}
 
 	/**

@@ -122,7 +122,7 @@
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
-			weightMap           = astraTypo;
+			weightMap           = kemetTypo;
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}

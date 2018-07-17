@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.1.0
  */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[enable-cart-upsells]', array(
-			'default'           => astra_get_option( 'enable-cart-upsells' ),
+			'default'           => kemet_get_option( 'enable-cart-upsells' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[enable-cart-upsells]', array(
 			'section'  => 'section-woo-shop-cart',
-			'label'    => __( 'Enable Upsells', 'astra' ),
+			'label'    => __( 'Enable Upsells', 'kemet' ),
 			'priority' => 10,
 			'type'     => 'checkbox',
 		)

@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -70,8 +70,8 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/slider/';
 		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/slider/';
 
-		wp_enqueue_script( 'astra-slider', $js_uri . 'slider.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'astra-slider', $css_uri . 'slider.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-slider', $js_uri . 'slider.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-slider', $css_uri . 'slider.css', null, KEMET_THEME_VERSION );
 	}
 
 	/**
@@ -95,7 +95,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
-				<div class="astra_range_value">
+				<div class="kemet_range_value">
 					<input type="number" class="value ast-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 

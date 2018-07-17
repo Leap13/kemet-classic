@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 
 			// Theme Updates.
 			add_action( 'init', __CLASS__ . '::init' );
-			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
+			add_action( 'init', __CLASS__ . '::kemet_pro_compatibility' );
 		}
 
 		/**
@@ -52,10 +52,10 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 * @since 1.0.0
 		 */
 		static public function init() {
-			do_action( 'astra_update_before' );
+			do_action( 'kemet_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version', false );
+			$saved_version = kemet_get_option( 'theme-auto-version', false );
 
 			if ( ! $saved_version ) {
 
@@ -105,37 +105,37 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				self::v_1_0_14();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kemet meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.0.28', '<' ) ) {
 				self::v_1_0_28();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kemet meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.1.0-beta.3', '<' ) ) {
 				self::v_1_1_0_beta_3();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kemet meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.1.0-beta.4', '<' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kemet meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.2.2', '<' ) ) {
 				self::v_1_2_2();
 			}
 
-			// Update astra Theme colors values same as Link color.
+			// Update kemet Theme colors values same as Link color.
 			if ( version_compare( $saved_version, '1.2.4', '<' ) ) {
 				self::v_1_2_4();
 			}
 
-			// Update astra Google Fonts values with fallback font.
+			// Update kemet Google Fonts values with fallback font.
 			if ( version_compare( $saved_version, '1.2.7', '<' ) ) {
 				self::v_1_2_7();
 			}
 
-			// Update astra background image data.
+			// Update kemet background image data.
 			if ( version_compare( $saved_version, '1.3.0', '<' ) ) {
 				self::v_1_3_0();
 			}
@@ -144,10 +144,10 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 			if ( empty( $saved_version ) ) {
 
 				// Get old version.
-				$theme_version = get_option( '_astra_auto_version', KEMET_THEME_VERSION );
+				$theme_version = get_option( '_kemet_auto_version', KEMET_THEME_VERSION );
 
 				// Remove option.
-				delete_option( '_astra_auto_version' );
+				delete_option( '_kemet_auto_version' );
 
 			} else {
 
@@ -172,17 +172,17 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 			// Update variables.
 			Kemet_Theme_Options::refresh();
 
-			do_action( 'astra_update_after' );
+			do_action( 'kemet_update_after' );
 
 		}
 
 		/**
-		 * Footer Widgets compatibilty for astra pro.
+		 * Footer Widgets compatibilty for kemet pro.
 		 */
-		static public function astra_pro_compatibility() {
+		static public function kemet_pro_compatibility() {
 
 			if ( defined( 'KEMET_EXT_VER' ) && version_compare( KEMET_EXT_VER, '1.0.0-beta.6', '<' ) ) {
-				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
+				remove_action( 'kemet_footer_content', 'kemet_advanced_footer_markup', 1 );
 			}
 		}
 
@@ -247,15 +247,15 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( 'ast-settings', array() );
+			$kemet_options = get_option( 'ast-settings', array() );
 
-			if ( 0 < count( $astra_options ) ) {
+			if ( 0 < count( $kemet_options ) ) {
 				foreach ( $options as $key ) {
 
-					if ( array_key_exists( $key, $astra_options ) && ! is_array( $astra_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $kemet_options ) && ! is_array( $kemet_options[ $key ] ) ) {
 
-						$astra_options[ $key ] = array(
-							'desktop'      => $astra_options[ $key ],
+						$kemet_options[ $key ] = array(
+							'desktop'      => $kemet_options[ $key ],
 							'tablet'       => '',
 							'mobile'       => '',
 							'desktop-unit' => 'px',
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'ast-settings', $astra_options );
+			update_option( 'ast-settings', $kemet_options );
 		}
 
 		/**
@@ -276,14 +276,14 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_0_5() {
 
-			$astra_old_options = get_option( 'ast-settings', array() );
-			$astra_new_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_old_options = get_option( 'ast-settings', array() );
+			$kemet_new_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			// Merge old customizer options in new option.
-			$astra_options = wp_parse_args( $astra_new_options, $astra_old_options );
+			$kemet_options = wp_parse_args( $kemet_new_options, $kemet_old_options );
 
 			// Update option.
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 
 			// Delete old option.
 			delete_option( 'ast-settings' );
@@ -323,23 +323,23 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			if ( 0 < count( $astra_options ) ) {
+			if ( 0 < count( $kemet_options ) ) {
 				foreach ( $options as $key ) {
 
-					if ( array_key_exists( $key, $astra_options ) && is_array( $astra_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $kemet_options ) && is_array( $kemet_options[ $key ] ) ) {
 
-						if ( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
-							$astra_options[ $key ] = $astra_options[ $key ]['desktop'];
+						if ( in_array( $kemet_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
+							$kemet_options[ $key ] = $kemet_options[ $key ]['desktop'];
 						} else {
-							$astra_options[ $key ] = '';
+							$kemet_options[ $key ] = '';
 						}
 					}
 				}
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -356,15 +356,15 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'archive-post-content-layout' => 'content-boxed-container',
 			);
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kemet_options[ $key ] ) ) {
+					$kemet_options[ $key ] = $value;
 				}
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -384,18 +384,18 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'archive-post-sidebar-layout' => 'right-sidebar',
 			);
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kemet_options[ $key ] ) ) {
+					$kemet_options[ $key ] = $value;
 				}
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 
-			update_option( '_astra_pb_compatibility_offset', 1 );
-			update_option( '_astra_pb_compatibility_time', date( 'Y-m-d H:i:s' ) );
+			update_option( '_kemet_pb_compatibility_offset', 1 );
+			update_option( '_kemet_pb_compatibility_time', date( 'Y-m-d H:i:s' ) );
 		}
 
 		/**
@@ -442,20 +442,20 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_1_0_beta_3() {
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['shop-grid'] ) ) {
+			if ( isset( $kemet_options['shop-grid'] ) ) {
 
-				$astra_options['shop-grids'] = array(
-					'desktop' => $astra_options['shop-grid'],
+				$kemet_options['shop-grids'] = array(
+					'desktop' => $kemet_options['shop-grid'],
 					'tablet'  => 2,
 					'mobile'  => 1,
 				);
 
-				unset( $astra_options['shop-grid'] );
+				unset( $kemet_options['shop-grid'] );
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -469,7 +469,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_1_0_beta_4() {
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			$options = array(
 				'woocommerce-content-layout' => 'default',
@@ -483,15 +483,15 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'shop-no-of-products'        => '9',
 			);
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kemet_options[ $key ] ) ) {
+					$kemet_options[ $key ] = $value;
 				}
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -503,25 +503,25 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_2_2() {
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
-				$astra_options['ast-header-responsive-logo-width'] = array(
-					'desktop' => $astra_options['ast-header-logo-width'],
+			if ( isset( $kemet_options['ast-header-logo-width'] ) && ! is_array( $kemet_options['ast-header-logo-width'] ) ) {
+				$kemet_options['ast-header-responsive-logo-width'] = array(
+					'desktop' => $kemet_options['ast-header-logo-width'],
 					'tablet'  => '',
 					'mobile'  => '',
 				);
 			}
 
-			if ( isset( $astra_options['blog-width'] ) ) {
-				$astra_options['shop-archive-width'] = $astra_options['blog-width'];
+			if ( isset( $kemet_options['blog-width'] ) ) {
+				$kemet_options['shop-archive-width'] = $kemet_options['blog-width'];
 			}
 
-			if ( isset( $astra_options['blog-max-width'] ) ) {
-				$astra_options['shop-archive-max-width'] = $astra_options['blog-max-width'];
+			if ( isset( $kemet_options['blog-max-width'] ) ) {
+				$kemet_options['shop-archive-max-width'] = $kemet_options['blog-max-width'];
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -533,13 +533,13 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_2_4() {
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['link-color'] ) ) {
-				$astra_options['theme-color'] = $astra_options['link-color'];
+			if ( isset( $kemet_options['link-color'] ) ) {
+				$kemet_options['theme-color'] = $kemet_options['link-color'];
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -551,20 +551,20 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_2_7() {
 
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 			$google_fonts  = Kemet_Font_Families::get_google_fonts();
 
-			foreach ( $astra_options as $key => $value ) {
+			foreach ( $kemet_options as $key => $value ) {
 
 				if ( ! is_array( $value ) && ! empty( $value ) && ! is_bool( $value ) ) {
 
 					if ( array_key_exists( $value, $google_fonts ) ) {
-						$astra_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
+						$kemet_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
 					}
 				}
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 
 		/**
@@ -575,58 +575,58 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 * @since 1.3.0
 		 */
 		static public function v_1_3_0() {
-			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
+			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			$astra_options['header-bg-obj'] = array(
-				'background-color' => isset( $astra_options['header-bg-color'] ) ? $astra_options['header-bg-color'] : '',
+			$kemet_options['header-bg-obj'] = array(
+				'background-color' => isset( $kemet_options['header-bg-color'] ) ? $kemet_options['header-bg-color'] : '',
 			);
 
-			$astra_options['content-bg-obj'] = array(
-				'background-color' => isset( $astra_options['content-bg-color'] ) ? $astra_options['content-bg-color'] : '#ffffff',
+			$kemet_options['content-bg-obj'] = array(
+				'background-color' => isset( $kemet_options['content-bg-color'] ) ? $kemet_options['content-bg-color'] : '#ffffff',
 			);
 
-			$astra_options['footer-adv-bg-obj'] = array(
-				'background-color'      => isset( $astra_options['footer-adv-bg-color'] ) ? $astra_options['footer-adv-bg-color'] : '',
-				'background-image'      => isset( $astra_options['footer-adv-bg-img'] ) ? $astra_options['footer-adv-bg-img'] : '',
-				'background-repeat'     => isset( $astra_options['footer-adv-bg-repeat'] ) ? $astra_options['footer-adv-bg-repeat'] : 'no-repeat',
-				'background-position'   => isset( $astra_options['footer-adv-bg-pos'] ) ? $astra_options['footer-adv-bg-pos'] : 'center center',
-				'background-size'       => isset( $astra_options['footer-adv-bg-size'] ) ? $astra_options['footer-adv-bg-size'] : 'cover',
-				'background-attachment' => isset( $astra_options['footer-adv-bg-attac'] ) ? $astra_options['footer-adv-bg-attac'] : 'scroll',
+			$kemet_options['footer-adv-bg-obj'] = array(
+				'background-color'      => isset( $kemet_options['footer-adv-bg-color'] ) ? $kemet_options['footer-adv-bg-color'] : '',
+				'background-image'      => isset( $kemet_options['footer-adv-bg-img'] ) ? $kemet_options['footer-adv-bg-img'] : '',
+				'background-repeat'     => isset( $kemet_options['footer-adv-bg-repeat'] ) ? $kemet_options['footer-adv-bg-repeat'] : 'no-repeat',
+				'background-position'   => isset( $kemet_options['footer-adv-bg-pos'] ) ? $kemet_options['footer-adv-bg-pos'] : 'center center',
+				'background-size'       => isset( $kemet_options['footer-adv-bg-size'] ) ? $kemet_options['footer-adv-bg-size'] : 'cover',
+				'background-attachment' => isset( $kemet_options['footer-adv-bg-attac'] ) ? $kemet_options['footer-adv-bg-attac'] : 'scroll',
 			);
 
-			$astra_options['footer-bg-obj'] = array(
-				'background-color'      => isset( $astra_options['footer-bg-color'] ) ? $astra_options['footer-bg-color'] : '',
-				'background-image'      => isset( $astra_options['footer-bg-img'] ) ? $astra_options['footer-bg-img'] : '',
-				'background-repeat'     => isset( $astra_options['footer-bg-rep'] ) ? $astra_options['footer-bg-rep'] : 'repeat',
-				'background-position'   => isset( $astra_options['footer-bg-pos'] ) ? $astra_options['footer-bg-pos'] : 'center center',
-				'background-size'       => isset( $astra_options['footer-bg-size'] ) ? $astra_options['footer-bg-size'] : 'auto',
-				'background-attachment' => isset( $astra_options['footer-bg-atch'] ) ? $astra_options['footer-bg-atch'] : 'scroll',
+			$kemet_options['footer-bg-obj'] = array(
+				'background-color'      => isset( $kemet_options['footer-bg-color'] ) ? $kemet_options['footer-bg-color'] : '',
+				'background-image'      => isset( $kemet_options['footer-bg-img'] ) ? $kemet_options['footer-bg-img'] : '',
+				'background-repeat'     => isset( $kemet_options['footer-bg-rep'] ) ? $kemet_options['footer-bg-rep'] : 'repeat',
+				'background-position'   => isset( $kemet_options['footer-bg-pos'] ) ? $kemet_options['footer-bg-pos'] : 'center center',
+				'background-size'       => isset( $kemet_options['footer-bg-size'] ) ? $kemet_options['footer-bg-size'] : 'auto',
+				'background-attachment' => isset( $kemet_options['footer-bg-atch'] ) ? $kemet_options['footer-bg-atch'] : 'scroll',
 			);
 
 			// Site layout background image and color.
-			$site_layout = isset( $astra_options['site-layout'] ) ? $astra_options['site-layout'] : '';
+			$site_layout = isset( $kemet_options['site-layout'] ) ? $kemet_options['site-layout'] : '';
 			switch ( $site_layout ) {
 				case 'ast-box-layout':
-						$astra_options['site-layout-outside-bg-obj'] = array(
-							'background-color'      => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
-							'background-image'      => isset( $astra_options['site-layout-box-bg-img'] ) ? $astra_options['site-layout-box-bg-img'] : '',
-							'background-repeat'     => isset( $astra_options['site-layout-box-bg-rep'] ) ? $astra_options['site-layout-box-bg-rep'] : 'no-repeat',
-							'background-position'   => isset( $astra_options['site-layout-box-bg-pos'] ) ? $astra_options['site-layout-box-bg-pos'] : 'center center',
-							'background-size'       => isset( $astra_options['site-layout-box-bg-size'] ) ? $astra_options['site-layout-box-bg-size'] : 'cover',
-							'background-attachment' => isset( $astra_options['site-layout-box-bg-atch'] ) ? $astra_options['site-layout-box-bg-atch'] : 'scroll',
+						$kemet_options['site-layout-outside-bg-obj'] = array(
+							'background-color'      => isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '',
+							'background-image'      => isset( $kemet_options['site-layout-box-bg-img'] ) ? $kemet_options['site-layout-box-bg-img'] : '',
+							'background-repeat'     => isset( $kemet_options['site-layout-box-bg-rep'] ) ? $kemet_options['site-layout-box-bg-rep'] : 'no-repeat',
+							'background-position'   => isset( $kemet_options['site-layout-box-bg-pos'] ) ? $kemet_options['site-layout-box-bg-pos'] : 'center center',
+							'background-size'       => isset( $kemet_options['site-layout-box-bg-size'] ) ? $kemet_options['site-layout-box-bg-size'] : 'cover',
+							'background-attachment' => isset( $kemet_options['site-layout-box-bg-atch'] ) ? $kemet_options['site-layout-box-bg-atch'] : 'scroll',
 						);
 					break;
 
 				case 'ast-padded-layout':
-						$bg_color = isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '';
-						$bg_image = isset( $astra_options['site-layout-padded-bg-img'] ) ? $astra_options['site-layout-padded-bg-img'] : '';
+						$bg_color = isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '';
+						$bg_image = isset( $kemet_options['site-layout-padded-bg-img'] ) ? $kemet_options['site-layout-padded-bg-img'] : '';
 
-						$astra_options['site-layout-outside-bg-obj'] = array(
+						$kemet_options['site-layout-outside-bg-obj'] = array(
 							'background-color'      => empty( $bg_image ) ? $bg_color : '',
 							'background-image'      => $bg_image,
-							'background-repeat'     => isset( $astra_options['site-layout-padded-bg-rep'] ) ? $astra_options['site-layout-padded-bg-rep'] : 'no-repeat',
-							'background-position'   => isset( $astra_options['site-layout-padded-bg-pos'] ) ? $astra_options['site-layout-padded-bg-pos'] : 'center center',
-							'background-size'       => isset( $astra_options['site-layout-padded-bg-size'] ) ? $astra_options['site-layout-padded-bg-size'] : 'cover',
+							'background-repeat'     => isset( $kemet_options['site-layout-padded-bg-rep'] ) ? $kemet_options['site-layout-padded-bg-rep'] : 'no-repeat',
+							'background-position'   => isset( $kemet_options['site-layout-padded-bg-pos'] ) ? $kemet_options['site-layout-padded-bg-pos'] : 'center center',
+							'background-size'       => isset( $kemet_options['site-layout-padded-bg-size'] ) ? $kemet_options['site-layout-padded-bg-size'] : 'cover',
 							'background-attachment' => '',
 						);
 					break;
@@ -634,13 +634,13 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				case 'ast-full-width-layout':
 				case 'ast-fluid-width-layout':
 				default:
-								$astra_options['site-layout-outside-bg-obj'] = array(
-									'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+								$kemet_options['site-layout-outside-bg-obj'] = array(
+									'background-color' => isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '',
 								);
 					break;
 			}
 
-			update_option( KEMET_THEME_SETTINGS, $astra_options );
+			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 		}
 	}
 

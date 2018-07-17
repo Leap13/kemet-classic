@@ -2459,11 +2459,11 @@ body {
  * @import
  */
 /* 1 - Primary Menus */
-.astra-search-icon {
+.kemet-search-icon {
   vertical-align: middle;
 }
 
-.astra-search-icon::before {
+.kemet-search-icon::before {
   content: "\e8b6";
   font-family: 'Kemet';
   font-style: normal;
@@ -2474,7 +2474,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ast-search-icon .astra-search-icon {
+.ast-search-icon .kemet-search-icon {
   font-size: 1.3em;
 }
 
@@ -3383,7 +3383,7 @@ body {
   transform: translateY(-50%);
 }
 
-.ast-search-menu-icon .astra-search-icon {
+.ast-search-menu-icon .kemet-search-icon {
   line-height: normal;
 }
 
@@ -3446,7 +3446,7 @@ li.ast-masthead-custom-menu-items a:focus {
   background: transparent;
 }
 
-li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
+li.ast-masthead-custom-menu-items .ast-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
@@ -3471,7 +3471,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   padding: 0 1em;
 }
 
-.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
+.ast-masthead-custom-menu-items .ast-search-icon .kemet-search-icon {
   line-height: 1;
 }
 

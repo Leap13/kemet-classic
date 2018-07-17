@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       1.0.0
  */
 
@@ -60,7 +60,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
-		$this->ast_inherit = __( 'Inherit', 'astra' );
+		$this->ast_inherit = __( 'Inherit', 'kemet' );
 		parent::__construct( $manager, $id, $args );
 	}
 
@@ -95,21 +95,21 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 
 		$js_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/typography/';
 
-		wp_enqueue_script( 'astra-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		$astra_typo_localize = array(
-			'inherit' => __( 'Inherit', 'astra' ),
-			'100'     => __( 'Thin 100', 'astra' ),
-			'200'     => __( 'Extra-Light 200', 'astra' ),
-			'300'     => __( 'Light 300', 'astra' ),
-			'400'     => __( 'Normal 400', 'astra' ),
-			'500'     => __( 'Medium 500', 'astra' ),
-			'600'     => __( 'Semi-Bold 600', 'astra' ),
-			'700'     => __( 'Bold 700', 'astra' ),
-			'800'     => __( 'Extra-Bold 800', 'astra' ),
-			'900'     => __( 'Ultra-Bold 900', 'astra' ),
+		wp_enqueue_script( 'kemet-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		$kemet_typo_localize = array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'100'     => __( 'Thin 100', 'kemet' ),
+			'200'     => __( 'Extra-Light 200', 'kemet' ),
+			'300'     => __( 'Light 300', 'kemet' ),
+			'400'     => __( 'Normal 400', 'kemet' ),
+			'500'     => __( 'Medium 500', 'kemet' ),
+			'600'     => __( 'Semi-Bold 600', 'kemet' ),
+			'700'     => __( 'Bold 700', 'kemet' ),
+			'800'     => __( 'Extra-Bold 800', 'kemet' ),
+			'900'     => __( 'Ultra-Bold 900', 'kemet' ),
 		);
 
-		wp_localize_script( 'astra-typography', 'astraTypo', $astra_typo_localize );
+		wp_localize_script( 'kemet-typography', 'kemetTypo', $kemet_typo_localize );
 	}
 	/**
 	 * Renders the title and description for a control.
@@ -144,7 +144,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font control.
 	 *
-	 * @since 1.0.16 Added the action 'astra_customizer_font_list' to support custom fonts.
+	 * @since 1.0.16 Added the action 'kemet_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected
@@ -165,7 +165,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 		}
 
 		// Add Custom Font List Into Customizer.
-		do_action( 'astra_customizer_font_list', $this->value() );
+		do_action( 'kemet_customizer_font_list', $this->value() );
 
 		echo '<optgroup label="Google">';
 

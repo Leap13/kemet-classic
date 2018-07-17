@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kemet_Jetpack' ) ) :
 		function infinite_scroll_render() {
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'template-parts/content', astra_get_post_format() );
+				get_template_part( 'template-parts/content', kemet_get_post_format() );
 			}
 		} // end function infinite_scroll_render
 

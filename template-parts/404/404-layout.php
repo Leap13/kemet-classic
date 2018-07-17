@@ -5,19 +5,19 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
 ?>
 <div class="ast-404-layout-1">
 
-	<?php astra_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
+	<?php kemet_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 
 	<div class="page-content">
 
 		<div class="page-sub-title">
-			<?php echo esc_html( astra_default_strings( 'string-404-sub-title', false ) ); ?>
+			<?php echo esc_html( kemet_default_strings( 'string-404-sub-title', false ) ); ?>
 		</div>
 
 		<div class="ast-404-search">

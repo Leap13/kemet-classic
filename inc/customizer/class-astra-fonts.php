@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpastra.com/
+ * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
 
@@ -73,20 +73,20 @@ final class Kemet_Fonts {
 	 */
 	static public function get_fonts() {
 
-		do_action( 'astra_get_fonts' );
-		return apply_filters( 'astra_add_fonts', self::$fonts );
+		do_action( 'kemet_get_fonts' );
+		return apply_filters( 'kemet_add_fonts', self::$fonts );
 	}
 
 	/**
 	 * Renders the <link> tag for all fonts in the $fonts array.
 	 *
-	 * @since 1.0.16 Added the filter 'astra_render_fonts' to support custom fonts.
+	 * @since 1.0.16 Added the filter 'kemet_render_fonts' to support custom fonts.
 	 * @since 1.0.0
 	 * @return void
 	 */
 	static public function render_fonts() {
 
-		$font_list = apply_filters( 'astra_render_fonts', self::get_fonts() );
+		$font_list = apply_filters( 'kemet_render_fonts', self::get_fonts() );
 
 		$google_fonts = array();
 		$font_subset  = array();
@@ -100,7 +100,7 @@ final class Kemet_Fonts {
 				$google_fonts[ $name ] = $font['variants'];
 
 				// Add Subset.
-				$subset = apply_filters( 'astra_font_subset', '', $name );
+				$subset = apply_filters( 'kemet_font_subset', '', $name );
 				if ( ! empty( $subset ) ) {
 					$font_subset[] = $subset;
 				}
@@ -108,7 +108,7 @@ final class Kemet_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
-		wp_enqueue_style( 'astra-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
+		wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
 	}
 
 	/**
@@ -128,7 +128,7 @@ final class Kemet_Fonts {
 		$font_args = array();
 		$family    = array();
 
-		$fonts = apply_filters( 'astra_google_fonts', $fonts );
+		$fonts = apply_filters( 'kemet_google_fonts', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
