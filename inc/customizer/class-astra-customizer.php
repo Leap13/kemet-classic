@@ -99,8 +99,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
 			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
 
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
+			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
+			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
 
 			/**
 			 * Register controls
@@ -120,10 +120,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Helper files
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-sanitizes.php';
+			require KEMET_THEME_DIR . 'inc/customizer/customizer-controls.php';
+			require KEMET_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
+			require KEMET_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
+			require KEMET_THEME_DIR . 'inc/customizer/class-astra-customizer-sanitizes.php';
 		}
 
 		/**
@@ -137,42 +137,42 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Astra Pro Upsell Link
 			 */
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/astra-pro-section-register.php';
+			if ( ! defined( 'KEMET_EXT_VER' ) ) {
+				require KEMET_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
+				require KEMET_THEME_DIR . 'inc/customizer/astra-pro/astra-pro-section-register.php';
 			}
 
 			/**
 			 * Override Defaults
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/override-defaults.php';
+			require KEMET_THEME_DIR . 'inc/customizer/override-defaults.php';
 
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
+			require KEMET_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/container.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/header.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/header.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/body.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/content.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/single.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/typography/archive.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/header.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/body.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/content.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/single.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/archive.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
 
 		}
 
@@ -201,15 +201,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			// Customizer Core.
-			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-customizer-controls-toggle-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
-			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_style( 'astra-extend-customizer-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'astra-extend-customizer-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
 			// Customizer Controls.
-			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), KEMET_THEME_VERSION, true );
+			wp_enqueue_style( 'astra-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-controls-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), KEMET_THEME_VERSION, true );
 
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js', 'astra', apply_filters(
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'astra-customizer-preview-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), null, KEMET_THEME_VERSION );
 		}
 
 		/**

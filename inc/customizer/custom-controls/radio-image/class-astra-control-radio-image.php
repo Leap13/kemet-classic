@@ -33,8 +33,8 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
 
 		wp_enqueue_script( 'astra-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-radio-image', $css_uri . 'radio-image.css', null, KEMET_THEME_VERSION );

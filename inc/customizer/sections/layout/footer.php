@@ -33,15 +33,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'choices'  => array(
 					'disabled'            => array(
 						'label' => __( 'Disabled', 'astra' ),
-						'path'  => ASTRA_THEME_URI . 'assets/images/disabled-footer-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/disabled-footer-76x48.png',
 					),
 					'footer-sml-layout-1' => array(
 						'label' => __( 'Footer Bar Layout 1', 'astra' ),
-						'path'  => ASTRA_THEME_URI . 'assets/images/footer-layout-1-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-1-76x48.png',
 					),
 					'footer-sml-layout-2' => array(
 						'label' => __( 'Footer Bar Layout 2', 'astra' ),
-						'path'  => ASTRA_THEME_URI . 'assets/images/footer-layout-2-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-2-76x48.png',
 					),
 				),
 			)

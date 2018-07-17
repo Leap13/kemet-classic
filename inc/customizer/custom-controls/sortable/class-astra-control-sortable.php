@@ -34,8 +34,8 @@ class Astra_Control_Sortable extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/sortable/';
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
 
 		wp_enqueue_script( 'astra-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), KEMET_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-sortable-css', $css_uri . 'sortable.css', null, KEMET_THEME_VERSION );

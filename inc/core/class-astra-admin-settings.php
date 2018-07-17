@@ -182,13 +182,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function admin_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'astra-admin', ASTRA_THEME_URI . 'inc/assets/css/astra-admin.css', array(), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'astra-admin', KEMET_THEME_URI . 'inc/assets/css/astra-admin.css', array(), KEMET_THEME_VERSION );
 
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$assets_js_uri = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$assets_js_uri = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
 
 			wp_enqueue_script( 'astra-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), KEMET_THEME_VERSION, true );
 		}
@@ -201,9 +201,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		static public function styles_scripts() {
 
 			// Styles.
-			wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'astra-admin-settings', KEMET_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), KEMET_THEME_VERSION );
 			// Script.
-			wp_enqueue_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KEMET_THEME_VERSION );
+			wp_enqueue_script( 'astra-admin-settings', KEMET_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KEMET_THEME_VERSION );
 
 			$localize = array(
 				'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
-									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
 								<?php do_action( 'astra_welcome_page_header_title' ); ?>
 								</a>
@@ -331,7 +331,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		static public function general_page() {
-			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
+			require_once KEMET_THEME_DIR . 'inc/core/view-general.php';
 		}
 
 		/**
@@ -724,7 +724,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'advanced-headers'      => array(
 						'title'           => __( 'Page Headers', 'astra' ),
-						// 'icon'            => ASTRA_EXT_URI . 'assets/img/advanced-headers.png',
+						// 'icon'            => KEMET_EXT_URI . 'assets/img/advanced-headers.png',
 						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'astra' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
@@ -740,7 +740,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					),
 					'advanced-hooks'        => array(
 						'title'           => __( 'Custom Layouts', 'astra' ),
-						// 'icon'            => ASTRA_EXT_URI . 'assets/img/astra-advanced-hooks.png',
+						// 'icon'            => KEMET_EXT_URI . 'assets/img/astra-advanced-hooks.png',
 						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
@@ -957,7 +957,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$astra_global_options = get_option( 'kemet-settings' );
 
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
+			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'KEMET_EXT_VER' ) ) {
 
 				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
 

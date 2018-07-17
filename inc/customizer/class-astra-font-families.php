@@ -129,9 +129,9 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
-				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				if ( ! file_exists( KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
 					return array();
 				}
 

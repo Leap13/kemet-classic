@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	// Learn More link if Astra Pro is not activated.
-	if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider

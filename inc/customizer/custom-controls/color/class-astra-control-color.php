@@ -67,8 +67,8 @@ class Astra_Control_Color extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		$css_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
-		$js_uri  = ASTRA_THEME_URI . 'inc/customizer/custom-controls/color/';
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/color/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/color/';
 
 		wp_enqueue_script( 'astra-color', $js_uri . 'color.js', array( 'astra-color-alpha' ), KEMET_THEME_VERSION, true );
 		wp_enqueue_style( 'astra-color', $css_uri . 'color.css', null, KEMET_THEME_VERSION );

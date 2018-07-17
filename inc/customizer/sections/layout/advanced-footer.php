@@ -33,11 +33,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'choices' => array(
 					'disabled' => array(
 						'label' => __( 'Disable', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/no-adv-footer-115x48.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/no-adv-footer-115x48.png',
 					),
 					'layout-4' => array(
 						'label' => __( 'Layout 4', 'astra' ),
-						'path'  => ASTRA_THEME_URI . '/assets/images/layout-4-115x48.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/layout-4-115x48.png',
 					),
 				),
 			)
@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	// Learn More link if Astra Pro is not activated.
-	if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider

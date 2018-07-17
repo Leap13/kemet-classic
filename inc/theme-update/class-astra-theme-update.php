@@ -181,7 +181,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		static public function astra_pro_compatibility() {
 
-			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
+			if ( defined( 'KEMET_EXT_VER' ) && version_compare( KEMET_EXT_VER, '1.0.0-beta.6', '<' ) ) {
 				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
 			}
 		}

@@ -154,14 +154,14 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/register-panels-and-sections.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/lifterlms/customizer/register-panels-and-sections.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-container.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-sidebar.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/section-general.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-container.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/section-sidebar.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/section-general.php';
 		}
 
 		/**
