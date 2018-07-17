@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-color]', array(
+		KEMET_THEME_SETTINGS . '[footer-color]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-color]', array(
 				'label'   => __( 'Text Color', 'astra' ),
 				'section' => 'section-colors-footer',
 			)
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
+		KEMET_THEME_SETTINGS . '[footer-link-color]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
 				'label'   => __( 'Link Color', 'astra' ),
 				'section' => 'section-colors-footer',
 			)
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Link Hover Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
+		KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-link-h-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
 				'label'   => __( 'Link Hover Color', 'astra' ),
 				'section' => 'section-colors-footer',
 			)
@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-footer-image]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-footer-image]', array(
 				'section'  => 'section-colors-footer',
 				'type'     => 'ast-divider',
 				'settings' => array(),
@@ -90,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Background
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-bg-obj]', array(
+		KEMET_THEME_SETTINGS . '[footer-bg-obj]', array(
 			'default'           => astra_get_option( 'footer-bg-obj' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Background(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-bg-obj]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bg-obj]', array(
 				'type'    => 'ast-background',
 				'section' => 'section-colors-footer',
 				'label'   => __( 'Background', 'astra' ),

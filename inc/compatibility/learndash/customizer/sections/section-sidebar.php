@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $wp_customize->add_control(
 	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]', array(
+		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-sidebar-layout-divider]', array(
 			'section'  => 'section-sidebars',
 			'type'     => 'ast-divider',
 			'priority' => 5,
@@ -31,14 +31,14 @@ $wp_customize->add_control(
  * Option: LearnDash
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
+	KEMET_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
 		'default'           => astra_get_option( 'learndash-sidebar-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
+	KEMET_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
 		'type'        => 'select',
 		'section'     => 'section-sidebars',
 		'priority'    => 5,

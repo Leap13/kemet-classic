@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Structure
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', array(
+		KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
 			'default'           => astra_get_option( 'blog-single-post-structure' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Sortable(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Meta
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-single-meta]', array(
+		KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
 			'default'           => astra_get_option( 'blog-single-meta' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Sortable(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-meta]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-blog-single',
 				'priority' => 10,
@@ -84,14 +84,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Content Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-single-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-single-width]', array(
 			'default'           => astra_get_option( 'blog-single-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[blog-single-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-single-width]', array(
 			'type'     => 'select',
 			'section'  => 'section-blog-single',
 			'priority' => 15,
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-single-max-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-single-max-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog-single',
 				'priority'    => 20,
@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-single-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-single-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-blog-single',
 					'priority' => 25,
@@ -152,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-single-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-single-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-blog-single',
 					'priority' => 25,

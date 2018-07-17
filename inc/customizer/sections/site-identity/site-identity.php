@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Retina logo selector
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+		KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
 			'default'           => astra_get_option( 'ast-header-retina-logo' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'esc_url_raw',
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
 				'section'        => 'title_tagline',
 				'priority'       => 5,
 				'label'          => __( 'Retina Logo', 'astra' ),
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Logo Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
+		KEMET_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
 			'default'           => array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-logo-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',
 				'priority' => 5,
@@ -84,14 +84,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Title
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[display-site-title]', array(
+		KEMET_THEME_SETTINGS . '[display-site-title]', array(
 			'default'           => astra_get_option( 'display-site-title' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[display-site-title]', array(
+		KEMET_THEME_SETTINGS . '[display-site-title]', array(
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
 			'label'    => __( 'Display Site Title', 'astra' ),
@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Tagline
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[display-site-tagline]', array(
+		KEMET_THEME_SETTINGS . '[display-site-tagline]', array(
 			'default'           => astra_get_option( 'display-site-tagline' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[display-site-tagline]', array(
+		KEMET_THEME_SETTINGS . '[display-site-tagline]', array(
 			'type'    => 'checkbox',
 			'section' => 'title_tagline',
 			'label'   => __( 'Display Site Tagline', 'astra' ),
@@ -123,14 +123,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Disable Menu
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[logo-title-inline]', array(
+		KEMET_THEME_SETTINGS . '[logo-title-inline]', array(
 			'default'           => astra_get_option( 'logo-title-inline' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[logo-title-inline]', array(
+		KEMET_THEME_SETTINGS . '[logo-title-inline]', array(
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
 			'label'    => __( 'Inline Logo & Site Title', 'astra' ),
@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-site-icon-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-icon-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',
 				'priority' => 50,

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[site-content-layout-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
 				'type'     => 'ast-divider',
 				'priority' => 50,
 				'section'  => 'section-container-layout',
@@ -30,14 +30,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Content Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[site-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
 			'default'           => astra_get_option( 'site-content-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[site-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 50,
@@ -55,14 +55,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Page Content Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-page-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'default'           => astra_get_option( 'single-page-content-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-page-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'label'    => __( 'Container for Pages', 'astra' ),
@@ -81,14 +81,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post Content Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-post-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
 			'default'           => astra_get_option( 'single-post-content-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-post-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 60,
@@ -107,14 +107,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Archive Post Content Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
 			'default'           => astra_get_option( 'archive-post-content-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[archive-post-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 65,
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-container-layout',
 					'priority' => 70,
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-container-layout',
 					'priority' => 70,
@@ -166,7 +166,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Background
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
+		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
 			'default'           => astra_get_option( 'site-layout-outside-bg-obj' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -175,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Background(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
 				'type'     => 'ast-background',
 				'section'  => 'section-colors-body',
 				'priority' => 25,

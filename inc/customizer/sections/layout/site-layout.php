@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Container Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[site-content-width]', array(
+		KEMET_THEME_SETTINGS . '[site-content-width]', array(
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[site-content-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-container-layout',
 				'priority'    => 10,

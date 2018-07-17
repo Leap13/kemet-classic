@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Bar Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-layout]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-layout]', array(
 			'default'           => astra_get_option( 'footer-sml-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Radio_Image(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-sml-layout]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-layout]', array(
 				'type'     => 'ast-radio-image',
 				'section'  => 'section-footer-small',
 				'priority' => 5,
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 10,
@@ -70,14 +70,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-1]', array(
 			'default'           => astra_get_option( 'footer-sml-section-1' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-1]', array(
 			'type'     => 'select',
 			'section'  => 'section-footer-small',
 			'priority' => 15,
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 1 Custom Text
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 			'default'           => astra_get_option( 'footer-sml-section-1-credit' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 			'type'     => 'textarea',
 			'section'  => 'section-footer-small',
 			'priority' => 20,
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
-			ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
+			KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 				'selector'            => '.ast-small-footer-section-1',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
@@ -125,14 +125,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-2]', array(
 			'default'           => astra_get_option( 'footer-sml-section-2' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-2]', array(
 			'type'     => 'select',
 			'section'  => 'section-footer-small',
 			'priority' => 25,
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Section 2 Custom Text
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 			'default'           => astra_get_option( 'footer-sml-section-2-credit' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -158,7 +158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 			'type'     => 'textarea',
 			'section'  => 'section-footer-small',
 			'priority' => 30,
@@ -168,7 +168,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
-			ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
+			KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 				'selector'            => '.ast-small-footer-section-2',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Astra_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[section-ast-small-footer-typography]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-ast-small-footer-typography]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 35,
@@ -194,7 +194,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-divider]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-divider]', array(
 			'default'           => astra_get_option( 'footer-sml-divider' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -202,7 +202,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-sml-divider]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-divider]', array(
 			'type'        => 'number',
 			'section'     => 'section-footer-small',
 			'priority'    => 40,
@@ -219,7 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Top Border Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
+		KEMET_THEME_SETTINGS . '[footer-sml-divider-color]', array(
 			'default'           => '#7a7a7a',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -228,7 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-divider-color]', array(
 				'section'  => 'section-footer-small',
 				'priority' => 45,
 				'label'    => __( 'Footer Bar Top Border Color', 'astra' ),
@@ -240,14 +240,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Header Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-layout-width]', array(
+		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
 			'default'           => astra_get_option( 'footer-layout-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[footer-layout-width]', array(
+		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
 			'type'     => 'select',
 			'section'  => 'section-footer-small',
 			'priority' => 35,

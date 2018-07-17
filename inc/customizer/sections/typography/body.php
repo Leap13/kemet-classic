@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-base-typo]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-base-typo]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-body-typo',
 				'priority' => 4,
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Family
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-font-family]', array(
+		KEMET_THEME_SETTINGS . '[body-font-family]', array(
 			'default'           => astra_get_option( 'body-font-family' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
@@ -41,13 +41,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	$wp_customize->add_control(
 		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-font-family]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
 				'type'        => 'ast-font-family',
 				'ast_inherit' => __( 'Default System Font', 'astra' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 5,
 				'label'       => __( 'Font Family', 'astra' ),
-				'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
+				'connect'     => KEMET_THEME_SETTINGS . '[body-font-weight]',
 			)
 		)
 	);
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Weight
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
+		KEMET_THEME_SETTINGS . '[body-font-weight]', array(
 			'default'           => astra_get_option( 'body-font-weight' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
@@ -64,13 +64,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
 				'type'        => 'ast-font-weight',
 				'ast_inherit' => __( 'Default', 'astra' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 10,
 				'label'       => __( 'Font Weight', 'astra' ),
-				'connect'     => ASTRA_THEME_SETTINGS . '[body-font-family]',
+				'connect'     => KEMET_THEME_SETTINGS . '[body-font-family]',
 			)
 		)
 	);
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Text Transform
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[body-text-transform]', array(
 			'default'           => astra_get_option( 'body-text-transform' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[body-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[body-text-transform]', array(
 			'type'     => 'select',
 			'section'  => 'section-body-typo',
 			'priority' => 15,
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-body]', array(
+		KEMET_THEME_SETTINGS . '[font-size-body]', array(
 			'default'           => astra_get_option( 'font-size-body' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-body]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-body-typo',
 				'priority'    => 20,
@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Line Height
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-line-height]', array(
+		KEMET_THEME_SETTINGS . '[body-line-height]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-line-height]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-line-height]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-body-typo',
 				'priority'    => 25,
@@ -161,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Paragraph Margin Bottom
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
+		KEMET_THEME_SETTINGS . '[para-margin-bottom]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -170,7 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[para-margin-bottom]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-body-typo',
 				'priority'    => 25,
@@ -190,7 +190,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-headings-typo]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-headings-typo]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-body-typo',
 				'priority' => 30,
@@ -204,7 +204,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Font Family
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-font-family]', array(
+		KEMET_THEME_SETTINGS . '[headings-font-family]', array(
 			'default'           => astra_get_option( 'headings-font-family' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
@@ -212,12 +212,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-family]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[headings-font-family]', array(
 				'type'     => 'ast-font-family',
 				'label'    => __( 'Font Family', 'astra' ),
 				'section'  => 'section-body-typo',
 				'priority' => 35,
-				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
+				'connect'  => KEMET_THEME_SETTINGS . '[headings-font-weight]',
 			)
 		)
 	);
@@ -226,7 +226,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Font Weight
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-font-weight]', array(
+		KEMET_THEME_SETTINGS . '[headings-font-weight]', array(
 			'default'           => astra_get_option( 'headings-font-weight' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
@@ -234,12 +234,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-weight]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[headings-font-weight]', array(
 				'type'     => 'ast-font-weight',
 				'label'    => __( 'Font Weight', 'astra' ),
 				'section'  => 'section-body-typo',
 				'priority' => 40,
-				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-family]',
+				'connect'  => KEMET_THEME_SETTINGS . '[headings-font-family]',
 			)
 		)
 	);
@@ -248,7 +248,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Text Transform
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[headings-text-transform]', array(
 			'default'           => astra_get_option( 'headings-text-transform' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -256,7 +256,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[headings-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[headings-text-transform]', array(
 			'section'  => 'section-body-typo',
 			'label'    => __( 'Text Transform', 'astra' ),
 			'type'     => 'select',

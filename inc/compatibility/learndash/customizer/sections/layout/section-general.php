@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $wp_customize->add_control(
 	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-lesson-content]', array(
+		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-lesson-content]', array(
 			'label'    => __( 'Course Content Table', 'astra' ),
 			'section'  => 'section-learndash',
 			'type'     => 'ast-divider',
@@ -30,14 +30,14 @@ $wp_customize->add_control(
  * Option: Display Serial Number
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+	KEMET_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 		'default'           => astra_get_option( 'learndash-lesson-serial-number' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+	KEMET_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 		'section'  => 'section-learndash',
 		'label'    => __( 'Display Serial Number', 'astra' ),
 		'priority' => 25,
@@ -49,14 +49,14 @@ $wp_customize->add_control(
  * Option: Differentiate Rows
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+	KEMET_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 		'default'           => astra_get_option( 'learndash-differentiate-rows' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+	KEMET_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 		'section'  => 'section-learndash',
 		'label'    => __( 'Differentiate Rows', 'astra' ),
 		'priority' => 30,

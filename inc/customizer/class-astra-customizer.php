@@ -237,7 +237,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							),
 						),
 						'theme'      => array(
-							'option' => ASTRA_THEME_SETTINGS,
+							'option' => KEMET_THEME_SETTINGS,
 						),
 					)
 				)

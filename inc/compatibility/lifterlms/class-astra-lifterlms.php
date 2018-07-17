@@ -639,7 +639,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					'type'      => 'switch',
 				);
 			}
-			$fields['astra_theme_settings'] = array(
+			$fields['KEMET_THEME_SETTINGS'] = array(
 				'title'      => __( 'Astra Settings', 'astra' ),
 				'toggleable' => true,
 				'fields'     => apply_filters(

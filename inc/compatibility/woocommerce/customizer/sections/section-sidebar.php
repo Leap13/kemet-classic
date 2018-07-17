@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[single-product-sidebar-layout-divider]', array(
 				'section'  => 'section-sidebars',
 				'type'     => 'ast-divider',
 				'priority' => 5,
@@ -31,14 +31,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
 			'default'           => astra_get_option( 'woocommerce-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,
@@ -56,14 +56,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Product
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
 			'default'           => astra_get_option( 'single-product-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 5,

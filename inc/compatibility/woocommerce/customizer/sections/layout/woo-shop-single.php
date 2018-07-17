@@ -17,14 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Disable Breadcrumb
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
+		KEMET_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
 			'default'           => astra_get_option( 'single-product-breadcrumb-disable' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
+		KEMET_THEME_SETTINGS . '[single-product-breadcrumb-disable]', array(
 			'section'  => 'section-woo-shop-single',
 			'label'    => __( 'Disable Breadcrumb', 'astra' ),
 			'priority' => 10,

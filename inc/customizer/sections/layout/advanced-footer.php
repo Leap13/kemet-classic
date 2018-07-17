@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Widgets Layout Layout
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[footer-adv]', array(
+		KEMET_THEME_SETTINGS . '[footer-adv]', array(
 			'default'           => astra_get_option( 'footer-adv' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	$wp_customize->add_control(
 		new Astra_Control_Radio_Image(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[footer-adv]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv]', array(
 				'type'    => 'ast-radio-image',
 				'label'   => __( 'Footer Widgets Layout', 'astra' ),
 				'section' => 'section-footer-adv',
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-footer-adv',
 					'priority' => 20,
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-footer-widget-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-footer-adv',
 					'priority' => 20,

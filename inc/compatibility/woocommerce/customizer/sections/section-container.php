@@ -18,14 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'default'           => astra_get_option( 'woocommerce-content-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 85,

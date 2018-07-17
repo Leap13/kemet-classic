@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $wp_customize->add_control(
 	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-content-divider]', array(
+		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-content-divider]', array(
 			'section'  => 'section-container-layout',
 			'type'     => 'ast-divider',
 			'priority' => 68,
@@ -31,14 +31,14 @@ $wp_customize->add_control(
  * Option: Shop Page
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
+	KEMET_THEME_SETTINGS . '[learndash-content-layout]', array(
 		'default'           => astra_get_option( 'learndash-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-content-layout]', array(
+	KEMET_THEME_SETTINGS . '[learndash-content-layout]', array(
 		'type'        => 'select',
 		'section'     => 'section-container-layout',
 		'priority'    => 68,

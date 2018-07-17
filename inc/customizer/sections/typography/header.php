@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 5,
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Title Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
+		KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
 			'default'           => astra_get_option( 'font-size-site-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 10,
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 15,
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Tagline Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
+		KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
 			'default'           => astra_get_option( 'font-size-site-tagline' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 20,
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-typography-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-header-typo',
 					'priority' => 25,
@@ -122,7 +122,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-typography-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-header-typo',
 					'priority' => 25,

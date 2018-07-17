@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-archive-typo',
 				'priority' => 0,
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Archive Summary Box Title Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+		KEMET_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
 			'default'           => astra_get_option( 'font-size-archive-summary-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-archive-typo',
 				'priority'    => 4,
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-archive-typo',
 				'priority' => 5,
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog - Post Title Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-page-title]', array(
+		KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
 			'default'           => astra_get_option( 'font-size-page-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-page-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-archive-typo',
 				'priority'    => 10,
@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-typography-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-archive-typo',
 					'priority' => 15,
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-typography-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-archive-typo',
 					'priority' => 15,

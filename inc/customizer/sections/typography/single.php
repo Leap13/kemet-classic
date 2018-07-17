@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-single-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-single-title]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-single-typo',
 				'priority' => 5,
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Post / Page Title Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
+		KEMET_THEME_SETTINGS . '[font-size-entry-title]', array(
 			'default'           => astra_get_option( 'font-size-entry-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-entry-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-entry-title]', array(
 				'type'        => 'ast-responsive',
 				'section'     => 'section-single-typo',
 				'priority'    => 10,
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-single-typo',
 					'priority' => 15,
@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-single-typo',
 					'priority' => 15,

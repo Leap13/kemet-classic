@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Course Columns
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
+		KEMET_THEME_SETTINGS . '[llms-course-grid]', array(
 			'default'           => array(
 				'desktop' => 3,
 				'tablet'  => 2,
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[llms-course-grid]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-lifterlms',
 				'label'       => __( 'Course Columns', 'astra' ),
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Membership Columns
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
+		KEMET_THEME_SETTINGS . '[llms-membership-grid]', array(
 			'default'           => array(
 				'desktop' => 3,
 				'tablet'  => 2,
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[llms-membership-grid]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-lifterlms',
 				'label'       => __( 'Membership Columns', 'astra' ),

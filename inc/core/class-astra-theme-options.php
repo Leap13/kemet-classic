@@ -314,7 +314,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 */
 		public static function refresh() {
 			self::$db_options = wp_parse_args(
-				get_option( ASTRA_THEME_SETTINGS ),
+				get_option( KEMET_THEME_SETTINGS ),
 				self::defaults()
 			);
 		}

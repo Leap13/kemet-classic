@@ -17,14 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Post Content
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
+		KEMET_THEME_SETTINGS . '[blog-post-content]', array(
 			'default'           => astra_get_option( 'blog-post-content' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[blog-post-content]', array(
+		KEMET_THEME_SETTINGS . '[blog-post-content]', array(
 			'section'  => 'section-blog',
 			'label'    => __( 'Blog Post Content', 'astra' ),
 			'type'     => 'select',
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Structure
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-post-structure]', array(
+		KEMET_THEME_SETTINGS . '[blog-post-structure]', array(
 			'default'           => astra_get_option( 'blog-post-structure' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Sortable(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-post-structure]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-post-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
 				'priority' => 100,
@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Display Post Meta
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-meta]', array(
+		KEMET_THEME_SETTINGS . '[blog-meta]', array(
 			'default'           => astra_get_option( 'blog-meta' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Sortable(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-meta]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-meta]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog',
 				'priority' => 105,
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-blog',
 				'priority' => 110,
@@ -107,14 +107,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Blog Content Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-width]', array(
 			'default'           => astra_get_option( 'blog-width' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[blog-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-width]', array(
 			'type'     => 'select',
 			'section'  => 'section-blog',
 			'priority' => 115,
@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Enter Width
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
+		KEMET_THEME_SETTINGS . '[blog-max-width]', array(
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-max-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[blog-max-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog',
 				'priority'    => 120,
@@ -162,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-blog',
 					'priority' => 125,
@@ -175,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-blog-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-blog',
 					'priority' => 125,
