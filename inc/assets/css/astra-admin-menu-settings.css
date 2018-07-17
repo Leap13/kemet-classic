@@ -1,7 +1,7 @@
 /**
- * CSS code for all Astra Extensions admin screens
+ * CSS code for all Kemet Extensions admin screens
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 
@@ -22,13 +22,13 @@
 }
 
 /**
- * CSS code for all Astra Extensions admin screens
+ * CSS code for all Kemet Extensions admin screens
  *
- * @package Astra
+ * @package Kemet
  * @since 1.2.4
  */
 /**
- * Astra Welcome Page
+ * Kemet Welcome Page
  */
 .appearance_page_astra #wpcontent{
  	padding: 0;
@@ -126,7 +126,7 @@
 }
 
 /**
- * Astra Quick Settings
+ * Kemet Quick Settings
  */
  .ast-quick-setting-section ul,
  .ast-addon-list-section ul{
@@ -218,7 +218,7 @@
 }
 
 /**
- * Astra Welcome screen sidebar
+ * Kemet Welcome screen sidebar
  */
 .ast-sidebar .hndle .dashicons{
 	margin: 0 5px 0 0;
@@ -231,7 +231,7 @@
 }
 
 /**
- * Astra Custom Notice for static position
+ * Kemet Custom Notice for static position
  */
 .ast-notice{
     margin-bottom: 20px;

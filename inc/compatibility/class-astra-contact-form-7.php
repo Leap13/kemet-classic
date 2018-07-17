@@ -2,7 +2,7 @@
 /**
  * Contact Form 7 Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Contact Form 7' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'WPCF7' ) ) {
 }
 
 /**
- * Astra Contact Form 7 Compatibility
+ * Kemet Contact Form 7 Compatibility
  */
-if ( ! class_exists( 'Astra_Contact_Form_7' ) ) :
+if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
 
 	/**
-	 * Astra Contact Form 7 Compatibility
+	 * Kemet Contact Form 7 Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Contact_Form_7 {
+	class Kemet_Contact_Form_7 {
 
 		/**
 		 * Member Variable
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Contact_Form_7::get_instance();
+Kemet_Contact_Form_7::get_instance();

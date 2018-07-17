@@ -5,7 +5,7 @@
  * @link https://Ubermenu.me/
  * @since  1.1.7
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Ubermenu' not exist then return.
@@ -14,16 +14,16 @@ if ( ! class_exists( 'UberMenu' ) ) {
 }
 
 /**
- * Astra Ubermenu Compatibility
+ * Kemet Ubermenu Compatibility
  */
-if ( ! class_exists( 'Astra_Ubermeu' ) ) :
+if ( ! class_exists( 'Kemet_Ubermeu' ) ) :
 
 	/**
-	 * Astra Ubermenu Compatibility
+	 * Kemet Ubermenu Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ubermeu {
+	class Kemet_Ubermeu {
 
 		/**
 		 * Member Variable
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		}
 
 		/**
-		 * Disable the Mobile Menu toggles from Astra if Uber Menu is used.
+		 * Disable the Mobile Menu toggles from Kemet if Uber Menu is used.
 		 *
 		 * @since  1.1.7
 		 * @param  bool $status Status if the mobile menu toggels are enaled or disaled.
@@ -84,4 +84,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Ubermeu::get_instance();
+Kemet_Ubermeu::get_instance();

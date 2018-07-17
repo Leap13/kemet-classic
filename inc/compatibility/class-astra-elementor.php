@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 namespace Elementor;
@@ -13,16 +13,16 @@ if ( ! class_exists( '\Elementor\Plugin' ) ) {
 }
 
 /**
- * Astra Elementor Compatibility
+ * Kemet Elementor Compatibility
  */
-if ( ! class_exists( 'Astra_Elementor' ) ) :
+if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 	/**
-	 * Astra Elementor Compatibility
+	 * Kemet Elementor Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Elementor {
+	class Kemet_Elementor {
 
 		/**
 		 * Member Variable
@@ -146,4 +146,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Elementor::get_instance();
+Kemet_Elementor::get_instance();

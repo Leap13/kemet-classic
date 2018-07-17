@@ -2096,7 +2096,7 @@ textarea {
   border: none;
 }
 
-/* Astra Respnosive oEmbed Video container */
+/* Kemet Respnosive oEmbed Video container */
 .ast-oembed-container {
   position: relative;
   padding-top: 56.25%;
@@ -2465,7 +2465,7 @@ body {
 
 .astra-search-icon::before {
   content: "\e8b6";
-  font-family: 'Astra';
+  font-family: 'Kemet';
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
@@ -2713,7 +2713,7 @@ body {
 
 .ast-button-wrap .menu-toggle .menu-toggle-icon:before {
   content: "\e5d2";
-  font-family: 'Astra';
+  font-family: 'Kemet';
   text-decoration: inherit;
 }
 
@@ -3343,7 +3343,7 @@ body {
 .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after {
   content: "\e900";
   display: inline-block;
-  font-family: 'Astra';
+  font-family: 'Kemet';
   font-size: 9px;
   font-size: .6rem;
   font-weight: bold;
@@ -3566,7 +3566,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 .ast-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before {
   font-weight: bold;
   content: "\e900";
-  font-family: 'Astra';
+  font-family: 'Kemet';
   text-decoration: inherit;
   display: inline-block;
 }
@@ -3813,7 +3813,7 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .widget_search .search-form:after {
-  font-family: "Astra";
+  font-family: "Kemet";
   font-size: 1.2em;
   font-weight: normal;
   content: "\e8b6";
@@ -5336,7 +5336,7 @@ input[type="color"]::-webkit-color-swatch {
 
 /*----------  Page Builders  ----------*/
 /**
- * Astra Theme compatibility with Beaver Builder
+ * Kemet Theme compatibility with Beaver Builder
  */
 .fl-builder-content {
   clear: both;
@@ -5357,7 +5357,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /**
- * Astra Theme compatibility with Visual Composer
+ * Kemet Theme compatibility with Visual Composer
  */
 .js_active .vc_row {
   margin-right: auto;
@@ -5412,7 +5412,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /**
- * Astra Theme compatibility with Elementor
+ * Kemet Theme compatibility with Elementor
  */
 .ast-left-sidebar .elementor-section.elementor-section-stretched,
 .ast-right-sidebar .elementor-section.elementor-section-stretched {

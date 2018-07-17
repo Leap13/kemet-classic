@@ -2,7 +2,7 @@
 /**
  * Lifter LMS Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  * @since 1.2.0
  */
 
@@ -12,16 +12,16 @@ if ( ! class_exists( 'LifterLMS' ) ) {
 }
 
 /**
- * Astra Lifter LMS Compatibility
+ * Kemet Lifter LMS Compatibility
  */
-if ( ! class_exists( 'Astra_LifterLMS' ) ) :
+if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 
 	/**
-	 * Astra Lifter LMS Compatibility
+	 * Kemet Lifter LMS Compatibility
 	 *
 	 * @since 1.2.0
 	 */
-	class Astra_LifterLMS {
+	class Kemet_LifterLMS {
 
 		/**
 		 * Member Variable
@@ -604,7 +604,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 */
 		function register_builder_fields( $default_fields ) {
 			$disable_fields   = array();
-			$show_meta_field  = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$show_meta_field  = ! Kemet_Meta_Boxes::is_bb_themer_layout();
 			$disable_fields[] = array(
 				'attribute' => 'ast-main-header-display',
 				'id'        => 'ast-main-header-display',
@@ -640,7 +640,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				);
 			}
 			$fields['KEMET_THEME_SETTINGS'] = array(
-				'title'      => __( 'Astra Settings', 'astra' ),
+				'title'      => __( 'Kemet Settings', 'astra' ),
 				'toggleable' => true,
 				'fields'     => apply_filters(
 					'astra_theme_lifterlms_settings',
@@ -688,4 +688,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_LifterLMS::get_instance();
+Kemet_LifterLMS::get_instance();

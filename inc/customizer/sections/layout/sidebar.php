@@ -1,12 +1,12 @@
 <?php
 /**
- * Sidebar Options for Astra Theme.
+ * Sidebar Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[site-sidebar-layout]', array(
 			'default'           => astra_get_option( 'site-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[single-page-sidebar-layout-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-sidebars',
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
 			'default'           => astra_get_option( 'single-page-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
 			'default'           => astra_get_option( 'single-post-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
 			'default'           => astra_get_option( 'archive-post-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-sidebar-width]', array(
 				'section'  => 'section-sidebars',
 				'type'     => 'ast-divider',
@@ -149,11 +149,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => 30,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
+		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-sidebars',
@@ -170,7 +170,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	$wp_customize->add_control(
-		new Astra_Control_Description(
+		new Kemet_Control_Description(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width-description]', array(
 				'type'     => 'ast-description',
 				'section'  => 'section-sidebars',

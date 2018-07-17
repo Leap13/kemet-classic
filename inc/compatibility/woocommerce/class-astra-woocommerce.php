@@ -4,7 +4,7 @@
  *
  * @link https://woocommerce.com/
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'WooCommerce' not exist then return.
@@ -13,16 +13,16 @@ if ( ! class_exists( 'WooCommerce' ) ) {
 }
 
 /**
- * Astra WooCommerce Compatibility
+ * Kemet WooCommerce Compatibility
  */
-if ( ! class_exists( 'Astra_Woocommerce' ) ) :
+if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 	/**
-	 * Astra WooCommerce Compatibility
+	 * Kemet WooCommerce Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Woocommerce {
+	class Kemet_Woocommerce {
 
 		/**
 		 * Member Variable
@@ -1015,5 +1015,5 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 endif;
 
 if ( apply_filters( 'astra_enable_woocommerce_integration', true ) ) {
-	Astra_Woocommerce::get_instance();
+	Kemet_Woocommerce::get_instance();
 }

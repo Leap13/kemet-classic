@@ -1,12 +1,12 @@
 <?php
 /**
- * Single Post Options for Astra Theme.
+ * Single Post Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
 			'default'           => astra_get_option( 'blog-single-post-structure' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Sortable(
+		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
@@ -45,11 +45,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
 			'default'           => astra_get_option( 'blog-single-meta' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Sortable(
+		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-blog-single',
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[ast-styling-section-single-blog-layouts]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-blog-single',
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[blog-single-width]', array(
 			'default'           => astra_get_option( 'blog-single-width' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -111,11 +111,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
+		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-blog-single',
@@ -131,14 +131,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	// Learn More link if Astra Pro is not activated.
+	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Divider(
+			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-single-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-blog-single',
@@ -151,13 +151,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * Option: Learn More about Single Blog Pro
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Description(
+			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-single-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Single Post in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Single Post in Kemet Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 					'settings' => array(),
 				)
 			)

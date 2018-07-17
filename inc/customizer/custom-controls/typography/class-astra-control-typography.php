@@ -2,9 +2,9 @@
 /**
  * Customizer Control: typography.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Typography control.
  */
-final class Astra_Control_Typography extends WP_Customize_Control {
+final class Kemet_Control_Typography extends WP_Customize_Control {
 
 	/**
 	 * Used to connect controls to each other.
@@ -160,7 +160,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="Other System Fonts">';
 
-		foreach ( Astra_Font_Families::get_system_fonts() as $name => $variants ) {
+		foreach ( Kemet_Font_Families::get_system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
@@ -169,7 +169,7 @@ final class Astra_Control_Typography extends WP_Customize_Control {
 
 		echo '<optgroup label="Google">';
 
-		foreach ( Astra_Font_Families::get_google_fonts() as $name => $single_font ) {
+		foreach ( Kemet_Font_Families::get_google_fonts() as $name => $single_font ) {
 			$variants = astar( $single_font, '0' );
 			$category = astar( $single_font, '1' );
 			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';

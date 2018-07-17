@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Customizer Sanitize.
+ * Kemet Theme Customizer Sanitize.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 // No direct access, please.
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
+if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Customizer_Sanitizes {
+	class Kemet_Customizer_Sanitizes {
 
 		/**
 		 * Instance
@@ -523,4 +523,4 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Customizer_Sanitizes::get_instance();
+Kemet_Customizer_Sanitizes::get_instance();

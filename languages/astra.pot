@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Astra 1.3.4\n"
+"Project-Id-Version: Kemet 1.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2018-06-18 12:37:37+00:00\n"
 "MIME-Version: 1.0\n"
@@ -334,7 +334,7 @@ msgid "Disable Footer Bar"
 msgstr ""
 
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:643
-msgid "Astra Settings"
+msgid "Kemet Settings"
 msgstr ""
 
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:652
@@ -519,11 +519,11 @@ msgid "Availability:"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:97
-msgid "Astra Options"
+msgid "Kemet Options"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Astra"
+msgid "Kemet"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:143
@@ -578,12 +578,12 @@ msgid "Visit Knowledge Base »"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:464
-#. translators: %1$s: Astra Theme name.
+#. translators: %1$s: Kemet Theme name.
 msgid "%1$s Community"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:474
-#. translators: %1$s: Astra Theme name.
+#. translators: %1$s: Kemet Theme name.
 msgid ""
 "Join the community of super helpful %1$s users. Say hello, ask questions, "
 "give feedback and help each other!"
@@ -594,12 +594,12 @@ msgid "Join Our Facebook Group »"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:506
-#. translators: %1$s: Astra Knowledge doc link.
+#. translators: %1$s: Kemet Knowledge doc link.
 msgid "Five Star Support"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:513
-#. translators: %1$s: Astra Theme name.
+#. translators: %1$s: Kemet Theme name.
 msgid "Got a question? Get in touch with %1$s developers. We're happy to help!"
 msgstr ""
 
@@ -608,7 +608,7 @@ msgid "Submit a Ticket »"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:545
-#. translators: %1$s: Astra Knowledge doc link.
+#. translators: %1$s: Kemet Knowledge doc link.
 msgid "Recommended Hosting"
 msgstr ""
 
@@ -617,7 +617,7 @@ msgid "A fast theme gets faster with a great host!"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:555
-#. translators: %1$s: Astra Theme name.
+#. translators: %1$s: Kemet Theme name.
 msgid "%1$s proudly recommends Cloudways to anyone looking for speedy hosting."
 msgstr ""
 
@@ -626,8 +626,8 @@ msgid "Check Cloudways Hosting »"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:584
-#. translators: %1$s: Astra Cloudways Hosting link.
-msgid "More Options Available with Astra Pro!"
+#. translators: %1$s: Kemet Cloudways Hosting link.
+msgid "More Options Available with Kemet Pro!"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:590
@@ -762,7 +762,7 @@ msgid "Plugin Successfully Activated"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:977
-#. translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra
+#. translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kemet
 #. Addon
 msgid "Update to the latest version of %1$2s to make changes in settings below."
 msgstr ""
@@ -920,7 +920,7 @@ msgid "Search Results for: %s"
 msgstr ""
 
 #: inc/customizer/astra-pro/astra-pro-section-register.php:19
-msgid "More Options Available in Astra Pro!"
+msgid "More Options Available in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/class-astra-customizer-sanitizes.php:274
@@ -1224,7 +1224,7 @@ msgid "Layout 4"
 msgstr ""
 
 #: inc/customizer/sections/layout/advanced-footer.php:73
-msgid "More Options Available for Footer Widgets in Astra Pro!"
+msgid "More Options Available for Footer Widgets in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/sections/layout/advanced-footer.php:73
@@ -1281,7 +1281,7 @@ msgid "Single Post Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog-single.php:160
-msgid "More Options Available for Single Post in Astra Pro!"
+msgid "More Options Available for Single Post in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog.php:29
@@ -1309,7 +1309,7 @@ msgid "Blog Content Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/blog.php:183
-msgid "More Options Available for Blog in Astra Pro!"
+msgid "More Options Available for Blog in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:44
@@ -1329,7 +1329,7 @@ msgid "Container for Blog Archives"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:158
-msgid "More Options Available for Container in Astra Pro!"
+msgid "More Options Available for Container in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:32
@@ -1541,7 +1541,7 @@ msgstr ""
 #: inc/customizer/sections/typography/content.php:305
 #: inc/customizer/sections/typography/header.php:130
 #: inc/customizer/sections/typography/single.php:86
-msgid "More Options Available for Typography in Astra Pro!"
+msgid "More Options Available for Typography in Kemet Pro!"
 msgstr ""
 
 #: inc/customizer/sections/typography/body.php:25
@@ -1647,7 +1647,7 @@ msgid "Click here to assign a widget for this area."
 msgstr ""
 
 #: inc/extras.php:1393
-msgid "Astra Pro"
+msgid "Kemet Pro"
 msgstr ""
 
 #: inc/metabox/class-astra-meta-boxes.php:149
@@ -1716,17 +1716,17 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Astra is fast, fully customizable & beautiful theme suitable for blog, "
+"Kemet is fast, fully customizable & beautiful theme suitable for blog, "
 "personal portfolio, business website and WooCommerce storefront. It is very "
 "lightweight (less than 50KB on frontend) and offers unparalleled speed. "
-"Built with SEO in mind, Astra comes with Schema.org code integrated so "
+"Built with SEO in mind, Kemet comes with Schema.org code integrated so "
 "search engines will love your site. It offers special features and "
 "templates so it works perfectly with all page builders like Elementor, "
 "Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other "
 "features: # WooCommerce Ready # Responsive # RTL & Translation Ready # "
 "Extendible with premium addons # Regularly updated # Designed, Developed, "
 "Maintained & Supported by Brainstorm Force. Looking for a perfect base "
-"theme? Look no further. Astra is fast, fully customizable and WooCommerce "
+"theme? Look no further. Kemet is fast, fully customizable and WooCommerce "
 "ready theme that you can use for building any kind of website!"
 msgstr ""
 

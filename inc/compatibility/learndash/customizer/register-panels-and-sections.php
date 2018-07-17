@@ -2,7 +2,7 @@
 /**
  * Register customizer panels & sections.
  *
- * @package     Astra
+ * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
@@ -13,7 +13,7 @@
  * Section
  */
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-learndash',
 		array(
 			'priority' => 65,

@@ -2,11 +2,11 @@
 /**
  * Filters to override defaults in UABB
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 // If plugin - 'BB Ultimate Addon' not exist then return.
@@ -15,16 +15,16 @@ if ( ! class_exists( 'BB_Ultimate_Addon' ) ) {
 }
 
 /**
- * Astra BB Ultimate Addon Compatibility
+ * Kemet BB Ultimate Addon Compatibility
  */
-if ( ! class_exists( 'Astra_BB_Ultimate_Addon' ) ) :
+if ( ! class_exists( 'Kemet_BB_Ultimate_Addon' ) ) :
 
 	/**
-	 * Astra BB Ultimate Addon Compatibility
+	 * Kemet BB Ultimate Addon Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_BB_Ultimate_Addon {
+	class Kemet_BB_Ultimate_Addon {
 
 		/**
 		 * Member Variable
@@ -246,4 +246,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_BB_Ultimate_Addon::get_instance();
+Kemet_BB_Ultimate_Addon::get_instance();

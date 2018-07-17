@@ -2,7 +2,7 @@
 /**
  * Admin functions - Functions that add some functionality to WordPress admin panel
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 

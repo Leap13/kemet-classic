@@ -1,11 +1,11 @@
 <?php
 /**
- * Astra Pro Customizer Section
+ * Kemet Pro Customizer Section
  *
- * @package   Astra
- * @copyright Copyright (c) 2018, Astra
+ * @package   Kemet
+ * @copyright Copyright (c) 2018, Kemet
  * @link      http://wpastra.com/
- * @since     Astra 1.0.10
+ * @since     Kemet 1.0.10
  */
 
 // No direct access, please.
@@ -14,16 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra_Pro_Customizer
+ * Kemet_Pro_Customizer
  *
  * @since 1.0.10
  */
-if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
+if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 
 	/**
-	 * Astra_Pro_Customizer Initial setup
+	 * Kemet_Pro_Customizer Initial setup
 	 */
-	class Astra_Pro_Customizer extends WP_Customize_Section {
+	class Kemet_Pro_Customizer extends WP_Customize_Section {
 
 		/**
 		 * The type of customize section being rendered.

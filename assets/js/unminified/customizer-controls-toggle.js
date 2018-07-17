@@ -1,7 +1,7 @@
 /**
  * Customizer controls toggles
  *
- * @package Astra
+ * @package Kemet
  */
 
 ( function( $ ) {

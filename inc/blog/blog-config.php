@@ -3,7 +3,7 @@
  * Blog Config File
  * Common Functions for Blog and Single Blog
  *
- * @package Astra
+ * @package Kemet
  */
 
 /**

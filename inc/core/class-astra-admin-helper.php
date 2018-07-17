@@ -4,19 +4,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0
+ * @since       Kemet 1.0
  */
 
-if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
+if ( ! class_exists( 'Kemet_Admin_Helper' ) ) :
 
 	/**
 	 * Admin Helper
 	 */
-	final class Astra_Admin_Helper {
+	final class Kemet_Admin_Helper {
 
 		/**
 		 * Returns an option from the database for

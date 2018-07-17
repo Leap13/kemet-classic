@@ -1,12 +1,12 @@
 <?php
 /**
- * Favicon Options for Astra Theme.
+ * Favicon Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,11 +47,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
+		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'title_tagline',
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-logo-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',
@@ -87,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-site-title]', array(
 			'default'           => astra_get_option( 'display-site-title' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-site-tagline]', array(
 			'default'           => astra_get_option( 'display-site-tagline' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'priority'          => 5,
 		)
 	);
@@ -126,7 +126,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[logo-title-inline]', array(
 			'default'           => astra_get_option( 'logo-title-inline' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	*/
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-icon-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',

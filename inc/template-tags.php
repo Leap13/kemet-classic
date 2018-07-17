@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Astra
+ * @package Kemet
  */
 
 if ( ! function_exists( 'astra_entry_footer' ) ) :

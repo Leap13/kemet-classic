@@ -1,12 +1,12 @@
 <?php
 /**
- * Header Options for Astra Theme.
+ * Header Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,12 +28,12 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-layouts]', array(
 			'default'           => astra_get_option( 'header-layouts' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 
 	$wp_customize->add_control(
-		new Astra_Control_Radio_Image(
+		new Kemet_Control_Radio_Image(
 			$wp_customize, KEMET_THEME_SETTINGS . '[header-layouts]', array(
 				'section'  => 'section-header',
 				'priority' => 5,
@@ -64,7 +64,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[disable-primary-nav]', array(
 			'default'           => astra_get_option( 'disable-primary-nav' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -83,7 +83,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => astra_get_option( 'header-main-rt-section' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -100,7 +100,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => astra_get_option( 'header-main-rt-section' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -129,7 +129,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-display-outside-menu]', array(
 			'default'           => astra_get_option( 'header-display-outside-menu' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -150,7 +150,7 @@ $header_rt_sections = array(
 			'default'           => astra_get_option( 'header-main-rt-section-html' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -167,7 +167,7 @@ $header_rt_sections = array(
 			KEMET_THEME_SETTINGS . '[header-main-rt-section-html]', array(
 				'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
 				'container_inclusive' => false,
-				'render_callback'     => array( 'Astra_Customizer_Partials', '_render_header_main_rt_section_html' ),
+				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_header_main_rt_section_html' ),
 			)
 		);
 	}
@@ -180,7 +180,7 @@ $header_rt_sections = array(
 			'default'           => astra_get_option( 'header-main-sep' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -205,7 +205,7 @@ $header_rt_sections = array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -225,7 +225,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-layout-width]', array(
 			'default'           => astra_get_option( 'header-main-layout-width' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -246,7 +246,7 @@ $header_rt_sections = array(
 	 * Option: Mobile Menu Label Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-header',
@@ -283,7 +283,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-menu-align]', array(
 			'default'           => astra_get_option( 'header-main-menu-align' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(

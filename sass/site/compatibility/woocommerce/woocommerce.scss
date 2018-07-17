@@ -13,7 +13,7 @@
 @import 'fonts';
 
 /**
- * Astra Theme compatibility with WooCommerce
+ * Kemet Theme compatibility with WooCommerce
  */
 @import "../../mixins/mixins-master";
 @import "../../../grid/variables";
@@ -93,7 +93,7 @@ p.demo_store,
 			vertical-align: middle;
 			&:before{
 				content: "\e854";
-				font-family: 'Astra';
+				font-family: 'Kemet';
 				font-size: 18px;
 				font-size: 1.2857rem;
 			}
@@ -3775,7 +3775,7 @@ button.pswp__button--zoom:hover {
 					content: "\e900";
 				    padding: 0 5px 0 5px;
 				    display: inline-block;
-				    font-family: Astra;
+				    font-family: Kemet;
 				    transform: rotate(-90deg);
 				    font-size: 11px;
 				    font-size: 0.7rem;

@@ -2,18 +2,18 @@
 /**
  * Register customizer panels & sections fro Woocommerce.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.1.0
+ * @since       Kemet 1.1.0
  */
 
 /**
  * WooCommerce
  */
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-group',
 		array(
 			'title'    => __( 'WooCommerce', 'astra' ),
@@ -24,7 +24,7 @@ $wp_customize->add_section(
 );
 
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-general',
 		array(
 			'title'    => __( 'General', 'astra' ),
@@ -35,7 +35,7 @@ $wp_customize->add_section(
 	)
 );
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop',
 		array(
 			'title'    => __( 'Shop', 'astra' ),
@@ -47,7 +47,7 @@ $wp_customize->add_section(
 );
 
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop-single',
 		array(
 			'title'    => __( 'Single Product', 'astra' ),
@@ -59,7 +59,7 @@ $wp_customize->add_section(
 );
 
 $wp_customize->add_section(
-	new Astra_WP_Customize_Section(
+	new Kemet_WP_Customize_Section(
 		$wp_customize, 'section-woo-shop-cart',
 		array(
 			'title'    => __( 'Cart Page', 'astra' ),

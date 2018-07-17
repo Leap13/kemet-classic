@@ -1,12 +1,12 @@
 <?php
 /**
- * Container Options for Astra theme.
+ * Container Options for Kemet theme.
  *
- * @package     Astra
+ * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       Astra 1.0
+ * @since       Kemet 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'default'           => astra_get_option( 'woocommerce-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(

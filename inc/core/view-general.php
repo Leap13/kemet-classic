@@ -2,11 +2,11 @@
 /**
  * View General
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0
+ * @since       Kemet 1.0
  */
 
 ?>
@@ -16,7 +16,7 @@
 			<div id="post-body" class="columns-2">
 				<div id="post-body-content">
 					<!-- All WordPress Notices below header -->
-					<h1 class="screen-reader-text"> <?php esc_html_e( 'Astra', 'astra' ); ?> </h1>
+					<h1 class="screen-reader-text"> <?php esc_html_e( 'Kemet', 'astra' ); ?> </h1>
 						<?php do_action( 'astra_welcome_page_content_before' ); ?>
 
 						<?php do_action( 'astra_welcome_page_content' ); ?>

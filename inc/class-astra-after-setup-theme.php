@@ -1,6 +1,6 @@
 <?php
 /**
- * Astra functions and definitions.
+ * Kemet functions and definitions.
  * Text Domain: astra
  * When using a child theme (see http://codex.wordpress.org/Theme_Development
  * and http://codex.wordpress.org/Child_Themes), you can override certain
@@ -12,27 +12,27 @@
  * For more information on hooks, actions, and filters,
  * see http://codex.wordpress.org/Plugin_API
  *
- * Astra is a very powerful theme and virtually anything can be customized
+ * Kemet is a very powerful theme and virtually anything can be customized
  * via a child theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 /**
- * Astra_After_Setup_Theme initial setup
+ * Kemet_After_Setup_Theme initial setup
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 
 	/**
-	 * Astra_After_Setup_Theme initial setup
+	 * Kemet_After_Setup_Theme initial setup
 	 */
-	class Astra_After_Setup_Theme {
+	class Kemet_After_Setup_Theme {
 
 		/**
 		 * Instance
@@ -193,4 +193,4 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_After_Setup_Theme::get_instance();
+Kemet_After_Setup_Theme::get_instance();

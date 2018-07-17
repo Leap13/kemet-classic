@@ -2,11 +2,11 @@
 /**
  * Loader Functions
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Enqueue Scripts
  */
-if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
+if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 	/**
 	 * Theme Enqueue Scripts
 	 */
-	class Astra_Enqueue_Scripts {
+	class Kemet_Enqueue_Scripts {
 
 		/**
 		 * Class styles.
@@ -80,13 +80,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$font_family = astra_get_option( 'body-font-family' );
 			$font_weight = astra_get_option( 'body-font-weight' );
 
-			Astra_Fonts::add_font( $font_family, $font_weight );
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 
 			// Render headings font.
 			$font_family = astra_get_option( 'headings-font-family' );
 			$font_weight = astra_get_option( 'headings-font-weight' );
 
-			Astra_Fonts::add_font( $font_family, $font_weight );
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**
@@ -143,13 +143,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			// Fonts - Render Fonts.
-			Astra_Fonts::render_fonts();
+			Kemet_Fonts::render_fonts();
 
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'astra-theme-css', Astra_Dynamic_CSS::return_meta_output( true ) );
+			wp_add_inline_style( 'astra-theme-css', Kemet_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'astra-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
 
 			$astra_localize = array(
 				'break_point' => astra_header_break_point(),    // Header Break Point.
@@ -185,5 +185,5 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 	}
 
-	new Astra_Enqueue_Scripts();
+	new Kemet_Enqueue_Scripts();
 }

@@ -2,11 +2,11 @@
 /**
  * Helper class for font settings.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.19
+ * @since       Kemet 1.0.19
  */
 
 // Exit if accessed directly.
@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Font info class for System and Google fonts.
  */
-if ( ! class_exists( 'Astra_Font_Families' ) ) :
+if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 
 	/**
 	 * Font info class for System and Google fonts.
 	 */
-	final class Astra_Font_Families {
+	final class Kemet_Font_Families {
 
 		/**
 		 * System Fonts
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 *
 		 * @since 1.0.19
 		 *
-		 * @return Array All the system fonts in Astra
+		 * @return Array All the system fonts in Kemet
 		 */
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 *
 		 * @since 1.0.19
 		 *
-		 * @return Array All the custom fonts in Astra
+		 * @return Array All the custom fonts in Kemet
 		 */
 		public static function get_custom_fonts() {
 			$custom_fonts = array();

@@ -3,7 +3,7 @@
  *
  * Handles the spacing
  *
- * @package Astra
+ * @package Kemet
  */
 
 	wp.customize.controlConstructor['ast-responsive-spacing'] = wp.customize.Control.extend({

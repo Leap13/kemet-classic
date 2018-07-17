@@ -2,7 +2,7 @@
 /**
  * LearnDash Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  * @since 1.3.0
  */
 
@@ -12,16 +12,16 @@ if ( ! class_exists( 'SFWD_LMS' ) ) {
 }
 
 /**
- * Astra LearnDash Compatibility
+ * Kemet LearnDash Compatibility
  */
-if ( ! class_exists( 'Astra_LearnDash' ) ) :
+if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 
 	/**
-	 * Astra LearnDash Compatibility
+	 * Kemet LearnDash Compatibility
 	 *
 	 * @since 1.3.0
 	 */
-	class Astra_LearnDash {
+	class Kemet_LearnDash {
 
 		/**
 		 * Member Variable
@@ -311,5 +311,5 @@ if ( apply_filters( 'astra_enable_learndash_integration', true ) ) {
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_LearnDash::get_instance();
+	Kemet_LearnDash::get_instance();
 }

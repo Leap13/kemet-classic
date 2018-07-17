@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Customizer Controls.
+ * Kemet Theme Customizer Controls.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 $control_dir = KEMET_THEME_DIR . 'inc/customizer/custom-controls';

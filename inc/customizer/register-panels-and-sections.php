@@ -2,18 +2,18 @@
 /**
  * Register customizer panels & sections.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 	/**
 	 * Layout Panel
 	 */
 	$wp_customize->add_panel(
-		new Astra_WP_Customize_Panel(
+		new Kemet_WP_Customize_Panel(
 			$wp_customize, 'panel-layout',
 			array(
 				'priority' => 10,
@@ -39,7 +39,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header',
 			apply_filters(
 				'astra_customizer_primary_header_layout',
@@ -53,7 +53,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-footer-group',
 			array(
 				'title'    => __( 'Footer', 'astra' ),
@@ -67,7 +67,7 @@
 	 * WooCommerce
 	 */
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-woo-group',
 			array(
 				'title'    => __( 'WooCommerce', 'astra' ),
@@ -78,7 +78,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-woo-general',
 			array(
 				'title'    => __( 'General', 'astra' ),
@@ -89,7 +89,7 @@
 		)
 	);
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-woo-shop',
 			array(
 				'title'    => __( 'Shop', 'astra' ),
@@ -101,7 +101,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-woo-shop-single',
 			array(
 				'title'    => __( 'Single Product', 'astra' ),
@@ -116,7 +116,7 @@
 	 * Footer Widgets Section
 	 */
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-footer-adv',
 			array(
 				'title'    => __( 'Footer Widgets', 'astra' ),
@@ -128,7 +128,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-footer-small',
 			array(
 				'title'    => __( 'Footer Bar', 'astra' ),
@@ -140,7 +140,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-group',
 			array(
 				'priority' => 40,
@@ -151,7 +151,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog',
 			array(
 				'priority' => 5,
@@ -163,7 +163,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-single',
 			array(
 				'priority' => 10,
@@ -243,7 +243,7 @@
 	);
 
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header-typo',
 			apply_filters(
 				'astra_customizer_primary_header_typo',

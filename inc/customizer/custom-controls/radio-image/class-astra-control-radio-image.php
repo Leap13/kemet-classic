@@ -2,9 +2,9 @@
 /**
  * Customizer Control: radio-image.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Radio Image control (modified radio).
  */
-class Astra_Control_Radio_Image extends WP_Customize_Control {
+class Kemet_Control_Radio_Image extends WP_Customize_Control {
 
 	/**
 	 * The control type.

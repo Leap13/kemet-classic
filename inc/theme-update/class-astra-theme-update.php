@@ -2,21 +2,21 @@
 /**
  * Theme Update
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
-if ( ! class_exists( 'Astra_Theme_Update' ) ) {
+if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 
 	/**
-	 * Astra_Theme_Update initial setup
+	 * Kemet_Theme_Update initial setup
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Theme_Update {
+	class Kemet_Theme_Update {
 
 		/**
 		 * Class instance.
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			update_option( KEMET_THEME_SETTINGS, $theme_options );
 
 			// Update variables.
-			Astra_Theme_Options::refresh();
+			Kemet_Theme_Options::refresh();
 
 			do_action( 'astra_update_after' );
 
@@ -552,7 +552,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		static public function v_1_2_7() {
 
 			$astra_options = get_option( KEMET_THEME_SETTINGS, array() );
-			$google_fonts  = Astra_Font_Families::get_google_fonts();
+			$google_fonts  = Kemet_Font_Families::get_google_fonts();
 
 			foreach ( $astra_options as $key => $value ) {
 
@@ -649,4 +649,4 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Theme_Update::get_instance();
+Kemet_Theme_Update::get_instance();

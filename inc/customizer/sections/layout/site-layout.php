@@ -1,12 +1,12 @@
 <?php
 /**
- * Site Layout Option for Astra Theme.
+ * Site Layout Option for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'validate_site_width' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
+		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-container-layout',

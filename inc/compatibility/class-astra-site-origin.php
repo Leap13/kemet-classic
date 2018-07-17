@@ -2,7 +2,7 @@
 /**
  * Site Origin Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Site Origin' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'SiteOrigin_Panels_Settings' ) ) {
 }
 
 /**
- * Astra Site Origin Compatibility
+ * Kemet Site Origin Compatibility
  */
-if ( ! class_exists( 'Astra_Site_Origin' ) ) :
+if ( ! class_exists( 'Kemet_Site_Origin' ) ) :
 
 	/**
-	 * Astra Site Origin Compatibility
+	 * Kemet Site Origin Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Site_Origin {
+	class Kemet_Site_Origin {
 
 		/**
 		 * Member Variable
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Site_Origin::get_instance();
+Kemet_Site_Origin::get_instance();

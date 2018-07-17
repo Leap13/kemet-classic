@@ -2,11 +2,11 @@
 /**
  * Helper class for font settings.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 // Exit if accessed directly.
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Fonts
+ * Kemet Fonts
  */
-final class Astra_Fonts {
+final class Kemet_Fonts {
 
 	/**
 	 * Get fonts to generate.
@@ -91,7 +91,7 @@ final class Astra_Fonts {
 		$google_fonts = array();
 		$font_subset  = array();
 
-		$system_fonts = Astra_Font_Families::get_system_fonts();
+		$system_fonts = Kemet_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
 			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) ) {

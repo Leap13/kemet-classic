@@ -1,12 +1,12 @@
 <?php
 /**
- * Functions for Astra Theme.
+ * Functions for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -196,7 +196,7 @@ if ( ! function_exists( 'astra_get_font_family' ) ) {
 	 * @return mixed               CSS value depends on $unit
 	 */
 	function astra_get_font_family( $value = '' ) {
-		$system_fonts = Astra_Font_Families::get_system_fonts();
+		$system_fonts = Kemet_Font_Families::get_system_fonts();
 		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
 			$value .= ',' . $system_fonts[ $value ]['fallback'];
 		}
@@ -428,10 +428,10 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 			$default = $deprecated;
 		}
 
-		$theme_options = Astra_Theme_Options::get_options();
+		$theme_options = Kemet_Theme_Options::get_options();
 
 		/**
-		 * Filter the options array for Astra Settings.
+		 * Filter the options array for Kemet Settings.
 		 *
 		 * @since  1.0.20
 		 * @var Array
@@ -442,7 +442,7 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 
 		/**
 		 * Dynamic filter astra_get_option_$option.
-		 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+		 * $option is the name of the Kemet Setting, Refer Kemet_Theme_Options::defaults() for option names from the theme.
 		 *
 		 * @since  1.0.20
 		 * @var Mixed.
@@ -489,7 +489,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 
 		/**
 		 * Dynamic filter astra_get_option_meta_$option.
-		 * $option_id is the name of the Astra Meta Setting.
+		 * $option_id is the name of the Kemet Meta Setting.
 		 *
 		 * @since  1.0.20
 		 * @var Mixed.
@@ -511,7 +511,7 @@ if ( ! function_exists( 'astra_get_post_id' ) ) {
 	 */
 	function astra_get_post_id( $post_id_override = '' ) {
 
-		if ( null == Astra_Theme_Options::$post_id ) {
+		if ( null == Kemet_Theme_Options::$post_id ) {
 			global $post;
 
 			$post_id = 0;
@@ -525,10 +525,10 @@ if ( ! function_exists( 'astra_get_post_id' ) ) {
 				$post_id = $post->ID;
 			}
 
-			Astra_Theme_Options::$post_id = $post_id;
+			Kemet_Theme_Options::$post_id = $post_id;
 		}
 
-		return apply_filters( 'astra_get_post_id', Astra_Theme_Options::$post_id, $post_id_override );
+		return apply_filters( 'astra_get_post_id', Kemet_Theme_Options::$post_id, $post_id_override );
 	}
 }
 

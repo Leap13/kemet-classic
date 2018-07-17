@@ -2,7 +2,7 @@
 /**
  * Gravity Forms File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Gravity Forms' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'GFForms' ) ) {
 }
 
 /**
- * Astra Gravity Forms
+ * Kemet Gravity Forms
  */
-if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
+if ( ! class_exists( 'Kemet_Gravity_Forms' ) ) :
 
 	/**
-	 * Astra Gravity Forms
+	 * Kemet Gravity Forms
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Gravity_Forms {
+	class Kemet_Gravity_Forms {
 
 		/**
 		 * Member Variable
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Gravity_Forms::get_instance();
+Kemet_Gravity_Forms::get_instance();

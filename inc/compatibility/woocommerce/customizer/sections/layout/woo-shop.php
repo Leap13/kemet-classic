@@ -1,12 +1,12 @@
 <?php
 /**
- * WooCommerce Options for Astra Theme.
+ * WooCommerce Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.1.0
+ * @since       Kemet 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,11 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'mobile'  => 2,
 			),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
+		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-woo-shop',
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[shop-no-of-products]', array(
 			'default'           => astra_get_option( 'shop-no-of-products' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[shop-hover-style]', array(
 			'default'           => astra_get_option( 'shop-hover-style' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 
@@ -101,11 +101,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
 			'default'           => astra_get_option( 'shop-product-structure' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Sortable(
+		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
 				'type'     => 'ast-sortable',
 				'section'  => 'section-woo-shop',
@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Woocommerce Shop Archive Content Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-width-divider]', array(
 				'section'  => 'section-woo-shop',
 				'type'     => 'ast-divider',
@@ -144,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
 			'default'           => astra_get_option( 'shop-archive-width' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -168,11 +168,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
+		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
 				'type'        => 'ast-slider',
 				'section'     => 'section-woo-shop',

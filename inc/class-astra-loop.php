@@ -1,19 +1,19 @@
 <?php
 /**
- * Astra Loop
+ * Kemet Loop
  *
- * @package Astra
+ * @package Kemet
  * @since 1.2.7
  */
 
-if ( ! class_exists( 'Astra_Loop' ) ) :
+if ( ! class_exists( 'Kemet_Loop' ) ) :
 
 	/**
-	 * Astra_Loop
+	 * Kemet_Loop
 	 *
 	 * @since 1.2.7
 	 */
-	class Astra_Loop {
+	class Kemet_Loop {
 
 		/**
 		 * Instance
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		/**
-		 * Add wrapper div 'ast-row' for Astra template part.
+		 * Add wrapper div 'ast-row' for Kemet template part.
 		 *
 		 * @since  1.2.7
 		 * @return void
@@ -250,7 +250,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		}
 
 		/**
-		 * Add closing wrapper div for 'ast-row' after Astra template part.
+		 * Add closing wrapper div for 'ast-row' after Kemet template part.
 		 *
 		 * @since  1.2.7
 		 * @return void
@@ -266,6 +266,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 	/**
 	 * Initialize class object with 'get_instance()' method
 	 */
-	Astra_Loop::get_instance();
+	Kemet_Loop::get_instance();
 
 endif;

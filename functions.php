@@ -1,10 +1,10 @@
 <?php
 /**
- * Astra functions and definitions
+ * Kemet functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 

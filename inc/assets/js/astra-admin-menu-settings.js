@@ -1,5 +1,5 @@
 /**
- * Install Astra Starter Sites
+ * Install Kemet Starter Sites
  *
  *
  * @since 1.2.4
@@ -7,7 +7,7 @@
 
 (function($){
 
-	AstraThemeAdmin = {
+	KemetThemeAdmin = {
 
 		init: function()
 		{
@@ -16,7 +16,7 @@
 
 
 		/**
-		 * Binds events for the Astra Theme.
+		 * Binds events for the Kemet Theme.
 		 *
 		 * @since 1.0.0
 		 * @access private
@@ -24,11 +24,11 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('click' , '.ast-sites-notinstalled', AstraThemeAdmin._installNow );
-			$( document ).on('click' , '.ast-sites-inactive', AstraThemeAdmin._activatePlugin);
-			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
-			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
-			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
+			$( document ).on('click' , '.ast-sites-notinstalled', KemetThemeAdmin._installNow );
+			$( document ).on('click' , '.ast-sites-inactive', KemetThemeAdmin._activatePlugin);
+			$( document ).on('wp-plugin-install-success' , KemetThemeAdmin._activatePlugin);
+			$( document ).on('wp-plugin-installing'      , KemetThemeAdmin._pluginInstalling);
+			$( document ).on('wp-plugin-install-error'   , KemetThemeAdmin._installError);
 		},
 
 		/**
@@ -140,10 +140,10 @@
 	};
 
 	/**
-	 * Initialize AstraThemeAdmin
+	 * Initialize KemetThemeAdmin
 	 */
 	$(function(){
-		AstraThemeAdmin.init();
+		KemetThemeAdmin.init();
 	});
 
 })(jQuery);

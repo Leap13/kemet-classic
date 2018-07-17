@@ -1,12 +1,12 @@
 <?php
 /**
- * Deprecated Filters of Astra Theme.
+ * Deprecated Filters of Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.23
+ * @since       Kemet 1.0.23
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'astra_color_palettes', 'deprecated_astra_color_palette', 10, 1 );
 
 /**
- * Astra Color Palettes
+ * Kemet Color Palettes
  *
  * @since 1.0.23
  * @param array $color_palette  customizer color palettes.
@@ -35,7 +35,7 @@ function deprecated_astra_color_palette( $color_palette ) {
 add_filter( 'astra_single_post_navigation_enabled', 'deprecated_astra_sigle_post_navigation_enabled', 10, 1 );
 
 /**
- * Astra Single Post Navigation
+ * Kemet Single Post Navigation
  *
  * @since 1.0.27
  * @param boolean $post_nav true | false.
@@ -52,7 +52,7 @@ function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
 add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_main_rt_section', 10, 2 );
 
 /**
- * Astra Header elements.
+ * Kemet Header elements.
  *
  * @since 1.2.2
  * @param array  $elements List of elements.
@@ -68,7 +68,7 @@ function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
 
 if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	/**
-	 * Astra Filter Deprecated
+	 * Kemet Filter Deprecated
 	 *
 	 * @since 1.1.1
 	 * @param string $tag         The name of the filter hook.

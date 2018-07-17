@@ -1,22 +1,22 @@
 <?php
 /**
- * Astra Theme Options
+ * Kemet Theme Options
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 /**
  * Theme Options
  */
-if ( ! class_exists( 'Astra_Theme_Options' ) ) {
+if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 	/**
 	 * Theme Options
 	 */
-	class Astra_Theme_Options {
+	class Kemet_Theme_Options {
 		/**
 		 * Class instance.
 		 *
@@ -323,4 +323,4 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Theme_Options::get_instance();
+Kemet_Theme_Options::get_instance();

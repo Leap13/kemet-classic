@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 

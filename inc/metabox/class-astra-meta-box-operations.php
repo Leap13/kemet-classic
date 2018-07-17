@@ -1,23 +1,23 @@
 <?php
 /**
- * Astra Meta Box Operations
+ * Kemet Meta Box Operations
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 /**
  * Meta Box
  */
-if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
+if ( ! class_exists( 'Kemet_Meta_Box_Operations' ) ) {
 
 	/**
 	 * Meta Box
 	 */
-	class Astra_Meta_Box_Operations {
+	class Kemet_Meta_Box_Operations {
 
 		/**
 		 * Instance
@@ -108,4 +108,4 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Meta_Box_Operations::get_instance();
+Kemet_Meta_Box_Operations::get_instance();

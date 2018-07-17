@@ -2,7 +2,7 @@
 /**
  * Beaver Themer Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Beaver Themer' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'FLThemeBuilderLoader' ) || ! class_exists( 'FLThemeBuilder
 }
 
 /**
- * Astra Beaver Themer Compatibility
+ * Kemet Beaver Themer Compatibility
  */
-if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
+if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 	/**
-	 * Astra Beaver Themer Compatibility
+	 * Kemet Beaver Themer Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Beaver_Themer {
+	class Kemet_Beaver_Themer {
 
 		/**
 		 * Member Variable
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		}
 
 		/**
-		 * Function to Astra theme parts
+		 * Function to Kemet theme parts
 		 *
 		 * @since 1.0.0
 		 */
@@ -304,4 +304,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Beaver_Themer::get_instance();
+Kemet_Beaver_Themer::get_instance();

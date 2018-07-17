@@ -2,7 +2,7 @@
 /**
  * Blog Helper Functions
  *
- * @package Astra
+ * @package Kemet
  */
 
 /**

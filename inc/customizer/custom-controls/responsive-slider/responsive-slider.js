@@ -3,7 +3,7 @@
  *
  * Handles Slider control
  *
- * @package Astra
+ * @package Kemet
  */
 
 	wp.customize.controlConstructor['ast-responsive-slider'] = wp.customize.Control.extend({

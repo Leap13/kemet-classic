@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.me/
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Jetpack' not exist then return.
@@ -13,16 +13,16 @@ if ( ! class_exists( 'Jetpack' ) ) {
 }
 
 /**
- * Astra Jetpack Compatibility
+ * Kemet Jetpack Compatibility
  */
-if ( ! class_exists( 'Astra_Jetpack' ) ) :
+if ( ! class_exists( 'Kemet_Jetpack' ) ) :
 
 	/**
-	 * Astra Jetpack Compatibility
+	 * Kemet Jetpack Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Jetpack {
+	class Kemet_Jetpack {
 
 		/**
 		 * Member Variable
@@ -79,4 +79,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Jetpack::get_instance();
+Kemet_Jetpack::get_instance();

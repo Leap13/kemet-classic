@@ -4,9 +4,9 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Slider control (range).
  */
-class Astra_Control_Slider extends WP_Customize_Control {
+class Kemet_Control_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.

@@ -1,12 +1,12 @@
 <?php
 /**
- * General Options for Astra Theme.
+ * General Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
 				'type'     => 'ast-divider',
 				'priority' => 50,
@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
 			'default'           => astra_get_option( 'site-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'default'           => astra_get_option( 'single-page-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
 			'default'           => astra_get_option( 'single-post-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
 			'default'           => astra_get_option( 'archive-post-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -129,14 +129,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	// Learn More link if Astra Pro is not activated.
+	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Divider(
+			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-container-layout',
@@ -149,13 +149,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * Option: Learn More about Container
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Description(
+			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-container-layout',
 					'priority' => 70,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Container in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Container in Kemet Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
 					'settings' => array(),
 				)
 			)
@@ -170,11 +170,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => astra_get_option( 'site-layout-outside-bg-obj' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Background(
+		new Kemet_Control_Background(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
 				'type'     => 'ast-background',
 				'section'  => 'section-colors-body',

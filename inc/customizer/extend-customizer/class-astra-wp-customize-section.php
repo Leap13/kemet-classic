@@ -4,9 +4,9 @@
  *
  * Creates a jQuery color control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -25,7 +25,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 	 * @since 1.0.31
 	 * @see WP_Customize_Section
 	 */
-	class Astra_WP_Customize_Section extends WP_Customize_Section {
+	class Kemet_WP_Customize_Section extends WP_Customize_Section {
 
 		/**
 		 * Section

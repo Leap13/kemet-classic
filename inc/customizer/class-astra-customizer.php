@@ -1,25 +1,25 @@
 <?php
 /**
- * Astra Theme Customizer
+ * Kemet Theme Customizer
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 /**
  * Customizer Loader
  */
-if ( ! class_exists( 'Astra_Customizer' ) ) {
+if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 	/**
 	 * Customizer Loader
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Customizer {
+	class Kemet_Customizer {
 
 		/**
 		 * Instance
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	            	});
 	        	});';
 
-				$output .= Astra_Fonts_Data::js();
+				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
 			echo $output;
@@ -96,8 +96,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Register Extended Panel
 			 */
-			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
-			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
+			$wp_customize->register_panel_type( 'Kemet_WP_Customize_Panel' );
+			$wp_customize->register_section_type( 'Kemet_WP_Customize_Section' );
 
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
@@ -105,17 +105,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Register controls
 			 */
-			$wp_customize->register_control_type( 'Astra_Control_Sortable' );
-			$wp_customize->register_control_type( 'Astra_Control_Radio_Image' );
-			$wp_customize->register_control_type( 'Astra_Control_Slider' );
-			$wp_customize->register_control_type( 'Astra_Control_Responsive_Slider' );
-			$wp_customize->register_control_type( 'Astra_Control_Responsive' );
-			$wp_customize->register_control_type( 'Astra_Control_Spacing' );
-			$wp_customize->register_control_type( 'Astra_Control_Responsive_Spacing' );
-			$wp_customize->register_control_type( 'Astra_Control_Divider' );
-			$wp_customize->register_control_type( 'Astra_Control_Color' );
-			$wp_customize->register_control_type( 'Astra_Control_Description' );
-			$wp_customize->register_control_type( 'Astra_Control_Background' );
+			$wp_customize->register_control_type( 'Kemet_Control_Sortable' );
+			$wp_customize->register_control_type( 'Kemet_Control_Radio_Image' );
+			$wp_customize->register_control_type( 'Kemet_Control_Slider' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Slider' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive' );
+			$wp_customize->register_control_type( 'Kemet_Control_Spacing' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Spacing' );
+			$wp_customize->register_control_type( 'Kemet_Control_Divider' );
+			$wp_customize->register_control_type( 'Kemet_Control_Color' );
+			$wp_customize->register_control_type( 'Kemet_Control_Description' );
+			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 
 			/**
 			 * Helper files
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function customize_register( $wp_customize ) {
 
 			/**
-			 * Astra Pro Upsell Link
+			 * Kemet Pro Upsell Link
 			 */
 			if ( ! defined( 'KEMET_EXT_VER' ) ) {
 				require KEMET_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function preview_init() {
 
 			// Update variables.
-			Astra_Theme_Options::refresh();
+			Kemet_Theme_Options::refresh();
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -278,14 +278,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		function customize_save() {
 
 			// Update variables.
-			Astra_Theme_Options::refresh();
+			Kemet_Theme_Options::refresh();
 
 			/* Generate Header Logo */
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-			add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
-			Astra_Customizer::generate_logo_by_width( $custom_logo_id );
-			remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+			add_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
+			Kemet_Customizer::generate_logo_by_width( $custom_logo_id );
+			remove_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10 );
 
 			do_action( 'astra_customizer_save' );
 		}
@@ -346,4 +346,4 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-Astra_Customizer::get_instance();
+Kemet_Customizer::get_instance();

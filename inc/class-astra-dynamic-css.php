@@ -1,13 +1,13 @@
 <?php
 /**
- * Custom Styling output for Astra Theme.
+ * Custom Styling output for Kemet Theme.
  *
- * @package     Astra
+ * @package     Kemet
  * @subpackage  Class
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Dynamic CSS
  */
-if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
+if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 	/**
 	 * Dynamic CSS
 	 */
-	class Astra_Dynamic_CSS {
+	class Kemet_Dynamic_CSS {
 
 		/**
 		 * Return CSS Output
@@ -633,11 +633,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $site_width, '769' );
 
 			/**
-			 * Astra Fonts
+			 * Kemet Fonts
 			 */
 			if ( apply_filters( 'astra_enable_default_fonts', true ) ) {
 				$astra_fonts          = '@font-face {';
-					$astra_fonts     .= 'font-family: "Astra";';
+					$astra_fonts     .= 'font-family: "Kemet";';
 					$astra_fonts     .= 'src: url( ' . KEMET_THEME_URI . 'assets/fonts/astra.woff) format("woff"),';
 						$astra_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/astra.ttf) format("truetype"),';
 						$astra_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/astra.svg#astra) format("svg");';
@@ -709,7 +709,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// trim white space for faster page loading.
-			$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+			$dynamic_css = Kemet_Enqueue_Scripts::trim_css( $dynamic_css );
 
 			return $dynamic_css;
 		}

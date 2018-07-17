@@ -2,11 +2,11 @@
 /**
  * Content Spacing Options for our theme.
  *
- * @package     Astra
+ * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       Astra 1.2.0
+ * @since       Kemet 1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
+		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]', array(
 				'section'  => 'section-sidebars',
 				'type'     => 'ast-divider',
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[lifterlms-sidebar-layout]', array(
 			'default'           => astra_get_option( 'lifterlms-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]', array(
 			'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(

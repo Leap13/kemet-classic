@@ -660,7 +660,7 @@
  * Handles toggling the navigation menu for small screens and enables tab
  * support for dropdown menus.
  *
- * @package Astra
+ * @package Kemet
  */
 
 var isIE = false;
@@ -753,7 +753,7 @@ var toggleClass = function ( el, className ) {
 
 ( function() {
 
-	AstraNavigationMenu = function( parentList ) {
+	KemetNavigationMenu = function( parentList ) {
 
 		for (var i = 0; i < parentList.length; i++) {
 
@@ -795,7 +795,7 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	AstraToggleMenu = function( astra_menu_toggle ) {
+	KemetToggleMenu = function( astra_menu_toggle ) {
 		
 		/* Submenu button click */
 		for (var i = 0; i < astra_menu_toggle.length; i++) {
@@ -883,10 +883,10 @@ var toggleClass = function ( el, className ) {
 			
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-				AstraNavigationMenu( parentList );
+				KemetNavigationMenu( parentList );
 			 	
 			 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-				AstraToggleMenu( astra_menu_toggle );
+				KemetToggleMenu( astra_menu_toggle );
 			}
 		};
 	}
@@ -1146,7 +1146,7 @@ var toggleClass = function ( el, className ) {
  *
  * Learn more: https://github.com/Automattic/_s/pull/136
  *
- * @package Astra
+ * @package Kemet
  */
 
 ( function() {

@@ -1,19 +1,19 @@
 <?php
 /**
- * Astra Theme Customizer Callback
+ * Kemet Theme Customizer Callback
  *
- * @package Astra Theme
+ * @package Kemet Theme
  */
 
 /**
  * Customizer Callback
  */
-if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
+if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
 
 	/**
 	 * Customizer Callback
 	 */
-	class Astra_Customizer_Callback {
+	class Kemet_Customizer_Callback {
 
 		/**
 		 * Sidebar Archive

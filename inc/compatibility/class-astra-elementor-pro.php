@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 namespace Elementor;
@@ -23,16 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Elementor Compatibility
+ * Kemet Elementor Compatibility
  */
-if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
+if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 
 	/**
-	 * Astra Elementor Compatibility
+	 * Kemet Elementor Compatibility
 	 *
 	 * @since 1.2.7
 	 */
-	class Astra_Elementor_Pro {
+	class Kemet_Elementor_Pro {
 
 		/**
 		 * Member Variable
@@ -96,8 +96,8 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
 			if ( $did_location ) {
 				// Search and default.
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_search' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_default' ) );
+				remove_action( 'astra_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_search' ) );
+				remove_action( 'astra_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_default' ) );
 
 				// Remove pagination.
 				remove_action( 'astra_pagination', 'astra_number_pagination' );
@@ -110,10 +110,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			// IS Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 			if ( $did_location ) {
-				remove_action( 'astra_page_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_post' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
-				remove_action( 'astra_page_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'astra_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_page' ) );
+				remove_action( 'astra_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_post' ) );
+				remove_action( 'astra_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'astra_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
 			}
 		}
 
@@ -267,7 +267,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Elementor_Pro::get_instance();
+	Kemet_Elementor_Pro::get_instance();
 
 endif;
 

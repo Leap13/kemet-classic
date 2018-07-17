@@ -3,7 +3,7 @@
  *
  * Handles the responsive
  *
- * @package Astra
+ * @package Kemet
  */
 
 	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({

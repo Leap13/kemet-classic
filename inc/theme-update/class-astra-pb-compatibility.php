@@ -2,21 +2,21 @@
 /**
  * Theme Update
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.13
+ * @since       Kemet 1.0.13
  */
 
-if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
+if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 
 	/**
-	 * Astra_PB_Compatibility initial setup
+	 * Kemet_PB_Compatibility initial setup
 	 *
 	 * @since 1.0.13
 	 */
-	class Astra_PB_Compatibility {
+	class Kemet_PB_Compatibility {
 
 		/**
 		 * Class instance.
@@ -159,4 +159,4 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_PB_Compatibility::get_instance();
+Kemet_PB_Compatibility::get_instance();

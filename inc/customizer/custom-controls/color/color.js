@@ -3,7 +3,7 @@
  *
  * Handles Slider control
  *
- * @package Astra
+ * @package Kemet
  */
 
 jQuery(window).on("load", function() {

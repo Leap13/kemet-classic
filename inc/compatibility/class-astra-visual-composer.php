@@ -2,7 +2,7 @@
 /**
  * Visual Composer Compatibility File.
  *
- * @package Astra
+ * @package Kemet
  */
 
 // If plugin - 'Visual Composer' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'Vc_Manager' ) ) {
 }
 
 /**
- * Astra Visual Composer Compatibility
+ * Kemet Visual Composer Compatibility
  */
-if ( ! class_exists( 'Astra_Visual_Composer' ) ) :
+if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 
 	/**
-	 * Astra Visual Composer Compatibility
+	 * Kemet Visual Composer Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Visual_Composer {
+	class Kemet_Visual_Composer {
 
 		/**
 		 * Member Variable
@@ -123,4 +123,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Visual_Composer::get_instance();
+Kemet_Visual_Composer::get_instance();

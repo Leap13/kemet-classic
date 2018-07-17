@@ -4,11 +4,11 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 add_action( 'wp_head', 'astra_pingback_header' );
@@ -86,7 +86,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$page_layout = 'ast-' . astra_page_layout();
 		$classes[]   = esc_attr( $page_layout );
 
-		// Current Astra verion.
+		// Current Kemet verion.
 		$classes[] = esc_attr( 'astra-' . KEMET_THEME_VERSION );
 
 		$outside_menu = astra_get_option( 'header-display-outside-menu' );
@@ -105,12 +105,12 @@ add_filter( 'body_class', 'astra_body_classes' );
 
 
 /**
- * Astra Pagination
+ * Kemet Pagination
  */
 if ( ! function_exists( 'astra_number_pagination' ) ) {
 
 	/**
-	 * Astra Pagination
+	 * Kemet Pagination
 	 *
 	 * @since 1.0.0
 	 * @return void            Generate & echo pagination markup.
@@ -403,7 +403,7 @@ if ( ! function_exists( 'astra_get_small_footer_custom_text' ) ) {
 
 			$theme_author = apply_filters(
 				'astra_theme_author', array(
-					'theme_name'       => __( 'Astra', 'astra' ),
+					'theme_name'       => __( 'Kemet', 'astra' ),
 					'theme_author_url' => 'http://wpastra.com/',
 				)
 			);
@@ -822,7 +822,7 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 		$dynamic_css = ob_get_clean();
 
 		// trim white space for faster page loading.
-		$dynamic_css = Astra_Enqueue_Scripts::trim_css( $dynamic_css );
+		$dynamic_css = Kemet_Enqueue_Scripts::trim_css( $dynamic_css );
 
 		wp_add_inline_style( 'astra-theme-css', $dynamic_css );
 	}
@@ -1069,12 +1069,12 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 }
 
 /**
- * Astra entry header class.
+ * Kemet entry header class.
  */
 if ( ! function_exists( 'astra_entry_header_class' ) ) {
 
 	/**
-	 * Astra entry header class
+	 * Kemet entry header class
 	 *
 	 * @since 1.0.15
 	 */
@@ -1111,12 +1111,12 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 }
 
 /**
- * Astra get post thumbnail image.
+ * Kemet get post thumbnail image.
  */
 if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 	/**
-	 * Astra get post thumbnail image
+	 * Kemet get post thumbnail image
 	 *
 	 * @since 1.0.15
 	 * @param string  $before Markup before thumbnail image.
@@ -1307,12 +1307,12 @@ endif;
 add_filter( 'wp_get_attachment_image_attributes', 'astra_replace_header_attr', 10, 3 );
 
 /**
- * Astra Color Palletes.
+ * Kemet Color Palletes.
  */
 if ( ! function_exists( 'astra_color_palette' ) ) :
 
 	/**
-	 * Astra Color Palletes.
+	 * Kemet Color Palletes.
 	 *
 	 * @return array Color Palletes.
 	 */
@@ -1343,7 +1343,7 @@ if ( ! function_exists( 'astra_get_theme_name' ) ) :
 	 */
 	function astra_get_theme_name() {
 
-		$theme_name = __( 'Astra', 'astra' );
+		$theme_name = __( 'Kemet', 'astra' );
 
 		return apply_filters( 'astra_theme_name', $theme_name );
 	}
@@ -1390,11 +1390,11 @@ if ( ! function_exists( 'astra_get_addon_name' ) ) :
 	 */
 	function astra_get_addon_name() {
 
-		$pro_name = __( 'Astra Pro', 'astra' );
+		$pro_name = __( 'Kemet Pro', 'astra' );
 		// If addon is not updated & White Label added for Addon then show the updated addon name.
-		if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
+		if ( class_exists( 'Kemet_Ext_White_Label_Markup' ) ) {
 
-			$plugin_data = Astra_Ext_White_Label_Markup::$branding;
+			$plugin_data = Kemet_Ext_White_Label_Markup::$branding;
 
 			if ( '' != $plugin_data['astra-pro']['name'] ) {
 				$pro_name = $plugin_data['astra-pro']['name'];

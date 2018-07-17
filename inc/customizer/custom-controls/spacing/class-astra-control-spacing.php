@@ -2,9 +2,9 @@
 /**
  * Customizer Control: spacing
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Astra_Control_Spacing extends WP_Customize_Control {
+class Kemet_Control_Spacing extends WP_Customize_Control {
 
 	/**
 	 * The control type.

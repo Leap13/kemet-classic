@@ -4,23 +4,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0
+ * @since       Kemet 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
+if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 	/**
-	 * Astra Admin Settings
+	 * Kemet Admin Settings
 	 */
-	class Astra_Admin_Settings {
+	class Kemet_Admin_Settings {
 
 		/**
 		 * View all actions
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		static public $menu_page_title = 'Astra Theme';
+		static public $menu_page_title = 'Kemet Theme';
 
 		/**
 		 * Page title
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $page_title
 		 */
-		static public $page_title = 'Astra';
+		static public $page_title = 'Kemet';
 
 		/**
 		 * Plugin slug
@@ -94,8 +94,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		static public function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
-			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Kemet Options', 'astra' ) );
+			self::$page_title      = apply_filters( 'astra_page_title', __( 'Kemet', 'astra' ) );
 
 			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
@@ -367,8 +367,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						?>
 					</p>
 						<?php
-						// Astra Sites - Installed but Inactive.
-						// Astra Premium Sites - Inactive.
+						// Kemet Sites - Installed but Inactive.
+						// Kemet Premium Sites - Inactive.
 						if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-inactive';
@@ -376,8 +376,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
 
-							// Astra Sites - Not Installed.
-							// Astra Premium Sites - Inactive.
+							// Kemet Sites - Not Installed.
+							// Kemet Premium Sites - Inactive.
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 
 							$class       = 'button ast-sites-notinstalled';
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							$data_slug   = 'astra-sites';
 							$data_init   = '/astra-sites/astra-sites.php';
 
-							// Astra Premium Sites - Active.
+							// Kemet Premium Sites - Active.
 						} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
 							$class       = 'active';
 							$button_text = __( 'See Library »', 'astra' );
@@ -435,7 +435,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$astra_knowledge_base_doc_link_text = apply_filters( 'astra_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base »', 'astra' ) );
 
 					printf(
-						/* translators: %1$s: Astra Knowledge doc link. */
+						/* translators: %1$s: Kemet Knowledge doc link. */
 						'%1$s',
 						! empty( $astra_knowledge_base_doc_link ) ? '<a href=' . esc_url( $astra_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_knowledge_base_doc_link_text ) . '</a>' :
 						esc_html( $astra_knowledge_base_doc_link_text )
@@ -447,7 +447,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Include Welcome page right side Astra community content
+		 * Include Welcome page right side Kemet community content
 		 *
 		 * @since 1.2.4
 		 */
@@ -460,7 +460,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<span>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
+							/* translators: %1$s: Kemet Theme name. */
 							esc_html__( '%1$s Community', 'astra' ),
 							self::$page_title
 						);
@@ -470,7 +470,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
+							/* translators: %1$s: Kemet Theme name. */
 							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'astra' ),
 							self::$page_title
 						);
@@ -481,7 +481,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					$astra_community_group_link_text = apply_filters( 'astra_community_group_link_text', __( 'Join Our Facebook Group »', 'astra' ) );
 
 					printf(
-						/* translators: %1$s: Astra Knowledge doc link. */
+						/* translators: %1$s: Kemet Knowledge doc link. */
 						'%1$s',
 						! empty( $astra_community_group_link ) ? '<a href=' . esc_url( $astra_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_community_group_link_text ) . '</a>' :
 						esc_html( $astra_community_group_link_text )
@@ -509,7 +509,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
+							/* translators: %1$s: Kemet Theme name. */
 							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'astra' ),
 							self::$page_title
 						);
@@ -520,7 +520,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						$astra_support_link_text = apply_filters( 'astra_support_link_text', __( 'Submit a Ticket »', 'astra' ) );
 
 						printf(
-							/* translators: %1$s: Astra Knowledge doc link. */
+							/* translators: %1$s: Kemet Knowledge doc link. */
 							'%1$s',
 							! empty( $astra_support_link ) ? '<a href=' . esc_url( $astra_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_support_link_text ) . '</a>' :
 							esc_html( $astra_support_link_text )
@@ -551,7 +551,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<p>
 							<?php
 								printf(
-									/* translators: %1$s: Astra Theme name. */
+									/* translators: %1$s: Kemet Theme name. */
 									esc_html__( '%1$s proudly recommends Cloudways to anyone looking for speedy hosting.', 'astra' ),
 									self::$page_title
 								);
@@ -562,7 +562,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						$astra_cloudways_link_text = apply_filters( 'astra_astra_cloudways_link_text', __( 'Check Cloudways Hosting »', 'astra' ) );
 
 						printf(
-							/* translators: %1$s: Astra Cloudways Hosting link. */
+							/* translators: %1$s: Kemet Cloudways Hosting link. */
 							'%1$s',
 							! empty( $astra_cloudways_link ) ? '<a href=' . esc_url( $astra_cloudways_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_cloudways_link_text ) . '</a>' :
 							esc_html( $astra_cloudways_link_text )
@@ -581,7 +581,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function astra_welcome_page_content() {
 
-			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Astra Pro!', 'astra' ) );
+			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Kemet Pro!', 'astra' ) );
 
 			// Quick settings.
 			$quick_settings = apply_filters(
@@ -869,7 +869,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-			<!-- Notice for Older version of Astra Addon -->
+			<!-- Notice for Older version of Kemet Addon -->
 			<?php self::min_addon_version_message(); ?>
 
 			<div class="postbox">
@@ -964,8 +964,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
 					$astra_addon_name        = astra_get_addon_name();
 					$update_astra_addon_link = astra_get_pro_url( 'https://wpastra.com/?p=25258', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' );
-					if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-						$plugin_data = Astra_Ext_White_Label_Markup::$branding;
+					if ( class_exists( 'Kemet_Ext_White_Label_Markup' ) ) {
+						$plugin_data = Kemet_Ext_White_Label_Markup::$branding;
 						if ( ! empty( $plugin_data['astra-pro']['name'] ) ) {
 							$update_astra_addon_link = '';
 						}
@@ -973,7 +973,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 					$class   = 'ast-notice ast-notice-error';
 					$message = sprintf(
-						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
+						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kemet Addon */
 						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ),
 						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
 					);
@@ -984,7 +984,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Astra Header Right Section Links
+		 * Kemet Header Right Section Links
 		 *
 		 * @since 1.2.4
 		 */
@@ -1021,5 +1021,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 	}
 
-	new Astra_Admin_Settings;
+	new Kemet_Admin_Settings;
 }

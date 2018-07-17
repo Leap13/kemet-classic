@@ -2,22 +2,22 @@
 /**
  * Post Meta Box
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Kemet 1.0.0
  */
 
 /**
  * Meta Boxes setup
  */
-if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
+if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 
 	/**
 	 * Meta Boxes setup
 	 */
-	class Astra_Meta_Boxes {
+	class Kemet_Meta_Boxes {
 
 		/**
 		 * Instance
@@ -200,7 +200,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 
-			$show_meta_field = ! Astra_Meta_Boxes::is_bb_themer_layout();
+			$show_meta_field = ! Kemet_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			/**
@@ -365,4 +365,4 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Meta_Boxes::get_instance();
+Kemet_Meta_Boxes::get_instance();

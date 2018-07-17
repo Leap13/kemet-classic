@@ -3,7 +3,7 @@
  *
  * Handles Typography of the site
  *
- * @package Astra
+ * @package Kemet
  */
 
 ( function( $ ) {

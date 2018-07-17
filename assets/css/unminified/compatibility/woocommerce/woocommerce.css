@@ -100,7 +100,7 @@
 }
 
 /**
- * Astra Theme compatibility with WooCommerce
+ * Kemet Theme compatibility with WooCommerce
  */
 /*----------  Media Query min-width Structure   ----------*/
 /*----------  Media Query max-width Structure   ----------*/
@@ -186,7 +186,7 @@ p.demo_store a,
 .woocommerce .ast-site-header-cart .ast-shopping-cart-icon:before,
 .ast-site-header-cart .ast-shopping-cart-icon:before {
   content: "\e854";
-  font-family: 'Astra';
+  font-family: 'Kemet';
   font-size: 18px;
   font-size: 1.2857rem;
 }
@@ -4496,7 +4496,7 @@ button.pswp__button--zoom:hover {
   content: "\e900";
   padding: 0 5px 0 5px;
   display: inline-block;
-  font-family: Astra;
+  font-family: Kemet;
   transform: rotate(-90deg);
   font-size: 11px;
   font-size: 0.7rem;

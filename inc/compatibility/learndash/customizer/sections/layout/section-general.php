@@ -2,7 +2,7 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
+ * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Option: Divider
  */
 $wp_customize->add_control(
-	new Astra_Control_Divider(
+	new Kemet_Control_Divider(
 		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-lesson-content]', array(
 			'label'    => __( 'Course Content Table', 'astra' ),
 			'section'  => 'section-learndash',
@@ -33,7 +33,7 @@ $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 		'default'           => astra_get_option( 'learndash-lesson-serial-number' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(
@@ -52,7 +52,7 @@ $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 		'default'           => astra_get_option( 'learndash-differentiate-rows' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(

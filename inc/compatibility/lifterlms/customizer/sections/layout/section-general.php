@@ -2,7 +2,7 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
+ * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
@@ -24,11 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'mobile'  => 1,
 			),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
+		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[llms-course-grid]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-lifterlms',
@@ -54,11 +54,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'mobile'  => 1,
 			),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
+		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[llms-membership-grid]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'section-lifterlms',

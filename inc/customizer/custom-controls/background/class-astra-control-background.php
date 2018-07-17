@@ -4,9 +4,9 @@
  *
  * Creates a jQuery background control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpastra.com/
  * @since       1.0.0
  */
@@ -14,12 +14,12 @@
 /**
  * Field overrides.
  */
-if ( ! class_exists( 'Astra_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
 	 * Background Control
 	 */
-	class Astra_Control_Background extends WP_Customize_Control {
+	class Kemet_Control_Background extends WP_Customize_Control {
 
 		/**
 		 * The control type.

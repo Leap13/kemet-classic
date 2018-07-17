@@ -2,8 +2,8 @@
 /**
  * Footer Layout 4
  *
- * @package Astra Addon
- * @since   Astra 1.0.12
+ * @package Kemet Addon
+ * @since   Kemet 1.0.12
  */
 
 /**
