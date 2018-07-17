@@ -87,7 +87,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$classes[]   = esc_attr( $page_layout );
 
 		// Current Astra verion.
-		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
+		$classes[] = esc_attr( 'astra-' . KEMET_THEME_VERSION );
 
 		$outside_menu = astra_get_option( 'header-display-outside-menu' );
 

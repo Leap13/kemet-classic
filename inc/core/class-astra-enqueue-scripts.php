@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$css_file = $css_uri . $style . $file_prefix . '.css';
 
 					// Register.
-					wp_register_style( $key, $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+					wp_register_style( $key, $css_file, array(), KEMET_THEME_VERSION, 'all' );
 
 					// Enqueue.
 					wp_enqueue_style( $key );
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				foreach ( $scripts as $key => $script ) {
 
 					// Register.
-					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), KEMET_THEME_VERSION, true );
 
 					// Enqueue.
 					wp_enqueue_script( $key );
