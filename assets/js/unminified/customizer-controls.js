@@ -81,8 +81,8 @@
 
 							$.each(toggle.controls, function( k, controlId) {
 
-								controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
-								var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
+								controlId = controlId.replace( 'kemet-settings[','' ).replace( ']','' );
+								var parent = $( '#customize-control-kemet-settings-' + controlId ).closest( '.control-section' );
 								if ( typeof parent != 'undefined' ) {
 
 									var parentId = parent.attr( 'id' );
@@ -109,8 +109,8 @@
 
 					$.each(toggle.controls, function( k, controlId) {
 
-						controlId = controlId.replace( 'astra-settings[','' ).replace( ']','' );
-						var parent = $( '#customize-control-astra-settings-' + controlId ).closest( '.control-section' );
+						controlId = controlId.replace( 'kemet-settings[','' ).replace( ']','' );
+						var parent = $( '#customize-control-kemet-settings-' + controlId ).closest( '.control-section' );
 
 						if ( typeof parent != 'undefined' ) {
 

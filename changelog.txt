@@ -299,7 +299,7 @@ v1.0.5.1
 - Fixed: Escaping implemented for Dynamic CSS
 
 v1.0.5
-- Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
+- Enhancement: Updated customizer option prefix from 'ast-settings' with 'kemet-settings'
 - Fixed: PHP Notice - Array to string conversion
 - Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
 - Fixed: Remove comment-form from add_theme_support( 'html5' )

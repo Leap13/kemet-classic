@@ -955,7 +955,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		static public function min_addon_version_message() {
 
-			$astra_global_options = get_option( 'astra-settings' );
+			$astra_global_options = get_option( 'kemet-settings' );
 
 			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
 

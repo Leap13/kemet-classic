@@ -12,7 +12,7 @@
  * Define Constants
  */
 define( 'KEMET_THEME_VERSION', '0.0.1' );
-define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
+define( 'KEMET_THEME_SETTINGS', 'kemet-settings' );
 define( 'ASTRA_THEME_DIR', get_template_directory() . '/' );
 define( 'ASTRA_THEME_URI', get_template_directory_uri() . '/' );
 

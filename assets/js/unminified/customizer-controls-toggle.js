@@ -62,12 +62,12 @@
 	 */
 	ASTCustomizerToggles = {
 
-		'astra-settings[display-site-title]' :
+		'kemet-settings[display-site-title]' :
 		[
 			{
 				controls: [
-					'astra-settings[divider-section-header-typo-title]',
-					'astra-settings[font-size-site-title]',
+					'kemet-settings[divider-section-header-typo-title]',
+					'kemet-settings[font-size-site-title]',
 				],
 				callback: function( value ) {
 
@@ -79,13 +79,13 @@
 			},
 			{
 				controls: [
-					'astra-settings[logo-title-inline]',
+					'kemet-settings[logo-title-inline]',
 				],
 				callback: function( value ) {
 
-					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
+					var site_tagline = api( 'kemet-settings[display-site-tagline]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
 
 					if ( ( value || site_tagline ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -95,12 +95,12 @@
 			},
 		],
 
-		'astra-settings[display-site-tagline]' :
+		'kemet-settings[display-site-tagline]' :
 		[
 			{
 				controls: [
-					'astra-settings[divider-section-header-typo-tagline]',
-					'astra-settings[font-size-site-tagline]',
+					'kemet-settings[divider-section-header-typo-tagline]',
+					'kemet-settings[font-size-site-tagline]',
 				],
 				callback: function( value ) {
 
@@ -112,13 +112,13 @@
 			},
 			{
 				controls: [
-					'astra-settings[logo-title-inline]',
+					'kemet-settings[logo-title-inline]',
 				],
 				callback: function( value ) {
 
-					var site_title = api( 'astra-settings[display-site-title]' ).get();
+					var site_title = api( 'kemet-settings[display-site-title]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
 
 					if ( ( value || site_title ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -128,17 +128,17 @@
 			},
 		],
 
-		'astra-settings[ast-header-retina-logo]' :
+		'kemet-settings[ast-header-retina-logo]' :
 		[
 			{
 				controls: [
-					'astra-settings[logo-title-inline]',
+					'kemet-settings[logo-title-inline]',
 				],
 				callback: function( value ) {
 
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
-					var site_title = api( 'astra-settings[display-site-title]' ).get();
+					var site_tagline = api( 'kemet-settings[display-site-tagline]' ).get();
+					var site_title = api( 'kemet-settings[display-site-title]' ).get();
 
 					if ( ( value || has_custom_logo ) && ( site_title || site_tagline ) ) {
 						return true;
@@ -152,13 +152,13 @@
 		[
 			{
 				controls: [
-					'astra-settings[logo-title-inline]',
+					'kemet-settings[logo-title-inline]',
 				],
 				callback: function( value ) {
 
-					var has_retina_logo = api( 'astra-settings[ast-header-retina-logo]' ).get();
-					var site_tagline = api( 'astra-settings[display-site-tagline]' ).get();
-					var site_title = api( 'astra-settings[display-site-title]' ).get();
+					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
+					var site_tagline = api( 'kemet-settings[display-site-tagline]' ).get();
+					var site_title = api( 'kemet-settings[display-site-title]' ).get();
 
 					if ( ( value || has_retina_logo ) && ( site_title || site_tagline ) ) {
 						return true;
@@ -180,11 +180,11 @@
 		// Layout 2 > Right Section > Text / HTML
 		// Layout 2 > Right Section > Search Type
 		// Layout 2 > Right Section > Search Type > Search Box Type.
-		'astra-settings[header-main-rt-section]' :
+		'kemet-settings[header-main-rt-section]' :
 		[
 			{
 				controls: [
-					'astra-settings[header-main-rt-section-html]'
+					'kemet-settings[header-main-rt-section-html]'
 				],
 				callback: function( val ) {
 
@@ -196,11 +196,11 @@
 			},
 			{
 				controls: [
-					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
+					'kemet-settings[header-main-menu-label]',
+					'kemet-settings[header-main-menu-label-divider]',
 				],
 				callback: function( custom_menu ) {
-					var menu = api( 'astra-settings[disable-primary-nav]' ).get();
+					var menu = api( 'kemet-settings[disable-primary-nav]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
@@ -209,7 +209,7 @@
 			},
 			{
 				controls: [
-					'astra-settings[header-display-outside-menu]',
+					'kemet-settings[header-display-outside-menu]',
 				],
 				callback: function( custom_menu ) {
 					
@@ -224,11 +224,11 @@
 		/**
 		 * Blog
 		 */
-		'astra-settings[blog-width]' :
+		'kemet-settings[blog-width]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-max-width]'
+					'kemet-settings[blog-max-width]'
 				],
 				callback: function( blog_width ) {
 
@@ -239,11 +239,11 @@
 				}
 		}
 		],
-		'astra-settings[blog-post-structure]' :
+		'kemet-settings[blog-post-structure]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-meta]',
+					'kemet-settings[blog-meta]',
 				],
 				callback: function( blog_structure ) {
 					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 ) {
@@ -257,11 +257,11 @@
 		/**
 		 * Blog Single
 		 */
-		 'astra-settings[blog-single-post-structure]' :
+		 'kemet-settings[blog-single-post-structure]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-single-meta]',
+					'kemet-settings[blog-single-meta]',
 				],
 				callback: function( blog_structure ) {
 					if ( jQuery.inArray ( "single-title-meta", blog_structure ) !== -1 ) {
@@ -271,11 +271,11 @@
 				}
 			}
 		],
-		'astra-settings[blog-single-width]' :
+		'kemet-settings[blog-single-width]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-single-max-width]'
+					'kemet-settings[blog-single-max-width]'
 				],
 				callback: function( blog_width ) {
 
@@ -286,15 +286,15 @@
 				}
 		}
 		],
-		'astra-settings[blog-single-meta]' :
+		'kemet-settings[blog-single-meta]' :
 		[
 			{
 				controls: [
-					'astra-settings[blog-single-meta-comments]',
-					'astra-settings[blog-single-meta-cat]',
-					'astra-settings[blog-single-meta-author]',
-					'astra-settings[blog-single-meta-date]',
-					'astra-settings[blog-single-meta-tag]',
+					'kemet-settings[blog-single-meta-comments]',
+					'kemet-settings[blog-single-meta-cat]',
+					'kemet-settings[blog-single-meta-author]',
+					'kemet-settings[blog-single-meta-date]',
+					'kemet-settings[blog-single-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {
 
@@ -309,27 +309,27 @@
 		/**
 		 * Small Footer
 		 */
-		'astra-settings[footer-sml-layout]' :
+		'kemet-settings[footer-sml-layout]' :
 		[
 			{
 				controls: [
-					'astra-settings[footer-sml-section-1]',
-					'astra-settings[footer-sml-section-2]',
-					'astra-settings[section-ast-small-footer-background-styling]',
-					'astra-settings[ast-small-footer-color]',
-					'astra-settings[ast-small-footer-link-color]',
-					'astra-settings[ast-small-footer-link-hover-color]',
-					'astra-settings[ast-small-footer-bg-img]',
-					'astra-settings[section-ast-small-footer-typography]',
-					'astra-settings[ast-small-footer-text-font]',
-					'astra-settings[footer-sml-divider]',
-					'astra-settings[section-ast-small-footer-layout-info]',
-					'astra-settings[footer-layout-width]',
-					'astra-settings[footer-color]',
-					'astra-settings[footer-link-color]',
-					'astra-settings[footer-link-h-color]',
-					'astra-settings[footer-bg-obj]',
-					'astra-settings[divider-footer-image]',
+					'kemet-settings[footer-sml-section-1]',
+					'kemet-settings[footer-sml-section-2]',
+					'kemet-settings[section-ast-small-footer-background-styling]',
+					'kemet-settings[ast-small-footer-color]',
+					'kemet-settings[ast-small-footer-link-color]',
+					'kemet-settings[ast-small-footer-link-hover-color]',
+					'kemet-settings[ast-small-footer-bg-img]',
+					'kemet-settings[section-ast-small-footer-typography]',
+					'kemet-settings[ast-small-footer-text-font]',
+					'kemet-settings[footer-sml-divider]',
+					'kemet-settings[section-ast-small-footer-layout-info]',
+					'kemet-settings[footer-layout-width]',
+					'kemet-settings[footer-color]',
+					'kemet-settings[footer-link-color]',
+					'kemet-settings[footer-link-h-color]',
+					'kemet-settings[footer-bg-obj]',
+					'kemet-settings[divider-footer-image]',
 				],
 				callback: function( small_footer_layout ) {
 
@@ -341,11 +341,11 @@
 			},
 			{
 				controls: [
-					'astra-settings[footer-sml-section-1-credit]',
+					'kemet-settings[footer-sml-section-1-credit]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var footer_section_1 = api( 'astra-settings[footer-sml-section-1]' ).get();
+					var footer_section_1 = api( 'kemet-settings[footer-sml-section-1]' ).get();
 
 					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_1 ) {
 						return true;
@@ -355,11 +355,11 @@
 			},
 			{
 				controls: [
-					'astra-settings[footer-sml-section-2-credit]',
+					'kemet-settings[footer-sml-section-2-credit]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var footer_section_2 = api( 'astra-settings[footer-sml-section-2]' ).get();
+					var footer_section_2 = api( 'kemet-settings[footer-sml-section-2]' ).get();
 
 					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_2 ) {
 						return true;
@@ -369,11 +369,11 @@
 			},
 			{
 				controls: [
-					'astra-settings[footer-sml-divider-color]',
+					'kemet-settings[footer-sml-divider-color]',
 				],
 				callback: function( small_footer_layout ) {
 
-					var border_width = api( 'astra-settings[footer-sml-divider]' ).get();
+					var border_width = api( 'kemet-settings[footer-sml-divider]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != small_footer_layout ) {
 						return true;
@@ -382,15 +382,15 @@
 				}
 			},
 		],
-		'astra-settings[footer-sml-section-1]' :
+		'kemet-settings[footer-sml-section-1]' :
 		[
 			{
 				controls: [
-					'astra-settings[footer-sml-section-1-credit]',
+					'kemet-settings[footer-sml-section-1-credit]',
 				],
 				callback: function( enabled_section_1 ) {
 
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
 
 					if ( 'custom' == enabled_section_1 && 'disabled' != footer_layout ) {
 						return true;
@@ -399,15 +399,15 @@
 				}
 			}
 		],
-		'astra-settings[footer-sml-section-2]' :
+		'kemet-settings[footer-sml-section-2]' :
 		[
 			{
 				controls: [
-					'astra-settings[footer-sml-section-2-credit]',
+					'kemet-settings[footer-sml-section-2-credit]',
 				],
 				callback: function( enabled_section_2 ) {
 
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
 
 					if ( 'custom' == enabled_section_2 && 'disabled' != footer_layout ) {
 						return true;
@@ -417,15 +417,15 @@
 			}
 		],
 
-		'astra-settings[footer-sml-divider]' :
+		'kemet-settings[footer-sml-divider]' :
 		[
 			{
 				controls: [
-					'astra-settings[footer-sml-divider-color]',
+					'kemet-settings[footer-sml-divider-color]',
 				],
 				callback: function( border_width ) {
 
-					var footer_layout = api( 'astra-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != footer_layout ) {
 						return true;
@@ -435,11 +435,11 @@
 			},
 		],
 
-		'astra-settings[header-main-sep]' :
+		'kemet-settings[header-main-sep]' :
 		[
 			{
 				controls: [
-					'astra-settings[header-main-sep-color]',
+					'kemet-settings[header-main-sep-color]',
 				],
 				callback: function( border_width ) {
 
@@ -451,15 +451,15 @@
 			},
 		],
 
-		'astra-settings[disable-primary-nav]' :
+		'kemet-settings[disable-primary-nav]' :
 		[
 			{
 				controls: [
-					'astra-settings[header-main-menu-label]',
-					'astra-settings[header-main-menu-label-divider]',
+					'kemet-settings[header-main-menu-label]',
+					'kemet-settings[header-main-menu-label-divider]',
 				],
 				callback: function( menu ) {
-					var custom_menu = api( 'astra-settings[header-main-rt-section]' ).get();
+					var custom_menu = api( 'kemet-settings[header-main-rt-section]' ).get();
 					if ( !menu || 'none' !=  custom_menu) {
 						return true;
 					}
@@ -471,16 +471,16 @@
 		/**
 		 * Footer Widgets
 		 */
-		'astra-settings[footer-adv]' :
+		'kemet-settings[footer-adv]' :
 		[
 			{
 				controls: [
-					'astra-settings[footer-adv-background-divider]',
-					'astra-settings[footer-adv-wgt-title-color]',
-					'astra-settings[footer-adv-text-color]',
-					'astra-settings[footer-adv-link-color]',
-					'astra-settings[footer-adv-link-h-color]',
-					'astra-settings[footer-adv-bg-obj]',
+					'kemet-settings[footer-adv-background-divider]',
+					'kemet-settings[footer-adv-wgt-title-color]',
+					'kemet-settings[footer-adv-text-color]',
+					'kemet-settings[footer-adv-link-color]',
+					'kemet-settings[footer-adv-link-h-color]',
+					'kemet-settings[footer-adv-bg-obj]',
 				],
 				callback: function( footer_widget_area ) {
 
@@ -491,11 +491,11 @@
 				}
 			},
 		],
-		'astra-settings[shop-archive-width]' :
+		'kemet-settings[shop-archive-width]' :
 		[
 			{
 				controls: [
-					'astra-settings[shop-archive-max-width]'
+					'kemet-settings[shop-archive-max-width]'
 				],
 				callback: function( blog_width ) {
 
