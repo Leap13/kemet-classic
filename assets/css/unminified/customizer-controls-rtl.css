@@ -73,7 +73,7 @@
 .customize-control-slider input[type=range]::-ms-tooltip {
 	display: none;
 }
-.customize-control-slider .ast-range-value {
+.customize-control-slider .kmt-range-value {
     display: inline-block;
     padding: 0 5px;
     position: relative;
@@ -84,22 +84,22 @@
     height: 23px;
     font-size: 13px;
 }
-.customize-control-slider .ast-slider-reset {
+.customize-control-slider .kmt-slider-reset {
 	color: rgba(0,0,0,.2);
 	float: left;
 	-webkit-transition: color .5s ease-in;
 	transition: color .5s ease-in;
 }
-.customize-control-slider .ast-slider-reset span {
+.customize-control-slider .kmt-slider-reset span {
 	font-size: 16px;
 	line-height: 22px;
 	cursor: pointer;
 }
-.customize-control-slider .ast-slider-reset span:hover {
+.customize-control-slider .kmt-slider-reset span:hover {
 	color: red;
 }
 
-.control-section.ast-hide {
+.control-section.kmt-hide {
 	display: none !important;
 }
 
