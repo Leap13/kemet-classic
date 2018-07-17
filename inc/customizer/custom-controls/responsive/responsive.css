@@ -33,17 +33,17 @@
   font-size: 15px;
 }
 
-.customize-control-ast-responsive .input-wrapper input {
+.customize-control-kmt-responsive .input-wrapper input {
   display: none;
   width: calc(100% - 52px);
   float: left;
 }
 
-.customize-control-ast-responsive .input-wrapper input.active {
+.customize-control-kmt-responsive .input-wrapper input.active {
   display: inline-block;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+.customize-control-kmt-responsive .input-wrapper .ast-responsive-select {
   width: 50px;
   margin: 0;
   display: none;
@@ -51,6 +51,6 @@
   margin-left: 2px;
 }
 
-.customize-control-ast-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
+.customize-control-kmt-responsive .input-wrapper .ast-responsive-input.active + .ast-responsive-select {
   display: inline-block;
 }

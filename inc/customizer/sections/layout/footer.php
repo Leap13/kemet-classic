@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[section-ast-small-footer-layout-info]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-info]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 10,
@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[section-ast-small-footer-typography]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-typography]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 35,

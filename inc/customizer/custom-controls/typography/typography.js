@@ -38,7 +38,7 @@
 		 */
 		_initFonts: function()
 		{
-			$( '.customize-control-ast-font-family select' ).each( AstTypography._initFont );
+			$( '.customize-control-kmt-font-family select' ).each( AstTypography._initFont );
 		},
 
 		/**
