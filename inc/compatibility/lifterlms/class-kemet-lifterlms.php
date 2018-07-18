@@ -453,7 +453,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 				<?php kemet_primary_content_top(); ?>
 
 				<main id="main" class="site-main" role="main">
-					<div class="ast-lifterlms-container">
+					<div class="kmt-lifterlms-container">
 			<?php
 		}
 

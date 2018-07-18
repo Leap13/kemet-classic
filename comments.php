@@ -54,7 +54,7 @@ if ( post_password_required() ) {
 		</nav><!-- #comment-nav-above -->
 		<?php endif; ?>
 
-		<ol class="ast-comment-list">
+		<ol class="kmt-comment-list">
 			<?php
 			wp_list_comments(
 				array(

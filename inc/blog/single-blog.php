@@ -138,23 +138,23 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 				?>
 				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
-					<article id="comment-<?php comment_ID(); ?>" class="ast-comment">
+					<article id="comment-<?php comment_ID(); ?>" class="kmt-comment">
 						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
-						--><div class="ast-comment-data-wrap">
-							<div class="ast-comment-meta-wrap">
-								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize">
+						--><div class="kmt-comment-data-wrap">
+							<div class="kmt-comment-meta-wrap">
+								<header class="kmt-comment-meta ast-row ast-comment-author vcard capitalize">
 
 									<?php
 
 									printf(
-										'<div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+										'<div class="kmt-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
 										get_comment_author_link(),
 										// If current post author is also comment author, make it known visually.
-										( $comment->user_id === $post->post_author ) ? '<span class="ast-highlight-text ast-cmt-post-author"></span>' : ''
+										( $comment->user_id === $post->post_author ) ? '<span class="kmt-highlight-text ast-cmt-post-author"></span>' : ''
 									);
 
 									printf(
-										'<div class="ast-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+										'<div class="kmt-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										get_comment_time( 'c' ),
 										/* translators: 1: date, 2: time */
@@ -165,10 +165,10 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 
 								</header> <!-- .kmt-comment-meta -->
 							</div>
-							<section class="ast-comment-content comment">
+							<section class="kmt-comment-content comment">
 								<?php comment_text(); ?>
-								<div class="ast-comment-edit-reply-wrap">
-									<?php edit_comment_link( kemet_default_strings( 'string-comment-edit-link', false ), '<span class="ast-edit-link">', '</span>' ); ?>
+								<div class="kmt-comment-edit-reply-wrap">
+									<?php edit_comment_link( kemet_default_strings( 'string-comment-edit-link', false ), '<span class="kmt-edit-link">', '</span>' ); ?>
 									<?php
 									comment_reply_link(
 										array_merge(
@@ -177,7 +177,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 												'add_below' => 'comment',
 												'depth'  => $depth,
 												'max_depth' => $args['max_depth'],
-												'before' => '<span class="ast-reply-link">',
+												'before' => '<span class="kmt-reply-link">',
 												'after'  => '</span>',
 											)
 										)
@@ -185,7 +185,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 									?>
 								</div>
 								<?php if ( '0' == $comment->comment_approved ) : ?>
-									<p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( kemet_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
+									<p class="kmt-highlight-text comment-awaiting-moderation"><?php echo esc_html( kemet_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
 							</section> <!-- .kmt-comment-content -->
 						</div>

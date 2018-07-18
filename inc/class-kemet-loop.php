@@ -245,7 +245,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function kemet_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
-				echo '<div class="ast-row">';
+				echo '<div class="kmt-row">';
 			}
 		}
 

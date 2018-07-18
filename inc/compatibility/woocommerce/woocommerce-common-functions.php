@@ -46,7 +46,7 @@ if ( ! function_exists( 'kemet_woo_shop_parent_category' ) ) :
 	 */
 	function kemet_woo_shop_parent_category() {
 		if ( apply_filters( 'kemet_woo_shop_parent_category', true ) ) : ?>
-			<span class="ast-woo-product-category">
+			<span class="kmt-woo-product-category">
 				<?php
 				global $product;
 				$product_categories = function_exists( 'wc_get_product_category_list' ) ? wc_get_product_category_list( get_the_ID(), ';', '', '' ) : $product->get_categories( ';', '', '' );
@@ -80,7 +80,7 @@ if ( ! function_exists( 'kemet_woo_shop_out_of_stock' ) ) :
 		$out_of_stock_string = apply_filters( 'kemet_woo_shop_out_of_stock_string', __( 'Out of stock', 'kemet' ) );
 		if ( 'outofstock' === $out_of_stock ) {
 		?>
-			<span class="ast-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
+			<span class="kmt-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
 		<?php
 		}
 	}
@@ -101,7 +101,7 @@ if ( ! function_exists( 'kemet_woo_shop_product_short_description' ) ) :
 	function kemet_woo_shop_product_short_description() {
 	?>
 	<?php if ( has_excerpt() ) { ?>
-		<div class="ast-woo-shop-product-description">
+		<div class="kmt-woo-shop-product-description">
 			<?php the_excerpt(); ?>
 		</div>
 	<?php } ?>
@@ -129,8 +129,8 @@ if ( ! function_exists( 'kemet_woo_product_in_stock' ) ) :
 			if ( ! empty( $availability ) && $stock_quantity ) {
 				ob_start();
 				?>
-				<p class="ast-stock-detail">
-					<span class="ast-stock-avail"><?php esc_html_e( 'Availability:', 'kemet' ); ?></span>
+				<p class="kmt-stock-detail">
+					<span class="kmt-stock-avail"><?php esc_html_e( 'Availability:', 'kemet' ); ?></span>
 					<span class="stock in-stock"><?php echo esc_html( $availability ); ?></span>
 				</p>
 				<?php
@@ -149,7 +149,7 @@ if ( ! function_exists( 'kemet_woo_woocommerce_template_loop_product_title' ) ) 
 	 */
 	function kemet_woo_woocommerce_template_loop_product_title() {
 
-		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="ast-loop-product__link">';
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="kmt-loop-product__link">';
 			woocommerce_template_loop_product_title();
 		echo '</a>';
 	}

@@ -35,14 +35,14 @@ switch ( $sections ) {
 
 ?>
 
-<div class="ast-small-footer footer-sml-layout-2">
-	<div class="ast-footer-overlay">
+<div class="kmt-small-footer footer-sml-layout-2">
+	<div class="kmt-footer-overlay">
 		<div class="kmt-container">
-			<div class="ast-small-footer-wrap" >
-					<div class="ast-row ast-flex">
+			<div class="kmt-small-footer-wrap" >
+					<div class="kmt-row ast-flex">
 
 					<?php if ( $section_1 ) : ?>
-						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
+						<div class="kmt-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
 								echo $section_1; // WPCS: XSS OK.
 							?>
@@ -50,7 +50,7 @@ switch ( $sections ) {
 				<?php endif; ?>
 
 					<?php if ( $section_2 ) : ?>
-						<div class="ast-small-footer-section ast-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
+						<div class="kmt-small-footer-section ast-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
 								echo $section_2; // WPCS: XSS OK.
 							?>

@@ -762,7 +762,7 @@ var toggleClass = function ( el, className ) {
 				// Insert Toggle Button.
 				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
 					toggleButton.setAttribute("role", "button");
-					toggleButton.setAttribute("class", "ast-menu-toggle");
+					toggleButton.setAttribute("class", "kmt-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");
 					toggleButton.innerHTML="<span class='screen-reader-text'>Menu Toggle</span>";
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
@@ -948,13 +948,13 @@ var toggleClass = function ( el, className ) {
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
-						document.body.classList.remove( "ast-header-break-point" );
+						document.body.classList.remove( "kmt-header-break-point" );
 						var responsive_enabled = new CustomEvent( "kemet-header-responsive-enabled" );
 						document.body.dispatchEvent( responsive_enabled );
 
 					} else {
 
-						document.body.classList.add( "ast-header-break-point" );
+						document.body.classList.add( "kmt-header-break-point" );
 						var responsive_disabled = new CustomEvent( "kemet-header-responsive-disabled" );
 						document.body.dispatchEvent( responsive_disabled );
 					}
@@ -988,7 +988,7 @@ var toggleClass = function ( el, className ) {
 
 	    bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+		   bodyElement.classList.add( "kmt-safari-browser-less-than-11" );
 	    }
 	}
 

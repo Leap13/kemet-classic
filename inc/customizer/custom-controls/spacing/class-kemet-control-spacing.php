@@ -88,14 +88,14 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 
-			<ul class="ast-spacing-wrapper"><# 
+			<ul class="kmt-spacing-wrapper"><# 
 				_.each( data.choices, function( choiceLabel, choiceID ) { 
 				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
 					<input type='number' class='ast-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
-					<span class="ast-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+					<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});
-			#><span class="ast-spacing-unit">px</span></ul>
+			#><span class="kmt-spacing-unit">px</span></ul>
 		</label>
 
 		<?php

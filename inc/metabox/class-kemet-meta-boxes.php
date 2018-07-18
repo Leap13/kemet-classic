@@ -247,9 +247,9 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 				<div class="disable-section-meta">
 					<?php do_action( 'kemet_meta_box_markup_disable_sections_before', $meta ); ?>
 
-					<div class="ast-main-header-display-option-wrap">
-						<label for="ast-main-header-display">
-							<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
+					<div class="kmt-main-header-display-option-wrap">
+						<label for="kmt-main-header-display">
+							<input type="checkbox" id="kmt-main-header-display" name="kmt-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
 							<?php esc_html_e( 'Disable Primary Header', 'kemet' ); ?>
 						</label>
 					</div>
@@ -262,9 +262,9 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 							</label>
 						</div>
 
-						<div class="ast-featured-img-option-wrap">
-							<label for="ast-featured-img">
-								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $kmt_featured_img, 'disabled' ); ?> />
+						<div class="kmt-featured-img-option-wrap">
+							<label for="kmt-featured-img">
+								<input type="checkbox" id="kmt-featured-img" name="kmt-featured-img" value="disabled" <?php checked( $kmt_featured_img, 'disabled' ); ?> />
 								<?php esc_html_e( 'Disable Featured Image', 'kemet' ); ?>
 							</label>
 						</div>

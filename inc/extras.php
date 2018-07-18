@@ -199,7 +199,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 			if ( $display_site_title || $display_site_tagline ) {
 				/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
 				$html .= sprintf(
-					'<div class="ast-site-title-wrap">
+					'<div class="kmt-site-title-wrap">
 							%1$s
 							%2$s
 						</div>',
@@ -276,8 +276,8 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	 */
 	function kemet_get_search( $option = '' ) {
 
-		$search_html  = '<div class="ast-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
-						<div class="ast-search-menu-icon slide-search" id="ast-search-form" >';
+		$search_html  = '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
+						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
 
@@ -303,7 +303,7 @@ if ( ! function_exists( 'kemet_get_custom_html' ) ) {
 		$custom_html_content = kemet_get_option( $option_name );
 
 		if ( ! empty( $custom_html_content ) ) {
-			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
+			$custom_html = '<div class="kmt-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . KEMET_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kemet' ) . '</a>';
 		}
@@ -337,7 +337,7 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 			$widget_id = 'footer-widget-2';
 		}
 
-		echo '<div class="ast-' . esc_attr( $widget_id ) . '-area">';
+		echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
 				kemet_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -399,7 +399,7 @@ if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
 		if ( '' != $option ) {
 			$output = kemet_get_option( $option );
 			$output = str_replace( '[current_year]', date_i18n( 'Y' ), $output );
-			$output = str_replace( '[site_title]', '<span class="ast-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
+			$output = str_replace( '[site_title]', '<span class="kmt-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
 
 			$theme_author = apply_filters(
 				'kemet_theme_author', array(
@@ -495,7 +495,7 @@ if ( ! function_exists( 'kemet_site_branding_markup' ) ) {
 		?>
 
 		<div class="site-branding">
-			<div class="ast-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
+			<div class="kmt-site-identity" itemscope="itemscope" itemtype="https://schema.org/Organization">
 				<?php kemet_logo(); ?>
 			</div>
 		</div>
@@ -525,7 +525,7 @@ if ( ! function_exists( 'kemet_toggle_buttons_markup' ) ) {
 		}
 		if ( apply_filters( 'kemet_enable_mobile_menu_buttons', $menu_bottons ) ) {
 		?>
-		<div class="ast-mobile-menu-buttons">
+		<div class="kmt-mobile-menu-buttons">
 
 			<?php kemet_masthead_toggle_buttons_before(); ?>
 
@@ -580,7 +580,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -599,13 +599,13 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
-				echo '<div class="ast-main-header-bar-alignment">';
+				echo '<div class="kmt-main-header-bar-alignment">';
 					wp_nav_menu( $primary_menu_args );
 				echo  '</div>';
 			} else {
 
 				echo '<div class="main-header-bar-navigation">';
-					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="ast-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+					echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo  '</nav>';
 				echo  '</div>';
@@ -848,7 +848,7 @@ if ( ! function_exists( 'kemet_comment_form_default_fields_markup' ) ) {
 		$req       = get_option( 'require_name_email' );
 		$aria_req  = ( $req ? " aria-required='true'" : '' );
 
-		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
+		$fields['author'] = '<div class="kmt-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
 					'<label for="author" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
 					'" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
 		$fields['email']  = '<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4">' .
@@ -882,7 +882,7 @@ if ( ! function_exists( 'kemet_comment_form_default_markup' ) ) {
 		$args['title_reply']       = kemet_default_strings( 'string-comment-title-reply', false );
 		$args['cancel_reply_link'] = kemet_default_strings( 'string-comment-cancel-reply-link', false );
 		$args['label_submit']      = kemet_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		$args['comment_field']     = '<div class="kmt-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
 		return apply_filters( 'kemet_comment_form_default_markup', $args );
 

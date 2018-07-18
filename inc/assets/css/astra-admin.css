@@ -10,7 +10,7 @@
 }
 #wp-admin-bar-kemet .ab-icon:before,
 #toplevel_page_kemet .wp-menu-image:before,
-[class^="ast-icon-"],
+[class^="kmt-icon-"],
 [class*=" ast-icon-"] {
 	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'ast-logo' !important;

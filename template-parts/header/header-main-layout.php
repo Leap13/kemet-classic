@@ -21,7 +21,7 @@
 		<?php kemet_main_header_bar_top(); ?>
 		<div class="kmt-container">
 
-			<div class="ast-flex main-header-container">
+			<div class="kmt-flex main-header-container">
 				<?php kemet_masthead_content(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- ast-row -->

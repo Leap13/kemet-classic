@@ -604,7 +604,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				<?php kemet_primary_content_top(); ?>
 
 				<main id="main" class="site-main" role="main">
-					<div class="ast-woocommerce-container">
+					<div class="kmt-woocommerce-container">
 			<?php
 		}
 
@@ -930,11 +930,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			ob_start();
 			?>
-			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
-				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+			<div id="kmt-site-header-cart" class="kmt-site-header-cart <?php echo esc_html( implode( ' ', $cart_menu_classes ) ); ?>">
+				<div class="kmt-site-header-cart-li <?php echo esc_attr( $class ); ?>">
 					<?php $this->kemet_get_cart_link(); ?>
 				</div>
-				<div class="ast-site-header-cart-data">
+				<div class="kmt-site-header-cart-data">
 					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				</div>
 			</div>
@@ -975,7 +975,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 						if ( apply_filters( 'kemet_woo_default_header_cart_icon', true ) ) {
 						?>
-							<div class="ast-cart-menu-wrap">
+							<div class="kmt-cart-menu-wrap">
 								<span class="count"> 
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {

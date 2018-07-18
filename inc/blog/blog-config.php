@@ -428,7 +428,7 @@ if ( ! function_exists( 'kemet_the_content_more_link' ) ) {
 			'<a class="' . implode( ' ', $read_more_classes ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . $more_link_text . '</a>'
 		);
 
-		$more_link_element = ' &hellip;<p class="ast-the-content-more-link"> ' . $post_link . '</p>';
+		$more_link_element = ' &hellip;<p class="kmt-the-content-more-link"> ' . $post_link . '</p>';
 
 		return apply_filters( 'kemet_the_content_more_link', $more_link_element, $more_link_text );
 	}

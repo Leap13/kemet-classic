@@ -77,7 +77,7 @@ class Kemet_Control_Description extends WP_Customize_Control {
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
 			<# if ( data.help ) { #>
-				<span class="ast-description">{{{ data.help }}}</span>
+				<span class="kmt-description">{{{ data.help }}}</span>
 			<# } #>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>

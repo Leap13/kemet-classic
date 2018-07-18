@@ -99,10 +99,10 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 					<input type="number" class="value ast-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 
-					#><span class="ast-range-unit">{{ data.suffix }}</span><#
+					#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 					} #>
 				</div>
-				<div class="ast-slider-reset">
+				<div class="kmt-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>

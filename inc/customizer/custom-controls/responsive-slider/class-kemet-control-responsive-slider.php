@@ -101,7 +101,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		<label for="">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="ast-responsive-slider-btns">
+				<ul class="kmt-responsive-slider-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -157,31 +157,31 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				<div class="input-field-wrapper desktop active">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='desktop' class="ast-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
-						#><span class="ast-range-unit">{{ data.suffix }}</span><#
+						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
 				</div>
 				<div class="input-field-wrapper tablet">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='tablet' class="ast-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
-						#><span class="ast-range-unit">{{ data.suffix }}</span><#
+						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
 				</div>
 				<div class="input-field-wrapper mobile">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='mobile' class="ast-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
-						#><span class="ast-range-unit">{{ data.suffix }}</span><#
+						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
 				</div>
-				<div class="ast-responsive-slider-reset">
+				<div class="kmt-responsive-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>

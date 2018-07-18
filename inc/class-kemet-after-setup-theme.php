@@ -181,7 +181,7 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 
 			if ( kemet_strposa( $url, $allowed_providers ) ) {
 				if ( $add_kemet_oembed_wrapper ) {
-					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
+					$html = ( '' !== $html ) ? '<div class="kmt-oembed-container">' . $html . '</div>' : '';
 				}
 			}
 

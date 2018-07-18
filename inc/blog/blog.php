@@ -213,7 +213,7 @@ if ( ! function_exists( 'kemet_get_blog_post_thumbnail' ) ) {
 
 		if ( 'archive' === $type ) {
 			// Blog Post Featured Image.
-			kemet_get_post_thumbnail( '<div class="ast-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
+			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
 		} elseif ( 'single' === $type ) {
 			// Single Post Featured Image.
 			kemet_get_post_thumbnail();
@@ -279,7 +279,7 @@ if ( ! function_exists( 'kemet_get_single_post_title_meta' ) ) {
 		do_action( 'kemet_single_post_order_before' );
 
 		?>
-		<div class="ast-single-post-order">
+		<div class="kmt-single-post-order">
 			<?php
 
 			do_action( 'kemet_single_post_title_before' );
@@ -327,7 +327,7 @@ if ( ! function_exists( 'kemet_get_audios_from_post' ) ) {
 		// check what is the first embed containg video tag, youtube or vimeo.
 		foreach ( $embeds as $embed ) {
 			if ( strpos( $embed, 'audio' ) ) {
-				return '<span class="ast-post-audio-wrapper">' . $embed . '</span>';
+				return '<span class="kmt-post-audio-wrapper">' . $embed . '</span>';
 			}
 		}
 	}

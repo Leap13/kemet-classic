@@ -303,13 +303,13 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$kmt_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
-			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
-					<div class="ast-theme-page-header">
+			<div class="kmt-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
+					<div class="kmt-theme-page-header">
 						<div class="kmt-container ast-flex">
-							<div class="ast-theme-title">
+							<div class="kmt-theme-title">
 								<a href="<?php echo esc_url( $kmt_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $kmt_icon ) { ?>
-									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.svg' ); ?>" class="kmt-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
 								<?php do_action( 'kemet_welcome_page_header_title' ); ?>
 								</a>
@@ -852,15 +852,15 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'kemet' ); ?></span></h2>
-					<div class="ast-quick-setting-section">
+					<div class="kmt-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
 							?>
-							<div class="ast-quick-links">
-								<ul class="ast-flex">
+							<div class="kmt-quick-links">
+								<ul class="kmt-flex">
 									<?php
 									foreach ( (array) $quick_settings as $key => $link ) {
-										echo '<li class=""><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="ast-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a></li>';
+										echo '<li class=""><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="kmt-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a></li>';
 									}
 									?>
 								</ul>
@@ -876,18 +876,18 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $kemet_addon_tagline ); ?></span>
 					<?php do_action( 'kemet_addon_bulk_action' ); ?>
 				</h2>
-					<div class="ast-addon-list-section">
+					<div class="kmt-addon-list-section">
 						<?php
 						if ( ! empty( $extensions ) ) :
 							?>
 							<div>
-								<ul class="ast-addon-list">
+								<ul class="kmt-addon-list">
 									<?php
 									foreach ( (array) $extensions as $addon => $info ) {
 										$title_url     = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? 'href="' . esc_url( $info['title_url'] ) . '"' : '';
 										$anchor_target = ( isset( $info['title_url'] ) && ! empty( $info['title_url'] ) ) ? "target='_blank' rel='noopener'" : '';
 
-										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="ast-addon-title"' . $title_url . $anchor_target . ' >' . esc_html( $info['title'] ) . '</a><div class="ast-addon-link-wrapper">';
+										echo '<li id="' . esc_attr( $addon ) . '"  class="' . esc_attr( $info['class'] ) . '"><a class="kmt-addon-title"' . $title_url . $anchor_target . ' >' . esc_html( $info['title'] ) . '</a><div class="kmt-addon-link-wrapper">';
 
 										foreach ( $info['links'] as $key => $link ) {
 											printf(
@@ -1000,7 +1000,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 			if ( ! empty( $top_links ) ) {
 				?>
-				<div class="ast-top-links">
+				<div class="kmt-top-links">
 					<ul>
 						<?php
 						foreach ( (array) $top_links as $key => $info ) {
