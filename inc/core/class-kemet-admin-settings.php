@@ -298,17 +298,17 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
 
-			$ast_icon           = apply_filters( 'kemet_page_top_icon', true );
-			$ast_visit_site_url = apply_filters( 'kemet_site_url', 'https://wpkemet.com' );
-			$ast_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
+			$kmt_icon           = apply_filters( 'kemet_page_top_icon', true );
+			$kmt_visit_site_url = apply_filters( 'kemet_site_url', 'https://wpkemet.com' );
+			$kmt_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
-			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
+			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
 					<div class="ast-theme-page-header">
 						<div class="ast-container ast-flex">
 							<div class="ast-theme-title">
-								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
-								<?php if ( $ast_icon ) { ?>
+								<a href="<?php echo esc_url( $kmt_visit_site_url ); ?>" target="_blank" rel="noopener" >
+								<?php if ( $kmt_icon ) { ?>
 									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
 								<?php do_action( 'kemet_welcome_page_header_title' ); ?>

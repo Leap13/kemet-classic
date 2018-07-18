@@ -208,7 +208,7 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 	function kemet_footer_small_footer_template() {
 
 		$small_footer_layout = kemet_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
-		$small_footer_layout = apply_filters( 'ast_footer_sml_layout', $small_footer_layout );
+		$small_footer_layout = apply_filters( 'kmt_footer_sml_layout', $small_footer_layout );
 
 		if ( 'disabled' != $small_footer_layout ) {
 

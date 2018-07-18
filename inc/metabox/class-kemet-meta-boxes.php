@@ -198,7 +198,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
 			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$kmt_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 
 			$show_meta_field = ! Kemet_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'kemet_meta_box_markup_before', $meta );
@@ -264,7 +264,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 
 						<div class="ast-featured-img-option-wrap">
 							<label for="ast-featured-img">
-								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
+								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $kmt_featured_img, 'disabled' ); ?> />
 								<?php esc_html_e( 'Disable Featured Image', 'kemet' ); ?>
 							</label>
 						</div>

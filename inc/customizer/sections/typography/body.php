@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Typography(
 			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
 				'type'        => 'ast-font-family',
-				'ast_inherit' => __( 'Default System Font', 'kemet' ),
+				'kmt_inherit' => __( 'Default System Font', 'kemet' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 5,
 				'label'       => __( 'Font Family', 'kemet' ),
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Typography(
 			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
 				'type'        => 'ast-font-weight',
-				'ast_inherit' => __( 'Default', 'kemet' ),
+				'kmt_inherit' => __( 'Default', 'kemet' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 10,
 				'label'       => __( 'Font Weight', 'kemet' ),

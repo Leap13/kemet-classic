@@ -208,7 +208,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			$footer_layout = get_post_meta( $post_id, 'footer-sml-layout', true );
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
-					'ast_footer_sml_layout', function( $is_footer ) {
+					'kmt_footer_sml_layout', function( $is_footer ) {
 						return 'disabled';
 					}
 				);
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			if ( 'disabled' === $main_header_display ) {
 				remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 				add_filter(
-					'ast_main_header_display', function( $display_header ) {
+					'kmt_main_header_display', function( $display_header ) {
 						return 'disabled';
 					}
 				);

@@ -39,9 +39,9 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 * Used to set the default font options.
 	 *
 	 * @since 1.0.8
-	 * @var string $ast_inherit
+	 * @var string $kmt_inherit
 	 */
-	public $ast_inherit = '';
+	public $kmt_inherit = '';
 
 	/**
 	 * If true, the preview button for a control will be rendered.
@@ -60,7 +60,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
-		$this->ast_inherit = __( 'Inherit', 'kemet' );
+		$this->kmt_inherit = __( 'Inherit', 'kemet' );
 		parent::__construct( $manager, $id, $args );
 	}
 
@@ -77,11 +77,11 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 		switch ( $this->type ) {
 
 			case 'ast-font-family':
-				$this->render_font( $this->ast_inherit );
+				$this->render_font( $this->kmt_inherit );
 				break;
 
 			case 'ast-font-weight':
-				$this->render_font_weight( $this->ast_inherit );
+				$this->render_font_weight( $this->kmt_inherit );
 				break;
 		}
 	}
@@ -137,7 +137,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	protected function render_connect_attribute() {
 		if ( $this->connect ) {
 			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->ast_inherit ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->kmt_inherit ) . '"';
 		}
 	}
 
