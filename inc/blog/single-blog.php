@@ -163,7 +163,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 
 									?>
 
-								</header> <!-- .ast-comment-meta -->
+								</header> <!-- .kmt-comment-meta -->
 							</div>
 							<section class="ast-comment-content comment">
 								<?php comment_text(); ?>
@@ -187,7 +187,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 								<?php if ( '0' == $comment->comment_approved ) : ?>
 									<p class="ast-highlight-text comment-awaiting-moderation"><?php echo esc_html( kemet_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
-							</section> <!-- .ast-comment-content -->
+							</section> <!-- .kmt-comment-content -->
 						</div>
 					</article><!-- #comment-## -->
 				<!-- </li> -->

@@ -199,9 +199,9 @@
 }
 
 //separate container content layout
-.ast-separate-container{
+.kmt-separate-container{
 	//two container content layout
-	&.ast-two-container{
+	&.kmt-two-container{
 		#secondary{
 			.widget{
 				background-color: $color-background-content;

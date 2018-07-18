@@ -63,7 +63,7 @@ if ( post_password_required() ) {
 				)
 			);
 			?>
-		</ol><!-- .ast-comment-list -->
+		</ol><!-- .kmt-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'kemet' ); ?>">

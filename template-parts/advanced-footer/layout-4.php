@@ -44,7 +44,7 @@ $classes   = implode( ' ', $classes );
 				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-4">
 					<?php kemet_get_footer_widget( 'advanced-footer-widget-4' ); ?>
 				</div>
-			</div><!-- .ast-row -->
+			</div><!-- .kmt-row -->
 		</div><!-- .kmt-container -->
 	</div><!-- .footer-adv-overlay-->
-</div><!-- .ast-theme-footer .footer-adv-layout-4 -->
+</div><!-- .kmt-theme-footer .footer-adv-layout-4 -->

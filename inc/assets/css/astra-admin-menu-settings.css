@@ -5,11 +5,11 @@
  * @since 1.0.0
  */
 
-.ast-clear:before, .ast-clear:after {
+.kmt-clear:before, .kmt-clear:after {
 	content: " ";
 	display: table;
 }
-.ast-clear:after {
+.kmt-clear:after {
 	clear: both;
 }
 
@@ -33,13 +33,13 @@
 .appearance_page_kemet #wpcontent{
  	padding: 0;
  }
-.ast-menu-page-wrapper.wrap{
+.kmt-menu-page-wrapper.wrap{
 	margin: 0;
 }
-.ast-menu-page-wrapper a{
+.kmt-menu-page-wrapper a{
 	text-decoration: none;
 }
-.ast-theme-page-header {
+.kmt-theme-page-header {
     background-color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -52,7 +52,7 @@
     padding: 0 20px;
     box-sizing: border-box;
 }
-.kmt-container .ast-normal-cusror.hndle{
+.kmt-container .kmt-normal-cusror.hndle{
     cursor: initial;
 }
 .kmt-container .postbox .hndle{
@@ -61,24 +61,24 @@
 }
 
 /* Top Right Links. */
-.ast-top-links {
+.kmt-top-links {
     flex: auto;
     text-align: right;
 }
 
-.ast-top-links ul{
+.kmt-top-links ul{
     margin: 0;
 }
-.ast-top-links ul li {
+.kmt-top-links ul li {
     display: inline-block;
     margin-bottom: 0;
 }
 
-.kmt-container.ast-welcome,
+.kmt-container.kmt-welcome,
 .general .kmt-container {
 	max-width: 930px;
 }
-.ast-quick-setting-section span.dashicons {
+.kmt-quick-setting-section span.dashicons {
     margin: 1px 3px 0 10px;
 }
 .kmt-container div.notice,
@@ -89,7 +89,7 @@
 .kmt-container #poststuff h2{
 	padding: 12px 12px;
 }
-.ast-flex{
+.kmt-flex{
 	-js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -108,19 +108,19 @@
     -ms-flex-line-pack: center;
     align-content: center;
 }
-.ast-theme-title {
+.kmt-theme-title {
     flex: auto;
     align-content: flex-start;
     text-align: left;
 }
-.ast-theme-title a,
-.ast-theme-title span{
+.kmt-theme-title a,
+.kmt-theme-title span{
 	font-size: 1.5rem;
     color: #333333;
     font-weight: 500;
 }
 
-.ast-theme-icon{
+.kmt-theme-icon{
 	width: 125px;
     vertical-align: bottom;
 }
@@ -128,41 +128,41 @@
 /**
  * Kemet Quick Settings
  */
- .ast-quick-setting-section ul,
- .ast-addon-list-section ul{
+ .kmt-quick-setting-section ul,
+ .kmt-addon-list-section ul{
  	margin: 0;
  }
-.ast-quick-setting-section li{
+.kmt-quick-setting-section li{
 	border-bottom: 1px solid #eee;
 	margin-bottom: 0;
 }
-.ast-addon-list-section li{
+.kmt-addon-list-section li{
     -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
     -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1) inset;
     margin-bottom: 0;
 }
-.ast-quick-setting-section li{
+.kmt-quick-setting-section li{
     padding: 10px 0;
 }
-.ast-quick-setting-section li:nth-child(odd){
+.kmt-quick-setting-section li:nth-child(odd){
     width: 74%;
 }
-.ast-quick-setting-section li:nth-child(even){
+.kmt-quick-setting-section li:nth-child(even){
     width: 26%;
 }
-.ast-quick-setting-section li a{
+.kmt-quick-setting-section li a{
 	margin: 5px;
 	display: inline-block;
 }
-.ast-addon-list-section li{
+.kmt-addon-list-section li{
 	padding: 10px 15px;
 }
-.ast-quick-setting-section a.ast-quick-setting-title{
+.kmt-quick-setting-section a.kmt-quick-setting-title{
 	flex: auto;
 }
 
-.ast-addon-list-section .ast-addon-list li {
+.kmt-addon-list-section .kmt-addon-list li {
 	-js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -183,11 +183,11 @@
     padding: 10px 15px; 
 }
 
-.ast-addon-list-section .ast-addon-list li:nth-child(even){
+.kmt-addon-list-section .kmt-addon-list li:nth-child(even){
     background-color: #fbfbfb;
 }
 
-.ast-addon-link-wrapper{
+.kmt-addon-link-wrapper{
 	-js-display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -210,22 +210,22 @@
     flex-direction: row-reverse;
     flex: auto;
 }
-.ast-addon-link-wrapper a{
+.kmt-addon-link-wrapper a{
     line-height: 1.6;
 }
-.ast-addon-link-wrapper a:nth-child(even){
+.kmt-addon-link-wrapper a:nth-child(even){
     margin: 0 10px;
 }
 
 /**
  * Kemet Welcome screen sidebar
  */
-.ast-sidebar .hndle .dashicons{
+.kmt-sidebar .hndle .dashicons{
 	margin: 0 5px 0 0;
 }
 
 @media (max-width: 544px){
-	.ast-quick-setting-section li{
+	.kmt-quick-setting-section li{
 		width: 100%;
 	}
 }
@@ -233,21 +233,21 @@
 /**
  * Kemet Custom Notice for static position
  */
-.ast-notice{
+.kmt-notice{
     margin-bottom: 20px;
 }
-.ast-notice.ast-notice-error{
+.kmt-notice.kmt-notice-error{
     border-left-color: #dc3232;
 }
 
-.ast-notice{
+.kmt-notice{
     background: #fff;
     border-left: 4px solid #fff;
     box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
     padding: 1px 12px;
 }
 
-.ast-notice p{
+.kmt-notice p{
     margin: 0.5em 0;
     padding: 2px;
 }

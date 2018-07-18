@@ -24,8 +24,8 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('click' , '.ast-sites-notinstalled', KemetThemeAdmin._installNow );
-			$( document ).on('click' , '.ast-sites-inactive', KemetThemeAdmin._activatePlugin);
+			$( document ).on('click' , '.kmt-sites-notinstalled', KemetThemeAdmin._installNow );
+			$( document ).on('click' , '.kmt-sites-inactive', KemetThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-install-success' , KemetThemeAdmin._activatePlugin);
 			$( document ).on('wp-plugin-installing'      , KemetThemeAdmin._pluginInstalling);
 			$( document ).on('wp-plugin-install-error'   , KemetThemeAdmin._installError);
@@ -36,7 +36,7 @@
 		 */
 		_installError: function( event, response ) {
 
-			var $card = jQuery( '.ast-sites-notinstalled' );
+			var $card = jQuery( '.kmt-sites-notinstalled' );
 
 			$card
 				.removeClass( 'button-primary' )
@@ -50,7 +50,7 @@
 		_pluginInstalling: function(event, args) {
 			event.preventDefault();
 
-			var $card = jQuery( '.ast-sites-notinstalled' );
+			var $card = jQuery( '.kmt-sites-notinstalled' );
 
 			$card.addClass('updating-message');
 
@@ -62,9 +62,9 @@
 
 			event.preventDefault();
 
-			var $message = $( '.ast-sites-notinstalled' );
+			var $message = $( '.kmt-sites-notinstalled' );
 			if ( 0 === $message.length ) {
-				$message = $( '.ast-sites-inactive' );
+				$message = $( '.kmt-sites-inactive' );
 			}
 
 			// Transform the 'Install' button into an 'Activate' button.
@@ -122,7 +122,7 @@
 				wp.updates.requestFilesystemCredentials( event );
 
 				$document.on( 'credential-modal-cancel', function() {
-					var $message = $( '.ast-sites-notinstalled.updating-message' );
+					var $message = $( '.kmt-sites-notinstalled.updating-message' );
 
 					$message
 						.addClass('ast-sites-inactive')

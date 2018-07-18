@@ -90,7 +90,7 @@
   position: relative;
 }
 
-.customize-control-kmt-slider .ast-slider-reset {
+.customize-control-kmt-slider .kmt-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: -28px;
@@ -104,22 +104,22 @@
   transition: color 0.5s ease-in;
 }
 
-.customize-control-kmt-slider .ast-slider-reset span {
+.customize-control-kmt-slider .kmt-slider-reset span {
   font-size: 16px;
   line-height: 22px;
 }
 
-.customize-control-kmt-slider .ast-slider-reset:hover, .customize-control-kmt-slider .ast-slider-reset:focus {
+.customize-control-kmt-slider .kmt-slider-reset:hover, .customize-control-kmt-slider .kmt-slider-reset:focus {
   color: red;
 }
 
-.kemet_range_value input.ast-range-value-input {
+.kemet_range_value input.kmt-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
   padding: 3px;
 }
 
-.kemet_range_value .ast-range-unit {
+.kemet_range_value .kmt-range-unit {
   margin-left: 5px;
 }

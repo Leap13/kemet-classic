@@ -28,7 +28,7 @@
 			});
 
 			// Handle the reset button.
-			jQuery( '.ast-slider-reset' ).click( function() {
+			jQuery( '.kmt-slider-reset' ).click( function() {
 				var wrapper 		= jQuery( this ).closest( '.wrapper' ),
 					input_range   	= wrapper.find( 'input[type=range]' ),
 					input_number 	= wrapper.find( '.kemet_range_value .value' ),

@@ -229,7 +229,7 @@ var toggleClass = function ( el, className ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				KemetNavigationMenu( parentList );
 			 	
-			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
+			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .kmt-menu-toggle' );
 				KemetToggleMenu( kemet_menu_toggle );
 			}
 		};
@@ -345,7 +345,7 @@ var toggleClass = function ( el, className ) {
 		SearchIcons[i].onclick = function(event) {
 			if ( this.classList.contains( 'slide-search' ) ) {
 				event.preventDefault();
-				var sibling = this.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
+				var sibling = this.parentNode.parentNode.querySelector( '.kmt-search-menu-icon' );
 				if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
 					sibling.classList.add( 'ast-dropdown-active' );
 					sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
@@ -362,7 +362,7 @@ var toggleClass = function ( el, className ) {
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
 		if ( ! this.classList.contains( 'ast-header-break-point' ) ) {
-			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.kmt-search-menu-icon' ).length === 0 && getParents( event.target, '.kmt-search-icon' ).length === 0  ) {
 
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 

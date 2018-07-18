@@ -3,7 +3,7 @@
  *
  */
 
-.ast-footer-overlay {
+.kmt-footer-overlay {
 	background-color: $footer-background-color;
 	padding-top: 2em;
 	padding-bottom: 2em;
@@ -13,7 +13,7 @@
 	}	
 }
 
-.ast-small-footer {
+.kmt-small-footer {
     line-height: 1.85714285714286;
 	position: relative;
 
@@ -45,7 +45,7 @@
 
 /* Auto width footer sections */
 @media (min-width: $col-md ) {
-	.ast-small-footer {
+	.kmt-small-footer {
 
 		.nav-menu {
 			li {
@@ -62,6 +62,6 @@
 }
 
 /* Hide edit shortcut button */
-.ast-footer-site-title .customize-partial-edit-shortcut-button {
+.kmt-footer-site-title .customize-partial-edit-shortcut-button {
 	display: none;
 }

@@ -1,13 +1,13 @@
 @import "../variables-site/structure";
 
 	.footer-sml-layout-2 {
-		.ast-small-footer-section-1,
-		.ast-small-footer-section-2 {
+		.kmt-small-footer-section-1,
+		.kmt-small-footer-section-2 {
 			text-align: center;
 		}
 		
 		@media (min-width: $col-md) {
-			.ast-small-footer-section-1 {
+			.kmt-small-footer-section-1 {
 			    text-align: left;
 				.menu-item {
 					a {
@@ -15,7 +15,7 @@
 					}
 				}
 			}
-			.ast-small-footer-section-2 {
+			.kmt-small-footer-section-2 {
 			    text-align: right;
 				.menu-item {
 					a {
@@ -26,16 +26,16 @@
 		}
 	}
 
-.ast-header-break-point {
+.kmt-header-break-point {
 	.footer-sml-layout-2 {
-		.ast-small-footer-section-2{
+		.kmt-small-footer-section-2{
 			margin-top: 1em;
 		}
 	}
 }
 
 @media screen and ( min-color-index:0 ) and ( -webkit-min-device-pixel-ratio:0 ) { 
-    .ast-small-footer-wrap .ast-row:before { 
+    .kmt-small-footer-wrap .kmt-row:before { 
         display: block; 
     }
 }

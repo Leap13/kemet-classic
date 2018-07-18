@@ -71,8 +71,8 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 }
 
 //Seperate container layout
-.ast-separate-container {
-	.ast-lifterlms-container {
+.kmt-separate-container {
+	.kmt-lifterlms-container {
 		background-color: $color-background-content;
 
 		@media (max-width: $mx-col-xl) {
@@ -94,7 +94,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 // Course Catalog
 .llms-student-dashboard,
 .kmt-container,
-.ast-lifterlms-container {
+.kmt-lifterlms-container {
 	ul.llms-loop-list {
 		li.llms-loop-item {
 			padding: 0;
@@ -166,7 +166,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 // Single Lesson
 .single-lesson {
 
-	&.ast-separate-container {
+	&.kmt-separate-container {
 		.llms-lesson-preview .llms-lesson-link {
 			background: #fff;
 
@@ -176,7 +176,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 		}
 	}
 
-	.ast-article-single .llms-lesson-button-wrapper {
+	.kmt-article-single .llms-lesson-button-wrapper {
 		font-weight: 600;
 
 		.llms-complete-lesson-form {
@@ -1199,17 +1199,17 @@ body {
 		display: inline-block;
 		float: right;
 	}
-	.ast-main-header-bar-alignment {
+	.kmt-main-header-bar-alignment {
 		display: inline-block;
 	}
 }
 
-.ast-header-break-point {
+.kmt-header-break-point {
 	.header-main-layout-2 {
-		.ast-mobile-menu-buttons {
+		.kmt-mobile-menu-buttons {
 			display: inline-block;
 		}
-		.ast-main-header-bar-alignment {
+		.kmt-main-header-bar-alignment {
 			display: none;
 		}
 	}

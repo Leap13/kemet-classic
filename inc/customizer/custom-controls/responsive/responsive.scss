@@ -1,9 +1,9 @@
-.ast-responsive-btns,
+.kmt-responsive-btns,
 .customize-control-title {
 	display:inline-block;
 }
 
-.ast-responsive-btns {
+.kmt-responsive-btns {
 	float:right;
 	line-height: 1;
 	margin-top: 5px;
@@ -44,7 +44,7 @@
 		}
 	}
 
-	.ast-responsive-select {
+	.kmt-responsive-select {
 		width: 50px;
 		margin: 0;
 		display: none;
@@ -52,8 +52,8 @@
 		margin-left: 2px;
 	}
 
-	.ast-responsive-input.active {
-		+ .ast-responsive-select {
+	.kmt-responsive-input.active {
+		+ .kmt-responsive-select {
 			display: inline-block;
 		}
 	}

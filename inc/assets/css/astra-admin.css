@@ -28,7 +28,7 @@
 
 #wp-admin-bar-kemet .ab-icon:before,
 #toplevel_page_kemet .wp-menu-image:before,
-.ast-icon-logo:before {
+.kmt-icon-logo:before {
 	content: "\e900" !important;
 }
 
@@ -44,12 +44,12 @@
 	position: relative;
 }
 
-.customize-control .ast-control-tooltip {
+.customize-control .kmt-control-tooltip {
     position: absolute;
     top: 6px;
     right: 0;
 }
-.customize-control.customize-control-kmt-divider .ast-control-tooltip {
+.customize-control.customize-control-kmt-divider .kmt-control-tooltip {
     position: absolute;
     top: auto;
     bottom: 3px;

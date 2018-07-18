@@ -1,4 +1,4 @@
-.customize-control-kmt-spacing ul.ast-spacing-wrapper {
+.customize-control-kmt-spacing ul.kmt-spacing-wrapper {
   position: relative;
   -js-display: flex;
   display: -webkit-box;
@@ -8,7 +8,7 @@
   display: flex;
 }
 
-.customize-control-kmt-spacing li.ast-spacing-input-item {
+.customize-control-kmt-spacing li.kmt-spacing-input-item {
   display: inline-block;
   text-align: center;
   -webkit-box-flex: 1;
@@ -16,7 +16,7 @@
   flex: auto;
 }
 
-.customize-control-kmt-spacing span.ast-spacing-unit {
+.customize-control-kmt-spacing span.kmt-spacing-unit {
   position: absolute;
   top: -26px;
   right: 0;
@@ -24,10 +24,10 @@
   font-weight: bold;
 }
 
-.customize-control-kmt-spacing span.ast-spacing-title {
+.customize-control-kmt-spacing span.kmt-spacing-title {
   display: block;
 }
 
-.customize-control-kmt-spacing input.ast-spacing-input {
+.customize-control-kmt-spacing input.kmt-spacing-input {
   text-align: center;
 }

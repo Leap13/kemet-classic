@@ -16,10 +16,10 @@
 		    value;
 
 			// Set the spacing container.
-			control.spacingContainer = control.container.find( 'ul.ast-spacing-wrapper' ).first();
+			control.spacingContainer = control.container.find( 'ul.kmt-spacing-wrapper' ).first();
 
 			// Save the value.
-			control.spacingContainer.on( 'change keyup paste', 'input.ast-spacing-input', function() {
+			control.spacingContainer.on( 'change keyup paste', 'input.kmt-spacing-input', function() {
 
 				value = jQuery( this ).val();
 
@@ -38,7 +38,7 @@
 			var control = this,
 		    newValue = {};
 
-			this.spacingContainer.find( 'input.ast-spacing-input' ).each( function() {
+			this.spacingContainer.find( 'input.kmt-spacing-input' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();

@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
-				'selector'            => '.ast-small-footer-section-1',
+				'selector'            => '.kmt-small-footer-section-1',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
 			)
@@ -169,7 +169,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
-				'selector'            => '.ast-small-footer-section-2',
+				'selector'            => '.kmt-small-footer-section-2',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
 			)

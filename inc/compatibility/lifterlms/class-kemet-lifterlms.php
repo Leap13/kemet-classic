@@ -465,7 +465,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 */
 		function before_main_content_end() {
 			?>
-					</div> <!-- .ast-lifterlms-container -->
+					</div> <!-- .kmt-lifterlms-container -->
 				</main> <!-- #main -->
 
 				<?php kemet_primary_content_bottom(); ?>

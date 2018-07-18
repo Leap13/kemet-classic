@@ -24,7 +24,7 @@
 // Rows contain and clear the floats of your columns.
 
 @if $enable-grid-classes {
-  .ast-row {
+  .kmt-row {
     @include make-row();
   }
 }
@@ -49,8 +49,8 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-col-#{$breakpoint}-first { order: -1; }
-      .ast-col-#{$breakpoint}-last  { order: 1; }
+      .kmt-col-#{$breakpoint}-first { order: -1; }
+      .kmt-col-#{$breakpoint}-last  { order: 1; }
     }
   }
 
@@ -58,9 +58,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-row-#{$breakpoint}-top    { align-items: flex-start; }
-      .ast-row-#{$breakpoint}-center { align-items: center; }
-      .ast-row-#{$breakpoint}-bottom { align-items: flex-end; }
+      .kmt-row-#{$breakpoint}-top    { align-items: flex-start; }
+      .kmt-row-#{$breakpoint}-center { align-items: center; }
+      .kmt-row-#{$breakpoint}-bottom { align-items: flex-end; }
     }
   }
 
@@ -68,9 +68,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .ast-col-#{$breakpoint}-top    { align-self: flex-start; }
-      .ast-col-#{$breakpoint}-center { align-self: center; }
-      .ast-col-#{$breakpoint}-bottom { align-self: flex-end; }
+      .kmt-col-#{$breakpoint}-top    { align-self: flex-start; }
+      .kmt-col-#{$breakpoint}-center { align-self: center; }
+      .kmt-col-#{$breakpoint}-bottom { align-self: flex-end; }
     }
   }
 }
