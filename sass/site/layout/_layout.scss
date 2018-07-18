@@ -107,7 +107,7 @@ body{
 		.ast-article-single{
 		    padding: 1.5em 1em;
 		}
-		#content .ast-container{
+		#content .kmt-container{
 			padding-left: 0.54em;
 			padding-right: 0.54em;
 		}
@@ -124,7 +124,7 @@ body{
 	.hentry {
 		margin: 0;
 	}
-	.site-content > .ast-container {
+	.site-content > .kmt-container {
 		max-width: 100%;
 	    padding: 0;
 	}
@@ -291,7 +291,7 @@ body{
 	}
 
 	.ast-left-sidebar {
-		#content > .ast-container {
+		#content > .kmt-container {
 			display: flex;
 			flex-direction: column-reverse;
 			width: 100%;

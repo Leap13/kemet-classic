@@ -16,8 +16,8 @@
 .site-footer:after,
 .ast-row:before,
 .ast-row:after,
-.ast-container:before,
-.ast-container:after {
+.kmt-container:before,
+.kmt-container:after {
 	@include clearfix;
 }
 
@@ -30,6 +30,6 @@
 .sidebar-main:after,
 .site-footer:after,
 .ast-row:after,
-.ast-container:after {
+.kmt-container:after {
 	@include clearfix-after;
 }

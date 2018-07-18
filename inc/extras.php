@@ -808,7 +808,7 @@ if ( ! function_exists( 'kemet_header_breakpoint_style' ) ) {
 		/* Width for Header */
 		if ( 'content' != $kemet_header_width ) {
 			$genral_global_responsive = array(
-				'#masthead .ast-container' => array(
+				'#masthead .kmt-container' => array(
 					'max-width'     => '100%',
 					'padding-left'  => '35px',
 					'padding-right' => '35px',

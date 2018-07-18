@@ -93,7 +93,7 @@ $secondary: desaturate(lighten($primary, 40%), 21%);    // Secondary buttons
 
 // Course Catalog
 .llms-student-dashboard,
-.ast-container,
+.kmt-container,
 .ast-lifterlms-container {
 	ul.llms-loop-list {
 		li.llms-loop-item {
@@ -960,7 +960,7 @@ body {
 }
 
 // Notices
-.ast-container {
+.kmt-container {
 	
 	.lifterlms .llms-notice {
 		margin: 0 0 2em;

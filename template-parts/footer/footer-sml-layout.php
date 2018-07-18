@@ -35,6 +35,6 @@ $section_2 = kemet_get_small_footer( 'footer-sml-section-2' );
 				<?php endif; ?>
 
 			</div><!-- .ast-row .ast-small-footer-wrap -->
-		</div><!-- .ast-container -->
+		</div><!-- .kmt-container -->
 	</div><!-- .ast-footer-overlay -->
 </div><!-- .ast-small-footer-->

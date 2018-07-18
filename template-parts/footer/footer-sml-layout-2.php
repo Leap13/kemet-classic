@@ -59,6 +59,6 @@ switch ( $sections ) {
 
 					</div> <!-- .ast-row.ast-flex -->
 			</div><!-- .ast-small-footer-wrap -->
-		</div><!-- .ast-container -->
+		</div><!-- .kmt-container -->
 	</div><!-- .ast-footer-overlay -->
 </div><!-- .ast-small-footer-->

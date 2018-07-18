@@ -418,7 +418,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/* Width for Footer */
 			if ( 'content' != $kemet_footer_width ) {
 				$genral_global_responsive = array(
-					'.ast-small-footer .ast-container' => array(
+					'.ast-small-footer .kmt-container' => array(
 						'max-width'     => '100%',
 						'padding-left'  => '35px',
 						'padding-right' => '35px',
@@ -624,7 +624,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Site width Responsive */
 			$site_width = array(
-				'.ast-container' => array(
+				'.kmt-container' => array(
 					'max-width' => kemet_get_css_value( $site_content_width + 40, 'px' ),
 				),
 			);
@@ -652,7 +652,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				/* Site width Responsive */
 				$blog_css   = array(
-					'.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container' => array(
+					'.blog .site-content > .kmt-container, .archive .site-content > .kmt-container, .search .site-content > .kmt-container' => array(
 						'max-width' => kemet_get_css_value( $blog_max_width, 'px' ),
 					),
 				);
@@ -664,7 +664,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				/* Site width Responsive */
 				$single_blog_css = array(
-					'.single-post .site-content > .ast-container' => array(
+					'.single-post .site-content > .kmt-container' => array(
 						'max-width' => kemet_get_css_value( $single_post_max_width, 'px' ),
 					),
 				);
