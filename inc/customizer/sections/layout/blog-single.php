@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
-				'type'     => 'ast-sortable',
+				'type'     => 'kmt-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
 				'label'    => __( 'Single Post Structure', 'kemet' ),
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
-				'type'     => 'ast-sortable',
+				'type'     => 'kmt-sortable',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
 				'label'    => __( 'Single Post Meta', 'kemet' ),
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-styling-section-single-blog-layouts]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-blog-single',
 				'priority' => 10,
 				'settings' => array(),
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
-				'type'        => 'ast-slider',
+				'type'        => 'kmt-slider',
 				'section'     => 'section-blog-single',
 				'priority'    => 20,
 				'label'       => __( 'Enter Width', 'kemet' ),
@@ -140,7 +140,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-single-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+					'type'     => 'kmt-divider',
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'settings' => array(),
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-single-more-feature-description]', array(
-					'type'     => 'ast-description',
+					'type'     => 'kmt-description',
 					'section'  => 'section-blog-single',
 					'priority' => 25,
 					'label'    => '',

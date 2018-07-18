@@ -27,7 +27,7 @@ class Kemet_Control_Color extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-color';
+	public $type = 'kmt-color';
 
 	/**
 	 * The control type.

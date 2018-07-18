@@ -2,7 +2,7 @@ jQuery(window).on("load", function() {
 	jQuery('html').addClass('background-colorpicker-ready');
 });
 
-wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing
 	ready: function() {

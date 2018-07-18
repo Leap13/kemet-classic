@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-responsive-spacing'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-responsive-spacing'] = wp.customize.Control.extend({
 
 		ready: function() {
 

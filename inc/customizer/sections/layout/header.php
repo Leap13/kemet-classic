@@ -38,7 +38,7 @@ $header_rt_sections = array(
 				'section'  => 'section-header',
 				'priority' => 5,
 				'label'    => __( 'Header', 'kemet' ),
-				'type'     => 'ast-radio-image',
+				'type'     => 'kmt-radio-image',
 				'choices'  => array(
 					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'kemet' ),
@@ -248,7 +248,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[header-main-menu-label-divider]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-header',
 				'priority' => 55,
 				'settings' => array(),

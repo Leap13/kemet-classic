@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-post-structure]', array(
-				'type'     => 'ast-sortable',
+				'type'     => 'kmt-sortable',
 				'section'  => 'section-blog',
 				'priority' => 100,
 				'label'    => __( 'Blog Post Structure', 'kemet' ),
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-meta]', array(
-				'type'     => 'ast-sortable',
+				'type'     => 'kmt-sortable',
 				'section'  => 'section-blog',
 				'priority' => 105,
 				'label'    => __( 'Blog Meta', 'kemet' ),
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-styling-section-blog-width]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-blog',
 				'priority' => 110,
 				'settings' => array(),
@@ -140,7 +140,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[blog-max-width]', array(
-				'type'        => 'ast-slider',
+				'type'        => 'kmt-slider',
 				'section'     => 'section-blog',
 				'priority'    => 120,
 				'label'       => __( 'Enter Width', 'kemet' ),
@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+					'type'     => 'kmt-divider',
 					'section'  => 'section-blog',
 					'priority' => 125,
 					'settings' => array(),
@@ -176,7 +176,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-more-feature-description]', array(
-					'type'     => 'ast-description',
+					'type'     => 'kmt-description',
 					'section'  => 'section-blog',
 					'priority' => 125,
 					'label'    => '',

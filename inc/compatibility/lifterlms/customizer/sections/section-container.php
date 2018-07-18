@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[lifterlms-content-divider]', array(
 				'section'  => 'section-container-layout',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'priority' => 66,
 				'settings' => array(),
 			)

@@ -1,5 +1,5 @@
 @font-face {
-	font-family: 'ast-logo';
+	font-family: 'kmt-logo';
 	src:    url('fonts/ast-logo.eot?476cfz');
 	src:    url('fonts/ast-logo.eot?476cfz#iefix') format('embedded-opentype'),
 		url('fonts/ast-logo.ttf?476cfz') format('truetype'),
@@ -13,7 +13,7 @@
 [class^="kmt-icon-"],
 [class*=" ast-icon-"] {
 	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'ast-logo' !important;
+	font-family: 'kmt-logo' !important;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;

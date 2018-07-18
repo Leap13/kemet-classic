@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
-			'default'           => kemet_get_option( 'ast-header-retina-logo' ),
+			'default'           => kemet_get_option( 'kmt-header-retina-logo' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'esc_url_raw',
 		)
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
-				'type'        => 'ast-responsive-slider',
+				'type'        => 'kmt-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,
 				'label'       => __( 'Logo Width', 'kemet' ),
@@ -72,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-logo-divider]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'title_tagline',
 				'priority' => 5,
 				'settings' => array(),
@@ -144,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-icon-divider]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'title_tagline',
 				'priority' => 50,
 				'settings' => array(),

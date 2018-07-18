@@ -25,7 +25,7 @@ class Kemet_Control_Radio_Image extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-radio-image';
+	public $type = 'kmt-radio-image';
 
 	/**
 	 * Enqueue control related scripts/styles.

@@ -27,7 +27,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 		 * @access public
 		 * @var string
 		 */
-		public $type = 'ast-background';
+		public $type = 'kmt-background';
 
 		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.

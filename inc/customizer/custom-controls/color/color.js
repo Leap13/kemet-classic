@@ -10,7 +10,7 @@ jQuery(window).on("load", function() {
   	jQuery('html').addClass('colorpicker-ready');
 });
 
-	wp.customize.controlConstructor['ast-color'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-color'] = wp.customize.Control.extend({
 
 		ready: function() {
 

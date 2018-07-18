@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[single-page-sidebar-layout-divider]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-sidebars',
 				'priority' => 5,
 				'settings' => array(),
@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-sidebar-width]', array(
 				'section'  => 'section-sidebars',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'priority' => 10,
 				'settings' => array(),
 			)
@@ -155,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width]', array(
-				'type'        => 'ast-slider',
+				'type'        => 'kmt-slider',
 				'section'     => 'section-sidebars',
 				'priority'    => 15,
 				'label'       => __( 'Sidebar Width', 'kemet' ),
@@ -172,7 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Description(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width-description]', array(
-				'type'     => 'ast-description',
+				'type'     => 'kmt-description',
 				'section'  => 'section-sidebars',
 				'priority' => 15,
 				'label'    => '',

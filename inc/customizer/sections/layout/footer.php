@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Radio_Image(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-layout]', array(
-				'type'     => 'ast-radio-image',
+				'type'     => 'kmt-radio-image',
 				'section'  => 'section-footer-small',
 				'priority' => 5,
 				'label'    => __( 'Footer Bar Layout', 'kemet' ),
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-info]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 10,
 				'settings' => array(),
@@ -182,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-typography]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-footer-small',
 				'priority' => 35,
 				'settings' => array(),

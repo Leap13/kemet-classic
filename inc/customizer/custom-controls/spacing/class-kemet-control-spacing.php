@@ -25,7 +25,7 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-spacing';
+	public $type = 'kmt-spacing';
 
 	/**
 	 * Enqueue control related scripts/styles.
@@ -80,7 +80,7 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='ast-spacing' for="" >
+		<label class='kmt-spacing' for="" >
 			<span class="customize-control-title">
 				{{{ data.label }}}
 			</span>
@@ -90,8 +90,8 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 
 			<ul class="kmt-spacing-wrapper"><# 
 				_.each( data.choices, function( choiceLabel, choiceID ) { 
-				#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-					<input type='number' class='ast-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+				#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
+					<input type='number' class='kmt-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
 					<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});

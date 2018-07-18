@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-single-title]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-single-typo',
 				'priority' => 5,
 				'label'    => __( 'Single Post / Page Title', 'kemet' ),
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-entry-title]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-single-typo',
 				'priority'    => 10,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-sngle-blog-typography-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+					'type'     => 'kmt-divider',
 					'section'  => 'section-single-typo',
 					'priority' => 15,
 					'settings' => array(),
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-sngle-blog-typography-more-feature-description]', array(
-					'type'     => 'ast-description',
+					'type'     => 'kmt-description',
 					'section'  => 'section-single-typo',
 					'priority' => 15,
 					'label'    => '',

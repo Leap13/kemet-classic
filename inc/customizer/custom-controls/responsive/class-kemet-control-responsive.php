@@ -25,7 +25,7 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-responsive';
+	public $type = 'kmt-responsive';
 
 	/**
 	 * The control type.

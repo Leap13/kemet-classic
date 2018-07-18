@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 5,
 				'label'    => __( 'Site Title', 'kemet' ),
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 10,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 15,
 				'label'    => __( 'Site Tagline', 'kemet' ),
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 20,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-typography-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+					'type'     => 'kmt-divider',
 					'section'  => 'section-header-typo',
 					'priority' => 25,
 					'settings' => array(),
@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-typography-more-feature-description]', array(
-					'type'     => 'ast-description',
+					'type'     => 'kmt-description',
 					'section'  => 'section-header-typo',
 					'priority' => 25,
 					'label'    => '',

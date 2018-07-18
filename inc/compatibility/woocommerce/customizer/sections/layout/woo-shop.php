@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
-				'type'        => 'ast-responsive-slider',
+				'type'        => 'kmt-responsive-slider',
 				'section'     => 'section-woo-shop',
 				'priority'    => 10,
 				'label'       => __( 'Shop Columns', 'kemet' ),
@@ -107,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Sortable(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
-				'type'     => 'ast-sortable',
+				'type'     => 'kmt-sortable',
 				'section'  => 'section-woo-shop',
 				'priority' => 30,
 				'label'    => __( 'Shop Product Structure', 'kemet' ),
@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-width-divider]', array(
 				'section'  => 'section-woo-shop',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'priority' => 220,
 				'settings' => array(),
 			)
@@ -174,7 +174,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
-				'type'        => 'ast-slider',
+				'type'        => 'kmt-slider',
 				'section'     => 'section-woo-shop',
 				'priority'    => 225,
 				'label'       => __( 'Enter Width', 'kemet' ),

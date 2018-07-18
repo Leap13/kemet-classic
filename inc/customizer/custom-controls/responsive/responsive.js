@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-responsive'] = wp.customize.Control.extend({
 
 		// When we're finished loading continue processing.
 		ready: function() {

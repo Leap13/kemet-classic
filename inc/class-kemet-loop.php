@@ -66,7 +66,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 			add_action( 'kemet_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
 			add_action( 'kemet_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
-			// Add closing and ending div 'ast-row'.
+			// Add closing and ending div 'kmt-row'.
 			add_action( 'kemet_template_parts_content_top', array( $this, 'kemet_templat_part_wrap_open' ), 25 );
 			add_action( 'kemet_template_parts_content_bottom', array( $this, 'kemet_templat_part_wrap_close' ), 5 );
 		}
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		}
 
 		/**
-		 * Add wrapper div 'ast-row' for Kemet template part.
+		 * Add wrapper div 'kmt-row' for Kemet template part.
 		 *
 		 * @since  1.2.7
 		 * @return void
@@ -250,7 +250,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		}
 
 		/**
-		 * Add closing wrapper div for 'ast-row' after Kemet template part.
+		 * Add closing wrapper div for 'kmt-row' after Kemet template part.
 		 *
 		 * @since  1.2.7
 		 * @return void

@@ -76,11 +76,11 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 
 		switch ( $this->type ) {
 
-			case 'ast-font-family':
+			case 'kmt-font-family':
 				$this->render_font( $this->kmt_inherit );
 				break;
 
-			case 'ast-font-weight':
+			case 'kmt-font-weight':
 				$this->render_font_weight( $this->kmt_inherit );
 				break;
 		}

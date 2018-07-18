@@ -300,13 +300,13 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
 				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 
-				$classes[] = 'ast-woo-shop-archive';
+				$classes[] = 'kmt-woo-shop-archive';
 			}
 			// Cart menu is emabled.
 			$rt_section = kemet_get_option( 'header-main-rt-section' );
 
 			if ( 'woocommerce' === $rt_section ) {
-				$classes[] = 'ast-woocommerce-cart-menu';
+				$classes[] = 'kmt-woocommerce-cart-menu';
 			}
 
 			return $classes;
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		function single_product_class( $classes ) {
 
 			if ( is_product() && 0 == get_post_meta( get_the_ID(), '_wc_review_count', true ) ) {
-				$classes[] = 'ast-woo-product-no-review';
+				$classes[] = 'kmt-woo-product-no-review';
 			}
 
 			if ( is_shop() || is_product_taxonomy() ) {
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
 				$shop_title          = get_post_meta( $shop_page_id, 'site-post-title', true );
-				$main_header_display = get_post_meta( $shop_page_id, 'ast-main-header-display', true );
+				$main_header_display = get_post_meta( $shop_page_id, 'kmt-main-header-display', true );
 				$footer_layout       = get_post_meta( $shop_page_id, 'footer-sml-layout', true );
 
 				if ( 'disabled' === $shop_title ) {
@@ -926,7 +926,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$class = '';
 			}
 
-			$cart_menu_classes = apply_filters( 'kemet_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+			$cart_menu_classes = apply_filters( 'kemet_cart_in_menu_class', array( 'kmt-menu-cart-with-border' ) );
 
 			ob_start();
 			?>

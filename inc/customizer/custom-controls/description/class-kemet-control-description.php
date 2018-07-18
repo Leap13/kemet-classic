@@ -25,7 +25,7 @@ class Kemet_Control_Description extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-description';
+	public $type = 'kmt-description';
 
 	/**
 	 * The control type.

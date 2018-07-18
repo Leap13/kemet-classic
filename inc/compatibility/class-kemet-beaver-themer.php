@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 			$result     = array_intersect( $classes, $post_class );
 
 			if ( count( $result ) > 0 ) {
-				$classes = array_diff( $classes, array( 'ast-col-sm-12', 'ast-article-post' ) );
+				$classes = array_diff( $classes, array( 'kmt-col-sm-12', 'kmt-article-post' ) );
 				add_filter( 'kemet_post_link_enabled', '__return_false' );
 			}
 			return $classes;
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 						);
 					}
 
-					$main_header_display = get_post_meta( $template_id, 'ast-main-header-display', true );
+					$main_header_display = get_post_meta( $template_id, 'kmt-main-header-display', true );
 					if ( 'disabled' === $main_header_display ) {
 
 						if ( 'archive' === $template_type ) {

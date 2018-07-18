@@ -61,7 +61,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
-			$header_logo_width  = kemet_get_option( 'ast-header-responsive-logo-width' );
+			$header_logo_width  = kemet_get_option( 'kmt-header-responsive-logo-width' );
 
 			// Site Background Color.
 			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj' );

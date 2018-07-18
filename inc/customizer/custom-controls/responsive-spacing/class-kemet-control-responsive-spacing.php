@@ -25,7 +25,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-responsive-spacing';
+	public $type = 'kmt-responsive-spacing';
 
 	/**
 	 * The control type.
@@ -139,7 +139,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='ast-spacing-responsive' for="" >
+		<label class='kmt-spacing-responsive' for="" >
 
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
@@ -192,8 +192,8 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 						</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) {
-					#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-						<input type='number' class='ast-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
+					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
+						<input type='number' class='kmt-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><#
 					}); #>
@@ -219,8 +219,8 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
-					#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-						<input type='number' class='ast-spacing-input ast-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
+					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
+						<input type='number' class='kmt-spacing-input ast-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
@@ -245,8 +245,8 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
-					#><li {{{ data.inputAttrs }}} class='ast-spacing-input-item'>
-						<input type='number' class='ast-spacing-input ast-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
+					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
+						<input type='number' class='kmt-spacing-input ast-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
@@ -266,9 +266,9 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 
 			<div class="kmt-spacing-responsive-units-screen-wrap">
 				<div class="unit-input-wrapper ast-spacing-unit-wrapper">
-					<input type='hidden' class='ast-spacing-unit-input ast-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
-					<input type='hidden' class='ast-spacing-unit-input ast-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
-					<input type='hidden' class='ast-spacing-unit-input ast-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
+					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
+					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
+					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 				<ul class="kmt-spacing-responsive-btns">
 					<li class="desktop active">

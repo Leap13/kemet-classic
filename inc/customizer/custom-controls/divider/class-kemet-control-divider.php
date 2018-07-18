@@ -25,7 +25,7 @@ class Kemet_Control_Divider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-divider';
+	public $type = 'kmt-divider';
 
 	/**
 	 * The control type.

@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-spacing'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-spacing'] = wp.customize.Control.extend({
 
 		ready: function() {
 

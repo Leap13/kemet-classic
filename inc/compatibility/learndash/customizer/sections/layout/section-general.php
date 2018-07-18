@@ -20,7 +20,7 @@ $wp_customize->add_control(
 		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-lesson-content]', array(
 			'label'    => __( 'Course Content Table', 'kemet' ),
 			'section'  => 'section-learndash',
-			'type'     => 'ast-divider',
+			'type'     => 'kmt-divider',
 			'priority' => 20,
 			'settings' => array(),
 		)

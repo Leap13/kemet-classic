@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h1]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 4,
 				'label'    => __( 'Heading 1 (H1)', 'kemet' ),
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h1]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 5,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h2]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 9,
 				'label'    => __( 'Heading 2 (H2)', 'kemet' ),
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h2]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 10,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h3]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 14,
 				'label'    => __( 'Heading 3 (H3)', 'kemet' ),
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h3]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 15,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -152,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h4]', array(
 				'label'    => __( 'Heading 4 (H4)', 'kemet' ),
 				'section'  => 'section-content-typo',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'priority' => 19,
 				'settings' => array(),
 			)
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h4]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 20,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -194,7 +194,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h5]', array(
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'section'  => 'section-content-typo',
 				'priority' => 24,
 				'label'    => __( 'Heading 5 (H5)', 'kemet' ),
@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h5]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 25,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -240,7 +240,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-h6]', array(
 				'label'    => __( 'Heading 6 (H6)', 'kemet' ),
 				'section'  => 'section-content-typo',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'priority' => 29,
 				'settings' => array(),
 			)
@@ -261,7 +261,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h6]', array(
-				'type'        => 'ast-responsive',
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-content-typo',
 				'priority'    => 30,
 				'label'       => __( 'Font Size', 'kemet' ),
@@ -285,7 +285,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+					'type'     => 'kmt-divider',
 					'section'  => 'section-content-typo',
 					'priority' => 35,
 					'settings' => array(),
@@ -298,7 +298,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography-more-feature-description]', array(
-					'type'     => 'ast-description',
+					'type'     => 'kmt-description',
 					'section'  => 'section-content-typo',
 					'priority' => 35,
 					'label'    => '',

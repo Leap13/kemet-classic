@@ -105,7 +105,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			 */
 			self::$meta_option = apply_filters(
 				'kemet_meta_box_options', array(
-					'ast-main-header-display' => array(
+					'kmt-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'footer-sml-layout'       => array(
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img'        => array(
+					'kmt-featured-img'        => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)
@@ -197,8 +197,8 @@ if ( ! class_exists( 'Kemet_Meta_Boxes' ) ) {
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-			$kmt_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$primary_header      = ( isset( $meta['kmt-main-header-display']['default'] ) ) ? $meta['kmt-main-header-display']['default'] : '';
+			$kmt_featured_img    = ( isset( $meta['kmt-featured-img']['default'] ) ) ? $meta['kmt-featured-img']['default'] : '';
 
 			$show_meta_field = ! Kemet_Meta_Boxes::is_bb_themer_layout();
 			do_action( 'kemet_meta_box_markup_before', $meta );

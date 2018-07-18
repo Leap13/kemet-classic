@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			if ( is_courses() ) {
 				$course_page_id      = get_option( 'lifterlms_shop_page_id' );
 				$course_title        = get_post_meta( $course_page_id, 'site-post-title', true );
-				$main_header_display = get_post_meta( $course_page_id, 'ast-main-header-display', true );
+				$main_header_display = get_post_meta( $course_page_id, 'kmt-main-header-display', true );
 				$footer_layout       = get_post_meta( $course_page_id, 'footer-sml-layout', true );
 
 				if ( 'disabled' === $course_title ) {
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			if ( is_memberships() ) {
 				$membership_page_id  = get_option( 'lifterlms_memberships_page_id' );
 				$membership_title    = get_post_meta( $membership_page_id, 'site-post-title', true );
-				$main_header_display = get_post_meta( $membership_page_id, 'ast-main-header-display', true );
+				$main_header_display = get_post_meta( $membership_page_id, 'kmt-main-header-display', true );
 				$footer_layout       = get_post_meta( $membership_page_id, 'footer-sml-layout', true );
 
 				if ( 'disabled' === $membership_title ) {
@@ -606,8 +606,8 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			$disable_fields   = array();
 			$show_meta_field  = ! Kemet_Meta_Boxes::is_bb_themer_layout();
 			$disable_fields[] = array(
-				'attribute' => 'ast-main-header-display',
-				'id'        => 'ast-main-header-display',
+				'attribute' => 'kmt-main-header-display',
+				'id'        => 'kmt-main-header-display',
 				'label'     => esc_html__( 'Disable Primary Header', 'kemet' ),
 				'switch_on' => 'disabled',
 				'type'      => 'switch',

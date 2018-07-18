@@ -247,7 +247,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$kemet_options = get_option( 'ast-settings', array() );
+			$kemet_options = get_option( 'kmt-settings', array() );
 
 			if ( 0 < count( $kemet_options ) ) {
 				foreach ( $options as $key ) {
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'ast-settings', $kemet_options );
+			update_option( 'kmt-settings', $kemet_options );
 		}
 
 		/**
@@ -276,7 +276,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 		 */
 		static public function v_1_0_5() {
 
-			$kemet_old_options = get_option( 'ast-settings', array() );
+			$kemet_old_options = get_option( 'kmt-settings', array() );
 			$kemet_new_options = get_option( KEMET_THEME_SETTINGS, array() );
 
 			// Merge old customizer options in new option.
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 			update_option( KEMET_THEME_SETTINGS, $kemet_options );
 
 			// Delete old option.
-			delete_option( 'ast-settings' );
+			delete_option( 'kmt-settings' );
 		}
 
 		/**
@@ -505,9 +505,9 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 
 			$kemet_options = get_option( KEMET_THEME_SETTINGS, array() );
 
-			if ( isset( $kemet_options['ast-header-logo-width'] ) && ! is_array( $kemet_options['ast-header-logo-width'] ) ) {
-				$kemet_options['ast-header-responsive-logo-width'] = array(
-					'desktop' => $kemet_options['ast-header-logo-width'],
+			if ( isset( $kemet_options['kmt-header-logo-width'] ) && ! is_array( $kemet_options['kmt-header-logo-width'] ) ) {
+				$kemet_options['kmt-header-responsive-logo-width'] = array(
+					'desktop' => $kemet_options['kmt-header-logo-width'],
 					'tablet'  => '',
 					'mobile'  => '',
 				);
@@ -606,7 +606,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 			// Site layout background image and color.
 			$site_layout = isset( $kemet_options['site-layout'] ) ? $kemet_options['site-layout'] : '';
 			switch ( $site_layout ) {
-				case 'ast-box-layout':
+				case 'kmt-box-layout':
 						$kemet_options['site-layout-outside-bg-obj'] = array(
 							'background-color'      => isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '',
 							'background-image'      => isset( $kemet_options['site-layout-box-bg-img'] ) ? $kemet_options['site-layout-box-bg-img'] : '',
@@ -617,7 +617,7 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 						);
 					break;
 
-				case 'ast-padded-layout':
+				case 'kmt-padded-layout':
 						$bg_color = isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '';
 						$bg_image = isset( $kemet_options['site-layout-padded-bg-img'] ) ? $kemet_options['site-layout-padded-bg-img'] : '';
 
@@ -631,8 +631,8 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 						);
 					break;
 
-				case 'ast-full-width-layout':
-				case 'ast-fluid-width-layout':
+				case 'kmt-full-width-layout':
+				case 'kmt-fluid-width-layout':
 				default:
 								$kemet_options['site-layout-outside-bg-obj'] = array(
 									'background-color' => isset( $kemet_options['site-layout-outside-bg-color'] ) ? $kemet_options['site-layout-outside-bg-color'] : '',

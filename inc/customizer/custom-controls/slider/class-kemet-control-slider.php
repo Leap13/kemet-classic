@@ -27,7 +27,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-slider';
+	public $type = 'kmt-slider';
 
 	/**
 	 * The control type.

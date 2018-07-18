@@ -45,8 +45,8 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 	function kemet_post_class_blog_grid( $classes ) {
 
 		if ( is_archive() || is_home() || is_search() ) {
-			$classes[] = 'ast-col-sm-12';
-			$classes[] = 'ast-article-post';
+			$classes[] = 'kmt-col-sm-12';
+			$classes[] = 'kmt-article-post';
 		}
 
 		return $classes;

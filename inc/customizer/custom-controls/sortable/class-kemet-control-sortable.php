@@ -25,7 +25,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'ast-sortable';
+	public $type = 'kmt-sortable';
 
 	/**
 	 * Enqueue control related scripts/styles.
@@ -81,7 +81,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='ast-sortable'>
+		<label class='kmt-sortable'>
 			<span class="customize-control-title">
 				{{{ data.label }}}
 			</span>
@@ -91,7 +91,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 
 			<ul class="sortable">
 				<# _.each( data.value, function( choiceID ) { #>
-					<li {{{ data.inputAttrs }}} class='ast-sortable-item' data-value='{{ choiceID }}'>
+					<li {{{ data.inputAttrs }}} class='kmt-sortable-item' data-value='{{ choiceID }}'>
 						<i class='dashicons dashicons-menu'></i>
 						<i class="dashicons dashicons-visibility visibility"></i>
 						{{{ data.choices[ choiceID ] }}}
@@ -99,7 +99,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
 					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-						<li {{{ data.inputAttrs }}} class='ast-sortable-item invisible' data-value='{{ choiceID }}'>
+						<li {{{ data.inputAttrs }}} class='kmt-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}

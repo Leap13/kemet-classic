@@ -321,57 +321,57 @@ if ( ! function_exists( 'kemet_get_blog_layout_class' ) ) {
 			$post_format = 'standard';
 		}
 
-		$classes[] = 'ast-post-format-' . $post_format;
+		$classes[] = 'kmt-post-format-' . $post_format;
 
 		if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
 			switch ( $post_format ) {
 
 				case 'aside':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'kmt-no-thumb';
 					break;
 
 				case 'image':
 								$has_image = kemet_get_first_image_from_post();
 					if ( empty( $has_image ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'kmt-no-thumb';
 					}
 					break;
 
 				case 'video':
 								$post_featured_data = kemet_get_video_from_post( get_the_ID() );
 					if ( empty( $post_featured_data ) ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'kmt-no-thumb';
 					}
 					break;
 
 				case 'quote':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'kmt-no-thumb';
 					break;
 
 				case 'link':
-								$classes[] = 'ast-no-thumb';
+								$classes[] = 'kmt-no-thumb';
 					break;
 
 				case 'gallery':
 								$post_featured_data = get_post_gallery();
 					if ( empty( $post_featured_data ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'kmt-no-thumb';
 					}
 					break;
 
 				case 'audio':
 								$has_audio = kemet_get_audios_from_post( get_the_ID() );
 					if ( empty( $has_audio ) || is_single() ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'kmt-no-thumb';
 					} else {
-						$classes[] = 'ast-embeded-audio';
+						$classes[] = 'kmt-embeded-audio';
 					}
 					break;
 
 				case 'standard':
 				default:
 					if ( ! has_post_thumbnail() || ! wp_get_attachment_image_src( get_post_thumbnail_id() ) ) {
-						$classes[] = 'ast-no-thumb';
+						$classes[] = 'kmt-no-thumb';
 					}
 					break;
 			}

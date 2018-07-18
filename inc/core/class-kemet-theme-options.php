@@ -145,9 +145,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-sml-divider-color'         => '#7a7a7a',
 					'footer-layout-width'              => 'content',
 					// General.
-					'ast-header-retina-logo'           => '',
-					'ast-header-logo-width'            => '',
-					'ast-header-responsive-logo-width' => array(
+					'kmt-header-retina-logo'           => '',
+					'kmt-header-logo-width'            => '',
+					'kmt-header-responsive-logo-width' => array(
 						'desktop' => '',
 						'tablet'  => '',
 						'mobile'  => '',
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 					// Site Layout.
-					'site-layout'                      => 'ast-full-width-layout',
+					'site-layout'                      => 'kmt-full-width-layout',
 					'site-content-width'               => 1200,
 					'site-layout-outside-bg-obj'       => array(
 						'background-color'      => '',

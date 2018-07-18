@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-footer-image]', array(
 				'section'  => 'section-colors-footer',
-				'type'     => 'ast-divider',
+				'type'     => 'kmt-divider',
 				'settings' => array(),
 			)
 		)
@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Background(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bg-obj]', array(
-				'type'    => 'ast-background',
+				'type'    => 'kmt-background',
 				'section' => 'section-colors-footer',
 				'label'   => __( 'Background', 'kemet' ),
 			)

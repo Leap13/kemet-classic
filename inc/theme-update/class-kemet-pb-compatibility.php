@@ -144,7 +144,7 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 				if ( 'page-builder' === $site_content ) {
 					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
-					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
+					update_post_meta( $id, 'kmt-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 				} elseif ( 'builder' === $elementor || true === $vc || 'true' === $vc ) {
 					update_post_meta( $id, '_kemet_content_layout_flag', 'disabled' );

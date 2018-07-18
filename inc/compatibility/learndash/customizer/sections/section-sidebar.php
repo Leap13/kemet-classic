@@ -20,7 +20,7 @@ $wp_customize->add_control(
 	new Kemet_Control_Divider(
 		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-sidebar-layout-divider]', array(
 			'section'  => 'section-sidebars',
-			'type'     => 'ast-divider',
+			'type'     => 'kmt-divider',
 			'priority' => 5,
 			'settings' => array(),
 		)

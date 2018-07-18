@@ -21,15 +21,15 @@ if ( ! function_exists( 'kemet_single_body_class' ) ) {
 
 		// Blog layout.
 		if ( is_single() ) {
-			$classes[] = 'ast-blog-single-style-1';
+			$classes[] = 'kmt-blog-single-style-1';
 
 			if ( 'post' != get_post_type() ) {
-				$classes[] = 'ast-custom-post-type';
+				$classes[] = 'kmt-custom-post-type';
 			}
 		}
 
 		if ( is_singular() ) {
-			$classes[] = 'ast-single-post';
+			$classes[] = 'kmt-single-post';
 		}
 
 		return $classes;
@@ -54,7 +54,7 @@ if ( ! function_exists( 'kemet_single_post_class' ) ) {
 
 		// Blog layout.
 		if ( is_singular() ) {
-			$classes[] = 'ast-article-single';
+			$classes[] = 'kmt-article-single';
 
 			// Remove hentry from page.
 			if ( 'page' == get_post_type() ) {
@@ -139,7 +139,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
 					<article id="comment-<?php comment_ID(); ?>" class="kmt-comment">
-						<div class='ast-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
+						<div class='kmt-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="kmt-comment-data-wrap">
 							<div class="kmt-comment-meta-wrap">
 								<header class="kmt-comment-meta ast-row ast-comment-author vcard capitalize">

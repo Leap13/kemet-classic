@@ -74,7 +74,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                    	li_wrapper.append(" <i class=\'kmt-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
 	        	});';
@@ -301,11 +301,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 */
 		static public function logo_image_sizes( $sizes, $metadata ) {
 
-			$logo_width = kemet_get_option( 'ast-header-responsive-logo-width' );
+			$logo_width = kemet_get_option( 'kmt-header-responsive-logo-width' );
 
 			if ( is_array( $sizes ) && ( '' != $logo_width['desktop'] || '' != $logo_width['tablet'] | '' != $logo_width['mobile'] ) ) {
 				$max_value              = max( $logo_width );
-				$sizes['ast-logo-size'] = array(
+				$sizes['kmt-logo-size'] = array(
 					'width'  => (int) $max_value,
 					'height' => 0,
 					'crop'   => false,

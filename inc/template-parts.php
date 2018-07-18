@@ -52,7 +52,7 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
+			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', array( 'kmt-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
 			?>
 			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
@@ -169,7 +169,7 @@ if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
 			$menu_label_class    = '';
 			$screen_reader_title = __( 'Main Menu', 'kemet' );
 			if ( '' !== $menu_title ) {
-				$menu_label_class    = 'ast-menu-label';
+				$menu_label_class    = 'kmt-menu-label';
 				$screen_reader_title = $menu_title;
 			}
 		?>
@@ -297,7 +297,7 @@ if ( ! function_exists( 'kemet_entry_content_404_page_template' ) ) {
 	 */
 	function kemet_entry_content_404_page_template() {
 
-		$layout_404 = kemet_get_option( 'ast-404-layout' );
+		$layout_404 = kemet_get_option( 'kmt-404-layout' );
 		$layout_404 = str_replace( '404-layout-', '', $layout_404 );
 
 		// Default 404 is nothing but the 404 layout 1.
