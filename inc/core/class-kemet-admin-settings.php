@@ -305,7 +305,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
 					<div class="ast-theme-page-header">
-						<div class="ast-container ast-flex">
+						<div class="kmt-container ast-flex">
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $kmt_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $kmt_icon ) { ?>

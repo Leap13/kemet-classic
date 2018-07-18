@@ -37,7 +37,7 @@ switch ( $sections ) {
 
 <div class="ast-small-footer footer-sml-layout-2">
 	<div class="ast-footer-overlay">
-		<div class="ast-container">
+		<div class="kmt-container">
 			<div class="ast-small-footer-wrap" >
 					<div class="ast-row ast-flex">
 

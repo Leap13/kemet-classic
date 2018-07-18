@@ -11,7 +11,7 @@
 
 ?>
 
-<div class="ast-container ast-welcome">
+<div class="kmt-container ast-welcome">
 		<div id="poststuff">
 			<div id="post-body" class="columns-2">
 				<div id="post-body-content">

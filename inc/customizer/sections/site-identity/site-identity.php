@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Retina logo selector
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+		KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
 			'default'           => kemet_get_option( 'ast-header-retina-logo' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'esc_url_raw',
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-retina-logo]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
 				'section'        => 'title_tagline',
 				'priority'       => 5,
 				'label'          => __( 'Retina Logo', 'kemet' ),
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Logo Width
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
+		KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
 			'default'           => array(
 				'desktop' => '',
 				'tablet'  => '',
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ast-header-responsive-logo-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
 				'type'        => 'ast-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 5,
@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-logo-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-logo-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',
 				'priority' => 5,
@@ -143,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ast-site-icon-divider]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-icon-divider]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'title_tagline',
 				'priority' => 50,

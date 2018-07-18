@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-container-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-container-layout',
 					'priority' => 70,
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-container-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-container-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-container-layout',
 					'priority' => 70,

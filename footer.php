@@ -13,7 +13,7 @@
 ?>
 			<?php kemet_content_bottom(); ?>
 
-			</div> <!-- ast-container -->
+			</div> <!-- kmt-container -->
 
 		</div><!-- #content -->
 

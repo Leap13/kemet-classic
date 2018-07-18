@@ -30,7 +30,7 @@ $classes   = implode( ' ', $classes );
 
 <div class="<?php echo esc_attr( $classes ); ?>">
 	<div class="footer-adv-overlay">
-		<div class="ast-container">
+		<div class="kmt-container">
 			<div class="ast-row">
 				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-1">
 					<?php kemet_get_footer_widget( 'advanced-footer-widget-1' ); ?>

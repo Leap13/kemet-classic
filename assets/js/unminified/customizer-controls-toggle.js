@@ -85,7 +85,7 @@
 
 					var site_tagline = api( 'kemet-settings[display-site-tagline]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'kemet-settings[kmt-header-retina-logo]' ).get();
 
 					if ( ( value || site_tagline ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -118,7 +118,7 @@
 
 					var site_title = api( 'kemet-settings[display-site-title]' ).get();
 					var has_custom_logo = api( 'custom_logo' ).get();
-					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'kemet-settings[kmt-header-retina-logo]' ).get();
 
 					if ( ( value || site_title ) && ( has_custom_logo || has_retina_logo ) ) {
 						return true;
@@ -128,7 +128,7 @@
 			},
 		],
 
-		'kemet-settings[ast-header-retina-logo]' :
+		'kemet-settings[kmt-header-retina-logo]' :
 		[
 			{
 				controls: [
@@ -156,7 +156,7 @@
 				],
 				callback: function( value ) {
 
-					var has_retina_logo = api( 'kemet-settings[ast-header-retina-logo]' ).get();
+					var has_retina_logo = api( 'kemet-settings[kmt-header-retina-logo]' ).get();
 					var site_tagline = api( 'kemet-settings[display-site-tagline]' ).get();
 					var site_title = api( 'kemet-settings[display-site-title]' ).get();
 
@@ -316,12 +316,12 @@
 					'kemet-settings[footer-sml-section-1]',
 					'kemet-settings[footer-sml-section-2]',
 					'kemet-settings[section-kmt-small-footer-background-styling]',
-					'kemet-settings[ast-small-footer-color]',
-					'kemet-settings[ast-small-footer-link-color]',
-					'kemet-settings[ast-small-footer-link-hover-color]',
-					'kemet-settings[ast-small-footer-bg-img]',
+					'kemet-settings[kmt-small-footer-color]',
+					'kemet-settings[kmt-small-footer-link-color]',
+					'kemet-settings[kmt-small-footer-link-hover-color]',
+					'kemet-settings[kmt-small-footer-bg-img]',
 					'kemet-settings[section-kmt-small-footer-typography]',
-					'kemet-settings[ast-small-footer-text-font]',
+					'kemet-settings[kmt-small-footer-text-font]',
 					'kemet-settings[footer-sml-divider]',
 					'kemet-settings[section-kmt-small-footer-layout-info]',
 					'kemet-settings[footer-layout-width]',

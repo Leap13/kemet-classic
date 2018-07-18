@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ast-styling-section-blog-width]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-styling-section-blog-width]', array(
 				'type'     => 'ast-divider',
 				'section'  => 'section-blog',
 				'priority' => 110,
@@ -162,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-blog',
 					'priority' => 125,
@@ -175,7 +175,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-blog-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-blog',
 					'priority' => 125,

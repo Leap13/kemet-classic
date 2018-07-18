@@ -19,7 +19,7 @@
 <div class="main-header-bar-wrap">
 	<div class="main-header-bar">
 		<?php kemet_main_header_bar_top(); ?>
-		<div class="ast-container">
+		<div class="kmt-container">
 
 			<div class="ast-flex main-header-container">
 				<?php kemet_masthead_content(); ?>

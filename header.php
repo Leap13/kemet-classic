@@ -39,6 +39,6 @@
 
 	<div id="content" class="site-content">
 
-		<div class="ast-container">
+		<div class="kmt-container">
 
 		<?php kemet_content_top(); ?>

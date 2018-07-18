@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-sngle-blog-typography-more-feature-divider]', array(
 					'type'     => 'ast-divider',
 					'section'  => 'section-single-typo',
 					'priority' => 15,
@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		$wp_customize->add_control(
 			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]', array(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-sngle-blog-typography-more-feature-description]', array(
 					'type'     => 'ast-description',
 					'section'  => 'section-single-typo',
 					'priority' => 15,
