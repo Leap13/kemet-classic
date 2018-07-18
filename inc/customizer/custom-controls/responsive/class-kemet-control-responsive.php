@@ -144,7 +144,7 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 				value_mobile = data.value['mobile'];
 			} #>
 
-			<div class="input-wrapper ast-responsive-wrapper">
+			<div class="input-wrapper kmt-responsive-wrapper">
 
 				<input {{{ data.inputAttrs }}} data-id='desktop' class="kmt-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
 				<select class="kmt-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>

@@ -24,7 +24,7 @@
 			<div class="kmt-flex main-header-container">
 				<?php kemet_masthead_content(); ?>
 			</div><!-- Main Header Container -->
-		</div><!-- ast-row -->
+		</div><!-- kmt-row -->
 		<?php kemet_main_header_bar_bottom(); ?>
 	</div> <!-- Main Header Bar -->
 </div> <!-- Main Header Bar Wrap -->

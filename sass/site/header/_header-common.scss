@@ -79,11 +79,11 @@
 .main-header-bar {
     margin-left: auto;
     margin-right: auto;
-    @include ast-transition();
+    @include kmt-transition();
 }
 
 .site-logo-img img {
-    @include ast-transition();
+    @include kmt-transition();
 }
 
 /**

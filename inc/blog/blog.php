@@ -213,7 +213,7 @@ if ( ! function_exists( 'kemet_get_blog_post_thumbnail' ) ) {
 
 		if ( 'archive' === $type ) {
 			// Blog Post Featured Image.
-			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb ast-col-md-12">', '</div>' );
+			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb kmt-col-md-12">', '</div>' );
 		} elseif ( 'single' === $type ) {
 			// Single Post Featured Image.
 			kemet_get_post_thumbnail();

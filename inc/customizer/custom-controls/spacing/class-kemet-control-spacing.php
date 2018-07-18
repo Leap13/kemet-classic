@@ -91,7 +91,7 @@ class Kemet_Control_Spacing extends WP_Customize_Control {
 			<ul class="kmt-spacing-wrapper"><# 
 				_.each( data.choices, function( choiceLabel, choiceID ) { 
 				#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-					<input type='number' class='kmt-spacing-input ast-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
+					<input type='number' class='kmt-spacing-input kmt-spacing-{{ choiceID }}' data-id='{{ choiceID }}' value='{{ data.value[ choiceID ] }}'>
 					<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 				</li><# 
 				});

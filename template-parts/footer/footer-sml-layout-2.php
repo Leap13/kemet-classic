@@ -24,12 +24,12 @@ if ( '' != $section_2 ) {
 switch ( $sections ) {
 
 	case '2':
-			$section_class = 'kmt-small-footer-section-equally ast-col-md-6 ast-col-xs-12';
+			$section_class = 'kmt-small-footer-section-equally kmt-col-md-6 kmt-col-xs-12';
 		break;
 
 	case '1':
 	default:
-			$section_class = 'kmt-small-footer-section-equally ast-col-xs-12';
+			$section_class = 'kmt-small-footer-section-equally kmt-col-xs-12';
 		break;
 }
 
@@ -39,10 +39,10 @@ switch ( $sections ) {
 	<div class="kmt-footer-overlay">
 		<div class="kmt-container">
 			<div class="kmt-small-footer-wrap" >
-					<div class="kmt-row ast-flex">
+					<div class="kmt-row kmt-flex">
 
 					<?php if ( $section_1 ) : ?>
-						<div class="kmt-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
+						<div class="kmt-small-footer-section kmt-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
 								echo $section_1; // WPCS: XSS OK.
 							?>
@@ -50,7 +50,7 @@ switch ( $sections ) {
 				<?php endif; ?>
 
 					<?php if ( $section_2 ) : ?>
-						<div class="kmt-small-footer-section ast-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
+						<div class="kmt-small-footer-section kmt-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
 								echo $section_2; // WPCS: XSS OK.
 							?>

@@ -89,7 +89,7 @@
 
 					if( result.success ) {
 						var output = '<a href="'+ kemet.kemetSitesLink +'" aria-label="'+ kemet.kemetSitesLinkTitle +'">' + kemet.kemetSitesLinkTitle +' </a>'
-						$message.removeClass( 'kmt-sites-inactive ast-sites-notinstalled button button-primary install-now activate-now updating-message' )
+						$message.removeClass( 'kmt-sites-inactive kmt-sites-notinstalled button button-primary install-now activate-now updating-message' )
 							.html( output );
 
 					} else {
@@ -126,7 +126,7 @@
 
 					$message
 						.addClass('kmt-sites-inactive')
-						.removeClass( 'updating-message ast-sites-notinstalled' )
+						.removeClass( 'updating-message kmt-sites-notinstalled' )
 						.text( wp.updates.l10n.installNow );
 
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );

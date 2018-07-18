@@ -827,9 +827,9 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			// Author.
 			if ( is_author() ) { ?>
 
-				<section class="kmt-author-box ast-archive-description">
+				<section class="kmt-author-box kmt-archive-description">
 					<div class="kmt-author-bio">
-						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+						<h1 class='page-title kmt-archive-title'><?php echo get_the_author(); ?></h1>
 						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
 					</div>
 					<div class="kmt-author-avatar">
@@ -844,7 +844,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			?>
 
 				<section class="kmt-archive-description">
-					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
+					<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
@@ -855,7 +855,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			?>
 
 				<section class="kmt-archive-description">
-					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
+					<h1 class="page-title kmt-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
@@ -870,7 +870,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'kemet_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kemet' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title ast-archive-title"> <?php echo $title; ?> </h1>
+					<h1 class="page-title kmt-archive-title"> <?php echo $title; ?> </h1>
 				</section>
 
 			<?php
@@ -880,7 +880,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			?>
 
 				<section class="kmt-archive-description">
-					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
+					<?php the_archive_title( '<h1 class="page-title kmt-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
 				</section>
 

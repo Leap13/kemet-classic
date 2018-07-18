@@ -67,7 +67,7 @@
 
 		.page_item_has_children > a:after,
 		.menu-item-has-children > a:after {
-			@include ast-has-child-menu-item();
+			@include kmt-has-child-menu-item();
 			line-height: normal;
 		}
 
@@ -103,7 +103,7 @@
 		border: 1px solid #e7e7e7;
 		line-height: 1;
 		padding: 0 3em 0 0;
-		@include ast-border-radius();
+		@include kmt-border-radius();
 		display: inline-block;
 		backface-visibility: hidden;
 		position: relative;

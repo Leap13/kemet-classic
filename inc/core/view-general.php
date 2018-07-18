@@ -11,7 +11,7 @@
 
 ?>
 
-<div class="kmt-container ast-welcome">
+<div class="kmt-container kmt-welcome">
 		<div id="poststuff">
 			<div id="post-body" class="columns-2">
 				<div id="post-body-content">
@@ -23,7 +23,7 @@
 
 						<?php do_action( 'kemet_welcome_page_content_after' ); ?>
 				</div>
-				<div class="postbox-container ast-sidebar" id="postbox-container-1">
+				<div class="postbox-container kmt-sidebar" id="postbox-container-1">
 					<div id="side-sortables">
 						<?php do_action( 'kemet_welcome_page_right_sidebar_before' ); ?>
 

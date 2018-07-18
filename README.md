@@ -1,6 +1,6 @@
-# Welcome to ASTRA!
-Website: http://wpkemet.com/
-Email: support@bsf.io
+# Welcome to KEMET!
+Website: https://leap13.com/
+Email: sadmin@leap13.com
 
 ## Features:
 
@@ -16,7 +16,7 @@ Kemet has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 
 	- Colors & background: Choose your default background color, body color, theme color and link color.
 	- Typography: Choose your default body font & set default font size to H1 to H6 tags, Site title, tagline & blog post title on archive page and single page.
 
-## ASTRA Child Theme
+## KEMET Child Theme
 
 There are multiple ways you can use a child theme with the Kemet Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
@@ -24,7 +24,7 @@ There are multiple ways you can use a child theme with the Kemet Theme, Use any 
 2. Using Plugin One click Child theme - https://wordpress.org/plugins/one-click-child-theme/
 3. More information on creating child theme. - https://codex.wordpress.org/Child_Themes
 
-## ASTRA License
+## KEMET License
 Kemet WordPress Theme, Copyright 2018 WPKemet.
 Kemet is distributed under the terms of the GNU GPL.
 

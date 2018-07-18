@@ -214,7 +214,7 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 
 			$small_footer_layout = str_replace( 'footer-sml-layout-', '', $small_footer_layout );
 
-			// Default footer layout 1 is ast-footer-layout.
+			// Default footer layout 1 is kmt-footer-layout.
 			if ( '1' == $small_footer_layout ) {
 				$small_footer_layout = '';
 			}

@@ -303,9 +303,9 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$kmt_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
-			<div class="kmt-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
+			<div class="kmt-menu-page-wrapper wrap kmt-clear <?php echo esc_attr( implode( ' ', $kmt_wrapper_class ) ); ?>">
 					<div class="kmt-theme-page-header">
-						<div class="kmt-container ast-flex">
+						<div class="kmt-container kmt-flex">
 							<div class="kmt-theme-title">
 								<a href="<?php echo esc_url( $kmt_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $kmt_icon ) { ?>
@@ -343,7 +343,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle kmt-normal-cusror">
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'kemet_sites_menu_page_title', __( 'Import Starter Site', 'kemet' ) ) ); ?></span>
 				</h2>
@@ -371,7 +371,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						// Kemet Premium Sites - Inactive.
 						if ( file_exists( WP_PLUGIN_DIR . '/kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-pro-sites/kemet-pro-sites.php' ) ) {
 
-							$class       = 'button ast-sites-inactive';
+							$class       = 'button kmt-sites-inactive';
 							$button_text = __( 'Activate Importer Plugin', 'kemet' );
 							$data_slug   = 'kemet-sites';
 							$data_init   = '/kemet-sites/kemet-sites.php';
@@ -380,7 +380,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 							// Kemet Premium Sites - Inactive.
 						} elseif ( ! file_exists( WP_PLUGIN_DIR . '/kemet-sites/kemet-sites.php' ) && is_plugin_inactive( 'kemet-pro-sites/kemet-pro-sites.php' ) ) {
 
-							$class       = 'button ast-sites-notinstalled';
+							$class       = 'button kmt-sites-notinstalled';
 							$button_text = __( 'Install Importer Plugin', 'kemet' );
 							$data_slug   = 'kemet-sites';
 							$data_init   = '/kemet-sites/kemet-sites.php';
@@ -422,7 +422,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle kmt-normal-cusror">
 					<span class="dashicons dashicons-book"></span>
 					<span><?php esc_html_e( 'Knowledge Base', 'kemet' ); ?></span>
 				</h2>
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle kmt-normal-cusror">
 					<span class="dashicons dashicons-groups"></span>
 					<span>
 						<?php
@@ -501,7 +501,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror">
+				<h2 class="hndle kmt-normal-cusror">
 					<span class="dashicons dashicons-sos"></span>
 					<span><?php esc_html_e( 'Five Star Support', 'kemet' ); ?></span>
 				</h2>
@@ -851,7 +851,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'kemet' ); ?></span></h2>
+				<h2 class="hndle kmt-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'kemet' ); ?></span></h2>
 					<div class="kmt-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -873,7 +873,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			<?php self::min_addon_version_message(); ?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $kemet_addon_tagline ); ?></span>
+				<h2 class="hndle kmt-normal-cusror kmt-addon-heading kmt-flex"><span><?php echo esc_html( $kemet_addon_tagline ); ?></span>
 					<?php do_action( 'kemet_addon_bulk_action' ); ?>
 				</h2>
 					<div class="kmt-addon-list-section">
@@ -971,7 +971,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						}
 					}
 
-					$class   = 'kmt-notice ast-notice-error';
+					$class   = 'kmt-notice kmt-notice-error';
 					$message = sprintf(
 						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kemet Addon */
 						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'kemet' ),

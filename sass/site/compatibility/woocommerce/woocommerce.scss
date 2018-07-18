@@ -2373,7 +2373,7 @@ p.demo_store,
 
 	    opacity: 0;
 	    filter: blur(0);
-	    @include ast-transition();
+	    @include kmt-transition();
 	}
 
 	li.product:hover .show-on-hover {
@@ -3738,7 +3738,7 @@ button.pswp__button--zoom:hover {
 				font-size: 14px;
 				margin-right: 4px;
 				line-height: 1.5;
-				@include ast-transition();    
+				@include kmt-transition();    
 			}
 		}
 	}

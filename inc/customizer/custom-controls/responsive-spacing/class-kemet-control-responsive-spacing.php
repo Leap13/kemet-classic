@@ -182,22 +182,22 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			if ( data.value['mobile'] ) { 
 				value_mobile = data.value['mobile'];
 			} #>
-			<div class="input-wrapper ast-spacing-responsive-wrapper">
+			<div class="input-wrapper kmt-spacing-responsive-wrapper">
 
 				<ul class="kmt-spacing-wrapper desktop active"><# 
 					if ( data.linked_choices ) { #>
 					<li class="kmt-spacing-input-item-link">
-							<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-							<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+							<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+							<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 						</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) {
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input ast-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
+						<input type='number' class='kmt-spacing-input kmt-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><#
 					}); #>
-					<ul class="kmt-spacing-responsive-units ast-spacing-desktop-responsive-units">
+					<ul class="kmt-spacing-responsive-units kmt-spacing-desktop-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( desktop_unit_val === unit_key ) { 
@@ -214,17 +214,17 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 
 					if ( data.linked_choices ) { #>
 					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input ast-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
+						<input type='number' class='kmt-spacing-input kmt-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
-					<ul class="kmt-spacing-responsive-units ast-spacing-tablet-responsive-units">
+					<ul class="kmt-spacing-responsive-units kmt-spacing-tablet-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( tablet_unit_val === unit_key ) { 
@@ -240,17 +240,17 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 				<ul class="kmt-spacing-wrapper mobile"><# 
 					if ( data.linked_choices ) { #>
 					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links ast-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink ast-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					</li><#
 					}
 					_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input ast-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
+						<input type='number' class='kmt-spacing-input kmt-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
-					<ul class="kmt-spacing-responsive-units ast-spacing-mobile-responsive-units">
+					<ul class="kmt-spacing-responsive-units kmt-spacing-mobile-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( mobile_unit_val === unit_key ) { 
@@ -265,10 +265,10 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			</div>
 
 			<div class="kmt-spacing-responsive-units-screen-wrap">
-				<div class="unit-input-wrapper ast-spacing-unit-wrapper">
-					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
-					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
-					<input type='hidden' class='kmt-spacing-unit-input ast-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
+				<div class="unit-input-wrapper kmt-spacing-unit-wrapper">
+					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
+					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
+					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 				<ul class="kmt-spacing-responsive-btns">
 					<li class="desktop active">

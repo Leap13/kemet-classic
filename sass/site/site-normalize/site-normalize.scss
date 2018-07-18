@@ -29,7 +29,7 @@ a,
 .site-header a *,
 .site-footer a *,
 .secondary a * {
-    @include ast-transition();
+    @include kmt-transition();
 }
 
 .capitalize {
@@ -94,7 +94,7 @@ input[type="submit"] {
     a,
     &:hover a,
     &:focus a {
-        @include ast-transition();
+        @include kmt-transition();
     }
 }
 

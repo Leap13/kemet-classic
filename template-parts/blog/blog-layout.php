@@ -12,7 +12,7 @@
 ?>
 <div <?php kemet_blog_layout_class( 'blog-layout-1' ); ?>>
 
-	<div class="post-content ast-col-md-12">
+	<div class="post-content kmt-col-md-12">
 
 		<?php kemet_blog_post_thumbnai_and_title_order(); ?>
 

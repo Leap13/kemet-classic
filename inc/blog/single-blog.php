@@ -142,19 +142,19 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 						<div class='kmt-comment-avatar-wrap'><?php echo get_avatar( $comment, 50 ); ?></div><!-- Remove 1px Space
 						--><div class="kmt-comment-data-wrap">
 							<div class="kmt-comment-meta-wrap">
-								<header class="kmt-comment-meta ast-row ast-comment-author vcard capitalize">
+								<header class="kmt-comment-meta kmt-row kmt-comment-author vcard capitalize">
 
 									<?php
 
 									printf(
-										'<div class="kmt-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
+										'<div class="kmt-comment-cite-wrap kmt-col-lg-12"><cite><b class="fn">%1$s</b> %2$s</cite></div>',
 										get_comment_author_link(),
 										// If current post author is also comment author, make it known visually.
-										( $comment->user_id === $post->post_author ) ? '<span class="kmt-highlight-text ast-cmt-post-author"></span>' : ''
+										( $comment->user_id === $post->post_author ) ? '<span class="kmt-highlight-text kmt-cmt-post-author"></span>' : ''
 									);
 
 									printf(
-										'<div class="kmt-comment-time ast-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
+										'<div class="kmt-comment-time kmt-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
 										get_comment_time( 'c' ),
 										/* translators: 1: date, 2: time */
