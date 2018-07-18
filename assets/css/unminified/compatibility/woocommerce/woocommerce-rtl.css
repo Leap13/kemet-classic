@@ -464,7 +464,7 @@ p.demo_store a,
   text-align: right;
 }
 
-.kmt-header-break-point #ast-site-header-cart .widget_shopping_cart {
+.kmt-header-break-point #kmt-site-header-cart .widget_shopping_cart {
   display: none;
 }
 
