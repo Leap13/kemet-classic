@@ -15,9 +15,9 @@
 	 * Helper class for the main Customizer interface.
 	 *
 	 * @since 1.0.0
-	 * @class AstTypography
+	 * @class KmtTypography
 	 */
-	AstTypography = {
+	KmtTypography = {
 
 		/**
 		 * Initializes our custom logic for the Customizer.
@@ -26,7 +26,7 @@
 		 * @method init
 		 */
 		init: function() {
-			AstTypography._initFonts();
+			KmtTypography._initFonts();
 		},
 
 		/**
@@ -38,7 +38,7 @@
 		 */
 		_initFonts: function()
 		{
-			$( '.customize-control-kmt-font-family select' ).each( AstTypography._initFont );
+			$( '.customize-control-kmt-font-family select' ).each( KmtTypography._initFont );
 		},
 
 		/**
@@ -55,8 +55,8 @@
 			weight  = select.data( 'connected-control' );
 
 			if ( 'undefined' != typeof weight ) {
-				api( link ).bind( AstTypography._fontSelectChange );
-				AstTypography._setFontWeightOptions.apply( api( link ), [ true ] );
+				api( link ).bind( KmtTypography._fontSelectChange );
+				KmtTypography._setFontWeightOptions.apply( api( link ), [ true ] );
 			}
 		},
 
@@ -69,7 +69,7 @@
 		 */
 		_fontSelectChange: function()
 		{
-			AstTypography._setFontWeightOptions.apply( this, [ false ] );
+			KmtTypography._setFontWeightOptions.apply( this, [ false ] );
 		},
 
 		/**
@@ -92,7 +92,7 @@
 
 			// Check if the cleaned font exists in the Google fonts array.
 			var googleFontValue = splitFont[0].replace(pattern, '');
-			if ( 'undefined' != typeof AstFontFamilies.google[ googleFontValue ] ) {
+			if ( 'undefined' != typeof KmtFontFamilies.google[ googleFontValue ] ) {
 				fontValue = googleFontValue;
 			}
 
@@ -127,19 +127,19 @@
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
 
-			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
+			var fontValue = KmtTypography._cleanGoogleFonts(fontValue);
 
 			if ( fontValue == 'inherit' ) {
 				weightObject = [ '400','500','600','700' ];
-			} else if ( 'undefined' != typeof AstFontFamilies.system[ fontValue ] ) {
-				weightObject = AstFontFamilies.system[ fontValue ].weights;
-			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
-				weightObject = AstFontFamilies.google[ fontValue ][0];
+			} else if ( 'undefined' != typeof KmtFontFamilies.system[ fontValue ] ) {
+				weightObject = KmtFontFamilies.system[ fontValue ].weights;
+			} else if ( 'undefined' != typeof KmtFontFamilies.google[ fontValue ] ) {
+				weightObject = KmtFontFamilies.google[ fontValue ][0];
 				weightObject = Object.keys(weightObject).map(function(k) {
 				  return weightObject[k];
 				});
-			} else if ( 'undefined' != typeof AstFontFamilies.custom[ fontValue.split(',')[0] ] ) {
-				weightObject = AstFontFamilies.custom[ fontValue.split(',')[0] ].weights;
+			} else if ( 'undefined' != typeof KmtFontFamilies.custom[ fontValue.split(',')[0] ] ) {
+				weightObject = KmtFontFamilies.custom[ fontValue.split(',')[0] ].weights;
 			}
 
 			weightObject = $.merge( inheritWeightObject, weightObject )
@@ -165,6 +165,6 @@
 		},
 	};
 
-	$( function() { AstTypography.init(); } );
+	$( function() { KmtTypography.init(); } );
 
 })( jQuery );

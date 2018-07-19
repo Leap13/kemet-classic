@@ -1,3 +1,5 @@
+/* global kemetCustomizerControlBackground */
+
 jQuery(window).on("load", function() {
 	jQuery('html').addClass('background-colorpicker-ready');
 });
@@ -12,10 +14,10 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 		var control = this;
 
 		// Init the control.
-		control.initAstBgControl();
+		control.initKmtBgControl();
 	},
 
-	initAstBgControl: function() {
+	initKmtBgControl: function() {
 
 		var control = this,
 			value   = control.setting._value,

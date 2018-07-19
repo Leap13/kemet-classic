@@ -15,7 +15,7 @@
 			var control = this,
 		    value;
 		    
-		    control.astResponsiveInit();
+		    control.kmtResponsiveInit();
 
 			// Set the spacing container.
 			// this.container = control.container.find( 'ul.kmt-spacing-wrapper' ).first();
@@ -86,7 +86,7 @@
 		/**
 		 * Set the responsive devices fields
 		 */
-		astResponsiveInit : function() {
+		kmtResponsiveInit : function() {
 			
 			'use strict';
 

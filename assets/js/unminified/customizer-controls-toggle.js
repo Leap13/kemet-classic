@@ -12,7 +12,7 @@
 	/**
 	 * Trigger hooks
 	 */
-	ASTControlTrigger = {
+	KMTControlTrigger = {
 
 	    /**
 	     * Trigger a hook.
@@ -58,9 +58,9 @@
 	 * Helper class that contains data for showing and hiding controls.
 	 *
 	 * @since 1.0.0
-	 * @class ASTCustomizerToggles
+	 * @class KMTCustomizerToggles
 	 */
-	ASTCustomizerToggles = {
+	KMTCustomizerToggles = {
 
 		'kemet-settings[display-site-title]' :
 		[

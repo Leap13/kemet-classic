@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'kmt-logo';
-	src:    url('fonts/kmt-logo.eot?476cfz');
-	src:    url('fonts/kmt-logo.eot?476cfz#iefix') format('embedded-opentype'),
-		url('fonts/kmt-logo.ttf?476cfz') format('truetype'),
-		url('fonts/kmt-logo.woff?476cfz') format('woff'),
-		url('fonts/kmt-logo.svg?476cfz#kmt-logo') format('svg');
+	src:    url('fonts/ast-logo.eot?476cfz');
+	src:    url('fonts/ast-logo.eot?476cfz#iefix') format('embedded-opentype'),
+		url('fonts/ast-logo.ttf?476cfz') format('truetype'),
+		url('fonts/ast-logo.woff?476cfz') format('woff'),
+		url('fonts/ast-logo.svg?476cfz#kmt-logo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

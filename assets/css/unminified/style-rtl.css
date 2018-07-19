@@ -5423,11 +5423,11 @@ input[type="color"]::-webkit-color-swatch {
 /**
  * Flexbox Framework
  *
- *  .ast - prefix
+ *  .kmt - prefix
  *
  *  Flex classes generated as {prefix} + {css property - css value} .
  *
- *  E.g. Here '.ast' is a prefix.
+ *  E.g. Here '.kmt' is a prefix.
  *
  *  .kmt-flex
  *  .kmt-flex-1
@@ -5486,7 +5486,7 @@ input[type="color"]::-webkit-color-swatch {
  *  .kmt-align-self-baseline
  *  .kmt-align-self-stretch
  */
-.ast {
+.kmt {
   /*
     # LAYOUT
     ———————————————-

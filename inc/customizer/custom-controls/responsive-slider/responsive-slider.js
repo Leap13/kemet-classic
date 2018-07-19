@@ -18,7 +18,7 @@
 				inputDefault,
 				changeAction;
 
-			control.astResponsiveInit();
+			control.kmtResponsiveInit();
 
 			// Update the text value.
 			this.container.on( 'input change', 'input[type=range]', function() {
@@ -76,7 +76,7 @@
 			control.setting.set( newValue );
 		},
 
-		astResponsiveInit : function() {
+		kmtResponsiveInit : function() {
 			
 			this.container.on( 'click', '.kmt-responsive-slider-btns button', function( event ) {
 

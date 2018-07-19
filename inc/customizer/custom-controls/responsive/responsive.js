@@ -16,7 +16,7 @@
 			var control = this,
 		    value;
 
-			control.astResponsiveInit();
+			control.kmtResponsiveInit();
 			
 			/**
 			 * Save on change / keyup / paste
@@ -77,7 +77,7 @@
 			control.setting.set( newValue );
 		},
 
-		astResponsiveInit : function() {
+		kmtResponsiveInit : function() {
 			
 			'use strict';
 			this.container.find( '.kmt-responsive-btns button' ).on( 'click', function( event ) {

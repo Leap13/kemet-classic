@@ -13,9 +13,9 @@
 	 * Helper class for the main Customizer interface.
 	 *
 	 * @since 1.0.0
-	 * @class ASTCustomizer
+	 * @class KMTCustomizer
 	 */
-	ASTCustomizer = {
+	KMTCustomizer = {
 
 		controls	: {},
 
@@ -27,7 +27,7 @@
 		 */
 		init: function()
 		{
-			ASTCustomizer._initToggles();
+			KMTCustomizer._initToggles();
 		},
 
 		/**
@@ -41,10 +41,10 @@
 		_initToggles: function()
 		{
 			// Trigger the Adv Tab Click trigger.
-			ASTControlTrigger.triggerHook( 'kemet-toggle-control', api );
+			KMTControlTrigger.triggerHook( 'kemet-toggle-control', api );
 
 			// Loop through each setting.
-			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
+			$.each( KMTCustomizerToggles, function( settingId, toggles ) {
 
 				// Get the setting object.
 				api( settingId, function( setting ) {
@@ -136,7 +136,7 @@
 		}
 	};
 
-	$( function() { ASTCustomizer.init(); } );
+	$( function() { KMTCustomizer.init(); } );
 
 })( jQuery );
 
