@@ -111,11 +111,11 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		 *
 		 * @return Array All the custom fonts in Astra
 		 */
-		public static function get_custom_fonts() {
-			$custom_fonts = array();
+		//public static function get_custom_fonts() {
+		//	$custom_fonts = array();
 
-			return apply_filters( 'astra_custom_fonts', $custom_fonts );
-		}
+		//	return apply_filters( 'astra_custom_fonts', $custom_fonts );
+		//}
 
 		/**
 		 * Google Fonts used in astra.
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file = apply_filters( 'kemet_google_fonts_json_file', KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
 				if ( ! file_exists( KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
 					return array();
