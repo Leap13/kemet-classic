@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Kemet
- * @since 1.2.7
+ * @since 1.0.0
  */
 
 ?>

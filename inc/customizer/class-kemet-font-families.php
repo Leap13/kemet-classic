@@ -2,11 +2,10 @@
 /**
  * Helper class for font settings.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.19
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        https://kemet.io/
  */
 
 // Exit if accessed directly.
@@ -27,7 +26,6 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		/**
 		 * System Fonts
 		 *
-		 * @since 1.0.19
 		 * @var array
 		 */
 		public static $system_fonts = array();
@@ -35,7 +33,6 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		/**
 		 * Google Fonts
 		 *
-		 * @since 1.0.19
 		 * @var array
 		 */
 		public static $google_fonts = array();
@@ -43,9 +40,8 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		/**
 		 * Get System Fonts
 		 *
-		 * @since 1.0.19
 		 *
-		 * @return Array All the system fonts in Astra
+		 * @return Array All the system fonts in KEMET
 		 */
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
@@ -107,21 +103,20 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		/**
 		 * Custom Fonts
 		 *
-		 * @since 1.0.19
+		 * @since 1.0.0
 		 *
-		 * @return Array All the custom fonts in Astra
+		 * @return Array All the custom fonts in KEMEt
 		 */
-		//public static function get_custom_fonts() {
-		//	$custom_fonts = array();
+		public static function get_custom_fonts() {
+			$custom_fonts = array();
 
-		//	return apply_filters( 'astra_custom_fonts', $custom_fonts );
-		//}
+			return apply_filters( 'kemet_custom_fonts', $custom_fonts );
+		}
 
 		/**
-		 * Google Fonts used in astra.
+		 * Google Fonts used in kemet.
 		 * Array is generated from the google-fonts.json file.
 		 *
-		 * @since  1.0.19
 		 *
 		 * @return Array Array of Google Fonts.
 		 */

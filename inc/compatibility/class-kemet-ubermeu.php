@@ -3,7 +3,7 @@
  * Ubermenu Compatibility File.
  *
  * @link https://Ubermenu.me/
- * @since  1.1.7
+ * @since  1.0.0
  *
  * @package Kemet
  */

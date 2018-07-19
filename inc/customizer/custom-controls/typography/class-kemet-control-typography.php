@@ -38,7 +38,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Used to set the default font options.
 	 *
-	 * @since 1.0.8
+	 * @since 1.0.0
 	 * @var string $kmt_inherit
 	 */
 	public $kmt_inherit = '';
@@ -54,7 +54,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Set the default font options.
 	 *
-	 * @since 1.0.8
+	 * @since 1.0.0
 	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
 	 * @param string               $id      Control ID.
 	 * @param array                $args    Default parent's arguments.
@@ -144,7 +144,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	/**
 	 * Renders a font control.
 	 *
-	 * @since 1.0.16 Added the action 'kemet_customizer_font_list' to support custom fonts.
+	 * @since 1.0.0 Added the action 'kemet_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected

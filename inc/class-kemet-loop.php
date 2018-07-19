@@ -3,7 +3,7 @@
  * Kemet Loop
  *
  * @package Kemet
- * @since 1.2.7
+ * @since 1.0.0
  */
 
 if ( ! class_exists( 'Kemet_Loop' ) ) :
@@ -11,14 +11,14 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 	/**
 	 * Kemet_Loop
 	 *
-	 * @since 1.2.7
+	 * @since 1.0.0
 	 */
 	class Kemet_Loop {
 
 		/**
 		 * Instance
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 *
 		 * @access private
 		 * @var object Class object.
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Initiator
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 *
 		 * @return object initialized object of class.
 		 */
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Constructor
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 */
 		public function __construct() {
 			// Loop.
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part none
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_none() {
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part 404
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_404() {
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part page
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_page() {
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part single
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_post() {
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part search
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_search() {
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part comments
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_comments() {
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part default
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_default() {
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Loop Markup for content page
 		 *
-		 * @since 1.3.1
+		 * @since 1.0.0
 		 */
 		public function loop_markup_page() {
 			$this->loop_markup( true );
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 * @param  boolean $is_page Loop outputs different content action for content page and default content.
 		 *         if is_page is set to true - do_action( 'kemet_page_template_parts_content' ); is added
 		 *         if is_page is false - do_action( 'kemet_template_parts_content' ); is added.
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function loop_markup( $is_page = false ) {
@@ -216,7 +216,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part content top
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_content_top() {
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Template part content bottom
 		 *
-		 * @since 1.2.7
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function template_parts_content_bottom() {
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Add wrapper div 'kmt-row' for Kemet template part.
 		 *
-		 * @since  1.2.7
+		 * @since  1.0.0
 		 * @return void
 		 */
 		public function kemet_templat_part_wrap_open() {
@@ -252,7 +252,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Add closing wrapper div for 'kmt-row' after Kemet template part.
 		 *
-		 * @since  1.2.7
+		 * @since  1.0.0
 		 * @return void
 		 */
 		public function kemet_templat_part_wrap_close() {

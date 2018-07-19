@@ -53,7 +53,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		 * Elementor Content layout set as Page Builder
 		 *
 		 * @return void
-		 * @since  1.0.2
+		 * @since  1.0.0
 		 */
 		function elementor_default_setting() {
 

@@ -2,7 +2,7 @@
  * Install Kemet Starter Sites
  *
  *
- * @since 1.2.4
+ * @since 1.0.0
  */
 
 (function($){
@@ -18,7 +18,6 @@
 		/**
 		 * Binds events for the Kemet Theme.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _bind
 		 */

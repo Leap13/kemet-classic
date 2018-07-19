@@ -3,7 +3,7 @@
  * Lifter LMS Compatibility File.
  *
  * @package Kemet
- * @since 1.2.0
+ * @since 1.0.0
  */
 
 // If plugin - 'Lifter LMS' not exist then return.
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 	/**
 	 * Kemet Lifter LMS Compatibility
 	 *
-	 * @since 1.2.0
+	 * @since 1.0.0
 	 */
 	class Kemet_LifterLMS {
 
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Remove LifterLMS Default actions
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 */
 		function lifterlms_init() {
 
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Register Customizer sections and panel for lifterlms
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Theme Defaults.
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 * if not, nothing will happen. This function also checks to
 		 * see if a user is allowed to review more than once.
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 */
 		public function single_reviews() {
 
@@ -306,7 +306,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * LLMS Grid.
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param  number $grid Number of grid for course.
 		 * @return number
 		 */
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * LLMS Resposive grid class.
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param  array $classes Classes.
 		 * @return array
 		 */
@@ -357,7 +357,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Enqueue styles
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function add_dynamic_styles() {
@@ -439,7 +439,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Add start of wrapper
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function before_main_content_start() {
@@ -460,7 +460,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Add end of wrapper
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function before_main_content_end() {
@@ -483,7 +483,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 * on courses and lessons in place of the sidebar returned by
 		 * this function
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Declare explicit theme support for LifterLMS course and lesson sidebars
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @return   void
 		 */
 		function add_theme_support() {
@@ -507,7 +507,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Add assets in theme
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
 		 */
@@ -519,7 +519,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * LifterLMS Sidebar
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
@@ -560,7 +560,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * LifterLMS Container
 		 *
-		 * @since 1.2.0
+		 * @since 1.0.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
@@ -598,7 +598,6 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		/**
 		 * Register theme postmeta fields with the LifterLMS Builder
 		 *
-		 * @since 1.3.3
 		 * @param string $default_fields Default custom field definitions.
 		 * @return string $default_fields Updated custom field definitions.
 		 */

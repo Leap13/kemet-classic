@@ -319,7 +319,7 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since 1.0.12
+	 * @since 1.0.0
 	 */
 	function kemet_advanced_footer_markup() {
 
@@ -346,7 +346,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since 1.0.12
+	 * @since 1.0.0
 	 */
 	function kemet_header_custom_item_outside_menu() {
 

@@ -5,7 +5,7 @@
  * @package   Kemet
  * @copyright Copyright (c) 2018, Kemet
  * @link      http://wpkemet.com/
- * @since     Kemet 1.0.10
+ * @since     Kemet 1.0.0
  */
 
 // No direct access, please.
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Kemet_Pro_Customizer
  *
- * @since 1.0.10
+ * @since 1.0.0
  */
 if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * The type of customize section being rendered.
 		 *
-		 * @since  1.0.10
+		 * @since  1.0.0
 		 * @access public
 		 * @var    string
 		 */
@@ -37,7 +37,7 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Custom pro button URL.
 		 *
-		 * @since  1.0.10
+		 * @since  1.0.0
 		 * @access public
 		 * @var    string
 		 */
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Add custom parameters to pass to the JS via JSON.
 		 *
-		 * @since  1.0.10
+		 * @since  1.0.0
 		 * @access public
 		 * @return string
 		 */
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Outputs the Underscore.js template.
 		 *
-		 * @since  1.0.10
+		 * @since  1.0.0
 		 * @access public
 		 * @return void
 		 */

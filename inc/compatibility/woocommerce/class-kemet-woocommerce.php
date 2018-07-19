@@ -104,7 +104,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		/**
 		 * Rating Markup
 		 *
-		 * @since 1.2.2
 		 * @param  string $html  Rating Markup.
 		 * @param  float  $rating Rating being shown.
 		 * @param  int    $count  Total number of ratings.
@@ -352,7 +351,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		/**
 		 * Setup theme
 		 *
-		 * @since 1.0.3
+		 * @since 1.0.0
 		 */
 		function setup_theme() {
 
@@ -629,7 +628,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		/**
 		 * Enqueue styles
 		 *
-		 * @since 1.0.31
+		 * @since 1.0.0
 		 */
 		function add_styles() {
 
@@ -915,7 +914,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		/**
 		 * Woocommerce mini cart markup markup
 		 *
-		 * @since 1.2.2
 		 * @return html
 		 */
 		function woo_mini_cart_markup() {

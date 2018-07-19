@@ -56,7 +56,6 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		 *
 		 * @param  string $layout Content Layout.
 		 * @return string
-		 * @since  1.0.2
 		 */
 		function builder_template_content_layout( $layout ) {
 
@@ -79,7 +78,6 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		 *
 		 * @param  array $classes Post Classes.
 		 * @return array
-		 * @since  1.0.2
 		 */
 		function render_post_class( $classes ) {
 
@@ -263,7 +261,6 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		 * Function to theme before render content
 		 *
 		 * @param int $post_id Post ID.
-		 * @since 1.0.28
 		 */
 		function builder_before_render_content( $post_id ) {
 
@@ -282,7 +279,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		 * Function to theme after render content
 		 *
 		 * @param int $post_id Post ID.
-		 * @since 1.0.28
+		 * 
 		 */
 		function builder_after_render_content( $post_id ) {
 

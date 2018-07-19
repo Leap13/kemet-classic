@@ -30,7 +30,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 	/**
 	 * Kemet Elementor Compatibility
 	 *
-	 * @since 1.2.7
+	 * @since 1.0.0
 	 */
 	class Kemet_Elementor_Pro {
 

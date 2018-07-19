@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
  * @link        http://www.brainstormforce.com
- * @since       Kemet 1.2.0
+ * @since       Kemet 1.0.0
  */
 
 	/**

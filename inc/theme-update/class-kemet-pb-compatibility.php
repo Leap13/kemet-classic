@@ -6,7 +6,7 @@
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpkemet.com/
- * @since       Kemet 1.0.13
+ * @since       Kemet 1.0.0
  */
 
 if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 	/**
 	 * Kemet_PB_Compatibility initial setup
 	 *
-	 * @since 1.0.13
+	 * @since 1.0.0
 	 */
 	class Kemet_PB_Compatibility {
 
@@ -47,9 +47,9 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 		}
 
 		/**
-		 * Update options of older version than 1.0.13.
+		 * Update options of older version than 1.0.0
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.0
 		 * @return void
 		 */
 		public function page_builder_compatibility() {
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Kemet_PB_Compatibility' ) ) {
 		/**
 		 * Update meta values
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.0
 		 * @param  int $id Post id.
 		 * @return void
 		 */

@@ -12,7 +12,6 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since 1.0.0
 	 * @class KMTCustomizer
 	 */
 	KMTCustomizer = {
@@ -22,7 +21,6 @@
 		/**
 		 * Initializes our custom logic for the Customizer.
 		 *
-		 * @since 1.0.0
 		 * @method init
 		 */
 		init: function()
@@ -34,7 +32,6 @@
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initToggles
 		 */

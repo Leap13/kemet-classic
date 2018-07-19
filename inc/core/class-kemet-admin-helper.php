@@ -8,7 +8,7 @@
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpkemet.com/
- * @since       Kemet 1.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! class_exists( 'Kemet_Admin_Helper' ) ) :

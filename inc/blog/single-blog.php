@@ -13,7 +13,6 @@ if ( ! function_exists( 'kemet_single_body_class' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
-	 * @since 1.0.0
 	 * @param array $classes Classes for the body element.
 	 * @return array
 	 */
@@ -46,7 +45,6 @@ if ( ! function_exists( 'kemet_single_post_class' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
-	 * @since 1.0.0
 	 * @param array $classes Classes for the body element.
 	 * @return array
 	 */

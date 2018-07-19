@@ -51,7 +51,7 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		/**
 		 * VC Updated meta settings
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.0
 		 * @param int $id Post id.
 		 * @return void
 		 */
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		/**
 		 * Set frontend default setting.
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function vc_frontend_default_setting() {
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Kemet_Visual_Composer' ) ) :
 		/**
 		 * Set default setting.
 		 *
-		 * @since 1.0.13
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function vc_default_setting() {

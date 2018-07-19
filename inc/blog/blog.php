@@ -13,7 +13,6 @@ if ( ! function_exists( 'kemet_blog_body_classes' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
-	 * @since 1.0
 	 * @param array $classes Classes for the body element.
 	 * @return array
 	 */
@@ -38,7 +37,6 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 	/**
 	 * Adds custom classes to the array of post grid classes.
 	 *
-	 * @since 1.0
 	 * @param array $classes Classes for the post element.
 	 * @return array
 	 */
@@ -63,7 +61,6 @@ if ( ! function_exists( 'kemet_blog_get_post_meta' ) ) {
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
-	 * @since 1.0
 	 * @return mixed            Markup.
 	 */
 	function kemet_blog_get_post_meta() {
@@ -90,7 +87,6 @@ if ( ! function_exists( 'kemet_blog_post_get_featured_item' ) ) {
 	/**
 	 * To featured image / gallery / audio / video etc. As per the post format.
 	 *
-	 * @since 1.0
 	 * @return mixed
 	 */
 	function kemet_blog_post_get_featured_item() {
@@ -151,7 +147,6 @@ if ( ! function_exists( 'kemet_blog_post_thumbnai_and_title_order' ) ) {
 	/**
 	 * Blog post Thubmnail, Title & Blog Meta order
 	 *
-	 * @since  1.0.8
 	 */
 	function kemet_blog_post_thumbnai_and_title_order() {
 
@@ -207,7 +202,6 @@ if ( ! function_exists( 'kemet_get_blog_post_thumbnail' ) ) {
 	 * Blog post Thumbnail
 	 *
 	 * @param string $type Type of post.
-	 * @since  1.0.8
 	 */
 	function kemet_get_blog_post_thumbnail( $type = 'archive' ) {
 
@@ -229,7 +223,6 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 	/**
 	 * Blog post Thumbnail
 	 *
-	 * @since  1.0.8
 	 */
 	function kemet_get_blog_post_title_meta() {
 
@@ -271,8 +264,7 @@ if ( ! function_exists( 'kemet_get_single_post_title_meta' ) ) {
 	/**
 	 * Blog post Thumbnail
 	 *
-	 * @since  1.0.8
-	 */
+     * 	 */
 	function kemet_get_single_post_title_meta() {
 
 		// Single Post Title and Single Post Meta.
@@ -341,7 +333,6 @@ if ( ! function_exists( 'kemet_get_video_from_post' ) ) {
 	/**
 	 * Get first image from post content
 	 *
-	 * @since 1.0
 	 * @param  number $post_id Post id.
 	 * @return mixed
 	 */

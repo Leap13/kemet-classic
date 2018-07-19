@@ -3,7 +3,7 @@
  * LearnDash Compatibility File.
  *
  * @package Kemet
- * @since 1.3.0
+ * @since 1.0.0
  */
 
 // If plugin - 'LearnDash' not exist then return.
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 	/**
 	 * Kemet LearnDash Compatibility
 	 *
-	 * @since 1.3.0
+	 * @since 1.0.0
 	 */
 	class Kemet_LearnDash {
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * Enqueue styles
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @return void
 		 */
 		function add_dynamic_styles() {
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * Register Customizer sections and panel for learndash.
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * Theme Defaults.
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @param array $defaults Array of options value.
 		 * @return array
 		 */
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * Add assets in theme
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @param array $assets list of theme assets (JS & CSS).
 		 * @return array List of updated assets.
 		 */
@@ -235,7 +235,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * LeanDash Sidebar
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * LeanDash Container
 		 *
-		 * @since 1.3.0
+		 * @since 1.0.0
 		 * @param string $layout Layout type.
 		 * @return string $layout Layout type.
 		 */

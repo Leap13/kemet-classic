@@ -6,7 +6,7 @@
  * @author    Kemet
  * @copyright Copyright (c) 2018, Kemet
  * @link      http://wpkemet.com/
- * @since     Kemet 1.0.10
+ * @since     Kemet 1.0.0
  */
 
 // Register custom section types.

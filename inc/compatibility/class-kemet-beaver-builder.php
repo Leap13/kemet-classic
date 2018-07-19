@@ -50,7 +50,7 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 		/**
 		 * Builder Template Content layout set as Full Width / Stretched
 		 *
-		 * @since  1.0.13
+		 * @since  1.0.0
 		 * @return void
 		 */
 		function beaver_builder_default_setting() {

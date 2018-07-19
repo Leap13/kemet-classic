@@ -80,7 +80,7 @@ final class Kemet_Fonts {
 	/**
 	 * Renders the <link> tag for all fonts in the $fonts array.
 	 *
-	 * @since 1.0.16 Added the filter 'kemet_render_fonts' to support custom fonts.
+	 * @since 1.0.0 Added the filter 'kemet_render_fonts' to support custom fonts.
 	 * @since 1.0.0
 	 * @return void
 	 */

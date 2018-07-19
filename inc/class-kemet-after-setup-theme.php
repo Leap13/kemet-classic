@@ -18,7 +18,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 

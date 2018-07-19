@@ -8,7 +8,7 @@
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpkemet.com/
- * @since       Kemet 1.1.0
+ * @since       Kemet 1.0.0
  */
 
 /**
@@ -21,7 +21,7 @@ if ( ! function_exists( 'kemet_woo_shop_products_title' ) ) :
 	 *
 	 * @hooked woocommerce_after_shop_loop_item - 10
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_products_title() {
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
@@ -42,7 +42,7 @@ if ( ! function_exists( 'kemet_woo_shop_parent_category' ) ) :
 	 *
 	 * @hooked woocommerce_after_shop_loop_item - 9
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_parent_category() {
 		if ( apply_filters( 'kemet_woo_shop_parent_category', true ) ) : ?>
@@ -73,7 +73,7 @@ if ( ! function_exists( 'kemet_woo_shop_out_of_stock' ) ) :
 	 *
 	 * @hooked woocommerce_shop_loop_item_title - 8
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_out_of_stock() {
 		$out_of_stock        = get_post_meta( get_the_ID(), '_stock_status', true );
@@ -96,7 +96,7 @@ if ( ! function_exists( 'kemet_woo_shop_product_short_description' ) ) :
 	 *
 	 * @hooked woocommerce_after_shop_loop_item
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_product_short_description() {
 	?>
@@ -118,7 +118,7 @@ if ( ! function_exists( 'kemet_woo_product_in_stock' ) ) :
 	 * @param  string $markup  Markup.
 	 * @param  object $product Object of Product.
 	 *
-	 * @since 1.1.0
+	 * @since 1.0.0
 	 */
 	function kemet_woo_product_in_stock( $markup, $product ) {
 

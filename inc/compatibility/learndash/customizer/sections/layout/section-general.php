@@ -5,8 +5,7 @@
  * @package     Kemet
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
- * @since       1.3.0
+ * @link        https://kemet.io
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

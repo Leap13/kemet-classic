@@ -77,7 +77,6 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 /**
  * Function to get Date of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_date' ) ) {
@@ -112,7 +111,6 @@ if ( ! function_exists( 'kemet_post_date' ) ) {
 /**
  * Function to get Author of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_author' ) ) {
@@ -140,7 +138,6 @@ if ( ! function_exists( 'kemet_post_author' ) ) {
 /**
  * Function to get Read More Link of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_link' ) ) {
@@ -176,7 +173,6 @@ add_filter( 'excerpt_more', 'kemet_post_link', 1 );
 /**
  * Function to get Number of Comments of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_comments' ) ) {
@@ -252,7 +248,6 @@ if ( ! function_exists( 'kemet_post_tags' ) ) {
 /**
  * Function to get Categories of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_categories' ) ) {
@@ -281,7 +276,6 @@ if ( ! function_exists( 'kemet_post_categories' ) ) {
 /**
  * Display classes for primary div
  *
- * @since 1.0.0
  */
 if ( ! function_exists( 'kemet_blog_layout_class' ) ) {
 
@@ -300,7 +294,6 @@ if ( ! function_exists( 'kemet_blog_layout_class' ) ) {
 /**
  * Retrieve the classes for the body element as an array.
  *
- * @since 1.0.0
  * @param string|array $class One or more classes to add to the class list.
  * @return array Array of classes.
  */
@@ -401,7 +394,6 @@ if ( ! function_exists( 'kemet_get_blog_layout_class' ) ) {
 /**
  * Function to get Content Read More Link of Post
  *
- * @since 1.2.7
  * @return html
  */
 if ( ! function_exists( 'kemet_the_content_more_link' ) ) {

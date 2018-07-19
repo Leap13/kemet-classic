@@ -190,7 +190,7 @@ if ( ! function_exists( 'kemet_get_font_family' ) ) {
 	 * E.g.
 	 *  kemet_get_font_family( VALUE, '' );
 	 *
-	 * @since  1.0.19
+	 * @since  1.0.0
 	 *
 	 * @param  string $value       CSS value.
 	 * @return mixed               CSS value depends on $unit
@@ -433,7 +433,7 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 		/**
 		 * Filter the options array for Kemet Settings.
 		 *
-		 * @since  1.0.20
+		 * @since  1.0.0
 		 * @var Array
 		 */
 		$theme_options = apply_filters( 'kemet_get_option_array', $theme_options, $option, $default );
@@ -444,7 +444,7 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 		 * Dynamic filter kemet_get_option_$option.
 		 * $option is the name of the Kemet Setting, Refer Kemet_Theme_Options::defaults() for option names from the theme.
 		 *
-		 * @since  1.0.20
+		 * @since  1.0.0
 		 * @var Mixed.
 		 */
 		return apply_filters( "kemet_get_option_{$option}", $value, $option, $default );
@@ -491,7 +491,7 @@ if ( ! function_exists( 'kemet_get_option_meta' ) ) {
 		 * Dynamic filter kemet_get_option_meta_$option.
 		 * $option_id is the name of the Kemet Meta Setting.
 		 *
-		 * @since  1.0.20
+		 * @since  1.0.0
 		 * @var Mixed.
 		 */
 		return apply_filters( "kemet_get_option_meta_{$option_id}", $value, $default, $default );
@@ -686,7 +686,7 @@ if ( ! function_exists( 'kemet_the_post_title' ) ) {
 	 *
 	 * Displays title only if the page title bar is disabled.
 	 *
-	 * @since 1.0.15
+	 * @since 1.0.0
 	 * @param string $before Optional. Content to prepend to the title.
 	 * @param string $after  Optional. Content to append to the title.
 	 * @param int    $post_id Optional, default to 0. Post id.

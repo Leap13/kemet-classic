@@ -17,7 +17,6 @@
 	    /**
 	     * Trigger a hook.
 	     *
-	     * @since 1.0.0
 	     * @method triggerHook
 	     * @param {String} hook The hook to trigger.
 	     * @param {Array} args An array of args to pass to the hook.
@@ -30,7 +29,6 @@
 	    /**
 	     * Add a hook.
 	     *
-	     * @since 1.0.0
 	     * @method addHook
 	     * @param {String} hook The hook to add.
 	     * @param {Function} callback A function to call when the hook is triggered.
@@ -43,7 +41,6 @@
 	    /**
 	     * Remove a hook.
 	     *
-	     * @since 1.0.0
 	     * @method removeHook
 	     * @param {String} hook The hook to remove.
 	     * @param {Function} callback The callback function to remove.
@@ -57,7 +54,6 @@
 	/**
 	 * Helper class that contains data for showing and hiding controls.
 	 *
-	 * @since 1.0.0
 	 * @class KMTCustomizerToggles
 	 */
 	KMTCustomizerToggles = {

@@ -8,7 +8,7 @@
  * @author      Kemet
  * @copyright   Copyright (c) 2018, Kemet
  * @link        http://wpkemet.com/
- * @since       Kemet 1.0
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * View all actions
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $view_actions
 		 */
 		static public $view_actions = array();
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Menu page title
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $menu_page_title
 		 */
 		static public $menu_page_title = 'Kemet Theme';
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Page title
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $page_title
 		 */
 		static public $page_title = 'Kemet';
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Plugin slug
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $plugin_slug
 		 */
 		static public $plugin_slug = 'kemet';
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Default Menu position
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $default_menu_position
 		 */
 		static public $default_menu_position = 'themes.php';
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Parent Page Slug
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $parent_page_slug
 		 */
 		static public $parent_page_slug = 'general';
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Current Slug
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @var array $current_slug
 		 */
 		static public $current_slug = 'general';
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Load the scripts and styles in the customizer controls.
 		 *
-		 * @since 1.2.1
+		 * @since 1.0.0
 		 */
 		static public function customizer_scripts() {
 			$color_palettes = json_encode( kemet_color_palette() );
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Enqueues the needed CSS/JS for Backend.
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		static public function admin_scripts() {
 
@@ -196,7 +196,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Enqueues the needed CSS/JS for the builder's admin settings page.
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		static public function styles_scripts() {
 
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Update Admin Title.
 		 *
-		 * @since 1.0.19
+		 * @since 1.0.0
 		 *
 		 * @param string $admin_title Admin Title.
 		 * @param string $title Title.
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * Get and return page URL
 		 *
 		 * @param string $menu_slug Menu name.
-		 * @since 1.0
+		 * @since 1.0.0
 		 * @return  string page url
 		 */
 		static public function get_page_url( $menu_slug ) {
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Add main menu
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		static public function add_admin_menu() {
 
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Menu callback
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		static public function menu_callback() {
 
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include general page
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		static public function general_page() {
 			require_once KEMET_THEME_DIR . 'inc/core/view-general.php';
@@ -337,7 +337,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page right starter sites content
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_starter_sites_section() {
 			?>
@@ -416,7 +416,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page right side knowledge base content
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_knowledge_base_scetion() {
 			?>
@@ -449,7 +449,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page right side Kemet community content
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_community_scetion() {
 			?>
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page right side Five Star Support
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_five_star_scetion() {
 			?>
@@ -534,7 +534,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page right side Cloudways
 		 *
-		 * @since 1.2.6
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_cloudways_scetion() {
 			?>
@@ -577,7 +577,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Include Welcome page content
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function kemet_welcome_page_content() {
 
@@ -913,7 +913,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Required Plugin Activate
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function required_plugin_activate() {
 
@@ -951,7 +951,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Check compatible theme version.
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function min_addon_version_message() {
 
@@ -986,7 +986,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Kemet Header Right Section Links
 		 *
-		 * @since 1.2.4
+		 * @since 1.0.0
 		 */
 		static public function top_header_right_section() {
 
