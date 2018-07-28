@@ -561,6 +561,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_responsive_font_size( 'kemet-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
 
 	kemet_css( 'kemet-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
+    
 	// paragraph margin bottom.
 	wp.customize( 'kemet-settings[para-margin-bottom]', function( value ) {
 		value.bind( function( marginBottom ) {
@@ -584,6 +585,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
 	kemet_css( 'kemet-settings[footer-link-color]', 'color', '.kmt-small-footer a' );
 	kemet_css( 'kemet-settings[footer-link-h-color]', 'color', '.kmt-small-footer a:hover' );
+   kemet_css( 'kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-title, .page-title' );
 
 	wp.customize( 'kemet-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {

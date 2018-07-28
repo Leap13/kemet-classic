@@ -56,6 +56,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+    
+    
+    
+    	/**
+	 * Option: Single Post / Page Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-color-entry-title]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+			new Kemet_Control_Color(
+				$wp_customize, KEMET_THEME_SETTINGS . '[font-color-entry-title]', array(
+               'type'    => 'kmt-color',
+					'label'   => __( 'Font Color', 'kemet' ),
+					'section' => 'section-single-typo',
+				)
+			)
+		);
+    
+    
+    
+    
+    
+    
 
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
