@@ -136,16 +136,3 @@
 	$( function() { KMTCustomizer.init(); } );
 
 })( jQuery );
-
-
-( function( api ) {
-    // Extends our custom kemet-pro section.
-    api.sectionConstructor['kemet-pro'] = api.Section.extend( {
-        // No events for this type of section.
-        attachEvents: function () {},
-        // Always make the section active.
-        isContextuallyActive: function () {
-            return true;
-        }
-    } );
-} )( wp.customize );
