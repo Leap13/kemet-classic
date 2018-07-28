@@ -3,9 +3,9 @@
  * LifterLMS General Options for our theme.
  *
  * @package     Kemet
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        https://kemet.io
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

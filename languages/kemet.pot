@@ -1,4 +1,4 @@
-# <!=Copyright (C) 2018 Brainstorm Force
+# <!=Copyright (C) 2018 Leap13
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
@@ -1725,13 +1725,13 @@ msgid ""
 "Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other "
 "features: # WooCommerce Ready # Responsive # RTL & Translation Ready # "
 "Extendible with premium addons # Regularly updated # Designed, Developed, "
-"Maintained & Supported by Brainstorm Force. Looking for a perfect base "
+"Maintained & Supported by Leap13. Looking for a perfect base "
 "theme? Look no further. Kemet is fast, fully customizable and WooCommerce "
 "ready theme that you can use for building any kind of website!"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Brainstorm Force"
+msgid "Leap13"
 msgstr ""
 
 #. Author URI of the plugin/theme

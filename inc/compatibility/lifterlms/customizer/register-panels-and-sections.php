@@ -3,9 +3,9 @@
  * Register customizer panels & sections.
  *
  * @package     Kemet
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
  * @since       Kemet 1.0.0
  */
 
