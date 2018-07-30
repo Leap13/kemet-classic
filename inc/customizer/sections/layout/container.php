@@ -129,7 +129,81 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	// Learn More link if Kemet Pro is not activated.
+	/**
+	 * Option: Body Background
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
+			'default'           => kemet_get_option( 'site-layout-outside-bg-obj' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
+				'type'     => 'kmt-background',
+				'section'  => 'section-container-layout',
+				'priority' => 70,
+				'label'    => __( 'Body Background', 'kemet' ),
+			)
+		)
+	);
+   
+   /**
+    * Option: Boxed Inner Background
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
+			'default'           => kemet_get_option( 'site-boxed-inner-bg' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
+				'type'     => 'kmt-background',
+				'section'  => 'section-container-layout',
+				'priority' => 70,
+				'label'    => __( 'Inner Background', 'kemet' ),
+			)
+		)
+	);
+    
+   /**
+    * Option - Container Inner Spacing
+    */
+   $wp_customize->add_setting(
+       KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
+           'default'           => kemet_get_option( 'container-inner-spacing' ),
+           'type'              => 'option',
+           'transport'         => 'postMessage',
+           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+       )
+   );
+   $wp_customize->add_control(
+       new Kemet_Control_Responsive_Spacing(
+           $wp_customize, KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
+               'type'           => 'kmt-responsive-spacing',
+               'section'        => 'section-container-layout',
+               'priority'       => 70,
+               'label'          => __( 'Inner Container Spacing', 'astra-addon' ),
+               'linked_choices' => true,
+               'unit_choices'   => array( 'px', 'em', '%' ),
+               'choices'        => array(
+                   'top'    => __( 'Top', 'kemet' ),
+                   'right'  => __( 'Right', 'kemet' ),
+                   'bottom' => __( 'Bottom', 'kemet' ),
+                   'left'   => __( 'Left', 'kemet' ),
+               ),
+           )
+       )
+   );
+    
+    // Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
@@ -161,25 +235,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		);
 	}
-
-	/**
-	 * Option: Body Background
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-			'default'           => kemet_get_option( 'site-layout-outside-bg-obj' ),
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Background(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-				'type'     => 'kmt-background',
-				'section'  => 'section-container-layout',
-				'priority' => 70,
-				'label'    => __( 'Body Background', 'kemet' ),
-			)
-		)
-	);

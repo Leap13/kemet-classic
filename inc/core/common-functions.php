@@ -115,6 +115,33 @@ if ( ! function_exists( 'kemet_responsive_font' ) ) {
 		return $font_size;
 	}
 }
+/**
+ * Get Responsive Spacing
+ */
+if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $side  top | bottom | left | right.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+
+		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
+			$spacing = kemet_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+		} elseif ( is_numeric( $option ) ) {
+			$spacing = kemet_get_css_value( $option );
+		} else {
+			$spacing = ( ! is_array( $option ) ) ? $option : '';
+		}
+
+		return $spacing;
+	}
+}
 
 /**
  * Get Font Size value
