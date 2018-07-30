@@ -177,9 +177,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Background(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
 				'type'     => 'kmt-background',
-				'section'  => 'section-colors-body',
-				'priority' => 25,
-				'label'    => __( 'Background', 'kemet' ),
+				'section'  => 'section-container-layout',
+				'priority' => 70,
+				'label'    => __( 'Body Background', 'kemet' ),
 			)
 		)
 	);
