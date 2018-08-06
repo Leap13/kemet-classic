@@ -10,6 +10,35 @@
  */
 
 	/**
+	 * General Panel
+	 */
+	$wp_customize->add_panel(
+		new Kemet_WP_Customize_Panel(
+			$wp_customize, 'panel-general',
+			array(
+				'priority' => 10,
+				'title'    => __( 'General', 'kemet' ),
+			)
+		)
+	);
+
+	$wp_customize->add_section(
+		'section-general-layout', array(
+			'priority' => 5,
+			'panel'    => 'panel-general',
+			'title'    => __( 'Layout', 'kemet' ),
+		)
+	);
+    
+   $wp_customize->add_section(
+		'section-general-default-sidebar', array(
+			'priority' => 5,
+			'panel'    => 'panel-general',
+			'title'    => __( 'Default Sidebar', 'kemet' ),
+		)
+	);
+
+	/**
 	 * Layout Panel
 	 */
 	$wp_customize->add_panel(
