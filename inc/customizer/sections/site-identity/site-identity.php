@@ -151,3 +151,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+    
+   /**
+    * Option - Site Identity Space //// exist in astra pro
+    */
+   $wp_customize->add_setting(
+       KEMET_THEME_SETTINGS . '[site-identity-spacing]', array(
+           'default'           => kemet_get_option( 'site-identity-spacing' ),
+           'type'              => 'option',
+           'transport'         => 'postMessage',
+           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+       )
+   );
+   $wp_customize->add_control(
+       new Kemet_Control_Responsive_Spacing(
+           $wp_customize, KEMET_THEME_SETTINGS . '[site-identity-spacing]', array(
+               'type'           => 'kmt-responsive-spacing',
+               'section'        => 'title_tagline',
+               'priority'       => 50,
+               'label'          => __( 'Site Identity Space', 'kemet-addon' ),
+               'linked_choices' => true,
+               'unit_choices'   => array( 'px', 'em', '%' ),
+               'choices'        => array(
+                   'top'    => __( 'Top', 'kemet-addon' ),
+                   'right'  => __( 'Right', 'kemet-addon' ),
+                   'bottom' => __( 'Bottom', 'kemet-addon' ),
+                   'left'   => __( 'Left', 'kemet-addon' ),
+               ),
+           )
+       )
+   );

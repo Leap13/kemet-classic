@@ -62,6 +62,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 */
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 			$header_logo_width  = kemet_get_option( 'kmt-header-responsive-logo-width' );
+         $site_identity_spacing = kemet_get_option( 'site-identity-spacing' );
 
 			// Site Background Color.
 			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj' );
@@ -201,6 +202,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                         => array(
 					'width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
+                /* Site Identity Spacing */
+            '.site-header .kmt-site-identity'  => array(
+                'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
+                'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
+                'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
+                'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'desktop' ),
+            ),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
@@ -409,11 +417,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             /**
                 * Content Spacing Desktop
                 */
-               '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container ' => array(
-                   'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'desktop' ),
-                   'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
-                   'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
-                   'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
+            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container ' => array(
+            'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'desktop' ),
+            'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
+            'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
+            'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
                ),
 			);
 
@@ -498,6 +506,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-title'                           => array(
 					'font-size' => kemet_responsive_font( $site_title_font_size, 'tablet' ),
 				),
+            '.site-header .kmt-site-identity'  => array(
+                'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'tablet' ),
+                'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'tablet' ),
+                'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'tablet' ),
+                'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'tablet' ),
+            ),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
 				),
@@ -579,6 +593,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-title'                           => array(
 					'font-size' => kemet_responsive_font( $site_title_font_size, 'mobile' ),
 				),
+            '.site-header .kmt-site-identity'  => array(
+                'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'mobile' ),
+                'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'mobile' ),
+                'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'mobile' ),
+                'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'mobile' ),
+            ),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
 				),
