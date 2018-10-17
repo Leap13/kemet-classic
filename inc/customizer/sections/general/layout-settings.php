@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-general-layout',
                'priority'       => 70,
-               'label'          => __( 'Inner Container Spacing', 'astra-addon' ),
+               'label'          => __( 'Inner Container Spacing', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(
