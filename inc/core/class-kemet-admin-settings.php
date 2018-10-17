@@ -309,7 +309,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 							<div class="kmt-theme-title">
 								<a href="<?php echo esc_url( $kmt_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $kmt_icon ) { ?>
-									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.svg' ); ?>" class="kmt-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<img src="<?php echo esc_url( KEMET_THEME_URI . 'inc/assets/images/kemet.png' ); ?>" class="kmt-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
 								<?php } ?>
 								<?php do_action( 'kemet_welcome_page_header_title' ); ?>
 								</a>
