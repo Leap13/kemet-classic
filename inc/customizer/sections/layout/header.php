@@ -56,6 +56,39 @@ $header_rt_sections = array(
 			)
 		)
 	);
+    
+    
+	/**
+	 * Option: Header Layout
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[header-dev-layout]', array(
+			'default'           => kemet_get_option( 'header-dev-layout' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+
+	$wp_customize->add_control(
+		new Kemet_Control_Radio_Image(
+			$wp_customize, KEMET_THEME_SETTINGS . '[header-dev-layout]', array(
+				'section'  => 'section-header',
+				'priority' => 5,
+				'label'    => __( 'Header', 'kemet' ),
+				'type'     => 'kmt-radio-image',
+				'choices'  => array(
+					'header-content-layout-1' => array(
+						'label' => __( 'Logo Left', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+					),
+					'header-content-layout-2' => array(
+						'label' => __( 'Logo Center', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+					),
+				),
+			)
+		)
+	);
 
 	/**
 	 * Option: Disable Menu
