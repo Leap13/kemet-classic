@@ -11,7 +11,6 @@
 
 add_action( 'kemet_masthead_toggle_buttons', 'kemet_masthead_toggle_buttons_primary' );
 add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
-add_action( 'kemet_masthead_content', 'kemet_masthead_content_template', 5);
 add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
 add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
@@ -240,36 +239,6 @@ if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
 	 */
 	function kemet_masthead_primary_template() {
 		get_template_part( 'template-parts/header/header-main-layout' );
-	}
-}
-
-/**
- * Primary Header ner
- */
-if ( ! function_exists( 'kemet_masthead_content_template' ) ) {
-
-	/**
-	 * Primary Header
-	 *
-	 * => Used in files:
-	 *
-	 * /header.php
-	 *
-	 * @since 1.0.0
-	 */
-	function kemet_masthead_content_template() {
-      $header_content_layout = kemet_get_option( 'header-dev-layout', 'header-content-layout-1' );
-      $header_content_layout = str_replace( 'header-content-layout-', '', $header_content_layout );
-      
-      // Default header layout 1 is kmt-header-layout.
-		//	if ( '1' == $header_content_layout ) {
-		//		$header_content_layout = '';
-		//	}
-		get_template_part( 'template-parts/header/header-content-layout', $header_content_layout );
-        
-                    
-            
-            
 	}
 }
 
