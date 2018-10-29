@@ -29,6 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv]', array(
 				'type'    => 'kmt-radio-image',
 				'label'   => __( 'Footer Widgets Layout', 'kemet' ),
+            'priority'       => 1,
 				'section' => 'section-footer-adv',
 				'choices' => array(
 					'disabled' => array(
@@ -43,6 +44,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+    
+    /**
+    * Option - Footer Spacing
+    */
+   $wp_customize->add_setting(
+       KEMET_THEME_SETTINGS . '[footer-padding]', array(
+           'default'           => kemet_get_option( 'footer-padding' ),
+           'type'              => 'option',
+           'transport'         => 'postMessage',
+           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+       )
+   );
+   $wp_customize->add_control(
+       new Kemet_Control_Responsive_Spacing(
+           $wp_customize, KEMET_THEME_SETTINGS . '[footer-padding]', array(
+               'type'           => 'kmt-responsive-spacing',
+               'section'        => 'section-footer-adv',
+               'priority'       => 5,
+               'label'          => __( 'Footer Padding', 'kemet' ),
+               'linked_choices' => true,
+               'unit_choices'   => array( 'px', 'em', '%' ),
+               'choices'        => array(
+                   'top'    => __( 'Top', 'kemet' ),
+                   'right'  => __( 'Right', 'kemet' ),
+                   'bottom' => __( 'Bottom', 'kemet' ),
+                   'left'   => __( 'Left', 'kemet' ),
+               ),
+           )
+       )
+   );
+
 
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
