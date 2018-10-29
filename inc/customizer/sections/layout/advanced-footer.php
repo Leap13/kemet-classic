@@ -93,6 +93,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		);
         
+   /**
+	 * Option: Text Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-adv-text-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-text-color]', array(
+				'label'   => __( 'Text Color', 'kemet' ),
+				'section' => 'section-footer-adv',
+			)
+		)
+	);
+        
     /**
       * Option: Widget Title Color
       */
@@ -113,6 +133,45 @@ if ( ! defined( 'ABSPATH' ) ) {
              )
          )
      );
+     
+      /**
+        * Option: Link Color
+        */
+       $wp_customize->add_setting(
+           KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
+               'default'           => '',
+               'type'              => 'option',
+               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+           )
+       );
+       $wp_customize->add_control(
+           new WP_Customize_Color_Control(
+               $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
+                   'label'   => __( 'Link Color', 'kemet' ),
+                   'section' => 'section-footer-adv',
+               )
+           )
+       );
+
+      /**
+        * Option: Link Hover Color
+        */
+       $wp_customize->add_setting(
+           KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
+               'default'           => '',
+               'type'              => 'option',
+               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+           )
+       );
+       $wp_customize->add_control(
+           new WP_Customize_Color_Control(
+               $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
+                   'label'   => __( 'Link Hover Color', 'kemet' ),
+                   'section' => 'section-footer-adv',
+               )
+           )
+       );
+
 
 		/**
 		 * Option: Learn More about Footer Widget
