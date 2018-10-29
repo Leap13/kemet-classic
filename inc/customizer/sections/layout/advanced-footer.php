@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            $wp_customize, KEMET_THEME_SETTINGS . '[footer-padding]', array(
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-footer-adv',
-               'priority'       => 5,
+               'priority'       => 2,
                'label'          => __( 'Footer Padding', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
@@ -92,6 +92,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 				)
 			)
 		);
+        
+    /**
+      * Option: Widget Title Color
+      */
+     $wp_customize->add_setting(
+         KEMET_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
+             'default'           => '',
+             'type'              => 'option',
+             'transport'         => 'postMessage',
+             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+         )
+     );
+     $wp_customize->add_control(
+         new WP_Customize_Color_Control(
+             $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
+                 'label'   => __( 'Widget Title Color', 'kemet' ),
+                                 'priority'       => 3,
+                 'section' => 'section-footer-adv',
+             )
+         )
+     );
+
 		/**
 		 * Option: Learn More about Footer Widget
 		 */
