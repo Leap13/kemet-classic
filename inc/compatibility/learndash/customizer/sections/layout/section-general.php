@@ -2,11 +2,10 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
- * @since       1.3.0
+ * @package     Kemet
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Option: Divider
  */
 $wp_customize->add_control(
-	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-lesson-content]', array(
-			'label'    => __( 'Course Content Table', 'astra' ),
+	new Kemet_Control_Divider(
+		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-lesson-content]', array(
+			'label'    => __( 'Course Content Table', 'kemet' ),
 			'section'  => 'section-learndash',
-			'type'     => 'ast-divider',
+			'type'     => 'kmt-divider',
 			'priority' => 20,
 			'settings' => array(),
 		)
@@ -30,16 +29,16 @@ $wp_customize->add_control(
  * Option: Display Serial Number
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
-		'default'           => astra_get_option( 'learndash-lesson-serial-number' ),
+	KEMET_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+		'default'           => kemet_get_option( 'learndash-lesson-serial-number' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
+	KEMET_THEME_SETTINGS . '[learndash-lesson-serial-number]', array(
 		'section'  => 'section-learndash',
-		'label'    => __( 'Display Serial Number', 'astra' ),
+		'label'    => __( 'Display Serial Number', 'kemet' ),
 		'priority' => 25,
 		'type'     => 'checkbox',
 	)
@@ -49,16 +48,16 @@ $wp_customize->add_control(
  * Option: Differentiate Rows
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
-		'default'           => astra_get_option( 'learndash-differentiate-rows' ),
+	KEMET_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+		'default'           => kemet_get_option( 'learndash-differentiate-rows' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
+	KEMET_THEME_SETTINGS . '[learndash-differentiate-rows]', array(
 		'section'  => 'section-learndash',
-		'label'    => __( 'Differentiate Rows', 'astra' ),
+		'label'    => __( 'Differentiate Rows', 'kemet' ),
 		'priority' => 30,
 		'type'     => 'checkbox',
 	)

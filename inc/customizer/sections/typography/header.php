@@ -1,12 +1,12 @@
 <?php
 /**
- * Site Identity Typography Options for Astra Theme.
+ * Site Identity Typography Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
-				'type'     => 'ast-divider',
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
+				'type'     => 'kmt-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 5,
-				'label'    => __( 'Site Title', 'astra' ),
+				'label'    => __( 'Site Title', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -32,20 +32,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Title Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
-			'default'           => astra_get_option( 'font-size-site-title' ),
+		KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
+			'default'           => kemet_get_option( 'font-size-site-title' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-title]', array(
-				'type'        => 'ast-responsive',
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 10,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -61,12 +61,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
-				'type'     => 'ast-divider',
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-tagline]', array(
+				'type'     => 'kmt-divider',
 				'section'  => 'section-header-typo',
 				'priority' => 15,
-				'label'    => __( 'Site Tagline', 'astra' ),
+				'label'    => __( 'Site Tagline', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -76,20 +76,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Tagline Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
-			'default'           => astra_get_option( 'font-size-site-tagline' ),
+		KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
+			'default'           => kemet_get_option( 'font-size-site-tagline' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-site-tagline]', array(
-				'type'        => 'ast-responsive',
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-header-typo',
 				'priority'    => 20,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -101,16 +101,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	// Learn More link if Astra Pro is not activated.
-	if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+	// Learn More link if Kemet Pro is not activated.
+	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 
 		/**
 		 * Option: Divider
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Divider(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-divider]', array(
-					'type'     => 'ast-divider',
+			new Kemet_Control_Divider(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-typography-more-feature-divider]', array(
+					'type'     => 'kmt-divider',
 					'section'  => 'section-header-typo',
 					'priority' => 25,
 					'settings' => array(),
@@ -121,13 +121,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * Option: Learn More about Typography
 		 */
 		$wp_customize->add_control(
-			new Astra_Control_Description(
-				$wp_customize, ASTRA_THEME_SETTINGS . '[ast-header-typography-more-feature-description]', array(
-					'type'     => 'ast-description',
+			new Kemet_Control_Description(
+				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-typography-more-feature-description]', array(
+					'type'     => 'kmt-description',
 					'section'  => 'section-header-typo',
 					'priority' => 25,
 					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Typography in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),
 				)
 			)

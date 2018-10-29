@@ -1,74 +1,74 @@
 <?php
 /**
- * Deprecated Filters of Astra Theme.
+ * Deprecated Filters of Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.23
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.23
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Depreciating astra_color_palletes filter.
-add_filter( 'astra_color_palettes', 'deprecated_astra_color_palette', 10, 1 );
+// Depreciating kemet_color_palletes filter.
+add_filter( 'kemet_color_palettes', 'deprecated_kemet_color_palette', 10, 1 );
 
 /**
- * Astra Color Palettes
+ * Kemet Color Palettes
  *
  * @since 1.0.23
  * @param array $color_palette  customizer color palettes.
  * @return array  $color_palette updated customizer color palettes.
  */
-function deprecated_astra_color_palette( $color_palette ) {
+function deprecated_kemet_color_palette( $color_palette ) {
 
-	$color_palette = astra_apply_filters_deprecated( 'astra_color_palletes', array( $color_palette ), '1.0.22', 'astra_color_palettes', '' );
+	$color_palette = kemet_apply_filters_deprecated( 'kemet_color_palletes', array( $color_palette ), '1.0.22', 'kemet_color_palettes', '' );
 
 	return $color_palette;
 }
 
 
-// Deprecating astra_sigle_post_navigation_enabled filter.
-add_filter( 'astra_single_post_navigation_enabled', 'deprecated_astra_sigle_post_navigation_enabled', 10, 1 );
+// Deprecating kemet_sigle_post_navigation_enabled filter.
+add_filter( 'kemet_single_post_navigation_enabled', 'deprecated_kemet_sigle_post_navigation_enabled', 10, 1 );
 
 /**
- * Astra Single Post Navigation
+ * Kemet Single Post Navigation
  *
  * @since 1.0.27
  * @param boolean $post_nav true | false.
  * @return boolean $post_nav true for enabled | false for disable.
  */
-function deprecated_astra_sigle_post_navigation_enabled( $post_nav ) {
+function deprecated_kemet_sigle_post_navigation_enabled( $post_nav ) {
 
-	$post_nav = astra_apply_filters_deprecated( 'astra_sigle_post_navigation_enabled', array( $post_nav ), '1.0.27', 'astra_single_post_navigation_enabled', '' );
+	$post_nav = kemet_apply_filters_deprecated( 'kemet_sigle_post_navigation_enabled', array( $post_nav ), '1.0.27', 'kemet_single_post_navigation_enabled', '' );
 
 	return $post_nav;
 }
 
-// Deprecating astra_primary_header_main_rt_section filter.
-add_filter( 'astra_header_section_elements', 'deprecated_astra_primary_header_main_rt_section', 10, 2 );
+// Deprecating kemet_primary_header_main_rt_section filter.
+add_filter( 'kemet_header_section_elements', 'deprecated_kemet_primary_header_main_rt_section', 10, 2 );
 
 /**
- * Astra Header elements.
+ * Kemet Header elements.
  *
  * @since 1.2.2
  * @param array  $elements List of elements.
  * @param string $header Header section type.
  * @return array
  */
-function deprecated_astra_primary_header_main_rt_section( $elements, $header ) {
+function deprecated_kemet_primary_header_main_rt_section( $elements, $header ) {
 
-	$elements = astra_apply_filters_deprecated( 'astra_primary_header_main_rt_section', array( $elements, $header ), '1.2.2', 'astra_header_section_elements', '' );
+	$elements = kemet_apply_filters_deprecated( 'kemet_primary_header_main_rt_section', array( $elements, $header ), '1.2.2', 'kemet_header_section_elements', '' );
 
 	return $elements;
 }
 
-if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
+if ( ! function_exists( 'kemet_apply_filters_deprecated' ) ) {
 	/**
-	 * Astra Filter Deprecated
+	 * Kemet Filter Deprecated
 	 *
 	 * @since 1.1.1
 	 * @param string $tag         The name of the filter hook.
@@ -77,7 +77,7 @@ if ( ! function_exists( 'astra_apply_filters_deprecated' ) ) {
 	 * @param string $replacement Optional. The hook that should have been used. Default false.
 	 * @param string $message     Optional. A message regarding the change. Default null.
 	 */
-	function astra_apply_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+	function kemet_apply_filters_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
 		if ( function_exists( 'apply_filters_deprecated' ) ) { /* WP >= 4.6 */
 			return apply_filters_deprecated( $tag, $args, $version, $replacement, $message );
 		} else {

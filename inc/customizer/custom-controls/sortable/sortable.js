@@ -3,10 +3,10 @@
  *
  * Handles sortable list
  *
- * @package Astra
+ * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-sortable'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-sortable'] = wp.customize.Control.extend({
 
 		ready: function() {
 

@@ -1,7 +1,7 @@
 /**
  * Customizer controls
  *
- * @package Astra
+ * @package Kemet
  */
 
 ( function( $ ) {
@@ -12,39 +12,36 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since 1.0.0
-	 * @class ASTCustomizer
+	 * @class KMTCustomizer
 	 */
-	ASTCustomizer = {
+	KMTCustomizer = {
 
 		controls	: {},
 
 		/**
 		 * Initializes our custom logic for the Customizer.
 		 *
-		 * @since 1.0.0
 		 * @method init
 		 */
 		init: function()
 		{
-			ASTCustomizer._initToggles();
+			KMTCustomizer._initToggles();
 		},
 
 		/**
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initToggles
 		 */
 		_initToggles: function()
 		{
 			// Trigger the Adv Tab Click trigger.
-			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
+			KMTControlTrigger.triggerHook( 'kemet-toggle-control', api );
 
 			// Loop through each setting.
-			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
+			$.each( KMTCustomizerToggles, function( settingId, toggles ) {
 
 				// Get the setting object.
 				api( settingId, function( setting ) {
@@ -95,9 +92,9 @@
 									});
 
 									if ( ! visibleIt ) {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+										$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'kmt-hide' );
 									} else {
-										$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+										$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'kmt-hide' );
 									}
 								}
 							});
@@ -124,9 +121,9 @@
 							});
 
 							if ( ! visibleIt ) {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'ast-hide' );
+								$( '.control-section[aria-owns="' + parentId + '"]' ).addClass( 'kmt-hide' );
 							} else {
-								$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'ast-hide' );
+								$( '.control-section[aria-owns="' + parentId + '"]' ).removeClass( 'kmt-hide' );
 							}
 						}
 					});
@@ -136,19 +133,6 @@
 		}
 	};
 
-	$( function() { ASTCustomizer.init(); } );
+	$( function() { KMTCustomizer.init(); } );
 
 })( jQuery );
-
-
-( function( api ) {
-    // Extends our custom astra-pro section.
-    api.sectionConstructor['astra-pro'] = api.Section.extend( {
-        // No events for this type of section.
-        attachEvents: function () {},
-        // Always make the section active.
-        isContextuallyActive: function () {
-            return true;
-        }
-    } );
-} )( wp.customize );

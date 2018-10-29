@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'kmt-logo';
+	src:    url('fonts/kmt-logo.eot?476cfz');
+	src:    url('fonts/kmt-logo.eot?476cfz#iefix') format('embedded-opentype'),
+		url('fonts/kmt-logo.ttf?476cfz') format('truetype'),
+		url('fonts/kmt-logo.woff?476cfz') format('woff'),
+		url('fonts/kmt-logo.svg?476cfz#kmt-logo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+#wp-admin-bar-kemet .ab-icon:before,
+#toplevel_page_kemet .wp-menu-image:before,
+[class^="kmt-icon-"],
+[class*=" kmt-icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'kmt-logo' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#wp-admin-bar-kemet .ab-icon:before,
+#toplevel_page_kemet .wp-menu-image:before,
+.kmt-icon-logo:before {
+	content: "\e900" !important;
+}
+
+#side-sortables #kemet_settings_meta_box select {
+	min-width: 100%;
+}
+
+#normal-sortables #kemet_settings_meta_box select {
+	min-width: 200px;
+}
+
+.customize-control {
+	position: relative;
+}
+
+.customize-control .kmt-control-tooltip {
+    position: absolute;
+    top: 6px;
+    right: 0;
+}
+.customize-control.customize-control-kmt-divider .kmt-control-tooltip {
+    position: absolute;
+    top: auto;
+    bottom: 3px;
+    right: 0;
+}

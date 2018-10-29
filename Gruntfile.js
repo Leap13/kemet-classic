@@ -28,7 +28,7 @@ module.exports = function (grunt) {
                                     '*.css',
                                     '!*-rtl.css',
                                     '!font-awesome.css',
-                                    '!astra-fonts.css',
+                                    '!kemet-fonts.css',
                                 ],
                             dest: 'assets/css/unminified',
                             ext: '-rtl.css'
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
                                     '*.css',
                                     '!*-rtl.css',
                                     '!font-awesome.css',
-                                    '!astra-fonts.css',
+                                    '!kemet-fonts.css',
                                 ],
                             dest: 'assets/css/unminified/compatibility',
                             ext: '-rtl.css'
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
                                     '*.css',
                                     '!*-rtl.css',
                                     '!font-awesome.css',
-                                    '!astra-fonts.css',
+                                    '!kemet-fonts.css',
                                 ],
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '-rtl.css'
@@ -269,20 +269,20 @@ module.exports = function (grunt) {
                         '!package-lock.json',
                         '!phpcs.xml.dist',
                     ],
-                    dest: 'astra/'
+                    dest: 'kemet/'
                 }
             },
 
             compress: {
                 main: {
                     options: {
-                        archive: 'astra-' + pkgInfo.version + '.zip',
+                        archive: 'kemet-' + pkgInfo.version + '.zip',
                         mode: 'zip'
                     },
                     files: [
                         {
                             src: [
-                                './astra/**'
+                                './kemet/**'
                             ]
 
                         }
@@ -291,7 +291,7 @@ module.exports = function (grunt) {
             },
 
             clean: {
-                main: ["astra"],
+                main: ["kemet"],
                 zip: ["*.zip"]
 
             },
@@ -300,7 +300,7 @@ module.exports = function (grunt) {
                 target: {
                     options: {
                         domainPath: '/',
-                        potFilename: 'languages/astra.pot',
+                        potFilename: 'languages/kemet.pot',
                         potHeaders: {
                             poedit: true,
                             'x-poedit-keywordslist': true
@@ -313,7 +313,7 @@ module.exports = function (grunt) {
 
             addtextdomain: {
                 options: {
-                    textdomain: 'astra',
+                    textdomain: 'kemet',
                 },
                 target: {
                     files: {

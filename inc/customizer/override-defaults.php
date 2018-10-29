@@ -2,11 +2,11 @@
 /**
  * Override default customizer panels, sections, settings or controls.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
 /**
@@ -32,9 +32,9 @@ $wp_customize->get_control( 'header_textcolor' )->priority = 8;
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial(
 		'blogname', array(
-			'selector'            => '.main-header-bar .site-title a,  .ast-small-footer-wrap .ast-footer-site-title',
+			'selector'            => '.main-header-bar .site-title a,  .kmt-small-footer-wrap .kmt-footer-site-title',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_title' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_partial_site_title' ),
 		)
 	);
 }
@@ -44,7 +44,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		'blogdescription', array(
 			'selector'            => '.main-header-bar .site-description',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', '_render_partial_site_tagline' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_partial_site_tagline' ),
 		)
 	);
 }

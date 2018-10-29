@@ -6,28 +6,28 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 
 ?>
-			<?php astra_content_bottom(); ?>
+			<?php kemet_content_bottom(); ?>
 
-			</div> <!-- ast-container -->
+			</div> <!-- kmt-container -->
 
 		</div><!-- #content -->
 
-		<?php astra_content_after(); ?>
+		<?php kemet_content_after(); ?>
 
-		<?php astra_footer_before(); ?>
+		<?php kemet_footer_before(); ?>
 
-		<?php astra_footer(); ?>
+		<?php kemet_footer(); ?>
 
-		<?php astra_footer_after(); ?>
+		<?php kemet_footer_after(); ?>
 
 	</div><!-- #page -->
 
-	<?php astra_body_bottom(); ?>
+	<?php kemet_body_bottom(); ?>
 
 	<?php wp_footer(); ?>
 

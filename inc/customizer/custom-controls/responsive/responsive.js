@@ -3,10 +3,10 @@
  *
  * Handles the responsive
  *
- * @package Astra
+ * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-responsive'] = wp.customize.Control.extend({
 
 		// When we're finished loading continue processing.
 		ready: function() {
@@ -16,12 +16,12 @@
 			var control = this,
 		    value;
 
-			control.astResponsiveInit();
+			control.kmtResponsiveInit();
 			
 			/**
 			 * Save on change / keyup / paste
 			 */
-			this.container.on( 'change keyup paste', 'input.ast-responsive-input, select.ast-responsive-select', function() {
+			this.container.on( 'change keyup paste', 'input.kmt-responsive-input, select.kmt-responsive-select', function() {
 
 				value = jQuery( this ).val();
 
@@ -55,9 +55,9 @@
 		    newValue = {};
 
 		    // Set the spacing container.
-			control.responsiveContainer = control.container.find( '.ast-responsive-wrapper' ).first();
+			control.responsiveContainer = control.container.find( '.kmt-responsive-wrapper' ).first();
 
-			control.responsiveContainer.find( 'input.ast-responsive-input' ).each( function() {
+			control.responsiveContainer.find( 'input.kmt-responsive-input' ).each( function() {
 				var responsive_input = jQuery( this ),
 				item = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
@@ -66,7 +66,7 @@
 
 			});
 
-			control.responsiveContainer.find( 'select.ast-responsive-select' ).each( function() {
+			control.responsiveContainer.find( 'select.kmt-responsive-select' ).each( function() {
 				var responsive_input = jQuery( this ),
 				item = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
@@ -77,10 +77,10 @@
 			control.setting.set( newValue );
 		},
 
-		astResponsiveInit : function() {
+		kmtResponsiveInit : function() {
 			
 			'use strict';
-			this.container.find( '.ast-responsive-btns button' ).on( 'click', function( event ) {
+			this.container.find( '.kmt-responsive-btns button' ).on( 'click', function( event ) {
 
 				var device = jQuery(this).attr('data-device');
 				if( 'desktop' == device ) {
@@ -100,6 +100,6 @@
 
 		var device = jQuery(this).attr('data-device');
 
-		jQuery( '.customize-control-ast-responsive .input-wrapper input, .customize-control .ast-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-ast-responsive .input-wrapper input.' + device + ', .customize-control .ast-responsive-btns > li.' + device ).addClass( 'active' );
+		jQuery( '.customize-control-kmt-responsive .input-wrapper input, .customize-control .kmt-responsive-btns > li' ).removeClass( 'active' );
+		jQuery( '.customize-control-kmt-responsive .input-wrapper input.' + device + ', .customize-control .kmt-responsive-btns > li.' + device ).addClass( 'active' );
 	});

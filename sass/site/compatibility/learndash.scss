@@ -3,7 +3,7 @@
  */
 
 /**
- * Astra Theme compatibility with LearnDash
+ * Kemet Theme compatibility with LearnDash
  */
 @import "../mixins/mixins-master";
 @import "../../grid/variables";
@@ -11,8 +11,8 @@
 @import "../variables-site/colors";
 
 
-.ast-page-builder-template,
-.ast-page-builder-template.single{
+.kmt-page-builder-template,
+.kmt-page-builder-template.single{
 	.sfwd-courses,
 	.sfwd-lessons,
 	.sfwd-topic,
@@ -31,7 +31,7 @@
 	.sfwd-certificates{
 		.entry-header{
 			margin-bottom: .5em;
-			.ast-single-post-order + .post-thumb img {
+			.kmt-single-post-order + .post-thumb img {
 				margin-top: 1em;
 				margin-bottom: 1em;	
 			}
@@ -39,7 +39,7 @@
 	}
 	.sfwd-lessons{
 		.learndash_content{
-			.ast-oembed-container{
+			.kmt-oembed-container{
 				margin-bottom: 1.6em
 			}
 		}
@@ -62,7 +62,7 @@
 		&:before {
 			content: "\e903";
 			display: inline-block;
-			font-family: 'Astra';
+			font-family: 'Kemet';
 			text-rendering: auto;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -100,7 +100,7 @@
 		&:before {
 			content: "\e903";
 			display: inline-block;
-			font-family: 'Astra';
+			font-family: 'Kemet';
 			text-rendering: auto;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -290,7 +290,7 @@ body {
 				&:before {
 					content: "\e903";
 					display: inline-block;
-					font-family: 'Astra';
+					font-family: 'Kemet';
 					text-rendering: auto;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
@@ -448,7 +448,7 @@ body {
 		}
 		&:before {
 		    display: inline-block;
-		    font-family: 'Astra';
+		    font-family: 'Kemet';
 		    text-rendering: auto;
 		    -webkit-font-smoothing: antialiased;
 		    -moz-osx-font-smoothing: grayscale;
@@ -546,7 +546,7 @@ body {
 
 				&:before {
 				    content: "\e902";
-				    font-family: 'Astra';
+				    font-family: 'Kemet';
 				    text-rendering: auto;
 				    -webkit-font-smoothing: antialiased;
 				    -moz-osx-font-smoothing: grayscale;
@@ -844,7 +844,7 @@ body {
 
 					&:before {
 						content: "\e5d2";
-						font-family: Astra;
+						font-family: Kemet;
 						font-size: 1.25em;
 						line-height: 1;
 						vertical-align: middle;
@@ -904,7 +904,7 @@ body {
 
 					&:before {
 						content: "\e5d2";
-						font-family: Astra;
+						font-family: Kemet;
 						font-size: 1.25em;
 						line-height: 1;
 						vertical-align: middle;

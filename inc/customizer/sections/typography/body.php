@@ -1,12 +1,12 @@
 <?php
 /**
- * Body Typography Options for Astra Theme.
+ * Body Typography Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body & Content Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-base-typo]', array(
-				'type'     => 'ast-divider',
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-base-typo]', array(
+				'type'     => 'kmt-divider',
 				'section'  => 'section-body-typo',
 				'priority' => 4,
-				'label'    => __( 'Body & Content', 'astra' ),
+				'label'    => __( 'Body & Content', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -32,22 +32,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Family
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-font-family]', array(
-			'default'           => astra_get_option( 'body-font-family' ),
+		KEMET_THEME_SETTINGS . '[body-font-family]', array(
+			'default'           => kemet_get_option( 'body-font-family' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 
 	$wp_customize->add_control(
-		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-font-family]', array(
-				'type'        => 'ast-font-family',
-				'ast_inherit' => __( 'Default System Font', 'astra' ),
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
+				'type'        => 'kmt-font-family',
+				'kmt_inherit' => __( 'Default System Font', 'kemet' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 5,
-				'label'       => __( 'Font Family', 'astra' ),
-				'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
+				'label'       => __( 'Font Family', 'kemet' ),
+				'connect'     => KEMET_THEME_SETTINGS . '[body-font-weight]',
 			)
 		)
 	);
@@ -56,21 +56,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Font Weight
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
-			'default'           => astra_get_option( 'body-font-weight' ),
+		KEMET_THEME_SETTINGS . '[body-font-weight]', array(
+			'default'           => kemet_get_option( 'body-font-weight' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-font-weight]', array(
-				'type'        => 'ast-font-weight',
-				'ast_inherit' => __( 'Default', 'astra' ),
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
+				'type'        => 'kmt-font-weight',
+				'kmt_inherit' => __( 'Default', 'kemet' ),
 				'section'     => 'section-body-typo',
 				'priority'    => 10,
-				'label'       => __( 'Font Weight', 'astra' ),
-				'connect'     => ASTRA_THEME_SETTINGS . '[body-font-family]',
+				'label'       => __( 'Font Weight', 'kemet' ),
+				'connect'     => KEMET_THEME_SETTINGS . '[body-font-family]',
 			)
 		)
 	);
@@ -79,25 +79,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Text Transform
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-text-transform]', array(
-			'default'           => astra_get_option( 'body-text-transform' ),
+		KEMET_THEME_SETTINGS . '[body-text-transform]', array(
+			'default'           => kemet_get_option( 'body-text-transform' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[body-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[body-text-transform]', array(
 			'type'     => 'select',
 			'section'  => 'section-body-typo',
 			'priority' => 15,
-			'label'    => __( 'Text Transform', 'astra' ),
+			'label'    => __( 'Text Transform', 'kemet' ),
 			'choices'  => array(
-				''           => __( 'Default', 'astra' ),
-				'none'       => __( 'None', 'astra' ),
-				'capitalize' => __( 'Capitalize', 'astra' ),
-				'uppercase'  => __( 'Uppercase', 'astra' ),
-				'lowercase'  => __( 'Lowercase', 'astra' ),
+				''           => __( 'Default', 'kemet' ),
+				'none'       => __( 'None', 'kemet' ),
+				'capitalize' => __( 'Capitalize', 'kemet' ),
+				'uppercase'  => __( 'Uppercase', 'kemet' ),
+				'lowercase'  => __( 'Lowercase', 'kemet' ),
 			),
 		)
 	);
@@ -106,19 +106,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Font Size
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[font-size-body]', array(
-			'default'           => astra_get_option( 'font-size-body' ),
+		KEMET_THEME_SETTINGS . '[font-size-body]', array(
+			'default'           => kemet_get_option( 'font-size-body' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-body]', array(
-				'type'        => 'ast-responsive',
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
+				'type'        => 'kmt-responsive',
 				'section'     => 'section-body-typo',
 				'priority'    => 20,
-				'label'       => __( 'Font Size', 'astra' ),
+				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
@@ -133,20 +133,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body Line Height
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[body-line-height]', array(
+		KEMET_THEME_SETTINGS . '[body-line-height]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[body-line-height]', array(
-				'type'        => 'ast-slider',
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[body-line-height]', array(
+				'type'        => 'kmt-slider',
 				'section'     => 'section-body-typo',
 				'priority'    => 25,
-				'label'       => __( 'Line Height', 'astra' ),
+				'label'       => __( 'Line Height', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 1,
@@ -161,20 +161,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Paragraph Margin Bottom
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
+		KEMET_THEME_SETTINGS . '[para-margin-bottom]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[para-margin-bottom]', array(
-				'type'        => 'ast-slider',
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[para-margin-bottom]', array(
+				'type'        => 'kmt-slider',
 				'section'     => 'section-body-typo',
 				'priority'    => 25,
-				'label'       => __( 'Paragraph Margin Bottom', 'astra' ),
+				'label'       => __( 'Paragraph Margin Bottom', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 0.5,
@@ -189,12 +189,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Body & Content Divider
 	 */
 	$wp_customize->add_control(
-		new Astra_Control_Divider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-headings-typo]', array(
-				'type'     => 'ast-divider',
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-headings-typo]', array(
+				'type'     => 'kmt-divider',
 				'section'  => 'section-body-typo',
 				'priority' => 30,
-				'label'    => __( 'Headings', 'astra' ),
+				'label'    => __( 'Headings', 'kemet' ),
 				'settings' => array(),
 			)
 		)
@@ -204,20 +204,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Font Family
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-font-family]', array(
-			'default'           => astra_get_option( 'headings-font-family' ),
+		KEMET_THEME_SETTINGS . '[headings-font-family]', array(
+			'default'           => kemet_get_option( 'headings-font-family' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-family]', array(
-				'type'     => 'ast-font-family',
-				'label'    => __( 'Font Family', 'astra' ),
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[headings-font-family]', array(
+				'type'     => 'kmt-font-family',
+				'label'    => __( 'Font Family', 'kemet' ),
 				'section'  => 'section-body-typo',
 				'priority' => 35,
-				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-weight]',
+				'connect'  => KEMET_THEME_SETTINGS . '[headings-font-weight]',
 			)
 		)
 	);
@@ -226,20 +226,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Font Weight
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-font-weight]', array(
-			'default'           => astra_get_option( 'headings-font-weight' ),
+		KEMET_THEME_SETTINGS . '[headings-font-weight]', array(
+			'default'           => kemet_get_option( 'headings-font-weight' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Typography(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[headings-font-weight]', array(
-				'type'     => 'ast-font-weight',
-				'label'    => __( 'Font Weight', 'astra' ),
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[headings-font-weight]', array(
+				'type'     => 'kmt-font-weight',
+				'label'    => __( 'Font Weight', 'kemet' ),
 				'section'  => 'section-body-typo',
 				'priority' => 40,
-				'connect'  => ASTRA_THEME_SETTINGS . '[headings-font-family]',
+				'connect'  => KEMET_THEME_SETTINGS . '[headings-font-family]',
 			)
 		)
 	);
@@ -248,25 +248,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Headings Text Transform
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[headings-text-transform]', array(
-			'default'           => astra_get_option( 'headings-text-transform' ),
+		KEMET_THEME_SETTINGS . '[headings-text-transform]', array(
+			'default'           => kemet_get_option( 'headings-text-transform' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[headings-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[headings-text-transform]', array(
 			'section'  => 'section-body-typo',
-			'label'    => __( 'Text Transform', 'astra' ),
+			'label'    => __( 'Text Transform', 'kemet' ),
 			'type'     => 'select',
 			'priority' => 45,
 			'choices'  => array(
-				''           => __( 'Inherit', 'astra' ),
-				'none'       => __( 'None', 'astra' ),
-				'capitalize' => __( 'Capitalize', 'astra' ),
-				'uppercase'  => __( 'Uppercase', 'astra' ),
-				'lowercase'  => __( 'Lowercase', 'astra' ),
+				''           => __( 'Inherit', 'kemet' ),
+				'none'       => __( 'None', 'kemet' ),
+				'capitalize' => __( 'Capitalize', 'kemet' ),
+				'uppercase'  => __( 'Uppercase', 'kemet' ),
+				'lowercase'  => __( 'Lowercase', 'kemet' ),
 			),
 		)
 	);

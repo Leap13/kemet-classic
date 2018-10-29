@@ -23,7 +23,7 @@
  */
 
 /* Toggle Button */
-.ast-button-wrap {
+.kmt-button-wrap {
     display: inline-block;
     
     button {
@@ -62,7 +62,7 @@
     
 	    	&:before {
 		    	content: "\e5d2";
-				font-family: 'Astra';
+				font-family: 'Kemet';
 				text-decoration: inherit;
 			}
 		}
@@ -79,7 +79,7 @@
 	}
 }
 
-.ast-mobile-menu-buttons {
+.kmt-mobile-menu-buttons {
 	display: none;
 }
 
@@ -87,25 +87,25 @@
 	flex: 1;
 }
 
-.ast-main-header-bar-alignment {
+.kmt-main-header-bar-alignment {
 	flex: 1;
 }
 
 /* Responsive Screen */
-.ast-header-break-point {
+.kmt-header-break-point {
 
 	.user-select {
 		clear: both;
 	}
 
-	.ast-mobile-menu-buttons {
+	.kmt-mobile-menu-buttons {
 		display: block;
 	}
 
 	.main-header-bar-navigation {
 		flex: auto;
 	}
-	.ast-main-header-bar-alignment {
+	.kmt-main-header-bar-alignment {
 		display: block;
 	    width: 100%;
 	    flex: auto;

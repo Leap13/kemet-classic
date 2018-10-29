@@ -25,7 +25,7 @@
 	line-height: 1;
 }
 
-.ast-menu-toggle {
+.kmt-menu-toggle {
 	display: none;
 	background: transparent;
 	color: inherit;
@@ -67,11 +67,11 @@
 
 		.page_item_has_children > a:after,
 		.menu-item-has-children > a:after {
-			@include ast-has-child-menu-item();
+			@include kmt-has-child-menu-item();
 			line-height: normal;
 		}
 
-		.ast-search-icon {
+		.kmt-search-icon {
 			display: block;
 			z-index: 4;
 			position: relative;
@@ -85,7 +85,7 @@
 		}
 	}
 }
-.ast-search-menu-icon {
+.kmt-search-menu-icon {
 	visibility: hidden;
 	opacity: 0;
 	transition: all .2s;
@@ -95,7 +95,7 @@
 	top: 50%;
 	transform: translateY(-50%);
 
-	.astra-search-icon {
+	.kemet-search-icon {
 		line-height: normal;
 	}
 
@@ -103,7 +103,7 @@
 		border: 1px solid #e7e7e7;
 		line-height: 1;
 		padding: 0 3em 0 0;
-		@include ast-border-radius();
+		@include kmt-border-radius();
 		display: inline-block;
 		backface-visibility: hidden;
 		position: relative;
@@ -130,7 +130,7 @@
 
 	}
 
-	&.ast-dropdown-active {
+	&.kmt-dropdown-active {
 		visibility: visible;
 		opacity: 1;
 		.search-field {
@@ -139,7 +139,7 @@
 	}
 }
 
-li.ast-masthead-custom-menu-items {
+li.kmt-masthead-custom-menu-items {
 	padding: 0 1em;
 
 	a {
@@ -151,43 +151,43 @@ li.ast-masthead-custom-menu-items {
 	a:focus {
 		background: transparent;
 	}
-	.ast-search-icon .astra-search-icon {
+	.kmt-search-icon .kemet-search-icon {
 		line-height: 1;
 	}
 }
 
-.ast-primary-menu-disabled{
+.kmt-primary-menu-disabled{
 	
-	.ast-masthead-custom-menu-items {
+	.kmt-masthead-custom-menu-items {
 		flex: 1;
 		text-align: right;
 	}
 
 	&.header-main-layout-2 {
-		.ast-masthead-custom-menu-items {
+		.kmt-masthead-custom-menu-items {
 			text-align: center;
 		}
 	}
 	
 	&.header-main-layout-3 {
-		.ast-masthead-custom-menu-items {
+		.kmt-masthead-custom-menu-items {
 			text-align: left;
 		}
 	}	
 }
 
-.ast-masthead-custom-menu-items{
+.kmt-masthead-custom-menu-items{
 	padding: 0 1em;
-	.ast-search-icon .astra-search-icon {
+	.kmt-search-icon .kemet-search-icon {
 		line-height: 1;
 	}
 }
 
-.ast-header-break-point {
+.kmt-header-break-point {
 
-	&.ast-header-custom-item-outside {
-		.ast-primary-menu-disabled{
-			.ast-mobile-menu-buttons {
+	&.kmt-header-custom-item-outside {
+		.kmt-primary-menu-disabled{
+			.kmt-mobile-menu-buttons {
 				display: none;
 			}
 		}
@@ -198,19 +198,19 @@ li.ast-masthead-custom-menu-items {
 		align-self: center;
 		padding-bottom: 1.5em;
 	}
-	ul li.ast-masthead-custom-menu-items a {
+	ul li.kmt-masthead-custom-menu-items a {
 		padding: 0;
 		width: auto;
 		display: initial;
 	}
 
-	li.ast-masthead-custom-menu-items {
+	li.kmt-masthead-custom-menu-items {
 		padding-left: 20px;
 		padding-right: 20px;
 		margin-bottom: 1em;
 		margin-top: 1em;
 	}
-	.ast-site-identity {
+	.kmt-site-identity {
 		padding: 0;
 	}
 	.main-header-bar-navigation {
@@ -242,7 +242,7 @@ li.ast-masthead-custom-menu-items {
 					display:none;
 				}
 
-				> .ast-menu-toggle {
+				> .kmt-menu-toggle {
 
 					display: inline-block;
 					position: absolute;
@@ -259,14 +259,14 @@ li.ast-masthead-custom-menu-items {
 					&::before {
 						font-weight: bold;
 						content: "\e900";
-						font-family: 'Astra';
+						font-family: 'Kemet';
 						text-decoration: inherit;
 						display: inline-block;
 					}
 				}
 			}
-			.ast-submenu-expanded {
-				>.ast-menu-toggle::before {
+			.kmt-submenu-expanded {
+				>.kmt-menu-toggle::before {
 				   transform: rotateX(180deg);
 				}
 			}
@@ -277,7 +277,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
-	.ast-search-menu-icon {
+	.kmt-search-menu-icon {
 		position: relative;
 		display: block;
 		right: auto;
@@ -327,13 +327,13 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 
-	&.ast-header-custom-item-outside {
+	&.kmt-header-custom-item-outside {
 
-		.ast-search-icon {
+		.kmt-search-icon {
 			display: none;
 		}
 
-		.ast-mobile-menu-buttons {
+		.kmt-mobile-menu-buttons {
 			order: 2;
 		}
 
@@ -341,13 +341,13 @@ li.ast-masthead-custom-menu-items {
 			order: 3;
 		}
 
-		.ast-masthead-custom-menu-items {
+		.kmt-masthead-custom-menu-items {
 			padding-bottom: 1.5em;
 			order: 1;
 		}
 
 		.header-main-layout-2 {
-			.ast-masthead-custom-menu-items {
+			.kmt-masthead-custom-menu-items {
 				text-align: center;
 			}
 		}

@@ -1,12 +1,12 @@
 <?php
 /**
- * Buttons for Astra Theme.
+ * Buttons for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,17 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-color]', array(
+		KEMET_THEME_SETTINGS . '[button-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[button-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[button-color]', array(
 				'section' => 'section-buttons',
-				'label'   => __( 'Button Text Color', 'astra' ),
+				'label'   => __( 'Button Text Color', 'kemet' ),
 			)
 		)
 	);
@@ -36,17 +36,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Hover Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-h-color]', array(
+		KEMET_THEME_SETTINGS . '[button-h-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[button-h-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[button-h-color]', array(
 				'section' => 'section-buttons',
-				'label'   => __( 'Button Text Hover Color', 'astra' ),
+				'label'   => __( 'Button Text Hover Color', 'kemet' ),
 			)
 		)
 	);
@@ -55,17 +55,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
+		KEMET_THEME_SETTINGS . '[button-bg-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[button-bg-color]', array(
 				'section' => 'section-buttons',
-				'label'   => __( 'Button Background Color', 'astra' ),
+				'label'   => __( 'Button Background Color', 'kemet' ),
 			)
 		)
 	);
@@ -74,17 +74,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Background Hover Color
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
+		KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[button-bg-h-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
 				'section' => 'section-buttons',
-				'label'   => __( 'Button Background Hover Color', 'astra' ),
+				'label'   => __( 'Button Background Hover Color', 'kemet' ),
 			)
 		)
 	);
@@ -93,17 +93,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Button Radius
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-radius]', array(
-			'default'           => astra_get_option( 'button-radius' ),
+		KEMET_THEME_SETTINGS . '[button-radius]', array(
+			'default'           => kemet_get_option( 'button-radius' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[button-radius]', array(
+		KEMET_THEME_SETTINGS . '[button-radius]', array(
 			'section'     => 'section-buttons',
-			'label'       => __( 'Button Radius', 'astra' ),
+			'label'       => __( 'Button Radius', 'kemet' ),
 			'type'        => 'number',
 			'input_attrs' => array(
 				'min'  => 0,
@@ -117,17 +117,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Vertical Padding
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-v-padding]', array(
-			'default'           => astra_get_option( 'button-v-padding' ),
+		KEMET_THEME_SETTINGS . '[button-v-padding]', array(
+			'default'           => kemet_get_option( 'button-v-padding' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[button-v-padding]', array(
+		KEMET_THEME_SETTINGS . '[button-v-padding]', array(
 			'section'     => 'section-buttons',
-			'label'       => __( 'Vertical Padding', 'astra' ),
+			'label'       => __( 'Vertical Padding', 'kemet' ),
 			'type'        => 'number',
 			'input_attrs' => array(
 				'min'  => 1,
@@ -141,17 +141,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Horizontal Padding
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[button-h-padding]', array(
-			'default'           => astra_get_option( 'button-h-padding' ),
+		KEMET_THEME_SETTINGS . '[button-h-padding]', array(
+			'default'           => kemet_get_option( 'button-h-padding' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[button-h-padding]', array(
+		KEMET_THEME_SETTINGS . '[button-h-padding]', array(
 			'section'     => 'section-buttons',
-			'label'       => __( 'Horizontal Padding', 'astra' ),
+			'label'       => __( 'Horizontal Padding', 'kemet' ),
 			'type'        => 'number',
 			'input_attrs' => array(
 				'min'  => 1,

@@ -2,11 +2,11 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
- * @since       1.2.0
+ * @package     Kemet
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,22 +17,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Course Columns
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
+		KEMET_THEME_SETTINGS . '[llms-course-grid]', array(
 			'default'           => array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
 			),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-course-grid]', array(
-				'type'        => 'ast-responsive-slider',
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[llms-course-grid]', array(
+				'type'        => 'kmt-responsive-slider',
 				'section'     => 'section-lifterlms',
-				'label'       => __( 'Course Columns', 'astra' ),
+				'label'       => __( 'Course Columns', 'kemet' ),
 				'priority'    => 0,
 				'input_attrs' => array(
 					'step' => 1,
@@ -47,22 +47,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Membership Columns
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
+		KEMET_THEME_SETTINGS . '[llms-membership-grid]', array(
 			'default'           => array(
 				'desktop' => 3,
 				'tablet'  => 2,
 				'mobile'  => 1,
 			),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Astra_Control_Responsive_Slider(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[llms-membership-grid]', array(
-				'type'        => 'ast-responsive-slider',
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[llms-membership-grid]', array(
+				'type'        => 'kmt-responsive-slider',
 				'section'     => 'section-lifterlms',
-				'label'       => __( 'Membership Columns', 'astra' ),
+				'label'       => __( 'Membership Columns', 'kemet' ),
 				'priority'    => 0,
 				'input_attrs' => array(
 					'step' => 1,

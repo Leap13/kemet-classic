@@ -73,33 +73,33 @@
 .customize-control-slider input[type=range]::-ms-tooltip {
 	display: none;
 }
-.customize-control-slider .ast-range-value {
+.customize-control-slider .kmt-range-value {
     display: inline-block;
     padding: 0 5px;
     position: relative;
     top: 1px;
 }
-.customize-control-slider input#ast-range-value-input {
+.customize-control-slider input#kmt-range-value-input {
 	width: 42px;
     height: 23px;
     font-size: 13px;
 }
-.customize-control-slider .ast-slider-reset {
+.customize-control-slider .kmt-slider-reset {
 	color: rgba(0,0,0,.2);
 	float: right;
 	-webkit-transition: color .5s ease-in;
 	transition: color .5s ease-in;
 }
-.customize-control-slider .ast-slider-reset span {
+.customize-control-slider .kmt-slider-reset span {
 	font-size: 16px;
 	line-height: 22px;
 	cursor: pointer;
 }
-.customize-control-slider .ast-slider-reset span:hover {
+.customize-control-slider .kmt-slider-reset span:hover {
 	color: red;
 }
 
-.control-section.ast-hide {
+.control-section.kmt-hide {
 	display: none !important;
 }
 
@@ -152,41 +152,4 @@
 .customize-pane-child > li[id$="-content-layout"] > label select,
 .customize-pane-child > li[id$="-sidebar-layout"] > label select {
     margin-left: 10px;
-}
-
-/**
- * Upgred To Astra Pro
-*/
-.control-section-astra-pro h3 {
-    margin: 0;
-   	padding: 1px 0;
-   	border: 0;
-    position: relative;
-}
-.control-section-astra-pro h3 a {
-    background: #FFF;
-    display: block;
-    padding: 11px 10px 12px 14px;
-    text-decoration: none;
-}
-.control-section-astra-pro h3 a:after {
-	content: "\f345";
-	position: absolute;
-	top: 11px;
-	right: 10px;
-	z-index: 1;
-	float: right;
-	border: none;
-	background: none;
-	font: normal 20px/1 dashicons;
-	speak: none;
-	display: block;
-	padding: 0;
-	text-indent: 0;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-.rtl .control-section-astra-pro h3 a:after {
-    content: "\f341";
 }

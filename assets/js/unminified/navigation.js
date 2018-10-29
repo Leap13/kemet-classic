@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables tab
  * support for dropdown menus.
  *
- * @package Astra
+ * @package Kemet
  */
 
 var isIE = false;
@@ -97,7 +97,7 @@ var toggleClass = function ( el, className ) {
 
 ( function() {
 
-	AstraNavigationMenu = function( parentList ) {
+	KemetNavigationMenu = function( parentList ) {
 
 		for (var i = 0; i < parentList.length; i++) {
 
@@ -106,7 +106,7 @@ var toggleClass = function ( el, className ) {
 				// Insert Toggle Button.
 				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
 					toggleButton.setAttribute("role", "button");
-					toggleButton.setAttribute("class", "ast-menu-toggle");
+					toggleButton.setAttribute("class", "kmt-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");
 					toggleButton.innerHTML="<span class='screen-reader-text'>Menu Toggle</span>";
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
@@ -122,29 +122,29 @@ var toggleClass = function ( el, className ) {
 
 				// Submenu items goes outside?
 				if( menuGoingOutside ) {
-					parentList[i].classList.add( 'ast-left-align-sub-menu' );
+					parentList[i].classList.add( 'kmt-left-align-sub-menu' );
 
 					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 					for (var k = 0; k < all_submenu_parents.length; k++) {
-						all_submenu_parents[k].classList.add( 'ast-left-align-sub-menu' );
+						all_submenu_parents[k].classList.add( 'kmt-left-align-sub-menu' );
 					}
 				}
 
 				// Submenu Container goes to outside?
 				if( menuFromLeft < 240 ) {
-					parentList[i].classList.add( 'ast-sub-menu-goes-outside' );
+					parentList[i].classList.add( 'kmt-sub-menu-goes-outside' );
 				}
 
 			};
 		};
 	};
 
-	AstraToggleMenu = function( astra_menu_toggle ) {
+	KemetToggleMenu = function( kemet_menu_toggle ) {
 		
 		/* Submenu button click */
-		for (var i = 0; i < astra_menu_toggle.length; i++) {
+		for (var i = 0; i < kemet_menu_toggle.length; i++) {
 
-			astra_menu_toggle[i].addEventListener( 'click', function ( event ) {
+			kemet_menu_toggle[i].addEventListener( 'click', function ( event ) {
 				event.preventDefault();
 
 				var parent_li = this.parentNode;
@@ -152,7 +152,7 @@ var toggleClass = function ( el, className ) {
 				var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for (var j = 0; j < parent_li_child.length; j++) {
 
-					parent_li_child[j].classList.remove( 'ast-submenu-expanded' );
+					parent_li_child[j].classList.remove( 'kmt-submenu-expanded' );
 					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );		
 					parent_li_child_sub_menu.style.display = 'none';
 				};
@@ -162,7 +162,7 @@ var toggleClass = function ( el, className ) {
 
 					if ( parent_li_sibling[j] != parent_li ) {
 
-						parent_li_sibling[j].classList.remove( 'ast-submenu-expanded' );
+						parent_li_sibling[j].classList.remove( 'kmt-submenu-expanded' );
 						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
 						for (var k = 0; k < all_sub_menu.length; k++) {		
 							all_sub_menu[k].style.display = 'none';		
@@ -171,8 +171,8 @@ var toggleClass = function ( el, className ) {
 				};
 
 				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
-					toggleClass( parent_li, 'ast-submenu-expanded' );
-					if ( parent_li.classList.contains( 'ast-submenu-expanded' ) ) {
+					toggleClass( parent_li, 'kmt-submenu-expanded' );
+					if ( parent_li.classList.contains( 'kmt-submenu-expanded' ) ) {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
 					} else {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
@@ -203,7 +203,7 @@ var toggleClass = function ( el, className ) {
 
 		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for ( var i = 0; i < menuHasChildren.length; i++ ) {
-					menuHasChildren[i].classList.remove( 'ast-submenu-expanded' );
+					menuHasChildren[i].classList.remove( 'kmt-submenu-expanded' );
 					var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
 					for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
 						menuHasChildrenSubMenu[j].style.display = 'none';		
@@ -227,15 +227,15 @@ var toggleClass = function ( el, className ) {
 			
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-				AstraNavigationMenu( parentList );
+				KemetNavigationMenu( parentList );
 			 	
-			 	var astra_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .ast-menu-toggle' );
-				AstraToggleMenu( astra_menu_toggle );
+			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .kmt-menu-toggle' );
+				KemetToggleMenu( kemet_menu_toggle );
 			}
 		};
 	}
 	
-	document.body.addEventListener("astra-header-responsive-enabled", function() {
+	document.body.addEventListener("kemet-header-responsive-enabled", function() {
 
 		if ( __main_header_all.length > 0 ) {
 
@@ -254,9 +254,9 @@ var toggleClass = function ( el, className ) {
 					child_menu[k].style.display = '';
 				}
 
-				var searchIcons = __main_header_all[i].getElementsByClassName( 'ast-search-menu-icon' );
+				var searchIcons = __main_header_all[i].getElementsByClassName( 'kmt-search-menu-icon' );
 				for ( var l = 0; l < searchIcons.length; l++ ) {
-					searchIcons[l].classList.remove( 'ast-dropdown-active' );
+					searchIcons[l].classList.remove( 'kmt-dropdown-active' );
 					searchIcons[l].style.display = '';
 				}
 			}
@@ -266,7 +266,7 @@ var toggleClass = function ( el, className ) {
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
-		var break_point = astra.break_point,
+		var break_point = kemet.break_point,
 			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
 
 		if ( headerWrap.length > 0  ) {
@@ -286,20 +286,20 @@ var toggleClass = function ( el, className ) {
 					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
 					header_content_bp = parseInt( header_content_bp );
 
-					// `ast-header-break-point` class will use for Responsive Style of Header.
+					// `kmt-header-break-point` class will use for Responsive Style of Header.
 					if ( header_content_bp != break_point ) {
 						//remove menu toggled class.
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
-						document.body.classList.remove( "ast-header-break-point" );
-						var responsive_enabled = new CustomEvent( "astra-header-responsive-enabled" );
+						document.body.classList.remove( "kmt-header-break-point" );
+						var responsive_enabled = new CustomEvent( "kemet-header-responsive-enabled" );
 						document.body.dispatchEvent( responsive_enabled );
 
 					} else {
 
-						document.body.classList.add( "ast-header-break-point" );
-						var responsive_disabled = new CustomEvent( "astra-header-responsive-disabled" );
+						document.body.classList.add( "kmt-header-break-point" );
+						var responsive_disabled = new CustomEvent( "kemet-header-responsive-disabled" );
 						document.body.dispatchEvent( responsive_disabled );
 					}
 				}
@@ -332,28 +332,28 @@ var toggleClass = function ( el, className ) {
 
 	    bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+		   bodyElement.classList.add( "kmt-safari-browser-less-than-11" );
 	    }
 	}
 
 	get_browser();
 	
 	/* Search Script */
-	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
+	var SearchIcons = document.getElementsByClassName( 'kemet-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
 		SearchIcons[i].onclick = function(event) {
 			if ( this.classList.contains( 'slide-search' ) ) {
 				event.preventDefault();
-				var sibling = this.parentNode.parentNode.querySelector( '.ast-search-menu-icon' );
-				if ( ! sibling.classList.contains( 'ast-dropdown-active' ) ) {
-					sibling.classList.add( 'ast-dropdown-active' );
+				var sibling = this.parentNode.parentNode.querySelector( '.kmt-search-menu-icon' );
+				if ( ! sibling.classList.contains( 'kmt-dropdown-active' ) ) {
+					sibling.classList.add( 'kmt-dropdown-active' );
 					sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
 					setTimeout(function() {
 						sibling.querySelector( '.search-field' ).focus();
 					},200);
 				} else {
-					sibling.classList.remove( 'ast-dropdown-active' );
+					sibling.classList.remove( 'kmt-dropdown-active' );
 				}
 			}
 		}
@@ -361,13 +361,13 @@ var toggleClass = function ( el, className ) {
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
-		if ( ! this.classList.contains( 'ast-header-break-point' ) ) {
-			if ( ! event.target.classList.contains( 'ast-search-menu-icon' ) && getParents( event.target, '.ast-search-menu-icon' ).length === 0 && getParents( event.target, '.ast-search-icon' ).length === 0  ) {
+		if ( ! this.classList.contains( 'kmt-header-break-point' ) ) {
+			if ( ! event.target.classList.contains( 'kmt-search-menu-icon' ) && getParents( event.target, '.kmt-search-menu-icon' ).length === 0 && getParents( event.target, '.kmt-search-icon' ).length === 0  ) {
 
-				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
+				var dropdownSearchWrap = document.getElementsByClassName( 'kmt-search-menu-icon' );
 
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
-					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
+					dropdownSearchWrap[i].classList.remove( 'kmt-dropdown-active' );
 				};
 			}
 		}

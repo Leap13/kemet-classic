@@ -4,19 +4,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 
-$sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
+$sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 ?>
 
-<div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php astra_secondary_class(); ?> role="complementary">
+<div itemtype="https://schema.org/WPSideBar" itemscope="itemscope" id="secondary" <?php kemet_secondary_class(); ?> role="complementary">
 
 	<div class="sidebar-main">
 
-		<?php astra_sidebars_before(); ?>
+		<?php kemet_sidebars_before(); ?>
 
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
 
@@ -24,7 +24,7 @@ $sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
 
 		<?php endif; ?>
 
-		<?php astra_sidebars_after(); ?>
+		<?php kemet_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->
 </div><!-- #secondary -->

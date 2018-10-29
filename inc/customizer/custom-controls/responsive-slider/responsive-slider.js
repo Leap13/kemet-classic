@@ -3,10 +3,10 @@
  *
  * Handles Slider control
  *
- * @package Astra
+ * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-responsive-slider'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.extend({
 
 		ready: function() {
 
@@ -18,23 +18,23 @@
 				inputDefault,
 				changeAction;
 
-			control.astResponsiveInit();
+			control.kmtResponsiveInit();
 
 			// Update the text value.
 			this.container.on( 'input change', 'input[type=range]', function() {
 				var value 		 = jQuery( this ).val(),
-					input_number = jQuery( this ).closest( '.input-field-wrapper' ).find( '.ast-responsive-range-value-input' );
+					input_number = jQuery( this ).closest( '.input-field-wrapper' ).find( '.kmt-responsive-range-value-input' );
 				
 				input_number.val( value );
 				input_number.trigger( 'change' );
 			});
 
 			// Handle the reset button.
-			this.container.on('click', '.ast-responsive-slider-reset', function() {
+			this.container.on('click', '.kmt-responsive-slider-reset', function() {
 				
 				var wrapper 		= jQuery( this ).parent().find('.input-field-wrapper.active'),
 					input_range   	= wrapper.find( 'input[type=range]' ),
-					input_number 	= wrapper.find( '.ast-responsive-range-value-input' ),
+					input_number 	= wrapper.find( '.kmt-responsive-range-value-input' ),
 					default_value	= input_range.data( 'reset_value' );
 
 				input_range.val( default_value );
@@ -64,7 +64,7 @@
 		    // Set the spacing container.
 			control.responsiveContainer = control.container.find( '.wrapper' ).first();
 
-			control.responsiveContainer.find( '.ast-responsive-range-value-input' ).each( function() {
+			control.responsiveContainer.find( '.kmt-responsive-range-value-input' ).each( function() {
 				var responsive_input = jQuery( this ),
 				item = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
@@ -76,9 +76,9 @@
 			control.setting.set( newValue );
 		},
 
-		astResponsiveInit : function() {
+		kmtResponsiveInit : function() {
 			
-			this.container.on( 'click', '.ast-responsive-slider-btns button', function( event ) {
+			this.container.on( 'click', '.kmt-responsive-slider-btns button', function( event ) {
 
 				event.preventDefault();
 				var device = jQuery(this).attr('data-device');
@@ -99,6 +99,6 @@
 
 		var device = jQuery(this).attr('data-device');
 
-		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper, .customize-control .ast-responsive-slider-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-ast-responsive-slider .input-field-wrapper.' + device + ', .customize-control .ast-responsive-slider-btns > li.' + device ).addClass( 'active' );
+		jQuery( '.customize-control-kmt-responsive-slider .input-field-wrapper, .customize-control .kmt-responsive-slider-btns > li' ).removeClass( 'active' );
+		jQuery( '.customize-control-kmt-responsive-slider .input-field-wrapper.' + device + ', .customize-control .kmt-responsive-slider-btns > li.' + device ).addClass( 'active' );
 	});

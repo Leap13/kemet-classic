@@ -1,71 +1,71 @@
 /**
  * Flexbox Framework
  *
- *  .ast - prefix
+ *  .kmt - prefix
  *
  *  Flex classes generated as {prefix} + {css property - css value} .
  *
- *  E.g. Here '.ast' is a prefix.
+ *  E.g. Here '.kmt' is a prefix.
  *
- *  .ast-flex
- *  .ast-flex-1
- *  .ast-flex-2
- *  .ast-flex-3
- *  .ast-flex-4
- *  .ast-flex-5
- *  .ast-inline-flex
- *  .ast-flex-direction-row
- *  .ast-flex-direction-row-reverse
- *  .ast-flex-direction-column
- *  .ast-flex-direction-column-reverse
- *  .ast-flex-wrap-nowrap
- *  .ast-flex-wrap-wrap
- *  .ast-flex-wrap-wrap-reverse
- *  .ast-justify-content-flex-start
- *  .ast-justify-content-flex-end
- *  .ast-justify-content-center
- *  .ast-justify-content-space-between
- *  .ast-justify-content-space-around
- *  .ast-align-items-flex-start
- *  .ast-align-items-flex-end
- *  .ast-align-items-center
- *  .ast-align-items-baseline
- *  .ast-align-items-stretch
- *  .ast-align-content-flex-start
- *  .ast-align-content-flex-end
- *  .ast-align-content-center
- *  .ast-align-content-space-between
- *  .ast-align-content-space-around
- *  .ast-align-content-stretch
- *  .ast-order-1
- *  .ast-order-2
- *  .ast-order-3
- *  .ast-order-4
- *  .ast-order-5
- *  .ast-flex-grow-1
- *  .ast-flex-grow-2
- *  .ast-flex-grow-3
- *  .ast-flex-grow-4
- *  .ast-flex-grow-5
- *  .ast-flex-shrink-grow-1
- *  .ast-flex-shrink-grow-2
- *  .ast-flex-shrink-grow-3
- *  .ast-flex-shrink-grow-4
- *  .ast-flex-shrink-grow-5
- *  .ast-flex-basis-grow-1
- *  .ast-flex-basis-grow-2
- *  .ast-flex-basis-grow-3
- *  .ast-flex-basis-grow-4
- *  .ast-flex-basis-grow-5
- *  .ast-align-self-auto
- *  .ast-align-self-flex-start
- *  .ast-align-self-flex-end
- *  .ast-align-self-center
- *  .ast-align-self-baseline
- *  .ast-align-self-stretch
+ *  .kmt-flex
+ *  .kmt-flex-1
+ *  .kmt-flex-2
+ *  .kmt-flex-3
+ *  .kmt-flex-4
+ *  .kmt-flex-5
+ *  .kmt-inline-flex
+ *  .kmt-flex-direction-row
+ *  .kmt-flex-direction-row-reverse
+ *  .kmt-flex-direction-column
+ *  .kmt-flex-direction-column-reverse
+ *  .kmt-flex-wrap-nowrap
+ *  .kmt-flex-wrap-wrap
+ *  .kmt-flex-wrap-wrap-reverse
+ *  .kmt-justify-content-flex-start
+ *  .kmt-justify-content-flex-end
+ *  .kmt-justify-content-center
+ *  .kmt-justify-content-space-between
+ *  .kmt-justify-content-space-around
+ *  .kmt-align-items-flex-start
+ *  .kmt-align-items-flex-end
+ *  .kmt-align-items-center
+ *  .kmt-align-items-baseline
+ *  .kmt-align-items-stretch
+ *  .kmt-align-content-flex-start
+ *  .kmt-align-content-flex-end
+ *  .kmt-align-content-center
+ *  .kmt-align-content-space-between
+ *  .kmt-align-content-space-around
+ *  .kmt-align-content-stretch
+ *  .kmt-order-1
+ *  .kmt-order-2
+ *  .kmt-order-3
+ *  .kmt-order-4
+ *  .kmt-order-5
+ *  .kmt-flex-grow-1
+ *  .kmt-flex-grow-2
+ *  .kmt-flex-grow-3
+ *  .kmt-flex-grow-4
+ *  .kmt-flex-grow-5
+ *  .kmt-flex-shrink-grow-1
+ *  .kmt-flex-shrink-grow-2
+ *  .kmt-flex-shrink-grow-3
+ *  .kmt-flex-shrink-grow-4
+ *  .kmt-flex-shrink-grow-5
+ *  .kmt-flex-basis-grow-1
+ *  .kmt-flex-basis-grow-2
+ *  .kmt-flex-basis-grow-3
+ *  .kmt-flex-basis-grow-4
+ *  .kmt-flex-basis-grow-5
+ *  .kmt-align-self-auto
+ *  .kmt-align-self-flex-start
+ *  .kmt-align-self-flex-end
+ *  .kmt-align-self-center
+ *  .kmt-align-self-baseline
+ *  .kmt-align-self-stretch
  */
 
-.ast {
+.kmt {
     
     /*
     # LAYOUT

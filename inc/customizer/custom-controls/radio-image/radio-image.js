@@ -3,10 +3,10 @@
  *
  * Handles toggling the radio images button
  *
- * @package Astra
+ * @package Kemet
  */
 
-	wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['kmt-radio-image'] = wp.customize.Control.extend({
 
 		ready: function() {
 

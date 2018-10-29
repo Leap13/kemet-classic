@@ -1,12 +1,12 @@
 <?php
 /**
- * WooCommerce Options for Astra Theme.
+ * WooCommerce Options for Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.1.0
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,16 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Disable Breadcrumb
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
-			'default'           => astra_get_option( 'enable-cart-upsells' ),
+		KEMET_THEME_SETTINGS . '[enable-cart-upsells]', array(
+			'default'           => kemet_get_option( 'enable-cart-upsells' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
 	);
 	$wp_customize->add_control(
-		ASTRA_THEME_SETTINGS . '[enable-cart-upsells]', array(
+		KEMET_THEME_SETTINGS . '[enable-cart-upsells]', array(
 			'section'  => 'section-woo-shop-cart',
-			'label'    => __( 'Enable Upsells', 'astra' ),
+			'label'    => __( 'Enable Upsells', 'kemet' ),
 			'priority' => 10,
 			'type'     => 'checkbox',
 		)

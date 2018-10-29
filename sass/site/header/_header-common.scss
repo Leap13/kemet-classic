@@ -46,7 +46,7 @@
 /**
  * 6 - all and (max-width: $mx-break-point)
  */
-.ast-header-break-point {
+.kmt-header-break-point {
 
     .main-header-bar {
         border: 0;
@@ -59,9 +59,9 @@
         border-bottom-color: #eaeaea;
         border-bottom-style: solid;
     }
-    .ast-header-custom-item{
+    .kmt-header-custom-item{
         border-top: 1px solid #eaeaea;
-        .ast-masthead-custom-menu-items{
+        .kmt-masthead-custom-menu-items{
             padding-left: 20px;
             padding-right: 20px;
             margin-bottom: 1em;
@@ -79,17 +79,17 @@
 .main-header-bar {
     margin-left: auto;
     margin-right: auto;
-    @include ast-transition();
+    @include kmt-transition();
 }
 
 .site-logo-img img {
-    @include ast-transition();
+    @include kmt-transition();
 }
 
 /**
  * 8 - Header Widget Area
  */
- .ast-header-widget-area{
+ .kmt-header-widget-area{
         line-height: 1.65;
         .widget-title,
         .no-widget-text{
@@ -121,7 +121,7 @@
         }
     }
  .submenu-with-border{
-    .ast-header-widget-area{
+    .kmt-header-widget-area{
         .widget{
             ul{
                 position: static;
@@ -134,8 +134,8 @@
         }
     }
 }
-.ast-header-break-point {
-     .ast-header-widget-area{
+.kmt-header-break-point {
+     .kmt-header-widget-area{
         .widget {
             margin: .5em 0;
             display: block;
@@ -146,7 +146,7 @@
 /**
  * 9 - Header Widget Area
  */
-.ast-header-custom-item{
+.kmt-header-custom-item{
     .widget {
         margin: 0.5em;
         display: inline-block;

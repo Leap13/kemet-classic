@@ -31,7 +31,7 @@ v1.3.2
 - Fix: Comments box not visible on the pages.
 
 v1.3.1
-- New: New filter `astra_site_title_tag` to change the HTML tag of the site title.
+- New: New filter `kemet_site_title_tag` to change the HTML tag of the site title.
 - Improvement: Improve RTL support for customizer controls.
 - Fix: Correct template part not being loaded for plugins that change the default WordPress template hierarchy. This fixes compatibility with plugins bbPress, LearnPress, PeepSo Core etc.
 - Fix: Background param color does not save then value when it is empty.
@@ -67,9 +67,9 @@ v1.2.5
 v1.2.4
 - New: Redesigned the welcome page.
 - Improvement: Separated the Theme Color & Link Color options.
-- Improvement: Added filter `astra_comment_form_title`  for comments title.
-- Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `astra_post_thumbnail_default_size`.
-- Improvement: Introduces filter `astra_allowed_fullwidth_oembed_providers` of providers to be made full width.
+- Improvement: Added filter `kemet_comment_form_title`  for comments title.
+- Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `kemet_post_thumbnail_default_size`.
+- Improvement: Introduces filter `kemet_allowed_fullwidth_oembed_providers` of providers to be made full width.
 - Improvement: Don't display post navigation on the LifterLMS Quizzes. (Props [thomasplevy](https://github.com/thomasplevy)).
 - Improvement: Add support for Course Builder for LifterLMS. Now Astra layout settings will be available for Quizzes in Course builder. (Props [thomasplevy](https://github.com/thomasplevy)).
 - Improvement: Added support for Content Layout option on LifterLMS quizzes via the builder.
@@ -138,8 +138,8 @@ v1.1.2
 
 v1.1.1
 - New: Added option to display inline the logo and site title/site description.
-- New: Added filter `astra_woocommerce_integration` to disable WooCommerce integration in Astra.
-- New: Added filter `astra_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
+- New: Added filter `kemet_woocommerce_integration` to disable WooCommerce integration in Astra.
+- New: Added filter `kemet_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
 - Fixed: PHP notice in the small footer on PHP 7.2
 - Fixed: Updated woocommerce Related products design for responsive devices.
 - Fixed: Deprecated filter fatal error in WordPress 4.5 & below.
@@ -154,7 +154,7 @@ v1.0.32
 - Fixed: Logo being croped in customizer preview.
 
 v1.0.31
-- New: Filter `astra_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
+- New: Filter `kemet_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
 - Fixed: Some SVG logos being not displayed.
 - Fixed: Thumbnail image not visible on blog page.
 
@@ -162,7 +162,7 @@ v1.0.30
 - Fixed: Regression in v1.0.29 which caused site logo to be full width.
 
 v1.0.29
-- New: Added filters `astra_post_read_more` and `astra_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
+- New: Added filters `kemet_post_read_more` and `kemet_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
 - Fix: Site SVG logo only visible if site title is enabled in some cases.
 
 v1.0.28
@@ -171,7 +171,7 @@ v1.0.28
 v1.0.27
 - Fix: Two primary menu navigation drop-down icon visible for responsive devices.
 - Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
-- Improvement: Renamed filter `astra_sigle_post_navigation_enabled` to `astra_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
+- Improvement: Renamed filter `kemet_sigle_post_navigation_enabled` to `kemet_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
 - Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
 
 v1.0.26
@@ -186,7 +186,7 @@ v1.0.24
 
 v1.0.23
 - Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
-- Improvement: Renamed filter `astra_color_palletes` to `astra_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
+- Improvement: Renamed filter `kemet_color_palletes` to `kemet_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
 - Fix: Mobile navigation breakpoint not working on IE11 and Edge.
 
 v1.0.22
@@ -198,10 +198,10 @@ v1.0.21
 - Updated the theme screenshot.
 
 v1.0.20
-- New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
+- New: Added filters for functions `kemet_get_option()` and `kemet_get_option_meta()`. This allows for modifying the theme options with very ease.
 - New: Added fullscreen support for any oEmbed markup.
-- New: Added filter 'astra_enable_default_fonts' to disable astra default font file.
-- New: Added filter 'astra_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
+- New: Added filter 'kemet_enable_default_fonts' to disable kemet default font file.
+- New: Added filter 'kemet_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
 - Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
 
 v1.0.19
@@ -221,8 +221,8 @@ v1.0.17
 - Improvement: Updated the latest google fonts. Also added a grunt command to make it easier to update the google fonts in the future.
 
 v1.0.16
-- Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
-- Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.
+- Improvement: Added new filter `kemet_render_fonts` to add the support for custom fonts.
+- Improvement: Added new action `kemet_customizer_font_list` to add the custom fonts list into customizer.
 - Improvement: Font size, Font weight, Line height updated for h1 to h6 and paragraph for Editor style.
 - Fixed: Default textarea height for contact form 7(https://wordpress.org/plugins/contact-form-7/) removed.
 - Improvement: Colors & Backgrounds for body renamed as Base Colors.
@@ -233,19 +233,19 @@ v1.0.15
 - New: Font family, font weight and text transform options implemented for Headings.
 - New: Footer Bar Color options Implemented.
 - New: Footer Widgets Color options Implemented.
-- Improvement: Added new filter `astra_the_post_id` to Enable or Disable title of archive posts.
+- Improvement: Added new filter `kemet_the_post_id` to Enable or Disable title of archive posts.
 - Fixed: System fonts should not call for googleapi.
 - Fixed: Featured images not showing up on Page after v1.0.14
 - Fixed: Notice - Getting property of Non-object variable with activated Visual Composer.
 
 v1.0.14
-- Improvement: Added new filter `astra_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
-- Improvement: Added new filter `astra_single_post_meta_enabled` to Enable or Disable meta on single post.
+- Improvement: Added new filter `kemet_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
+- Improvement: Added new filter `kemet_single_post_meta_enabled` to Enable or Disable meta on single post.
 - Fixed: Regression in v1.0.14 which caused page titles to be displayed on some of the pages.
 
 v1.0.13
 - New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
-- Improvement: Added new filter `astra_post_link_enabled` to Enable or Disable read more links on archive pages.
+- Improvement: Added new filter `kemet_post_link_enabled` to Enable or Disable read more links on archive pages.
 - Improvement: Renamed the layout option `Plain` with `Full Width / Contained`
 - Improvement: Renamed the layout option `Page Builder` with `Full Width / Streched`
 - Fixed: Extra space at above with `Full Width / Streched` Layout on page.
@@ -253,8 +253,8 @@ v1.0.13
 
 v1.0.12
 - New: 'Footer Widgets' added in customizer.
-- Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
-- Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
+- Improvement: 'kemet_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
+- Improvement: 'kemet_featured_image_enabled' filter added for Enable or Disable featured image.
 - Improvement: Smooth font Rendering style updated.
 - Fixed: Admin notice issue with Astra name.
 - Fixed: Fetal error while bb lite version is activated.
@@ -281,9 +281,9 @@ v1.0.7
 - Removed: Unwanted dyanamic css filter.
 
 v1.0.6
-- Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
+- Enhancement: Combined CSS files 'blog-layout-1' and 'kemet-font' files in style.css.
 - Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
-- Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
+- Enhancement: Used kemet_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
 - Fixed: RTL support for minified css files.
 - New: Typography option for Archive Summary Box.
 - Enhancement: Updated default heading font-size support for small devices.
@@ -299,7 +299,7 @@ v1.0.5.1
 - Fixed: Escaping implemented for Dynamic CSS
 
 v1.0.5
-- Enhancement: Updated customizer option prefix from 'ast-settings' with 'kemet-settings'
+- Enhancement: Updated customizer option prefix from 'kmt-settings' with 'kemet-settings'
 - Fixed: PHP Notice - Array to string conversion
 - Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
 - Fixed: Remove comment-form from add_theme_support( 'html5' )
@@ -321,7 +321,7 @@ v1.0.3.1
 - Removed functions that override WordPress global's.
 
 v1.0.3
-- Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
+- Enhancement: Removed option _kemet_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
 - Fixed: Content Layout meta working on beaver builder page/post.
 
 v1.0.2
@@ -334,7 +334,7 @@ v1.0.2
 - Improvement: Removed unwanted minified & unminified files.
 - Improvement: Removed unwanted constants.
 - Improvement: Removed unused variables when a classes are initialised.
-- Improvement: Moved hook astra_body_bottom at the top of the wp_footer hook.
+- Improvement: Moved hook kemet_body_bottom at the top of the wp_footer hook.
 - Improvement: Renamed the uabb theme compatibility functions to not include redundant prefix.
 - Improvement: Used get_bloginfo() instead of get_option('blogname').
 
@@ -342,7 +342,7 @@ v1.0.1.1
 - Added: Welcome screen for in theme page
 - Added: Theme page support in base theme.
 - Removed: Unwanted add_theme_supports.
-- Removed: Unused function 'astra_the_archive_title()'
+- Removed: Unused function 'kemet_the_archive_title()'
 - Removed: 'Walker_Nav_Menu' & 'Walker_Page' classes
 - Fixed: Theme page settings save message jerk issue.
 
@@ -352,7 +352,7 @@ v1.0.1
 - Properly use get_search_form() function.
 - Updated Theme Screenshot.
 - Updated Theme URI.
-- Changed text-domain as `astra`
+- Changed text-domain as `kemet`
 - Added flexibility unminified file.
 - Tweaked the code to skip need to override WordPress globals.
 - Fixed Terniary condition middle omittion not working in PHP < 5.3

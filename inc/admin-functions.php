@@ -2,32 +2,32 @@
 /**
  * Admin functions - Functions that add some functionality to WordPress admin panel
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 
 /**
  * Register menus
  */
-if ( ! function_exists( 'astra_register_menu_locations' ) ) {
+if ( ! function_exists( 'kemet_register_menu_locations' ) ) {
 
 	/**
 	 * Register menus
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_register_menu_locations() {
+	function kemet_register_menu_locations() {
 
 		/**
 		 * Menus
 		 */
 		register_nav_menus(
 			array(
-				'primary'     => __( 'Primary Menu', 'astra' ),
-				'footer_menu' => __( 'Footer Menu', 'astra' ),
+				'primary'     => __( 'Primary Menu', 'kemet' ),
+				'footer_menu' => __( 'Footer Menu', 'kemet' ),
 			)
 		);
 	}
 }
 
-add_action( 'init', 'astra_register_menu_locations' );
+add_action( 'init', 'kemet_register_menu_locations' );

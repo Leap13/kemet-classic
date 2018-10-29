@@ -1,8 +1,10 @@
+/* global kemetCustomizerControlBackground */
+
 jQuery(window).on("load", function() {
 	jQuery('html').addClass('background-colorpicker-ready');
 });
 
-wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing
 	ready: function() {
@@ -12,14 +14,14 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 		var control = this;
 
 		// Init the control.
-		control.initAstBgControl();
+		control.initKmtBgControl();
 	},
 
-	initAstBgControl: function() {
+	initKmtBgControl: function() {
 
 		var control = this,
 			value   = control.setting._value,
-			picker  = control.container.find( '.ast-color-control' );
+			picker  = control.container.find( '.kmt-color-control' );
 
 		// Hide unnecessary controls if the value doesn't have an image.
 		if ( _.isUndefined( value['background-image']) || '' === value['background-image']) {
@@ -137,11 +139,11 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			control.container.find( '.background-wrapper > .background-attachment' ).hide();
 			
 			control.container.find( '.more-settings' ).attr('data-direction', 'down');
-			control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+			control.container.find( '.more-settings' ).find('.message').html( kemetCustomizerControlBackground.moreSettings );
 			control.container.find( '.more-settings' ).find('.icon').html( '↓' );
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+				preview.removeClass().addClass( 'placeholder' ).html( kemetCustomizerControlBackground.placeholder );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();
@@ -158,11 +160,11 @@ wp.customize.controlConstructor['ast-background'] = wp.customize.Control.extend(
 			if( 'down' === $(this).attr( 'data-direction' ) )
 			{
 				$(this).attr('data-direction', 'up');
-				$(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				$(this).find('.message').html( kemetCustomizerControlBackground.lessSettings )
 				$(this).find('.icon').html( '↑' );
 			} else {
 				$(this).attr('data-direction', 'down');
-				$(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				$(this).find('.message').html( kemetCustomizerControlBackground.moreSettings )
 				$(this).find('.icon').html( '↓' );
 			}
 		});

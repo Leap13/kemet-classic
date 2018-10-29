@@ -4,22 +4,22 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Astra
+ * @package Kemet
  * @since 1.0.0
  */
 
 ?>
 
-<?php astra_entry_before(); ?>
+<?php kemet_entry_before(); ?>
 
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php astra_entry_top(); ?>
+	<?php kemet_entry_top(); ?>
 
-	<?php astra_entry_content_single(); ?>
+	<?php kemet_entry_content_single(); ?>
 
-	<?php astra_entry_bottom(); ?>
+	<?php kemet_entry_bottom(); ?>
 
 </article><!-- #post-## -->
 
-<?php astra_entry_after(); ?>
+<?php kemet_entry_after(); ?>

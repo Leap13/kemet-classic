@@ -43,7 +43,7 @@
 	}
 
 	li {
-		@include ast-transition();
+		@include kmt-transition();
 	}
 }
 
@@ -56,7 +56,7 @@
 		color: inherit;
 
 		&:after {
-			font-family: $font-family-astra;
+			font-family: $font-family-kemet;
 			font-size: 1.2em;
 			font-weight: normal;
 			content: "\e8b6";
@@ -135,7 +135,7 @@
 		    font-size: 14px;
 		    margin-right: 4px;
 		    line-height: 1.5;
-		    @include ast-transition();    
+		    @include kmt-transition();    
 		}
 	}
 }
@@ -199,9 +199,9 @@
 }
 
 //separate container content layout
-.ast-separate-container{
+.kmt-separate-container{
 	//two container content layout
-	&.ast-two-container{
+	&.kmt-two-container{
 		#secondary{
 			.widget{
 				background-color: $color-background-content;

@@ -1,21 +1,21 @@
 <?php
 /**
- * Deprecated Hooks of Astra Theme.
+ * Deprecated Hooks of Kemet Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        http://wpastra.com/
- * @since       Astra 1.0.23
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.23
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'astra_do_action_deprecated' ) ) {
+if ( ! function_exists( 'kemet_do_action_deprecated' ) ) {
 	/**
-	 * Astra Filter Deprecated
+	 * Kemet Filter Deprecated
 	 *
 	 * @since 1.1.1
 	 * @param string $tag         The name of the filter hook.
@@ -24,7 +24,7 @@ if ( ! function_exists( 'astra_do_action_deprecated' ) ) {
 	 * @param string $replacement Optional. The hook that should have been used. Default false.
 	 * @param string $message     Optional. A message regarding the change. Default null.
 	 */
-	function astra_do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
+	function kemet_do_action_deprecated( $tag, $args, $version, $replacement = false, $message = null ) {
 		if ( function_exists( 'do_action_deprecated' ) ) { /* WP >= 4.6 */
 			do_action_deprecated( $tag, $args, $version, $replacement, $message );
 		} else {

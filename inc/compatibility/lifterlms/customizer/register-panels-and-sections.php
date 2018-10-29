@@ -2,22 +2,22 @@
 /**
  * Register customizer panels & sections.
  *
- * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
- * @since       Astra 1.2.0
+ * @package     Kemet
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
+ * @since       Kemet 1.0.0
  */
 
 	/**
 	 * Section
 	 */
 	$wp_customize->add_section(
-		new Astra_WP_Customize_Section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-lifterlms',
 			array(
 				'priority' => 65,
-				'title'    => __( 'LifterLMS', 'astra' ),
+				'title'    => __( 'LifterLMS', 'kemet' ),
 				'panel'    => 'panel-layout',
 			)
 		)

@@ -1,13 +1,13 @@
-.customize-control-ast-description .ast-description {
+.customize-control-kmt-description .kmt-description {
   font-style: italic;
 }
 
-.customize-control-ast-description a.button {
+.customize-control-kmt-description a.button {
   margin-top: 5px;
   font-style: normal;
 }
 
-.customize-control-ast-description p {
+.customize-control-kmt-description p {
   margin: 0;
   cursor: initial;
 }

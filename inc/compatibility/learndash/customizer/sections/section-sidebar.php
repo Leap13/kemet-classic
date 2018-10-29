@@ -2,11 +2,11 @@
 /**
  * Content Spacing Options for our theme.
  *
- * @package     Astra
- * @author      Brainstorm Force
- * @copyright   Copyright (c) 2018, Brainstorm Force
- * @link        http://www.brainstormforce.com
- * @since       1.3.0
+ * @package     Kemet
+ * @author      Leap13
+ * @copyright   Copyright (c) 2018, Leap13
+ * @link        https://leap13.com/
+ * @since       1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,10 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Option: Divider
  */
 $wp_customize->add_control(
-	new Astra_Control_Divider(
-		$wp_customize, ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]', array(
+	new Kemet_Control_Divider(
+		$wp_customize, KEMET_THEME_SETTINGS . '[learndash-sidebar-layout-divider]', array(
 			'section'  => 'section-sidebars',
-			'type'     => 'ast-divider',
+			'type'     => 'kmt-divider',
 			'priority' => 5,
 			'settings' => array(),
 		)
@@ -31,24 +31,24 @@ $wp_customize->add_control(
  * Option: LearnDash
  */
 $wp_customize->add_setting(
-	ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
-		'default'           => astra_get_option( 'learndash-sidebar-layout' ),
+	KEMET_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
+		'default'           => kemet_get_option( 'learndash-sidebar-layout' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
 );
 $wp_customize->add_control(
-	ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
+	KEMET_THEME_SETTINGS . '[learndash-sidebar-layout]', array(
 		'type'        => 'select',
 		'section'     => 'section-sidebars',
 		'priority'    => 5,
-		'label'       => __( 'LearnDash', 'astra' ),
-		'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'astra' ),
+		'label'       => __( 'LearnDash', 'kemet' ),
+		'description' => __( 'This layout will apply on all single course, lesson, topic and quiz.', 'kemet' ),
 		'choices'     => array(
-			'default'       => __( 'Default', 'astra' ),
-			'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-			'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-			'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+			'default'       => __( 'Default', 'kemet' ),
+			'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+			'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+			'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 		),
 	)
 );

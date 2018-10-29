@@ -1,9 +1,9 @@
-.astra-search-icon {
+.kemet-search-icon {
 	vertical-align: middle;
 }
-.astra-search-icon::before {
+.kemet-search-icon::before {
 	content: "\e8b6";
-	font-family: 'Astra';
+	font-family: 'Kemet';
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: inherit;
@@ -12,7 +12,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.ast-search-icon .astra-search-icon {
+.kmt-search-icon .kemet-search-icon {
 	font-size: 1.3em;
 }
 
@@ -33,7 +33,7 @@
 		text-decoration: none;
 		padding: 0 1em;
 		display: inline-block;
-		@include ast-transition();
+		@include kmt-transition();
 	}
 
 	li {
@@ -46,8 +46,8 @@
 		}
 
 		@media (min-width: $col-md) {
-			&.ast-sub-menu-goes-outside:hover > ul,
-			&.ast-sub-menu-goes-outside.focus > ul {
+			&.kmt-sub-menu-goes-outside:hover > ul,
+			&.kmt-sub-menu-goes-outside.focus > ul {
 			    left: -100%;
 			}
 		}
@@ -69,14 +69,14 @@
 					right: auto;
 				}
 
-				&.ast-left-align-sub-menu:hover > ul,
-				&.ast-left-align-sub-menu.focus > ul {
+				&.kmt-left-align-sub-menu:hover > ul,
+				&.kmt-left-align-sub-menu.focus > ul {
 					left: -100%;
 				}
 			}
 
-			.main-header-menu li.ast-sub-menu-goes-outside:hover > ul,
-			.main-header-menu li.ast-sub-menu-goes-outside.focus > ul {
+			.main-header-menu li.kmt-sub-menu-goes-outside:hover > ul,
+			.main-header-menu li.kmt-sub-menu-goes-outside.focus > ul {
 			    left: -100%;
 			}
 		}
@@ -123,7 +123,7 @@
 	}
 }
 
-.ast-header-break-point {
+.kmt-header-break-point {
 	.main-navigation {
 		padding-left: 0;
 
@@ -168,7 +168,7 @@
 			}
 		}
 	}
-	.ast-header-custom-item {
+	.kmt-header-custom-item {
 		background-color: $color-background-nav-mobile;
 	}
 
@@ -182,15 +182,15 @@
 			border: 0;
 			width: auto;
 			li {
-				&.ast-left-align-sub-menu:hover > ul,
-				&.ast-left-align-sub-menu.focus > ul {
+				&.kmt-left-align-sub-menu:hover > ul,
+				&.kmt-left-align-sub-menu.focus > ul {
 					left: 0;
 				}
 			}
 		}
 		li {
-			&.ast-sub-menu-goes-outside:hover > ul,
-			&.ast-sub-menu-goes-outside.focus > ul {
+			&.kmt-sub-menu-goes-outside:hover > ul,
+			&.kmt-sub-menu-goes-outside.focus > ul {
 			    left: 0;
 			}
 		}
