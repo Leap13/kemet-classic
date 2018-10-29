@@ -300,7 +300,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 ( function( $ ) {
 
-	/*
+	/**
 	 * Site Identity Logo Width
 	 */
 	wp.customize( 'kemet-settings[kmt-header-responsive-logo-width]', function( setting ) {
@@ -317,7 +317,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
     
 
 
-	/*
+	/**
 	 * Full width layout
 	 */
 	wp.customize( 'kemet-settings[site-content-width]', function( setting ) {
@@ -338,7 +338,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
-	/*
+	/**
 	 * Full width layout
 	 */
 	wp.customize( 'kemet-settings[header-main-menu-label]', function( setting ) {
@@ -359,7 +359,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
-	/*
+	/**
 	 * Layout Body Background
 	 */
 	wp.customize( 'kemet-settings[site-layout-outside-bg-obj]', function( value ) {
@@ -371,7 +371,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
     
-    /*
+        /**
 	 * Boxed Inner Background
 	 */
 	wp.customize( 'kemet-settings[site-boxed-inner-bg]', function( value ) {
@@ -382,8 +382,19 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'site-boxed-inner-bg', dynamicStyle );
 		} );
 	} );
+        /**
+         * Footer Inner Background
+         */
+        wp.customize( 'kemet-settings[footer-site-boxed-inner-bg]', function( value ) {
+		value.bind( function( bg_obj ) {
 
-	/*
+			var dynamicStyle = '.footer-adv-overlay { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'footer-site-boxed-inner-bg', dynamicStyle );
+		} );
+	} );
+
+	/**
 	 * Blog Custom Width
 	 */
 	wp.customize( 'kemet-settings[blog-max-width]', function( setting ) {
@@ -405,7 +416,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
     
 
-	/*
+	/**
 	 * Single Blog Custom Width
 	 */
 	wp.customize( 'kemet-settings[blog-single-max-width]', function( setting ) {
@@ -566,15 +577,15 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Container Inner Spacing
 	 */
 	kemet_responsive_spacing( 'kemet-settings[container-inner-spacing]','.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
-   /**
+        /**
 	 * Site Identity Spacing
 	 */
 	kemet_responsive_spacing( 'kemet-settings[site-identity-spacing]','.site-header .kmt-site-identity', 'padding', ['top', 'right', 'bottom', 'left' ] );
     
-   /**
-     * Footer Padding
-     */
-   kemet_responsive_spacing( 'kemet-settings[footer-padding]','.footer-adv-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+        /**
+         * Footer Padding
+         */
+        kemet_responsive_spacing( 'kemet-settings[footer-padding]','.footer-adv-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 
 
    
@@ -616,7 +627,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
 	kemet_css( 'kemet-settings[footer-link-color]', 'color', '.kmt-small-footer a' );
 	kemet_css( 'kemet-settings[footer-link-h-color]', 'color', '.kmt-small-footer a:hover' );
-   kemet_css( 'kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-title, .page-title' );
+        kemet_css( 'kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-title, .page-title' );
 
 	wp.customize( 'kemet-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
@@ -641,7 +652,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
-	/*
+	/**
 	 * Woocommerce Shop Archive Custom Width
 	 */
 	wp.customize( 'kemet-settings[shop-archive-max-width]', function( setting ) {

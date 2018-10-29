@@ -70,7 +70,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
          // Boxed inner Options
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' );
          $container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
-
+         
+         
+         
+                        // Footer Background Image
+                        $footer_box_bg_inner_boxed = kemet_get_option( 'footer-site-boxed-inner-bg' );
 			// Color Options.
 			$text_color       = kemet_get_option( 'text-color' );
 			$theme_color      = kemet_get_option( 'theme-color' );
@@ -205,7 +209,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                         => array(
 					'width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
-                /* Site Identity Spacing */
+            /* Site Identity Spacing */
             '.site-header .kmt-site-identity'  => array(
                 'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
                 'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
@@ -247,7 +251,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.kmt-single-post .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'desktop' ),
-               'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
+                                 'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_font( $body_font_size, 'desktop' ),
@@ -423,10 +427,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
             // Layout - Container
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
-    
+            // Footer Background Image and Color    
+            '.footer-adv-overlay' => kemet_get_background_obj( $footer_box_bg_inner_boxed ),
+            
             /**
-                * Content Spacing Desktop
-                */
+             * Content Spacing Desktop
+             */
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container ' => array(
             'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'desktop' ),
             'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
@@ -558,9 +564,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                       => array(
 					'width' => kemet_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
-           /**
-                * Content Spacing Tablet
-                */
+            /**
+             * Content Spacing Tablet
+             */
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ' => array(
                 'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'tablet' ),
                 'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'tablet' ),
@@ -652,7 +658,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                       => array(
 					'width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
-           /**
+               /**
                 * Content Spacing Mobile
                 */
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ' => array(
@@ -673,7 +679,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );
 
-			/*
+			/**
 			 *  Responsive Font Size for Tablet & Mobile to the root HTML element
 			 */
 

@@ -319,3 +319,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		);
 	}
+        
+        /**
+         * Option: Boxed Inner Background
+         */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-site-boxed-inner-bg]', array(
+			'default'           => kemet_get_option( 'footer-site-boxed-inner-bg' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-site-boxed-inner-bg]', array(
+				'type'     => 'kmt-background',
+				'section'  => 'section-footer-adv',
+				'priority' => 25,
+				'label'    => __( 'Inner Background', 'kemet' ),
+			)
+		)
+	);
