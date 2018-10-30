@@ -211,36 +211,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                )
            );
            
-            /**
-             * Option - Footer Spacing
-             */
-            $wp_customize->add_setting(
-                KEMET_THEME_SETTINGS . '[footer-padding]', array(
-                    'default'           => kemet_get_option( 'footer-padding' ),
-                    'type'              => 'option',
-                    'transport'         => 'postMessage',
-                    'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-                )
-            );
-            $wp_customize->add_control(
-                new Kemet_Control_Responsive_Spacing(
-                    $wp_customize, KEMET_THEME_SETTINGS . '[footer-padding]', array(
-                        'type'           => 'kmt-responsive-spacing',
-                        'section'        => 'section-footer-adv',
-                        'priority'       => 12,
-                        'label'          => __( 'Footer Padding', 'kemet' ),
-                        'linked_choices' => true,
-                        'unit_choices'   => array( 'px', 'em', '%' ),
-                        'choices'        => array(
-                            'top'    => __( 'Top', 'kemet' ),
-                            'right'  => __( 'Right', 'kemet' ),
-                            'bottom' => __( 'Bottom', 'kemet' ),
-                            'left'   => __( 'Left', 'kemet' ),
-                        ),
-                    )
-                )
-            );
-        
+           
            /**
             * Option: Widget Title Color
             */
@@ -298,6 +269,58 @@ if ( ! defined( 'ABSPATH' ) ) {
                         'label'   => __( 'Link Hover Color', 'kemet' ),
                         'priority'       => 11,
                         'section' => 'section-footer-adv',
+                    )
+                )
+            );
+            
+            
+           /**
+            * Option: Button Text Color
+            */
+           $wp_customize->add_setting(
+                   KEMET_THEME_SETTINGS . '[footer-button-text-color]', array(
+                           'default'           => '',
+                           'type'              => 'option',
+                           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                   )
+           );
+           $wp_customize->add_control(
+                   new WP_Customize_Color_Control(
+                           $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-text-color]', array(
+                                   'section' => 'section-footer-adv',
+                                   'priority'       => 12,
+                                   'label'   => __( 'Button Text Color', 'kemet' ),
+                           )
+                   )
+           );
+            
+            
+            /**
+             * Option - Footer Spacing
+             */
+            $wp_customize->add_setting(
+                KEMET_THEME_SETTINGS . '[footer-padding]', array(
+                    'default'           => kemet_get_option( 'footer-padding' ),
+                    'type'              => 'option',
+                    'transport'         => 'postMessage',
+                    'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+                )
+            );
+            $wp_customize->add_control(
+                new Kemet_Control_Responsive_Spacing(
+                    $wp_customize, KEMET_THEME_SETTINGS . '[footer-padding]', array(
+                        'type'           => 'kmt-responsive-spacing',
+                        'section'        => 'section-footer-adv',
+                        'priority'       => 20,
+                        'label'          => __( 'Footer Padding', 'kemet' ),
+                        'linked_choices' => true,
+                        'unit_choices'   => array( 'px', 'em', '%' ),
+                        'choices'        => array(
+                            'top'    => __( 'Top', 'kemet' ),
+                            'right'  => __( 'Right', 'kemet' ),
+                            'bottom' => __( 'Bottom', 'kemet' ),
+                            'left'   => __( 'Left', 'kemet' ),
+                        ),
                     )
                 )
             );

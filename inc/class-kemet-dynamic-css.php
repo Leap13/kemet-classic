@@ -127,6 +127,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         // Footer background image/color               
                         $footer_box_bg_inner_boxed     = kemet_get_option( 'footer-site-boxed-inner-bg' );
                         
+                        // Footer Buttons Style
+                        $footer_button_text_color      = kemet_get_option( 'footer-button-text-color');
+                        
                         // Footer Tyography
                         $footer_font_family            = kemet_get_option( 'footer-font-family');
                         $footer_font_weight            = kemet_get_option( 'footer-font-weight' );
@@ -322,7 +325,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
-				// Advanced Fotter styling/colors/fonts.
+				// Advanced Fotter widget title color.
 				'.footer-adv .widget-title,.footer-adv .widget-title a' => array(
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),
@@ -367,6 +370,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                         'color'          => esc_attr( $footer_text_color ),
 
 				),
+                            
+                                // Footer button text color
+                                '.footer-adv-overlay input[type=button],.footer-adv-overlay button '    =>array(
+                                    
+                                        'color'         => esc_attr( $footer_button_text_color)
+                                ),
 				
                                 // Single Post Meta.
 				'.kmt-comment-meta'                       => array(
