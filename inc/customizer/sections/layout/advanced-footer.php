@@ -210,6 +210,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                    )
                )
            );
+           
             /**
              * Option - Footer Spacing
              */

@@ -358,7 +358,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.footer-adv-overlay'                     => kemet_get_background_obj( $footer_adv_bg_obj ),
                                 
                                 // Footer Font Typography
-                                '.footer-adv-overlay span ,.footer-adv-overlay h1 ,.footer-adv-overlay h2 ,.footer-adv-overlay h3 ,.footer-adv-overlay h4 ,.footer-adv-overlay h5 ,.footer-adv-overlay h6 , .footer-adv-overlay p '                  => array(
+                                '.footer-adv-overlay span ,.footer-adv-overlay h1 ,.footer-adv-overlay h2 ,.footer-adv-overlay h3 ,.footer-adv-overlay h4 ,.footer-adv-overlay h5 ,.footer-adv-overlay h6 , .footer-adv-overlay p,.footer-adv-overlay '                  => array(
 					'font-family'    => kemet_get_css_value( $footer_font_family, 'font' ),
                                         'font-weight'    => kemet_get_css_value( $footer_font_weight, 'font' ),
                                         'text-transform' => esc_attr( $footer_text_transform ),
