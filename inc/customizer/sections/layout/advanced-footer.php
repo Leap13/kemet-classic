@@ -353,7 +353,33 @@ if ( ! defined( 'ABSPATH' ) ) {
                                    'label'   => __( 'Button Background Hover Color', 'kemet' ),
                            )
                    )
-            );    
+            );
+            
+            
+           /**
+            * Option: Button Radius
+            */
+            $wp_customize->add_setting(
+                   KEMET_THEME_SETTINGS . '[footer-button-border-radius]', array(
+                           'default'           => kemet_get_option( 'footer-button-border-radius' ),
+                           'type'              => 'option',
+                           'transport'         => 'postMessage',
+                           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+                   )
+            );
+            $wp_customize->add_control(
+                   KEMET_THEME_SETTINGS . '[footer-button-border-radius]', array(
+                           'section'     => 'section-footer-adv',
+                           'priority'       => 16,
+                           'label'       => __( 'Button Radius', 'kemet' ),
+                           'type'        => 'number',
+                           'input_attrs' => array(
+                                   'min'  => 0,
+                                   'step' => 1,
+                                   'max'  => 200,
+                           ),
+                   )
+            );
         
             
             /**

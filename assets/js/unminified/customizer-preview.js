@@ -382,6 +382,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'site-boxed-inner-bg', dynamicStyle );
 		} );
 	} );
+        
         /**
          * Footer Inner Background
          */
@@ -391,6 +392,18 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var dynamicStyle = '.footer-adv-overlay { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-site-boxed-inner-bg', dynamicStyle );
+		} );
+	} );
+        
+        /**
+         *  Footer Border Radius
+         */
+	wp.customize( 'kemet-settings[footer-button-border-radius]', function( setting ) {
+		setting.bind( function( border ) {
+
+			var dynamicStyle = '.footer-adv-overlay input[type=button],.footer-adv-overlay button,.footer-adv-overlay input[type=submit]{ border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			kemet_add_dynamic_css( 'footer-button-border-radius', dynamicStyle );
+
 		} );
 	} );
 

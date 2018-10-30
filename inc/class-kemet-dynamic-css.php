@@ -142,6 +142,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $footer_button_text_h_color    = kemet_get_option( 'footer-button-text-h-color' );
                         $footer_button_bg_color        = kemet_get_option( 'footer-button-bg-color' );
                         $footer_button_bg_h_color      = kemet_get_option( 'footer-button-bg-h-color' );
+                        $footer_button_border_radius   = kemet_get_option( 'footer-button-border-radius' );
 
 			/**
 			 * Apply text color depends on link color
@@ -376,14 +377,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
                             
                                 // Footer button text color
-                                '.footer-adv-overlay input[type=button],.footer-adv-overlay button '    =>array(
+                                '.footer-adv-overlay input[type=button],.footer-adv-overlay button,.footer-adv-overlay input[type=submit] '    =>array(
                                     
                                         'color'                 => esc_attr( $footer_button_text_color),
-                                        'background-color'      => esc_attr( $footer_button_bg_color )
+                                        'background-color'      => esc_attr( $footer_button_bg_color ),
+                                        'border-radius'         => kemet_get_css_value( $footer_button_border_radius )
                                 ),
                             
                                  // Footer button text hover color
-                                '.footer-adv-overlay input[type=button]:hover,.footer-adv-overlay button:hover '    =>array(
+                                '.footer-adv-overlay input[type=button]:hover,.footer-adv-overlay button:hover ,.footer-adv-overlay input[type=submit]:hover'    =>array(
                                     
                                         'color'                 => esc_attr( $footer_button_text_h_color),
                                         'background-color'      => esc_attr( $footer_button_bg_h_color )
