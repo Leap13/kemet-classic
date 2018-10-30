@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             );
                 
             /**
-             * Option: Divider For Typography-divider
+             * Option: Divider For Typography
              */
             $wp_customize->add_control(
                     new Kemet_Control_Divider(
@@ -101,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         'label'    => __( 'Font Weight', 'kemet' ),
                         'section'  => 'section-footer-adv',
                         'priority' => 6,
-                        'connect'  => KEMET_THEME_SETTINGS . '[Footer-font-family]',
+                        'connect'  => KEMET_THEME_SETTINGS . '[footer-font-family]',
 
                     )
                 )

@@ -150,6 +150,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         // Footer Bar Background image/color
                         $footer_bar_bg_obj       = kemet_get_option( 'footer-bar-bg-obj' );
                         
+                        // Footer Bar Typography
+                        $footer_bar_font_family     = kemet_get_option( 'footer-bar-font-family' );
+                        $footer_bar_font_weight     = kemet_get_option( 'footer-bar-font-weight' );
+                        $footer_bar_text_transform  = kemet_get_option( 'footer-bar-text-transform' );
+                        $footer_bar_font_size       = kemet_get_option( 'footer-bar-font-size' );
+                        $footer_bar_text_color          = kemet_get_option( 'footer-bar-text-color' );
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -341,9 +347,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),
 
-//				'div.footer-adv-overlay h1'                             => array(
-//					'color' => esc_attr( $footer_adv_text_color ),
-//				),
             
             '.footer-adv .kmt-container ' => array(
             'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
@@ -398,7 +401,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                 ),
                                 // Footer Background Image and Color    
                                 '.footer-adv-overlay'           => kemet_get_background_obj( $footer_box_bg_inner_boxed ),
+                                
+                                // Footer Bar Font Typography
+                                '.kmt-footer-overlay *'                  => array(
+					'font-family'    => kemet_get_css_value( $footer_bar_font_family, 'font' ),
+                                        'font-weight'    => kemet_get_css_value( $footer_bar_font_weight, 'font' ),
+                                        'text-transform' => esc_attr( $footer_bar_text_transform ),
+                                        'font-size'      => kemet_responsive_font( $footer_bar_font_size, 'desktop' ),
+                                        'color'          => esc_attr( $footer_bar_text_color ),
 
+				),
                             
 
                             
@@ -483,9 +495,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
             // Layout - Container
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
-                                            // Footer Bar Background Image and Color    
-                                'div.kmt-footer-overlay'           => kemet_get_background_obj( $footer_bar_box_bg_inner_boxed ),
-
+                                           
             /**
              * Content Spacing Desktop
              */

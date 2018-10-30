@@ -87,6 +87,11 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			$font_weight = kemet_get_option( 'headings-font-weight' );
 
 			Kemet_Fonts::add_font( $font_family, $font_weight );
+                        
+                        $font_family = kemet_get_option( 'footer-bar-font-family' );
+                        $font_weight = kemet_get_option( 'footer-bar-font-weight' );
+                        
+                        Kemet_Fonts::add_font( $font_family , $font_weight );
 		}
 
 		/**
