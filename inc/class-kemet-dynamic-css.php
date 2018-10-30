@@ -101,14 +101,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h4_font_size            = kemet_get_option( 'font-size-h4' );
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = kemet_get_option( 'font-size-h6' );
-                        
-                        // Footer Typography
-                        $footer_font_family              = kemet_get_option( 'footer-font-family' );
-                        $footer_font_weight              = kemet_get_option( 'footer-font-weight' );
-                        $footer_text_transform           = kemet_get_option( 'footer-text-transform' );
-                        $footer_font_size                = kemet_get_option( 'footer-font-size' );
-                        $footer_line_height              = kemet_get_option( 'footer-line-height' );
-                        $footer_text_color               = kemet_get_option( 'footer-text-color' );
 
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
@@ -117,8 +109,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
             
-                        // Footer Styling
-                        $space_footer           = kemet_get_option('footer-padding');
+         // Footer Styling
+         $space_footer        = kemet_get_option('footer-padding');
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -217,19 +209,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                         => array(
 					'width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
-                                //Footer Typgraphy
-                                '.footer-adv-overlay *'                     => array(
-                                         'font-family'    => kemet_get_css_value  ( $footer_font_family, 'font' ),
-					 'font-weight'    => kemet_get_css_value  ( $footer_font_weight, 'font' ),
-                                         'font-size'      => kemet_responsive_font( $footer_font_size, 'desktop' ),
-					 'text-transform' => esc_attr( $footer_text_transform ),
-                                         'line-height'    => esc_attr ( $footer_line_height),
-                                         
-                                    ),
-                                '.footer-adv-overlay p,.footer-adv-overlay span,.footer-adv-overlay h1,.footer-adv-overlay h2,.footer-adv-overlay h3,.footer-adv-overlay h4,.footer-adv-overlay h5,.footer-adv-overlay h6'        => array(
-                                         'color'          => esc_attr ($footer_text_color),
-                                    ),
-                            
             /* Site Identity Spacing */
             '.site-header .kmt-site-identity'  => array(
                 'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
@@ -332,8 +311,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
-				// Fotter Widget Title Color.
-				'.footer-adv ' => array(
+				// Advanced Fotter styling/colors/fonts.
+				'.footer-adv .widget-title,.footer-adv .widget-title a' => array(
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),
 
