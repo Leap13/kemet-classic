@@ -111,11 +111,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
          // Footer Styling
          $space_footer        = kemet_get_option('footer-padding');
 
-			// Footer Bar Colors.
-			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
-			$footer_color        = kemet_get_option( 'footer-color' );
-			$footer_link_color   = kemet_get_option( 'footer-link-color' );
-			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
 
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
@@ -127,6 +122,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         // Footer background image/color               
                         $footer_box_bg_inner_boxed     = kemet_get_option( 'footer-site-boxed-inner-bg' );
                         
+                        // Footer Border Color
+                        $footer_border_color           = kemet_get_option( 'footer-border-color' );
                                                 
                         // Footer Tyography
                         $footer_font_family            = kemet_get_option( 'footer-font-family');
@@ -143,7 +140,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $footer_button_bg_color        = kemet_get_option( 'footer-button-bg-color' );
                         $footer_button_bg_h_color      = kemet_get_option( 'footer-button-bg-h-color' );
                         $footer_button_border_radius   = kemet_get_option( 'footer-button-border-radius' );
+			
 
+                        // Footer Bar Colors.
+			$footer_color        = kemet_get_option( 'footer-color' );
+			$footer_link_color   = kemet_get_option( 'footer-link-color' );
+			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
+
+                        // Footer Bar Background image/color
+                        $footer_bar_bg_obj       = kemet_get_option( 'footer-bar-bg-obj' );
+                        
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -321,7 +327,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-small-footer'                       => array(
 					'color' => esc_attr( $footer_color ),
 				),
-				'.kmt-small-footer > .kmt-footer-overlay' => kemet_get_background_obj( $footer_bg_obj ),
+				'.kmt-small-footer > .kmt-footer-overlay' => kemet_get_background_obj( $footer_bar_bg_obj ),
 
 				'.kmt-small-footer a'                     => array(
 					'color' => esc_attr( $footer_link_color ),
@@ -390,7 +396,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                         'color'                 => esc_attr( $footer_button_text_h_color),
                                         'background-color'      => esc_attr( $footer_button_bg_h_color )
                                 ),
-				
+                                // Footer Background Image and Color    
+                                '.footer-adv-overlay'           => kemet_get_background_obj( $footer_box_bg_inner_boxed ),
+
+                            
+
+                            
                                 // Single Post Meta.
 				'.kmt-comment-meta'                       => array(
 					'line-height' => '1.666666667',
@@ -472,9 +483,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
             // Layout - Container
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
-            // Footer Background Image and Color    
-            '.footer-adv-overlay' => kemet_get_background_obj( $footer_box_bg_inner_boxed ),
-            
+                                            // Footer Bar Background Image and Color    
+                                'div.kmt-footer-overlay'           => kemet_get_background_obj( $footer_bar_box_bg_inner_boxed ),
+
             /**
              * Content Spacing Desktop
              */

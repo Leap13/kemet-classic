@@ -64,9 +64,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 	/**
-	 *  Section: Section 1
-	 */
-	/**
 	 * Option: Section 1
 	 */
 	$wp_customize->add_setting(
@@ -176,6 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 	}
 
+        
 	/**
 	 * Option: Divider
 	 */
@@ -189,9 +187,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+        
+        
+        /**
+	 * Option: Header Width
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
+			'default'           => kemet_get_option( 'footer-layout-width' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
+			'type'     => 'select',
+			'section'  => 'section-footer-small',
+			'priority' => 35,
+			'label'    => __( 'Footer Bar Width', 'kemet' ),
+			'choices'  => array(
+				'full'    => __( 'Full Width', 'kemet' ),
+				'content' => __( 'Content Width', 'kemet' ),
+			),
+		)
+	);
 
+        
 	/**
-	 * Option: Footer Top Border
+	 * Option: Footer Top Border Width
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[footer-sml-divider]', array(
@@ -206,7 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'        => 'number',
 			'section'     => 'section-footer-small',
 			'priority'    => 40,
-			'label'       => __( 'Footer Bar Top Border', 'kemet' ),
+			'label'       => __( 'Footer Bar Top Border Width', 'kemet' ),
 			'input_attrs' => array(
 				'min'  => 0,
 				'step' => 1,
@@ -215,6 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+        
 	/**
 	 * Option: Footer Top Border Color
 	 */
@@ -236,25 +260,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	/**
-	 * Option: Header Width
+        
+        /**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-info]', array(
+				'type'     => 'kmt-divider',
+				'section'  => 'section-footer-small',
+				'priority' => 60,
+				'settings' => array(),
+			)
+		)
+	);
+        
+        /**
+	 * Option: Footer Bar Background
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
-			'default'           => kemet_get_option( 'footer-layout-width' ),
+		KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
+			'default'           => kemet_get_option( 'footer-bar-bg-obj' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
-			'type'     => 'select',
-			'section'  => 'section-footer-small',
-			'priority' => 35,
-			'label'    => __( 'Footer Bar Width', 'kemet' ),
-			'choices'  => array(
-				'full'    => __( 'Full Width', 'kemet' ),
-				'content' => __( 'Content Width', 'kemet' ),
-			),
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
+				'type'    => 'kmt-background',
+				'section' => 'section-footer-small',
+                                'priority' => 65,
+				'label'   => __( 'Background', 'kemet' ),
+			)
 		)
 	);
