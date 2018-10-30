@@ -141,6 +141,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $footer_button_text_color      = kemet_get_option( 'footer-button-text-color' );
                         $footer_button_text_h_color    = kemet_get_option( 'footer-button-text-h-color' );
                         $footer_button_bg_color        = kemet_get_option( 'footer-button-bg-color' );
+                        $footer_button_bg_h_color      = kemet_get_option( 'footer-button-bg-h-color' );
 
 			/**
 			 * Apply text color depends on link color
@@ -384,7 +385,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                  // Footer button text hover color
                                 '.footer-adv-overlay input[type=button]:hover,.footer-adv-overlay button:hover '    =>array(
                                     
-                                        'color'         => esc_attr( $footer_button_text_h_color)
+                                        'color'                 => esc_attr( $footer_button_text_h_color),
+                                        'background-color'      => esc_attr( $footer_button_bg_h_color )
                                 ),
 				
                                 // Single Post Meta.
