@@ -140,6 +140,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         // Footer Buttons Style
                         $footer_button_text_color      = kemet_get_option( 'footer-button-text-color' );
                         $footer_button_text_h_color    = kemet_get_option( 'footer-button-text-h-color' );
+                        $footer_button_bg_color        = kemet_get_option( 'footer-button-bg-color' );
 
 			/**
 			 * Apply text color depends on link color
@@ -376,7 +377,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                 // Footer button text color
                                 '.footer-adv-overlay input[type=button],.footer-adv-overlay button '    =>array(
                                     
-                                        'color'         => esc_attr( $footer_button_text_color)
+                                        'color'                 => esc_attr( $footer_button_text_color),
+                                        'background-color'      => esc_attr( $footer_button_bg_color )
                                 ),
                             
                                  // Footer button text hover color
