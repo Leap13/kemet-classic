@@ -174,19 +174,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
         
         /**
-         * Option: Divider For Typography
-         */
-        $wp_customize->add_control(
-               new Kemet_Control_Divider(
-                       $wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-info]', array(
-                               'section'  => 'section-footer-small',
-                               'type'     => 'kmt-divider',
-                               'label'    => __( 'Typography', 'kemet' ),
-                               'priority'       => 31,
-                               'settings' => array(),
-                       )
-               )
-        );
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-Typography]', array(
+				'type'     => 'kmt-divider',
+				'section'  => 'section-footer-small',
+				'priority' => 31,
+				'settings' => array(),
+			)
+		)
+	);
 
 
         /**
@@ -416,6 +415,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'section'  => 'section-footer-small',
 				'priority' => 47,
 				'label'    => __( 'Footer Links Color', 'kemet' ),
+			)
+		)
+	);
+        
+        
+        /**
+	 * Option: Footer Bar links color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-bar-links-h-color]', array(
+			'default'           => '#7a7a7a',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-links-h-color]', array(
+				'section'  => 'section-footer-small',
+				'priority' => 48,
+				'label'    => __( 'Footer Links Hover Color', 'kemet' ),
 			)
 		)
 	);
