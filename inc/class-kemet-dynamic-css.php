@@ -132,7 +132,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $footer_font_size              = kemet_get_option( 'footer-font-size' );
                         $footer_line_height            = kemet_get_option( 'footer-line-height' );
                         $footer_text_color             = kemet_get_option( 'footer-text-color' );
-
+                        // Footer Meta Color
+                        $footer_meta_color             = kemet_get_option( 'footer-meta-color' );
                         
                         // Footer Buttons Style
                         $footer_button_text_color      = kemet_get_option( 'footer-button-text-color' );
@@ -384,6 +385,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                                         'color'          => esc_attr( $footer_text_color ),
 
 				),
+                                
+                                // Footer Meta Color
+                                '.widget ul span'                        => array(
+                                         'color'         => esc_attr( $footer_meta_color )   
+                                ),
                             
                                 // Footer button text color
                                 '.footer-adv-overlay input[type=button],.footer-adv-overlay button,.footer-adv-overlay input[type=submit] '    =>array(
