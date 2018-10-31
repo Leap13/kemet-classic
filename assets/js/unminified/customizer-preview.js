@@ -638,7 +638,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 	// Footer Bar.
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
-	kemet_css( 'kemet-settings[footer-link-color]', 'color', '.kmt-small-footer a' );
+	kemet_css( 'kemet-settings[footer-bar-links-color]', 'color', '.kmt-small-footer a' );
 	kemet_css( 'kemet-settings[footer-link-h-color]', 'color', '.kmt-small-footer a:hover' );
         kemet_css( 'kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-title, .page-title' );
 

@@ -397,6 +397,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+        
+        
+        /**
+	 * Option: Footer Bar links color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-bar-links-color]', array(
+			'default'           => '#7a7a7a',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-links-color]', array(
+				'section'  => 'section-footer-small',
+				'priority' => 47,
+				'label'    => __( 'Footer Links Color', 'kemet' ),
+			)
+		)
+	);
 
         
         /**

@@ -144,7 +144,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
                         // Footer Bar Colors.
 			$footer_color        = kemet_get_option( 'footer-color' );
-			$footer_link_color   = kemet_get_option( 'footer-link-color' );
+			$footer_link_color   = kemet_get_option( 'footer-bar-links-color' );
 			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
 
                         // Footer Bar Background image/color
