@@ -619,6 +619,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
          * Sidebar Links Style
          */
         kemet_css( 'kemet-settings[sidebar-links-color]', 'color', '.sidebar-main a,.sidebar-main .textwidget a');
+        kemet_css( 'kemet-settings[sidebar-links-h-color]', 'color', '.sidebar-main a:hover,.sidebar-main .textwidget a:hover');
+
         /**
          * Footer Padding
          */

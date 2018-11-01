@@ -105,6 +105,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $sidebar_background_color        = kemet_get_option( 'sidebar-background-color' );
                         $sidebar_spacing                 = kemet_get_option( 'sidebar-spacing' );
                         $sidebar_links_color             = kemet_get_option( 'sidebar-links-color' );
+                        $sidebar_links_h_color           = kemet_get_option( 'sidebar-links-h-color' );
                         
                         // Sidebar Widget Title Typography
                         $sidebar_widget_title_font_family        = kemet_get_option( 'sidebar-widget-title-font-family' );
@@ -283,6 +284,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             // Sidebar Links-color
             '.sidebar-main a,.sidebar-main .textwidget a'                     => array(
                  'color'            => esc_attr($sidebar_links_color),
+            ),
+            '.sidebar-main a:hover,.sidebar-main .textwidget a:hover'                     => array(
+                 'color'            => esc_attr($sidebar_links_h_color),
             ),
             /* Sidebar Widget Title Typography */
             '.sidebar-main .widget-title'         => array(
