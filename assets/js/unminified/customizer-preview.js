@@ -609,7 +609,14 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
         kemet_css( 'kemet-settings[sidebar-widget-title-text-color]', 'color', '.sidebar-main .widget-title' );
         kemet_css( 'kemet-settings[sidebar-widget-title-line-height]', 'line-height', '.sidebar-main .widget-title' );
        	kemet_css( 'kemet-settings[sidebar-widget-title-text-transform]', 'text-transform', '.sidebar-main .widget-title' );
+        /**
+         * Sidebar Widget Contetn Text-color / Line-height / Text-Transform
+         */
+        kemet_css( 'kemet-settings[sidebar-widget-text-color]', 'color', '.sidebar-main .textwidget *' );
+        kemet_css( 'kemet-settings[sidebar-widget-line-height]', 'line-height', '.sidebar-main .textwidget *' );
+       	kemet_css( 'kemet-settings[sidebar-widget-text-transform]', 'text-transform', '.sidebar-main .textwidget *' );
 
+        
         /**
          * Footer Padding
          */

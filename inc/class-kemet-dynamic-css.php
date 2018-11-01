@@ -113,6 +113,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         $sidebar_widget_title_line_height        = kemet_get_option( 'sidebar-widget-title-line-height' );
                         $sidebar_widget_title_text_color         = kemet_get_option( 'sidebar-widget-title-text-color' );
                         
+                        // Sidebar Widget Content Typography
+                        $sidebar_widget_font_family        = kemet_get_option( 'sidebar-widget-font-family' );
+                        $sidebar_widget_font_weight        = kemet_get_option( 'sidebar-widget-font-weight' );
+                        $sidebar_widget_text_transform     = kemet_get_option( 'sidebar-widget-text-transform' );
+                        $sidebar_widget_font_size          = kemet_get_option( 'sidebar-widget-font-size' );
+                        $sidebar_widget_line_height        = kemet_get_option( 'sidebar-widget-line-height' );
+                        $sidebar_widget_text_color         = kemet_get_option( 'sidebar-widget-text-color' );
                         
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
@@ -276,6 +283,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                  'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'desktop' ),
                  'line-height'    => esc_attr( $sidebar_widget_title_line_height ),
                  'color'          => esc_attr( $sidebar_widget_title_text_color ),
+            ),
+            /* Sidebar Widget Content Font Typography */
+            '.sidebar-main .textwidget *'         => array(
+                 'font-family'    => kemet_get_css_value( $sidebar_widget_font_family, 'font' ),
+                 'font-weight'    => kemet_get_css_value( $sidebar_widget_font_weight, 'font' ),
+                 'text-transform' => esc_attr( $sidebar_widget_text_transform ),
+                 'font-size'      => kemet_responsive_font( $sidebar_widget_font_size, 'desktop' ),
+                 'line-height'    => esc_attr( $sidebar_widget_line_height ),
+                 'color'          => esc_attr( $sidebar_widget_text_color ),
             ),
                             
              
@@ -647,7 +663,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					
                 'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'tablet' ),
                             
-            ),                
+            ),
+            /* Sidebar Widget Content Font Size */
+            '.sidebar-main .textwidget *'         => array(
+					
+                'font-size'      => kemet_responsive_font( $sidebar_widget_font_size, 'tablet' ),
+                            
+            ),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
 				),
@@ -801,7 +823,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'mobile' ),
                             
             ),  
-            
+            /* Sidebar Widget Content Font Size Mobile */
+            '.sidebar-main .textwidget *'         => array(
+					
+                'font-size'      => kemet_responsive_font( $sidebar_widget_font_size, 'mobile' ),
+                            
+            ),
                 
             '.footer-adv .kmt-container ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'mobile' ),
