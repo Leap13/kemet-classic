@@ -630,7 +630,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 	// Footer Widgets.
 	kemet_css( 'kemet-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
-	kemet_css( 'kemet-settings[footer-adv-text-color]', 'color', '.footer-adv' );
+	kemet_css( 'kemet-settings[footer-text-color]', 'color', '.footer-adv-overlay span ,.footer-adv-overlay h1 ,.footer-adv-overlay h2 ,.footer-adv-overlay h3 ,.footer-adv-overlay h4 ,.footer-adv-overlay h5 ,.footer-adv-overlay h6 , .footer-adv-overlay p ' );
+   kemet_css( 'kemet-settings[footer-line-height]', 'line-height', '.footer-adv-overlay *' );
+   kemet_css( 'kemet-settings[footer-text-transform]', 'text-transform', '.footer-adv-overlay *' );
+
 
 	wp.customize( 'kemet-settings[footer-adv-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {

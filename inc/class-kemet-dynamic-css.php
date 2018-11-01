@@ -116,10 +116,24 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
-			$footer_adv_text_color         = kemet_get_option( 'footer-adv-text-color' );
 			$footer_adv_widget_title_color = kemet_get_option( 'footer-adv-wgt-title-color' );
 			$footer_adv_link_color         = kemet_get_option( 'footer-adv-link-color' );
 			$footer_adv_link_h_color       = kemet_get_option( 'footer-adv-link-h-color' );
+            
+         // Footer Buttons Style
+          $footer_button_text_color      = kemet_get_option( 'footer-button-text-color');
+    
+        // Footer background image/color               
+        $footer_box_bg_inner_boxed     = kemet_get_option( 'footer-site-boxed-inner-bg' );
+
+        // Footer Tyography
+        $footer_font_family            = kemet_get_option( 'footer-font-family');
+        $footer_font_weight            = kemet_get_option( 'footer-font-weight' );
+        $footer_text_transform          = kemet_get_option( 'footer-text-transfor' );
+        $footer_font_size              = kemet_get_option( 'footer-font-size' );
+        $footer_line_height            = kemet_get_option( 'footer-line-height' );
+        $footer_text_color             = kemet_get_option( 'footer-text-color' );
+
 
 			/**
 			 * Apply text color depends on link color
@@ -341,6 +355,23 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				'.footer-adv-overlay'                     => kemet_get_background_obj( $footer_adv_bg_obj ),
+                
+            // Footer Font Typography
+            '.footer-adv-overlay span ,.footer-adv-overlay h1 ,.footer-adv-overlay h2 ,
+                .footer-adv-overlay h3 ,.footer-adv-overlay h4 ,.footer-adv-overlay h5 ,
+                .footer-adv-overlay h6 , .footer-adv-overlay p '  => array(
+               'font-family'    => kemet_get_css_value( $footer_font_family, 'font' ),
+               'font-weight'    => kemet_get_css_value( $footer_font_weight, 'font' ),
+               'text-transform' => esc_attr( $footer_text_transform ),
+               'font-size'      => kemet_responsive_font( $footer_font_size, 'desktop' ),
+               'line-height'    => esc_attr( $footer_line_height ),
+               'color'          => esc_attr( $footer_text_color ),
+				),
+             // Footer button text color
+            '.footer-adv-overlay input[type=button],.footer-adv-overlay button '    =>array(
+                    'color'         => esc_attr( $footer_button_text_color)
+            ),
+
 
 				// Single Post Meta.
 				'.kmt-comment-meta'                       => array(
