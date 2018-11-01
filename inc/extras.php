@@ -481,6 +481,8 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 
 add_action( 'kemet_header', 'kemet_header_markup' );
 
+
+
 /**
  * Function to get site title/logo
  */
@@ -555,6 +557,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
+      $header_layout      = kemet_get_option( 'header-layouts' );
 
 		if ( $disable_primary_navigation ) {
 
@@ -563,6 +566,9 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
 				echo kemet_masthead_get_menu_items();
+                if ( 'header-main-layout-4' == $header_layout ) {
+                    echo 'kkkkkkkkk';
+                }
 				echo '</div>';
 			}
 		} else {
@@ -595,12 +601,24 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => $items_wrap,
 			);
+            // Left Menu.
+			$left_menu_args = array(
+				'theme_location'  => 'left_menu',
+				'menu_id'         => 'left-menu',
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
+				'container'       => 'div',
+				'container_class' => 'main-header-bar-navigation left-header-bar-navigation',
+				'items_wrap'      => $items_wrap,
+			);
 
 			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
 					wp_nav_menu( $primary_menu_args );
+                    if ( 'header-main-layout-4' == $header_layout ) {
+                    wp_nav_menu( $left_menu_args );
+                }
 				echo  '</div>';
 			} else {
 
