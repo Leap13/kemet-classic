@@ -33,6 +33,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                )
            );
            
+           /**
+            * Option: Links Color
+            */
+           $wp_customize->add_setting(
+               KEMET_THEME_SETTINGS . '[sidebar-links-color]', array(
+                   'default'           => '',
+                   'type'              => 'option',
+                   'transport'         => 'postMessage',
+                   'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+               )
+           );
+           $wp_customize->add_control(
+               new WP_Customize_Color_Control(
+                   $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-links-color]', array(
+                       'label'   => __( 'Links Color', 'kemet' ),
+                       'priority'       => 1,
+                       'section' => 'section-sidebars',
+                   )
+               )
+           );
+           
             /**
              * Option - Sidebar Spacing
              */

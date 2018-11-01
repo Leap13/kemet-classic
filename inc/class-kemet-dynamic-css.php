@@ -104,6 +104,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                         // Sidebar Styling
                         $sidebar_background_color        = kemet_get_option( 'sidebar-background-color' );
                         $sidebar_spacing                 = kemet_get_option( 'sidebar-spacing' );
+                        $sidebar_links_color             = kemet_get_option( 'sidebar-links-color' );
                         
                         // Sidebar Widget Title Typography
                         $sidebar_widget_title_font_family        = kemet_get_option( 'sidebar-widget-title-font-family' );
@@ -274,6 +275,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-right'  => kemet_responsive_spacing( $sidebar_spacing, 'right', 'desktop' ),
                 'padding-bottom' => kemet_responsive_spacing( $sidebar_spacing, 'bottom', 'desktop' ),
                 'padding-left'    => kemet_responsive_spacing( $sidebar_spacing, 'left', 'desktop' )
+            ),
+            // Sidebar Background-color
+            '.sidebar-main'                     => array(
+                 'background-color' => esc_attr($sidebar_background_color)
+            ),
+            // Sidebar Links-color
+            '.sidebar-main a,.sidebar-main .textwidget a'                     => array(
+                 'color'            => esc_attr($sidebar_links_color),
             ),
             /* Sidebar Widget Title Typography */
             '.sidebar-main .widget-title'         => array(
@@ -547,12 +556,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				),
             // Layout - Container
-            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
-           
-            // Sidebar Styling
-            '.sidebar-main'                     => array(
-                                        'background-color' => esc_attr($sidebar_background_color)
-            ),
+            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),           
             /**
              * Content Spacing Desktop
              */
