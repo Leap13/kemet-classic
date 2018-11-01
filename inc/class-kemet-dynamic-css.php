@@ -101,9 +101,19 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = kemet_get_option( 'font-size-h6' );
                         
-                        //Sidebar Styling
+                        // Sidebar Styling
                         $sidebar_background_color        = kemet_get_option( 'sidebar-background-color' );
                         $sidebar_spacing                 = kemet_get_option( 'sidebar-spacing' );
+                        
+                        // Sidebar Widget Title Typography
+                        $sidebar_widget_title_font_family        = kemet_get_option( 'sidebar-widget-title-font-family' );
+                        $sidebar_widget_title_font_weight        = kemet_get_option( 'sidebar-widget-title-font-weight' );
+                        $sidebar_widget_title_text_transform     = kemet_get_option( 'sidebar-widget-title-text-transform' );
+                        $sidebar_widget_title_font_size          = kemet_get_option( 'sidebar-widget-title-font-size' );
+                        $sidebar_widget_title_line_height        = kemet_get_option( 'sidebar-widget-title-line-height' );
+                        $sidebar_widget_title_text_color         = kemet_get_option( 'sidebar-widget-title-text-color' );
+                        
+                        
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 			$btn_vertical_padding   = kemet_get_option( 'button-v-padding' );
@@ -258,6 +268,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $sidebar_spacing, 'bottom', 'desktop' ),
                 'padding-left'    => kemet_responsive_spacing( $sidebar_spacing, 'left', 'desktop' )
             ),
+            /* Sidebar Widget Title Typography */
+            '.sidebar-main .widget-title'         => array(
+                 'font-family'    => kemet_get_css_value( $sidebar_widget_title_font_family, 'font' ),
+                 'font-weight'    => kemet_get_css_value( $sidebar_widget_title_font_weight, 'font' ),
+                 'text-transform' => esc_attr( $sidebar_widget_title_text_transform ),
+                 'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'desktop' ),
+                 'line-height'    => esc_attr( $sidebar_widget_title_line_height ),
+                 'color'          => esc_attr( $sidebar_widget_title_text_color ),
+            ),
+                            
+             
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
@@ -621,6 +642,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $sidebar_spacing, 'bottom', 'tablet' ),
                 'padding-left'    => kemet_responsive_spacing( $sidebar_spacing, 'left', 'tablet' )
             ),
+            /* Sidebar Widget Title Font Size */
+            '.sidebar-main .widget-title'         => array(
+					
+                'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'tablet' ),
+                            
+            ),                
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
 				),
@@ -768,6 +795,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $sidebar_spacing, 'bottom', 'mobile' ),
                 'padding-left'    => kemet_responsive_spacing( $sidebar_spacing, 'left', 'mobile' )
             ),
+            /* Sidebar Widget Title Font Size Mobile */
+            '.sidebar-main .widget-title'         => array(
+					
+                'font-size'      => kemet_responsive_font( $sidebar_widget_title_font_size, 'mobile' ),
+                            
+            ),  
+            
                 
             '.footer-adv .kmt-container ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'mobile' ),
