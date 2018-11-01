@@ -104,6 +104,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_horizontal_padding = kemet_get_option( 'button-h-padding' );
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
+            
+         // Footer Styling
+         $space_footer        = kemet_get_option('footer-padding');
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -318,11 +321,22 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
-				// Advanced Fotter colors/fonts.
+				// Advanced Fotter styling/colors/fonts.
 				'.footer-adv .widget-title,.footer-adv .widget-title a' => array(
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),
 
+				'.footer-adv'                             => array(
+					'color' => esc_attr( $footer_adv_text_color ),
+				),
+            
+            '.footer-adv .kmt-container ' => array(
+            'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
+            'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
+            'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'desktop' ),
+            'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'desktop' ),
+            ),
+                
 				'.footer-adv a'                           => array(
 					'color' => esc_attr( $footer_adv_link_color ),
 				),
@@ -584,6 +598,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'tablet' ),
                 'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'tablet' ),
             ),
+            
+            '.footer-adv .kmt-container ' => array(
+                'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'tablet' ),
+                'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'tablet' ),
+                'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'tablet' ),
+                'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'tablet' ),
+            ),
 			);
 
 			/* Parse CSS from array()*/
@@ -663,13 +684,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
            /**
-                * Content Spacing Tablet
+                * Content Spacing Mobile
                 */
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ' => array(
                 'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'mobile' ),
                 'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'mobile' ),
                 'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'mobile' ),
+            ),
+                
+            '.footer-adv .kmt-container ' => array(
+                'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'mobile' ),
+                'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'mobile' ),
+                'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'mobile' ),
+                'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'mobile' ),
             ),
 			);
 
