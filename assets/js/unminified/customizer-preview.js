@@ -599,7 +599,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Site Identity Spacing
 	 */
 	kemet_responsive_spacing( 'kemet-settings[site-identity-spacing]','.site-header .kmt-site-identity', 'padding', ['top', 'right', 'bottom', 'left' ] );
-    
+        /**
+         * Sidebar Spacing
+         */
+        kemet_responsive_spacing( 'kemet-settings[sidebar-spacing]','#secondary .sidebar-main', 'padding', ['top', 'right', 'bottom', 'left'] );
         /**
          * Footer Padding
          */
