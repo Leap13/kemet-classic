@@ -100,6 +100,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h4_font_size            = kemet_get_option( 'font-size-h4' );
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = kemet_get_option( 'font-size-h6' );
+                        
+                        //Sidebar Styling
+                        $sidebar_background_color        = kemet_get_option( 'sidebar-background-color' );
 
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
@@ -501,7 +504,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
             // Layout - Container
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
-                                           
+            // Sidebar 
+            '.sidebar-main'                     => array(
+                                        'background-color' => esc_attr($sidebar_background_color)
+            ),
             /**
              * Content Spacing Desktop
              */

@@ -370,6 +370,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'site-layout-outside-bg-obj', dynamicStyle );
 		} );
 	} );
+        
+        /**
+         * Sidebar Background Color
+         */
+	kemet_css( 'kemet-settings[sidebar-background-color]', 'background-color', '.sidebar-main' );
     
         /**
 	 * Boxed Inner Background
