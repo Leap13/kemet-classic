@@ -79,7 +79,6 @@ $header_rt_sections = array(
 			'priority' => 5,
 		)
 	);
-
 	/**
 	 * Option: Custom Menu Item
 	 */
@@ -87,7 +86,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => kemet_get_option( 'header-main-rt-section' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -104,26 +103,29 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => kemet_get_option( 'header-main-rt-section' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'type'     => 'select',
+                new Kemet_Control_Sortable(
+            $wp_customize, KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+			'type'     => 'kmt-sortable',
 			'section'  => 'section-header',
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'kemet' ),
 			'choices'  => apply_filters(
 				'kemet_header_section_elements',
 				array(
-					'none'      => __( 'None', 'kemet' ),
+					//'none'      => __( 'None', 'kemet' ),
 					'search'    => __( 'Search', 'kemet' ),
 					'text-html' => __( 'Text / HTML', 'kemet' ),
 					'widget'    => __( 'Widget', 'kemet' ),
+               'woocommerce'    => __( 'Wooooo', 'kemet' ),
 				),
 				'primary-header'
 			),
 		)
+                        )
 	);
 
 	/**

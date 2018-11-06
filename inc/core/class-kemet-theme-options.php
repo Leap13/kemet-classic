@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Header - Primary.
 					'disable-primary-nav'              => false,
 					'header-layouts'                   => 'header-main-layout-1',
-					'header-main-rt-section'           => 'none',
+					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,

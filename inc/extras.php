@@ -221,6 +221,8 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 	}
 }
 
+
+
 /**
  * Return the selected sections
  */
@@ -237,8 +239,13 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 
 		$output  = array();
 		$section = kemet_get_option( $option );
+                
+                
+         if ( is_array( $section ) ) {
+			
+			foreach ( $section as $sectionnn ) {
 
-		switch ( $section ) {
+				switch ( $sectionnn ) {
 
 			case 'search':
 					$output[] = kemet_get_search( $option );
@@ -256,11 +263,12 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 					$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $section );
 				break;
 		}
+                        }
+                }
 
 		return $output;
 	}
 }
-
 
 /**
  * Adding Wrapper for Search Form.

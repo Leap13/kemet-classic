@@ -125,6 +125,6 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 /**
  * Load deprecated functions
  */
-require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
-require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
-require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
+//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
+//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';

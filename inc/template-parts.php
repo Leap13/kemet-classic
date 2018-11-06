@@ -52,9 +52,9 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', array( 'kmt-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
+			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-masthead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
