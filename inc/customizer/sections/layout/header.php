@@ -114,13 +114,13 @@ $header_rt_sections = array(
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'kemet' ),
 			'choices'  => apply_filters(
-				'kemet_header_section_elements',
+				'kemet_header_elements',
 				array(
 					//'none'      => __( 'None', 'kemet' ),
 					'search'    => __( 'Search', 'kemet' ),
 					'text-html' => __( 'Text / HTML', 'kemet' ),
 					'widget'    => __( 'Widget', 'kemet' ),
-               'woocommerce'    => __( 'Wooooo', 'kemet' ),
+              // 'woocommerce'    => __( 'Wooooo', 'kemet' ),
 				),
 				'primary-header'
 			),
