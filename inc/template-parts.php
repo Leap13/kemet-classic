@@ -13,6 +13,7 @@ add_action( 'kemet_masthead_toggle_buttons', 'kemet_masthead_toggle_buttons_prim
 add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
+add_filter( 'kemet_main_header_bar_top' , 'kemet_top_header_template', 10, 2);
 add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
@@ -220,6 +221,26 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 			}
 			get_template_part( 'template-parts/footer/footer-sml-layout', $small_footer_layout );
 		}
+	}
+}
+/**
+ * Top Header
+ */
+if ( ! function_exists( 'kemet_top_header_template' ) ) {
+
+	/**
+	 * Top Header
+	 *
+	 *
+	 * @since 1.0.0
+	 */
+	function kemet_top_header_template() {
+
+
+
+
+			get_template_part( 'template-parts/topbar/topbar-layout');
+		
 	}
 }
 
