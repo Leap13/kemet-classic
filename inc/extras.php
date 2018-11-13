@@ -354,6 +354,43 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 }
 
 /**
+ * Function to get top section Left/Right Header
+ */
+if ( ! function_exists( 'kemet_get_top_section' ) ) {
+
+	/**
+	 * Function to get top section Left/Right Header
+	 *
+	 * @since 1.0.0
+	 * @param string $section   Sections of Small Footer.
+	 * @return mixed            Markup of sections.
+	 */
+	function kemet_get_top_section( $section = '' ){
+
+		$output  = array();
+		$section = kemet_get_option( $option );
+		
+		// if ( empty( $sections ) ) {
+        //     return $output;
+        // }
+		if ( is_array( $section ) ) {
+		foreach( $sections as $section ) {
+
+            switch ( $section ) {
+
+            case 'menu':
+                $output [] = kemet_get_search( $option );
+                break;
+
+			}
+		}
+		}
+		return $output;
+				
+	}
+}
+
+/**
  * Function to get Small Left/Right Footer
  */
 if ( ! function_exists( 'kemet_get_small_footer' ) ) {

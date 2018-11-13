@@ -159,7 +159,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'disable-primary-nav'              => false,
 					'header-layouts'                   => 'header-main-layout-1',
 					'header-main-rt-section'           => '',
+					//'kemet_get_top_section'            => '',
 					'header-display-outside-menu'      => false,
+					'kemet_get_top_section'             => array(
+						'menu' => '',
+					),
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',

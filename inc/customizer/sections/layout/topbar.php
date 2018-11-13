@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[topbar-section-1]', array(
 			'default'           => kemet_get_option( 'topbar-section-1' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -84,12 +84,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'priority' => 15,
 			'label'    => __( 'Section 1', 'kemet' ),
 			'choices'  => array(
-					'search'    => __( 'Search', 'kemet' ),
-					'text-html' => __( 'Text / HTML', 'kemet' ),
-					'widget'    => __( 'Widget', 'kemet' ),
+					'menu'    => __( 'Menu', 'kemet' ),
+					//'custom' => __( 'Custom', 'kemet' ),
+					//'widget'    => __( 'Widget', 'kemet' ),
 				),
 		)
-        )
+		)
+        
 	);
 
 	/**
