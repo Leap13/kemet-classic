@@ -1,49 +1,63 @@
 <?php
 /**
- * Above Header Layout 1
+ * Template for Small Footer Layout 2
  *
- * This template generates markup required for the Above Header style 1
- *
- * @todo Update this template for Default Above Header Style
- *
- * @package Astra Addon
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2018, Kemet
+ * @link        http://wpkemet.com/
+ * @since       Kemet 1.0.0
  */
 
-//$section_1 = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-1' );
-//$section_2 = Astra_Ext_Header_Sections_Markup::get_above_header_section( 'above-header-section-2' );
+$section_1 = kemet_get_option( 'topbar-section-1' );
+$section_2 = kemet_get_option( 'topbar-section-2' );
+
+//$section_1 = kemet_get_option( 'kemet_get_topbar' );
+//$section_2 = kemet_get_option( 'kemet_get_topbar' );
+//$sections  = 0;
 //
-//
-//$value1 = astra_get_option( 'above-header-section-1' );
-//$value2 = astra_get_option( 'above-header-section-2' );
-/**
- * Hide above header markup if:
- *
- * - User is not logged in. [AND]
- * - Sections 1 / 2 is set to none
- */
-//if ( empty( $section_1 ) && empty( $section_2 ) ) {
-//	return;
-//}
+$sections  = 0;
+
+if ( '' != $section_1 ) {
+	$sections++;
+}
+
+if ( '' != $section_2 ) {
+	$sections++;
+}
+
+switch ( $sections ) {
+
+	case '2':
+			$section_class = 'kmt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12';
+		break;
+
+	case '1':
+	default:
+			$section_class = 'kmt-topbar-section-equally kmt-col-xs-12';
+		break;
+}
+
 ?>
 
-<div class="ast-above-header-wrap ast-above-header-1" >
-	<div class="ast-above-header">
-		<div class="ast-container">
-			<div class="ast-flex ast-above-header-section-wrap">
-				<?php //if ( ! empty( $section_1 ) ) { ?>
-					<div class="ast-above-header-section ast-above-header-section-1 ast-flex ast-justify-content-flex-start <?php echo esc_attr( $value1 ); ?>-above-header" >
-						<?php echo 'section2'; ?>
+<div class="kmt-above-header-wrap kmt-above-header-1" >
+	<div class="kmt-above-header">hhhh
+		<div class="kmt-container">
+			<div class="kmt-flex kmt-above-header-section-wrap">
+				<?php //if ( $section_1 ) : ?>
+					<div class="kmt-above-header-section kmt-above-header-section-1 kmt-flex kmt-justify-content-flex-start <?php echo esc_attr( $section_class ); ?>-above-header" >
+						<?php echo $section_1 ; ?>
 					</div>
-				<?php //} ?>
+				<?php //endif; ?>
 
-				<?php //if ( ! empty( $section_2 ) ) { ?>
-					<div class="ast-above-header-section ast-above-header-section-2 ast-flex ast-justify-content-flex-end <?php echo esc_attr( $value2 ); ?>-above-header" >
-						<?php echo 'section2'; ?>
+				<?php //if ( $section_2 ) : ?>
+					<div class="kmt-above-header-section kmt-above-header-section-2 kmt-flex kmt-justify-content-flex-end <?php echo esc_attr( $section_class ); ?>-above-header" >
+						<?php echo $section_2; ?>
 					</div>
-				<?php //} ?>
+				<?php //endif; ?>
 			</div>
-		</div><!-- .ast-container -->
-	</div><!-- .ast-above-header -->
-</div><!-- .ast-above-header-wrap -->
+		</div><!-- .kmt-container -->
+	</div><!-- .kmt-above-header -->
+</div><!-- .kmt-above-header-wrap -->
 
-</div> <!-- Main Header Bar Wrap -->
+

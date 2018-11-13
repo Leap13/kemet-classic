@@ -3022,28 +3022,7 @@ body {
 }
 
 /**
- *  4 - Header Layout 4
-*/
-.header-main-layout-4 .site-branding {
-    position: absolute;
-    width: 20%;
-    text-align: center;
-    transform: translatex(50%);
-    right: 50%;
-}
-
-.header-main-layout-4 .main-header-bar-navigation {
-    width: 40%;
-    float: right;
-    text-align: left;
-}
-
-.header-main-layout-4 .left-header-bar-navigation {
-    float: left;
-    text-align: right;
-}
-/**
- * Header Inline Logo & Site Title 
+ * 4 - Header Inline Logo & Site Title 
 */
 .kmt-logo-title-inline .kmt-site-identity {
   -js-display: inline-flex;
@@ -4148,6 +4127,8 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
  */
 .footer-adv-overlay {
   background-color: #3a3a3a;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .footer-adv p:last-child {
