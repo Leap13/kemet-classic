@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'priority' => 15,
 			'label'    => __( 'Section 1', 'kemet' ),
 			'choices'  => array(
-					'menu'    => __( 'Menu', 'kemet' ),
+					'search'    => __( 'Search', 'kemet' ),
 					//'custom' => __( 'Custom', 'kemet' ),
 					//'widget'    => __( 'Widget', 'kemet' ),
 				),
@@ -134,18 +134,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[topbar-section-2]', array(
-			'type'     => 'select',
+		new Kemet_Control_Sortable(
+            $wp_customize, KEMET_THEME_SETTINGS . '[topbar-section-1]', array(
+			'type'     => 'kmt-sortable',
 			'section'  => 'section-topbar-header',
-			'priority' => 25,
-			'label'    => __( 'Section 2', 'kemet' ),
+			'priority' => 15,
+			'label'    => __( 'Section 1', 'kemet' ),
 			'choices'  => array(
-				''       => __( 'None', 'kemet' ),
-				'menu'   => __( 'Footer Menu', 'kemet' ),
-				'custom' => __( 'Custom Text', 'kemet' ),
-				'widget' => __( 'Widget', 'kemet' ),
-			),
+					'search'    => __( 'Search', 'kemet' ),
+					//'custom' => __( 'Custom', 'kemet' ),
+					//'widget'    => __( 'Widget', 'kemet' ),
+				),
 		)
+		)
+        
 	);
 
 	/**

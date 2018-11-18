@@ -82,22 +82,22 @@ $header_rt_sections = array(
 	/**
 	 * Option: Custom Menu Item
 	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'default'           => kemet_get_option( 'header-main-rt-section' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'type'     => 'select',
-			'section'  => 'section-header',
-			'priority' => 5,
-			'label'    => __( 'Custom Menu Item', 'kemet' ),
-			'choices'  => $header_rt_sections,
-		)
-	);
+	// $wp_customize->add_setting(
+	// 	KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+	// 		'default'           => kemet_get_option( 'header-main-rt-section' ),
+	// 		'type'              => 'option',
+	// 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+	// 	)
+	// );
+	// $wp_customize->add_control(
+	// 	KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+	// 		'type'     => 'select',
+	// 		'section'  => 'section-header',
+	// 		'priority' => 5,
+	// 		'label'    => __( 'Custom Menu Item', 'kemet' ),
+	// 		'choices'  => $header_rt_sections,
+	// 	)
+	// );
 
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
