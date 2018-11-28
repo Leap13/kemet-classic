@@ -356,6 +356,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 /**
  * Function to get top section Left/Right Header
  */
+/**
+ * Function to get top section Left/Right Header
+ */
 if ( ! function_exists( 'kemet_get_top_section' ) ) {
 
 	/**
@@ -365,29 +368,25 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 	 * @param string $section   Sections of Small Footer.
 	 * @return mixed            Markup of sections.
 	 */
-	function kemet_get_top_section( $option ){
+	function kemet_get_top_section( $option ) {
 
-
-		$output  = [];
-		$section = kemet_get_option( $option );
-                
-                
-         if ( is_array( $section ) ) {
+		 $output  = '';
+		 $section = kemet_get_option( $option );   
 			
 			foreach ( $section as $sectionnn ) {
 
 				switch ( $sectionnn ) {
 
 			case 'search':
-					$output = kemet_get_search( $option );
+					$output .= kemet_get_search();
 				break;
 
-
+            case 'menu':
+					$output .= kemet_get_small_footer_menu();
+				break;
 			}
 		}
-		}
-		return $output;
-				
+			return $output;			
 	}
 }
 
