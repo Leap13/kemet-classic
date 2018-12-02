@@ -86,7 +86,7 @@ $wp_customize->add_control(
 				'search'    => __( 'Search', 'kemet' ),
 				'menu' => __( 'Menu', 'kemet' ),
 				'widget'    => __( 'Widget', 'kemet' ),
-		        'woocommerce'    => __( 'Wooooo', 'kemet' ),
+		        'woocommerce'    => __( 'W', 'kemet' ),
 		),
 	)
 					)

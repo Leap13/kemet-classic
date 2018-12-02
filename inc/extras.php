@@ -344,6 +344,11 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 		} elseif ( 'footer-sml-section-2' == $option_name ) {
 			$widget_id = 'footer-widget-2';
 		}
+		if ( 'top-section-1' == $option_name ) {
+			$widget_id = 'top-widget-section1';
+		} elseif ( 'top-section-2' == $option_name ) {
+			$widget_id = 'top-widget-section2';
+		}
 
 		echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
 				kemet_get_sidebar( $widget_id );
@@ -384,6 +389,10 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
             case 'menu':
 					$output .= kemet_get_small_footer_menu();
 				break;
+
+			case 'widget':
+				$output .= kemet_get_custom_widget($option);
+			break;
 			}
 		}
 			return $output;			

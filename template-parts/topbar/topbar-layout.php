@@ -42,7 +42,7 @@ $sections  = 0;
 ?>
 
 <div class="kmt-above-header-wrap kmt-above-header-1" >
-	<div class="kmt-above-header">hhhh
+	<div class="kmt-above-header">
 		<div class="kmt-container">
 			<div class="kmt-flex kmt-above-header-section-wrap">
 					<div class="kmt-above-header-section kmt-above-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
