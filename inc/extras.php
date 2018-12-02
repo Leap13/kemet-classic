@@ -387,7 +387,7 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 				break;
 
             case 'menu':
-					$output .= kemet_get_small_footer_menu();
+					$output .= kemet_get_top_menu();
 				break;
 
 			case 'widget':
@@ -499,6 +499,44 @@ if ( ! function_exists( 'kemet_get_small_footer_menu' ) ) {
 			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
 				?>
 					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'kemet' ); ?></a>
+				<?php
+			}
+		}
+
+		return ob_get_clean();
+	}
+}
+
+/**
+ * Function to get Top Menu
+ */
+if ( ! function_exists( 'kemet_get_top_menu' ) ) {
+
+	/**
+	 * Function to get Top Menu
+	 *
+	 * @since 1.0.0
+	 * @return html
+	 */
+	function kemet_get_top_menu() {
+
+		ob_start();
+
+		if ( has_nav_menu( 'top_menu' ) ) {
+			wp_nav_menu(
+				array(
+					'container'       => 'div',
+					'container_class' => 'top-navigation',
+					'theme_location'  => 'top_menu',
+					'menu_class'      => 'nav-menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					//'depth'           => 1,
+				)
+			);
+		} else {
+			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
+				?>
+					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Top Menu', 'kemet' ); ?></a>
 				<?php
 			}
 		}
@@ -672,7 +710,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 					wp_nav_menu( $primary_menu_args );
                     if ( 'header-main-layout-4' == $header_layout ) {
                     wp_nav_menu( $left_menu_args );
-                }
+                	}
 				echo  '</div>';
 			} else {
 
