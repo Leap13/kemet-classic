@@ -145,7 +145,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			apply_filters(
 				'kemet_top_widget_sectio1', array(
-				'name'          => esc_html__( 'Top Widget Section1', 'kemet' ),
+				'name'          => esc_html__( 'Top Widget Section 1', 'kemet' ),
 				'id'            => 'top-widget-section1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -161,7 +161,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			apply_filters(
 				'kemet_top_widget_sectio2', array(
-				'name'          => esc_html__( 'Top Widget Section2', 'kemet' ),
+				'name'          => esc_html__( 'Top Widget Section 2', 'kemet' ),
 				'id'            => 'top-widget-section2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',

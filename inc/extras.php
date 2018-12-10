@@ -391,7 +391,11 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 				break;
 
 			case 'widget':
-				$output .= kemet_get_custom_widget($option);
+					$output .= kemet_get_custom_widget($option);
+			break;
+
+			case 'text-html':
+					$output .= kemet_get_custom_html( $option . '-html' );
 			break;
 			}
 		}
