@@ -123,7 +123,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_button_bg_color    = kemet_get_option( 'footer-button-bg-color' );
 			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
 			$footer_border_radius      = kemet_get_option( 'footer-button-radius' );
+			
+			// Footer input color 
 			$footer_input_color        = kemet_get_option( 'footer-input-color' );
+			$footer_input_bg_color     = kemet_get_option( 'footer-input-bg-color' );
 
 
 			// Color.
@@ -345,6 +348,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.footer-adv input[type=text]'  => array(
 					'color' => esc_attr( $footer_input_color),
+					'background' => esc_attr( $footer_input_bg_color),
 				),
 				
 
