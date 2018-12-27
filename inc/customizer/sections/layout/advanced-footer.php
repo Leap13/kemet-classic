@@ -488,7 +488,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'max'  => 200,
 			),
 		)
+    );
+    /**
+	 * Option: Footer Input color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-input-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
 	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-input-color]', array(
+                'section' => 'section-footer-adv',
+                'label'   => __( 'Button Text Color', 'kemet' ),
+                'priority'       =>21,
+			)
+		)
+    );
+
 
 
 
@@ -500,7 +520,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-widget-more-feature-description]', array(
 					'type'     => 'kmt-description',
 					'section'  => 'section-footer-adv',
-					'priority' => 21,
+					'priority' => 40,
 					'label'    => '',
 					'help'     => '<p>' . __( 'More Options Available for Footer Widgets in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
 					'settings' => array(),

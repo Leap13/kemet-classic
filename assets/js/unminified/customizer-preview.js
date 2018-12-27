@@ -636,6 +636,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-adv-wgt-meta-color]', 'color', '.footer-adv .post-date' );
 	kemet_css( 'kemet-settings[footer-button-color]', 'color', '.footer-adv input[type="submit"]' );
 	kemet_css( 'kemet-settings[footer-button-h-color]', 'color', '.footer-adv input[type="submit"]:hover' );
+	kemet_css( 'kemet-settings[footer-input-color]', 'color', '.footer-adv input[type=text]' );
 	
 
 	wp.customize( 'kemet-settings[footer-adv-bg-obj]', function( value ) {
