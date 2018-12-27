@@ -106,7 +106,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
             
          // Footer Styling
-         $space_footer        = kemet_get_option('footer-padding');
+		 $space_footer        = kemet_get_option('footer-padding');
+		 //Footer Font
+		 $font_size_footer_title   = kemet_get_option( 'font-size-footer-title' );
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -252,7 +254,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_font( $body_font_size, 'desktop' ),
 				),
-
+				
 				// Global CSS.
 				'::selection'                             => array(
 					'background-color' => esc_attr( $theme_color ),
@@ -321,7 +323,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
             'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'desktop' ),
             'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'desktop' ),
-            ),
+			),
+			'.footer-adv .widget-title'                           => array(
+				'font-size' => kemet_responsive_font( $font_size_footer_title , 'desktop' ),
+			),
                 
 				'.footer-adv a'                           => array(
 					'color' => esc_attr( $footer_adv_link_color ),
@@ -341,6 +346,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				'.footer-adv-overlay'                     => kemet_get_background_obj( $footer_adv_bg_obj ),
+                
 
 				// Single Post Meta.
 				'.kmt-comment-meta'                       => array(
@@ -667,8 +673,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'mobile' ),
                 'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'mobile' ),
-            ),
+			),
+			'.footer-adv .widget-title'                           => array(
+				'font-size' => kemet_responsive_font( $font_size_footer_title , 'mobile' ),
+			),
 			);
+			
 
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( array_merge( $mobile_typo, $mobile_typography ), '', '544' );

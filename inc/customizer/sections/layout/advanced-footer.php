@@ -261,7 +261,36 @@ if ( ! defined( 'ABSPATH' ) ) {
              )
          )
      );
-     
+
+
+    /**
+	 * Option: Widget Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-footer-title]', array(
+			'default'           => kemet_get_option( 'font-size-footer-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-footer-title]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'section-footer-adv',
+				'priority'    => 10,
+				'label'       => __( 'Widget Title Font', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
       /**
         * Option: Link Color
         */
@@ -276,7 +305,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            new WP_Customize_Color_Control(
                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
                    'label'   => __( 'Link Color', 'kemet' ),
-                   'priority'       => 10,
+                   'priority'       => 11,
                    'section' => 'section-footer-adv',
                )
            )
@@ -296,7 +325,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            new WP_Customize_Color_Control(
                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
                    'label'   => __( 'Link Hover Color', 'kemet' ),
-                   'priority'       => 11,
+                   'priority'       => 12,
                    'section' => 'section-footer-adv',
                )
            )
@@ -308,7 +337,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-background-divider]', array(
                 'section'  => 'section-footer-adv',
-                'priority' => 12,
+                'priority' => 13,
 				'type'     => 'kmt-divider',
 				'settings' => array(),
 			)
@@ -331,7 +360,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
 				'type'    => 'kmt-background',
                 'section' => 'section-footer-adv',
-                'priority' => 13,
+                'priority' => 14,
 				'label'   => __( 'Background', 'kemet' ),
 			)
 		)
