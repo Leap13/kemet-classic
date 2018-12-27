@@ -118,9 +118,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_link_color   = kemet_get_option( 'footer-link-color' );
 			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
 			// Footer Button color 
-			$footer_button_color = kemet_get_option( 'footer-button-color' );
+			$footer_button_color       = kemet_get_option( 'footer-button-color' );
 			$footer_button_hover_color = kemet_get_option( 'footer-button-h-color' );
-
+			$footer_button_bg_color    = kemet_get_option( 'footer-button-bg-color' );
+			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
 			$footer_adv_text_color         = kemet_get_option( 'footer-adv-text-color' );
@@ -331,9 +332,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.footer-adv input[type="submit"]'  => array(
 					'color' => esc_attr( $footer_button_color),
+					'background-color' => esc_attr( $footer_button_bg_color)
 				),
 				'.footer-adv input[type="submit"]:hover'  => array(
 					'color' => esc_attr( $footer_button_hover_color),
+					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
 				
 				
@@ -355,6 +358,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-color'     => esc_attr( $footer_adv_link_color ),
 					'background-color' => esc_attr( $footer_adv_link_color ),
 				),
+				
 
 				'.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' => array(
 					'color' => esc_attr( $footer_adv_link_h_color ),

@@ -645,7 +645,22 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
-
+	wp.customize( 'kemet-settings[footer-button-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = ' .footer-adv > input[type="submit"] { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-color', dynamicStyle );
+		} );
+	} );
+	wp.customize( 'kemet-settings[footer-button-bg-h-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = ' .footer-adv > input[type="submit"]:hover { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-h-color', dynamicStyle );
+		} );
+	} );
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */
