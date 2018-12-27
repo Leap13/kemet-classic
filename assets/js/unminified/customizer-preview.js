@@ -494,6 +494,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+
 	/**
 	 * Button Vertical Padding
 	 */
@@ -659,6 +660,17 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			var dynamicStyle = ' .footer-adv > input[type="submit"]:hover { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-h-color', dynamicStyle );
+		} );
+	} );
+	/**
+	 * Footer Button Border Radius
+	 */
+	wp.customize( 'kemet-settings[footer-button-radius]', function( setting ) {
+		setting.bind( function( border ) {
+
+			var dynamicStyle = ' .footer-adv > input[type="submit"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			kemet_add_dynamic_css( 'footer-button-radius', dynamicStyle );
+
 		} );
 	} );
 	/*

@@ -122,6 +122,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_button_hover_color = kemet_get_option( 'footer-button-h-color' );
 			$footer_button_bg_color    = kemet_get_option( 'footer-button-bg-color' );
 			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
+			$footer_border_radius      = kemet_get_option( 'footer-button-radius' );
+
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
 			$footer_adv_text_color         = kemet_get_option( 'footer-adv-text-color' );
@@ -332,14 +334,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.footer-adv input[type="submit"]'  => array(
 					'color' => esc_attr( $footer_button_color),
-					'background-color' => esc_attr( $footer_button_bg_color)
+					'background-color' => esc_attr( $footer_button_bg_color),
+					'border-radius'    => kemet_get_css_value( $footer_border_radius, 'px' )
 				),
 				'.footer-adv input[type="submit"]:hover'  => array(
 					'color' => esc_attr( $footer_button_hover_color),
 					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
 				
-				
+
             '.footer-adv .kmt-container ' => array(
             'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
             'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
