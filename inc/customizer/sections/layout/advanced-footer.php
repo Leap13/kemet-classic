@@ -526,6 +526,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'input Background Color', 'kemet' ),
 			)
 		)
+    );
+    /**
+	 * Option: Footer Input border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
+                'priority'       => 22,
+                'section' => 'section-footer-adv',
+				'label'   => __( 'input border Color', 'kemet' ),
+			)
+		)
 	);
 
 

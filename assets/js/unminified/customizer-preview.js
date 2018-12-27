@@ -671,6 +671,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-input-bg-color', dynamicStyle );
 		} );
 	} );
+	wp.customize( 'kemet-settings[footer-input-border-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			jQuery( '.kmt-small-footer' ).css( 'border-color', border_color );
+		} );
+	} );
 	/**
 	 * Footer Button Border Radius
 	 */
