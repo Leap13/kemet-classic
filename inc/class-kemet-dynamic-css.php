@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$site_title_font_size            = kemet_get_option( 'font-size-site-title' );
 			$site_tagline_font_size          = kemet_get_option( 'font-size-site-tagline' );
 			$single_post_title_font_size     = kemet_get_option( 'font-size-entry-title' );
-         $single_post_title_font_color     = kemet_get_option( 'font-color-entry-title' );
+         	$single_post_title_font_color     = kemet_get_option( 'font-color-entry-title' );
 			$archive_summary_title_font_size = kemet_get_option( 'font-size-archive-summary-title' );
 			$archive_post_title_font_size    = kemet_get_option( 'font-size-page-title' );
 			$heading_h1_font_size            = kemet_get_option( 'font-size-h1' );
@@ -105,8 +105,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
             
-         // Footer Styling
-         $space_footer        = kemet_get_option('footer-padding');
+			// Footer Styling
+			$space_footer        = kemet_get_option('footer-padding');
+			$footer_adv_widget_title_font_size  = kemet_get_option( 'footer-adv-widget-title-font-size' );
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -316,12 +317,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_adv_text_color ),
 				),
             
-            '.footer-adv .kmt-container ' => array(
-            'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
-            'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
-            'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'desktop' ),
-            'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'desktop' ),
-            ),
+				'.footer-adv .kmt-container ' => array(
+				'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
+				'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
+				'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'desktop' ),
+				'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'desktop' ),
+				),
+
+				'.footer-adv .widget-title'       => array(
+					'font-size' => kemet_responsive_font( $footer_adv_widget_title_font_size , 'desktop' ),
+				),	
                 
 				'.footer-adv a'                           => array(
 					'color' => esc_attr( $footer_adv_link_color ),
@@ -667,7 +672,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'mobile' ),
                 'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'mobile' ),
-            ),
+			),
+			'.footer-adv .widget-title'                           => array(
+				'font-size' => kemet_responsive_font( $footer_adv_widget_title_font_size , 'mobile' ),
+			),
 			);
 
 			/* Parse CSS from array()*/

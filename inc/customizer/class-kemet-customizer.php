@@ -259,9 +259,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Update variables.
 			Kemet_Theme_Options::refresh();
 
-			$js_prefix  = '.js';
-			$css_prefix = '.css';
-			$dir        = 'unminified';
+         $js_prefix  = '.min.js';
+			$css_prefix = '.min.css';
+			$dir        = 'minified';
 			if ( SCRIPT_DEBUG ) {
 				$js_prefix  = '.js';
 				$css_prefix = '.css';
