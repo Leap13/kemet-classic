@@ -301,6 +301,41 @@ if ( ! defined( 'ABSPATH' ) ) {
                )
            )
        );
+       	/**
+         * Option: Background Color
+         */
+        $wp_customize->add_control(
+            new Kemet_Control_Divider(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-background-divider]', array(
+                    'section'  => 'section-footer-adv',
+                    'priority' => 12,
+                    'type'     => 'kmt-divider',
+                    'settings' => array(),
+                )
+            )
+        );
+
+        /**
+         * Option: Footer widget Background
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
+                'default'           => kemet_get_option( 'footer-adv-bg-obj' ),
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+            )
+        );
+        $wp_customize->add_control(
+            new Kemet_Control_Background(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-bg-obj]', array(
+                    'type'    => 'kmt-background',
+                    'section' => 'section-footer-adv',
+                    'priority' => 13,
+                    'label'   => __( 'Background', 'kemet' ),
+                )
+            )
+        );
 
 
 		/**
