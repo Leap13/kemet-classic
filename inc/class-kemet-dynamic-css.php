@@ -118,6 +118,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_link_color   = kemet_get_option( 'footer-link-color' );
 			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
 
+			// Footer Button color 
+			$footer_button_color = kemet_get_option( 'footer-button-color' );
+			$footer_button_hover_color = kemet_get_option( 'footer-button-h-color' );
+			$footer_button_bg_color    = kemet_get_option( 'footer-button-bg-color' );
+			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
+			$footer_button_border_radius      = kemet_get_option( 'footer-button-radius' );
+
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
 			$footer_adv_text_color         = kemet_get_option( 'footer-adv-text-color' );
@@ -322,6 +329,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				
 				'.footer-adv .post-date'               => array(
 					'color' => esc_attr( $footer_adv_widget_meta_color),
+				),
+
+				'.footer-adv button, .footer-adv .kmt-button, .footer-adv .button, .footer-adv input#submit, .footer-adv input[type=“button”], .footer-adv input[type=“submit”], .footer-advinput[type=“reset”]'  => array(
+					'color' => esc_attr( $footer_button_color),
+					'background-color' => esc_attr( $footer_button_bg_color),
+					'border-radius'    => kemet_get_css_value( $footer_button_border_radius, 'px' ),
+				),
+
+				'.footer-adv button:focus, .footer-adv button:hover, .footer-adv .kmt-button:hover, .footer-adv .button:hover, .footer-adv input[type=reset]:hover, .footer-adv input[type=reset]:focus, .footer-adv input#submit:hover, .footer-adv input#submit:focus, .footer-adv input[type="button"]:hover, .footer-adv input[type="button"]:focus, .footer-adv input[type="submit"]:hover, .footer-adv input[type="submit"]:focus' => array(
+					'color' => esc_attr( $footer_button_hover_color),
+					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
 
 				'.footer-adv .kmt-container ' => array(

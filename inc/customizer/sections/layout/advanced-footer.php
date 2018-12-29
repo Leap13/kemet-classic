@@ -387,6 +387,110 @@ if ( ! defined( 'ABSPATH' ) ) {
                 )
             )
         );
+        /**
+         * Option: Button Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-button-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-color]', array(
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Button Text Color', 'kemet' ),
+                    'priority'       => 16,
+                )
+            )
+        );
+
+        /**
+         * Option: Button Hover Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
+                    'priority'       => 17,
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Button Text Hover Color', 'kemet' ),
+                )
+            )
+        );
+
+        /**
+         * Option: Button Background Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
+                    'priority'       => 18,
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Button Background Color', 'kemet' ),
+                )
+            )
+        );
+
+        /**
+         * Option: Button Background Hover Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
+                    'priority'       => 19,
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Button Background Hover Color', 'kemet' ),
+                )
+            )
+        );
+
+        /**
+         * Option: Button Radius
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-button-radius]', array(
+                'default'           => kemet_get_option( 'footer-button-radius' ),
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+            )
+        );
+        $wp_customize->add_control(
+            KEMET_THEME_SETTINGS . '[footer-button-radius]', array(
+                'priority'       => 20,
+                'section' => 'section-footer-adv',
+                'label'       => __( 'Button Radius', 'kemet' ),
+                'type'        => 'number',
+                'input_attrs' => array(
+                    'min'  => 0,
+                    'step' => 1,
+                    'max'  => 200,
+                ),
+            )
+        );
 
 
 		/**

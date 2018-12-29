@@ -633,6 +633,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
 	kemet_css( 'kemet-settings[footer-adv-text-color]', 'color', '.footer-adv' );
 	kemet_css( 'kemet-settings[footer-adv-widget-meta-color]', 'color', '.footer-adv .post-date' );
+	kemet_css( 'kemet-settings[footer-button-color]', 'color', '.footer-adv button, .footer-adv .kmt-button, .footer-adv .button, .footer-adv input#submit, .footer-adv input[type=“button”], .footer-adv input[type=“submit”], .footer-advinput[type=“reset”]' );
+	kemet_css( 'kemet-settings[footer-button-h-color]', 'color', '.footer-adv button:focus, .footer-adv button:hover, .footer-adv .kmt-button:hover, .footer-adv .button:hover, .footer-adv input[type=reset]:hover, .footer-adv input[type=reset]:focus, .footer-adv input#submit:hover, .footer-adv input#submit:focus, .footer-adv input[type="button"]:hover, .footer-adv input[type="button"]:focus, .footer-adv input[type="submit"]:hover, .footer-adv input[type="submit"]:focus' );
 
 	wp.customize( 'kemet-settings[footer-adv-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
@@ -642,6 +644,37 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
+
+	
+	wp.customize( 'kemet-settings[footer-button-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = ' .footer-adv > input[type="submit"] { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-color', dynamicStyle );
+		} );
+	} );
+	wp.customize( 'kemet-settings[footer-button-bg-h-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = ' .footer-adv > input[type="submit"]:hover { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-h-color', dynamicStyle );
+		} );
+	} );
+	
+	/**
+	 * Footer Button Border Radius
+	 */
+	wp.customize( 'kemet-settings[footer-button-radius]', function( setting ) {
+		setting.bind( function( border ) {
+
+			var dynamicStyle = ' .footer-adv button, .footer-adv .kmt-button, .footer-adv .button, .footer-adv input#submit, .footer-adv input[type=“button”], .footer-adv input[type=“submit”], .footer-advinput[type=“reset”] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			kemet_add_dynamic_css( 'footer-button-radius', dynamicStyle );
+
+		} );
+	} );
+
 
 	/*
 	 * Woocommerce Shop Archive Custom Width
