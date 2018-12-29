@@ -367,6 +367,27 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         );
 
+        /**
+         * Option: Widget Meta Color
+        */
+        $wp_customize->add_setting(  
+            KEMET_THEME_SETTINGS . '[footer-adv-widget-meta-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-widget-meta-color]', array(
+                    'label'   => __( 'Widget Meta Color', 'kemet' ),
+                    'priority'       => 15,
+                    'section' => 'section-footer-adv',
+                )
+            )
+        );
+
 
 		/**
 		 * Option: Learn More about Footer Widget
