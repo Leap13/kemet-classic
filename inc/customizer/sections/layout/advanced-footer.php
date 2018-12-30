@@ -503,7 +503,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-input-color]', array(
                 'section' => 'section-footer-adv',
-                'label'   => __( 'Button Text Color', 'kemet' ),
+                'label'   => __( 'input Text Color', 'kemet' ),
                 'priority'       =>21,
 			)
 		)
