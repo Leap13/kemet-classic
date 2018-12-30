@@ -635,9 +635,9 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
 	kemet_css( 'kemet-settings[footer-adv-text-color]', 'color', '.footer-adv' );
 	kemet_css( 'kemet-settings[footer-adv-wgt-meta-color]', 'color', '.footer-adv .post-date' );
-	kemet_css( 'kemet-settings[footer-button-color]', 'color', '.footer-adv input[type="submit"]' );
-	kemet_css( 'kemet-settings[footer-button-h-color]', 'color', '.footer-adv input[type="submit"]:hover' );
-	kemet_css( 'kemet-settings[footer-input-color]', 'color', '.footer-adv input[type=text]' );
+	kemet_css( 'kemet-settings[footer-button-color]', 'color', '.footer-adv button,.footer-adv .kmt-button,.footer-adv .button,.footer-adv input#submit,.footer-adv input[type="button"],.footer-adv input[type="submit"],.footer-adv input[type="reset"]' );
+	kemet_css( 'kemet-settings[footer-button-h-color]', 'color', '.footer-adv button:focus,.footer-adv button:hover,.footer-adv .kmt-button:hover,.footer-adv .button:hover,.footer-adv input[type=reset]:hover,.footer-adv input[type=reset]:focus,.footer-adv input#submit:hover,.footer-adv input#submit:focus,.footer-adv input[type="button"]:hover,.footer-adv input[type="button"]:focus,.footer-adv input[type="submit"]:hover,.footer-adv input[type="submit"]:focus' );
+	kemet_css( 'kemet-settings[footer-input-color]', 'color', '.footer-adv input,.footer-adv input[type="text"],.footer-adv input[type="email"],.footer-adv input[type="url"],.footer-adv input[type="password"],.footer-adv input[type="reset"],.footer-adv input[type="search"],.footer-adv textarea ,.footer-adv select' );
 	kemet_css( 'kemet-settings[Footer-line-height]', 'line-height', '.footer-adv' );
 	kemet_css( 'kemet-settings[Footer-text-transform]', 'text-transform', '.footer-adv' );
 

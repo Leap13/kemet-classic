@@ -347,16 +347,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.footer-adv .post-date'=> array(
 					'color' => esc_attr( $footer_adv_wgt_meta_color),
 				),
-				'.footer-adv input[type="submit"]'  => array(
+				'.footer-adv .kmt-button,.footer-adv .button,.footer-adv input#submit,.footer-adv input[type="button"],.footer-adv input[type="submit"],.footer-adv input[type="reset"]'  => array(
 					'color' => esc_attr( $footer_button_color),
 					'background-color' => esc_attr( $footer_button_bg_color),
 					'border-radius'    => kemet_get_css_value( $footer_border_radius, 'px' )
 				),
-				'.footer-adv input[type="submit"]:hover'  => array(
+				'.footer-adv button:focus,.footer-adv button:hover,.footer-adv .kmt-button:hover,.footer-adv .button:hover,.footer-adv input[type=reset]:hover,.footer-adv input[type=reset]:focus,.footer-adv input#submit:hover,.footer-adv input#submit:focus,.footer-adv input[type="button"]:hover,.footer-adv input[type="button"]:focus,.footer-adv input[type="submit"]:hover,.footer-adv input[type="submit"]:focus'  => array(
 					'color' => esc_attr( $footer_button_hover_color),
 					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
-				'.footer-adv input[type=text]'  => array(
+				'.footer-adv input,.footer-adv input[type="text"],.footer-adv input[type="email"],.footer-adv input[type="url"],.footer-adv input[type="password"],.footer-adv input[type="reset"],.footer-adv input[type="search"],.footer-adv textarea'  => array(
 					'color' => esc_attr( $footer_input_color),
 					'background' => esc_attr( $footer_input_bg_color),
 					'border-color' => esc_attr( $footer_input_border_color),
