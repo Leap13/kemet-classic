@@ -278,6 +278,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+	/**
+        * Option: Footer Font Size
+        */
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[footer-sml-font-size]', array(
+				'default'           => kemet_get_option( 'footer-sml-font-size' ),
+				'type'              => 'option',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			)
+		);
+		$wp_customize->add_control(
+			new Kemet_Control_Responsive(
+				$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-font-size]', array(
+					'type'        => 'kmt-responsive',
+					'section'     => 'section-footer-small',
+					'priority'    => 40,
+					'label'       => __( 'Font Size', 'kemet' ),
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'units'       => array(
+						'px' => 'px',
+					),
+				)
+			)
+		);
 
 	/**
 	 * Option: Link Color

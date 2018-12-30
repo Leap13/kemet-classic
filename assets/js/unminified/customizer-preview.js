@@ -583,6 +583,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-tagline]', '.site-header .site-description' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-title]', '.site-title' );
 	kemet_responsive_font_size( 'kemet-settings[footer-font-size]', '.footer-adv');
+	kemet_responsive_font_size( 'kemet-settings[footer-sml-font-size]', '.kmt-small-footer');
 	kemet_responsive_font_size( 'kemet-settings[font-size-footer-title]', '.footer-adv .widget-title');
 	kemet_responsive_font_size( 'kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-title, .page-title' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title' );

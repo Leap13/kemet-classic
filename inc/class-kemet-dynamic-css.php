@@ -123,6 +123,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_color        = kemet_get_option( 'footer-color' );
 			$footer_link_color   = kemet_get_option( 'footer-link-color' );
 			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
+			// Footer Bar Font.
+			$footer_sml_font_size        = kemet_get_option( 'footer-sml-font-size' );
 			// Footer Button color 
 			$footer_button_color       = kemet_get_option( 'footer-button-color' );
 			$footer_button_hover_color = kemet_get_option( 'footer-button-h-color' );
@@ -321,6 +323,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				'.kmt-small-footer'                       => array(
 					'color' => esc_attr( $footer_color ),
+				),
+				'.kmt-small-footer'                       => array(
+					'font-size' => kemet_responsive_font( $footer_sml_font_size),
 				),
 				'.kmt-small-footer > .kmt-footer-overlay' => kemet_get_background_obj( $footer_bg_obj ),
 
