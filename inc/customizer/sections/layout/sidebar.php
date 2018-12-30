@@ -187,6 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 			),
 		)
+		
 	);
 
 
