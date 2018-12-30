@@ -160,7 +160,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-layouts'                   => 'header-main-layout-1',
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
-					'topbar-section-1'                 => '',
+					'topbar-section-1'                 => array(
+                  'search' => '',
+						'menu'  => '',
+                 'widget'  => '',
+						'text-area'  => '',     
+               ),
 					'topbar-section-1-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'topbar-section-2'                 => '',
 					'topbar-section-2-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',

@@ -377,6 +377,7 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 
 		 $output  = '';
 		 $section = kemet_get_option( $option );   
+		  if ( is_array( $section ) ) {
 			
 			foreach ( $section as $sectionnn ) {
 
@@ -400,6 +401,7 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 			}
 		}
 			return $output;			
+	}
 	}
 }
 

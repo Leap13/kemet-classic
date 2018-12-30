@@ -492,6 +492,67 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         );
 
+         /**
+         * Option: Footer Input color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-input-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-color]', array(
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Footer Input Color', 'kemet' ),
+                    'priority'       =>21,
+                )
+            )
+        );
+
+        /**
+         * Option: Footer Input Background Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
+                    'priority'       => 22,
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Footer Input Background Color', 'kemet' ),
+                )
+            )
+        );
+
+        /**
+         * Option: Footer Input border Color
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Color_Control(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
+                    'priority'       => 22,
+                    'section' => 'section-footer-adv',
+                    'label'   => __( 'Footer Input Border Color', 'kemet' ),
+                )
+            )
+        );
+
+
 
 		/**
 		 * Option: Learn More about Footer Widget

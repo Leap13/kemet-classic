@@ -54,7 +54,7 @@ $wp_customize->add_control(
 		'type'     => 'kmt-sortable',
 		'section'  => 'section-topbar-header',
 		'priority' => 5,
-		'label'    => __( 'Top  Section 1', 'kemet' ),
+		'label'    => __( 'Top Section 1', 'kemet' ),
 		'choices'  => array(
 				'search'    => __( 'Search', 'kemet' ),
 				'menu' => __( 'Menu', 'kemet' ),
