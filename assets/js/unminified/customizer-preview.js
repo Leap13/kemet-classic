@@ -582,6 +582,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
     
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-tagline]', '.site-header .site-description' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-title]', '.site-title' );
+	kemet_responsive_font_size( 'kemet-settings[footer-font-size]', '.footer-adv');
 	kemet_responsive_font_size( 'kemet-settings[font-size-footer-title]', '.footer-adv .widget-title');
 	kemet_responsive_font_size( 'kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-title, .page-title' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title' );
@@ -637,7 +638,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[footer-button-color]', 'color', '.footer-adv input[type="submit"]' );
 	kemet_css( 'kemet-settings[footer-button-h-color]', 'color', '.footer-adv input[type="submit"]:hover' );
 	kemet_css( 'kemet-settings[footer-input-color]', 'color', '.footer-adv input[type=text]' );
-	
+	kemet_css( 'kemet-settings[Footer-line-height]', 'line-height', '.footer-adv' );
+	kemet_css( 'kemet-settings[Footer-text-transform]', 'text-transform', '.footer-adv' );
 
 	wp.customize( 'kemet-settings[footer-adv-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
