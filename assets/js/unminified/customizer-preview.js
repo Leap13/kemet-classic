@@ -684,7 +684,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[footer-button-radius]', function( setting ) {
 		setting.bind( function( border ) {
 			
-			var dynamicStyle = ' .footer-adv > input[type="submit"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			var dynamicStyle = '.footer-adv button,.footer-adv .kmt-button,.footer-adv input#submit,.footer-adv input[type="button"],.footer-adv input[type="submit"],.footer-adv input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			kemet_add_dynamic_css( 'footer-button-radius', dynamicStyle );
 
 		} );
