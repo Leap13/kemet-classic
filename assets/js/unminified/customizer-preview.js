@@ -709,4 +709,16 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+	/**
+	 * sidebar Background
+	 */
+	wp.customize( 'kemet-settings[sidebar-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+
+			var dynamicStyle = ' .sidebar-main { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'sidebar-bg-obj', dynamicStyle );
+		} );
+	} );
+
 } )( jQuery );

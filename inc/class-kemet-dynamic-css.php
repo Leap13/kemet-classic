@@ -142,7 +142,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_adv_widget_title_color = kemet_get_option( 'footer-adv-wgt-title-color' );
 			$footer_adv_link_color         = kemet_get_option( 'footer-adv-link-color' );
 			$footer_adv_link_h_color       = kemet_get_option( 'footer-adv-link-h-color' );
-
+			//sidebar background.
+			$sidebar_bg_obj       = kemet_get_option( 'sidebar-bg-obj' );
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -442,6 +443,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
 					'color' => esc_attr( $link_hover_color ),
 				),
+				//sidebar
+				'.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
 
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
