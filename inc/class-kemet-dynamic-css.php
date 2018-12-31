@@ -329,9 +329,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'desktop' ),
-					),
-				'.sidebar-main .widget '                     => array(
-						'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
+					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
 					),
 
 				// Small Footer.
