@@ -147,6 +147,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//sidebar color
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
+			$sidebar_link_h_color       = kemet_get_option( 'sidebar-link-h-color' );
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -454,6 +455,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a' =>  array(
 					'color' => esc_attr( $sidebar_link_color ),
 					),
+				'.sidebar-main a:hover' =>  array(
+					'color' => esc_attr( $sidebar_link_h_color ),
+					),
+					
+
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
 					'color' => kemet_adjust_brightness( $text_color, 75, 'darken' ),

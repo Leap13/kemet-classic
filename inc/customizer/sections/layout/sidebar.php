@@ -227,6 +227,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				)
 			)
 		);
+		/**
+        * Option: Link Hover Color
+        */
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
+				'default'           => '',
+				'type'              => 'option',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
+					'label'   => __( 'Link Hover Color', 'kemet' ),
+					'priority'       => 11,
+					'section' => 'section-sidebars',
+				)
+			)
+		);
 	
 
 
