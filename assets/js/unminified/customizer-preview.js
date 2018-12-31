@@ -645,6 +645,20 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      * widget Padding
      */
 	kemet_responsive_spacing( 'kemet-settings[widget-padding]','.sidebar-main .widget', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+	// widget margin bottom.
+	wp.customize( 'kemet-settings[widget-margin-bottom]', function( value ) {
+		value.bind( function( marginBottom ) {
+			if ( marginBottom == '' ) {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( marginBottom ) {
+				var dynamicStyle = '.sidebar-main .widget { margin-bottom: ' + marginBottom + 'em; } ';
+				kemet_add_dynamic_css( 'widget-margin-bottom', dynamicStyle );
+			}
+
+		} );
+	} );
 	
 	// Footer Bar.
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
