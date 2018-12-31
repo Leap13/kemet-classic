@@ -99,4 +99,131 @@ $wp_customize->add_control(
 				),
 			)
 		)
+    );
+    /**
+	 * Option: Widget Font Family
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-font-family]', array(
+			'default'           => kemet_get_option( 'widget-font-family' ),
+			'type'              => 'option',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
 	);
+
+	$wp_customize->add_control(
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-family]', array(
+				'type'        => 'kmt-font-family',
+				'kmt_inherit' => __( 'Default System Font', 'kemet' ),
+				'section'     => 'section-widgets',
+				'priority'    => 5,
+				'label'       => __( 'Widget Title Font Family', 'kemet' ),
+				'connect'     => KEMET_THEME_SETTINGS . '[widget-font-weight]',
+			)
+		)
+	);
+
+	/**
+	 * Option: Widget Font Weight
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-font-weight]', array(
+			'default'           => kemet_get_option( 'widget-font-weight' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Typography(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-weight]', array(
+				'type'        => 'kmt-font-weight',
+				'kmt_inherit' => __( 'Default', 'kemet' ),
+				'section'     => 'section-widgets',
+				'priority'    => 6,
+				'label'       => __( 'Font Weight Title', 'kemet' ),
+				'connect'     => KEMET_THEME_SETTINGS . '[widget-font-family]',
+			)
+		)
+	);
+
+	/**
+	 * Option: Widget Text Transform
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-text-transform]', array(
+			'default'           => kemet_get_option( 'widget-text-transform' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[widget-text-transform]', array(
+			'type'     => 'select',
+			'section'  => 'section-widgets',
+			'priority' => 7,
+			'label'    => __( 'Text Transform', 'kemet' ),
+			'choices'  => array(
+				''           => __( 'Default', 'kemet' ),
+				'none'       => __( 'None', 'kemet' ),
+				'capitalize' => __( 'Capitalize', 'kemet' ),
+				'uppercase'  => __( 'Uppercase', 'kemet' ),
+				'lowercase'  => __( 'Lowercase', 'kemet' ),
+			),
+		)
+	);
+
+	/**
+	 * Option: widget Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-font-size]', array(
+			'default'           => kemet_get_option( 'widget-font-size' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-size]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'section-widgets',
+				'priority'    => 8,
+				'label'       => __( 'Font Size', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+				),
+			)
+		)
+    );
+    /**
+         * Option: widget Line Height
+         */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[widget-line-height]', array(
+                'default'           => '',
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+            )
+        );
+        $wp_customize->add_control(
+            new Kemet_Control_Slider(
+                $wp_customize, KEMET_THEME_SETTINGS . '[widget-line-height]', array(
+                    'type'        => 'kmt-slider',
+                    'section'     => 'section-widgets',
+                    'priority'    => 9,
+                    'label'       => __( 'Line Height', 'kemet' ),
+                    'suffix'      => '',
+                    'input_attrs' => array(
+                        'min'  => 1,
+                        'step' => 0.01,
+                        'max'  => 5,
+                    ),
+                )
+            )
+        );

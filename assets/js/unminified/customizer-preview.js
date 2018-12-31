@@ -659,6 +659,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
+	//widget font
+	kemet_css( 'kemet-settings[widget-text-transform]', 'text-transform', '.sidebar-main .widget-title' );
+	kemet_css( 'kemet-settings[widget-line-height]', 'line-height', '.sidebar-main .widget-title' );
+	kemet_responsive_font_size( 'kemet-settings[widget-font-size]', '.sidebar-main .widget-title' );
 	
 	// Footer Bar.
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
