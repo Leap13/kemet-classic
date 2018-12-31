@@ -220,6 +220,13 @@
 			'priority' => 50,
 		)
 	);
+	$wp_customize->add_section(
+		'section-widgets', array(
+			'title'    => __( 'widget', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 51,
+		)
+	);
 
 	/**
 	 * Colors Panel

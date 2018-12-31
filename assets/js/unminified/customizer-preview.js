@@ -621,13 +621,24 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	kemet_css( 'kemet-settings[sidebar-text-color]', 'color', '.sidebar-main *' );
 	kemet_css( 'kemet-settings[sidebar-link-color]', 'color',  '.sidebar-main a' );
-	kemet_css( 'kemet-settings[sidebar-link-h-color]', 'color',  '.sidebar-main a:hover' );
+	kemet_css( 'kemet-settings[sidebar-link-h-color]', 'color', '.sidebar-main a:hover' );
 	wp.customize( 'kemet-settings[sidebar-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
 
 			var dynamicStyle = ' .sidebar-main { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'sidebar-bg-obj', dynamicStyle );
+		} );
+	} );
+	/**
+	 * widget background
+	 */
+	wp.customize( 'kemet-settings[Widget-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.sidebar-main .widget { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'Widget-bg-color', dynamicStyle );
 		} );
 	} );
 	

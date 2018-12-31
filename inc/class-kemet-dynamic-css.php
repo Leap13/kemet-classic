@@ -144,6 +144,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_adv_link_h_color       = kemet_get_option( 'footer-adv-link-h-color' );
 			//sidebar background.
 			$sidebar_bg_obj       = kemet_get_option( 'sidebar-bg-obj' );
+			$Widget_bg_color    = kemet_get_option( 'Widget-bg-color' );
 			//sidebar color
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
@@ -458,6 +459,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a:hover' =>  array(
 					'color' => esc_attr( $sidebar_link_h_color ),
 					),
+
+				//layout widget
+				'.sidebar-main .widget'  => array(
+					'background-color' => esc_attr( $Widget_bg_color),
+				),
 					
 
 				// Blockquote Text Color.
