@@ -148,7 +148,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
 			$sidebar_link_h_color       = kemet_get_option( 'sidebar-link-h-color' );
-			//widget 
+			//
+			$widget_title_color         = kemet_get_option('widget-title-color');
 			$Widget_bg_color            = kemet_get_option( 'Widget-bg-color' );
 			$space_widget               = kemet_get_option('widget-padding');
 			$widget_margin_bottom       = kemet_get_option( 'widget-margin-bottom' );
@@ -345,6 +346,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'font-size'      => kemet_responsive_font( $widget_font_size, 'desktop' ),
 						'line-height'    => esc_attr( $widget_line_height ),
 						'text-transform' => esc_attr( $widget_text_transform ),
+						'color'          => esc_attr( $widget_title_color ),
+
 					),
 
 				// Small Footer.
