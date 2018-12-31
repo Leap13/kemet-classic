@@ -641,6 +641,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'Widget-bg-color', dynamicStyle );
 		} );
 	} );
+	/**
+     * widget Padding
+     */
+	kemet_responsive_spacing( 'kemet-settings[widget-padding]','.sidebar-main .widget', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 	
 	// Footer Bar.
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-small-footer' );
