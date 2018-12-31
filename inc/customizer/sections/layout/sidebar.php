@@ -208,6 +208,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+	/**
+        * Option: Link Color
+        */
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
+				'default'           => '',
+				'type'              => 'option',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
+					'label'   => __( 'Link Color', 'kemet' ),
+					'priority'       => 10,
+					'section' => 'section-sidebars',
+				)
+			)
+		);
 	
 
 
