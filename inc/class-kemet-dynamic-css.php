@@ -148,7 +148,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
 			$sidebar_link_h_color       = kemet_get_option( 'sidebar-link-h-color' );
-			//
+			//widget style
 			$widget_title_color         = kemet_get_option('widget-title-color');
 			$Widget_bg_color            = kemet_get_option( 'Widget-bg-color' );
 			$space_widget               = kemet_get_option('widget-padding');
@@ -159,6 +159,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_text_transform         = kemet_get_option( 'widget-text-transform' );
 			$widget_line_height            = kemet_get_option( 'widget-line-height' );
 			$widget_font_size              = kemet_get_option( 'widget-font-size' );
+			
 			
 			/**
 			 * Apply text color depends on link color
@@ -959,6 +960,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-header-break-point .site-header' => array(
 					'border-bottom-width' => kemet_get_css_value( $header_separator, 'px' ),
 					'border-bottom-color' => esc_attr( $header_separator_color ),
+				),
+			);
+            //widget border
+			$widget_border_size       = kemet_get_option( 'widget-border-size' );
+			$widget_border_color      = kemet_get_option( 'widget-border-color' );
+			//widget border
+			$meta_style = array(
+				'.sidebar-main .widget-title ' => array(
+					'border-bottom-style' => 'solid',
+					'border-bottom-width' => kemet_get_css_value( $widget_border_size , 'px' ),
+					'border-bottom-color' => esc_attr( $widget_border_color ),
 				),
 			);
 

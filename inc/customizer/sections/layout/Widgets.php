@@ -247,3 +247,48 @@ $wp_customize->add_control(
             )
         )
     );
+    /**
+	 * Option: Widget Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-border-size]', array(
+			'default'           => kemet_get_option( 'widget-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[widget-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-widgets',
+			'priority'    => 11,
+			'label'       => __( 'Widget Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
+
+	/**
+	 * Option: Widget Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[widget-border-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-border-color]', array(
+				'section'  => 'section-widgets',
+				'priority' => 12,
+				'label'    => __( 'Widget Border Color', 'kemet' ),
+			)
+		)
+	);
