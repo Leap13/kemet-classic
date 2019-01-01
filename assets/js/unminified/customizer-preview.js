@@ -593,7 +593,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * menu color
 	 */
 	kemet_css( 'kemet-settings[menu-text-color]', 'color', '.main-navigation' );
-	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-navigation a' );
+	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-header-menu li a' );
+	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover > a' );
 
 	/**
 	 * Container Inner Spacing
