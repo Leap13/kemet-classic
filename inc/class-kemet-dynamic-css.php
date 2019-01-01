@@ -159,6 +159,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_text_transform         = kemet_get_option( 'widget-text-transform' );
 			$widget_line_height            = kemet_get_option( 'widget-line-height' );
 			$widget_font_size              = kemet_get_option( 'widget-font-size' );
+			//layout header 
+			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			
 			
 			/**
@@ -494,6 +496,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main .widget'  => array(
 					'background-color' => esc_attr( $Widget_bg_color),
 				),
+				//layout header
+				'.main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
 					
 
 				// Blockquote Text Color.
@@ -980,6 +984,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-bar' => array(
 					'border-bottom-width' => kemet_get_css_value( $header_separator, 'px' ),
 					'border-bottom-color' => esc_attr( $header_separator_color ),
+					
 				),
 			);
 
