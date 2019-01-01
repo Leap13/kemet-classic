@@ -162,6 +162,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//layout header 
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			$space_header        = kemet_get_option('header-padding');
+			// header menu
+			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
 			
 			
 			/**
@@ -359,6 +361,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'desktop' ),
 						'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
 						'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
+						),
+					//header menu
+					'.main-navigation '  => array(
+							'background-color' => esc_attr( $menu_bg_color),
 						),
 
 				// Small Footer.

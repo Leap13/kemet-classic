@@ -26,7 +26,7 @@ $wp_customize->add_control(
     )
     );
     /**
-	 * Option: Button Background Color
+	 * Option: Widget Background Color
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(

@@ -577,6 +577,18 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      * Header Spacing
      */
 	kemet_responsive_spacing( 'kemet-settings[header-padding]','body:not(.kmt-header-break-point) .main-header-bar', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+	
+	/**
+	 * menu background
+	 */
+	wp.customize( 'kemet-settings[menu-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.main-navigation { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'menu-bg-color', dynamicStyle );
+		} );
+	} );
 	/**
 	 * Container Inner Spacing
 	 */
