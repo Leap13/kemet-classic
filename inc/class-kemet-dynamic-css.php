@@ -161,6 +161,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_font_size              = kemet_get_option( 'widget-font-size' );
 			//layout header 
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
+			$space_header        = kemet_get_option('header-padding');
 			
 			
 			/**
@@ -352,6 +353,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'color'          => esc_attr( $widget_title_color ),
 
 					),
+					//header spacing
+					'.main-header-bar' => array(
+						'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'desktop' ),
+						'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'desktop' ),
+						'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
+						'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
+						),
 
 				// Small Footer.
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
@@ -498,6 +506,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				//layout header
 				'.main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
+				
 					
 
 				// Blockquote Text Color.
@@ -684,6 +693,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main .widget-title '   => array(
 					'font-size'      => kemet_responsive_font( $widget_font_size, 'tablet' ),
 				),
+				//header spacing
+				'.main-header-bar ' => array(
+					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'tablet' ),
+					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
+					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
+					),
+					
            /**
                 * Content Spacing Tablet
                 */
@@ -789,6 +806,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main .widget-title '   => array(
 					'font-size'      => kemet_responsive_font( $widget_font_size, 'mobile' ),
 				),
+				//header spacing
+				'.main-header-bar ' => array(
+					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'mobile' ),
+					),
            /**
                 * Content Spacing Mobile
                 */

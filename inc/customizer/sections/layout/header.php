@@ -324,4 +324,33 @@ $header_rt_sections = array(
 				'label'   => __( 'Background', 'kemet' ),
 			)
 		)
-    );
+	);
+	 /**
+    * Option - header Spacing
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[header-padding]', array(
+			'default'           => kemet_get_option( 'header-padding' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[header-padding]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-header',
+				'priority'       => 71,
+				'label'          => __( 'Header Padding', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
