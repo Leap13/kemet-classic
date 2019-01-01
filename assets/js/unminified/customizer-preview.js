@@ -609,6 +609,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 	/**submenu color */
 	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu .sub-menu li a' );
+	kemet_css( 'kemet-settings[submenu-link-h-color]', 'color', '.main-header-menu .sub-menu li:hover > a' );
 
 	/**
 	 * Container Inner Spacing

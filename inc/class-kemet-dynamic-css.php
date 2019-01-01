@@ -170,6 +170,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//header submenu
 			$submenu_bg_color            = kemet_get_option( 'submenu-bg-color' );
 			$submenu_link_color            = kemet_get_option( 'submenu-link-color' );
+			$submenu_link_h_color            = kemet_get_option( 'submenu-link-h-color' );
 			
 			
 			/**
@@ -385,6 +386,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					),
 					'.main-header-menu .sub-menu li a'  => array(
 						'color' => esc_attr( $submenu_link_color ),
+					),
+					'.main-header-menu .sub-menu li:hover > a'  => array(
+						'color' => esc_attr( $submenu_link_h_color ),
 					),
 
 
