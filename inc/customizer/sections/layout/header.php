@@ -372,4 +372,44 @@ $header_rt_sections = array(
 				'label'   => __( 'Menu Background Color', 'kemet' ),
 			)
 		)
-    );
+	);
+	/**
+      * Option:Menu Text Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-text-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-text-color]', array(
+				'label'   => __( 'Menu Color', 'kemet' ),
+				'priority'       => 73,
+				'section' => 'section-header',
+			)
+		)
+	);
+	/**
+      * Option:Menu Link Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-color]', array(
+				'label'   => __( 'Menu Link Color', 'kemet' ),
+				'priority'       => 74,
+				'section' => 'section-header',
+			)
+		)
+	);
