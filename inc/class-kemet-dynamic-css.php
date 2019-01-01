@@ -167,6 +167,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_text_color         = kemet_get_option( 'menu-text-color' );
 			$menu_link_color         = kemet_get_option( 'menu-link-color' );
 			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' );
+			//header submenu
+			$submenu_bg_color            = kemet_get_option( 'submenu-bg-color' );
+			$submenu_link_color            = kemet_get_option( 'submenu-link-color' );
 			
 			
 			/**
@@ -370,12 +373,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 							'background-color' => esc_attr( $menu_bg_color),
 							'color' => esc_attr( $menu_text_color ),
 						),
-						'.main-header-menu li a'  => array(
+					'.main-header-menu li a'  => array(
 							'color' => esc_attr( $menu_link_color ),
 						),
-						'.main-header-menu li:hover > a'  => array(
+					'.main-header-menu li:hover > a'  => array(
 							'color' => esc_attr( $menu_link_h_color ),
 						),
+					//submenu
+					'.main-header-menu ul'  => array(
+						'background-color' => esc_attr( $submenu_bg_color),
+					),
+					'.main-header-menu .sub-menu li a'  => array(
+						'color' => esc_attr( $submenu_link_color ),
+					),
+
 
 
 				// Small Footer.

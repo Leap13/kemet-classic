@@ -595,6 +595,20 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[menu-text-color]', 'color', '.main-navigation' );
 	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-header-menu li a' );
 	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover > a' );
+	/**
+	 * submenu background
+	 */
+	wp.customize( 'kemet-settings[submenu-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.main-header-menu ul { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'submenu-bg-color', dynamicStyle );
+		} );
+	} );
+
+	/**submenu color */
+	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu .sub-menu li a' );
 
 	/**
 	 * Container Inner Spacing
