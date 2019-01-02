@@ -5974,3 +5974,73 @@ input[type="color"]::-webkit-color-swatch {
   -ms-flex-item-align: stretch;
   align-self: stretch;
 }
+
+/*----------  Top Bar  ----------*/
+/**
+ * 	Top Header
+ *
+ * @import
+ * 1 - Top Header Sections
+*/
+/* 1 - Top Header Layouts  */
+.top-navigation ul {
+  list-style: none;
+}
+
+.top-navigation ul li a {
+  padding: 0 20px;
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+}
+
+.top-navigation ul.children li a,
+.top-navigation ul.sub-menu li a {
+  padding-right: 30px;
+}
+
+.top-navigation ul.children li a:before,
+.top-navigation ul.sub-menu li a:before {
+  content: "-";
+  margin-left: 2px;
+}
+
+.top-navigation ul.children li li a,
+.top-navigation ul.sub-menu li li a {
+  padding-right: 40px;
+}
+
+.top-navigation ul.children li li a:before,
+.top-navigation ul.sub-menu li li a:before {
+  content: "--";
+  margin-left: 2px;
+}
+
+.top-navigation ul.children li li li a,
+.top-navigation ul.sub-menu li li li a {
+  padding-right: 50px;
+}
+
+.top-navigation ul.children li li li a:before,
+.top-navigation ul.sub-menu li li li a:before {
+  content: "---";
+  margin-left: 2px;
+}
+
+.top-navigation ul.children li li li li a,
+.top-navigation ul.sub-menu li li li li a {
+  padding-right: 60px;
+}
+
+.top-navigation ul.children li li li li a:before,
+.top-navigation ul.sub-menu li li li li a:before {
+  content: "----";
+  margin-left: 2px;
+}
+
+.top-navigation .sub-menu {
+  display: none;
+}
+
+/* 3 - Top Header Common  */
+/* 4 - Top Header Main */

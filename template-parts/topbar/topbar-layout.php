@@ -12,8 +12,6 @@
 $section_1 = kemet_get_top_section( 'top-section-1' );
 $section_2 = kemet_get_top_section( 'top-section-2' );
 
-//$section_1 = kemet_get_option( 'kemet_get_topbar' );
-//$section_2 = kemet_get_option( 'kemet_get_topbar' );
 $sections  = 0;
 
  if ( '' != $section_1 ) {
@@ -24,17 +22,17 @@ $sections  = 0;
  	$sections++;
  }
 
-// switch ( $sections ) {
+ switch ( $sections ) {
 
-// 	case '2':
-// 			$section_class = 'kmt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12';
-// 		break;
+ 	case '2':
+ 			$section_class = 'kmt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12';
+ 		break;
 
-// 	case '1':
-// 	default:
-// 			$section_class = 'kmt-topbar-section-equally kmt-col-xs-12';
-// 		break;
-// }
+ 	case '1':
+ 	default:
+ 			$section_class = 'kmt-topbar-section-equally kmt-col-xs-12';
+ 		break;
+ }
  if ( empty( $section_1 ) && empty( $section_2 ) ) {
 	return;
 }
