@@ -616,9 +616,36 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[submenu-border-top]', function( setting ) {
 		setting.bind( function( border ) {
 
-			var dynamicStyle = '.submenu-with-border ul { border-top-width: ' + border + 'px }';
+			var dynamicStyle = '.main-header-menu ul.sub-menu { border-top-width: ' + border + 'px }';
 
 			kemet_add_dynamic_css( 'submenu-border-top', dynamicStyle );
+
+		} );
+	} );
+	wp.customize( 'kemet-settings[submenu-border-top]', function( value ) {
+		value.bind( function( border ) {
+
+			var dynamicStyle = '.main-header-menu ul.sub-menu { border-top-width: ' + border + 'px } ';
+
+			kemet_add_dynamic_css( 'submenu-border-top', dynamicStyle );
+
+		} );
+	} );
+	/**
+	 * SubMenu Top Border color
+	 */
+	wp.customize( 'kemet-settings[submenu-border-top-color]', function( value ) {
+		value.bind( function( color ) {
+			if (color == '') {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( color ) {
+
+				var dynamicStyle = '.main-header-menu ul.sub-menu { border-top-color: ' + color + '; } ';
+
+				kemet_add_dynamic_css( 'submenu-border-top-color', dynamicStyle );
+			}
 
 		} );
 	} );
