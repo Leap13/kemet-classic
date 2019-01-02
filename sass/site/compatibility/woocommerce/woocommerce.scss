@@ -2738,19 +2738,17 @@ p.demo_store,
 }
 
 /**
+
  * Woocommerce common form design
  */
  .woocommerce,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
-		border-color: #dddddd;
-		background: #fff;
 		box-shadow: none;
 		border-radius: 0px;
 
 		&:focus{
 			box-shadow: none;
-			border-color: #dddddd;
 		}
 	}
 	select, .select2-container .select2-selection--single{

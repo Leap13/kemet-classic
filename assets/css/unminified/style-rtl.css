@@ -3845,14 +3845,6 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   z-index: 2;
 }
 
-.widget_search .search-form .search-field {
-  background: #fafafa;
-  border-width: 1px;
-  border-color: #eaeaea;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-}
-
 .widget_search .search-field,
 .widget_search .search-field:focus {
   width: 100%;

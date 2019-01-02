@@ -125,6 +125,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
 			$footer_button_border_radius      = kemet_get_option( 'footer-button-radius' );
 
+			//Footer Input Color 
+			$footer_input_color        = kemet_get_option( 'footer-input-color' );
+			$footer_input_bg_color     = kemet_get_option( 'footer-input-bg-color' );
+			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color' );
+
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'footer-adv-bg-obj' );
 			$footer_adv_text_color         = kemet_get_option( 'footer-adv-text-color' );
@@ -368,6 +373,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				'.footer-adv .calendar_wrap #today, .footer-adv a:hover + .post-count' => array(
 					'background-color' => esc_attr( $footer_adv_link_color ),
+				),
+
+				'.footer-adv input,.footer-adv input[type="text"],.footer-adv input[type="email"],.footer-adv input[type="url"],.footer-adv input[type="password"],.footer-adv input[type="reset"],.footer-adv input[type="search"],.footer-adv textarea'  => array(
+					'color' => esc_attr( $footer_input_color),
+					'background' => esc_attr( $footer_input_bg_color),
+					'border-color' => esc_attr( $footer_input_border_color),
 				),
 
 				'.footer-adv-overlay'                     => kemet_get_background_obj( $footer_adv_bg_obj ),
