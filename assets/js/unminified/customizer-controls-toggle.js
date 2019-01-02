@@ -464,6 +464,23 @@
 			},
 		],
 
+
+		'kemet-settings[disable-submenu-border]' :
+		[
+			{
+				controls: [
+					'kemet-settings[submenu-border-color]',
+				],
+				callback: function( submenu_area ) {
+
+					if ( 'disabled' != submenu_area ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
 		/**
 		 * Footer Widgets
 		 */

@@ -841,6 +841,11 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$primary_menu_disable     = kemet_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
+		$disable_submenu_border     = kemet_get_option( 'disable-submenu-border' );
+		$submenu_border_color     = kemet_get_option( 'submenu-border-color ');
+		
+		
+
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -852,6 +857,14 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 
 			if ( 'none' == $primary_menu_custom_item ) {
 				$classes[] = 'kmt-no-menu-items';
+			}
+		}
+		if ( $disable_submenu_border ) {
+
+			$classes[] = 'submenu-disabled';
+
+			if ( 'none' == $submenu_border_color ) {
+				$classes[] = 'kmt-no-submenu-items';
 			}
 		}
 		// Add class if Inline Logo & Site Title.

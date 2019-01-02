@@ -608,7 +608,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 
 	/**submenu color */
-	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu .sub-menu li a' );
+	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu ul.sub-menu li a' );
 	kemet_css( 'kemet-settings[submenu-link-h-color]', 'color', '.main-header-menu .sub-menu li:hover > a' );
 	/**
 	 * SubMenu Top Border
@@ -647,6 +647,14 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 				kemet_add_dynamic_css( 'submenu-border-top-color', dynamicStyle );
 			}
 
+		} );
+	} );
+	/**
+	 * SubMenu Border color
+	 */
+	wp.customize( 'kemet-settings[submenu-border-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.main-header-menu ul.sub-menu li a' ).css( 'border-color', border_color );
 		} );
 	} );
 
@@ -847,7 +855,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 	wp.customize( 'kemet-settings[footer-input-border-color]', function( value ) {
-		value.bind( function( bg_obj ) {
+		value.bind( function( border_color ) {
 			jQuery( '.kmt-small-footer' ).css( 'border-color', border_color );
 		} );
 	} );

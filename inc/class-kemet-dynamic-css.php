@@ -174,6 +174,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// SubMenu Top Border.
 			$submenu_border_top       = kemet_get_option( 'submenu-border-top' );
 			$submenu_border_top_color = kemet_get_option( 'submenu-border-top-color' );
+			// SubMenu Border Color
+			$submenu_border_color     = kemet_get_option( 'submenu-border-color' );
 			
 			
 			
@@ -393,8 +395,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'border-top-width' => kemet_get_css_value( $submenu_border_top, 'px' ),
 					    'border-top-color' => esc_attr( $submenu_border_top_color ),
 					),
-					'.main-header-menu .sub-menu li a'  => array(
+					'.main-header-menu ul.sub-menu li a'  => array(
 						'color' => esc_attr( $submenu_link_color ),
+						'border-color' => esc_attr( $submenu_border_color ),
+						
 					),
 					'.main-header-menu .sub-menu li:hover > a'  => array(
 						'color' => esc_attr( $submenu_link_h_color ),
