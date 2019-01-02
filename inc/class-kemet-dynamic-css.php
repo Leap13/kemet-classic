@@ -166,10 +166,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
 			$menu_link_color         = kemet_get_option( 'menu-link-color' );
 			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' );
+			$menu_link_a_color         = kemet_get_option( 'menu-link-a-color' );
 			//header submenu
 			$submenu_bg_color            = kemet_get_option( 'submenu-bg-color' );
 			$submenu_link_color            = kemet_get_option( 'submenu-link-color' );
 			$submenu_link_h_color            = kemet_get_option( 'submenu-link-h-color' );
+			
 			
 			
 			/**
@@ -375,7 +377,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'.main-header-menu li a'  => array(
 							'color' => esc_attr( $menu_link_color ),
 						),
-					'.main-header-menu li:hover > a'  => array(
+					' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a'  => array(
+							'color' => esc_attr( $menu_link_a_color ),
+					),
+					'.main-header-menu li:hover a, .main-header-menu li.current-menu-item:hover a, .main-header-menu li.current_page_item:hover a'  => array(
 							'color' => esc_attr( $menu_link_h_color ),
 						),
 					//submenu
@@ -1020,6 +1025,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
 			);
+			// SubMenu Top Border.
+			$submenu_border_top       = kemet_get_option( 'submenu-border-top' );
+			$submenu_border_top_color       = kemet_get_option( 'submenu-border-top-color' );
+
+			$meta_style = array(
+				'.submenu-with-border ul ' => array(
+					'border-top-style' => 'solid',
+					'border-top-width' => kemet_get_css_value( $small_footer_divider, 'px' ),
+					'border-top-color' => esc_attr( $submenu_border_top_color ),
+				),
+			);
+
             //widget border
 			$widget_border_size       = kemet_get_option( 'widget-border-size' );
 			$widget_border_color      = kemet_get_option( 'widget-border-color' );
