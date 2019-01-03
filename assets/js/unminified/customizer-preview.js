@@ -689,6 +689,16 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_responsive_font_size( 'kemet-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a' );
+	/**
+	 * Content Heading Color
+	 */
+	kemet_css( 'kemet-settings[font-color-h1]', 'color', 'h1, .entry-content h1, .entry-content h1 a' );
+	kemet_css( 'kemet-settings[font-color-h2]', 'color', 'h2, .entry-content h2, .entry-content h2 a' );
+	kemet_css( 'kemet-settings[font-color-h3]', 'color', 'h3, .entry-content h3, .entry-content h3 a' );
+	kemet_css( 'kemet-settings[font-color-h4]', 'color', 'h4, .entry-content h4, .entry-content h4 a' );
+	kemet_css( 'kemet-settings[font-color-h5]', 'color', 'h5, .entry-content h5, .entry-content h5 a' );
+	kemet_css( 'kemet-settings[font-color-h6]', 'color', 'h6, .entry-content h6, .entry-content h6 a' );
+	
 
 	kemet_css( 'kemet-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea' );
     
