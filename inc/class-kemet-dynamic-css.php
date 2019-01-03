@@ -153,6 +153,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$space_sidebar        = kemet_get_option( 'sidebar-padding' );
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
+			$sidebar_link_h_color         = kemet_get_option( 'sidebar-link-h-color' );
 			$Widget_bg_color    = kemet_get_option( 'Widget-bg-color' );
 
 			/**
