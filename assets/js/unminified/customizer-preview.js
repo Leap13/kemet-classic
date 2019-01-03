@@ -891,6 +891,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
+	/**
+	 * Content Text Color
+	 */
+	kemet_css( 'kemet-settings[content-text-color]', 'color', '.entry-content' );
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */
