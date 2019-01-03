@@ -182,6 +182,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_border_color     = kemet_get_option( 'submenu-border-color' );
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
+			$content_link_color         = kemet_get_option( 'content-link-color' );
 			
 			
 			
@@ -567,6 +568,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-content' =>  array(
 					'color' => esc_attr( $content_text_color ),
 					),
+				//Content Link color
+				'.entry-content a' =>  array(
+					'color' => esc_attr( $content_link_color ),
+				),
 					
 
 				// Blockquote Text Color.
