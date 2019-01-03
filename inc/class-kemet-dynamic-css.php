@@ -148,6 +148,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
 			$sidebar_link_h_color       = kemet_get_option( 'sidebar-link-h-color' );
+			// sidebar input color 
+			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
+			$sidebar_input_bg_color     = kemet_get_option( 'sidebar-input-bg-color' );
+			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color' );
 			//widget style
 			$widget_title_color         = kemet_get_option('widget-title-color');
 			$Widget_bg_color            = kemet_get_option( 'Widget-bg-color' );
@@ -537,6 +541,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
 				'.sidebar-main *' =>  array(
 				'color' => esc_attr( $sidebar_text_color ),
+				),
+				//sidebar input style 
+				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
+					'color' => esc_attr( $sidebar_input_color),
+					'background' => esc_attr( $sidebar_input_bg_color),
+					'border-color' => esc_attr( $sidebar_input_border_color),
 				),
 				'.sidebar-main a' =>  array(
 					'color' => esc_attr( $sidebar_link_color ),

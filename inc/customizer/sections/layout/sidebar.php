@@ -246,6 +246,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 				)
 			)
 		);
+		/**
+	 * Option: Sidebar Input color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sidebar-input-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-color]', array(
+                'section' => 'section-sidebars',
+                'label'   => __( 'input Text Color', 'kemet' ),
+                'priority'       =>21,
+			)
+		)
+    );
+    /**
+	 * Option: Sidebar Input Background Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sidebar-input-bg-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-bg-color]', array(
+                'priority'       => 22,
+                'section' => 'section-sidebars',
+				'label'   => __( 'input Background Color', 'kemet' ),
+			)
+		)
+    );
+    /**
+	 * Option: Sidebar Input border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
+                'priority'       => 22,
+                'section' => 'section-sidebars',
+				'label'   => __( 'input border Color', 'kemet' ),
+			)
+		)
+	);
 	
 
 
