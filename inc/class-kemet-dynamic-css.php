@@ -148,6 +148,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				$btn_text_color = kemet_get_foreground_color( $theme_color );
 			}
 
+			//sidebar
+			$sidebar_bg_obj       = kemet_get_option( 'sidebar-bg-obj' );
+			$space_sidebar        = kemet_get_option( 'sidebar-padding' );
+			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
+			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
+
 			/**
 			 * Apply text hover color depends on link hover color
 			 */
@@ -430,6 +436,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_hover_color ),
 				),
 
+				//sidebar
+				'.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
+				'.sidebar-main *' =>  array(
+					'color' => esc_attr( $sidebar_text_color ),
+				),
+				'.sidebar-main a' =>  array(
+					'color' => esc_attr( $sidebar_link_color ),
+				),
+	
+
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
 					'color' => kemet_adjust_brightness( $text_color, 75, 'darken' ),
@@ -470,8 +486,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
     
             /**
-                * Content Spacing Desktop
-                */
+            * Content Spacing Desktop
+            */
             '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .kmt-woocommerce-container ' => array(
             'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'desktop' ),
             'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
