@@ -98,6 +98,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            = kemet_get_option( 'font-size-h6' );
 
+			//Layout Header
+			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 			$btn_vertical_padding   = kemet_get_option( 'button-v-padding' );
@@ -480,7 +482,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'desktop' ),
 				),
-
+			 	//layout header
+			    '.main-header-bar'  => kemet_get_background_obj( $header_bg_obj ),
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
 					'color' => kemet_adjust_brightness( $text_color, 75, 'darken' ),

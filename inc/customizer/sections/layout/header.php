@@ -304,3 +304,26 @@ $header_rt_sections = array(
 			),
 		)
 	);
+
+	/**
+	 * Option: header Background
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
+			'default'           => kemet_get_option( 'header-bg-obj' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
+				'type'    => 'kmt-background',
+                'section' => 'section-header',
+                'priority' => 70,
+				'label'   => __( 'Background', 'kemet' ),
+			)
+		)
+    );
+
