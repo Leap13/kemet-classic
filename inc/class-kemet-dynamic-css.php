@@ -444,6 +444,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a' =>  array(
 					'color' => esc_attr( $sidebar_link_color ),
 				),
+				'.sidebar-main a:hover' =>  array(
+					'color' => esc_attr( $sidebar_link_h_color ),
+				),
 	
 
 				// Blockquote Text Color.
