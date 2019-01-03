@@ -899,6 +899,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Content link Color
 	 */
 	kemet_css( 'kemet-settings[content-link-color]', 'color', '.entry-content a' );
+	/**
+	 * Content link Hover Color
+	 */
+	kemet_css( 'kemet-settings[content-link-h-color]', 'color', '.entry-content a:hover' );
+
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */
