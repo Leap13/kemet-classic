@@ -156,6 +156,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_link_h_color         = kemet_get_option( 'sidebar-link-h-color' );
 			$Widget_bg_color    = kemet_get_option( 'Widget-bg-color' );
 			$space_widget       = kemet_get_option('widget-padding');
+			$widget_margin_bottom              = kemet_get_option( 'widget-margin-bottom' );
 
 			/**
 			 * Apply text hover color depends on link hover color
@@ -234,12 +235,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
                 /* Site Identity Spacing */
-            '.site-header .kmt-site-identity'  => array(
-                'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
-                'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
-                'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
-                'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'desktop' ),
-            ),
+				'.site-header .kmt-site-identity'  => array(
+					'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
+					'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
+					'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'desktop' ),
+				),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'desktop' ),
 				),
@@ -450,10 +451,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a:hover' =>  array(
 					'color' => esc_attr( $sidebar_link_h_color ),
 				),
+				'.sidebar-main .widget '                     => array(
+					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
+				),
+				//'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
 				
 				//layout widget
-				'.sidebar-main .widget'  => array(
-					'background-color' => esc_attr( $Widget_bg_color),
+				'.sidebar-main .widget '                     => array(
+					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
 				),
 
 				//widget Spacing
