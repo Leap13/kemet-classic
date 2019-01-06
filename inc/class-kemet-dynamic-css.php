@@ -165,11 +165,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$space_widget               = kemet_get_option('widget-padding');
 			$widget_margin_bottom       = kemet_get_option( 'widget-margin-bottom' );
 			//widget font 
-			$widget_font_family       = kemet_get_option( 'widget-font-family' );
-			$widget_font_weight       = kemet_get_option( 'widget-font-weight' );
-			$widget_text_transform         = kemet_get_option( 'widget-text-transform' );
-			$widget_line_height            = kemet_get_option( 'widget-line-height' );
-			$widget_font_size              = kemet_get_option( 'widget-font-size' );
+			$widget_font_family       = kemet_get_option( 'widget-title-font-family' );
+			$widget_font_weight       = kemet_get_option( 'widget-title-font-weight' );
+			$widget_text_transform    = kemet_get_option( 'widget-title-text-transform' );
+			$widget_line_height       = kemet_get_option( 'widget-title-line-height' );
+			$widget_font_size         = kemet_get_option( 'widget-title-font-size' );
 			//layout header 
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			$space_header        = kemet_get_option('header-padding');
