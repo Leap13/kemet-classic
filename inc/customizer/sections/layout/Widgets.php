@@ -196,6 +196,7 @@ $wp_customize->add_control(
 				),
 				'units'       => array(
 					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
