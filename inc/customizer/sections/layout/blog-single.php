@@ -131,26 +131,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	/**
-      * Option:Post Title Color
-      */
-      $wp_customize->add_setting(
-        KEMET_THEME_SETTINGS . '[post-title-color]', array(
-            'default'           => '',
-            'type'              => 'option',
-            'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
-        )
-    );
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize, KEMET_THEME_SETTINGS . '[post-title-color]', array(
-                'label'   => __( 'Post Title Color', 'kemet' ),
-                'priority'       => 26,
-                'section' => 'section-blog-single',
-            )
-        )
-	);
-	/**
       * Option:Post Content Color
       */
       $wp_customize->add_setting(
@@ -170,7 +150,26 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         )
     );
-
+	/**
+      * Option:Post Title Color
+      */
+      $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[post-title-color]', array(
+            'default'           => '',
+            'type'              => 'option',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+        )
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize, KEMET_THEME_SETTINGS . '[post-title-color]', array(
+                'label'   => __( 'Post Title Color', 'kemet' ),
+                'priority'       => 26,
+                'section' => 'section-blog-single',
+            )
+        )
+	);
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 

@@ -608,11 +608,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $heading_h6_font_color ),
 				),
 				//post
-				'.content-area .entry-title a' =>  array(
-					'color' => esc_attr( $post_title_color ),
-				),
 				'.content-area .entry-content' =>  array(
 					'color' => esc_attr( $post_content_color ),
+				),
+				'.content-area .entry-title a' =>  array(
+					'color' => esc_attr( $post_title_color ),
 				),
 					
 
