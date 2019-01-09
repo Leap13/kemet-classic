@@ -423,11 +423,6 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
-	/**
-	 * Single Post 
-	 */
-	kemet_css( 'kemet-settings[post-title-color]', 'color', '.content-area .entry-title a' );
-
 
 	/**
 	 * Primary Width Option
