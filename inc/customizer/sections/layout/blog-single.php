@@ -184,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $wp_customize->add_control(
         new WP_Customize_Color_Control(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
-                'label'   => __( 'Read More Title Color', 'kemet' ),
+                'label'   => __( 'Read More Text Color', 'kemet' ),
                 'priority'       => 28,
                 'section' => 'section-blog-single',
             )
@@ -204,7 +204,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $wp_customize->add_control(
         new WP_Customize_Color_Control(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
-                'label'   => __( 'Read More Title Color', 'kemet' ),
+                'label'   => __( 'Read More Text Color', 'kemet' ),
                 'priority'       => 29,
                 'section' => 'section-blog-single',
             )
