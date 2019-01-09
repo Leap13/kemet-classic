@@ -455,6 +455,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
+	wp.customize( 'kemet-settings[readmore-border-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.content-area .read-more a' ).css( 'border-color', border_color );
+		} );
+	} );
 
 	/**
 	 * Primary Width Option
