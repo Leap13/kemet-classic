@@ -199,6 +199,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_padding    = kemet_get_option( 'readmore-padding' );
 			$readmore_bg_color    = kemet_get_option( 'readmore-bg-color' );
 			$readmore_bg_h_color    = kemet_get_option( 'readmore-bg-h-color' );
+			$readmore_border_radius    = kemet_get_option( 'readmore-border-radius' );
 
 			
 			
@@ -622,6 +623,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.content-area .read-more a' =>  array(
 					'color' => esc_attr( $readmore_text_color ),
 					'background-color' => esc_attr( $readmore_bg_color),
+					'border-radius'    => kemet_get_css_value( $readmore_border_radius, 'px' )
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
