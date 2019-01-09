@@ -620,20 +620,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.content-area .read-more a' =>  array(
 					'color' => esc_attr( $readmore_text_color ),
+					'background-color' => esc_attr( $readmore_bg_color),
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
 				),
-				'.content-area .read-more' => array(
+				'.content-area p.read-more a' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
-				),
-				'.content-area p.read-more'  => array(
-					'background-color' => esc_attr( $readmore_bg_color),
-				),
-					
+				),	
 
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
@@ -826,6 +823,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 					),
+				//post readmore spacing
+				'.content-area p.read-more a' => array(
+						'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'tablet' ),
+						'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'tablet' ),
+						'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'tablet' ),
+						'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'tablet' ),
+					),
 					
            /**
                 * Content Spacing Tablet
@@ -920,6 +924,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.kemet-logo-svg'                       => array(
 					'width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
+				),
+				//post readmore spacing
+				'.content-area p.read-more a' => array(
+					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'mobile' ),
 				),
 				//Widget Spacing
 				'.sidebar-main .widget ' => array(
