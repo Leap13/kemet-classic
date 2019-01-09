@@ -198,6 +198,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
 			$readmore_padding    = kemet_get_option( 'readmore-padding' );
 			$readmore_bg_color    = kemet_get_option( 'readmore-bg-color' );
+			$readmore_bg_h_color    = kemet_get_option( 'readmore-bg-h-color' );
 
 			
 			
@@ -624,6 +625,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
+					'background-color' => esc_attr( $readmore_bg_h_color),
 				),
 				'.content-area p.read-more a' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),

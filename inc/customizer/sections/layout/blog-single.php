@@ -257,6 +257,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Read More Background Color', 'kemet' ),
 			)
 		)
+	);
+	/**
+	 * Option: Read More Background Color Hover
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
+                'priority'       => 32,
+                'section' => 'section-blog-single',
+				'label'   => __( 'Read More Background Color Hover', 'kemet' ),
+			)
+		)
     );
 
 	// Learn More link if Kemet Pro is not activated.

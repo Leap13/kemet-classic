@@ -439,6 +439,14 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-color', dynamicStyle );
 		} );
 	} );
+	wp.customize( 'kemet-settings[readmore-bg-h-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.content-area .read-more a:hover { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-h-color', dynamicStyle );
+		} );
+	} );
 
 	/**
 	 * Primary Width Option
