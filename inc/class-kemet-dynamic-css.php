@@ -197,6 +197,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
 			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
 			$readmore_padding    = kemet_get_option( 'readmore-padding' );
+			$readmore_bg_color    = kemet_get_option( 'readmore-bg-color' );
 
 			
 			
@@ -628,6 +629,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
+				),
+				'.content-area p.read-more'  => array(
+					'background-color' => esc_attr( $readmore_bg_color),
 				),
 					
 
