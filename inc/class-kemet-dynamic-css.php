@@ -195,6 +195,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$post_title_color         = kemet_get_option( 'post-title-color' );
 			$post_content_color       = kemet_get_option( 'post-content-color' );
 			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
+			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
 
 			
 			
@@ -617,6 +618,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.content-area .read-more a' =>  array(
 					'color' => esc_attr( $readmore_text_color ),
+				),
+				'.content-area .read-more a:hover' =>  array(
+					'color' => esc_attr( $readmore_text_h_color ),
 				),
 					
 
