@@ -426,8 +426,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Single Post 
 	 */
-	kemet_css( 'kemet-settings[post-title-color]', 'color','.content-area .entry-title a' );
-	kemet_css( 'kemet-settings[post-content-color]', 'color','.content-area .entry-content' );
+	kemet_css( 'kemet-settings[post-title-color]', 'color', '.content-area .entry-title a' );
 
 
 	/**
