@@ -151,6 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_adv_link_h_color       = kemet_get_option( 'footer-adv-link-h-color' );
 			//sidebar background.
 			$sidebar_bg_obj       = kemet_get_option( 'sidebar-bg-obj' );
+			$sidebar_padding       = kemet_get_option( 'sidebar-padding' );
 			//sidebar color
 			$sidebar_text_color         = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color         = kemet_get_option( 'sidebar-link-color' );
@@ -562,6 +563,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				//sidebar
 				'.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
+				'div.sidebar-main' => array(
+					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'desktop' ),
+					'padding-right' => kemet_responsive_spacing( $sidebar_padding, 'right', 'desktop' ),
+					'padding-left'  => kemet_responsive_spacing( $sidebar_padding, 'left', 'desktop' ),
+				),
 				'.sidebar-main *' =>  array(
 				'color' => esc_attr( $sidebar_text_color ),
 				),
@@ -815,6 +822,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-logo-svg'                       => array(
 					'width' => kemet_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
+				//Sidebar Spacing
+				'div.sidebar-main' => array(
+					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'tablet' ),
+					'padding-right' => kemet_responsive_spacing( $sidebar_padding, 'right', 'tablet' ),
+					'padding-left'  => kemet_responsive_spacing( $sidebar_padding, 'left', 'tablet' ),
+				),
 				//Widget Spacing
 				'.sidebar-main .widget ' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'tablet' ),
@@ -941,6 +955,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'mobile' ),
+				),
+				//Sidebar Spacing
+				'div.sidebar-main' => array(
+					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $sidebar_padding, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $sidebar_padding, 'left', 'mobile' ),
 				),
 				//Widget Spacing
 				'.sidebar-main .widget ' => array(

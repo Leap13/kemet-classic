@@ -303,6 +303,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+	/**
+    * Option - Sidebar Spacing
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sidebar-padding]', array(
+			'default'           => kemet_get_option( 'sidebar-padding' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-padding]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-sidebars',
+				'priority'       => 25,
+				'label'          => __( 'Sidebar Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
 	
 
 
