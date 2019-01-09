@@ -191,6 +191,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
 			$content_link_h_color         = kemet_get_option( 'content-link-h-color' );
+			//Post 
+			$post_title_color         = kemet_get_option( 'post-title-color' );
+
 			
 			
 			
@@ -602,6 +605,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				' h6, .entry-content h6, .entry-content h6 a' =>  array(
 					'color' => esc_attr( $heading_h6_font_color ),
+				),
+				//post
+				'.content-area .entry-title a' =>  array(
+					'color' => esc_attr( $post_title_color ),
 				),
 					
 
