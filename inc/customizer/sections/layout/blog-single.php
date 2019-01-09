@@ -321,6 +321,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+	/**
+	 * Option: Read More Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
+			'default'           => kemet_get_option( 'readmore-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-blog-single',
+			'priority'    => 35,
+			'label'       => __( 'Read More Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
 
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {

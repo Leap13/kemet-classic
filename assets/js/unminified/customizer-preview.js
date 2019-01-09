@@ -460,6 +460,12 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			jQuery( '.content-area .read-more a' ).css( 'border-color', border_color );
 		} );
 	} );
+	wp.customize( 'kemet-settings[readmore-border-size]', function( value ) {
+		value.bind( function( border ) {
+			var dynamicStyle = '.content-area .read-more a { border-width: ' + border + 'px }';
+			kemet_add_dynamic_css( 'readmore-border-size', dynamicStyle );
+		} );
+	} );
 
 	/**
 	 * Primary Width Option
@@ -837,8 +843,6 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		value.bind( function( border ) {
 
 			var dynamicStyle = '.sidebar-main .widget-title { border-bottom-width: ' + border + 'px }';
-			dynamicStyle += '}';
-
 			kemet_add_dynamic_css( 'widget-border-size', dynamicStyle );
 
 		} );
