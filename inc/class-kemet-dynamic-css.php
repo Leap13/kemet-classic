@@ -194,7 +194,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Post 
 			$post_title_color         = kemet_get_option( 'post-title-color' );
 
-			
+
 			
 			
 			/**
@@ -610,7 +610,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $post_title_color ),
 				),
-					
+			
 
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
