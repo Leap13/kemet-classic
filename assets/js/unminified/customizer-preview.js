@@ -430,6 +430,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[post-title-color]', 'color', '.content-area .entry-title a' );
 	kemet_css( 'kemet-settings[readmore-text-color]', 'color', '.content-area .read-more a' );
 	kemet_css( 'kemet-settings[readmore-text-h-color]', 'color', '.content-area .read-more a:hover' );
+	kemet_responsive_spacing( 'kemet-settings[readmore-padding]','.content-area .read-more', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 
 	/**
 	 * Primary Width Option

@@ -210,6 +210,35 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         )
 	);
+	/**
+    * Option - Read More Spacing
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-padding]', array(
+			'default'           => kemet_get_option( 'readmore-padding' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-padding]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-blog-single',
+				'priority'       => 30,
+				'label'          => __( 'Read More', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
 
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
