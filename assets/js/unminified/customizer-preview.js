@@ -434,7 +434,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[readmore-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
-			var dynamicStyle = '.content-area .read-more a { {{css}} }';
+			var dynamicStyle = '.content-area .read-more a{ {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-color', dynamicStyle );
 		} );
@@ -442,7 +442,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[readmore-bg-h-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
-			var dynamicStyle = '.content-area .read-more a:hover { {{css}} }';
+			var dynamicStyle = '.content-area .read-more a:hover{ {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-h-color', dynamicStyle );
 		} );
@@ -460,9 +460,24 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			jQuery( '.content-area .read-more a' ).css( 'border-color', border_color );
 		} );
 	} );
+	wp.customize( 'kemet-settings[readmore-border-h-color]', function( value ) {
+		value.bind( function( color ) {
+			if (color == '') {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( color ) {
+
+				var dynamicStyle = '.content-area .read-more a:hover { border-color: ' + color + '; } ';
+
+				kemet_add_dynamic_css( 'readmore-border-h-color', dynamicStyle );
+			}
+
+		} );
+	} );
 	wp.customize( 'kemet-settings[readmore-border-size]', function( value ) {
 		value.bind( function( border ) {
-			var dynamicStyle = '.content-area .read-more a { border-width: ' + border + 'px }';
+			var dynamicStyle = '.content-area .read-more a{ border-width: ' + border + 'px }';
 			kemet_add_dynamic_css( 'readmore-border-size', dynamicStyle );
 		} );
 	} );

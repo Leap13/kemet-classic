@@ -204,7 +204,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $wp_customize->add_control(
         new WP_Customize_Color_Control(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
-                'label'   => __( 'Read More Text Color', 'kemet' ),
+                'label'   => __( 'Read More Text Color Hover', 'kemet' ),
                 'priority'       => 29,
                 'section' => 'section-blog-single',
             )
@@ -322,6 +322,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	/**
+	 * Option: Read More Border Color Hover
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
+				'section'  => 'section-blog-single',
+				'priority' => 35,
+				'label'    => __( 'Read More Border Color Hover', 'kemet' ),
+			)
+		)
+	);
+	
+	/**
 	 * Option: Read More Border Size
 	 */
 	$wp_customize->add_setting(
@@ -336,7 +357,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
 			'type'        => 'number',
 			'section'     => 'section-blog-single',
-			'priority'    => 35,
+			'priority'    => 36,
 			'label'       => __( 'Read More Border Size', 'kemet' ),
 			'input_attrs' => array(
 				'min'  => 0,

@@ -201,6 +201,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_bg_h_color      = kemet_get_option( 'readmore-bg-h-color' );
 			$readmore_border_radius   = kemet_get_option( 'readmore-border-radius' );
 			$readmore_border_color    = kemet_get_option( 'readmore-border-color' );
+			$readmore_border_h_color  = kemet_get_option( 'readmore-border-h-color' );
 			$readmore_border_size     = kemet_get_option( 'readmore-border-size' );
 
 			
@@ -632,6 +633,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
 					'background-color' => esc_attr( $readmore_bg_h_color),
+					'border-color'     => esc_attr( $readmore_border_h_color),
 				),
 				'.content-area p.read-more a' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
