@@ -942,7 +942,7 @@ var toggleClass = function ( el, className ) {
 					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
 					header_content_bp = parseInt( header_content_bp );
 
-					// `ast-header-break-point` class will use for Responsive Style of Header.
+					// `kmt-header-break-point` class will use for Responsive Style of Header.
 					if ( header_content_bp != break_point ) {
 						//remove menu toggled class.
 						if ( null != menu_toggle_all[i] ) {
