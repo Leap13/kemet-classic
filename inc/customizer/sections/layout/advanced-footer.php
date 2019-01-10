@@ -262,36 +262,35 @@ if ( ! defined( 'ABSPATH' ) ) {
          )
      );
 
-         /**
-         * Option: Widget Title Font Size
-         */
-        $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[footer-adv-widget-title-font-size]', array(
-                'default'           => kemet_get_option( 'footer-adv-widget-title-font-size' ),
-                'type'              => 'option',
-                'transport'         => 'postMessage',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
-            )
-        );
-        $wp_customize->add_control(
-            new Kemet_Control_Responsive(
-                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-widget-title-font-size]', array(
-                    'type'        => 'kmt-responsive',
-                    'section'     => 'section-footer-adv',
-                    'priority'    => 10,
-                    'label'       => __( 'Widget Title Font', 'kemet' ),
-                    'input_attrs' => array(
-                        'min' => 0,
-                    ),
-                    'units'       => array(
-                        'px' => 'px',
-                        'em' => 'em',
-                    ),
-                )
-            )
-        );
 
-     
+    /**
+	 * Option: Widget Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-footer-title]', array(
+			'default'           => kemet_get_option( 'font-size-footer-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-footer-title]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'section-footer-adv',
+				'priority'    => 10,
+				'label'       => __( 'Widget Title Font', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
       /**
         * Option: Link Color
         */

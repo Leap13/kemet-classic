@@ -156,8 +156,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Sections
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/general/layout-settings.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/general/default-sidebar.php';
+         require KEMET_THEME_DIR . 'inc/customizer/sections/general/layout-settings.php';
+         require KEMET_THEME_DIR . 'inc/customizer/sections/general/default-sidebar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
@@ -261,9 +261,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Update variables.
 			Kemet_Theme_Options::refresh();
 
-         $js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
+			$js_prefix  = '.js';
+			$css_prefix = '.css';
+			$dir        = 'unminified';
 			if ( SCRIPT_DEBUG ) {
 				$js_prefix  = '.js';
 				$css_prefix = '.css';
