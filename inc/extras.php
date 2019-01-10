@@ -662,9 +662,6 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
 				echo kemet_masthead_get_menu_items();
-                if ( 'header-main-layout-4' == $header_layout ) {
-                    echo 'kkkkkkkkk';
-                }
 				echo '</div>';
 			}
 		} else {
@@ -677,7 +674,6 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-
 				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
@@ -695,7 +691,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
-				'items_wrap'      => $items_wrap,
+				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
             // Left Menu.
 			$left_menu_args = array(
@@ -703,18 +699,22 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'         => 'left-menu',
 				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
-				'container_class' => 'main-header-bar-navigation left-header-bar-navigation',
-				'items_wrap'      => $items_wrap,
+				'container_class' => 'main-header-bar-navigation',
+				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
 
 			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+				echo '<div class="main-navigation">';	
 					wp_nav_menu( $primary_menu_args );
-                    if ( 'header-main-layout-4' == $header_layout ) {
-                    wp_nav_menu( $left_menu_args );
-                	}
+					if ( 'header-main-layout-4' == $header_layout ) {
+					wp_nav_menu( $left_menu_args );
+					}
+				echo  '</div>';
+				echo  '</nav>';
 				echo  '</div>';
 			} else {
 
