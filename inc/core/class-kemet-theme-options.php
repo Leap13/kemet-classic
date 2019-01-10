@@ -302,7 +302,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                       => 'disabled',
-					'disable-submenu-border'           => 'enabled',
+					//'disable-submenu-border'           => 'enabled',
+					 'disable-submenu-border'           => false,
 
 				)
 			);

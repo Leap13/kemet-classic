@@ -982,8 +982,7 @@ if ( ! function_exists( 'kemet_submenu_border_style' ) ) {
 		
 		$disable_submenu_border   = kemet_get_option( 'disable-submenu-border');
 		
-		
-		if ( 'enabled' != $disable_submenu_border ) {
+		if($disable_submenu_border){
 			$submenu_global_responsive = array(
 				'.main-header-menu ul.sub-menu li a' => array(
 					'border'   => 'none',
@@ -991,6 +990,14 @@ if ( ! function_exists( 'kemet_submenu_border_style' ) ) {
 			);
 			echo kemet_parse_css( $submenu_global_responsive, $submenu_break_point );
 		}
+		/*if ( 'enabled' != $disable_submenu_border ) {
+			$submenu_global_responsive = array(
+				'.main-header-menu ul.sub-menu li a' => array(
+					'border'   => 'none',
+				),
+			);
+			echo kemet_parse_css( $submenu_global_responsive, $submenu_break_point );
+		}*/
 
 
 		$dynamic_css = ob_get_clean();
