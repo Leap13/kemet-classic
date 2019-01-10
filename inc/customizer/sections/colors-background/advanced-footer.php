@@ -13,7 +13,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	/**
-	 * Option: Widget Title Color
-	 */
 
