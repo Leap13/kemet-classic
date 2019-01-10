@@ -559,7 +559,7 @@ $header_rt_sections = array(
 	/**
 	 * Option: Disable SubMenu Border
 	 */
-	$wp_customize->add_setting(
+	/*$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[disable-submenu-border]', array(
 			'default'           => kemet_get_option( 'disable-submenu-border' ),
 			'type'              => 'option',
@@ -577,6 +577,22 @@ $header_rt_sections = array(
 				'disabled'   => __( 'Disabled Width', 'kemet' ),
 			),
 			
+		)
+	);
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[disable-submenu-border]', array(
+			'default'           => kemet_get_option( 'disable-submenu-border' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[disable-submenu-border]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-header',
+			'label'    => __( 'Disable SubMenu', 'kemet' ),
+			'priority' => 82,
 		)
 	);
 	
