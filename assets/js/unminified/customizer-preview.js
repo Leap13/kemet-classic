@@ -606,6 +606,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'menu-bg-color', dynamicStyle );
 		} );
 	} );
+	
+	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-navigation a' );
 
 	/**
 	 * Container Inner Spacing

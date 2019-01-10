@@ -104,6 +104,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// header menu
 			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
+			$menu_link_color         = kemet_get_option( 'menu-link-color' );
 
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
@@ -341,8 +342,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
 				),
 			    //header menu
-					'.main-navigation '  => array(
-						'background-color' => esc_attr( $menu_bg_color),
+				'.main-navigation '  => array(
+					'background-color' => esc_attr( $menu_bg_color),
+				),
+				'.main-navigation a'  => array(
+					'color' => esc_attr( $menu_link_color ),
 				),
 
 				// Small Footer.
@@ -975,7 +979,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
 			);
-
+		
 			//Widget Title Border
 			$widget_border_size       = kemet_get_option( 'widget-border-size' );
 			$widget_border_color      = kemet_get_option( 'widget-border-color' );
