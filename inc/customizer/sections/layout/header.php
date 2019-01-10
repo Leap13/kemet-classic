@@ -356,5 +356,22 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
-
+    /**
+	 * Option: Menu Background Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
+                'priority'       => 72,
+                'section' => 'section-header',
+				'label'   => __( 'Menu Background Color', 'kemet' ),
+			)
+		)
+    );

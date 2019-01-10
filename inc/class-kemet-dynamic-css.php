@@ -102,6 +102,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			$space_header              = kemet_get_option('header-padding');
 
+			// header menu
+			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
+
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 			$btn_vertical_padding   = kemet_get_option( 'button-v-padding' );
@@ -337,7 +340,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
 				),
-
+			    //header menu
+					'.main-navigation '  => array(
+						'background-color' => esc_attr( $menu_bg_color),
+				),
 
 				// Small Footer.
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
