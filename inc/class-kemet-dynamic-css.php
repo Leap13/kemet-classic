@@ -158,6 +158,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_adv_link_color         = kemet_get_option( 'footer-adv-link-color' );
 			$footer_adv_link_h_color       = kemet_get_option( 'footer-adv-link-h-color' );
 
+			// sidebar input color 
+			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
+			$sidebar_input_bg_color     = kemet_get_option( 'sidebar-input-bg-color' );
+			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color' );
+
 			/**
 			 * Apply text color depends on link color
 			 */
@@ -521,6 +526,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main .widget '                     => array(
 					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
 				),
+				//sidebar input style 
+				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
+					'color' => esc_attr( $sidebar_input_color),
+					'background' => esc_attr( $sidebar_input_bg_color),
+					'border-color' => esc_attr( $sidebar_input_border_color),
+				),
+
 				//Sidebar Widget Titles Sidebar 
 				'.sidebar-main .widget-title '   => array(
 						'font-family'    => kemet_get_font_family( $widget_font_family ),
