@@ -882,6 +882,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			jQuery( '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select' ).css( 'border-color', border_color );
 		} );
 	} );
+	/**
+	 * Content Text Color
+	 */
+	kemet_css( 'kemet-settings[content-text-color]', 'color', '.entry-content' );
+
 
 
 } )( jQuery );

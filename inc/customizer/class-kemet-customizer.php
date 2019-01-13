@@ -162,6 +162,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/topbar.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/content.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';

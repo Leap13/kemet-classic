@@ -631,6 +631,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						'dashicon'  => 'dashicons-align-left',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-widgets' ),
 					),
+					'contents'     => array(
+						'title'     => __( 'Content Options', 'kemet' ),
+						'dashicon'  => 'dashicons-align-left',
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-contents' ),
+					),
 
 				)
 			);

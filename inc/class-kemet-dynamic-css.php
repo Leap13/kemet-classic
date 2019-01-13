@@ -67,7 +67,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// Site Background Color.
 			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj' );
             
-         // Boxed inner Options
+        	 // Boxed inner Options
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' );
             $container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
 
@@ -122,6 +122,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_horizontal_padding = kemet_get_option( 'button-h-padding' );
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
+
+			//Content
+			$content_text_color         = kemet_get_option( 'content-text-color' );
             
 			// Footer Styling
 			$space_footer        = kemet_get_option('footer-padding');
@@ -501,6 +504,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
 					'color'            => kemet_get_foreground_color( $link_color ),
 					'background-color' => esc_attr( $link_color ),
+				),
+				//Content
+				'.entry-content' =>  array(
+					'color' => esc_attr( $content_text_color ),
 				),
 
 				// Blog Post Meta Typography.
