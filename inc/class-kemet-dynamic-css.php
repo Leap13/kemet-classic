@@ -106,6 +106,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
 			$menu_link_color         = kemet_get_option( 'menu-link-color' );
 			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' );
+			//header submenu
+			$submenu_bg_color            = kemet_get_option( 'submenu-bg-color' );
+			$submenu_link_color            = kemet_get_option( 'submenu-link-color' );
+			$submenu_link_h_color            = kemet_get_option( 'submenu-link-h-color' );
 
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
@@ -352,6 +356,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu li:hover a' => array (
 					'color' => esc_attr( $menu_link_h_color ),
 				),
+				//submenu
+				'.main-header-menu ul'  => array(
+					'background-color' => esc_attr( $submenu_bg_color),
+				),
+				'.main-header-menu .sub-menu li a'  => array(
+					'color' => esc_attr( $submenu_link_color ),
+				),
+				'.main-header-menu .sub-menu li:hover > a'  => array(
+					'color' => esc_attr( $submenu_link_h_color ),
+				),
+
+
 
 				// Small Footer.
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
