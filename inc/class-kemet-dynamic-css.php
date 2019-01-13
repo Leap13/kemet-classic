@@ -358,7 +358,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu a'  => array(
 					'color' => esc_attr( $menu_link_color ),
 				),
-				'.main-header-menu li:hover a' => array (
+				'.main-header-menu li:hover a, .main-header-menu .kmt-masthead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),
 				),
 				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a'  => array(
