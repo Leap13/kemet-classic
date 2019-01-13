@@ -886,6 +886,13 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Content Text Color
 	 */
 	kemet_css( 'kemet-settings[content-text-color]', 'color', '.entry-content' );
+	//Content Link Color
+	kemet_css( 'kemet-settings[content-link-color]', 'color', '.entry-content a' );
+	/**
+	 * Content link Hover Color
+	 */
+	kemet_css( 'kemet-settings[content-link-h-color]', 'color', '.entry-content a:hover' );
+
 
 
 

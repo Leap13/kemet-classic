@@ -125,6 +125,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
+			$content_link_color         = kemet_get_option( 'content-link-color' );
+			$content_link_h_color         = kemet_get_option( 'content-link-h-color' );
             
 			// Footer Styling
 			$space_footer        = kemet_get_option('footer-padding');
@@ -509,6 +511,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-content' =>  array(
 					'color' => esc_attr( $content_text_color ),
 				),
+				//Content Link color
+				'.entry-content a' =>  array(
+					'color' => esc_attr( $content_link_color ),
+				),
+				//Content Link Hover Color
+				'.entry-content a:hover' =>  array(
+					'color' => esc_attr( $content_link_h_color ),
+				),
+
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
