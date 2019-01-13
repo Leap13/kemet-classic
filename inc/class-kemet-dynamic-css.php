@@ -116,6 +116,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_link_color            = kemet_get_option( 'submenu-link-color' );
 			$submenu_link_h_color            = kemet_get_option( 'submenu-link-h-color' );
 
+			//Content Heading Color
+			$heading_h1_font_color            = kemet_get_option( 'font-color-h1' );
+			$heading_h2_font_color            = kemet_get_option( 'font-color-h2' );
+			$heading_h3_font_color            = kemet_get_option( 'font-color-h3' );
+			$heading_h4_font_color            = kemet_get_option( 'font-color-h4' );
+			$heading_h5_font_color            = kemet_get_option( 'font-color-h5' );
+			$heading_h6_font_color            = kemet_get_option( 'font-color-h6' );
+
 			// Button Styling.
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 			$btn_vertical_padding   = kemet_get_option( 'button-v-padding' );
@@ -127,6 +135,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
 			$content_link_h_color         = kemet_get_option( 'content-link-h-color' );
+
             
 			// Footer Styling
 			$space_footer        = kemet_get_option('footer-padding');
@@ -518,6 +527,26 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				//Content Link Hover Color
 				'.entry-content a:hover' =>  array(
 					'color' => esc_attr( $content_link_h_color ),
+				),
+				
+				//Content Heading Color
+				' h1, .entry-content h1, .entry-content h1 a' =>  array(
+					'color' => esc_attr( $heading_h1_font_color ),
+				),
+				' h2, .entry-content h2, .entry-content h2 a' =>  array(
+					'color' => esc_attr( $heading_h2_font_color ),
+				),
+				' h3, .entry-content h3, .entry-content h3 a' =>  array(
+					'color' => esc_attr( $heading_h3_font_color ),
+				),
+				' h4, .entry-content h4, .entry-content h4 a' =>  array(
+					'color' => esc_attr( $heading_h4_font_color ),
+				),
+				' h5, .entry-content h5, .entry-content h5 a' =>  array(
+					'color' => esc_attr( $heading_h5_font_color ),
+				),
+				' h6, .entry-content h6, .entry-content h6 a' =>  array(
+					'color' => esc_attr( $heading_h6_font_color ),
 				),
 
 
