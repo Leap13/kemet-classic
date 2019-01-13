@@ -395,4 +395,26 @@ $header_rt_sections = array(
 				)
 			)
 		);
+		
+	  /**
+      * Option:Menu Link Hover Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
+				'label'   => __( 'Menu Link Hover Color', 'kemet' ),
+				'priority'       => 75,
+				'section' => 'section-header',
+			)
+		)
+	);
+
 

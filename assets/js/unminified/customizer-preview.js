@@ -601,13 +601,14 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[menu-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
-			var dynamicStyle = '.main-navigation { {{css}} }';
+			var dynamicStyle = '.main-header-menu { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'menu-bg-color', dynamicStyle );
 		} );
 	} );
 	
-	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-navigation a' );
+	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-header-menu a' );
+	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover a' );
 
 	/**
 	 * Container Inner Spacing
