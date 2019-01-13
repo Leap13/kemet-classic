@@ -100,7 +100,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Layout Header
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
-			$space_header              = kemet_get_option('header-padding');
+			$space_header              = kemet_get_option( 'header-padding' );
 
 			// header menu
 			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
@@ -421,7 +421,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_button_hover_color),
 					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
-
+				//header spacing
+				'.main-header-bar' => array(
+					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'desktop' ),
+					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
+					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
+				),
 				'.footer-adv .kmt-container ' => array(
 				'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
 				'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
