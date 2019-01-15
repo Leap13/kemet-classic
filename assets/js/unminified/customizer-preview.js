@@ -507,11 +507,16 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[topbar-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
-			var dynamicStyle = '.kmt-above-header { {{css}} }';
+			var dynamicStyle = 'div.kmt-above-header { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'topbar-bg-color', dynamicStyle );
 		} );
 	} );
+	/**
+     * Top Bar Header Spacing
+     */
+	kemet_responsive_spacing( 'kemet-settings[topbar-padding]','.kmt-above-header', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+	
 
 	/**
 	 * Header Bottom Border

@@ -190,6 +190,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_border_color     = kemet_get_option( 'submenu-border-color' );
 			//Top Bar Header
 			$topbar_bg_color           = kemet_get_option( 'topbar-bg-color' );
+			$space_topbar              = kemet_get_option('topbar-padding');
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
@@ -437,9 +438,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'color' => esc_attr( $submenu_link_h_color ),
 					),
 					//Top Bar Header
-					'.kmt-above-header '  => array(
+					'div.kmt-above-header '  => array(
 						'background-color' => esc_attr( $topbar_bg_color),
 					),
+					//header spacing
+					'.kmt-above-header ' => array(
+						'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'desktop' ),
+						'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'desktop' ),
+						'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),
+						'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'desktop' ),
+						),
 
 
 
@@ -856,6 +864,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 					),
+					//header spacing
+					'.kmt-above-header ' => array(
+						'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'tablet' ),
+						'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'tablet' ),
+						'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'tablet' ),
+						'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'tablet' ),
+						),
 				//post readmore spacing
 				'.content-area p.read-more a' => array(
 						'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'tablet' ),
@@ -990,6 +1005,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'mobile' ),
 					),
+				//header spacing
+				'.kmt-above-header ' => array(
+					'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'mobile' ),
+						),
+					
            /**
                 * Content Spacing Mobile
                 */
