@@ -516,7 +516,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      * Top Bar Header Spacing
      */
 	kemet_responsive_spacing( 'kemet-settings[topbar-padding]','.kmt-above-header', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
-	
+	/**
+	 * Top Bar Header Link Color
+	 */
+	kemet_css( 'kemet-settings[topbar-link-color]', 'color', '.top-navigation a' );
+	kemet_css( 'kemet-settings[topbar-link-h-color]', 'color', '.top-navigation a:hover' );
 
 	/**
 	 * Header Bottom Border
