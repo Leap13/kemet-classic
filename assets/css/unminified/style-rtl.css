@@ -3711,7 +3711,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation {
   line-height: 3;
-  display: none;
+  display: block;
 }
 
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation .children,
@@ -3771,7 +3771,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 .kmt-header-break-point .main-navigation {
-  display: block;
+  display: none;
   width: 100%;
 }
 
