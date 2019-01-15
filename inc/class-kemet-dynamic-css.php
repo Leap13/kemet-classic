@@ -193,6 +193,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$space_topbar              = kemet_get_option('topbar-padding');
 			$topbar_link_color         = kemet_get_option( 'topbar-link-color' );
 			$topbar_link_h_color       = kemet_get_option( 'topbar-link-h-color' );
+			$topbar_text_color         = kemet_get_option( 'topbar-text-color' );
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
@@ -447,8 +448,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'.kmt-above-header ' => array(
 						'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'desktop' ),
 						'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'desktop' ),
-						'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),
-						'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'desktop' ),
+						'padding-right'  => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),
+						'padding-left'   => kemet_responsive_spacing( $space_topbar, 'left', 'desktop' ),
+						'color'          => esc_attr($topbar_text_color),
 						),
 					'.kmt-above-header a'  => array(
 							'color' => esc_attr( $topbar_link_color ),

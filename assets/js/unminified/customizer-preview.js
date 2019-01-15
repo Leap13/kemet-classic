@@ -521,6 +521,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	kemet_css( 'kemet-settings[topbar-link-color]', 'color', '.kmt-above-header a' );
 	kemet_css( 'kemet-settings[topbar-link-h-color]', 'color', '.kmt-above-header a:hover' );
+	kemet_css( 'kemet-settings[topbar-text-color]', 'color', '.kmt-above-header' );
 
 	/**
 	 * Header Bottom Border
