@@ -178,7 +178,7 @@ $wp_customize->add_control(
 				'type'           => 'kmt-responsive-spacing',
 				'section'        => 'section-topbar-header',
 				'priority'       => 26,
-				'label'          => __( 'Top Bar Header Padding', 'kemet' ),
+				'label'          => __( 'Top Bar Padding', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
 				'choices'        => array(
@@ -204,7 +204,7 @@ $wp_customize->add_control(
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-link-color]', array(
-				'label'   => __( 'Top Bar Header Link Color', 'kemet' ),
+				'label'   => __( 'Top Bar Link Color', 'kemet' ),
 				'priority'       => 27,
 				'section' => 'section-topbar-header',
 			)
@@ -224,7 +224,7 @@ $wp_customize->add_control(
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-link-h-color]', array(
-				'label'   => __( 'Top Bar Header Link Hover Color', 'kemet' ),
+				'label'   => __( 'Top Bar Link Hover Color', 'kemet' ),
 				'priority'       => 28,
 				'section' => 'section-topbar-header',
 			)

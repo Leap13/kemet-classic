@@ -450,10 +450,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),
 						'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'desktop' ),
 						),
-					'.top-navigation a'  => array(
+					'.kmt-above-header a'  => array(
 							'color' => esc_attr( $topbar_link_color ),
 						),
-					'.top-navigation a:hover'  => array(
+					'.kmt-above-header a:hover'  => array(
 							'color' => esc_attr( $topbar_link_h_color ),
 						),
 
