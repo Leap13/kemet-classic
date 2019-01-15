@@ -642,7 +642,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[menu-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
-			var dynamicStyle = '.main-navigation { {{css}} }';
+			var dynamicStyle = '.main-navigation,.header-main-layout-4 .main-header-container { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'menu-bg-color', dynamicStyle );
 		} );

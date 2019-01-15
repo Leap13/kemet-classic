@@ -161,6 +161,62 @@
 		}
 	}
 }
+/**
+ *  4 - Header Layout 4
+*/
+@media (min-width: 768px) {
+	
+	.header-main-layout-4 {
+		.main-header-container
+		{
+			position: relative;
+			display: flex;
+			justify-content: center;
+		}
+		.kmt-main-header-bar-alignment {
+			flex: 0;
+		}
+		.site-branding
+		{
+			width: 20%;
+			text-align: center;
+			z-index: 2;
+			.site-title
+			{
+				display: block;
+			}
+		}
+		.main-header-container
+		{
+			ul#primary-menu
+			{
+				position: absolute;
+				right: 0;
+				top:0;
+				width: 40%;
+				
+			}
+			ul#primary-menu.kmt-justify-content-flex-end
+			{
+				justify-content: flex-start;
+				
+			}
+			ul#left-menu
+			{
+				position: absolute;
+				left: 0;
+				top:0;
+				width: 40%;
+			}
+			ul#left-menu.kmt-justify-content-flex-end
+			{
+				justify-content: flex-end;
+			}
+
+		} 
+	}
+}
+		
 
 /**
  * 4 - Header Inline Logo & Site Title 

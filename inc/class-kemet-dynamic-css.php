@@ -407,6 +407,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'.main-navigation '  => array(
 							'background-color' => esc_attr( $menu_bg_color),
 						),
+					'.header-main-layout-4 .main-header-container'  => array(
+							'background-color' => esc_attr( $menu_bg_color),
+						),
 					'.main-header-menu li a'  => array(
 							'color' => esc_attr( $menu_link_color ),
 						),
