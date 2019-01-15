@@ -250,3 +250,47 @@ $wp_customize->add_control(
 			)
 		)
 	);
+	/**
+	 * Option: Top Bar Border Bottom Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[topbar-border-bottom-size]', array(
+			'default'           => kemet_get_option( 'topbar-border-bottom-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[topbar-border-bottom-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-topbar-header',
+			'priority'    => 30,
+			'label'       => __( 'Top Bar Border Bottom Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
+	/**
+	 * Option: Top Bar Border Bottom Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[topbar-border-bottom-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-border-bottom-color]', array(
+				'section'  => 'section-topbar-header',
+				'priority' => 31,
+				'label'    => __( 'Top Bar Border Bottom Color', 'kemet' ),
+			)
+		)
+	);
