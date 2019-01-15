@@ -138,6 +138,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Single Post Page
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
+			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
 
             
 			// Footer Styling
@@ -535,6 +536,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $listing_post_title_color ),
 				),
+				'.content-area .entry-content' =>  array(
+					'color' => esc_attr( $listing_post_content_color ),
+				),
+
 				
 				//Content Heading Color
 				' h1, .entry-content h1, .entry-content h1 a' =>  array(
