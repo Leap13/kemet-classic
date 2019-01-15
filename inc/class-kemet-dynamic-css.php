@@ -112,18 +112,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
             
-         // Footer Styling
-		 $space_footer        = kemet_get_option('footer-padding');
-		 //Footer Font
-		 //Footer Font
-		 $Footer_font_family            = kemet_get_option( 'Footer-font-family' );
-		 $Footer_font_weight            = kemet_get_option( 'Footer-font-weight' );
-		 $Footer_text_transform         = kemet_get_option( 'Footer-text-transform' );
-		 $Footer_line_height            = kemet_get_option( 'Footer-line-height' );
-		 $footer_font_size              = kemet_get_option( 'footer-font-size' );
-		 $font_size_footer_title        = kemet_get_option( 'font-size-footer-title' );
-		 // Footer widget Meta color
-		 $footer_adv_wgt_meta_color = kemet_get_option( 'footer-adv-wgt-meta-color' );
+			// Footer Styling
+			$space_footer        = kemet_get_option('footer-padding');
+			//Footer Font
+			//Footer Font
+			$Footer_font_family            = kemet_get_option( 'Footer-font-family' );
+			$Footer_font_weight            = kemet_get_option( 'Footer-font-weight' );
+			$Footer_text_transform         = kemet_get_option( 'Footer-text-transform' );
+			$Footer_line_height            = kemet_get_option( 'Footer-line-height' );
+			$footer_font_size              = kemet_get_option( 'footer-font-size' );
+			$font_size_footer_title        = kemet_get_option( 'font-size-footer-title' );
+			// Footer widget Meta color
+			$footer_adv_wgt_meta_color = kemet_get_option( 'footer-adv-wgt-meta-color' );
 		 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -188,6 +188,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_border_top_color = kemet_get_option( 'submenu-border-top-color' );
 			// SubMenu Border Color
 			$submenu_border_color     = kemet_get_option( 'submenu-border-color' );
+			//Top Bar Header
+			$topbar_bg_color           = kemet_get_option( 'topbar-bg-color' );
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
@@ -433,6 +435,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					),
 					'.main-header-menu .sub-menu li:hover > a'  => array(
 						'color' => esc_attr( $submenu_link_h_color ),
+					),
+					//Top Bar Header
+					'.kmt-above-header '  => array(
+						'background-color' => esc_attr( $topbar_bg_color),
 					),
 
 
