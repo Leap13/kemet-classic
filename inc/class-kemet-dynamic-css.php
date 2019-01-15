@@ -405,7 +405,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 					),
 					//header spacing
-					'.main-header-bar' => array(
+					'.main-header-bar ,.kmt-header-break-point .kmt-mobile-header-stack .main-header-bar' => array(
 						'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'desktop' ),
 						'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'desktop' ),
 						'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
@@ -622,7 +622,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $Widget_bg_color),
 				),
 				//layout header
-				'.main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
+				'div.main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
 				//Content
 				'.entry-content' =>  array(
 					'color' => esc_attr( $content_text_color ),
@@ -873,7 +873,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size'      => kemet_responsive_font( $widget_font_size, 'tablet' ),
 				),
 				//header spacing
-				'.main-header-bar ' => array(
+				'.main-header-bar ,.kmt-header-break-point .kmt-mobile-header-stack .main-header-bar' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'tablet' ),
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
@@ -1014,7 +1014,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size'      => kemet_responsive_font( $widget_font_size, 'mobile' ),
 				),
 				//header spacing
-				'.main-header-bar ' => array(
+				'.main-header-bar ,.kmt-header-break-point .kmt-mobile-header-stack .main-header-bar' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),

@@ -657,7 +657,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize( 'kemet-settings[header-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
-			var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar { {{css}} }';
+			var dynamicStyle = 'div.main-header-bar { {{css}} }';
 			
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'header-bg-obj', dynamicStyle );
@@ -666,7 +666,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
      * Header Spacing
      */
-	kemet_responsive_spacing( 'kemet-settings[header-padding]','body:not(.kmt-header-break-point) .main-header-bar', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+	kemet_responsive_spacing( 'kemet-settings[header-padding]','.main-header-bar ,.kmt-header-break-point .kmt-mobile-header-stack .main-header-bar', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 	
 	/**
 	 * menu background
