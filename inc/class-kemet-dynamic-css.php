@@ -139,6 +139,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Single Post Page
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
 			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
+			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
 
             
 			// Footer Styling
@@ -532,13 +533,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-content a:hover' =>  array(
 					'color' => esc_attr( $content_link_h_color ),
 				),
-				//Single Post Page
+				//Listing Post Page
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $listing_post_title_color ),
 				),
 				'.content-area .entry-content' =>  array(
 					'color' => esc_attr( $listing_post_content_color ),
 				),
+				'.content-area .read-more a' =>  array(
+					'color' => esc_attr( $readmore_text_color ),
+				),
+
 
 				
 				//Content Heading Color

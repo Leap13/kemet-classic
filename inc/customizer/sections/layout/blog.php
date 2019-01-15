@@ -193,7 +193,28 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'section' => 'section-blog',
             )
         )
+	);
+	/**
+      * Option:Post Read More Text Color
+      */
+      $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
+            'default'           => '',
+            'type'              => 'option',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+        )
     );
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
+                'label'   => __( 'Read More Color', 'kemet' ),
+                'priority'       => 28,
+                'section' => 'section-blog',
+            )
+        )
+	);
+
 
 
 	// Learn More link if Kemet Pro is not activated.
