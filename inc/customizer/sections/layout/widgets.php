@@ -107,8 +107,8 @@ $wp_customize->add_control(
 	 * Option: Widget Font Family
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-font-family]', array(
-			'default'           => kemet_get_option( 'widget-font-family' ),
+		KEMET_THEME_SETTINGS . '[widget-title-font-family]', array(
+			'default'           => kemet_get_option( 'widget-title-font-family' ),
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -116,7 +116,7 @@ $wp_customize->add_control(
 
 	$wp_customize->add_control(
 		new Kemet_Control_Typography(
-			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-family]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-family]', array(
 				'type'        => 'kmt-font-family',
 				'kmt_inherit' => __( 'Default System Font', 'kemet' ),
 				'section'     => 'section-widgets',
@@ -131,20 +131,20 @@ $wp_customize->add_control(
 	 * Option: Widget Font Weight
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-font-weight]', array(
-			'default'           => kemet_get_option( 'widget-font-weight' ),
+		KEMET_THEME_SETTINGS . '[widget-title-font-weight]', array(
+			'default'           => kemet_get_option( 'widget-title-font-weight' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Typography(
-			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-weight]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-weight]', array(
 				'type'        => 'kmt-font-weight',
 				'kmt_inherit' => __( 'Default', 'kemet' ),
 				'section'     => 'section-widgets',
 				'priority'    => 6,
-				'label'       => __( 'Font Weight Title', 'kemet' ),
+				'label'       => __( 'Widget Title Font Weigh', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[widget-font-family]',
 			)
 		)
@@ -154,19 +154,19 @@ $wp_customize->add_control(
 	 * Option: Widget Text Transform
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-text-transform]', array(
-			'default'           => kemet_get_option( 'widget-text-transform' ),
+		KEMET_THEME_SETTINGS . '[widget-title-text-transfor]', array(
+			'default'           => kemet_get_option( 'widget-title-text-transfor' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[widget-text-transform]', array(
+		KEMET_THEME_SETTINGS . '[widget-title-text-transfor]', array(
 			'type'     => 'select',
 			'section'  => 'section-widgets',
 			'priority' => 7,
-			'label'    => __( 'Text Transform', 'kemet' ),
+			'label'    => __( 'Widget Title Text Transform', 'kemet' ),
 			'choices'  => array(
 				''           => __( 'Default', 'kemet' ),
 				'none'       => __( 'None', 'kemet' ),
@@ -181,24 +181,25 @@ $wp_customize->add_control(
 	 * Option: widget Font Size
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-font-size]', array(
-			'default'           => kemet_get_option( 'widget-font-size' ),
+		KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
+			'default'           => kemet_get_option( 'widget-title-font-size' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[widget-font-size]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
 				'type'        => 'kmt-responsive',
 				'section'     => 'section-widgets',
 				'priority'    => 8,
-				'label'       => __( 'Font Size', 'kemet' ),
+				'label'       => __( 'Widget Title Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
 				),
 				'units'       => array(
 					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
@@ -207,8 +208,8 @@ $wp_customize->add_control(
          * Option: widget Line Height
          */
         $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[widget-line-height]', array(
-                'default'           => '',
+            KEMET_THEME_SETTINGS . '[widget-title-line-height]', array(
+                'default'           => kemet_get_option( 'widget-title-line-height' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -216,11 +217,11 @@ $wp_customize->add_control(
         );
         $wp_customize->add_control(
             new Kemet_Control_Slider(
-                $wp_customize, KEMET_THEME_SETTINGS . '[widget-line-height]', array(
+                $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-line-height]', array(
                     'type'        => 'kmt-slider',
                     'section'     => 'section-widgets',
                     'priority'    => 9,
-                    'label'       => __( 'Line Height', 'kemet' ),
+                    'label'       => __( 'Widget Title Line Height', 'kemet' ),
                     'suffix'      => '',
                     'input_attrs' => array(
                         'min'  => 1,
@@ -236,7 +237,7 @@ $wp_customize->add_control(
       */
       $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[widget-title-color]', array(
-            'default'           => '',
+            'default'           => kemet_get_option( 'widget-title-color' ),
             'type'              => 'option',
             'transport'         => 'postMessage',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -255,15 +256,15 @@ $wp_customize->add_control(
 	 * Option: Widget Title Border Size
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-border-size]', array(
-			'default'           => kemet_get_option( 'widget-border-size' ),
+		KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
+			'default'           => kemet_get_option( 'widget-title-border-size' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[widget-border-size]', array(
+		KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
 			'type'        => 'number',
 			'section'     => 'section-widgets',
 			'priority'    => 11,
@@ -280,8 +281,8 @@ $wp_customize->add_control(
 	 * Option: Widget Title Border Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-border-color]', array(
-			'default'           => '',
+		KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
+			'default'           => kemet_get_option( 'widget-title-border-color' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -289,15 +290,10 @@ $wp_customize->add_control(
 	);
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, KEMET_THEME_SETTINGS . '[widget-border-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
 				'section'  => 'section-widgets',
 				'priority' => 12,
 				'label'    => __( 'Widget Title Border Color', 'kemet' ),
 			)
 		)
 	);
-
-
-	
-
-	

@@ -727,9 +727,9 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      */
 	kemet_responsive_spacing( 'kemet-settings[widget-padding]','.sidebar-main .widget', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 	//Sidebar Widget Title Typography
-	kemet_css( 'kemet-settings[widget-text-transform]', 'text-transform', '.sidebar-main .widget-title' );
-	kemet_css( 'kemet-settings[widget-line-height]', 'line-height', '.sidebar-main .widget-title' );
-	kemet_responsive_font_size( 'kemet-settings[widget-font-size]', '.sidebar-main .widget-title' );
+	kemet_css( 'kemet-settings[widget-title-text-transform]', 'text-transform', '.sidebar-main .widget-title' );
+	kemet_css( 'kemet-settings[widget-title-line-height]', 'line-height', '.sidebar-main .widget-title' );
+	kemet_responsive_font_size( 'kemet-settings[widget-title-font-size]', '.sidebar-main .widget-title' );
 	kemet_css( 'kemet-settings[widget-title-color]', 'color',  '.sidebar-main .widget-title' );
 	/**
 	 * widget Title Border width
@@ -902,6 +902,11 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Content link Hover Color
 	 */
 	kemet_css( 'kemet-settings[content-link-h-color]', 'color', '.entry-content a:hover' );
+	/**
+	 * Single Post 
+	 */
+	kemet_css( 'kemet-settings[listing-post-title-color]', 'color', '.content-area .entry-title a' );
+
 
 
 

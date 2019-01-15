@@ -136,6 +136,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$content_link_color         = kemet_get_option( 'content-link-color' );
 			$content_link_h_color         = kemet_get_option( 'content-link-h-color' );
 
+			//Single Post Page
+			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
+
             
 			// Footer Styling
 			$space_footer        = kemet_get_option('footer-padding');
@@ -196,12 +199,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_margin_bottom         = kemet_get_option( 'widget-margin-bottom' );
 
 			//Sidebar Widget Titles Sidebar 
-			$widget_font_family            = kemet_get_option( 'widget-font-family' );
-			$widget_font_weight            = kemet_get_option( 'widget-font-weight' );
-			$widget_text_transform         = kemet_get_option( 'widget-text-transform' );
-			$widget_line_height            = kemet_get_option( 'widget-line-height' );
-			$widget_font_size              = kemet_get_option( 'widget-font-size' );
-			$widget_title_color         = kemet_get_option('widget-title-color');
+			$widget_title_font_family            = kemet_get_option( 'widget-title-font-family' );
+			$widget_title_font_weight            = kemet_get_option( 'widget-title-font-weight' );
+			$widget_title_text_transform         = kemet_get_option( 'widget-title-text-transform' );
+			$widget_title_line_height            = kemet_get_option( 'widget-title-line-height' );
+			$widget_title_font_size              = kemet_get_option( 'widget-title-font-size' );
+			$widget_title_color                  = kemet_get_option('widget-title-color');
 
 
 			/**
@@ -528,6 +531,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.entry-content a:hover' =>  array(
 					'color' => esc_attr( $content_link_h_color ),
 				),
+				//Single Post Page
+				'.content-area .entry-title a' =>  array(
+					'color' => esc_attr( $listing_post_title_color ),
+				),
 				
 				//Content Heading Color
 				' h1, .entry-content h1, .entry-content h1 a' =>  array(
@@ -582,11 +589,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				//Sidebar Widget Titles Sidebar 
 				'.sidebar-main .widget-title '   => array(
-						'font-family'    => kemet_get_font_family( $widget_font_family ),
-						'font-weight'    => esc_attr( $widget_font_weight ),
-						'font-size'      => kemet_responsive_font( $widget_font_size, 'desktop' ),
-						'line-height'    => esc_attr( $widget_line_height ),
-						'text-transform' => esc_attr( $widget_text_transform ),
+						'font-family'    => kemet_get_font_family( $widget_title_font_family ),
+						'font-weight'    => esc_attr( $widget_title_font_weight ),
+						'font-size'      => kemet_responsive_font( $widget_title_font_size, 'desktop' ),
+						'line-height'    => esc_attr( $widget_title_line_height ),
+						'text-transform' => esc_attr( $widget_title_text_transform ),
 						'color'          => esc_attr( $widget_title_color ),
 				),
 
@@ -891,7 +898,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				//Widget Font
 				'.sidebar-main .widget-title '   => array(
-					'font-size'      => kemet_responsive_font( $widget_font_size, 'mobile' ),
+					'font-size'      => kemet_responsive_font( $widget_title_font_size, 'mobile' ),
 				),
 
            /**
@@ -1076,13 +1083,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			);
 		
 			//Widget Title Border
-			$widget_border_size       = kemet_get_option( 'widget-border-size' );
-			$widget_border_color      = kemet_get_option( 'widget-border-color' );
+			$widget_title_border_size       = kemet_get_option( 'widget-title-border-size' );
+			$widget_title_border_color      = kemet_get_option( 'widget-title-border-color' );
 			$meta_style = array(
 				'.sidebar-main .widget-title ' => array(
 					'border-bottom-style' => 'solid',
-					'border-bottom-width' => kemet_get_css_value( $widget_border_size , 'px' ),
-					'border-bottom-color' => esc_attr( $widget_border_color ),
+					'border-bottom-width' => kemet_get_css_value( $widget_title_border_size , 'px' ),
+					'border-bottom-color' => esc_attr( $widget_title_border_color ),
 				),
 			);
 
