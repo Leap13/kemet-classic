@@ -533,6 +533,18 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			jQuery( '.kmt-above-header' ).css( 'border-color', border_color );
 		} );
 	} );
+	/**
+	 * Top Bar SubMenu background
+	 */
+	wp.customize( 'kemet-settings[topbar-submenu-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.top-navigation ul.sub-menu { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'topbar-submenu-bg-color', dynamicStyle );
+		} );
+	} );
+
 
 	/**
 	 * Header Bottom Border
