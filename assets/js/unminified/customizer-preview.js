@@ -522,6 +522,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[topbar-link-color]', 'color', '.kmt-above-header a' );
 	kemet_css( 'kemet-settings[topbar-link-h-color]', 'color', '.kmt-above-header a:hover' );
 	kemet_css( 'kemet-settings[topbar-text-color]', 'color', '.kmt-above-header' );
+	kemet_css( 'kemet-settings[topbar-submenu-link-color]', 'color', '.top-navigation ul.sub-menu a' );
+	kemet_css( 'kemet-settings[topbar-submenu-link-h-color]', 'color', '.top-navigation ul.sub-menu a:hover' );
 	wp.customize( 'kemet-settings[topbar-border-bottom-size]', function( value ) {
 		value.bind( function( border ) {
 			var dynamicStyle = '.kmt-above-header{ border-width: ' + border + 'px }';
@@ -536,7 +538,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Top Bar SubMenu background
 	 */
-	wp.customize( 'kemet-settings[topbar-submenu-bg-color]', function( value ) {
+	wp.customize( 'kemet-settings[topbar-submenub-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
 			var dynamicStyle = '.top-navigation ul.sub-menu { {{css}} }';

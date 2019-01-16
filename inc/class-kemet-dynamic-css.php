@@ -198,6 +198,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$topbar_border_bottom_size = kemet_get_option( 'topbar-border-bottom-size' );
 			//Top Bar Header SubMenu
 			$topbar_submenu_bg_color   = kemet_get_option( 'topbar-submenu-bg-color' );
+			$topbar_submenu_link_color = kemet_get_option( 'topbar-submenu-link-color' );
+			$topbar_submenu_link_h_color= kemet_get_option( 'topbar-submenu-link-h-color' );
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
 			$content_link_color         = kemet_get_option( 'content-link-color' );
@@ -467,6 +469,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						),
 					'.top-navigation ul.sub-menu'  => array(
 							'background-color' => esc_attr( $topbar_submenu_bg_color),
+						),
+					'.top-navigation ul.sub-menu a'  => array(
+							'color' => esc_attr( $topbar_submenu_link_color),
+						),
+					'.top-navigation ul.sub-menu a:hover'  => array(
+							'color' => esc_attr( $topbar_submenu_link_h_color),
 						),
 
 
