@@ -196,6 +196,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$topbar_text_color         = kemet_get_option( 'topbar-text-color' );
 			$topbar_border_bottom_color= kemet_get_option( 'topbar-border-bottom-color' );
 			$topbar_border_bottom_size = kemet_get_option( 'topbar-border-bottom-size' );
+			$topbar_font_size          = kemet_get_option( 'topbar-font-size' );
 			//Top Bar Header SubMenu
 			$topbar_submenu_bg_color   = kemet_get_option( 'topbar-submenu-bg-color' );
 			$topbar_submenu_link_color = kemet_get_option( 'topbar-submenu-link-color' );
@@ -459,7 +460,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'color'          => esc_attr($topbar_text_color),
 						'border-bottom-style' => 'solid',
 					    'border-bottom-color'     => esc_attr( $topbar_border_bottom_color),
-					    'border-bottom-width' => kemet_get_css_value( $topbar_border_bottom_size , 'px' ),
+						'border-bottom-width' => kemet_get_css_value( $topbar_border_bottom_size , 'px' ),
+						'font-size'           => kemet_responsive_font( $topbar_font_size, 'desktop' ),
 						),
 					'.kmt-above-header a'  => array(
 							'color' => esc_attr( $topbar_link_color ),
@@ -899,6 +901,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'tablet' ),
 						'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'tablet' ),
 						'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'tablet' ),
+						'font-size'     => kemet_responsive_font( $topbar_font_size, 'tablet' ),
 						),
 				//post readmore spacing
 				'.content-area p.read-more a' => array(
@@ -1040,6 +1043,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'mobile' ),
+					'font-size'     => kemet_responsive_font( $topbar_font_size, 'mobile' ),
 						),
 					
            /**
