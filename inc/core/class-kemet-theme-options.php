@@ -304,6 +304,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-adv'                       => 'disabled',
 					//'disable-submenu-border'           => 'enabled',
 					 'disable-submenu-border'           => false,
+					 'disable-section1'           => false,
+					 'disable-section2'           => false,
+					 'nav-postion'           => 'right',
 
 				)
 			);

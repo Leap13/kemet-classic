@@ -41,6 +41,66 @@ if ( ! defined( 'ABSPATH' ) ) {
 // 	)
 // 					)
 // );
+
+//Section1 Disable
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[disable-section1]', array(
+		'default'           => kemet_get_option( 'disable-section1' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	)
+);
+$wp_customize->add_control(
+	KEMET_THEME_SETTINGS . '[disable-section1]', array(
+		'type'     => 'checkbox',
+		'section'  => 'section-topbar-header',
+		'label'    => __( 'Disable Section1', 'kemet' ),
+		'priority' => 1,
+	)
+);
+/**
+	 * Option: nav postion 
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[nav-postion]', array(
+			'default'           => kemet_get_option( 'nav-postion' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[nav-postion]', array(
+			'type'     => 'select',
+			'section'  => 'section-topbar-header',
+			'label'    => __( 'nav postion', 'kemet' ),
+			'priority' => 3,
+			'choices'  => array(
+				'right'    => __( 'Right', 'kemet' ),
+				'left'    => __( 'Left', 'kemet' ),
+				'center'    => __( 'Center', 'kemet' ),
+			),
+			
+		)
+	);
+	
+
+//Section1 Disable
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[disable-section2]', array(
+		'default'           => kemet_get_option( 'disable-section2' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	)
+);
+$wp_customize->add_control(
+	KEMET_THEME_SETTINGS . '[disable-section2]', array(
+		'type'     => 'checkbox',
+		'section'  => 'section-topbar-header',
+		'label'    => __( 'Disable Section2', 'kemet' ),
+		'priority' => 2,
+	)
+);
+
 $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[top-section-1]', array(
 		'default'           => kemet_get_option( 'top-section-1' ),
@@ -381,3 +441,5 @@ $wp_customize->add_control(
 			)
 		)
 	);
+
+	

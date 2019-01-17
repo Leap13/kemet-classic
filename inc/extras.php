@@ -790,8 +790,40 @@ if ( ! function_exists( 'kemet_submenu_break_point' ) ) {
 		return absint(apply_filters( 'kemet_submenu_break_point',$submenu_border_color) );
 	}
 }
+/**
+ * Function disable_section1
+ */
 
+if ( ! function_exists( 'disable_section1_break_point' ) ) {
+	$disable_section1    = kemet_get_option( 'top-section-1');
+	$nav_postion    = kemet_get_option( 'nav-postion');
+	/**
+	 * Function to get Header Breakpoint
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	function disable_section1_break_point() {
+		return absint(apply_filters( 'disable_section1_break_point',$disable_section1) );
+		return absint(apply_filters( 'disable_section1_break_point',$nav_postion) );
+	}
+}
+/**
+ * Function disable_section2
+ */
 
+if ( ! function_exists( 'disable_section2_break_point' ) ) {
+	$disable_section2     = kemet_get_option( 'top-section-2');
+	/**
+	 * Function to get Header Breakpoint
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	function disable_section2_break_point() {
+		return absint(apply_filters( 'disable_section2_break_point',$disable_section2) );
+	}
+}
 /**
  * Function to get Body Font Family
  */
@@ -1011,6 +1043,145 @@ if ( ! function_exists( 'kemet_submenu_border_style' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'kemet_submenu_border_style' );
 
+
+/**
+ * Function to Add section1 
+ */
+if ( ! function_exists( 'kemet_section1' ) ) {
+
+	/**
+	 * Function to Add Header Breakpoint Style
+	 *
+	 * @since 1.0.0
+	 */
+	function kemet_section1() {
+
+		// Header Break Point.
+		$disable_section1_break_point = disable_section1_break_point();
+
+		ob_start();
+
+		
+		$disable_section1   = kemet_get_option( 'disable-section1');
+		$nav_postion   = kemet_get_option( 'nav-postion');
+		
+		if($disable_section1){
+			$disable_section1_responsive = array(
+				// '.kmt-above-header-section-1 ' => array(
+				// 	'display'   => 'none',
+				// ),
+				'.kmt-above-header-section-2.kmt-col-md-6 ' => array(
+					'width'   => '100%',
+				),
+			);
+			if ($disable_section1) {
+				echo '<div class="kmt-above-header-section kmt-above-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12-above-header">';
+				echo kemet_masthead_get_menu_items();
+				echo '</div>';
+			}
+			
+			if ( 'right' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-2.kmt-justify-content-flex-end' => array(
+					'justify-content'=> 'flex-end',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			  elseif ( 'left' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-2.kmt-justify-content-flex-end' => array(
+					'justify-content'=> 'flex-start',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			  elseif ( 'center' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-2.kmt-justify-content-flex-end' => array(
+					'justify-content'=> 'center',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			  echo kemet_parse_css( $disable_section1_responsive, $disable_section1_break_point );
+		}
+		$dynamic_css = ob_get_clean();
+
+		// trim white space for faster page loading.
+		$dynamic_css = Kemet_Enqueue_Scripts::trim_css( $dynamic_css );
+
+		wp_add_inline_style( 'kemet-theme-css', $dynamic_css );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'kemet_section1' );
+
+/**
+ * Function to Add section2
+ */
+if ( ! function_exists( 'kemet_section2' ) ) {
+
+	/**
+	 * Function to Add Header Breakpoint Style
+	 *
+	 * @since 1.0.0
+	 */
+	function kemet_section2() {
+
+		// Header Break Point.
+		$disable_section2_break_point = disable_section2_break_point();
+
+		ob_start();
+
+		
+		$disable_section2   = kemet_get_option( 'disable-section2');
+		
+		if($disable_section2){
+			$disable_section2_responsive = array(
+				'.kmt-above-header-section-2 ' => array(
+					'display'   => 'none',
+				),
+				'.kmt-above-header-section-1.kmt-col-md-6 ' => array(
+					'width'   => '100%',
+				),
+			);
+			if ( 'right' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-1.kmt-justify-content-flex-start' => array(
+					'justify-content'=> 'flex-end',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			  elseif ( 'left' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-1.kmt-justify-content-flex-start' => array(
+					'justify-content'=> 'flex-start',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			  elseif ( 'center' == $nav_postion ) {
+				$nav_postion_responsive = array(
+				'.kmt-above-header-section-1.kmt-justify-content-flex-start' => array(
+					'justify-content'=> 'center',
+				),
+			);
+			echo kemet_parse_css( $nav_postion_responsive, $disable_section1_break_point );
+			  }
+			echo kemet_parse_css( $disable_section2_responsive, $disable_section2_break_point );
+		}
+		$dynamic_css = ob_get_clean();
+
+		// trim white space for faster page loading.
+		$dynamic_css = Kemet_Enqueue_Scripts::trim_css( $dynamic_css );
+
+		wp_add_inline_style( 'kemet-theme-css', $dynamic_css );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'kemet_section2' );
 
 /**
  * Function to filter comment form's default fields

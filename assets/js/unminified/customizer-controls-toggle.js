@@ -480,6 +480,37 @@
 				}
 			},
 		],
+		'kemet-settings[disable-section1]' :
+		[
+			{
+				controls: [
+					'kemet-settings[top-section-1]',
+				],
+				callback: function( disable_section1 ) {
+
+					if ( 'disabled' != disable_section1 ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		'kemet-settings[disable-section2]' :
+		[
+			{
+				controls: [
+					'kemet-settings[top-section-2]',
+				],
+				callback: function( disable_section2 ) {
+
+					if ( 'disabled' != disable_section2 ) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+
 
 		/**
 		 * Footer Widgets
