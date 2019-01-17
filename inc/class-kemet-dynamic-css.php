@@ -142,6 +142,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
 			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
 			$readmore_padding    = kemet_get_option( 'readmore-padding' );
+			$readmore_bg_color    = kemet_get_option( 'readmore-bg-color' );
+			$readmore_bg_h_color   = kemet_get_option( 'readmore-bg-h-color' );
 
             
 			// Footer Styling
@@ -544,12 +546,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
+					'background-color'  => esc_attr ( $readmore_bg_h_color ),
 				),
-				'.content-area .read-more' => array(
+				'.content-area .read-more a' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
+					'background-color' => esc_attr( $readmore_bg_color),
 				),
 
 
@@ -778,6 +782,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'tablet' ),
 				),
+				//post readmore spacing
+				'.content-area p.read-more a' => array(
+					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'tablet' ),
+					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'tablet' ),
+					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'tablet' ),
+				),
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
 				),
@@ -879,6 +890,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'mobile' ),
 				),
+				//post readmore spacing
+				'.content-area p.read-more a' => array(
+					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'mobile' ),
+				),
+
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
 				),
