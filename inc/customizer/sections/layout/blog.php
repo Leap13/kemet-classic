@@ -222,6 +222,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
+	 * Option: Read More Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-color]', array(
+				'section'  => 'section-blog',
+				'priority' => 34,
+				'label'    => __( 'Read More Border Color', 'kemet' ),
+			)
+		)
+	);
+		/**
+	 * Option: Read More Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
+			'default'           => kemet_get_option( 'readmore-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-blog',
+			'priority'    => 35,
+			'label'       => __( 'Read More Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
+	/**
+	 * Option: Read More Border Color Hover
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
+				'section'  => 'section-blog',
+				'priority' => 35,
+				'label'    => __( 'Read More Border Hover Color', 'kemet' ),
+			)
+		)
+	);
+
+
+
+
+	/**
       * Option:Post Read More Text Color Hover
       */
       $wp_customize->add_setting(

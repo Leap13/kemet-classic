@@ -927,6 +927,26 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
+	wp.customize( 'kemet-settings[readmore-border-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.content-area .read-more a' ).css( 'border-color', border_color );
+		} );
+	} );
+	wp.customize( 'kemet-settings[readmore-border-h-color]', function( value ) {
+		value.bind( function( color ) {
+			if (color == '') {
+				wp.customize.preview.send( 'refresh' );
+			}
+
+			if ( color ) {
+
+				var dynamicStyle = '.content-area .read-more a:hover { border-color: ' + color + '; } ';
+
+				kemet_add_dynamic_css( 'readmore-border-h-color', dynamicStyle );
+			}
+
+		} );
+	} );
 
 
 	wp.customize( 'kemet-settings[readmore-bg-h-color]', function( value ) {
