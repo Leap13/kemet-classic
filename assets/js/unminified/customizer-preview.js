@@ -805,6 +805,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-button-bg-color', dynamicStyle );
 		} );
 	} );
+	
 	wp.customize( 'kemet-settings[footer-button-bg-h-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			

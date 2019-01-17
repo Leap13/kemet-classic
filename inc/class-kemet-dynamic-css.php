@@ -164,7 +164,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_link_h_color = kemet_get_option( 'footer-link-h-color' );
 
 			// Footer Button color 
-			$footer_button_color = kemet_get_option( 'footer-button-color' );
+			$footer_button_color       = kemet_get_option( 'footer-button-color' );
 			$footer_button_hover_color = kemet_get_option( 'footer-button-h-color' );
 			$footer_button_bg_color    = kemet_get_option( 'footer-button-bg-color' );
 			$footer_button_bg_h_color  = kemet_get_option( 'footer-button-bg-h-color' );
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.kmt-single-post .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'desktop' ),
-               'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
+                    'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_font( $body_font_size, 'desktop' ),
