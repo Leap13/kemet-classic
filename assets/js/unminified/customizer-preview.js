@@ -857,7 +857,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'Widget-bg-color', dynamicStyle );
 		} );
 	} );
-
+	kemet_responsive_spacing( 'kemet-settings[sidebar-padding]','div.sidebar-main', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 	/**
 	 * sidebar Background
 	 */
