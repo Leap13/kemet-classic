@@ -909,7 +909,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[readmore-text-color]', 'color', '.content-area .read-more a' );
 	kemet_css( 'kemet-settings[readmore-text-h-color]', 'color', '.content-area .read-more a:hover' );
 	kemet_responsive_spacing( 'kemet-settings[readmore-padding]','.content-area .read-more a', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
-	
+
 	wp.customize( 'kemet-settings[readmore-bg-color]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
@@ -918,6 +918,16 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-color', dynamicStyle );
 		} );
 	} );
+	
+	wp.customize( 'kemet-settings[readmore-border-radius]', function( setting ) {
+		setting.bind( function( border ) {
+			
+			var dynamicStyle = '.content-area .read-more a { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			kemet_add_dynamic_css( 'readmore-border-radius', dynamicStyle );
+
+		} );
+	} );
+
 
 	wp.customize( 'kemet-settings[readmore-bg-h-color]', function( value ) {
 		value.bind( function( bg_obj ) {

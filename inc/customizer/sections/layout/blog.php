@@ -195,6 +195,32 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         )
 	);
+
+	/**
+	 * Option: Read More Border Radius
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[readmore-border-radius]', array(
+			'default'           => kemet_get_option( 'readmore-border-radius' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[readmore-border-radius]', array(
+            'priority'       => 33,
+            'section' => 'section-blog',
+			'label'       => __( 'Read More Border Radius', 'kemet' ),
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 200,
+			),
+		)
+	);
+
 	/**
       * Option:Post Read More Text Color Hover
       */
