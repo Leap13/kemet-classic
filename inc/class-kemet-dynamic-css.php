@@ -136,10 +136,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$content_link_color         = kemet_get_option( 'content-link-color' );
 			$content_link_h_color         = kemet_get_option( 'content-link-h-color' );
 
-			//Single Post Page
+			//Listing Post Page
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
 			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
 			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
+			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
+			$readmore_padding    = kemet_get_option( 'readmore-padding' );
 
             
 			// Footer Styling
@@ -537,12 +539,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $listing_post_title_color ),
 				),
-				'.content-area .entry-content' =>  array(
-					'color' => esc_attr( $listing_post_content_color ),
-				),
 				'.content-area .read-more a' =>  array(
 					'color' => esc_attr( $readmore_text_color ),
 				),
+				'.content-area .read-more a:hover' =>  array(
+					'color' => esc_attr( $readmore_text_h_color ),
+				),
+				'.content-area .read-more' => array(
+					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
+					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
+					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
+				),
+
+
 
 
 				
