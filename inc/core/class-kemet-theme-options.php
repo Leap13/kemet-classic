@@ -160,6 +160,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-layouts'                   => 'header-main-layout-1',
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
+					'display-submenu-border'           => true,
 					'topbar-section-1'                 => array(
                   'search' => '',
 						'menu'  => '',

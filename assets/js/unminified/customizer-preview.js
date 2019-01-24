@@ -660,7 +660,15 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
-
+	/**
+	 * SubMenu Border color
+	 */
+	wp.customize( 'kemet-settings[submenu-border-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a' ).css( 'border-color', border_color );
+		} );
+	} );
+	
 	/**
 	 * Container Inner Spacing
 	 */

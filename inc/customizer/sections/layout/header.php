@@ -539,3 +539,45 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+	/**
+	 * Option: top Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
+			'default'           =>  kemet_get_option( 'display-submenu-border' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
+				'section'  => 'section-header',
+				'type'     => 'checkbox',
+				'priority' => 105,
+				'label'    => __( 'Display Submenu Borderrrr', 'kemet' ),
+			)
+		)
+	);
+	
+	/**
+	 * Option: top Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
+			'default'           =>  kemet_get_option( 'submenu-border-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
+				'section'  => 'section-header',
+				'priority' => 105,
+				'label'    => __( 'Submenu Border Color', 'kemet' ),
+			)
+		)
+	);
