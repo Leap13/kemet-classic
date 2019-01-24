@@ -398,7 +398,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-top-color' => esc_attr( $submenu_top_border_color ),
 				),
 
-				'.main-header-menu.submenu-with-border .sub-menu a, .main-header-menu.submenu-with-border .children a' => array(
+				'.main-header-menu .sub-menu a' => array(
 					'border-bottom-width' => ( true == $display_submenu_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
 					'border-bottom-color'        => esc_attr( $submenu_border_color ),

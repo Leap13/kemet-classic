@@ -556,7 +556,7 @@ $header_rt_sections = array(
 				'section'  => 'section-header',
 				'type'     => 'checkbox',
 				'priority' => 105,
-				'label'    => __( 'Display Submenu Borderrrr', 'kemet' ),
+				'label'    => __( 'Display Submenu Border', 'kemet' ),
 			)
 		)
 	);

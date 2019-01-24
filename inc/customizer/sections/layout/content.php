@@ -66,8 +66,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         )
     );
     /**
-      * Option: Content Link Hover Color
-      */
+     * Option: Content Link Hover Color
+    */
 	  $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
 			'default'           => kemet_get_option( 'content-link-h-color' ),
@@ -86,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-/**
+	/**
 	 * Option: Body & Content Divider
 	 */
 	$wp_customize->add_control(
