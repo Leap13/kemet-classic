@@ -59,7 +59,7 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
-						echo $value;
+						echo __($value);
 					}
 				}
 				?>
@@ -374,7 +374,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
 			$markup = kemet_masthead_get_menu_items( true );
 
-			echo $markup;
+			echo '<div>' . $markup . '</div>';
 		}
 	}
 }

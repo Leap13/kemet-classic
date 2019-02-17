@@ -77,7 +77,7 @@ if ( ! function_exists( 'kemet_css' ) ) {
 				$css .= '	' . $css_property . ': ' . $value . ';';
 				$css .= '}';
 
-				echo $css;
+				printf($css);
 			}
 		}
 	}

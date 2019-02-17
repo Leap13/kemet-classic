@@ -170,9 +170,9 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 			$html .= get_custom_logo();
 			$html .= '</span>';
 
-			if ( apply_filters( 'kemet_replace_logo_width', true ) ) {
-				remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
-			}
+//			if ( apply_filters( 'kemet_replace_logo_width', true ) ) {
+//				remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
+//			}
 		}
 
 		if ( ! apply_filters( 'kemet_disable_site_identity', false ) ) {
@@ -214,7 +214,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo $html;
+			echo __($html);
 		} else {
 			return $html;
 		}
@@ -1296,7 +1296,7 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'kemet_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			echo __($before . $output . $after); // WPCS: XSS OK.
 		} else {
 			return $before . $output . $after;
 		}

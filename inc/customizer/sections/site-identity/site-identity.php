@@ -169,14 +169,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'title_tagline',
                'priority'       => 50,
-               'label'          => __( 'Site Identity Space', 'kemet-addon' ),
+               'label'          => __( 'Site Identity Space', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(
-                   'top'    => __( 'Top', 'kemet-addon' ),
-                   'right'  => __( 'Right', 'kemet-addon' ),
-                   'bottom' => __( 'Bottom', 'kemet-addon' ),
-                   'left'   => __( 'Left', 'kemet-addon' ),
+                   'top'    => __( 'Top', 'kemet' ),
+                   'right'  => __( 'Right', 'kemet' ),
+                   'bottom' => __( 'Bottom', 'kemet' ),
+                   'left'   => __( 'Left', 'kemet' ),
                ),
            )
        )

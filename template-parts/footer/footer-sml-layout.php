@@ -20,17 +20,13 @@ $section_2 = kemet_get_small_footer( 'footer-sml-section-2' );
 			<div class="kmt-small-footer-wrap" >
 				<?php if ( $section_1 ) : ?>
 					<div class="kmt-small-footer-section kmt-small-footer-section-1" >
-						<?php
-							echo $section_1; // WPCS: XSS OK.
-						?>
+                        <?php echo '<div class="kmt-flex">' . $section_1 . '</div>'; ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $section_2 ) : ?>
 					<div class="kmt-small-footer-section kmt-small-footer-section-2" >
-						<?php
-							echo $section_2; // WPCS: XSS OK.
-						?>
+						<?php echo '<div class="kmt-flex">' . $section_2 . '</div>'; ?>
 					</div>
 				<?php endif; ?>
 

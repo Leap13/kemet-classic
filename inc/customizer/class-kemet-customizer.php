@@ -82,7 +82,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			echo $output;
+			echo esc_js($output);
 		}
 
 		/**
@@ -290,7 +290,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			add_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
 			Kemet_Customizer::generate_logo_by_width( $custom_logo_id );
-			remove_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10 );
 
 			do_action( 'kemet_customizer_save' );
 		}
