@@ -928,6 +928,15 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 	
+	wp.customize( 'kemet-settings[readmore-border-size]', function( setting ) {
+		setting.bind( function( border ) {
+
+			var dynamicStyle = '.content-area .read-more a { border-width: ' + border + 'px }';
+			
+			kemet_add_dynamic_css( 'readmore-border-size', dynamicStyle );
+		} );
+	} );
+
 	wp.customize( 'kemet-settings[readmore-border-radius]', function( setting ) {
 		setting.bind( function( border ) {
 			
