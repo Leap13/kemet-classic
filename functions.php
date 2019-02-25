@@ -83,10 +83,10 @@ if ( is_admin() ) {
 	/**
 	 * Metabox additions.
 	 */
-	require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-boxes.php';
+	//require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-boxes.php';
 }
 
-require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-box-operations.php';
+//require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-box-operations.php';
 
 
 /**
