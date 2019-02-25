@@ -59,7 +59,7 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
-						echo __($value);
+						printf ($value);
 					}
 				}
 				?>
