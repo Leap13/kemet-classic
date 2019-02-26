@@ -13,6 +13,7 @@ add_action( 'kemet_masthead_toggle_buttons', 'kemet_masthead_toggle_buttons_prim
 add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
+add_filter( 'kemet_main_header_bar_top' , 'kemet_top_header_template', 10, 2);
 add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
@@ -52,13 +53,13 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', array( 'kmt-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
+			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-masthead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
-						echo $value;
+						printf ($value);
 					}
 				}
 				?>
@@ -222,6 +223,26 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 		}
 	}
 }
+/**
+ * Top Header
+ */
+if ( ! function_exists( 'kemet_top_header_template' ) ) {
+
+	/**
+	 * Top Header
+	 *
+	 *
+	 * @since 1.0.0
+	 */
+	function kemet_top_header_template() {
+
+
+
+
+			get_template_part( 'template-parts/topbar/topbar-layout');
+		
+	}
+}
 
 /**
  * Primary Header
@@ -353,7 +374,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
 			$markup = kemet_masthead_get_menu_items( true );
 
-			echo $markup;
+			echo '<div>' . $markup . '</div>';
 		}
 	}
 }

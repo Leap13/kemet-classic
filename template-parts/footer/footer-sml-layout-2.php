@@ -43,17 +43,13 @@ switch ( $sections ) {
 
 					<?php if ( $section_1 ) : ?>
 						<div class="kmt-small-footer-section kmt-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
-							<?php
-								echo $section_1; // WPCS: XSS OK.
-							?>
+							<?php echo '<div class="kmt-flex">' . $section_1 . '</div>'; ?>
 						</div>
 				<?php endif; ?>
 
 					<?php if ( $section_2 ) : ?>
 						<div class="kmt-small-footer-section kmt-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
-							<?php
-								echo $section_2; // WPCS: XSS OK.
-							?>
+							<?php echo '<div class="kmt-flex">' . $section_2 . '</div>'; ?>
 						</div>
 				<?php endif; ?>
 

@@ -131,6 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+
 	// Learn More link if Kemet Pro is not activated.
 	if ( ! defined( 'KEMET_EXT_VER' ) ) {
 

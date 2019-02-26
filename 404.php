@@ -8,6 +8,7 @@
  * @since 1.0.0
  */
 
+
 get_header(); ?>
 
 <?php if ( kemet_page_layout() == 'left-sidebar' ) : ?>

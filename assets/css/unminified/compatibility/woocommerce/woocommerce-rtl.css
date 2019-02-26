@@ -3112,6 +3112,7 @@ p.demo_store a,
 }
 
 /**
+
  * Woocommerce common form design
  */
 .woocommerce input[type=text], .woocommerce input[type=email], .woocommerce input[type=url], .woocommerce input[type=password], .woocommerce input[type=number], .woocommerce input[type=search], .woocommerce input[type=reset], .woocommerce input[type=tel], .woocommerce textarea, .woocommerce form .form-row textarea,
@@ -3125,8 +3126,6 @@ p.demo_store a,
 .woocommerce-page input[type=tel],
 .woocommerce-page textarea,
 .woocommerce-page form .form-row textarea {
-  border-color: #dddddd;
-  background: #fff;
   box-shadow: none;
   border-radius: 0px;
 }
@@ -3143,7 +3142,6 @@ p.demo_store a,
 .woocommerce-page textarea:focus,
 .woocommerce-page form .form-row textarea:focus {
   box-shadow: none;
-  border-color: #dddddd;
 }
 
 .woocommerce select, .woocommerce .select2-container .select2-selection--single,

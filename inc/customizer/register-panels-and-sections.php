@@ -80,6 +80,16 @@
 			)
 		)
 	);
+    
+   $wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-topbar-header', array(
+					'title'    => __( 'Top Bar Header', 'kemet' ),
+					'panel'    => 'panel-layout',
+					'priority' => 21,
+				)
+		)
+	);
 
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
@@ -208,6 +218,21 @@
 			'title'    => __( 'Sidebar', 'kemet' ),
 			'panel'    => 'panel-layout',
 			'priority' => 50,
+		)
+	);
+
+	$wp_customize->add_section(
+		'section-widgets', array(
+			'title'    => __( 'widget', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 51,
+		)
+	);
+	$wp_customize->add_section(
+		'section-contents', array(
+			'title'    => __( 'Content', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 56,
 		)
 	);
 

@@ -51,6 +51,10 @@ $header_rt_sections = array(
 					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'kemet' ),
 						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+					),     
+               'header-main-layout-4' => array(
+						'label' => __( 'Right Left Menu', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
 					),
 				),
 			)
@@ -75,51 +79,53 @@ $header_rt_sections = array(
 			'priority' => 5,
 		)
 	);
-
 	/**
 	 * Option: Custom Menu Item
 	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'default'           => kemet_get_option( 'header-main-rt-section' ),
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'type'     => 'select',
-			'section'  => 'section-header',
-			'priority' => 5,
-			'label'    => __( 'Custom Menu Item', 'kemet' ),
-			'choices'  => $header_rt_sections,
-		)
-	);
+	// $wp_customize->add_setting(
+	// 	KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+	// 		'default'           => kemet_get_option( 'header-main-rt-section' ),
+	// 		'type'              => 'option',
+	// 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+	// 	)
+	// );
+	// $wp_customize->add_control(
+	// 	KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+	// 		'type'     => 'select',
+	// 		'section'  => 'section-header',
+	// 		'priority' => 5,
+	// 		'label'    => __( 'Custom Menu Item', 'kemet' ),
+	// 		'choices'  => $header_rt_sections,
+	// 	)
+	// );
 
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
 			'default'           => kemet_get_option( 'header-main-rt-section' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'type'     => 'select',
+                new Kemet_Control_Sortable(
+            $wp_customize, KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
+			'type'     => 'kmt-sortable',
 			'section'  => 'section-header',
 			'priority' => 5,
 			'label'    => __( 'Custom Menu Item', 'kemet' ),
 			'choices'  => apply_filters(
-				'kemet_header_section_elements',
+				'kemet_header_elements',
 				array(
-					'none'      => __( 'None', 'kemet' ),
+					//'none'      => __( 'None', 'kemet' ),
 					'search'    => __( 'Search', 'kemet' ),
 					'text-html' => __( 'Text / HTML', 'kemet' ),
 					'widget'    => __( 'Widget', 'kemet' ),
+              // 'woocommerce'    => __( 'Wooooo', 'kemet' ),
 				),
 				'primary-header'
 			),
 		)
+                        )
 	);
 
 	/**
@@ -202,7 +208,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
-			'default'           => '',
+			'default'           => kemet_get_option( 'header-main-sep-color' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
@@ -296,5 +302,282 @@ $header_rt_sections = array(
 				'inline' => __( 'Inline', 'kemet' ),
 				'stack'  => __( 'Stack', 'kemet' ),
 			),
+		)
+	);
+
+	/**
+	 * Option: header Background
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
+			'default'           => kemet_get_option( 'header-bg-obj' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Background(
+			$wp_customize, KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
+				'type'    => 'kmt-background',
+                'section' => 'section-header',
+                'priority' => 70,
+				'label'   => __( 'Background', 'kemet' ),
+			)
+		)
+	);
+	
+	/**
+    * Option - header Spacing
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[header-padding]', array(
+			'default'           => kemet_get_option( 'header-padding' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[header-padding]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-header',
+				'priority'       => 75,
+				'label'          => __( 'Header Padding', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
+    /**
+	 * Option: Menu Background Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
+			'default'           => kemet_get_option( 'menu-bg-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
+                'priority'       => 72,
+                'section' => 'section-header',
+				'label'   => __( 'Menu Background Color', 'kemet' ),
+			)
+		)
+	);
+		/**
+		 * Option:Menu Link Color
+		*/
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[menu-link-color]', array(
+				'default'           => kemet_get_option( 'menu-link-h-color' ),
+				'type'              => 'option',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-color]', array(
+					'label'   => __( 'Menu Link Color', 'kemet' ),
+					'priority'       => 74,
+					'section' => 'section-header',
+				)
+			)
+		);
+		
+	  /**
+      * Option:Menu Link Hover Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
+			'default'           => kemet_get_option( 'menu-link-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
+				'label'   => __( 'Menu Link Hover Color', 'kemet' ),
+				'priority'       => 75,
+				'section' => 'section-header',
+			)
+		)
+	);
+	/**
+	 * Option: SubMenu Background Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
+			'default'           => kemet_get_option( 'submenu-bg-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
+                'priority'       => 76,
+                'section' => 'section-header',
+				'label'   => __( 'SubMenu Background Color', 'kemet' ),
+			)
+		)
+	);
+	/**
+      * Option:SubMenu Link Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
+			'default'           => kemet_get_option( 'submenu-link-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
+				'label'   => __( 'SubMenu Link Color', 'kemet' ),
+				'priority'       => 77,
+				'section' => 'section-header',
+			)
+		)
+	);
+	/**
+      * Option:SubMenu Link Hover Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
+			'default'           => kemet_get_option( 'submenu-link-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
+				'label'   => __( 'SubMenu Link Hover Color', 'kemet' ),
+				'priority'       => 78,
+				'section' => 'section-header',
+			)
+		)
+	);
+	/**
+      * Option:Menu Active Link Color
+      */
+	  $wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
+			'default'           => kemet_get_option( 'menu-link-active-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
+				'label'   => __( 'Menu Link Active Color', 'kemet' ),
+				'priority'       => 81,
+				'section' => 'section-header',
+			)
+		)
+	);
+	/**
+	 * Option: submenu Top Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-top-border-size]', array(
+			'default'           => kemet_get_option( 'submenu-top-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[submenu-top-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-header',
+			'priority'    => 100,
+			'label'       => __( 'Submenu Top Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
+	/**
+	 * Option: top Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
+			'default'           =>  kemet_get_option( 'submenu-top-border-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
+				'section'  => 'section-header',
+				'priority' => 105,
+				'label'    => __( 'Submenu Top Border Color', 'kemet' ),
+			)
+		)
+	);
+
+	/**
+	 * Option: top Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
+			'default'           =>  kemet_get_option( 'display-submenu-border' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
+				'section'  => 'section-header',
+				'type'     => 'checkbox',
+				'priority' => 105,
+				'label'    => __( 'Display Submenu Border', 'kemet' ),
+			)
+		)
+	);
+	
+	/**
+	 * Option: top Border Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
+			'default'           =>  kemet_get_option( 'submenu-border-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
+				'section'  => 'section-header',
+				'priority' => 105,
+				'label'    => __( 'Submenu Border Color', 'kemet' ),
+			)
 		)
 	);

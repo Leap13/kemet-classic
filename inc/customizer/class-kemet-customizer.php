@@ -82,7 +82,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			echo $output;
+			echo esc_js($output);
 		}
 
 		/**
@@ -156,15 +156,18 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Sections
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-         require KEMET_THEME_DIR . 'inc/customizer/sections/general/layout-settings.php';
-         require KEMET_THEME_DIR . 'inc/customizer/sections/general/default-sidebar.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/general/layout-settings.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/general/default-sidebar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/topbar.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/content.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
@@ -258,7 +261,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Update variables.
 			Kemet_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
+         $js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
 			$dir        = 'minified';
 			if ( SCRIPT_DEBUG ) {
@@ -287,7 +290,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			add_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
 			Kemet_Customizer::generate_logo_by_width( $custom_logo_id );
-			remove_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10 );
 
 			do_action( 'kemet_customizer_save' );
 		}
