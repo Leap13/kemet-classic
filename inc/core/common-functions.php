@@ -731,7 +731,7 @@ if ( ! function_exists( 'kemet_the_post_title' ) ) {
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
-				printf (' $before . $title . $after ' ); // WPCS: XSS OK.
+				echo $before . $title . $after; // WPCS: XSS OK.
 			} else {
 				return $before . $title . $after;
 			}
