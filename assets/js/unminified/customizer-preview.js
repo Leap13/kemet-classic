@@ -683,7 +683,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      */
     kemet_responsive_spacing( 'kemet-settings[footer-padding]','.footer-adv-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 
-
+	/**
+     * Widget Padding
+     */
+    kemet_responsive_spacing( 'kemet-settings[footer-widget-padding]','.footer-adv .footer-adv-widget', 'padding', [ 'top', 'bottom' , 'right', 'left'] );
    
 
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-tagline]', '.site-header .site-description' );
