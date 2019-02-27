@@ -347,12 +347,28 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 		$advanced_footer_layout = kemet_get_option( 'footer-adv' );
 		$advanced_footer_meta   = kemet_get_option_meta( 'footer-adv-display' );
 
-		if ( apply_filters( 'kemet_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
+		if ( apply_filters( 'kemet_advanced_footer_disable', false )  || 'disabled' == $advanced_footer_meta ) {
 			return;
+		} // Add markup.
+		else if ( 'layout-1' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-1' );
 		}
-
-		// Add markup.
-		get_template_part( 'template-parts/advanced-footer/layout-4' );
+		else if ( 'layout-2' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-2' );
+		}
+		else if ( 'layout-3' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-3' );
+		}
+		else if ( 'layout-4' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-4' );
+		}
+		else if ( 'layout-5' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-5' );
+		}
+		else if ( 'layout-6' == $advanced_footer_layout ) {
+			get_template_part( 'template-parts/advanced-footer/layout-6' );
+		}
+		
 	}
 }
 
