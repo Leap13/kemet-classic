@@ -162,11 +162,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             'default'           => kemet_get_option( 'listing-post-title-color' ),
             'type'              => 'option',
             'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-title-color]', array(
                 'label'   => __( 'Listing Post Title Color', 'kemet' ),
                 'priority'       => 26,
@@ -183,11 +183,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             'default'           => '',
             'type'              => 'option',
             'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
                 'label'   => __( 'Read More Color', 'kemet' ),
                 'priority'       => 28,
@@ -229,11 +229,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-color]', array(
 				'section'  => 'section-blog',
 				'priority' => 34,
@@ -273,11 +273,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
 				'section'  => 'section-blog',
 				'priority' => 35,
@@ -297,11 +297,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             'default'           => '',
             'type'              => 'option',
             'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
                 'label'   => __( 'Read More Hover Color', 'kemet' ),
                 'priority'       => 29,
@@ -345,11 +345,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[readmore-bg-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-color]', array(
                 'priority'       => 31,
                 'section' => 'section-blog',
@@ -364,11 +364,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
                 'priority'       => 32,
                 'section' => 'section-blog',

@@ -32,11 +32,11 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
 			'default'           => '',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
                 'priority'       => 18,
                 'section' => 'section-widgets',
@@ -240,11 +240,11 @@ $wp_customize->add_control(
             'default'           => kemet_get_option( 'widget-title-color' ),
             'type'              => 'option',
             'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-color]', array(
                 'label'   => __( 'Widget Title Color', 'kemet' ),
                 'priority'       => 10,
@@ -285,11 +285,11 @@ $wp_customize->add_control(
 			'default'           => kemet_get_option( 'widget-title-border-color' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
 				'section'  => 'section-widgets',
 				'priority' => 12,

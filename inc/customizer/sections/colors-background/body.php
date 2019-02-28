@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[theme-color]', array(
 			'default'           => '#0274be',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[theme-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
@@ -39,11 +39,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[link-color]', array(
 			'default'           => '#0274be',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[link-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
@@ -59,11 +59,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[text-color]', array(
 			'default'           => '#3a3a3a',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[text-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 10,
@@ -80,11 +80,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[link-h-color]', array(
 			'default'           => '#3a3a3a',
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[link-h-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 15,

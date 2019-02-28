@@ -101,11 +101,11 @@ if ( ! defined( 'ABSPATH' ) ) {
              'default'           => '',
              'type'              => 'option',
              'transport'         => 'postMessage',
-             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
          )
      );
      $wp_customize->add_control(
-         new WP_Customize_Color_Control(
+         new Kemet_Control_Color(
              $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-text-color]', array(
                  'label'   => __( 'Text Color', 'kemet' ),
                  'priority'       => 3,
@@ -249,11 +249,11 @@ if ( ! defined( 'ABSPATH' ) ) {
              'default'           => '',
              'type'              => 'option',
              'transport'         => 'postMessage',
-             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
          )
      );
      $wp_customize->add_control(
-         new WP_Customize_Color_Control(
+         new Kemet_Control_Color(
              $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-wgt-title-color]', array(
                  'label'   => __( 'Widget Title Color', 'kemet' ),
                  'priority'       => 9,
@@ -299,11 +299,11 @@ if ( ! defined( 'ABSPATH' ) ) {
            KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
                'default'           => '',
                'type'              => 'option',
-               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
            )
        );
        $wp_customize->add_control(
-           new WP_Customize_Color_Control(
+           new Kemet_Control_Color(
                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-color]', array(
                    'label'   => __( 'Link Color', 'kemet' ),
                    'priority'       => 10,
@@ -319,11 +319,11 @@ if ( ! defined( 'ABSPATH' ) ) {
            KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
                'default'           => '',
                'type'              => 'option',
-               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+               'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
            )
        );
        $wp_customize->add_control(
-           new WP_Customize_Color_Control(
+           new Kemet_Control_Color(
                $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-link-h-color]', array(
                    'label'   => __( 'Link Hover Color', 'kemet' ),
                    'priority'       => 11,
@@ -375,11 +375,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'default'           => '',
                 'type'              => 'option',
                 'transport'         => 'postMessage',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-adv-widget-meta-color]', array(
                     'label'   => __( 'Widget Meta Color', 'kemet' ),
                     'priority'       => 15,
@@ -394,11 +394,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-button-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-color]', array(
                     'section' => 'section-footer-adv',
                     'label'   => __( 'Button Text Color', 'kemet' ),
@@ -414,11 +414,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
                     'priority'       => 17,
                     'section' => 'section-footer-adv',
@@ -434,11 +434,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
                     'priority'       => 18,
                     'section' => 'section-footer-adv',
@@ -454,11 +454,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
                     'priority'       => 19,
                     'section' => 'section-footer-adv',
@@ -499,11 +499,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-input-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-color]', array(
                     'section' => 'section-footer-adv',
                     'label'   => __( 'Footer Input Color', 'kemet' ),
@@ -519,11 +519,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
                     'priority'       => 22,
                     'section' => 'section-footer-adv',
@@ -539,11 +539,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
                 'default'           => '',
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
                     'priority'       => 22,
                     'section' => 'section-footer-adv',
