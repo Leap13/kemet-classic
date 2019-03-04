@@ -762,6 +762,36 @@ if ( ! function_exists( 'kemet_footer_markup' ) ) {
 add_action( 'kemet_footer', 'kemet_footer_markup' );
 
 /**
+ * Function to get site Go Top Link
+ */
+if ( ! function_exists( 'kemet_go_top_markup' ) ) {
+
+	/**
+	 * Site Go Top Link 
+	 *
+	 * @since 1.0.0
+	 */
+	
+	function kemet_go_top_markup() {
+		if(kemet_get_option( 'enable-go-top' ) == true){
+			?>
+				<div class="kmt-go-top-container"><a href="#" class="kmt-go-top-link" id="kmt-go-top"><span>&#8593;</span></a></div>
+			<?php
+		}
+	}
+	
+	function kmt_dep_go_top() {
+		if (kemet_get_option( 'enable-go-top' ) == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+add_action( 'kemet_footer_after', 'kemet_go_top_markup' );
+
+/**
  * Function to get Header Breakpoint
  */
 if ( ! function_exists( 'kemet_header_break_point' ) ) {

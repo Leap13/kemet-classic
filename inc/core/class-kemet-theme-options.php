@@ -308,6 +308,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					// Sidebar.
 					'footer-adv'                       => 'disabled',
+
+					//Go Top Link
+					'enable-go-top'   => 1,
 				)
 			);
 		}

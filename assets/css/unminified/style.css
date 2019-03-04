@@ -6071,3 +6071,18 @@ input[type="color"]::-webkit-color-swatch {
   -ms-transform: translate(0, -50%) rotate(270deg);
   transform: translate(0, -50%) rotate(270deg);
 }
+
+/*----------  Go Top Link  ----------*/
+/**
+ * 	Go Top Link
+ *
+ * @import
+ * Go Top Link Sections
+*/
+.kmt-go-top-link{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  text-align: center;
+  z-index: 99999;
+}

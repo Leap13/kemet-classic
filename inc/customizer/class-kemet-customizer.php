@@ -169,6 +169,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/go-top.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';

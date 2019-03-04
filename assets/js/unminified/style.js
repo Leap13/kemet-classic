@@ -1175,3 +1175,16 @@ var toggleClass = function ( el, className ) {
 		}, false );
 	}
 })();
+
+$(document).ready(function(){ 
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 100) { 
+            $("#kmt-go-top").fadeIn(200); 
+        } else { 
+            $("#kmt-go-top").fadeOut(200); 
+        } 
+    }); 
+    $("#kmt-go-top").click(function(){ 
+        $("html, body").animate({ scrollTop: 0 }, 600); 
+    });
+}); 
