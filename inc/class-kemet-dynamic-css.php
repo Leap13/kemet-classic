@@ -447,7 +447,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_adv_widget_meta_color),
 				),
 
-				'.footer-adv button, .footer-adv .kmt-button, .footer-adv .button, .footer-adv input#submit, .footer-adv input[type=“button”], .footer-adv input[type=“submit”], .footer-advinput[type=“reset”]'  => array(
+				'.footer-adv button, .footer-adv .kmt-button, .footer-adv .button, .footer-adv input#submit, .footer-adv input[type=button], .footer-adv input[type=submit], .footer-advinput[type=reset]'  => array(
 					'color' => esc_attr( $footer_button_color),
 					'background-color' => esc_attr( $footer_button_bg_color),
 					'border-radius'    => kemet_get_css_value( $footer_button_border_radius, 'px' ),

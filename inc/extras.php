@@ -214,7 +214,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo __($html);
+			echo $html;
 		} else {
 			return $html;
 		}
@@ -1296,7 +1296,7 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'kemet_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo __($before . $output . $after); // WPCS: XSS OK.
+			echo $before . $output . $after; // WPCS: XSS OK.
 		} else {
 			return $before . $output . $after;
 		}

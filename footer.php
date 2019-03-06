@@ -13,12 +13,12 @@
 ?>
 			<?php kemet_content_bottom(); ?>
 
-			</div> <!-- kmt-container -->
+			</div> <!-- Kemet-container -->
 
 		</div><!-- #content -->
 
 		<?php kemet_content_after(); ?>
-
+        
 		<?php kemet_footer_before(); ?>
 
 		<?php kemet_footer(); ?>
