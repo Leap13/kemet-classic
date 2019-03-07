@@ -18,7 +18,7 @@ get_header(); ?>
 
 	<div id="primary" <?php kemet_content_class(); ?>>
 
-		<?php kemet_archive_header(); ?>
+		<?php kemet_archive_top_info(); ?>
 
 		<?php kemet_content_loop(); ?>
 

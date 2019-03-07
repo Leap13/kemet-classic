@@ -86,14 +86,6 @@ function kemet_current_theme_supports( $bool, $args, $registered ) {
 add_filter( 'current_theme_supports-kemet_hooks', 'kemet_current_theme_supports', 10, 3 );
 
 /**
- * HTML <html> hook
- * Special case, useful for <DOCTYPE>, etc.
- * $kemet_supports[] = 'html;
- */
-function kemet_html_before() {
-	do_action( 'kemet_html_before' );
-}
-/**
  * HTML <body> hooks
  * $kemet_supports[] = 'body';
  */
@@ -115,13 +107,6 @@ function kemet_body_bottom() {
  */
 function kemet_head_top() {
 	do_action( 'kemet_head_top' );
-}
-
-/**
- * Head Bottom
- */
-function kemet_head_bottom() {
-	do_action( 'kemet_head_bottom' );
 }
 
 /**
@@ -342,22 +327,6 @@ function kemet_single_header_bottom() {
 }
 
 /**
- * Comments block hooks
- *
- * $kemet_supports[] = 'comments';
- */
-function kemet_comments_before() {
-	do_action( 'kemet_comments_before' );
-}
-
-/**
- * Comments after.
- */
-function kemet_comments_after() {
-	do_action( 'kemet_comments_after' );
-}
-
-/**
  * Semantic <sidebar> hooks
  *
  * $kemet_supports[] = 'sidebar';
@@ -420,8 +389,8 @@ function kemet_footer_content_bottom() {
 /**
  * Archive header
  */
-function kemet_archive_header() {
-	do_action( 'kemet_archive_header' );
+function kemet_archive_top_info() {
+	do_action( 'kemet_archive_top_info' );
 }
 
 /**

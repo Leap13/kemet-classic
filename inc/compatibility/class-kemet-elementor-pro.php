@@ -181,7 +181,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 
 				// Single page.
 				add_filter( 'kemet_the_title_enabled', '__return_false' );
-				remove_action( 'kemet_archive_header', 'kemet_archive_page_info' );
+				remove_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
 			}
 
 			// Override! Sidebar.

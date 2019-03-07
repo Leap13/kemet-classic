@@ -911,7 +911,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 		}
 	}
 
-	add_action( 'kemet_archive_header', 'kemet_archive_page_info' );
+	add_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
 }
 
 

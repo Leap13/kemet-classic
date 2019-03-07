@@ -242,8 +242,6 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 						'kemet_entry_content_before' => __( 'Before Post Content', 'kemet' ),
 						'kemet_entry_content_after'  => __( 'After Post Content', 'kemet' ),
 						'kemet_entry_bottom'         => __( 'After Post', 'kemet' ),
-						'kemet_comments_before'      => __( 'Before Comments', 'kemet' ),
-						'kemet_comments_after'       => __( 'After Comments', 'kemet' ),
 						'loop_end'                   => __( 'Loop End', 'kemet' ),
 					),
 				),

@@ -88,6 +88,4 @@ if ( post_password_required() ) {
 
 	<?php comment_form(); ?>
 
-	<?php kemet_comments_after(); ?>
-
 </div><!-- #comments -->
