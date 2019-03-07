@@ -271,7 +271,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			<?php endif ?>
 
-			<div id="primary" <?php kemet_primary_class(); ?>>
+			<div id="primary" <?php kemet_content_class(); ?>>
 		<?php
 		}
 

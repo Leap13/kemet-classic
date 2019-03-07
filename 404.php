@@ -17,7 +17,7 @@ get_header(); ?>
 
 <?php endif ?>
 
-	<div id="primary" <?php kemet_primary_class(); ?>>
+	<div id="primary" <?php kemet_content_class(); ?>>
 
 		<?php kemet_primary_content_top(); ?>
 
