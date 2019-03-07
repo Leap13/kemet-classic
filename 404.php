@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-<?php if ( kemet_page_layout() == 'left-sidebar' ) : ?>
+<?php if ( kemet_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 
@@ -27,7 +27,7 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( kemet_page_layout() == 'right-sidebar' ) : ?>
+<?php if ( kemet_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 

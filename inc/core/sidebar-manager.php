@@ -12,14 +12,14 @@
 /**
  * Site Sidebar
  */
-if ( ! function_exists( 'kemet_page_layout' ) ) {
+if ( ! function_exists( 'kemet_layout' ) ) {
 
 	/**
 	 * Site Sidebar
 	 *
 	 * Default 'right sidebar' for overall site.
 	 */
-	function kemet_page_layout() {
+	function kemet_layout() {
 
 		if ( is_singular() ) {
 
@@ -73,6 +73,6 @@ if ( ! function_exists( 'kemet_page_layout' ) ) {
 			}
 		}
 
-		return apply_filters( 'kemet_page_layout', $layout );
+		return apply_filters( 'kemet_layout', $layout );
 	}
 }

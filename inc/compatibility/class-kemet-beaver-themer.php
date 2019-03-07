@@ -142,7 +142,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 					if ( 'default' !== $sidebar ) {
 						add_filter(
-							'kemet_page_layout', function( $page_layout ) use ( $sidebar ) {
+							'kemet_layout', function( $page_layout ) use ( $sidebar ) {
 
 								return $sidebar;
 							}
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		function builder_before_render_content( $post_id ) {
 
 		?>
-			<?php if ( 'left-sidebar' === kemet_page_layout() ) : ?>
+			<?php if ( 'left-sidebar' === kemet_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		?>
 			</div><!-- #primary -->
 
-			<?php if ( 'right-sidebar' === kemet_page_layout() ) : ?>
+			<?php if ( 'right-sidebar' === kemet_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 

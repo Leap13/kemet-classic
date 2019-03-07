@@ -188,7 +188,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			$sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
 			if ( 'default' !== $sidebar ) {
 				add_filter(
-					'kemet_page_layout', function( $page_layout ) use ( $sidebar ) {
+					'kemet_layout', function( $page_layout ) use ( $sidebar ) {
 						return $sidebar;
 					}
 				);

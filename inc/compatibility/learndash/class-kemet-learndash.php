@@ -52,7 +52,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			// Sidebar Layout.
-			add_filter( 'kemet_page_layout', array( $this, 'sidebar_layout' ) );
+			add_filter( 'kemet_layout', array( $this, 'sidebar_layout' ) );
 			// Content Layout.
 			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 		}

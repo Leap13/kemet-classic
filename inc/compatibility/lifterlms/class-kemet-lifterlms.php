@@ -56,7 +56,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 
 			// Sidebar Layout.
-			add_filter( 'kemet_page_layout', array( $this, 'sidebar_layout' ) );
+			add_filter( 'kemet_layout', array( $this, 'sidebar_layout' ) );
 			// Content Layout.
 			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 
@@ -443,7 +443,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 		 * @return void
 		 */
 		function before_main_content_start() {
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
@@ -472,7 +472,7 @@ if ( ! class_exists( 'Kemet_LifterLMS' ) ) :
 
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}

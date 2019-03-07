@@ -83,7 +83,7 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-plain-container';
 		}
 		// Sidebar location.
-		$page_layout = 'kmt-' . kemet_page_layout();
+		$page_layout = 'kmt-' . kemet_layout();
 		$classes[]   = esc_attr( $page_layout );
 
 		// Current Kemet verion.
@@ -1030,7 +1030,7 @@ if ( ! function_exists( 'kemet_404_page_layout' ) ) {
 	}
 }
 
-add_filter( 'kemet_page_layout', 'kemet_404_page_layout', 10, 1 );
+add_filter( 'kemet_layout', 'kemet_404_page_layout', 10, 1 );
 
 /**
  * Return current content layout

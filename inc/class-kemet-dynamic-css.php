@@ -1177,7 +1177,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			$parse_css .= kemet_parse_css( $meta_style, '769' );
 
-			if ( 'no-sidebar' !== kemet_page_layout() ) :
+			if ( 'no-sidebar' !== kemet_layout() ) :
 
 				$meta_style = array(
 					'#primary'   => array(

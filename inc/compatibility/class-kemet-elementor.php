@@ -91,7 +91,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
-						'kemet_page_layout', function() {
+						'kemet_layout', function() {
 							return 'no-sidebar';
 						}
 					);

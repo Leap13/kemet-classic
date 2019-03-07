@@ -59,7 +59,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// Replace Store Sidebars.
 			add_filter( 'kemet_get_sidebar', array( $this, 'replace_store_sidebar' ) );
 			// Store Sidebar Layout.
-			add_filter( 'kemet_page_layout', array( $this, 'store_sidebar_layout' ) );
+			add_filter( 'kemet_layout', array( $this, 'store_sidebar_layout' ) );
 			// Store Content Layout.
 			add_filter( 'kemet_get_content_layout', array( $this, 'store_content_layout' ) );
 
@@ -593,7 +593,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * Add start of wrapper
 		 */
 		function before_main_content_start() {
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
@@ -619,7 +619,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
