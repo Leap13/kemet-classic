@@ -29,15 +29,12 @@ if ( post_password_required() ) {
 		<div class="comments-count-wrapper">
 			<h3 class="comments-title">
 				<?php
-				$comments_title = apply_filters(
-					'kemet_comment_form_title', sprintf( // WPCS: XSS OK.
+				 sprintf( // WPCS: XSS OK.
 						/* translators: 1: number of comments */
 						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'kemet' ) ),
 						number_format_i18n( get_comments_number() ), get_the_title()
-					)
 				);
 
-				echo esc_html( $comments_title );
 				?>
 			</h3>
 		</div>
@@ -58,7 +55,7 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'callback' => 'kemet_theme_comment',
+					'callback' => 'kemet_comment',
 					'style'    => 'ol',
 				)
 			);

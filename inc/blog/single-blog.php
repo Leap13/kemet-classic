@@ -101,13 +101,13 @@ if ( ! function_exists( 'kemet_single_get_post_meta' ) ) {
 /**
  * Template for comments and pingbacks.
  */
-if ( ! function_exists( 'kemet_theme_comment' ) ) {
+if ( ! function_exists( 'kemet_comment' ) ) {
 
 	/**
 	 * Template for comments and pingbacks.
 	 *
 	 * To override this walker in a child theme without modifying the comments template
-	 * simply create your own kemet_theme_comment(), and that function will be used instead.
+	 * simply create your own kemet_comment(), and that function will be used instead.
 	 *
 	 * Used as a callback by wp_list_comments() for displaying the comments.
 	 *
@@ -116,7 +116,7 @@ if ( ! function_exists( 'kemet_theme_comment' ) ) {
 	 * @param  number $depth   Depth.
 	 * @return mixed          Comment markup.
 	 */
-	function kemet_theme_comment( $comment, $args, $depth ) {
+	function kemet_comment( $comment, $args, $depth ) {
 
 		switch ( $comment->comment_type ) {
 

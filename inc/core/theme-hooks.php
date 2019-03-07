@@ -194,35 +194,6 @@ function kemet_masthead_toggle_buttons_after() {
 	do_action( 'kemet_masthead_toggle_buttons_after' );
 }
 
-/**
- * Semantic <content> hooks
- *
- * $kemet_supports[] = 'content';
- */
-function kemet_content_before() {
-	do_action( 'kemet_content_before' );
-}
-
-/**
- * Content after
- */
-function kemet_content_after() {
-	do_action( 'kemet_content_after' );
-}
-
-/**
- * Content top
- */
-function kemet_content_top() {
-	do_action( 'kemet_content_top' );
-}
-
-/**
- * Content bottom
- */
-function kemet_content_bottom() {
-	do_action( 'kemet_content_bottom' );
-}
 
 /**
  * Content while before

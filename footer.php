@@ -11,13 +11,10 @@
  */
 
 ?>
-			<?php kemet_content_bottom(); ?>
 
 			</div> <!-- Kemet-container -->
 
 		</div><!-- #content -->
-
-		<?php kemet_content_after(); ?>
         
 		<?php kemet_footer_before(); ?>
 

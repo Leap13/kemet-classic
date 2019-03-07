@@ -33,10 +33,6 @@
 
 	<?php kemet_header_after(); ?>
 
-	<?php kemet_content_before(); ?>
-
 	<div id="content" class="site-content">
 
 		<div class="kmt-container">
-
-		<?php kemet_content_top(); ?>
