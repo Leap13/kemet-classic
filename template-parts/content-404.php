@@ -16,7 +16,7 @@
 
 	<?php kemet_entry_top(); ?>
 
-	<?php kemet_entry_content_404_page(); ?>
+	<?php kemet_404_page(); ?>
 
 	<?php kemet_entry_bottom(); ?>
 

@@ -654,7 +654,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// 404 Page.
-				'.kmt-404-layout-1 .kmt-404-text'         => array(
+				'.kmt-404-layout .kmt-404-text'         => array(
 					'font-size' => kemet_get_font_css_value( '200' ),
 				),
 
@@ -1107,7 +1107,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/* 404 Page */
 			$parse_css .= kemet_parse_css(
 				array(
-					'.kmt-404-layout-1 .kmt-404-text' => array(
+					'.kmt-404-layout .kmt-404-text' => array(
 						'font-size' => kemet_get_font_css_value( 100 ),
 					),
 				), '', '920'

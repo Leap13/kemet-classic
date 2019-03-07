@@ -5238,17 +5238,17 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /*----------  404  ----------*/
-.kmt-404-layout-1 {
+.kmt-404-layout {
   text-align: center;
   margin: 4em auto;
 }
 
-.kmt-404-layout-1 .page-sub-title {
+.kmt-404-layout .page-sub-title {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.kmt-404-layout-1 .widget_search {
+.kmt-404-layout .widget_search {
   padding-top: 0.5em;
 }
 
@@ -5267,7 +5267,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 @media (max-width: 1200px) {
-  .kmt-separate-container .kmt-404-layout-1,
+  .kmt-separate-container .kmt-404-layout,
   .kmt-separate-container .no-results {
     margin: 0;
     padding: 3.34em 2.4em;
@@ -5275,21 +5275,21 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 @media (max-width: 768px) {
-  .kmt-separate-container .kmt-404-layout-1,
+  .kmt-separate-container .kmt-404-layout,
   .kmt-separate-container .no-results {
     padding: 1.5em 2.14em;
   }
 }
 
 @media (max-width: 544px) {
-  .kmt-separate-container .kmt-404-layout-1,
+  .kmt-separate-container .kmt-404-layout,
   .kmt-separate-container .no-results {
     padding: 1.5em 1em;
   }
 }
 
 @media (min-width: 1201px) {
-  .kmt-separate-container .kmt-404-layout-1,
+  .kmt-separate-container .kmt-404-layout,
   .kmt-separate-container .no-results {
     margin: 0;
     padding: 5.34em 6.67em;

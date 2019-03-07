@@ -561,12 +561,12 @@ if ( ! function_exists( 'kemet_get_post_id' ) ) {
 
 
 /**
- * Display classes for kemet content
+ * Display classes for kemet content div
  */
 if ( ! function_exists( 'kemet_content_class' ) ) {
 
 	/**
-	 * Display classes for primary div
+	 * Display classes for kemet content div
 	 *
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        Echo classes.
@@ -807,11 +807,6 @@ if ( ! function_exists( 'kemet_get_the_title' ) ) {
 			} elseif ( is_home() ) {
 				// blog page.
 				$title = apply_filters( 'kemet_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
-			} elseif ( is_404() ) {
-				// for 404 page - title always display.
-				$title = apply_filters( 'kemet_the_404_page_title', esc_html__( 'This page doesn\'t seem to exist.', 'kemet' ) );
-
-				// for search page - title always display.
 			} elseif ( is_search() ) {
 
 				/* translators: 1: search string */

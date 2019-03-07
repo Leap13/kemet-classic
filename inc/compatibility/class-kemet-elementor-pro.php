@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			add_action( 'kemet_footer', array( $this, 'do_footer' ), 0 );
 			add_action( 'kemet_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
 
-			add_action( 'kemet_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
+			add_action( 'kemet_404_page', array( $this, 'do_template_part_404' ), 0 );
 
 			// Override post meta.
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 				// Is Single?
 				$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 				if ( $did_location ) {
-					remove_action( 'kemet_entry_content_404_page', 'kemet_entry_content_404_page_template' );
+					remove_action( 'kemet_404_page', 'kemet_404_page_template' );
 				}
 			}
 		}

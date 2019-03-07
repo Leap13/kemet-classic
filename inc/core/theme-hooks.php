@@ -441,8 +441,8 @@ function kemet_entry_content_single() {
 /**
  * 404
  */
-function kemet_entry_content_404_page() {
-	do_action( 'kemet_entry_content_404_page' );
+function kemet_404_page() {
+	do_action( 'kemet_404_page' );
 }
 
 /**

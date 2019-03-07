@@ -10,14 +10,14 @@
  */
 
 ?>
-<div class="kmt-404-layout-1">
+<div class="kmt-404-layout">
 
 	<?php kemet_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 
 	<div class="page-content">
 
 		<div class="page-sub-title">
-			<?php echo esc_html( kemet_default_strings( 'string-404-sub-title', false ) ); ?>
+			<?php echo esc_html( kemet_default_strings( 'string-404-title', false ) ); ?>
 		</div>
 
 		<div class="kmt-404-search">

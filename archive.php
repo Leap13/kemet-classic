@@ -18,15 +18,11 @@ get_header(); ?>
 
 	<div id="primary" <?php kemet_content_class(); ?>>
 
-		<?php kemet_primary_content_top(); ?>
-
 		<?php kemet_archive_header(); ?>
 
 		<?php kemet_content_loop(); ?>
 
 		<?php kemet_pagination(); ?>
-
-		<?php kemet_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 

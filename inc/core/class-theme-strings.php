@@ -31,7 +31,7 @@ if ( ! function_exists( 'kemet_default_strings' ) ) {
 				'string-header-skip-link'                => __( 'Skip to content', 'kemet' ),
 
 				// 404 Page Strings.
-				'string-404-sub-title'                   => __( 'It looks like the link pointing here was faulty. Maybe try searching?', 'kemet' ),
+				'string-404-title'                   => __( 'Oops! Looks Like You Got Lost', 'kemet' ),
 
 				// Search Page Strings.
 				'string-search-nothing-found'            => __( 'Nothing Found', 'kemet' ),

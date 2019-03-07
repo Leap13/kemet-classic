@@ -17,7 +17,7 @@ add_filter( 'kemet_main_header_bar_top' , 'kemet_top_header_template', 10, 2);
 add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
-add_action( 'kemet_entry_content_404_page', 'kemet_404_page_template' );
+add_action( 'kemet_404_page', 'kemet_404_page_template' );
 add_action( 'kemet_footer_content', 'kemet_advanced_footer_markup', 1 );
 add_action( 'kemet_masthead_content', 'kemet_header_custom_item_outside_menu', 10 );
 
@@ -317,16 +317,7 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 * @since 1.0.0
 	 */
 	function kemet_404_page_template() {
-
-		$layout_404 = kemet_get_option( 'kmt-404-layout' );
-		$layout_404 = str_replace( '404-layout-', '', $layout_404 );
-
-		// Default 404 is nothing but the 404 layout 1.
-		if ( '1' == $layout_404 ) {
-			$layout_404 = '';
-		}
-
-		get_template_part( 'template-parts/404/404-layout', $layout_404 );
+		get_template_part( 'template-parts/404/404-layout');
 	}
 }
 
