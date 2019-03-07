@@ -221,13 +221,6 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 					),
 				),
 				array(
-					'label' => 'Content',
-					'hooks' => array(
-						'kemet_primary_content_top'    => __( 'Before Content', 'kemet' ),
-						'kemet_primary_content_bottom' => __( 'After Content', 'kemet' ),
-					),
-				),
-				array(
 					'label' => 'Footer',
 					'hooks' => array(
 						'kemet_footer_before' => __( 'Before Footer', 'kemet' ),

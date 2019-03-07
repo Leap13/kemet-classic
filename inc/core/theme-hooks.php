@@ -460,20 +460,6 @@ function kemet_blog_post_featured_format() {
 }
 
 /**
- * Primary Content Top
- */
-function kemet_primary_content_top() {
-	do_action( 'kemet_primary_content_top' );
-}
-
-/**
- * Primary Content Bottom
- */
-function kemet_primary_content_bottom() {
-	do_action( 'kemet_primary_content_bottom' );
-}
-
-/**
  * 404 Page content template action.
  */
 function kemet_404_content_template() {

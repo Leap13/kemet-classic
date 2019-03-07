@@ -600,8 +600,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			?>
 			<div id="primary" class="content-area primary">
 
-				<?php kemet_primary_content_top(); ?>
-
 				<main id="main" class="site-main" role="main">
 					<div class="kmt-woocommerce-container">
 			<?php
