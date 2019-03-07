@@ -23,11 +23,7 @@ get_header(); ?>
 
 	<div id="primary" <?php kemet_content_class(); ?>>
 
-		<?php kemet_primary_content_top(); ?>
-
 		<?php kemet_content_page_loop(); ?>
-
-		<?php kemet_primary_content_bottom(); ?>
 
 	</div><!-- #primary -->
 

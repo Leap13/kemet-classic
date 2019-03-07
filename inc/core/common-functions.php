@@ -561,9 +561,9 @@ if ( ! function_exists( 'kemet_get_post_id' ) ) {
 
 
 /**
- * Display classes for primary div
+ * Display classes for kemet content
  */
-if ( ! function_exists( 'kemet_primary_class' ) ) {
+if ( ! function_exists( 'kemet_content_class' ) ) {
 
 	/**
 	 * Display classes for primary div
@@ -571,7 +571,7 @@ if ( ! function_exists( 'kemet_primary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        Echo classes.
 	 */
-	function kemet_primary_class( $class = '' ) {
+	function kemet_content_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
 		echo 'class="' . esc_attr( join( ' ', kemet_get_primary_class( $class ) ) ) . '"';
