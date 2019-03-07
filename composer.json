@@ -5,6 +5,8 @@
         "wimg/php-compatibility": "^8.0",
         "wp-coding-standards/wpcs": "^0.14.0"
     },
-    "require": {
+    "scripts": {
+        "format": "phpcbf",
+        "lint": "phpcs"
     }
 }

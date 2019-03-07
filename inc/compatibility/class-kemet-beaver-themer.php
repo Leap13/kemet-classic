@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		}
 
 		/**
-		 * Function to update Atra header/footer with Beaver template
+		 * Function to update Kemet header/footer with Beaver template
 		 *
 		 * @since 1.0.0
 		 */

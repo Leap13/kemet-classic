@@ -1,8 +1,8 @@
 -------------------------------------------------------
 Welcome to KEMET!
 -------------------------------------------------------
-Website: http://wpkemet.com/
-Email: support@bsf.io
+Website: http://kemet.io
+Email: support@kemet.io
 
 -------------------------------------------------------
 Features:
@@ -64,4 +64,4 @@ IcoMoon-Free
 -------------------------------------------------------
 Kemet icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (http://creativecommons.org/licenses/by/4.0/ or http://www.gnu.org/licenses/gpl.html)
-Source: http://keyamoon.com/
+Source: http://kemet.io

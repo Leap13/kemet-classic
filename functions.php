@@ -80,13 +80,7 @@ if ( is_admin() ) {
 	 */
 	require_once KEMET_THEME_DIR . 'inc/core/class-kemet-admin-settings.php';
 
-	/**
-	 * Metabox additions.
-	 */
-	//require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-boxes.php';
 }
-
-//require_once KEMET_THEME_DIR . 'inc/metabox/class-kemet-meta-box-operations.php';
 
 
 /**
@@ -122,9 +116,3 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 	require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-beaver-themer.php';
 }
 
-/**
- * Load deprecated functions
- */
-//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
-//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
-//require_once KEMET_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
