@@ -817,33 +817,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 							),
 						),
 					),
-					'learndash'             => array(
-						'title'       => __( 'LearnDash', 'kemet' ),
-						'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'kemet' ),
-						'class'       => 'kmt-addon',
-						'title_url'   => kemet_get_pro_url( 'https://wpkemet.com/docs/learndash-integration-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
-						'links'       => array(
-							array(
-								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'kemet' ),
-								'target_blank' => true,
-							),
-						),
-					),
-					'lifterlms'             => array(
-						'title'     => __( 'LifterLMS', 'kemet' ),
-						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
-						'links'     => array(
-							array(
-								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/lifterlms-module-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More »', 'kemet' ),
-								'target_blank' => true,
-							),
-						),
-					),
 					'white-label'           => array(
 						'title'     => __( 'White Label', 'kemet' ),
 						'class'     => 'kmt-addon',
