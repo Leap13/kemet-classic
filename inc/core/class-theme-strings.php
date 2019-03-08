@@ -48,7 +48,7 @@ if ( ! function_exists( 'kemet_default_strings' ) ) {
 				'string-comment-title-reply'             => __( 'Leave a Comment', 'kemet' ),
 				'string-comment-cancel-reply-link'       => __( 'Cancel Reply', 'kemet' ),
 				'string-comment-label-submit'            => __( 'Post Comment &raquo;', 'kemet' ),
-				'string-comment-label-message'           => __( 'Type here..', 'kemet' ),
+				'string-comment-label-message'           => __( 'Write your Comment here..', 'kemet' ),
 				'string-comment-label-name'              => __( 'Name*', 'kemet' ),
 				'string-comment-label-email'             => __( 'Email*', 'kemet' ),
 				'string-comment-label-website'           => __( 'Website', 'kemet' ),

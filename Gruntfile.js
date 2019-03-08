@@ -203,10 +203,6 @@ module.exports = function (grunt) {
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
-                    		src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
 	                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
 	                    },

@@ -79,7 +79,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_none() {
 			if ( is_archive() || is_search() ) {
-				get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'templates/content', 'none' );
 			}
 		}
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_404() {
 			if ( is_404() ) {
-				get_template_part( 'template-parts/content', '404' );
+				get_template_part( 'templates/content', '404' );
 			}
 		}
 
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 * @return void
 		 */
 		public function template_parts_page() {
-			get_template_part( 'template-parts/content', 'page' );
+			get_template_part( 'templates/content', 'page' );
 		}
 
 		/**
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_post() {
 			if ( is_single() ) {
-				get_template_part( 'template-parts/content', 'single' );
+				get_template_part( 'templates/content', 'single' );
 			}
 		}
 
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_search() {
 			if ( is_search() ) {
-				get_template_part( 'template-parts/content', 'blog' );
+				get_template_part( 'templates/content', 'blog' );
 			}
 		}
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', kemet_get_post_format() );
+				get_template_part( 'templates/content', kemet_get_post_format() );
 			}
 		}
 

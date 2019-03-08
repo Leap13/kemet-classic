@@ -1021,7 +1021,6 @@ if ( ! function_exists( 'kemet_enable_page_builder_compatibility' ) ) :
 	/**
 	 * Allow filter to enable/disable page builder compatibility.
 	 *
-	 * @see  https://wpkemet.com/docs/recommended-settings-beaver-builder-kemet/
 	 * @see  https://wpkemet.com/docs/recommended-settings-for-elementor/
 	 *
 	 * @since  1.2.2

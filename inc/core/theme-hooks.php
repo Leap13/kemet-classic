@@ -86,14 +86,6 @@ function kemet_current_theme_supports( $bool, $args, $registered ) {
 add_filter( 'current_theme_supports-kemet_hooks', 'kemet_current_theme_supports', 10, 3 );
 
 /**
- * HTML <body> hooks
- * $kemet_supports[] = 'body';
- */
-function kemet_body_top() {
-	do_action( 'kemet_body_top' );
-}
-
-/**
  * Body Bottom
  */
 function kemet_body_bottom() {
@@ -107,15 +99,6 @@ function kemet_body_bottom() {
  */
 function kemet_head_top() {
 	do_action( 'kemet_head_top' );
-}
-
-/**
- * Semantic <header> hooks
- *
- * $kemet_supports[] = 'header';
- */
-function kemet_header_before() {
-	do_action( 'kemet_header_before' );
 }
 
 /**
@@ -144,13 +127,6 @@ function kemet_masthead() {
  */
 function kemet_masthead_bottom() {
 	do_action( 'kemet_masthead_bottom' );
-}
-
-/**
- * Header After
- */
-function kemet_header_after() {
-	do_action( 'kemet_header_after' );
 }
 
 /**
@@ -307,33 +283,12 @@ function kemet_sidebars_before() {
 }
 
 /**
- * Sidebars after
- */
-function kemet_sidebars_after() {
-	do_action( 'kemet_sidebars_after' );
-}
-
-/**
  * Semantic <footer> hooks
  *
  * $kemet_supports[] = 'footer';
  */
 function kemet_footer() {
 	do_action( 'kemet_footer' );
-}
-
-/**
- * Footer before
- */
-function kemet_footer_before() {
-	do_action( 'kemet_footer_before' );
-}
-
-/**
- * Footer after
- */
-function kemet_footer_after() {
-	do_action( 'kemet_footer_after' );
 }
 
 /**

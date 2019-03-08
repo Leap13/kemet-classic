@@ -47,8 +47,6 @@ if ( ! class_exists( 'Kemet_Theme_Update' ) ) {
 
 		/**
 		 * Implement theme update logic.
-		 *
-		 * @since 1.0.0
 		 */
 		static public function init() {
 			do_action( 'kemet_update_before' );

@@ -14,14 +14,25 @@
         <group>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/footer.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/theme-update/class-kemet-theme-update.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/compatibility/class-kemet-beaver-themer.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/comments.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/blog/single-blog.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/blog/blog.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/core/theme-hooks.php</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/readme.txt</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/assets/js/kemet-admin-menu-settings.js</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/compatibility/class-kemet-bb-ultimate-addon.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/fonts/google-fonts.json</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/template-parts.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/unminified/flexibility.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/unminified/style.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/compatibility/class-kemet-beaver-themer.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/comments.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/assets/css/kemet-admin-menu-settings.css</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/readme.txt</file>
             <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/languages/kemet.pot</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/assets/css/kemet-admin.css</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/class-kemet-dynamic-css.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/header.php</file>
         </group>
     </open-files>
 </project-private>

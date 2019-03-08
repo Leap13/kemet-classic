@@ -92,27 +92,7 @@ require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';
 /**
  * Compatibility
  */
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-jetpack.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/lifterlms/class-kemet-lifterlms.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/class-kemet-learndash.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-beaver-builder.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-bb-ultimate-addon.php';
+require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-elementor.php';
+require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-elementor-pro.php';
 require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-contact-form-7.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-visual-composer.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-site-origin.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-gravity-forms.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-bne-flyout.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-ubermeu.php';
-
-// Elementor Compatibility requires PHP 5.4 for namespaces.
-if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-	require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-elementor.php';
-	require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-elementor-pro.php';
-}
-
-// Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
-if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-	require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-beaver-themer.php';
-}
-
+require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/class-kemet-woocommerce.php';

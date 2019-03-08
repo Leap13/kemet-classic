@@ -219,7 +219,7 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 			if ( '1' == $small_footer_layout ) {
 				$small_footer_layout = '';
 			}
-			get_template_part( 'template-parts/footer/footer-sml-layout', $small_footer_layout );
+			get_template_part( 'templates/footer/footer-sml-layout', $small_footer_layout );
 		}
 	}
 }
@@ -239,7 +239,7 @@ if ( ! function_exists( 'kemet_top_header_template' ) ) {
 
 
 
-			get_template_part( 'template-parts/topbar/topbar-layout');
+			get_template_part( 'templates/topbar/topbar-layout');
 		
 	}
 }
@@ -259,7 +259,7 @@ if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
 	 * @since 1.0.0
 	 */
 	function kemet_masthead_primary_template() {
-		get_template_part( 'template-parts/header/header-main-layout' );
+		get_template_part( 'templates/header/header-main-layout' );
 	}
 }
 
@@ -273,12 +273,12 @@ if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 	 *
 	 * => Used in files:
 	 *
-	 * /template-parts/content-single.php
+	 * /templates/content-single.php
 	 *
 	 * @since 1.0.0
 	 */
 	function kemet_entry_content_single_template() {
-		get_template_part( 'template-parts/single/single-layout' );
+		get_template_part( 'templates/single/single-layout' );
 	}
 }
 
@@ -292,13 +292,13 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 *
 	 * => Used in files:
 	 *
-	 * /template-parts/content-blog.php
-	 * /template-parts/content-search.php
+	 * /templates/content-blog.php
+	 * /templates/content-search.php
 	 *
 	 * @since 1.0.0
 	 */
 	function kemet_entry_content_blog_template() {
-		get_template_part( 'template-parts/blog/blog-layout' );
+		get_template_part( 'templates/blog/blog-layout' );
 	}
 }
 
@@ -312,12 +312,12 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 *
 	 * => Used in files:
 	 *
-	 * /template-parts/content-404.php
+	 * /templates/content-404.php
 	 *
 	 * @since 1.0.0
 	 */
 	function kemet_404_page_template() {
-		get_template_part( 'template-parts/404/404-layout');
+		get_template_part( 'templates/404/404-layout');
 	}
 }
 
@@ -343,7 +343,7 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 		}
 
 		// Add markup.
-		get_template_part( 'template-parts/advanced-footer/layout-4' );
+		get_template_part( 'templates/advanced-footer/layout-4' );
 	}
 }
 

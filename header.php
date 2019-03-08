@@ -23,15 +23,10 @@
 
 <body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
 
-<?php kemet_body_top(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_default_strings( 'string-header-skip-link', false ) ); ?></a>
 
-	<?php kemet_header_before(); ?>
-
 	<?php kemet_header(); ?>
-
-	<?php kemet_header_after(); ?>
 
 	<div id="content" class="site-content">
 
