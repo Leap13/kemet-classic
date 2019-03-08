@@ -38,7 +38,6 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		/**
 		 * Control type.
 		 *
-		 * @since  1.0.0
 		 * @var string
 		 */
 		public $type = 'kmt_section';

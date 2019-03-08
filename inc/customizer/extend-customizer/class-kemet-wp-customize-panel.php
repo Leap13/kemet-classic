@@ -38,7 +38,6 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		/**
 		 * Control type.
 		 *
-		 * @since  1.0.31
 		 * @var string
 		 */
 		public $type = 'kmt_panel';

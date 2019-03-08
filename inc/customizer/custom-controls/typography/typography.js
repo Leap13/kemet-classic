@@ -77,7 +77,6 @@
 		 *
 		 * Google Fonts are saved as {'Font Name', Category}. This function cleanes this up to retreive only the {Font Name}.
 		 *
-		 * @since  1.3.0
 		 * @param  {String} fontValue Name of the font.
 		 * 
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.

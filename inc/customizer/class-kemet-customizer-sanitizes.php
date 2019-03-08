@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  number $val Customizer setting input number.
 		 * @return number        Return number.
-		 * @since  1.0.0
+		 * 		
 		 */
 		static public function sanitize_spacing( $val ) {
 
@@ -127,7 +127,7 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 *
 		 * @param  number $val Customizer setting input number.
 		 * @return number        Return number.
-		 * @since  1.0.0
+		 * 
 		 */
 		static public function sanitize_responsive_spacing( $val ) {
 

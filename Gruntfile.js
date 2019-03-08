@@ -207,18 +207,6 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
 	                    },
                     	{
-                    		src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/lifter-lms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifter-lms.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
 	                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
 	                    },

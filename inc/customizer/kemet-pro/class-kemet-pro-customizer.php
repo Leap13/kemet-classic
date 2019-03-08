@@ -28,7 +28,6 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * The type of customize section being rendered.
 		 *
-		 * @since  1.0.0
 		 * @access public
 		 * @var    string
 		 */
@@ -37,7 +36,6 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Custom pro button URL.
 		 *
-		 * @since  1.0.0
 		 * @access public
 		 * @var    string
 		 */
@@ -46,7 +44,6 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Add custom parameters to pass to the JS via JSON.
 		 *
-		 * @since  1.0.0
 		 * @access public
 		 * @return string
 		 */
@@ -59,7 +56,6 @@ if ( ! class_exists( 'Kemet_Pro_Customizer' ) ) {
 		/**
 		 * Outputs the Underscore.js template.
 		 *
-		 * @since  1.0.0
 		 * @access public
 		 * @return void
 		 */

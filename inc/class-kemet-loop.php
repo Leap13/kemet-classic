@@ -240,7 +240,6 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Add wrapper div 'kmt-row' for Kemet template part.
 		 *
-		 * @since  1.0.0
 		 * @return void
 		 */
 		public function kemet_templat_part_wrap_open() {
@@ -252,7 +251,6 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		/**
 		 * Add closing wrapper div for 'kmt-row' after Kemet template part.
 		 *
-		 * @since  1.0.0
 		 * @return void
 		 */
 		public function kemet_templat_part_wrap_close() {

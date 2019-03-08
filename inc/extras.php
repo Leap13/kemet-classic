@@ -328,7 +328,6 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 	/**
 	 * Get custom widget added by user.
 	 *
-	 * @since  1.0.0
 	 * @param  string $option_name Option name.
 	 * @return Widget added by user in options panel.
 	 */
@@ -1471,7 +1470,6 @@ if ( ! function_exists( 'kemet_strposa' ) ) :
 	/**
 	 * Strpos over an array.
 	 *
-	 * @since  1.0.0
 	 * @param  String  $haystack The string to search in.
 	 * @param  Array   $needles  Array of needles to be passed to strpos().
 	 * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
@@ -1528,7 +1526,6 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * Provide a default value if you want to return a specific value if the property is not set.
 	 *
-	 * @since  1.0.0
 	 * @access public
 	 * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
 	 * @link  https://www.gravityforms.com/

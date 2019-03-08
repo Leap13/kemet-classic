@@ -956,7 +956,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * Displayed a link to the cart including the number of items present and the cart total
 		 *
 		 * @return void
-		 * @since  1.0.0
+		 * 
 		 */
 		function kemet_get_cart_link() {
 

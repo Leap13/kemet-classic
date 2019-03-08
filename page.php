@@ -10,7 +10,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Kemet
- * @since 1.0.0
+ * 
  */
 
 get_header(); ?>

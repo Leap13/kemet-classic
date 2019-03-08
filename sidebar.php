@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Kemet
- * @since 1.0.0
+ * 
  */
 
 $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
