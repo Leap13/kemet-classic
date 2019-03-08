@@ -135,14 +135,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		function customize_register( $wp_customize ) {
 
 			/**
-			 * Kemet Pro Upsell Link
-			 */
-			if ( ! defined( 'KEMET_EXT_VER' ) ) {
-				require KEMET_THEME_DIR . 'inc/customizer/kemet-pro/class-kemet-pro-customizer.php';
-				require KEMET_THEME_DIR . 'inc/customizer/kemet-pro/kemet-pro-section-register.php';
-			}
-
-			/**
 			 * Override Defaults
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/override-defaults.php';

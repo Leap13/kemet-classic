@@ -933,41 +933,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Check compatible theme version.
-		 *
-		 * @since 1.0.0
-		 */
-		static public function min_addon_version_message() {
-
-			$kemet_global_options = get_option( 'kemet-settings' );
-
-			if ( isset( $kemet_global_options['kemet-addon-auto-version'] ) && defined( 'KEMET_EXT_VER' ) ) {
-
-				if ( version_compare( $kemet_global_options['kemet-addon-auto-version'], '1.2.1' ) < 0 ) {
-
-					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
-					$kemet_addon_name        = kemet_get_addon_name();
-					$update_kemet_addon_link = kemet_get_pro_url( 'https://wpkemet.com/?p=25258', 'kemet-dashboard', 'update-to-kemet-pro', 'welcome-page' );
-					if ( class_exists( 'Kemet_Ext_White_Label_Markup' ) ) {
-						$plugin_data = Kemet_Ext_White_Label_Markup::$branding;
-						if ( ! empty( $plugin_data['kemet-pro']['name'] ) ) {
-							$update_kemet_addon_link = '';
-						}
-					}
-
-					$class   = 'kmt-notice kmt-notice-error';
-					$message = sprintf(
-						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kemet Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'kemet' ),
-						( ! empty( $update_kemet_addon_link ) ) ? '<a href=' . esc_url( $update_kemet_addon_link ) . ' target="_blank" rel="noopener">' . $kemet_addon_name . '</a>' : $kemet_addon_name
-					);
-
-					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
-				}
-			}
-		}
-
-		/**
 		 * Kemet Header Right Section Links
 		 *
 		 * @since 1.0.0

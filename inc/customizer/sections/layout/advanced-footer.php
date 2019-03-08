@@ -74,24 +74,6 @@ if ( ! defined( 'ABSPATH' ) ) {
            )
        )
    );
-
-
-	// Learn More link if Kemet Pro is not activated.
-	if ( ! defined( 'KEMET_EXT_VER' ) ) {
-
-		/**
-		 * Option: Divider
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-widget-more-feature-divider]', array(
-					'type'     => 'kmt-divider',
-					'section'  => 'section-footer-adv',
-					'priority' => 20,
-					'settings' => array(),
-				)
-			)
-		);
         
     /**
       * Option: Text Color
@@ -552,21 +534,3 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         );
 
-
-
-		/**
-		 * Option: Learn More about Footer Widget
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-widget-more-feature-description]', array(
-					'type'     => 'kmt-description',
-					'section'  => 'section-footer-adv',
-					'priority' => 20,
-					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Footer Widgets in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
-					'settings' => array(),
-				)
-			)
-		);
-	}
