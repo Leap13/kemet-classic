@@ -16,11 +16,6 @@ define( 'KEMET_THEME_DIR', get_template_directory() . '/' );
 define( 'KEMET_THEME_URI', get_template_directory_uri() . '/' );
 define( 'KEMET_THEME_SETTINGS', 'kemet-settings' );
 
-/**
- * Update theme
- */
-require_once KEMET_THEME_DIR . 'inc/theme-update/class-kemet-theme-update.php';
-require_once KEMET_THEME_DIR . 'inc/theme-update/class-kemet-pb-compatibility.php';
 
 /**
  * Load theme hooks
