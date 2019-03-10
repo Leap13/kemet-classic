@@ -763,10 +763,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.site-header .kmt-site-header-cart-data .button.wc-forward, .site-header .kmt-site-header-cart-data .button.wc-forward:hover' => array(
 					'color' => $btn_color,
 				),
-				'.below-header-user-select .kmt-site-header-cart .widget, .kmt-above-header-section .kmt-site-header-cart .widget a, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a' => array(
+				'.below-header-user-select .kmt-site-header-cart .widget, .kemet-top-header-section .kmt-site-header-cart .widget a, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a' => array(
 					'color' => $text_color,
 				),
-				'.below-header-user-select .kmt-site-header-cart .widget_shopping_cart a:hover, .kmt-above-header-section .kmt-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a.remove:hover, .kmt-above-header-section .kmt-site-header-cart .widget_shopping_cart a.remove:hover' => array(
+				'.below-header-user-select .kmt-site-header-cart .widget_shopping_cart a:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a.remove:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a.remove:hover' => array(
 					'color' => esc_attr( $link_color ),
 				),
 			);

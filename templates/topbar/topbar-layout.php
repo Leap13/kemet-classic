@@ -4,7 +4,7 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
+ * @copyright   Copyright (c) 2019, Kemet
  * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
@@ -39,18 +39,18 @@ $sections  = 0;
 
 ?>
 
-<div class="kmt-above-header-wrap kmt-above-header-1" >
-	<div class="kmt-above-header">
+<div class="kemet-top-header-wrap kemet-top-header-1" >
+	<div class="kemet-top-header">
 		<div class="kmt-container">
-			<div class="kmt-flex kmt-above-header-section-wrap">
-					<div class="kmt-above-header-section kmt-above-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
+			<div class="kmt-flex kemet-top-header-section-wrap">
+					<div class="kemet-top-header-section kemet-top-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
 						<?php echo '<div class="kmt-flex">'.$section_1.'</div>'; ?>
 					</div>
 
-					<div class="kmt-above-header-section kmt-above-header-section-2 kmt-flex kmt-justify-content-flex-end mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
+					<div class="kemet-top-header-section kemet-top-header-section-2 kmt-flex kmt-justify-content-flex-end mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
 						<?php echo '<div class="kmt-flex">'.$section_2.'</div>'; ?>
 					</div>
 			</div>
 		</div><!-- .kmt-container -->
-	</div><!-- .kmt-above-header -->
-</div><!-- .kmt-above-header-wrap -->
+	</div><!-- .kemet-top-header -->
+</div><!-- .kemet-top-header-wrap -->

@@ -4,7 +4,7 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
+ * @copyright   Copyright (c) 2019, Kemet
  * @link        http://wpkemet.com/
  * @since       Kemet 1.0.0
  */
@@ -167,7 +167,6 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		/**
 		 * Trim CSS
 		 *
-		 * @since 1.0.0
 		 * @param string $css CSS content to trim.
 		 * @return string
 		 */

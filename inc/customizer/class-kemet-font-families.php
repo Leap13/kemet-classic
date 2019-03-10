@@ -4,7 +4,7 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
+ * @copyright   Copyright (c) 2019, Kemet
  * @link        https://kemet.io/
  */
 

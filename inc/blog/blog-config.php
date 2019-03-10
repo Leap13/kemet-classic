@@ -84,7 +84,7 @@ if ( ! function_exists( 'kemet_post_date' ) ) {
 	/**
 	 * Function to get Date of Post
 	 *
-	 * @return html                Markup.
+	 * @return html
 	 */
 	function kemet_post_date() {
 
@@ -219,7 +219,6 @@ if ( ! function_exists( 'kemet_post_comments' ) ) {
 /**
  * Function to get Tags applied of Post
  *
- * @since 1.0.0
  * @return html
  */
 if ( ! function_exists( 'kemet_post_tags' ) ) {

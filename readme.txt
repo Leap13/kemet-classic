@@ -32,5 +32,5 @@ Maintained & Supported by Leap13.
 * Underscores, © 2012-2019 Automattic, Inc., GNU GPL v2 or later
 * Normalizing styles http://necolas.github.com/normalize.css/
 * Flexibility JS is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
-* IcoMoon Free vector Icons https://keyamoon.com/
 * wp-color-picker-alpha https://github.com/kallookoo/wp-color-picker-alpha
+* IcoMoon Free vector Icons https://keyamoon.com/
