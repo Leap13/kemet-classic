@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2019, Kemet
- * @link        http://wpkemet.com/
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -1016,7 +1016,7 @@ if ( ! function_exists( 'kemet_enable_page_builder_compatibility' ) ) :
 	/**
 	 * Allow filter to enable/disable page builder compatibility.
 	 *
-	 * @see  https://wpkemet.com/docs/recommended-settings-for-elementor/
+	 * @see  https://https://kemet.io//docs/recommended-settings-for-elementor/
 	 *
 	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
 	 */

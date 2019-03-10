@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2019, Kemet
- * @link        http://wpkemet.com/
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -299,7 +299,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$current_slug = str_replace( '-', '_', $current_slug );
 
 			$kmt_icon           = apply_filters( 'kemet_page_top_icon', true );
-			$kmt_visit_site_url = apply_filters( 'kemet_site_url', 'https://wpkemet.com' );
+			$kmt_visit_site_url = apply_filters( 'kemet_site_url', 'https://https://kemet.io/' );
 			$kmt_wrapper_class  = apply_filters( 'kemet_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
@@ -350,7 +350,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 				<div class="inside">
 					<p>
 						<?php
-							$kemet_starter_sites_doc_link      = apply_filters( 'kemet_starter_sites_documentation_link', kemet_get_pro_url( 'https://wpkemet.com/ready-websites/installing-importing-kemet-sites/', 'kemet-dashboard', 'how-kemet-sites-works', 'welcome-page' ) );
+							$kemet_starter_sites_doc_link      = apply_filters( 'kemet_starter_sites_documentation_link', kemet_get_pro_url( 'https://https://kemet.io//ready-websites/installing-importing-kemet-sites/', 'kemet-dashboard', 'how-kemet-sites-works', 'welcome-page' ) );
 							$kemet_starter_sites_doc_link_text = apply_filters( 'kemet_starter_sites_doc_link_text', __( 'Starter Site Templates?', 'kemet' ) );
 							printf(
 								/* translators: %1$s: Starter site link. */
@@ -431,7 +431,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'kemet' ); ?>
 					</p>
 					<?php
-					$kemet_knowledge_base_doc_link      = apply_filters( 'kemet_knowledge_base_documentation_link', kemet_get_pro_url( 'https://wpkemet.com/docs/', 'kemet-dashboard', 'visit-documentation', 'welcome-page' ) );
+					$kemet_knowledge_base_doc_link      = apply_filters( 'kemet_knowledge_base_documentation_link', kemet_get_pro_url( 'https://https://kemet.io//docs/', 'kemet-dashboard', 'visit-documentation', 'welcome-page' ) );
 					$kemet_knowledge_base_doc_link_text = apply_filters( 'kemet_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base »', 'kemet' ) );
 
 					printf(
@@ -516,7 +516,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						?>
 					</p>
 					<?php
-						$kemet_support_link      = apply_filters( 'kemet_support_link', kemet_get_pro_url( 'https://wpkemet.com/contact/', 'kemet-dashboard', 'submit-a-ticket', 'welcome-page' ) );
+						$kemet_support_link      = apply_filters( 'kemet_support_link', kemet_get_pro_url( 'https://https://kemet.io//contact/', 'kemet-dashboard', 'submit-a-ticket', 'welcome-page' ) );
 						$kemet_support_link_text = apply_filters( 'kemet_support_link_text', __( 'Submit a Ticket »', 'kemet' ) );
 
 						printf(
@@ -645,11 +645,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'colors-and-background' => array(
 						'title'     => __( 'Colors & Background', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/colors-background-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -658,11 +658,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'typography'            => array(
 						'title'     => __( 'Typography', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/typography-module/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -671,11 +671,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'spacing'               => array(
 						'title'     => __( 'Spacing', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/spacing-addon-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -684,11 +684,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'blog-pro'              => array(
 						'title'     => __( 'Blog Pro', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/blog-pro-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -697,11 +697,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'header-sections'       => array(
 						'title'     => __( 'Header Sections', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/header-sections-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -710,11 +710,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'transparent-header'    => array(
 						'title'     => __( 'Transparent Header', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/transparent-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -723,11 +723,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'sticky-header'         => array(
 						'title'     => __( 'Sticky Header', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/sticky-header-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -739,11 +739,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'kemet' ),
 						'manage_settings' => true,
 						'class'           => 'kmt-addon',
-						'title_url'       => kemet_get_pro_url( 'https://wpkemet.com/pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kemet_get_pro_url( 'https://https://kemet.io//pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//pro', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -755,11 +755,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'kemet' ),
 						'manage_settings' => true,
 						'class'           => 'kmt-addon',
-						'title_url'       => kemet_get_pro_url( 'https://wpkemet.com/docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kemet_get_pro_url( 'https://https://kemet.io//docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/custom-layouts-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -768,11 +768,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'site-layouts'          => array(
 						'title'     => __( 'Site Layouts', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/site-layout-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -781,11 +781,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'advanced-footer'       => array(
 						'title'     => __( 'Footer Widgets', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/footer-widgets-kemet-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -794,11 +794,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'scroll-to-top'         => array(
 						'title'     => __( 'Scroll To Top', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/scroll-to-top-pro/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -807,11 +807,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'woocommerce'           => array(
 						'title'     => __( 'WooCommerce', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//docs/woocommerce-module-overview/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),
@@ -820,11 +820,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 					'white-label'           => array(
 						'title'     => __( 'White Label', 'kemet' ),
 						'class'     => 'kmt-addon',
-						'title_url' => kemet_get_pro_url( 'https://wpkemet.com/introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kemet_get_pro_url( 'https://https://kemet.io//introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'kmt-learn-more',
-								'link_url'     => kemet_get_pro_url( 'https://wpkemet.com/introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
+								'link_url'     => kemet_get_pro_url( 'https://https://kemet.io//introducing-white-label/', 'kemet-dashboard', 'learn-more', 'welcome-page' ),
 								'link_text'    => __( 'Learn More »', 'kemet' ),
 								'target_blank' => true,
 							),

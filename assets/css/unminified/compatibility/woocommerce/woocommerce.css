@@ -1,77 +1,6 @@
 @charset "UTF-8";
 /**
  * woocommerce.scss
- * Governs the general look and feel of WooCommerce sections of stores using themes that do not
- * integrate with WooCommerce specifically.
- */
-/**
- * Imports
- */
-/**
- * Deprecated
- * Fallback for bourbon equivalent
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Vendor prefix no longer required.
- */
-/**
- * Deprecated
- * Use bourbon mixin instead `@include transform(scale(1.5));`
- */
-/**
- * Deprecated
- * Use bourbon mixin instead `@include box-sizing(border-box);`
- */
-/**
- * Objects
- */
-/**
- * WooCommerce CSS Variables
- */
-/**
- * _animation.scss
- * Custom WooCommerce Animations.
  */
 @keyframes spin {
   100% {
@@ -396,19 +325,6 @@ p.demo_store a,
   border-bottom: 0;
 }
 
-.kmt-woocommerce-cart-menu {
-  /** 
-	 * Header layout 1
-	 * if no primary menu & no custom menu items
-	 */
-  /** 
-	 * Header layout 3
-	 */
-  /** 
-	 * Header layout 2
-	 */
-}
-
 .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove {
   color: #ccc;
 }
@@ -419,10 +335,6 @@ p.demo_store a,
 
 .kmt-woocommerce-cart-menu .header-main-layout-1.kmt-no-menu-items .kmt-site-header-cart .kmt-site-header-cart-li {
   text-align: right;
-}
-
-.kmt-woocommerce-cart-menu .header-main-layout-3 {
-  /* No primary menu & no custom menu items */
 }
 
 .kmt-woocommerce-cart-menu .header-main-layout-3.kmt-no-menu-items .kmt-site-header-cart {
@@ -523,58 +435,6 @@ p.demo_store a,
 
 .kmt-header-break-point .kmt-masthead-custom-menu-items.woocommerce-custom-menu-item .kmt-site-header-cart a {
   border: none;
-}
-
-/**
- * Main WooCommerce styles
- */
-.woocommerce {
-  /**
-	 * Product Page
-	 */
-  /**
-	 * Product loops
-	 */
-  /**
-	 * Buttons
-	 */
-  /**
-	 * Reviews
-	 */
-  /**
-	 * Star ratings
-	 */
-  /**
-	 * Tables
-	 */
-  /**
-	 * Cart sidebar
-	 */
-  /**
-	 * Forms
-	 */
-  /**
-	 * Order page
-	 */
-  /**
-	 * Layered nav widget
-	 */
-  /**
-	 * Product Saerch Widget
-	 */
-  /**
-	 * Product categories
-	 */
-  /**
-	 * Price filter widget
-	 */
-  /**
-	 * Rating Filter Widget
-	 */
-  /* Product Hover */
-  /**
-	 * Input Form elements
-	 */
 }
 
 .woocommerce .blockUI.blockOverlay {
@@ -1152,7 +1012,6 @@ p.demo_store a,
 .woocommerce div.product form.cart .variations td,
 .woocommerce div.product form.cart .variations th {
   border: 0;
-  vertical-align: top;
   line-height: 2em;
   padding-top: 0;
   padding-bottom: 0;
@@ -1472,7 +1331,6 @@ p.demo_store a,
   margin: 0 5px 5px 0;
   border: 1px solid #d3ced2;
   padding: 0;
-  float: left;
   display: inline;
   overflow: hidden;
 }
@@ -2107,7 +1965,6 @@ p.demo_store a,
 }
 
 .woocommerce td.product-name dl.variation dt, .woocommerce td.product-name dl.variation .wc-item-meta-label, .woocommerce td.product-name .wc-item-meta dt, .woocommerce td.product-name .wc-item-meta .wc-item-meta-label {
-  float: left;
   clear: both;
   margin-right: .25em;
   display: inline-block;
@@ -2197,7 +2054,6 @@ p.demo_store a,
 .woocommerce ul.product_list_widget li dl dt,
 .woocommerce ul.product_list_widget li dl dd {
   display: inline-block;
-  float: left;
   margin-bottom: 1em;
 }
 
@@ -2455,7 +2311,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-customer-details .woocommerce-customer-details--phone::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2471,7 +2326,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-customer-details .woocommerce-customer-details--email::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2514,7 +2368,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item--chosen a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2551,7 +2404,6 @@ p.demo_store a,
 
 .woocommerce .widget_layered_nav_filters ul li a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2675,7 +2527,6 @@ p.demo_store a,
 
 .woocommerce .widget_rating_filter ul li.chosen a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2748,18 +2599,7 @@ p.demo_store a,
   padding: 6px 0.75em;
 }
 
-.woocommerce,
-.woocommerce-page {
-  /*
-	 * Common table style for woocommerce
-	 */
-}
-
 @media (max-width: 544px) {
-  .woocommerce,
-  .woocommerce-page {
-    /* Shop Page */
-  }
   .woocommerce .woocommerce-ordering,
   .woocommerce-page .woocommerce-ordering {
     float: none;
@@ -3084,11 +2924,6 @@ p.demo_store a,
   z-index: 999999;
 }
 
-.woocommerce,
-.woocommerce-page {
-  /* Popup for single product */
-}
-
 .woocommerce img.pswp__img,
 .woocommerce-page img.pswp__img {
   max-width: none;
@@ -3360,7 +3195,6 @@ button.pswp__button--zoom:hover {
 .woocommerce ul.digital-downloads li::before,
 .woocommerce-account ul.digital-downloads li::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -3522,7 +3356,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-checkout .cart-collaterals .shipping_calculator .shipping-calculator-button::after,
 #add_payment_method .cart-collaterals .shipping_calculator .shipping-calculator-button::after {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -3997,13 +3830,6 @@ button.pswp__button--zoom:hover {
   vertical-align: middle;
 }
 
-/**
- * Cart Page
- */
-.woocommerce-cart {
-  /* Proceed to check out button */
-}
-
 .woocommerce-cart table.shop_table td, .woocommerce-cart table.shop_table th {
   border-right: 0;
 }
@@ -4094,10 +3920,6 @@ button.pswp__button--zoom:hover {
 /**
  * Checkout Page
  */
-.woocommerce.woocommerce-checkout,
-.woocommerce-page.woocommerce-checkout {
-  /* Ordered received style */
-}
 
 .woocommerce.woocommerce-checkout form.checkout.woocommerce-checkout:after,
 .woocommerce-page.woocommerce-checkout form.checkout.woocommerce-checkout:after {
@@ -4401,10 +4223,6 @@ button.pswp__button--zoom:hover {
   margin: 0;
 }
 
-.woocommerce {
-  /* Product Tag Cloud */
-}
-
 .woocommerce #secondary .woocommerce ul.cart_list,
 .woocommerce #secondary .woocommerce ul.product_list_widget {
   margin: 0;
@@ -4676,7 +4494,6 @@ button.pswp__button--zoom:hover {
 
 .kmt-safari-browser-less-than-11.kmt-woocommerce-cart-menu.kmt-header-custom-item-outside .kmt-masthead-custom-menu-items {
   display: inline-block;
-  float: right;
 }
 
 .kmt-safari-browser-less-than-11.kmt-woocommerce-cart-menu.kmt-header-break-point .header-main-layout-2 .main-header-container {

@@ -1,10 +1,6 @@
 /**
  * Kemet Theme compatibility with Contact Form 7
  */
-.wpcf7 {
-  /* Button */
-  /* Validation Fix */
-}
 
 .wpcf7 form {
   position: relative;

@@ -7,7 +7,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2019, Kemet
- * @link        http://wpkemet.com/
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -463,7 +463,7 @@ if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
 			$theme_author = apply_filters(
 				'kemet_theme_author', array(
 					'theme_name'       => __( 'Kemet', 'kemet' ),
-					'theme_author_url' => 'http://wpkemet.com/',
+					'theme_author_url' => 'https://kemet.io/',
 				)
 			);
 

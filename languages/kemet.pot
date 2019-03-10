@@ -1710,7 +1710,7 @@ msgid "Continue reading %s"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://wpkemet.com/"
+msgid "https://kemet.io/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -1733,7 +1733,7 @@ msgid "Leap13"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://wpkemet.com/about/"
+msgid "https://kemet.io/about/"
 msgstr ""
 
 #. translators: 1: number of comments

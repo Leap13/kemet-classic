@@ -1644,13 +1644,11 @@ a:hover {
 
 .alignleft {
   display: inline;
-  float: right;
   margin-left: 1.5em;
 }
 
 .alignright {
   display: inline;
-  float: left;
   margin-right: 1.5em;
 }
 
@@ -3475,11 +3473,6 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
-.kmt-header-break-point {
-  /* Styling Nav */
-  /* Main Header */
-}
-
 .kmt-header-break-point.kmt-header-custom-item-outside .kmt-primary-menu-disabled .kmt-mobile-menu-buttons {
   display: none;
 }
@@ -4446,10 +4439,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
-.blog-layout-1 {
-  /* 2 - Blog Thumbnail Styles */
-}
-
 .blog-layout-1 .post-thumb {
   padding-right: 0;
   padding-left: 0;
@@ -4570,18 +4559,6 @@ input[type="color"]::-webkit-color-swatch {
 /*--------------------------------------------------------------
 ## Single Blog Post Layouts
 --------------------------------------------------------------*/
-/*----------  Single Post Common Stylesheet  ----------*/
-/**
- *	Common Stylesheet of Single Post
- *
- *	Content
- *	1 - Single Post Navigation Styles
- *	2 - Single Post Article Header
-*/
-.single {
-  /* 1 - Single Post Navigation Styles */
-  /*Page builder single post meta*/
-}
 
 .single .entry-header {
   margin-bottom: 2em;
@@ -5456,96 +5433,6 @@ input[type="color"]::-webkit-color-swatch {
  *  .kmt-align-self-baseline
  *  .kmt-align-self-stretch
  */
-.kmt {
-  /*
-    # LAYOUT
-    ———————————————-
-    display: flex | inline-flex;
-    ———————————————-
-     */
-  /*
-    ————————————————————————–
-    # CONTAINER (for PARENT)
-    ————————————————————————–
-
-    # FLOW
-    ————————————————————————–
-    flex-flow: <‘flex-direction’> || <‘flex-wrap’>
-    ————————————————————————–
-
-    # DIRECTION
-    ————————————————————————–
-    flex-direction: row | row-reverse | column | column-reverse;
-    ————————————————————————–
-     */
-  /*
-    # WRAP
-    ————————————————————————–
-    flex-wrap: nowrap | wrap | wrap-reverse;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # JUSTIFY CONTENT
-    ————————————————————————–
-    justify-content: flex-start | flex-end | center | space-between | space-around;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN – ITEMS
-    ————————————————————————–
-    align-items: flex-start | flex-end | center | baseline | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN – CONTENT
-    ————————————————————————–
-    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ITEMS (for CHILDs)
-    ————————————————————————–
-
-    # FLEX
-    ————————————————————————–
-    flex: none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
-    ————————————————————————–
-    ————————————————————————–
-
-    # ORDER
-    ————————————————————————–
-    order: <integer>;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # GROW
-    ————————————————————————–
-    flex-grow: <number>; default 0
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # SHRINK
-    ————————————————————————–
-    flex-shrink: <number>; default 1
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-    # ALIGN SELF
-    ————————————————————————–
-    align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    ————————————————————————–
-     */
-  /*
-    ————————————————————————–
-     */
-}
 
 .kmt-flex {
   -js-display: flex;
