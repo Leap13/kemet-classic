@@ -214,7 +214,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo $html;
+			echo wp_kses_post($html);
 		} else {
 			return $html;
 		}
