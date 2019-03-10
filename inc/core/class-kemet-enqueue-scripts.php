@@ -184,5 +184,6 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 	}
 
+	
 	new Kemet_Enqueue_Scripts();
 }
