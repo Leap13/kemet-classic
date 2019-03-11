@@ -168,7 +168,7 @@
 
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-footer-small',
+			$wp_customize, 'section-footer-copyright',
 			array(
 				'title'    => __( 'Footer Bar', 'kemet' ),
 				'panel'    => 'panel-layout',

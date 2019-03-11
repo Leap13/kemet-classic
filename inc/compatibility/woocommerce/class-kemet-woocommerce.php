@@ -489,7 +489,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
 				$shop_title          = get_post_meta( $shop_page_id, 'site-post-title', true );
 				$main_header_display = get_post_meta( $shop_page_id, 'kmt-main-header-display', true );
-				$footer_layout       = get_post_meta( $shop_page_id, 'footer-sml-layout', true );
+				$footer_layout       = get_post_meta( $shop_page_id, 'copyright-footer-layout', true );
 
 				if ( 'disabled' === $shop_title ) {
 					add_filter( 'woocommerce_show_page_title', '__return_false' );

@@ -196,7 +196,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			}
 
 			// Override! Footer Bar.
-			$footer_layout = get_post_meta( $post_id, 'footer-sml-layout', true );
+			$footer_layout = get_post_meta( $post_id, 'copyright-footer-layout', true );
 			if ( 'disabled' === $footer_layout ) {
 				add_filter(
 					'kmt_footer_sml_layout', function( $is_footer ) {

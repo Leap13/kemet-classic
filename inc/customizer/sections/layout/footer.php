@@ -17,17 +17,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Footer Bar Layout
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[footer-sml-layout]', array(
-			'default'           => kemet_get_option( 'footer-sml-layout' ),
+		KEMET_THEME_SETTINGS . '[copyright-footer-layout]', array(
+			'default'           => kemet_get_option( 'copyright-footer-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Radio_Image(
-			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-layout]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[copyright-footer-layout]', array(
 				'type'     => 'kmt-radio-image',
-				'section'  => 'section-footer-small',
+				'section'  => 'section-footer-copyright',
 				'priority' => 5,
 				'label'    => __( 'Footer Bar Layout', 'kemet' ),
 				'choices'  => array(
@@ -35,11 +35,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						'label' => __( 'Disabled', 'kemet' ),
 						'path'  => KEMET_THEME_URI . 'assets/images/disabled-footer-76x48.png',
 					),
-					'footer-sml-layout-1' => array(
+					'copyright-footer-layout-1' => array(
 						'label' => __( 'Footer Bar Layout 1', 'kemet' ),
 						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-1-76x48.png',
 					),
-					'footer-sml-layout-2' => array(
+					'copyright-footer-layout-2' => array(
 						'label' => __( 'Footer Bar Layout 2', 'kemet' ),
 						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-2-76x48.png',
 					),
@@ -53,9 +53,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-layout-info]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-footer-copyright-layout-info]', array(
 				'type'     => 'kmt-divider',
-				'section'  => 'section-footer-small',
+				'section'  => 'section-footer-copyright',
 				'priority' => 10,
 				'settings' => array(),
 			)
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-sml-section-1]', array(
 			'type'     => 'select',
-			'section'  => 'section-footer-small',
+			'section'  => 'section-footer-copyright',
 			'priority' => 15,
 			'label'    => __( 'Section 1', 'kemet' ),
 			'choices'  => array(
@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
 			'type'     => 'textarea',
-			'section'  => 'section-footer-small',
+			'section'  => 'section-footer-copyright',
 			'priority' => 20,
 			'label'    => __( 'Section 1 Custom Text', 'kemet' ),
 		)
@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			KEMET_THEME_SETTINGS . '[footer-sml-section-1-credit]', array(
-				'selector'            => '.kmt-small-footer-section-1',
+				'selector'            => '.kmt-footer-copyright-section-1',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
 			)
@@ -134,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-sml-section-2]', array(
 			'type'     => 'select',
-			'section'  => 'section-footer-small',
+			'section'  => 'section-footer-copyright',
 			'priority' => 25,
 			'label'    => __( 'Section 2', 'kemet' ),
 			'choices'  => array(
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
 			'type'     => 'textarea',
-			'section'  => 'section-footer-small',
+			'section'  => 'section-footer-copyright',
 			'priority' => 30,
 			'label'    => __( 'Section 2 Custom Text', 'kemet' ),
 		)
@@ -169,7 +169,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			KEMET_THEME_SETTINGS . '[footer-sml-section-2-credit]', array(
-				'selector'            => '.kmt-small-footer-section-2',
+				'selector'            => '.kmt-footer-copyright-section-2',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
 			)
@@ -181,9 +181,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-small-footer-typography]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[section-kmt-footer-copyright-typography]', array(
 				'type'     => 'kmt-divider',
-				'section'  => 'section-footer-small',
+				'section'  => 'section-footer-copyright',
 				'priority' => 35,
 				'settings' => array(),
 			)
@@ -204,7 +204,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-sml-divider]', array(
 			'type'        => 'number',
-			'section'     => 'section-footer-small',
+			'section'     => 'section-footer-copyright',
 			'priority'    => 40,
 			'label'       => __( 'Footer Bar Top Border', 'kemet' ),
 			'input_attrs' => array(
@@ -229,7 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-divider-color]', array(
-				'section'  => 'section-footer-small',
+				'section'  => 'section-footer-copyright',
 				'priority' => 45,
 				'label'    => __( 'Footer Bar Top Border Color', 'kemet' ),
 			)
@@ -249,7 +249,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
 			'type'     => 'select',
-			'section'  => 'section-footer-small',
+			'section'  => 'section-footer-copyright',
 			'priority' => 35,
 			'label'    => __( 'Footer Bar Width', 'kemet' ),
 			'choices'  => array(
@@ -274,7 +274,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-color]', array(
 				'label'   => __( 'Text Color', 'kemet' ),
-				'section' => 'section-footer-small',
+				'section' => 'section-footer-copyright',
 				'priority' => 36,
 			)
 		)
@@ -294,7 +294,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Responsive(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-sml-font-size]', array(
 				'type'        => 'kmt-responsive',
-				'section'     => 'section-footer-small',
+				'section'     => 'section-footer-copyright',
 				'priority'    => 40,
 				'label'       => __( 'Font Size', 'kemet' ),
 				'input_attrs' => array(
@@ -322,7 +322,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
 				'label'   => __( 'Link Color', 'kemet' ),
-				'section' => 'section-footer-small',
+				'section' => 'section-footer-copyright',
 			)
 		)
 	);
@@ -342,7 +342,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
 				'label'   => __( 'Link Hover Color', 'kemet' ),
-				'section' => 'section-footer-small',
+				'section' => 'section-footer-copyright',
 				'priority' => 37,
 			)
 		)
@@ -354,7 +354,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Divider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[divider-footer-image]', array(
-				'section'  => 'section-footer-small',
+				'section'  => 'section-footer-copyright',
 				'priority' => 38,
 				'type'     => 'kmt-divider',
 				'settings' => array(),
@@ -377,7 +377,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Background(
 			$wp_customize, KEMET_THEME_SETTINGS . '[footer-bg-obj]', array(
 				'type'    => 'kmt-background',
-				'section' => 'section-footer-small',
+				'section' => 'section-footer-copyright',
 				'priority' => 39,
 				'label'   => __( 'Background', 'kemet' ),
 			)

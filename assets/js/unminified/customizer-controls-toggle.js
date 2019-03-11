@@ -305,21 +305,21 @@
 		/**
 		 * Small Footer
 		 */
-		'kemet-settings[footer-sml-layout]' :
+		'kemet-settings[copyright-footer-layout]' :
 		[
 			{
 				controls: [
 					'kemet-settings[footer-sml-section-1]',
 					'kemet-settings[footer-sml-section-2]',
-					'kemet-settings[section-kmt-small-footer-background-styling]',
-					'kemet-settings[kmt-small-footer-color]',
-					'kemet-settings[kmt-small-footer-link-color]',
-					'kemet-settings[kmt-small-footer-link-hover-color]',
-					'kemet-settings[kmt-small-footer-bg-img]',
-					'kemet-settings[section-kmt-small-footer-typography]',
-					'kemet-settings[kmt-small-footer-text-font]',
+					'kemet-settings[section-kmt-footer-copyright-background-styling]',
+					'kemet-settings[kmt-footer-copyright-color]',
+					'kemet-settings[kmt-footer-copyright-link-color]',
+					'kemet-settings[kmt-footer-copyright-link-hover-color]',
+					'kemet-settings[kmt-footer-copyright-bg-img]',
+					'kemet-settings[section-kmt-footer-copyright-typography]',
+					'kemet-settings[kmt-footer-copyright-text-font]',
 					'kemet-settings[footer-sml-divider]',
-					'kemet-settings[section-kmt-small-footer-layout-info]',
+					'kemet-settings[section-kmt-footer-copyright-layout-info]',
 					'kemet-settings[footer-layout-width]',
 					'kemet-settings[footer-color]',
 					'kemet-settings[footer-link-color]',
@@ -386,7 +386,7 @@
 				],
 				callback: function( enabled_section_1 ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( 'custom' == enabled_section_1 && 'disabled' != footer_layout ) {
 						return true;
@@ -403,7 +403,7 @@
 				],
 				callback: function( enabled_section_2 ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( 'custom' == enabled_section_2 && 'disabled' != footer_layout ) {
 						return true;
@@ -421,7 +421,7 @@
 				],
 				callback: function( border_width ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != footer_layout ) {
 						return true;

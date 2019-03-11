@@ -14,23 +14,23 @@ $section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
 
 ?>
 
-<div class="kmt-small-footer footer-sml-layout-1">
+<div class="kmt-small-footer copyright-footer-layout-1">
 	<div class="kmt-footer-overlay">
 		<div class="kmt-container">
-			<div class="kmt-small-footer-wrap" >
+			<div class="kmt-footer-copyright-wrap" >
 				<?php if ( $section_1 ) : ?>
-					<div class="kmt-small-footer-section kmt-small-footer-section-1" >
+					<div class="kmt-footer-copyright-section kmt-footer-copyright-section-1" >
                         <?php echo '<div class="kmt-flex">' . $section_1 . '</div>'; ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $section_2 ) : ?>
-					<div class="kmt-small-footer-section kmt-small-footer-section-2" >
+					<div class="kmt-footer-copyright-section kmt-footer-copyright-section-2" >
 						<?php echo '<div class="kmt-flex">' . $section_2 . '</div>'; ?>
 					</div>
 				<?php endif; ?>
 
-			</div><!-- .kmt-row .kmt-small-footer-wrap -->
+			</div><!-- .kmt-row .kmt-footer-copyright-wrap -->
 		</div><!-- .kmt-container -->
 	</div><!-- .kmt-footer-overlay -->
-</div><!-- .kmt-small-footer-->
+</div><!-- .kmt-footer-copyright-->

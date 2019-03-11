@@ -77,6 +77,29 @@
 /**
  * Styling begins
  */
+.woocommerce, .woocommerce-page {
+  /**
+	 * General layout styles
+	 */
+  /**
+	 * Product page
+	 */
+  /**
+	 * Product loops
+	 */
+  /**
+	 * Cart page
+	 */
+  /**
+	 * Cart sidebar
+	 */
+  /**
+	 * Forms
+	 */
+  /**
+	 * oEmbeds
+	 */
+}
 
 .woocommerce .woocommerce-message .button,
 .woocommerce .woocommerce-error .button,

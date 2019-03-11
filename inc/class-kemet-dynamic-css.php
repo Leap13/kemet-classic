@@ -236,7 +236,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Small Footer Styling
 			 */
-			$copyright_footer_layout = kemet_get_option( 'footer-sml-layout', 'footer-sml-layout-1' );
+			$copyright_footer_layout = kemet_get_option( 'copyright-footer-layout', 'copyright-footer-layout-1' );
 			$kemet_footer_width  = kemet_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
@@ -1094,9 +1094,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				);
 				$parse_css     .= kemet_parse_css( $sml_footer_css );
 
-				if ( 'footer-sml-layout-2' != $copyright_footer_layout ) {
+				if ( 'copyright-footer-layout-2' != $copyright_footer_layout ) {
 					$sml_footer_css = array(
-						'.kmt-small-footer-wrap' => array(
+						'.kmt-footer-copyright-wrap' => array(
 							'text-align' => 'center',
 						),
 					);

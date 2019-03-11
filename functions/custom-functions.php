@@ -1126,7 +1126,7 @@ if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
 
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Click here to assign a widget for this area.', 'kemet' ); ?>
+						<?php esc_html_e( 'Assign a widget here', 'kemet' ); ?>
 					</a>
 				</p>
 			</div>

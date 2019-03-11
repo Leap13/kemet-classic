@@ -176,7 +176,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		 */
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 1', 'kemet' ),
+				'name'          => esc_html__( 'Footer Widget 1', 'kemet' ),
 				'id'            => 'advanced-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -187,7 +187,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 2', 'kemet' ),
+				'name'          => esc_html__( 'Footer Widget 2', 'kemet' ),
 				'id'            => 'advanced-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -198,7 +198,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 3', 'kemet' ),
+				'name'          => esc_html__( 'Footer Widget 3', 'kemet' ),
 				'id'            => 'advanced-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -209,7 +209,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 4', 'kemet' ),
+				'name'          => esc_html__( 'Footer Widget 4', 'kemet' ),
 				'id'            => 'advanced-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
