@@ -8,7 +8,6 @@
  * @author      Kemet
  * @copyright   Copyright (c) 2019, Kemet
  * @link        https://kemet.io/
- * @since       Kemet 1.0.0
  */
 
 add_action( 'wp_head', 'kemet_pingback_header' );
@@ -30,7 +29,6 @@ if ( ! function_exists( 'kemet_schema_body' ) ) :
 	/**
 	 * Adds schema tags to the body classes.
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_schema_body() {
 
@@ -61,7 +59,6 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
-	 * @since 1.0.0
 	 * @param array $classes Classes for the body element.
 	 * @return array
 	 */
@@ -112,8 +109,6 @@ if ( ! function_exists( 'kemet_number_pagination' ) ) {
 	/**
 	 * Kemet Pagination
 	 *
-	 * @since 1.0.0
-	 * @return void            Generate & echo pagination markup.
 	 */
 	function kemet_number_pagination() {
 		global $numpages;
@@ -147,8 +142,6 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 	/**
 	 * Return or echo site logo markup.
 	 *
-	 * @since 1.0.0
-	 * @param  boolean $echo Echo markup.
 	 * @return mixed echo or return markup.
 	 */
 	function kemet_logo( $echo = true ) {
@@ -169,10 +162,6 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
-
-//			if ( apply_filters( 'kemet_replace_logo_width', true ) ) {
-//				remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
-//			}
 		}
 
 		if ( ! apply_filters( 'kemet_disable_site_identity', false ) ) {
@@ -186,7 +175,6 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 			/**
 			 * Filters the tags for site title.
 			 *
-			 * @since 1.3.1
 			 *
 			 * @param string $tags string containing the HTML tags for Site Title.
 			 */
@@ -231,7 +219,6 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 	/**
 	 * Return the selected sections
 	 *
-	 * @since 1.0.0
 	 * @param  string $option Custom content type. E.g. search, text-html etc.
 	 * @return array         Array of Custom contents.
 	 */
@@ -278,7 +265,6 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	/**
 	 * Adding Wrapper for Search Form.
 	 *
-	 * @since 1.0.0
 	 * @param  string $option   Search Option name.
 	 * @return mixed Search HTML structure created.
 	 */
@@ -301,7 +287,6 @@ if ( ! function_exists( 'kemet_get_custom_html' ) ) {
 	/**
 	 * Get custom HTML added by user.
 	 *
-	 * @since 1.0.0
 	 * @param  string $option_name Option name.
 	 * @return String TEXT/HTML added by user in options panel.
 	 */
@@ -368,7 +353,6 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 	/**
 	 * Function to get top section Left/Right Header
 	 *
-	 * @since 1.0.0
 	 * @param string $section   Sections of Small Footer.
 	 * @return mixed            Markup of sections.
 	 */
@@ -412,7 +396,6 @@ if ( ! function_exists( 'kemet_get_small_footer' ) ) {
 	/**
 	 * Function to get Small Left/Right Footer
 	 *
-	 * @since 1.0.0
 	 * @param string $section   Sections of Small Footer.
 	 * @return mixed            Markup of sections.
 	 */
@@ -447,7 +430,6 @@ if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
 	/**
 	 * Function to get Small Footer Custom Text
 	 *
-	 * @since 1.0.0
 	 * @param string $option Custom text option name.
 	 * @return mixed         Markup of custom text option.
 	 */
@@ -482,7 +464,6 @@ if ( ! function_exists( 'kemet_get_small_footer_menu' ) ) {
 	/**
 	 * Function to get Footer Menu
 	 *
-	 * @since 1.0.0
 	 * @return html
 	 */
 	function kemet_get_small_footer_menu() {
@@ -520,7 +501,6 @@ if ( ! function_exists( 'kemet_get_top_menu' ) ) {
 	/**
 	 * Function to get Top Menu
 	 *
-	 * @since 1.0.0
 	 * @return html
 	 */
 	function kemet_get_top_menu() {
@@ -558,7 +538,6 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 	/**
 	 * Site Header - <header>
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_header_markup() {
 		?>
@@ -588,7 +567,6 @@ if ( ! function_exists( 'kemet_site_branding_markup' ) ) {
 	/**
 	 * Site Title / Logo
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_site_branding_markup() {
 		?>
@@ -612,8 +590,7 @@ if ( ! function_exists( 'kemet_toggle_buttons_markup' ) ) {
 
 	/**
 	 * Toggle Button Markup
-	 *
-	 * @since 1.0.0
+	 * 
 	 */
 	function kemet_toggle_buttons_markup() {
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
@@ -648,7 +625,6 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 	/**
 	 * Site Title / Logo
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_primary_navigation_markup() {
 
@@ -740,7 +716,6 @@ if ( ! function_exists( 'kemet_footer_markup' ) ) {
 	/**
 	 * Site Footer - <footer>
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_footer_markup() {
 		?>
@@ -768,7 +743,6 @@ if ( ! function_exists( 'kemet_header_break_point' ) ) {
 	/**
 	 * Function to get Header Breakpoint
 	 *
-	 * @since 1.0.0
 	 * @return number
 	 */
 	function kemet_header_break_point() {
@@ -784,7 +758,6 @@ if ( ! function_exists( 'kemet_body_font_family' ) ) {
 	/**
 	 * Function to get Body Font Family
 	 *
-	 * @since 1.0.0
 	 * @return string
 	 */
 	function kemet_body_font_family() {
@@ -808,12 +781,6 @@ if ( ! function_exists( 'kemet_edit_post_link' ) ) {
 	/**
 	 * Function to get Edit Post Link
 	 *
-	 * @since 1.0.0
-	 * @param string $text      Anchor Text.
-	 * @param string $before    Anchor Text.
-	 * @param string $after     Anchor Text.
-	 * @param int    $id           Anchor Text.
-	 * @param string $class     Anchor Text.
 	 * @return void
 	 */
 	function kemet_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
@@ -832,7 +799,6 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 	/**
 	 * Function to get Header Classes
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_header_classes() {
 
@@ -878,7 +844,6 @@ if ( ! function_exists( 'kemet_footer_classes' ) ) {
 	/**
 	 * Function to get Footer Classes
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_footer_classes() {
 
@@ -898,7 +863,6 @@ if ( ! function_exists( 'kemet_header_breakpoint_style' ) ) {
 	/**
 	 * Function to Add Header Breakpoint Style
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_header_breakpoint_style() {
 
@@ -953,7 +917,6 @@ if ( ! function_exists( 'kemet_comment_form_default_fields_markup' ) ) {
 	/**
 	 * Function filter comment form's default fields
 	 *
-	 * @since 1.0.0
 	 * @param array $fields Array of comment form's default fields.
 	 * @return array        Comment form fields.
 	 */
@@ -987,7 +950,6 @@ if ( ! function_exists( 'kemet_comment_form_default_markup' ) ) {
 	/**
 	 * Function filter comment form arguments
 	 *
-	 * @since 1.0.0
 	 * @param array $args   Comment form arguments.
 	 * @return array
 	 */
@@ -1015,7 +977,6 @@ if ( ! function_exists( 'kemet_404_page_layout' ) ) {
 	/**
 	 * Function filter comment form arguments
 	 *
-	 * @since 1.0.0
 	 * @param array $layout     Comment form arguments.
 	 * @return array
 	 */
@@ -1039,7 +1000,6 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 	/**
 	 * Return current content layout
 	 *
-	 * @since 1.0.0
 	 * @return boolean  content layout.
 	 */
 	function kemet_get_content_layout() {
@@ -1061,9 +1021,6 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 				}
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
-
-					// Get the GLOBAL content layout value.
-					// NOTE: Here not used `true` in the below function call.
 					$content_layout = kemet_get_option( 'site-content-layout', 'full-width' );
 				}
 			}
@@ -1081,9 +1038,6 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 			}
 
 			if ( 'default' == $content_layout || empty( $content_layout ) ) {
-
-				// Get the GLOBAL content layout value.
-				// NOTE: Here not used `true` in the below function call.
 				$content_layout = kemet_get_option( 'site-content-layout', 'full-width' );
 			}
 		}
@@ -1100,7 +1054,6 @@ if ( ! function_exists( 'kemet_the_excerpt' ) ) {
 	/**
 	 * Display Blog Post Excerpt
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_the_excerpt() {
 
@@ -1125,7 +1078,6 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 	/**
 	 * Get Sidebar
 	 *
-	 * @since 1.0.0
 	 * @param  string $sidebar_id   Sidebar Id.
 	 * @return void
 	 */
@@ -1191,7 +1143,6 @@ if ( ! function_exists( 'kemet_entry_header_class' ) ) {
 	/**
 	 * Kemet entry header class
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_entry_header_class() {
 
@@ -1233,7 +1184,6 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 	/**
 	 * Kemet get post thumbnail image
 	 *
-	 * @since 1.0.0
 	 * @param string  $before Markup before thumbnail image.
 	 * @param string  $after  Markup after thumbnail image.
 	 * @param boolean $echo   Output print or return.
@@ -1493,30 +1443,6 @@ if ( ! function_exists( 'kemet_strposa' ) ) :
 		return false;
 	}
 
-endif;
-
-if ( ! function_exists( 'kemet_get_addon_name' ) ) :
-
-	/**
-	 * Get Addon name.
-	 *
-	 * @return string Addon Name.
-	 */
-	function kemet_get_addon_name() {
-
-		$pro_name = __( 'Kemet Pro', 'kemet' );
-		// If addon is not updated & White Label added for Addon then show the updated addon name.
-		if ( class_exists( 'Kemet_Ext_White_Label_Markup' ) ) {
-
-			$plugin_data = Kemet_Ext_White_Label_Markup::$branding;
-
-			if ( '' != $plugin_data['kemet-pro']['name'] ) {
-				$pro_name = $plugin_data['kemet-pro']['name'];
-			}
-		}
-
-		return apply_filters( 'kemet_addon_name', $pro_name );
-	}
 endif;
 
 if ( ! function_exists( 'astar' ) ) :

@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
     
    /**
-    * Option - Site Identity Space //// exist in astra pro
+    * Option - Site Identity Padding
     */
    $wp_customize->add_setting(
        KEMET_THEME_SETTINGS . '[site-identity-spacing]', array(

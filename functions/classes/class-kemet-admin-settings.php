@@ -6,8 +6,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -25,7 +25,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * View all actions
 		 *
-		 * @since 1.0.0
 		 * @var array $view_actions
 		 */
 		static public $view_actions = array();
@@ -33,7 +32,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Menu page title
 		 *
-		 * @since 1.0.0
 		 * @var array $menu_page_title
 		 */
 		static public $menu_page_title = 'Kemet Theme';
@@ -41,7 +39,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Page title
 		 *
-		 * @since 1.0.0
 		 * @var array $page_title
 		 */
 		static public $page_title = 'Kemet';
@@ -49,7 +46,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Plugin slug
 		 *
-		 * @since 1.0.0
 		 * @var array $plugin_slug
 		 */
 		static public $plugin_slug = 'kemet';
@@ -78,7 +74,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Load the scripts and styles in the customizer controls.
 		 *
-		 * @since 1.0.0
 		 */
 		static public function customizer_scripts() {
 			$color_palettes = json_encode( kemet_color_palette() );
@@ -88,7 +83,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		/**
 		 * Enqueues the needed CSS/JS for Backend.
 		 *
-		 * @since 1.0.0
 		 */
 		static public function admin_scripts() {
 
@@ -103,9 +97,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 
 			wp_enqueue_script( 'kemet-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), KEMET_THEME_VERSION, true );
 		}
-
-
-
 	}
 
 	new Kemet_Admin_Settings;

@@ -20,8 +20,8 @@ define( 'KEMET_THEME_SETTINGS', 'kemet-settings' );
 /**
  * Load theme hooks
  */
-require_once KEMET_THEME_DIR . 'inc/core/class-kemet-theme-options.php';
-require_once KEMET_THEME_DIR . 'inc/core/class-theme-strings.php';
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-theme-options.php';
+require_once KEMET_THEME_DIR . 'functions/classes/class-theme-strings.php';
 
 /**
  * Fonts Files
@@ -33,8 +33,8 @@ if ( is_admin() ) {
 
 require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-fonts.php';
 
-require_once KEMET_THEME_DIR . 'inc/core/common-functions.php';
-require_once KEMET_THEME_DIR . 'inc/core/class-kemet-enqueue-scripts.php';
+require_once KEMET_THEME_DIR . 'functions/common-functions.php';
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-enqueue-scripts.php';
 require_once KEMET_THEME_DIR . 'inc/class-kemet-dynamic-css.php';
 
 /**
@@ -43,14 +43,14 @@ require_once KEMET_THEME_DIR . 'inc/class-kemet-dynamic-css.php';
 require_once KEMET_THEME_DIR . 'inc/template-tags.php';
 
 require_once KEMET_THEME_DIR . 'inc/widgets.php';
-require_once KEMET_THEME_DIR . 'inc/core/theme-hooks.php';
+require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
 require_once KEMET_THEME_DIR . 'inc/admin-functions.php';
-require_once KEMET_THEME_DIR . 'inc/core/sidebar-manager.php';
+require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
 
 /**
  * Markup Functions
  */
-require_once KEMET_THEME_DIR . 'inc/extras.php';
+require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog.php';
 require_once KEMET_THEME_DIR . 'inc/blog/single-blog.php';
@@ -66,14 +66,14 @@ require_once KEMET_THEME_DIR . 'inc/class-kemet-loop.php';
 require_once KEMET_THEME_DIR . 'inc/class-kemet-after-setup-theme.php';
 
 // Required files.
-require_once KEMET_THEME_DIR . 'inc/core/class-kemet-admin-helper.php';
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-helper.php';
 
 if ( is_admin() ) {
 
 	/**
 	 * Admin Menu Settings
 	 */
-	require_once KEMET_THEME_DIR . 'inc/core/class-kemet-admin-settings.php';
+	require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-settings.php';
 
 }
 

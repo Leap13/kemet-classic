@@ -30,7 +30,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 	/**
 	 * Kemet Elementor Compatibility
 	 *
-	 * @since 1.0.0
 	 */
 	class Kemet_Elementor_Pro {
 
@@ -44,7 +43,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Initiator
 		 *
-		 * @since 1.2.7
 		 * @return object Class object.
 		 */
 		public static function get_instance() {
@@ -57,7 +55,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Constructor
 		 *
-		 * @since 1.2.7
 		 */
 		public function __construct() {
 			// Add locations.
@@ -67,7 +64,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			add_action( 'kemet_header', array( $this, 'do_header' ), 0 );
 			add_action( 'kemet_footer', array( $this, 'do_footer' ), 0 );
 			add_action( 'kemet_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
-
 			add_action( 'kemet_404_page', array( $this, 'do_template_part_404' ), 0 );
 
 			// Override post meta.
@@ -77,7 +73,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Register Locations
 		 *
-		 * @since 1.2.7
 		 * @param object $manager Location manager.
 		 * @return void
 		 */
@@ -88,7 +83,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Template Parts Support
 		 *
-		 * @since 1.2.7
 		 * @return void
 		 */
 		function do_template_parts() {
@@ -120,7 +114,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Override 404 page
 		 *
-		 * @since 1.2.7
 		 * @return void
 		 */
 		function do_template_part_404() {
@@ -137,7 +130,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Override sidebar, title etc with post meta
 		 *
-		 * @since 1.2.7
 		 * @return void
 		 */
 		function override_meta() {
@@ -167,7 +159,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Override sidebar, title etc with post meta
 		 *
-		 * @since 1.2.7
 		 * @param  integer $post_id  Post ID.
 		 * @return void
 		 */
@@ -239,7 +230,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Header Support
 		 *
-		 * @since 1.2.7
 		 * @return void
 		 */
 		public function do_header() {
@@ -252,7 +242,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Footer Support
 		 *
-		 * @since 1.2.7
 		 * @return void
 		 */
 		public function do_footer() {

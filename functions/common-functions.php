@@ -708,7 +708,6 @@ if ( ! function_exists( 'kemet_the_post_title' ) ) {
 	 *
 	 * Displays title only if the page title bar is disabled.
 	 *
-	 * @since 1.0.0
 	 * @param string $before Optional. Content to prepend to the title.
 	 * @param string $after  Optional. Content to append to the title.
 	 * @param int    $post_id Optional, default to 0. Post id.
@@ -1016,46 +1015,11 @@ if ( ! function_exists( 'kemet_enable_page_builder_compatibility' ) ) :
 	/**
 	 * Allow filter to enable/disable page builder compatibility.
 	 *
-	 * @see  https://https://kemet.io//docs/recommended-settings-for-elementor/
 	 *
 	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
 	 */
 	function kemet_enable_page_builder_compatibility() {
 		return apply_filters( 'kemet_enable_page_builder_compatibility', true );
-	}
-
-endif;
-
-
-if ( ! function_exists( 'kemet_get_pro_url' ) ) :
-	/**
-	 * Returns an URL with utm tags
-	 * the admin settings page.
-	 *
-	 * @param string $url    URL fo the site.
-	 * @param string $source utm source.
-	 * @param string $medium utm medium.
-	 * @param string $campaign utm campaign.
-	 * @return mixed
-	 */
-	function kemet_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
-
-		$url = trailingslashit( $url );
-
-		// Set up our URL if we have a source.
-		if ( isset( $source ) ) {
-			$url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
-		}
-		// Set up our URL if we have a medium.
-		if ( isset( $medium ) ) {
-			$url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
-		}
-		// Set up our URL if we have a campaign.
-		if ( isset( $campaign ) ) {
-			$url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
-		}
-
-		return esc_url( $url );
 	}
 
 endif;
