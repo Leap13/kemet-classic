@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for Small Footer Layout 1
+ * Template for Footer Copyright Layout 1
  *
  * @package     Kemet
  * @author      Kemet
@@ -9,13 +9,13 @@
  * @since       Kemet 1.0.0
  */
 
-$section_1 = kemet_get_copyright_footer( 'footer-sml-section-1' );
-$section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
+$section_1 = kemet_get_copyright_footer( 'footer-copyright-section-1' );
+$section_2 = kemet_get_copyright_footer( 'footer-copyright-section-2' );
 
 ?>
 
 <div class="kmt-footer-copyright copyright-footer-layout-1">
-	<div class="kmt-footer-overlay">
+	<div class="kmt-footer-copyright-content">
 		<div class="kmt-container">
 			<div class="kmt-footer-copyright-wrap" >
 				<?php if ( $section_1 ) : ?>
@@ -32,5 +32,5 @@ $section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
 
 			</div><!-- .kmt-row .kmt-footer-copyright-wrap -->
 		</div><!-- .kmt-container -->
-	</div><!-- .kmt-footer-overlay -->
+	</div><!-- .kmt-footer-copyright-content -->
 </div><!-- .kmt-footer-copyright-->

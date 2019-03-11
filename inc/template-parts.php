@@ -209,7 +209,7 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 	function kemet_footer_copyright_footer_template() {
 
 		$copyright_footer_layout = kemet_get_option_meta( 'copyright-footer-layout', 'copyright-footer-layout-2' );
-		$copyright_footer_layout = apply_filters( 'kmt_footer_sml_layout', $copyright_footer_layout );
+		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout', $copyright_footer_layout );
 
 		if ( 'disabled' != $copyright_footer_layout ) {
 

@@ -464,7 +464,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Small Footer Top Border
 	 */
-	wp.customize( 'kemet-settings[footer-sml-divider]', function( value ) {
+	wp.customize( 'kemet-settings[footer-copyright-divider]', function( value ) {
 		value.bind( function( border_width ) {
 			jQuery( '.kmt-footer-copyright' ).css( 'border-top-width', border_width + 'px' );
 		} );
@@ -473,7 +473,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Small Footer Top Border Color
 	 */
-	wp.customize( 'kemet-settings[footer-sml-divider-color]', function( value ) {
+	wp.customize( 'kemet-settings[footer-copyright-divider-color]', function( value ) {
 		value.bind( function( border_color ) {
 			jQuery( '.kmt-footer-copyright' ).css( 'border-top-color', border_color );
 		} );
@@ -781,7 +781,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
 
-			var dynamicStyle = ' .kmt-footer-copyright > .kmt-footer-overlay { {{css}} }';
+			var dynamicStyle = ' .kmt-footer-copyright > .kmt-footer-copyright-content { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
 		} );

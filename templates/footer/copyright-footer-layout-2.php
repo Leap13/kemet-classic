@@ -9,8 +9,8 @@
  * @since       Kemet 1.0.0
  */
 
-$section_1 = kemet_get_copyright_footer( 'footer-sml-section-1' );
-$section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
+$section_1 = kemet_get_copyright_footer( 'footer-copyright-section-1' );
+$section_2 = kemet_get_copyright_footer( 'footer-copyright-section-2' );
 $sections  = 0;
 
 if ( '' != $section_1 ) {
@@ -36,7 +36,7 @@ switch ( $sections ) {
 ?>
 
 <div class="kmt-footer-copyright copyright-footer-layout-2">
-	<div class="kmt-footer-overlay">
+	<div class="kmt-footer-copyright-content">
 		<div class="kmt-container">
 			<div class="kmt-footer-copyright-wrap" >
 					<div class="kmt-row kmt-flex">
@@ -56,5 +56,5 @@ switch ( $sections ) {
 					</div> <!-- .kmt-row.kmt-flex -->
 			</div><!-- .kmt-footer-copyright-wrap -->
 		</div><!-- .kmt-container -->
-	</div><!-- .kmt-footer-overlay -->
+	</div><!-- .kmt-footer-copyright-content -->
 </div><!-- .kmt-footer-copyright-->

@@ -3,14 +3,10 @@
  *
  */
 
-.kmt-footer-overlay {
+.kmt-footer-copyright-content {
 	background-color: $footer-background-color;
-	padding-top: 2em;
-	padding-bottom: 2em;
-	@media (min-width: $col-md ) {
-		padding-top: 2.66666em;
-		padding-bottom: 2.66666em;	
-	}	
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .kmt-footer-copyright {

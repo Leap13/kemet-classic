@@ -323,9 +323,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 		if ( 'header-main-rt-section' == $option_name ) {
 			$widget_id = 'header-widget';
 		}
-		if ( 'footer-sml-section-1' == $option_name ) {
+		if ( 'footer-copyright-section-1' == $option_name ) {
 			$widget_id = 'footer-widget-1';
-		} elseif ( 'footer-sml-section-2' == $option_name ) {
+		} elseif ( 'footer-copyright-section-2' == $option_name ) {
 			$widget_id = 'footer-widget-2';
 		}
 		if ( 'top-section-1' == $option_name ) {

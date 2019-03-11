@@ -178,7 +178,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color' );
 
 			// Footer Bar Font.
-			$footer_sml_font_size        = kemet_get_option( 'footer-sml-font-size' );
+			$footer_sml_font_size        = kemet_get_option( 'footer-copyright-font-size' );
 
 			// Color.
 			$footer_adv_bg_obj             = kemet_get_option( 'kemet-footer-bg-obj' );
@@ -230,8 +230,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
-			$copyright_footer_divider_color = kemet_get_option( 'footer-sml-divider-color' );
-			$copyright_footer_divider       = kemet_get_option( 'footer-sml-divider' );
+			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' );
+			$copyright_footer_divider       = kemet_get_option( 'footer-copyright-divider' );
 
 			/**
 			 * Small Footer Styling
@@ -425,7 +425,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_color ),
 					'font-size' => kemet_responsive_font( $footer_sml_font_size),
 				),
-				'.kmt-footer-copyright > .kmt-footer-overlay' => kemet_get_background_obj( $footer_bg_obj ),
+				'.kmt-footer-copyright > .kmt-footer-copyright-content' => kemet_get_background_obj( $footer_bg_obj ),
 
 				'.kmt-footer-copyright a'                     => array(
 					'color' => esc_attr( $footer_link_color ),
