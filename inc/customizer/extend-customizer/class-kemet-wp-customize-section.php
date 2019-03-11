@@ -22,7 +22,6 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 	 * Adds a custom Customize Section for nested sections.
 	 *
 	 * @link https://gist.github.com/OriginalEXE/9a6183e09f4cae2f30b006232bb154af
-	 * @since 1.0.0
 	 * @see WP_Customize_Section
 	 */
 	class Kemet_WP_Customize_Section extends WP_Customize_Section {
@@ -30,7 +29,6 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		/**
 		 * Section
 		 *
-		 * @since 1.0.0
 		 * @var string
 		 */
 		public $section;
@@ -45,7 +43,6 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		/**
 		 * Get section parameters for JS.
 		 *
-		 * @since 1.0.0
 		 * @return array Exported parameters.
 		 */
 		public function json() {

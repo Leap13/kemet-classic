@@ -230,13 +230,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
-			$small_footer_divider_color = kemet_get_option( 'footer-sml-divider-color' );
-			$small_footer_divider       = kemet_get_option( 'footer-sml-divider' );
+			$copyright_footer_divider_color = kemet_get_option( 'footer-sml-divider-color' );
+			$copyright_footer_divider       = kemet_get_option( 'footer-sml-divider' );
 
 			/**
 			 * Small Footer Styling
 			 */
-			$small_footer_layout = kemet_get_option( 'footer-sml-layout', 'footer-sml-layout-1' );
+			$copyright_footer_layout = kemet_get_option( 'footer-sml-layout', 'footer-sml-layout-1' );
 			$kemet_footer_width  = kemet_get_option( 'footer-layout-width' );
 
 			// Blog Post Title Typography Options.
@@ -1084,17 +1084,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			endif;
 
 			/* Small Footer CSS */
-			if ( 'disabled' != $small_footer_layout ) :
+			if ( 'disabled' != $copyright_footer_layout ) :
 				$sml_footer_css = array(
 					'.kmt-small-footer' => array(
 						'border-top-style' => 'solid',
-						'border-top-width' => kemet_get_css_value( $small_footer_divider, 'px' ),
-						'border-top-color' => esc_attr( $small_footer_divider_color ),
+						'border-top-width' => kemet_get_css_value( $copyright_footer_divider, 'px' ),
+						'border-top-color' => esc_attr( $copyright_footer_divider_color ),
 					),
 				);
 				$parse_css     .= kemet_parse_css( $sml_footer_css );
 
-				if ( 'footer-sml-layout-2' != $small_footer_layout ) {
+				if ( 'footer-sml-layout-2' != $copyright_footer_layout ) {
 					$sml_footer_css = array(
 						'.kmt-small-footer-wrap' => array(
 							'text-align' => 'center',

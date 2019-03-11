@@ -2,15 +2,15 @@
 /**
  * Kemet functions and definitions.
  * Text Domain: kemet
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
+ * When using a child theme (see https://codex.wordpress.org/Theme_Development
+ * and https://codex.wordpress.org/Child_Themes), you can override certain
  * functions (those wrapped in a function_exists() call) by defining them first
  * in your child theme's functions.php file. The child theme's functions.php
  * file is included before the parent theme's file, so the child theme
  * functions would be used.
  *
  * For more information on hooks, actions, and filters,
- * see http://codex.wordpress.org/Plugin_API
+ * see https://codex.wordpress.org/Plugin_API
  *
  * Kemet is a very powerful theme and virtually anything can be customized
  * via a child theme.
@@ -44,7 +44,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Initiator
 		 *
-		 * @since 1.0.0
 		 * @return object
 		 */
 		public static function get_instance() {
@@ -64,7 +63,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Setup theme
 		 *
-		 * @since 1.0.0
 		 */
 		function setup_theme() {
 
@@ -79,9 +77,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 
 			/**
 			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on Next, use a find and replace
-			 * to change 'kemet' to the name of your theme in all the template files.
 			 */
 			load_theme_textdomain( 'kemet', KEMET_THEME_DIR . '/languages' );
 
@@ -173,9 +168,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 				'kemet_allowed_fullwidth_oembed_providers', array(
 					'vimeo.com',
 					'youtube.com',
-					'youtu.be',
-					'wistia.com',
-					'wistia.net',
 				)
 			);
 

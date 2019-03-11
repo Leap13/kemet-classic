@@ -12,8 +12,6 @@
  */
 
 /**
- * Themes and Plugins can check for kemet_hooks using current_theme_supports( 'kemet_hooks', $hook )
- * to determine whether a theme declares itself to support this specific hook type.
  *
  * Example:
  * <code>
@@ -84,13 +82,6 @@ function kemet_current_theme_supports( $bool, $args, $registered ) {
 	return in_array( $args[0], $registered[0] ) || in_array( 'all', $registered[0] );
 }
 add_filter( 'current_theme_supports-kemet_hooks', 'kemet_current_theme_supports', 10, 3 );
-
-/**
- * Body Bottom
- */
-function kemet_body_bottom() {
-	do_action( 'kemet_body_bottom' );
-}
 
 /**
  * HTML <head> hooks
@@ -274,6 +265,20 @@ function kemet_single_header_bottom() {
 }
 
 /**
+ * Entry content blog
+ */
+function kemet_entry_content_blog() {
+	do_action( 'kemet_entry_content_blog' );
+}
+
+/**
+ * Blog featured post section
+ */
+function kemet_blog_post_featured_format() {
+	do_action( 'kemet_blog_post_featured_format' );
+}
+
+/**
  * Semantic <sidebar> hooks
  *
  * $kemet_supports[] = 'sidebar';
@@ -341,22 +346,14 @@ function kemet_404_page() {
 }
 
 /**
- * Entry content blog
- */
-function kemet_entry_content_blog() {
-	do_action( 'kemet_entry_content_blog' );
-}
-
-/**
- * Blog featured post section
- */
-function kemet_blog_post_featured_format() {
-	do_action( 'kemet_blog_post_featured_format' );
-}
-
-/**
  * 404 Page content template action.
  */
 function kemet_404_content_template() {
 	do_action( 'kemet_404_content_template' );
+}
+/**
+ * Body Bottom
+ */
+function kemet_body_bottom() {
+	do_action( 'kemet_body_bottom' );
 }

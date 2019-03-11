@@ -327,9 +327,9 @@
 					'kemet-settings[footer-bg-obj]',
 					'kemet-settings[divider-footer-image]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
-					if ( 'disabled' != small_footer_layout ) {
+					if ( 'disabled' != copyright_footer_layout ) {
 						return true;
 					}
 					return false;
@@ -339,11 +339,11 @@
 				controls: [
 					'kemet-settings[footer-sml-section-1-credit]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
 					var footer_section_1 = api( 'kemet-settings[footer-sml-section-1]' ).get();
 
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_1 ) {
+					if ( 'disabled' != copyright_footer_layout && 'custom' == footer_section_1 ) {
 						return true;
 					}
 					return false;
@@ -353,11 +353,11 @@
 				controls: [
 					'kemet-settings[footer-sml-section-2-credit]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
 					var footer_section_2 = api( 'kemet-settings[footer-sml-section-2]' ).get();
 
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_2 ) {
+					if ( 'disabled' != copyright_footer_layout && 'custom' == footer_section_2 ) {
 						return true;
 					}
 					return false;
@@ -367,11 +367,11 @@
 				controls: [
 					'kemet-settings[footer-sml-divider-color]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
 					var border_width = api( 'kemet-settings[footer-sml-divider]' ).get();
 
-					if ( '1' <= border_width && 'disabled' != small_footer_layout ) {
+					if ( '1' <= border_width && 'disabled' != copyright_footer_layout ) {
 						return true;
 					}
 					return false;

@@ -1,9 +1,6 @@
 <?php
 /**
- * Template for Primary Header
- *
- * The header layout 2 for Kemet Theme. ( No of sections - 1 [ Section 1 limit - 3 )
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * Template for Header
  *
  * @see https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *

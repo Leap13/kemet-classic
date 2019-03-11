@@ -14,7 +14,6 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since 1.0.0
 	 * @class KmtTypography
 	 */
 	KmtTypography = {
@@ -22,7 +21,6 @@
 		/**
 		 * Initializes our custom logic for the Customizer.
 		 *
-		 * @since 1.0.0
 		 * @method init
 		 */
 		init: function() {
@@ -32,7 +30,6 @@
 		/**
 		 * Initializes logic for font controls.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initFonts
 		 */
@@ -44,7 +41,6 @@
 		/**
 		 * Initializes logic for a single font control.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initFont
 		 */
@@ -63,7 +59,6 @@
 		/**
 		 * Callback for when a font control changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _fontSelectChange
 		 */
@@ -102,7 +97,6 @@
 		 * Sets the options for a font weight control when a
 		 * font family control changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _setFontWeightOptions
 		 * @param {Boolean} init Whether or not we're initializing this font weight control.

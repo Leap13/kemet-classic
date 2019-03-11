@@ -25,12 +25,12 @@ $sections  = 0;
  switch ( $sections ) {
 
  	case '2':
- 			$section_class = 'kmt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12';
+ 			$section_class = 'kmt-topbar-section kmt-col-md-6 kmt-col-xs-12';
  		break;
 
  	case '1':
  	default:
- 			$section_class = 'kmt-topbar-section-equally kmt-col-xs-12';
+ 			$section_class = 'kmt-topbar-section kmt-col-xs-12';
  		break;
  }
  if ( empty( $section_1 ) && empty( $section_2 ) ) {

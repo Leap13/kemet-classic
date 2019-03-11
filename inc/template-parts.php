@@ -14,7 +14,7 @@ add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
 add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
 add_filter( 'kemet_main_header_bar_top' , 'kemet_top_header_template', 10, 2);
-add_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
+add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
 add_action( 'kemet_404_page', 'kemet_404_page_template' );
@@ -195,7 +195,7 @@ if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
 /**
  * Small Footer
  */
-if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
+if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 
 	/**
 	 * Small Footer
@@ -206,20 +206,20 @@ if ( ! function_exists( 'kemet_footer_small_footer_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function kemet_footer_small_footer_template() {
+	function kemet_footer_copyright_footer_template() {
 
-		$small_footer_layout = kemet_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
-		$small_footer_layout = apply_filters( 'kmt_footer_sml_layout', $small_footer_layout );
+		$copyright_footer_layout = kemet_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
+		$copyright_footer_layout = apply_filters( 'kmt_footer_sml_layout', $copyright_footer_layout );
 
-		if ( 'disabled' != $small_footer_layout ) {
+		if ( 'disabled' != $copyright_footer_layout ) {
 
-			$small_footer_layout = str_replace( 'footer-sml-layout-', '', $small_footer_layout );
+			$copyright_footer_layout = str_replace( 'footer-sml-layout-', '', $copyright_footer_layout );
 
 			// Default footer layout 1 is kmt-footer-layout.
-			if ( '1' == $small_footer_layout ) {
-				$small_footer_layout = '';
+			if ( '1' == $copyright_footer_layout ) {
+				$copyright_footer_layout = '';
 			}
-			get_template_part( 'templates/footer/footer-sml-layout', $small_footer_layout );
+			get_template_part( 'templates/footer/footer-sml-layout', $copyright_footer_layout );
 		}
 	}
 }

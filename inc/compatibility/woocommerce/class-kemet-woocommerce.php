@@ -500,7 +500,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				}
 
 				if ( 'disabled' === $footer_layout ) {
-					remove_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
+					remove_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
 				}
 			}
 		}

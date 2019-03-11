@@ -391,7 +391,7 @@ if ( ! function_exists( 'kemet_get_top_section' ) ) {
 /**
  * Function to get Small Left/Right Footer
  */
-if ( ! function_exists( 'kemet_get_small_footer' ) ) {
+if ( ! function_exists( 'kemet_get_copyright_footer' ) ) {
 
 	/**
 	 * Function to get Small Left/Right Footer
@@ -399,18 +399,18 @@ if ( ! function_exists( 'kemet_get_small_footer' ) ) {
 	 * @param string $section   Sections of Small Footer.
 	 * @return mixed            Markup of sections.
 	 */
-	function kemet_get_small_footer( $section = '' ) {
+	function kemet_get_copyright_footer( $section = '' ) {
 
-		$small_footer_type = kemet_get_option( $section );
+		$copyright_footer_type = kemet_get_option( $section );
 		$output            = null;
 
-		switch ( $small_footer_type ) {
+		switch ( $copyright_footer_type ) {
 			case 'menu':
-					$output = kemet_get_small_footer_menu();
+					$output = kemet_get_copyright_footer_menu();
 				break;
 
 			case 'custom':
-					$output = kemet_get_small_footer_custom_text( $section . '-credit' );
+					$output = kemet_get_copyright_footer_custom_text( $section . '-credit' );
 				break;
 
 			case 'widget':
@@ -425,7 +425,7 @@ if ( ! function_exists( 'kemet_get_small_footer' ) ) {
 /**
  * Function to get Small Footer Custom Text
  */
-if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
+if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
 
 	/**
 	 * Function to get Small Footer Custom Text
@@ -433,7 +433,7 @@ if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
 	 * @param string $option Custom text option name.
 	 * @return mixed         Markup of custom text option.
 	 */
-	function kemet_get_small_footer_custom_text( $option = '' ) {
+	function kemet_get_copyright_footer_custom_text( $option = '' ) {
 
 		$output = $option;
 
@@ -459,14 +459,14 @@ if ( ! function_exists( 'kemet_get_small_footer_custom_text' ) ) {
 /**
  * Function to get Footer Menu
  */
-if ( ! function_exists( 'kemet_get_small_footer_menu' ) ) {
+if ( ! function_exists( 'kemet_get_copyright_footer_menu' ) ) {
 
 	/**
 	 * Function to get Footer Menu
 	 *
 	 * @return html
 	 */
-	function kemet_get_small_footer_menu() {
+	function kemet_get_copyright_footer_menu() {
 
 		ob_start();
 

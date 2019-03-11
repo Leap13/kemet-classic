@@ -22,7 +22,6 @@ final class Kemet_Fonts {
 	/**
 	 * Get fonts to generate.
 	 *
-	 * @since 1.0.0
 	 * @var array $fonts
 	 */
 	static private $fonts = array();
@@ -30,7 +29,6 @@ final class Kemet_Fonts {
 	/**
 	 * Adds data to the $fonts array for a font to be rendered.
 	 *
-	 * @since 1.0.0
 	 * @param string $name The name key of the font to add.
 	 * @param array  $variants An array of weight variants.
 	 * @return void
@@ -80,8 +78,6 @@ final class Kemet_Fonts {
 	/**
 	 * Renders the <link> tag for all fonts in the $fonts array.
 	 *
-	 * @since 1.0.0 Added the filter 'kemet_render_fonts' to support custom fonts.
-	 * @since 1.0.0
 	 * @return void
 	 */
 	static public function render_fonts() {

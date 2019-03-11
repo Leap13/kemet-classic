@@ -9,8 +9,8 @@
  * @since       Kemet 1.0.0
  */
 
-$section_1 = kemet_get_small_footer( 'footer-sml-section-1' );
-$section_2 = kemet_get_small_footer( 'footer-sml-section-2' );
+$section_1 = kemet_get_copyright_footer( 'footer-sml-section-1' );
+$section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
 $sections  = 0;
 
 if ( '' != $section_1 ) {
