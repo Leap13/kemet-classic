@@ -469,16 +469,16 @@
 		/**
 		 * Footer Widgets
 		 */
-		'kemet-settings[footer-adv]' :
+		'kemet-settings[kemet-footer]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-adv-background-divider]',
-					'kemet-settings[footer-adv-wgt-title-color]',
-					'kemet-settings[footer-adv-text-color]',
-					'kemet-settings[footer-adv-link-color]',
-					'kemet-settings[footer-adv-link-h-color]',
-					'kemet-settings[footer-adv-bg-obj]',
+					'kemet-settings[kemet-footer-background-divider]',
+					'kemet-settings[kemet-footer-wgt-title-color]',
+					'kemet-settings[kemet-footer-text-color]',
+					'kemet-settings[kemet-footer-link-color]',
+					'kemet-settings[kemet-footer-link-h-color]',
+					'kemet-settings[kemet-footer-bg-obj]',
 				],
 				callback: function( footer_widget_area ) {
 

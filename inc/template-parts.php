@@ -236,9 +236,6 @@ if ( ! function_exists( 'kemet_top_header_template' ) ) {
 	 */
 	function kemet_top_header_template() {
 
-
-
-
 			get_template_part( 'templates/topbar/topbar-layout');
 		
 	}
@@ -335,8 +332,8 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 	 */
 	function kemet_advanced_footer_markup() {
 
-		$advanced_footer_layout = kemet_get_option( 'footer-adv' );
-		$advanced_footer_meta   = kemet_get_option_meta( 'footer-adv-display' );
+		$advanced_footer_layout = kemet_get_option( 'kemet-footer' );
+		$advanced_footer_meta   = kemet_get_option_meta( 'kemet-footer-display' );
 
 		if ( apply_filters( 'kemet_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
 			return;

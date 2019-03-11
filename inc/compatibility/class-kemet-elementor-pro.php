@@ -206,7 +206,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			}
 
 			// Override! Footer Widgets.
-			$footer_widgets = get_post_meta( $post_id, 'footer-adv-display', true );
+			$footer_widgets = get_post_meta( $post_id, 'kemet-footer-display', true );
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
 					'kemet_advanced_footer_disable', function() {

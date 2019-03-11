@@ -13,7 +13,7 @@
 	}	
 }
 
-.kmt-small-footer {
+.kmt-footer-copyright {
     line-height: 1.85714285714286;
 	position: relative;
 
@@ -45,7 +45,7 @@
 
 /* Auto width footer sections */
 @media (min-width: $col-md ) {
-	.kmt-small-footer {
+	.kmt-footer-copyright {
 
 		.nav-menu {
 			li {

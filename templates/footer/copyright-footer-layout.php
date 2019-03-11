@@ -14,7 +14,7 @@ $section_2 = kemet_get_copyright_footer( 'footer-sml-section-2' );
 
 ?>
 
-<div class="kmt-small-footer copyright-footer-layout-1">
+<div class="kmt-footer-copyright copyright-footer-layout-1">
 	<div class="kmt-footer-overlay">
 		<div class="kmt-container">
 			<div class="kmt-footer-copyright-wrap" >

@@ -70,6 +70,27 @@
 /**
  * Style begins
  */
+.woocommerce,
+.woocommerce-page {
+  /**
+	 * General layout
+	 */
+  /**
+	 * Products
+	 */
+  /**
+	 * Product Details
+	 */
+  /**
+	 * Cart
+	 */
+  /**
+	 * Checkout
+	 */
+  /**
+	 * Account
+	 */
+}
 
 .woocommerce table.shop_table_responsive thead,
 .woocommerce-page table.shop_table_responsive thead {

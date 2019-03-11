@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-link-color'                => '',
 					'footer-link-h-color'              => '',
 					// Footer Widgets.
-					'footer-adv-bg-obj'                => array(
+					'kemet-footer-bg-obj'                => array(
 						'background-color'      => '',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
@@ -119,10 +119,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-size'       => 'auto',
 						'background-attachment' => 'scroll',
 					),
-					'footer-adv-text-color'            => '',
-					'footer-adv-link-color'            => '',
-					'footer-adv-link-h-color'          => '',
-					'footer-adv-wgt-title-color'       => '',
+					'kemet-footer-text-color'            => '',
+					'kemet-footer-link-color'            => '',
+					'kemet-footer-link-h-color'          => '',
+					'kemet-footer-wgt-title-color'       => '',
 
 					// Kemet Buttons.
 					'button-color'                     => '',
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'archive-post-sidebar-layout'      => 'default',
 
 					// Sidebar.
-					'footer-adv'                       => 'disabled',
+					'kemet-footer'                       => 'disabled',
 				)
 			);
 		}

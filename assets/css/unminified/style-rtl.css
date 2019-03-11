@@ -1314,7 +1314,6 @@ html {
 *,
 *:before,
 *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
@@ -1644,11 +1643,13 @@ a:hover {
 
 .alignleft {
   display: inline;
+  float: right;
   margin-left: 1.5em;
 }
 
 .alignright {
   display: inline;
+  float: left;
   margin-right: 1.5em;
 }
 
@@ -3473,6 +3474,11 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
+.kmt-header-break-point {
+  /* Styling Nav */
+  /* Main Header */
+}
+
 .kmt-header-break-point.kmt-header-custom-item-outside .kmt-primary-menu-disabled .kmt-mobile-menu-buttons {
   display: none;
 }
@@ -3989,48 +3995,48 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   }
 }
 
-.kmt-small-footer {
+.kmt-footer-copyright {
   line-height: 1.85714285714286;
   position: relative;
   /* Footer Widget sections */
 }
 
-.kmt-small-footer .nav-menu a {
+.kmt-footer-copyright .nav-menu a {
   padding: 0 0.5em;
 }
 
-.kmt-small-footer .widget-title,
-.kmt-small-footer .no-widget-text {
+.kmt-footer-copyright .widget-title,
+.kmt-footer-copyright .no-widget-text {
   margin-bottom: 0;
 }
 
-.kmt-small-footer .widget {
+.kmt-footer-copyright .widget {
   margin-bottom: 1em;
 }
 
-.kmt-small-footer .widget ul {
+.kmt-footer-copyright .widget ul {
   position: static;
   border: 0;
   width: auto;
 }
 
-.kmt-small-footer .widget ul a {
+.kmt-footer-copyright .widget ul a {
   border: 0;
 }
 
-.kmt-small-footer .widget:last-child {
+.kmt-footer-copyright .widget:last-child {
   margin-bottom: 0;
 }
 
 /* Auto width footer sections */
 @media (min-width: 769px) {
-  .kmt-small-footer .nav-menu li {
+  .kmt-footer-copyright .nav-menu li {
     margin: 0;
   }
-  .kmt-small-footer .nav-menu li:first-child a {
+  .kmt-footer-copyright .nav-menu li:first-child a {
     padding-right: 0;
   }
-  .kmt-small-footer .nav-menu li:last-child a {
+  .kmt-footer-copyright .nav-menu li:last-child a {
     padding-left: 0;
   }
 }
@@ -4110,33 +4116,33 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 /**
  * Footer Widget Layouts
  */
-.footer-adv-overlay {
+.kemet-footer-overlay {
   background-color: #3a3a3a;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-.footer-adv p:last-child {
+.kemet-footer p:last-child {
   margin-bottom: 0;
 }
 
-.footer-adv .widget_calendar table {
+.kemet-footer .widget_calendar table {
   margin-bottom: 0;
 }
 
 @media all and (max-width: 768px) {
-  .footer-adv-widget-1 .widget:last-child {
+  .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;
   }
 }
 
-.footer-adv .kmt-no-widget-row .widget-title {
+.kemet-footer .kmt-no-widget-row .widget-title {
   text-transform: capitalize;
 }
 
 @media all and (max-width: 768px) {
-  .footer-adv-layout-4 .footer-adv-widget-2 .widget:last-child,
-  .footer-adv-layout-4 .footer-adv-widget-3 .widget:last-child {
+  .kemet-footer-layout-4 .kemet-footer-widget-2 .widget:last-child,
+  .kemet-footer-layout-4 .kemet-footer-widget-3 .widget:last-child {
     margin: 0 0 2.8em;
   }
 }
@@ -4439,6 +4445,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
+.blog-layout-1 {
+  /* 2 - Blog Thumbnail Styles */
+}
+
 .blog-layout-1 .post-thumb {
   padding-right: 0;
   padding-left: 0;
@@ -4559,6 +4569,18 @@ input[type="color"]::-webkit-color-swatch {
 /*--------------------------------------------------------------
 ## Single Blog Post Layouts
 --------------------------------------------------------------*/
+/*----------  Single Post Common Stylesheet  ----------*/
+/**
+ *	Common Stylesheet of Single Post
+ *
+ *	Content
+ *	1 - Single Post Navigation Styles
+ *	2 - Single Post Article Header
+*/
+.single {
+  /* 1 - Single Post Navigation Styles */
+  /*Page builder single post meta*/
+}
 
 .single .entry-header {
   margin-bottom: 2em;
@@ -5303,61 +5325,7 @@ input[type="color"]::-webkit-color-swatch {
   padding-left: 0;
 }
 
-/**
- * Kemet Theme compatibility with Visual Composer
- */
-.js_active .vc_row {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.js_active .kmt-plain-container.kmt-single-post .hentry,
-.js_active .kmt-plain-container.kmt-single-post #primary {
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.js_active .kmt-plain-container.kmt-single-post .entry-header {
-  margin-top: 4em;
-}
-
-.js_active .kmt-plain-container.kmt-single-post .entry-header.kmt-header-without-markup {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.js_active .kmt-plain-container.kmt-single-post .entry-header.kmt-no-title.kmt-no-meta {
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .js_active .kmt-plain-container.kmt-single-post .entry-header {
-    margin-top: 1.5em;
-  }
-}
-
-@media (max-width: 768px) {
-  .js_active .kmt-plain-container.kmt-single-post #secondary {
-    margin-top: 1.5em;
-  }
-}
-
-.js_active .kmt-plain-container.kmt-left-sidebar .vc_row[data-vc-full-width], .js_active .kmt-plain-container.kmt-right-sidebar .vc_row[data-vc-full-width],
-.js_active .kmt-page-builder-template.kmt-left-sidebar .vc_row[data-vc-full-width],
-.js_active .kmt-page-builder-template.kmt-right-sidebar .vc_row[data-vc-full-width] {
-  max-width: 100%;
-  right: 0 !important;
-}
-
-.js_active .kmt-left-sidebar .vc_row[data-vc-full-width],
-.js_active .kmt-right-sidebar .vc_row[data-vc-full-width] {
-  max-width: 100%;
-  right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
+/*----------  Page Builders  ----------*/
 /**
  * Kemet Theme compatibility with Elementor
  */
@@ -5433,6 +5401,96 @@ input[type="color"]::-webkit-color-swatch {
  *  .kmt-align-self-baseline
  *  .kmt-align-self-stretch
  */
+.kmt {
+  /*
+    # LAYOUT
+    ———————————————-
+    display: flex | inline-flex;
+    ———————————————-
+     */
+  /*
+    ————————————————————————–
+    # CONTAINER (for PARENT)
+    ————————————————————————–
+
+    # FLOW
+    ————————————————————————–
+    flex-flow: <‘flex-direction’> || <‘flex-wrap’>
+    ————————————————————————–
+
+    # DIRECTION
+    ————————————————————————–
+    flex-direction: row | row-reverse | column | column-reverse;
+    ————————————————————————–
+     */
+  /*
+    # WRAP
+    ————————————————————————–
+    flex-wrap: nowrap | wrap | wrap-reverse;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # JUSTIFY CONTENT
+    ————————————————————————–
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # ALIGN – ITEMS
+    ————————————————————————–
+    align-items: flex-start | flex-end | center | baseline | stretch;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # ALIGN – CONTENT
+    ————————————————————————–
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # ITEMS (for CHILDs)
+    ————————————————————————–
+
+    # FLEX
+    ————————————————————————–
+    flex: none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
+    ————————————————————————–
+    ————————————————————————–
+
+    # ORDER
+    ————————————————————————–
+    order: <integer>;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # GROW
+    ————————————————————————–
+    flex-grow: <number>; default 0
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # SHRINK
+    ————————————————————————–
+    flex-shrink: <number>; default 1
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+    # ALIGN SELF
+    ————————————————————————–
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+    ————————————————————————–
+     */
+  /*
+    ————————————————————————–
+     */
+}
 
 .kmt-flex {
   -js-display: flex;

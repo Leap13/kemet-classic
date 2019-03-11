@@ -156,7 +156,7 @@
 	 */
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-footer-adv',
+			$wp_customize, 'section-kemet-footer',
 			array(
 				'title'    => __( 'Footer Widgets', 'kemet' ),
 				'panel'    => 'panel-layout',
@@ -263,7 +263,7 @@
 	);
 
 	$wp_customize->add_section(
-		'section-footer-adv-color-bg', array(
+		'section-kemet-footer-color-bg', array(
 			'title'    => __( 'Footer Widgets', 'kemet' ),
 			'panel'    => 'panel-colors-background',
 			'priority' => 55,
