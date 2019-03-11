@@ -44,7 +44,7 @@ require_once KEMET_THEME_DIR . 'inc/template-tags.php';
 
 require_once KEMET_THEME_DIR . 'inc/widgets.php';
 require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
-require_once KEMET_THEME_DIR . 'inc/admin-functions.php';
+require_once KEMET_THEME_DIR . 'functions/admin/admin-functions.php';
 require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
 
 /**

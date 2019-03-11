@@ -4134,8 +4134,8 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 @media all and (max-width: 768px) {
-  .kemet-footer-layout-4 .kemet-footer-widget-2 .widget:last-child,
-  .kemet-footer-layout-4 .kemet-footer-widget-3 .widget:last-child {
+  .kemet-footer-4col .kemet-footer-widget-2 .widget:last-child,
+  .kemet-footer-4col .kemet-footer-widget-3 .widget:last-child {
     margin: 0 0 2.8em;
   }
 }

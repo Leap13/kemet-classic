@@ -1,19 +1,5 @@
 <?php
 /**
- * Kemet functions and definitions.
- * Text Domain: kemet
- * When using a child theme (see https://codex.wordpress.org/Theme_Development
- * and https://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
- * For more information on hooks, actions, and filters,
- * see https://codex.wordpress.org/Plugin_API
- *
- * Kemet is a very powerful theme and virtually anything can be customized
- * via a child theme.
  *
  * @package     Kemet
  * @author      Kemet
@@ -22,17 +8,12 @@
  * @since       Kemet 1.0.0
  */
 
-/**
- * Kemet_After_Setup_Theme initial setup
- *
- * @since 1.0.0
- */
-if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Kemet_Setup' ) ) {
 
 	/**
-	 * Kemet_After_Setup_Theme initial setup
+	 * Kemet_Setup initial setup
 	 */
-	class Kemet_After_Setup_Theme {
+	class Kemet_Setup {
 
 		/**
 		 * Instance
@@ -93,8 +74,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 			// Enable support for Post Thumbnails on posts and pages.
 			add_theme_support( 'post-thumbnails' );
 
-			// Switch default core markup for search form, comment form, and comments.
-			// to output valid HTML5.
 			add_theme_support(
 				'html5', array(
 					'search-form',
@@ -154,10 +133,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Adds a responsive embed wrapper around oEmbed content
 		 *
-		 * @param  string $html The oEmbed markup.
-		 * @param  string $url The URL being embedded.
-		 * @param  array  $attr An array of attributes.
-		 *
 		 * @return string       Updated embed markup.
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
@@ -182,7 +157,4 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 	}
 }
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Kemet_After_Setup_Theme::get_instance();
+Kemet_Setup::get_instance();

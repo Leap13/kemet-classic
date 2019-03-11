@@ -2,7 +2,6 @@
 /**
  * Footer Layout 4
  *
- * @package Kemet Addon
  * @since   Kemet 1.0.0
  */
 
@@ -24,7 +23,7 @@ if ( ! is_user_logged_in() ) {
 }
 
 $classes[] = 'kemet-footer';
-$classes[] = 'kemet-footer-layout-4';
+$classes[] = 'kemet-footer-4col';
 $classes   = implode( ' ', $classes );
 ?>
 
@@ -47,4 +46,4 @@ $classes   = implode( ' ', $classes );
 			</div><!-- .kmt-row -->
 		</div><!-- .kmt-container -->
 	</div><!-- .kemet-footer-overlay-->
-</div><!-- .kmt-theme-footer .kemet-footer-layout-4 -->
+</div><!-- .kmt-theme-footer .kemet-footer-4col -->
