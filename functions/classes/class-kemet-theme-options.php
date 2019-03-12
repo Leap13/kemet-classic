@@ -93,10 +93,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					// Kemet Colors.
-					'text-color'                       => '#3a3a3a',
-					'link-color'                       => '#0274be',
-					'theme-color'                      => '#0274be',
-					'link-h-color'                     => '#3a3a3a',
+					'text-color'                       => '#333333',
+					'link-color'                       => '#191919',
+					'theme-color'                      => '#191919',
+					'link-h-color'                     => '#333333',
 
 					// Footer Colors.
 					'footer-bg-obj'                    => array(

@@ -1770,11 +1770,11 @@ object {
 /*----------  Break-point max-width Structure   ----------*/
 ::-moz-selection {
   color: #fff;
-  background: #0274be;
+  background: #191919;
 }
 ::selection {
   color: #fff;
-  background: #0274be;
+  background: #191919;
 }
 
 html {
@@ -2065,16 +2065,16 @@ body .kmt-oembed-container * {
 body {
   margin: 20px;
   vertical-align: baseline;
-  color: #3a3a3a;
+  color: #333333;
 }
 
 a {
-  color: #0274be;
+  color: #191919;
 }
 
 a:hover,
 a:focus {
-  color: #3a3a3a;
+  color: #333333;
 }
 
 h1,
@@ -2115,7 +2115,7 @@ h5,
 h6,
 .entry-content h6,
 .entry-content h6 a {
-  color: #3a3a3a;
+  color: #333333;
 }
 
 /**

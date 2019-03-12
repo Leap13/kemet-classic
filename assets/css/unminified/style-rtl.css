@@ -1796,11 +1796,11 @@ object {
 /*----------  Site Normalize  ----------*/
 ::-moz-selection {
   color: #fff;
-  background: #0274be;
+  background: #191919;
 }
 ::selection {
   color: #fff;
-  background: #0274be;
+  background: #191919;
 }
 
 html {
@@ -3923,7 +3923,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 .widget_calendar thead a {
-  color: #0274be;
+  color: #191919;
   font-size: 1rem;
   vertical-align: middle;
 }
@@ -3953,7 +3953,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 .widget_calendar #today {
-  background: #0274be;
+  background: #191919;
 }
 
 .kmt-separate-container.kmt-two-container #secondary .widget {
@@ -3983,7 +3983,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
  *
  */
 .kmt-footer-copyright-content {
-  background-color: #3a3a3a;
+  background-color: #333333;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -4110,7 +4110,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
  * Footer Widget Layouts
  */
 .kemet-footer-overlay {
-  background-color: #3a3a3a;
+  background-color: #333333;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -4239,12 +4239,12 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
   -webkit-box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0274be;
+  border: 7.9px solid #191919;
   height: 20px;
   width: 20px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  background: #0274be;
+  background: #191919;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -5.7px;
@@ -4266,11 +4266,11 @@ input[type=range]::-moz-range-track {
 
 input[type=range]::-moz-range-thumb {
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0274be;
+  border: 7.9px solid #191919;
   height: 20px;
   width: 20px;
   border-radius: 50px;
-  background: #0274be;
+  background: #191919;
   cursor: pointer;
 }
 
@@ -4299,11 +4299,11 @@ input[type=range]::-ms-fill-upper {
 
 input[type=range]::-ms-thumb {
   box-shadow: 0px 0px 0px rgba(255, 221, 0, 0.37), 0px 0px 0px rgba(255, 224, 26, 0.37);
-  border: 7.9px solid #0274be;
+  border: 7.9px solid #191919;
   height: 20px;
   width: 20px;
   border-radius: 50px;
-  background: #0274be;
+  background: #191919;
   cursor: pointer;
   height: 8.6px;
 }
