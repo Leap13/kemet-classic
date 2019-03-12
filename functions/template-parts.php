@@ -35,7 +35,6 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 	 * @see kemet_masthead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_masthead_get_menu_items( $display_outside_markup = false ) {
 
@@ -85,7 +84,6 @@ if ( ! function_exists( 'kemet_masthead_custom_page_menu_items' ) ) :
 	 *
 	 * /header.php
 	 *
-	 * @since 1.0.0
 	 * @param  array $args Array of arguments.
 	 * @return array       Modified menu item array.
 	 */
@@ -120,7 +118,6 @@ if ( ! function_exists( 'kemet_masthead_custom_nav_menu_items' ) ) :
 	 *
 	 * /header.php
 	 *
-	 * @since 1.0.0
 	 * @param  array $items Nav menu item array.
 	 * @param  array $args  Nav menu item arguments array.
 	 * @return array       Modified menu item array.
@@ -156,7 +153,6 @@ if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
 	 *
 	 * /header.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_masthead_toggle_buttons_primary() {
 
@@ -204,7 +200,6 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 	 *
 	 * /footer.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_footer_copyright_footer_template() {
 
@@ -253,7 +248,6 @@ if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
 	 *
 	 * /header.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_masthead_primary_template() {
 		get_template_part( 'templates/header/header-main-layout' );
@@ -272,7 +266,6 @@ if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 	 *
 	 * /templates/content-single.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_entry_content_single_template() {
 		get_template_part( 'templates/single/single-layout' );
@@ -292,7 +285,6 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 * /templates/content-blog.php
 	 * /templates/content-search.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_entry_content_blog_template() {
 		get_template_part( 'templates/blog/blog-layout' );
@@ -311,7 +303,6 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 *
 	 * /templates/content-404.php
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_404_page_template() {
 		get_template_part( 'templates/404/404-layout');
@@ -328,7 +319,6 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_advanced_footer_markup() {
 
@@ -355,7 +345,6 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since 1.0.0
 	 */
 	function kemet_header_custom_item_outside_menu() {
 

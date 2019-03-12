@@ -13,8 +13,6 @@ if ( ! function_exists( 'kemet_register_menu_locations' ) ) {
 
 	/**
 	 * Register menus
-	 *
-	 * @since 1.0.0
 	 */
 	function kemet_register_menu_locations() {
 
