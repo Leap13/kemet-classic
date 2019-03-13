@@ -31,7 +31,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 
 				case 'author':
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-					$output_str .= esc_html( kemet_default_strings( 'string-blog-meta-author-by', false ) ) . kemet_post_author();
+					$output_str .= kemet_post_author();
 					break;
 
 				case 'date':

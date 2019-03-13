@@ -59,19 +59,18 @@ if ( ! function_exists( 'kemet_default_strings' ) ) {
 
 				// Blog Default Strings.
 				'string-blog-page-links-before'          => __( 'Pages:', 'kemet' ),
-				'string-blog-meta-author-by'             => __( 'By ', 'kemet' ),
 				'string-blog-meta-leave-a-comment'       => __( 'Leave a Comment', 'kemet' ),
 				'string-blog-meta-one-comment'           => __( '1 Comment', 'kemet' ),
 				'string-blog-meta-multiple-comment'      => __( '% Comments', 'kemet' ),
-				'string-blog-navigation-next'            => __( 'Next Page', 'kemet' ) . ' <span class="kmt-right-arrow">&rarr;</span>',
-				'string-blog-navigation-previous'        => '<span class="kmt-left-arrow">&larr;</span> ' . __( 'Previous Page', 'kemet' ),
+				'string-blog-navigation-next'            => __( 'Next Page >', 'kemet' ),
+				'string-blog-navigation-previous'        =>  __( '< Previous Page', 'kemet' ),
 
 				// Single Post Default Strings.
 				'string-single-page-links-before'        => __( 'Pages:', 'kemet' ),
 				/* translators: 1: Post type label */
-				'string-single-navigation-next'          => __( 'Next %s', 'kemet' ) . ' <span class="kmt-right-arrow">&rarr;</span>',
+				'string-single-navigation-next'          => __( 'Next %s >', 'kemet' ),
 				/* translators: 1: Post type label */
-				'string-single-navigation-previous'      => '<span class="kmt-left-arrow">&larr;</span> ' . __( 'Previous %s', 'kemet' ),
+				'string-single-navigation-previous'      => __( '< Previous %s', 'kemet' ),
 
 				// Content None.
 				'string-content-nothing-found-message'   => __( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'kemet' ),
@@ -80,13 +79,13 @@ if ( ! function_exists( 'kemet_default_strings' ) ) {
 		);
 
 		if ( is_rtl() ) {
-			$defaults['string-blog-navigation-next']     = __( 'Next Page', 'kemet' ) . ' <span class="kmt-left-arrow">&larr;</span>';
-			$defaults['string-blog-navigation-previous'] = '<span class="kmt-right-arrow">&rarr;</span> ' . __( 'Previous Page', 'kemet' );
+			$defaults['string-blog-navigation-next']     = __( 'Next Page >', 'kemet' );
+			$defaults['string-blog-navigation-previous'] = __( '< Previous Page', 'kemet' );
 
 			/* translators: 1: Post type label */
-			$defaults['string-single-navigation-next'] = __( 'Next %s', 'kemet' ) . ' <span class="kmt-left-arrow">&larr;</span>';
+			$defaults['string-single-navigation-next'] = __( 'Next %s >', 'kemet' );
 			/* translators: 1: Post type label */
-			$defaults['string-single-navigation-previous'] = '<span class="kmt-right-arrow">&rarr;</span> ' . __( 'Previous %s', 'kemet' );
+			$defaults['string-single-navigation-previous'] = __( '< Previous %s', 'kemet' );
 		}
 
 		$output = isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';

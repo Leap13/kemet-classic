@@ -732,16 +732,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => esc_attr( $link_color ),
 				),
 
-				'.kmt-cart-menu-wrap .count, .kmt-cart-menu-wrap .count:after' => array(
-					'border-color' => esc_attr( $link_color ),
-					'color'        => esc_attr( $link_color ),
-				),
-
-				'.kmt-cart-menu-wrap:hover .count'        => array(
-					'color'            => esc_attr( $cart_h_color ),
-					'background-color' => esc_attr( $link_color ),
-				),
-
 				'.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
 					'color' => esc_attr( $link_color ),
 				),

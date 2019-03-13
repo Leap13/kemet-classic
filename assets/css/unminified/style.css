@@ -2463,10 +2463,10 @@ body {
 }
 
 .kemet-search-icon::before {
-  content: "\e8b6";
-  font-family: 'Kemet';
+  content: "\e904";
+  font-family: 'Kemet-font';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 600;
   text-decoration: inherit;
   text-align: center;
   -webkit-font-smoothing: antialiased;
@@ -2711,13 +2711,14 @@ body {
 }
 
 .kmt-button-wrap .menu-toggle .menu-toggle-icon:before {
-  content: "\e5d2";
-  font-family: 'Kemet';
+  content: "\e901";
+  font-family: 'Kemet-font';
   text-decoration: inherit;
+  font-weight: 600;
 }
 
 .kmt-button-wrap .menu-toggle.toggled .menu-toggle-icon:before {
-  content: "\e5cd";
+  content: "\e90b";
 }
 
 .kmt-button-wrap .menu-toggle .mobile-menu-wrap {
@@ -2729,14 +2730,6 @@ body {
 }
 
 .main-header-bar-navigation {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.kmt-main-header-bar-alignment {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -moz-box-flex: 1;
@@ -2840,6 +2833,10 @@ body {
 .header-main-layout-1 .main-header-bar-navigation .sub-menu,
 .header-main-layout-1 .main-header-bar-navigation .children {
   text-align: left;
+}
+
+.header-main-layout-1 .kmt-main-header-bar-alignment {
+  margin-left: auto;
 }
 
 .header-main-layout-1 .main-navigation {
@@ -2947,6 +2944,10 @@ body {
   -moz-box-direction: reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.header-main-layout-3 .kmt-main-header-bar-alignment {
+  margin-right: auto;
 }
 
 .header-main-layout-3 .main-navigation {
@@ -3342,9 +3343,8 @@ body {
 .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after {
   content: "\e900";
   display: inline-block;
-  font-family: 'Kemet';
-  font-size: 9px;
-  font-size: .6rem;
+  font-family: 'Kemet-font';
+  font-size: 1rem;
   font-weight: bold;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -3565,7 +3565,7 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle::before {
   font-weight: bold;
   content: "\e900";
-  font-family: 'Kemet';
+  font-family: 'Kemet-font';
   text-decoration: inherit;
   display: inline-block;
 }
@@ -3812,10 +3812,10 @@ li.kmt-masthead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 .widget_search .search-form:after {
-  font-family: "Kemet";
+  font-family: "Kemet-font";
   font-size: 1.2em;
-  font-weight: normal;
-  content: "\e8b6";
+  font-weight: 600;
+  content: "\e904";
   position: absolute;
   top: 50%;
   right: 15px;
@@ -4346,6 +4346,40 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.5em;
 }
 
+.entry-meta span:before:first {
+  margin-left: 0px;
+}
+
+.entry-meta .comments-link:before {
+  content: "\e909";
+  font-family: Kemet-font;
+  margin: 0px 5px;
+}
+
+.entry-meta .cat-links:before {
+  content: "\e908";
+  font-family: Kemet-font;
+  margin: 0px 5px;
+}
+
+.entry-meta .posted-by:before {
+  content: "\e906";
+  font-family: Kemet-font;
+  margin: 0px 5px;
+}
+
+.entry-meta .posted-on:before {
+  content: "\e907";
+  font-family: Kemet-font;
+  margin: 0px 5px;
+}
+
+.entry-meta .tags-links:before {
+  content: "\e90a";
+  font-family: Kemet-font;
+  margin: 0px 5px;
+}
+
 .search .entry-header {
   margin-bottom: 1em;
 }
@@ -4373,10 +4407,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .read-more {
   margin-bottom: 0;
-}
-
-.read-more .kmt-right-arrow {
-  font-size: 1em;
 }
 
 .kmt-no-thumb .kmt-blog-featured-section {
@@ -4618,10 +4648,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 @media (max-width: 420px) {
-  .single .post-navigation .kmt-left-arrow,
-  .single .post-navigation .kmt-right-arrow {
-    display: none;
-  }
   .single .post-navigation .nav-previous,
   .single .post-navigation .nav-next {
     width: 100%;
@@ -4682,8 +4708,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-separate-container .post-navigation {
   border-top: 0;
-  padding-left: 3.33333em;
-  padding-right: 3.33333em;
 }
 
 @media (max-width: 420px) {
@@ -4985,6 +5009,18 @@ input[type="color"]::-webkit-color-swatch {
   border-bottom: 0;
 }
 
+.kmt-separate-container .kmt-comment-list .comment-edit-link:before {
+  content: "\e903";
+  font-family: 'Kemet-font';
+  margin: 0px 5px;
+}
+
+.kmt-separate-container .kmt-comment-list .comment-reply-link:after {
+  content: "\e909";
+  font-family: 'Kemet-font';
+  margin: 0px 5px;
+}
+
 .kmt-separate-container .kmt-comment-list .comment-respond {
   padding-top: 0;
   padding-bottom: 1em;
@@ -5203,12 +5239,6 @@ input[type="color"]::-webkit-color-swatch {
     display: inline-block;
     width: 100%;
   }
-}
-
-.kmt-pagination .prev_next .next .kmt-right-arrow,
-.kmt-pagination .prev_next .prev .kmt-left-arrow {
-  font-size: 1em;
-  line-height: 1em;
 }
 
 @media (max-width: 768px) {
@@ -5955,9 +5985,9 @@ input[type="color"]::-webkit-color-swatch {
 .top-navigation .nav-menu .menu-item-has-children > a::after {
   content: "\e900";
   display: inline-block;
-  font-family: Kemet;
+  font-family: Kemet-font;
   font-size: 9px;
-  font-size: .6rem;
+  font-size: 1rem;
   font-weight: 700;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -5970,9 +6000,9 @@ input[type="color"]::-webkit-color-swatch {
 .top-navigation .nav-menu .sub-menu .menu-item-has-children > a::after {
   content: "\e900";
   display: inline-block;
-  font-family: Kemet;
+  font-family: Kemet-font;
   font-size: 9px;
-  font-size: .6rem;
+  font-size: 1rem;
   font-weight: 700;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;

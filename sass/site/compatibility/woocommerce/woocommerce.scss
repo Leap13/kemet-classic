@@ -259,35 +259,17 @@ p.demo_store,
 	display: inline-block;
 	line-height: 1;
 	.count {
-		font-weight: bold;
-		position: relative;
-		display: inline-block;
-		vertical-align: middle;
-		text-align: center;
-		width: 2.1em;
-		height: 2.1em;
-		font-size: 0.860em;
-		line-height: 1.8;
-		border-radius: 0em 0em 0.3em 0.3em;
-		border-width: 2px;
-		border-style: solid;
-
-		&:after{
-			bottom: 100%;
-		    margin-bottom: 0;
-		    height: .8em;
-		    width: .8em;
-		    left: 50%;
-		    transform: translateX(-50%);
-		    top: -.6em;
-		    content: ' ';
-		    position: absolute;
-		    pointer-events: none;
-		    border-width: 2px;
-		    border-style: solid;
-		    border-top-left-radius: 10em;
-		    border-top-right-radius: 10em;
-		    border-bottom: 0;
+		font-size: 1.3em;
+		
+		&:before{
+			content: "\e902";
+			display: inline-block;
+			font-family: 'Kemet-font';
+			font-size: 1.6rem;
+			font-weight: 500;
+			text-rendering: auto;
+			margin-bottom: 8px;
+			vertical-align: middle;
 		}
 	}
 }
@@ -3765,7 +3747,7 @@ button.pswp__button--zoom:hover {
 					content: "\e900";
 				    padding: 0 5px 0 5px;
 				    display: inline-block;
-				    font-family: Kemet;
+				    font-family: Kemet-font;
 				    transform: rotate(-90deg);
 				    font-size: 11px;
 				    font-size: 0.7rem;

@@ -191,7 +191,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-post-content-layout'       => 'default',
 					'archive-post-content-layout'      => 'default',
 					// Typography.
-					'body-font-family'                 => 'inherit',
+					'body-font-family'                 => 'Lato',
 					'body-font-weight'                 => 'inherit',
 					'font-size-body'                   => array(
 						'desktop'      => 14,

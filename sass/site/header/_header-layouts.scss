@@ -26,6 +26,9 @@
 			text-align: left;
 		}
 	}
+	.kmt-main-header-bar-alignment {
+		margin-left: auto;
+	}
 	.main-navigation {
 		padding-left: 15px;
 		vertical-align: top;
@@ -112,6 +115,9 @@
 .header-main-layout-3 {
 	.main-header-container	{
 		  flex-direction: row-reverse;
+	}
+	.kmt-main-header-bar-alignment {
+		margin-right: auto;
 	}
 	.main-navigation {
 		padding-right: 15px;
