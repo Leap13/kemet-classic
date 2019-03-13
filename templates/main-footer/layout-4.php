@@ -6,7 +6,7 @@
  */
 
 /**
- * Hide main footer markup if:
+ * 
  *
  * - User is not logged in. [AND]
  * - All widgets are not active.
