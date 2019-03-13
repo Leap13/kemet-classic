@@ -6085,4 +6085,17 @@ input[type="color"]::-webkit-color-swatch {
   right: 50px;
   text-align: center;
   z-index: 99999;
+  opacity: 0;
+  cursor: pointer;
+  padding: 0;
+  margin:0;
+  transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+}
+
+.kmt-go-top-link.is-opacity {
+	opacity: 1;
 }
