@@ -31,7 +31,7 @@
 
 	a {
 		text-decoration: none;
-		padding: 0 1em;
+		padding: 1em;
 		display: inline-block;
 		@include kmt-transition();
 	}
@@ -110,8 +110,6 @@
 
 .submenu-with-border {
 	ul {
-		border-top: 1px solid $color-border-submenu;
-
 		a {
 			border: 1px solid $color-border-submenu;
 			border-top: 0;

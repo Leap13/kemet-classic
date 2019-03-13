@@ -329,22 +329,22 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-1' );
+			get_template_part( 'templates/main-footer/layout-1' );
 		}
 		else if ( 'layout-2' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-2' );
+			get_template_part( 'templates/main-footer/layout-2' );
 		}
 		else if ( 'layout-3' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-3' );
+			get_template_part( 'templates/main-footer/layout-3' );
 		}
 		else if ( 'layout-4' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-4' );
+			get_template_part( 'templates/main-footer/layout-4' );
 		}
 		else if ( 'layout-5' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-5' );
+			get_template_part( 'templates/main-footer/layout-5' );
 		}
 		else if ( 'layout-6' == $main_footer_layout ) {
-			get_template_part( 'template-parts/main-footer/layout-6' );
+			get_template_part( 'templates/main-footer/layout-6' );
 		}
 
 	}
