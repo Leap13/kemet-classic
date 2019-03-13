@@ -31,7 +31,7 @@ if ( ! class_exists( 'Kemet_Fonts_Data' ) ) :
 
 			$system = json_encode( Kemet_Font_Families::get_system_fonts() );
 			$google = json_encode( Kemet_Font_Families::get_google_fonts() );
-			//$custom = json_encode( Kemet_Font_Families::get_custom_fonts() );
+			$custom = json_encode( Kemet_Font_Families::get_custom_fonts() );
 			if ( ! empty( $custom ) ) {
 				return 'var KmtFontFamilies = { system: ' . $system . ', custom: ' . $custom . ', google: ' . $google . ' };';
 			} else {

@@ -395,7 +395,7 @@ module.exports = function (grunt) {
         var request = require('request');
         var fs = require('fs');
 
-        request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+        request('https://www.googleapis.com/webfonts/v1/AIzaSyDzjH9arBe4Tjwq4JR2ehqX-MKE10MePkk', function (error, response, body) {
 
             if (response && response.statusCode == 200) {
 
