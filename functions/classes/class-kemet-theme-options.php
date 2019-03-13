@@ -175,7 +175,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 					// Site Layout.
-					'site-layout'                      => 'kmt-full-width-layout',
 					'site-content-width'               => 1140,
 					'site-layout-outside-bg-obj'       => array(
 						'background-color'      => '',
@@ -186,7 +185,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-attachment' => 'scroll',
 					),
 					// Container.
-					'site-content-layout'              => 'content-boxed-container',
+					'site-content-layout'              => 'plain-container',
 					'single-page-content-layout'       => 'default',
 					'single-post-content-layout'       => 'default',
 					'archive-post-content-layout'      => 'default',

@@ -55,10 +55,10 @@ $wp_customize->add_setting(
 			'priority' => 50,
 			'label'    => __( 'Default Container', 'kemet' ),
 			'choices'  => array(
-				'boxed-container'         => __( 'Boxed', 'kemet' ),
-				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
+				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
+				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
 	);
@@ -81,10 +81,10 @@ $wp_customize->add_setting(
 			'priority' => 55,
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
-				'boxed-container'         => __( 'Boxed', 'kemet' ),
-				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
+				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
+				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
 	);
@@ -107,10 +107,10 @@ $wp_customize->add_setting(
 			'label'    => __( 'Container for Blog Posts', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
-				'boxed-container'         => __( 'Boxed', 'kemet' ),
-				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
+				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
+				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
 	);
@@ -133,10 +133,10 @@ $wp_customize->add_setting(
 			'label'    => __( 'Container for Blog Archives', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
-				'boxed-container'         => __( 'Boxed', 'kemet' ),
-				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
+				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
+				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
 	);
