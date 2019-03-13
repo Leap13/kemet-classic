@@ -73,7 +73,7 @@
 			apply_filters(
 				'kemet_customizer_primary_header_layout',
 				array(
-					'title'    => __( 'Primary Header', 'kemet' ),
+					'title'    => __( 'Header', 'kemet' ),
 					'panel'    => 'panel-layout',
 					'priority' => 20,
 				)

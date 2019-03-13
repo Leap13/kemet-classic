@@ -4,6 +4,15 @@
   margin: 0 5px 5px 0;
 }
 
+.customize-control-kmt-radio-image .image label {
+  width: 47%;
+  margin: 3px;
+}
+
+.customize-control-kmt-radio-image .image label img {
+  width: 100%;
+}
+
 .customize-control-kmt-radio-image input {
   display: none;
 }

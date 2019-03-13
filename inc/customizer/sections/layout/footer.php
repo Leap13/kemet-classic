@@ -33,15 +33,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'choices'  => array(
 					'disabled'            => array(
 						'label' => __( 'Disabled', 'kemet' ),
-						'path'  => KEMET_THEME_URI . 'assets/images/disabled-footer-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/disable-copyright-area.png',
 					),
 					'copyright-footer-layout-1' => array(
 						'label' => __( 'Footer Bar Layout 1', 'kemet' ),
-						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-1-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/copyright-area-layout-1.png',
 					),
 					'copyright-footer-layout-2' => array(
 						'label' => __( 'Footer Bar Layout 2', 'kemet' ),
-						'path'  => KEMET_THEME_URI . 'assets/images/footer-layout-2-76x48.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/copyright-area-layout-2.png',
 					),
 				),
 			)

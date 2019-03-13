@@ -34,11 +34,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'choices' => array(
 					'disabled' => array(
 						'label' => __( 'Disable', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/no-adv-footer-115x48.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/disable-footer.png',
 					),
-					'layout-4' => array(
+					'layout-1' => array(
+						'label' => __( 'Layout 1', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/footer-layout-1.png',
+                    ),
+                    'layout-2' => array(
+						'label' => __( 'Layout 2', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/footer-layout-2.png',
+                    ),
+                    'layout-3' => array(
+						'label' => __( 'Layout 3', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/footer-layout-3.png',
+                    ),
+                    'layout-4' => array(
 						'label' => __( 'Layout 4', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/layout-4-115x48.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/footer-layout-4.png',
+                    ),
+                    'layout-5' => array(
+						'label' => __( 'Layout 5', 'kemet' ),
+						'path'  => KEMET_THEME_URI . '/assets/images/footer-layout-5.png',
 					),
 				),
 			)

@@ -37,24 +37,24 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[header-layouts]', array(
 				'section'  => 'section-header',
 				'priority' => 5,
-				'label'    => __( 'Header', 'kemet' ),
+				'label'    => __( 'Header Layout', 'kemet' ),
 				'type'     => 'kmt-radio-image',
 				'choices'  => array(
 					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-left.png',
 					),
 					'header-main-layout-2' => array(
 						'label' => __( 'Logo Center', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-center.png',
 					),
 					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-right.png',
 					),     
                'header-main-layout-4' => array(
 						'label' => __( 'Right Left Menu', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/right-left-menu.png',
 					),
 				),
 			)
