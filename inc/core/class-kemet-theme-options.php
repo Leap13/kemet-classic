@@ -311,6 +311,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Go Top Link
 					'enable-go-top'   => 1,
+					'go-top-responsive'   => "all-devices",
 				)
 			);
 		}

@@ -198,4 +198,30 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'active_callback' => 'kmt_dep_go_top'
 			)
 		)
-	);
+    );
+    
+    /**
+     * Option:Go Top Responsive
+     */
+    $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[go-top-responsive]',array(
+            'default'           => kemet_get_option('go-top-responsive'),
+            'type'              => 'option',
+            'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices')
+        )
+    );
+    $wp_customize->add_control(
+        KEMET_THEME_SETTINGS . '[go-top-responsive]' ,array(
+            'priority'   => 9,
+            'section'    => 'section-go-top',
+            'type'     => 'select',
+            'active_callback' => 'kmt_dep_go_top',
+            'label'    => __( 'Go Top Link Visibility', 'kemet' ),
+            'choices'  => array(
+                'all-devices'        => __( 'Show On All Devices', 'kemet' ),
+                'hide-tablet'        => __( 'Hide On Tablet', 'kemet' ),
+                'hide-mobile'        => __( 'Hide On Mobile', 'kemet' ),
+                'hide-tablet-mobile' => __( 'Hide On Tablet & Mobile', 'kemet' ),
+            ),
+        )
+    );

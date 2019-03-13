@@ -771,15 +771,15 @@ if ( ! function_exists( 'kemet_go_top_markup' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	
+
 	function kemet_go_top_markup() {
 		if(kemet_get_option( 'enable-go-top' ) == true){
 			?>
-			<div class="kmt-go-top-container">
-				<button class="kmt-go-top-link" id="kmt-go-top">
-					<span>&#8593;</span>
-				</button>
-			</div> 
+				<div class = 'kmt-go-top-container <?php echo kemet_get_option( 'go-top-responsive' ) ?>'>
+					<button class="kmt-go-top-link" id="kmt-go-top">
+						<span>&#8593;</span>
+					</button>
+				</div> 
 			<?php
 		}
 	}
