@@ -18,7 +18,7 @@ add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
 add_action( 'kemet_404_page', 'kemet_404_page_template' );
-add_action( 'kemet_footer_content', 'kemet_advanced_footer_markup', 1 );
+add_action( 'kemet_footer_content', 'kemet_main_footer_markup', 1 );
 add_action( 'kemet_masthead_content', 'kemet_header_custom_item_outside_menu', 10 );
 
 /**
@@ -312,7 +312,7 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 /**
  * Footer widgets markup
  */
-if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
+if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -320,31 +320,31 @@ if ( ! function_exists( 'kemet_advanced_footer_markup' ) ) {
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
 	 */
-	function kemet_advanced_footer_markup() {
+	function kemet_main_footer_markup() {
 
-		$advanced_footer_layout = kemet_get_option( 'kemet-footer' );
-		$advanced_footer_meta   = kemet_get_option_meta( 'kemet-footer-display' );
+		$main_footer_layout = kemet_get_option( 'kemet-footer' );
+		$main_footer_meta   = kemet_get_option_meta( 'kemet-footer-display' );
 
-		if ( apply_filters( 'kemet_advanced_footer_disable', false )  || 'disabled' == $advanced_footer_meta ) {
+		if ( apply_filters( 'kemet_main_footer_disable', false )  || 'disabled' == $main_footer_meta ) {
 			return;
 		} // Add markup.
-		else if ( 'layout-1' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-1' );
+		else if ( 'layout-1' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-1' );
 		}
-		else if ( 'layout-2' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-2' );
+		else if ( 'layout-2' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-2' );
 		}
-		else if ( 'layout-3' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-3' );
+		else if ( 'layout-3' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-3' );
 		}
-		else if ( 'layout-4' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-4' );
+		else if ( 'layout-4' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-4' );
 		}
-		else if ( 'layout-5' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-5' );
+		else if ( 'layout-5' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-5' );
 		}
-		else if ( 'layout-6' == $advanced_footer_layout ) {
-			get_template_part( 'template-parts/advanced-footer/layout-6' );
+		else if ( 'layout-6' == $main_footer_layout ) {
+			get_template_part( 'template-parts/main-footer/layout-6' );
 		}
 
 	}

@@ -434,7 +434,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $footer_link_h_color ),
 				),
 
-				// Advanced Fotter styling/colors/fonts.
+				// main Fotter styling/colors/fonts.
 				'.kemet-footer .widget-title,.kemet-footer .widget-title a' => array(
 					'color' => esc_attr( $footer_adv_widget_title_color ),
 				),

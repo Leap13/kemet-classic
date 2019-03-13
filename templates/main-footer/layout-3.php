@@ -7,16 +7,16 @@
  */
 
 /**
- * Hide advanced footer markup if:
+ * Hide main footer markup if:
  *
  * - User is not logged in. [AND]
  * - All widgets are not active.
  */
 if ( ! is_user_logged_in() ) {
 	if (
-		! is_active_sidebar( 'advanced-footer-widget-1' ) &&
-		! is_active_sidebar( 'advanced-footer-widget-2' ) &&
-		! is_active_sidebar( 'advanced-footer-widget-3' )
+		! is_active_sidebar( 'main-footer-widget-1' ) &&
+		! is_active_sidebar( 'main-footer-widget-2' ) &&
+		! is_active_sidebar( 'main-footer-widget-3' )
 	) {
 		return;
 	}
@@ -32,13 +32,13 @@ $classes   = implode( ' ', $classes );
 		<div class="kmt-container">
 			<div class="kmt-row">
 				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 footer-adv-widget footer-adv-widget-1">
-					<?php kemet_get_footer_widget( 'advanced-footer-widget-1' ); ?>
+					<?php kemet_get_footer_widget( 'main-footer-widget-1' ); ?>
 				</div>
 				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 footer-adv-widget footer-adv-widget-2">
-					<?php kemet_get_footer_widget( 'advanced-footer-widget-2' ); ?>
+					<?php kemet_get_footer_widget( 'main-footer-widget-2' ); ?>
 				</div>
 				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 footer-adv-widget footer-adv-widget-3">
-					<?php kemet_get_footer_widget( 'advanced-footer-widget-3' ); ?>
+					<?php kemet_get_footer_widget( 'main-footer-widget-3' ); ?>
 				</div>
 			</div><!-- .kmt-row -->
 		</div><!-- .kmt-container -->

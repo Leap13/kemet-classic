@@ -285,11 +285,11 @@
 		'kemet-settings[blog-single-meta]' :
 		[
 			{
-				controls: [
-					'kemet-settings[blog-single-meta-comments]',
-					'kemet-settings[blog-single-meta-cat]',
+				controls: [	
 					'kemet-settings[blog-single-meta-author]',
+					'kemet-settings[blog-single-meta-cat]',
 					'kemet-settings[blog-single-meta-date]',
+					'kemet-settings[blog-single-meta-comments]',
 					'kemet-settings[blog-single-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {

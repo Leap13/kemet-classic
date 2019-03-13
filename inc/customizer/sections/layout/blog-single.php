@@ -56,10 +56,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 5,
 				'label'    => __( 'Single Post Meta', 'kemet' ),
 				'choices'  => array(
-					'comments' => __( 'Comments', 'kemet' ),
-					'category' => __( 'Category', 'kemet' ),
 					'author'   => __( 'Author', 'kemet' ),
+					'category' => __( 'Category', 'kemet' ),
 					'date'     => __( 'Publish Date', 'kemet' ),
+					'comments' => __( 'Comments', 'kemet' ),
 					'tag'      => __( 'Tag', 'kemet' ),
 				),
 			)

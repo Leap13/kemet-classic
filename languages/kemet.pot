@@ -330,7 +330,7 @@ msgid "Product Image Hover Style"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:90
-#: inc/customizer/sections/layout/advanced-footer.php:189
+#: inc/customizer/sections/layout/main-footer.php:189
 #: inc/customizer/sections/layout/content.php:170
 #: inc/customizer/sections/layout/content.php:341
 #: inc/customizer/sections/layout/footer.php:86
@@ -593,7 +593,7 @@ msgstr ""
 #: inc/customizer/custom-controls/background/class-kemet-control-background.php:166
 #: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:63
 #: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:100
-#: inc/customizer/sections/layout/advanced-footer.php:188
+#: inc/customizer/sections/layout/main-footer.php:188
 #: inc/customizer/sections/layout/content.php:340
 msgid "Inherit"
 msgstr ""
@@ -738,27 +738,27 @@ msgid "Widget Areas"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:30
-#: inc/customizer/sections/layout/advanced-footer.php:386
+#: inc/customizer/sections/layout/main-footer.php:386
 msgid "Button Text Color"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:49
-#: inc/customizer/sections/layout/advanced-footer.php:407
+#: inc/customizer/sections/layout/main-footer.php:407
 msgid "Button Text Hover Color"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:68
-#: inc/customizer/sections/layout/advanced-footer.php:427
+#: inc/customizer/sections/layout/main-footer.php:427
 msgid "Button Background Color"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:87
-#: inc/customizer/sections/layout/advanced-footer.php:447
+#: inc/customizer/sections/layout/main-footer.php:447
 msgid "Button Background Hover Color"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons.php:106
-#: inc/customizer/sections/layout/advanced-footer.php:467
+#: inc/customizer/sections/layout/main-footer.php:467
 msgid "Button Radius"
 msgstr ""
 
@@ -775,14 +775,14 @@ msgid "Theme Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:50
-#: inc/customizer/sections/layout/advanced-footer.php:290
+#: inc/customizer/sections/layout/main-footer.php:290
 #: inc/customizer/sections/layout/footer.php:324
 #: inc/customizer/sections/layout/sidebar.php:231
 msgid "Link Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:70
-#: inc/customizer/sections/layout/advanced-footer.php:92
+#: inc/customizer/sections/layout/main-footer.php:92
 #: inc/customizer/sections/layout/content.php:42
 #: inc/customizer/sections/layout/footer.php:276
 #: inc/customizer/sections/layout/sidebar.php:211
@@ -790,30 +790,30 @@ msgid "Text Color"
 msgstr ""
 
 #: inc/customizer/sections/colors-background/body.php:91
-#: inc/customizer/sections/layout/advanced-footer.php:310
+#: inc/customizer/sections/layout/main-footer.php:310
 #: inc/customizer/sections/layout/content.php:82
 #: inc/customizer/sections/layout/footer.php:344
 #: inc/customizer/sections/layout/sidebar.php:251
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:31
+#: inc/customizer/sections/layout/main-footer.php:31
 msgid "Footer Widgets Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:36
+#: inc/customizer/sections/layout/main-footer.php:36
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:40
+#: inc/customizer/sections/layout/main-footer.php:40
 msgid "Layout 4"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:65
+#: inc/customizer/sections/layout/main-footer.php:65
 msgid "Footer Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:69
+#: inc/customizer/sections/layout/main-footer.php:69
 #: inc/customizer/sections/layout/blog.php:333
 #: inc/customizer/sections/layout/container.php:222
 #: inc/customizer/sections/layout/header.php:351
@@ -823,7 +823,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:70
+#: inc/customizer/sections/layout/main-footer.php:70
 #: inc/customizer/sections/layout/blog.php:334
 #: inc/customizer/sections/layout/container.php:223
 #: inc/customizer/sections/layout/header.php:352
@@ -833,7 +833,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:71
+#: inc/customizer/sections/layout/main-footer.php:71
 #: inc/customizer/sections/layout/blog.php:335
 #: inc/customizer/sections/layout/container.php:224
 #: inc/customizer/sections/layout/header.php:353
@@ -843,7 +843,7 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:72
+#: inc/customizer/sections/layout/main-footer.php:72
 #: inc/customizer/sections/layout/blog.php:336
 #: inc/customizer/sections/layout/container.php:225
 #: inc/customizer/sections/layout/header.php:354
@@ -853,7 +853,7 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:115
+#: inc/customizer/sections/layout/main-footer.php:115
 #: inc/customizer/sections/layout/content.php:194
 #: inc/customizer/sections/layout/content.php:380
 #: inc/customizer/sections/layout/content.php:444
@@ -870,79 +870,79 @@ msgstr ""
 msgid "Font Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:139
+#: inc/customizer/sections/layout/main-footer.php:139
 #: inc/customizer/sections/layout/content.php:122
 #: inc/customizer/sections/layout/content.php:292
 msgid "Font Family"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:161
+#: inc/customizer/sections/layout/main-footer.php:161
 #: inc/customizer/sections/layout/content.php:145
 #: inc/customizer/sections/layout/content.php:314
 msgid "Font Weight"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:184
+#: inc/customizer/sections/layout/main-footer.php:184
 #: inc/customizer/sections/layout/content.php:167
 #: inc/customizer/sections/layout/content.php:336
 msgid "Text Transform"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:190
+#: inc/customizer/sections/layout/main-footer.php:190
 #: inc/customizer/sections/layout/content.php:171
 #: inc/customizer/sections/layout/content.php:342
 #: inc/customizer/sections/layout/widgets.php:173
 msgid "Capitalize"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:191
+#: inc/customizer/sections/layout/main-footer.php:191
 #: inc/customizer/sections/layout/content.php:172
 #: inc/customizer/sections/layout/content.php:343
 #: inc/customizer/sections/layout/widgets.php:174
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:192
+#: inc/customizer/sections/layout/main-footer.php:192
 #: inc/customizer/sections/layout/content.php:173
 #: inc/customizer/sections/layout/content.php:344
 #: inc/customizer/sections/layout/widgets.php:175
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:214
+#: inc/customizer/sections/layout/main-footer.php:214
 #: inc/customizer/sections/layout/content.php:224
 msgid "Line Height"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:240
+#: inc/customizer/sections/layout/main-footer.php:240
 #: inc/customizer/sections/layout/widgets.php:249
 msgid "Widget Title Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:264
+#: inc/customizer/sections/layout/main-footer.php:264
 msgid "Widget Title Font"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:347
+#: inc/customizer/sections/layout/main-footer.php:347
 #: inc/customizer/sections/layout/footer.php:382
 #: inc/customizer/sections/layout/header.php:325
 #: inc/customizer/sections/layout/sidebar.php:46
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:366
+#: inc/customizer/sections/layout/main-footer.php:366
 msgid "Widget Meta Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:491
+#: inc/customizer/sections/layout/main-footer.php:491
 msgid "Footer Input Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:512
+#: inc/customizer/sections/layout/main-footer.php:512
 msgid "Footer Input Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/advanced-footer.php:532
+#: inc/customizer/sections/layout/main-footer.php:532
 msgid "Footer Input Border Color"
 msgstr ""
 

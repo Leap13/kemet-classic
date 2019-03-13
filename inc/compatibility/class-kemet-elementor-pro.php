@@ -209,7 +209,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			$footer_widgets = get_post_meta( $post_id, 'kemet-footer-display', true );
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
-					'kemet_advanced_footer_disable', function() {
+					'kemet_main_footer_disable', function() {
 						return true;
 					}
 				);

@@ -177,7 +177,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Widget 1', 'kemet' ),
-				'id'            => 'advanced-footer-widget-1',
+				'id'            => 'main-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -188,7 +188,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Widget 2', 'kemet' ),
-				'id'            => 'advanced-footer-widget-2',
+				'id'            => 'main-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -199,7 +199,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Widget 3', 'kemet' ),
-				'id'            => 'advanced-footer-widget-3',
+				'id'            => 'main-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -210,7 +210,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Widget 4', 'kemet' ),
-				'id'            => 'advanced-footer-widget-4',
+				'id'            => 'main-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -221,7 +221,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Footer Widget Area 5', 'kemet' ),
-				'id'            => 'advanced-footer-widget-5',
+				'id'            => 'main-footer-widget-5',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
