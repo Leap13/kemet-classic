@@ -93,10 +93,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					// Kemet Colors.
-					'text-color'                       => '#333333',
-					'link-color'                       => '#191919',
+					'text-color'                       => '#797979',
+					'link-color'                       => '#4a4a4a',
 					'theme-color'                      => '#191919',
-					'link-h-color'                     => '#333333',
+					'link-h-color'                     => '#000000',
 
 					// Footer Colors.
 					'footer-bg-obj'                    => array(
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-post-content-layout'       => 'default',
 					'archive-post-content-layout'      => 'default',
 					// Typography.
-					'body-font-family'                 => 'Lato',
+					'body-font-family'                 => 'Poppins',
 					'body-font-weight'                 => 'inherit',
 					'font-size-body'                   => array(
 						'desktop'      => 14,
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'body-line-height'                 => '',
 					'para-margin-bottom'               => '',
 					'body-text-transform'              => '',
-					'headings-font-family'             => 'inherit',
+					'headings-font-family'             => 'Lato',
 					'headings-font-weight'             => 'inherit',
 					'headings-text-transform'          => '',
 					'font-size-site-title'             => array(

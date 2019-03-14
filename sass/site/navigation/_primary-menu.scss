@@ -102,21 +102,11 @@
 
 .main-header-menu {
 	ul {
+		border-top-style: solid;
+		border-top-width: 2px;
+		border-top-color: #eaeaea;
 		ul{
 			top: 0px;
-		}
-	}
-}
-
-.submenu-with-border {
-	ul {
-		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
-		}
-
-		ul{
-			top: -1px;
 		}
 	}
 }

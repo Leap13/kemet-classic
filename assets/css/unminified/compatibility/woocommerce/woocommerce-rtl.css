@@ -2433,7 +2433,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-customer-details .woocommerce-customer-details--phone::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2449,7 +2448,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-customer-details .woocommerce-customer-details--email::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2492,7 +2490,6 @@ p.demo_store a,
 
 .woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item--chosen a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2529,7 +2526,6 @@ p.demo_store a,
 
 .woocommerce .widget_layered_nav_filters ul li a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -2652,7 +2648,6 @@ p.demo_store a,
 
 .woocommerce .widget_rating_filter ul li.chosen a::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -3337,7 +3332,6 @@ button.pswp__button--zoom:hover {
 .woocommerce ul.digital-downloads li::before,
 .woocommerce-account ul.digital-downloads li::before {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -3499,7 +3493,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-checkout .cart-collaterals .shipping_calculator .shipping-calculator-button::after,
 #add_payment_method .cart-collaterals .shipping_calculator .shipping-calculator-button::after {
   font-family: 'WooCommerce';
-  speak: none;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
