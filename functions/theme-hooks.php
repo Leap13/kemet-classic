@@ -100,24 +100,24 @@ function kemet_header() {
 }
 
 /**
- * Masthead Top
+ * sitehead Top
  */
-function kemet_masthead_top() {
-	do_action( 'kemet_masthead_top' );
+function kemet_sitehead_top() {
+	do_action( 'kemet_sitehead_top' );
 }
 
 /**
- * Masthead
+ * sitehead
  */
-function kemet_masthead() {
-	do_action( 'kemet_masthead' );
+function kemet_sitehead() {
+	do_action( 'kemet_sitehead' );
 }
 
 /**
- * Masthead Bottom
+ * sitehead Bottom
  */
-function kemet_masthead_bottom() {
-	do_action( 'kemet_masthead_bottom' );
+function kemet_sitehead_bottom() {
+	do_action( 'kemet_sitehead_bottom' );
 }
 
 /**
@@ -137,28 +137,28 @@ function kemet_main_header_bar_bottom() {
 /**
  * Main Header Content
  */
-function kemet_masthead_content() {
-	do_action( 'kemet_masthead_content' );
+function kemet_sitehead_content() {
+	do_action( 'kemet_sitehead_content' );
 }
 /**
  * Main toggle button before
  */
-function kemet_masthead_toggle_buttons_before() {
-	do_action( 'kemet_masthead_toggle_buttons_before' );
+function kemet_sitehead_toggle_buttons_before() {
+	do_action( 'kemet_sitehead_toggle_buttons_before' );
 }
 
 /**
  * Main toggle buttons
  */
-function kemet_masthead_toggle_buttons() {
-	do_action( 'kemet_masthead_toggle_buttons' );
+function kemet_sitehead_toggle_buttons() {
+	do_action( 'kemet_sitehead_toggle_buttons' );
 }
 
 /**
  * Main toggle button after
  */
-function kemet_masthead_toggle_buttons_after() {
-	do_action( 'kemet_masthead_toggle_buttons_after' );
+function kemet_sitehead_toggle_buttons_after() {
+	do_action( 'kemet_sitehead_toggle_buttons_after' );
 }
 
 

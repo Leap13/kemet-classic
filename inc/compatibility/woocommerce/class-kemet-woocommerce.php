@@ -496,7 +496,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				}
 
 				if ( 'disabled' === $main_header_display ) {
-					remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
+					remove_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
 				}
 
 				if ( 'disabled' === $footer_layout ) {

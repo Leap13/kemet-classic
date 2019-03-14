@@ -78,7 +78,7 @@
 		justify-content: center;
 		line-height: 1.85714285714286;
 	}
-	.kmt-masthead-custom-menu-items{
+	.kmt-sitehead-custom-menu-items{
 		position: relative;
 	}
 	.widget{
@@ -131,7 +131,7 @@
 	.kmt-header-custom-item{
 		justify-content: flex-start;
 	}
-	.kmt-masthead-custom-menu-items{
+	.kmt-sitehead-custom-menu-items{
 		position: relative;
 	}
 	.kmt-search-menu-icon form{
@@ -191,7 +191,7 @@
 @media (max-width: $mx-col-sm) {
 	.kmt-header-break-point {
 		.site-branding,
-		#masthead .site-logo-img .custom-logo-link{
+		#sitehead .site-logo-img .custom-logo-link{
 			img{
 				max-width: 100%;
 			}

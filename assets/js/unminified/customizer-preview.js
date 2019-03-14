@@ -306,7 +306,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[kmt-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .kemet-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .kemet-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .kmt-header-break-point .site-branding img, .kmt-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .kemet-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
+				var dynamicStyle = '#sitehead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .kemet-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #sitehead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .kemet-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .kmt-header-break-point .site-branding img, .kmt-header-break-point #sitehead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .kemet-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
 				kemet_add_dynamic_css( 'kmt-header-responsive-logo-width', dynamicStyle );
 			}
 			else{
@@ -610,7 +610,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 	
 	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-header-menu a' );
-	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover a, .main-header-menu .kmt-masthead-custom-menu-items a:hover' );
+	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' );
 	kemet_css( 'kemet-settings[menu-link-active-color]', 'color', '.main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a' );
 	/**
 	 * submenu background

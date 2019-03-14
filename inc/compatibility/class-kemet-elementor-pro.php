@@ -218,7 +218,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			// Override! Header.
 			$main_header_display = get_post_meta( $post_id, 'kmt-main-header-display', true );
 			if ( 'disabled' === $main_header_display ) {
-				remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
+				remove_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
 				add_filter(
 					'kmt_main_header_display', function( $display_header ) {
 						return 'disabled';

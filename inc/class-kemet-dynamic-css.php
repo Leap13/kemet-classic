@@ -289,7 +289,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-title'                             => array(
 					'font-size' => kemet_responsive_font( $site_title_font_size, 'desktop' ),
 				),
-				'#masthead .site-logo-img .custom-logo-link img' => array(
+				'#sitehead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
 				'.kemet-logo-svg'                         => array(
@@ -365,7 +365,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu li:hover > a, .main-header-menu li:hover > .kmt-menu-toggle, .main-header-menu .kmt-masthead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .kmt-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .kmt-menu-toggle, .main-header-menu .current-menu-ancestor > .kmt-menu-toggle, .main-header-menu .current_page_item > .kmt-menu-toggle' => array(
+				'.main-header-menu li:hover > a, .main-header-menu li:hover > .kmt-menu-toggle, .main-header-menu .kmt-sitehead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .kmt-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .kmt-menu-toggle, .main-header-menu .current-menu-ancestor > .kmt-menu-toggle, .main-header-menu .current_page_item > .kmt-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
 
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu a'  => array(
 					'color' => esc_attr( $menu_link_color ),
 				),
-				'.main-header-menu li:hover a, .main-header-menu .kmt-masthead-custom-menu-items a:hover' => array (
+				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),
 				),
 				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a'  => array(
@@ -844,7 +844,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-single-post .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
-				'#masthead .site-logo-img .custom-logo-link img' => array(
+				'#sitehead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => kemet_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
 				'.kemet-logo-svg'                       => array(
@@ -953,7 +953,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-single-post .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
-				'.kmt-header-break-point .site-branding img, .kmt-header-break-point #masthead .site-logo-img .custom-logo-link img' => array(
+				'.kmt-header-break-point .site-branding img, .kmt-header-break-point #sitehead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
 				),
 				'.kemet-logo-svg'                       => array(

@@ -9,34 +9,34 @@
  * @since       Kemet 1.0.0
  */
 
-add_action( 'kemet_masthead_toggle_buttons', 'kemet_masthead_toggle_buttons_primary' );
-add_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
-add_filter( 'wp_page_menu_args', 'kemet_masthead_custom_page_menu_items', 10, 2 );
-add_filter( 'wp_nav_menu_items', 'kemet_masthead_custom_nav_menu_items', 10, 2 );
+add_action( 'kemet_sitehead_toggle_buttons', 'kemet_sitehead_toggle_buttons_primary' );
+add_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
+add_filter( 'wp_page_menu_args', 'kemet_sitehead_custom_page_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'kemet_sitehead_custom_nav_menu_items', 10, 2 );
 add_filter( 'kemet_main_header_bar_top' , 'kemet_top_header_template', 10, 2);
 add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
 add_action( 'kemet_404_page', 'kemet_404_page_template' );
 add_action( 'kemet_footer_content', 'kemet_main_footer_markup', 1 );
-add_action( 'kemet_masthead_content', 'kemet_header_custom_item_outside_menu', 10 );
+add_action( 'kemet_sitehead_content', 'kemet_header_custom_item_outside_menu', 10 );
 
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
+if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 
 	/**
 	 * Custom Menu Item Markup
 	 *
 	 * => Used in hooks:
 	 *
-	 * @see kemet_masthead_get_menu_items
-	 * @see kemet_masthead_custom_nav_menu_items
+	 * @see kemet_sitehead_get_menu_items
+	 * @see kemet_sitehead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
 	 */
-	function kemet_masthead_get_menu_items( $display_outside_markup = false ) {
+	function kemet_sitehead_get_menu_items( $display_outside_markup = false ) {
 
 		// Get selected custom menu items.
 		$markup = '';
@@ -52,9 +52,9 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'kemet_masthead_custom_menu_item', $section);
+			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-masthead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
@@ -67,7 +67,7 @@ if ( ! function_exists( 'kemet_masthead_get_menu_items' ) ) :
 			$markup = ob_get_clean();
 		}
 
-		return apply_filters( 'kemet_masthead_get_menu_items', $markup );
+		return apply_filters( 'kemet_sitehead_get_menu_items', $markup );
 	}
 
 endif;
@@ -75,7 +75,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_masthead_custom_page_menu_items' ) ) :
+if ( ! function_exists( 'kemet_sitehead_custom_page_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -87,13 +87,13 @@ if ( ! function_exists( 'kemet_masthead_custom_page_menu_items' ) ) :
 	 * @param  array $args Array of arguments.
 	 * @return array       Modified menu item array.
 	 */
-	function kemet_masthead_custom_page_menu_items( $args ) {
+	function kemet_sitehead_custom_page_menu_items( $args ) {
 
 		if ( isset( $args['theme_location'] ) && ! kemet_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
-				$markup = kemet_masthead_get_menu_items();
+				$markup = kemet_sitehead_get_menu_items();
 
 				if ( $markup ) {
 					$args['after'] = $markup . '</ul>';
@@ -109,7 +109,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_masthead_custom_nav_menu_items' ) ) :
+if ( ! function_exists( 'kemet_sitehead_custom_nav_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -122,13 +122,13 @@ if ( ! function_exists( 'kemet_masthead_custom_nav_menu_items' ) ) :
 	 * @param  array $args  Nav menu item arguments array.
 	 * @return array       Modified menu item array.
 	 */
-	function kemet_masthead_custom_nav_menu_items( $items, $args ) {
+	function kemet_sitehead_custom_nav_menu_items( $items, $args ) {
 
 		if ( isset( $args->theme_location ) && ! kemet_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
 
-				$markup = kemet_masthead_get_menu_items();
+				$markup = kemet_sitehead_get_menu_items();
 
 				if ( $markup ) {
 					$items .= $markup;
@@ -144,7 +144,7 @@ endif;
 /**
  * Header toggle buttons
  */
-if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
+if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 
 	/**
 	 * Header toggle buttons
@@ -154,7 +154,7 @@ if ( ! function_exists( 'kemet_masthead_toggle_buttons_primary' ) ) {
 	 * /header.php
 	 *
 	 */
-	function kemet_masthead_toggle_buttons_primary() {
+	function kemet_sitehead_toggle_buttons_primary() {
 
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
@@ -239,7 +239,7 @@ if ( ! function_exists( 'kemet_top_header_template' ) ) {
 /**
  * Header
  */
-if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
+if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 
 	/**
 	 * Header
@@ -249,7 +249,7 @@ if ( ! function_exists( 'kemet_masthead_primary_template' ) ) {
 	 * /header.php
 	 *
 	 */
-	function kemet_masthead_primary_template() {
+	function kemet_sitehead_primary_template() {
 		get_template_part( 'templates/header/header-main-layout' );
 	}
 }
@@ -365,7 +365,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	function kemet_header_custom_item_outside_menu() {
 
 		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
-			$markup = kemet_masthead_get_menu_items( true );
+			$markup = kemet_sitehead_get_menu_items( true );
 
 			echo '<div>' . $markup . '</div>';
 		}

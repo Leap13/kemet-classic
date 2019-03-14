@@ -542,15 +542,15 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 	function kemet_header_markup() {
 		?>
 
-		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="masthead" <?php kemet_header_classes(); ?> role="banner">
+		<header itemtype="https://schema.org/WPHeader" itemscope="itemscope" id="sitehead" <?php kemet_header_classes(); ?> role="banner">
 
-			<?php kemet_masthead_top(); ?>
+			<?php kemet_sitehead_top(); ?>
 
-			<?php kemet_masthead(); ?>
+			<?php kemet_sitehead(); ?>
 
-			<?php kemet_masthead_bottom(); ?>
+			<?php kemet_sitehead_bottom(); ?>
 
-		</header><!-- #masthead -->
+		</header><!-- #sitehead -->
 		<?php
 	}
 }
@@ -581,7 +581,7 @@ if ( ! function_exists( 'kemet_site_branding_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_masthead_content', 'kemet_site_branding_markup', 8 );
+add_action( 'kemet_sitehead_content', 'kemet_site_branding_markup', 8 );
 
 /**
  * Function to get Toggle Button Markup
@@ -603,11 +603,11 @@ if ( ! function_exists( 'kemet_toggle_buttons_markup' ) ) {
 		?>
 		<div class="kmt-mobile-menu-buttons">
 
-			<?php kemet_masthead_toggle_buttons_before(); ?>
+			<?php kemet_sitehead_toggle_buttons_before(); ?>
 
-			<?php kemet_masthead_toggle_buttons(); ?>
+			<?php kemet_sitehead_toggle_buttons(); ?>
 
-			<?php kemet_masthead_toggle_buttons_after(); ?>
+			<?php kemet_sitehead_toggle_buttons_after(); ?>
 
 		</div>
 		<?php
@@ -615,7 +615,7 @@ if ( ! function_exists( 'kemet_toggle_buttons_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_masthead_content', 'kemet_toggle_buttons_markup', 9 );
+add_action( 'kemet_sitehead_content', 'kemet_toggle_buttons_markup', 9 );
 
 /**
  * Function to get Primary navigation menu
@@ -638,7 +638,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 
 			if ( 'none' != $custom_header_section && ! $display_outside ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
-				echo kemet_masthead_get_menu_items();
+				echo kemet_sitehead_get_menu_items();
 				echo '</div>';
 			}
 		} else {
@@ -706,7 +706,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_masthead_content', 'kemet_primary_navigation_markup', 10 );
+add_action( 'kemet_sitehead_content', 'kemet_primary_navigation_markup', 10 );
 
 /**
  * Function to get site Footer
@@ -887,7 +887,7 @@ if ( ! function_exists( 'kemet_header_breakpoint_style' ) ) {
 		/* Width for Header */
 		if ( 'content' != $kemet_header_width ) {
 			$genral_global_responsive = array(
-				'#masthead .kmt-container' => array(
+				'#sitehead .kmt-container' => array(
 					'max-width'     => '100%',
 					'padding-left'  => '35px',
 					'padding-right' => '35px',
