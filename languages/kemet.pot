@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Kemet 1.0.0\n"
+"Project-Id-Version: Kemet 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2019-03-14 11:31:17+00:00\n"
 "MIME-Version: 1.0\n"
