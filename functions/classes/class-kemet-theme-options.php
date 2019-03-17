@@ -305,6 +305,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					// Sidebar.
 					'kemet-footer'                       => 'disabled',
+
+					//header
+					'enable-transparent'  => 0,
 				)
 			);
 		}

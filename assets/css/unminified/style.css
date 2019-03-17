@@ -3202,6 +3202,17 @@ body {
 }
 
 /**
+ * 5 - Transparent Header
+ */
+.kmt-header-transparent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/**
  * 6 - all and (max-width: $mx-break-point)
  */
 .kmt-header-break-point .main-header-bar {

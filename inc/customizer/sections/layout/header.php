@@ -581,3 +581,23 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+	/**
+     * Option: Transparent header
+     */
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[enable-transparent]', array(
+				'default'           => kemet_get_option( 'enable-transparent' ),
+				'type'              => 'option',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			)
+		);
+		$wp_customize->add_control(
+			KEMET_THEME_SETTINGS . '[enable-transparent]', array(
+				'type'            => 'checkbox',
+				'section'         => 'section-header',
+				'label'           => __( 'Enable Transparent Header', 'kemet' ),
+				'priority'        => 140,
+			)
+		);
+	
