@@ -3,10 +3,11 @@ Theme Name: Kemet
 Theme URI: https://kemet.io/
 Author: Leap13
 Author URI: https://leap13.com/
-Requires at least: 4.9.6
-Tested up to: WordPress 5.1
-License: GNU General Public
-License v2 or later
+Requires PHP: 5.6
+Tested up to: 5.1
+Stable tag: 0.0.2
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 === Tags ===
 Tags: one-column, two-columns,
