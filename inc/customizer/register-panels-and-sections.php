@@ -102,6 +102,17 @@
 		)
 	);
 
+	$wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-page-title',
+			array(
+				'title'    => __( 'Page Title', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'priority' => 57,
+			)
+		)
+	);
+
 	/**
 	 * WooCommerce
 	 */

@@ -308,6 +308,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+					'display-page-title'  => 1,
 				)
 			);
 		}

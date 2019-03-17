@@ -983,7 +983,29 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+	/**
+	 * Page Title
+	 */
+	wp.customize( 'kemet-settings[page-title-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+			
+			var dynamicStyle = '.page .entry-header { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'page-title-bg-color', dynamicStyle );
+		} );
+	} );
 
-	
+	/**
+	 * Page Title Padding
+	 */
+	wp.customize( 'kemet-settings[page-title-padding]', function( setting ) {
+		setting.bind( function( padding ) {
+
+			var dynamicStyle = '.page .entry-header { padding-top: ' + ( parseInt( padding ) ) + 'px; padding-bottom: ' + ( parseInt( padding ) ) + 'px } ';
+
+			kemet_add_dynamic_css( 'page-title-padding', dynamicStyle );
+
+		} );
+	} );
 
 } )( jQuery );

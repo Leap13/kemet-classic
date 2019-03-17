@@ -4532,6 +4532,10 @@ input[type="color"]::-webkit-color-swatch {
   position: relative;
 }
 
+.page .kmt-page-title {
+  display: none;
+}
+
 .blog .posted-on {
   z-index: 1;
 }
