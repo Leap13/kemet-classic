@@ -718,17 +718,7 @@ if ( ! function_exists( 'kemet_the_post_title' ) ) {
 
 		$enabled = apply_filters( 'kemet_the_post_title_enabled', true );
 		if ( $enabled ) {
-
-			$title  = kemet_get_the_title( $post_id );
-			$before = apply_filters( 'kemet_the_post_title_before', $before );
-			$after  = apply_filters( 'kemet_the_post_title_after', $after );
-
-			// This will work same as `the_title` function but with Custom Title if exits.
-			if ( $echo ) {
-				echo $before . $title . $after; // WPCS: XSS OK.
-			} else {
-				return $before . $title . $after;
-			}
+			kemet_get_the_title( $post_id );
 		}
 	}
 }
