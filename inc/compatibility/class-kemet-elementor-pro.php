@@ -65,9 +65,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			add_action( 'kemet_footer', array( $this, 'do_footer' ), 0 );
 			add_action( 'kemet_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
 			add_action( 'kemet_404_page', array( $this, 'do_template_part_404' ), 0 );
-
-			// Override post meta.
-			add_action( 'wp', array( $this, 'override_meta' ), 0 );
 		}
 
 		/**
@@ -124,106 +121,6 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 				if ( $did_location ) {
 					remove_action( 'kemet_404_page', 'kemet_404_page_template' );
 				}
-			}
-		}
-
-		/**
-		 * Override sidebar, title etc with post meta
-		 *
-		 * @return void
-		 */
-		function override_meta() {
-
-			// don't override meta for `elementor_library` post type.
-			if ( 'elementor_library' == get_post_type() ) {
-				return;
-			}
-
-			// Override post meta for single pages.
-			$documents_single = Module::instance()->get_conditions_manager()->get_documents_for_location( 'single' );
-			if ( $documents_single ) {
-				foreach ( $documents_single as $document ) {
-					$this->override_with_post_meta( $document->get_post()->ID );
-				}
-			}
-
-			// Override post meta for archive pages.
-			$documents_archive = Module::instance()->get_conditions_manager()->get_documents_for_location( 'archive' );
-			if ( $documents_archive ) {
-				foreach ( $documents_archive as $document ) {
-					$this->override_with_post_meta( $document->get_post()->ID );
-				}
-			}
-		}
-
-		/**
-		 * Override sidebar, title etc with post meta
-		 *
-		 * @param  integer $post_id  Post ID.
-		 * @return void
-		 */
-		function override_with_post_meta( $post_id = 0 ) {
-			// Override! Page Title.
-			$title = get_post_meta( $post_id, 'site-post-title', true );
-			if ( 'disabled' === $title ) {
-
-				// Archive page.
-				add_filter( 'kemet_the_title_enabled', '__return_false', 99 );
-
-				// Single page.
-				add_filter( 'kemet_the_title_enabled', '__return_false' );
-				remove_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
-			}
-
-			// Override! Sidebar.
-			$sidebar = get_post_meta( $post_id, 'site-sidebar-layout', true );
-			if ( 'default' !== $sidebar ) {
-				add_filter(
-					'kemet_layout', function( $page_layout ) use ( $sidebar ) {
-						return $sidebar;
-					}
-				);
-			}
-
-			// Override! Content Layout.
-			$content_layout = get_post_meta( $post_id, 'site-content-layout', true );
-			if ( 'default' !== $content_layout ) {
-				add_filter(
-					'kemet_get_content_layout', function( $layout ) use ( $content_layout ) {
-						return $content_layout;
-					}
-				);
-			}
-
-			// Override! Footer Bar.
-			$footer_layout = get_post_meta( $post_id, 'copyright-footer-layout', true );
-			if ( 'disabled' === $footer_layout ) {
-				add_filter(
-					'kmt_footer_sml_layout', function( $is_footer ) {
-						return 'disabled';
-					}
-				);
-			}
-
-			// Override! Footer Widgets.
-			$footer_widgets = get_post_meta( $post_id, 'kemet-footer-display', true );
-			if ( 'disabled' === $footer_widgets ) {
-				add_filter(
-					'kemet_main_footer_disable', function() {
-						return true;
-					}
-				);
-			}
-
-			// Override! Header.
-			$main_header_display = get_post_meta( $post_id, 'kmt-main-header-display', true );
-			if ( 'disabled' === $main_header_display ) {
-				remove_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
-				add_filter(
-					'kmt_main_header_display', function( $display_header ) {
-						return 'disabled';
-					}
-				);
 			}
 		}
 
