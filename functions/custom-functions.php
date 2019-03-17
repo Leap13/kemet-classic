@@ -808,6 +808,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$primary_menu_disable     = kemet_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
+        $header_transparent       = kemet_get_option( 'enable-transparent' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -826,6 +827,10 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 			$classes[] = 'kmt-logo-title-inline';
 		}
 
+		if($header_transparent){
+			$classes[] = 'kmt-header-transparent';
+		}
+		
 		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'kemet_header_class', $classes ) );
