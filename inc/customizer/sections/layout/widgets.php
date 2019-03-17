@@ -144,7 +144,7 @@ $wp_customize->add_control(
 				'kmt_inherit' => __( 'Default', 'kemet' ),
 				'section'     => 'section-widgets',
 				'priority'    => 6,
-				'label'       => __( 'Widget Title Font Weigh', 'kemet' ),
+				'label'       => __( 'Widget Title Font Weight', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[widget-title-font-family]',
 			)
 		)
@@ -154,15 +154,15 @@ $wp_customize->add_control(
 	 * Option: Widget Text Transform
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[widget-title-text-transfor]', array(
-			'default'           => kemet_get_option( 'widget-title-text-transfor' ),
+		KEMET_THEME_SETTINGS . '[widget-title-text-transform]', array(
+			'default'           => kemet_get_option( 'widget-title-text-transform' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[widget-title-text-transfor]', array(
+		KEMET_THEME_SETTINGS . '[widget-title-text-transform]', array(
 			'type'     => 'select',
 			'section'  => 'section-widgets',
 			'priority' => 7,

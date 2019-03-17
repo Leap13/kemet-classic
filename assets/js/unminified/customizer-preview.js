@@ -787,6 +787,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
    
+	// Footer Font
+	kemet_css( 'kemet-settings[footer-text-transform]', 'text-transform', '.kemet-footer' );
+	kemet_css( 'kemet-settings[footer-line-height]', 'line-height', '.kemet-footer' );
+	kemet_responsive_font_size( 'kemet-settings[footer-font-size]', '.kemet-footer' );
 
 	// Footer Widgets.
 	kemet_css( 'kemet-settings[kemet-footer-wgt-title-color]', 'color', '.kemet-footer .widget-title, .kemet-footer .widget-title a' );
@@ -835,6 +839,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 
+	/**
+     * Top Bar
+     */
+    kemet_responsive_font_size( 'kemet-settings[topbar-font-size]', '.kemet-top-header');
 
 	/*
 	 * Woocommerce Shop Archive Custom Width

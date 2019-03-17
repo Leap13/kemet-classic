@@ -133,7 +133,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                        'min' => 0,
                    ),
                    'units'       => array(
-                       'px' => 'px',
+                    'px' => 'px',
+                    'em' => 'em',
                    ),
                )
            )
@@ -142,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       * Option: Footer Font Family
       */
      $wp_customize->add_setting(
-         KEMET_THEME_SETTINGS . '[Footer-font-family]', array(
+         KEMET_THEME_SETTINGS . '[footer-font-family]', array(
              'default'           => kemet_get_option( 'Footer-font-family' ),
              'type'              => 'option',
              'sanitize_callback' => 'sanitize_text_field',
@@ -150,12 +151,12 @@ if ( ! defined( 'ABSPATH' ) ) {
      );
      $wp_customize->add_control(
          new Kemet_Control_Typography(
-             $wp_customize, KEMET_THEME_SETTINGS . '[Footer-font-family]', array(
+             $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-family]', array(
                  'type'     => 'kmt-font-family',
                  'label'    => __( 'Font Family', 'kemet' ),
                  'section'  => 'section-kemet-footer',
                  'priority' => 5,
-                 'connect'  => KEMET_THEME_SETTINGS . '[Footer-font-weight]',
+                 'connect'  => KEMET_THEME_SETTINGS . '[footer-font-weight]',
              )
          )
      );
@@ -164,20 +165,20 @@ if ( ! defined( 'ABSPATH' ) ) {
          * Option: Footer Font Weight
          */
         $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[Footer-font-weight]', array(
-                'default'           => kemet_get_option( 'Footer-font-weight' ),
+            KEMET_THEME_SETTINGS . '[footer-font-weight]', array(
+                'default'           => kemet_get_option( 'footer-font-weight' ),
                 'type'              => 'option',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
             )
         );
         $wp_customize->add_control(
             new Kemet_Control_Typography(
-                $wp_customize, KEMET_THEME_SETTINGS . '[Footer-font-weight]', array(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-weight]', array(
                     'type'     => 'kmt-font-weight',
                     'label'    => __( 'Font Weight', 'kemet' ),
                     'section'  => 'section-kemet-footer',
                     'priority' => 6,
-                    'connect'  => KEMET_THEME_SETTINGS . '[Footer-font-family]',
+                    'connect'  => KEMET_THEME_SETTINGS . '[footer-font-family]',
 
                 )
             )
@@ -187,15 +188,15 @@ if ( ! defined( 'ABSPATH' ) ) {
          * Option: Footer Text Transform
          */
         $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[Footer-text-transform]', array(
-                'default'           => kemet_get_option( 'Footer-text-transform' ),
+            KEMET_THEME_SETTINGS . '[footer-text-transform]', array(
+                'default'           => kemet_get_option( 'footer-text-transform' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
             )
         );
         $wp_customize->add_control(
-            KEMET_THEME_SETTINGS . '[Footer-text-transform]', array(
+            KEMET_THEME_SETTINGS . '[footer-text-transform]', array(
                 'section'  => 'section-kemet-footer',
                 'label'    => __( 'Text Transform', 'kemet' ),
                 'type'     => 'select',
@@ -214,7 +215,7 @@ if ( ! defined( 'ABSPATH' ) ) {
          * Option: Footer Line Height
          */
         $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[Footer-line-height]', array(
+            KEMET_THEME_SETTINGS . '[footer-line-height]', array(
                 'default'           => '',
                 'type'              => 'option',
                 'transport'         => 'postMessage',
@@ -223,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         );
         $wp_customize->add_control(
             new Kemet_Control_Slider(
-                $wp_customize, KEMET_THEME_SETTINGS . '[Footer-line-height]', array(
+                $wp_customize, KEMET_THEME_SETTINGS . '[footer-line-height]', array(
                     'type'        => 'kmt-slider',
                     'section'     => 'section-kemet-footer',
                     'priority'    => 8,
