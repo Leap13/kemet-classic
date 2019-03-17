@@ -716,9 +716,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				 */
 				'.page .entry-header' =>array(
 					'background-color' => esc_attr( $page_title_bg_color ),
-					'padding-top'      => esc_attr($page_title_padding),
-					'padding-bottom'   => esc_attr($page_title_padding),
-
+					'padding-top'      => kemet_get_css_value( $page_title_padding, 'px' ),
+					'padding-bottom'   => kemet_get_css_value( $page_title_padding, 'px' ),
 				),
 
             // Layout - Container
