@@ -302,6 +302,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				),
 				'units'       => array(
 					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
