@@ -122,7 +122,7 @@ $wp_customize->add_control(
 				'section'     => 'section-widgets',
 				'priority'    => 5,
 				'label'       => __( 'Widget Title Font Family', 'kemet' ),
-				'connect'     => KEMET_THEME_SETTINGS . '[widget-font-weight]',
+				'connect'     => KEMET_THEME_SETTINGS . '[widget-title-font-weight]',
 			)
 		)
 	);
@@ -145,7 +145,7 @@ $wp_customize->add_control(
 				'section'     => 'section-widgets',
 				'priority'    => 6,
 				'label'       => __( 'Widget Title Font Weigh', 'kemet' ),
-				'connect'     => KEMET_THEME_SETTINGS . '[widget-font-family]',
+				'connect'     => KEMET_THEME_SETTINGS . '[widget-title-font-family]',
 			)
 		)
 	);
