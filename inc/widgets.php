@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -176,8 +176,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		 */
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 1', 'kemet' ),
-				'id'            => 'advanced-footer-widget-1',
+				'name'          => esc_html__( 'Footer Widget 1', 'kemet' ),
+				'id'            => 'main-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -187,8 +187,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 2', 'kemet' ),
-				'id'            => 'advanced-footer-widget-2',
+				'name'          => esc_html__( 'Footer Widget 2', 'kemet' ),
+				'id'            => 'main-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -198,8 +198,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 3', 'kemet' ),
-				'id'            => 'advanced-footer-widget-3',
+				'name'          => esc_html__( 'Footer Widget 3', 'kemet' ),
+				'id'            => 'main-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
@@ -209,14 +209,26 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 4', 'kemet' ),
-				'id'            => 'advanced-footer-widget-4',
+				'name'          => esc_html__( 'Footer Widget 4', 'kemet' ),
+				'id'            => 'main-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>',
 			)
 		);
+
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget Area 5', 'kemet' ),
+				'id'            => 'main-footer-widget-5',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+		);
+
 
 	}
 	add_action( 'widgets_init', 'kemet_widgets_init' );

@@ -4,6 +4,13 @@
 		display: inline-block;
 		margin: 0 5px 5px 0;
 	}
+	.image label {
+			width: 47%;
+			margin: 3px;
+		img {
+			width: 100%;
+		}
+	}
 	input {
 		display: none;
 		
@@ -13,13 +20,15 @@
 		
 		& + label img {
 			border: 1px solid #f1f1f1;
+			background-color: #cccccc;
 		}
 
 
 		&:checked + label img {
 			-webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
 			box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
-			border: 1px solid transparent;
+			border: 1px solid #0085ba;
+			background-color: #0085ba;
 		}
 		
 		& + label .image-clickable {

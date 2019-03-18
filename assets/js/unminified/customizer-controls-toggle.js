@@ -285,11 +285,11 @@
 		'kemet-settings[blog-single-meta]' :
 		[
 			{
-				controls: [
-					'kemet-settings[blog-single-meta-comments]',
-					'kemet-settings[blog-single-meta-cat]',
+				controls: [	
 					'kemet-settings[blog-single-meta-author]',
+					'kemet-settings[blog-single-meta-cat]',
 					'kemet-settings[blog-single-meta-date]',
+					'kemet-settings[blog-single-meta-comments]',
 					'kemet-settings[blog-single-meta-tag]',
 				],
 				callback: function( enable_postmeta ) {
@@ -305,21 +305,21 @@
 		/**
 		 * Small Footer
 		 */
-		'kemet-settings[footer-sml-layout]' :
+		'kemet-settings[copyright-footer-layout]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-sml-section-1]',
-					'kemet-settings[footer-sml-section-2]',
-					'kemet-settings[section-kmt-small-footer-background-styling]',
-					'kemet-settings[kmt-small-footer-color]',
-					'kemet-settings[kmt-small-footer-link-color]',
-					'kemet-settings[kmt-small-footer-link-hover-color]',
-					'kemet-settings[kmt-small-footer-bg-img]',
-					'kemet-settings[section-kmt-small-footer-typography]',
-					'kemet-settings[kmt-small-footer-text-font]',
-					'kemet-settings[footer-sml-divider]',
-					'kemet-settings[section-kmt-small-footer-layout-info]',
+					'kemet-settings[footer-copyright-section-1]',
+					'kemet-settings[footer-copyright-section-2]',
+					'kemet-settings[section-kmt-footer-copyright-background-styling]',
+					'kemet-settings[kmt-footer-copyright-color]',
+					'kemet-settings[kmt-footer-copyright-link-color]',
+					'kemet-settings[kmt-footer-copyright-link-hover-color]',
+					'kemet-settings[kmt-footer-copyright-bg-img]',
+					'kemet-settings[section-kmt-footer-copyright-typography]',
+					'kemet-settings[kmt-footer-copyright-text-font]',
+					'kemet-settings[footer-copyright-divider]',
+					'kemet-settings[section-kmt-footer-copyright-layout-info]',
 					'kemet-settings[footer-layout-width]',
 					'kemet-settings[footer-color]',
 					'kemet-settings[footer-link-color]',
@@ -327,9 +327,9 @@
 					'kemet-settings[footer-bg-obj]',
 					'kemet-settings[divider-footer-image]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
-					if ( 'disabled' != small_footer_layout ) {
+					if ( 'disabled' != copyright_footer_layout ) {
 						return true;
 					}
 					return false;
@@ -337,13 +337,13 @@
 			},
 			{
 				controls: [
-					'kemet-settings[footer-sml-section-1-credit]',
+					'kemet-settings[footer-copyright-section-1-credit]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
-					var footer_section_1 = api( 'kemet-settings[footer-sml-section-1]' ).get();
+					var footer_section_1 = api( 'kemet-settings[footer-copyright-section-1]' ).get();
 
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_1 ) {
+					if ( 'disabled' != copyright_footer_layout && 'custom' == footer_section_1 ) {
 						return true;
 					}
 					return false;
@@ -351,13 +351,13 @@
 			},
 			{
 				controls: [
-					'kemet-settings[footer-sml-section-2-credit]',
+					'kemet-settings[footer-copyright-section-2-credit]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
-					var footer_section_2 = api( 'kemet-settings[footer-sml-section-2]' ).get();
+					var footer_section_2 = api( 'kemet-settings[footer-copyright-section-2]' ).get();
 
-					if ( 'disabled' != small_footer_layout && 'custom' == footer_section_2 ) {
+					if ( 'disabled' != copyright_footer_layout && 'custom' == footer_section_2 ) {
 						return true;
 					}
 					return false;
@@ -365,28 +365,28 @@
 			},
 			{
 				controls: [
-					'kemet-settings[footer-sml-divider-color]',
+					'kemet-settings[footer-copyright-divider-color]',
 				],
-				callback: function( small_footer_layout ) {
+				callback: function( copyright_footer_layout ) {
 
-					var border_width = api( 'kemet-settings[footer-sml-divider]' ).get();
+					var border_width = api( 'kemet-settings[footer-copyright-divider]' ).get();
 
-					if ( '1' <= border_width && 'disabled' != small_footer_layout ) {
+					if ( '1' <= border_width && 'disabled' != copyright_footer_layout ) {
 						return true;
 					}
 					return false;
 				}
 			},
 		],
-		'kemet-settings[footer-sml-section-1]' :
+		'kemet-settings[footer-copyright-section-1]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-sml-section-1-credit]',
+					'kemet-settings[footer-copyright-section-1-credit]',
 				],
 				callback: function( enabled_section_1 ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( 'custom' == enabled_section_1 && 'disabled' != footer_layout ) {
 						return true;
@@ -395,15 +395,15 @@
 				}
 			}
 		],
-		'kemet-settings[footer-sml-section-2]' :
+		'kemet-settings[footer-copyright-section-2]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-sml-section-2-credit]',
+					'kemet-settings[footer-copyright-section-2-credit]',
 				],
 				callback: function( enabled_section_2 ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( 'custom' == enabled_section_2 && 'disabled' != footer_layout ) {
 						return true;
@@ -413,15 +413,15 @@
 			}
 		],
 
-		'kemet-settings[footer-sml-divider]' :
+		'kemet-settings[footer-copyright-divider]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-sml-divider-color]',
+					'kemet-settings[footer-copyright-divider-color]',
 				],
 				callback: function( border_width ) {
 
-					var footer_layout = api( 'kemet-settings[footer-sml-layout]' ).get();
+					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != footer_layout ) {
 						return true;
@@ -469,16 +469,16 @@
 		/**
 		 * Footer Widgets
 		 */
-		'kemet-settings[footer-adv]' :
+		'kemet-settings[kemet-footer]' :
 		[
 			{
 				controls: [
-					'kemet-settings[footer-adv-background-divider]',
-					'kemet-settings[footer-adv-wgt-title-color]',
-					'kemet-settings[footer-adv-text-color]',
-					'kemet-settings[footer-adv-link-color]',
-					'kemet-settings[footer-adv-link-h-color]',
-					'kemet-settings[footer-adv-bg-obj]',
+					'kemet-settings[kemet-footer-background-divider]',
+					'kemet-settings[kemet-footer-wgt-title-color]',
+					'kemet-settings[kemet-footer-text-color]',
+					'kemet-settings[kemet-footer-link-color]',
+					'kemet-settings[kemet-footer-link-h-color]',
+					'kemet-settings[kemet-footer-bg-obj]',
 				],
 				callback: function( footer_widget_area ) {
 

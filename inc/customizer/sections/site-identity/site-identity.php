@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
     
    /**
-    * Option - Site Identity Space //// exist in astra pro
+    * Option - Site Identity Padding
     */
    $wp_customize->add_setting(
        KEMET_THEME_SETTINGS . '[site-identity-spacing]', array(

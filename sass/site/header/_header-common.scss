@@ -44,6 +44,14 @@
 }
 
 /**
+ * 5 - Transparent Header
+ */
+.kmt-header-transparent {
+    position: absolute;
+    width: 100%;
+}
+
+/**
  * 6 - all and (max-width: $mx-break-point)
  */
 .kmt-header-break-point {
@@ -61,7 +69,7 @@
     }
     .kmt-header-custom-item{
         border-top: 1px solid #eaeaea;
-        .kmt-masthead-custom-menu-items{
+        .kmt-sitehead-custom-menu-items{
             padding-left: 20px;
             padding-right: 20px;
             margin-bottom: 1em;

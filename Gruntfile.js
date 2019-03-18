@@ -203,24 +203,8 @@ module.exports = function (grunt) {
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
-                    		src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
-	                    },
-                    	{
                     		src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
 	                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/lifter-lms-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/lifter-lms.min-rtl.css',
-	                    },
-                    	{
-                    		src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
-	                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
 	                    },
                     	{
                     		src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
@@ -411,7 +395,7 @@ module.exports = function (grunt) {
         var request = require('request');
         var fs = require('fs');
 
-        request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+        request('https://www.googleapis.com/webfonts/v1/AIzaSyDzjH9arBe4Tjwq4JR2ehqX-MKE10MePkk', function (error, response, body) {
 
             if (response && response.statusCode == 200) {
 

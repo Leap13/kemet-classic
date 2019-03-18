@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       1.0.0
  */
 

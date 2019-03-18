@@ -4,7 +4,6 @@
  * Overwrite Automattic Iris for enabled Alpha Channel in wpColorPicker
  * Only run in input and is defined data alpha in true
  *
- * Version: 2.0
  * https://github.com/kallookoo/wp-color-picker-alpha
  * Licensed under the GPLv2 license.
  */
@@ -46,8 +45,6 @@
 		 * @summary Creates the color picker.
 		 *
 		 * Creates the color picker, sets default values, css classes and wraps it all in HTML.
-		 *
-		 * @since 3.5.0
 		 *
 		 * @access private
 		 *
@@ -170,7 +167,6 @@
 				 * Handles the onChange event if one has been defined in the options and additionally
 				 * sets the background color for the toggler element.
 				 *
-				 * @since 3.5.0
 				 *
 				 * @param {Event} event    The event that's being called.
 				 * @param {HTMLElement} ui The HTMLElement containing the color picker.
@@ -217,7 +213,6 @@
 		/**
 		 * @summary Binds event listeners to the color picker.
 		 *
-		 * @since 3.5.0
 		 *
 		 * @access private
 		 *
@@ -229,7 +224,6 @@
 			/**
 			 * @summary Prevent any clicks inside this widget from leaking to the top and closing it.
 			 *
-			 * @since 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
@@ -241,8 +235,6 @@
 
 			/**
 			 * @summary Open or close the color picker depending on the class.
-			 *
-			 * @since 3.5
 			 */
 			self.toggler.click( function(){
 				if ( self.toggler.hasClass( 'wp-picker-open' ) ) {
@@ -257,8 +249,6 @@
 			 *
 			 * Checks if value is empty when changing the color in the color picker.
 			 * If so, the background color is cleared.
-			 *
-			 * @since 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *
@@ -283,8 +273,6 @@
 			 * @summary Enables the user to clear or revert the color in the color picker.
 			 *
 			 * Enables the user to either clear the color in the color picker or revert back to the default color.
-			 *
-			 * @since 3.5.0
 			 *
 			 * @param {Event} event The event that's being called.
 			 *

@@ -1,38 +1,19 @@
 <?php
 /**
- * Kemet functions and definitions.
- * Text Domain: kemet
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
- * For more information on hooks, actions, and filters,
- * see http://codex.wordpress.org/Plugin_API
- *
- * Kemet is a very powerful theme and virtually anything can be customized
- * via a child theme.
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
+ * @copyright   Copyright (c) 2019, Kemet
  * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
-/**
- * Kemet_After_Setup_Theme initial setup
- *
- * @since 1.0.0
- */
-if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Kemet_Setup' ) ) {
 
 	/**
-	 * Kemet_After_Setup_Theme initial setup
+	 * Kemet_Setup initial setup
 	 */
-	class Kemet_After_Setup_Theme {
+	class Kemet_Setup {
 
 		/**
 		 * Instance
@@ -44,7 +25,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Initiator
 		 *
-		 * @since 1.0.0
 		 * @return object
 		 */
 		public static function get_instance() {
@@ -64,7 +44,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Setup theme
 		 *
-		 * @since 1.0.0
 		 */
 		function setup_theme() {
 
@@ -79,9 +58,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 
 			/**
 			 * Make theme available for translation.
-			 * Translations can be filed in the /languages/ directory.
-			 * If you're building a theme based on Next, use a find and replace
-			 * to change 'kemet' to the name of your theme in all the template files.
 			 */
 			load_theme_textdomain( 'kemet', KEMET_THEME_DIR . '/languages' );
 
@@ -98,8 +74,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 			// Enable support for Post Thumbnails on posts and pages.
 			add_theme_support( 'post-thumbnails' );
 
-			// Switch default core markup for search form, comment form, and comments.
-			// to output valid HTML5.
 			add_theme_support(
 				'html5', array(
 					'search-form',
@@ -146,6 +120,17 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
+			/**
+			 * Enable support for header image
+			 */
+			add_theme_support( 'custom-header', apply_filters( 'kemet_custom_header_args', array(
+				'width'              => 2000,
+				'height'             => 1200,
+				'flex-height'        => true,
+				'video'              => true,
+			) ) );
+
+
 			if ( apply_filters( 'kemet_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
@@ -159,10 +144,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 		/**
 		 * Adds a responsive embed wrapper around oEmbed content
 		 *
-		 * @param  string $html The oEmbed markup.
-		 * @param  string $url The URL being embedded.
-		 * @param  array  $attr An array of attributes.
-		 *
 		 * @return string       Updated embed markup.
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
@@ -173,9 +154,6 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 				'kemet_allowed_fullwidth_oembed_providers', array(
 					'vimeo.com',
 					'youtube.com',
-					'youtu.be',
-					'wistia.com',
-					'wistia.net',
 				)
 			);
 
@@ -190,7 +168,4 @@ if ( ! class_exists( 'Kemet_After_Setup_Theme' ) ) {
 	}
 }
 
-/**
- * Kicking this off by calling 'get_instance()' method
- */
-Kemet_After_Setup_Theme::get_instance();
+Kemet_Setup::get_instance();

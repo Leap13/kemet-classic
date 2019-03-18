@@ -2,10 +2,10 @@
 	vertical-align: middle;
 }
 .kemet-search-icon::before {
-	content: "\e8b6";
-	font-family: 'Kemet';
+	content: "\e904";
+	font-family: 'Kemet-font';
 	font-style: normal;
-	font-weight: normal;
+	font-weight: 600;
 	text-decoration: inherit;
 	text-align: center;
 	-webkit-font-smoothing: antialiased;
@@ -31,7 +31,7 @@
 
 	a {
 		text-decoration: none;
-		padding: 0 1em;
+		padding: 1em;
 		display: inline-block;
 		@include kmt-transition();
 	}
@@ -102,23 +102,11 @@
 
 .main-header-menu {
 	ul {
+		border-top-style: solid;
+		border-top-width: 2px;
+		border-top-color: #eaeaea;
 		ul{
 			top: 0px;
-		}
-	}
-}
-
-.submenu-with-border {
-	ul {
-		border-top: 1px solid $color-border-submenu;
-
-		a {
-			border: 1px solid $color-border-submenu;
-			border-top: 0;
-		}
-
-		ul{
-			top: -1px;
 		}
 	}
 }
@@ -205,4 +193,24 @@
 			}
 		}
 	}
+}
+
+.kmt-sitehead-custom-menu-items {
+	-js-display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
 }

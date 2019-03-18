@@ -53,7 +53,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		 * Elementor Content layout set as Page Builder
 		 *
 		 * @return void
-		 * @since  1.0.0
 		 */
 		function elementor_default_setting() {
 
@@ -91,7 +90,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
-						'kemet_page_layout', function() {
+						'kemet_layout', function() {
 							return 'no-sidebar';
 						}
 					);
@@ -124,8 +123,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 		/**
 		 * Check if Elementor Editor is open.
-		 *
-		 * @since  1.2.7
 		 *
 		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
 		 */

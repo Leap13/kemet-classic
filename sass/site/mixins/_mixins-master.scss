@@ -5,9 +5,8 @@
 @mixin kmt-has-child-menu-item() {
     content: "\e900";
     display: inline-block;
-    font-family: 'Kemet';
-    font-size: 9px;
-    font-size: .6rem;
+    font-family: 'Kemet-font';
+    font-size: 1rem;
     font-weight: bold;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;

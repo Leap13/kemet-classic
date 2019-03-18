@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -728,38 +728,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-
-	// Learn More link if Kemet Pro is not activated.
-	if ( ! defined( 'KEMET_EXT_VER' ) ) {
-
-		/**
-		 * Option: Divider
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography-more-feature-divider]', array(
-					'type'     => 'kmt-divider',
-					'section'  => 'section-contents',
-					'priority' => 34,
-					'settings' => array(),
-				)
-			)
-		);
-		/**
-		 * Option: Learn More about Contant Typography
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography-more-feature-description]', array(
-					'type'     => 'kmt-description',
-					'section'  => 'section-contents',
-					'priority' => 35,
-					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Typography in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/typography-module/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
-					'settings' => array(),
-				)
-			)
-		);
-
-	}
 

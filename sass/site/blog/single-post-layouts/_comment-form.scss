@@ -226,6 +226,20 @@
                 border-bottom: 0;
             }
         }
+        .comment-edit-link {
+            &:before {
+                content: "\e903";
+                font-family: 'Kemet-font';
+                margin: 0px 5px;
+            }
+        }
+        .comment-reply-link {
+            &:after {
+                content: "\e909";
+                font-family: 'Kemet-font';
+                margin: 0px 5px;
+            }
+        }
         
         .comment-respond{
             padding-top: 0;

@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -56,10 +56,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 5,
 				'label'    => __( 'Single Post Meta', 'kemet' ),
 				'choices'  => array(
-					'comments' => __( 'Comments', 'kemet' ),
-					'category' => __( 'Category', 'kemet' ),
 					'author'   => __( 'Author', 'kemet' ),
+					'category' => __( 'Category', 'kemet' ),
 					'date'     => __( 'Publish Date', 'kemet' ),
+					'comments' => __( 'Comments', 'kemet' ),
 					'tag'      => __( 'Tag', 'kemet' ),
 				),
 			)
@@ -131,36 +131,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-
-	// Learn More link if Kemet Pro is not activated.
-	if ( ! defined( 'KEMET_EXT_VER' ) ) {
-
-		/**
-		 * Option: Divider
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Divider(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-single-more-feature-divider]', array(
-					'type'     => 'kmt-divider',
-					'section'  => 'section-blog-single',
-					'priority' => 25,
-					'settings' => array(),
-				)
-			)
-		);
-		/**
-		 * Option: Learn More about Single Blog Pro
-		 */
-		$wp_customize->add_control(
-			new Kemet_Control_Description(
-				$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-single-more-feature-description]', array(
-					'type'     => 'kmt-description',
-					'section'  => 'section-blog-single',
-					'priority' => 25,
-					'label'    => '',
-					'help'     => '<p>' . __( 'More Options Available for Single Post in Kemet Pro!', 'kemet' ) . '</p><a href="' . kemet_get_pro_url( 'https://wpkemet.com/docs/single-post-blog-pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-primary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kemet' ) . '</a>',
-					'settings' => array(),
-				)
-			)
-		);
-	}

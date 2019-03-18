@@ -6,9 +6,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
- * @since       1.0.0
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  */
 
 // Exit if accessed directly.
@@ -22,7 +21,6 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 	 * Adds a custom Panel for nested panels / sections.
 	 *
 	 * @link https://gist.github.com/OriginalEXE/9a6183e09f4cae2f30b006232bb154af
-	 * @since 1.0.31
 	 * @see WP_Customize_Panel
 	 */
 	class Kemet_WP_Customize_Panel extends WP_Customize_Panel {
@@ -30,7 +28,6 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		/**
 		 * Panel
 		 *
-		 * @since 1.0.31
 		 * @var string
 		 */
 		public $panel;
@@ -38,7 +35,6 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		/**
 		 * Control type.
 		 *
-		 * @since  1.0.31
 		 * @var string
 		 */
 		public $type = 'kmt_panel';
@@ -46,7 +42,6 @@ if ( class_exists( 'WP_Customize_Panel' ) ) {
 		/**
 		 * Get section parameters for JS.
 		 *
-		 * @since 1.0.31
 		 * @return array Exported parameters.
 		 */
 		public function json() {

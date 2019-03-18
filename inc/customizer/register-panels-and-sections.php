@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -73,7 +73,7 @@
 			apply_filters(
 				'kemet_customizer_primary_header_layout',
 				array(
-					'title'    => __( 'Primary Header', 'kemet' ),
+					'title'    => __( 'Header', 'kemet' ),
 					'panel'    => 'panel-layout',
 					'priority' => 20,
 				)
@@ -156,7 +156,7 @@
 	 */
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-footer-adv',
+			$wp_customize, 'section-kemet-footer',
 			array(
 				'title'    => __( 'Footer Widgets', 'kemet' ),
 				'panel'    => 'panel-layout',
@@ -168,7 +168,7 @@
 
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-footer-small',
+			$wp_customize, 'section-footer-copyright',
 			array(
 				'title'    => __( 'Footer Bar', 'kemet' ),
 				'panel'    => 'panel-layout',
@@ -263,7 +263,7 @@
 	);
 
 	$wp_customize->add_section(
-		'section-footer-adv-color-bg', array(
+		'section-kemet-footer-color-bg', array(
 			'title'    => __( 'Footer Widgets', 'kemet' ),
 			'panel'    => 'panel-colors-background',
 			'priority' => 55,

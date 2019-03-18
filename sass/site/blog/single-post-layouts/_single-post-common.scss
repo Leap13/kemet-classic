@@ -42,11 +42,6 @@
 		}
 
 		@media ( max-width: $mx-col-xs ) { 
-			.kmt-left-arrow,
-			.kmt-right-arrow {
-				display: none;
-			}
-
 			.nav-previous,
 			.nav-next {
 				width: 100%;
@@ -130,8 +125,6 @@
 .kmt-separate-container{
 	.post-navigation {
 		border-top: 0;
-		padding-left: 3.33333em;
-		padding-right: 3.33333em;
 		@media ( max-width: $mx-col-xs ) {
 			padding-left: 0;
 			padding-right: 0;

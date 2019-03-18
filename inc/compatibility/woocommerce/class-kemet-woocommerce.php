@@ -59,7 +59,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// Replace Store Sidebars.
 			add_filter( 'kemet_get_sidebar', array( $this, 'replace_store_sidebar' ) );
 			// Store Sidebar Layout.
-			add_filter( 'kemet_page_layout', array( $this, 'store_sidebar_layout' ) );
+			add_filter( 'kemet_layout', array( $this, 'store_sidebar_layout' ) );
 			// Store Content Layout.
 			add_filter( 'kemet_get_content_layout', array( $this, 'store_content_layout' ) );
 
@@ -489,18 +489,18 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
 				$shop_title          = get_post_meta( $shop_page_id, 'site-post-title', true );
 				$main_header_display = get_post_meta( $shop_page_id, 'kmt-main-header-display', true );
-				$footer_layout       = get_post_meta( $shop_page_id, 'footer-sml-layout', true );
+				$footer_layout       = get_post_meta( $shop_page_id, 'copyright-footer-layout', true );
 
 				if ( 'disabled' === $shop_title ) {
 					add_filter( 'woocommerce_show_page_title', '__return_false' );
 				}
 
 				if ( 'disabled' === $main_header_display ) {
-					remove_action( 'kemet_masthead', 'kemet_masthead_primary_template' );
+					remove_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
 				}
 
 				if ( 'disabled' === $footer_layout ) {
-					remove_action( 'kemet_footer_content', 'kemet_footer_small_footer_template', 5 );
+					remove_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
 				}
 			}
 		}
@@ -593,14 +593,12 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * Add start of wrapper
 		 */
 		function before_main_content_start() {
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'left-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
 			?>
 			<div id="primary" class="content-area primary">
-
-				<?php kemet_primary_content_top(); ?>
 
 				<main id="main" class="site-main" role="main">
 					<div class="kmt-woocommerce-container">
@@ -615,11 +613,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					</div> <!-- .kmt-woocommerce-container -->
 				</main> <!-- #main -->
 
-				<?php kemet_primary_content_bottom(); ?>
-
 			</div> <!-- #primary -->
 			<?php
-			$site_sidebar = kemet_page_layout();
+			$site_sidebar = kemet_layout();
 			if ( 'right-sidebar' == $site_sidebar ) {
 				get_sidebar();
 			}
@@ -736,16 +732,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => esc_attr( $link_color ),
 				),
 
-				'.kmt-cart-menu-wrap .count, .kmt-cart-menu-wrap .count:after' => array(
-					'border-color' => esc_attr( $link_color ),
-					'color'        => esc_attr( $link_color ),
-				),
-
-				'.kmt-cart-menu-wrap:hover .count'        => array(
-					'color'            => esc_attr( $cart_h_color ),
-					'background-color' => esc_attr( $link_color ),
-				),
-
 				'.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -767,10 +753,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.site-header .kmt-site-header-cart-data .button.wc-forward, .site-header .kmt-site-header-cart-data .button.wc-forward:hover' => array(
 					'color' => $btn_color,
 				),
-				'.below-header-user-select .kmt-site-header-cart .widget, .kmt-above-header-section .kmt-site-header-cart .widget a, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a' => array(
+				'.below-header-user-select .kmt-site-header-cart .widget, .kemet-top-header-section .kmt-site-header-cart .widget a, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a' => array(
 					'color' => $text_color,
 				),
-				'.below-header-user-select .kmt-site-header-cart .widget_shopping_cart a:hover, .kmt-above-header-section .kmt-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a.remove:hover, .kmt-above-header-section .kmt-site-header-cart .widget_shopping_cart a.remove:hover' => array(
+				'.below-header-user-select .kmt-site-header-cart .widget_shopping_cart a:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a.remove:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a.remove:hover' => array(
 					'color' => esc_attr( $link_color ),
 				),
 			);
@@ -960,7 +946,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * Displayed a link to the cart including the number of items present and the cart total
 		 *
 		 * @return void
-		 * @since  1.0.0
+		 * 
 		 */
 		function kemet_get_cart_link() {
 

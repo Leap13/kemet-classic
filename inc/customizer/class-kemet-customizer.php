@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -17,7 +17,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 	/**
 	 * Customizer Loader
 	 *
-	 * @since 1.0.0
 	 */
 	class Kemet_Customizer {
 
@@ -58,7 +57,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Print Footer Scripts
 		 *
-		 * @since 1.0.0
 		 * @return void
 		 */
 		public function print_footer_scripts() {
@@ -82,13 +80,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			echo esc_js($output);
+			echo $output;
 		}
 
 		/**
 		 * Register custom section and panel.
 		 *
-		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register_panel( $wp_customize ) {
@@ -129,18 +126,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Add postMessage support for site title and description for the Theme Customizer.
 		 *
-		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		function customize_register( $wp_customize ) {
-
-			/**
-			 * Kemet Pro Upsell Link
-			 */
-			if ( ! defined( 'KEMET_EXT_VER' ) ) {
-				require KEMET_THEME_DIR . 'inc/customizer/kemet-pro/class-kemet-pro-customizer.php';
-				require KEMET_THEME_DIR . 'inc/customizer/kemet-pro/kemet-pro-section-register.php';
-			}
 
 			/**
 			 * Override Defaults
@@ -156,9 +144,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Sections
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
-			//require KEMET_THEME_DIR . 'inc/customizer/sections/general/layout-settings.php';
-			//require KEMET_THEME_DIR . 'inc/customizer/sections/general/default-sidebar.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/site-layout.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/topbar.php';
@@ -168,10 +153,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog-single.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/advanced-footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/footer.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/advanced-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/content.php';
@@ -184,7 +167,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Customizer Controls
 		 *
-		 * @since 1.0.0
 		 * @return void
 		 */
 		function controls_scripts() {
@@ -253,7 +235,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Customizer Preview Init
 		 *
-		 * @since 1.0.0
 		 * @return void
 		 */
 		function preview_init() {
@@ -277,7 +258,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * Called by the customize_save_after action to refresh
 		 * the cached CSS when Customizer settings are saved.
 		 *
-		 * @since 1.0.0
 		 * @return void
 		 */
 		function customize_save() {
@@ -288,7 +268,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/* Generate Header Logo */
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-			add_filter( 'intermediate_image_sizes_advanced', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
+			add_filter( 'intermediate_image_sizes_main', 'Kemet_Customizer::logo_image_sizes', 10, 2 );
 			Kemet_Customizer::generate_logo_by_width( $custom_logo_id );
 
 			do_action( 'kemet_customizer_save' );
@@ -297,7 +277,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Add logo image sizes in filter.
 		 *
-		 * @since 1.0.0
 		 * @param array $sizes Sizes.
 		 * @param array $metadata attachment data.
 		 *
@@ -322,7 +301,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		/**
 		 * Generate logo image by its width.
 		 *
-		 * @since 1.0.0
 		 * @param int $custom_logo_id Logo id.
 		 */
 		static public function generate_logo_by_width( $custom_logo_id ) {

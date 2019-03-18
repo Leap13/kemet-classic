@@ -14,7 +14,6 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since 1.0.0
 	 * @class KmtTypography
 	 */
 	KmtTypography = {
@@ -22,7 +21,6 @@
 		/**
 		 * Initializes our custom logic for the Customizer.
 		 *
-		 * @since 1.0.0
 		 * @method init
 		 */
 		init: function() {
@@ -32,7 +30,6 @@
 		/**
 		 * Initializes logic for font controls.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initFonts
 		 */
@@ -44,7 +41,6 @@
 		/**
 		 * Initializes logic for a single font control.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _initFont
 		 */
@@ -52,7 +48,7 @@
 		{
 			var select  = $( this ),
 			link    = select.data( 'customize-setting-link' ),
-			weight  = select.data( 'connected-control' );
+			weight  = select.data( 'data-connected-control' );
 
 			if ( 'undefined' != typeof weight ) {
 				api( link ).bind( KmtTypography._fontSelectChange );
@@ -63,7 +59,6 @@
 		/**
 		 * Callback for when a font control changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _fontSelectChange
 		 */
@@ -77,7 +72,6 @@
 		 *
 		 * Google Fonts are saved as {'Font Name', Category}. This function cleanes this up to retreive only the {Font Name}.
 		 *
-		 * @since  1.3.0
 		 * @param  {String} fontValue Name of the font.
 		 * 
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
@@ -103,7 +97,6 @@
 		 * Sets the options for a font weight control when a
 		 * font family control changes.
 		 *
-		 * @since 1.0.0
 		 * @access private
 		 * @method _setFontWeightOptions
 		 * @param {Boolean} init Whether or not we're initializing this font weight control.
@@ -114,7 +107,7 @@
 			fontSelect          = api.control( this.id ).container.find( 'select' ),
 			fontValue           = this(),
 			selected            = '',
-			weightKey           = fontSelect.data( 'connected-control' ),
+			weightKey           = fontSelect.data( 'dataa-connected-control' ),
 			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),

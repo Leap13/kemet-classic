@@ -61,15 +61,16 @@
 			line-height: 2.05;
     
 	    	&:before {
-		    	content: "\e5d2";
-				font-family: 'Kemet';
-				text-decoration: inherit;
+					content: "\e901";
+					font-family: 'Kemet-font';
+					text-decoration: inherit;
+					font-weight: 600;
 			}
 		}
 		&.toggled{
 			.menu-toggle-icon {
 		    	&:before {
-			    	content: "\e5cd";
+			    	content: "\e90b";
 				}
 			}
 		}
@@ -87,30 +88,26 @@
 	flex: 1;
 }
 
-.kmt-main-header-bar-alignment {
-	flex: 1;
-}
-
 /* Responsive Screen */
 .kmt-header-break-point {
 
-	.user-select {
-		clear: both;
-	}
+		.user-select {
+			clear: both;
+		}
 
-	.kmt-mobile-menu-buttons {
-		display: block;
-	}
+		.kmt-mobile-menu-buttons {
+			display: block;
+		}
 
-	.main-header-bar-navigation {
-		flex: auto;
-	}
-	.kmt-main-header-bar-alignment {
-		display: block;
-	    width: 100%;
-	    flex: auto;
-	    order: 4;
-	}
+		.main-header-bar-navigation {
+			flex: auto;
+		}
+		.kmt-main-header-bar-alignment {
+			display: block;
+				width: 100%;
+				flex: auto;
+				order: 4;
+		}
 }
 
 /**

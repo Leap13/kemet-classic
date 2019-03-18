@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -37,24 +37,24 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[header-layouts]', array(
 				'section'  => 'section-header',
 				'priority' => 5,
-				'label'    => __( 'Header', 'kemet' ),
+				'label'    => __( 'Header Layout', 'kemet' ),
 				'type'     => 'kmt-radio-image',
 				'choices'  => array(
 					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-1-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-left.png',
 					),
 					'header-main-layout-2' => array(
 						'label' => __( 'Logo Center', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-2-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-center.png',
 					),
 					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/logo-right.png',
 					),     
                'header-main-layout-4' => array(
 						'label' => __( 'Right Left Menu', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/header-layout-3-60x60.png',
+						'path'  => KEMET_THEME_URI . '/assets/images/right-left-menu.png',
 					),
 				),
 			)
@@ -171,7 +171,7 @@ $header_rt_sections = array(
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			KEMET_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-				'selector'            => '.main-header-bar .kmt-masthead-custom-menu-items .kmt-custom-html',
+				'selector'            => '.main-header-bar .kmt-sitehead-custom-menu-items .kmt-custom-html',
 				'container_inclusive' => false,
 				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_header_main_rt_section_html' ),
 			)
@@ -581,3 +581,23 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+	/**
+     * Option: Transparent header
+     */
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[enable-transparent]', array(
+				'default'           => kemet_get_option( 'enable-transparent' ),
+				'type'              => 'option',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+			)
+		);
+		$wp_customize->add_control(
+			KEMET_THEME_SETTINGS . '[enable-transparent]', array(
+				'type'            => 'checkbox',
+				'section'         => 'section-header',
+				'label'           => __( 'Enable Transparent Header', 'kemet' ),
+				'priority'        => 140,
+			)
+		);
+	

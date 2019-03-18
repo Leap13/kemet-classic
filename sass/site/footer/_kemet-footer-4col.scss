@@ -1,0 +1,11 @@
+.kemet-footer-4col {
+	
+	@media all and (max-width : $mx-col-md) {
+		.kemet-footer-widget-2,
+		.kemet-footer-widget-3{
+			.widget:last-child {
+			  	margin: 0 0 2.8em;
+			}
+		}
+	}
+}

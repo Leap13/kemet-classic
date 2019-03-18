@@ -7,23 +7,16 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Kemet
- * @since 1.0.0
+ * 
  */
 
 ?>
-			<?php kemet_content_bottom(); ?>
 
-			</div> <!-- kmt-container -->
+			</div> <!-- Kemet-container -->
 
-		</div><!-- #content -->
-
-		<?php kemet_content_after(); ?>
-
-		<?php kemet_footer_before(); ?>
+		</div><!-- #content --> 
 
 		<?php kemet_footer(); ?>
-
-		<?php kemet_footer_after(); ?>
 
 	</div><!-- #page -->
 

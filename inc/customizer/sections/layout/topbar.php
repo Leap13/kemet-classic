@@ -4,8 +4,8 @@
  *
  * @package     Kemet
  * @author      Kemet
- * @copyright   Copyright (c) 2018, Kemet
- * @link        http://wpkemet.com/
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
  * @since       Kemet 1.0.0
  */
 
@@ -87,7 +87,7 @@ $wp_customize->add_control(
 	// if ( isset( $wp_customize->selective_refresh ) ) {
 	// 	$wp_customize->selective_refresh->add_partial(
 	// 		KEMET_THEME_SETTINGS . '[topbar-section-1-html]', array(
-	// 			'selector'            => '.kmt-above-header-section-1',
+	// 			'selector'            => '.kemet-top-header-section-1',
 	// 			'container_inclusive' => true,
 	// 			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_topbar_section_1_html' ),
 	// 		)

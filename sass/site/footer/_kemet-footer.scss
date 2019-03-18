@@ -1,0 +1,33 @@
+/**
+ * Footer Widget Layouts
+ */
+
+.kemet-footer-overlay {
+    background-color: $footer-background-color;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.kemet-footer {
+	p:last-child {
+	  	margin-bottom: 0;
+	}
+	.widget_calendar{
+		table{
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media all and (max-width : $mx-col-md) {
+	.kemet-footer-widget-1 {
+		.widget:last-child {
+		  	margin: 0 0 2.8em;
+		}
+	}
+}
+
+
+.kemet-footer .kmt-no-widget-row .widget-title {
+	text-transform: capitalize;
+}
