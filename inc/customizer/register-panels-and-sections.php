@@ -69,15 +69,23 @@
 
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-header-group',
+			array(
+				'title'    => __( 'Header', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'priority' => 15,
+			)
+		)
+	);
+	$wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header',
-			apply_filters(
-				'kemet_customizer_primary_header_layout',
 				array(
 					'title'    => __( 'Header', 'kemet' ),
 					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
 					'priority' => 20,
 				)
-			)
 		)
 	);
     
@@ -86,6 +94,7 @@
 			$wp_customize, 'section-topbar-header', array(
 					'title'    => __( 'Top Bar Header', 'kemet' ),
 					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
 					'priority' => 21,
 				)
 		)
@@ -254,21 +263,6 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		'section-colors-footer', array(
-			'title'    => __( 'Footer Bar', 'kemet' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 60,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-kemet-footer-color-bg', array(
-			'title'    => __( 'Footer Widgets', 'kemet' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 55,
-		)
-	);
 
 	/**
 	 * Typography Panel
@@ -299,13 +293,10 @@
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header-typo',
-			apply_filters(
-				'kemet_customizer_primary_header_typo',
-				array(
-					'title'    => __( 'Header', 'kemet' ),
-					'panel'    => 'panel-typography',
-					'priority' => 20,
-				)
+			array(
+				'title'    => __( 'Header', 'kemet' ),
+				'panel'    => 'panel-typography',
+				'priority' => 20,
 			)
 		)
 	);
