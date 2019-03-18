@@ -12,8 +12,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-$wp_customize->add_setting(
+	/**
+	* Option: Site Content Width
+	*/
+	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-widthh]', array(
 			'default'           => 1200,
 			'type'              => 'option',
@@ -26,7 +28,7 @@ $wp_customize->add_setting(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-widthh]', array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-container-layout',
-				'priority'    => 10,
+				'priority'    => 5,
 				'label'       => __( 'Container Widthh', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
@@ -39,8 +41,8 @@ $wp_customize->add_setting(
 	);
     
    /**
-	 * Option: Site Content Layout
-	 */
+	* Option: Site Content Layout
+	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
 			'default'           => kemet_get_option( 'site-content-layout' ),
@@ -52,7 +54,7 @@ $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'priority' => 50,
+			'priority' => 10,
 			'label'    => __( 'Default Container', 'kemet' ),
 			'choices'  => array(
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
@@ -78,7 +80,7 @@ $wp_customize->add_setting(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'label'    => __( 'Container for Pages', 'kemet' ),
-			'priority' => 55,
+			'priority' => 15,
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
@@ -103,7 +105,7 @@ $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'priority' => 60,
+			'priority' => 20,
 			'label'    => __( 'Container for Blog Posts', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
@@ -129,7 +131,7 @@ $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'priority' => 65,
+			'priority' => 25,
 			'label'    => __( 'Container for Blog Archives', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
@@ -138,6 +140,20 @@ $wp_customize->add_setting(
 				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
+				'type'     => 'kmt-divider',
+				'priority' => 30,
+				'section'  => 'section-container-layout',
+				'settings' => array(),
+			)
 		)
 	);
 
@@ -157,21 +173,8 @@ $wp_customize->add_setting(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
 				'type'     => 'kmt-background',
 				'section'  => 'section-container-layout',
-				'priority' => 70,
+				'priority' => 35,
 				'label'    => __( 'Body Background', 'kemet' ),
-			)
-		)
-	);
-    	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
-				'type'     => 'kmt-divider',
-				'priority' => 50,
-				'section'  => 'section-container-layout',
-				'settings' => array(),
 			)
 		)
 	);
@@ -192,8 +195,8 @@ $wp_customize->add_setting(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
 				'type'     => 'kmt-background',
 				'section'  => 'section-container-layout',
-				'priority' => 70,
-				'label'    => __( 'Inner Background', 'kemet' ),
+				'priority' => 40,
+				'label'    => __( 'Boxed Inner Background', 'kemet' ),
 			)
 		)
 	);
@@ -214,7 +217,7 @@ $wp_customize->add_setting(
            $wp_customize, KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-container-layout',
-               'priority'       => 70,
+               'priority'       => 45,
                'label'          => __( 'Inner Container Spacing', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
@@ -227,20 +230,3 @@ $wp_customize->add_setting(
            )
        )
    );
-   
-   
-   
-   
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
-				'type'     => 'kmt-divider',
-				'priority' => 50,
-				'section'  => 'section-container-layout',
-				'settings' => array(),
-			)
-		)
-	);
