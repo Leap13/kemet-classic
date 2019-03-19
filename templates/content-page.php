@@ -17,10 +17,11 @@
 	<?php kemet_entry_top(); ?>
 	<?php
 		$display_page_title = kemet_get_option( 'display-page-title' );
+		$page_align         = kemet_get_option( 'page-title-align' );
 		if($display_page_title)
 		{
 			?>
-			<header class="entry-header kmt-page-title <?php kemet_entry_header_class(); ?>">
+			<header class="entry-header kmt-page-title kmt-page-align-<?php echo $page_align ?> <?php kemet_entry_header_class(); ?>">
 
 			<?php kemet_get_post_thumbnail(); ?>
 	

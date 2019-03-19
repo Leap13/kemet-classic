@@ -141,3 +141,16 @@
         position: relative;
     }
 }
+
+.kmt-page-title {
+	display: flex;
+}
+.kmt-page-title.kmt-page-align-center {
+	justify-content: center;
+}
+.kmt-page-title.kmt-page-align-left {
+	justify-content: flex-start;
+}
+.kmt-page-title.kmt-page-align-right {
+	justify-content: flex-end;
+}

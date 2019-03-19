@@ -124,3 +124,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+
+	/**
+	 * Option: Page Title Align Items
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[page-title-align]', array(
+			'default'           => kemet_get_option( 'page-title-align' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Sortable(
+			$wp_customize, KEMET_THEME_SETTINGS . '[page-title-align]', array(
+				'type'     => 'select',
+				'section'  => 'section-page-title',
+				'priority' => 6,
+				'label'    => __( 'Pae Title Align', 'kemet' ),
+				'choices'  => array(
+					'left'  => __( 'Left', 'kemet' ),
+					'center'=> __( 'Center', 'kemet' ),
+					'right' => __( 'Right', 'kemet' ),
+				),
+				'active_callback' => 'kmt_dep_page_title'
+			)
+		)
+	);
