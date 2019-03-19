@@ -10,35 +10,6 @@
  */
 
 	/**
-	 * General Panel
-	 */
-	$wp_customize->add_panel(
-		new Kemet_WP_Customize_Panel(
-			$wp_customize, 'panel-general',
-			array(
-				'priority' => 10,
-				'title'    => __( 'General', 'kemet' ),
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-general-layout', array(
-			'priority' => 5,
-			'panel'    => 'panel-general',
-			'title'    => __( 'Layout', 'kemet' ),
-		)
-	);
-    
-   $wp_customize->add_section(
-		'section-general-default-sidebar', array(
-			'priority' => 5,
-			'panel'    => 'panel-general',
-			'title'    => __( 'Default Sidebar', 'kemet' ),
-		)
-	);
-
-	/**
 	 * Layout Panel
 	 */
 	$wp_customize->add_panel(
@@ -51,14 +22,7 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		'section-site-layout', array(
-			'priority' => 5,
-			'panel'    => 'panel-layout',
-			'title'    => __( 'Site Layout', 'kemet' ),
-		)
-	);
-
+	// Layout Panel Container
 	$wp_customize->add_section(
 		'section-container-layout', array(
 			'priority' => 10,
@@ -67,6 +31,7 @@
 		)
 	);
 
+	// Layout Panel Header
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header-group',
@@ -77,6 +42,8 @@
 			)
 		)
 	);
+
+	// Layout Panel Header Header
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-header',
@@ -84,33 +51,36 @@
 					'title'    => __( 'Header', 'kemet' ),
 					'panel'    => 'panel-layout',
 					'section'  => 'section-header-group',
-					'priority' => 20,
+					'priority' => 5,
 				)
 		)
 	);
 
+	// Layout Panel Header Main Menu
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-menu-header', array(
 					'title'    => __( 'Main Menu', 'kemet' ),
 					'panel'    => 'panel-layout',
 					'section'  => 'section-header-group',
-					'priority' => 21,
+					'priority' => 10,
 				)
 		)
 	);
 
+	// Layout Panel Header Top bar
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-topbar-header', array(
 					'title'    => __( 'Top Bar Header', 'kemet' ),
 					'panel'    => 'panel-layout',
 					'section'  => 'section-header-group',
-					'priority' => 22,
+					'priority' => 15,
 				)
 		)
 	);
 
+	// Layout Panel Footer
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-footer-group',
@@ -121,59 +91,8 @@
 			)
 		)
 	);
-
-	/**
-	 * WooCommerce
-	 */
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-woo-group',
-			array(
-				'title'    => __( 'WooCommerce', 'kemet' ),
-				'panel'    => 'panel-layout',
-				'priority' => 60,
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-woo-general',
-			array(
-				'title'    => __( 'General', 'kemet' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 5,
-			)
-		)
-	);
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-woo-shop',
-			array(
-				'title'    => __( 'Shop', 'kemet' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 10,
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-woo-shop-single',
-			array(
-				'title'    => __( 'Single Product', 'kemet' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 15,
-			)
-		)
-	);
-
-	/**
-	 * Footer Widgets Section
-	 */
+	
+	// Layout Panel Footer Footer Widgets
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-kemet-footer',
@@ -186,6 +105,7 @@
 		)
 	);
 
+	// Layout Panel Footer Footer Bar
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-footer-copyright',
@@ -195,6 +115,33 @@
 				'section'  => 'section-footer-group',
 				'priority' => 10,
 			)
+		)
+	);
+
+	// Layout Panel Content
+	$wp_customize->add_section(
+		'section-contents', array(
+			'title'    => __( 'Content', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 25,
+		)
+	);
+
+	// Layout Panel Sidebar
+	$wp_customize->add_section(
+		'section-sidebars', array(
+			'title'    => __( 'Sidebar', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 30,
+		)
+	);
+
+	// Layout Panel Widgets
+	$wp_customize->add_section(
+		'section-widgets', array(
+			'title'    => __( 'Widgets', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 35,
 		)
 	);
 
@@ -232,29 +179,89 @@
 			)
 		)
 	);
-
+	
+	// Layout Panel Woocommerce
 	$wp_customize->add_section(
-		'section-sidebars', array(
-			'title'    => __( 'Sidebar', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'priority' => 50,
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-woo-group',
+			array(
+				'title'    => __( 'WooCommerce', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'priority' => 45,
+			)
 		)
 	);
 
+	// Layout Panel Woocommerce Shop
 	$wp_customize->add_section(
-		'section-widgets', array(
-			'title'    => __( 'widget', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'priority' => 51,
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-woo-shop',
+			array(
+				'title'    => __( 'Shop', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-woo-group',
+				'priority' => 5,
+			)
 		)
 	);
+
+	// Layout Panel Woocommerce Single Product
 	$wp_customize->add_section(
-		'section-contents', array(
-			'title'    => __( 'Content', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'priority' => 56,
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-woo-shop-single',
+			array(
+				'title'    => __( 'Single Product', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-woo-group',
+				'priority' => 10,
+			)
 		)
 	);
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/**
 	 * Colors Panel
