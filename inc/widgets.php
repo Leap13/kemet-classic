@@ -220,7 +220,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer Widget Area 5', 'kemet' ),
+				'name'          => esc_html__( 'Footer Widget 5', 'kemet' ),
 				'id'            => 'main-footer-widget-5',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
