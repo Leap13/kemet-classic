@@ -245,6 +245,14 @@
 		)
 	);
 
+	$wp_customize->add_section(
+		'section-page-title', array(
+			'title'    => __( 'Page Title', 'kemet' ),
+			'panel'    => 'panel-layout',
+			'priority' => 57,
+		)
+	);
+	
 	/**
 	 * Colors Panel
 	 */

@@ -154,6 +154,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/sidebar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/page-title.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/typography/body.php';

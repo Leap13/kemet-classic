@@ -15,13 +15,20 @@
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php kemet_entry_top(); ?>
+	<?php
+		$display_page_title = kemet_get_option( 'display-page-title' );
+		if($display_page_title)
+		{
+			?>
+			<header class="entry-header kmt-page-title <?php kemet_entry_header_class(); ?>">
 
-	<header class="entry-header <?php kemet_entry_header_class(); ?>">
-
-		<?php kemet_get_post_thumbnail(); ?>
-
-		<?php kemet_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+			<?php kemet_get_post_thumbnail(); ?>
+	
+			<?php kemet_the_title( '<h1 class="entry-title" itemprop="headline">', '</h1>' ); ?>
+		    </header><!-- .entry-header -->
+		  <?php
+		}
+    ?>
 
 	<div class="entry-content clear" itemprop="text">
 

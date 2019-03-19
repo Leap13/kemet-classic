@@ -14,8 +14,13 @@
 <div <?php kemet_blog_layout_class( 'single-layout-1' ); ?>>
 
 	<?php kemet_single_header_before(); ?>
+	<?php
+		$display_post_title = kemet_get_option( 'display-post-title' );
+		if($display_post_title)
+		{
+			?>
 
-	<header class="entry-header <?php kemet_entry_header_class(); ?>">
+	<header class="entry-header kmt-page-title <?php kemet_entry_header_class(); ?>">
 
 		<?php kemet_single_header_top(); ?>
 
@@ -24,7 +29,9 @@
 		<?php kemet_single_header_bottom(); ?>
 
 	</header><!-- .entry-header -->
-
+	<?php
+		}
+    ?>
 	<?php kemet_single_header_after(); ?>
 
 	<div class="entry-content clear" itemprop="text">

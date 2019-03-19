@@ -849,11 +849,19 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			} elseif ( is_category() ) {
 			?>
 
-				<section class="kmt-archive-description">
-					<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
-					<?php the_archive_description(); ?>
-				</section>
+			<?php
+				$display_archive_title = kemet_get_option( 'display-archive-title' );
+				if($display_archive_title)
+				{
+					?>
+					<section class="kmt-archive-description kmt-page-title">
+						<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
+						<?php the_archive_description(); ?>
+					</section>
 
+					<?php
+				}
+					?>
 			<?php
 
 			// Tag.

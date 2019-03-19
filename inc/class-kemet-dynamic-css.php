@@ -56,6 +56,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * - 404 Page
 			 * - Secondary
 			 * - Global CSS
+			 * - Page Title
 			 */
 
 			/**
@@ -227,6 +228,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Top Bar 
 			$topbar_font_size                    = kemet_get_option( 'topbar-font-size' );
+
+			//Page Title
+			$page_title_bg_obj				         = kemet_get_option('page-title-bg-obj');
+			$page_title_padding			             = kemet_get_option('page-title-padding');
 
 			/**
 			 * Apply text hover color depends on link hover color
@@ -719,7 +724,19 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
             'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
             'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
-               ),
+			   ),
+			
+			/**
+			 *  Page Title
+			 */
+			' .kmt-page-title' => kemet_get_background_obj( $page_title_bg_obj ),
+			'.kmt-page-title' => array(
+				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'desktop' ),
+				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'desktop' ),
+				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'desktop' ),
+				'padding-left'   => kemet_responsive_spacing( $page_title_padding , 'left', 'desktop' ),
+			),
+			
 			);
 
 			/* Parse CSS from array() */
@@ -899,7 +916,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'tablet' ),
                 'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'tablet' ),
                 'padding-left'  => kemet_responsive_spacing( $space_footer, 'left', 'tablet' ),
-            ),
+			),
+			
+			/**
+			 * Page Title
+			 */
+			'.kmt-page-title' => array(
+				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'tablet' ),
+				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'tablet' ),
+				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'tablet' ),
+				'padding-left'   => kemet_responsive_spacing( $page_title_padding , 'left', 'tablet' ),
+			)
 			);
 
 			/* Parse CSS from array()*/
@@ -1044,6 +1071,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			'.kemet-footer .widget-title'                           => array(
 				'font-size' => kemet_responsive_font( $footer_adv_widget_title_font_size , 'mobile' ),
 			),
+
+			/**
+			 * Page Title
+			 */
+			'.kmt-page-title' => array(
+				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'mobile' ),
+				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'mobile' ),
+				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'mobile' ),
+				'padding-left'   => kemet_responsive_spacing( $page_title_padding , 'left', 'mobile' ),
+			)
 			);
 
 			/* Parse CSS from array()*/

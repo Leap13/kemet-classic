@@ -308,6 +308,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+
+					//Page Title
+					'display-page-title'  => 1,
+					'display-archive-title'  => 1,
+					'display-post-title'  => 1,
+
 				)
 			);
 		}

@@ -1179,6 +1179,14 @@ if ( ! function_exists( 'kemet_entry_header_class' ) ) {
 
 		echo esc_attr( join( ' ', $classes ) );
 	}
+
+	function kmt_dep_page_title() {
+		if (kemet_get_option( 'display-page-title' ) || kemet_get_option( 'display-post-title' ) || kemet_get_option( 'display-archive-title' )) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 /**
