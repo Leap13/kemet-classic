@@ -217,121 +217,12 @@
 			)
 		)
 	);
-
-
-
-
-
-
-
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/**
-	 * Colors Panel
-	 */
-	$wp_customize->add_panel(
-		'panel-colors-background', array(
-			'priority' => 15,
-			'title'    => __( 'Colors & Background', 'kemet' ),
-		)
-	);
-
+    // Base Colors Main Panel
 	$wp_customize->add_section(
 		'section-colors-body', array(
-			'title'    => __( 'Base Colors', 'kemet' ),
-			'panel'    => 'panel-colors-background',
-			'priority' => 1,
-		)
-	);
-
-
-	/**
-	 * Typography Panel
-	 */
-	$wp_customize->add_panel(
-		'panel-typography', array(
-			'priority' => 20,
-			'title'    => __( 'Typography', 'kemet' ),
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-body-typo', array(
-			'title'    => __( 'Base Typography', 'kemet' ),
-			'panel'    => 'panel-typography',
-			'priority' => 1,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-content-typo', array(
-			'title'    => __( 'Content', 'kemet' ),
-			'panel'    => 'panel-typography',
-			'priority' => 35,
-		)
-	);
-
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-header-typo',
-			array(
-				'title'    => __( 'Header', 'kemet' ),
-				'panel'    => 'panel-typography',
-				'priority' => 20,
-			)
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-archive-typo', array(
-			'title'    => __( 'Blog / Archive', 'kemet' ),
-			'panel'    => 'panel-typography',
-			'priority' => 40,
-		)
-	);
-
-	$wp_customize->add_section(
-		'section-single-typo', array(
-			'title'    => __( 'Single Page / Post', 'kemet' ),
-			'panel'    => 'panel-typography',
-			'priority' => 45,
+			'title'    => __( 'Colors & Background', 'kemet' ),
+			'priority' => 15,
 		)
 	);
 
@@ -342,15 +233,5 @@
 		'section-buttons', array(
 			'priority' => 50,
 			'title'    => __( 'Buttons', 'kemet' ),
-		)
-	);
-
-	/**
-	 * Widget Areas Section
-	 */
-	$wp_customize->add_section(
-		'section-widget-areas', array(
-			'priority' => 55,
-			'title'    => __( 'Widget Areas', 'kemet' ),
 		)
 	);

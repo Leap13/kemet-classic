@@ -139,6 +139,93 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
+		/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]', array(
+				'type'     => 'kmt-divider',
+				'section'  => 'section-blog',
+				'priority' => 30,
+				'label'    => __( 'Archive Summary Box Title', 'kemet' ),
+				'settings' => array(),
+			)
+		)
+	);
+	/**
+	 * Option: Archive Summary Box Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+			'default'           => kemet_get_option( 'font-size-archive-summary-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'section-blog',
+				'priority'    => 35,
+				'label'       => __( 'Font Size', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]', array(
+				'type'     => 'kmt-divider',
+				'section'  => 'section-blog',
+				'priority' => 40,
+				'label'    => __( 'Blog Post Title', 'kemet' ),
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Blog - Post Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
+			'default'           => kemet_get_option( 'font-size-page-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'section-blog',
+				'priority'    => 45,
+				'label'       => __( 'Font Size', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
+
 	/**
      * Option:Post Title Color
      */
@@ -154,7 +241,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-title-color]', array(
                 'label'   => __( 'Listing Post Title Color', 'kemet' ),
-                'priority'       => 30,
+                'priority'       => 50,
                 'section' => 'section-blog',
             )
         )
@@ -175,7 +262,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
                 'label'   => __( 'Read More Color', 'kemet' ),
-                'priority'       => 35,
+                'priority'       => 55,
                 'section' => 'section-blog',
             )
         )
@@ -196,7 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
                 'label'   => __( 'Read More Hover Color', 'kemet' ),
-                'priority'       => 40,
+                'priority'       => 60,
                 'section' => 'section-blog',
             )
         )
@@ -218,7 +305,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-padding]', array(
 				'type'           => 'kmt-responsive-spacing',
 				'section'        => 'section-blog',
-				'priority'       => 45,
+				'priority'       => 65,
 				'label'          => __( 'Read More Spacing', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -245,7 +332,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-color]', array(
-                'priority'       => 50,
+                'priority'       => 70,
                 'section' => 'section-blog',
 				'label'   => __( 'Read More Background Color', 'kemet' ),
 			)
@@ -265,7 +352,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
-                'priority'       => 55,
+                'priority'       => 75,
                 'section' => 'section-blog',
 				'label'   => __( 'Read More Background Color Hover', 'kemet' ),
 			)
@@ -285,7 +372,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[readmore-border-radius]', array(
-            'priority'       => 60,
+            'priority'       => 80,
             'section' => 'section-blog',
 			'label'       => __( 'Read More Border Radius', 'kemet' ),
 			'type'        => 'number',
@@ -311,7 +398,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
 			'type'        => 'number',
 			'section'     => 'section-blog',
-			'priority'    => 65,
+			'priority'    => 85,
 			'label'       => __( 'Read More Border Size', 'kemet' ),
 			'input_attrs' => array(
 				'min'  => 0,
@@ -335,7 +422,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-color]', array(
 				'section'  => 'section-blog',
-				'priority' => 70,
+				'priority' => 90,
 				'label'    => __( 'Read More Border Color', 'kemet' ),
 			)
 		)
@@ -356,7 +443,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-h-color]', array(
 				'section'  => 'section-blog',
-				'priority' => 75,
+				'priority' => 95,
 				'label'    => __( 'Read More Border Hover Color', 'kemet' ),
 			)
 		)
