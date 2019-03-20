@@ -189,6 +189,18 @@
 
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-go-top',
+			array(
+				'title'    => __( 'Go Top Link', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-footer-group',
+				'priority' => 11,
+			)
+		)
+	);
+	
+	$wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-group',
 			array(
 				'priority' => 40,
