@@ -181,3 +181,86 @@ if ( ! defined( 'ABSPATH' ) ) {
            )
        )
    );
+
+
+
+
+
+
+
+
+
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Divider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
+				'type'     => 'kmt-divider',
+				'section'  => 'title_tagline',
+				'priority' => 55,
+				'label'    => __( 'Site Title', 'kemet' ),
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Site Title Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
+			'default'           => kemet_get_option( 'font-size-site-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'title_tagline',
+				'priority'    => 60,
+				'label'       => __( 'Site Title Font Size', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Site Tagline Font Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
+			'default'           => kemet_get_option( 'font-size-site-tagline' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
+				'type'        => 'kmt-responsive',
+				'section'     => 'title_tagline',
+				'priority'    => 70,
+				'label'       => __( 'Tagline Font Size', 'kemet' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
+

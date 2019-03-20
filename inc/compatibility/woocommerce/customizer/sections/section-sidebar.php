@@ -14,20 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[single-product-sidebar-layout-divider]', array(
-				'section'  => 'section-sidebars',
-				'type'     => 'kmt-divider',
-				'priority' => 5,
-				'settings' => array(),
-			)
-		)
-	);
-
-	/**
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
@@ -41,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
-			'priority' => 5,
+			'priority' => 125,
 			'label'    => __( 'WooCommerce', 'kemet' ),
 			'choices'  => array(
 				'default'       => __( 'Default', 'kemet' ),
@@ -66,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
-			'priority' => 5,
+			'priority' => 135,
 			'label'    => __( 'Single Product', 'kemet' ),
 			'choices'  => array(
 				'default'       => __( 'Default', 'kemet' ),
