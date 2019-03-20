@@ -846,23 +846,20 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			<?php
 
 			// Category.
-			} elseif ( is_category() ) {
-			?>
-
+			} elseif ( is_category() ) { ?>
 			<?php
+
 				$display_archive_title = kemet_get_option( 'display-archive-title' );
 				$page_align            = kemet_get_option( 'page-title-align' );
-				if($display_archive_title)
-				{
-					?>
-					<section class="kmt-archive-description kmt-page-title kmt-page-align-<?php echo $page_align ?>">
+				if($display_archive_title) { ?>
+
+					<section class="kmt-archive-description kmt-page-title kmt-align-<?php echo $page_align ?>">
 						<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
 						<?php the_archive_description(); ?>
 					</section>
 
-					<?php
-				}
-					?>
+				<?php } ?>
+				  
 			<?php
 
 			// Tag.

@@ -729,8 +729,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 *  Page Title
 			 */
-			' .kmt-page-title' => kemet_get_background_obj( $page_title_bg_obj ),
-			'.kmt-page-title' => array(
+			'.kmt-page-title' => kemet_get_background_obj( $page_title_bg_obj ),
+			'.entry-header.kmt-page-title,.kmt-archive-description.kmt-page-title' => array(
 				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'desktop' ),
 				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'desktop' ),
 				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'desktop' ),
@@ -921,7 +921,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Page Title
 			 */
-			'.kmt-page-title' => array(
+			'.entry-header.kmt-page-title,.kmt-archive-description.kmt-page-title' => array(
 				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'tablet' ),
 				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'tablet' ),
 				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'tablet' ),
@@ -1075,7 +1075,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Page Title
 			 */
-			'.kmt-page-title' => array(
+			'.entry-header.kmt-page-title,.kmt-archive-description.kmt-page-title' => array(
 				'padding-top'    => kemet_responsive_spacing( $page_title_padding , 'top', 'mobile' ),
 				'padding-bottom' => kemet_responsive_spacing( $page_title_padding , 'bottom', 'mobile' ),
 				'padding-right'  => kemet_responsive_spacing( $page_title_padding , 'right', 'mobile' ),

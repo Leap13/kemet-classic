@@ -14,3 +14,14 @@
 	clear: both;
 	@include center-block;
 }
+
+// Alignments
+.kmt-align-center {
+	justify-content: center;
+}
+.kmt-align-left {
+	justify-content: flex-start;
+}
+.kmt-align-right {
+	justify-content: flex-end;
+}

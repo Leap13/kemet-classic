@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-post-title]', array(
 			'type'            => 'checkbox',
 			'section'         => 'section-page-title',
-			'label'           => __( 'Display Posts Title', 'kemet' ),
+			'label'           => __( 'Display Post Title', 'kemet' ),
 			'priority'        => 2,
 		)
 	);
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[display-archive-title]', array(
 			'type'            => 'checkbox',
 			'section'         => 'section-page-title',
-			'label'           => __( 'Display Archives Title', 'kemet' ),
+			'label'           => __( 'Display Archive Title', 'kemet' ),
 			'priority'        => 3,
 		)
 	);
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'section' => 'section-page-title',
 				'type'    => 'kmt-background',
                 'label'   => __( 'Background', 'kemet' ),
-                'priority'       => 4,
+                'priority'        => 4,
                 'active_callback' => 'kmt_dep_page_title'
 			)
 		)
