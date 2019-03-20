@@ -314,6 +314,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-archive-title'  => 1,
 					'display-post-title'  => 1,
 
+					//Go Top Link
+					'enable-go-top'   => 1,
+					'go-top-responsive'   => "all-devices",
 				)
 			);
 		}
