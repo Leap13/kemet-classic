@@ -83,7 +83,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                     'max' =>50
 				),
 				'units'       => array(
-					'px' => 'px',
+                    'px' => 'px',
+                    'em' => 'em',
+                    '%'  => '%',
                 ),
                 'active_callback' => 'kmt_dep_go_top',
 			)
