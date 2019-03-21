@@ -118,6 +118,19 @@
 		)
 	);
 
+	$wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-go-top',
+			array(
+				'title'    => __( 'Go Top Link', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-footer-group',
+				'priority' => 15,
+			)
+		)
+	);
+
+
 	// Layout Panel Content
 	$wp_customize->add_section(
 		'section-contents', array(
