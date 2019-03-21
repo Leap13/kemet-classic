@@ -50,6 +50,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * - Typography of Headings
 			 * - Header
 			 * - Top Bar Header
+			 * - Sticky Header
 			 * - Footer
 			 *   - Main Footer CSS
 			 *     - Small Footer CSS
@@ -120,6 +121,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_link_h_color            = kemet_get_option( 'submenu-link-h-color' );
 			$display_submenu_border  = kemet_get_option( 'display-submenu-border' );
 			$submenu_border_color  = kemet_get_option( 'submenu-border-color' );
+
+			//Sticky header
+			$sticky_bg_obj                    = kemet_get_option( 'sticky-bg-obj' );
+			$sticky_text_color                = kemet_get_option( 'sticky-text-color' );
+			$sticky_text_h_color              = kemet_get_option( 'sticky-text-h-color' );
+			$sticky_submenu_color             = kemet_get_option( 'sticky-submenu-color' );
+			$sticky_submenu_h_color           = kemet_get_option( 'sticky-submenu-h-color' );
+			$sticky_submenu_bg_color          = kemet_get_option( 'sticky-submenu-bg-color' );
+			$sticky_divider_color             = kemet_get_option( 'sticky-divider-color' );
+			$sticky_border_bottom_color       = kemet_get_option( 'sticky-border-bottom-color' );
 
 			//Content Heading Color
 			$heading_h1_font_color            = kemet_get_option( 'font-color-h1' );
@@ -429,8 +440,27 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $submenu_link_h_color ),
 				),
 
-
-
+				//Sticky Header
+				'header.kmt-is-sticky' => kemet_get_background_obj( $sticky_bg_obj ),
+				'.kmt-is-sticky li' => array(
+					'color' => esc_attr($sticky_text_color)
+				),
+				'.kmt-is-sticky:hover li' => array(
+					'color' => esc_attr($sticky_text_h_color)
+				),
+				'.kmt-is-sticky .sub-menu li a' => array(
+					'color'               => esc_attr($sticky_submenu_color),
+					'border-bottom-color' => esc_attr( $sticky_divider_color ),
+				),
+				'.kmt-is-sticky .sub-menu li:hover > a' => array(
+					'color' => esc_attr($sticky_submenu_h_color)
+				),
+				'.kmt-is-sticky .sub-menu' => array(
+					'background-color' => esc_attr( $sticky_submenu_bg_color),
+				),
+				'.kmt-is-sticky' => array(
+					'border-bottom-color' => esc_attr( $sticky_border_bottom_color ),
+				),
 				// Small Footer.
 				'.site-footer a:hover + .post-count, .site-footer a:focus + .post-count' => array(
 					'background'   => esc_attr( $link_color ),

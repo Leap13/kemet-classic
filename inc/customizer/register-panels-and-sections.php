@@ -80,6 +80,18 @@
 		)
 	);
 
+	// Layout Panel Sticky Header
+	$wp_customize->add_section(
+		new Kemet_WP_Customize_Section(
+			$wp_customize, 'section-sticky-header', array(
+					'title'    => __( 'Sticky Header', 'kemet' ),
+					'panel'    => 'panel-layout',
+					'section'  => 'section-header-group',
+					'priority' => 16,
+				)
+		)
+	);
+
 	// Layout Panel Footer
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(

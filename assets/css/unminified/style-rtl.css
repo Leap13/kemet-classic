@@ -2786,6 +2786,7 @@ body {
  * 4 - Header Main
  * 5 - Header Top Bar
  * 7 - Header Toggle Buttons
+ * 8 - Header sticky 
 */
 /* 1 - Header Layouts  */
 /**
@@ -3732,6 +3733,12 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding-bottom: 1.5em;
+}
+
+/* 8 - Header sticky */
+.kmt-is-sticky {
+  position: fixed;
+  width: 100%;
 }
 
 /*----------  Primary  ----------*/

@@ -308,6 +308,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+
+					//Sticky Header
+					'enable-sticky'   => 0,
+					'enable-sticky-shadow' => 0,
+					'sticky-responsive' => 'desktop'
 				)
 			);
 		}

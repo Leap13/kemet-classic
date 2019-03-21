@@ -670,6 +670,46 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 
 	/**
+	 * Sticky Header
+	 */
+	wp.customize( 'kemet-settings[sticky-bg-obj]', function( value ) {
+		value.bind( function( bg_obj ) {
+
+			var dynamicStyle = 'header.kmt-is-sticky { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-bg-obj', dynamicStyle );
+		} );
+	} );
+	kemet_css( 'kemet-settings[sticky-text-color]', 'color', '.kmt-is-sticky li' );
+	kemet_css( 'kemet-settings[sticky-text-h-color]', 'color', '.kmt-is-sticky:hover li' );
+	kemet_css( 'kemet-settings[sticky-submenu-color]', 'color', '.kmt-is-sticky .sub-menu li a' );
+	kemet_css( 'kemet-settings[sticky-submenu-h-color]', 'color', '.kmt-is-sticky .sub-menu li:hover > a' );
+	wp.customize( 'kemet-settings[sticky-submenu-bg-color]', function( value ) {
+		value.bind( function( bg_obj ) {
+
+			var dynamicStyle = '.kmt-is-sticky .sub-menu { {{css}} }';
+			
+			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-submenu-bg-color', dynamicStyle );
+		} );
+	} );
+	wp.customize( 'kemet-settings[sticky-divider-color]', function( value ) {
+		value.bind( function( border_color ) {
+			jQuery( '.kmt-is-sticky .sub-menu li a' ).css( 'border-color', border_color );
+		} );
+	} );
+	wp.customize( 'kemet-settings[sticky-border-bottom-color]', function( value ) {
+		value.bind( function( color ) {
+			if (color == '') {
+				wp.customize.preview.send( 'refresh' );
+			}
+			if ( color ) {
+				var dynamicStyle = ' body:not(.kmt-header-break-point) .kmt-is-sticky { border-bottom-color: ' + color + '; } ';
+					dynamicStyle += ' body.kmt-is-sticky { border-bottom-color: ' + color + '; } ';
+				kemet_add_dynamic_css( 'sticky-border-bottom-color', dynamicStyle );
+			}
+		} );
+	} );
+	/**
 	 * Container Inner Spacing
 	 */
 	kemet_responsive_spacing( 'kemet-settings[container-inner-spacing]','.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
