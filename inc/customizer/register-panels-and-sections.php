@@ -61,7 +61,7 @@
 
 	$wp_customize->add_section(
 		'section-container-layout', array(
-			'priority' => 10,
+			'priority' => 5,
 			'panel'    => 'panel-layout',
 			'title'    => __( 'Container', 'kemet' ),
 		)
@@ -73,9 +73,9 @@
 			apply_filters(
 				'kemet_customizer_primary_header_layout',
 				array(
-					'title'    => __( 'Primary Header', 'kemet' ),
+					'title'    => __( 'Headers', 'kemet' ),
 					'panel'    => 'panel-layout',
-					'priority' => 20,
+					'priority' => 10,
 				)
 			)
 		)
@@ -86,7 +86,7 @@
 			$wp_customize, 'section-topbar-header', array(
 					'title'    => __( 'Top Bar Header', 'kemet' ),
 					'panel'    => 'panel-layout',
-					'priority' => 21,
+					'priority' => 15,
 				)
 		)
 	);
@@ -97,7 +97,7 @@
 			array(
 				'title'    => __( 'Footer', 'kemet' ),
 				'panel'    => 'panel-layout',
-				'priority' => 55,
+				'priority' => 20,
 			)
 		)
 	);
@@ -116,17 +116,17 @@
 		)
 	);
 
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-woo-general',
-			array(
-				'title'    => __( 'General', 'kemet' ),
-				'panel'    => 'panel-layout',
-				'section'  => 'section-woo-group',
-				'priority' => 5,
-			)
-		)
-	);
+//	$wp_customize->add_section(
+//		new Kemet_WP_Customize_Section(
+//			$wp_customize, 'section-woo-general',
+//			array(
+//				'title'    => __( 'General', 'kemet' ),
+//				'panel'    => 'panel-layout',
+//				'section'  => 'section-woo-group',
+//				'priority' => 5,
+//			)
+//		)
+//	);
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-woo-shop',
@@ -197,7 +197,7 @@
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-group',
 			array(
-				'priority' => 40,
+				'priority' => 35,
 				'title'    => __( 'Blog', 'kemet' ),
 				'panel'    => 'panel-layout',
 			)
@@ -232,7 +232,7 @@
 		'section-sidebars', array(
 			'title'    => __( 'Sidebar', 'kemet' ),
 			'panel'    => 'panel-layout',
-			'priority' => 50,
+			'priority' => 30,
 		)
 	);
 
@@ -240,14 +240,14 @@
 		'section-widgets', array(
 			'title'    => __( 'widget', 'kemet' ),
 			'panel'    => 'panel-layout',
-			'priority' => 51,
+			'priority' => 40,
 		)
 	);
 	$wp_customize->add_section(
 		'section-contents', array(
 			'title'    => __( 'Content', 'kemet' ),
 			'panel'    => 'panel-layout',
-			'priority' => 56,
+			'priority' => 25,
 		)
 	);
 
