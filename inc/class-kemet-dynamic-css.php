@@ -87,6 +87,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$headings_font_weight            = kemet_get_option( 'headings-font-weight' );
 			$headings_text_transform         = kemet_get_option( 'headings-text-transform' );
 			$site_title_font_size            = kemet_get_option( 'font-size-site-title' );
+			$color_site_title                = kemet_get_option( 'color-site-title' );
+			$color_h_site_title              = kemet_get_option( 'color-h-site-title' );
 			$site_tagline_font_size          = kemet_get_option( 'font-size-site-tagline' );
 			$single_post_title_font_size     = kemet_get_option( 'font-size-entry-title' );
          	$single_post_title_font_color     = kemet_get_option( 'font-color-entry-title' );
@@ -297,6 +299,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.site-title'                             => array(
 					'font-size' => kemet_responsive_font( $site_title_font_size, 'desktop' ),
+				),
+				'.site-title a'                           => array(
+					'color'     => esc_attr( $color_site_title ),
+				),
+				'.site-title a:hover'                           => array(
+					'color'     => esc_attr( $color_h_site_title ),
 				),
 				'#sitehead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),

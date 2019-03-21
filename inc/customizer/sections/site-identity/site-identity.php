@@ -236,6 +236,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
+	 * Option: Site Title Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[color-site-title]', array(
+			'default'           => kemet_get_option( 'color-site-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[color-site-title]', array(
+				'label'   => __( 'Site Title Color', 'kemet' ),
+				'priority'       => 61,
+				'section' => 'title_tagline',
+			)
+		)
+	);
+
+	/**
+	 * Option: Site Title Hover Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[color-h-site-title]', array(
+			'default'           => kemet_get_option( 'color-h-site-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[color-h-site-title]', array(
+				'label'   => __( 'Site Title Hover Color', 'kemet' ),
+				'priority'       => 62,
+				'section' => 'title_tagline',
+			)
+		)
+	);
+
+	/**
 	 * Option: Site Tagline Font Size
 	 */
 	$wp_customize->add_setting(

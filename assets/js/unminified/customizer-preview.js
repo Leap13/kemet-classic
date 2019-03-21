@@ -677,8 +677,14 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 * Site Identity Spacing
 	 */
 	kemet_responsive_spacing( 'kemet-settings[site-identity-spacing]','.site-header .kmt-site-identity', 'padding', ['top', 'right', 'bottom', 'left' ] );
-    
-    /**
+	
+	/**
+	 * Site Identity Title Color
+	 */
+	kemet_css( 'kemet-settings[color-site-title]', 'color', '.site-title a' );
+	kemet_css( 'kemet-settings[color-h-site-title]', 'color', '.site-title a:hover' );
+	
+	/**
      * Footer Padding
      */
     kemet_responsive_spacing( 'kemet-settings[footer-padding]','.kemet-footer-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
