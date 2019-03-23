@@ -123,7 +123,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'kemet-footer-link-color'            => '',
 					'kemet-footer-link-h-color'          => '',
 					'kemet-footer-wgt-title-color'       => '',
-
+					'enable-footer-content-center'       => 0,
 					// Kemet Buttons.
 					'button-color'                     => '',
 					'button-h-color'                   => '',

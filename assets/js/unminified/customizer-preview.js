@@ -726,7 +726,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
      * Footer Padding
      */
-    kemet_responsive_spacing( 'kemet-settings[footer-padding]','.kemet-footer-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
+    kemet_responsive_spacing( 'kemet-settings[footer-padding]','.kemet-footer .kmt-container', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
 
 
    
@@ -816,6 +816,12 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
+	
+	/**
+	 * Widget Title Font 
+	 */
+	kemet_css( 'kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-title' );
+	kemet_css( 'kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .kmt-no-widget-row .widget-title' );
 
 	// Footer Bar.
 	kemet_css( 'kemet-settings[footer-color]', 'color', '.kmt-footer-copyright' );

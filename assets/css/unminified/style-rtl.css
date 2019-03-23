@@ -4194,6 +4194,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   text-transform: capitalize;
 }
 
+.kemet-footer.kemet-footer-align-center {
+  text-align: center;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-4col .kemet-footer-widget-2 .widget:last-child,
   .kemet-footer-4col .kemet-footer-widget-3 .widget:last-child {
