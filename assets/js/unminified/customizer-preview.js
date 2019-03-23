@@ -680,8 +680,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-bg-obj', dynamicStyle );
 		} );
 	} );
-	kemet_css( 'kemet-settings[sticky-text-color]', 'color', '.kmt-is-sticky li' );
-	kemet_css( 'kemet-settings[sticky-text-h-color]', 'color', '.kmt-is-sticky:hover li' );
+	kemet_css( 'kemet-settings[sticky-text-color]', 'color', '.kmt-is-sticky li a' );
+	kemet_css( 'kemet-settings[sticky-text-h-color]', 'color', '.kmt-is-sticky li:hover > a' );
 	kemet_css( 'kemet-settings[sticky-submenu-color]', 'color', '.kmt-is-sticky .sub-menu li a' );
 	kemet_css( 'kemet-settings[sticky-submenu-h-color]', 'color', '.kmt-is-sticky .sub-menu li:hover > a' );
 	wp.customize( 'kemet-settings[sticky-submenu-bg-color]', function( value ) {
@@ -703,8 +703,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 				wp.customize.preview.send( 'refresh' );
 			}
 			if ( color ) {
-				var dynamicStyle = ' body:not(.kmt-header-break-point) .kmt-is-sticky { border-bottom-color: ' + color + '; } ';
-					dynamicStyle += ' body.kmt-is-sticky { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = '.kmt-is-sticky .main-header-bar { border-bottom-color: ' + color + '; } ';
 				kemet_add_dynamic_css( 'sticky-border-bottom-color', dynamicStyle );
 			}
 		} );

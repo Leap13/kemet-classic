@@ -312,7 +312,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					//Sticky Header
 					'enable-sticky'   => 0,
 					'enable-sticky-shadow' => 0,
-					'sticky-responsive' => 'desktop'
+					'sticky-responsive' => 'both'
 				)
 			);
 		}

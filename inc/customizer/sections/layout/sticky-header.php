@@ -51,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'section' => 'section-sticky-header',
                 'priority' => 2,
 				'label'   => __( 'Sticky Header Background', 'kemet' ),
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -73,6 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority'       => 3,
 				'label'          => __( 'Sticky Logo Image', 'kemet' ),
 				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -94,6 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Text Color', 'kemet' ),
 				'priority'=> 4,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -115,6 +118,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Text Hover Color', 'kemet' ),
 				'priority'=> 5,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -134,7 +138,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[sticky-submenu-bg-color]', array(
                 'label'   => __( 'Sticky Submenu Background Color', 'kemet' ),
                 'priority'       => 7,
-                'section' => 'section-sticky-header',
+				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -156,6 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Submenu Color', 'kemet' ),
 				'priority'=> 8,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -177,6 +183,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Submenu Hover Color', 'kemet' ),
 				'priority'=> 9,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -198,6 +205,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Divider Color', 'kemet' ),
 				'priority'=> 10,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -219,6 +227,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'label'   => __( 'Sticky Border Bottom Color', 'kemet' ),
 				'priority'=> 11,
 				'section' => 'section-sticky-header',
+				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
     );
@@ -240,9 +249,10 @@ if ( ! defined( 'ABSPATH' ) ) {
             'type'     => 'select',
             'label'    => __( 'Sticky Visibility', 'kemet' ),
             'choices'  => array(
-                'show-desktop'        => __( 'Desktop', 'kemet' ),
-                'show-mobile'         => __( 'Mobile', 'kemet' ),
-                'show-desktop-mobile' => __( 'Desktop + Mobile', 'kemet' ),
-            ),
+                'desktop'        => __( 'Desktop', 'kemet' ),
+                'mobile'         => __( 'Mobile', 'kemet' ),
+                'both' => __( 'Desktop + Mobile', 'kemet' ),
+			),
+			'active_callback' => 'kmt_dep_sticky',
         )
     );

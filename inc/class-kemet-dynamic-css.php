@@ -442,10 +442,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				//Sticky Header
 				'header.kmt-is-sticky' => kemet_get_background_obj( $sticky_bg_obj ),
-				'.kmt-is-sticky li' => array(
+				'.kmt-is-sticky li a' => array(
 					'color' => esc_attr($sticky_text_color)
 				),
-				'.kmt-is-sticky:hover li' => array(
+				'.kmt-is-sticky li:hover a' => array(
 					'color' => esc_attr($sticky_text_h_color)
 				),
 				'.kmt-is-sticky .sub-menu li a' => array(
@@ -458,7 +458,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-is-sticky .sub-menu' => array(
 					'background-color' => esc_attr( $sticky_submenu_bg_color),
 				),
-				'.kmt-is-sticky' => array(
+				'.kmt-is-sticky .main-header-bar' => array(
 					'border-bottom-color' => esc_attr( $sticky_border_bottom_color ),
 				),
 				// Small Footer.
