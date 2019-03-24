@@ -699,31 +699,6 @@ if ( ! function_exists( 'kemet_get_post_format' ) ) {
 }
 
 /**
- * Wrapper function for get_the_title() for blog post.
- */
-if ( ! function_exists( 'kemet_the_post_title' ) ) {
-
-	/**
-	 * Wrapper function for get_the_title() for blog post.
-	 *
-	 * Displays title only if the page title bar is disabled.
-	 *
-	 * @param string $before Optional. Content to prepend to the title.
-	 * @param string $after  Optional. Content to append to the title.
-	 * @param int    $post_id Optional, default to 0. Post id.
-	 * @param bool   $echo   Optional, default to true.Whether to display or return.
-	 * @return string|void String if $echo parameter is false.
-	 */
-	function kemet_the_post_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
-
-		$enabled = apply_filters( 'kemet_the_post_title_enabled', true );
-		if ( $enabled ) {
-			kemet_get_the_title( $post_id );
-		}
-	}
-}
-
-/**
  * Wrapper function for the_title()
  */
 if ( ! function_exists( 'kemet_the_title' ) ) {

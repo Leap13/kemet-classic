@@ -2059,10 +2059,6 @@ textarea {
   margin-bottom: 2em;
 }
 
-.elementor-image-gallery .gallery-icon {
-  border: none;
-}
-
 /* Kemet Respnosive oEmbed Video container */
 .kmt-oembed-container {
   position: relative;
@@ -4194,6 +4190,52 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   }
 }
 
+/**
+ *  Go Top Link
+ */
+.kmt-go-top-link {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  text-align: center;
+  z-index: 99999;
+  opacity: 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+.kmt-go-top-link.is-opacity {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Go Top Responsive */
+@media only screen and (max-width: 480px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hide-tablet-mobile {
+    display: none !important;
+  }
+}
+
 /*----------  Forms  ----------*/
 /**
  * 	Form Fields
@@ -5400,16 +5442,6 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
-}
-
-/*----------  Page Builders  ----------*/
-/**
- * Kemet Theme compatibility with Elementor
- */
-.kmt-left-sidebar .elementor-section.elementor-section-stretched,
-.kmt-right-sidebar .elementor-section.elementor-section-stretched {
-  max-width: 100%;
-  right: 0 !important;
 }
 
 /**
