@@ -2059,10 +2059,6 @@ textarea {
   margin-bottom: 2em;
 }
 
-.elementor-image-gallery .gallery-icon {
-  border: none;
-}
-
 /* Kemet Respnosive oEmbed Video container */
 .kmt-oembed-container {
   position: relative;
@@ -5446,16 +5442,6 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 .post-content {
   padding-left: 0;
   padding-right: 0;
-}
-
-/*----------  Page Builders  ----------*/
-/**
- * Kemet Theme compatibility with Elementor
- */
-.kmt-left-sidebar .elementor-section.elementor-section-stretched,
-.kmt-right-sidebar .elementor-section.elementor-section-stretched {
-  max-width: 100%;
-  left: 0 !important;
 }
 
 /**
