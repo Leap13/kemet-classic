@@ -100,9 +100,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 							return 'page-builder';
 						}
 					);
-
-					add_filter( 'kemet_the_post_title_enabled', '__return_false' );
-					add_filter( 'kemet_featured_image_enabled', '__return_false' );
 				}
 			}
 		}
