@@ -68,6 +68,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			global $post;
 			$id = kemet_get_post_id();
 
+			
 			$page_builder_flag = get_post_meta( $id, '_kemet_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
