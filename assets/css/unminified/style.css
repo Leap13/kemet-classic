@@ -3809,6 +3809,9 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   font-weight: normal;
   margin-bottom: 1em;
   line-height: 1.5;
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: #eeeeee;
 }
 
 .widget {
@@ -4499,6 +4502,14 @@ input[type="color"]::-webkit-color-swatch {
 
 .entry-content p {
   margin-bottom: 1.6em;
+}
+
+.entry-content readmore a {
+  border: solid;
+  padding: 5px 10px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  border-width: 1px;
 }
 
 .read-more {
