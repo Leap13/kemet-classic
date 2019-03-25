@@ -3736,9 +3736,21 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 /* 8 - Header sticky */
+.sticky-custom-logo-link {
+  display: none;
+}
+
 .kmt-is-sticky {
   position: fixed;
   width: 100%;
+}
+
+.kmt-is-sticky .sticky-custom-logo-link {
+  display: inline-block;
+}
+
+.kmt-is-sticky.kmt-sticky-logo .custom-logo-link {
+  display: none;
 }
 
 /*----------  Primary  ----------*/

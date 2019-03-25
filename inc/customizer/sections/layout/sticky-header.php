@@ -78,7 +78,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
     );
-    
+	
+	/**
+	 * Option: Sticky Logo Width
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sticky-logo-width]', array(
+			'default'           => array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sticky-logo-width]', array(
+				'type'        => 'kmt-responsive-slider',
+				'section'     => 'section-sticky-header',
+				'priority'    => 4,
+				'label'       => __( 'Sticky Logo Width', 'kemet' ),
+				'input_attrs' => array(
+					'min'  => 50,
+					'step' => 1,
+					'max'  => 600,
+				),
+			)
+		)
+	);
+
     /**
 	 * Option: Sticky Text Color
 	 */
@@ -94,7 +125,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[sticky-text-color]', array(
 				'label'   => __( 'Sticky Text Color', 'kemet' ),
-				'priority'=> 4,
+				'priority'=> 5,
 				'section' => 'section-sticky-header',
 				'active_callback' => 'kmt_dep_sticky',
 			)
@@ -116,7 +147,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[sticky-text-h-color]', array(
 				'label'   => __( 'Sticky Text Hover Color', 'kemet' ),
-				'priority'=> 5,
+				'priority'=> 6,
 				'section' => 'section-sticky-header',
 				'active_callback' => 'kmt_dep_sticky',
 			)

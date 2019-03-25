@@ -148,22 +148,36 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 
 		$display_site_tagline = kemet_get_option( 'display-site-tagline' );
 		$display_site_title   = kemet_get_option( 'display-site-title' );
+		$sticky_logo          = kemet_get_option( 'sticky-logo' );
 		$html                 = '';
 
 		$has_custom_logo = apply_filters( 'kemet_has_custom_logo', has_custom_logo() );
 
 		// Site logo.
-		if ( $has_custom_logo ) {
 
+		$html .= '<span class="site-logo-img">';
+
+		if ( $has_custom_logo ) {
 			if ( apply_filters( 'kemet_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10, 4 );
 			}
-
-			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
-			$html .= '</span>';
 		}
 
+		if ( '' !== $sticky_logo ) {
+			$custom_logo_id = attachment_url_to_postid( $sticky_logo );
+			$html           .= sprintf(
+				'<a href="%1$s" class="sticky-custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+				esc_url( home_url( '/' ) ),
+				wp_get_attachment_image(
+					$custom_logo_id, 'full', false, array(
+						'class' => 'custom-logo',
+					)
+				)
+			);
+		}
+		$html .= '</span>';
+		
 		if ( ! apply_filters( 'kemet_disable_site_identity', false ) ) {
 
 			// Site Title.
@@ -810,6 +824,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
 		$header_transparent       = kemet_get_option( 'enable-transparent' );
 		$enabled_sticky           = kemet_get_option( 'enable-sticky' );
+		$sticky_logo              = kemet_get_option( 'sticky-logo' );
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
@@ -834,7 +849,10 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		if( $enabled_sticky ) {
 			$classes[] = 'kmt-sticky-header';
 		}
-		
+
+		if ( '' !== $sticky_logo ) {
+			$classes[] = 'kmt-sticky-logo';
+		}
 		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'kemet_header_class', $classes ) );
