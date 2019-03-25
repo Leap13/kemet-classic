@@ -106,7 +106,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'step' => 1,
 					'max'  => 600,
 				),
-				'active_callback' => 'kmt_dep_sticky',
 			)
 		)
 	);
