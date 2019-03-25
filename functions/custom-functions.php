@@ -843,6 +843,13 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
+	function kmt_dep_sticky() {
+		if ( kemet_get_option( 'enable-sticky' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 /**
