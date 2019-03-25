@@ -183,14 +183,6 @@ if ( ! defined( 'ABSPATH' ) ) {
    );
 
 
-
-
-
-
-
-
-
-
 	/**
 	 * Option: Divider
 	 */
@@ -210,8 +202,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Site Title Font Size
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
-			'default'           => kemet_get_option( 'font-size-site-title' ),
+		KEMET_THEME_SETTINGS . '[site-title-font-size]', array(
+			'default'           => kemet_get_option( 'site-title-font-size' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
@@ -219,7 +211,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-title]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-font-size]', array(
 				'type'        => 'kmt-responsive',
 				'section'     => 'title_tagline',
 				'priority'    => 60,
@@ -234,6 +226,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+
+	/**
+	 * Option: Site Title Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
+			'default'           => kemet_get_option( 'site-title-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
+				'label'   => __( 'Site Title Color', 'kemet' ),
+				'priority'       => 61,
+				'section' => 'title_tagline',
+			)
+		)
+	);
+
+	/**
+	 * Option: Site Title Hover Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
+			'default'           => kemet_get_option( 'site-title-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
+				'label'   => __( 'Site Title Hover Color', 'kemet' ),
+				'priority'       => 62,
+				'section' => 'title_tagline',
+			)
+		)
+	);
+
 
 	/**
 	 * Option: Site Tagline Font Size

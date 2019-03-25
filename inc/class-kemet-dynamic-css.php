@@ -87,10 +87,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$headings_font_family            = kemet_get_option( 'headings-font-family' );
 			$headings_font_weight            = kemet_get_option( 'headings-font-weight' );
 			$headings_text_transform         = kemet_get_option( 'headings-text-transform' );
-			$site_title_font_size            = kemet_get_option( 'font-size-site-title' );
+			$site_title_font_size            = kemet_get_option( 'site-title-font-size' );
+			$site_title_color                = kemet_get_option( 'site-title-color' );
+			$site_title_h_color              = kemet_get_option( 'site-title-h-color' );
 			$site_tagline_font_size          = kemet_get_option( 'font-size-site-tagline' );
 			$single_post_title_font_size     = kemet_get_option( 'font-size-entry-title' );
-         	$single_post_title_font_color     = kemet_get_option( 'font-color-entry-title' );
+         	$single_post_title_font_color    = kemet_get_option( 'font-color-entry-title' );
 			$archive_summary_title_font_size = kemet_get_option( 'font-size-archive-summary-title' );
 			$archive_post_title_font_size    = kemet_get_option( 'font-size-page-title' );
 			$heading_h1_font_size            = kemet_get_option( 'font-size-h1' );
@@ -98,7 +100,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h3_font_size            = kemet_get_option( 'font-size-h3' );
 			$heading_h4_font_size            = kemet_get_option( 'font-size-h4' );
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
-			$heading_h6_font_size            = kemet_get_option( 'font-size-h6' );
+			$heading_h6_font_size            	= kemet_get_option( 'font-size-h6' );
 
 			//Layout Header
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
@@ -400,13 +402,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_color ),
 				),
 
-				//Top Bar Header
-				'.kemet-top-header'  => array(
-					'background-color' => esc_attr( $topbar_bg_color),
-				),
-
 				//Top bar Spacing
 				'.kemet-top-header' => array(
+					'background-color' => esc_attr( $topbar_bg_color),
 					'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),

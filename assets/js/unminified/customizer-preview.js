@@ -737,7 +737,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
    
 
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-tagline]', '.site-header .site-description' );
-	kemet_responsive_font_size( 'kemet-settings[font-size-site-title]', '.site-title' );
+	kemet_responsive_font_size( 'kemet-settings[site-title-font-size]', '.site-title' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-title, .page-title' );
 	kemet_responsive_font_size( 'kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title' );
 	kemet_responsive_font_size( 'kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-title');
@@ -892,7 +892,24 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
      * Top Bar
      */
-    kemet_responsive_font_size( 'kemet-settings[topbar-font-size]', '.kemet-top-header');
+    kemet_responsive_font_size( 'kemet-settings[go-top-icon-size]','.kmt-go-top-link' );
+	kemet_css( 'kemet-settings[go-top-icon-color]', 'color', ' .kmt-go-top-link');
+	kemet_css( 'kemet-settings[go-top-icon-h-color]', 'color', ' .kmt-go-top-link:hover');
+	kemet_css( 'kemet-settings[go-top-bg-color]', 'color', '.kmt-go-top-link');
+	kemet_css( 'kemet-settings[go-top-bg-h-color]', 'color', '.kmt-go-top-link:hover');
+	wp.customize( 'kemet-settings[go-top-border-radius]', function( setting ) {
+		setting.bind( function( border ) {
+			var dynamicStyle = '.kmt-go-top-link { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			kemet_add_dynamic_css( 'go-top-border-radius', dynamicStyle );
+		} );
+	} );
+	wp.customize( 'kemet-settings[go-top-button-size]', function( setting ) {
+		setting.bind( function( width ) {
+			var dynamicStyle = '.kmt-go-top-link { width: ' + width + 'px  ; height: ' + width + 'px ; line-height: ' + width + 'px } ';
+				kemet_add_dynamic_css( 'go-top-button-size', dynamicStyle );
+		} );
+	} );
+
 
 	/*
 	 * Woocommerce Shop Archive Custom Width

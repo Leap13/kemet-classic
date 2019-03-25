@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             $wp_customize, KEMET_THEME_SETTINGS . '[go-top-icon-color]', array(
                 'section' => 'section-go-top',
                 'label'   => __( 'Icon Color', 'kemet' ),
-                'priority'=>5,
+                'priority'=> 5,
                 'active_callback' => 'kmt_dep_go_top'
             )
         )
@@ -154,7 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             $wp_customize, KEMET_THEME_SETTINGS . '[go-top-icon-h-color]', array(
                 'section' => 'section-go-top',
                 'label'   => __( 'Icon Hover Color', 'kemet' ),
-                'priority'=>6,
+                'priority'=> 6,
                 'active_callback' => 'kmt_dep_go_top'
             )
         )

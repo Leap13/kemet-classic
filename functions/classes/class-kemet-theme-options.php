@@ -207,7 +207,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'headings-font-family'             => '',
 					'headings-font-weight'             => '',
 					'headings-text-transform'          => '',
-					'font-size-site-title'             => array(
+					'site-title-font-size'             => array(
 						'desktop'      => 35,
 						'tablet'       => '',
 						'mobile'       => '',
