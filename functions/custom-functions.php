@@ -825,6 +825,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$header_transparent       = kemet_get_option( 'enable-transparent' );
 		$enabled_sticky           = kemet_get_option( 'enable-sticky' );
 		$sticky_logo              = kemet_get_option( 'sticky-logo' );
+		$sticky_responsive        = kemet_get_option('sticky-responsive');
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
@@ -853,6 +854,9 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		if ( '' !== $sticky_logo ) {
 			$classes[] = 'kmt-sticky-logo';
 		}
+
+		$classes[] =  $sticky_responsive;
+
 		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'kemet_header_class', $classes ) );

@@ -17,3 +17,25 @@
 {
   display: none;
 }
+
+/* Sticky Header Responsive */
+@media only screen and (max-width: 480px) {
+  .hide-mobile.kmt-is-sticky
+  {
+    position: relative !important;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .hide-tablet.kmt-is-sticky
+  {
+    position: relative !important;
+  }
+}
+  
+@media only screen and (max-width: 767px) {
+  .hide-tablet-mobile.kmt-is-sticky
+  {
+    position: relative !important;
+  }
+}
