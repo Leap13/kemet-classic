@@ -139,3 +139,28 @@ $wp_customize->add_control(
 			)
 		)
 	);
+	
+	/**
+     * Option:Top Bar Responsive
+     */
+    $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[topbar-responsive]',array(
+            'default'           => kemet_get_option('sticky-responsive'),
+            'type'              => 'option',
+            'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices')
+        )
+    );
+    $wp_customize->add_control(
+        KEMET_THEME_SETTINGS . '[topbar-responsive]' ,array(
+            'priority'   => 36,
+            'section'    => 'section-topbar-header',
+            'type'     => 'select',
+            'label'    => __( 'Top Bar Visibility', 'kemet' ),
+            'choices'  => array(
+                'all-devices'        => __( 'Show On All Devices', 'kemet' ),
+                'hide-tablet'        => __( 'Hide On Tablet', 'kemet' ),
+                'hide-mobile'        => __( 'Hide On Mobile', 'kemet' ),
+                'hide-tablet-mobile' => __( 'Hide On Tablet & Mobile', 'kemet' ),
+            ),
+        )
+    );

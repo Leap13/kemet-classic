@@ -174,6 +174,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					// Top Bar Responsive
+					'topbar-responsive'                => 'all-devices',
 					// Site Layout.
 					'site-content-width'               => 1140,
 					'site-layout-outside-bg-obj'       => array(
