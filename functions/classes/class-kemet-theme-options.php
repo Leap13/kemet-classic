@@ -92,6 +92,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					'blog-style'                       => 'large',
+					'blog-grid'                        => 12,
 					// Kemet Colors.
 					'text-color'                       => '#797979',
 					'link-color'                       => '#4a4a4a',
