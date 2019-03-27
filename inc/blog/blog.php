@@ -63,6 +63,22 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 			return false;
 		}
 	}
+	function kmt_dep_thumbnail()
+	{
+		if ( kemet_get_option( 'blog-style' ) === 'thumbnail' ) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	function kmt_dep_image_thumbnail()
+	{
+		if ( kemet_get_option( 'blog-style' ) === 'thumbnail' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }
 
@@ -250,7 +266,7 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 				do_action( 'kemet_archive_post_title_before' );
 
 				/* translators: 1: Current post link, 2: Current post id */
-				kemet_the_post_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
+				kemet_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 
 				do_action( 'kemet_archive_post_title_after' );
 

@@ -287,8 +287,16 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 *
 	 */
 	function kemet_entry_content_blog_template() {
-		get_template_part( 'templates/blog/blog-layout' );
+		if(kemet_get_option( 'blog-style' ) === 'thumbnail')
+		{
+			get_template_part( 'templates/blog/thumbnail-layout' );
+		}
+		else{
+			get_template_part( 'templates/blog/blog-layout' );
+		}
+		
 	}
+	
 }
 
 /**
