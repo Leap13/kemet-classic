@@ -1,0 +1,20 @@
+/*
+* Blog Styles
+*/
+.blog-layout-grid .site-main .kmt-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+.blog-layout-thumbnail .post-content{
+    display: flex;    
+}
+.blog-layout-thumbnail .post-content.thumbnail-image-right
+{
+    flex-direction: row-reverse;
+}
+.blog-layout-thumbnail .post-content.thumbnail-image-left
+{
+    flex-direction: row;
+}
