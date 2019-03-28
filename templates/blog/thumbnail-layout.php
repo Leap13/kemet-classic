@@ -11,7 +11,20 @@
 
 ?>
 <div <?php kemet_blog_layout_class( 'blog-layout-1' ); ?>>
-	<div class="post-content kmt-col-md-12 <?php echo 'thumbnail-image-'.kemet_get_option('thumbnail-image-position');?>">
+    <?php 
+        $post_thumb = get_the_post_thumbnail(
+			get_the_ID(),
+			apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
+			array(
+				'itemprop' => 'image',
+			)
+        );
+        $has_feature_image =' kmt-has-no-feature-image';
+        if ( '' !=  $post_thumb ) {
+            $has_feature_image= ' kmt-has-feature-image';
+        }
+    ?>
+	<div class="post-content kmt-col-md-12  <?php echo 'thumbnail-image-'.kemet_get_option('thumbnail-image-position') ; echo $has_feature_image ?>">
         <?php
             // Featured Image
 			do_action( 'kemet_blog_archive_featured_image_before' );

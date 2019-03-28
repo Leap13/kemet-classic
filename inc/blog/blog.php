@@ -235,10 +235,16 @@ if ( ! function_exists( 'kemet_get_blog_post_thumbnail' ) ) {
 	 * @param string $type Type of post.
 	 */
 	function kemet_get_blog_post_thumbnail( $type = 'archive' ) {
-
-		if ( 'archive' === $type ) {
+		$post_thumb = get_the_post_thumbnail(
+			get_the_ID(),
+			apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
+			array(
+				'itemprop' => 'image',
+			)
+		);
+		if ( 'archive' === $type  && '' != $post_thumb ) {
 			// Blog Post Featured Image.
-			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb kmt-col-md-12">', '</div>' );
+			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section kmt-blog-featured-image post-thumb kmt-col-md-12">', '</div>' );
 		} elseif ( 'single' === $type ) {
 			// Single Post Featured Image.
 			kemet_get_post_thumbnail();
