@@ -5459,6 +5459,10 @@ input[type="color"]::-webkit-color-swatch {
   width: 55%;
 }
 
+.grid-item {
+  float: left;
+}
+
 /*----------  404  ----------*/
 .kmt-404-layout {
   text-align: center;

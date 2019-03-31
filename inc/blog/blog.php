@@ -47,6 +47,7 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 			if(kemet_get_option( 'blog-style' ) === 'grid')
 			{
 				$classes[] = 'kmt-col-sm-'.$col;
+				$classes[] = 'grid-item';
 			}
 			else
 			{

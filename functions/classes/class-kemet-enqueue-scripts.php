@@ -46,9 +46,9 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
-
+			add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ), 1  );
 		}
-
+			
 		/**
 		 * List of all assets.
 		 *
@@ -169,7 +169,17 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			}
 
 		}
-
+	
+		function load_scripts() {
+			wp_enqueue_script(
+				'style.min',
+				get_stylesheet_directory_uri() . '/assets/js/minified/style.min.js',
+				array( 'jquery' ) 
+			);
+		}
+		
+		
+		
 		/**
 		 * Trim CSS
 		 *
@@ -186,10 +196,10 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			}
 
 			return $css;
-		}
-
+		}	
+		
 	}
 
-	
+
 	new Kemet_Enqueue_Scripts();
 }

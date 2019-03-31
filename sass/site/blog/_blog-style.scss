@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
+}
 .blog-layout-thumbnail .post-content{
     display: flex;    
 }
@@ -51,4 +51,8 @@
         width:55%;
     }
 
+}
+
+.grid-item {
+    float: left;
 }

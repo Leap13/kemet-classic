@@ -23,6 +23,6 @@
 	<?php kemet_body_bottom(); ?>
 
 	<?php wp_footer(); ?>
-
+ 
 	</body>
 </html>
