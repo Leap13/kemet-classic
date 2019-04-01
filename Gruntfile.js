@@ -324,6 +324,7 @@ module.exports = function (grunt) {
                     src: [
                         'assets/js/unminified/flexibility.js',
                         'assets/js/unminified/navigation.js',
+                        'assets/js/unminified/go-top.js',
                         'assets/js/unminified/skip-link-focus-fix.js',
                         'assets/js/unminified/sticky-header.js',
                         'assets/js/unminified/isotope.js',

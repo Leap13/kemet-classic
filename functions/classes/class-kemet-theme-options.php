@@ -163,11 +163,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
 					'topbar-section-1'                 => array(
-                  'search' => '',
+                  		'search' => '',
 						'menu'  => '',
-                 'widget'  => '',
+                 		'widget'  => '',
 						'text-area'  => '',     
-               ),
+               		),
 					'topbar-section-1-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'topbar-section-2'                 => '',
 					'topbar-section-2-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
@@ -317,7 +317,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					//Sticky Header
 					'enable-sticky'   => 0,
 					'enable-sticky-shadow' => 0,
-					'sticky-responsive' => 'all-devices'
+					'sticky-responsive' => 'all-devices',
+					//Go Top Link
+					'enable-go-top'   => 1,
+					'go-top-responsive'   => "all-devices",
 				)
 			);
 		}
