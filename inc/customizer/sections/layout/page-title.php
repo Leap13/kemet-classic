@@ -141,7 +141,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'select',
 				'section'  => 'section-page-title',
 				'priority' => 6,
-				'label'    => __( 'Pae Title Align', 'kemet' ),
+				'label'    => __( 'page Title Align', 'kemet' ),
 				'choices'  => array(
 					'left'  => __( 'Left', 'kemet' ),
 					'center'=> __( 'Center', 'kemet' ),
