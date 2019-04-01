@@ -745,6 +745,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.sidebar-main .widget '                     => array(
 					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
+					'background-color' => esc_attr( $Widget_bg_color),
 				),
 				//sidebar input style 
 				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
@@ -764,7 +765,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//widget Spacing
-				'.sidebar-main .widget ' => array(
+				'div.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'desktop' ),
@@ -937,7 +938,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//Widget Spacing
-				'.sidebar-main .widget ' => array(
+				'div.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'tablet' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'tablet' ),
@@ -1066,7 +1067,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'mobile' ),
 				),
 				//Widget Spacing
-				'.sidebar-main .widget ' => array(
+				'div.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'mobile' ),
