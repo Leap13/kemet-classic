@@ -1178,13 +1178,16 @@ var toggleClass = function ( el, className ) {
 
 var Header = document.querySelector('.kmt-sticky-header');
 var sticky = Header.offsetHeight;
-window.onscroll = function() {
-  if (window.pageYOffset > sticky) {
-    Header.classList.add("kmt-is-sticky")
-  } else {
-    Header.classList.remove("kmt-is-sticky");
+if( Header != null ) {
+  window.onscroll = function() {
+    if (window.pageYOffset > sticky) {
+      Header.classList.add("kmt-is-sticky")
+    } else {
+      Header.classList.remove("kmt-is-sticky");
+    }
   }
 }
+
 /*!
  * Isotope PACKAGED v3.0.6
  *
