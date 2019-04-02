@@ -630,7 +630,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
-      $header_layout      = kemet_get_option( 'header-layouts' );
+    $header_layout      = kemet_get_option( 'header-layouts' );
 
 		if ( $disable_primary_navigation ) {
 

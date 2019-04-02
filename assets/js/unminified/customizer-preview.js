@@ -732,9 +732,10 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
      * Footer Padding
      */
     kemet_responsive_spacing( 'kemet-settings[footer-padding]','.kemet-footer-overlay', 'padding', [ 'top', 'bottom', 'right', 'left' ] );
-
-
-   
+	/**
+     * Widget Padding
+     */
+    kemet_responsive_spacing( 'kemet-settings[footer-widget-padding]','.kemet-footer .kemet-footer-widget', 'padding', [ 'top', 'bottom' , 'right', 'left'] );
 
 	kemet_responsive_font_size( 'kemet-settings[font-size-site-tagline]', '.site-header .site-description' );
 	kemet_responsive_font_size( 'kemet-settings[site-title-font-size]', '.site-title' );

@@ -2,7 +2,6 @@
 /**
  * Footer Layout 3
  *
- * @package Kemet Addon
  * @since   Kemet 1.0.0
  */
 
