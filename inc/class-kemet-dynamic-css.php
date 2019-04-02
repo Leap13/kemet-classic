@@ -325,6 +325,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-title'                             => array(
 					'font-size' => kemet_responsive_font( $site_title_font_size, 'desktop' ),
 				),
+				'.site-title a'                           => array(
+					'color'     => esc_attr( $color_site_title ),
+				),
+				'.site-title a:hover'                           => array(
+					'color'     => esc_attr( $color_h_site_title ),
+				),
 				'#sitehead .site-logo-img .custom-logo-link img' => array(
 					'max-width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),

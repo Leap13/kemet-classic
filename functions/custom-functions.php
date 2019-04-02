@@ -750,7 +750,7 @@ if ( ! function_exists( 'kemet_go_top_markup' ) ) {
 		if( kemet_get_option( 'enable-go-top' ) ){
 			?>
 				<div class = 'kmt-go-top-container <?php echo kemet_get_option( 'go-top-responsive' ) ?>'>
-					<button class = "kmt-go-top-link" id = "kmt-go-top">
+					<button id = "kmt-go-top" class = "kmt-go-top-link">
 						<span>&#8593;</span>
 					</button>
 				</div> 
@@ -873,6 +873,15 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
+	
+	function kmt_dep_sticky() {
+		if ( kemet_get_option( 'enable-sticky' ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }
 
 /**
