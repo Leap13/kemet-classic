@@ -1,5 +1,9 @@
 /**
- * Go Top Link 
+ * File go-top.js
+ *
+ * Handles go top link
+ *
+ * @package Kemet
  */
 window.onload = function() { 
     // Variables

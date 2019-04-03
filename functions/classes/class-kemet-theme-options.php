@@ -123,6 +123,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'kemet-footer-link-color'            => '',
 					'kemet-footer-link-h-color'          => '',
 					'kemet-footer-wgt-title-color'       => '',
+					'enable-footer-content-center'       => 0,
 
 					// Kemet Buttons.
 					'button-color'                     => '',
@@ -132,6 +133,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-radius'                    => 2,
 					'button-v-padding'                 => 10,
 					'button-h-padding'                 => 40,
+					
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
@@ -308,6 +310,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+					
+					//Sticky Header
+					'enable-sticky'   => 0,
+					'enable-sticky-shadow' => 0,
+					'sticky-responsive' => 'both',
 
 					//Go Top Link
 					'enable-go-top'   => 1,

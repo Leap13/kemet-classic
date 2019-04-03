@@ -21,6 +21,9 @@ if ( ! is_user_logged_in() ) {
 
 $classes[] = 'kemet-footer';
 $classes[] = 'kemet-footer-layout-1';
+if(kemet_get_option('enable-footer-content-center')) {
+	$classes[] = 'kemet-footer-align-center';
+}
 $classes   = implode( ' ', $classes );
 ?>
 

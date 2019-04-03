@@ -152,7 +152,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-text-color]', array(
 				'label'   => __( 'Top Bar Text Color', 'kemet' ),
 				'priority'       => 36,
@@ -172,7 +172,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-bg-color]', array(
                 'priority'       => 40,
                 'section' => 'section-topbar-header',
@@ -202,10 +202,10 @@ $wp_customize->add_control(
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
 				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
+						'top'    => __( 'Top', 'kemet' ),
+						'right'  => __( 'Right', 'kemet' ),
+						'bottom' => __( 'Bottom', 'kemet' ),
+						'left'   => __( 'Left', 'kemet' ),
 				),
 			)
 		)
@@ -223,7 +223,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-link-color]', array(
 				'label'   => __( 'Top Bar Link Color', 'kemet' ),
 				'priority'       => 50,
@@ -244,7 +244,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-link-h-color]', array(
 				'label'   => __( 'Top Bar Link Hover Color', 'kemet' ),
 				'priority'       => 55,
@@ -290,7 +290,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-border-bottom-color]', array(
 				'section'  => 'section-topbar-header',
 				'priority' => 65,
@@ -310,7 +310,7 @@ $wp_customize->add_control(
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-submenu-bg-color]', array(
                 'priority'       => 70,
                 'section' => 'section-topbar-header',
@@ -318,6 +318,3 @@ $wp_customize->add_control(
 			)
 		)
 	);
-
-
-

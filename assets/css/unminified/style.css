@@ -2782,6 +2782,7 @@ body {
  * 4 - Header Main
  * 5 - Header Top Bar
  * 7 - Header Toggle Buttons
+ * 8 - Header sticky 
 */
 /* 1 - Header Layouts  */
 /**
@@ -3730,6 +3731,11 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding-bottom: 1.5em;
 }
 
+/* 8 - Header sticky */
+.kmt-is-sticky {
+  position: fixed;
+}
+
 /*----------  Primary  ----------*/
 .sticky {
   display: block;
@@ -4176,14 +4182,14 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   margin-bottom: 0;
 }
 
+.kemet-footer.kemet-footer-align-center {
+  text-align: center;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;
   }
-}
-
-.kemet-footer .kmt-no-widget-row .widget-title {
-  text-transform: capitalize;
 }
 
 @media all and (max-width: 768px) {

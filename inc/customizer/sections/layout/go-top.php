@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[go-top-icon-color]', array(
                 'section' => 'section-go-top',
                 'label'   => __( 'Icon Color', 'kemet' ),
@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         )
     );
     $wp_customize->add_control(
-        new WP_Customize_Color_Control(
+        new Kemet_Control_Color(
             $wp_customize, KEMET_THEME_SETTINGS . '[go-top-icon-h-color]', array(
                 'section' => 'section-go-top',
                 'label'   => __( 'Icon Hover Color', 'kemet' ),
@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[go-top-bg-color]', array(
                 'priority'       => 7,
                 'section' => 'section-go-top',
@@ -192,7 +192,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
+		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[go-top-bg-h-color]', array(
                 'priority'       => 8,
                 'section' => 'section-go-top',
