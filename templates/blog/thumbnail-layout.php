@@ -24,20 +24,20 @@
             $has_feature_image= ' kmt-has-feature-image';
         }
     ?>
-	<div class="post-content kmt-col-md-12  <?php echo 'thumbnail-image-'.kemet_get_option('thumbnail-image-position') ; echo $has_feature_image ?>">
-        <?php
-            // Featured Image
-			do_action( 'kemet_blog_archive_featured_image_before' );
-            kemet_get_blog_post_thumbnail( 'archive' );
-            do_action( 'kemet_blog_archive_featured_image_after' );
-        ?>
+	<div class="post-content kmt-col-md-12  <?php echo $has_feature_image ?>">
 		<div class="blog-entry-content">
             <?php
                 do_action( 'kemet_blog_archive_title_meta_before' );
                 kemet_get_blog_post_title_meta();
                 do_action( 'kemet_blog_archive_title_meta_after' );
             ?>
-            <div class="entry-content clear" itemprop="text">
+            <div class="entry-content clear <?php echo 'thumbnail-image-'.kemet_get_option('thumbnail-image-position') ;?>" itemprop="text">
+                <?php
+                // Featured Image
+                do_action( 'kemet_blog_archive_featured_image_before' );
+                kemet_get_blog_post_thumbnail( 'archive' );
+                do_action( 'kemet_blog_archive_featured_image_after' );
+                ?>
 
                 <?php kemet_entry_content_before(); ?>
 
