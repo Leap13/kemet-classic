@@ -279,9 +279,10 @@ if ( ! defined( 'ABSPATH' ) ) {
             'type'     => 'select',
             'label'    => __( 'Sticky Visibility', 'kemet' ),
             'choices'  => array(
-                'show-desktop'        => __( 'Desktop', 'kemet' ),
-                'show-mobile'         => __( 'Mobile', 'kemet' ),
-                'show-desktop-mobile' => __( 'Desktop + Mobile', 'kemet' ),
+				'all-devices'        => __( 'Show On All Devices', 'kemet' ),
+                'sticky-hide-tablet'        => __( 'Hide On Tablet', 'kemet' ),
+                'sticky-hide-mobile'        => __( 'Hide On Mobile', 'kemet' ),
+                'sticky-hide-tablet-mobile' => __( 'Hide On Tablet & Mobile', 'kemet' ),
             ),
             'active_callback' => 'kmt_dep_sticky',
         )

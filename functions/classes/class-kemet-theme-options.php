@@ -176,6 +176,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					// Top Bar Responsive
+					'topbar-responsive'                => 'all-devices',
 					// Site Layout.
 					'site-content-width'               => 1140,
 					'site-layout-outside-bg-obj'       => array(
@@ -314,7 +316,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					//Sticky Header
 					'enable-sticky'   => 0,
 					'enable-sticky-shadow' => 0,
-					'sticky-responsive' => 'both',
+					'sticky-responsive' => 'all-devices',
 
 					//Go Top Link
 					'enable-go-top'   => 1,

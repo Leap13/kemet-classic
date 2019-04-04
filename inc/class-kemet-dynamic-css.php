@@ -474,9 +474,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-is-sticky .main-header-bar' => array(
 					'border-bottom-color' => esc_attr( $sticky_border_bottom_color ),
 				),
-				'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-					'max-width' => kemet_get_css_value( $sticky_logo_width['desktop'], 'px' ),
-				),
+				// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+				// 	'max-width' => kemet_get_css_value( $sticky_logo_width['desktop'], 'px' ),
+				// ),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
@@ -924,9 +924,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 				),
 				// Sticky Header
-				'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-					'max-width' => kemet_get_css_value( $sticky_logo_width['tablet'], 'px' ),
-				),
+				// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+				// 	'max-width' => kemet_get_css_value( $sticky_logo_width['tablet'], 'px' ),
+				// ),
 				//Sidebar Spacing
 				'.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
@@ -1167,9 +1167,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'mobile' ),
 			),
 			// Sticky Header
-			'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-				'max-width' => kemet_get_css_value( $sticky_logo_width['mobile'], 'px' ),
-			),
+			// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+			// 	'max-width' => kemet_get_css_value( $sticky_logo_width['mobile'], 'px' ),
+			// ),
 			//Sidebar Spacing
 			'div.sidebar-main' => array(
 				'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'mobile' ),
