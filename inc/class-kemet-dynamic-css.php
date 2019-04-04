@@ -132,6 +132,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sticky_submenu_bg_color          = kemet_get_option( 'sticky-submenu-bg-color' );
 			$sticky_divider_color             = kemet_get_option( 'sticky-divider-color' );
 			$sticky_border_bottom_color       = kemet_get_option( 'sticky-border-bottom-color' );
+			$sticky_logo_width                = kemet_get_option( 'sticky-logo-width' );
 
 			//Top Bar Header
 			$topbar_bg_color           = kemet_get_option( 'topbar-bg-color' );
@@ -472,6 +473,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.kmt-is-sticky .main-header-bar' => array(
 					'border-bottom-color' => esc_attr( $sticky_border_bottom_color ),
+				),
+				'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+					'max-width' => kemet_get_css_value( $sticky_logo_width['desktop'], 'px' ),
 				),
 
 				// Input tags.
@@ -919,6 +923,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 				),
+				// Sticky Header
+				'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+					'max-width' => kemet_get_css_value( $sticky_logo_width['tablet'], 'px' ),
+				),
 				//Sidebar Spacing
 				'.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
@@ -1157,6 +1165,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'mobile' ),
 				'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),
 				'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'mobile' ),
+			),
+			// Sticky Header
+			'#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
+				'max-width' => kemet_get_css_value( $sticky_logo_width['mobile'], 'px' ),
 			),
 			//Sidebar Spacing
 			'div.sidebar-main' => array(

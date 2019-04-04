@@ -76,7 +76,38 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'active_callback' => 'kmt_dep_sticky',
 			)
 		)
-    );
+	);
+	
+	/**
+	 * Option: Sticky Logo Width
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sticky-logo-width]', array(
+			'default'           => array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sticky-logo-width]', array(
+				'type'        => 'kmt-responsive-slider',
+				'section'     => 'section-sticky-header',
+				'priority'    => 16,
+				'label'       => __( 'Sticky Logo Width', 'kemet' ),
+				'input_attrs' => array(
+					'min'  => 50,
+					'step' => 1,
+					'max'  => 600,
+				),
+			)
+		)
+	);
     
     /**
 	 * Option: Sticky Text Color
