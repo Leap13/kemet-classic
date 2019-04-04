@@ -63,7 +63,7 @@
 			{
 				controls: [
 					'kemet-settings[divider-section-header-typo-title]',
-					'kemet-settings[font-size-site-title]',
+					'kemet-settings[site-title-font-size]',
 				],
 				callback: function( value ) {
 

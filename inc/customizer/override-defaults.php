@@ -23,7 +23,7 @@ $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 /**
  * Override Panels
  */
-$wp_customize->get_section('colors')->title = __( 'Theme Colors' );
+
 
 /**
  * Override Controls

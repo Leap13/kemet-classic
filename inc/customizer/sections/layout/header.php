@@ -52,7 +52,7 @@ $header_rt_sections = array(
 						'label' => __( 'Logo Right', 'kemet' ),
 						'path'  => KEMET_THEME_URI . '/assets/images/logo-right.png',
 					),     
-               'header-main-layout-4' => array(
+            'header-main-layout-4' => array(
 						'label' => __( 'Right Left Menu', 'kemet' ),
 						'path'  => KEMET_THEME_URI . '/assets/images/right-left-menu.png',
 					),

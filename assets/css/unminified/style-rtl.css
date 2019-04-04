@@ -2782,6 +2782,7 @@ body {
  * 4 - Header Main
  * 5 - Header Top Bar
  * 7 - Header Toggle Buttons
+ * 8 - Header sticky 
 */
 /* 1 - Header Layouts  */
 /**
@@ -3730,6 +3731,43 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding-bottom: 1.5em;
 }
 
+/* 8 - Header sticky */
+.sticky-custom-logo-link {
+  display: none;
+}
+
+.kmt-is-sticky {
+  position: fixed;
+  width: 100%;
+}
+
+.kmt-is-sticky .sticky-custom-logo-link {
+  display: inline-block;
+}
+
+.kmt-is-sticky.kmt-sticky-logo .custom-logo-link {
+  display: none;
+}
+
+/* Sticky Header Responsive */
+@media only screen and (max-width: 480px) {
+  .sticky-hide-mobile.kmt-is-sticky {
+    position: relative !important;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .sticky-hide-tablet.kmt-is-sticky {
+    position: relative !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sticky-hide-tablet-mobile.kmt-is-sticky {
+    position: relative !important;
+  }
+}
+
 /*----------  Primary  ----------*/
 .sticky {
   display: block;
@@ -4176,14 +4214,14 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   margin-bottom: 0;
 }
 
+.kemet-footer.kemet-footer-align-center {
+  text-align: center;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;
   }
-}
-
-.kemet-footer .kmt-no-widget-row .widget-title {
-  text-transform: capitalize;
 }
 
 @media all and (max-width: 768px) {
@@ -4194,7 +4232,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 /**
- *  Go Top Link
+ *  Go Top Link
  */
 .kmt-go-top-link {
   position: fixed;
@@ -4218,25 +4256,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-go-top-link.is-opacity {
   opacity: 1;
   visibility: visible;
-}
-
-/* Go Top Responsive */
-@media only screen and (max-width: 480px) {
-  .hide-mobile {
-    display: none !important;
-  }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  .hide-tablet {
-    display: none !important;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .hide-tablet-mobile {
-    display: none !important;
-  }
 }
 
 /*----------  Forms  ----------*/
@@ -4583,6 +4602,28 @@ input[type="color"]::-webkit-color-swatch {
   padding-right: 0;
   padding-left: 0;
   position: relative;
+}
+
+.blog-layout-grid .site-main .kmt-row {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .blog .posted-on {
@@ -5366,6 +5407,95 @@ input[type="color"]::-webkit-color-swatch {
   }
 }
 
+/*--------------------------------------------------------------
+## Blog styles
+--------------------------------------------------------------*/
+/*
+* Blog Styles
+*/
+.blog-layout-grid .site-main .kmt-row {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.blog-layout-thumbnail .post-content {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blog-layout-thumbnail .post-content::before {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.blog-layout-thumbnail .post-content::after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.blog-layout-thumbnail .post-content.thumbnail-image-right.kmt-has-feature-image {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.blog-layout-thumbnail .post-content.thumbnail-image-right.kmt-has-feature-image .blog-entry-content {
+  padding-left: 3em;
+}
+
+.blog-layout-thumbnail .post-content.thumbnail-image-left.kmt-has-feature-image {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.blog-layout-thumbnail .post-content.thumbnail-image-left.kmt-has-feature-image .blog-entry-content {
+  padding-right: 3em;
+}
+
+.grid-item {
+  float: right;
+}
+
+.blog-layout-thumbnail .post-content.kmt-has-feature-image .kmt-blog-featured-image {
+  width: 45%;
+}
+
+.blog-layout-thumbnail .post-content.kmt-has-feature-image .blog-entry-content {
+  width: 55%;
+}
+
 /*----------  404  ----------*/
 .kmt-404-layout {
   text-align: center;
@@ -5605,9 +5735,6 @@ input[type="color"]::-webkit-color-swatch {
     # ALIGN SELF
     ————————————————————————–
     align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    ————————————————————————–
-     */
-  /*
     ————————————————————————–
      */
 }
@@ -6008,6 +6135,28 @@ input[type="color"]::-webkit-color-swatch {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
+}
+
+/*
+Hide From Devices
+————————————————————————–
+ */
+@media only screen and (max-width: 480px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hide-tablet-mobile {
+    display: none !important;
+  }
 }
 
 /*----------  Top Bar  ----------*/

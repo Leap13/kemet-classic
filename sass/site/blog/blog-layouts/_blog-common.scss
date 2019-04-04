@@ -139,7 +139,6 @@
 }
 
 .blog-layout-1 {
-
     /* 2 - Blog Thumbnail Styles */
     .post-thumb {
         padding-left: 0;
@@ -147,3 +146,10 @@
         position: relative;
     }
 }
+
+.blog-layout-grid .site-main .kmt-row{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+  }

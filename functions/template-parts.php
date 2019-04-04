@@ -171,7 +171,7 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 			}
 		?>
 		<div class="kmt-button-wrap">			
-			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
+		<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
 				<?php if ( '' != $menu_title ) { ?>
@@ -287,7 +287,13 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 *
 	 */
 	function kemet_entry_content_blog_template() {
-		get_template_part( 'templates/blog/blog-layout' );
+		if(kemet_get_option( 'blog-style' ) === 'thumbnail')
+		{
+			get_template_part( 'templates/blog/thumbnail-layout' );
+		}
+		else{
+			get_template_part( 'templates/blog/blog-layout' );
+		}
 	}
 }
 

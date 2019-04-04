@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	* Option: Site Content Width
 	*/
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[site-content-widthh]', array(
+		KEMET_THEME_SETTINGS . '[site-content-width]', array(
 			'default'           => 1200,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_widthh' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'        => 'kmt-slider',
 				'section'     => 'section-container-layout',
 				'priority'    => 5,
-				'label'       => __( 'Container Widthh', 'kemet' ),
+				'label'       => __( 'Container Width', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 768,

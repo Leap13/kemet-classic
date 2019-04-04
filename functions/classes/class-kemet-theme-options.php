@@ -92,6 +92,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					//Blog Style 
+					'blog-style'                       => 'large',
+					'blog-grid'  					    => 12,
+					'thumbnail-image-position'         => 'left',
 					// Kemet Colors.
 					'text-color'                       => '#797979',
 					'link-color'                       => '#4a4a4a',
@@ -123,6 +127,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'kemet-footer-link-color'            => '',
 					'kemet-footer-link-h-color'          => '',
 					'kemet-footer-wgt-title-color'       => '',
+					'enable-footer-content-center'       => 0,
 
 					// Kemet Buttons.
 					'button-color'                     => '',
@@ -132,6 +137,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-radius'                    => 2,
 					'button-v-padding'                 => 10,
 					'button-h-padding'                 => 40,
+					
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
@@ -174,6 +180,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					// Top Bar Responsive
+					'topbar-responsive'                => 'all-devices',
 					// Site Layout.
 					'site-content-width'               => 1140,
 					'site-layout-outside-bg-obj'       => array(
@@ -207,7 +215,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'headings-font-family'             => '',
 					'headings-font-weight'             => '',
 					'headings-text-transform'          => '',
-					'font-size-site-title'             => array(
+					'site-title-font-size'             => array(
 						'desktop'      => 35,
 						'tablet'       => '',
 						'mobile'       => '',
@@ -308,6 +316,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+					
+					//Sticky Header
+					'enable-sticky'   => 0,
+					'enable-sticky-shadow' => 0,
+					'sticky-responsive' => 'all-devices',
 
 					//Go Top Link
 					'enable-go-top'   => 1,

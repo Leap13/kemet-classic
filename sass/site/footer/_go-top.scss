@@ -1,5 +1,6 @@
+
 /**
- *  Go Top Link
+ *  Go Top Link
  */
 
  .kmt-go-top-link {
@@ -24,17 +25,4 @@
 .kmt-go-top-link.is-opacity {
     opacity: 1;
     visibility: visible;
-}
-
-/* Go Top Responsive */
-@media only screen and (max-width: 480px) {
-    .hide-mobile { display: none !important; }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-    .hide-tablet { display: none !important; }
-}
-    
-@media only screen and (max-width: 767px) {
-    .hide-tablet-mobile { display: none !important; }
 }
