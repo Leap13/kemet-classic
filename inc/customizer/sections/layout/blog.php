@@ -448,7 +448,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-	
+
 	/**
      * Option:Blog Style
      */
@@ -461,7 +461,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     );
     $wp_customize->add_control(
         KEMET_THEME_SETTINGS . '[blog-style]' ,array(
-            'priority'   => 96,
+            'priority'   => 100,
             'section'    => 'section-blog',
             'type'       => 'select',
             'label'      => __( 'Blog Style', 'kemet' ),
@@ -488,7 +488,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'section'  => 'section-blog',
 			'label'    => __( 'Grid Layout', 'kemet' ),
 			'type'     => 'select',
-			'priority' => 97,
+			'priority' => 105,
 			'choices'  => array(
 				'12' => __( '1 Column',  'kemet' ),
 				'6'  => __( '2 Columns', 'kemet' ),
@@ -497,4 +497,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 			),
 			'active_callback' => 'kmt_dep_grid',
 		)
+	);
+
+	/**
+     * Option:Image Position
+     */
+    $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[thumbnail-image-position]',array(
+            'default'           => kemet_get_option('thumbnail-image-position'),
+            'type'              => 'option',
+            'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices')
+        )
+    );
+    $wp_customize->add_control(
+        KEMET_THEME_SETTINGS . '[thumbnail-image-position]' ,array(
+            'priority'   => 110,
+            'section'    => 'section-blog',
+            'type'       => 'select',
+            'label'      => __( 'Image Position', 'kemet' ),
+            'choices'    => array(
+                'right'         => __( 'Right', 'kemet' ),
+                'left'          => __( 'Left', 'kemet' ),
+			),
+			'active_callback' => 'kmt_dep_image_thumbnail',
+        )
 	);
