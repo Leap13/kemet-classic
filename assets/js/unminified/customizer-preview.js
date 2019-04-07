@@ -725,7 +725,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	wp.customize( 'kemet-settings[sticky-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
 
-			var dynamicStyle = 'header.kmt-is-sticky { {{css}} }';
+			var dynamicStyle = '.kmt-is-sticky { {{css}} }';
 			
 			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-bg-obj', dynamicStyle );
 		} );

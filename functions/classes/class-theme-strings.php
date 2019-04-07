@@ -12,7 +12,7 @@
 /**
  * Default Strings
  */
-if ( ! function_exists( 'kemet_default_strings' ) ) {
+if ( ! function_exists( 'kemet_theme_strings' ) ) {
 
 	/**
 	 * Default Strings
@@ -22,10 +22,10 @@ if ( ! function_exists( 'kemet_default_strings' ) ) {
 	 * @param  boolean $echo Print string.
 	 * @return mixed        Return string or nothing.
 	 */
-	function kemet_default_strings( $key, $echo = true ) {
+	function kemet_theme_strings( $key, $echo = true ) {
 
 		$defaults = apply_filters(
-			'kemet_default_strings', array(
+			'kemet_theme_strings', array(
 
 				// Header.
 				'string-header-skip-link'                => __( 'Skip to content', 'kemet' ),

@@ -22,7 +22,7 @@
 <body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
 
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_default_strings( 'string-header-skip-link', false ) ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
 
 	<?php kemet_header(); ?>
 

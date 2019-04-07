@@ -17,7 +17,7 @@
 	<div class="page-content">
 
 		<div class="page-sub-title">
-			<?php echo esc_html( kemet_default_strings( 'string-404-title', false ) ); ?>
+			<?php echo esc_html( kemet_theme_strings( 'string-404-title', false ) ); ?>
 		</div>
 
 		<div class="kmt-404-search">
