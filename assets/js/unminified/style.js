@@ -2,7 +2,7 @@
  * Flexibility is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
  * Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
  */
-
+window.onload = function() {
 ! function() {
     window.flexibility = {}, Array.prototype.forEach || (Array.prototype.forEach = function(t) {
             if (void 0 === this || null === this) throw new TypeError(this + "is not an object");
@@ -884,13 +884,13 @@ var toggleClass = function ( el, className ) {
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				KemetNavigationMenu( parentList );
-			 	
+			 	console.log("kemet_menu_toggle");
 			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .kmt-menu-toggle' );
 				KemetToggleMenu( kemet_menu_toggle );
 			}
 		};
-	}
-	
+    }
+    
 	document.body.addEventListener("kemet-header-responsive-enabled", function() {
 
 		if ( __main_header_all.length > 0 ) {
@@ -1218,3 +1218,4 @@ var $container = jQuery('.kmt-row').imagesLoaded( function() {
           percentPosition: true
     });
 });
+};

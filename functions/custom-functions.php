@@ -93,7 +93,10 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		} else {
 			$classes[] = 'kmt-header-custom-item-inside';
 		}
-
+		if(kemet_get_option ('header-layouts') == 'header-main-layout-6') {
+			$classes[] = 'header-main-layout-6';
+		} 
+		$classes[] = 'kemet-addons-header6-'. kemet_get_option('header6-position') ;
 		return $classes;
 	}
 }
@@ -860,6 +863,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$enabled_sticky           = kemet_get_option( 'enable-sticky' );
 		$sticky_logo              = kemet_get_option( 'sticky-logo' );
 		$sticky_responsive        = kemet_get_option('sticky-responsive');
+		$header6_has_box_shadow   = kemet_get_option('header6-box-shadow');
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
@@ -888,7 +892,10 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		if ( '' !== $sticky_logo ) {
 			$classes[] = 'kmt-sticky-logo';
 		}
-
+		if ($header6_has_box_shadow == true){ 
+			$classes[] = "header6-has-box-shadow" ;
+		   
+		 }  
 		$classes[] =  $sticky_responsive;
 
 		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
