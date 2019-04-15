@@ -95,8 +95,9 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		}
 		if(kemet_get_option ('header-layouts') == 'header-main-layout-6') {
 			$classes[] = 'header-main-layout-6';
+			$classes[] = 'kemet-addons-header6-'. kemet_get_option('header6-position') ;
 		} 
-		$classes[] = 'kemet-addons-header6-'. kemet_get_option('header6-position') ;
+		
 		return $classes;
 	}
 }
@@ -864,6 +865,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$sticky_logo              = kemet_get_option( 'sticky-logo' );
 		$sticky_responsive        = kemet_get_option('sticky-responsive');
 		$header6_has_box_shadow   = kemet_get_option('header6-box-shadow');
+
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
 		}
@@ -885,7 +887,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 			$classes[] = 'kmt-header-transparent';
 		}
 
-		if( $enabled_sticky ) {
+		if( $enabled_sticky &&  $menu_logo_location  != 'header-main-layout-6') {
 			$classes[] = 'kmt-sticky-header';
 		}
 
