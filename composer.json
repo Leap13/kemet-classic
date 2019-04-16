@@ -1,14 +1,57 @@
 {
-    "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-        "squizlabs/php_codesniffer": "^3.2",
-        "wimg/php-compatibility": "^8.0",
-        "wp-coding-standards/wpcs": "^0.14.0",
-        "name": "kemet",
-        "description": "Kemet Theme"
+    "name": "wp-coding-standards/wpcs",
+    "type": "phpcodesniffer-standard",
+    "description": "PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions",
+    "keywords": [
+        "phpcs",
+        "standards",
+        "WordPress"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "squizlabs/php_codesniffer": "^3.3.1"
     },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "phpcompatibility/php-compatibility": "^9.0",
+        "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+    },
+    "suggest": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
+    },
+    "minimum-stability": "RC",
     "scripts": {
-        "format": "phpcbf",
-        "lint": "phpcs"
+        "check-cs": [
+            "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs"
+        ],
+        "fix-cs": [
+            "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+        ],
+        "install-codestandards": [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "run-tests": [
+            "@php ./vendor/phpunit/phpunit/phpunit --filter WordPress --bootstrap=\"./vendor/squizlabs/php_codesniffer/tests/bootstrap.php\" ./vendor/squizlabs/php_codesniffer/tests/AllTests.php"
+        ],
+        "sniffs":[
+            "phpcs --standard=PSR2 src/ && phpcs --standard=PSR2 tests/"
+        ],
+        "fixes": [
+            "php-cs-fixer fix src/ && php-cs-fixer fix tests/"
+        ]
+
+    },
+    "support": {
+        "issues": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues",
+        "wiki": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki",
+        "source": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards"
     }
+    
 }

@@ -1,82 +1,71 @@
 <?php
 /**
- * Kemet functions and definitions
+ * Kemet functions and definitions.
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Kemet
- * 
+ * @see https://developer.wordpress.org/themes/basics/theme-functions/
  */
 
 /**
- * Define Constants
+ * Define Constants.
  */
-define( 'KEMET_THEME_VERSION', '0.0.3' );
-define( 'KEMET_THEME_DIR', get_template_directory() . '/' );
-define( 'KEMET_THEME_URI', get_template_directory_uri() . '/' );
-define( 'KEMET_THEME_SETTINGS', 'kemet-settings' );
-
-
-/**
- * Theme hooks
- */
-require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-theme-options.php';
-require_once KEMET_THEME_DIR . 'functions/classes/class-theme-strings.php';
+define('KEMET_THEME_VERSION', '0.0.4');
+define('KEMET_THEME_DIR', get_template_directory().'/');
+define('KEMET_THEME_URI', get_template_directory_uri().'/');
+define('KEMET_THEME_SETTINGS', 'kemet-settings');
 
 /**
- * Fonts Files
+ * Theme hooks.
  */
-require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-font-families.php';
-if ( is_admin() ) {
-	require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-fonts-data.php';
+require_once KEMET_THEME_DIR.'functions/classes/class-kemet-theme-options.php';
+require_once KEMET_THEME_DIR.'functions/classes/class-theme-strings.php';
+
+/**
+ * Fonts Files.
+ */
+require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-font-families.php';
+if (is_admin()) {
+    require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-fonts-data.php';
 }
 
-require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-fonts.php';
+require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-fonts.php';
 
 /**
- * Functions 
+ * Functions.
  */
+require_once KEMET_THEME_DIR.'functions/common-functions.php';
+require_once KEMET_THEME_DIR.'functions/classes/class-kemet-enqueue-scripts.php';
+require_once KEMET_THEME_DIR.'inc/class-kemet-dynamic-css.php';
+require_once KEMET_THEME_DIR.'functions/template-tags.php';
+require_once KEMET_THEME_DIR.'inc/widgets.php';
+require_once KEMET_THEME_DIR.'functions/theme-hooks.php';
+require_once KEMET_THEME_DIR.'functions/admin/admin-functions.php';
+require_once KEMET_THEME_DIR.'functions/sidebar-manager.php';
+require_once KEMET_THEME_DIR.'functions/custom-functions.php';
+require_once KEMET_THEME_DIR.'inc/blog/blog-config.php';
+require_once KEMET_THEME_DIR.'inc/blog/blog.php';
+require_once KEMET_THEME_DIR.'inc/blog/single-blog.php';
+require_once KEMET_THEME_DIR.'functions/template-parts.php';
+require_once KEMET_THEME_DIR.'functions/classes/class-kemet-loop.php';
 
-require_once KEMET_THEME_DIR . 'functions/common-functions.php';
-require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-enqueue-scripts.php';
-require_once KEMET_THEME_DIR . 'inc/class-kemet-dynamic-css.php';
-require_once KEMET_THEME_DIR . 'functions/template-tags.php';
-require_once KEMET_THEME_DIR . 'inc/widgets.php';
-require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
-require_once KEMET_THEME_DIR . 'functions/admin/admin-functions.php';
-require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
-require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
-require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';
-require_once KEMET_THEME_DIR . 'inc/blog/blog.php';
-require_once KEMET_THEME_DIR . 'inc/blog/single-blog.php';
-require_once KEMET_THEME_DIR . 'functions/template-parts.php';
-require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-loop.php';
-
-
-require_once KEMET_THEME_DIR . 'inc/class-kemet-after-setup-theme.php';
+require_once KEMET_THEME_DIR.'inc/class-kemet-after-setup-theme.php';
 
 // Required files.
-require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-helper.php';
+require_once KEMET_THEME_DIR.'functions/classes/class-kemet-admin-helper.php';
 
-if ( is_admin() ) {
-
-	/**
-	 * Admin Menu Settings
-	 */
-	require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-settings.php';
-
+if (is_admin()) {
+    /**
+     * Admin Menu Settings.
+     */
+    require_once KEMET_THEME_DIR.'functions/classes/class-kemet-admin-settings.php';
 }
 
+/**
+ * Customizer.
+ */
+require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-customizer.php';
 
 /**
- * Customizer 
+ * Compatibility.
  */
-require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';
-
-
-/**
- * Compatibility
- */
-require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
-require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-contact-form-7.php';
-
+require_once KEMET_THEME_DIR.'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-contact-form-7.php';
