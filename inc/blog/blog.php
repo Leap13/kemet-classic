@@ -17,12 +17,10 @@ if ( ! function_exists( 'kemet_blog_body_classes' ) ) {
 	 * @return array
 	 */
 	function kemet_blog_body_classes( $classes ) {
-		$blog_style   = kemet_get_option( 'blog-style' );
 		// Adds a class of group-blog to blogs with more than 1 published author.
 		if ( is_multi_author() ) {
 			$classes[] = 'group-blog';
 		}
-		$classes[] = 'blog-layout-'.$blog_style;
 		return $classes;
 	}
 }
@@ -41,28 +39,16 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 	 * @return array
 	 */
 	function kemet_post_class_blog_grid( $classes ) {
-        $col = kemet_get_option( 'blog-grid' );
 		if ( is_archive() || is_home() || is_search() ) {
-			$classes[] = 'kmt-article-post';
-			if(kemet_get_option( 'blog-style' ) === 'grid')
-			{
-				$classes[] = 'kmt-col-sm-'.$col;
-				$classes[] = 'grid-item';
-			}
-			else
+			if(kemet_get_option( 'blog-style' ) !== 'grid')
 			{
 				$classes[] = 'kmt-col-sm-12';
 			}
-		}
+			$classes[] = 'kmt-article-post';
+			
 
-		return $classes;
-	}
-	function kmt_dep_grid() {
-		if ( kemet_get_option( 'blog-style' ) === 'grid' ) {
-			return true;
-		} else {
-			return false;
 		}
+		return $classes;
 	}
 	function kmt_dep_thumbnail()
 	{
@@ -72,6 +58,14 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 			return true;
 		}
 	}
+	function kmt_dep_grid() {
+		if ( kemet_get_option( 'blog-style' ) === 'grid' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	function kmt_dep_image_thumbnail()
 	{
 		if ( kemet_get_option( 'blog-style' ) === 'thumbnail' ) {
@@ -80,7 +74,7 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 			return false;
 		}
 	}
-
+	
 }
 
 add_filter( 'post_class', 'kemet_post_class_blog_grid' );
