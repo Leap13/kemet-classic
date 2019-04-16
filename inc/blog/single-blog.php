@@ -163,12 +163,12 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 							<section class="kmt-comment-content comment">
 								<?php comment_text(); ?>
 								<div class="kmt-comment-edit-reply-wrap">
-									<?php edit_comment_link( kemet_default_strings( 'string-comment-edit-link', false ), '<span class="kmt-edit-link">', '</span>' ); ?>
+									<?php edit_comment_link( kemet_theme_strings( 'string-comment-edit-link', false ), '<span class="kmt-edit-link">', '</span>' ); ?>
 									<?php
 									comment_reply_link(
 										array_merge(
 											$args, array(
-												'reply_text' => kemet_default_strings( 'string-comment-reply-link', false ),
+												'reply_text' => kemet_theme_strings( 'string-comment-reply-link', false ),
 												'add_below' => 'comment',
 												'depth'  => $depth,
 												'max_depth' => $args['max_depth'],
@@ -180,7 +180,7 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 									?>
 								</div>
 								<?php if ( '0' == $comment->comment_approved ) : ?>
-									<p class="kmt-highlight-text comment-awaiting-moderation"><?php echo esc_html( kemet_default_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
+									<p class="kmt-highlight-text comment-awaiting-moderation"><?php echo esc_html( kemet_theme_strings( 'string-comment-awaiting-moderation', false ) ); ?></p>
 								<?php endif; ?>
 							</section> <!-- .kmt-comment-content -->
 						</div>
@@ -213,12 +213,12 @@ if ( ! function_exists( 'kemet_single_post_navigation_markup' ) ) {
 			$post_obj = get_post_type_object( get_post_type() );
 
 			$next_text = sprintf(
-				kemet_default_strings( 'string-single-navigation-next', false ),
+				kemet_theme_strings( 'string-single-navigation-next', false ),
 				$post_obj->labels->singular_name
 			);
 
 			$prev_text = sprintf(
-				kemet_default_strings( 'string-single-navigation-previous', false ),
+				kemet_theme_strings( 'string-single-navigation-previous', false ),
 				$post_obj->labels->singular_name
 			);
 			/**

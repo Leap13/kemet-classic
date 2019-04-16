@@ -454,7 +454,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//Sticky Header
-				'header.kmt-is-sticky' => kemet_get_background_obj( $sticky_bg_obj ),
+				'.kmt-is-sticky' => kemet_get_background_obj( $sticky_bg_obj ),
 				'.kmt-is-sticky li a' => array(
 					'color' => esc_attr($sticky_text_color)
 				),

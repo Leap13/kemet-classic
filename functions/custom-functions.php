@@ -119,8 +119,8 @@ if ( ! function_exists( 'kemet_number_pagination' ) ) {
 			echo "<div class='kmt-pagination'>";
 			the_posts_pagination(
 				array(
-					'prev_text'    => kemet_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text'    => kemet_default_strings( 'string-blog-navigation-next', false ),
+					'prev_text'    => kemet_theme_strings( 'string-blog-navigation-previous', false ),
+					'next_text'    => kemet_theme_strings( 'string-blog-navigation-next', false ),
 					'taxonomy'     => 'category',
 					'in_same_term' => true,
 				)
@@ -1000,14 +1000,14 @@ if ( ! function_exists( 'kemet_comment_form_default_fields_markup' ) ) {
 		$aria_req  = ( $req ? " aria-required='true'" : '' );
 
 		$fields['author'] = '<div class="kmt-comment-formwrap kmt-row"><p class="comment-form-author kmt-col-xs-12 kmt-col-sm-12 kmt-col-md-4 kmt-col-lg-4">' .
-					'<label for="author" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-					'" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
+					'<label for="author" class="screen-reader-text">' . esc_html( kemet_theme_strings( 'string-comment-label-name', false ) ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+					'" placeholder="' . esc_attr( kemet_theme_strings( 'string-comment-label-name', false ) ) . '" size="30"' . $aria_req . ' /></p>';
 		$fields['email']  = '<p class="comment-form-email kmt-col-xs-12 kmt-col-sm-12 kmt-col-md-4 kmt-col-lg-4">' .
-					'<label for="email" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
-					'" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
+					'<label for="email" class="screen-reader-text">' . esc_html( kemet_theme_strings( 'string-comment-label-email', false ) ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
+					'" placeholder="' . esc_attr( kemet_theme_strings( 'string-comment-label-email', false ) ) . '" size="30"' . $aria_req . ' /></p>';
 		$fields['url']    = '<p class="comment-form-url kmt-col-xs-12 kmt-col-sm-12 kmt-col-md-4 kmt-col-lg-4"><label for="url">' .
-					'<label for="url" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
-					'" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
+					'<label for="url" class="screen-reader-text">' . esc_html( kemet_theme_strings( 'string-comment-label-website', false ) ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
+					'" placeholder="' . esc_attr( kemet_theme_strings( 'string-comment-label-website', false ) ) . '" size="30" /></label></p></div>';
 
 		return apply_filters( 'kemet_comment_form_default_fields_markup', $fields );
 	}
@@ -1029,10 +1029,10 @@ if ( ! function_exists( 'kemet_comment_form_default_markup' ) ) {
 	function kemet_comment_form_default_markup( $args ) {
 
 		$args['id_form']           = 'kmt-commentform';
-		$args['title_reply']       = kemet_default_strings( 'string-comment-title-reply', false );
-		$args['cancel_reply_link'] = kemet_default_strings( 'string-comment-cancel-reply-link', false );
-		$args['label_submit']      = kemet_default_strings( 'string-comment-label-submit', false );
-		$args['comment_field']     = '<div class="kmt-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea kmt-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( kemet_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( kemet_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+		$args['title_reply']       = kemet_theme_strings( 'string-comment-title-reply', false );
+		$args['cancel_reply_link'] = kemet_theme_strings( 'string-comment-cancel-reply-link', false );
+		$args['label_submit']      = kemet_theme_strings( 'string-comment-label-submit', false );
+		$args['comment_field']     = '<div class="kmt-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea kmt-col-lg-12"><label for="comment" class="screen-reader-text">' . esc_html( kemet_theme_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( kemet_theme_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 
 		return apply_filters( 'kemet_comment_form_default_markup', $args );
 

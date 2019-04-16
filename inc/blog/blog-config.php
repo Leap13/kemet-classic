@@ -195,9 +195,9 @@ if ( ! function_exists( 'kemet_post_comments' ) ) {
 				/**
 				 * Get Comment Link
 				 *
-				 * @see kemet_default_strings()
+				 * @see kemet_theme_strings()
 				 */
-				comments_popup_link( kemet_default_strings( 'string-blog-meta-leave-a-comment', false ), kemet_default_strings( 'string-blog-meta-one-comment', false ), kemet_default_strings( 'string-blog-meta-multiple-comment', false ) );
+				comments_popup_link( kemet_theme_strings( 'string-blog-meta-leave-a-comment', false ), kemet_theme_strings( 'string-blog-meta-one-comment', false ), kemet_theme_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
 
 				<!-- Comment Schema Meta -->
