@@ -14,7 +14,11 @@
 .main-header-bar {
 	z-index: 1;
 }
-
+.site-header {
+	.kmt-main-header-bar-alignment {
+		margin-left: auto;
+	}
+}
 /**
  * 1 - Header Layout 1
 */
@@ -118,6 +122,7 @@
 	}
 	.kmt-main-header-bar-alignment {
 		margin-right: auto;
+		margin-left: 0 !important;
 	}
 	.main-navigation {
 		padding-right: 15px;
@@ -251,6 +256,7 @@
 	}
 	.kmt-main-header-bar-alignment {
 		flex: 0;
+		margin-left: 0 !important;
 	}
 	.site-branding
 	{

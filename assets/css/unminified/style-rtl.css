@@ -2801,6 +2801,10 @@ body {
   z-index: 1;
 }
 
+.site-header .kmt-main-header-bar-alignment {
+  margin-right: auto;
+}
+
 /**
  * 1 - Header Layout 1
 */
@@ -2926,6 +2930,7 @@ body {
 
 .header-main-layout-3 .kmt-main-header-bar-alignment {
   margin-left: auto;
+  margin-right: 0 !important;
 }
 
 .header-main-layout-3 .main-navigation {
@@ -3110,6 +3115,7 @@ body {
   -moz-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
+  margin-right: 0 !important;
 }
 
 .header-main-layout-4 .site-branding {
