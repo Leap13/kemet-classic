@@ -91,7 +91,7 @@
 	position: absolute;
 	z-index: 3;
 	right: 0;
-	top: 50%;
+	top: 100%;
 	transform: translateY(-50%);
 
 	.kemet-search-icon {
@@ -105,19 +105,27 @@
 		@include kmt-border-radius();
 		display: inline-block;
 		backface-visibility: hidden;
-		position: relative;
+		position: absolute;
+		top:0;
+		right: 0;
+		width: 360px;
+		padding: 30px 30px;
+		height: 0;
 		color: inherit;
 		background-color: transparent;
 	}
-
+	
 	.search-field {
 		border: none;
 		background-color: transparent;
-		transition: width .2s;
+		transition: all .2s;
 		border-radius: inherit;
 		color: inherit;
-		font-size: inherit;
-		width: 0;
+		width: 100%;
+		padding: 10px 20px 10px 30px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		font-size: 16px;
+		letter-spacing: 0.025em;
 		&:focus {
 			background-color: transparent;
 			color: inherit;
@@ -132,8 +140,12 @@
 	&.kmt-dropdown-active {
 		visibility: visible;
 		opacity: 1;
+		form {
+			background-color: #fff;
+			height: auto;
+		}
 		.search-field {
-			width: 235px;
+			height: auto;
 		}
 	}
 }
