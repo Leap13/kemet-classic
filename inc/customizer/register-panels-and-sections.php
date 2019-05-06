@@ -68,18 +68,6 @@
 		)
 	);
 
-	// Layout Panel Sticky Header
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-sticky-header', array(
-					'title'    => __( 'Sticky Header', 'kemet' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-header-group',
-					'priority' => 11,
-				)
-		)
-	);
-
 	// Layout Panel Header Top bar
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(

@@ -49,7 +49,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 *   - Single Blog
 			 * - Typography of Headings
 			 * - Header
-			 * - Sticky Header
 			 * - Top Bar Header
 			 * - Footer
 			 *   - Main Footer CSS
@@ -122,17 +121,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_link_h_color           = kemet_get_option( 'submenu-link-h-color' );
 			$display_submenu_border  		= kemet_get_option( 'display-submenu-border' );
 			$submenu_border_color  			= kemet_get_option( 'submenu-border-color' );
-
-			//Sticky header
-			$sticky_bg_obj                    = kemet_get_option( 'sticky-bg-obj' );
-			$sticky_text_color                = kemet_get_option( 'sticky-text-color' );
-			$sticky_text_h_color              = kemet_get_option( 'sticky-text-h-color' );
-			$sticky_submenu_color             = kemet_get_option( 'sticky-submenu-color' );
-			$sticky_submenu_h_color           = kemet_get_option( 'sticky-submenu-h-color' );
-			$sticky_submenu_bg_color          = kemet_get_option( 'sticky-submenu-bg-color' );
-			$sticky_divider_color             = kemet_get_option( 'sticky-divider-color' );
-			$sticky_border_bottom_color       = kemet_get_option( 'sticky-border-bottom-color' );
-			$sticky_logo_width                = kemet_get_option( 'sticky-logo-width' );
 
 			//Top Bar Header
 			$topbar_bg_color           = kemet_get_option( 'topbar-bg-color' );
@@ -452,31 +440,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.top-navigation ul.sub-menu'  => array(
 					'background-color' => esc_attr( $topbar_submenu_bg_color),
 				),
-
-				//Sticky Header
-				'.kmt-is-sticky' => kemet_get_background_obj( $sticky_bg_obj ),
-				'.kmt-is-sticky li a' => array(
-					'color' => esc_attr($sticky_text_color)
-				),
-				'.kmt-is-sticky:hover li:hover a' => array(
-					'color' => esc_attr($sticky_text_h_color)
-				),
-				'.kmt-is-sticky .sub-menu li a' => array(
-					'color'               => esc_attr($sticky_submenu_color),
-					'border-bottom-color' => esc_attr( $sticky_divider_color ),
-				),
-				'.kmt-is-sticky .sub-menu li:hover > a' => array(
-					'color' => esc_attr($sticky_submenu_h_color)
-				),
-				'.kmt-is-sticky .sub-menu' => array(
-					'background-color' => esc_attr( $sticky_submenu_bg_color),
-				),
-				'.kmt-is-sticky .main-header-bar' => array(
-					'border-bottom-color' => esc_attr( $sticky_border_bottom_color ),
-				),
-				// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-				// 	'max-width' => kemet_get_css_value( $sticky_logo_width['desktop'], 'px' ),
-				// ),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
@@ -924,10 +887,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 				),
-				// Sticky Header
-				// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-				// 	'max-width' => kemet_get_css_value( $sticky_logo_width['tablet'], 'px' ),
-				// ),
 				//Sidebar Spacing
 				'.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
@@ -1159,10 +1118,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),
 				'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'mobile' ),
 			),
-			// Sticky Header
-			// '#sitehead .site-logo-img .sticky-custom-logo-link img' => array(
-			// 	'max-width' => kemet_get_css_value( $sticky_logo_width['mobile'], 'px' ),
-			// ),
 			//Sidebar Spacing
 			'div.sidebar-main' => array(
 				'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'mobile' ),
@@ -1170,7 +1125,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-right' => kemet_responsive_spacing( $sidebar_padding, 'right', 'mobile' ),
 				'padding-left'  => kemet_responsive_spacing( $sidebar_padding, 'left', 'mobile' ),
 			),
-
                 
             '.kemet-footer .kmt-container ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'mobile' ),

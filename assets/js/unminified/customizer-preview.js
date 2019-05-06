@@ -719,57 +719,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 	
-	/**
-	 * Sticky Header
-	 */
-	wp.customize( 'kemet-settings[sticky-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = '.kmt-is-sticky { {{css}} }';
-			
-			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-bg-obj', dynamicStyle );
-		} );
-	} );
-	kemet_css( 'kemet-settings[sticky-text-color]', 'color', '.kmt-is-sticky li a' );
-	kemet_css( 'kemet-settings[sticky-text-h-color]', 'color', '.kmt-is-sticky:hover li:hover a' );
-	kemet_css( 'kemet-settings[sticky-submenu-color]', 'color', '.kmt-is-sticky .sub-menu li a' );
-	kemet_css( 'kemet-settings[sticky-submenu-h-color]', 'color', '.kmt-is-sticky .sub-menu li:hover > a' );
-	wp.customize( 'kemet-settings[sticky-submenu-bg-color]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = '.kmt-is-sticky .sub-menu { {{css}} }';
-			
-			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-submenu-bg-color', dynamicStyle );
-		} );
-	} );
-	wp.customize( 'kemet-settings[sticky-divider-color]', function( value ) {
-		value.bind( function( border_color ) {
-			jQuery( '.kmt-is-sticky .sub-menu li a' ).css( 'border-color', border_color );
-		} );
-	} );
-	wp.customize( 'kemet-settings[sticky-border-bottom-color]', function( value ) {
-		value.bind( function( color ) {
-			if (color == '') {
-				wp.customize.preview.send( 'refresh' );
-			}
-			if ( color ) {
-				var dynamicStyle = '.kmt-is-sticky .main-header-bar { border-bottom-color: ' + color + '; } ';
-				kemet_add_dynamic_css( 'sticky-border-bottom-color', dynamicStyle );
-			}
-		} );
-	} );
-
-	wp.customize( 'kemet-settings[sticky-logo-width]', function( setting ) {
-		setting.bind( function( logo_width ) {
-			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;}  @media( max-width: 768px ) { #sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;}  } @media( max-width: 544px ) { .kmt-header-break-point #sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} }';
-				kemet_add_dynamic_css( 'sticky-logo-width', dynamicStyle );
-			}
-			else{
-				wp.customize.preview.send( 'refresh' );
-			}
-		} );
-	} );
+	
 
 
 	/**
