@@ -577,6 +577,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[topbar-link-color]', 'color', '.kemet-top-header a' );
 	kemet_css( 'kemet-settings[topbar-link-h-color]', 'color', '.kemet-top-header a:hover' );
 	kemet_css( 'kemet-settings[topbar-text-color]', 'color', '.kemet-top-header' );
+	kemet_css('kemet-settings[topbar-submenu-items-color]', 'color', '.top-navigation ul.sub-menu li a');
+	kemet_css('kemet-settings[topbar-submenu-items-h-color]', 'color', '.top-navigation ul.sub-menu li:hover a');
 	
 	wp.customize( 'kemet-settings[topbar-border-bottom-size]', function( value ) {
 		value.bind( function( border ) {

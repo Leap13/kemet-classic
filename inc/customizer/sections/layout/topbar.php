@@ -337,9 +337,51 @@ $wp_customize->add_control(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-submenu-bg-color]', array(
-                'priority'       => 70,
-                'section' => 'section-topbar-header',
+				'priority'       => 70,
+				'section' => 'section-topbar-header',
 				'label'   => __( 'Top Bar SubMenu Background Color', 'kemet' ),
+			)
+		)
+	);
+
+
+	/**
+	 * Option:Top Bar SubMenu Items Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[topbar-submenu-items-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-submenu-items-color]', array(
+				'priority'       => 75,
+				'section' => 'section-topbar-header',
+				'label'   => __( 'Top Bar SubMenu Items Color', 'kemet' ),
+			)
+		)
+	);
+
+
+	/**
+	 * Option:Top Bar SubMenu Items Hover Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[topbar-submenu-items-h-color]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[topbar-submenu-items-h-color]', array(
+				'priority'       => 80,
+				'section' => 'section-topbar-header',
+				'label'   => __( 'Top Bar SubMenu Items Hover Color', 'kemet' ),
 			)
 		)
 	);

@@ -133,6 +133,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Top Bar Header SubMenu
 			$topbar_submenu_bg_color   = kemet_get_option( 'topbar-submenu-bg-color' );
+			$topbar_submenu_items_color   = kemet_get_option( 'topbar-submenu-items-color' );
+			$topbar_submenu_items_h_color   = kemet_get_option( 'topbar-submenu-items-h-color' );
 
 			//Content Heading Color
 			$heading_h1_font_color            = kemet_get_option( 'font-color-h1' );
@@ -439,6 +441,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.top-navigation ul.sub-menu'  => array(
 					'background-color' => esc_attr( $topbar_submenu_bg_color),
+				),
+				'.top-navigation ul.sub-menu li a'  => array(
+					'color' => esc_attr( $topbar_submenu_items_color),
+				),
+				'.top-navigation ul.sub-menu li:hover a'   => array(
+					'color' => esc_attr( $topbar_submenu_items_h_color),
 				),
 
 				// Input tags.
