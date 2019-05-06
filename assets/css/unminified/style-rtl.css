@@ -4931,6 +4931,18 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+.kmt-comment-list .comment-edit-link:before {
+  content: "\e903";
+  font-family: 'Kemet-font';
+  margin: 0px 5px;
+}
+
+.kmt-comment-list .comment-reply-link:after {
+  content: "\e909";
+  font-family: 'Kemet-font';
+  margin: 0px 5px;
+}
+
 .kmt-comment {
   padding: 1em 0;
 }
@@ -5117,18 +5129,6 @@ input[type="color"]::-webkit-color-swatch {
 .kmt-separate-container .kmt-comment-list li.depth-1 .kmt-comment,
 .kmt-separate-container .kmt-comment-list li.depth-2 .kmt-comment {
   border-bottom: 0;
-}
-
-.kmt-separate-container .kmt-comment-list .comment-edit-link:before {
-  content: "\e903";
-  font-family: 'Kemet-font';
-  margin: 0px 5px;
-}
-
-.kmt-separate-container .kmt-comment-list .comment-reply-link:after {
-  content: "\e909";
-  font-family: 'Kemet-font';
-  margin: 0px 5px;
 }
 
 .kmt-separate-container .kmt-comment-list .comment-respond {
