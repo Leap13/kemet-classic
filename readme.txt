@@ -5,7 +5,7 @@ Author: Leap13
 Author URI: https://leap13.com/
 Requires PHP: 5.6
 Tested up to: 5.1
-Stable tag: 0.0.4
+Stable tag: 0.0.5
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
