@@ -577,6 +577,8 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	kemet_css( 'kemet-settings[topbar-link-color]', 'color', '.kemet-top-header a' );
 	kemet_css( 'kemet-settings[topbar-link-h-color]', 'color', '.kemet-top-header a:hover' );
 	kemet_css( 'kemet-settings[topbar-text-color]', 'color', '.kemet-top-header' );
+	kemet_css('kemet-settings[topbar-submenu-items-color]', 'color', '.top-navigation ul.sub-menu li a');
+	kemet_css('kemet-settings[topbar-submenu-items-h-color]', 'color', '.top-navigation ul.sub-menu li:hover a');
 	
 	wp.customize( 'kemet-settings[topbar-border-bottom-size]', function( value ) {
 		value.bind( function( border ) {
@@ -719,57 +721,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 	
-	/**
-	 * Sticky Header
-	 */
-	wp.customize( 'kemet-settings[sticky-bg-obj]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = '.kmt-is-sticky { {{css}} }';
-			
-			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-bg-obj', dynamicStyle );
-		} );
-	} );
-	kemet_css( 'kemet-settings[sticky-text-color]', 'color', '.kmt-is-sticky li a' );
-	kemet_css( 'kemet-settings[sticky-text-h-color]', 'color', '.kmt-is-sticky:hover li:hover a' );
-	kemet_css( 'kemet-settings[sticky-submenu-color]', 'color', '.kmt-is-sticky .sub-menu li a' );
-	kemet_css( 'kemet-settings[sticky-submenu-h-color]', 'color', '.kmt-is-sticky .sub-menu li:hover > a' );
-	wp.customize( 'kemet-settings[sticky-submenu-bg-color]', function( value ) {
-		value.bind( function( bg_obj ) {
-
-			var dynamicStyle = '.kmt-is-sticky .sub-menu { {{css}} }';
-			
-			kemet_background_obj_css( wp.customize, bg_obj, 'sticky-submenu-bg-color', dynamicStyle );
-		} );
-	} );
-	wp.customize( 'kemet-settings[sticky-divider-color]', function( value ) {
-		value.bind( function( border_color ) {
-			jQuery( '.kmt-is-sticky .sub-menu li a' ).css( 'border-color', border_color );
-		} );
-	} );
-	wp.customize( 'kemet-settings[sticky-border-bottom-color]', function( value ) {
-		value.bind( function( color ) {
-			if (color == '') {
-				wp.customize.preview.send( 'refresh' );
-			}
-			if ( color ) {
-				var dynamicStyle = '.kmt-is-sticky .main-header-bar { border-bottom-color: ' + color + '; } ';
-				kemet_add_dynamic_css( 'sticky-border-bottom-color', dynamicStyle );
-			}
-		} );
-	} );
-
-	wp.customize( 'kemet-settings[sticky-logo-width]', function( setting ) {
-		setting.bind( function( logo_width ) {
-			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;}  @media( max-width: 768px ) { #sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;}  } @media( max-width: 544px ) { .kmt-header-break-point #sitehead .site-logo-img .sticky-custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} }';
-				kemet_add_dynamic_css( 'sticky-logo-width', dynamicStyle );
-			}
-			else{
-				wp.customize.preview.send( 'refresh' );
-			}
-		} );
-	} );
+	
 
 
 	/**
@@ -947,28 +899,6 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		} );
 	} );
-
-	/**
-     * Top Bar
-     */
-    kemet_responsive_font_size( 'kemet-settings[go-top-icon-size]','.kmt-go-top-link' );
-	kemet_css( 'kemet-settings[go-top-icon-color]', 'color', ' .kmt-go-top-link');
-	kemet_css( 'kemet-settings[go-top-icon-h-color]', 'color', ' .kmt-go-top-link:hover');
-	kemet_css( 'kemet-settings[go-top-bg-color]', 'color', '.kmt-go-top-link');
-	kemet_css( 'kemet-settings[go-top-bg-h-color]', 'color', '.kmt-go-top-link:hover');
-	wp.customize( 'kemet-settings[go-top-border-radius]', function( setting ) {
-		setting.bind( function( border ) {
-			var dynamicStyle = '.kmt-go-top-link { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			kemet_add_dynamic_css( 'go-top-border-radius', dynamicStyle );
-		} );
-	} );
-	wp.customize( 'kemet-settings[go-top-button-size]', function( setting ) {
-		setting.bind( function( width ) {
-			var dynamicStyle = '.kmt-go-top-link { width: ' + width + 'px  ; height: ' + width + 'px ; line-height: ' + width + 'px } ';
-				kemet_add_dynamic_css( 'go-top-button-size', dynamicStyle );
-		} );
-	} );
-
 
 	/*
 	 * Woocommerce Shop Archive Custom Width

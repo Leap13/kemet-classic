@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kemet 0.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2019-04-04 07:07:50+00:00\n"
+"POT-Creation-Date: 2019-05-07 08:19:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: functions/custom-functions.php:285
+#: functions/custom-functions.php:273
 #: inc/customizer/sections/layout/header.php:18
 #: inc/customizer/sections/layout/mainmenu.php:18
 #: inc/customizer/sections/layout/mainmenu.php:59
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: functions/custom-functions.php:313
+#: functions/custom-functions.php:301
 msgid "Add Custom HTML"
 msgstr ""
 
@@ -213,19 +213,19 @@ msgstr ""
 msgid "Kemet"
 msgstr ""
 
-#: functions/custom-functions.php:499
+#: functions/custom-functions.php:487
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: functions/custom-functions.php:536
+#: functions/custom-functions.php:524
 msgid "Assign Top Menu"
 msgstr ""
 
-#: functions/custom-functions.php:1165
+#: functions/custom-functions.php:1099
 msgid "Add Widget"
 msgstr ""
 
-#: functions/custom-functions.php:1202
+#: functions/custom-functions.php:1136
 msgid "Assign a widget here"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:19
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:31
-#: inc/customizer/register-panels-and-sections.php:213
+#: inc/customizer/register-panels-and-sections.php:189
 msgid "WooCommerce"
 msgstr ""
 
@@ -295,13 +295,13 @@ msgid "General"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:41
-#: inc/customizer/register-panels-and-sections.php:225
+#: inc/customizer/register-panels-and-sections.php:201
 msgid "Shop"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:53
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:56
-#: inc/customizer/register-panels-and-sections.php:238
+#: inc/customizer/register-panels-and-sections.php:214
 msgid "Single Product"
 msgstr ""
 
@@ -486,7 +486,6 @@ msgid "More Settings"
 msgstr ""
 
 #: inc/customizer/custom-controls/background/class-kemet-control-background.php:95
-#: inc/customizer/sections/layout/go-top.php:178
 msgid "Background Color"
 msgstr ""
 
@@ -645,58 +644,50 @@ msgid "Header"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:75
-msgid "Sticky Header"
-msgstr ""
-
-#: inc/customizer/register-panels-and-sections.php:87
 msgid "Top Bar Header"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:100
+#: inc/customizer/register-panels-and-sections.php:88
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:112
+#: inc/customizer/register-panels-and-sections.php:100
 msgid "Footer Widgets"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:125
+#: inc/customizer/register-panels-and-sections.php:113
 msgid "Footer Bar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:137
-msgid "Go Top Link"
-msgstr ""
-
-#: inc/customizer/register-panels-and-sections.php:149
+#: inc/customizer/register-panels-and-sections.php:125
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:158
+#: inc/customizer/register-panels-and-sections.php:134
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:167
+#: inc/customizer/register-panels-and-sections.php:143
 msgid "Widgets"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:178
+#: inc/customizer/register-panels-and-sections.php:154
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:189
+#: inc/customizer/register-panels-and-sections.php:165
 msgid "Blog / Archive"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:201
+#: inc/customizer/register-panels-and-sections.php:177
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:249
+#: inc/customizer/register-panels-and-sections.php:225
 msgid "Colors & Background"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:260
+#: inc/customizer/register-panels-and-sections.php:236
 msgid "Buttons"
 msgstr ""
 
@@ -868,7 +859,7 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:293
 #: inc/customizer/sections/layout/main-footer.php:323
 #: inc/customizer/sections/layout/sidebar.php:263
-#: inc/customizer/sections/layout/topbar.php:205
+#: inc/customizer/sections/layout/topbar.php:230
 #: inc/customizer/sections/layout/widgets.php:37
 #: inc/customizer/sections/site-identity/site-identity.php:176
 msgid "Top"
@@ -880,7 +871,7 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:294
 #: inc/customizer/sections/layout/main-footer.php:324
 #: inc/customizer/sections/layout/sidebar.php:264
-#: inc/customizer/sections/layout/topbar.php:206
+#: inc/customizer/sections/layout/topbar.php:231
 #: inc/customizer/sections/layout/widgets.php:38
 #: inc/customizer/sections/site-identity/site-identity.php:177
 msgid "Right"
@@ -892,7 +883,7 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:295
 #: inc/customizer/sections/layout/main-footer.php:325
 #: inc/customizer/sections/layout/sidebar.php:265
-#: inc/customizer/sections/layout/topbar.php:207
+#: inc/customizer/sections/layout/topbar.php:232
 #: inc/customizer/sections/layout/widgets.php:39
 #: inc/customizer/sections/site-identity/site-identity.php:178
 msgid "Bottom"
@@ -904,7 +895,7 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:296
 #: inc/customizer/sections/layout/main-footer.php:326
 #: inc/customizer/sections/layout/sidebar.php:266
-#: inc/customizer/sections/layout/topbar.php:208
+#: inc/customizer/sections/layout/topbar.php:233
 #: inc/customizer/sections/layout/widgets.php:40
 #: inc/customizer/sections/site-identity/site-identity.php:179
 msgid "Left"
@@ -935,7 +926,7 @@ msgid "Read More Border Hover Color"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:32
-msgid "Container Widthh"
+msgid "Container Width"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:58
@@ -1184,58 +1175,6 @@ msgstr ""
 
 #: inc/customizer/sections/layout/footer.php:250
 msgid "Footer Bar Top Border Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:30
-msgid "Enable Go Top Link"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:52
-msgid "Button Size"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:80
-msgid "Icon Size"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:110
-msgid "Border Radius"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:135
-msgid "Icon Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:156
-msgid "Icon Hover Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:199
-msgid "Background Hover Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:221
-msgid "Go Top Link Visibility"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:223
-#: inc/customizer/sections/layout/sticky-header.php:282
-msgid "Show On All Devices"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:224
-#: inc/customizer/sections/layout/sticky-header.php:283
-msgid "Hide On Tablet"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:225
-#: inc/customizer/sections/layout/sticky-header.php:284
-msgid "Hide On Mobile"
-msgstr ""
-
-#: inc/customizer/sections/layout/go-top.php:226
-#: inc/customizer/sections/layout/sticky-header.php:285
-msgid "Hide On Tablet & Mobile"
 msgstr ""
 
 #: inc/customizer/sections/layout/header.php:19
@@ -1509,54 +1448,6 @@ msgstr ""
 msgid "Sidebar Input Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/sticky-header.php:30
-msgid "Enable Sticky Header"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:52
-msgid "Sticky Header Background"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:74
-msgid "Sticky Logo Image"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:102
-msgid "Sticky Logo Width"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:126
-msgid "Sticky Text Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:148
-msgid "Sticky Text Hover Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:169
-msgid "Sticky Submenu Background Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:191
-msgid "Sticky Submenu Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:213
-msgid "Sticky Submenu Hover Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:235
-msgid "Sticky Divider Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:257
-msgid "Sticky Border Bottom Color"
-msgstr ""
-
-#: inc/customizer/sections/layout/sticky-header.php:280
-msgid "Sticky Visibility"
-msgstr ""
-
 #: inc/customizer/sections/layout/topbar.php:29
 msgid "Top Section 1"
 msgstr ""
@@ -1580,35 +1471,63 @@ msgid "Top Bar Font Size"
 msgstr ""
 
 #: inc/customizer/sections/layout/topbar.php:157
+msgid "Top Bar Visibility"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:159
+msgid "Show On All Devices"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:160
+msgid "Hide On Tablet"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:161
+msgid "Hide On Mobile"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:162
+msgid "Hide On Tablet & Mobile"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:182
 msgid "Top Bar Text Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:179
+#: inc/customizer/sections/layout/topbar.php:204
 msgid "Top Bar Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:201
+#: inc/customizer/sections/layout/topbar.php:226
 msgid "Top Bar Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:228
+#: inc/customizer/sections/layout/topbar.php:253
 msgid "Top Bar Link Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:249
+#: inc/customizer/sections/layout/topbar.php:274
 msgid "Top Bar Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:272
+#: inc/customizer/sections/layout/topbar.php:297
 msgid "Top Bar Border Bottom Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:297
+#: inc/customizer/sections/layout/topbar.php:322
 msgid "Top Bar Border Bottom Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/topbar.php:317
+#: inc/customizer/sections/layout/topbar.php:342
 msgid "Top Bar SubMenu Background Color"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:363
+msgid "Top Bar SubMenu Items Color"
+msgstr ""
+
+#: inc/customizer/sections/layout/topbar.php:384
+msgid "Top Bar SubMenu Items Hover Color"
 msgstr ""
 
 #: inc/customizer/sections/layout/widgets.php:61

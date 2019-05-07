@@ -92,10 +92,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
-					//Blog Style 
-					'blog-style'                       => 'large',
-					'blog-grid'  					    => 12,
-					'thumbnail-image-position'         => 'left',
 					// Kemet Colors.
 					'text-color'                       => '#797979',
 					'link-color'                       => '#4a4a4a',
@@ -316,15 +312,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
-					
-					//Sticky Header
-					'enable-sticky'   => 0,
-					'enable-sticky-shadow' => 0,
-					'sticky-responsive' => 'all-devices',
-
-					//Go Top Link
-					'enable-go-top'   => 1,
-					'go-top-responsive'   => "all-devices",
 				)
 			);
 		}

@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-widthh]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-width]', array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-container-layout',
 				'priority'    => 5,
