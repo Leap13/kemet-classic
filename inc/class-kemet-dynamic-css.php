@@ -666,7 +666,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-radius'    => kemet_get_css_value( $readmore_border_radius, 'px' ),
 					'border' => 'solid',
 					'border-color'     => esc_attr( $readmore_border_color),
-					'border-width' => kemet_get_css_value( $readmore_border_size , 'px' ),
+					'border-width' => kemet_get_css_value( $readmore_border_size , 'px' , '0' ),
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),

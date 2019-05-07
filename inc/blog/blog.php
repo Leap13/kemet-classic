@@ -18,14 +18,10 @@ if ( ! function_exists( 'kemet_blog_body_classes' ) ) {
 	 */
 	function kemet_blog_body_classes( $classes ) {
 
-		$blog_style = kemet_get_option( 'blog-style' );
-
 		// Adds a class of group-blog to blogs with more than 1 published author.
 		if ( is_multi_author() ) {
 			$classes[] = 'group-blog';
 		}
-
-		$classes[] = 'blog-layout-'.$blog_style;
 		return $classes;
 	}
 }
@@ -45,49 +41,12 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 	 */
 	function kemet_post_class_blog_grid( $classes ) {
 
-		$col = kemet_get_option( 'blog-grid' );
-
 		if ( is_archive() || is_home() || is_search() ) {
+			$classes[] = 'kmt-col-sm-12';
 			$classes[] = 'kmt-article-post';
-
-			if(kemet_get_option( 'blog-style' ) === 'grid')
-			{
-				$classes[] = 'kmt-col-sm-'.$col;
-				$classes[] = 'grid-item';
-			}
-			else
-			{
-				$classes[] = 'kmt-col-sm-12';
-			}
 		}
 
 		return $classes;
-	}
-
-	function kmt_dep_grid() {
-		if ( kemet_get_option( 'blog-style' ) === 'grid' ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	function kmt_dep_thumbnail()
-	{
-		if ( kemet_get_option( 'blog-style' ) === 'thumbnail' ) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	function kmt_dep_image_thumbnail()
-	{
-		if ( kemet_get_option( 'blog-style' ) === 'thumbnail' ) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 }
 
@@ -244,17 +203,9 @@ if ( ! function_exists( 'kemet_get_blog_post_thumbnail' ) ) {
 	 * @param string $type Type of post.
 	 */
 	function kemet_get_blog_post_thumbnail( $type = 'archive' ) {
-
-		$post_thumb = get_the_post_thumbnail(
-			get_the_ID(),
-			apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
-			array(
-				'itemprop' => 'image',
-			)
-		);
-		if ( 'archive' === $type  && '' != $post_thumb ) {
+		if ( 'archive' === $type ) {
 			// Blog Post Featured Image.
-			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section kmt-blog-featured-image post-thumb kmt-col-md-12">', '</div>' );
+			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb kmt-col-md-12">', '</div>' );
 		} elseif ( 'single' === $type ) {
 			// Single Post Featured Image.
 			kemet_get_post_thumbnail();
