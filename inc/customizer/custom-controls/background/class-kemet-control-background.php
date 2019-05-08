@@ -101,7 +101,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 					<h4><?php esc_attr_e( 'Background Image', 'kemet' ); ?></h4>
 					<div class="attachment-media-view background-image-upload">
 						<# if ( data.value['background-image'] ) { #>
-							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="" /></div>
+							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="thumbnail-image" /></div>
 						<# } else { #>
 							<div class="placeholder"><?php esc_attr_e( 'No File Selected', 'kemet' ); ?></div>
 						<# } #>
