@@ -733,7 +733,7 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo __($title);
 		} else {
 			return $title;
 		}
@@ -784,7 +784,7 @@ if ( ! function_exists( 'kemet_get_the_title' ) ) {
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
-			echo $title;
+			echo __($title);
 		} else {
 			return $title;
 		}
@@ -851,7 +851,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 						/* translators: 1: search string */
 						$title = apply_filters( 'kemet_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kemet' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title kmt-archive-title"> <?php echo $title; ?> </h1>
+					<h1 class="page-title kmt-archive-title"> <?php echo __($title); ?> </h1>
 				</section>
 
 			<?php

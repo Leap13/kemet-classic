@@ -80,7 +80,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			echo $output;
+			echo __($output);
 		}
 
 		/**
