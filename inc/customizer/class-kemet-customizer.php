@@ -80,7 +80,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			echo __($output);
+			echo wp_kses_post( $output );
 		}
 
 		/**
