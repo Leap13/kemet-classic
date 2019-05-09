@@ -151,9 +151,9 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 									printf(
 										'<div class="kmt-comment-time kmt-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
-										esc_html__(get_comment_time( 'c' ) ),
+										esc_html(get_comment_time( 'c' )),
 										/* translators: 1: date, 2: time */
-										sprintf( esc_html__( '%1$s at %2$s', 'kemet' ), esc_html__(get_comment_date() ), esc_html__(get_comment_time()) )
+										sprintf( esc_html__( '%1$s at %2$s', 'kemet' ), esc_html(get_comment_date() ), esc_html(get_comment_time()) )
 									);
 
 									?>
