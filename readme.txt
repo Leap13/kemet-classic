@@ -6,6 +6,8 @@ Author URI: https://leap13.com/
 Requires PHP: 5.6
 Tested up to: 5.2
 Stable tag: 0.0.6
+Requires at least: WordPress 4.7
+Contributors: leap13
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,9 +31,8 @@ Ready # Responsive # RTL & Translation Ready # Regularly updated # Designed, Dev
 Maintained & Supported by Leap13.
 
 == Resources ==
-* normalize.css, © Nicolas Gallagher and Jonathan Neal, MIT
-* Underscores, © 2012-2019 Automattic, Inc., GNU GPL v2 or later
-* Normalizing styles http://necolas.github.com/normalize.css/
-* Flexibility JS is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up. (https://github.com/jonathantneal/flexibility)
-* wp-color-picker-alpha https://github.com/kallookoo/wp-color-picker-alpha
-* IcoMoon Free vector Icons https://keyamoon.com/
+* normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
+* Based on Underscores http://underscores.me/, (C) 2012-2019 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Flexibility JS is a JavaScript polyfill for Flexbox By Jonathan Neal, 10up.licensed under [MIT] (https://github.com/jonathantneal/flexibility)
+* wp-color-picker-alpha Licensed under the GPLv3 license. https://github.com/kallookoo/wp-color-picker-alpha
+* IcoMoon Free vector Icons http://keyamoon.com/
