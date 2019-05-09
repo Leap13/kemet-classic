@@ -963,7 +963,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 								<span class="count"> 
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
-										echo WC()->cart->get_cart_contents_count();
+										echo esc_html(WC()->cart->get_cart_contents_count());
 									}
 									?>
 								</span>
