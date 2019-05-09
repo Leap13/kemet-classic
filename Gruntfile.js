@@ -358,8 +358,31 @@ module.exports = function (grunt) {
                         }
                     ]
                 }
-            }
+            },
 
+            charset: {
+            dist: {
+                options: {
+                    from: 'UTF-8',
+                    to: 'Shift_JIS',
+                    fileTypes: {
+                        // Code replacement config (Optional)
+                        css: {
+                            ext: ['.css'],
+                            detect: /^@charset\s+(".+?"|'.+?')/,
+                            replace: '@charset "{{charset}}"'
+                        }
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src',
+                    dest: 'dist',
+                    src: ['**/*.{css}']
+                }]
+            }
+        }
+            
         }
     );
 
@@ -376,6 +399,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
     grunt.loadNpmTasks('grunt-bumpup');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-charset');
 
     // rtlcss, you will still need to install ruby and sass on your system manually to run this
     grunt.registerTask('rtl', ['rtlcss']);
