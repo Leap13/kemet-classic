@@ -37,10 +37,12 @@ $sections  = 0;
 	return;
 }
 
+$classes = kemet_get_option( 'topbar-responsive' );
+
 ?>
 
 <div class="kemet-top-header-wrap kemet-top-header-1" >
-	<div class="kemet-top-header  <?php echo kemet_get_option( 'topbar-responsive' ) ?>" >
+	<div class="kemet-top-header  <?php echo esc_attr( $classes ); ?>" >
 		<div class="kmt-container">
 			<div class="kmt-flex kemet-top-header-section-wrap">
 					<div class="kemet-top-header-section kemet-top-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >

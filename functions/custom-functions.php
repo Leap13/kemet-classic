@@ -1452,7 +1452,7 @@ if ( ! function_exists( 'kemet_strposa' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astar' ) ) :
+if ( ! function_exists( 'kemet_prop' ) ) :
 
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
@@ -1469,7 +1469,7 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astar( $array, $prop, $default = null ) {
+	function kemet_prop( $array, $prop, $default = null ) {
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;
