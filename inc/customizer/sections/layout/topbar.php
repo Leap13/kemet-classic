@@ -111,6 +111,16 @@ $wp_customize->add_control(
 		)
 	);
 
+		if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial(
+			KEMET_THEME_SETTINGS . '[topbar-section-2-html]', array(
+				'selector'            => '.kemet-top-header-section-2',
+				'container_inclusive' => true,
+				'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_topbar_section_2_html' ),
+			)
+		);
+	}
+
 	/**
 	 * Option: Top Bar Font Size
 	 */

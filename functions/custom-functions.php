@@ -324,9 +324,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 			$widget_id = 'header-widget';
 		}
 		if ( 'footer-copyright-section-1' == $option_name ) {
-			$widget_id = 'footer-widget-1';
+			$widget_id = 'copyright-widget-1';
 		} elseif ( 'footer-copyright-section-2' == $option_name ) {
-			$widget_id = 'footer-widget-2';
+			$widget_id = 'copyright-widget-2';
 		}
 		if ( 'top-section-1' == $option_name ) {
 			$widget_id = 'top-widget-section1';
@@ -1452,7 +1452,7 @@ if ( ! function_exists( 'kemet_strposa' ) ) :
 
 endif;
 
-if ( ! function_exists( 'astar' ) ) :
+if ( ! function_exists( 'kemet_prop' ) ) :
 
 	/**
 	 * Get a specific property of an array without needing to check if that property exists.
@@ -1469,7 +1469,7 @@ if ( ! function_exists( 'astar' ) ) :
 	 *
 	 * @return null|string|mixed The value
 	 */
-	function astar( $array, $prop, $default = null ) {
+	function kemet_prop( $array, $prop, $default = null ) {
 
 		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
 			return $default;

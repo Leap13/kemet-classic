@@ -101,7 +101,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 					<h4><?php esc_attr_e( 'Background Image', 'kemet' ); ?></h4>
 					<div class="attachment-media-view background-image-upload">
 						<# if ( data.value['background-image'] ) { #>
-							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="" /></div>
+							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="thumbnail-image" /></div>
 						<# } else { #>
 							<div class="placeholder"><?php esc_attr_e( 'No File Selected', 'kemet' ); ?></div>
 						<# } #>
@@ -109,9 +109,9 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 							<button class="button background-image-upload-remove-button<# if ( ! data.value['background-image'] ) { #> hidden <# } #>"><?php esc_attr_e( 'Remove', 'kemet' ); ?></button>
 							<button type="button" class="button background-image-upload-button"><?php esc_attr_e( 'Select File', 'kemet' ); ?></button>
 							<# if ( data.value['background-image'] ) { #>
-								<a href="#" class="more-settings" data-direction="up"><span class="message"><?php _e( 'Less Settings', 'kemet' ); ?></span></a>
+								<a href="#" class="more-settings" data-direction="up"><span class="message"><?php esc_html_e( 'Less Settings', 'kemet' ); ?></span></a>
 							<# } else { #>
-								<a href="#" class="more-settings" data-direction="down"><span class="message"><?php _e( 'More Settings', 'kemet' ); ?></span></a>
+								<a href="#" class="more-settings" data-direction="down"><span class="message"><?php esc_html_e( 'More Settings', 'kemet' ); ?></span></a>
 							<# } #>
 						</div>
 					</div>

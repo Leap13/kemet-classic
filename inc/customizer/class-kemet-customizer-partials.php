@@ -100,7 +100,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 1 Credit
 		 */
-		static function _render_footer_sml_section_1_credit() {
+		static function _render_footer_copyright_section_1_credit() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-1-credit' );
 			return do_shortcode( $output );
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 2 Credit
 		 */
-		static function _render_footer_sml_section_2_credit() {
+		static function _render_footer_copyright_section_2_credit() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-2-credit' );
 			return do_shortcode( $output );
