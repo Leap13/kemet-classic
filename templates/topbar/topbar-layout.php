@@ -44,11 +44,11 @@ $sections  = 0;
 		<div class="kmt-container">
 			<div class="kmt-flex kemet-top-header-section-wrap">
 					<div class="kemet-top-header-section kemet-top-header-section-1 kmt-flex kmt-justify-content-flex-start mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
-						<?php echo '<div class="kmt-flex">'.$section_1.'</div>'; ?>
+							<?php echo wp_kses_post($section_1); ?>
 					</div>
 
 					<div class="kemet-top-header-section kemet-top-header-section-2 kmt-flex kmt-justify-content-flex-end mt-topbar-section-equally kmt-col-md-6 kmt-col-xs-12<?php echo esc_attr( $section_class ); ?>-above-header" >
-						<?php echo '<div class="kmt-flex">'.$section_2.'</div>'; ?>
+							<?php echo wp_kses_post($section_2); ?>
 					</div>
 			</div>
 		</div><!-- .kmt-container -->
