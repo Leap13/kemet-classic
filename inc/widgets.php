@@ -115,7 +115,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 			apply_filters(
 				'kemet_footer_1_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 1', 'kemet' ),
-					'id'            => 'footer-widget-1',
+					'id'            => 'copyright-widget-1',
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',
@@ -129,7 +129,7 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 			apply_filters(
 				'kemet_footer_2_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 2', 'kemet' ),
-					'id'            => 'footer-widget-2',
+					'id'            => 'copyright-widget-2',
 					'description'   => '',
 					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</aside>',

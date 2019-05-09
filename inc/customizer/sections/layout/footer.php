@@ -101,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       KEMET_THEME_SETTINGS . '[footer-copyright-section-1-credit]', array(
         'selector'            => '.kmt-footer-copyright-section-1',
         'container_inclusive' => false,
-        'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_1_credit' ),
+        'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_1_credit' ),
       )
     );
   }
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       KEMET_THEME_SETTINGS . '[footer-copyright-section-2-credit]', array(
         'selector'            => '.kmt-footer-copyright-section-2',
         'container_inclusive' => false,
-        'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_sml_section_2_credit' ),
+        'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_2_credit' ),
       )
     );
   }
