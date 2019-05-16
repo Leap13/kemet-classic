@@ -629,14 +629,14 @@ if ( ! function_exists( 'kemet_secondary_class' ) ) {
 	function kemet_secondary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', get_kemet_secondary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', kemet_get_secondary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the secondary element as an array.
  */
-if ( ! function_exists( 'get_kemet_secondary_class' ) ) {
+if ( ! function_exists( 'kemet_get_secondary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the secondary element as an array.
@@ -644,7 +644,7 @@ if ( ! function_exists( 'get_kemet_secondary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function get_kemet_secondary_class( $class = '' ) {
+	function kemet_get_secondary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
