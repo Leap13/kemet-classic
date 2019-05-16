@@ -1259,33 +1259,9 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 	}
 }
 
-/**
- * Function to check if it is Internet Explorer
- */
-if ( ! function_exists( 'kemet_check_is_ie' ) ) :
-
-	/**
-	 * Function to check if it is Internet Explorer.
-	 *
-	 * @return true | false boolean
-	 */
-	function kemet_check_is_ie() {
-
-		$is_ie = false;
-
-		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
-			$is_ie = true;
-		}
-
-		return apply_filters( 'kemet_check_is_ie', $is_ie );
-	}
-
-endif;
-
 
 /**
- * Replace heade logo.
+ * Replace header logo.
  */
 if ( ! function_exists( 'kemet_replace_header_logo' ) ) :
 
@@ -1318,7 +1294,7 @@ if ( ! function_exists( 'kemet_replace_header_logo' ) ) :
 endif;
 
 /**
- * Function to check if it is Internet Explorer
+ * Function to Replace the logo which in header
  */
 if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 
@@ -1360,11 +1336,6 @@ if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 			if ( apply_filters( 'kemet_main_header_retina', true ) && '' !== $retina_logo ) {
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 				$cutom_logo_url = $cutom_logo[0];
-
-				if ( kemet_check_is_ie() ) {
-					// Replace header logo url to retina logo url.
-					$attr['src'] = $retina_logo;
-				}
 
 				$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
 

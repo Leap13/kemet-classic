@@ -838,7 +838,7 @@ var toggleClass = function ( el, className ) {
 		};
 	};
 
-	var __main_header_all 	= document.querySelectorAll( '.main-navigation' );
+    var __main_header_all = document.querySelectorAll( '.main-header-bar-navigation' );
 	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
 
 	if ( menu_toggle_all.length > 0 ) {
