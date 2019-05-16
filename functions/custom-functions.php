@@ -47,7 +47,7 @@ if ( ! function_exists( 'kemet_schema_body' ) ) :
 		$result = apply_filters( 'kemet_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'kemet_schema_body', "itemtype='https://schema.org/" . esc_html( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'kemet_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
 	}
 endif;
 
@@ -81,10 +81,10 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		}
 		// Sidebar location.
 		$page_layout = 'kmt-' . kemet_layout();
-		$classes[]   = esc_attr( $page_layout );
+		$classes[]   = $page_layout;
 
 		// Current Kemet verion.
-		$classes[] = esc_attr( 'kemet-' . KEMET_THEME_VERSION );
+		$classes[] = 'kemet-' . KEMET_THEME_VERSION;
 
 		$outside_menu = kemet_get_option( 'header-display-outside-menu' );
 
@@ -334,7 +334,7 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 			$widget_id = 'top-widget-section2';
 		}
 
-		echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
+		echo '<div class="kmt-' . $widget_id . '-area">';
 				kemet_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -684,7 +684,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';	
 					wp_nav_menu( $primary_menu_args );
 					if ( 'header-main-layout-4' == $header_layout ) {
@@ -1274,7 +1274,7 @@ if ( ! function_exists( 'kemet_check_is_ie' ) ) :
 		$is_ie = false;
 
 		$ua = htmlentities( $_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8' );
-		if ( strpos( $ua, 'Trident/7.0' ) !== false ) {
+		if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false)) {
 			$is_ie = true;
 		}
 

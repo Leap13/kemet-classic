@@ -157,14 +157,6 @@ module.exports = function (grunt) {
 	                        cwd: 'assets/js/unminified',
 	                        ext: '.min.js'
 	                    },
-	                    {
-		                    src: [
-		                        'assets/js/minified/flexibility.min.js',
-                                'assets/js/minified/navigation.min.js',
-                                'assets/js/minified/skip-link-focus-fix.min.js',
-		                    ],
-		                    dest: 'assets/js/minified/style.min.js',
-		                },
 	               	]
                 }
             },
@@ -310,20 +302,6 @@ module.exports = function (grunt) {
                         	'!admin/bsf-core/**'
                         ]
                     }
-                }
-            },
-
-            concat: {
-                options: {
-                    separator: '\n'
-                },
-                dist: {
-                    src: [
-                        'assets/js/unminified/flexibility.js',
-                        'assets/js/unminified/navigation.js',
-                        'assets/js/unminified/skip-link-focus-fix.js',
-                    ],
-                    dest: 'assets/js/unminified/style.js',
                 }
             },
 
