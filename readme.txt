@@ -5,7 +5,7 @@ Author: Leap13
 Author URI: https://leap13.com/
 Requires PHP: 5.6
 Tested up to: 5.2
-Stable tag: 0.0.8
+Stable tag: 0.0.9
 Requires at least: WordPress 4.7
 Contributors: leap13
 License: GNU General Public License v2 or later
@@ -19,16 +19,15 @@ microformats, post-formats, rtl-language-support, theme-options,
 threaded-comments, translation-ready, blog
 
 === Description ===
-Description: Kemet is a fast, reliable and 
-fully customizable WordPress theme suitable for business websites, blogs,
-personal portfolios and WooCommerce e-commerce websites. It
-is very lightweight and offers blazing fast speed. Built with SEO in mind, Kemet comes with
-Schema.org code integrated so search engines will love your site.
-It offers special features and templates so it works perfectly with
-all page builders like Elementor Page builder, Beaver Builder, Visual Composer,
-SiteOrigin, Divi, etc. Some of the other features: # WooCommerce
-Ready # Responsive # RTL & Translation Ready # Regularly updated # Designed, Developed,
-Maintained & Supported by Leap13.
+Description: Kemet is a modern WordPress which is built 
+with a wise balance between performance and rich customization features. 
+We built Kemet with SEO best practices in mind and it comes with Schema.org 
+code integrated so search engines will love your site. It’s also compatible 
+with WooCommerce and with all modern page builders like: Elementor Page builder, 
+Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. It’s also RTL ready, 
+translation ready and Fully responsive.  Kemet is currently in it’s early stage 
+of development and we are updating it on weekly bases with new options and customization features. 
+Kemet WordPress Theme is Developed, Supported and Maintained by: Leap13.
 
 == Resources ==
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
