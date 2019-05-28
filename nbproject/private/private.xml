@@ -11,36 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/templates/content-none.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/register-panels-and-sections.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/admin/admin-functions.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/sass/site/compatibility/woocommerce/_mixins.scss</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/extend-customizer/class-kemet-wp-customize-panel.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-enqueue-scripts.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/common-functions.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-admin-settings.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/class-kemet-customizer-partials.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/templates/content-blog.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/css/unminified/compatibility/woocommerce/woocommerce-layout.css</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/custom-functions.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/sections/layout/sidebar.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-theme-strings.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/package-lock.json</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/blog/blog.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/compatibility/woocommerce/class-kemet-woocommerce.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/extend-customizer/class-kemet-wp-customize-section.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/unminified/customizer-preview.js</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-admin-helper.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/sections/site-identity/site-identity.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-theme-options.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/sass/site/blog/_blog.scss</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/sections/layout/header.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/custom-controls/background/class-kemet-control-background.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/class-kemet-customizer-callback.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-loop.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/custom-controls/background/background.js</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/class-kemet-dynamic-css.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
