@@ -323,7 +323,11 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 	function kemet_main_footer_markup() {
 
 		$main_footer_layout = kemet_get_option( 'kemet-footer' );
-		$main_footer_meta   = kemet_get_option_meta( 'kemet-footer-display' );
+        if( class_exists( 'CSF' ) )  {
+            $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true ); 
+            $main_footer_meta = $meta['kemet-footer-display'];
+        }
+		//$main_footer_meta   = kemet_get_option_meta( 'kemet-footer-display' );
 
 		if ( apply_filters( 'kemet_main_footer_disable', false )  || 'disabled' == $main_footer_meta ) {
 			return;
