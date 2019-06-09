@@ -336,7 +336,7 @@
 			},
 			{
 				controls: [
-					'kemet-settings[footer-copyright-section-1-credit]',
+					'kemet-settings[footer-copyright-section-1-part]',
 				],
 				callback: function( copyright_footer_layout ) {
 
@@ -350,7 +350,7 @@
 			},
 			{
 				controls: [
-					'kemet-settings[footer-copyright-section-2-credit]',
+					'kemet-settings[footer-copyright-section-2-part]',
 				],
 				callback: function( copyright_footer_layout ) {
 
@@ -381,7 +381,7 @@
 		[
 			{
 				controls: [
-					'kemet-settings[footer-copyright-section-1-credit]',
+					'kemet-settings[footer-copyright-section-1-part]',
 				],
 				callback: function( enabled_section_1 ) {
 
@@ -398,7 +398,7 @@
 		[
 			{
 				controls: [
-					'kemet-settings[footer-copyright-section-2-credit]',
+					'kemet-settings[footer-copyright-section-2-part]',
 				],
 				callback: function( enabled_section_2 ) {
 
