@@ -16,7 +16,7 @@ Tags: one-column, two-columns,
 left-sidebar, e-commerce, right-sidebar, custom-colors,
 custom-menu, editor-style, featured-images, full-width-template,
 microformats, post-formats, rtl-language-support, theme-options,
-threaded-comments, translation-ready, blog
+threaded-comments, translation-ready, blog, WPML compatible
 
 === Description ===
 Description: Kemet is a modern WordPress which is built 
@@ -25,7 +25,7 @@ We built Kemet with SEO best practices in mind and it comes with Schema.org
 code integrated so search engines will love your site. It’s also compatible 
 with WooCommerce and with all modern page builders like: Elementor Page builder, 
 Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. It’s also RTL ready, 
-translation ready and Fully responsive.  Kemet is currently in it’s early stage 
+WPML compatible, translation ready and Fully responsive.  Kemet is currently in it’s early stage 
 of development and we are updating it on weekly bases with new options and customization features. 
 Kemet WordPress Theme is Developed, Supported and Maintained by: Leap13.
 
