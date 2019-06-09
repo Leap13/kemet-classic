@@ -1015,14 +1015,6 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 
 		if ( is_singular() ) {
 
-			// If post meta value is empty,
-			// Then get the POST_TYPE content layout.
-			//$content_layout = kemet_get_option_meta( 'site-content-layout', '', true );
-            if( class_exists( 'CSF' ) )  {
-                $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true ); 
-                $content_layout = $meta['site-content-layout'];
-            }
-
 			if ( empty( $content_layout ) ) {
 
 				$post_type = get_post_type();
@@ -1207,20 +1199,6 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 		$check_is_singular = is_singular();
 
 		$featured_image = true;
-
-		if ( $check_is_singular ) {
-            if( class_exists( 'CSF' ) )  {
-                $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true ); 
-                $is_featured_image = $meta['kmt-featured-img'];
-            }
-			//$is_featured_image = kemet_get_option_meta( 'kmt-featured-img' );
-		} else {
-			$is_featured_image = kemet_get_option( 'kmt-featured-img' );
-		}
-
-		if ( 'disabled' === $is_featured_image ) {
-			$featured_image = false;
-		}
 
 		$featured_image = apply_filters( 'kemet_featured_image_enabled', $featured_image );
 
