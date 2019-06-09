@@ -98,18 +98,18 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		}
 
 		/**
-		 * Render Partial Footer Section 1 Credit
+		 * Render Partial Footer Section 1
 		 */
-		static function _render_footer_copyright_section_1_credit() {
+		static function _render_footer_copyright_section_1_part() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-1-part' );
 			return do_shortcode( $output );
 		}
 
 		/**
-		 * Render Partial Footer Section 2 Credit
+		 * Render Partial Footer Section 2
 		 */
-		static function _render_footer_copyright_section_2_credit() {
+		static function _render_footer_copyright_section_2_part() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-2-part' );
 			return do_shortcode( $output );

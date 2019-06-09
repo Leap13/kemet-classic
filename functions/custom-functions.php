@@ -410,7 +410,7 @@ if ( ! function_exists( 'kemet_get_copyright_footer' ) ) {
 				break;
 
 			case 'custom':
-					$output = kemet_get_copyright_footer_custom_text( $section . '-credit' );
+					$output = kemet_get_copyright_footer_custom_text( $section . '-part' );
 				break;
 
 			case 'widget':

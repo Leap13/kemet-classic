@@ -324,7 +324,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 
 		$main_footer_layout = kemet_get_option( 'kemet-footer' );
 
-		if ( apply_filters( 'kemet_main_footer_disable', false )  || 'disabled' == $main_footer_meta ) {
+		if ( apply_filters( 'kemet_main_footer_disable', false ) ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {
