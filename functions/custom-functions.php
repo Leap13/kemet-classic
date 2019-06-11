@@ -1014,6 +1014,7 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 		$value = false;
 
 		if ( is_singular() ) {
+			$content_layout = '';
 
 			if ( empty( $content_layout ) ) {
 
