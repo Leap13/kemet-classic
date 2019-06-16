@@ -475,52 +475,6 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 }
 
 /**
- * Return Theme options from postmeta.
- */
-if ( ! function_exists( 'kemet_get_option_meta' ) ) {
-
-	/**
-	 * Return Theme options from postmeta.
-	 *
-	 * @param  string  $option_id Option ID.
-	 * @param  string  $default   Option default value.
-	 * @param  boolean $only_meta Get only meta value.
-	 * @param  string  $extension Is value from extension.
-	 * @param  string  $post_id   Get value from specific post by post ID.
-	 * @return Mixed             Return option value.
-	 */
-	function kemet_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
-
-		$post_id = ( '' != $post_id ) ? $post_id : kemet_get_post_id();
-
-		$value = kemet_get_option( $option_id, $default );
-
-		// Get value from option 'post-meta'.
-		if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
-
-			$value = get_post_meta( $post_id, $option_id, true );
-
-			if ( empty( $value ) || 'default' == $value ) {
-
-				if ( true == $only_meta ) {
-					return false;
-				}
-
-				$value = kemet_get_option( $option_id, $default );
-			}
-		}
-
-		/**
-		 * Dynamic filter kemet_get_option_meta_$option.
-		 * $option_id is the name of the Kemet Meta Setting.
-		 *
-		 * @var Mixed.
-		 */
-		return apply_filters( "kemet_get_option_meta_{$option_id}", $value, $default, $default );
-	}
-}
-
-/**
  * Helper function to get the current post id.
  */
 if ( ! function_exists( 'kemet_get_post_id' ) ) {

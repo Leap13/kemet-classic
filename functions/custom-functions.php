@@ -1014,11 +1014,12 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 		$value = false;
 
 		if ( is_singular() ) {
-			$content_layout = '';
-
-			if ( empty( $content_layout ) ) {
-
-				$post_type = get_post_type();
+			if( class_exists( 'CSF' ) )  {
+			$meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
+			$content_layout = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
+			}
+			  if ( empty( $content_layout ) ) {
+				 $post_type = get_post_type();
 
 				if ( 'post' === $post_type || 'page' === $post_type ) {
 					$content_layout = kemet_get_option( 'single-' . get_post_type() . '-content-layout' );

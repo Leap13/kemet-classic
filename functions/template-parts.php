@@ -202,19 +202,16 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 	 *
 	 */
 	function kemet_footer_copyright_footer_template() {
-
-		$copyright_footer_layout = kemet_get_option_meta( 'copyright-footer-layout', 'copyright-footer-layout-2' );
-		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout', $copyright_footer_layout );
-
-		if ( 'disabled' != $copyright_footer_layout ) {
-
-			$copyright_footer_layout = str_replace( 'copyright-footer-layout-', '', $copyright_footer_layout );
-
-			// Default footer layout 1 is kmt-footer-layout.
-			if ( '1' == $copyright_footer_layout ) {
-				$copyright_footer_layout = '';
-			}
-			get_template_part( 'templates/footer/copyright-footer-layout', $copyright_footer_layout );
+	    
+		$copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
+		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
+		
+		if ( apply_filters('kmt_footer_copyright_layout_disable', false)) {
+			return;
+		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
+			get_template_part( 'templates/footer/copyright-footer-layout' );
+		} else if('copyright-footer-layout-2' == $copyright_footer_layout) {
+			get_template_part( 'templates/footer/copyright-footer-layout-2' );
 		}
 	}
 }
@@ -323,7 +320,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 	function kemet_main_footer_markup() {
 
 		$main_footer_layout = kemet_get_option( 'kemet-footer' );
-
+		$main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
 		if ( apply_filters( 'kemet_main_footer_disable', false ) ) {
 			return;
 		} // Add markup.
