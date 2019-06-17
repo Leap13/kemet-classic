@@ -1014,6 +1014,7 @@ if ( ! function_exists( 'kemet_get_content_layout' ) ) {
 		$value = false;
 
 		if ( is_singular() ) {
+		    $content_layout ='';
 			if( class_exists( 'CSF' ) )  {
 			$meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
 			$content_layout = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';

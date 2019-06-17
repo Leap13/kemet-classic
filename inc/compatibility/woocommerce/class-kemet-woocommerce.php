@@ -431,7 +431,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				} elseif ( is_product_taxonomy() ) {
 					$shop_sidebar = 'default';
 				} else {
-					$shop_sidebar = kemet_get_option_meta( 'site-sidebar-layout', '', true );
+					if( class_exists( 'CSF' ) )  {
+					$meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
+					$shop_sidebar = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
+					}
 				}
 
 				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
@@ -465,7 +468,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				} elseif ( is_product_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
-					$shop_layout = kemet_get_option_meta( 'site-content-layout', '', true );
+					if( class_exists( 'CSF' ) )  {
+					$meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
+					$shop_layout = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
+					}
 				}
 
 				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
