@@ -57,6 +57,7 @@ if (is_admin()) {
      * Admin Menu Settings.
      */
     require_once KEMET_THEME_DIR.'functions/classes/class-kemet-admin-settings.php';
+    require_once KEMET_THEME_DIR. 'functions/admin/class-kemet-notices.php';
 }
 
 /**
