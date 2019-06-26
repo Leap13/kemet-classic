@@ -1,0 +1,14 @@
+ .kemet-notice-text {
+  padding-top: 5px;
+  padding-bottom: 10px;
+ }
+
+.kemet-notice-text p {
+  margin: 0px;
+  font-size: 25px;
+}
+
+.kemet-notice-text span {
+  margin-bottom: 20px;
+  margin-top: 0px;
+}

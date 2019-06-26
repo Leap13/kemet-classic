@@ -2,7 +2,7 @@
 /**
  * Kemet Admin Notice Class
  *
- * @package  woostify
+ * @package  Kemet
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,8 +36,9 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 		 * Setup class.
 		 */
 		public function __construct() {
-		//	add_action( 'admin_notices', array( $this, 'kemet_admin_notice' ) );
-			if ( ! did_action( 'premium-addons-for-elementor/loaded' ) ) {
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			if( ! defined('PREMIUM_ADDONS_VERSION' ) ){
 				/* TO DO */
 				add_action( 'admin_notices', array( $this, 'kemet_admin_notice' ) );
 				return;
@@ -48,20 +49,16 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 		 * Add admin notice
 		 */
 		public function kemet_admin_notice() {
-			// For theme options box.
-		//	if ( is_admin() && ! get_user_meta( get_current_user_id(), 'welcome_box' ) ) {
+
 				?>
-				<div class="notice is-dismissible">
-						<div class="kemet-notice-logo">
-						    <span class="kemet-kemet" style="font-size: 40px;"></span>
-						</div>
+				<div class="notice kmt-notice is-dismissible">
 						<div class="kemet-notice-text">
-							<h3><?php esc_html_e( 'Thanks for installing Kemet Theme!', 'kemet' ); ?></h3>
-                            <h5><?php esc_html_e( ' To fully take advantage of the best our theme we recommends the follKemet Addons plugin to be active.', 'kemet' ); ?></h5>
+							<p><?php esc_html_e( 'Thanks for Installing Kemet Theme!', 'kemet' ); ?></p>
+                            <span><?php esc_html_e( 'To fully take advantage of the best our theme we recommend the Kemet Addons plugin to be active.', 'kemet' ); ?></span>
 								<?php
                                     $plugin = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
 
-                                    if ( _is_addons_installed() ) {
+                                    if ( is_addons_installed() ) {
                                         if ( ! current_user_can( 'activate_plugins' ) ) {
                                             return;
                                         }
@@ -87,12 +84,16 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 			//}
 		}
 
+		public function enqueue_scripts()  {
+			wp_enqueue_style( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/css/style.css', array(), KEMET_THEME_VERSION );
+		}
+
 
     }
          /**
          * Is elementor plugin installed.
          */
-        if ( ! function_exists( '_is_addons_installed' ) ) {
+        if ( ! function_exists( 'is_addons_installed' ) ) {
 
             /**
              * Check if Elementor Pro is installed
@@ -101,7 +102,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
              *
              * @access public
              */
-            function _is_addons_installed() {
+            function is_addons_installed() {
                 $path    = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
                 $plugins = get_plugins();
 
