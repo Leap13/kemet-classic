@@ -52,9 +52,12 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 
 				?>
 				<div class="notice kmt-notice is-dismissible">
+						<div class="kemet-notice-logo">
+						    <span class="kmticon-AncientOwl" style="font-size: 55px;"></span>
+						</div>
 						<div class="kemet-notice-text">
-							<p><?php esc_html_e( 'Thanks for Installing Kemet Theme!', 'kemet' ); ?></p>
-                            <span><?php esc_html_e( 'To fully take advantage of the best our theme we recommend the Kemet Addons plugin to be active.', 'kemet' ); ?></span>
+							<p><strong><?php esc_html_e( 'Thanks for installing Kemet Theme!', 'kemet' ); ?></strong>
+                            <span><?php esc_html_e( ' To fully take advantage of the best our theme we recommend the Kemet Addons plugin to be active.', 'kemet' ); ?></span></p>
 								<?php
                                     $plugin = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
 
@@ -73,7 +76,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
                                         $button_label = __( 'Install Kemet Addons', 'kemet' );
                                     }
 
-                                    $button = '<p><a href="' . $action_url . '" class="button-primary">' . $button_label . '</a></p><p></p>';
+                                    $button = '<a href="' . $action_url . '" class="button-primary">' . $button_label . '</a>';
 
                                     printf( '<div>%1$s</div>', $button );
 								?>
