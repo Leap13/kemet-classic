@@ -84,7 +84,6 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 					</div>
 
 				<?php
-			//}
 		}
 
 		public function enqueue_scripts()  {
