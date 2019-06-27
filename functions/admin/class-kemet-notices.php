@@ -56,8 +56,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 						    <span class="kmticon-AncientOwl" style="font-size: 55px;"></span>
 						</div>
 						<div class="kemet-notice-text">
-							<p><strong><?php esc_html_e( 'Thanks for Installing Kemet Theme!', 'kemet' ); ?></strong>
-                            <span><?php esc_html_e( ' To fully take advantage of the best our theme we recommend the Kemet Addons plugin to be active.', 'kemet' ); ?></span></p>
+							<p><?php esc_html_e( 'Add Page/Post Options and much more to Kemet Theme with Kemet Addons Plugin.', 'kemet' ); ?></p>
 								<?php
                                     $plugin = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
 
