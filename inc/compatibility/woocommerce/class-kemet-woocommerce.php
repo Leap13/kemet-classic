@@ -431,7 +431,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				} elseif ( is_product_taxonomy() ) {
 					$shop_sidebar = 'default';
 				} else {
-                    if( class_exists( 'CSF' ) )  {
+                    if( class_exists( 'KFW' ) )  {
                     $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
                     $shop_sidebar = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
                     }
@@ -467,7 +467,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
 				} elseif ( is_product_taxonomy() ) {
 					$shop_layout = 'default';
-				} elseif( class_exists( 'CSF' ) )  {
+				} elseif( class_exists( 'KFW' ) )  {
 					$meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
 					$shop_layout = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
 				}

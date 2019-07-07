@@ -26,7 +26,7 @@ if ( ! function_exists( 'kemet_layout' ) ) {
 			// If post meta value isset,
 			// Then get the POST_TYPE sidebar.
             $layout= '';
-			if( class_exists( 'CSF' ) ) {
+			if( class_exists( 'KFW' ) ) {
                 $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
                 $layout = ( isset( $meta['site-sidebar-layout'] ) && $meta['site-sidebar-layout'] ) ? $meta['site-sidebar-layout'] : '';
             }
