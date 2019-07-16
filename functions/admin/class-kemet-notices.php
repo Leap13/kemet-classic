@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 		public function __construct() {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-			if( ! defined('PREMIUM_ADDONS_VERSION' ) ){
+			if( ! defined('KEMET_ADDONS_VERSION' ) ){
 				/* TO DO */
 				add_action( 'admin_notices', array( $this, 'kemet_admin_notice' ) );
 				return;
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 						<div class="kemet-notice-text">
 							<p><?php esc_html_e( 'Add Page/Post Options and much more to Kemet Theme with Kemet Addons Plugin.', 'kemet' ); ?></p>
 								<?php
-                                    $plugin = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
+                                    $plugin = 'kemet-addons/kemet-addons.php';
 
                                     if ( is_addons_installed() ) {
                                         if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
                                         if ( ! current_user_can( 'install_plugins' ) ) {
                                             return;
                                         }
-                                        $action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=premium-addons-for-elementor' ), 'install-plugin_premium-addons-for-elementor' );
+                                        $action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=kemet-addons' ), 'install-plugin_kemet-addons' );
                                         $button_label = __( 'Install Kemet Addons', 'kemet' );
                                     }
 
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
              * @access public
              */
             function is_addons_installed() {
-                $path    = 'premium-addons-for-elementor/premium-addons-for-elementor.php';
+                $path    = 'kemet-addons/kemet-addons.php';
                 $plugins = get_plugins();
 
                 return isset( $plugins[ $path ] );
