@@ -86,9 +86,6 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 */
 		static public function admin_scripts() {
 
-			// Styles.
-			wp_enqueue_style( 'kemet-admin', KEMET_THEME_URI . 'functions/admin/assets/css/kemet-admin.css', array(), KEMET_THEME_VERSION );
-
 			/* Directory and Extension */
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
