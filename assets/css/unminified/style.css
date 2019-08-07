@@ -1810,6 +1810,7 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body:not(.logged-in) {
@@ -2464,13 +2465,6 @@ body {
   right: auto;
 }
 
-@media (min-width: 769px) {
-  .main-header-menu li.kmt-sub-menu-goes-outside:hover > ul,
-  .main-header-menu li.kmt-sub-menu-goes-outside.focus > ul {
-    left: -100%;
-  }
-}
-
 .main-header-menu ul {
   width: 240px;
   background: #ffffff;
@@ -2488,10 +2482,6 @@ body {
   }
   .main-header-menu ul li.kmt-left-align-sub-menu:hover > ul,
   .main-header-menu ul li.kmt-left-align-sub-menu.focus > ul {
-    left: -100%;
-  }
-  .main-header-menu ul .main-header-menu li.kmt-sub-menu-goes-outside:hover > ul,
-  .main-header-menu ul .main-header-menu li.kmt-sub-menu-goes-outside.focus > ul {
     left: -100%;
   }
 }
