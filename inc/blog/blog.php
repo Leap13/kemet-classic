@@ -29,6 +29,31 @@ if ( ! function_exists( 'kemet_blog_body_classes' ) ) {
 add_filter( 'body_class', 'kemet_blog_body_classes' );
 
 /**
+ * Adds custom classes to the array of post grid classes.
+ */
+if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
+
+	/**
+	 * Adds custom classes to the array of post grid classes.
+	 *
+	 * @since 1.0
+	 * @param array $classes Classes for the post element.
+	 * @return array
+	 */
+	function kemet_post_class_blog_grid( $classes ) {
+
+		if ( is_archive() || is_home() || is_search() ) {
+			$classes[] = 'kmt-col-sm-12';
+			$classes[] = 'kmt-article-post';
+		}
+
+		return $classes;
+	}
+}
+
+add_filter( 'post_class', 'kemet_post_class_blog_grid' );
+
+/**
  * Prints HTML with meta information for the current post-date/time and author.
  */
 if ( ! function_exists( 'kemet_blog_get_post_meta' ) ) {
