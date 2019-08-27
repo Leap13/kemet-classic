@@ -452,7 +452,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var dynamicStyle = 'body.kmt-header-break-point .site-header { border-bottom-width: ' + border + 'px }';
 
-			dynamicStyle += 'body:not(.kmt-header-break-point) .main-header-bar {';
+			dynamicStyle += 'body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
@@ -545,7 +545,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			var dynamicStyle = ' body.kmt-header-break-point .site-header { border-bottom-width: ' + border + 'px } ';
 
-			dynamicStyle += 'body:not(.kmt-header-break-point) .main-header-bar {';
+			dynamicStyle += 'body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon {';
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
@@ -624,7 +624,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			if ( color ) {
 
-				var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.kmt-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
 
 				kemet_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
@@ -637,7 +637,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize( 'kemet-settings[header-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
-			var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar { {{css}} }';	
+			var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon { {{css}} }';	
 			kemet_background_obj_css( wp.customize, bg_obj, 'header-bg-obj', dynamicStyle );
 		} );
 	} );

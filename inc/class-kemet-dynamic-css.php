@@ -1292,7 +1292,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$parse_css = kemet_parse_css( $meta_style );
 
 			$meta_style = array(
-				'.main-header-bar' => array(
+				'.main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon' => array(
 					'border-bottom-width' => kemet_get_css_value( $header_separator, 'px' ),
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),

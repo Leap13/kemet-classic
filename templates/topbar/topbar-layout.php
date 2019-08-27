@@ -41,7 +41,7 @@ $classes = kemet_get_option( 'topbar-responsive' );
 
 ?>
 
-<div class="kemet-top-header-wrap kemet-top-header-1" >
+<div class="kemet-top-header-wrap" >
 	<div class="kemet-top-header  <?php echo esc_attr( $classes ); ?>" >
 		<div class="kmt-container">
 			<div class="kmt-flex kemet-top-header-section-wrap">

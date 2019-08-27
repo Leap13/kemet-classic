@@ -11,6 +11,17 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/unminified/style.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/sections/layout/blog.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/classes/class-kemet-enqueue-scripts.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/class-kemet-customizer.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/minified/style.min.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/customizer/override-defaults.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/templates/topbar/topbar-layout.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/assets/js/unminified/customizer-preview.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/functions/custom-functions.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/kemet/wp-content/themes/kemet/inc/class-kemet-dynamic-css.php</file>
+        </group>
     </open-files>
 </project-private>

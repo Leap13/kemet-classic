@@ -94,7 +94,7 @@ $header_rt_sections = array(
 			KEMET_THEME_SETTINGS . '[header-main-layout-width]', array(
 				'type'     => 'select',
 				'section'  => 'section-header',
-				'priority' => 15,
+				'priority' => 20,
 				'label'    => __( 'Header Width', 'kemet' ),
 				'choices'  => array(
 					'full'    => __( 'Full Width', 'kemet' ),
