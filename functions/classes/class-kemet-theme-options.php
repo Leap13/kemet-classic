@@ -161,23 +161,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
-					'topbar-section-1'                 => array(
-                  		'search' => '',
-						'menu'  => '',
-                 		'widget'  => '',
-						'text-area'  => '',     
-               		),
-					'topbar-section-1-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'topbar-section-2'                 => '',
-					'topbar-section-2-html'      	   => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
+					
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
-					// Top Bar Responsive
-					'topbar-responsive'                => 'all-devices',
+
 					// Site Layout.
 					'site-content-width'               => 1140,
 					'site-layout-outside-bg-obj'       => array(

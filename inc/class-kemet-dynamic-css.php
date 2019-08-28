@@ -49,7 +49,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 *   - Single Blog
 			 * - Typography of Headings
 			 * - Header
-			 * - Top Bar Header
 			 * - Footer
 			 *   - Main Footer CSS
 			 *     - Small Footer CSS
@@ -121,20 +120,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_link_h_color           = kemet_get_option( 'submenu-link-h-color' );
 			$display_submenu_border  		= kemet_get_option( 'display-submenu-border' );
 			$submenu_border_color  			= kemet_get_option( 'submenu-border-color' );
-
-			//Top Bar Header
-			$topbar_bg_color           = kemet_get_option( 'topbar-bg-color' );
-			$space_topbar              = kemet_get_option( 'topbar-padding' );
-			$topbar_link_color         = kemet_get_option( 'topbar-link-color' );
-			$topbar_link_h_color       = kemet_get_option( 'topbar-link-h-color' );
-			$topbar_text_color         = kemet_get_option( 'topbar-text-color' );
-			$topbar_border_bottom_color= kemet_get_option( 'topbar-border-bottom-color' );
-			$topbar_border_bottom_size = kemet_get_option( 'topbar-border-bottom-size' );
-
-			//Top Bar Header SubMenu
-			$topbar_submenu_bg_color   = kemet_get_option( 'topbar-submenu-bg-color' );
-			$topbar_submenu_items_color   = kemet_get_option( 'topbar-submenu-items-color' );
-			$topbar_submenu_items_h_color   = kemet_get_option( 'topbar-submenu-items-h-color' );
 
 			//Content Heading Color
 			$heading_h1_font_color            = kemet_get_option( 'font-color-h1' );
@@ -249,8 +234,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_title_font_size              = kemet_get_option( 'widget-title-font-size' );
 			$widget_title_color                  = kemet_get_option('widget-title-color');
 
-			//Top Bar 
-			$topbar_font_size                    = kemet_get_option( 'topbar-font-size' );
+			
 
 			/**
 			 * Apply text hover color depends on link hover color
@@ -408,36 +392,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_color ),
 				),
 
-				//Top bar Spacing
-				'.kemet-top-header' => array(
-					'background-color' => esc_attr( $topbar_bg_color),
-					'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'desktop' ),
-					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'desktop' ),
-					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'desktop' ),
-					'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'desktop' ),
-					'border-bottom-style' => 'solid',
-					    'border-bottom-color'     => esc_attr( $topbar_border_bottom_color),
-						'border-bottom-width' => kemet_get_css_value( $topbar_border_bottom_size , 'px' ),
-					'font-size'    => kemet_responsive_font( $topbar_font_size, 'desktop' ),
-					'color'          => esc_attr($topbar_text_color),
-				),
 
-				'.kemet-top-header a'  => array(
-					'color' => esc_attr( $topbar_link_color ),
-				),
 
-				'.kemet-top-header a:hover'  => array(
-					'color' => esc_attr( $topbar_link_h_color ),
-				),
-				'.top-navigation ul.sub-menu'  => array(
-					'background-color' => esc_attr( $topbar_submenu_bg_color),
-				),
-				'.top-navigation ul.sub-menu li a'  => array(
-					'color' => esc_attr( $topbar_submenu_items_color),
-				),
-				'.top-navigation ul.sub-menu li:hover a'   => array(
-					'color' => esc_attr( $topbar_submenu_items_h_color),
-				),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
@@ -931,16 +887,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer' => array(
 					'font-size' => kemet_responsive_font( $footer_font_size , 'tablet' ),
 				),
-				/**
-				 * Top Bar
-				 */
-				'.kemet-top-header' => array(
-					'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'tablet' ),
-					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'tablet' ),
-					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'tablet' ),
-					'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'tablet' ),
-					'font-size'    => kemet_responsive_font( $topbar_font_size, 'tablet' ),
-				),
+
 
                 /**
                 * Content Spacing Tablet
@@ -1025,14 +972,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 
-				//Top Bar
-				'.kemet-top-header' => array(
-					'padding-top'    => kemet_responsive_spacing( $space_topbar, 'top', 'mobile' ),
-					'padding-bottom' => kemet_responsive_spacing( $space_topbar, 'bottom', 'mobile' ),
-					'padding-right' => kemet_responsive_spacing( $space_topbar, 'right', 'mobile' ),
-					'padding-left'  => kemet_responsive_spacing( $space_topbar, 'left', 'mobile' ),
-					'font-size'    => kemet_responsive_font( $topbar_font_size, 'mobile' ),
-				),
+
 
 				'.kmt-archive-description .kmt-archive-title' => array(
 					'font-size' => kemet_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),

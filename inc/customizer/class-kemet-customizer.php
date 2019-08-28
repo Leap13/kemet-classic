@@ -146,7 +146,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/topbar.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/mainmenu.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/content.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
