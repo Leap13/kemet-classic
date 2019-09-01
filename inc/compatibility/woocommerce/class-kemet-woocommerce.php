@@ -745,24 +745,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-color'     => esc_attr( $link_color ),
 					'background-color' => esc_attr( '#ffffff' ),
 				),
-
-				/**
-				 * Checkout button color for widget
-				 */
-				'.kmt-site-header-cart .widget_shopping_cart .buttons .button.checkout, .woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons .checkout.wc-forward' => array(
-					'color'            => $btn_h_color,
-					'border-color'     => $btn_bg_h_color,
-					'background-color' => $btn_bg_h_color,
-				),
-				'.site-header .kmt-site-header-cart-data .button.wc-forward, .site-header .kmt-site-header-cart-data .button.wc-forward:hover' => array(
-					'color' => $btn_color,
-				),
-				'.below-header-user-select .kmt-site-header-cart .widget, .kemet-top-header-section .kmt-site-header-cart .widget a, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a' => array(
-					'color' => $text_color,
-				),
-				'.below-header-user-select .kmt-site-header-cart .widget_shopping_cart a:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a:hover, .below-header-user-select .kmt-site-header-cart .widget_shopping_cart a.remove:hover, .kemet-top-header-section .kmt-site-header-cart .widget_shopping_cart a.remove:hover' => array(
-					'color' => esc_attr( $link_color ),
-				),
 			);
 
 			/* Parse CSS from array() */
