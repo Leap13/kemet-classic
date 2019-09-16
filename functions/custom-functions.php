@@ -168,9 +168,6 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 
 			// Site Title.
 			$tag = 'span';
-			if ( is_home() || is_front_page() ) {
-				$tag = 'h1';
-			}
 
 			/**
 			 * Filters the tags for site title.
@@ -342,51 +339,6 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 	}
 }
 
-/**
- * Function to get top section Left/Right Header
- */
-/**
- * Function to get top section Left/Right Header
- */
-if ( ! function_exists( 'kemet_get_top_section' ) ) {
-
-	/**
-	 * Function to get top section Left/Right Header
-	 *
-	 * @param string $section   Sections of Small Footer.
-	 * @return mixed            Markup of sections.
-	 */
-	function kemet_get_top_section( $option ) {
-
-		 $output  = '';
-		 $section = kemet_get_option( $option );   
-		  if ( is_array( $section ) ) {
-			
-			foreach ( $section as $sectionnn ) {
-
-				switch ( $sectionnn ) {
-
-			case 'search':
-					$output .= kemet_get_search();
-				break;
-
-            case 'menu':
-					$output .= kemet_get_top_menu();
-				break;
-
-			case 'widget':
-					$output .= kemet_get_custom_widget($option);
-			break;
-
-			case 'text-html':
-					$output .= kemet_get_custom_html( $option . '-html' );
-			break;
-			}
-		}
-			return $output;			
-	}
-	}
-}
 
 /**
  * Function to get Small Left/Right Footer

@@ -68,18 +68,6 @@
 		)
 	);
 
-	// Layout Panel Header Top bar
-	$wp_customize->add_section(
-		new Kemet_WP_Customize_Section(
-			$wp_customize, 'section-topbar-header', array(
-					'title'    => __( 'Top Bar Header', 'kemet' ),
-					'panel'    => 'panel-layout',
-					'section'  => 'section-header-group',
-					'priority' => 15,
-				)
-		)
-	);
-
 	// Layout Panel Footer
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
