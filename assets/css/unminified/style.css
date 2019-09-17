@@ -4162,6 +4162,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   text-align: center;
 }
 
+.kemet-footer.kemet-footer-layout-5 .kmt-col-lg-2 {
+  width: 20%;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;

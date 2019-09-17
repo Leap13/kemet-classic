@@ -504,6 +504,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				'.kemet-footer .widget-title'       => array(
 					'font-size' => kemet_responsive_font( $kemet_footer_widget_title_font_size , 'desktop' ),
+                    'font-family'    => kemet_get_font_family( $kemet_footer_wgt_title_font_family ),
+					'font-weight'    => esc_attr( $kemet_footer_wgt_title_font_weight ),
+					'text-transform' => esc_attr( $kemet_footer_wgt_title_text_transform ),
+					'line-height'    => esc_attr( $kemet_footer_wgt_title_line_height ),
 				),	
                 
 				'.kemet-footer a'                           => array(

@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'section'        => 'title_tagline',
 				'priority'       => 5,
 				'label'          => __( 'Retina Logo', 'kemet' ),
-				'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+				//'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 			)
 		)
 	);

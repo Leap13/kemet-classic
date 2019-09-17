@@ -392,7 +392,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             new Kemet_Control_Typography(
                 $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-font-family]', array(
                     'type'     => 'kmt-font-family',
-                    'label'    => __( 'Widget Title Font Family', 'kemet' ),
+                    'label'    => __( 'Footer Widget Title Font Family', 'kemet' ),
                     'section'  => 'section-kemet-footer',
                     'priority' => 56,
                     'connect'  => KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-font-weight]',
