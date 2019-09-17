@@ -461,7 +461,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $kemet_footer_widget_title_color ),
 				),
 
-				'.kemet-footer'                          => array(
+				'.site-footer'                          => array(
 					'color' => esc_attr( $kemet_footer_text_color ),
 				),
 				
