@@ -344,7 +344,7 @@ $header_rt_sections = array(
 		)
 	);
 
-	/**
+    /**
 	 * Option: Mobile Menu Label
 	 */
 	$wp_customize->add_setting(

@@ -100,6 +100,20 @@ function kemet_header() {
 }
 
 /**
+ * After Header
+ */
+function kemet_after_header_block() {
+	do_action( 'kemet_after_header_block' );
+}
+
+/**
+ * Before Header
+ */
+function kemet_before_header_block() {
+	do_action( 'kemet_before_header_block' );
+}
+ 
+/**
  * sitehead Top
  */
 function kemet_sitehead_top() {
