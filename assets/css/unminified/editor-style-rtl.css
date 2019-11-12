@@ -1637,6 +1637,18 @@ textarea {
   margin-left: auto;
 }
 
+.align-right {
+  text-align: left;
+}
+
+.align-left {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
 .clear:before,
 .clear:after,
 .site-header:before,
