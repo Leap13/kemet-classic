@@ -93,6 +93,12 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			$font_weight = kemet_get_option( 'widget-title-font-wight' );
 
 			Kemet_Fonts::add_font( $font_family, $font_weight );
+
+			// Render Menu Items
+			$font_family = kemet_get_option( 'menu-items-font-family' );
+			$font_weight = kemet_get_option( 'menu-items-font-wight' );
+
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**

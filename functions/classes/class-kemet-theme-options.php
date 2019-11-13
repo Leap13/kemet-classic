@@ -133,7 +133,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-radius'                    => 2,
 					'button-v-padding'                 => 10,
 					'button-h-padding'                 => 40,
-					
+					// Main Menu 
+					'menu-items-font-family'                 => 'inherit',
+					'menu-items-font-weight'                 => 'inherit',
+					'menu-items-line-height'                 => '',
+					'menu-items-text-transform'              => '',
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
@@ -186,7 +190,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'archive-post-content-layout'      => 'default',
 					// Typography.
 					'body-font-family'                 => 'inherit',
-					'body-font-weight'                 => '',
+					'body-font-weight'                 => 'inherit',
 					'font-size-body'                   => array(
 						'desktop'      => 14,
 						'tablet'       => '',

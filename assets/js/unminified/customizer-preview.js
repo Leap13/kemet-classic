@@ -482,17 +482,53 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Button Border Radius
 	 */
-	wp.customize( 'kemet-settings[button-radius]', function( setting ) {
-		setting.bind( function( border ) {
+	wp.customize('kemet-settings[button-radius]', function (setting) {
+		setting.bind(function (border) {
 
-			var dynamicStyle = '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
+			var dynamicStyle = '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + (parseInt(border)) + 'px } ';
+			if (jQuery('body').hasClass('woocommerce')) {
+				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { border-radius: ' + (parseInt(border)) + 'px } ';
 			}
-			kemet_add_dynamic_css( 'button-radius', dynamicStyle );
+			kemet_add_dynamic_css('button-radius', dynamicStyle);
 
-		} );
-	} );
+		});
+	});
+	/**
+	 * Button Border Color
+	 */
+
+	wp.customize('kemet-settings[btn-border-color]', function (value) {
+		value.bind(function ( border_color ) {
+			jQuery('.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover').css('border-color', border_color);
+			if (jQuery('body').hasClass('woocommerce')) {
+				jQuery('.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled').css('border-color', border_color);
+			}
+		});
+	});
+	wp.customize('kemet-settings[btn-border-h-color]', function (value) {
+		value.bind(function (color) {
+			if (color == '') {
+				wp.customize.preview.send('refresh');
+			}
+			if (color) {
+
+				var dynamicStyle = 'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus { border-color: ' + color + '; } ';
+				kemet_add_dynamic_css('btn-border-h-color', dynamicStyle);
+			}
+			if (jQuery('body').hasClass('woocommerce')) {
+				jQuery('.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled').css('border-color', border_color);
+			}
+		});
+	});
+	wp.customize('kemet-settings[btn-border-size]', function (setting) {
+		setting.bind(function (border) {
+
+			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-width: ' + border + 'px }';
+
+			kemet_add_dynamic_css('btn-border-size', dynamicStyle);
+		});
+	});
+	
 
 	/**
 	 * Button Vertical Padding
@@ -611,6 +647,9 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	} );
 	
 	kemet_css( 'kemet-settings[menu-link-color]', 'color', '.main-header-menu a' );
+	kemet_css('kemet-settings[menu-items-text-transform]', 'text-transform', '.main-header-menu a');
+	kemet_css('kemet-settings[menu-items-line-height]', 'line-height', '.main-header-menu .menu-item > a');
+
 	kemet_css( 'kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' );
 	kemet_css( 'kemet-settings[menu-link-active-color]', 'color', '.main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a' );
 	/**

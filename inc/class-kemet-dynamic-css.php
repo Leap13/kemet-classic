@@ -101,6 +101,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            	= kemet_get_option( 'font-size-h6' );
 
+			//Menu Items
+			$menu_font_family 				= kemet_get_option( 'menu-items-font-family' );
+			$menu_font_weight 				= kemet_get_option( 'menu-items-font-weight' );
+			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
+			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
+
 			//Layout Header
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			$space_header              = kemet_get_option( 'header-padding' );
@@ -135,6 +141,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_horizontal_padding = kemet_get_option( 'button-h-padding' );
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
+			
 
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
@@ -244,6 +251,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				$btn_text_hover_color = kemet_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color       = kemet_get_option( 'button-bg-color', $theme_color );
+			$btn_border_size     = kemet_get_option( 'btn-border-size' );
+			$btn_border_color    = kemet_get_option( 'btn-border-color' );
+			$btn_border_h_color  = kemet_get_option( 'btn-border-h-color' );				
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
@@ -383,7 +393,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Header - Main Header CSS.
-				'.main-header-menu a, .kmt-header-custom-item a' => array(
+				'.kmt-header-custom-item a' => array(
 					'color' => esc_attr( $text_color ),
 				),
 
@@ -410,6 +420,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.main-header-menu a'  => array(
 					'color' => esc_attr( $menu_link_color ),
+					'font-family'    => kemet_get_font_family( $menu_font_family ),
+					'font-weight'     => esc_attr( $menu_font_weight ),
+					'text-transform'  => esc_attr( $menu_text_transform ),
+				),
+				'.main-header-menu .menu-item > a'  => array(
+					'line-height' => esc_attr( $menu_line_height ),
 				),
 				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),
@@ -551,23 +567,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.menu-toggle, button, .kmt-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
-					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
-				),
-				'.menu-toggle, button, .kmt-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'border-radius'    => kemet_get_css_value( $btn_border_radius, 'px' ),
-					'padding'          => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
-					'color'            => esc_attr( $btn_text_color ),
-					'border-color'     => esc_attr( $btn_bg_color ),
-					'background-color' => esc_attr( $btn_bg_color ),
+					'border' 		   => 'solid',
+					'border-color'     => esc_attr( $btn_border_color ),
+					'border-width'     => kemet_get_css_value( $btn_border_size , 'px' , '0' ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
-					'border-color'     => esc_attr( $btn_bg_hover_color ),
+					'border-color'     => esc_attr( $btn_border_h_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
 				),
 				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
