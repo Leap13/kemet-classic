@@ -105,6 +105,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_font_family 				= kemet_get_option( 'menu-items-font-family' );
 			$menu_font_weight 				= kemet_get_option( 'menu-items-font-weight' );
 			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
+			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color');
 			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
 
 			//Layout Header
@@ -424,8 +425,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-weight'     => esc_attr( $menu_font_weight ),
 					'text-transform'  => esc_attr( $menu_text_transform ),
 				),
-				'.main-header-menu .menu-item > a'  => array(
+				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
 					'line-height' => esc_attr( $menu_line_height ),
+				), 
+				'.main-header-menu > .menu-item:hover > a'  => array(
+					'border-bottom-color' => esc_attr( $menu_link_bottom_border_color ),
 				),
 				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),

@@ -3516,6 +3516,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
+.main-header-menu > .menu-item > a {
+  border-bottom: 1px solid transparent;
+}
+
 .kmt-header-break-point {
   /* Styling Nav */
   /* Main Header */

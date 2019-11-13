@@ -181,7 +181,13 @@ li.kmt-sitehead-custom-menu-items {
 		line-height: 1;
 	}
 }
-
+.main-header-menu {
+	> .menu-item { 
+		 > a {
+			 border-bottom: 1px solid transparent;
+		 }
+	}
+} 
 .kmt-header-break-point {
 
 	&.kmt-header-custom-item-outside {

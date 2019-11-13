@@ -236,22 +236,6 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		/**
 		 * Option:Menu Link Color
 		*/
@@ -295,6 +279,27 @@ $header_rt_sections = array(
 	);
 
 		/**
+		 * Option:Menu Link Bottom Border Color
+		*/
+		$wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
+				'default'           => kemet_get_option( 'menu-link-bottom-border-color' ),
+				'type'              => 'option',
+				'transport'         => 'postMessage',
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			)
+		);
+		$wp_customize->add_control(
+			new Kemet_Control_Color(
+				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
+					'label'   => __( 'Menu Link Bottom Border Color', 'kemet' ),
+					'priority'       => 60,
+					'section' => 'section-menu-header',
+				)
+			)
+		);
+
+		/**
       * Option:Menu Active Link Color
       */
 			$wp_customize->add_setting(
@@ -309,7 +314,7 @@ $header_rt_sections = array(
 				new Kemet_Control_Color(
 					$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
 						'label'   => __( 'Menu Link Active Color', 'kemet' ),
-						'priority'       => 60,
+						'priority'       => 65,
 						'section' => 'section-menu-header',
 					)
 				)
@@ -328,7 +333,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
-        'priority'       => 45,
+        'priority'       => 70,
         'section' => 'section-menu-header',
 				'label'   => __( 'SubMenu Background Color', 'kemet' ),
 			)
@@ -349,7 +354,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
 				'label'   => __( 'SubMenu Link Color', 'kemet' ),
-				'priority'       => 65,
+				'priority'       => 75,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -369,7 +374,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
 				'label'   => __( 'SubMenu Link Hover Color', 'kemet' ),
-				'priority'       => 55,
+				'priority'       => 80,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -390,7 +395,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[submenu-top-border-size]', array(
 			'type'        => 'number',
 			'section'     => 'section-menu-header',
-			'priority'    => 70,
+			'priority'    => 85,
 			'label'       => __( 'Submenu Top Border Size', 'kemet' ),
 			'input_attrs' => array(
 				'min'  => 0,
@@ -414,7 +419,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
 				'section'  => 'section-menu-header',
-				'priority' => 75,
+				'priority' => 90,
 				'label'    => __( 'Submenu Top Border Color', 'kemet' ),
 			)
 		)
@@ -435,7 +440,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
 				'section'  => 'section-menu-header',
 				'type'     => 'checkbox',
-				'priority' => 80,
+				'priority' => 95,
 				'label'    => __( 'Display Submenu Border', 'kemet' ),
 			)
 		)
@@ -455,7 +460,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
 				'section'  => 'section-menu-header',
-				'priority' => 85,
+				'priority' => 100,
 				'label'    => __( 'Submenu Border Color', 'kemet' ),
 			)
 		)
@@ -475,7 +480,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[header-main-menu-label]', array(
 			'section'  => 'section-menu-header',
-			'priority' => 90,
+			'priority' => 105,
 			'label'    => __( 'Menu Label on Small Devices', 'kemet' ),
 			'type'     => 'text',
 		)
@@ -495,7 +500,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-menu-align]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 95,
+			'priority' => 110,
 			'label'    => __( 'Mobile Menu Alignment', 'kemet' ),
 			'choices'  => array(
 				'inline' => __( 'Inline', 'kemet' ),
@@ -503,17 +508,3 @@ $header_rt_sections = array(
 			),
 		)
 	);
-	
-  
-	
-
-
-
-
-
-
-
-
-
-	
-	
