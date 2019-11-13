@@ -48,7 +48,7 @@
 		{
 			var select  = $( this ),
 			link    = select.data( 'customize-setting-link' ),
-			weight  = select.data( 'data-connected-control' );
+			weight  = select.data( 'connected-control' );
 
 			if ( 'undefined' != typeof weight ) {
 				api( link ).bind( KmtTypography._fontSelectChange );
@@ -107,7 +107,7 @@
 			fontSelect          = api.control( this.id ).container.find( 'select' ),
 			fontValue           = this(),
 			selected            = '',
-			weightKey           = fontSelect.data( 'dataa-connected-control' ),
+			weightKey           = fontSelect.data( 'connected-control' ),
 			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),

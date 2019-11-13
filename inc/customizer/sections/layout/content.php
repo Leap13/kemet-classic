@@ -12,21 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-	/**
-	 * Option: Body & Content Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-base-typo]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'section-contents',
-				'priority' => 4,
-				'label'    => __( 'Body & Content', 'kemet' ),
-				'settings' => array(),
-			)
-		)
-	);
-
 		/**
 		* Option: Content Text Color
 		*/
@@ -92,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Typography(
 			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
 				'type'        => 'kmt-font-family',
-				'kmt_inherit' => __( 'Default System Font', 'kemet' ),
+				//'kmt_inherit' => __( 'Default System Font', 'kemet' ),
 				'section'     => 'section-contents',
 				'priority'    => 15,
 				'label'       => __( 'Font Family', 'kemet' ),
@@ -115,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Typography(
 			$wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
 				'type'        => 'kmt-font-weight',
-				'kmt_inherit' => __( 'Default', 'kemet' ),
+				//'kmt_inherit' => __( 'Default', 'kemet' ),
 				'section'     => 'section-contents',
 				'priority'    => 20,
 				'label'       => __( 'Font Weight', 'kemet' ),
@@ -248,40 +233,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					)
 				)
 			);
-
-
-
-	/**
-	 * Option: Body & Content Divider
-	 */
-	// $wp_customize->add_control(
-	// 	new Kemet_Control_Divider(
-	// 		$wp_customize, KEMET_THEME_SETTINGS . '[divider-base-typo]', array(
-	// 			'type'     => 'kmt-divider',
-	// 			'section'  => 'section-contents',
-	// 			'priority' => 47,
-	// 			'label'    => __( '8888', 'kemet' ),
-	// 			'settings' => array(),
-	// 		)
-	// 	)
-	// );
-
-	/**
-	 * Option: Body & Content Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-headings-typo]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'section-contents',
-				'priority' => 50,
-				'label'    => __( 'Headings', 'kemet' ),
-				'settings' => array(),
-			)
-		)
-	);
 	
-		/**
+	/**
 	 * Option: Headings Font Family
 	 */
 	$wp_customize->add_setting(
@@ -647,34 +600,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

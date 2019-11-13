@@ -139,7 +139,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-		/**
+	/**
 	 * Option: Divider
 	 */
 	$wp_customize->add_control(
