@@ -294,7 +294,7 @@ p.demo_store a,
 }
 
 .kmt-cart-menu-wrap .count:before {
-  content: "\e902";
+  content: "\e903";
   display: inline-block;
   font-family: 'Kemet-font';
   font-size: 1.6rem;
@@ -4387,7 +4387,7 @@ button.pswp__button--zoom:hover {
 }
 
 .woocommerce ul.product-categories > li ul li:before {
-  content: "\e900";
+  content: "\e907";
   padding: 0 5px 0 5px;
   display: inline-block;
   font-family: Kemet-font;
