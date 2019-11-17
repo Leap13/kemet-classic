@@ -2681,14 +2681,14 @@ body {
 }
 
 .kmt-button-wrap .menu-toggle .menu-toggle-icon:before {
-  content: "\e90d";
+  content: "\e90c";
   font-family: 'Kemet-font';
   text-decoration: inherit;
   font-weight: 600;
 }
 
 .kmt-button-wrap .menu-toggle.toggled .menu-toggle-icon:before {
-  content: "\e90b";
+  content: "\e90c";
 }
 
 .kmt-button-wrap .menu-toggle .mobile-menu-wrap {
@@ -3348,8 +3348,6 @@ body {
   display: none;
   background: transparent;
   color: inherit;
-  border-style: dotted;
-  border-color: transparent;
 }
 
 .kmt-menu-toggle:focus, .kmt-menu-toggle:hover {
@@ -3594,7 +3592,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle {
   display: inline-block;
   position: absolute;
-  font-size: inherit;
+  font-size: 0px;
   top: -1px;
   right: 20px;
   cursor: pointer;
@@ -3864,7 +3862,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   font-family: "Kemet-font";
   font-size: 1.2em;
   font-weight: 600;
-  content: "\e904";
+  content: "\e90d";
   position: absolute;
   top: 50%;
   right: 15px;

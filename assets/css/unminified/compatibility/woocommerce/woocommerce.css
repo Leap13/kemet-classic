@@ -1464,7 +1464,7 @@ p.demo_store a,
 .woocommerce button.button:hover,
 .woocommerce input.button:hover,
 .woocommerce #respond input#submit:hover {
-  background-color: #dad8da;
+  background-color: #111;
   text-decoration: none;
   background-image: none;
   color: #515151;
@@ -1483,7 +1483,7 @@ p.demo_store a,
 .woocommerce button.button.alt:hover,
 .woocommerce input.button.alt:hover,
 .woocommerce #respond input#submit.alt:hover {
-  background-color: #935386;
+  background-color: #111;
   color: white;
 }
 
@@ -2230,7 +2230,7 @@ p.demo_store a,
 .woocommerce form .form-row.woocommerce-validated .select2-container,
 .woocommerce form .form-row.woocommerce-validated input.input-text,
 .woocommerce form .form-row.woocommerce-validated select {
-  border-color: #69bf29;
+  border-color: #111;
 }
 
 .woocommerce form .form-row ::-webkit-input-placeholder {
@@ -2520,7 +2520,7 @@ p.demo_store a,
 
 .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
   border-radius: 1em;
-  background-color: #602053;
+  background-color: #444;
   border: 0;
 }
 
