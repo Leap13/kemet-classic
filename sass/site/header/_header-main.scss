@@ -29,7 +29,9 @@
 	display: none;
 	background: transparent;
 	color: inherit;
-	
+	border-style: dotted;
+	border-color: transparent;
+
 	&:focus,
 	&:hover {
 		background: transparent;
@@ -249,7 +251,7 @@ li.kmt-sitehead-custom-menu-items {
 
 					display: inline-block;
 					position: absolute;
-					font-size: 0px;
+					font-size: 0px;;
 					top: -1px;
 					right: 20px;
 					cursor: pointer;

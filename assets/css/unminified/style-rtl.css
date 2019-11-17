@@ -2688,7 +2688,7 @@ body {
 }
 
 .kmt-button-wrap .menu-toggle.toggled .menu-toggle-icon:before {
-  content: "\e90c";
+  content: "\e905";
 }
 
 .kmt-button-wrap .menu-toggle .mobile-menu-wrap {
@@ -3348,6 +3348,8 @@ body {
   display: none;
   background: transparent;
   color: inherit;
+  border-style: dotted;
+  border-color: transparent;
 }
 
 .kmt-menu-toggle:focus, .kmt-menu-toggle:hover {
