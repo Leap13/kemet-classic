@@ -178,7 +178,16 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-link-h-color'   =>   '',
 					'submenu-top-border-size'   => '',
 					'submenu-top-border-color'   =>'',
-					
+					// Mobile Menu 
+					'mobile-menu-icon-color'      => '',
+					'mobile-menu-icon-bg-color'      => '',
+					'mobile-menu-icon-h-color'      => '',
+					'mobile-menu-icon-bg-h-color'      => '',
+					'mobile-menu-items-color'      => '',
+					'mobile-menu-items-bg-color'      => '',
+					'mobile-menu-items-h-color'      => '',
+
+					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',

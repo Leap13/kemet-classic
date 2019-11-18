@@ -608,3 +608,128 @@ $header_rt_sections = array(
 			),
 		)
 	);
+
+	/**
+	 * Option: Mobile Menu Style options
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-icon-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
+				'label'   => __( 'Mobile Menu Icon Color', 'kemet' ),
+				'priority'       => 135,
+				'section' => 'section-menu-header',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-icon-bg-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
+        'priority'       => 140,
+        'section' => 'section-menu-header',
+				'label'   => __( 'Mobile Menu Background Color', 'kemet' ),
+			)
+		)
+	);
+
+		$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-icon-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
+				'label'   => __( 'Mobile Menu Icon Hover Color', 'kemet' ),
+				'priority'       => 145,
+				'section' => 'section-menu-header',
+			)
+		)
+	);
+
+		$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-icon-bg-h-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
+        'priority'       => 150,
+        'section' => 'section-menu-header',
+				'label'   => __( 'Mobile Menu Background Hover Color', 'kemet' ),
+			)
+		)
+	);
+
+		$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-items-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
+				'label'   => __( 'Mobile Menu Items Color', 'kemet' ),
+				'priority'       => 155,
+				'section' => 'section-menu-header',
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-items-bg-color' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
+        'priority'       => 160,
+        'section' => 'section-menu-header',
+				'label'   => __( 'Mobile Menu Items Background Color', 'kemet' ),
+			)
+		)
+	);
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
+			'default'           => kemet_get_option( 'mobile-menu-items-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
+				'label'   => __( 'Mobile Menu Items Hover Color', 'kemet' ),
+				'priority'       => 155,
+				'section' => 'section-menu-header',
+			)
+		)
+	);

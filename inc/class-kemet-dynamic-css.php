@@ -126,6 +126,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
 			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' );
+			// Mobile Menu Options
+			$mobile_menu_icon_color        = kemet_get_option('mobile-menu-icon-color');
+			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
+			$mobile_menu_icon_h_color        = kemet_get_option('mobile-menu-icon-h-color');
+			$mobile_menu_icon_bg_h_color        = kemet_get_option('mobile-menu-icon-bg-h-color');
+			$mobile_menu_items_color        = kemet_get_option('mobile-menu-items-color');
+			$mobile_menu_items_bg_color        = kemet_get_option('mobile-menu-items-bg-color');
+			$mobile_menu_items_h_color        = kemet_get_option('mobile-menu-items-h-color');
 
 			//header submenu
 			$submenu_bg_color               = kemet_get_option( 'submenu-bg-color' );
@@ -408,9 +416,27 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu li:hover > a, .main-header-menu li:hover > .kmt-menu-toggle, .main-header-menu .kmt-sitehead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .kmt-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .kmt-menu-toggle, .main-header-menu .current-menu-ancestor > .kmt-menu-toggle, .main-header-menu .current_page_item > .kmt-menu-toggle' => array(
 					'color' => esc_attr( $link_color ),
 				),
-
-
-
+				// Mobile Menu Color
+				'.kmt-button-wrap .menu-toggle.main-header-menu-toggle' => array(
+					'color'  => esc_attr( $mobile_menu_icon_color ),
+					'background-color'  => esc_attr( $mobile_menu_icon_bg_color ),
+				),
+				'.kmt-button-wrap .menu-toggle.main-header-menu-toggle:hover, .kmt-button-wrap .menu-toggle.main-header-menu-toggle:active, .kmt-button-wrap .menu-toggle.main-header-menu-toggle.toggled' => array(
+					'color'  => esc_attr( $mobile_menu_icon_h_color ),
+					'background-color'  => esc_attr( $mobile_menu_icon_bg_h_color ),
+				),
+				'.toggle-on li a' => array(
+					'color'  => esc_attr( $mobile_menu_items_color ),
+				),
+				'.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a ' => array(
+					'color'  => esc_attr( $mobile_menu_items_h_color ),
+				),
+				'.toggle-on .main-header-menu' => array(
+					'background-color' => esc_attr( $mobile_menu_items_bg_color ),
+				),
+				'.toggle-on .main-header-menu .menu-item:hover > a' => array(
+					'border-bottom-color'  => esc_attr( $mobile_menu_items_h_color ),
+				),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
