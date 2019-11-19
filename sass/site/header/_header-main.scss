@@ -261,12 +261,20 @@ li.kmt-sitehead-custom-menu-items {
 					font-weight: normal;
 					line-height: inherit;
 					transition: all .2s;
+					border-width: 0px;
 					&::before {
 						font-weight: bold;
 						content: "\e907";
 						font-family: 'Kemet-font';
 						text-decoration: inherit;
 						display: inline-block;
+						font-size: medium;
+					}
+					&:hover {
+						border-width: 0px;
+					}
+					&:focus {
+						border-width: 0px;
 					}
 				}
 			}
