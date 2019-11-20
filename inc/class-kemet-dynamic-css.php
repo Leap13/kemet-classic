@@ -417,18 +417,22 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $link_color ),
 				),
 				// Mobile Menu Color
-				'.kmt-button-wrap .menu-toggle.main-header-menu-toggle, ' => array(
+				'.kmt-mobile-menu-buttons .menu-toggle .menu-toggle-icon ' => array(
 					'color'  => esc_attr( $mobile_menu_icon_color ),
+				),
+				'.kmt-mobile-menu-buttons .menu-toggle' => array(
 					'background-color'  => esc_attr( $mobile_menu_icon_bg_color ),
 				),
-				'.kmt-button-wrap .menu-toggle.main-header-menu-toggle:hover, .kmt-button-wrap .menu-toggle.main-header-menu-toggle:active, .kmt-button-wrap .menu-toggle.main-header-menu-toggle.toggled' => array(
-					'color'  => esc_attr( $mobile_menu_icon_h_color ),
+				'.kmt-mobile-menu-buttons .menu-toggle:hover, .kmt-mobile-menu-buttons .menu-toggle.toggled' => array(
 					'background-color'  => esc_attr( $mobile_menu_icon_bg_h_color ),
 				),
-				'.toggle-on li a, .menu-toggle.main-header-menu-toggle.toggled .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children>.kmt-menu-toggle' => array(
+				'.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon' => array(
+					'color'  => esc_attr( $mobile_menu_icon_h_color ),
+				),
+				'.toggle-on li a, .menu-toggle.toggled .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children>.kmt-menu-toggle' => array(
 					'color'  => esc_attr( $mobile_menu_items_color ),
 				),
-				'.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle' => array(
+				'.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a' => array(
 					'color'  => esc_attr( $mobile_menu_items_h_color ),
 				),
 				'.toggle-on .main-header-menu' => array(

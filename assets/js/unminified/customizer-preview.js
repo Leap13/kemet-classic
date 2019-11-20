@@ -718,10 +718,12 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	/**
 	 * Mobile Menu color
 	 */
-	 kemet_css('kemet-settings[mobile-menu-icon-color]', 'color', '.kmt-button-wrap .menu-toggle.main-header-menu-toggle');
-	 kemet_css('kemet-settings[mobile-menu-icon-h-color]', 'color', '.kmt-button-wrap .menu-toggle.main-header-menu-toggle:hover, .kmt-button-wrap .menu-toggle.main-header-menu-toggle:active, .kmt-button-wrap .menu-toggle.main-header-menu-toggle.toggled');
-	 kemet_css('kemet-settings[mobile-menu-items-color]', 'color', '.toggle-on li a');
-	 kemet_css('kemet-settings[mobile-menu-items-h-color]', 'color', '.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a');
+	kemet_css('kemet-settings[mobile-menu-icon-color]', 'color', '.kmt-mobile-menu-buttons .menu-toggle .menu-toggle-icon');
+	kemet_css('kemet-settings[mobile-menu-icon-h-color]', 'color', '.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon');
+	kemet_css('kemet-settings[mobile-menu-icon-bg-color]', 'background-color', '.kmt-mobile-menu-buttons .menu-toggle');
+	kemet_css('kemet-settings[mobile-menu-icon-bg-h-color]', 'background-color', '.kmt-mobile-menu-buttons .menu-toggle:hover, .kmt-mobile-menu-buttons .menu-toggle.toggled');
+	kemet_css('kemet-settings[mobile-menu-items-color]', 'color', '.toggle-on li a');
+	kemet_css('kemet-settings[mobile-menu-items-h-color]', 'color', '.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a');
 
 	/**
 	 * Container Inner Spacing
