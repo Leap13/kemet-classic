@@ -242,6 +242,25 @@
 /**
  *  4 - Header Layout 4
 */
+.kmt-header-break-point{
+	.header-main-layout-4 {
+		.main-header-container{
+			ul#primary-menu , ul#left-menu{
+			position: static;
+			width: 100%;	
+		}
+		}
+		.kmt-main-header-bar-alignment{
+			flex: auto;
+		}
+		&.main-header-bar{
+			.main-header-bar-navigation{
+				display: block;
+			}
+		} 
+	}
+}
+
 .header-main-layout-4 {
 	.main-header-container
 	{

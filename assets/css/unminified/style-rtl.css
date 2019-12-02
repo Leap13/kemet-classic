@@ -3080,6 +3080,23 @@ body {
 /**
  *  4 - Header Layout 4
 */
+.kmt-header-break-point .header-main-layout-4 .main-header-container ul#primary-menu, .kmt-header-break-point .header-main-layout-4 .main-header-container ul#left-menu {
+  position: static;
+  width: 100%;
+}
+
+.kmt-header-break-point .header-main-layout-4 .kmt-main-header-bar-alignment {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  -moz-box-flex: 1;
+  -ms-flex: auto;
+  flex: auto;
+}
+
+.kmt-header-break-point .header-main-layout-4.main-header-bar .main-header-bar-navigation {
+  display: block;
+}
+
 .header-main-layout-4 .main-header-container {
   position: relative;
   -js-display: flex;

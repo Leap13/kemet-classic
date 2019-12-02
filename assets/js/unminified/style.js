@@ -836,7 +836,43 @@ var toggleClass = function ( el, className ) {
 				}
 			}, false);
 		};
-	};
+    };
+    
+    var header4_active = document.querySelector('.header-main-layout-4') != null;
+    if (header4_active == true) {
+        var header4 = document.querySelectorAll('.header-main-layout-4');
+        var header4_icon = header4[0].querySelectorAll('.main-header-menu-toggle');
+        var header4_left_menu = header4[0].querySelectorAll('.main-header-bar-navigation');
+        header4_icon[0].addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var menuHasChildren = header4_left_menu[1].querySelectorAll('.menu-item-has-children, .page_item_has_children');
+            for (var i = 0; i < menuHasChildren.length; i++) {
+                menuHasChildren[i].classList.remove('kmt-submenu-expanded');
+                var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll('.sub-menu, .children');
+                for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
+                    menuHasChildrenSubMenu[j].style.display = 'none';
+                };
+            }
+
+            toggleClass(header4_left_menu[1], 'toggle-on');
+            toggleClass(header4_icon[0], 'toggled');
+            if (header4_left_menu[1].classList.contains('toggle-on')) {
+                header4_left_menu[1].style.display = 'block';
+            } else {
+                header4_left_menu[1].style.display = '';
+            }
+            if ('undefined' !== typeof header4_left_menu[1]) {
+                var leftMenuparentList = header4_left_menu[1].querySelectorAll('ul.main-header-menu li');
+                KemetNavigationMenu(leftMenuparentList);
+
+                var kemet_left_menu_toggle = header4_left_menu[1].querySelectorAll('ul.main-header-menu .kmt-menu-toggle');
+                KemetToggleMenu(kemet_left_menu_toggle);
+            }
+        });
+    }
+
+
 
     var __main_header_all = document.querySelectorAll( '.main-header-bar-navigation' );
 	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
