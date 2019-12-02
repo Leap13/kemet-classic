@@ -1912,7 +1912,6 @@ input[type="submit"]:focus {
 
 .kmt-header-break-point .kmt-search-menu-icon .search-field,
 .kmt-header-break-point .kmt-search-menu-icon.kmt-inline-search .search-field {
-  width: 100%;
   padding-left: 5.5em;
 }
 
@@ -1930,7 +1929,6 @@ input[type="submit"]:focus {
 .kmt-header-break-point .kmt-search-menu-icon .search-form {
   padding: 0;
   display: block;
-  overflow: hidden;
 }
 
 /* must have higher specificity than alternative color schemes inline styles */
