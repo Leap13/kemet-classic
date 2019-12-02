@@ -1285,11 +1285,15 @@ if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 				$cutom_logo_url = $cutom_logo[0];
 
+				// Replace header logo url to retina logo url.
+				$attr['src'] = $retina_logo;
 				$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
 
 			}
 		}
 
+		remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
+		
 		return apply_filters( 'kemet_replace_header_attr', $attr );
 	}
 
