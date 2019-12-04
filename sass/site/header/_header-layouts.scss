@@ -134,29 +134,12 @@
 	.kmt-sitehead-custom-menu-items{
 		position: relative;
 	}
-	.kmt-search-menu-icon form{
-		padding: 0 0 0 3em;
-	}
-	li .kmt-search-icon{
-		padding-left: .5em;
-	}
-	.kmt-search-menu-icon {
-    	left: 0;
-    	right: 0;
-    }
-	li .kmt-search-menu-icon {
-		left: 1em;
-		right: 0;
-	}
 }
 
 .kmt-header-break-point {
 	.header-main-layout-2 {
 		.kmt-mobile-menu-buttons {
 			justify-content: flex-start;
-		}
-		li .kmt-search-menu-icon {
-			left: 0;
 		}
 		.site-branding{
 			padding-left: 1em;

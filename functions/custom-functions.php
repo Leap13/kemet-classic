@@ -199,7 +199,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo wp_kses_post($html);
+			echo $html;
 		} else {
 			return $html;
 		}
@@ -267,7 +267,8 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	 */
 	function kemet_get_search( $option = '' ) {
 
-		$search_html  = '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
+		$search_html = '<div class="kmt-search-container">';
+		$search_html .= '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
 						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';

@@ -77,10 +77,8 @@
 		}
 
 		.slide-search .search-field {
-			background-color: white;
 			&:focus {
 				outline: none;
-				background-color: white;
 			}
 		}
 	}
@@ -88,19 +86,19 @@
 .kmt-search-menu-icon {
 	visibility: hidden;
 	opacity: 0;
-	transition: all .2s;
+	transition: all 1s;
 	position: absolute;
 	z-index: 3;
 	right: auto;
 	top: 50%;
-	transform: translateY(-80%);
+	transform: translateY(80%);
 
 	.kemet-search-icon {
 		line-height: normal;
 	}
 
 	form {
-		border: 1px solid #e7e7e7;
+		border: 1px solid;
 		line-height: 1;
 		@include kmt-border-radius();
 		display: inline-block;
@@ -109,31 +107,28 @@
 		color: inherit;
 		background-color: transparent;
 		background-color:$color-background-screen;
-		width: 250px;
 		margin: auto;
 		&:before{
 			content:"\A";
 			border-left: 14px solid transparent;
 			border-right: 14px solid transparent;
-			border-bottom: 14px solid $color-background-screen;
+			border-bottom: 14px solid;
 			position: absolute;
-			bottom: 99%;
+			bottom: 100%;
 			right: 85%;
 			}
 	}
 
 	.search-field {
 		border: none;
-		background-color: transparent;
 		transition: width .2s;
 		border-radius: inherit;
 		color: inherit;
 		font-size: inherit;
-		width: 235px;
-		margin: 7px;
+		width: 240px;
+		margin: 5px;
 		&:focus {
 			background-color: transparent;
-			color: inherit;
 			outline: none;
 		}
 	}

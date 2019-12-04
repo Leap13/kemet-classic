@@ -154,6 +154,72 @@ $header_rt_sections = array(
 		)
 	);
 
+	/**
+    * Option - Search Background
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
+			'label'   => __( 'Search Form Background Color', 'kemet-addons' ),
+			'section' => 'section-header',
+			'priority' => 17,
+		  )
+		)
+	);
+	/**
+    * Option - Search Font Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-input-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-color]', array(
+			'label'   => __( 'Search Form Font Color', 'kemet-addons' ),
+			'section' => 'section-header',
+			'priority' => 17,
+		  )
+		)
+	);
+	/**
+	 * Option: Search Form Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-border-size]', array(
+			'default'           => kemet_get_option( 'search-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[search-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-header',
+			'priority'    => 17,
+			'label'       => __( 'Search Form Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 600,
+			),
+		)
+	);
+
+
 	// if ( isset( $wp_customize->selective_refresh ) ) {
 	// 	$wp_customize->selective_refresh->add_partial(
 	// 		KEMET_THEME_SETTINGS . '[header-main-rt-section-html]', array(

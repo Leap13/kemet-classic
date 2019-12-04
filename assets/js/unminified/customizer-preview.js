@@ -528,7 +528,15 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_add_dynamic_css('btn-border-size', dynamicStyle);
 		});
 	});
-	
+
+	wp.customize('kemet-settings[search-border-size]', function (setting) {
+		setting.bind(function (border) {
+
+			var dynamicStyle = '.kmt-search-menu-icon form';
+
+			kemet_add_dynamic_css('search-border-size', dynamicStyle);
+		});
+	});
 
 	/**
 	 * Button Vertical Padding
@@ -676,6 +684,9 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			jQuery('.kmt-search-menu-icon form').css('background-color', border_color);
 		});
 	});
+	//Search Input Background Color
+	kemet_css('kemet-settings[search-input-bg-color]', 'background-color', '.kmt-search-menu-icon form .search-field');
+	kemet_css('kemet-settings[search-input-color]', 'color', '.kmt-search-menu-icon form .search-field');
 
 	/**submenu color */
 	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu .sub-menu li a' );

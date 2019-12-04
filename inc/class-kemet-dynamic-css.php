@@ -291,6 +291,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// Body Font Family.
 			$body_font_family = kemet_body_font_family();
 			$body_font_weight = kemet_get_option( 'body-font-weight' );
+			
+			// search style
+			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' );
+			$search_input_color = kemet_get_option( 'search-input-color' );
+			$search_border_size     = kemet_get_option( 'search-border-size' );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -788,7 +793,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
             'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
             'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
-               ),
+			   ),
+			//Search From Style
+			'.kmt-search-menu-icon form .search-field' => array(
+					'background-color' => esc_attr($search_input_bg_color),
+					'color' 		=> esc_attr($search_input_color),
+				),
+			'.kmt-search-menu-icon form' => array(
+					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
+                ),
 			);
 
 			/* Parse CSS from array() */
