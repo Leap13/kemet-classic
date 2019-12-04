@@ -42,21 +42,21 @@ $header_rt_sections = array(
 				'choices'  => array(
 					'header-main-layout-1' => array(
 						'label' => __( 'Logo Left', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/logo-left.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/header-layout-01.png',
 					),
 					'header-main-layout-2' => array(
 						'label' => __( 'Logo Center', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/logo-center.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/header-layout-02.png',
 					),
 					'header-main-layout-3' => array(
 						'label' => __( 'Logo Right', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/logo-right.png',
+						'path'  => KEMET_THEME_URI . 'assets/images/header-layout-03.png',
 					),     
-            'header-main-layout-4' => array(
-						'label' => __( 'Right Left Menu', 'kemet' ),
-						'path'  => KEMET_THEME_URI . '/assets/images/right-left-menu.png',
+					'header-main-layout-4' => array(
+							'label' => __( 'Right Left Menu', 'kemet' ),
+							'path'  => KEMET_THEME_URI . 'assets/images/header-layout-04.png',
+						),
 					),
-				),
 			)
 		)
 	);

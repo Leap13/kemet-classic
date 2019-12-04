@@ -51,7 +51,7 @@
 /**
  * 2 - Header Layout 2
 */
-.header-main-layout-2 {
+.header-main-layout-3 {
 	.main-header-container {
 		display: block;
 	}
@@ -87,7 +87,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-2 {
+	.header-main-layout-3 {
 		.site-branding{
 			display: block;
 		}
@@ -112,7 +112,7 @@
 /**
  *  3 - Header Layout 3
 */
-.header-main-layout-3 {
+.header-main-layout-2 {
 	.main-header-container	{
 		  flex-direction: row-reverse;
 	}
@@ -151,7 +151,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-3 {
+	.header-main-layout-2 {
 		.kmt-mobile-menu-buttons {
 			justify-content: flex-start;
 		}
@@ -180,7 +180,7 @@
 	.site-logo-img{
 		padding-right: 1em;
 	}
-	&.header-main-layout-2{
+	&.header-main-layout-3{
 		.site-logo-img + .kmt-site-title-wrap .site-title{
 			justify-content: flex-start;
 		}

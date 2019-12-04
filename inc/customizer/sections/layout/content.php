@@ -11,7 +11,20 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+    /**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-styling-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Content Styling', 'kemet' ),
+				'section'  => 'section-contents',
+				'priority' => 0,
+				'settings' => array(),
+			)
+		)
+	);
 		/**
 		* Option: Content Text Color
 		*/
@@ -193,47 +206,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	    /**
-      * Option: Content Link Color
-      */
-			$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . '[content-link-color]', array(
-					'default'           => kemet_get_option( 'content-link-color' ),
-					'type'              => 'option',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+	/**
+	 * Option: Content Link Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[content-link-color]', array(
+			'default'           => kemet_get_option( 'content-link-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[content-link-color]', array(
+				'label'   => __( 'link Color', 'kemet' ),
+				'priority'       => 40,
+				'section' => 'section-contents',
+			)
 				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Color(
-					$wp_customize, KEMET_THEME_SETTINGS . '[content-link-color]', array(
-						'label'   => __( 'link Color', 'kemet' ),
-						'priority'       => 40,
-						'section' => 'section-contents',
-					)
-						)
-				);
-				/**
-				 * Option: Content Link Hover Color
-				*/
-				$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
-					'default'           => kemet_get_option( 'content-link-h-color' ),
-					'type'              => 'option',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Color(
-					$wp_customize, KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
-						'label'   => __( 'Link Hover Color', 'kemet' ),
-						'priority'       => 45,
-						'section' => 'section-contents',
-					)
-				)
-			);
-	
+		);
+		/**
+		 * Option: Content Link Hover Color
+		*/
+		$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
+			'default'           => kemet_get_option( 'content-link-h-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
+				'label'   => __( 'Link Hover Color', 'kemet' ),
+				'priority'       => 45,
+				'section' => 'section-contents',
+			)
+		)
+	);
+
+	/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-styling-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Heading Styling', 'kemet' ),
+				'section'  => 'section-contents',
+				'priority' => 0,
+				'settings' => array(),
+			)
+		)
+	);
+
 	/**
 	 * Option: Headings Font Family
 	 */
@@ -307,8 +335,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-      * Option: Heading 1 Color
-      */
+		 * Option: Heading 1 Color
+		*/
 			$wp_customize->add_setting(
 				KEMET_THEME_SETTINGS . '[font-color-h1]', array(
 					'default'           => '',
@@ -357,26 +385,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-      * Option: Heading 2 Color
-      */
-			$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . '[font-color-h2]', array(
-					'default'           => '',
-					'type'              => 'option',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Color(
-					$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h2]', array(
-						'label'   => __( 'H2 Font Color', 'kemet' ),
-						'priority'       => 80,
-						'section' => 'section-contents',
-					)
-				)
-			);
-/**
+	 * Option: Heading 2 Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-color-h2]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h2]', array(
+				'label'   => __( 'H2 Font Color', 'kemet' ),
+				'priority'       => 80,
+				'section' => 'section-contents',
+			)
+		)
+	);
+	/**
 	 * Option: Heading 2 (H2) Font Size
 	 */
 	$wp_customize->add_setting(
@@ -406,25 +434,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-      * Option: Heading 3 Color
-      */
-			$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . '[font-color-h3]', array(
-					'default'           => '',
-					'type'              => 'option',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Color(
-					$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h3]', array(
-						'label'   => __( 'H3 Font Color', 'kemet' ),
-						'priority'       => 90,
-						'section' => 'section-contents',
-					)
-				)
-			);
+	 * Option: Heading 3 Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-color-h3]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h3]', array(
+				'label'   => __( 'H3 Font Color', 'kemet' ),
+				'priority'       => 90,
+				'section' => 'section-contents',
+			)
+		)
+	);
 	/**
 	 * Option: Heading 3 (H3) Font Size
 	 */
@@ -455,25 +483,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-      * Option: Heading 4 Color
-      */
-			$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . '[font-color-h4]', array(
-					'default'           => '',
-					'type'              => 'option',
-					'transport'         => 'postMessage',
-					'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Color(
-					$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h4]', array(
-						'label'   => __( 'H4 Font Color', 'kemet' ),
-						'priority'       => 100,
-						'section' => 'section-contents',
-					)
-				)
-			);
+	 * Option: Heading 4 Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[font-color-h4]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[font-color-h4]', array(
+				'label'   => __( 'H4 Font Color', 'kemet' ),
+				'priority'       => 100,
+				'section' => 'section-contents',
+			)
+		)
+	);
 
 	/**
 	 * Option: Heading 4 (H4) Font Size
@@ -503,9 +531,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-/**
-      * Option: Heading 5 Color
-      */
+	/**
+		 * Option: Heading 5 Color
+		*/
 			$wp_customize->add_setting(
 				KEMET_THEME_SETTINGS . '[font-color-h5]', array(
 					'default'           => '',
@@ -552,9 +580,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-/**
-      * Option: Heading 6 Color
-      */
+	/**
+		 * Option: Heading 6 Color
+		*/
 			$wp_customize->add_setting(
 				KEMET_THEME_SETTINGS . '[font-color-h6]', array(
 					'default'           => '',
@@ -572,7 +600,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					)
 				)
 			);
-/**
+	/**
 	 * Option: Heading 6 (H6) Font Size
 	 */
 	$wp_customize->add_setting(

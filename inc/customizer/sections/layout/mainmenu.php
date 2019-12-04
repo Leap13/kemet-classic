@@ -19,7 +19,20 @@ $header_rt_sections = array(
 	'text-html' => __( 'Text / HTML', 'kemet' ),
 	'widget'    => __( 'Widget', 'kemet' ),
 );
-
+	/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-menu-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Main Menu Settings', 'kemet' ),
+				'section'  => 'section-menu-header',
+				'priority' => 0,
+				'settings' => array(),
+			)
+		)
+	);
 	/**
 	 * Option: Disable Menu
 	 */
@@ -52,7 +65,7 @@ $header_rt_sections = array(
 			'type'     => 'kmt-sortable',
 			'section'  => 'section-menu-header',
 			'priority' => 10,
-			'label'    => __( 'Custom Menu Item', 'kemet' ),
+			'label'    => __( 'Last Custom Menu Item', 'kemet' ),
 			'choices'  => apply_filters(
 				'kemet_header_elements',
 				array(
@@ -319,7 +332,20 @@ $header_rt_sections = array(
 					)
 				)
 			);
-
+	/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-submenu-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Submenu Settings', 'kemet' ),
+				'section'  => 'section-menu-header',
+				'priority' => 66,
+				'settings' => array(),
+			)
+		)
+	);
 	/**
 	 * Option: SubMenu Background Color
 	 */
@@ -545,6 +571,7 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
 /**
 	 * Option: Sub menu Border Color
 	 */
@@ -562,6 +589,21 @@ $header_rt_sections = array(
 				'section'  => 'section-menu-header',
 				'priority' => 120,
 				'label'    => __( 'Submenu Border Color', 'kemet' ),
+			)
+		)
+	);
+
+	/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-mobile-menu-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Mobile Menu Settings', 'kemet' ),
+				'section'  => 'section-menu-header',
+				'priority' => 121,
+				'settings' => array(),
 			)
 		)
 	);

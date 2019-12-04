@@ -12,30 +12,22 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 	/**
-	 * Option: Retina logo selector
+	 * Option: Title
 	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
-			'default'           => kemet_get_option( 'kmt-header-retina-logo' ),
-			'type'              => 'option',
-			'sanitize_callback' => 'esc_url_raw',
-		)
-	);
-
 	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
-				'section'        => 'title_tagline',
-				'priority'       => 5,
-				'label'          => __( 'Retina Logo', 'kemet' ),
-				//'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-logo-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Logo Settings', 'kemet' ),
+				'section'  => 'title_tagline',
+				'priority' => 0,
+				'settings' => array(),
 			)
 		)
 	);
 
-	/**
+		/**
 	 * Option: Logo Width
 	 */
 	$wp_customize->add_setting(
@@ -67,18 +59,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Divider
+	 * Option: Retina logo selector
 	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
+			'default'           => kemet_get_option( 'kmt-header-retina-logo' ),
+			'type'              => 'option',
+			'sanitize_callback' => 'esc_url_raw',
+		)
+	);
+
 	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-logo-divider]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'title_tagline',
-				'priority' => 5,
-				'settings' => array(),
+		new WP_Customize_Image_Control(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-retina-logo]', array(
+				'section'        => 'title_tagline',
+				'priority'       => 5,
+				'label'          => __( 'Retina Logo', 'kemet' ),
 			)
 		)
 	);
+
+
+
 
 	/**
 	 * Option: Display Title
@@ -95,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
 			'label'    => __( 'Display Site Title', 'kemet' ),
-			'priority' => 6,
+			'priority' => 10,
 		)
 	);
 
@@ -107,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'display-site-tagline' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
-			'priority'          => 5,
+			'priority'          => 15,
 		)
 	);
 	$wp_customize->add_control(
@@ -134,21 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'checkbox',
 			'section'  => 'title_tagline',
 			'label'    => __( 'Inline Logo & Site Title', 'kemet' ),
-			'priority' => 10,
-		)
-	);
-
-	/**
-	 * Option: Divider
-	*/
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-icon-divider]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'title_tagline',
-				'priority' => 50,
-				'settings' => array(),
-			)
+			'priority' => 20,
 		)
 	);
     
@@ -168,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            $wp_customize, KEMET_THEME_SETTINGS . '[site-identity-spacing]', array(
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'title_tagline',
-               'priority'       => 50,
+               'priority'       => 30,
                'label'          => __( 'Site Identity Space', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
@@ -181,22 +169,6 @@ if ( ! defined( 'ABSPATH' ) ) {
            )
        )
    );
-
-
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-header-typo-title]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'title_tagline',
-				'priority' => 55,
-				'label'    => __( 'Site Title', 'kemet' ),
-				'settings' => array(),
-			)
-		)
-	);
 
 	/**
 	 * Option: Site Title Font Size
@@ -214,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-font-size]', array(
 				'type'        => 'kmt-responsive',
 				'section'     => 'title_tagline',
-				'priority'    => 60,
+				'priority'    => 35,
 				'label'       => __( 'Site Title Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
@@ -242,7 +214,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-color]', array(
 				'label'   => __( 'Site Title Color', 'kemet' ),
-				'priority'       => 61,
+				'priority'       => 40,
 				'section' => 'title_tagline',
 			)
 		)
@@ -263,7 +235,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
 				'label'   => __( 'Site Title Hover Color', 'kemet' ),
-				'priority'       => 62,
+				'priority'       => 45,
 				'section' => 'title_tagline',
 			)
 		)
@@ -286,7 +258,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-site-tagline]', array(
 				'type'        => 'kmt-responsive',
 				'section'     => 'title_tagline',
-				'priority'    => 70,
+				'priority'    => 50,
 				'label'       => __( 'Tagline Font Size', 'kemet' ),
 				'input_attrs' => array(
 					'min' => 0,
@@ -295,6 +267,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'px' => 'px',
 					'em' => 'em',
 				),
+			)
+		)
+	);
+
+		/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-icon-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Site Icon', 'kemet' ),
+				'section'  => 'title_tagline',
+				'priority' => 55,
+				'settings' => array(),
 			)
 		)
 	);

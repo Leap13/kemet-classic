@@ -48,9 +48,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-	/**
-   *  Section: Section 1
-   */
   /**
    * Option: Section 1
    */

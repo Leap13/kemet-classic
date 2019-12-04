@@ -83,20 +83,6 @@ if ( ! defined( 'ABSPATH' ) ) {
             'priority'        => 9,
         )
     );
-    
-    /**
-     * Option: Background Color
-     */
-    $wp_customize->add_control(
-        new Kemet_Control_Divider(
-            $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-background-divider]', array(
-                'section'  => 'section-kemet-footer',
-                'priority' => 10,
-                'type'     => 'kmt-divider',
-                'settings' => array(),
-            )
-        )
-    );
 
     /**
      * Option: Footer widget Background
@@ -295,6 +281,21 @@ if ( ! defined( 'ABSPATH' ) ) {
                         'bottom' => __( 'Bottom', 'kemet' ),
                         'left'   => __( 'Left', 'kemet' ),
                     ),
+                )
+            )
+        );
+
+        /**
+         * Option: Title
+         */
+        $wp_customize->add_control(
+            new Kemet_Control_Title(
+                $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-widgets-title]', array(
+                    'type'     => 'kmt-title',
+                    'label'    => __( 'Footer Widgets Settings', 'kemet' ),
+                    'section'  => 'section-kemet-footer',
+                    'priority' => 46,
+                    'settings' => array(),
                 )
             )
         );
@@ -540,20 +541,6 @@ if ( ! defined( 'ABSPATH' ) ) {
          )
      );
 
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[footer-button-options-divider]', array(
-				'type'     => 'kmt-divider',
-				'priority' => 75,
-				'section'  => 'section-kemet-footer',
-				'settings' => array(),
-			)
-		)
-	);
-
      /**
      * Option: Button Color
      */
@@ -656,20 +643,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                     'step' => 1,
                     'max'  => 200,
                 ),
-            )
-        );
-
-        /**
-         * Option: Divider
-         */
-        $wp_customize->add_control(
-            new Kemet_Control_Divider(
-                $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-options-divider]', array(
-                    'type'     => 'kmt-divider',
-                    'priority' => 105,
-                    'section'  => 'section-kemet-footer',
-                    'settings' => array(),
-                )
             )
         );
 
