@@ -92,18 +92,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
-
-
-	/**
-	 * Option: Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-outside-bg-color]', array(
-				'type'     => 'kmt-divider',
-				'section'  => 'section-colors-body',
-				'priority' => 20,
-				'settings' => array(),
-			)
-		)
-	);
