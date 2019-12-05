@@ -199,7 +199,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo wp_kses_post($html);
+			echo $html;
 		} else {
 			return $html;
 		}
@@ -267,7 +267,8 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	 */
 	function kemet_get_search( $option = '' ) {
 
-		$search_html  = '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
+		$search_html = '<div class="kmt-search-container">';
+		$search_html .= '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
 						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
@@ -1285,11 +1286,15 @@ if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 				$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 				$cutom_logo_url = $cutom_logo[0];
 
+				// Replace header logo url to retina logo url.
+				$attr['src'] = $retina_logo;
 				$attr['srcset'] = $cutom_logo_url . ' 1x, ' . $retina_logo . ' 2x';
 
 			}
 		}
 
+		remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
+		
 		return apply_filters( 'kemet_replace_header_attr', $attr );
 	}
 

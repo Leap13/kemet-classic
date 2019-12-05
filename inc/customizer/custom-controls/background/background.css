@@ -19,6 +19,10 @@
   margin-top: 10px;
 }
 
+.customize-control-kmt-background .wp-picker-container .wp-color-result.button {
+  min-height: 24px;
+}
+
 .customize-control-kmt-background .background-repeat {
   margin: 15px 0 8px 0;
 }

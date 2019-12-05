@@ -2,7 +2,7 @@
 	vertical-align: middle;
 }
 .kemet-search-icon::before {
-	content: "\e904";
+	content: "\e90d";
 	font-family: 'Kemet-font';
 	font-style: normal;
 	font-weight: 600;
@@ -11,7 +11,9 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
+.kmt-search-container{
+	position: relative;
+}
 .kmt-search-icon .kemet-search-icon {
 	font-size: 1.3em;
 }
@@ -53,7 +55,6 @@
 		position: absolute;
 		top: 100%;
 		z-index: 99999;
-
 		@media (min-width: $col-md) {
 			li {
 				&:hover > ul,

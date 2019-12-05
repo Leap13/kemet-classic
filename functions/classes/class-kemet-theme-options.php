@@ -133,7 +133,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-radius'                    => 2,
 					'button-v-padding'                 => 10,
 					'button-h-padding'                 => 40,
-					
+					// Main Menu 
+					'menu-items-font-family'                 => 'inherit',
+					'menu-items-font-weight'                 => 'inherit',
+					'menu-items-line-height'                 => '',
+					'menu-items-text-transform'              => '',
+					'menu-link-bottom-border-color'              => '',
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
@@ -161,7 +166,28 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
-					
+
+					// Sub Menu 
+					'submenu-link-color'             =>'',
+					'sub-menu-items-font-family'                 => 'inherit',
+					'sub-menu-items-font-weight'                 => 'inherit',
+					'sub-menu-items-line-height'                 => '',
+					'sub-menu-items-text-transform'              => '',
+					'sub-menu-link-bottom-border-color'              => '',
+					'submenu-bg-color'                       =>'',
+					'submenu-link-h-color'   =>   '',
+					'submenu-top-border-size'   => '',
+					'submenu-top-border-color'   =>'',
+					// Mobile Menu 
+					'mobile-menu-icon-color'      => '',
+					'mobile-menu-icon-bg-color'      => '',
+					'mobile-menu-icon-h-color'      => '',
+					'mobile-menu-icon-bg-h-color'      => '',
+					'mobile-menu-items-color'      => '',
+					'mobile-menu-items-bg-color'      => '',
+					'mobile-menu-items-h-color'      => '',
+
+					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep'                  => 1,
 					'header-main-sep-color'            => '',
@@ -186,7 +212,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'archive-post-content-layout'      => 'default',
 					// Typography.
 					'body-font-family'                 => 'inherit',
-					'body-font-weight'                 => '',
+					'body-font-weight'                 => 'inherit',
 					'font-size-body'                   => array(
 						'desktop'      => 14,
 						'tablet'       => '',

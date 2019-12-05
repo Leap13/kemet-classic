@@ -23,8 +23,12 @@
 
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
+    
+    <?php kemet_before_header_block(); ?>
 
 	<?php kemet_header(); ?>
+    
+    <?php kemet_after_header_block(); ?>
 
 	<div id="content" class="site-content">
 

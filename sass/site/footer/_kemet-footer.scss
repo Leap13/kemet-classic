@@ -20,6 +20,12 @@
 	&.kemet-footer-align-center {
 		text-align: center;
 	}
+    &.kemet-footer-layout-5 {
+        .kmt-col-lg-2 {
+            width: 20%;
+        }
+    }
+    
 }
 
 @media all and (max-width : $mx-col-md) {

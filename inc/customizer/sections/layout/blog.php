@@ -139,20 +139,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 
-		/**
-	 * Option: Divider
+	/**
+	 * Option: Title
 	 */
 	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-summary-box-typo]', array(
-				'type'     => 'kmt-divider',
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-archive-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Archive Summary Box Title', 'kemet' ),
 				'section'  => 'section-blog',
 				'priority' => 30,
-				'label'    => __( 'Archive Summary Box Title', 'kemet' ),
 				'settings' => array(),
 			)
 		)
 	);
+	
 	/**
 	 * Option: Archive Summary Box Title Font Size
 	 */
@@ -183,15 +184,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Divider
+	 * Option: Title
 	 */
 	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[divider-section-archive-typo-archive-title]', array(
-				'type'     => 'kmt-divider',
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-post-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Blog Post', 'kemet' ),
 				'section'  => 'section-blog',
-				'priority' => 40,
-				'label'    => __( 'Blog Post Title', 'kemet' ),
+				'priority' => 44,
 				'settings' => array(),
 			)
 		)

@@ -92,12 +92,12 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 
     }
          /**
-         * Is elementor plugin installed.
+         * Is Kemet Addons plugin installed.
          */
         if ( ! function_exists( 'is_addons_installed' ) ) {
 
             /**
-             * Check if Elementor Pro is installed
+             * Check if Kemet Addons is installed
              *
              * @since 1.0.0
              *

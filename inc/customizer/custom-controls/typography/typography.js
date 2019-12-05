@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-( function( $ ) {
+(function ($) {
 
 	/* Internal shorthand */
 	var api = wp.customize;
@@ -23,7 +23,7 @@
 		 *
 		 * @method init
 		 */
-		init: function() {
+		init: function () {
 			KmtTypography._initFonts();
 		},
 
@@ -33,9 +33,8 @@
 		 * @access private
 		 * @method _initFonts
 		 */
-		_initFonts: function()
-		{
-			$( '.customize-control-kmt-font-family select' ).each( KmtTypography._initFont );
+		_initFonts: function () {
+			$('.customize-control-kmt-font-family select').each(KmtTypography._initFont);
 		},
 
 		/**
@@ -44,15 +43,14 @@
 		 * @access private
 		 * @method _initFont
 		 */
-		_initFont: function()
-		{
-			var select  = $( this ),
-			link    = select.data( 'customize-setting-link' ),
-			weight  = select.data( 'data-connected-control' );
+		_initFont: function () {
+			var select = $(this),
+				link = select.data('customize-setting-link'),
+				weight = select.data('data-connected-control');
 
-			if ( 'undefined' != typeof weight ) {
-				api( link ).bind( KmtTypography._fontSelectChange );
-				KmtTypography._setFontWeightOptions.apply( api( link ), [ true ] );
+			if ('undefined' != typeof weight) {
+				api(link).bind(KmtTypography._fontSelectChange);
+				KmtTypography._setFontWeightOptions.apply(api(link), [true]);
 			}
 		},
 
@@ -62,9 +60,8 @@
 		 * @access private
 		 * @method _fontSelectChange
 		 */
-		_fontSelectChange: function()
-		{
-			KmtTypography._setFontWeightOptions.apply( this, [ false ] );
+		_fontSelectChange: function () {
+			KmtTypography._setFontWeightOptions.apply(this, [false]);
 		},
 
 		/**
@@ -76,17 +73,16 @@
 		 * 
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
 		 */
-		_cleanGoogleFonts: function(fontValue)
-		{
+		_cleanGoogleFonts: function (fontValue) {
 			// Bail if fontVAlue does not contain a comma.
-			if ( ! fontValue.includes(',') ) return fontValue;
+			if (!fontValue.includes(',')) return fontValue;
 
-			var splitFont 	= fontValue.split(',');
-			var pattern 	= new RegExp("'", 'gi');
+			var splitFont = fontValue.split(',');
+			var pattern = new RegExp("'", 'gi');
 
 			// Check if the cleaned font exists in the Google fonts array.
 			var googleFontValue = splitFont[0].replace(pattern, '');
-			if ( 'undefined' != typeof KmtFontFamilies.google[ googleFontValue ] ) {
+			if ('undefined' != typeof KmtFontFamilies.google[googleFontValue]) {
 				fontValue = googleFontValue;
 			}
 
@@ -101,63 +97,62 @@
 		 * @method _setFontWeightOptions
 		 * @param {Boolean} init Whether or not we're initializing this font weight control.
 		 */
-		_setFontWeightOptions: function( init )
-		{
-			var i               = 0,
-			fontSelect          = api.control( this.id ).container.find( 'select' ),
-			fontValue           = this(),
-			selected            = '',
-			weightKey           = fontSelect.data( 'dataa-connected-control' ),
-			inherit             = fontSelect.data( 'inherit' ),
-			weightSelect        = api.control( weightKey ).container.find( 'select' ),
-			currentWeightTitle  = weightSelect.data( 'inherit' ),
-			weightValue         = init ? weightSelect.val() : '400',
-			inheritWeightObject = [ 'inherit' ],
-			weightObject        = [ '400', '600' ],
-			weightOptions       = '',
-			weightMap           = kemetTypo;
-			if ( fontValue == 'inherit' ) {
-				weightValue     = init ? weightSelect.val() : 'inherit';
+		_setFontWeightOptions: function (init) {
+			var i = 0,
+				fontSelect = api.control(this.id).container.find('select'),
+				fontValue = this(),
+				selected = '',
+				weightKey = fontSelect.data('connected-control'),
+				inherit = fontSelect.data('inherit'),
+				weightSelect = api.control(weightKey).container.find('select'),
+				currentWeightTitle = weightSelect.data('inherit'),
+				weightValue = init ? weightSelect.val() : '400',
+				inheritWeightObject = ['inherit'],
+				weightObject = ['400', '600'],
+				weightOptions = '',
+				weightMap = kemetTypo;
+			if (fontValue == 'inherit') {
+				weightValue = init ? weightSelect.val() : 'inherit';
 			}
 
 			var fontValue = KmtTypography._cleanGoogleFonts(fontValue);
 
-			if ( fontValue == 'inherit' ) {
-				weightObject = [ '400','500','600','700' ];
-			} else if ( 'undefined' != typeof KmtFontFamilies.system[ fontValue ] ) {
-				weightObject = KmtFontFamilies.system[ fontValue ].weights;
-			} else if ( 'undefined' != typeof KmtFontFamilies.google[ fontValue ] ) {
-				weightObject = KmtFontFamilies.google[ fontValue ][0];
-				weightObject = Object.keys(weightObject).map(function(k) {
-				  return weightObject[k];
+			if (fontValue == 'inherit') {
+				weightObject = ['400', '500', '600', '700'];
+			} else if ('undefined' != typeof KmtFontFamilies.system[fontValue]) {
+				weightObject = KmtFontFamilies.system[fontValue].weights;
+			} else if ('undefined' != typeof KmtFontFamilies.google[fontValue]) {
+				weightObject = KmtFontFamilies.google[fontValue][0];
+				weightObject = Object.keys(weightObject).map(function (k) {
+					return weightObject[k];
 				});
-			} else if ( 'undefined' != typeof KmtFontFamilies.custom[ fontValue.split(',')[0] ] ) {
-				weightObject = KmtFontFamilies.custom[ fontValue.split(',')[0] ].weights;
+			} else if ('undefined' != typeof KmtFontFamilies.custom[fontValue.split(',')[0]]) {
+				weightObject = KmtFontFamilies.custom[fontValue.split(',')[0]].weights;
 			}
 
-			weightObject = $.merge( inheritWeightObject, weightObject )
-			weightMap[ 'inherit' ] = currentWeightTitle;
-			for ( ; i < weightObject.length; i++ ) {
+			weightObject = $.merge(inheritWeightObject, weightObject)
+			weightMap['inherit'] = currentWeightTitle;
+			for (; i < weightObject.length; i++) {
 
-				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
-					weightValue = weightObject[ 0 ];
-					selected 	= ' selected="selected"';
+				if (0 === i && -1 === $.inArray(weightValue, weightObject)) {
+					weightValue = weightObject[0];
+					selected = ' selected="selected"';
 				} else {
-					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+					selected = weightObject[i] == weightValue ? ' selected="selected"' : '';
 				}
 
-				weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
+				weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
 			}
 
-			weightSelect.html( weightOptions );
+			weightSelect.html(weightOptions);
 
-			if ( ! init ) {
-				api( weightKey ).set( '' );
-				api( weightKey ).set( weightValue );
+			if (!init) {
+				api(weightKey).set('');
+				api(weightKey).set(weightValue);
 			}
 		},
 	};
 
-	$( function() { KmtTypography.init(); } );
+	$(function () { KmtTypography.init(); });
 
-})( jQuery );
+})(jQuery);

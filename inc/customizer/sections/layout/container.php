@@ -144,14 +144,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Divider
+	 * Option: Title
 	 */
 	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-content-layout-divider]', array(
-				'type'     => 'kmt-divider',
-				'priority' => 30,
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-body-bg-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Body Background', 'kemet' ),
 				'section'  => 'section-container-layout',
+				'priority' => 30,
 				'settings' => array(),
 			)
 		)
@@ -200,6 +201,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+		/**
+	 * Option: Title
+	 */
+	$wp_customize->add_control(
+		new Kemet_Control_Title(
+			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-body-spacing-title]', array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Body Spacing', 'kemet' ),
+				'section'  => 'section-container-layout',
+				'priority' => 45,
+				'settings' => array(),
+			)
+		)
+	);
     
    /**
     * Option - Container Inner Spacing
@@ -217,7 +232,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            $wp_customize, KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-container-layout',
-               'priority'       => 45,
+               'priority'       => 50,
                'label'          => __( 'Inner Container Spacing', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),

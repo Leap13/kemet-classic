@@ -51,7 +51,7 @@
 /**
  * 2 - Header Layout 2
 */
-.header-main-layout-2 {
+.header-main-layout-3 {
 	.main-header-container {
 		display: block;
 	}
@@ -87,7 +87,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-2 {
+	.header-main-layout-3 {
 		.site-branding{
 			display: block;
 		}
@@ -112,7 +112,7 @@
 /**
  *  3 - Header Layout 3
 */
-.header-main-layout-3 {
+.header-main-layout-2 {
 	.main-header-container	{
 		  flex-direction: row-reverse;
 	}
@@ -134,29 +134,12 @@
 	.kmt-sitehead-custom-menu-items{
 		position: relative;
 	}
-	.kmt-search-menu-icon form{
-		padding: 0 0 0 3em;
-	}
-	li .kmt-search-icon{
-		padding-left: .5em;
-	}
-	.kmt-search-menu-icon {
-    	left: 0;
-    	right: 0;
-    }
-	li .kmt-search-menu-icon {
-		left: 1em;
-		right: 0;
-	}
 }
 
 .kmt-header-break-point {
-	.header-main-layout-3 {
+	.header-main-layout-2 {
 		.kmt-mobile-menu-buttons {
 			justify-content: flex-start;
-		}
-		li .kmt-search-menu-icon {
-			left: 0;
 		}
 		.site-branding{
 			padding-left: 1em;
@@ -180,7 +163,7 @@
 	.site-logo-img{
 		padding-right: 1em;
 	}
-	&.header-main-layout-2{
+	&.header-main-layout-3{
 		.site-logo-img + .kmt-site-title-wrap .site-title{
 			justify-content: flex-start;
 		}
@@ -242,6 +225,25 @@
 /**
  *  4 - Header Layout 4
 */
+.kmt-header-break-point{
+	.header-main-layout-4 {
+		.main-header-container{
+			ul#primary-menu , ul#left-menu{
+			position: static;
+			width: 100%;	
+		}
+		}
+		.kmt-main-header-bar-alignment{
+			flex: auto;
+		}
+		&.main-header-bar{
+			.main-header-bar-navigation{
+				display: block;
+			}
+		} 
+	}
+}
+
 .header-main-layout-4 {
 	.main-header-container
 	{

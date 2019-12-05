@@ -101,6 +101,19 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h5_font_size            = kemet_get_option( 'font-size-h5' );
 			$heading_h6_font_size            	= kemet_get_option( 'font-size-h6' );
 
+			//Menu Items
+			$menu_font_family 				= kemet_get_option( 'menu-items-font-family' );
+			$menu_font_weight 				= kemet_get_option( 'menu-items-font-weight' );
+			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
+			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color');
+			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
+
+			// Sub Menu Typography
+			$sub_menu_font_family 				= kemet_get_option( 'sub-menu-items-font-family' );
+			$sub_menu_font_weight 				= kemet_get_option( 'sub-menu-items-font-weight' );
+			$sub_menu_line_height                = kemet_get_option( 'sub-menu-items-line-height' );
+			$sub_menu_text_transform             = kemet_get_option( 'sub-menu-items-text-transform' );
+
 			//Layout Header
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
 			$space_header              = kemet_get_option( 'header-padding' );
@@ -113,6 +126,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
 			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' );
+			// Mobile Menu Options
+			$mobile_menu_icon_color        = kemet_get_option('mobile-menu-icon-color');
+			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
+			$mobile_menu_icon_h_color        = kemet_get_option('mobile-menu-icon-h-color');
+			$mobile_menu_icon_bg_h_color        = kemet_get_option('mobile-menu-icon-bg-h-color');
+			$mobile_menu_items_color        = kemet_get_option('mobile-menu-items-color');
+			$mobile_menu_items_bg_color        = kemet_get_option('mobile-menu-items-bg-color');
+			$mobile_menu_items_h_color        = kemet_get_option('mobile-menu-items-h-color');
 
 			//header submenu
 			$submenu_bg_color               = kemet_get_option( 'submenu-bg-color' );
@@ -135,6 +156,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_horizontal_padding = kemet_get_option( 'button-h-padding' );
 			$highlight_link_color   = kemet_get_foreground_color( $link_color );
 			$highlight_theme_color  = kemet_get_foreground_color( $theme_color );
+			
 
 			//Content
 			$content_text_color         = kemet_get_option( 'content-text-color' );
@@ -244,6 +266,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				$btn_text_hover_color = kemet_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color       = kemet_get_option( 'button-bg-color', $theme_color );
+			$btn_border_size     = kemet_get_option( 'btn-border-size' );
+			$btn_border_color    = kemet_get_option( 'btn-border-color' );
+			$btn_border_h_color  = kemet_get_option( 'btn-border-h-color' );				
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $link_hover_color );
 
 			// Spacing of Big Footer.
@@ -266,6 +291,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// Body Font Family.
 			$body_font_family = kemet_body_font_family();
 			$body_font_weight = kemet_get_option( 'body-font-weight' );
+			
+			// search style
+			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' );
+			$search_input_color = kemet_get_option( 'search-input-color' );
+			$search_border_size     = kemet_get_option( 'search-border-size' );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -383,17 +413,39 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Header - Main Header CSS.
-				'.main-header-menu a, .kmt-header-custom-item a' => array(
+				'.kmt-header-custom-item a' => array(
 					'color' => esc_attr( $text_color ),
 				),
 
 				// Main - Menu Items.
-				'.main-header-menu li:hover > a, .main-header-menu li:hover > .kmt-menu-toggle, .main-header-menu .kmt-sitehead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .kmt-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a, .main-header-menu .current-menu-item > .kmt-menu-toggle, .main-header-menu .current-menu-ancestor > .kmt-menu-toggle, .main-header-menu .current_page_item > .kmt-menu-toggle' => array(
+				'.main-header-menu li:hover > a, .main-header-menu li:hover > .kmt-menu-toggle, .main-header-menu .kmt-sitehead-custom-menu-items a:hover, .main-header-menu li.focus > a, .main-header-menu li.focus > .kmt-menu-toggle, .main-header-menu .current-menu-item > a, .main-header-menu .current-menu-ancestor > a, .main-header-menu .current_page_item > a' => array(
 					'color' => esc_attr( $link_color ),
 				),
-
-
-
+				// Mobile Menu Color
+				'.kmt-mobile-menu-buttons .menu-toggle .menu-toggle-icon ' => array(
+					'color'  => esc_attr( $mobile_menu_icon_color ),
+				),
+				'.kmt-mobile-menu-buttons .menu-toggle' => array(
+					'background-color'  => esc_attr( $mobile_menu_icon_bg_color ),
+				),
+				'.kmt-mobile-menu-buttons .menu-toggle:hover, .kmt-mobile-menu-buttons .menu-toggle.toggled' => array(
+					'background-color'  => esc_attr( $mobile_menu_icon_bg_h_color ),
+				),
+				'.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon' => array(
+					'color'  => esc_attr( $mobile_menu_icon_h_color ),
+				),
+				'.toggle-on li a, .menu-toggle.toggled .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children>.kmt-menu-toggle' => array(
+					'color'  => esc_attr( $mobile_menu_items_color ),
+				),
+				'.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a' => array(
+					'color'  => esc_attr( $mobile_menu_items_h_color ),
+				),
+				'.toggle-on .main-header-menu' => array(
+					'background-color' => esc_attr( $mobile_menu_items_bg_color ),
+				),
+				'.toggle-on .main-header-menu .menu-item:hover > a' => array(
+					'border-bottom-color'  => esc_attr( $mobile_menu_items_h_color ),
+				),
 
 				// Input tags.
 				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
@@ -410,11 +462,20 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.main-header-menu a'  => array(
 					'color' => esc_attr( $menu_link_color ),
+					'font-family'    => kemet_get_font_family( $menu_font_family ),
+					'font-weight'     => esc_attr( $menu_font_weight ),
+					'text-transform'  => esc_attr( $menu_text_transform ),
+				),
+				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
+					'line-height' => esc_attr( $menu_line_height ),
+				), 
+				'.main-header-menu > .menu-item:hover > a'  => array(
+					'border-bottom-color' => esc_attr( $menu_link_bottom_border_color ),
 				),
 				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),
 				),
-				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
+				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a'  => array(
 					'color' => esc_attr( $menu_link_active_color ),
 			    ),
 				//submenu
@@ -432,6 +493,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				
 				'.main-header-menu .sub-menu li a'  => array(
 					'color' => esc_attr( $submenu_link_color ),
+					'font-family'    => kemet_get_font_family( $sub_menu_font_family ),
+					'font-weight'     => esc_attr( $sub_menu_font_weight ),
+					'text-transform'  => esc_attr( $sub_menu_text_transform ),
+					'line-height' => esc_attr( $sub_menu_line_height ),
 				),
 				'.main-header-menu .sub-menu li:hover > a'  => array(
 					'color' => esc_attr( $submenu_link_h_color ),
@@ -461,7 +526,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $kemet_footer_widget_title_color ),
 				),
 
-				'.kemet-footer'                          => array(
+				'.site-footer'                          => array(
 					'color' => esc_attr( $kemet_footer_text_color ),
 				),
 				
@@ -504,6 +569,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				'.kemet-footer .widget-title'       => array(
 					'font-size' => kemet_responsive_font( $kemet_footer_widget_title_font_size , 'desktop' ),
+                    'font-family'    => kemet_get_font_family( $kemet_footer_wgt_title_font_family ),
+					'font-weight'    => esc_attr( $kemet_footer_wgt_title_font_weight ),
+					'text-transform' => esc_attr( $kemet_footer_wgt_title_text_transform ),
+					'line-height'    => esc_attr( $kemet_footer_wgt_title_line_height ),
 				),	
                 
 				'.kemet-footer a'                           => array(
@@ -547,23 +616,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.menu-toggle, button, .kmt-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
+				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_get_css_value( $btn_border_radius, 'px' ),
 					'padding'          => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 					'color'            => esc_attr( $btn_text_color ),
-					'border-color'     => esc_attr( $btn_bg_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
-				),
-				'.menu-toggle, button, .kmt-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'border-radius'    => kemet_get_css_value( $btn_border_radius, 'px' ),
-					'padding'          => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
-					'color'            => esc_attr( $btn_text_color ),
-					'border-color'     => esc_attr( $btn_bg_color ),
-					'background-color' => esc_attr( $btn_bg_color ),
+					'border' 		   => 'solid',
+					'border-color'     => esc_attr( $btn_border_color ),
+					'border-width'     => kemet_get_css_value( $btn_border_size , 'px' , '0' ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
-					'border-color'     => esc_attr( $btn_bg_hover_color ),
+					'border-color'     => esc_attr( $btn_border_h_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
 				),
 				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
@@ -729,7 +793,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
             'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'desktop' ),
             'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
-               ),
+			   ),
+			//Search From Style
+			'.kmt-search-menu-icon form .search-field' => array(
+					'background-color' => esc_attr($search_input_bg_color),
+					'color' 		=> esc_attr($search_input_color),
+				),
+			'.kmt-search-menu-icon form' => array(
+					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
+                ),
 			);
 
 			/* Parse CSS from array() */

@@ -1,0 +1,11 @@
+.customize-control-kmt-title .customize-control-title {
+    font-size: 14px;
+    margin: 1em -0.750em 0.2em;
+    background-color: #f9f9f9;
+    width: 100%;
+    padding: 7px 10px;
+    border-left: 3px solid #9c9c9c;
+    color: #737373;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

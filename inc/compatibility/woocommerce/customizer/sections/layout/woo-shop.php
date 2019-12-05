@@ -124,20 +124,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Woocommerce Shop Archive Content Divider
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Divider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-width-divider]', array(
-				'section'  => 'section-woo-shop',
-				'type'     => 'kmt-divider',
-				'priority' => 220,
-				'settings' => array(),
-			)
-		)
-	);
-
-	/**
 	 * Option: Shop Archive Content Width
 	 */
 	$wp_customize->add_setting(

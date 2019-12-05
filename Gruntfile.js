@@ -370,7 +370,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+   // grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -389,7 +389,7 @@ module.exports = function (grunt) {
     grunt.registerTask('style', ['scss', 'postcss:style', 'rtl']);
 
     // min all
-    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css', 'concat']);
+    grunt.registerTask('minify', ['style', 'uglify:js', 'cssmin:css']);
 
     // Update google Fonts
     grunt.registerTask('google-fonts', function () {

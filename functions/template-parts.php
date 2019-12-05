@@ -229,7 +229,9 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 *
 	 */
 	function kemet_sitehead_primary_template() {
-		get_template_part( 'templates/header/header-main-layout' );
+		if ( apply_filters( 'kemet_primary_header_enabled', true ) ) {
+			get_template_part( 'templates/header/header-main-layout' );
+		}
 	}
 }
 
