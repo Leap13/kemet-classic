@@ -86,13 +86,12 @@
 .kmt-search-menu-icon {
 	visibility: hidden;
 	opacity: 0;
-	transition: all 1s;
+	transition: all 0.5s;
 	position: absolute;
 	z-index: 3;
 	right: auto;
-	top: 50%;
-	transform: translateY(80%);
-
+	top: 50px;
+	right: 30px;
 	.kemet-search-icon {
 		line-height: normal;
 	}
@@ -106,17 +105,8 @@
 		position: relative;
 		color: inherit;
 		background-color: transparent;
-		background-color:$color-background-screen;
+		background-color: #f2f2f2;
 		margin: auto;
-		&:before{
-			content:"\A";
-			border-left: 14px solid transparent;
-			border-right: 14px solid transparent;
-			border-bottom: 14px solid;
-			position: absolute;
-			bottom: 100%;
-			right: 85%;
-			}
 	}
 
 	.search-field {
@@ -128,7 +118,6 @@
 		width: 240px;
 		margin: 5px;
 		&:focus {
-			background-color: transparent;
 			outline: none;
 		}
 	}
@@ -141,9 +130,9 @@
 	&.kmt-dropdown-active {
 		visibility: visible;
 		opacity: 1;
+		right: 0;
 	}
 }
-
 li.kmt-sitehead-custom-menu-items {
 	padding: 0 1em;
 

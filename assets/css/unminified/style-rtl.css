@@ -2830,6 +2830,16 @@ body {
 /**
  * 2 - Header Layout 2
 */
+.header-main-layout-3 .kmt-search-menu-icon {
+  left: auto;
+  right: 30px;
+}
+
+.header-main-layout-3 .kmt-dropdown-active {
+  left: auto !important;
+  right: 0;
+}
+
 .header-main-layout-3 .main-header-container {
   display: block;
 }
@@ -2881,6 +2891,16 @@ body {
   text-align: center;
 }
 
+.kmt-header-break-point .header-main-layout-3 .kmt-search-menu-icon {
+  left: 30px;
+  right: auto;
+}
+
+.kmt-header-break-point .header-main-layout-3 .kmt-dropdown-active {
+  left: 0 !important;
+  right: auto;
+}
+
 .kmt-header-break-point .header-main-layout-3 .site-branding {
   display: block;
 }
@@ -2907,6 +2927,16 @@ body {
 /**
  *  3 - Header Layout 3
 */
+.header-main-layout-2 .kmt-search-menu-icon {
+  left: auto;
+  right: 30px;
+}
+
+.header-main-layout-2 .kmt-dropdown-active {
+  left: auto !important;
+  right: 0;
+}
+
 .header-main-layout-2 .main-header-container {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -2947,6 +2977,16 @@ body {
 
 .header-main-layout-2 .kmt-sitehead-custom-menu-items {
   position: relative;
+}
+
+.kmt-header-break-point .header-main-layout-2 .kmt-search-menu-icon {
+  left: 30px;
+  right: auto;
+}
+
+.kmt-header-break-point .header-main-layout-2 .kmt-dropdown-active {
+  left: 0 !important;
+  right: auto;
 }
 
 .kmt-header-break-point .header-main-layout-2 .kmt-mobile-menu-buttons {
@@ -3138,6 +3178,75 @@ body {
   -moz-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-icon {
+  display: none;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-container {
+  width: 250px;
+  margin: auto;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon {
+  width: 250px;
+  visibility: visible;
+  opacity: 1;
+  position: static;
+  display: block;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  left: 0;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-submit {
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0 1em;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-field {
+  width: 100%;
+  margin: 0;
+}
+
+.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-form {
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-icon {
+  display: block;
+}
+
+.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon {
+  left: 30px;
+}
+
+.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-submit {
+  display: none;
+}
+
+.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-dropdown-active {
+  visibility: visible;
+  opacity: 1;
+  left: 0;
+}
+
+.search-box-shadow .kmt-search-menu-icon form {
+  -webkit-box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* 3 - Header Common  */
@@ -3399,15 +3508,13 @@ body {
 .kmt-search-menu-icon {
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
   position: absolute;
   z-index: 3;
   left: auto;
-  top: 50%;
-  -webkit-transform: translateY(80%);
-  -ms-transform: translateY(80%);
-  transform: translateY(80%);
+  top: 50px;
+  left: 30px;
 }
 
 .kmt-search-menu-icon .kemet-search-icon {
@@ -3425,18 +3532,8 @@ body {
   position: relative;
   color: inherit;
   background-color: transparent;
-  background-color: #f1f1f1;
+  background-color: #f2f2f2;
   margin: auto;
-}
-
-.kmt-search-menu-icon form:before {
-  content: "\A";
-  border-right: 14px solid transparent;
-  border-left: 14px solid transparent;
-  border-bottom: 14px solid;
-  position: absolute;
-  bottom: 100%;
-  left: 85%;
 }
 
 .kmt-search-menu-icon .search-field {
@@ -3452,7 +3549,6 @@ body {
 }
 
 .kmt-search-menu-icon .search-field:focus {
-  background-color: transparent;
   outline: none;
 }
 
@@ -3463,6 +3559,7 @@ body {
 .kmt-search-menu-icon.kmt-dropdown-active {
   visibility: visible;
   opacity: 1;
+  left: 0;
 }
 
 li.kmt-sitehead-custom-menu-items {

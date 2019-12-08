@@ -287,15 +287,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$blog_width            = kemet_get_option( 'blog-width' );
 			$blog_max_width        = kemet_get_option( 'blog-max-width' );
 
+			//Search Style
+			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' );
+			$search_input_color = kemet_get_option( 'search-input-color' );
+			$search_border_color         = Kemet_get_option('search-border-color');
+			$search_btn_bg_color         = kemet_get_option('search-btn-bg-color'); 
+            $search_btn_h_bg_color       = kemet_get_option('search-btn-h-bg-color'); 
+            $search_btn_color            = kemet_get_option('search-btn-color'); 
+            $search_border_size     = kemet_get_option( 'search-border-size' );
 			$css_output = array();
 			// Body Font Family.
 			$body_font_family = kemet_body_font_family();
 			$body_font_weight = kemet_get_option( 'body-font-weight' );
-			
-			// search style
-			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' );
-			$search_input_color = kemet_get_option( 'search-input-color' );
-			$search_border_size     = kemet_get_option( 'search-border-size' );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -475,7 +478,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover' => array (
 					'color' => esc_attr( $menu_link_h_color ),
 				),
-				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a'  => array(
+				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
 					'color' => esc_attr( $menu_link_active_color ),
 			    ),
 				//submenu
@@ -800,8 +803,19 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' 		=> esc_attr($search_input_color),
 				),
 			'.kmt-search-menu-icon form' => array(
-					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
+					'border-color' => esc_attr($search_border_color),
+                    'background-color' => esc_attr($search_border_color),
+				),
+			'.kmt-search-menu-icon .search-submit' => array(
+                    'background-color' => esc_attr($search_btn_bg_color),
+                    'color' => esc_attr($search_btn_color),
                 ),
+                '.kmt-search-menu-icon .search-submit:hover' => array(
+					'background-color' => esc_attr($search_btn_h_bg_color),
+				),
+			'.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon form , .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form' => array(
+					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
+				),				
 			);
 
 			/* Parse CSS from array() */
