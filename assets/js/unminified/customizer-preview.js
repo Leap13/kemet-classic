@@ -529,15 +529,6 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		});
 	});
 
-	wp.customize('kemet-settings[search-border-size]', function (setting) {
-		setting.bind(function (border) {
-
-			var dynamicStyle = '.kmt-search-menu-icon form';
-
-			kemet_add_dynamic_css('search-border-size', dynamicStyle);
-		});
-	});
-
 	/**
 	 * Button Vertical Padding
 	 */
@@ -676,18 +667,24 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 		} );
 	} );
 	//Search
+	kemet_css('kemet-settings[search-btn-bg-color]', 'background-color', '.kmt-search-menu-icon .search-submit');
+	kemet_css('kemet-settings[search-btn-h-bg-color]', 'background-color', '.kmt-search-menu-icon .search-submit:hover');
+	kemet_css('kemet-settings[search-btn-color]', 'color', '.kmt-search-menu-icon .search-submit');
 	kemet_css('kemet-settings[search-input-bg-color]', 'background-color', '.kmt-search-menu-icon form .search-field');
 	kemet_css('kemet-settings[search-input-color]', 'color', '.kmt-search-menu-icon form .search-field');
+	wp.customize('kemet-settings[search-border-size]', function (setting) {
+		setting.bind(function (border) {
+			var dynamicStyle = '.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-form { border-width: ' + border + 'px } .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form { border-width: ' + border + 'px }';
+
+			kemet_add_dynamic_css('search-border-size', dynamicStyle);
+		});
+	});
 	wp.customize('kemet-settings[search-border-color]', function (value) {
 		value.bind(function (border_color) {
 			jQuery('.kmt-search-menu-icon form').css('border-color', border_color);
 			jQuery('.kmt-search-menu-icon form').css('background-color', border_color);
 		});
 	});
-	//Search Input Background Color
-	kemet_css('kemet-settings[search-input-bg-color]', 'background-color', '.kmt-search-menu-icon form .search-field');
-	kemet_css('kemet-settings[search-input-color]', 'color', '.kmt-search-menu-icon form .search-field');
-
 	/**submenu color */
 	kemet_css( 'kemet-settings[submenu-link-color]', 'color', '.main-header-menu .sub-menu li a' );
 	kemet_css( 'kemet-settings[submenu-link-h-color]', 'color', '.main-header-menu .sub-menu li:hover > a' );

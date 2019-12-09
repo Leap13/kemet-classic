@@ -52,8 +52,32 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
 		}
 
+
+		public function header_classes( $classes ) {
+			
+			$search_box_shadow = kemet_get_option('search-box-shadow');
+
+			if($search_box_shadow == true){
+				$classes[] = 'search-box-shadow';
+			}
+			$search_style = kemet_get_option('search-style');
+			if ( wp_is_mobile() ) {
+				$custom_items_outside = kemet_get_option('header-display-outside-menu');
+				if($custom_items_outside == true){
+					$classes[] = 'search-icon';
+				}else{
+					$classes[] = 'search-box';
+				}
+			}else{
+				$classes[] = $search_style;
+			}
+				
+			return $classes;
+		 }
+		 
 		/**
 		 * Print Footer Scripts
 		 *
