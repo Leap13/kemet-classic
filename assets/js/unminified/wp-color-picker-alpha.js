@@ -138,7 +138,7 @@
 			 * CSS for support < 4.9
 			 */
 			self.toggler.css({
-				'height': '24px',
+				'height': '28px',
 				'margin': '0 6px 6px 0',
 				'padding': '0 0 0 30px',
 				'font-size': '11px'
@@ -150,7 +150,7 @@
 				'border-left': '1px solid #ccc',
 				'color': '#555',
 				'display': 'block',
-				'line-height': '22px',
+				'line-height': '26px',
 				'padding': '0 6px',
 				'text-align': 'center'
 			});
@@ -184,7 +184,7 @@
 						}
 						self.toggler.find( 'span.color-alpha' ).css( {
 							'width'                     : '30px',
-							'height'                    : '24px',
+							'height'                    : '26px',
 							'position'                  : 'absolute',
 							'top'                       : 0,
 							'left'                      : 0,

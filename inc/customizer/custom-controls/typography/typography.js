@@ -46,12 +46,13 @@
 		_initFont: function () {
 			var select = $(this),
 				link = select.data('customize-setting-link'),
-				weight = select.data('data-connected-control');
+				weight = select.data('connected-control');
 
 			if ('undefined' != typeof weight) {
 				api(link).bind(KmtTypography._fontSelectChange);
 				KmtTypography._setFontWeightOptions.apply(api(link), [true]);
 			}
+
 		},
 
 		/**
@@ -62,6 +63,7 @@
 		 */
 		_fontSelectChange: function () {
 			KmtTypography._setFontWeightOptions.apply(this, [false]);
+
 		},
 
 		/**
@@ -114,7 +116,6 @@
 			if (fontValue == 'inherit') {
 				weightValue = init ? weightSelect.val() : 'inherit';
 			}
-
 			var fontValue = KmtTypography._cleanGoogleFonts(fontValue);
 
 			if (fontValue == 'inherit') {

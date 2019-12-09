@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
-			return $output;
+			echo $output;
 		}
 
 		/**
