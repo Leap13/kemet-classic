@@ -272,6 +272,7 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
+        $search_html .= '</div>';
 
 		return apply_filters( 'kemet_get_search', $search_html, $option );
 	}
