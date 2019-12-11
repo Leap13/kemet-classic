@@ -3198,6 +3198,7 @@ body {
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
+  right: 0px;
 }
 
 .search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-submit {
