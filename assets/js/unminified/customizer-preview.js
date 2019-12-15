@@ -1057,8 +1057,18 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 			kemet_background_obj_css( wp.customize, bg_obj, 'readmore-bg-h-color', dynamicStyle );
 		} );
 	} );
+	//Separator Color
+	wp.customize('kemet-settings[separator-color]', function (value) {
+		value.bind(function (color) {
+			var dynamicStyle = '.main-header-menu.menu-separator>.menu-item:not(:first-child)::before { color: ' + color + '; } .main-header-menu.menu-separator.circle>.menu-item:not(:first-child)::before { background-color: ' + color + '; ';
+			kemet_add_dynamic_css('separator-color', dynamicStyle);
+		});
+	});
+	wp.customize('kemet-settings[separator-last-items-color]', function (value) {
+		value.bind(function (color) {
+			var dynamicStyle = '.main-header-bar .kmt-sitehead-custom-menu-items.separator:before { color: ' + color + '; ';
+			kemet_add_dynamic_css('separator-last-items-color', dynamicStyle);
+		});
+	});
+})(jQuery);
 
-
-	
-
-} )( jQuery );

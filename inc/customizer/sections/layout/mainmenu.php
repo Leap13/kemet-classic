@@ -144,10 +144,10 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
 			'priority' => 21,
-			'label'    => __( 'Search Style', 'kemet-addons' ),
+			'label'    => __( 'Search Style', 'kemet-addons', 'kemet' ),
 			'choices'  => array(
-				'search-box'    => __( 'Search Box', 'kemet-addons' ),
-				'search-icon'   => __( 'Icon', 'kemet-addons' ),
+				'search-box'    => __( 'Search Box', 'kemet-addons', 'kemet' ),
+				'search-icon'   => __( 'Icon', 'kemet-addons', 'kemet' ),
 			),
 		)
 	);	
@@ -792,8 +792,109 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
 				'label'   => __( 'Mobile Menu Items Hover Color', 'kemet' ),
-				'priority'       => 155,
+				'priority'       => 170,
 				'section' => 'section-menu-header',
 			)
+		)
+	);
+	/**
+	 * Option: Main Menu Separator
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[main-menu-separator]', array(
+			'default'           => true,
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[main-menu-separator]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'priority' => 175,
+			'label'    => __( 'Main Menu Separator', 'kemet-addons', 'kemet' ),
+		)
+	);
+	/**
+    * Option - Separator Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[separator-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-color]', array(
+			'label'   => __( 'Separator Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 180,
+		  )
+		)
+	);
+
+	/**
+	 * Option: Separator Style
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[separator-style]', array(
+			'default'           => 'vertical-bar',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[separator-style]', array(
+			'type'     => 'select',
+			'section'  => 'section-menu-header',
+			'priority' => 185,
+			'label'    => __( 'Separator Style', 'kemet' ),
+			'choices'  => array(
+				'vertical-bar'    => __( 'Vertical Bar', 'kemet' ),
+				'back-slash' => __( 'Back Slash', 'kemet' ),
+				'circle' => __( 'Circle', 'kemet' ),
+			),
+		)
+	);
+
+	/**
+	 * Option: Menu Last Items Menu Separator
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[last-items-separator]', array(
+			'default'           => true,
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[last-items-separator]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'priority' => 190,
+			'label'    => __( 'Menu Last Items Menu Separator', 'kemet-addons', 'kemet' ),
+		)
+	);
+	/**
+    * Option - Separator Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[separator-last-items-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-last-items-color]', array(
+			'label'   => __( 'Separator Last Items Menu Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 20,
+		  )
 		)
 	);

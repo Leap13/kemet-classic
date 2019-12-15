@@ -295,6 +295,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             $search_btn_h_bg_color       = kemet_get_option('search-btn-h-bg-color'); 
             $search_btn_color            = kemet_get_option('search-btn-color'); 
             $search_border_size     = kemet_get_option( 'search-border-size' );
+			
+			//Main Menu Separator
+			$separator_color 		= kemet_get_option( 'separator-color' );
+			$separator_last_items_color = kemet_get_option( 'separator-last-items-color' );
 			$css_output = array();
 			// Body Font Family.
 			$body_font_family = kemet_body_font_family();
@@ -815,7 +819,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 			'.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon form , .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form' => array(
 					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
-				),				
+				),
+				//Separator Color
+			'.main-header-menu.menu-separator>.menu-item:not(:first-child):before' => array(
+					'color' 		=> esc_attr($separator_color),
+				),	
+			'.main-header-menu.menu-separator.circle>.menu-item:not(:first-child):before' => array(
+					'background-color' 		=> esc_attr($separator_color),
+				),	
+			'.main-header-bar .kmt-sitehead-custom-menu-items.separator:before' => array(
+					'color' 		=> esc_attr($separator_last_items_color),
+				),					
+			
 			);
 
 			/* Parse CSS from array() */

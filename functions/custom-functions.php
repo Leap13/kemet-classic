@@ -584,7 +584,12 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
-    $header_layout      = kemet_get_option( 'header-layouts' );
+    	$header_layout      = kemet_get_option( 'header-layouts' );
+		$separator_classes  = '';
+		if(kemet_get_option('main-menu-separator')){
+			$separator_classes .= ' menu-separator ';
+			$separator_classes   .= kemet_get_option( 'separator-style' );
+		}
 
 		if ( $disable_primary_navigation ) {
 
@@ -605,7 +610,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
 
@@ -619,7 +624,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -628,7 +633,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$left_menu_args = array(
 				'theme_location'  => 'left_menu',
 				'menu_id'         => 'left-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
