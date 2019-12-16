@@ -2846,7 +2846,6 @@ body {
 
 .header-main-layout-3 .site-branding {
   text-align: center;
-  padding-bottom: 1em;
 }
 
 .header-main-layout-3 .site-title {
@@ -3010,6 +3009,10 @@ body {
   padding-left: 0;
 }
 
+.kmt-site-title-wrap {
+  padding-top: 10px;
+}
+
 /**
  * 4 - Header Inline Logo & Site Title 
 */
@@ -3038,6 +3041,10 @@ body {
   -moz-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+.kmt-logo-title-inline .kmt-site-title-wrap {
+  padding-top: 0px;
 }
 
 /* Mobile Header Alignment */

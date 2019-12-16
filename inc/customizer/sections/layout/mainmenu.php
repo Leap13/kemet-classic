@@ -143,14 +143,188 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[search-style]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 21,
+			'priority' => 25,
 			'label'    => __( 'Search Style', 'kemet-addons', 'kemet' ),
 			'choices'  => array(
 				'search-box'    => __( 'Search Box', 'kemet-addons', 'kemet' ),
 				'search-icon'   => __( 'Icon', 'kemet-addons', 'kemet' ),
 			),
+			'active_callback' => 'kemet_search_option_is_enabled',
 		)
 	);	
+	/**
+	 * Option: Search Box Shadow
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-box-shadow]', array(
+			'default'           => false,
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[search-box-shadow]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'priority' => 30,
+			'label'    => __( 'Enable Search Box Shadow', 'kemet-addons', 'kemet' ),
+			'active_callback' => 'kemet_search_option_is_enabled',
+		)
+	);	
+	/**
+   	* Option: Search Button Background Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
+			'label'   => __( 'Search Button Background Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 35,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+	/**
+   	* Option: Search Button Hover Background Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
+			'label'   => __( 'Search Button Hover', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 40,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+	/**
+   	* Option: Search Button Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-btn-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-color]', array(
+			'label'   => __( 'Search Button Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 45,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+	if(kemet_get_option('search-style') == 'search-box'){
+	/**
+	 * Option: Search Form Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-border-size]', array(
+			'default'           => kemet_get_option( 'search-border-size' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[search-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-menu-header',
+			'priority'    => 50,
+			'label'       => __( 'Search Form Border Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 15,
+			),
+			'active_callback' => 'kemet_search_option_is_enabled',
+		)
+	);
+}
+	/**
+   	* Option: Search Border Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-border-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-border-color]', array(
+			'label'   => __( 'Search Border Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 55,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+	/**
+    * Option - Search Background
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
+			'label'   => __( 'Search Form Background Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 60,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+	/**
+    * Option - Search Font Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[search-input-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-color]', array(
+			'label'   => __( 'Search Form Font Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 65,
+			'active_callback' => 'kemet_search_option_is_enabled',
+		  )
+		)
+	);
+
 	/**
 	 * Option: Menu Background Color
 	 */
@@ -164,7 +338,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-        'priority'       => 25,
+        'priority'       => 70,
         'section' => 'section-menu-header',
 				'label'   => __( 'Menu Background Color', 'kemet' ),
 			)
@@ -188,7 +362,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-items-font-family]', array(
 				'type'        => 'kmt-font-family',
 				'section'     => 'section-menu-header',
-				'priority'    => 30,
+				'priority'    => 75,
 				'label'       => __( 'Font Family', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[menu-items-font-weight]',
 			)
@@ -210,7 +384,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-items-font-weight]', array(
 				'type'        => 'kmt-font-weight',
 				'section'     => 'section-menu-header',
-				'priority'    => 35,
+				'priority'    => 80,
 				'label'       => __( 'Font Weight', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[menu-items-font-family]',
 			)
@@ -232,7 +406,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[menu-items-text-transform]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 40,
+			'priority' => 85,
 			'label'    => __( 'Text Transform', 'kemet' ),
 			'choices'  => array(
 				''           => __( 'Default', 'kemet' ),
@@ -260,7 +434,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-items-line-height]', array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-menu-header',
-				'priority'    => 45,
+				'priority'    => 90,
 				'label'       => __( 'Line Height', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
@@ -286,7 +460,7 @@ $header_rt_sections = array(
 			new Kemet_Control_Color(
 				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-color]', array(
 					'label'   => __( 'Menu Link Color', 'kemet' ),
-					'priority'       => 50,
+					'priority'       => 95,
 					'section' => 'section-menu-header',
 				)
 			)
@@ -307,7 +481,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
 				'label'   => __( 'Menu Link Hover Color', 'kemet' ),
-				'priority'       => 55,
+				'priority'       => 100,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -328,7 +502,7 @@ $header_rt_sections = array(
 			new Kemet_Control_Color(
 				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
 					'label'   => __( 'Menu Link Bottom Border Color', 'kemet' ),
-					'priority'       => 60,
+					'priority'       => 105,
 					'section' => 'section-menu-header',
 				)
 			)
@@ -349,7 +523,7 @@ $header_rt_sections = array(
 				new Kemet_Control_Color(
 					$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
 						'label'   => __( 'Menu Link Active Color', 'kemet' ),
-						'priority'       => 65,
+						'priority'       => 110,
 						'section' => 'section-menu-header',
 					)
 				)
@@ -363,7 +537,7 @@ $header_rt_sections = array(
 				'type'     => 'kmt-title',
 				'label'    => __( 'Submenu Settings', 'kemet' ),
 				'section'  => 'section-menu-header',
-				'priority' => 66,
+				'priority' => 115,
 				'settings' => array(),
 			)
 		)
@@ -381,7 +555,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
-        'priority'       => 70,
+        'priority'       => 120,
         'section' => 'section-menu-header',
 				'label'   => __( 'SubMenu Background Color', 'kemet' ),
 			)
@@ -402,7 +576,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
 				'label'   => __( 'SubMenu Link Color', 'kemet' ),
-				'priority'       => 75,
+				'priority'       => 125,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -424,7 +598,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
 				'type'        => 'kmt-font-family',
 				'section'     => 'section-menu-header',
-				'priority'    => 80,
+				'priority'    => 130,
 				'label'       => __( 'Submenu Font Family', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]',
 			)
@@ -446,7 +620,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]', array(
 				'type'        => 'kmt-font-weight',
 				'section'     => 'section-menu-header',
-				'priority'    => 85,
+				'priority'    => 135,
 				'label'       => __( 'Sebmenu Font Weight', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]',
 			)
@@ -468,7 +642,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-text-transform]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 90,
+			'priority' => 140,
 			'label'    => __( 'Submenu Text Transform', 'kemet' ),
 			'choices'  => array(
 				''           => __( 'Default', 'kemet' ),
@@ -496,7 +670,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-line-height]', array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-menu-header',
-				'priority'    => 95,
+				'priority'    => 145,
 				'label'       => __( 'Submenu Line Height', 'kemet' ),
 				'suffix'      => '',
 				'input_attrs' => array(
@@ -624,7 +798,7 @@ $header_rt_sections = array(
 				'type'     => 'kmt-title',
 				'label'    => __( 'Mobile Menu Settings', 'kemet' ),
 				'section'  => 'section-menu-header',
-				'priority' => 121,
+				'priority' => 125,
 				'settings' => array(),
 			)
 		)
@@ -644,7 +818,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[header-main-menu-label]', array(
 			'section'  => 'section-menu-header',
-			'priority' => 125,
+			'priority' => 130,
 			'label'    => __( 'Menu Label on Small Devices', 'kemet' ),
 			'type'     => 'text',
 		)
@@ -664,7 +838,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[header-main-menu-align]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 130,
+			'priority' => 135,
 			'label'    => __( 'Mobile Menu Alignment', 'kemet' ),
 			'choices'  => array(
 				'inline' => __( 'Inline', 'kemet' ),
@@ -688,7 +862,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
 				'label'   => __( 'Mobile Menu Icon Color', 'kemet' ),
-				'priority'       => 135,
+				'priority'       => 140,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -704,7 +878,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
-        'priority'       => 140,
+        'priority'       => 145,
         'section' => 'section-menu-header',
 				'label'   => __( 'Mobile Menu Background Color', 'kemet' ),
 			)
@@ -723,7 +897,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
 				'label'   => __( 'Mobile Menu Icon Hover Color', 'kemet' ),
-				'priority'       => 145,
+				'priority'       => 150,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -739,7 +913,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
-        'priority'       => 150,
+        'priority'       => 155,
         'section' => 'section-menu-header',
 				'label'   => __( 'Mobile Menu Background Hover Color', 'kemet' ),
 			)
@@ -758,7 +932,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
 				'label'   => __( 'Mobile Menu Items Color', 'kemet' ),
-				'priority'       => 155,
+				'priority'       => 160,
 				'section' => 'section-menu-header',
 			)
 		)
@@ -774,7 +948,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
-        'priority'       => 160,
+        'priority'       => 165,
         'section' => 'section-menu-header',
 				'label'   => __( 'Mobile Menu Items Background Color', 'kemet' ),
 			)
@@ -894,7 +1068,7 @@ $header_rt_sections = array(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-last-items-color]', array(
 			'label'   => __( 'Separator Last Items Menu Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
-			'priority' => 20,
+			'priority' => 195,
 		  )
 		)
 	);

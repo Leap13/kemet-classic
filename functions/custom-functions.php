@@ -1415,3 +1415,11 @@ if ( ! function_exists( 'kemet_prop' ) ) :
 	}
 
 endif;
+
+function kemet_search_option_is_enabled() {
+	if ( in_array('search') == kemet_get_option( 'header-main-rt-section') ) {
+		return false;
+	} else {
+		return true;
+	}
+}
