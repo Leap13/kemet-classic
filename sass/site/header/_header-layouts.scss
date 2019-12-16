@@ -183,6 +183,10 @@
 	}
 }
 
+.kmt-site-title-wrap {
+		padding-top: 10px;
+}
+
 /**
  * 4 - Header Inline Logo & Site Title 
 */
@@ -199,6 +203,9 @@
 		.site-logo-img + .kmt-site-title-wrap .site-title{
 			justify-content: flex-start;
 		}
+	}
+	.kmt-site-title-wrap {
+		padding-top: 0px;
 	}
 }
 

@@ -3443,6 +3443,10 @@ body {
   line-height: 1;
 }
 
+.kmt-site-identity {
+  padding: 20px 0px;
+}
+
 .kmt-menu-toggle {
   display: none;
   background: transparent;
