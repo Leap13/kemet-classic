@@ -54,6 +54,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'step' => 1,
 					'max'  => 600,
 				),
+				'description'  => __('This option will not increase your uploaded logo width beyond its original size.', 'kemet'),
+
 			)
 		)
 	);

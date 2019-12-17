@@ -119,9 +119,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					</li>
 				</ul>
 			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } 
+			<#
 
 			value_desktop = '';
 			value_tablet  = '';
@@ -185,6 +183,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>
+			<# if ( data.description ) { #>
+				<span class="description customize-control-description">{{{ data.description }}}</span>
+			<# } #>
 		</label>
 		<?php
 	}

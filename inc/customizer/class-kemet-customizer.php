@@ -85,23 +85,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 */
 		public function print_footer_scripts() {
 			$output      = '<script type="text/javascript">';
-				$output .= '
-	        	wp.customize.bind(\'ready\', function() {
-	            	wp.customize.control.each(function(ctrl, i) {
-	                	var desc = ctrl.container.find(".customize-control-description");
-	                	if( desc.length) {
-	                    	var title 		= ctrl.container.find(".customize-control-title");
-	                    	var li_wrapper 	= desc.closest("li");
-	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
-	                    			return \'&#\'+i.charCodeAt(0)+\';\';
-								});
-	                    	desc.remove();
-	                    	li_wrapper.append(" <i class=\'kmt-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
-	                	}
-	            	});
-	        	});';
-
-				$output .= Kemet_Fonts_Data::js();
+			$output .= Kemet_Fonts_Data::js();
 			$output     .= '</script>';
 
 			echo $output;
