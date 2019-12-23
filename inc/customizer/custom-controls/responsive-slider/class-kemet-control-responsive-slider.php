@@ -44,7 +44,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @var array
 	 */
 	public $unit_choices = array( 'px' => 'px' );
-
+	public $units_range = '';
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
@@ -86,17 +86,40 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		}
 
 		$this->json['value']  = $val;
-		$this->json['choices'] = $this->choices;
 		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
 
 		$this->json['unit_choices']   = $this->unit_choices;
-		$this->json['inputAttrs']     = '';
-		foreach ( $this->input_attrs as $attr => $value ) {
-			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
+		
+		$this->json['unitsRange'] 	  = '';
+
+		
+
+		$this->json['desktopInputAttrs']     = '';
+		$this->json['tabletInputAttrs']     = '';
+		$this->json['mobileInputAttrs']     = '';
+		
+		foreach ( $this->input_attrs as $unit => $attrs ) {
+			if($unit == $val['desktop-unit']){
+				foreach($attrs as $attr => $value){
+					$this->json['desktopInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
+				}
+			}
+			if($unit == $val['tablet-unit']){
+				foreach($attrs as $attr => $value){
+					$this->json['tabletInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
+				}
+			}
+			if($unit == $val['mobile-unit']){
+				foreach($attrs as $attr => $value){
+					$this->json['mobileInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
+				}
+			}
 		}
+
+
 	}
 
 	/**
@@ -196,9 +219,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			} #>
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
-					<input {{{ data.inputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
+					<input {{{ data.desktopInputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.desktopInputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
@@ -216,9 +239,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					</ul>
 				</div>
 				<div class="input-field-wrapper tablet">
-					<input {{{ data.inputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
+					<input {{{ data.tabletInputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.tabletInputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
@@ -236,9 +259,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					</ul>
 				</div>
 				<div class="input-field-wrapper mobile">
-					<input {{{ data.inputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
+					<input {{{ data.mobileInputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.mobileInputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>

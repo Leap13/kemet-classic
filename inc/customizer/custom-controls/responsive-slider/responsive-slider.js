@@ -75,7 +75,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 				var responsive_input = jQuery( this ),
 				item = responsive_input.data( 'id' ),
 				item_value = responsive_input.val();
-
+				
 				newValue[item] = item_value;
 
 			});
@@ -87,6 +87,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 
 				newValue[name] = device_val;
 			});
+			console.log(newValue);
 			control.setting.set( newValue );
 		},
 
