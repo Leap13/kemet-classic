@@ -94,7 +94,7 @@ function kemet_responsive_spacing( control, selector, type, side ) {
 	
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
-			console.log(value);
+			
 			var sidesString = "";
 			var spacingType = "padding";
 			if ( value.desktop.top || value.desktop.right || value.desktop.bottom || value.desktop.left || value.tablet.top || value.tablet.right || value.tablet.bottom || value.tablet.left || value.mobile.top || value.mobile.right || value.mobile.bottom || value.mobile.left ) {
