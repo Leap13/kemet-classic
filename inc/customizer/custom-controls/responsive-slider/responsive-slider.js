@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.extend({
 
 		ready: function() {
 
@@ -43,7 +43,7 @@
 			});
 
 			// Save changes.
-			this.container.on( 'input change', 'input[type=number]', function() {
+			this.container.on('input change', 'input[type=number]', function() {
 				var value = jQuery( this ).val();
 				jQuery( this ).closest( '.input-field-wrapper' ).find( 'input[type=range]' ).val( value );
 				
@@ -59,7 +59,14 @@
 			'use strict';
 
 			var control = this,
-		    newValue = {};
+				newValue = {
+					'desktop': '',
+					'tablet': '',
+					'mobile': '',
+					'desktop-unit': 'px',
+					'tablet-unit': 'px',
+					'mobile-unit': 'px',
+				};
 
 		    // Set the spacing container.
 			control.responsiveContainer = control.container.find( '.wrapper' ).first();
@@ -72,12 +79,22 @@
 				newValue[item] = item_value;
 
 			});
+			control.container.find('.kmt-slider-unit-wrapper .kmt-slider-unit-input').each(function () {
+				var slider_unit = jQuery(this),
+					device = slider_unit.attr('data-device'),
+					device_val = slider_unit.val(),
+					name = device + '-unit';
 
+				newValue[name] = device_val;
+			});
 			control.setting.set( newValue );
 		},
 
 		kmtResponsiveInit : function() {
-			
+			'use strict';
+
+			var control = this;
+
 			this.container.on( 'click', '.kmt-responsive-slider-btns button', function( event ) {
 
 				event.preventDefault();
@@ -91,6 +108,27 @@
 				}
 
 				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
+			});
+			
+			// Unit click
+			control.container.on('click', '.kmt-slider-responsive-units .single-unit', function () {
+
+				var $this = jQuery(this);
+
+				if ($this.hasClass('active')) {
+					return false;
+				}
+
+				var unit_value = $this.attr('data-unit'),
+					device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
+
+				$this.siblings().removeClass('active');
+				$this.addClass('active');
+
+				control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val(unit_value);
+
+				// Update value on change.
+				control.updateValue();
 			});
 		},
 	});

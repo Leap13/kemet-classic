@@ -64,7 +64,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 			$header_logo_width  = kemet_get_option( 'kmt-header-responsive-logo-width' );
             $site_identity_spacing = kemet_get_option( 'site-identity-spacing' );
-
+			
 			// Site Background Color.
 			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj' );
             
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$theme_color      = kemet_get_option( 'theme-color' );
 			$link_color       = kemet_get_option( 'link-color', $theme_color );
 			$link_hover_color = kemet_get_option( 'link-h-color' );
-
+			
 			// Typography.
 			$body_font_size                  = kemet_get_option( 'font-size-body' );
 			$body_line_height                = kemet_get_option( 'body-line-height' );
@@ -346,10 +346,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color'     => esc_attr( $site_title_h_color ),
 				),
 				'#sitehead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
+					'max-width' => kemet_responsive_slider($header_logo_width,'desktop'),
 				),
 				'.kemet-logo-svg'                         => array(
-					'width' => kemet_get_css_value( $header_logo_width['desktop'], 'px' ),
+					'width' => kemet_responsive_slider($header_logo_width,'desktop'),
 				),
                 /* Site Identity Spacing */
 				'.site-header .kmt-site-identity'  => array(
@@ -965,10 +965,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
 				),
 				'#sitehead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => kemet_get_css_value( $header_logo_width['tablet'], 'px' ),
+					'max-width' => kemet_responsive_slider($header_logo_width,'tablet'),
 				),
 				'.kemet-logo-svg'                       => array(
-					'width' => kemet_get_css_value( $header_logo_width['tablet'], 'px' ),
+					'width' => kemet_responsive_slider($header_logo_width,'tablet'),
 				),
 				'.kemet-footer' => array(
 					'font-size' => kemet_responsive_font( $footer_font_size , 'tablet' ),
@@ -1091,10 +1091,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 				'.kmt-header-break-point .site-branding img, .kmt-header-break-point #sitehead .site-logo-img .custom-logo-link img' => array(
-					'max-width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
+					'max-width' => kemet_responsive_slider($header_logo_width,'mobile'),
 				),
 				'.kemet-logo-svg'                       => array(
-					'width' => kemet_get_css_value( $header_logo_width['mobile'], 'px' ),
+					'width' => kemet_responsive_slider($header_logo_width,'mobile'),
 				),
 
 				//Widget Font

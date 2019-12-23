@@ -38,6 +38,14 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	public $suffix = '';
 
 	/**
+	 * The unit type.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $unit_choices = array( 'px' => 'px' );
+
+	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -55,19 +63,37 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
 			$val = array(
-				'desktop' => $val,
-				'tablet'  => '',
-				'mobile'  => '',
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
 			);
 		}
 
+		/* Control Units */
+		$units = array(
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		foreach ( $units as $unit_key => $unit_value ) {
+			if ( ! isset( $val[ $unit_key ] ) ) {
+				$val[ $unit_key ] = $unit_value;
+			}
+		}
+
 		$this->json['value']  = $val;
+		$this->json['choices'] = $this->choices;
 		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
 
-		$this->json['inputAttrs'] = '';
+		$this->json['unit_choices']   = $this->unit_choices;
+		$this->json['inputAttrs']     = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
@@ -122,6 +148,21 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } 
+			desktop_unit_val = 'px';
+			tablet_unit_val  = 'px';
+			mobile_unit_val  = 'px';
+
+			if ( data.value['desktop-unit'] ) { 
+				desktop_unit_val = data.value['desktop-unit'];
+			} 
+
+			if ( data.value['tablet-unit'] ) { 
+				tablet_unit_val = data.value['tablet-unit'];
+			} 
+
+			if ( data.value['mobile-unit'] ) { 
+				mobile_unit_val = data.value['mobile-unit'];
+			} 
 
 			value_desktop = '';
 			value_tablet  = '';
@@ -162,6 +203,17 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<ul class="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( desktop_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
+					</ul>
 				</div>
 				<div class="input-field-wrapper tablet">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
@@ -171,6 +223,17 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<ul class="kmt-slider-responsive-units kmt-slider-tablet-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( tablet_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
+					</ul>
 				</div>
 				<div class="input-field-wrapper mobile">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
@@ -180,9 +243,27 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<ul class="kmt-slider-responsive-units kmt-slider-mobile-responsive-units">
+						<#_.each( data.unit_choices, function( unit_key ) { 
+							unit_class = '';
+							if ( mobile_unit_val === unit_key ) { 
+								unit_class = 'active';
+							}
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							<span class="unit-text">{{{ unit_key }}}</span>
+						</li><# 
+						});#>
+					</ul>
 				</div>
 				<div class="kmt-responsive-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
+				</div>
+			</div>
+			<div class="kmt-slider-responsive-units-screen-wrap">
+				<div class="unit-input-wrapper kmt-slider-unit-wrapper">
+					<input type='hidden' class='kmt-slider-unit-input kmt-slider-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
+					<input type='hidden' class='kmt-slider-unit-input kmt-slider-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
+					<input type='hidden' class='kmt-slider-unit-input kmt-slider-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 			</div>
 		</label>

@@ -30,33 +30,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 	 * Option: Logo Width
 	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
-			'default'           => array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
-			),
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
-				'type'        => 'kmt-responsive-slider',
-				'section'     => 'title_tagline',
-				'priority'    => 5,
-				'label'       => __( 'Logo Width', 'kemet' ),
-				'input_attrs' => array(
-					'min'  => 50,
-					'step' => 1,
-					'max'  => 600,
-				),
-			)
-		)
-	);
+	// $wp_customize->add_setting(
+	// 	KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
+	// 		'default'           => array(
+	// 			'desktop' => '',
+	// 			'tablet'  => '',
+	// 			'mobile'  => '',
+	// 		),
+	// 		'type'              => 'option',
+	// 		'transport'         => 'postMessage',
+	// 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+	// 	)
+	// );
+	// $wp_customize->add_control(
+	// 	new Kemet_Control_Responsive_Slider(
+	// 		$wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
+	// 			'type'        => 'kmt-responsive-slider',
+	// 			'section'     => 'title_tagline',
+	// 			'priority'    => 5,
+	// 			'label'       => __( 'Logo Width', 'kemet' ),
+	// 			'input_attrs' => array(
+	// 				'min'  => 50,
+	// 				'step' => 1,
+	// 				'max'  => 600,
+	// 			),
+	// 		)
+	// 	)
+	// );
 
 	/**
 	 * Option: Retina logo selector
@@ -285,4 +285,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		)
 	);
+
+
+
+
+	/**
+    * Option - Site Identity Padding
+    */
+   $wp_customize->add_setting(
+       KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
+           'default'           => '',
+           'type'              => 'option',
+		   'transport'         => 'postMessage',
+		   'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+       )
+   );
+   $wp_customize->add_control(
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'title_tagline',
+               'priority'       => 1,
+               'label'          => __( 'Logo Width', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em', '%' ),
+               'input_attrs' => array(
+					'min'  => 50,
+					'step' => 1,
+					'max'  => 600,
+				),
+           )
+       )
+   );
 

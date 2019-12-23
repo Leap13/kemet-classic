@@ -214,19 +214,20 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 				'desktop' => '',
 				'tablet'  => '',
 				'mobile'  => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
 			);
 			if ( is_array( $val ) ) {
 				$responsive['desktop'] = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
 				$responsive['tablet']  = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
 				$responsive['mobile']  = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
+				$responsive['desktop-unit'] = in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['desktop-unit'] : 'px';
+				$responsive['tablet-unit']  = in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['tablet-unit'] : 'px';
+				$responsive['mobile-unit']  = in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['mobile-unit'] : 'px';
+				
 			} else {
 				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
-			}
-
-			foreach ( $responsive as $key => $value ) {
-					$value              = isset( $input_attrs['min'] ) && ( ! empty( $value ) ) && ( $input_attrs['min'] > $value ) ? $input_attrs['min'] : $value;
-					$value              = isset( $input_attrs['max'] ) && ( ! empty( $value ) ) && ( $input_attrs['max'] < $value ) ? $input_attrs['max'] : $value;
-					$responsive[ $key ] = $value;
 			}
 
 			return $responsive;
