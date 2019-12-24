@@ -68,7 +68,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 					'mobile-unit': 'px',
 				};
 
-		    // Set the spacing container.
+		    // Set the Slider container.
 			control.responsiveContainer = control.container.find( '.wrapper' ).first();
 
 			control.responsiveContainer.find( '.kmt-responsive-range-value-input' ).each( function() {
@@ -87,7 +87,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 
 				newValue[name] = device_val;
 			});
-			console.log(newValue);
+			
 			control.setting.set( newValue );
 		},
 
@@ -119,12 +119,22 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 				if ($this.hasClass('active')) {
 					return false;
 				}
-
 				var unit_value = $this.attr('data-unit'),
+					unit_min = $this.attr('data-min'),
+					unit_max = $this.attr('data-max'),
+					unit_step = $this.attr('data-step'),
 					device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
+
+				var wrapper = control.container.find('.input-field-wrapper.active.' + device),
+					input_range = wrapper.find('input[type=range]'),
+					default_value = input_range.data('reset_value');
 
 				$this.siblings().removeClass('active');
 				$this.addClass('active');
+				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('min', unit_min);
+				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('max', unit_max);
+				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('step', unit_step);
+				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').val(default_value);
 
 				control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val(unit_value);
 

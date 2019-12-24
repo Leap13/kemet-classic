@@ -308,13 +308,23 @@ if ( ! defined( 'ABSPATH' ) ) {
                'priority'       => 1,
                'label'          => __( 'Logo Width', 'kemet' ),
                'unit_choices'   => array( 'px', 'em', '%' ),
-			   'input_attrs'   => [
-					'px' => [
+			   'units_attrs'   => array(
+					'px' => array(
 						'min' => 50,
 						'step' => 1,
-						'max' =>600
-					],
-				],
+						'max' =>600,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+					'%' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 50,
+					),
+				),
            )
        )
    );

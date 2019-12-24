@@ -36,7 +36,6 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $suffix = '';
-
 	/**
 	 * The unit type.
 	 *
@@ -44,7 +43,14 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @var array
 	 */
 	public $unit_choices = array( 'px' => 'px' );
-	public $units_range = '';
+
+	/**
+	 * The unit attrs.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $units_attrs = array();
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
@@ -93,35 +99,23 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 
 		$this->json['unit_choices']   = $this->unit_choices;
 		
-		$this->json['unitsRange'] 	  = '';
+		$this->json['unitsRange'] 	  = $this->units_attrs;
 
 		
-
-		$this->json['desktopInputAttrs']     = '';
-		$this->json['tabletInputAttrs']     = '';
-		$this->json['mobileInputAttrs']     = '';
-		
-		foreach ( $this->input_attrs as $unit => $attrs ) {
-			if($unit == $val['desktop-unit']){
+		if(!empty($this->units_attrs)){
+			foreach ($this->units_attrs as $unit => $attrs ) {
+				$this->json[$unit] = '';
+				$this->json['input_attrs_'.$unit] = '';
 				foreach($attrs as $attr => $value){
-					$this->json['desktopInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-				}
-			}
-			if($unit == $val['tablet-unit']){
-				foreach($attrs as $attr => $value){
-					$this->json['tabletInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-				}
-			}
-			if($unit == $val['mobile-unit']){
-				foreach($attrs as $attr => $value){
-					$this->json['mobileInputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-				}
+						$this->json[$unit] .= ' data-'.$attr . '=' . esc_attr( $value );
+						$this->json['input_attrs_'.$unit] .= ' '.$attr . '=' . esc_attr( $value );
+					}
 			}
 		}
-
-
 	}
-
+	// foreach($attrs as $attr => $value){
+	// 				$this->json[$unit] = [$attr => esc_attr( $value )];
+	// 			}
 	/**
 	 * Enqueue control related scripts/styles.
 	 *
@@ -217,11 +211,13 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			if ( data.default['mobile'] ) { 
 				default_mobile = data.default['mobile'];
 			} #>
+
+			
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
-					<input {{{ data.desktopInputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
+					<input type="range"  value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" {{{data['input_attrs_' + desktop_unit_val]}}} />
 					<div class="kemet_range_value">
-						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.desktopInputAttrs }}} ><#
+						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value="{{ value_desktop }}" {{{data['input_attrs_' + desktop_unit_val]}}}><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
@@ -232,16 +228,18 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 							if ( desktop_unit_val === unit_key ) { 
 								unit_class = 'active';
 							}
-						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+							//unit_attr = data.unitsRange[unit_key];
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' {{ data[unit_key] }}>
 							<span class="unit-text">{{{ unit_key }}}</span>
 						</li><# 
 						});#>
 					</ul>
 				</div>
+				 
 				<div class="input-field-wrapper tablet">
-					<input {{{ data.tabletInputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
+					<input  type="range" {{{data['input_attrs_' + tablet_unit_val]}}} value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
 					<div class="kemet_range_value">
-						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.tabletInputAttrs }}} ><#
+						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value="{{ value_tablet }}" {{{data['input_attrs_' + tablet_unit_val]}}}><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
@@ -252,16 +250,16 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 							if ( tablet_unit_val === unit_key ) { 
 								unit_class = 'active';
 							}
-						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' {{ data[unit_key] }}>
 							<span class="unit-text">{{{ unit_key }}}</span>
 						</li><# 
 						});#>
 					</ul>
 				</div>
 				<div class="input-field-wrapper mobile">
-					<input {{{ data.mobileInputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
+					<input type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" {{{data['input_attrs_' + mobile_unit_val]}}} />
 					<div class="kemet_range_value">
-						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.mobileInputAttrs }}} ><#
+						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value="{{ value_mobile }}" {{{data['input_attrs_' + mobile_unit_val]}}}><#
 						if ( data.suffix ) {
 						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 						} #>
@@ -272,7 +270,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 							if ( mobile_unit_val === unit_key ) { 
 								unit_class = 'active';
 							}
-						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' >
+						#><li class='single-unit {{ unit_class }}' data-unit='{{ unit_key }}' {{ data[unit_key] }}>
 							<span class="unit-text">{{{ unit_key }}}</span>
 						</li><# 
 						});#>
