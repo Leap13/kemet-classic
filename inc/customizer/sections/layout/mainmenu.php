@@ -149,7 +149,6 @@ $header_rt_sections = array(
 				'search-box'    => __( 'Search Box', 'kemet-addons', 'kemet' ),
 				'search-icon'   => __( 'Icon', 'kemet-addons', 'kemet' ),
 			),
-			'active_callback' => 'kemet_search_option_is_enabled',
 		)
 	);	
 	/**
@@ -168,7 +167,6 @@ $header_rt_sections = array(
 			'section'  => 'section-menu-header',
 			'priority' => 30,
 			'label'    => __( 'Enable Search Box Shadow', 'kemet-addons', 'kemet' ),
-			'active_callback' => 'kemet_search_option_is_enabled',
 		)
 	);	
 	/**
@@ -188,7 +186,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Button Background Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 35,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
@@ -209,7 +206,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Button Hover', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 40,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
@@ -230,7 +226,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Button Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 45,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
@@ -257,7 +252,6 @@ $header_rt_sections = array(
 				'step' => 1,
 				'max'  => 15,
 			),
-			'active_callback' => 'kemet_search_option_is_enabled',
 		)
 	);
 }
@@ -278,7 +272,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Border Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 55,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
@@ -299,7 +292,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Form Background Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 60,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
@@ -320,7 +312,6 @@ $header_rt_sections = array(
 			'label'   => __( 'Search Form Font Color', 'kemet-addons', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 65,
-			'active_callback' => 'kemet_search_option_is_enabled',
 		  )
 		)
 	);
