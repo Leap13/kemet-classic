@@ -102,20 +102,16 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		$this->json['unitsRange'] 	  = $this->units_attrs;
 
 		
-		if(!empty($this->units_attrs)){
-			foreach ($this->units_attrs as $unit => $attrs ) {
-				$this->json[$unit] = '';
-				$this->json['input_attrs_'.$unit] = '';
-				foreach($attrs as $attr => $value){
-						$this->json[$unit] .= ' data-'.$attr . '=' . esc_attr( $value );
-						$this->json['input_attrs_'.$unit] .= ' '.$attr . '=' . esc_attr( $value );
-					}
-			}
+		foreach ($this->units_attrs as $unit => $attrs ) {
+			$this->json[$unit] = '';
+			$this->json['input_attrs_'.$unit] = '';
+			foreach($attrs as $attr => $value){
+					$this->json[$unit] .= ' data-'.$attr . '=' . esc_attr( $value );
+					$this->json['input_attrs_'.$unit] .= ' '.$attr . '=' . esc_attr( $value );
+				}
 		}
+		
 	}
-	// foreach($attrs as $attr => $value){
-	// 				$this->json[$unit] = [$attr => esc_attr( $value )];
-	// 			}
 	/**
 	 * Enqueue control related scripts/styles.
 	 *

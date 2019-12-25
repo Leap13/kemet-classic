@@ -182,19 +182,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
+		new Kemet_Control_Responsive_Slider(
 			$wp_customize, KEMET_THEME_SETTINGS . '[site-title-font-size]', array(
-				'type'        => 'kmt-responsive',
+				'type'        => 'kmt-responsive-slider',
 				'section'     => 'title_tagline',
 				'priority'    => 35,
 				'label'       => __( 'Site Title Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
-				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
+				 'unit_choices'   => array( 'px', 'em' ),
 			)
 		)
 	);
@@ -290,7 +284,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 	/**
-    * Option - Site Identity Padding
+    * Option - Site Logo Width
     */
    $wp_customize->add_setting(
        KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
