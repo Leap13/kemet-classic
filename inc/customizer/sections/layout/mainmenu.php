@@ -98,6 +98,32 @@ $header_rt_sections = array(
 		)
 	);
 
+	/**
+	 * Option: Last Menu Item Left Spacing
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[last-menu-item-left-spacing]', array(
+			'default'           => kemet_get_option( 'last-menu-item-left-spacing' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[last-menu-item-left-spacing]', array(
+			'type'        => 'number',
+			'section'     => 'section-menu-header',
+			'priority'    => 16,
+			'label'       => __( 'Last Custom Menu Item Left Spacing', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 500,
+			),
+		)
+	);
+
+
 
 	/**
 	 * Option: Right Section Text / HTML
