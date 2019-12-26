@@ -170,10 +170,10 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
 			'priority' => 25,
-			'label'    => __( 'Search Style', 'kemet-addons', 'kemet' ),
+			'label'    => __( 'Search Style', 'kemet' ),
 			'choices'  => array(
-				'search-box'    => __( 'Search Box', 'kemet-addons', 'kemet' ),
-				'search-icon'   => __( 'Icon', 'kemet-addons', 'kemet' ),
+				'search-box'    => __( 'Search Box', 'kemet' ),
+				'search-icon'   => __( 'Icon', 'kemet' ),
 			),
 		)
 	);	
@@ -192,7 +192,7 @@ $header_rt_sections = array(
 			'type'     => 'checkbox',
 			'section'  => 'section-menu-header',
 			'priority' => 30,
-			'label'    => __( 'Enable Search Box Shadow', 'kemet-addons', 'kemet' ),
+			'label'    => __( 'Enable Search Box Shadow', 'kemet' ),
 		)
 	);	
 	/**
@@ -209,7 +209,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
-			'label'   => __( 'Search Button Background Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Button Background Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 35,
 		  )
@@ -229,7 +229,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-			'label'   => __( 'Search Button Hover', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Button Hover', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 40,
 		  )
@@ -249,7 +249,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-			'label'   => __( 'Search Button Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Button Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 45,
 		  )
@@ -295,7 +295,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-border-color]', array(
-			'label'   => __( 'Search Border Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Border Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 55,
 		  )
@@ -315,7 +315,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
-			'label'   => __( 'Search Form Background Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Form Background Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 60,
 		  )
@@ -335,7 +335,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-input-color]', array(
-			'label'   => __( 'Search Form Font Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Search Form Font Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 65,
 		  )
@@ -1025,7 +1025,7 @@ $wp_customize->add_setting(
 			'type'     => 'checkbox',
 			'section'  => 'section-menu-header',
 			'priority' => 175,
-			'label'    => __( 'Main Menu Separator', 'kemet-addons', 'kemet' ),
+			'label'    => __( 'Main Menu Separator', 'kemet' ),
 		)
 	);
 
@@ -1066,7 +1066,7 @@ $wp_customize->add_setting(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-color]', array(
-			'label'   => __( 'Separator Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Separator Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 185,
 		  )
@@ -1088,7 +1088,7 @@ $wp_customize->add_setting(
 			'type'     => 'checkbox',
 			'section'  => 'section-menu-header',
 			'priority' => 190,
-			'label'    => __( 'Menu Last Items Menu Separator', 'kemet-addons', 'kemet' ),
+			'label'    => __( 'Menu Last Items Menu Separator', 'kemet' ),
 		)
 	);
 	/**
@@ -1105,7 +1105,7 @@ $wp_customize->add_setting(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-last-items-color]', array(
-			'label'   => __( 'Separator Last Items Menu Color', 'kemet-addons', 'kemet' ),
+			'label'   => __( 'Separator Last Items Menu Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 195,
 		  )

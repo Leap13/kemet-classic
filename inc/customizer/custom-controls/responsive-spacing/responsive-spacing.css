@@ -1,7 +1,3 @@
-.customize-control-kmt-responsive-spacing {
-  /* Unit Screen wrap */
-}
-
 .customize-control-kmt-responsive-spacing .customize-control-title {
   display: inline-block;
 }
@@ -12,17 +8,14 @@
 }
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns {
-  display: block;
+  display: inline-block;
   text-align: center;
-  line-height: 2;
-  border: 1px solid #ddd;
+  padding-left: 10px;
 }
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns > li {
   margin-bottom: 0;
   display: none;
-  width: 35px;
-  height: 26px;
 }
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns > li.active {

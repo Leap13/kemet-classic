@@ -144,6 +144,34 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 }
 
 /**
+ * Get Responsive Slider
+ */
+if ( ! function_exists( 'kemet_responsive_slider' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_responsive_slider( $option, $device = 'desktop', $default = '' ) {
+
+		if ( isset( $option[ $device ] ) && isset( $option[ $device . '-unit' ] ) ) {
+			$spacing = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
+		} elseif ( is_numeric( $option ) ) {
+			$spacing = kemet_get_css_value( $option );
+		} else {
+			$spacing = ( ! is_array( $option ) ) ? $option : '';
+		}
+
+		return $spacing;
+	}
+}
+
+
+/**
  * Get Font Size value
  */
 if ( ! function_exists( 'kemet_get_font_css_value' ) ) {
