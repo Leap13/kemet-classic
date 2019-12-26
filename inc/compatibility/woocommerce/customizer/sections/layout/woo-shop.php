@@ -19,29 +19,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[shop-grids]', array(
 			'default'           => array(
-				'desktop' => 4,
-				'tablet'  => 3,
-				'mobile'  => 2,
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'col',
+				'tablet-unit'  => 'col',
+				'mobile-unit'  => 'col',
 			),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
-				'type'        => 'kmt-responsive-slider',
-				'section'     => 'section-woo-shop',
-				'priority'    => 10,
-				'label'       => __( 'Shop Columns', 'kemet' ),
-				'input_attrs' => array(
-					'step' => 1,
-					'min'  => 1,
-					'max'  => 6,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-woo-shop',
+               'priority'       => 10,
+               'label'          => __( 'Shop Columns', 'kemet' ),
+               'unit_choices'   => array( 'col' ),
+			   'units_attrs'   => array(
+					'col' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 6,
+					),
 				),
-			)
-		)
-	);
+           )
+       )
+   );
 
 	/**
 	 * Option: Products Per Page

@@ -144,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'site-title-font-size' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -155,6 +155,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority'    => 35,
 				'label'       => __( 'Site Title Font Size', 'kemet' ),
 				 'unit_choices'   => array( 'px', 'em' ),
+				 'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+				),
 			)
 		)
 	);
@@ -210,7 +222,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-site-tagline' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(

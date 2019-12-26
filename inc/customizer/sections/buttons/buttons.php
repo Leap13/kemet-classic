@@ -163,25 +163,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[button-radius]', array(
-			'default'           => kemet_get_option( 'button-radius' ),
+			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[button-radius]', array(
-			'section'     => 'section-buttons',
-			'label'       => __( 'Button Radius', 'kemet' ),
-			'type'        => 'number',
-			'priority'    => 40,
-			'input_attrs' => array(
-				'min'  => 0,
-				'step' => 1,
-				'max'  => 200,
-			),
-		)
-	);
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[button-radius]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-buttons',
+               'priority'       => 40,
+               'label'          => __( 'Button Radius', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' , '%' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+					'%' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 100,
+					),
+				),
+           )
+       )
+   );
 
 	/**
 	 * Option: Vertical Padding

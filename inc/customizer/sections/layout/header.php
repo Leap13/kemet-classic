@@ -169,26 +169,35 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-sep]', array(
-			'default'           => kemet_get_option( 'header-main-sep' ),
+			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[header-main-sep]', array(
-			'type'        => 'number',
-			'section'     => 'section-header',
-			'priority'    => 30,
-			'label'       => __( 'Bottom Border Size', 'kemet' ),
-			'input_attrs' => array(
-				'min'  => 0,
-				'step' => 1,
-				'max'  => 600,
-			),
-		)
-	);
-
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[header-main-sep]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-header',
+               'priority'       => 30,
+               'label'          => __( 'Bottom Border Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+				),
+           )
+       )
+   );
 	/**
 	 * Option: Bottom Border Color
 	 */

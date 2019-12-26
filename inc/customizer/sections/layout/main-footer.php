@@ -135,7 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[footer-font-size]', array(
                 'default'           => kemet_get_option( 'footer-font-size' ),
                 'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
             )
         );
         $wp_customize->add_control(
@@ -344,7 +344,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'default'           => kemet_get_option( 'kemet-footer-widget-title-font-size' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
             )
         );
         $wp_customize->add_control(
@@ -641,22 +641,37 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'default'           => kemet_get_option( 'footer-button-radius' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
             )
         );
         $wp_customize->add_control(
-            KEMET_THEME_SETTINGS . '[footer-button-radius]', array(
-                'priority'       => 100,
-                'section' => 'section-kemet-footer',
-                'label'       => __( 'Button Radius', 'kemet' ),
-                'type'        => 'number',
-                'input_attrs' => array(
-                    'min'  => 0,
-                    'step' => 1,
-                    'max'  => 200,
-                ),
-            )
-        );
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-radius]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-kemet-footer',
+               'priority'       => 100,
+               'label'          => __( 'Button Radius', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' , '%' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+					'%' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 100,
+					),
+				),
+           )
+       )
+   );
 
         /**
          * Option: Footer Input color

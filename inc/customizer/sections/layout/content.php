@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			KEMET_THEME_SETTINGS . '[font-size-body]', array(
 				'default'           => kemet_get_option( 'font-size-body' ),
 				'type'              => 'option',
-				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 			)
 		);
 		$wp_customize->add_control(
@@ -368,7 +368,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h1' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -423,7 +423,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h2' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -478,7 +478,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h3' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -534,7 +534,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h4' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -589,7 +589,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h5' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(
@@ -643,7 +643,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'default'           => kemet_get_option( 'font-size-h6' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		)
 	);
 	$wp_customize->add_control(

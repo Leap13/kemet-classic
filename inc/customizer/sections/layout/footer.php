@@ -285,7 +285,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     KEMET_THEME_SETTINGS . '[footer-copyright-font-size]', array(
       'default'           => kemet_get_option( 'footer-copyright-font-size' ),
       'type'              => 'option',
-      'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+      'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
   );
   $wp_customize->add_control(
