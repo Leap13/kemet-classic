@@ -962,6 +962,28 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+	//Main Menu Item Effects
+
+$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[main-menu-item-effect]', array(
+			'default'           => '',
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[main-menu-item-effect]', array(
+			'type'     => 'select',
+			'section'  => 'section-menu-header',
+			'priority' => 171,
+			'label'    => __( 'Main Menu Item Effects', 'kemet' ),
+			'choices'  => array(
+				'effect1' => __( 'Effect 1', 'kemet' ),
+			),
+		)
+	);
+
 	/**
 	 * Option: Main Menu Separator
 	 */
@@ -980,26 +1002,6 @@ $header_rt_sections = array(
 			'label'    => __( 'Main Menu Separator', 'kemet-addons', 'kemet' ),
 		)
 	);
-	/**
-    * Option - Separator Color
-    */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[separator-color]', array(
-		  'default'           => '',
-		  'type'              => 'option',
-		  'transport'         => 'postMessage',
-		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-color]', array(
-			'label'   => __( 'Separator Color', 'kemet-addons', 'kemet' ),
-			'section' => 'section-menu-header',
-			'priority' => 180,
-		  )
-		)
-	);
 
 	/**
 	 * Option: Separator Style
@@ -1015,13 +1017,33 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[separator-style]', array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
-			'priority' => 185,
+			'priority' => 180,
 			'label'    => __( 'Separator Style', 'kemet' ),
 			'choices'  => array(
 				'vertical-bar'    => __( 'Vertical Bar', 'kemet' ),
 				'back-slash' => __( 'Back Slash', 'kemet' ),
 				'circle' => __( 'Circle', 'kemet' ),
 			),
+		)
+	);
+		/**
+    * Option - Separator Color
+    */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[separator-color]', array(
+		  'default'           => '',
+		  'type'              => 'option',
+		  'transport'         => 'postMessage',
+		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+		  $wp_customize, KEMET_THEME_SETTINGS . '[separator-color]', array(
+			'label'   => __( 'Separator Color', 'kemet-addons', 'kemet' ),
+			'section' => 'section-menu-header',
+			'priority' => 185,
+		  )
 		)
 	);
 

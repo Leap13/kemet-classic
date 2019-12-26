@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kemet 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2019-12-16 10:34:29+00:00\n"
+"POT-Creation-Date: 2019-12-26 13:32:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -228,15 +228,15 @@ msgstr ""
 msgid "Assign Top Menu"
 msgstr ""
 
-#: functions/custom-functions.php:646
+#: functions/custom-functions.php:647
 msgid "Site Navigation"
 msgstr ""
 
-#: functions/custom-functions.php:1064
+#: functions/custom-functions.php:1065
 msgid "Add Widget"
 msgstr ""
 
-#: functions/custom-functions.php:1101
+#: functions/custom-functions.php:1102
 msgid "Assign a widget here"
 msgstr ""
 
@@ -348,8 +348,8 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:222
 #: inc/customizer/sections/layout/main-footer.php:446
 #: inc/customizer/sections/layout/mainmenu.php:17
-#: inc/customizer/sections/layout/mainmenu.php:413
-#: inc/customizer/sections/layout/mainmenu.php:649
+#: inc/customizer/sections/layout/mainmenu.php:404
+#: inc/customizer/sections/layout/mainmenu.php:640
 #: inc/customizer/sections/layout/widgets.php:209
 msgid "None"
 msgstr ""
@@ -403,8 +403,8 @@ msgstr ""
 #: inc/customizer/sections/layout/container.php:137
 #: inc/customizer/sections/layout/content.php:143
 #: inc/customizer/sections/layout/content.php:301
-#: inc/customizer/sections/layout/mainmenu.php:412
-#: inc/customizer/sections/layout/mainmenu.php:648
+#: inc/customizer/sections/layout/mainmenu.php:403
+#: inc/customizer/sections/layout/mainmenu.php:639
 #: inc/customizer/sections/layout/sidebar.php:101
 #: inc/customizer/sections/layout/sidebar.php:126
 #: inc/customizer/sections/layout/sidebar.php:151
@@ -1021,21 +1021,21 @@ msgstr ""
 #: inc/customizer/sections/layout/content.php:96
 #: inc/customizer/sections/layout/content.php:279
 #: inc/customizer/sections/layout/main-footer.php:172
-#: inc/customizer/sections/layout/mainmenu.php:366
+#: inc/customizer/sections/layout/mainmenu.php:357
 msgid "Font Family"
 msgstr ""
 
 #: inc/customizer/sections/layout/content.php:119
 #: inc/customizer/sections/layout/content.php:304
 #: inc/customizer/sections/layout/main-footer.php:194
-#: inc/customizer/sections/layout/mainmenu.php:388
+#: inc/customizer/sections/layout/mainmenu.php:379
 msgid "Font Weight"
 msgstr ""
 
 #: inc/customizer/sections/layout/content.php:141
 #: inc/customizer/sections/layout/content.php:324
 #: inc/customizer/sections/layout/main-footer.php:217
-#: inc/customizer/sections/layout/mainmenu.php:410
+#: inc/customizer/sections/layout/mainmenu.php:401
 msgid "Text Transform"
 msgstr ""
 
@@ -1043,8 +1043,8 @@ msgstr ""
 #: inc/customizer/sections/layout/content.php:330
 #: inc/customizer/sections/layout/main-footer.php:223
 #: inc/customizer/sections/layout/main-footer.php:447
-#: inc/customizer/sections/layout/mainmenu.php:414
-#: inc/customizer/sections/layout/mainmenu.php:650
+#: inc/customizer/sections/layout/mainmenu.php:405
+#: inc/customizer/sections/layout/mainmenu.php:641
 #: inc/customizer/sections/layout/widgets.php:210
 msgid "Capitalize"
 msgstr ""
@@ -1053,8 +1053,8 @@ msgstr ""
 #: inc/customizer/sections/layout/content.php:331
 #: inc/customizer/sections/layout/main-footer.php:224
 #: inc/customizer/sections/layout/main-footer.php:448
-#: inc/customizer/sections/layout/mainmenu.php:415
-#: inc/customizer/sections/layout/mainmenu.php:651
+#: inc/customizer/sections/layout/mainmenu.php:406
+#: inc/customizer/sections/layout/mainmenu.php:642
 #: inc/customizer/sections/layout/widgets.php:211
 msgid "Uppercase"
 msgstr ""
@@ -1063,15 +1063,15 @@ msgstr ""
 #: inc/customizer/sections/layout/content.php:332
 #: inc/customizer/sections/layout/main-footer.php:225
 #: inc/customizer/sections/layout/main-footer.php:449
-#: inc/customizer/sections/layout/mainmenu.php:416
-#: inc/customizer/sections/layout/mainmenu.php:652
+#: inc/customizer/sections/layout/mainmenu.php:407
+#: inc/customizer/sections/layout/mainmenu.php:643
 #: inc/customizer/sections/layout/widgets.php:212
 msgid "Lowercase"
 msgstr ""
 
 #: inc/customizer/sections/layout/content.php:169
 #: inc/customizer/sections/layout/main-footer.php:247
-#: inc/customizer/sections/layout/mainmenu.php:438
+#: inc/customizer/sections/layout/mainmenu.php:429
 msgid "Line Height"
 msgstr ""
 
@@ -1388,183 +1388,191 @@ msgstr ""
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:170
+#: inc/customizer/sections/layout/mainmenu.php:169
 msgid "Enable Search Box Shadow"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:188
+#: inc/customizer/sections/layout/mainmenu.php:186
 msgid "Search Button Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:209
+#: inc/customizer/sections/layout/mainmenu.php:206
 msgid "Search Button Hover"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:230
+#: inc/customizer/sections/layout/mainmenu.php:226
 msgid "Search Button Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:254
+#: inc/customizer/sections/layout/mainmenu.php:249
 msgid "Search Form Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:278
+#: inc/customizer/sections/layout/mainmenu.php:272
 msgid "Search Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:299
+#: inc/customizer/sections/layout/mainmenu.php:292
 msgid "Search Form Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:320
+#: inc/customizer/sections/layout/mainmenu.php:312
 msgid "Search Form Font Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:343
+#: inc/customizer/sections/layout/mainmenu.php:334
 msgid "Menu Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:462
+#: inc/customizer/sections/layout/mainmenu.php:453
 msgid "Menu Link Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:483
+#: inc/customizer/sections/layout/mainmenu.php:474
 msgid "Menu Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:504
+#: inc/customizer/sections/layout/mainmenu.php:495
 msgid "Menu Link Bottom Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:525
+#: inc/customizer/sections/layout/mainmenu.php:516
 msgid "Menu Link Active Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:538
+#: inc/customizer/sections/layout/mainmenu.php:529
 msgid "Submenu Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:560
+#: inc/customizer/sections/layout/mainmenu.php:551
 msgid "SubMenu Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:578
+#: inc/customizer/sections/layout/mainmenu.php:569
 msgid "SubMenu Link Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:602
+#: inc/customizer/sections/layout/mainmenu.php:593
 msgid "Submenu Font Family"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:624
+#: inc/customizer/sections/layout/mainmenu.php:615
 msgid "Sebmenu Font Weight"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:646
+#: inc/customizer/sections/layout/mainmenu.php:637
 msgid "Submenu Text Transform"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:674
+#: inc/customizer/sections/layout/mainmenu.php:665
 msgid "Submenu Line Height"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:698
+#: inc/customizer/sections/layout/mainmenu.php:689
 msgid "SubMenu Link Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:721
+#: inc/customizer/sections/layout/mainmenu.php:712
 msgid "Submenu Top Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:745
+#: inc/customizer/sections/layout/mainmenu.php:736
 msgid "Submenu Top Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:766
+#: inc/customizer/sections/layout/mainmenu.php:757
 msgid "Display Submenu Border"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:787
+#: inc/customizer/sections/layout/mainmenu.php:778
 msgid "Submenu Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:799
+#: inc/customizer/sections/layout/mainmenu.php:790
 msgid "Mobile Menu Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:822
+#: inc/customizer/sections/layout/mainmenu.php:813
 msgid "Menu Label on Small Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:842
+#: inc/customizer/sections/layout/mainmenu.php:833
 msgid "Mobile Menu Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:844
+#: inc/customizer/sections/layout/mainmenu.php:835
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:845
+#: inc/customizer/sections/layout/mainmenu.php:836
 msgid "Stack"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:864
+#: inc/customizer/sections/layout/mainmenu.php:855
 msgid "Mobile Menu Icon Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:883
+#: inc/customizer/sections/layout/mainmenu.php:874
 msgid "Mobile Menu Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:899
+#: inc/customizer/sections/layout/mainmenu.php:890
 msgid "Mobile Menu Icon Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:918
+#: inc/customizer/sections/layout/mainmenu.php:909
 msgid "Mobile Menu Background Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:934
+#: inc/customizer/sections/layout/mainmenu.php:925
 msgid "Mobile Menu Items Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:953
+#: inc/customizer/sections/layout/mainmenu.php:944
 msgid "Mobile Menu Items Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:968
+#: inc/customizer/sections/layout/mainmenu.php:959
 msgid "Mobile Menu Items Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:989
+#: inc/customizer/sections/layout/mainmenu.php:980
+msgid "Main Menu Item Effects"
+msgstr ""
+
+#: inc/customizer/sections/layout/mainmenu.php:982
+msgid "Effect 1"
+msgstr ""
+
+#: inc/customizer/sections/layout/mainmenu.php:1002
 msgid "Main Menu Separator"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1006
+#: inc/customizer/sections/layout/mainmenu.php:1019
 msgid "Separator Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1028
+#: inc/customizer/sections/layout/mainmenu.php:1041
 msgid "Separator Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1030
+#: inc/customizer/sections/layout/mainmenu.php:1043
 msgid "Vertical Bar"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1031
+#: inc/customizer/sections/layout/mainmenu.php:1044
 msgid "Back Slash"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1032
+#: inc/customizer/sections/layout/mainmenu.php:1045
 msgid "Circle"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1052
+#: inc/customizer/sections/layout/mainmenu.php:1065
 msgid "Menu Last Items Menu Separator"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1069
+#: inc/customizer/sections/layout/mainmenu.php:1082
 msgid "Separator Last Items Menu Color"
 msgstr ""
 
@@ -1661,7 +1669,7 @@ msgid "Inline Logo & Site Title"
 msgstr ""
 
 #: inc/customizer/sections/site-identity/site-identity.php:160
-msgid "Site Identity Space"
+msgid "Site Identity Spacing"
 msgstr ""
 
 #: inc/customizer/sections/site-identity/site-identity.php:190

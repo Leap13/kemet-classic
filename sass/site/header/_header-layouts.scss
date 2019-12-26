@@ -47,15 +47,93 @@
 		}
 	}
 }
-
 /**
- * 2 - Header Layout 2
+ *  2 - Header Layout 2
+*/
+.header-main-layout-2 {
+	.kmt-search-menu-icon{
+		right: auto;
+		left: 30px;
+		}
+		.kmt-dropdown-active{
+			right: auto !important;
+			left: 0;
+		}
+	.main-header-container	{
+		  flex-direction: row-reverse;
+	}
+	.kmt-main-header-bar-alignment {
+		margin-right: auto;
+	}
+	.main-navigation {
+		padding-right: 15px;
+		ul {
+			justify-content: flex-start;
+		}
+	}
+	.main-header-bar-navigation {
+		text-align: left;
+	}
+	.kmt-header-custom-item{
+		justify-content: flex-start;
+	}
+	.kmt-sitehead-custom-menu-items{
+		position: relative;
+	}
+}
+
+.kmt-header-break-point {
+	.header-main-layout-2 {
+		.kmt-search-menu-icon{
+		right: 30px;
+		left: auto;
+		}
+		.kmt-dropdown-active{
+			right: 0 !important;
+			left: auto;
+		}
+		.kmt-mobile-menu-buttons {
+			justify-content: flex-start;
+		}
+		.site-branding{
+			padding-left: 1em;
+			justify-content: flex-end;
+		}
+		.main-navigation {
+			padding-right: 0;
+		}
+	}
+}
+
+.kmt-site-title-wrap {
+		padding-top: 10px;
+}
+/**
+ * 3 - Header Layout 3
 */
 .header-main-layout-3 {
 	.kmt-search-menu-icon{
 		right: auto;
 		left: 30px;
 		}
+		&.search-icon{
+		.main-header-container {
+			.kmt-sitehead-custom-menu-items{
+				flex-direction: row-reverse;
+				justify-content: space-between;
+		.kmt-search-menu-icon{
+			right: auto;
+			left: 30px;
+			}
+		.kmt-dropdown-active{
+			right: auto !important;
+			left: 0;
+			}
+		}
+	}
+}
+	
+
 		.kmt-dropdown-active{
 			right: auto !important;
 			left: 0;
@@ -124,67 +202,7 @@
 	}
 }
 
-/**
- *  3 - Header Layout 3
-*/
-.header-main-layout-2 {
-	.kmt-search-menu-icon{
-		right: auto;
-		left: 30px;
-		}
-		.kmt-dropdown-active{
-			right: auto !important;
-			left: 0;
-		}
-	.main-header-container	{
-		  flex-direction: row-reverse;
-	}
-	.kmt-main-header-bar-alignment {
-		margin-right: auto;
-	}
-	.main-navigation {
-		padding-right: 15px;
-		ul {
-			justify-content: flex-start;
-		}
-	}
-	.main-header-bar-navigation {
-		text-align: left;
-	}
-	.kmt-header-custom-item{
-		justify-content: flex-start;
-	}
-	.kmt-sitehead-custom-menu-items{
-		position: relative;
-	}
-}
 
-.kmt-header-break-point {
-	.header-main-layout-2 {
-		.kmt-search-menu-icon{
-		right: 30px;
-		left: auto;
-		}
-		.kmt-dropdown-active{
-			right: 0 !important;
-			left: auto;
-		}
-		.kmt-mobile-menu-buttons {
-			justify-content: flex-start;
-		}
-		.site-branding{
-			padding-left: 1em;
-			justify-content: flex-end;
-		}
-		.main-navigation {
-			padding-right: 0;
-		}
-	}
-}
-
-.kmt-site-title-wrap {
-		padding-top: 10px;
-}
 
 /**
  * 4 - Header Inline Logo & Site Title 
@@ -349,7 +367,6 @@
                 position: static;
                 display: block;
 				transform: none;
-				right: 0px;
             .search-submit{
                 display: block;
                 position: absolute;

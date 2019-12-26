@@ -157,7 +157,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'title_tagline',
                'priority'       => 30,
-               'label'          => __( 'Site Identity Space', 'kemet' ),
+               'label'          => __( 'Site Identity Spacing', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(

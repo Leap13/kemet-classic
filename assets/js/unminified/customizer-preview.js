@@ -574,6 +574,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 			kemet_add_dynamic_css( 'header-main-sep', dynamicStyle );
 
+			
 		} );
 	} );
 
@@ -726,7 +727,7 @@ function kemet_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	 */
 	wp.customize( 'kemet-settings[submenu-border-color]', function( value ) {
 		value.bind( function( border_color ) {
-			jQuery( '.main-header-menu .sub-menu a' ).css( 'border-color', border_color );
+			jQuery( '.main-header-menu .sub-menu li' ).css( 'border-color', border_color );
 		} );
 	} );
 

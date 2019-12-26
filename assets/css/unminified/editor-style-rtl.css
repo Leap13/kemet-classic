@@ -1915,7 +1915,7 @@ input[type="submit"]:focus {
   padding-left: 5.5em;
 }
 
-.kmt-header-break-point .kmt-search-menu-icon .search-submit {
+.kmt-header-break-point .kmt-search-menu-icon.search-box .search-submit {
   display: block;
   position: absolute;
   height: 100%;

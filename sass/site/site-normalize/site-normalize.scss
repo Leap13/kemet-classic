@@ -120,14 +120,18 @@ input[type="submit"] {
         padding-right: 5.5em;
     }
 
-    .kmt-search-menu-icon .search-submit {
-        display: block;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        right: 0;
-        padding: 0 1em;
-        border-radius: 0;
+    .kmt-search-menu-icon {
+        &.search-box{
+            .search-submit {
+                display: block;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                right: 0;
+                padding: 0 1em;
+                border-radius: 0;
+            }
+        }
     }
     .kmt-search-menu-icon .search-form {
         padding: 0;
