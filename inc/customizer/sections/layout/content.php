@@ -57,23 +57,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 			)
 		);
 		$wp_customize->add_control(
-			new Kemet_Control_Responsive(
-				$wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
-					'type'        => 'kmt-responsive',
-					'section'     => 'section-contents',
-					'priority'    => 10,
-					'label'       => __( 'Font Size', 'kemet' ),
-					'input_attrs' => array(
-						'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 10,
+               'label'          => __( 'Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
 					),
-					'units'       => array(
-						'px' => 'px',
-						'em' => 'em',
-						
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
 					),
-				)
-			)
-		);
+				),
+           )
+       )
+   );
 
 	/**
 	 * Option: Font Family
@@ -367,22 +372,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h1]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 75,
-				'label'       => __( 'H1 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h1]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 75,
+               'label'          => __( 'H1 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 
 	/**
 	 * Option: Heading 2 Color
@@ -416,22 +427,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h2]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 85,
-				'label'       => __( 'H2 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h2]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 85,
+               'label'          => __( 'H2 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 
 	/**
 	 * Option: Heading 3 Color
@@ -465,22 +482,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h3]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 95,
-				'label'       => __( 'H3 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h3]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 95,
+               'label'          => __( 'H3 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 
 	/**
 	 * Option: Heading 4 Color
@@ -515,22 +538,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h4]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 105,
-				'label'       => __( 'H4 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h4]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 105,
+               'label'          => __( 'H4 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 	/**
 		 * Option: Heading 5 Color
 		*/
@@ -564,22 +593,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h5]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 115,
-				'label'       => __( 'H5 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h5]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 115,
+               'label'          => __( 'H5 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 	/**
 		 * Option: Heading 6 Color
 		*/
@@ -612,19 +647,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[font-size-h6]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-contents',
-				'priority'    => 125,
-				'label'       => __( 'H6 Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h6]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 125,
+               'label'          => __( 'H6 Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );

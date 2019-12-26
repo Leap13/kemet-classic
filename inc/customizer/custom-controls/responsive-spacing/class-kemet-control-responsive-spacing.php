@@ -144,6 +144,23 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
+			<ul class="kmt-spacing-responsive-btns">
+				<li class="desktop active">
+					<button type="button" class="preview-desktop active" data-device="desktop">
+						<i class="dashicons dashicons-desktop"></i>
+					</button>
+				</li>
+				<li class="tablet">
+					<button type="button" class="preview-tablet" data-device="tablet">
+						<i class="dashicons dashicons-tablet"></i>
+					</button>
+				</li>
+				<li class="mobile">
+					<button type="button" class="preview-mobile" data-device="mobile">
+						<i class="dashicons dashicons-smartphone"></i>
+					</button>
+				</li>
+			</ul>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } 
@@ -270,23 +287,6 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
 					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
-				<ul class="kmt-spacing-responsive-btns">
-					<li class="desktop active">
-						<button type="button" class="preview-desktop active" data-device="desktop">
-							<i class="dashicons dashicons-desktop"></i>
-						</button>
-					</li>
-					<li class="tablet">
-						<button type="button" class="preview-tablet" data-device="tablet">
-							<i class="dashicons dashicons-tablet"></i>
-						</button>
-					</li>
-					<li class="mobile">
-						<button type="button" class="preview-mobile" data-device="mobile">
-							<i class="dashicons dashicons-smartphone"></i>
-						</button>
-					</li>
-				</ul>
 			</div>
 
 			</div>

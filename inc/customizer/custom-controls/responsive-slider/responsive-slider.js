@@ -125,10 +125,6 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 					unit_step = $this.attr('data-step'),
 					device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
 
-				var wrapper = control.container.find('.input-field-wrapper.active.' + device),
-					input_range = wrapper.find('input[type=range]'),
-					default_value = input_range.data('reset_value');
-
 				$this.siblings().removeClass('active');
 				$this.addClass('active');
 				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('min', unit_min);
@@ -136,7 +132,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('step', unit_step);
 				control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').val(default_value);
 
-				control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val(unit_value);
+				control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val('');
 
 				// Update value on change.
 				control.updateValue();

@@ -139,22 +139,28 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         );
         $wp_customize->add_control(
-            new Kemet_Control_Responsive(
-                $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-size]', array(
-                    'type'        => 'kmt-responsive',
-                    'section'     => 'section-kemet-footer',
-                    'priority'    => 20,
-                    'label'       => __( 'Font Size', 'kemet' ),
-                    'input_attrs' => array(
-                        'min' => 0,
-                    ),
-                    'units'       => array(
-                     'px' => 'px',
-                     'em' => 'em',
-                    ),
-                )
-            )
-        );
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-size]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-kemet-footer',
+               'priority'       => 20,
+               'label'          => __( 'Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+				),
+           )
+       )
+   );
      /**
        * Option: Footer Font Family
        */
@@ -342,22 +348,28 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         );
         $wp_customize->add_control(
-            new Kemet_Control_Responsive(
-                $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-font-size]', array(
-                    'type'        => 'kmt-responsive',
-                    'section'     => 'section-kemet-footer',
-                    'priority'    => 50,
-                    'label'       => __( 'Widget Title Font Size', 'kemet' ),
-                    'input_attrs' => array(
-                        'min' => 0,
-                    ),
-                    'units'       => array(
-                        'px' => 'px',
-                        'em' => 'em',
-                    ),
-                )
-            )
-        );
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-font-size]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-kemet-footer',
+               'priority'       => 20,
+               'label'          => __( 'Widget Title Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
+				),
+           )
+       )
+   );
 
         /**
          * Option: Widget Title Color

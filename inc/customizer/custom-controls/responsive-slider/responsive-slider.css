@@ -97,7 +97,7 @@
 	color: rgba(0, 0, 0, 0.2);
 	position: absolute;
 	top: -28px;
-	right: 1.5em;
+	right: 0;
 	display: inline-block;
 	-webkit-transition: color 0.5s ease-in;
 	-moz-transition: color 0.5s ease-in;
@@ -143,9 +143,8 @@
 }
 
 .kmt-responsive-slider-btns {
-	float: right;
 	line-height: 1;
-	margin-top: 5px;
+	padding-left: 10px;
 }
 
 .kmt-responsive-slider-btns > li {

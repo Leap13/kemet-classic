@@ -123,22 +123,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Responsive(
-			$wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
-				'type'        => 'kmt-responsive',
-				'section'     => 'section-widgets',
-				'priority'    => 25,
-				'label'       => __( 'Widget Title Font Size', 'kemet' ),
-				'input_attrs' => array(
-					'min' => 0,
+       new Kemet_Control_Responsive_Slider(
+           $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
+               'type'           => 'kmt-responsive-slider',
+               'section'        => 'section-contents',
+               'priority'       => 25,
+               'label'          => __( 'Widget Title Font Size', 'kemet' ),
+               'unit_choices'   => array( 'px', 'em' ),
+			   'units_attrs'   => array(
+					'px' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' =>300,
+					),
+					'em' => array(
+						'min' => 1,
+						'step' => 1,
+						'max' => 10,
+					),
 				),
-				'units'       => array(
-					'px' => 'px',
-					'em' => 'em',
-				),
-			)
-		)
-	);
+           )
+       )
+   );
 	
 	/**
 	 * Option: Widget Font Family
