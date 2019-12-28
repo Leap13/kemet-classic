@@ -154,8 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'section'     => 'title_tagline',
 				'priority'    => 35,
 				'label'       => __( 'Site Title Font Size', 'kemet' ),
-				 'unit_choices'   => array( 'px', 'em' ),
-				 'units_attrs'   => array(
+				 'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -232,8 +231,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'title_tagline',
                'priority'       => 50,
                'label'          => __( 'Tagline Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -285,8 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'title_tagline',
                'priority'       => 1,
                'label'          => __( 'Logo Width', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em', '%' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 50,
 						'step' => 1,
@@ -295,12 +292,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'em' => array(
 						'min' => 1,
 						'step' => 1,
-						'max' => 10,
-					),
-					'%' => array(
-						'min' => 1,
-						'step' => 1,
-						'max' => 50,
+						'max' =>10,
 					),
 				),
            )

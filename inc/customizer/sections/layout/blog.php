@@ -172,8 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-blog',
                'priority'       => 35,
                'label'          => __( 'Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -222,8 +221,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-blog',
                'priority'       => 45,
                'label'          => __( 'Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,

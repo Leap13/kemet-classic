@@ -63,8 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 10,
                'label'          => __( 'Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -378,8 +377,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 75,
                'label'          => __( 'H1 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -433,8 +431,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 85,
                'label'          => __( 'H2 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -488,8 +485,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 95,
                'label'          => __( 'H3 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -544,8 +540,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 105,
                'label'          => __( 'H4 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -599,8 +594,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 115,
                'label'          => __( 'H5 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
@@ -653,8 +647,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 125,
                'label'          => __( 'H6 Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,

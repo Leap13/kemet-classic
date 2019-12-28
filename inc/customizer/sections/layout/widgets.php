@@ -129,8 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'section'        => 'section-contents',
                'priority'       => 25,
                'label'          => __( 'Widget Title Font Size', 'kemet' ),
-               'unit_choices'   => array( 'px', 'em' ),
-			   'units_attrs'   => array(
+			   'unit_choices'   => array(
 					'px' => array(
 						'min' => 1,
 						'step' => 1,
