@@ -159,14 +159,14 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 	function kemet_responsive_slider( $option, $device = 'desktop', $default = '' ) {
 
 		if ( isset( $option[ $device ] ) && isset( $option[ $device . '-unit' ] ) ) {
-			$spacing = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
+			$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
 		} elseif ( is_numeric( $option ) ) {
-			$spacing = kemet_get_css_value( $option );
+			$value = kemet_get_css_value( $option );
 		} else {
-			$spacing = ( ! is_array( $option ) ) ? $option : '';
+			$value = ( ! is_array( $option ) ) ? $option : '';
 		}
 
-		return $spacing;
+		return $value;
 	}
 }
 
