@@ -287,8 +287,7 @@ $wp_customize->add_control(
             'section'        => 'section-footer-copyright',
             'priority'       => 55,
             'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
