@@ -2,7 +2,9 @@
     position: relative;
     top: 0.1em;
 }
-
+.customize-control-title{
+	cursor: auto;
+}
 #customize-header-actions .spinner {
     margin-left: 4px;
 }
