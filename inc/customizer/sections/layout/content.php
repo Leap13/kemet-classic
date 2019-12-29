@@ -259,7 +259,7 @@ $wp_customize->add_control(
             'type'     => 'kmt-title',
             'label'    => __( 'Heading Styling', 'kemet' ),
             'section'  => 'section-contents',
-            'priority' => 0,
+            'priority' => 46,
             'settings' => array(),
         )
     )

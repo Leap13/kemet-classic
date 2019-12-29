@@ -144,7 +144,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
-			<ul class="kmt-spacing-responsive-btns">
+			<ul class="kmt-responsive-control-btns kmt-spacing-responsive-btns">
 				<li class="desktop active">
 					<button type="button" class="preview-desktop active" data-device="desktop">
 						<i class="dashicons dashicons-desktop"></i>

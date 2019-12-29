@@ -7,37 +7,6 @@
   position: relative;
 }
 
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns {
-  display: inline-block;
-  text-align: center;
-  padding-left: 10px;
-}
-
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns > li {
-  margin-bottom: 0;
-  display: none;
-}
-
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns > li.active {
-  display: inline-block;
-}
-
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns button[type="button"] {
-  padding: 0;
-  cursor: pointer;
-  background: none;
-  border: none;
-  opacity: .75;
-  outline: none;
-}
-
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns button[type="button"] > i {
-  width: 15px;
-  height: 15px;
-  font-size: 15px;
-  margin-top: 1px;
-}
-
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units {
   position: absolute;
   transform: translateY(-100%);

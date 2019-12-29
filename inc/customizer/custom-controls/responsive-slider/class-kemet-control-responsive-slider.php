@@ -107,7 +107,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		<label for="">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="kmt-responsive-slider-btns">
+				<ul class="kmt-responsive-control-btns kmt-responsive-slider-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -124,10 +124,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						</button>
 					</li>
 				</ul>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } 
+			<# }  
 			desktop_unit_val = 'px';
 			tablet_unit_val  = 'px';
 			mobile_unit_val  = 'px';
@@ -251,9 +248,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						});#>
 					</ul>
 				</div>
-				<div class="kmt-responsive-slider-reset">
+				<!-- <div class="kmt-responsive-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
-				</div>
+				</div> -->
 			</div>
 			<div class="kmt-slider-responsive-units-screen-wrap">
 				<div class="unit-input-wrapper kmt-slider-unit-wrapper">
@@ -262,6 +259,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					<input type='hidden' class='kmt-slider-unit-input kmt-slider-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 			</div>
+			<# if ( data.description ) { #>
+				<span class="description customize-control-description">{{{ data.description }}}</span>
+			<# } #>
 		</label>
 		<?php
 	}
