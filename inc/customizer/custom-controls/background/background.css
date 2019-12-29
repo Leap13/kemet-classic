@@ -52,7 +52,7 @@
 
 .customize-control-kmt-background .more-settings {
   margin-top: 12px;
-  display: inline-block;
+  display: block;
   padding: 5px 0 5px 0;
   float: right;
 }

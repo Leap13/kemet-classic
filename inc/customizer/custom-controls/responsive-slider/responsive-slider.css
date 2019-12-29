@@ -196,3 +196,7 @@
   text-decoration: underline;
   opacity: 1;
 }
+
+.description.customize-control-description {
+  margin-bottom: 20px;
+}
