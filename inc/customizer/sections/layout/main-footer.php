@@ -144,8 +144,7 @@ $wp_customize->add_control(
             'section'        => 'section-kemet-footer',
             'priority'       => 20,
             'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
@@ -353,8 +352,7 @@ $wp_customize->add_control(
             'section'        => 'section-kemet-footer',
             'priority'       => 20,
             'label'          => __( 'Widget Title Font Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
@@ -649,8 +647,7 @@ $wp_customize->add_control(
             'section'        => 'section-kemet-footer',
             'priority'       => 100,
             'label'          => __( 'Button Radius', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em', '%' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,

@@ -181,8 +181,7 @@ $wp_customize->add_control(
             'section'        => 'section-header',
             'priority'       => 30,
             'label'          => __( 'Bottom Border Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
@@ -233,7 +232,7 @@ $wp_customize->add_control(
         'type'     => 'checkbox',
         'section'  => 'section-header',
         'priority' => 16,
-        'label'    => __( 'Enable Search Box Shadow', 'kemet-addons' ),
+        'label'    => __( 'Enable Search Box Shadow', 'kemet' ),
     )
 );
 
@@ -251,7 +250,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
-            'label'   => __( 'Search Button Background Color', 'kemet-addons' ),
+            'label'   => __( 'Search Button Background Color', 'kemet' ),
             'section' => 'section-header',
             'priority' => 16,
         )
@@ -271,7 +270,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-            'label'   => __( 'Search Button Hover', 'kemet-addons' ),
+            'label'   => __( 'Search Button Hover', 'kemet' ),
             'section' => 'section-header',
             'priority' => 16,
         )
@@ -291,7 +290,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-            'label'   => __( 'Search Button Color', 'kemet-addons' ),
+            'label'   => __( 'Search Button Color', 'kemet' ),
             'section' => 'section-header',
             'priority' => 16,
         )
@@ -337,7 +336,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-border-color]', array(
-            'label'   => __( 'Search Border Color', 'kemet-addons' ),
+            'label'   => __( 'Search Border Color', 'kemet' ),
             'section' => 'section-header',
             'priority' => 16,
         )
@@ -357,7 +356,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
-            'label'   => __( 'Search Form Background Color', 'kemet-addons' ),
+            'label'   => __( 'Search Form Background Color', 'kemet' ),
             'section' => 'section-header',
             'priority' => 17,
         )
@@ -377,7 +376,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[search-input-color]', array(
-            'label'   => __( 'Search Form Font Color', 'kemet-addons' ),
+            'label'   => __( 'Search Form Font Color', 'kemet' ),
             'section' => 'section-header',
             'priority' => 17,
         )

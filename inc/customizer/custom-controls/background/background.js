@@ -151,21 +151,23 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 		});
 
 		control.container.on( 'click', '.more-settings', function( e ) {
+
+			var $this = jQuery(this);
 			// Hide unnecessary controls.
 			control.container.find( '.background-wrapper > .background-repeat' ).toggle();
 			control.container.find( '.background-wrapper > .background-position' ).toggle();
 			control.container.find( '.background-wrapper > .background-size' ).toggle();
 			control.container.find( '.background-wrapper > .background-attachment' ).toggle();
-
-			if( 'down' === $(this).attr( 'data-direction' ) )
+			
+			if ('down' === $this.attr( 'data-direction' ) )
 			{
-				$(this).attr('data-direction', 'up');
-				$(this).find('.message').html( kemetCustomizerControlBackground.lessSettings )
-				$(this).find('.icon').html( '↑' );
+				$this.attr('data-direction', 'up');
+				$this.find('.message').html( kemetCustomizerControlBackground.lessSettings )
+				$this.find('.icon').html( '↑' );
 			} else {
-				$(this).attr('data-direction', 'down');
-				$(this).find('.message').html( kemetCustomizerControlBackground.moreSettings )
-				$(this).find('.icon').html( '↓' );
+				$this.attr('data-direction', 'down');
+				$this.find('.message').html( kemetCustomizerControlBackground.moreSettings )
+				$this.find('.icon').html( '↓' );
 			}
 		});
 	},

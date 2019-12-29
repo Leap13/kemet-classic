@@ -153,8 +153,7 @@ $wp_customize->add_control(
             'section'     => 'title_tagline',
             'priority'    => 35,
             'label'       => __( 'Site Title Font Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
@@ -230,8 +229,7 @@ $wp_customize->add_control(
             'section'        => 'title_tagline',
             'priority'       => 50,
             'label'          => __( 'Tagline Font Size', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
@@ -280,8 +278,7 @@ $wp_customize->add_control(
             'section'        => 'title_tagline',
             'priority'       => 1,
             'label'          => __( 'Logo Width', 'kemet' ),
-            'unit_choices'   => array( 'px', 'em', '%' ),
-            'units_attrs'   => array(
+            'unit_choices'   => array(
                 'px' => array(
                     'min' => 50,
                     'step' => 1,
