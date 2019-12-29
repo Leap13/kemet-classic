@@ -119,7 +119,7 @@ $wp_customize->add_control(
             'type'    => 'kmt-background',
             'section' => 'section-header',
             'priority' => 20,
-            'label'   => __( 'Header Background', 'kemet' ),
+            'label'   => __( 'Header Overlay Background', 'kemet' ),
         )
     )
 );
@@ -185,12 +185,7 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
-                ),
-                'em' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' => 10,
+                    'max' =>10,
                 ),
             ),
         )
