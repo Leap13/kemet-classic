@@ -17,6 +17,7 @@ require $control_dir . '/slider/class-kemet-control-slider.php';
 require $control_dir . '/responsive-slider/class-kemet-control-responsive-slider.php';
 require $control_dir . '/responsive/class-kemet-control-responsive.php';
 require $control_dir . '/typography/class-kemet-control-typography.php';
+require $control_dir . '/responsive-select/class-kemet-control-responsive-select.php';
 require $control_dir . '/spacing/class-kemet-control-spacing.php';
 require $control_dir . '/responsive-spacing/class-kemet-control-responsive-spacing.php';
 require $control_dir . '/title/class-kemet-control-title.php';

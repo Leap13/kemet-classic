@@ -152,7 +152,7 @@ function kemet_responsive_spacing(control, selector, type, side) {
 	});
 }
 /**
- * Responsive Spacing CSS
+ * Responsive Slider CSS
  */
 function kemet_responsive_slider(control, selector, type) {
 

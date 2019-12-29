@@ -115,6 +115,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Slider' );
 			$wp_customize->register_control_type( 'Kemet_Control_Icon_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Slider' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive' );
 			$wp_customize->register_control_type( 'Kemet_Control_Spacing' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Spacing' );
