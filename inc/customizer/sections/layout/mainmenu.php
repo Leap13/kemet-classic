@@ -258,7 +258,6 @@ $header_rt_sections = array(
 		  )
 		)
 	);
-	if(kemet_get_option('search-style') == 'search-box'){
 	/**
 	 * Option: Search Form Border Size
 	 */
@@ -283,7 +282,6 @@ $header_rt_sections = array(
 			),
 		)
 	);
-}
 	/**
    	* Option: Search Border Color
     */
@@ -989,27 +987,6 @@ $header_rt_sections = array(
 				'priority'       => 170,
 				'section' => 'section-menu-header',
 			)
-		)
-	);
-
-	//Main Menu Item Effects
-
-$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[main-menu-item-effect]', array(
-			'default'           => '',
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[main-menu-item-effect]', array(
-			'type'     => 'select',
-			'section'  => 'section-menu-header',
-			'priority' => 171,
-			'label'    => __( 'Main Menu Item Effects', 'kemet' ),
-			'choices'  => array(
-				'effect1' => __( 'Effect 1', 'kemet' ),
-			),
 		)
 	);
 

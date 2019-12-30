@@ -3644,72 +3644,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   text-align: left;
 }
 
-@-webkit-keyframes MoveRight {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-}
-
-@keyframes MoveRight {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-}
-
-@-webkit-keyframes Effect1Left {
-  0% {
-    -webkit-transform: translateX(-20px);
-    transform: translateX(-20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
-@keyframes Effect1Left {
-  0% {
-    -webkit-transform: translateX(-20px);
-    transform: translateX(-20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
-@-webkit-keyframes Effect1Right {
-  0% {
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
-@keyframes Effect1Right {
-  0% {
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
 .kmt-sitehead-custom-menu-items {
   padding: 0 1em;
 }
@@ -3718,49 +3652,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
-.main-header-menu.effect1 > .menu-item {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.main-header-menu.effect1 > .menu-item:hover:before {
-  content: "[";
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: Effect1Right;
-  animation-name: Effect1Right;
-  display: inline-block;
-}
-
-.main-header-menu.effect1 > .menu-item:hover:after {
-  content: "]";
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: Effect1Left;
-  animation-name: Effect1Left;
-  display: inline-block;
-}
-
 .main-header-menu > .menu-item > a {
   border-bottom: 1px solid transparent;
-}
-
-.main-header-menu > .menu-item > ul .menu-item {
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.main-header-menu > .menu-item > ul .menu-item:hover > a {
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: MoveRight;
-  animation-name: MoveRight;
 }
 
 .main-header-menu.menu-separator.vertical-bar > .menu-item:not(:first-child):before {

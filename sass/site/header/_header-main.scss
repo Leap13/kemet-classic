@@ -187,30 +187,6 @@ li.kmt-sitehead-custom-menu-items {
 		}
 	}	
 }
-@keyframes MoveRight { 
-    0% { 
-        transform: translateX(0); 
-    } 
-    100% { 
-        transform: translateX(10px); 
-    } 
-}
-@keyframes Effect1Left { 
-    0% { 
-        transform: translateX(-20px); 
-    } 
-    100% { 
-        transform: translateX(0); 
-    } 
-}
-@keyframes Effect1Right { 
-    0% { 
-        transform: translateX(20px); 
-    } 
-    100% { 
-        transform: translateX(0);  
-    } 
-}
 .kmt-sitehead-custom-menu-items{
 	padding: 0 1em;
 	.kmt-search-icon .kemet-search-icon {
@@ -218,43 +194,10 @@ li.kmt-sitehead-custom-menu-items {
 	}
 }
 .main-header-menu {
-	&.effect1{
-		>.menu-item{
-			transition: all 0.2s;
-			&:hover{
-				&:before{
-					content: "[";
-					animation-duration: 0.2s; 
-					animation-fill-mode: both; 
-					animation-name: Effect1Right;
-					display: inline-block;
-				}	
-				&:after{
-					content: "]";
-					animation-duration: 0.2s; 
-					animation-fill-mode: both; 
-					animation-name: Effect1Left;
-					display: inline-block;
-				}
-			}		
-		}
-	}
 	> .menu-item { 
 		 > a {
 			 border-bottom: 1px solid transparent;
 		 }
-		 >ul{
-				.menu-item{
-					transition: all 0.2s;
-					&:hover{
-						>a{
-						animation-duration: 0.2s; 
-						animation-fill-mode: both; 
-						animation-name: MoveRight; 
-					}
-					}
-				}
-			}
 	}
 	&.menu-separator{
 		&.vertical-bar{

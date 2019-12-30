@@ -107,7 +107,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-        'default'           => kemet_get_option( 'header-bg-obj' ),
+        'default'           => "#fff",
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -296,7 +296,6 @@ $wp_customize->add_control(
         )
     )
 );
-if ( kemet_get_option( 'search-style' ) == 'search-box' ) {
     /**
     * Option: Search Form Border Size
     */
@@ -321,7 +320,6 @@ if ( kemet_get_option( 'search-style' ) == 'search-box' ) {
             ),
         )
     );
-}
 /**
 * Option: Search Border Color
 */

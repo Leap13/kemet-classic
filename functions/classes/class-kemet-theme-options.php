@@ -139,6 +139,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-line-height'                 => '',
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
+					'search-style'							=> 'search-icon',
+					'search-box-shadow' => 'false',
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
