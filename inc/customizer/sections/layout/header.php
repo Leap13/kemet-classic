@@ -107,7 +107,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-        'default'           => "#fff",
+        'default'           => "",
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),

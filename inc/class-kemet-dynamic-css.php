@@ -107,6 +107,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
 			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color');
 			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
+			$menu_last_items_separator_color = kemet_get_option( 'separator-last-items-color' );
 
 			// Sub Menu Typography
 			$sub_menu_font_family 				= kemet_get_option( 'sub-menu-items-font-family' );
@@ -476,6 +477,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
 					'line-height' => esc_attr( $menu_line_height ),
 				), 
+				'.main-header-bar .main-header-bar-navigation .kmt-sitehead-custom-menu-items.separator:before'  => array(
+					'color' => esc_attr( $menu_last_items_separator_color ),
+				),
 				'.main-header-menu > .menu-item:hover > a'  => array(
 					'border-bottom-color' => esc_attr( $menu_link_bottom_border_color ),
 				),

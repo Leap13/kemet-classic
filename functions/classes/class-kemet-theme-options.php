@@ -172,6 +172,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
+					'header-bg-obj'                    => array(
+						'background-color'      => '#fff',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
+					),
 
 					// Sub Menu 
 					'submenu-link-color'             =>'',
