@@ -378,22 +378,36 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'readmore-border-radius' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[readmore-border-radius]', array(
-        'priority'       => 80,
-        'section' => 'section-blog',
-        'label'       => __( 'Read More Border Radius', 'kemet' ),
-        'type'        => 'number',
-        'input_attrs' => array(
-            'min'  => 0,
-            'step' => 1,
-            'max'  => 200,
-        ),
-    )
-);
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-radius]', array(
+				'type'           => 'kmt-responsive-slider',
+				'section'        => 'section-blog',
+				'priority'       => 80,
+				'label'          => __( 'Read More Border Radius', 'kemet' ),
+				'unit_choices'   => array(
+					 'px' => array(
+						 'min' => 1,
+						 'step' => 1,
+						 'max' => 100,
+					 ),
+					 'em' => array(
+						 'min' => 1,
+						 'step' => 1,
+						 'max' => 10,
+                     ),
+                     '%' => array(
+                        'min' => 1,
+                        'step' => 1,
+                        'max' => 100,
+                    ),
+                 ),
+			)
+		)
+	);
 /**
 * Option: Read More Border Size
 */
@@ -402,22 +416,26 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'readmore-border-size' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
-        'type'        => 'number',
-        'section'     => 'section-blog',
-        'priority'    => 85,
-        'label'       => __( 'Read More Border Size', 'kemet' ),
-        'input_attrs' => array(
-            'min'  => 0,
-            'step' => 1,
-            'max'  => 600,
-        ),
-    )
-);
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[readmore-border-size]', array(
+				'type'           => 'kmt-responsive-slider',
+				'section'        => 'section-blog',
+				'priority'       => 85,
+				'label'          => __( 'Read More Border Size', 'kemet' ),
+				'unit_choices'   => array(
+					 'px' => array(
+						 'min' => 1,
+						 'step' => 1,
+						 'max' => 100,
+					 ),
+                 ),
+			)
+		)
+	);
 /**
 * Option: Read More Border Color
 */

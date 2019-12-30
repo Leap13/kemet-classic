@@ -670,10 +670,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
 					'background-color' => esc_attr( $readmore_bg_color),
-					'border-radius'    => kemet_get_css_value( $readmore_border_radius, 'px' ),
+					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
 					'border' => 'solid',
 					'border-color'     => esc_attr( $readmore_border_color),
-					'border-width' => kemet_get_css_value( $readmore_border_size , 'px' , '0' ),
+					'border-width' => kemet_responsive_slider( $readmore_border_size , 'desktop'),
 				),
 				'.content-area .read-more a:hover' =>  array(
 					'color' => esc_attr( $readmore_text_h_color ),
@@ -924,6 +924,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'tablet' ),
 					'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'tablet' ),
 				),
+				'.content-area .read-more a' => array(
+					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'tablet' ),
+					'border-width' => kemet_responsive_slider( $readmore_border_size , 'tablet'),
+				),
 				'.site-header .kmt-sitehead-custom-menu-items' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'tablet' ),
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'tablet' ),
@@ -1078,6 +1082,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'mobile' ),
 					'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'mobile' ),
+				),
+				'.content-area .read-more a' => array(
+					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'mobile' ),
+					'border-width' => kemet_responsive_slider( $readmore_border_size , 'mobile'),
 				),
 				'.site-header .kmt-sitehead-custom-menu-items' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'mobile' ),

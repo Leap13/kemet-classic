@@ -180,7 +180,7 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>200,
+                    'max' =>100,
                 ),
                 'em' => array(
                     'min' => 1,
