@@ -157,11 +157,11 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>200,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
             ),
@@ -233,11 +233,11 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>200,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
             ),
@@ -292,7 +292,7 @@ $wp_customize->add_control(
                 '%' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' => 50,
+                    'max' => 100,
                 ),
 			),
 			'description'  => __('This option will not increase your uploaded logo width beyond its original size.', 'kemet'),

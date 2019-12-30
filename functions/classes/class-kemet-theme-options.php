@@ -141,6 +141,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-link-bottom-border-color'              => '',
 					'search-style'							=> 'search-icon',
 					'search-border-color'					=> '#7a7a7a',
+					'search-input-bg-color'					=> '#fff',
 					'main-menu-separator'					=> true,
 					'separator-style'							=> 'vertical-bar',
 					'search-box-shadow' => 'false',
