@@ -3577,8 +3577,6 @@ body {
   backface-visibility: hidden;
   position: relative;
   color: inherit;
-  background-color: transparent;
-  background-color: #f2f2f2;
   margin: auto;
 }
 

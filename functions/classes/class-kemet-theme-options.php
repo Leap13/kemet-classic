@@ -140,6 +140,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
 					'search-style'							=> 'search-icon',
+					'search-border-color'					=> '#7a7a7a',
+					'main-menu-separator'					=> true,
+					'separator-style'							=> 'vertical-bar',
 					'search-box-shadow' => 'false',
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',

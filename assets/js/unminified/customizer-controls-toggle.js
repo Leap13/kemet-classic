@@ -183,6 +183,39 @@
 				}
 			},
 		],
+		//Main Menu Separator
+		'kemet-settings[main-menu-separator]':
+		[
+			{
+				controls: [
+					'kemet-settings[separator-style]',
+					'kemet-settings[separator-color]',
+				],
+				callback: function (value) {
+
+					if (value) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		//Last Menu Items Separator
+		'kemet-settings[last-items-separator]':
+		[
+			{
+				controls: [
+					'kemet-settings[separator-last-items-color]',
+				],
+				callback: function (value) {
+
+					if (value) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 		/**
 		 * Section - Header
 		 *
