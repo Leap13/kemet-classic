@@ -3694,29 +3694,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   border-bottom: 1px solid transparent;
 }
 
-.main-header-menu.menu-separator.circle > .menu-item:not(:first-child):before {
-  content: " ";
-  background-color: #9C9C9C;
-  width: 5px;
-  height: 5px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  position: absolute;
-  right: 0;
-  bottom: 45%;
-  padding: 0;
-}
-
-.main-header-menu.menu-separator > .menu-item:not(:first-child):before {
-  color: #9C9C9C;
-  font-weight: normal;
-  margin-right: -5px;
-  font-style: normal;
-  float: right;
-  line-height: inherit;
-  padding: 1em;
-}
-
 .kmt-header-break-point {
   /* Styling Nav */
   /* Main Header */

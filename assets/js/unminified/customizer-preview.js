@@ -174,11 +174,11 @@ function kemet_responsive_slider(control, selector, type) {
 					mobileWidth = '';
 
 
-				desktopWidth += spacingType + ': ' + value['desktop'] + value['desktop-unit'] + ' !important;';
+				desktopWidth += spacingType + ': ' + value['desktop'] + value['desktop-unit'] + ' ;';
 
-				tabletWidth += spacingType + ': ' + value['tablet'] + value['tablet-unit'] + ' !important;';
+				tabletWidth += spacingType + ': ' + value['tablet'] + value['tablet-unit'] + ' ;';
 
-				mobileWidth += spacingType + ': ' + value['mobile'] + value['mobile-unit'] + ' !important;';
+				mobileWidth += spacingType + ': ' + value['mobile'] + value['mobile-unit'] + ' ;';
 
 				// Concat and append new <style>.
 				jQuery('head').append(

@@ -246,34 +246,6 @@ li.kmt-sitehead-custom-menu-items {
 			 border-bottom: 1px solid transparent;
 		 }
 	}
-	&.menu-separator {
-		&.circle{
-			> .menu-item:not(:first-child){
-				&:before{
-					content: " ";
-					background-color: #9C9C9C;
-					width: 5px;
-					height: 5px;
-					border-radius: 50%;
-					position: absolute;
-					left: 0;
-					bottom: 45%;
-					padding: 0;
-				}
-			}
-		}
-		> .menu-item:not(:first-child) {
-		&:before{
-			color: #9C9C9C;
-			font-weight: normal;
-			margin-left: -5px;
-			font-style: normal;
-			float: left;
-			line-height: inherit;
-			padding: 1em
-		}
-	}
-	}
 } 
 .kmt-header-break-point {
 
