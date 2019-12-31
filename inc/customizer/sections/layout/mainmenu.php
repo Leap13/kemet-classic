@@ -287,7 +287,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-border-color]', array(
-		  'default'           => '',
+		  'default'           => '#a7a7a7',
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),

@@ -107,7 +107,14 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-        'default'           => "",
+        'default'           => array(
+						'background-color'      => '#fff',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
+					    ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -185,7 +192,7 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>100,
+                    'max' => 15,
                 ),
             ),
         )

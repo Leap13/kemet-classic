@@ -654,8 +654,8 @@ $wp_customize->add_control(
                     'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
                 '%' => array(
