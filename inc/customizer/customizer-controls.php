@@ -20,6 +20,5 @@ require $control_dir . '/typography/class-kemet-control-typography.php';
 require $control_dir . '/responsive-spacing/class-kemet-control-responsive-spacing.php';
 require $control_dir . '/title/class-kemet-control-title.php';
 require $control_dir . '/color/class-kemet-control-color.php';
-require $control_dir . '/description/class-kemet-control-description.php';
 require $control_dir . '/background/class-kemet-control-background.php';
 require $control_dir . '/icon-select/class-kemet-control-icon-select.php';

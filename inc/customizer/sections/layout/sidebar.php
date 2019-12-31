@@ -38,19 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     'step' => 1,
                     'max'  => 50,
                 ),
-            )
-        )
-    );
-
-        $wp_customize->add_control(
-        new Kemet_Control_Description(
-            $wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width-description]', array(
-                'type'     => 'kmt-description',
-                'section'  => 'section-sidebars',
-                'priority' => 10,
-                'label'    => '',
-                'help'     => __( 'Sidebar width will apply only when one of the following sidebar is set.', 'kemet' ),
-                'settings' => array(),
+                'description'  => __('Sidebar width will apply only when one of the following sidebar is set.', 'kemet'),
             )
         )
     );
