@@ -74,7 +74,7 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[enable-transparent]', array(
         'type'            => 'checkbox',
         'section'         => 'section-header',
-        'label'           => __( 'Enable Transparent Header', 'kemet' ),
+        'label'           => __( 'Enable Overlay Header', 'kemet' ),
         'priority'        => 10,
     )
 );

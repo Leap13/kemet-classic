@@ -768,7 +768,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
 		$header_transparent       = kemet_get_option( 'enable-transparent' );
-	
+		$header_layouts 			  = kemet_get_option( 'header-layouts' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;
@@ -787,7 +787,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 			$classes[] = 'kmt-logo-title-inline';
 		}
 		
-		if($header_transparent){
+		if($header_transparent && $header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' || $header_layouts == 'header-main-layout-3' || $header_layouts == 'header-main-layout-4'){
 			$classes[] = 'kmt-header-transparent';
 		}
 		

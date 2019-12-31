@@ -2920,6 +2920,11 @@ body {
 /**
  * 3 - Header Layout 3
 */
+.header-main-layout-3 .kmt-main-header-bar-alignment {
+  text-align: center;
+  line-height: 1;
+}
+
 .header-main-layout-3 .kmt-search-menu-icon {
   left: auto;
   right: 30px;

@@ -163,6 +163,21 @@
 				}
 			},
 		],
+		'kemet-settings[header-layouts]':
+		[
+			{
+				controls: [
+					'kemet-settings[enable-transparent]',
+				],
+				callback: function (value) {
+
+					if (value == 'header-main-layout-1' || value == 'header-main-layout-2' || value == 'header-main-layout-3' || value == 'header-main-layout-4') {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 		//Search Style
 		'kemet-settings[search-style]':
 		[
