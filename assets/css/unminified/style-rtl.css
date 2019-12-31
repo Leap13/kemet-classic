@@ -3512,16 +3512,6 @@ body {
   line-height: 4;
 }
 
-.main-header-bar .main-header-bar-navigation .kmt-sitehead-custom-menu-items.separator:before {
-  content: "|";
-  color: inherit;
-  font-weight: normal;
-  margin-right: -5px;
-  font-style: normal;
-  float: right;
-  padding: 0 10px;
-}
-
 .main-header-bar .main-header-bar-navigation:empty {
   padding: 0;
 }
@@ -3657,37 +3647,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .main-header-menu > .menu-item > a {
   border-bottom: 1px solid transparent;
-}
-
-.main-header-menu.menu-separator.vertical-bar > .menu-item:not(:first-child):before {
-  content: "|";
-}
-
-.main-header-menu.menu-separator.back-slash > .menu-item:not(:first-child):before {
-  content: "/";
-}
-
-.main-header-menu.menu-separator.circle > .menu-item:not(:first-child):before {
-  content: " ";
-  background-color: #9C9C9C;
-  width: 5px;
-  height: 5px;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  position: absolute;
-  right: 0;
-  bottom: 45%;
-  padding: 0;
-}
-
-.main-header-menu.menu-separator > .menu-item:not(:first-child):before {
-  color: #9C9C9C;
-  font-weight: normal;
-  margin-right: -5px;
-  font-style: normal;
-  float: right;
-  line-height: inherit;
-  padding: 1em;
 }
 
 .main-header-menu > .menu-item > a {

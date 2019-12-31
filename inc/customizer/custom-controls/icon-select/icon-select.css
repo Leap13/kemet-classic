@@ -26,17 +26,12 @@
   color: #555; 
   border: 1px solid #ddd; 
   margin: 0; 
-  padding: 20px; 
+  padding: 15px; 
   text-align: center; 
-  transition: all .3s ease; 
-  -webkit-transition: all .3s ease;
-   -moz-transition: all .3s ease; 
-   -o-transition: all .3s ease; 
-   -ms-transition: all .3s ease; 
   }
 .customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
 .customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
-  background-color: #3498DB; 
+  background-color: #a4afb7; 
   color: #fff; 
-  border-color: #3498DB; 
+  border-color: #a4afb7; 
 }
