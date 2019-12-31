@@ -90,9 +90,6 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
 				<div class="kemet_range_value">
@@ -106,6 +103,9 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>
+			<# if ( data.description ) { #>
+				<span class="description customize-control-description">{{{ data.description }}}</span>
+			<# } #>
 		</label>
 		<?php
 	}
