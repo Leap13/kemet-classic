@@ -19,6 +19,8 @@ function active_plugin(event) {
         // request state change event
         xhr.onreadystatechange = function () {
 
+            active_kemet_addons.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
+            active_kemet_addons.innerHTML = '<span class="dashicons dashicons-update"></span> Activating..';
             // request completed?
             if (xhr.readyState !== 4) return;
 
@@ -39,7 +41,8 @@ function active_plugin(event) {
 
         // request state change event
         xhr.onreadystatechange = function () {
-
+            active_kemet_addons.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
+            active_kemet_addons.innerHTML = '<span class="dashicons dashicons-update"></span> Installing..';
             // request completed?
             if (xhr.readyState !== 4) return;
 
