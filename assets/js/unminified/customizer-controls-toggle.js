@@ -163,21 +163,6 @@
 				}
 			},
 		],
-		'kemet-settings[header-layouts]':
-		[
-			{
-				controls: [
-					'kemet-settings[enable-transparent]',
-				],
-				callback: function (value) {
-
-					if (value == 'header-main-layout-1' || value == 'header-main-layout-2' || value == 'header-main-layout-3' || value == 'header-main-layout-4') {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
 		//Search Style
 		'kemet-settings[search-style]':
 		[
@@ -218,7 +203,7 @@
 				],
 				callback: function( val ) {
 
-					if ( 'text-html' == val ) {
+					if ( val.includes('text-html') ) {
 						return true;
 					}
 					return false;
@@ -234,7 +219,7 @@
 				],
 				callback: function (val) {
 
-					if ('search' == val) {
+					if (val.includes('search')) {
 						return true;
 					}
 					return false;

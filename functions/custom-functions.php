@@ -782,7 +782,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 			$classes[] = 'kmt-logo-title-inline';
 		}
 		
-		if($header_transparent && ($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' || $header_layouts == 'header-main-layout-3' || $header_layouts == 'header-main-layout-4')){
+		if($header_transparent){
 			$classes[] = 'kmt-header-transparent';
 		}
 		

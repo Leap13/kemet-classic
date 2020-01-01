@@ -107,6 +107,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
 			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color');
 			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
+			$menu_font_size					= kemet_get_option( 'menu-font-size' );
 
 			// Sub Menu Typography
 			$sub_menu_font_family 				= kemet_get_option( 'sub-menu-items-font-family' );
@@ -469,6 +470,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-family'    => kemet_get_font_family( $menu_font_family ),
 					'font-weight'     => esc_attr( $menu_font_weight ),
 					'text-transform'  => esc_attr( $menu_text_transform ),
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'desktop' ),		
 				),
 				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
 					'line-height' => esc_attr( $menu_line_height ),
@@ -930,7 +932,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'tablet' ),
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'tablet' ),
                 'padding-left'  => kemet_responsive_spacing( $last_menu_items_spacing, 'left', 'tablet' ),
-            	),
+				),
+				'.main-header-menu a'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'tablet' ),		
+				),
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
@@ -1163,7 +1168,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer' => array(
 					'font-size' => kemet_responsive_slider( $footer_font_size , 'mobile' ),
 				),
-
+				'.main-header-menu a'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'tablet' ),		
+				),
            /**
 			* Content Spacing Mobile
 			*/

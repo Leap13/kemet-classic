@@ -199,7 +199,7 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Bottom Border Color
+* Option: Border Color
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
@@ -214,7 +214,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
             'section'  => 'section-header',
             'priority' => 35,
-            'label'    => __( 'Bottom Border Color', 'kemet' ),
+            'label'    => __( 'Border Color', 'kemet' ),
         )
     )
 );
