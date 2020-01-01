@@ -75,14 +75,14 @@ class Kemet_Control_Title extends WP_Customize_Control {
 			<span class="customize-control-caption">{{{ data.caption }}}</span>
 		<# } #>
 
-		<label class="customizer-text">
+		<div class="customizer-text">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
-		</label>
+		</div>
 		<?php
 	}
 }

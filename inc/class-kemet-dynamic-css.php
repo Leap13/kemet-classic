@@ -327,9 +327,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'line-height'    => esc_attr( $body_line_height ),
 					'text-transform' => esc_attr( $body_text_transform ),
 				),
-				'blockquote'                              => array(
-					'border-color' => kemet_hex_to_rgba( $link_color, 0.05 ),
-				),
 				'p, .entry-content p'                     => array(
 					'margin-bottom' => kemet_get_css_value( $para_margin_bottom, 'em' ),
 				),
