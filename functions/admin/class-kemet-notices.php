@@ -59,23 +59,25 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 							<p><?php esc_html_e( 'Add Page/Post Options and much more to Kemet Theme with Kemet Addons Plugin.', 'kemet' ); ?></p>
 								<?php
                                     $plugin = 'kemet-addons/kemet-addons.php';
-
+									$install_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=kemet-addons' ), 'install-plugin_kemet-addons' );
+									$activate_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
                                     if ( is_addons_installed() ) {
                                         if ( ! current_user_can( 'activate_plugins' ) ) {
                                             return;
-                                        }
-                                        $action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
+										}
+										
 										$button_label = __( 'Activate Kemet Addons', 'kemet' );
-
+										$status = 'activate';
                                     } else {
                                         if ( ! current_user_can( 'install_plugins' ) ) {
                                             return;
-                                        }
-                                        $action_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=kemet-addons' ), 'install-plugin_kemet-addons' );
+										}
+
+										$status = 'install';
                                         $button_label = __( 'Install Kemet Addons', 'kemet' );
                                     }
 
-                                    $button = '<a href="' . $action_url . '" class="button-primary" id="active-kemet-addons" onclick="active_plugin(event)" >' . $button_label . '</a>';
+                                    $button = '<a class="button-primary" id="active-kemet-addons" data-status = '.$status.' data-url-install = '.$install_url.'  data-url-activate = '.$activate_url.' onclick="active_plugin(event)" >' . $button_label . '</a>';
 
 									printf( '<div>%1$s</div>', $button );
 									

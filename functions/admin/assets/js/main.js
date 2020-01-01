@@ -5,25 +5,54 @@ function active_plugin(event) {
     event.preventDefault();
 
     var active_kemet_addons = document.getElementById('active-kemet-addons'),
-        url = active_kemet_addons.getAttribute("href");
+        status = active_kemet_addons.getAttribute("data-status"),
+        activate_url = active_kemet_addons.getAttribute("data-url-activate"),
+        install_url = active_kemet_addons.getAttribute("data-url-install");
+    if(status == 'activate'){
+        activate(activate_url);
+    }else{
+        install_and_activate(install_url);
+    }
+    function activate(url){
+        let xhr = new XMLHttpRequest();
+
+        // request state change event
+        xhr.onreadystatechange = function () {
+
+            // request completed?
+            if (xhr.readyState !== 4) return;
+
+            if (xhr.status === 200) {
+                location.replace("admin.php?page=kmt-framework");
+            }
+            else {
+                // request error
+                console.log('HTTP error', xhr.status, xhr.statusText);
+            }
+        };
+        xhr.open("GET", url, true);
+        xhr.send();
+    } 
     
-    let xhr = new XMLHttpRequest();
+    function install_and_activate(url) {
+        let xhr = new XMLHttpRequest();
 
-    // request state change event
-    xhr.onreadystatechange = function () {
+        // request state change event
+        xhr.onreadystatechange = function () {
 
-        // request completed?
-        if (xhr.readyState !== 4) return;
+            // request completed?
+            if (xhr.readyState !== 4) return;
 
-        if (xhr.status === 200) {
-            location.replace("admin.php?page=kmt-framework");
-        }
-        else {
-            // request error
-            console.log('HTTP error', xhr.status, xhr.statusText);
-        }
-    };
-    xhr.open("GET", url, true);
-    xhr.send();
+            if (xhr.status === 200) {
+                activate(activate_url);
+            }
+            else {
+                // request error
+                console.log('HTTP error', xhr.status, xhr.statusText);
+            }
+        };
+        xhr.open("GET", url, true);
+        xhr.send();
+    }
+    
 }
-
