@@ -65,7 +65,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
                                             return;
                                         }
                                         $action_url   = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-                                        $button_label = __( 'Activate Kemet Addons', 'kemet' );
+										$button_label = __( 'Activate Kemet Addons', 'kemet' );
 
                                     } else {
                                         if ( ! current_user_can( 'install_plugins' ) ) {
@@ -75,9 +75,10 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
                                         $button_label = __( 'Install Kemet Addons', 'kemet' );
                                     }
 
-                                    $button = '<a href="' . $action_url . '" class="button-primary">' . $button_label . '</a>';
+                                    $button = '<a href="' . $action_url . '" class="button-primary" id="active-kemet-addons" onclick="active_plugin(event)" >' . $button_label . '</a>';
 
-                                    printf( '<div>%1$s</div>', $button );
+									printf( '<div>%1$s</div>', $button );
+									
 								?>
 						</div>
 					</div>
@@ -87,6 +88,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
 
 		public function enqueue_scripts()  {
 			wp_enqueue_style( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/css/style.css', array(), KEMET_THEME_VERSION );
+			wp_enqueue_script( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/js/main.js', array(), KEMET_THEME_VERSION );
 		}
 
 
