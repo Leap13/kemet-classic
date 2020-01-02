@@ -702,7 +702,7 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 		$blog_post_title   = kemet_get_option( 'blog-post-structure' );
 		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
+		if ( ( ( ! is_singular() && in_array( 'post-title', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
 			if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
 
 				$title  = kemet_get_the_title( $post_id );

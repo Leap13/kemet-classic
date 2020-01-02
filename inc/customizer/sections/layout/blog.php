@@ -82,7 +82,9 @@ $wp_customize->add_control(
             'label'    => __( 'Blog Post Structure', 'kemet' ),
             'choices'  => array(
                 'image'      => __( 'Featured Image', 'kemet' ),
-                'title-meta' => __( 'Title & Blog Meta', 'kemet' ),
+                'post-title' => __( 'Title', 'kemet' ),
+                'post-meta' => __( 'Blog Post Meta', 'kemet' ),
+                
             ),
         )
     )

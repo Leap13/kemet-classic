@@ -167,11 +167,16 @@ if ( ! function_exists( 'kemet_blog_post_thumbnai_and_title_order' ) ) {
 						do_action( 'kemet_blog_archive_featured_image_after' );
 						break;
 
-					// Blog Post Title and Blog Post Meta.
-					case 'title-meta':
+					// Blog Post Title 
+					case 'post-title':
 						do_action( 'kemet_blog_archive_title_meta_before' );
 						kemet_get_blog_post_title_meta();
 						do_action( 'kemet_blog_archive_title_meta_after' );
+						break;
+					
+					// Blog Post Meta.
+					case 'post-meta':
+						kemet_get_blog_post_meta();
 						break;
 
 					// Single Post Featured Image.
@@ -237,9 +242,24 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 				kemet_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 
 				do_action( 'kemet_archive_post_title_after' );
+				?>
+		</header>
+				<?php
+				do_action( 'kemet_archive_entry_header_after' );
 
-			?>
-			<?php
+	}
+}
+
+/**
+ * Blog Post Meta Order
+ */
+if ( ! function_exists( 'kemet_get_blog_post_meta' ) ) {
+
+	/**
+	 * Blog post Thumbnail
+	 *
+	 */
+	function kemet_get_blog_post_meta() {
 
 				do_action( 'kemet_archive_post_meta_before' );
 
@@ -247,11 +267,7 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 
 				do_action( 'kemet_archive_post_meta_after' );
 
-			?>
-		</header><!-- .entry-header -->
-		<?php
-
-		do_action( 'kemet_archive_entry_header_after' );
+		
 	}
 }
 

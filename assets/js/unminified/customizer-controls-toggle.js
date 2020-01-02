@@ -325,7 +325,7 @@
 					'kemet-settings[blog-meta]',
 				],
 				callback: function( blog_structure ) {
-					if ( jQuery.inArray ( "title-meta", blog_structure ) !== -1 ) {
+					if (jQuery.inArray( "post-title", blog_structure ) !== -1 ) {
 						return true;
 					}
 					return false;

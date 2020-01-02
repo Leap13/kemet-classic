@@ -4588,6 +4588,11 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.5em;
 }
 
+.entry-meta {
+  display: block;
+  margin-bottom: 15px;
+}
+
 .entry-meta span:before:first {
   margin-left: 0px;
 }
