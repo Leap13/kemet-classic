@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[link-h-color]', array(
-			'default'           => '#333333',
+			'default'           => '#000000',
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)

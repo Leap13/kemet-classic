@@ -93,8 +93,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					// Kemet Colors.
-					'text-color'                       => '#797979',
-					'link-color'                       => '#4a4a4a',
+					'text-color'                       => '#333333',
+					'link-color'                       => '#191919',
 					'theme-color'                      => '#191919',
 					'link-h-color'                     => '#000000',
 
@@ -170,14 +170,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
-					'header-bg-obj'                    => array(
-						'background-color'      => '#fff',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'header-bg-obj'                    => '',
 
 					// Sub Menu 
 					'submenu-link-color'             =>'',
@@ -201,7 +194,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'header-main-sep'                  => 1,
+					'#'                  => '',
 					'header-main-sep-color'            => '',
 					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
