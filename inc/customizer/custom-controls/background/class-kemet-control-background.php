@@ -41,7 +41,22 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 			if ( isset( $this->default ) ) {
 				$this->json['default'] = $this->default;
 			}
-			$this->json['value'] = $this->value();
+
+			$val = maybe_unserialize( $this->value() );
+
+		if ( ! is_array( $val ) || is_numeric( $val ) ) {
+
+			$val = array(
+				'background-color'    => '',
+				'background-image'    => '',
+				'background-repeat'   => 'repeat',
+				'background-position' => 'center center',
+				'background-size'  => 'auto',
+				'background-attachment'  => 'scroll',
+			);
+		}
+
+			$this->json['value']  = $val;
 			$this->json['link']  = $this->get_link();
 			$this->json['id']    = $this->id;
 			$this->json['label'] = esc_html( $this->label );
@@ -95,7 +110,6 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 					<h4><?php esc_attr_e( 'Background Color', 'kemet' ); ?></h4>
 					<input type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="kmt-color-control"/>
 				</div>
-
 				<!-- background-image -->
 				<div class="background-image">
 					<h4><?php esc_attr_e( 'Background Image', 'kemet' ); ?></h4>

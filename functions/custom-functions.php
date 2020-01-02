@@ -628,7 +628,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$left_menu_args = array(
 				'theme_location'  => 'left_menu',
 				'menu_id'         => 'left-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',

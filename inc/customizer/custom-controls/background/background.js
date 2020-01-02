@@ -187,3 +187,4 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 		control.setting.set( val );
 	}
 });
+ 
