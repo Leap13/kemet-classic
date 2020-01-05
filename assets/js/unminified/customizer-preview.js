@@ -311,6 +311,7 @@ function kemet_add_dynamic_css(control, style) {
  * Generate background_obj CSS
  */
 function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
+	
 	var gen_bg_css = '';
 	var bg_img = bg_obj['background-image'];
 	var bg_color = bg_obj['background-color'];
@@ -336,7 +337,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			gen_bg_css += 'background-size: ' + bg_obj['background-size'] + ';';
 			gen_bg_css += 'background-attachment: ' + bg_obj['background-attachment'] + ';';
 		}
-		console.log(bg_obj);
 		var dynamicStyle = style.replace("{{css}}", gen_bg_css);
 
 		kemet_add_dynamic_css(ctrl_name, dynamicStyle);
@@ -615,6 +615,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 */
 	wp.customize('kemet-settings[header-bg-obj]', function (value) {
 		value.bind(function (bg_obj) {
+			
 			var dynamicStyle = ' body:not(.kmt-header-break-point) .site-header .main-header-bar { {{css}} }';
 			kemet_background_obj_css(wp.customize, bg_obj, 'header-bg-obj', dynamicStyle);
 		});

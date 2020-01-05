@@ -44,7 +44,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 
 			$val = maybe_unserialize( $this->value() );
 
-		if ( ! is_array( $val ) || is_numeric( $val ) ) {
+		if ( ! is_array( $val ) || is_numeric( $val ) || empty($val)) {
 
 			$val = array(
 				'background-color'    => '',
@@ -54,13 +54,13 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 				'background-size'  => 'auto',
 				'background-attachment'  => 'scroll',
 			);
-		}
+			}
 
 			$this->json['value']  = $val;
 			$this->json['link']  = $this->get_link();
 			$this->json['id']    = $this->id;
 			$this->json['label'] = esc_html( $this->label );
-
+			
 			$this->json['inputAttrs'] = '';
 			foreach ( $this->input_attrs as $attr => $value ) {
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 				<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
 			</label>
 			<div class="background-wrapper">
-
+			
 				<!-- background-color -->
 				<div class="background-color">
 					<h4><?php esc_attr_e( 'Background Color', 'kemet' ); ?></h4>
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 						</input>
 					</div>
 				</div>
-				<input class="background-hidden-value" type="hidden" {{{ data.link }}}>
+				<input class="background-hidden-value" value="{{JSON.stringify( data.value )}}" type="hidden" {{{ data.link }}}>
 			<?php
 		}
 
