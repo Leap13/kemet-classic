@@ -650,9 +650,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * submenu background
 	 */
-	kemet_css('kemet-settings[sub-menu-items-text-transform]', 'text-transform', 'main-header-menu .sub-menu li a');
-	kemet_css('kemet-settings[sub-menu-items-line-height]', 'line-height', 'main-header-menu .sub-menu li a');
-
+	kemet_css('kemet-settings[sub-menu-items-text-transform]', 'text-transform', '.main-header-menu .sub-menu li a');
+	kemet_css('kemet-settings[sub-menu-items-line-height]', 'line-height', '.main-header-menu .sub-menu li a');
+	
 	wp.customize('kemet-settings[submenu-bg-color]', function (value) {
 		value.bind(function (bg_obj) {
 
