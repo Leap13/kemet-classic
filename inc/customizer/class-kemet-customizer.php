@@ -57,7 +57,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 
 		public function header_classes( $classes ) {
-			
+			$header_layouts = kemet_get_option('header-layouts');
+			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' || $header_layouts == 'header-main-layout-3'){
+				$menu_aglin 	= kemet_get_option('menu-alignment');
+				$classes[] = $menu_aglin;
+			}
 			$search_box_shadow = kemet_get_option('search-box-shadow');
 
 			if($search_box_shadow == true){

@@ -26,6 +26,24 @@
 			text-align: left;
 		}
 	}
+	&.menu-left{
+		.kmt-main-header-bar-alignment {
+			margin-right: auto;
+			margin-left: 0;
+		}
+	}
+	&.menu-right{
+		.kmt-main-header-bar-alignment {
+			margin-left: auto;
+			margin-right: 0;
+		}
+	}
+	&.menu-center{
+		.kmt-main-header-bar-alignment {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
 	.kmt-main-header-bar-alignment {
 		margin-left: auto;
 	}
@@ -61,6 +79,24 @@
 		}
 	.main-header-container	{
 		  flex-direction: row-reverse;
+	}
+	&.menu-left{
+		.kmt-main-header-bar-alignment {
+			margin-right: auto;
+			margin-left: 0;
+		}
+	}
+	&.menu-right{
+		.kmt-main-header-bar-alignment {
+			margin-left: auto;
+			margin-right: 0;
+		}
+	}
+	&.menu-center{
+		.kmt-main-header-bar-alignment {
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
 	.kmt-main-header-bar-alignment {
 		margin-right: auto;
@@ -112,6 +148,21 @@
  * 3 - Header Layout 3
 */
 .header-main-layout-3 {
+	&.menu-right{
+		.kmt-main-header-bar-alignment{
+			text-align: right;
+		}
+	}
+	&.menu-left{
+		.kmt-main-header-bar-alignment{
+			text-align: left;
+		}
+	}
+	&.menu-center{
+		.kmt-main-header-bar-alignment{
+			text-align: center;
+		}
+	}
 	.kmt-main-header-bar-alignment{
 		text-align: center;
 		line-height: 1;

@@ -2806,6 +2806,21 @@ body {
   text-align: right;
 }
 
+.header-main-layout-1.menu-left .kmt-main-header-bar-alignment {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.header-main-layout-1.menu-right .kmt-main-header-bar-alignment {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.header-main-layout-1.menu-center .kmt-main-header-bar-alignment {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .header-main-layout-1 .kmt-main-header-bar-alignment {
   margin-right: auto;
 }
@@ -2848,6 +2863,21 @@ body {
   -moz-box-direction: reverse;
   -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+}
+
+.header-main-layout-2.menu-left .kmt-main-header-bar-alignment {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.header-main-layout-2.menu-right .kmt-main-header-bar-alignment {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.header-main-layout-2.menu-center .kmt-main-header-bar-alignment {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-main-layout-2 .kmt-main-header-bar-alignment {
@@ -2920,6 +2950,18 @@ body {
 /**
  * 3 - Header Layout 3
 */
+.header-main-layout-3.menu-right .kmt-main-header-bar-alignment {
+  text-align: left;
+}
+
+.header-main-layout-3.menu-left .kmt-main-header-bar-alignment {
+  text-align: right;
+}
+
+.header-main-layout-3.menu-center .kmt-main-header-bar-alignment {
+  text-align: center;
+}
+
 .header-main-layout-3 .kmt-main-header-bar-alignment {
   text-align: center;
   line-height: 1;

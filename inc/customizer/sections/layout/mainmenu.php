@@ -160,7 +160,36 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+     * Option: Page Title Alignment
+     */
+    $wp_customize->add_setting(
+			KEMET_THEME_SETTINGS . '[menu-alignment]',array(
+					'default'           => kemet_get_option('menu-alignment'),
+					'type'              => 'option',
+					'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices')
+			)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Icon_Select(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-alignment]', array(
+				'priority'       => 18,
+				'section' => 'section-menu-header',
+				'label'   => __( 'Menu Alignment', 'kemet-addons' ),
+				'choices'  => array(
+					'menu-left' => array(
+						'icon' => 'dashicons-editor-alignleft'
+					),
+					'menu-center' => array(
+						'icon' => 'dashicons-editor-aligncenter'
+					),
+					'menu-right' => array(
+						'icon' => 'dashicons-editor-alignright'
+					),	
+				),
+			)
+		)
+	);
 	/**
 	 * Option: Right Section Text / HTML
 	 */
@@ -389,7 +418,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-        'priority'       => 70,
+        'priority'       => 93,
         'section' => 'section-menu-header',
 				'label'   => __( 'Menu Background Color', 'kemet' ),
 			)
@@ -672,7 +701,7 @@ $header_rt_sections = array(
 				'type'        => 'kmt-font-weight',
 				'section'     => 'section-menu-header',
 				'priority'    => 140,
-				'label'       => __( 'Sebmenu Font Weight', 'kemet' ),
+				'label'       => __( 'Font Weight', 'kemet' ),
 				'connect'     => KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]',
 			)
 		)
@@ -694,7 +723,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
 			'priority' => 145,
-			'label'    => __( 'Submenu Text Transform', 'kemet' ),
+			'label'    => __( 'Text Transform', 'kemet' ),
 			'choices'  => array(
 				''           => __( 'Default', 'kemet' ),
 				'none'       => __( 'None', 'kemet' ),

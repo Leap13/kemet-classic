@@ -23,15 +23,14 @@
   display: block; 
   width: 100%; 
   background-color: #fff; 
-  color: #555; 
-  border: 1px solid #cccccc; 
+  color: #cccccc; 
+  border: 1px solid #f1f1f1; 
   margin: 0; 
-  padding: 15px; 
+  padding: 5px; 
   text-align: center; 
   }
 .customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
 .customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
-  background-color: #cccccc; 
-  color: #0085BA; 
-  border-color: #cccccc; 
+  color: #1e8cbe; 
+  border-color: #f1f1f1; 
 }

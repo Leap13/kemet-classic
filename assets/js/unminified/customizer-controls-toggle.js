@@ -183,6 +183,22 @@
 				}
 			},
 		],
+		//Search Style
+		'kemet-settings[header-layouts]':
+		[
+			{
+				controls: [
+					'kemet-settings[menu-alignment]',
+				],
+				callback: function (value) {
+
+					if (('header-main-layout-1' == value) || ('header-main-layout-2' == value) || ('header-main-layout-3' == value)) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 		/**
 		 * Section - Header
 		 *
