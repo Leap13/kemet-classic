@@ -78,6 +78,7 @@ $header_rt_sections = array(
 		)
                         )
 	);
+
 	/**
 	* Option: Menu Font Size
 	*/
