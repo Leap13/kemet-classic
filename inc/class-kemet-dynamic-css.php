@@ -399,7 +399,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'h6, .entry-content h6, .entry-content h6 a' => array(
 					'font-size' => kemet_responsive_slider( $heading_h6_font_size, 'desktop' ),
 				),
-				'.kmt-single-post .entry-title, .page-title' => array(
+				'.kmt-single-post .entry-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'desktop' ),
                     'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
 				),
@@ -669,6 +669,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				//Listing Post Page
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $listing_post_title_color ),
+				),
+				'.content-area .read-more' => array(
+					'color' => esc_attr( $readmore_text_color ),
+					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
+					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
+					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
 				),
 				'.content-area .read-more a' => array(
 					'color' => esc_attr( $readmore_text_color ),
@@ -973,7 +980,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'tablet' ),
 				),
 				//post readmore spacing
-				'.content-area p.read-more a' => array(
+				'.content-area p.read-more' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'tablet' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'tablet' ),
@@ -1121,7 +1128,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
 				),
 				//post readmore spacing
-				'.content-area p.read-more a' => array(
+				'.content-area p.read-more' => array(
 					'padding-top'    => kemet_responsive_spacing( $readmore_padding, 'top', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $readmore_padding, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $readmore_padding, 'right', 'mobile' ),

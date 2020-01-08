@@ -690,7 +690,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]', array(
-			'default'           => kemet_get_option( 'sub-menu-items-font-weight' ),
+			'default'           => 'inherit',
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)

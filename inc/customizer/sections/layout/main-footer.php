@@ -164,7 +164,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-font-family]', array(
-        'default'           => kemet_get_option( 'Footer-font-family' ),
+        'default'           => 'inherit',
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -393,7 +393,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-font-family]', array(
-        'default'           => kemet_get_option( 'kemet-footer-wgt-title-font-family' ),
+        'default'           => 'inherit',
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )

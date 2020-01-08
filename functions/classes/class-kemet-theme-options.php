@@ -154,6 +154,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-copyright-divider'               => 1,
 					'footer-copyright-divider-color'         => '#7a7a7a',
 					'footer-layout-width'              => 'content',
+					'footer-font-family' => 'inherit',
+					'kemet-footer-wgt-title-font-family' => 'inherit',
 					// General.
 					'kmt-header-retina-logo'           => '',
 					'kmt-header-logo-width'            => '',
@@ -335,6 +337,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//header
 					'enable-transparent'  => 0,
+					//Widgets
+					'widget-title-font-family' => 'inherit'
 				)
 			);
 		}

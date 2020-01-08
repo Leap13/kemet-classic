@@ -150,7 +150,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-font-family]', array(
-        'default'           => kemet_get_option( 'widget-title-font-family' ),
+        'default'           => 'inherit',
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )
