@@ -758,6 +758,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-title]', 'body:not(.kmt-single-post) .entry-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[font-size-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a', 'font-size');
@@ -844,7 +845,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Widget Title Font 
 	 */
 	kemet_css('kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-title');
-	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .kmt-no-widget-row .widget-title');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .widget-title');
 
 	// Footer Bar.
 	kemet_css('kemet-settings[footer-color]', 'color', '.kmt-footer-copyright');
@@ -975,6 +976,14 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Content Text Color
 	 */
 	kemet_css('kemet-settings[content-text-color]', 'color', '.entry-content');
+	//kemet_css('kemet-settings[post-meta-color]', 'color', 'body:not(.kmt-single-post) .entry-meta * , body:not(.kmt-single-post) .entry-meta');
+	wp.customize('kemet-settings[post-meta-color]', function (value) {
+		value.bind(function (color) {
+			var dynamicStyle = 'body:not(.kmt-single-post) .entry-meta * { color: ' + color + '; } ';
+			dynamicStyle += 'body:not(.kmt-single-post) .entry-meta { color: ' + color + '; } ';
+			kemet_add_dynamic_css('post-meta-color', dynamicStyle);
+		});
+	});
 	//Content Link Color
 	kemet_css('kemet-settings[content-link-color]', 'color', '.entry-content a');
 	/**
@@ -1004,7 +1013,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 	wp.customize('kemet-settings[readmore-border-color]', function (value) {
 		value.bind(function (border_color) {
-			jQuery('.content-area .read-more a').css('border-color', border_color);
+
+			var dynamicStyle = '.content-area .read-more a { border-color: ' + border_color + '; } ';
+
+			kemet_add_dynamic_css('readmore-border-color', dynamicStyle);
 		});
 	});
 	wp.customize('kemet-settings[readmore-border-h-color]', function (value) {

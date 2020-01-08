@@ -630,16 +630,16 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 		$blog_post_title   = kemet_get_option( 'blog-post-structure' );
 		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
-			if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		
+		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
 
-				$title  = kemet_get_the_title( $post_id );
-				$before = apply_filters( 'kemet_the_title_before', $before );
-				$after  = apply_filters( 'kemet_the_title_after', $after );
+			$title  = kemet_get_the_title( $post_id );
+			$before = apply_filters( 'kemet_the_title_before', $before );
+			$after  = apply_filters( 'kemet_the_title_after', $after );
 
-				$title = $before . $title . $after;
-			}
+			$title = $before . $title . $after;
 		}
+		
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
@@ -713,7 +713,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 	 */
 	function kemet_archive_page_info() {
 
-		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		if ( apply_filters( 'kemet_title_bar_disable', true ) ) {
 
 			// Author.
 			if ( is_author() ) { ?>

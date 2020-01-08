@@ -83,6 +83,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'blog-post-structure'              => array(
 						'image',
 						'title-meta',
+						'content-readmore',
 					),
 					'blog-width'                       => 'default',
 					'blog-max-width'                   => 1200,

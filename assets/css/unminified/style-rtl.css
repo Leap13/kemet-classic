@@ -4632,12 +4632,13 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.6em;
 }
 
-.entry-content .readmore a {
-  border: solid;
-  padding: 5px 10px;
+.entry-content .read-more a {
+  padding: 10px 10px;
   -webkit-border-radius: 16px;
   border-radius: 16px;
-  border-width: 1px;
+  border: 1px solid #191919;
+  background-color: #191919;
+  color: #fff;
 }
 
 .read-more {
