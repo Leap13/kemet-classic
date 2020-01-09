@@ -140,7 +140,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-line-height'                 => '',
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
-					'search-style'							=> 'search-icon',
+					'search-style'							=> 'search-box',
 					'search-box-shadow'							=> false,
 					'search-border-color'					=> '#7a7a7a',
 					'search-input-bg-color'					=> '#fff',
