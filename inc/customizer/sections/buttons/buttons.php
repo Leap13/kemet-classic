@@ -105,19 +105,21 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[btn-border-size]', array(
-        'type'        => 'number',
-        'section'     => 'section-buttons',
-        'priority'    => 25,
-        'label'       => __( 'Button Border Size', 'kemet' ),
-        'input_attrs' => array(
-            'min'  => 0,
-            'step' => 1,
-            'max'  => 600,
-        ),
-    )
-);
-
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[btn-border-size]', array(
+				'type'        => 'kmt-slider',
+				'section'     => 'section-buttons',
+				'priority'    => 25,
+				'label'       => __( 'Button Border Size', 'kemet' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+			)
+		)
+	);
 /**
 * Option: Button Background Hover Color
 */
@@ -125,6 +127,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[btn-border-color]', array(
         'default'           => '',
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
@@ -163,7 +166,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-radius]', array(
-        'default'           => '',
+        'default'           => kemet_get_option('button-radius'),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

@@ -309,7 +309,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			} else {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
-
 			$css_output = array(
 
 				// HTML.
@@ -643,7 +642,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $btn_bg_color ),
 					'border' 		   => 'solid',
 					'border-color'     => esc_attr( $btn_border_color ),
-					'border-width'     => kemet_get_css_value( $btn_border_size , 'px' , '0' ),
+					'border-width'     => kemet_get_css_value( $btn_border_size , 'px' ),
 				),
 				'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),

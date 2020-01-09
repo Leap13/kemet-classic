@@ -131,7 +131,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-h-color'                   => '',
 					'button-bg-color'                  => '',
 					'button-bg-h-color'                => '',
-					'button-radius'                    => 2,
 					'button-v-padding'                 => 10,
 					'button-h-padding'                 => 40,
 					// Main Menu 
