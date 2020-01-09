@@ -47,7 +47,7 @@
     padding: 24px;
     background-color: #2d2f4c;
 }
-#active-kemet-addons .dashicons{
+.kmt-active-plugin .dashicons{
     margin-top: 5px;
   -webkit-animation: rotating 2s linear infinite;
   -moz-animation: rotating 2s linear infinite;
