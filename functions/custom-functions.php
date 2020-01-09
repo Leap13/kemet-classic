@@ -641,7 +641,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';	
 					wp_nav_menu( $primary_menu_args );
-					if ( 'header-main-layout-4' == $header_layout ) {
+					if ( 'header-main-layout-4' == $header_layout && has_nav_menu( 'left_menu' )) {
 					wp_nav_menu( $left_menu_args );
 					}
 				echo  '</div>';
