@@ -77,7 +77,7 @@ if ( ! class_exists( 'Kmt_Admin_Notices' ) ) :
                                         $button_label = __( 'Install Kemet Addons', 'kemet' );
                                     }
 
-                                    $button = '<a class="button-primary" id="active-kemet-addons" data-status = '.$status.' data-url-install = '.$install_url.'  data-url-activate = '.$activate_url.' onclick="active_plugin(event)" >' . $button_label . '</a>';
+                                    $button = '<a class="button-primary kmt-active-plugin"  data-status = '.$status.' data-url-install = '.$install_url.'  data-url-activate = '.$activate_url.' onclick="active_plugin(event)" >' . $button_label . '</a>';
 
 									printf( '<div>%1$s</div>', $button );
 									
