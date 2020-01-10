@@ -634,7 +634,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
 
-			if ( has_nav_menu( 'primary' ) ) {
+			if ( has_nav_menu( 'primary-menu' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
