@@ -325,7 +325,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-border-size]', array(
-			'default'           => kemet_get_option( 'search-border-size' ),
+			'default'           => 1,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),

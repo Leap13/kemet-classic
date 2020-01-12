@@ -102,7 +102,7 @@
 	}
 
 	form {
-		border: 1px solid;
+		border-style: solid;
 		line-height: 1;
 		@include kmt-border-radius();
 		display: inline-block;

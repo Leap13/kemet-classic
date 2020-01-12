@@ -3607,7 +3607,7 @@ body {
 }
 
 .kmt-search-menu-icon form {
-  border: 1px solid;
+  border-style: solid;
   line-height: 1;
   -webkit-border-radius: 2px;
   border-radius: 2px;

@@ -351,7 +351,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
 			$markup = kemet_sitehead_get_menu_items( true );
 
-			echo '<div>' . $markup . '</div>';
+			echo '<div class="kmt-outside-menu">' . $markup . '</div>';
 		}
 	}
 }
