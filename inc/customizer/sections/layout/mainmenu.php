@@ -175,7 +175,7 @@ $header_rt_sections = array(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-alignment]', array(
 				'priority'       => 18,
 				'section' => 'section-menu-header',
-				'label'   => __( 'Menu Alignment', 'kemet-addons' ),
+				'label'   => __( 'Menu Alignment', 'kemet' ),
 				'choices'  => array(
 					'menu-left' => array(
 						'icon' => 'dashicons-editor-alignleft'
