@@ -182,6 +182,19 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'kemet-settings[search-box-shadow]',
+				],
+				callback: function (value) {
+					var last_menu_item = api('kemet-settings[header-main-rt-section]').get();
+
+					if (('search-icon' == value) && (last_menu_item == 'search')) {
+						return true;
+					}
+					return false;
+				}
+			},
 		],
 		//Search Style
 		'kemet-settings[header-layouts]':

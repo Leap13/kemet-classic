@@ -405,75 +405,67 @@
 	} 
 }
 
-.search-box{
-	.main-header-bar{
-		.kmt-sitehead-custom-menu-items{
-        .kmt-search-icon{
-            display: none;
-        }
-        .kmt-search-container {
-            width: 250px;
-            margin: auto;
-        }
-        .kmt-search-menu-icon{
-                width: 250px;
-                visibility: visible;
-                opacity: 1;
-                position: static;
-                display: block;
-				transform: none;
-				right: 0px;
-            .search-submit{
-                display: block;
-                position: absolute;
-                height: 100%;
-                top: 0;
-                right: 0;
-                padding: 0 1em;
-                -webkit-border-radius: 0;
-                border-radius: 0;
-                border: 0;
-            }
-            .search-field {
-                width: 100%;
-                margin: 0
-            }
-            .search-form {
-                padding: 0;
-                display: block;
-                overflow: hidden;
-                box-shadow: none;
-            }
-        }
-    } 
-	}
-       
-}
-.search-icon{
-	.main-header-bar{
-			.kmt-sitehead-custom-menu-items{
-				.kmt-search-icon{
-					display: block;
-				}
-				.kmt-search-menu-icon{ 
-						right: 30px;
-					.search-submit{
-						display: none;
-					}
-				}
-				.kmt-dropdown-active{
+.main-header-bar{
+	.kmt-sitehead-custom-menu-items{
+		&.search-box{
+			.kmt-search-icon{
+				display: none;
+			}
+			.kmt-search-container {
+				width: 250px;
+				margin: auto;
+			}
+			.kmt-search-menu-icon{
+					width: 250px;
 					visibility: visible;
 					opacity: 1;
+					position: static;
+					display: block;
+					transform: none;
+					right: 0px;
+				.search-submit{
+					display: block;
+					position: absolute;
+					height: 100%;
+					top: 0;
 					right: 0;
+					padding: 0 1em;
+					-webkit-border-radius: 0;
+					border-radius: 0;
+					border: 0;
 				}
-    		}
-	} 
-     
+				.search-field {
+					width: 100%;
+					margin: 0
+				}
+				.search-form {
+					padding: 0;
+					display: block;
+					overflow: hidden;
+					box-shadow: none;
+				}
+			}
+		}
+		&.search-icon{
+			.kmt-search-icon{
+				display: block;
+			}
+			.kmt-search-menu-icon{ 
+					right: 30px;
+				.search-submit{
+					display: none;
+				}
+			}
+			.kmt-dropdown-active{
+				visibility: visible;
+				opacity: 1;
+				right: 0;
+			}
+		}
+	}
 }
 .search-box-shadow{
-    .kmt-search-menu-icon{
-        form{
-            box-shadow: 0 3px 13px 0 rgba(0,0,0,.2);
-        }
-    }
+	form{
+		box-shadow: 0 3px 13px 0 rgba(0,0,0,.2);
+	}
 }

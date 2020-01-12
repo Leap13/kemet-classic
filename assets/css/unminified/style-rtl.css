@@ -3259,16 +3259,16 @@ body {
   justify-content: flex-end;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-icon {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-icon {
   display: none;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-container {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-container {
   width: 250px;
   margin: auto;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon {
   width: 250px;
   visibility: visible;
   opacity: 1;
@@ -3280,7 +3280,7 @@ body {
   left: 0px;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-submit {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon .search-submit {
   display: block;
   position: absolute;
   height: 100%;
@@ -3292,12 +3292,12 @@ body {
   border: 0;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-field {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon .search-field {
   width: 100%;
   margin: 0;
 }
 
-.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-form {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon .search-form {
   padding: 0;
   display: block;
   overflow: hidden;
@@ -3305,25 +3305,25 @@ body {
   box-shadow: none;
 }
 
-.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-icon {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-icon .kmt-search-icon {
   display: block;
 }
 
-.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-icon .kmt-search-menu-icon {
   left: 30px;
 }
 
-.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon .search-submit {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-icon .kmt-search-menu-icon .search-submit {
   display: none;
 }
 
-.search-icon .main-header-bar .kmt-sitehead-custom-menu-items .kmt-dropdown-active {
+.main-header-bar .kmt-sitehead-custom-menu-items.search-icon .kmt-dropdown-active {
   visibility: visible;
   opacity: 1;
   left: 0;
 }
 
-.search-box-shadow .kmt-search-menu-icon form {
+.search-box-shadow form {
   -webkit-box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
 }

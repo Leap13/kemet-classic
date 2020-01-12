@@ -39,18 +39,22 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 
 		// Get selected custom menu items.
 		$markup = '';
-
 		$section                    = kemet_get_option( 'header-main-rt-section' );
 		$sections                   = kemet_get_dynamic_header_content( 'header-main-rt-section' );
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
+		$search_style = kemet_get_option('search-style');
 
 		if ( $disable_primary_navigation || $display_outside_markup ) {
 			$html_element = 'div';
 		}
-
+		
 		if ( array_filter( $sections ) ) {
 			ob_start();
+			if(in_array('search' , $section)){
+				//$search_class = array_search('search', $section);
+				$section[] = $search_style;
+			}
 			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
 			?>
 			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php

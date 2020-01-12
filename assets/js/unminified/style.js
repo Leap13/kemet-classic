@@ -1035,19 +1035,17 @@ var toggleClass = function ( el, className ) {
 	for (var i = 0; i < SearchIcons.length; i++) {
 
 		SearchIcons[i].onclick = function(event) {
-			if ( this.classList.contains( 'slide-search' ) ) {
-				event.preventDefault();
-				var sibling = this.parentNode.parentNode.querySelector( '.kmt-search-menu-icon' );
-				if ( ! sibling.classList.contains( 'kmt-dropdown-active' ) ) {
-					sibling.classList.add( 'kmt-dropdown-active' );
-					sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
-					setTimeout(function() {
-						sibling.querySelector( '.search-field' ).focus();
-					},200);
-				} else {
-					sibling.classList.remove( 'kmt-dropdown-active' );
-				}
-			}
+            event.preventDefault();
+            var sibling = this.parentNode.parentNode.querySelector( '.kmt-search-menu-icon' );
+            if ( ! sibling.classList.contains( 'kmt-dropdown-active' ) ) {
+                sibling.classList.add( 'kmt-dropdown-active' );
+                sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
+                setTimeout(function() {
+                    sibling.querySelector( '.search-field' ).focus();
+                },200);
+            } else {
+                sibling.classList.remove( 'kmt-dropdown-active' );
+            }
 		}
 	};
 

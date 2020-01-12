@@ -835,7 +835,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 '.kmt-search-menu-icon .search-submit:hover' => array(
 					'background-color' => esc_attr($search_btn_h_bg_color),
 				),
-			'.search-box .main-header-bar .kmt-sitehead-custom-menu-items .kmt-search-menu-icon form , .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form' => array(
+			'.search-box .kmt-search-menu-icon form , .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form' => array(
 					'border-width'     => kemet_get_css_value( $search_border_size , 'px' , '0' ),
 				),				
 			);

@@ -267,9 +267,16 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	 */
 	function kemet_get_search( $option = '' ) {
 
+		$search_style = kemet_get_option('search-style');
+		$box_shadow = '';
+		$search_box_shadow = kemet_get_option('search-box-shadow');
+		if($search_box_shadow == true){
+			$box_shadow = 'search-box-shadow';
+		}
+		
 		$search_html = '<div class="kmt-search-container">';
-		$search_html .= '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
-						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
+		$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
+		$search_html .= '<div class="kmt-search-menu-icon '.$box_shadow.'" id="kmt-search-form" >';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
         $search_html .= '</div>';
@@ -634,7 +641,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
 
-			if ( has_nav_menu( 'primary-menu' ) ) {
+			if ( has_nav_menu( 'primary' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
