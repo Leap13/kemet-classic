@@ -3263,11 +3263,6 @@ body {
   display: none;
 }
 
-.main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-container {
-  width: 250px;
-  margin: auto;
-}
-
 .main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon {
   width: 250px;
   visibility: visible;
@@ -3278,6 +3273,7 @@ body {
   -ms-transform: none;
   transform: none;
   right: 0px;
+  margin: auto;
 }
 
 .main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-menu-icon .search-submit {
@@ -3817,6 +3813,14 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-navigation {
   display: block;
   width: 100%;
+}
+
+.kmt-header-break-point .main-navigation .main-header-menu {
+  text-align: center;
+}
+
+.kmt-header-break-point .main-navigation .kmt-sitehead-custom-menu-items {
+  display: block;
 }
 
 .kmt-header-break-point .main-navigation ul > li:first-child {

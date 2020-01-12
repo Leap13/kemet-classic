@@ -298,6 +298,12 @@ li.kmt-sitehead-custom-menu-items {
 	.main-navigation {
 		display: block;
 		width: 100%;
+		.main-header-menu{
+			text-align: center;
+		}
+		.kmt-sitehead-custom-menu-items{
+			display: block;
+		}
 
 		ul {
 			> li:first-child {
