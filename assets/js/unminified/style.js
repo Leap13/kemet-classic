@@ -846,6 +846,7 @@ var toggleClass = function ( el, className ) {
         var header4 = document.querySelectorAll('.header-main-layout-4');
         var header4_icon = header4[0].querySelectorAll('.main-header-menu-toggle');
         var header4_left_menu = header4[0].querySelectorAll('.main-header-bar-navigation');
+        if (header4_left_menu.length > 1){
         header4_icon[0].addEventListener('click', function (event) {
             event.preventDefault();
 
@@ -873,6 +874,7 @@ var toggleClass = function ( el, className ) {
                 KemetToggleMenu(kemet_left_menu_toggle);
             }
         });
+        }
     }
 
 
