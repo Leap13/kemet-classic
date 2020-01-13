@@ -434,6 +434,16 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		});
 	});
 
+	/*
+	 * Sub Menu Width
+	 */
+	wp.customize('kemet-settings[submenu-width]', function (setting) {
+		setting.bind(function (width) {
+			dynamicStyle = 'body:not(.kmt-header-break-point) .main-header-menu ul.sub-menu{ width: ' + (40 + parseInt(width)) + 'px } ';
+			kemet_add_dynamic_css('submenu-width', dynamicStyle);
+
+		});
+	});
 
 	/*
 	 * Single Blog Custom Width
