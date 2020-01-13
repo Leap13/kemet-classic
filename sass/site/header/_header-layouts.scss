@@ -471,7 +471,7 @@
 	.main-navigation{
 		.kmt-sitehead-custom-menu-items{
 			&.hide-on-mobile{
-				display: none;
+				display: none !important;
 			}
 		}
 	}
