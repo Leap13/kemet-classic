@@ -44,7 +44,11 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
 		$search_style = kemet_get_option('search-style');
-
+		$hide_mobile = kemet_get_option('disable-last-menu-items-on-mobile');
+		$hide_classes = '';
+		if($hide_mobile){
+			$hide_classes = 'hide-on-mobile';
+		}
 		if ( $disable_primary_navigation || $display_outside_markup ) {
 			$html_element = 'div';
 		}
@@ -57,7 +61,7 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 			}
 			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						printf ($value);

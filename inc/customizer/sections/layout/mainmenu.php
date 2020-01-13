@@ -80,6 +80,25 @@ $header_rt_sections = array(
 	);
 
 	/**
+	 * Option: Disable Menu on Mobile
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[disable-last-menu-items-on-mobile]', array(
+			'default'           => kemet_get_option( 'disable-last-menu-items-on-mobile' ),
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[disable-last-menu-items-on-mobile]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'label'    => __( 'Disable Last Menu Item on Mobile', 'kemet' ),
+			'priority' => 12,
+		)
+	);
+
+	/**
 	* Option: Menu Font Size
 	*/
 	$wp_customize->add_setting(

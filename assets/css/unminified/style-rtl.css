@@ -2951,19 +2951,23 @@ body {
  * 3 - Header Layout 3
 */
 .header-main-layout-3.menu-right .kmt-main-header-bar-alignment {
-  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .header-main-layout-3.menu-left .kmt-main-header-bar-alignment {
-  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .header-main-layout-3.menu-center .kmt-main-header-bar-alignment {
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-main-layout-3 .kmt-main-header-bar-alignment {
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1;
 }
 
@@ -3002,11 +3006,8 @@ body {
   right: 0;
 }
 
-.header-main-layout-3 .main-header-container {
-  display: block;
-}
-
 .header-main-layout-3 .site-branding {
+  width: 100%;
   text-align: center;
 }
 
@@ -3322,6 +3323,10 @@ body {
 .search-box-shadow form {
   -webkit-box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
+}
+
+.kmt-header-break-point .main-navigation .kmt-sitehead-custom-menu-items.hide-on-mobile {
+  display: none;
 }
 
 /* 3 - Header Common  */

@@ -14,7 +14,6 @@
 .main-header-bar {
 	z-index: 1;
 }
-
 /**
  * 1 - Header Layout 1
 */
@@ -150,21 +149,25 @@
 .header-main-layout-3 {
 	&.menu-right{
 		.kmt-main-header-bar-alignment{
-			text-align: right;
+			margin-right: 0;
+			margin-left: auto;
 		}
 	}
 	&.menu-left{
 		.kmt-main-header-bar-alignment{
-			text-align: left;
+			margin-right: auto;
+			margin-left: 0;
 		}
 	}
 	&.menu-center{
 		.kmt-main-header-bar-alignment{
-			text-align: center;
+			margin-right: auto;
+   			margin-left: auto;
 		}
 	}
 	.kmt-main-header-bar-alignment{
-		text-align: center;
+		margin-right: auto;
+   		margin-left: auto;
 		line-height: 1;
 	}
 	.kmt-search-menu-icon{
@@ -189,14 +192,12 @@
 }
 	
 
-		.kmt-dropdown-active{
-			right: auto !important;
-			left: 0;
-		}
-	.main-header-container {
-		display: block;
+	.kmt-dropdown-active{
+		right: auto !important;
+		left: 0;
 	}
 	.site-branding {
+		width: 100%;
 		text-align: center;
 	}
 	.site-title {
@@ -464,5 +465,14 @@
 .search-box-shadow{
 	form{
 		box-shadow: 0 3px 13px 0 rgba(0,0,0,.2);
+	}
+}
+.kmt-header-break-point{
+	.main-navigation{
+		.kmt-sitehead-custom-menu-items{
+			&.hide-on-mobile{
+				display: none;
+			}
+		}
 	}
 }
