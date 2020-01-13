@@ -119,6 +119,9 @@
 
 .kmt-header-break-point {
 	.header-main-layout-2 {
+		.main-header-container{
+		  flex-direction: row-reverse;
+		}
 		.kmt-search-menu-icon{
 		right: 30px;
 		left: auto;

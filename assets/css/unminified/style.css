@@ -2912,6 +2912,16 @@ body {
   position: relative;
 }
 
+.kmt-header-break-point .header-main-layout-2 .main-header-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
 .kmt-header-break-point .header-main-layout-2 .kmt-search-menu-icon {
   right: 30px;
   left: auto;
