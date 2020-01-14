@@ -15,7 +15,7 @@ textarea {
     border-style: solid;
     border-color: $color-border-input;
     border-radius: 2px;
-    background: #fafafa;
+    background-color: #fafafa;
     box-shadow: none;
     box-sizing: border-box;
     @include kmt-transition();
@@ -30,8 +30,7 @@ input[type=reset]:focus,
 input[type=tel]:focus,
 select:focus,
 textarea:focus {
-    background-color:#fff;
-    border-color: $color-border-input;
+    outline: none;
     box-shadow: none;
 }
 

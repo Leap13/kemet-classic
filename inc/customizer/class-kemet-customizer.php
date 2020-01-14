@@ -150,7 +150,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 
 		}
 

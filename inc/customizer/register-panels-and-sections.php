@@ -219,8 +219,8 @@
 	 * Buttons Section
 	 */
 	$wp_customize->add_section(
-		'section-buttons', array(
+		'section-buttons-fields', array(
 			'priority' => 50,
-			'title'    => __( 'Buttons', 'kemet' ),
+			'title'    => __( 'Buttons & Fields', 'kemet' ),
 		)
 	);
