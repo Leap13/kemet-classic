@@ -407,7 +407,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[site-boxed-inner-bg]', function (value) {
 		value.bind(function (bg_obj) {
 
-			var dynamicStyle = '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single { {{css}} }';
+			var dynamicStyle = '.kmt-separate-container .kmt-article-post,.single-post .comments-area ,.single-post.kmt-separate-container .kmt-author-box , .kmt-separate-container .kmt-article-single { {{css}} }';
 
 			kemet_background_obj_css(wp.customize, bg_obj, 'site-boxed-inner-bg', dynamicStyle);
 		});

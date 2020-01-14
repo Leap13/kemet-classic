@@ -4835,7 +4835,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-separate-container .kmt-author-box,
 .kmt-separate-container .kmt-archive-description {
-  background-color: #eee;
   padding-bottom: 0;
   border-bottom: 0;
 }
