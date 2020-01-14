@@ -399,7 +399,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'h6, .entry-content h6, .entry-content h6 a' => array(
 					'font-size' => kemet_responsive_slider( $heading_h6_font_size, 'desktop' ),
 				),
-				'.kmt-single-post .entry-title' => array(
+				'.kmt-single-post .entry-header .entry-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'desktop' ),
                     'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
 				),
@@ -1019,7 +1019,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'h6, .entry-content h6, .entry-content h6 a' => array(
 					'font-size' => kemet_responsive_slider( $heading_h6_font_size, 'tablet' ),
 				),
-				'.kmt-single-post .entry-title, .page-title' => array(
+				'.kmt-single-post entry-header .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'tablet'),
 				),
 				'#sitehead .site-logo-img .custom-logo-link img' => array(
@@ -1173,7 +1173,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'h6, .entry-content h6, .entry-content h6 a' => array(
 					'font-size' => kemet_responsive_slider( $heading_h6_font_size, 'mobile' ),
 				),
-				'.kmt-single-post .entry-title, .page-title' => array(
+				'.kmt-single-post entry-header .entry-title, .page-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'mobile'),
 				),
 				'.kmt-header-break-point .site-branding img, .kmt-header-break-point #sitehead .site-logo-img .custom-logo-link img' => array(

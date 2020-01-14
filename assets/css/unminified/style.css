@@ -2148,6 +2148,7 @@ body {
   border-bottom: 1px solid #eeeeee;
   margin: 0;
   padding: 5.34em 6.67em;
+  padding-bottom: 0;
 }
 
 .kmt-separate-container .blog-layout-1 {

@@ -273,7 +273,7 @@ $wp_customize->add_control(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-blog',
             'priority'       => 45,
-            'label'          => __( 'Font Size', 'kemet' ),
+            'label'          => __( 'Post Title Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,

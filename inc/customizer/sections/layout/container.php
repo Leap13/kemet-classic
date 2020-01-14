@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)

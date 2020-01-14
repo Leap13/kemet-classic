@@ -762,7 +762,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[menu-font-size]', '.main-header-menu a', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-site-tagline]', '.site-header .site-description', 'font-size');
 	kemet_responsive_slider('kemet-settings[site-title-font-size]', '.site-title', 'font-size');
-	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-title, .page-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post entry-header .entry-title, .page-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-title]', 'body:not(.kmt-single-post) .entry-title', 'font-size');
