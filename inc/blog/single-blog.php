@@ -237,4 +237,4 @@ if ( ! function_exists( 'kemet_single_post_navigation_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
+add_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' , 1);

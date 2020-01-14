@@ -2131,6 +2131,10 @@ body {
   background-color: #f5f5f5;
 }
 
+.kmt-separate-container .kmt-archive-description {
+  border-top: 0;
+}
+
 .kmt-separate-container #primary {
   padding: 4em 0;
   margin: 0;
@@ -2145,7 +2149,6 @@ body {
 .kmt-separate-container .kmt-article-post,
 .kmt-separate-container .kmt-article-single {
   background-color: #fff;
-  border-bottom: 1px solid #eeeeee;
   margin: 0;
   padding: 5.34em 6.67em;
   padding-bottom: 0;
@@ -4835,6 +4838,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-separate-container .kmt-author-box,
 .kmt-separate-container .kmt-archive-description {
+  background-color: #eee;
   padding-bottom: 0;
   border-bottom: 0;
 }
@@ -4888,7 +4892,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .post-navigation {
   margin: 0;
-  padding: 2em 0 0;
+  padding: 2em 0;
   border-top: 1px solid #eeeeee;
 }
 
