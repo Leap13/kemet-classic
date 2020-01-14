@@ -812,7 +812,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
             // Layout - Container
-            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ,.single-post .comment-respond ,.single-post.kmt-separate-container .kmt-author-box , .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
+            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ,.single-post .comment-respond ,.single-postinner.kmt-separate-container .kmt-author-box , .kmt-separate-container .kmt-woocommerce-container' => kemet_get_background_obj( $box_bg_inner_boxed ),
     
             /**
             * Content Spacing Desktop
