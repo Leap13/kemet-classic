@@ -421,7 +421,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $text_color ),
 				),
 				//Input
-				'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"],.sidebar-main textarea , select'  => array(
+				'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select'  => array(
 					'color' => esc_attr( $input_text_color),
 					'background-color' => esc_attr( $input_bg_color),
 					'border-color' => esc_attr( $input_border_color),

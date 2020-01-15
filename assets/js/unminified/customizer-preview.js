@@ -916,9 +916,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		});
 	});
 	//Input
-	kemet_css('kemet-settings[input-text-color]', 'color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"],.sidebar-main textarea , select');
-	kemet_css('kemet-settings[input-bg-color]', 'background-color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"],.sidebar-main textarea , select');
-	kemet_css('kemet-settings[input-border-color]', 'border-color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"],.sidebar-main textarea , select');
+	kemet_css('kemet-settings[input-text-color]', 'color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select');
+	kemet_css('kemet-settings[input-bg-color]', 'background-color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select');
+	kemet_css('kemet-settings[input-border-color]', 'border-color', 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select');
 	/**
 	 * widget background
 	 */
