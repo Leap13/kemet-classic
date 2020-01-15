@@ -12,7 +12,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
+    /**
+     * Get WP menus
+     *
+     * @since 1.3.7
+     */
+    function get_wp_menus() {
+        $menus 		= array( esc_html__( 'Select Your Menu', 'oceanwp' ) );
+        $get_menus 	= get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+        foreach ( $get_menus as $menu) {
+            $menus[$menu->term_id] = $menu->name;
+        }
+        return $menus;
+    }
 /**
 * Option: Header Layout
 */
@@ -59,23 +71,40 @@ $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[header-right-section]', array(
 		'default'           => kemet_get_option( 'header-right-section' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
 );
 $wp_customize->add_control(
-			new Kemet_Control_Sortable(
-		$wp_customize, KEMET_THEME_SETTINGS . '[header-right-section]', array(
-		'type'     => 'kmt-sortable',
-		'section'  => 'section-header',
-		'priority' => 7,
-		'label'    => __( 'Right Section', 'kemet' ),
-		'choices'  => 
-			array(
-				'search'    => __( 'Search', 'kemet' ),
-				'menu' => __( 'Menu', 'kemet' ),
-				'widget'    => __( 'Widget', 'kemet' ),
-            ),
-        )
+    KEMET_THEME_SETTINGS . '[header-right-section]', array(
+        'type'     => 'select',
+        'section'  => 'section-header',
+        'priority' => 7,
+        'label'    => __( 'Right Section Content', 'kemet' ),
+        'choices'  => array(
+            'none'    => __( 'None', 'kemet' ),
+            'search'    => __( 'Search', 'kemet' ),
+            'menu' => __( 'Menu', 'kemet' ),
+            'widget'    => __( 'Widget', 'kemet' ),
+        ),
+    )
+);
+/**
+* Option: Right Section Menu
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[header-right-section-menu]', array(
+		'default'           => kemet_get_option( 'header-right-section-menu' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+	)
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[header-right-section-menu]', array(
+        'type'     => 'select',
+        'section'  => 'section-header',
+        'priority' => 7,
+        'label'    => __( 'Right Section Menu', 'kemet' ),
+        'choices'  => get_wp_menus(),
     )
 );
 /**

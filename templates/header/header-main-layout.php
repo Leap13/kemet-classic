@@ -19,7 +19,7 @@
 		<div class="kmt-container">
 
 			<div class="kmt-flex main-header-container">
-				<?php if((kemet_get_option('header-layouts') == 'header-main-layout-3') && !empty(kemet_get_option( 'header-right-section' )) ){ ?>
+				<?php if((kemet_get_option('header-layouts') == 'header-main-layout-3') && kemet_get_option( 'header-right-section' ) != 'none' ){ ?>
 				<div class="kmt-header-logo-right-section">
 					<?php kemet_site_branding_markup(); ?>
 					<?php kemet_header_get_right_section(); ?>

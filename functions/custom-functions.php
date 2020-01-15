@@ -493,7 +493,36 @@ if ( ! function_exists( 'kemet_get_top_menu' ) ) {
 		return ob_get_clean();
 	}
 }
+/**
+ * Function to get Right Section Menu
+ */
+if ( ! function_exists( 'kemet_get_right_section_menu' ) ) {
 
+	/**
+	 * Function to get Right Section Menu
+	 *
+	 * @return html
+	 */
+	function kemet_get_right_section_menu() {
+
+		ob_start();
+		$right_section_menu = kemet_get_option('header-right-section-menu');
+
+		 if ( $right_section_menu != 0 ) {
+			wp_nav_menu(
+				array(
+					'menu' 			  => $right_section_menu,
+					'container'       => 'div',
+					'container_class' => 'header-right-section-navigation',
+					'menu_class'      => 'nav-menu',
+					'menu_id' 			  => 'right-section-menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				)
+			);
+		}
+		return ob_get_clean();
+	}
+}
 /**
  * Function to get site Header
  */
@@ -529,28 +558,22 @@ if ( ! function_exists( 'kemet_header_get_right_section' ) ) {
 	function kemet_header_get_right_section() {
 
 		$output  = '';
-		$right_section = kemet_get_option( 'header-right-section' );   
-		if ( is_array( $right_section ) ) {
+		$right_section = kemet_get_option( 'header-right-section' ); 
+		$classes = 'header-right-section ';
+		if($right_section == 'search'){
+			$classes .= kemet_get_option('search-style');
+			$output = kemet_get_search();
 
-		foreach ( $right_section as $section ) {
-			switch ( $section ) {
+		}elseif($right_section == 'menu'){
+			$output =  kemet_get_right_section_menu();
+		}
+		elseif($right_section == 'widget'){
 
-				case 'search':
-						$output .= kemet_get_search();
-					break;
+			$output = kemet_get_custom_widget('header-right-section');
 
-				case 'menu':
-						$output .= kemet_get_top_menu();
-					break;
-
-				case 'widget':
-						$output .= kemet_get_custom_widget('header-right-section');
-					break;
-				}		
-			}
 		}
 		?>
-		<div class="header-right-section">
+		<div class="<?php echo $classes; ?>">
 			<?php echo $output; ?>
 		</div>
 	<?php }

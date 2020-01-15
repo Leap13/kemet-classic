@@ -211,6 +211,33 @@
 					return false;
 				}
 			},
+			{
+				controls: [
+					'kemet-settings[header-right-section]',
+				],
+				callback: function (value) {
+
+					if (('header-main-layout-3' == value)) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		//Header Right Section
+		'kemet-settings[header-right-section]':
+		[
+			{
+				controls: [
+					'kemet-settings[header-right-section-menu]',
+				],
+				callback: function (value) {
+					if ('menu' == value) {
+						return true;
+					}
+					return false;
+				}
+			},
 		],
 		/**
 		 * Section - Header

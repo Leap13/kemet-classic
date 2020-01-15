@@ -153,11 +153,76 @@
 	.kmt-header-logo-right-section{
 		width: 100%;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		.header-right-section{
 			display: flex;
-    		align-items: center;
+			align-items: center;
+			.header-right-section-navigation{
+				display: flex;
+				align-items: center;
+				line-height: 2;
+				.nav-menu {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				width: 100%;
+				text-align: center;
+				z-index: 99999;
+					.sub-menu {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+					position: absolute;
+					top: -999em;
+					left: -999em;
+						li {
+						display: inline-block;
+						position: relative;
+						text-align: left;
+							li {
+								display: block;
+							}
+						}
+					}
+					li {
+						display: inline-block;
+						position: relative;
+						text-align: right;
+					}
+					li.focus > .sub-menu,
+					li:hover > .sub-menu {
+						top: auto;
+						left: auto;
+					}
+					li li.focus > .sub-menu,
+					li li.hover > .sub-menu {
+						left: 100%;
+						top: 0;
+					}
+					a {
+						text-decoration: none;
+						display: block;
+						white-space: nowrap;
+						padding: 0 1em;
+					}
+					.menu-item-has-children > a::after {
+						content: "\e907";
+						display: inline-block;
+						font-family: Kemet-font;
+						font-size: 9px;
+						font-size: 1rem;
+						font-weight: 700;
+						text-rendering: auto;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						margin-left: 10px;
+						vertical-align: middle;
+						line-height: normal;
+					}
+				}
+			}
 		}
 		.site-branding {
 			width: unset;
@@ -185,32 +250,6 @@
 		margin-right: auto;
    		margin-left: auto;
 		line-height: 1;
-	}
-	.kmt-search-menu-icon{
-		right: auto;
-		left: 30px;
-		}
-		&.search-icon{
-		.main-header-container {
-			.kmt-sitehead-custom-menu-items{
-				flex-direction: row-reverse;
-				justify-content: space-between;
-		.kmt-search-menu-icon{
-			right: auto;
-			left: 30px;
-			}
-		.kmt-dropdown-active{
-			right: auto !important;
-			left: 0;
-			}
-		}
-	}
-}
-	
-
-	.kmt-dropdown-active{
-		right: auto !important;
-		left: 0;
 	}
 	.site-branding {
 		width: 100%;
@@ -423,7 +462,7 @@
 }
 
 .main-header-bar{
-	.kmt-sitehead-custom-menu-items{
+	.kmt-sitehead-custom-menu-items , .header-right-section{
 		&.search-box{
 			.kmt-search-icon{
 				display: none;

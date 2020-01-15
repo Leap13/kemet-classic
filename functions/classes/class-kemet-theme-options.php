@@ -174,6 +174,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
 					'header-bg-obj'                    => '',
+					'header-right-section'             => 'none',
 
 					// Sub Menu 
 					'submenu-link-color'             =>'',
