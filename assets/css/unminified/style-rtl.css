@@ -2117,12 +2117,20 @@ body {
   margin-bottom: 0;
 }
 
+.kmt-article-post {
+  border-bottom: 1px solid #eeeeee;
+}
+
 .kmt-separate-container {
   background-color: #f5f5f5;
 }
 
 .kmt-separate-container .kmt-archive-description {
   border-top: 0;
+}
+
+.kmt-separate-container .kmt-article-post {
+  border-bottom: 0;
 }
 
 .kmt-separate-container #primary {
@@ -5596,7 +5604,6 @@ input[type="color"]::-webkit-color-swatch {
   display: inline-block;
   padding-bottom: 2em;
   vertical-align: middle;
-  border-bottom: 1px solid #eeeeee;
 }
 
 .blog-layout-1 .posted-on {

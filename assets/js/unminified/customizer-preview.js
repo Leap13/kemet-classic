@@ -466,7 +466,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	//Single Post Content Separator Color
 	wp.customize('kemet-settings[content-separator-color]', function (value) {
 		value.bind(function (border_color) {
-			jQuery('.single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment').css('border-color', border_color);
+			jQuery('body:not(.kmt-separate-container) .kmt-article-post, body:not(.kmt-separate-container) #primary,body:not(.kmt-separate-container) #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment').css('border-color', border_color);
 		});
 	});
 	/**
@@ -730,7 +730,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Container Inner Spacing
 	 */
-	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'right', 'left']);
     /**
 	 * Site Identity Spacing
 	 */
@@ -797,6 +797,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[widget-title-line-height]', 'line-height', '.sidebar-main .widget-title');
 	kemet_responsive_slider('kemet-settings[widget-title-font-size]', '.sidebar-main .widget-title', 'font-size');
 	kemet_css('kemet-settings[widget-title-color]', 'color', '.sidebar-main .widget-title');
+	kemet_css('kemet-settings[side-bar-widgets-separator-color]', 'border-color', '.sidebar-main .widget-title');
 	/**
 	 * widget Title Border width
 	 */

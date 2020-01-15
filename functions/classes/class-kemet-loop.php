@@ -246,6 +246,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		public function kemet_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
 				echo '<div class="kmt-row">';
+				echo '<div class="kmt-test-container">';
 			}
 		}
 
@@ -256,6 +257,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function kemet_templat_part_wrap_close() {
 			if ( is_archive() || is_search() || is_home() ) {
+				echo '</div>';
 				echo '</div>';
 			}
 		}
