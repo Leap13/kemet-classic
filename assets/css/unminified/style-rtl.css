@@ -4872,7 +4872,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .post-navigation {
   margin: 0;
-  padding: 2em 0;
+  padding: 2em 0 0;
   border-top: 1px solid #eeeeee;
 }
 
