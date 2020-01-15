@@ -52,7 +52,32 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Header 3 Right Section
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[header-right-section]', array(
+		'default'           => kemet_get_option( 'header-right-section' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+	)
+);
+$wp_customize->add_control(
+			new Kemet_Control_Sortable(
+		$wp_customize, KEMET_THEME_SETTINGS . '[header-right-section]', array(
+		'type'     => 'kmt-sortable',
+		'section'  => 'section-header',
+		'priority' => 7,
+		'label'    => __( 'Right Section', 'kemet' ),
+		'choices'  => 
+			array(
+				'search'    => __( 'Search', 'kemet' ),
+				'menu' => __( 'Menu', 'kemet' ),
+				'widget'    => __( 'Widget', 'kemet' ),
+            ),
+        )
+    )
+);
 /**
 * Option: Transparent header
 */

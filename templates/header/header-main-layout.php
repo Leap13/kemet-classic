@@ -19,7 +19,16 @@
 		<div class="kmt-container">
 
 			<div class="kmt-flex main-header-container">
-				<?php kemet_sitehead_content(); ?>
+				<?php if((kemet_get_option('header-layouts') == 'header-main-layout-3') && !empty(kemet_get_option( 'header-right-section' )) ){ ?>
+				<div class="kmt-header-logo-right-section">
+					<?php kemet_site_branding_markup(); ?>
+					<?php kemet_header_get_right_section(); ?>
+				</div>
+				<?php }else{
+					 kemet_site_branding_markup();
+				} ?>
+				<?php kemet_toggle_buttons_markup(); ?>
+				<?php kemet_primary_navigation_markup(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- kmt-row -->
 		<?php kemet_main_header_bar_bottom(); ?>

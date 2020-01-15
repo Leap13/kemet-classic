@@ -329,6 +329,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 		if ( 'header-main-rt-section' == $option_name ) {
 			$widget_id = 'header-widget';
 		}
+		if ( 'header-right-section' == $option_name ) {
+			$widget_id = 'header-right-section';
+		}
 		if ( 'footer-copyright-section-1' == $option_name ) {
 			$widget_id = 'copyright-widget-1';
 		} elseif ( 'footer-copyright-section-2' == $option_name ) {
@@ -518,7 +521,40 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 
 add_action( 'kemet_header', 'kemet_header_markup' );
 
+/**
+ * Function to get Header Right Section
+ */
+if ( ! function_exists( 'kemet_header_get_right_section' ) ) {
 
+	function kemet_header_get_right_section() {
+
+		$output  = '';
+		$right_section = kemet_get_option( 'header-right-section' );   
+		if ( is_array( $right_section ) ) {
+
+		foreach ( $right_section as $section ) {
+			switch ( $section ) {
+
+				case 'search':
+						$output .= kemet_get_search();
+					break;
+
+				case 'menu':
+						$output .= kemet_get_top_menu();
+					break;
+
+				case 'widget':
+						$output .= kemet_get_custom_widget('header-right-section');
+					break;
+				}		
+			}
+		}
+		?>
+		<div class="header-right-section">
+			<?php echo $output; ?>
+		</div>
+	<?php }
+}
 
 /**
  * Function to get site title/logo
