@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-width]', array(
-			'default'           => 1200,
+			'default'           => kemet_get_option( 'site-content-width' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
@@ -263,7 +263,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[content-separator-color]', array(
-			'default'           => '',
+			'default'           => kemet_get_option( 'content-separator-color' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),

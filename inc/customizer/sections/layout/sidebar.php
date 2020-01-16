@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
      */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[site-sidebar-width]', array(
-            'default'           => 30,
+            'default'           => kemet_get_option( 'site-sidebar-width' ),
             'type'              => 'option',
             'transport'         => 'postMessage',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[sidebar-text-color]', array(
-                'default'           => '',
+                'default'           => kemet_get_option( 'sidebar-text-color' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -193,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
-				'default'           => '',
+				'default'           => kemet_get_option( 'sidebar-link-color' ),
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -213,7 +213,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
-				'default'           => '',
+				'default'           => kemet_get_option( 'sidebar-link-h-color' ),
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -321,7 +321,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[side-bar-widgets-separator-color]', array(
-                'default'           => '',
+                'default'           => kemet_get_option( 'side-bar-widgets-separator-color' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),

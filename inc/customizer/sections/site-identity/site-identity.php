@@ -265,7 +265,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'kmt-header-responsive-logo-width' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

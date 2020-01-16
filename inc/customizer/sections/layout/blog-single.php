@@ -120,7 +120,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[font-color-entry-title]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'font-color-entry-title' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -165,7 +165,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
-        'default'           => 1200,
+        'default'           => kemet_get_option( 'blog-single-max-width' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),

@@ -270,7 +270,28 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
             }
             return $responsive;
         }
+        /**
+        * Sanitize Responsive Typography
+        *
+        * @param  array|number $val Customizer setting input number.
+        * @return array        Return number.
+        */
+        static public function sanitize_responsive_select( $val ) {
 
+            $responsive = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+            );
+            if ( is_array( $val ) ) {
+                $responsive['desktop']      = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
+                $responsive['tablet']       = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
+                $responsive['mobile']       = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
+            } else {
+                $responsive['desktop'] = is_numeric( $val ) ? $val : '';
+            }
+            return $responsive;
+        }
         /**
         * Validate Email
         *

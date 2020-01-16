@@ -56,7 +56,6 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 		if ( array_filter( $sections ) ) {
 			ob_start();
 			if(in_array('search' , $section)){
-				//$search_class = array_search('search', $section);
 				$section[] = $search_style;
 			}
 			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
