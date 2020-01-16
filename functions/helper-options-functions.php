@@ -162,7 +162,7 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 			if ( '' != $default ) {
 				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
 			} else {
-				$value = kemet_get_font_css_value( $option[ $device ], $option[ $device . '-unit' ] );
+				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ] );
 			}
 		} elseif ( is_numeric( $option ) ) {
 			$value = kemet_get_css_value( $option );

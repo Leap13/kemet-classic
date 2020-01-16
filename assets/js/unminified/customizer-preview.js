@@ -990,13 +990,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[listing-post-title-color]', 'color', '.content-area .entry-title a');
 	kemet_css('kemet-settings[readmore-text-color]', 'color', '.content-area .read-more a');
 	kemet_css('kemet-settings[readmore-text-h-color]', 'color', '.content-area .read-more a:hover');
-	kemet_responsive_spacing('kemet-settings[readmore-padding]', '.content-area .read-more', 'padding', ['top', 'bottom', 'right', 'left']);
-
+	kemet_responsive_spacing('kemet-settings[readmore-padding]', 'body .content-area .read-more a', 'padding', ['top', 'bottom', 'right', 'left']);
 	kemet_css('kemet-settings[readmore-bg-color]', 'background-color', '.content-area .read-more a');
 	kemet_css('kemet-settings[readmore-bg-h-color]', 'background-color', '.content-area .read-more a:hover');
-	kemet_responsive_slider('kemet-settings[readmore-border-size]', '.content-area .read-more a', 'border-width');
+	kemet_responsive_slider('kemet-settings[read-more-border-size]', '.content-area .read-more a', 'border-width');
 
-	kemet_responsive_slider('kemet-settings[readmore-border-radius]', '.content-area .read-more a', 'border-radius');
+	kemet_responsive_slider('kemet-settings[read-more-border-radius]', '.content-area .read-more a', 'border-radius');
 
 	wp.customize('kemet-settings[readmore-border-color]', function (value) {
 		value.bind(function (border_color) {
