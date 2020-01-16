@@ -173,7 +173,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section'           => '',
 					'header-display-outside-menu'      => false,
 					'display-submenu-border'           => true,
-					'header-bg-obj'                    => '',
+					'header-bg-obj'                    =>  array(
+						'background-color'      => '',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
+					),
 					'header-right-section'             => 'none',
 
 					// Sub Menu 
@@ -332,6 +339,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-page-sidebar-layout'       => 'default',
 					'single-post-sidebar-layout'       => 'default',
 					'archive-post-sidebar-layout'      => 'default',
+					'sidebar-bg-obj'				   =>  array(
+						'background-color'      => '',
+						'background-image'      => '',
+						'background-repeat'     => 'repeat',
+						'background-position'   => 'center center',
+						'background-size'       => 'auto',
+						'background-attachment' => 'scroll',
+					),
 
 					// Sidebar.
 					'kemet-footer'                       => 'disabled',
