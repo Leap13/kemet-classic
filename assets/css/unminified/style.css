@@ -3154,6 +3154,11 @@ body {
   text-align: center;
 }
 
+.kmt-header-break-point .header-main-layout-3 .kmt-header-logo-right-section .kmt-mobile-menu-buttons {
+  padding: 10px;
+  margin-left: auto;
+}
+
 .kmt-header-break-point .header-main-layout-3 .kmt-search-menu-icon {
   right: 30px;
   left: auto;

@@ -23,11 +23,12 @@
 				<div class="kmt-header-logo-right-section">
 					<?php kemet_site_branding_markup(); ?>
 					<?php kemet_header_get_right_section(); ?>
+					<?php kemet_toggle_buttons_markup(); ?>
 				</div>
 				<?php }else{
 					 kemet_site_branding_markup();
+					 kemet_toggle_buttons_markup();
 				} ?>
-				<?php kemet_toggle_buttons_markup(); ?>
 				<?php kemet_primary_navigation_markup(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- kmt-row -->
