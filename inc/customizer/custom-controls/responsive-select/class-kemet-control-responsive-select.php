@@ -65,7 +65,6 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['choices'] = $this->choices;
-		// var_dump($this->json['choices']);
 	}
 	/**
 	 * Enqueue control related scripts/styles.
