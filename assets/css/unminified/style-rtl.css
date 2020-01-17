@@ -3228,10 +3228,6 @@ body {
 
 /* Mobile Header Alignment */
 @media (max-width: 544px) {
-  .kmt-header-break-point .site-branding img,
-  .kmt-header-break-point #sitehead .site-logo-img .custom-logo-link img {
-    max-width: 100%;
-  }
   .kmt-header-break-point .kmt-mobile-header-inline .main-header-container {
     -js-display: flex;
     display: -webkit-box;
@@ -5708,10 +5704,6 @@ input[type="color"]::-webkit-color-swatch {
 .blog-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
-}
-
-.content-area .read-more a {
-  border: 1px solid #eee;
 }
 
 /**

@@ -205,11 +205,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// General.
 					'kmt-header-retina-logo'           => '',
 					'kmt-header-logo-width'            => '',
-					'kmt-header-responsive-logo-width' => array(
-						'desktop' => '',
-						'tablet'  => '',
-						'mobile'  => '',
-					),
+					'kmt-header-responsive-logo-width' => '',
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
 					'logo-title-inline'                => 0,

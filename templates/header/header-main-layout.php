@@ -30,6 +30,7 @@
 					 kemet_toggle_buttons_markup();
 				} ?>
 				<?php kemet_primary_navigation_markup(); ?>
+				<?php echo kemet_header_custom_item_outside_menu(); ?>
 			</div><!-- Main Header Container -->
 		</div><!-- kmt-row -->
 		<?php kemet_main_header_bar_bottom(); ?>

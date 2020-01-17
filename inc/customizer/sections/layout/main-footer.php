@@ -576,6 +576,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
         'default'           => '',
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
@@ -596,6 +597,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
         'default'           => '',
         'type'              => 'option',
+        'transport'         => 'postMessage', 
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );

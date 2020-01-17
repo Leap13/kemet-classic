@@ -608,7 +608,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[header-bg-obj]', function (value) {
 		value.bind(function (bg_obj) {
 			
-			var dynamicStyle = ' body:not(.kmt-header-break-point) .site-header .main-header-bar { {{css}} }';
+			var dynamicStyle = '.site-header .main-header-bar { {{css}} }';
 			kemet_background_obj_css(wp.customize, bg_obj, 'header-bg-obj', dynamicStyle);
 		});
 	});
@@ -744,7 +744,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[menu-font-size]', '.main-header-menu a', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-site-tagline]', '.site-header .site-description', 'font-size');
 	kemet_responsive_slider('kemet-settings[site-title-font-size]', '.site-title', 'font-size');
-	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post entry-header .entry-title, .page-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-header .entry-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-title]', 'body:not(.kmt-single-post) .entry-title', 'font-size');
@@ -842,7 +842,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[footer-color]', 'color', '.kmt-footer-copyright');
 	kemet_css('kemet-settings[footer-link-color]', 'color', '.kmt-footer-copyright a');
 	kemet_css('kemet-settings[footer-link-h-color]', 'color', '.kmt-footer-copyright a:hover');
-	kemet_css('kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-title, .page-title');
+	kemet_css('kemet-settings[font-color-entry-title]', 'color', '.kmt-single-post .entry-header .entry-title, .page-title');
 
 	wp.customize('kemet-settings[footer-bg-obj]', function (value) {
 		value.bind(function (bg_obj) {

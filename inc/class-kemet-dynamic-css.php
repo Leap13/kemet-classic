@@ -699,6 +699,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $readmore_bg_color),
 					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
 					'border-color'     => esc_attr( $readmore_border_color),
+					'border-style'	   => 'solid',
 					'border-width' => kemet_responsive_slider( $readmore_border_size , 'desktop'),
 				),
 				//Content Heading Color

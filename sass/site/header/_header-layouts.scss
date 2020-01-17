@@ -346,12 +346,6 @@
 /* Mobile Header Alignment */
 @media (max-width: $mx-col-sm) {
 	.kmt-header-break-point {
-		.site-branding,
-		#sitehead .site-logo-img .custom-logo-link{
-			img{
-				max-width: 100%;
-			}
-		}
 		.kmt-mobile-header-inline {
 			.main-header-container {
 				display: flex;
