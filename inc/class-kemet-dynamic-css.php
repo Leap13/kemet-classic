@@ -647,6 +647,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
+				'.site-header .menu-icon' => array(
+					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
+					'background-color' => esc_attr( $btn_bg_color ),
+				),
+				'.site-header .icon-bars-btn span' => array(
+					'background-color'            => esc_attr( $btn_text_color ),
+				), 
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'color'            => esc_attr( $btn_text_color ),
