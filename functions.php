@@ -59,13 +59,18 @@ if (is_admin()) {
      */
     require_once KEMET_THEME_DIR.'functions/classes/class-kemet-admin-settings.php';
     require_once KEMET_THEME_DIR. 'functions/admin/class-kemet-notices.php';
-    require_once KEMET_THEME_DIR.'functions/admin/tgm/bundled-plugins.php';
+    
 }
 
 /**
  * Customizer.
  */
 require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-customizer.php';
+
+/**
+ * Tgm Plugins
+ */
+require_once KEMET_THEME_DIR.'functions/admin/tgm/bundled-plugins.php';
 
 /**
  * Compatibility.

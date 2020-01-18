@@ -28,7 +28,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Leap Port Plugin',
             'slug'               => 'leap-port',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/leap-port.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/leap-port.zip',
             'required'           => true,
             'version'            => '1.13.7',
             'force_activation'   => true,
@@ -38,7 +38,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Revolution Slider Plugin',
             'slug'               => 'revslider',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/revslider.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/revslider.zip',
             'required'           => false,
             'version'            => '6.1.5',
             'force_activation'   => false,
@@ -48,7 +48,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Visual Composer: Page Builder for WordPress Plugin',
             'slug'               => 'js_composer',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/js_composer.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/js_composer.zip',
             'required'           => true,
             'version'            => '6.1.0',
             'force_activation'   => false,
@@ -58,7 +58,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Ultimate Addons for Visual Composer Plugin',
             'slug'               => 'Ultimate_VC_Addons',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/Ultimate_VC_Addons.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/Ultimate_VC_Addons.zip',
             'required'           => true,
             'version'            => '3.19.0',
             'force_activation'   => false,
@@ -68,7 +68,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'One Page Navigator for Visual Composer Plugin',
             'slug'               => 'one-page-navigator',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/one-page-navigator.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/one-page-navigator.zip',
             'required'           => false,
             'version'            => '1.1.13',
             'force_activation'   => false,
@@ -78,7 +78,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Easy Social Share Buttons 3 Plugin',
             'slug'               => 'easy-social-share-buttons3',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/easy-social-share-buttons3.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/easy-social-share-buttons3.zip',
             'required'           => false,
             'version'            => '6.2.9',
             'force_activation'   => false,
@@ -88,7 +88,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Essential Grid Plugin',
             'slug'               => 'essential-grid',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/essential-grid.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/essential-grid.zip',
             'required'           => false,
             'version'            => '2.3.6',
             'force_activation'   => false,
@@ -98,7 +98,7 @@ function leap_register_required_plugins() {
         array(
             'name'               => 'Layered Popups for WordPress Plugin',
             'slug'               => 'layered-popups',
-            'source'             => get_template_directory() . '/functions/tgm/plugins/layered-popups.zip',
+            'source'             => get_template_directory() . '/functions/admin/tgm/plugins/layered-popups.zip',
             'required'           => false,
             'version'            => '6.61',
             'force_activation'   => false,
