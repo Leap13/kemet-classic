@@ -153,7 +153,6 @@
 	.kmt-header-logo-right-section{
 		width: 100%;
 		display: flex;
-		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		.header-right-section{
@@ -289,6 +288,9 @@
 				padding: 10px;
 				margin-left: auto;
 			}
+		}
+		.kmt-outside-menu{
+			margin-left: auto;
 		}
 		.kmt-search-menu-icon{
 		right: 30px;

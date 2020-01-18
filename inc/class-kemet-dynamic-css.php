@@ -972,9 +972,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'tablet' ),
 				),
-				'.main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon' => array(
-					'border-bottom-width' => kemet_responsive_slider( $header_separator, 'tablet' ),
-				),
 				//Sidebar Spacing
 				'.sidebar-main' => array(
 					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'tablet' ),
@@ -1142,10 +1139,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding , 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $btn_padding , 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $btn_padding , 'left', 'mobile' ),
-				),
-				//Header
-				'.main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon' => array(
-					'border-bottom-width' => kemet_responsive_slider( $header_separator, 'mobile' ),
 				),
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(

@@ -2970,9 +2970,6 @@ body {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -moz-box-align: center;
@@ -3156,6 +3153,10 @@ body {
 
 .kmt-header-break-point .header-main-layout-3 .kmt-header-logo-right-section .kmt-mobile-menu-buttons {
   padding: 10px;
+  margin-left: auto;
+}
+
+.kmt-header-break-point .header-main-layout-3 .kmt-outside-menu {
   margin-left: auto;
 }
 
