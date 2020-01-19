@@ -8,7 +8,7 @@
 /**
  * Define Constants.
  */
-define('KEMET_THEME_VERSION', '0.9.0');
+define('KEMET_THEME_VERSION', '0.9.2');
 define('KEMET_THEME_DIR', get_template_directory().'/');
 define('KEMET_THEME_URI', get_template_directory_uri().'/');
 define('KEMET_THEME_SETTINGS', 'kemet-settings');
@@ -32,7 +32,7 @@ require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-fonts.php';
 /**
  * Functions.
  */
-require_once KEMET_THEME_DIR.'functions/common-functions.php';
+require_once KEMET_THEME_DIR.'functions/helper-options-functions.php';
 require_once KEMET_THEME_DIR.'functions/classes/class-kemet-enqueue-scripts.php';
 require_once KEMET_THEME_DIR.'inc/class-kemet-dynamic-css.php';
 require_once KEMET_THEME_DIR.'functions/template-tags.php';

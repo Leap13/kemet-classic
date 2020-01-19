@@ -40,9 +40,17 @@ body {
 		margin-bottom: 0;
 	}
 }
-
+.kmt-article-post{
+	border-bottom: 1px solid $color-border-content;
+}
 //separate container content layout
 .kmt-separate-container{
+	.kmt-archive-description{
+		border-top: 0;
+	}
+	.kmt-article-post{
+		border-bottom: 0;
+	}
 	background-color: $color-background-sep-content-body;
 	#primary{
 		padding: 4em 0;
@@ -55,10 +63,10 @@ body {
 	}
 	.kmt-article-post,
 	.kmt-article-single{
-		background-color: $color-background-content;
-		border-bottom: 1px solid $color-border-content;
+		 background-color: $color-background-content;
 		 margin: 0;
 		 padding: 5.34em 6.67em;
+		 padding-bottom: 0;
 	}
 	.blog-layout-1{
         padding: 0;

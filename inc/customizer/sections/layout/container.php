@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-width]', array(
-			'default'           => 1200,
+			'default'           => kemet_get_option( 'site-content-width' ),
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 				'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-				'plain-container'         => __( 'Full Width Conten', 'kemet' ),
+				'plain-container'         => __( 'Full Width Content', 'kemet' ),
 				'page-builder'            => __( 'Stretched Content', 'kemet' ),
 			),
 		)
@@ -252,9 +252,30 @@ if ( ! defined( 'ABSPATH' ) ) {
                'choices'        => array(
                    'top'    => __( 'Top', 'kemet' ),
                    'right'  => __( 'Right', 'kemet' ),
-                   'bottom' => __( 'Bottom', 'kemet' ),
                    'left'   => __( 'Left', 'kemet' ),
                ),
            )
        )
    );
+
+   /**
+	* Option: Content separator Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[content-separator-color]', array(
+			'default'           => kemet_get_option( 'content-separator-color' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[content-separator-color]', array(
+				'type'    => 'kmt-color',
+				'priority'    => 55,
+				'label'   => __( 'Content separator Color', 'kemet' ),
+				'section' => 'section-container-layout',
+			)
+		)
+	);

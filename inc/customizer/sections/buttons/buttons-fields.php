@@ -14,11 +14,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-buttons]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Buttons', 'kemet' ),
+            'section'  => 'section-buttons-fields',
+            'priority' => 1,
+            'settings' => array(),
+        )
+    )
+);
+
+/**
 * Option: Button Color
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'button-color' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
@@ -26,7 +41,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[button-color]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Text Color', 'kemet' ),
             'priority'    => 5,
         )
@@ -38,7 +53,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-h-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'button-h-color' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
@@ -46,7 +61,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[button-h-color]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Text Hover Color', 'kemet' ),
             'priority'    => 10,
         )
@@ -58,7 +73,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-bg-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'button-bg-color' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
@@ -66,7 +81,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-color]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Background Color', 'kemet' ),
             'priority'    => 15,
         )
@@ -78,7 +93,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'button-bg-h-color' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
@@ -86,7 +101,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Background Hover Color', 'kemet' ),
             'priority'    => 20,
         )
@@ -105,33 +120,36 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[btn-border-size]', array(
-        'type'        => 'number',
-        'section'     => 'section-buttons',
-        'priority'    => 25,
-        'label'       => __( 'Button Border Size', 'kemet' ),
-        'input_attrs' => array(
-            'min'  => 0,
-            'step' => 1,
-            'max'  => 600,
-        ),
-    )
-);
-
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[btn-border-size]', array(
+				'type'        => 'kmt-slider',
+				'section'     => 'section-buttons-fields',
+				'priority'    => 25,
+				'label'       => __( 'Button Border Size', 'kemet' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 10,
+				),
+			)
+		)
+	);
 /**
 * Option: Button Background Hover Color
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[btn-border-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'btn-border-color' ),
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-color]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Border Color', 'kemet' ),
             'priority'    => 30,
         )
@@ -143,7 +161,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[btn-border-h-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option('btn-border-h-color'),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
@@ -151,7 +169,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-h-colo]', array(
-            'section' => 'section-buttons',
+            'section' => 'section-buttons-fields',
             'label'   => __( 'Button Border Hover color', 'kemet' ),
             'priority'    => 35,
         )
@@ -163,7 +181,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[button-radius]', array(
-        'default'           => '',
+        'default'           => kemet_get_option('button-radius'),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -173,14 +191,14 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[button-radius]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-buttons',
+            'section'        => 'section-buttons-fields',
             'priority'       => 40,
             'label'          => __( 'Button Radius', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>100,
                 ),
                 'em' => array(
                     'min' => 1,
@@ -198,51 +216,108 @@ $wp_customize->add_control(
 );
 
 /**
-* Option: Vertical Padding
+* Option - Button Spacing
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-v-padding]', array(
-        'default'           => kemet_get_option( 'button-v-padding' ),
+    KEMET_THEME_SETTINGS . '[button-spacing]', array(
+        'default'           => kemet_get_option( 'button-spacing' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[button-v-padding]', array(
-        'section'     => 'section-buttons',
-        'label'       => __( 'Vertical Padding', 'kemet' ),
-        'type'        => 'number',
-        'priority'    => 45,
-        'input_attrs' => array(
-            'min'  => 1,
-            'step' => 1,
-            'max'  => 200,
-        ),
+    new Kemet_Control_Responsive_Spacing(
+        $wp_customize, KEMET_THEME_SETTINGS . '[button-spacing]', array(
+            'type'           => 'kmt-responsive-spacing',
+            'section'        => 'section-buttons-fields',
+            'priority'       => 50,
+            'label'          => __( 'Button Spacing', 'kemet' ),
+            'linked_choices' => true,
+            'unit_choices'   => array( 'px', 'em', '%' ),
+            'choices'        => array(
+                'top'    => __( 'Top', 'kemet' ),
+                'right'  => __( 'Right', 'kemet' ),
+                'bottom' => __( 'Bottom', 'kemet' ),
+                'left'   => __( 'Left', 'kemet' ),
+            ),
+        )
+    )
+);
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-input-color]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Input Color Options', 'kemet' ),
+            'section'  => 'section-buttons-fields',
+            'priority' => 55,
+            'settings' => array(),
+        )
     )
 );
 
 /**
-* Option: Horizontal Padding
+* Option: Background Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-h-padding]', array(
-        'default'           => kemet_get_option( 'button-h-padding' ),
+    KEMET_THEME_SETTINGS . '[input-bg-color]', array(
+        'default'           => kemet_get_option( 'input-bg-color' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[button-h-padding]', array(
-        'section'     => 'section-buttons',
-        'label'       => __( 'Horizontal Padding', 'kemet' ),
-        'type'        => 'number',
-        'priority'    => 50,
-        'input_attrs' => array(
-            'min'  => 1,
-            'step' => 1,
-            'max'  => 200,
-        ),
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[input-bg-color]', array(
+            'section' => 'section-buttons-fields',
+            'label'   => __( 'Background Color', 'kemet' ),
+            'priority'    => 60,
+        )
+    )
+);
+
+/**
+* Option: Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[input-text-color]', array(
+        'default'           => kemet_get_option( 'input-text-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[input-text-color]', array(
+            'section' => 'section-buttons-fields',
+            'label'   => __( 'Text Color', 'kemet' ),
+            'priority'    => 65,
+        )
+    )
+);
+
+/**
+* Option: Border Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[input-border-color]', array(
+        'default'           => kemet_get_option( 'input-border-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[input-border-color]', array(
+            'section' => 'section-buttons-fields',
+            'label'   => __( 'Border Color', 'kemet' ),
+            'priority'    => 70,
+        )
     )
 );

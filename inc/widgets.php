@@ -172,6 +172,22 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 		);
 
 		/**
+		 * Register Top Section2 Widget
+		 */
+		register_sidebar(
+			apply_filters(
+				'kemet_header_right_section', array(
+				'name'          => esc_html__( 'Header Right Section', 'kemet' ),
+				'id'            => 'header-right-section',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
+			)
+			)
+		);
+
+		/**
 		 * Register Footer Widgets area
 		 */
 		register_sidebar(

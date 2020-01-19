@@ -342,7 +342,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return array
 		 */
 		function related_products_args( $args ) {
-
+			var_dump($col);
 			$col                    = kemet_get_option( 'shop-grids' );
 			$args['posts_per_page'] = $col['desktop'];
 			return $args;
@@ -715,7 +715,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				),
 				// Button Typography.
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
-					'border-radius' => kemet_get_css_value( $btn_border_radius, 'px' ),
+					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'padding'       => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
@@ -749,6 +749,20 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			/* Parse CSS from array() */
 			$css_output = kemet_parse_css( $css_output );
+			$tablet_typography = array(
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
+				),
+			);
+			/* Parse CSS from array()*/
+			$css_output .= kemet_parse_css( $tablet_typography, '', '768' );
+			$mobile_typography = array(
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
+				),
+			);
+			/* Parse CSS from array()*/
+			$css_output .= kemet_parse_css( $mobile_typography, '', '544' );
 
 			/* Woocommerce Shop Archive width */
 			if ( 'custom' === $woo_shop_archive_width ) :

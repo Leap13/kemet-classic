@@ -57,22 +57,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 
 		public function header_classes( $classes ) {
-			
-			$search_box_shadow = kemet_get_option('search-box-shadow');
-
-			if($search_box_shadow == true){
-				$classes[] = 'search-box-shadow';
-			}
-			$search_style = kemet_get_option('search-style');
-			if ( wp_is_mobile() ) {
-				$custom_items_outside = kemet_get_option('header-display-outside-menu');
-				if($custom_items_outside == true){
-					$classes[] = 'search-icon';
-				}else{
-					$classes[] = 'search-box';
-				}
-			}else{
-				$classes[] = $search_style;
+			$header_layouts = kemet_get_option('header-layouts');
+			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' || $header_layouts == 'header-main-layout-3'){
+				$menu_aglin 	= kemet_get_option('menu-alignment');
+				$classes[] = $menu_aglin;
 			}
 				
 			return $classes;
@@ -116,11 +104,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Icon_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Slider' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive' );
-			$wp_customize->register_control_type( 'Kemet_Control_Spacing' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Spacing' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Title' );
 			$wp_customize->register_control_type( 'Kemet_Control_Color' );
-			$wp_customize->register_control_type( 'Kemet_Control_Description' );
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 
 			/**
@@ -164,7 +151,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 
 		}
 

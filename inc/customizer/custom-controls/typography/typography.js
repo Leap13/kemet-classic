@@ -155,5 +155,17 @@
 	};
 
 	$(function () { KmtTypography.init(); });
+	$(function () {
+		var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-kmt-font-weight');
+		font_weight_controls.each(function () {
+			var font_weight_control = jQuery(this);
+			var font_tranform_control = font_weight_control.next('.customize-control-select');
 
+			font_weight_control.addClass('controls-inline');
+			font_weight_control.css('padding-right' , '5px');
+			font_tranform_control.addClass('controls-inline');
+			font_tranform_control.css('padding-left', '5px');
+		})
+		
+	});
 })(jQuery);

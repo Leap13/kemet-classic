@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
      */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[site-sidebar-width]', array(
-            'default'           => 30,
+            'default'           => kemet_get_option( 'site-sidebar-width' ),
             'type'              => 'option',
             'transport'         => 'postMessage',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -38,19 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     'step' => 1,
                     'max'  => 50,
                 ),
-            )
-        )
-    );
-
-        $wp_customize->add_control(
-        new Kemet_Control_Description(
-            $wp_customize, KEMET_THEME_SETTINGS . '[site-sidebar-width-description]', array(
-                'type'     => 'kmt-description',
-                'section'  => 'section-sidebars',
-                'priority' => 10,
-                'label'    => '',
-                'help'     => __( 'Sidebar width will apply only when one of the following sidebar is set.', 'kemet' ),
-                'settings' => array(),
+                'description'  => __('Sidebar width will apply only when one of the following sidebar is set.', 'kemet'),
             )
         )
     );
@@ -183,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[sidebar-text-color]', array(
-                'default'           => '',
+                'default'           => kemet_get_option( 'sidebar-text-color' ),
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -205,7 +193,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
-				'default'           => '',
+				'default'           => kemet_get_option( 'sidebar-link-color' ),
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -225,7 +213,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
-				'default'           => '',
+				'default'           => kemet_get_option( 'sidebar-link-h-color' ),
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -327,4 +315,25 @@ if ( ! defined( 'ABSPATH' ) ) {
                 )
             )
         );
-        
+
+        /**
+        * Option: Widgets separator Color
+        */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[side-bar-widgets-separator-color]', array(
+                'default'           => kemet_get_option( 'side-bar-widgets-separator-color' ),
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+            )
+        );
+        $wp_customize->add_control(
+            new Kemet_Control_Color(
+                $wp_customize, KEMET_THEME_SETTINGS . '[side-bar-widgets-separator-color]', array(
+                    'type'    => 'kmt-color',
+                    'priority'    => 75,
+                    'label'   => __( 'Separator Color', 'kemet' ),
+                    'section' => 'section-sidebars',
+                )
+            )
+        );

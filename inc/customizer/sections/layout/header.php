@@ -12,14 +12,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-$header_rt_sections = array(
-    'none'      => __( 'None', 'kemet' ),
-    'search'    => __( 'Search', 'kemet' ),
-    'text-html' => __( 'Text / HTML', 'kemet' ),
-    'widget'    => __( 'Widget', 'kemet' ),
-);
-
+    /**
+     * Get WP menus
+     *
+     * @since 1.3.7
+     */
+    function get_wp_menus() {
+        $menus 		= array( esc_html__( 'Select Your Menu', 'oceanwp' ) );
+        $get_menus 	= get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+        foreach ( $get_menus as $menu) {
+            $menus[$menu->term_id] = $menu->name;
+        }
+        return $menus;
+    }
 /**
 * Option: Header Layout
 */
@@ -59,7 +64,49 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Header 3 Right Section
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[header-right-section]', array(
+		'default'           => kemet_get_option( 'header-right-section' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+	)
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[header-right-section]', array(
+        'type'     => 'select',
+        'section'  => 'section-header',
+        'priority' => 7,
+        'label'    => __( 'Right Section Content', 'kemet' ),
+        'choices'  => array(
+            'none'    => __( 'None', 'kemet' ),
+            'search'    => __( 'Search', 'kemet' ),
+            'menu' => __( 'Menu', 'kemet' ),
+            'widget'    => __( 'Widget', 'kemet' ),
+        ),
+    )
+);
+/**
+* Option: Right Section Menu
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[header-right-section-menu]', array(
+		'default'           => kemet_get_option( 'header-right-section-menu' ),
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+	)
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[header-right-section-menu]', array(
+        'type'     => 'select',
+        'section'  => 'section-header',
+        'priority' => 7,
+        'label'    => __( 'Right Section Menu', 'kemet' ),
+        'choices'  => get_wp_menus(),
+    )
+);
 /**
 * Option: Transparent header
 */
@@ -74,7 +121,7 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[enable-transparent]', array(
         'type'            => 'checkbox',
         'section'         => 'section-header',
-        'label'           => __( 'Enable Transparent Header', 'kemet' ),
+        'label'           => __( 'Enable Overlay Header', 'kemet' ),
         'priority'        => 10,
     )
 );
@@ -107,7 +154,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-        'default'           => kemet_get_option( 'header-bg-obj' ),
+        'default'           => kemet_get_option('header-bg-obj'),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -185,19 +232,14 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
-                ),
-                'em' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' => 10,
+                    'max' => 15,
                 ),
             ),
         )
     )
 );
 /**
-* Option: Bottom Border Color
+* Option: Border Color
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
@@ -212,173 +254,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
             'section'  => 'section-header',
             'priority' => 35,
-            'label'    => __( 'Bottom Border Color', 'kemet' ),
-        )
-    )
-);
-
-/**
-* Option: Search Box Shadow
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-box-shadow]', array(
-        'default'           => false,
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[search-box-shadow]', array(
-        'type'     => 'checkbox',
-        'section'  => 'section-header',
-        'priority' => 16,
-        'label'    => __( 'Enable Search Box Shadow', 'kemet' ),
-    )
-);
-
-/**
-* Option: Search Button Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
-            'label'   => __( 'Search Button Background Color', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 16,
-        )
-    )
-);
-/**
-* Option: Search Button Hover Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-            'label'   => __( 'Search Button Hover', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 16,
-        )
-    )
-);
-/**
-* Option: Search Button Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-            'label'   => __( 'Search Button Color', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 16,
-        )
-    )
-);
-if ( kemet_get_option( 'search-style' ) == 'search-box' ) {
-    /**
-    * Option: Search Form Border Size
-    */
-    $wp_customize->add_setting(
-        KEMET_THEME_SETTINGS . '[search-border-size]', array(
-            'default'           => kemet_get_option( 'search-border-size' ),
-            'type'              => 'option',
-            'transport'         => 'postMessage',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-        )
-    );
-    $wp_customize->add_control(
-        KEMET_THEME_SETTINGS . '[search-border-size]', array(
-            'type'        => 'number',
-            'section'     => 'section-header',
-            'priority'    => 17,
-            'label'       => __( 'Search Form Border Size', 'kemet' ),
-            'input_attrs' => array(
-                'min'  => 0,
-                'step' => 1,
-                'max'  => 15,
-            ),
-        )
-    );
-}
-/**
-* Option: Search Border Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-border-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-border-color]', array(
-            'label'   => __( 'Search Border Color', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 16,
-        )
-    )
-);
-/**
-* Option - Search Background
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
-            'label'   => __( 'Search Form Background Color', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 17,
-        )
-    )
-);
-/**
-* Option - Search Font Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[search-input-color]', array(
-        'default'           => '',
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[search-input-color]', array(
-            'label'   => __( 'Search Form Font Color', 'kemet' ),
-            'section' => 'section-header',
-            'priority' => 17,
+            'label'    => __( 'Border Color', 'kemet' ),
         )
     )
 );

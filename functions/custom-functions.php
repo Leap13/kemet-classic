@@ -267,9 +267,16 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 	 */
 	function kemet_get_search( $option = '' ) {
 
+		$search_style = kemet_get_option('search-style');
+		$box_shadow = '';
+		$search_box_shadow = kemet_get_option('search-box-shadow');
+		if($search_box_shadow == true){
+			$box_shadow = 'search-box-shadow';
+		}
+		
 		$search_html = '<div class="kmt-search-container">';
-		$search_html .= '<div class="kmt-search-icon"><a class="slide-search kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>
-						<div class="kmt-search-menu-icon slide-search" id="kmt-search-form" >';
+		$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
+		$search_html .= '<div class="kmt-search-menu-icon '.$box_shadow.'" id="kmt-search-form" data-type="'.$search_style.'">';
 		$search_html .= get_search_form( false );
 		$search_html .= '</div>';
         $search_html .= '</div>';
@@ -321,6 +328,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 
 		if ( 'header-main-rt-section' == $option_name ) {
 			$widget_id = 'header-widget';
+		}
+		if ( 'header-right-section' == $option_name ) {
+			$widget_id = 'header-right-section';
 		}
 		if ( 'footer-copyright-section-1' == $option_name ) {
 			$widget_id = 'copyright-widget-1';
@@ -483,7 +493,36 @@ if ( ! function_exists( 'kemet_get_top_menu' ) ) {
 		return ob_get_clean();
 	}
 }
+/**
+ * Function to get Right Section Menu
+ */
+if ( ! function_exists( 'kemet_get_right_section_menu' ) ) {
 
+	/**
+	 * Function to get Right Section Menu
+	 *
+	 * @return html
+	 */
+	function kemet_get_right_section_menu() {
+
+		ob_start();
+		$right_section_menu = kemet_get_option('header-right-section-menu');
+
+		 if ( $right_section_menu != 0 ) {
+			wp_nav_menu(
+				array(
+					'menu' 			  => $right_section_menu,
+					'container'       => 'div',
+					'container_class' => 'header-right-section-navigation',
+					'menu_class'      => 'nav-menu',
+					'menu_id' 			  => 'right-section-menu',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+				)
+			);
+		}
+		return ob_get_clean();
+	}
+}
 /**
  * Function to get site Header
  */
@@ -511,7 +550,34 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 
 add_action( 'kemet_header', 'kemet_header_markup' );
 
+/**
+ * Function to get Header Right Section
+ */
+if ( ! function_exists( 'kemet_header_get_right_section' ) ) {
 
+	function kemet_header_get_right_section() {
+
+		$output  = '';
+		$right_section = kemet_get_option( 'header-right-section' ); 
+		$classes = 'header-right-section ';
+		if($right_section == 'search'){
+			$classes .= kemet_get_option('search-style');
+			$output = kemet_get_search();
+
+		}elseif($right_section == 'menu'){
+			$output =  kemet_get_right_section_menu();
+		}
+		elseif($right_section == 'widget'){
+
+			$output = kemet_get_custom_widget('header-right-section');
+
+		}
+		?>
+		<div class="<?php echo $classes; ?>">
+			<?php echo $output; ?>
+		</div>
+	<?php }
+}
 
 /**
  * Function to get site title/logo
@@ -585,12 +651,6 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$header_layout      = kemet_get_option( 'header-layouts' );
-		$main_menu_iten_effect = " ".kemet_get_option( 'main-menu-item-effect' );
-		$separator_classes  = '';
-		if(kemet_get_option('main-menu-separator')){
-			$separator_classes .= ' menu-separator ';
-			$separator_classes   .= kemet_get_option( 'separator-style' );
-		}
 
 		if ( $disable_primary_navigation ) {
 
@@ -611,7 +671,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
 
@@ -625,7 +685,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class . $main_menu_iten_effect,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -634,7 +694,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$left_menu_args = array(
 				'theme_location'  => 'left_menu',
 				'menu_id'         => 'left-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $separator_classes . $submenu_class . $main_menu_iten_effect,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -647,7 +707,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';	
 					wp_nav_menu( $primary_menu_args );
-					if ( 'header-main-layout-4' == $header_layout ) {
+					if ( 'header-main-layout-4' == $header_layout && has_nav_menu( 'left_menu' )) {
 					wp_nav_menu( $left_menu_args );
 					}
 				echo  '</div>';
@@ -769,7 +829,7 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
 		$header_transparent       = kemet_get_option( 'enable-transparent' );
-	
+		$header_layouts 			  = kemet_get_option( 'header-layouts' );
 
 		if ( $menu_logo_location ) {
 			$classes[] = $menu_logo_location;

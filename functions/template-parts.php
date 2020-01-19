@@ -39,26 +39,28 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 
 		// Get selected custom menu items.
 		$markup = '';
-
 		$section                    = kemet_get_option( 'header-main-rt-section' );
 		$sections                   = kemet_get_dynamic_header_content( 'header-main-rt-section' );
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
-		$separator 					= '';
-
-		if(kemet_get_option('last-items-separator')){
-			$separator 		= 	' separator ';
+		$search_style = kemet_get_option('search-style');
+		$hide_mobile = kemet_get_option('disable-last-menu-items-on-mobile');
+		$hide_classes = '';
+		if($hide_mobile){
+			$hide_classes = 'hide-on-mobile';
 		}
-
 		if ( $disable_primary_navigation || $display_outside_markup ) {
 			$html_element = 'div';
 		}
-
+		
 		if ( array_filter( $sections ) ) {
 			ob_start();
+			if(in_array('search' , $section)){
+				$section[] = $search_style;
+			}
 			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $separator . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						printf ($value);
@@ -352,7 +354,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 		if ( kemet_get_option( 'header-display-outside-menu' ) ) {
 			$markup = kemet_sitehead_get_menu_items( true );
 
-			echo '<div>' . $markup . '</div>';
+			echo '<div class="kmt-outside-menu">' . $markup . '</div>';
 		}
 	}
 }

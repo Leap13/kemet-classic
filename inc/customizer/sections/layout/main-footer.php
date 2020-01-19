@@ -148,11 +148,11 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>200,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
             ),
@@ -164,7 +164,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-font-family]', array(
-        'default'           => kemet_get_option( 'Footer-font-family' ),
+        'default'           => 'inherit',
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -236,7 +236,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-line-height]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'footer-line-height' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -356,11 +356,11 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>200,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
             ),
@@ -373,7 +373,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-color]', array(
-        'default'           => '',
+        'default'           => kemet_get_option( 'kemet-footer-wgt-title-color' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -576,6 +576,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
         'default'           => '',
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
@@ -596,6 +597,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
         'default'           => '',
         'type'              => 'option',
+        'transport'         => 'postMessage', 
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
@@ -651,11 +653,11 @@ $wp_customize->add_control(
                 'px' => array(
                     'min' => 1,
                     'step' => 1,
-                    'max' =>300,
+                    'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
-                    'step' => 1,
+                    'min' => 0.1,
+                    'step' => 0.1,
                     'max' => 10,
                 ),
                 '%' => array(

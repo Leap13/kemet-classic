@@ -163,7 +163,82 @@
 				}
 			},
 		],
+		//Search Style
+		'kemet-settings[search-style]':
+		[
+			{
+				controls: [
+					'kemet-settings[search-btn-bg-color]',
+					'kemet-settings[search-btn-h-bg-color]',
+					'kemet-settings[search-btn-color]',
+					'kemet-settings[search-border-size]',
+				],
+				callback: function (value) {
+					var last_menu_item = api('kemet-settings[header-main-rt-section]').get();
+					
+					if (('search-box' == value) && (last_menu_item == 'search')) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'kemet-settings[search-box-shadow]',
+				],
+				callback: function (value) {
+					var last_menu_item = api('kemet-settings[header-main-rt-section]').get();
 
+					if (('search-icon' == value) && (last_menu_item == 'search')) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		//Search Style
+		'kemet-settings[header-layouts]':
+		[
+			{
+				controls: [
+					'kemet-settings[menu-alignment]',
+				],
+				callback: function (value) {
+
+					if (('header-main-layout-1' == value) || ('header-main-layout-2' == value) || ('header-main-layout-3' == value)) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'kemet-settings[header-right-section]',
+				],
+				callback: function (value) {
+
+					if (('header-main-layout-3' == value)) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		//Header Right Section
+		'kemet-settings[header-right-section]':
+		[
+			{
+				controls: [
+					'kemet-settings[header-right-section-menu]',
+				],
+				callback: function (value) {
+					if ('menu' == value) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 		/**
 		 * Section - Header
 		 *
@@ -184,7 +259,38 @@
 				],
 				callback: function( val ) {
 
-					if ( 'text-html' == val ) {
+					if ( val.includes('text-html') ) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'kemet-settings[search-style]',
+					'kemet-settings[search-box-shadow]',
+					'kemet-settings[search-input-bg-color]',
+					'kemet-settings[search-input-color]',
+					'kemet-settings[search-border-color]',
+				],
+				callback: function (val) {
+
+					if (val.includes('search')) {
+						return true;
+					}
+					return false;
+				}
+			},
+			{
+				controls: [
+					'kemet-settings[search-btn-bg-color]',
+					'kemet-settings[search-btn-h-bg-color]',
+					'kemet-settings[search-btn-color]',
+					'kemet-settings[search-border-size]',
+				],
+				callback: function (val) {
+					var search_style = api('kemet-settings[search-style]').get();
+					if ('search' == val && search_style == 'search-box') {
 						return true;
 					}
 					return false;

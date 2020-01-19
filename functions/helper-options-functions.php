@@ -159,13 +159,16 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 	function kemet_responsive_slider( $option, $device = 'desktop', $default = '' ) {
 
 		if ( isset( $option[ $device ] ) && isset( $option[ $device . '-unit' ] ) ) {
-			$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
+			if ( '' != $default ) {
+				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
+			} else {
+				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ] );
+			}
 		} elseif ( is_numeric( $option ) ) {
 			$value = kemet_get_css_value( $option );
 		} else {
 			$value = ( ! is_array( $option ) ) ? $option : '';
 		}
-
 		return $value;
 	}
 }
@@ -270,12 +273,6 @@ if ( ! function_exists( 'kemet_get_css_value' ) ) {
 	 * Syntax:
 	 *
 	 *  kemet_get_css_value( VALUE, UNIT );
-	 *
-	 * E.g.
-	 *
-	 *  kemet_get_css_value( VALUE, 'url' );
-	 *  kemet_get_css_value( VALUE, 'px' );
-	 *  kemet_get_css_value( VALUE, 'em' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
@@ -472,14 +469,9 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 	 *
 	 * @param  string $option       Option key.
 	 * @param  string $default      Option default value.
-	 * @param  string $deprecated   Option default value.
 	 * @return Mixed               Return option value.
 	 */
-	function kemet_get_option( $option, $default = '', $deprecated = '' ) {
-
-		if ( '' != $deprecated ) {
-			$default = $deprecated;
-		}
+	function kemet_get_option( $option, $default = '' ) {
 
 		$theme_options = Kemet_Theme_Options::get_options();
 
@@ -584,72 +576,11 @@ if ( ! function_exists( 'kemet_get_primary_class' ) ) {
 			$classes = array_merge( $classes, $class );
 		} else {
 
-			// Ensure that we always coerce class to being an array.
 			$class = array();
 		}
 
 		// Filter primary div class names.
 		$classes = apply_filters( 'kemet_primary_class', $classes, $class );
-
-		$classes = array_map( 'sanitize_html_class', $classes );
-
-		return array_unique( $classes );
-	}
-}
-
-/**
- * Display classes for secondary div
- */
-if ( ! function_exists( 'kemet_secondary_class' ) ) {
-
-	/**
-	 * Retrieve the classes for the secondary element as an array.
-	 *
-	 * @param string|array $class One or more classes to add to the class list.
-	 * @return void        echo classes.
-	 */
-	function kemet_secondary_class( $class = '' ) {
-
-		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', kemet_get_secondary_class( $class ) ) ) . '"';
-	}
-}
-
-/**
- * Retrieve the classes for the secondary element as an array.
- */
-if ( ! function_exists( 'kemet_get_secondary_class' ) ) {
-
-	/**
-	 * Retrieve the classes for the secondary element as an array.
-	 *
-	 * @param string|array $class One or more classes to add to the class list.
-	 * @return array        Return array of classes.
-	 */
-	function kemet_get_secondary_class( $class = '' ) {
-
-		// array of class names.
-		$classes = array();
-
-		// default class from widget area.
-		$classes[] = 'widget-area';
-
-		// secondary base class.
-		$classes[] = 'secondary';
-
-		if ( ! empty( $class ) ) {
-			if ( ! is_array( $class ) ) {
-				$class = preg_split( '#\s+#', $class );
-			}
-			$classes = array_merge( $classes, $class );
-		} else {
-
-			// Ensure that we always coerce class to being an array.
-			$class = array();
-		}
-
-		// Filter secondary div class names.
-		$classes = apply_filters( 'kemet_secondary_class', $classes, $class );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
 
@@ -702,16 +633,16 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 		$blog_post_title   = kemet_get_option( 'blog-post-structure' );
 		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
 
-		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
-			if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		
+		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
 
-				$title  = kemet_get_the_title( $post_id );
-				$before = apply_filters( 'kemet_the_title_before', $before );
-				$after  = apply_filters( 'kemet_the_title_after', $after );
+			$title  = kemet_get_the_title( $post_id );
+			$before = apply_filters( 'kemet_the_title_before', $before );
+			$after  = apply_filters( 'kemet_the_title_after', $after );
 
-				$title = $before . $title . $after;
-			}
+			$title = $before . $title . $after;
 		}
+		
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
@@ -785,7 +716,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 	 */
 	function kemet_archive_page_info() {
 
-		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		if ( apply_filters( 'kemet_title_bar_disable', true ) ) {
 
 			// Author.
 			if ( is_author() ) { ?>
@@ -952,21 +883,6 @@ if ( ! function_exists( 'kemet_hex_to_rgba' ) ) :
 
 		// Return RGB(a) color string.
 		return $output;
-	}
-
-endif;
-
-
-if ( ! function_exists( 'kemet_enable_page_builder_compatibility' ) ) :
-
-	/**
-	 * Allow filter to enable/disable page builder compatibility.
-	 *
-	 *
-	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
-	 */
-	function kemet_enable_page_builder_compatibility() {
-		return apply_filters( 'kemet_enable_page_builder_compatibility', true );
 	}
 
 endif;

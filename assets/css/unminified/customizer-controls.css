@@ -108,28 +108,14 @@
 /**
  * Typography Control Style
  */
-.customize-pane-child > li[id="customize-control-kemet-settings-headings-font-weight"],
-.customize-pane-child > li[id="customize-control-kemet-settings-headings-text-transform"],
-.customize-pane-child > li[id="customize-control-kemet-settings-body-font-weight"],
-.customize-pane-child > li[id="customize-control-kemet-settings-body-text-transform"] {
+.customize-control.controls-inline {
     width: 50%;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	box-sizing: border-box;
     clear: none;
 }
-
-.customize-pane-child > li[id="customize-control-kemet-settings-headings-font-weight"],
-.customize-pane-child > li[id="customize-control-kemet-settings-body-font-weight"] {
-    padding-right: 5px;
-}
-
-.customize-pane-child > li[id="customize-control-kemet-settings-headings-text-transform"],
-.customize-pane-child > li[id="customize-control-kemet-settings-body-text-transform"] {
-    padding-left: 5px;
-}
-
 .customize-pane-child > li[id$="-content-layout"] > label,
 .customize-pane-child > li[id$="-sidebar-layout"] > label {
     -js-display: flex;

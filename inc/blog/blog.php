@@ -140,25 +140,21 @@ add_action( 'kemet_blog_post_featured_format', 'kemet_blog_post_get_featured_ite
 
 
 /**
- * Blog Post Thumbnail / Title & Meta Order
+ * Blog Post Order
  */
-if ( ! function_exists( 'kemet_blog_post_thumbnai_and_title_order' ) ) {
+if ( ! function_exists( 'kemet_blog_post_order' ) ) {
 
 	/**
-	 * Blog post Thubmnail, Title & Blog Meta order
+	 * Blog post order
 	 *
 	 */
-	function kemet_blog_post_thumbnai_and_title_order() {
-
-		$blog_post_thumb_title_order = kemet_get_option( 'blog-post-structure' );
-		if ( is_single() ) {
-			$blog_post_thumb_title_order = kemet_get_option( 'blog-single-post-structure' );
-		}
-		if ( is_array( $blog_post_thumb_title_order ) ) {
+	function kemet_blog_post_order() {
+		$blog_post_order = kemet_get_option( 'blog-post-structure' );
+		if ( is_array( $blog_post_order ) ) {
 			// Append the custom class for second element for single post.
-			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
+			foreach ( $blog_post_order as $post_order ) {
 
-				switch ( $post_thumb_title_order ) {
+				switch ( $post_order ) {
 
 					// Blog Post Featured Image.
 					case 'image':
@@ -173,15 +169,44 @@ if ( ! function_exists( 'kemet_blog_post_thumbnai_and_title_order' ) ) {
 						kemet_get_blog_post_title_meta();
 						do_action( 'kemet_blog_archive_title_meta_after' );
 						break;
+					// Blog Post Title and Blog Post Meta.
+					case 'content-readmore':
+						do_action( 'kemet_blog_post_content_before' );
+						kemet_get_blog_post_content();
+						do_action( 'kemet_blog_post_content_after' );
+						break;	
+				}
+			}
+		}
+	}
+}
+/**
+ * Single Post Thumbnail / Title & Meta Order
+ */
+if ( ! function_exists( 'kemet_single_post_thumbnai_and_title_order' ) ) {
 
-					// Single Post Featured Image.
+	/**
+	 * Single post Thubmnail, Title & Blog Meta order
+	 *
+	 */
+	function kemet_single_post_thumbnai_and_title_order() {
+		
+		$blog_post_thumb_title_order = kemet_get_option( 'blog-single-post-structure' );
+
+		if ( is_array( $blog_post_thumb_title_order ) ) {
+			// Append the custom class for second element for single post.
+			foreach ( $blog_post_thumb_title_order as $post_thumb_title_order ) {
+
+				switch ( $post_thumb_title_order ) {
+
+					// Blog Post Featured Image.
 					case 'single-image':
 						do_action( 'kemet_blog_single_featured_image_before' );
 						kemet_get_blog_post_thumbnail( 'single' );
 						do_action( 'kemet_blog_single_featured_image_after' );
 						break;
 
-						// Single Post Title and Single Post Meta.
+					// Blog Post Title and Blog Post Meta.
 					case 'single-title-meta':
 						do_action( 'kemet_blog_single_title_meta_before' );
 						kemet_get_single_post_title_meta();
@@ -192,7 +217,39 @@ if ( ! function_exists( 'kemet_blog_post_thumbnai_and_title_order' ) ) {
 		}
 	}
 }
+/**
+ * Blog Post Content
+ */
+if ( ! function_exists( 'kemet_get_blog_post_content' ) ) {
 
+	/**
+	 * Blog post Thumbnail
+	 *
+	 * @param string $type Type of post.
+	 */
+	function kemet_get_blog_post_content() { ?>
+
+		<div class="entry-content clear" itemprop="text">
+
+			<?php kemet_entry_content_before(); ?>
+
+			<?php kemet_the_excerpt(); ?>
+
+			<?php kemet_entry_content_after(); ?>
+
+			<?php
+				wp_link_pages(
+					array(
+						'before'      => '<div class="page-links">' . esc_html( kemet_theme_strings( 'string-blog-page-links-before', false ) ),
+						'after'       => '</div>',
+						'link_before' => '<span class="page-link">',
+						'link_after'  => '</span>',
+					)
+				);
+			?>
+		</div><!-- .entry-content .clear -->
+	<?php }
+}
 /**
  * Blog / Single Post Thumbnail
  */
@@ -232,7 +289,7 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 			<?php
 
 				do_action( 'kemet_archive_post_title_before' );
-
+				
 				/* translators: 1: Current post link, 2: Current post id */
 				kemet_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 

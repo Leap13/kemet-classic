@@ -9,10 +9,6 @@ textarea {
 	border: 1px solid $color-border-input;
 	border-radius: 2px;
 	-webkit-appearance: none;
-
-	&:focus {
-		color: $color-text-input-focus;
-	}
 }
 
 textarea {
