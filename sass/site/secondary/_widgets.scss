@@ -1,18 +1,28 @@
-.widget-title {
-	font-weight: normal;
-	margin-bottom: 1em;
-	line-height: 1.5;
-	border-bottom-style: solid;
-    border-width: 2px;
-    border-color: #eeeeee;
+.widget-head {
+    margin-bottom: 15px;
+}
+.widget-head div.title {
+    margin-bottom: 0px;
+}
+.widget-title .dashicons, .dashicons-before:before{
+    line-height: inherit;
+}
+div.title {
+    width: 100%;
+    display: block;
+    clear: both;
+    position: relative;
+    overflow: hidden;
+}
+.widget-title, h4.widget-title{
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    float: left;
 }
 
 .widget {
-	margin: 0 0 2.8em 0;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
+	margin-bottom: 2.8em;
 	
 	select {
 		max-width: 100%;
