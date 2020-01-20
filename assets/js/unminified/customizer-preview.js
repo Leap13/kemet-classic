@@ -853,7 +853,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			kemet_background_obj_css(wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle);
 		});
 	});
-
+	kemet_responsive_spacing('kemet-settings[footer-bar-padding]', '.kmt-footer-copyright .kmt-footer-copyright-content', 'padding', ['top', 'bottom', 'right', 'left']);
 	// Footer Font
 	kemet_css('kemet-settings[footer-text-transform]', 'text-transform', '.kemet-footer');
 	kemet_css('kemet-settings[footer-line-height]', 'line-height', '.kemet-footer');

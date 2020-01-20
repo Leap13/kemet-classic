@@ -63,7 +63,7 @@ $wp_customize->add_control(
         'type'     => 'select',
         'section'  => 'section-footer-copyright',
         'priority' => 10,
-        'label'    => __( 'Section 1', 'kemet' ),
+        'label'    => __( 'First Section', 'kemet' ),
         'choices'  => array(
             ''       => __( 'None', 'kemet' ),
             'menu'   => __( 'Footer Menu', 'kemet' ),
@@ -89,7 +89,7 @@ $wp_customize->add_control(
         'type'     => 'textarea',
         'section'  => 'section-footer-copyright',
         'priority' => 15,
-        'label'    => __( 'Section 1 Custom Text', 'kemet' ),
+        'label'    => __( 'First Section Custom Text', 'kemet' ),
     )
 );
 
@@ -118,7 +118,7 @@ $wp_customize->add_control(
         'type'     => 'select',
         'section'  => 'section-footer-copyright',
         'priority' => 20,
-        'label'    => __( 'Section 2', 'kemet' ),
+        'label'    => __( 'Second Section', 'kemet' ),
         'choices'  => array(
             ''       => __( 'None', 'kemet' ),
             'menu'   => __( 'Footer Menu', 'kemet' ),
@@ -144,7 +144,7 @@ $wp_customize->add_control(
         'type'     => 'textarea',
         'section'  => 'section-footer-copyright',
         'priority' => 25,
-        'label'    => __( 'Section 2 Custom Text', 'kemet' ),
+        'label'    => __( 'Second Section Custom Text', 'kemet' ),
     )
 );
 
@@ -157,7 +157,35 @@ if ( isset( $wp_customize->selective_refresh ) ) {
         )
     );
 }
-
+/**
+* Option - Widget Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[footer-bar-padding]', array(
+        'default'           => kemet_get_option( 'footer-bar-padding' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Spacing(
+        $wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-padding]', array(
+            'type'           => 'kmt-responsive-spacing',
+            'section'        => 'section-footer-copyright',
+            'priority'       => 28,
+            'label'          => __( 'Footer Bar Spacing', 'kemet' ),
+            'linked_choices' => true,
+            'unit_choices'   => array( 'px', 'em', '%' ),
+            'choices'        => array(
+                'top'    => __( 'Top', 'kemet' ),
+                'right'  => __( 'Right', 'kemet' ),
+                'bottom' => __( 'Bottom', 'kemet' ),
+                'left'   => __( 'Left', 'kemet' ),
+            ),
+        )
+    )
+);
 /**
 * Option: Footer Width
 */
@@ -198,11 +226,24 @@ $wp_customize->add_control(
             'type'    => 'kmt-background',
             'section' => 'section-footer-copyright',
             'priority' => 35,
-            'label'   => __( 'Background', 'kemet' ),
+            'label'   => __( 'Footer Bar Background', 'kemet' ),
         )
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Footer Bar Settings', 'kemet' ),
+            'section'  => 'section-footer-copyright',
+            'priority' => 40,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Footer Top Border
 */
@@ -218,8 +259,8 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[footer-copyright-divider]', array(
         'type'        => 'number',
         'section'     => 'section-footer-copyright',
-        'priority'    => 40,
-        'label'       => __( 'Footer Bar Top Border Size', 'kemet' ),
+        'priority'    => 45,
+        'label'       => __( 'Top Border Size', 'kemet' ),
         'input_attrs' => array(
             'min'  => 0,
             'step' => 1,
@@ -233,7 +274,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
-        'default'           => '#7a7a7a',
+        'default'           => kemet_get_option( 'footer-copyright-divider-color' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -243,12 +284,25 @@ $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
             'section'  => 'section-footer-copyright',
-            'priority' => 45,
-            'label'    => __( 'Footer Bar Top Border Color', 'kemet' ),
+            'priority' => 50,
+            'label'    => __( 'Top Border Color', 'kemet' ),
         )
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Footer Bar Content Style', 'kemet' ),
+            'section'  => 'section-footer-copyright',
+            'priority' => 55,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Color
 */
@@ -263,9 +317,9 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-color]', array(
-            'label'   => __( 'Text Color', 'kemet' ),
+            'label'   => __( 'Font Color', 'kemet' ),
             'section' => 'section-footer-copyright',
-            'priority' => 50,
+            'priority' => 60,
         )
     )
 );
@@ -285,7 +339,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-font-size]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-footer-copyright',
-            'priority'       => 55,
+            'priority'       => 65,
             'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
@@ -319,7 +373,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
             'label'   => __( 'Link Color', 'kemet' ),
             'section' => 'section-footer-copyright',
-            'priority'    => 60,
+            'priority'    => 70,
         )
     )
 );
@@ -340,7 +394,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
             'label'   => __( 'Link Hover Color', 'kemet' ),
             'section' => 'section-footer-copyright',
-            'priority' => 65,
+            'priority' => 75,
         )
     )
 );
