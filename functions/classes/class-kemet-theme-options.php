@@ -425,7 +425,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sidebar-input-border-color' => '',	
 					'sidebar-input-color'		=> '',
 					'sidebar-input-bg-color'	=> '',
-					'side-bar-widgets-separator-color'	=> '',
 					// Sidebar.
 					'kemet-footer'                       => 'disabled',
 
@@ -441,8 +440,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'widget-margin-bottom'	=> '',
 					'widget-title-color'	=> '',
 					'widget-title-font-size'	=> '',
-					'widget-title-border-size'	=> '',
-					'widget-title-border-color' => '',
 				)
 			);
 		}

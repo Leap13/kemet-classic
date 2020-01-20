@@ -106,7 +106,7 @@ $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-color]', array(
             'label'   => __( 'Widget Title Color', 'kemet' ),
-            'priority'       => 20,
+            'priority'       => 5,
             'section' => 'section-widgets',
         )
     )
@@ -248,31 +248,6 @@ $wp_customize->add_control(
 );
 
 /**
-* Option: Widget Title Border Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
-        'default'           => kemet_get_option( 'widget-title-border-size' ),
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
-        'type'        => 'number',
-        'section'     => 'section-widgets',
-        'priority'    => 55,
-        'label'       => __( 'Widget Title Border Size', 'kemet' ),
-        'input_attrs' => array(
-            'min'  => 0,
-            'step' => 1,
-            'max'  => 600,
-        ),
-    )
-);
-
-/**
 * Option: Widget Title Border Color
 */
 $wp_customize->add_setting(
@@ -287,7 +262,7 @@ $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
             'section'  => 'section-widgets',
-            'priority' => 60,
+            'priority' => 5,
             'label'    => __( 'Widget Title Border Color', 'kemet' ),
         )
     )

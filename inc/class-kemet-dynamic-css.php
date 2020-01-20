@@ -239,7 +239,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
 			$sidebar_input_bg_color     = kemet_get_option( 'sidebar-input-bg-color' );
 			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color' );
-			$sidebar_separator_color 		= kemet_get_option('side-bar-widgets-separator-color');
 
 			/**
 			 * Apply text color depends on link color
@@ -775,7 +774,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'line-height'    => esc_attr( $widget_title_line_height ),
 						'text-transform' => esc_attr( $widget_title_text_transform ),
 						'color'          => esc_attr( $widget_title_color ),
-						'border-color' 	 => esc_attr($sidebar_separator_color),	
 				),
 
 				//widget Spacing
@@ -1410,12 +1408,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			);
 		
 			//Widget Title Border
-			$widget_title_border_size       = kemet_get_option( 'widget-title-border-size' );
 			$widget_title_border_color      = kemet_get_option( 'widget-title-border-color' );
 			$meta_style = array(
-				'.sidebar-main .widget-title ' => array(
-					'border-bottom-style' => 'solid',
-					'border-bottom-width' => kemet_get_css_value( $widget_title_border_size , 'px' ),
+				'.widget-head ' => array(
 					'border-bottom-color' => esc_attr( $widget_title_border_color ),
 				),
 			);

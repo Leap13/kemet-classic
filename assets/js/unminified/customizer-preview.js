@@ -797,7 +797,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[widget-title-line-height]', 'line-height', '.sidebar-main .widget-title');
 	kemet_responsive_slider('kemet-settings[widget-title-font-size]', '.sidebar-main .widget-title', 'font-size');
 	kemet_css('kemet-settings[widget-title-color]', 'color', '.sidebar-main .widget-title');
-	kemet_css('kemet-settings[side-bar-widgets-separator-color]', 'border-color', '.sidebar-main .widget-title');
 	/**
 	 * widget Title Border width
 	 */
@@ -823,7 +822,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 			if (color) {
 
-				var dynamicStyle = '.sidebar-main .widget-title { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = '.widget-head { border-bottom-color: ' + color + '; } ';
 
 				kemet_add_dynamic_css('widget-title-border-color', dynamicStyle);
 			}

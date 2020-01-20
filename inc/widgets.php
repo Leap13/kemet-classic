@@ -83,10 +83,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 					'name'          => esc_html__( 'Main Sidebar', 'kemet' ),
 					'id'            => 'sidebar-1',
 					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -100,10 +100,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 					'name'          => esc_html__( 'Header', 'kemet' ),
 					'id'            => 'header-widget',
 					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -117,10 +117,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 					'name'          => esc_html__( 'Footer Bar Section 1', 'kemet' ),
 					'id'            => 'copyright-widget-1',
 					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -131,10 +131,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 					'name'          => esc_html__( 'Footer Bar Section 2', 'kemet' ),
 					'id'            => 'copyright-widget-2',
 					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -149,8 +149,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'top-widget-section1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 			)
 		);
@@ -165,8 +165,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'top-widget-section2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 			)
 		);
@@ -181,8 +181,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'header-right-section',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 			)
 		);
@@ -196,8 +196,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -207,8 +207,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -218,8 +218,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -229,8 +229,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -240,8 +240,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-5',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
