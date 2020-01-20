@@ -150,7 +150,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Title(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-body-bg-title]', array(
 				'type'     => 'kmt-title',
-				'label'    => __( 'Body Background', 'kemet' ),
+				'label'    => __( 'Body', 'kemet' ),
 				'section'  => 'section-container-layout',
 				'priority' => 30,
 				'settings' => array(),
@@ -186,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Title(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-boxed-title]', array(
 				'type'     => 'kmt-title',
-				'label'    => __( 'Boxed Inner Background', 'kemet' ),
+				'label'    => __( 'Boxed Inner', 'kemet' ),
 				'section'  => 'section-container-layout',
 				'priority' => 36,
 				'settings' => array(),

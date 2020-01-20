@@ -115,6 +115,9 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 				// Show extra controls if the value has an image.
 				if ('' !== imageUrl) {
 					control.container.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
+					control.container.find('.more-settings').attr('data-direction', 'up');
+					control.container.find('.message').html(kemetCustomizerControlBackground.lessSettings)
+					control.container.find('.icon').html('↑');
 				}
 
 				value['background-image'] = imageUrl;
