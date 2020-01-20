@@ -251,7 +251,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(
                    'top'    => __( 'Top', 'kemet' ),
-                   'right'  => __( 'Right', 'kemet' ),
+				   'right'  => __( 'Right', 'kemet' ),
+				   'bottom' => __( 'Bottom', 'kemet-addons' ),
                    'left'   => __( 'Left', 'kemet' ),
                ),
            )

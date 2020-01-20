@@ -257,7 +257,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'#'                  => '',
 					'header-main-sep-color'            => '',
-					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 
@@ -429,8 +428,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Sidebar.
 					'kemet-footer'                       => 'disabled',
 
-					//header
-					'enable-transparent'  => 0,
 					//Widgets
 					'widget-title-font-family' => 'inherit',
 					'widget-title-font-weight'	=> 'inherit',

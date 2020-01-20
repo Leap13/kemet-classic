@@ -45,19 +45,19 @@ $wp_customize->add_control(
             'type'     => 'kmt-radio-image',
             'choices'  => array(
                 'header-main-layout-1' => array(
-                    'label' => __( 'Logo Left', 'kemet' ),
+                    'label' => __( 'Header 1', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/header-layout-01.png',
                 ),
                 'header-main-layout-2' => array(
-                    'label' => __( 'Logo Center', 'kemet' ),
+                    'label' => __( 'Header 2', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/header-layout-02.png',
                 ),
                 'header-main-layout-3' => array(
-                    'label' => __( 'Logo Right', 'kemet' ),
+                    'label' => __( 'Header 3', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/header-layout-03.png',
                 ),
                 'header-main-layout-4' => array(
-                    'label' => __( 'Right Left Menu', 'kemet' ),
+                    'label' => __( 'Header 4', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/header-layout-04.png',
                 ),
             ),
@@ -105,47 +105,6 @@ $wp_customize->add_control(
         'priority' => 7,
         'label'    => __( 'Right Section Menu', 'kemet' ),
         'choices'  => get_wp_menus(),
-    )
-);
-/**
-* Option: Transparent header
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[enable-transparent]', array(
-        'default'           => kemet_get_option( 'enable-transparent' ),
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[enable-transparent]', array(
-        'type'            => 'checkbox',
-        'section'         => 'section-header',
-        'label'           => __( 'Enable Overlay Header', 'kemet' ),
-        'priority'        => 10,
-    )
-);
-
-/**
-* Option: Header Width
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[header-main-layout-width]', array(
-        'default'           => kemet_get_option( 'header-main-layout-width' ),
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[header-main-layout-width]', array(
-        'type'     => 'select',
-        'section'  => 'section-header',
-        'priority' => 20,
-        'label'    => __( 'Header Width', 'kemet' ),
-        'choices'  => array(
-            'full'    => __( 'Full Width', 'kemet' ),
-            'content' => __( 'Content Width', 'kemet' ),
-        ),
     )
 );
 

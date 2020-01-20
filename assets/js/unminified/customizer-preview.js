@@ -437,13 +437,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/*
 	 * Sub Menu Width
 	 */
-	wp.customize('kemet-settings[submenu-width]', function (setting) {
-		setting.bind(function (width) {
-			dynamicStyle = 'body:not(.kmt-header-break-point) .main-header-menu ul.sub-menu{ width: ' + (parseInt(width)) + 'px } ';
-			kemet_add_dynamic_css('submenu-width', dynamicStyle);
-
-		});
-	});
+	kemet_responsive_slider('kemet-settings[submenu-width]', 'body:not(.kmt-header-break-point) .main-header-menu ul.sub-menu', 'width');
 
 	/*
 	 * Single Blog Custom Width
@@ -730,7 +724,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Container Inner Spacing
 	 */
-	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'bottom', 'right', 'left']);
     /**
 	 * Site Identity Spacing
 	 */

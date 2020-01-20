@@ -227,20 +227,20 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper tablet"><# 
+				<ul class="kmt-spacing-wrapper tablet">
 
-					if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li><#
-					}
-					_.each( data.choices, function( choiceLabel, choiceID ) { 
+					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
 						<input type='number' class='kmt-spacing-input kmt-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
+					<# if ( data.linked_choices ) { #>
+					<li class="kmt-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+					<# } #>
 					<ul class="kmt-spacing-responsive-units kmt-spacing-tablet-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
@@ -254,19 +254,20 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper mobile"><# 
-					if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li><#
-					}
-					_.each( data.choices, function( choiceLabel, choiceID ) { 
+				<ul class="kmt-spacing-wrapper mobile"> 
+
+					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
 						<input type='number' class='kmt-spacing-input kmt-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
+					<# if ( data.linked_choices ) { #>
+					<li class="kmt-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+					<# } #>
 					<ul class="kmt-spacing-responsive-units kmt-spacing-mobile-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
