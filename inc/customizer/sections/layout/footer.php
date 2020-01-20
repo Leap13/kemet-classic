@@ -32,7 +32,7 @@ $wp_customize->add_control(
             'label'    => __( 'Footer Bar Layout', 'kemet' ),
             'choices'  => array(
                 'disabled'            => array(
-                    'label' => __( 'Disabled', 'kemet' ),
+                    'label' => __( 'Disable', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/disable-copyright-area.png',
                 ),
                 'copyright-footer-layout-1' => array(
