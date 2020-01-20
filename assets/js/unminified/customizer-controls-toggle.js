@@ -176,7 +176,7 @@
 				callback: function (value) {
 					var last_menu_item = api('kemet-settings[header-main-rt-section]').get();
 					
-					if (('search-box' == value) && (last_menu_item == 'search')) {
+					if (('search-box' == value) && (last_menu_item.includes('search'))) {
 						return true;
 					}
 					return false;
@@ -189,14 +189,14 @@
 				callback: function (value) {
 					var last_menu_item = api('kemet-settings[header-main-rt-section]').get();
 
-					if (('search-icon' == value) && (last_menu_item == 'search')) {
+					if (('search-icon' == value) && (last_menu_item.includes('search'))) {
 						return true;
 					}
 					return false;
 				}
 			},
 		],
-		//Search Style
+		//Header Layouts
 		'kemet-settings[header-layouts]':
 		[
 			{
@@ -290,7 +290,7 @@
 				],
 				callback: function (val) {
 					var search_style = api('kemet-settings[search-style]').get();
-					if ('search' == val && search_style == 'search-box') {
+					if (val.includes('search') && search_style == 'search-box') {
 						return true;
 					}
 					return false;

@@ -244,6 +244,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-link-h-color'   =>   '',
 					'submenu-top-border-size'   => '',
 					'submenu-top-border-color'   =>'',
+					'submenu-font-size'   =>'',
 					// Mobile Menu 
 					'mobile-menu-icon-color'      => '',
 					'mobile-menu-icon-bg-color'      => '',

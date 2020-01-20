@@ -121,6 +121,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sub_menu_line_height                = kemet_get_option( 'sub-menu-items-line-height' );
 			$sub_menu_text_transform             = kemet_get_option( 'sub-menu-items-text-transform' );
 			$sub_menu_width 					= kemet_get_option( 'submenu-width' );
+			$submenu_font_size					= kemet_get_option( 'submenu-font-size' );
 
 			//Layout Header
 			$header_bg_obj             = kemet_get_option( 'header-bg-obj' );
@@ -525,9 +526,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-weight'     => esc_attr( $sub_menu_font_weight ),
 					'text-transform'  => esc_attr( $sub_menu_text_transform ),
 					'line-height' => esc_attr( $sub_menu_line_height ),
+					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'desktop' ),
 				),
 				'body:not(.kmt-header-break-point) .main-header-menu ul.sub-menu'  => array(
-					'width' => kemet_responsive_slider( $sub_menu_width, 'desktop' ),	 
+					'width' => kemet_get_css_value( $sub_menu_width, 'px' ),	 
 				),
 				'.main-header-menu .sub-menu li:hover > a'  => array(
 					'color' => esc_attr( $submenu_link_h_color ),
@@ -969,6 +971,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu a'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'tablet' ),		
 				),
+				'.main-header-menu .sub-menu li a'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'tablet' ),
+				),
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
@@ -1134,7 +1139,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'mobile' ),
                 'padding-left'  => kemet_responsive_spacing( $last_menu_items_spacing, 'left', 'mobile' ),
-            	),
+				),
+				'.main-header-menu .sub-menu li a'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'mobile' ),
+				),
 				//Widget Spacing
 				'.sidebar-main ' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'mobile' ),
