@@ -875,30 +875,15 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		});
 	});
 
-
-	wp.customize('kemet-settings[footer-button-bg-color]', function (value) {
-		value.bind(function (bg_obj) {
-
-			var dynamicStyle = ' .kemet-footer > input[type="submit"] { {{css}} }';
-
-			kemet_background_obj_css(wp.customize, bg_obj, 'footer-button-bg-color', dynamicStyle);
-		});
-	});
-
-	wp.customize('kemet-settings[footer-button-bg-h-color]', function (value) {
-		value.bind(function (bg_obj) {
-
-			var dynamicStyle = ' .kemet-footer > input[type="submit"]:hover { {{css}} }';
-
-			kemet_background_obj_css(wp.customize, bg_obj, 'footer-button-bg-h-color', dynamicStyle);
-		});
-	});
+	kemet_css('kemet-settings[footer-button-bg-color]', 'background-color', '.kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=button], .kemet-footer input[type=submit], .kemet-footerinput[type=reset]');
+	kemet_css('kemet-settings[footer-button-bg-h-color]', 'background-color', '.kemet-footer button:focus, .kemet-footer button:hover, .kemet-footer .kmt-button:hover, .kemet-footer .button:hover, .kemet-footer input[type=reset]:hover, .kemet-footer input[type=reset]:focus, .kemet-footer input#submit:hover, .kemet-footer input#submit:focus, .kemet-footer input[type="button"]:hover, .kemet-footer input[type="button"]:focus, .kemet-footer input[type="submit"]:hover, .kemet-footer input[type="submit"]:focus');
 
 	/**
 	 * Footer Button Border Radius
 	 */
 	kemet_responsive_slider('kemet-settings[footer-button-radius]', '.kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=“button”], .kemet-footer input[type=“submit”], .kemet-footerinput[type=“reset”]', 'border-radius');
-
+	kemet_responsive_slider('kemet-settings[footer-input-border-radius]', '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea', 'border-radius');
+	kemet_responsive_slider('kemet-settings[footer-input-border-size]', '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea', 'border-width');
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */

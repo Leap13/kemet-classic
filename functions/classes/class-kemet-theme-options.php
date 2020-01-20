@@ -441,6 +441,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'widget-title-font-size'	=> '',
 					'widget-title-border-size'	=> '',
 					'widget-title-border-color' => '',
+					'footer-input-border-radius' => '',
+					'footer-input-border-size' => '',
 				)
 			);
 		}
