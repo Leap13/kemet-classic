@@ -213,6 +213,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
 					'logo-title-inline'                => 0,
+					'tagline-color'				=> '',
+					'site-identity-spacing'				=> '',
 					'site-identity-spacing'				=> '',
 					'site-identity-spacing'				=> 'kemet-footer-wgt-title-separator-color',
 					'kemet-footer-wgt-bg-color'			=> '',

@@ -767,6 +767,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[font-color-h6]', 'color', 'h6, .entry-content h6, .entry-content h6 a');
 	kemet_css('kemet-settings[site-title-color]', 'color', '.site-title a');
 	kemet_css('kemet-settings[site-title-h-color]', 'color', '.site-title a:hover');
+	kemet_css('kemet-settings[tagline-color]', 'color', '.site-header .site-description');
 
 	kemet_css('kemet-settings[body-line-height]', 'line-height', 'body, button, input, select, textarea');
 

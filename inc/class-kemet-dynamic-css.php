@@ -97,6 +97,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$site_title_font_size            = kemet_get_option( 'site-title-font-size' );
 			$site_title_color                = kemet_get_option( 'site-title-color' );
 			$site_title_h_color              = kemet_get_option( 'site-title-h-color' );
+			$tagline_color                   = kemet_get_option( 'tagline-color' );
 			$site_tagline_font_size          = kemet_get_option( 'font-size-site-tagline' );
 			$single_post_title_font_size     = kemet_get_option( 'font-size-entry-title' );
          	$single_post_title_font_color    = kemet_get_option( 'font-color-entry-title' );
@@ -376,6 +377,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_slider( $archive_summary_title_font_size, 'desktop' ),
 				),
 				'.site-header .site-description'          => array(
+					'color'     => esc_attr($tagline_color),
 					'font-size' => kemet_responsive_slider( $site_tagline_font_size, 'desktop' ),
 				),
 				'body:not(.kmt-single-post) .entry-title' => array(
