@@ -83,25 +83,6 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Widgets Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
-        'default'           => kemet_get_option( 'Widget-bg-color' ),
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
-            'priority'       => 15,
-            'section' => 'section-widgets',
-            'label'   => __( 'Background Color', 'kemet' ),
-        )
-    )
-);
-/**
 * Option: Title
 */
 $wp_customize->add_control(
@@ -115,7 +96,26 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Widgets Background Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[widget-bg-color]', array(
+        'default'           => kemet_get_option( 'widget-bg-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[widget-bg-color]', array(
+            'priority'       => 23,
+            'section' => 'section-widgets',
+            'label'   => __( 'Widget Background Color', 'kemet' ),
+        )
+    )
+);
 /**
 * Option:Widgets Title Color
 */
@@ -275,15 +275,15 @@ $wp_customize->add_control(
  * Option: Enable Widget Title Separator
  */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[enable-submenu-separator]', array(
-        'default'           =>  kemet_get_option( 'enable-submenu-separator' ),
+    KEMET_THEME_SETTINGS . '[enable-widget-title-separator]', array(
+        'default'           =>  kemet_get_option( 'enable-widget-title-separator' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
     )
 );
 $wp_customize->add_control(
     new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[enable-submenu-separator]', array(
+        $wp_customize, KEMET_THEME_SETTINGS . '[enable-widget-title-separator]', array(
             'section'  => 'section-widgets',
             'type'     => 'checkbox',
             'priority' => 55,

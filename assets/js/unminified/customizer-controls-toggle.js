@@ -551,7 +551,40 @@
 				}
 			},
 		],
+		//Widget
+		'kemet-settings[enable-widget-title-separator]':
+		[
+			{
+				controls: [
+					'kemet-settings[widget-title-border-color]',
+					'kemet-settings[widget-title-border-size]',
+				],
+				callback: function (value) {
 
+					if (value) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
+		//Footer Widget
+		'kemet-settings[enable-footer-widget-title-separator]':
+		[
+			{
+				controls: [
+					'kemet-settings[kemet-footer-wgt-title-separator-color]',
+					'kemet-settings[footer-widget-title-border-size]',
+				],
+				callback: function (value) {
+
+					if (value) {
+						return true;
+					}
+					return false;
+				}
+			},
+		],
 		'kemet-settings[disable-primary-nav]' :
 		[
 			{

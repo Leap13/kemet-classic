@@ -141,7 +141,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-title-style]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Footer Widget Title Style', 'kemet-addons' ),
+            'label'    => __( 'Footer Widget Title Style', 'kemet' ),
             'section'  => 'section-kemet-footer',
             'priority' => 25,
             'settings' => array(),
@@ -166,6 +166,70 @@ $wp_customize->add_control(
             'priority'       => 30,
             'section' => 'section-kemet-footer',
         )
+    )
+);
+/**
+ * Option: Enable Widget Title Separator
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[enable-footer-widget-title-separator]', array(
+        'default'           =>  kemet_get_option( 'enable-footer-widget-title-separator' ),
+        'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[enable-footer-widget-title-separator]', array(
+            'section'  => 'section-kemet-footer',
+            'type'     => 'checkbox',
+            'priority' => 32,
+            'label'    => __( 'Enable Widget Title Separator', 'kemet' ),
+        )
+    )
+);
+/**
+* Option: Widget Title Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-separator-color]', array(
+        'default'           => kemet_get_option( 'kemet-footer-wgt-title-separator-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-wgt-title-separator-color]', array(
+            'label'   => __( 'Separator Color', 'kemet' ),
+            'priority'       => 33,
+            'section' => 'section-kemet-footer',
+        )
+    )
+);
+/**
+* Option: Widget Title Border Size
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[footer-widget-title-border-size]', array(
+        'default'           => kemet_get_option( 'footer-widget-title-border-size' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[footer-widget-title-border-size]', array(
+        'type'        => 'number',
+        'section'     => 'section-kemet-footer',
+        'priority'    => 34,
+        'label'       => __( 'Separator Width', 'kemet' ),
+        'input_attrs' => array(
+            'min'  => 0,
+            'step' => 1,
+            'max'  => 600,
+        ),
     )
 );
 /**
@@ -308,7 +372,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-style]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Footer Widget Content Style', 'kemet-addons' ),
+            'label'    => __( 'Footer Widget Content Style', 'kemet' ),
             'section'  => 'section-kemet-footer',
             'priority' => 60,
             'settings' => array(),
@@ -655,7 +719,26 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Widget Title Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kemet-footer-wgt-bg-color]', array(
+        'default'           => kemet_get_option( 'kemet-footer-wgt-bg-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-wgt-bg-color]', array(
+            'label'   => __( 'Background Color', 'kemet' ),
+            'priority'       => 143,
+            'section' => 'section-kemet-footer',
+        )
+    )
+);
 /**
 * Option: Link Color
 */

@@ -566,7 +566,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
      * widget Padding
      */
-	kemet_responsive_spacing('kemet-settings[widget-padding]', '.sidebar-main .widget', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[widget-padding]', '.widget', 'padding', ['top', 'bottom', 'right', 'left']);
 
 	// widget margin bottom.
 	wp.customize('kemet-settings[widget-margin-bottom]', function (value) {
@@ -576,7 +576,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			}
 
 			if (marginBottom) {
-				var dynamicStyle = '.sidebar-main .widget { margin-bottom: ' + marginBottom + 'em; } ';
+				var dynamicStyle = '.widget { margin-bottom: ' + marginBottom + 'em; } ';
 				kemet_add_dynamic_css('widget-margin-bottom', dynamicStyle);
 			}
 
@@ -747,7 +747,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[site-title-font-size]', '.site-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-header .entry-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'font-size');
-	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-head .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-title]', 'body:not(.kmt-single-post) .entry-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a', 'font-size');
@@ -794,26 +794,38 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
      */
 	kemet_responsive_spacing('kemet-settings[widget-padding]', '.sidebar-main .widget', 'padding', ['top', 'bottom', 'right', 'left']);
 	//Sidebar Widget Title Typography
-	kemet_css('kemet-settings[widget-title-text-transform]', 'text-transform', '.sidebar-main .widget-title');
-	kemet_css('kemet-settings[widget-title-line-height]', 'line-height', '.sidebar-main .widget-title');
-	kemet_responsive_slider('kemet-settings[widget-title-font-size]', '.sidebar-main .widget-title', 'font-size');
+	kemet_css('kemet-settings[widget-title-text-transform]', 'text-transform', '.widget-head .widget-title');
+	kemet_css('kemet-settings[widget-title-line-height]', 'line-height', '.widget-head .widget-title');
+	kemet_responsive_slider('kemet-settings[widget-title-font-size]', '.widget-head .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[sidebar-input-border-size]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-width');
 	kemet_responsive_slider('kemet-settings[sidebar-input-border-radius]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-radius');
-	kemet_css('kemet-settings[widget-title-color]', 'color', '.sidebar-main .widget-title');
+	kemet_css('kemet-settings[widget-title-color]', 'color', '.widget-head .widget-title');
 	/**
 	 * widget Title Border width
 	 */
 	wp.customize('kemet-settings[widget-title-border-size]', function (value) {
 		value.bind(function (border) {
 
-			var dynamicStyle = '.sidebar-main .widget-title { border-bottom-width: ' + border + 'px }';
+			var dynamicStyle = '.widget-head { border-bottom-width: ' + border + 'px }';
 			dynamicStyle += '}';
 
 			kemet_add_dynamic_css('widget-title-border-size', dynamicStyle);
 
 		});
 	});
+	/**
+	 * widget Title Border width
+	 */
+	wp.customize('kemet-settings[footer-widget-title-border-size]', function (value) {
+		value.bind(function (border) {
 
+			var dynamicStyle = 'kemet-footer .widget .widget-head { border-bottom-width: ' + border + 'px }';
+			dynamicStyle += '}';
+
+			kemet_add_dynamic_css('footer-widget-title-border-size', dynamicStyle);
+
+		});
+	});
 	/**
 	 * widget Title Border color
 	 */
@@ -825,7 +837,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 			if (color) {
 
-				var dynamicStyle = '.sidebar-main .widget-title { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = '.widget .widget-head { border-bottom-color: ' + color + '; } ';
 
 				kemet_add_dynamic_css('widget-title-border-color', dynamicStyle);
 			}
@@ -837,9 +849,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Widget Title Font 
 	 */
-	kemet_css('kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-title');
-	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .widget-title');
-
+	kemet_css('kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-head .widget-title');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .widget-head .widget-title');
+	kemet_css('kemet-settings[kemet-footer-wgt-bg-color]', 'background-color', '.kemet-footer .widget');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-separator-color]', 'border-color', '.kemet-footer .widget .widget-head');
 	// Footer Bar.
 	kemet_css('kemet-settings[footer-color]', 'color', '.kmt-footer-copyright');
 	kemet_css('kemet-settings[footer-link-color]', 'color', '.kmt-footer-copyright a');
@@ -861,7 +874,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[footer-font-size]', '.kemet-footer', 'font-size');
 
 	// Footer Widgets.
-	kemet_css('kemet-settings[kemet-footer-wgt-title-color]', 'color', '.kemet-footer .widget-title, .kemet-footer .widget-title a');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-color]', 'color', '.kemet-footer .widget-head .widget-title, .kemet-footer .widget-head .widget-title a');
 	kemet_css('kemet-settings[kemet-footer-text-color]', 'color', '.site-footer');
 	kemet_css('kemet-settings[kemet-footer-widget-meta-color]', 'color', '.kemet-footer .post-date');
 	kemet_css('kemet-settings[footer-button-color]', 'color', '.kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=“button”], .kemet-footer input[type=“submit”], .kemet-footerinput[type=“reset”]');
@@ -910,19 +923,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * widget background
 	 */
-	wp.customize('kemet-settings[Widget-bg-color]', function (value) {
-		value.bind(function (bg_obj) {
-
-			var dynamicStyle = '.sidebar-main .widget { {{css}} }';
-
-			kemet_background_obj_css(wp.customize, bg_obj, 'Widget-bg-color', dynamicStyle);
-		});
-	});
+	kemet_css('kemet-settings[widget-bg-color]', 'background-color', '.widget');
 	kemet_responsive_spacing('kemet-settings[sidebar-padding]', 'div.sidebar-main', 'padding', ['top', 'bottom', 'right', 'left']);
 	/**
 	 * sidebar Background
 	 */
-	kemet_css('kemet-settings[sidebar-text-color]', 'color', '.sidebar-main *');
+	kemet_css('kemet-settings[sidebar-text-color]', 'color', '.sidebar-main *:not(.widget-title)');
 	kemet_css('kemet-settings[sidebar-link-color]', 'color', '.sidebar-main a');
 	kemet_css('kemet-settings[sidebar-link-h-color]', 'color', '.sidebar-main a:hover');
 	kemet_css('kemet-settings[sidebar-input-color]', 'color', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select');

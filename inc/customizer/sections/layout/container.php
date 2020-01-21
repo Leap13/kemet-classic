@@ -252,7 +252,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                'choices'        => array(
                    'top'    => __( 'Top', 'kemet' ),
 				   'right'  => __( 'Right', 'kemet' ),
-				   'bottom' => __( 'Bottom', 'kemet-addons' ),
+				   'bottom' => __( 'Bottom', 'kemet' ),
                    'left'   => __( 'Left', 'kemet' ),
                ),
            )
