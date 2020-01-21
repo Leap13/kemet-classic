@@ -18,7 +18,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-styling-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Content Styling', 'kemet' ),
+            'label'    => __( 'Body Content Style', 'kemet' ),
             'section'  => 'section-contents',
             'priority' => 0,
             'settings' => array(),
@@ -39,7 +39,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[content-text-color]', array(
-            'label'   => __( 'Text Color', 'kemet' ),
+            'label'   => __( 'Font Color', 'kemet' ),
             'priority'       => 5,
             'section' => 'section-contents',
         )
@@ -257,7 +257,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-styling-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Heading Styling', 'kemet' ),
+            'label'    => __( 'Headings Style', 'kemet' ),
             'section'  => 'section-contents',
             'priority' => 46,
             'settings' => array(),
@@ -336,7 +336,20 @@ $wp_customize->add_control(
         ),
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-1]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 1', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 70,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Heading 1 Color
 */
@@ -351,8 +364,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h1]', array(
-            'label'   => __( 'H1 Font Color', 'kemet' ),
-            'priority'       => 70,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 75,
             'section' => 'section-contents',
         )
     )
@@ -374,8 +387,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h1]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 75,
-            'label'          => __( 'H1 Font Size', 'kemet' ),
+            'priority'       => 80,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -391,7 +404,20 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-2]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 2', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 105,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Heading 2 Color
 */
@@ -406,8 +432,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h2]', array(
-            'label'   => __( 'H2 Font Color', 'kemet' ),
-            'priority'       => 80,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 110,
             'section' => 'section-contents',
         )
     )
@@ -428,8 +454,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h2]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 85,
-            'label'          => __( 'H2 Font Size', 'kemet' ),
+            'priority'       => 115,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -445,7 +471,20 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-3]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 3', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 120,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Heading 3 Color
 */
@@ -460,8 +499,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h3]', array(
-            'label'   => __( 'H3 Font Color', 'kemet' ),
-            'priority'       => 90,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 125,
             'section' => 'section-contents',
         )
     )
@@ -482,8 +521,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h3]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 95,
-            'label'          => __( 'H3 Font Size', 'kemet' ),
+            'priority'       => 130,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -499,7 +538,20 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-4]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 4', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 135,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Heading 4 Color
 */
@@ -514,8 +566,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h4]', array(
-            'label'   => __( 'H4 Font Color', 'kemet' ),
-            'priority'       => 100,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 140,
             'section' => 'section-contents',
         )
     )
@@ -537,8 +589,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h4]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 105,
-            'label'          => __( 'H4 Font Size', 'kemet' ),
+            'priority'       => 145,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -551,6 +603,20 @@ $wp_customize->add_control(
                     'max' => 10,
                 ),
             ),
+        )
+    )
+);
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-5]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 5', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 150,
+            'settings' => array(),
         )
     )
 );
@@ -568,8 +634,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h5]', array(
-            'label'   => __( 'H5 Font Color', 'kemet' ),
-            'priority'       => 110,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 155,
             'section' => 'section-contents',
         )
     )
@@ -591,8 +657,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h5]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 115,
-            'label'          => __( 'H5 Font Size', 'kemet' ),
+            'priority'       => 160,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -605,6 +671,20 @@ $wp_customize->add_control(
                     'max' => 10,
                 ),
             ),
+        )
+    )
+);
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-heading-6]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Heading 6', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 165,
+            'settings' => array(),
         )
     )
 );
@@ -622,8 +702,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-color-h6]', array(
-            'label'   => __( 'H6 Font Color', 'kemet' ),
-            'priority'       => 120,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 170,
             'section' => 'section-contents',
         )
     )
@@ -644,8 +724,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-h6]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
-            'priority'       => 125,
-            'label'          => __( 'H6 Font Size', 'kemet' ),
+            'priority'       => 175,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,

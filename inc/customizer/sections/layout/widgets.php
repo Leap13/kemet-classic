@@ -126,7 +126,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-contents',
+            'section'        => 'section-widgets',
             'priority'       => 25,
             'label'          => __( 'Widget Title Font Size', 'kemet' ),
             'unit_choices'   => array(
