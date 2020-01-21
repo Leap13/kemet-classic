@@ -159,6 +159,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'input-bg-color'				   => '',
 					'input-text-color'				   => '',
 					'input-border-color'				   => '',
+					'input-radius'				   => '',
+					'input-border-size'				   => '',
+					'input-border-color'				   => '',
 					// Main Menu 
 					'menu-link-color'						=> '',
 					'menu-link-h-color' => '',
