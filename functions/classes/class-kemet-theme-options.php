@@ -426,9 +426,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sidebar-input-border-color' => '',	
 					'sidebar-input-color'		=> '',
 					'sidebar-input-bg-color'	=> '',
-					'side-bar-widgets-separator-color'	=> '',
 					// Sidebar.
 					'kemet-footer'                       => 'disabled',
+					'sidebar-input-border-radius'		=> '',
+					'sidebar-input-border-size'			=> '',	
 
 					//Widgets
 					'widget-title-font-family' => 'inherit',

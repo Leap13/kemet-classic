@@ -797,8 +797,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[widget-title-text-transform]', 'text-transform', '.sidebar-main .widget-title');
 	kemet_css('kemet-settings[widget-title-line-height]', 'line-height', '.sidebar-main .widget-title');
 	kemet_responsive_slider('kemet-settings[widget-title-font-size]', '.sidebar-main .widget-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[sidebar-input-border-size]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-width');
+	kemet_responsive_slider('kemet-settings[sidebar-input-border-radius]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-radius');
 	kemet_css('kemet-settings[widget-title-color]', 'color', '.sidebar-main .widget-title');
-	kemet_css('kemet-settings[side-bar-widgets-separator-color]', 'border-color', '.sidebar-main .widget-title');
 	/**
 	 * widget Title Border width
 	 */

@@ -242,7 +242,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
 			$sidebar_input_bg_color     = kemet_get_option( 'sidebar-input-bg-color' );
 			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color' );
-			$sidebar_separator_color 		= kemet_get_option('side-bar-widgets-separator-color');
+			$sidebar_input_border_radius     = kemet_get_option( 'sidebar-input-border-radius' );
+			$sidebar_input_border_size     = kemet_get_option( 'sidebar-input-border-size' );
 
 			/**
 			 * Apply text color depends on link color
@@ -777,6 +778,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $sidebar_input_color),
 					'background' => esc_attr( $sidebar_input_bg_color),
 					'border-color' => esc_attr( $sidebar_input_border_color),
+					'border-width' => kemet_responsive_slider( $sidebar_input_border_size, 'desktop' ),
+					'border-radius' => kemet_responsive_slider( $sidebar_input_border_radius, 'desktop' ),
 				),
 
 				//Sidebar Widget Titles Sidebar 
@@ -787,7 +790,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'line-height'    => esc_attr( $widget_title_line_height ),
 						'text-transform' => esc_attr( $widget_title_text_transform ),
 						'color'          => esc_attr( $widget_title_color ),
-						'border-color' 	 => esc_attr($sidebar_separator_color),	
 				),
 
 				//widget Spacing
@@ -994,6 +996,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-width' => kemet_responsive_slider( $footer_input_border_size ,'tablet' ),
 					'border-radius' => kemet_responsive_slider( $footer_input_border_radius ,'tablet' ),
 				),
+				//sidebar input style 
+				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
+					'border-width' => kemet_responsive_slider( $sidebar_input_border_size, 'tablet' ),
+					'border-radius' => kemet_responsive_slider( $sidebar_input_border_radius, 'tablet' ),
+				),
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
@@ -1147,6 +1154,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea'  => array(
 					'border-width' => kemet_responsive_slider( $footer_input_border_size ,'mobile' ),
 					'border-radius' => kemet_responsive_slider( $footer_input_border_radius ,'mobile' ),
+				),
+				//sidebar input style 
+				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
+					'border-width' => kemet_responsive_slider( $sidebar_input_border_size, 'mobile' ),
+					'border-radius' => kemet_responsive_slider( $sidebar_input_border_radius, 'mobile' ),
 				),
 				'#sitehead.site-header .kmt-site-identity'  => array(
 					'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'mobile' ),
