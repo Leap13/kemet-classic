@@ -12,7 +12,20 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-widget-settings]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Widget Settings', 'kemet' ),
+            'section'  => 'section-widgets',
+            'priority' => 0,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option - Widgets Spacing
 */
@@ -30,7 +43,7 @@ $wp_customize->add_control(
             'type'           => 'kmt-responsive-spacing',
             'section'        => 'section-widgets',
             'priority'       => 5,
-            'label'          => __( 'Widget Spacing', 'kemet' ),
+            'label'          => __( 'Spacing', 'kemet' ),
             'linked_choices' => true,
             'unit_choices'   => array( 'px', 'em', '%' ),
             'choices'        => array(
@@ -42,27 +55,6 @@ $wp_customize->add_control(
         )
     )
 );
-
-/**
-* Option: Widgets Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
-        'default'           => kemet_get_option( 'Widget-bg-color' ),
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
-            'priority'       => 10,
-            'section' => 'section-widgets',
-            'label'   => __( 'Widget Background Color', 'kemet' ),
-        )
-    )
-);
-
 /**
 * Option: Widgets Margin Bottom
 */
@@ -79,14 +71,47 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-margin-bottom]', array(
             'type'        => 'kmt-slider',
             'section'     => 'section-widgets',
-            'priority'    => 15,
-            'label'       => __( 'Widget Margin Bottom', 'kemet' ),
+            'priority'    => 10,
+            'label'       => __( 'Margin Bottom (PX)', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
                 'min'  => 0.5,
                 'step' => 0.01,
                 'max'  => 5,
             ),
+        )
+    )
+);
+/**
+* Option: Widgets Background Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
+        'default'           => kemet_get_option( 'Widget-bg-color' ),
+        'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[Widget-bg-color]', array(
+            'priority'       => 15,
+            'section' => 'section-widgets',
+            'label'   => __( 'Background Color', 'kemet' ),
+        )
+    )
+);
+/**
+* Option: Title
+*/
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-widget-title]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Widget Title Style', 'kemet' ),
+            'section'  => 'section-widgets',
+            'priority' => 20,
+            'settings' => array(),
         )
     )
 );
@@ -105,8 +130,8 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-color]', array(
-            'label'   => __( 'Widget Title Color', 'kemet' ),
-            'priority'       => 20,
+            'label'   => __( 'Font Color', 'kemet' ),
+            'priority'       => 25,
             'section' => 'section-widgets',
         )
     )
@@ -127,8 +152,8 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-widgets',
-            'priority'       => 25,
-            'label'          => __( 'Widget Title Font Size', 'kemet' ),
+            'priority'       => 30,
+            'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -162,8 +187,8 @@ $wp_customize->add_control(
             'type'        => 'kmt-font-family',
             'kmt_inherit' => __( 'Default System Font', 'kemet' ),
             'section'     => 'section-widgets',
-            'priority'    => 30,
-            'label'       => __( 'Widget Title Font Family', 'kemet' ),
+            'priority'    => 35,
+            'label'       => __( 'Font Family', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[widget-title-font-weight]',
         )
     )
@@ -186,7 +211,7 @@ $wp_customize->add_control(
             'kmt_inherit' => __( 'Default', 'kemet' ),
             'section'     => 'section-widgets',
             'priority'    => 35,
-            'label'       => __( 'Widget Title Font Weight', 'kemet' ),
+            'label'       => __( 'Font Weight', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[widget-title-font-family]',
         )
     )
@@ -208,7 +233,7 @@ $wp_customize->add_control(
         'type'     => 'select',
         'section'  => 'section-widgets',
         'priority' => 45,
-        'label'    => __( 'Widget Title Text Transform', 'kemet' ),
+        'label'    => __( 'Text Transform', 'kemet' ),
         'choices'  => array(
             ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
@@ -236,13 +261,53 @@ $wp_customize->add_control(
             'type'        => 'kmt-slider',
             'section'     => 'section-widgets',
             'priority'    => 50,
-            'label'       => __( 'Widget Title Line Height', 'kemet' ),
+            'label'       => __( 'Line Height', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
                 'min'  => 1,
                 'step' => 0.01,
                 'max'  => 5,
             ),
+        )
+    )
+);
+/**
+ * Option: Enable Widget Title Separator
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[enable-submenu-separator]', array(
+        'default'           =>  kemet_get_option( 'enable-submenu-separator' ),
+        'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[enable-submenu-separator]', array(
+            'section'  => 'section-widgets',
+            'type'     => 'checkbox',
+            'priority' => 55,
+            'label'    => __( 'Enable Widget Title Separator', 'kemet' ),
+        )
+    )
+);
+/**
+* Option: Widget Title Border Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
+        'default'           => kemet_get_option( 'widget-title-border-color' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
+            'section'  => 'section-widgets',
+            'priority' => 60,
+            'label'    => __( 'Separator Color', 'kemet' ),
         )
     )
 );
@@ -262,33 +327,12 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
         'type'        => 'number',
         'section'     => 'section-widgets',
-        'priority'    => 55,
-        'label'       => __( 'Widget Title Border Size', 'kemet' ),
+        'priority'    => 65,
+        'label'       => __( 'Separator Width', 'kemet' ),
         'input_attrs' => array(
             'min'  => 0,
             'step' => 1,
             'max'  => 600,
         ),
-    )
-);
-
-/**
-* Option: Widget Title Border Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
-        'default'           => kemet_get_option( 'widget-title-border-color' ),
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
-            'section'  => 'section-widgets',
-            'priority' => 60,
-            'label'    => __( 'Widget Title Border Color', 'kemet' ),
-        )
     )
 );
