@@ -520,7 +520,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 	wp.customize('kemet-settings[btn-border-color]', function (value) {
 		value.bind(function (border_color) {
-			jQuery('.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover').css('border-color', border_color);
+			jQuery('').css('border-color', border_color);
+			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-color: ' + border_color + '; } ';
+			kemet_add_dynamic_css('btn-border-color', dynamicStyle);
 			if (jQuery('body').hasClass('woocommerce')) {
 				jQuery('.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled').css('border-color', border_color);
 			}
