@@ -3,10 +3,14 @@
   display: inline-block;
   margin: 0 5px 5px 0;
 }
-
+.customize-control-kmt-radio-image .image{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .customize-control-kmt-radio-image .image label {
-  width: 47%;
-  margin: 3px;
+  width: 48%;
+  margin: 4px 0;
 }
 
 .customize-control-kmt-radio-image .image label img {

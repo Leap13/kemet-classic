@@ -97,7 +97,7 @@ class Kemet_Control_Radio_Image extends WP_Customize_Control {
 		<div id="input_{{ data.id }}" class="image">
 			<# for ( key in data.choices ) { #>
 				<input {{{ data.inputAttrs }}} class="image-select" type="radio" value="{{ key }}" name="_customize-radio-{{ data.id }}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked="checked"<# } #>>
-					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}}>
+					<label for="{{ data.id }}{{ key }}" {{{ data.labelStyle }}} class="image">
 						<img class="wp-ui-highlight" src="{{ data.choices[ key ] }}">
 						<span class="image-clickable" title="{{ data.choices_titles[ key ] }}" ></span>
 					</label>
