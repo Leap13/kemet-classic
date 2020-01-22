@@ -215,8 +215,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'logo-title-inline'                => 0,
 					'tagline-color'				=> '',
 					'site-identity-spacing'				=> '',
-					'site-identity-spacing'				=> '',
-					'site-identity-spacing'				=> 'kemet-footer-wgt-title-separator-color',
 					'kemet-footer-wgt-bg-color'			=> '',
 					'footer-inner-widget-padding'		=> '',
 					'widget-title-border-size'			=> '',
@@ -457,6 +455,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-input-border-radius' => '',
 					'footer-input-border-size' => '',
 					'enable-widget-title-separator'	=> false,
+					//Letter Spacing
+					'site-title-letter-spacing'	=> '',
+					'tagline-letter-spacing'    => '',
+					'menu-letter-spacing'		=> '',
+					'submenu-letter-spacing'    => '',	
+					'kemet-footer-widget-title-letter-spacing' => '',
+					
 				)
 			);
 		}

@@ -130,6 +130,62 @@ $wp_customize->add_control(
     )
 );
 /**
+* Option: Site Tagline Font Size
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[site-title-letter-spacing]', array(
+        'default'           => kemet_get_option( 'site-title-letter-spacing' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[site-title-letter-spacing]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'title_tagline',
+            'priority'       => 32,
+            'label'          => __( 'Title Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' =>10,
+                ),
+            ),
+        )
+    )
+);
+/**
+* Option: Site Tagline Font Size
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[tagline-letter-spacing]', array(
+        'default'           => kemet_get_option( 'tagline-letter-spacing' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[tagline-letter-spacing]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'title_tagline',
+            'priority'       => 33,
+            'label'          => __( 'Tagline Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' =>10,
+                ),
+            ),
+        )
+    )
+);
+/**
 * Option: Site Title Color
 */
 $wp_customize->add_setting(

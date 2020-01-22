@@ -217,7 +217,7 @@
 				],
 				callback: function (value) {
 
-					if (('header-main-layout-3' == value)) {
+					if ('header-main-layout-3' == value) {
 						return true;
 					}
 					return false;
@@ -529,22 +529,6 @@
 					var footer_layout = api( 'kemet-settings[copyright-footer-layout]' ).get();
 
 					if ( '1' <= border_width && 'disabled' != footer_layout ) {
-						return true;
-					}
-					return false;
-				}
-			},
-		],
-
-		'kemet-settings[header-main-sep]' :
-		[
-			{
-				controls: [
-					'kemet-settings[header-main-sep-color]',
-				],
-				callback: function( border_width ) {
-
-					if ( '1' <= border_width ) {
 						return true;
 					}
 					return false;

@@ -342,7 +342,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return array
 		 */
 		function related_products_args( $args ) {
-			var_dump($col);
 			$col                    = kemet_get_option( 'shop-grids' );
 			$args['posts_per_page'] = $col['desktop'];
 			return $args;
