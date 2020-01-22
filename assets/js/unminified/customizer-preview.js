@@ -743,13 +743,14 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
      */
 	kemet_responsive_spacing('kemet-settings[footer-padding]', '.kemet-footer .kmt-container', 'padding', ['top', 'bottom', 'right', 'left']);
 	kemet_responsive_spacing('kemet-settings[footer-widget-padding]', '.kemet-footer .kemet-footer-widget', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[footer-inner-widget-padding]', '.kemet-footer .widget , .kmt-footer-copyright .widget', 'padding', ['top', 'bottom', 'right', 'left']);
 	kemet_responsive_slider('kemet-settings[menu-font-size]', '.main-header-menu a', 'font-size');
 	kemet_responsive_slider('kemet-settings[submenu-font-size]', '.main-header-menu .sub-menu li a', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-site-tagline]', '.site-header .site-description', 'font-size');
 	kemet_responsive_slider('kemet-settings[site-title-font-size]', '.site-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-entry-title]', '.kmt-single-post .entry-header .entry-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'font-size');
-	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-head .widget-title', 'font-size');
+	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-font-size]', '.kemet-footer .widget-head .widget-title , .kmt-footer-copyright .widget-head .widget-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-title]', 'body:not(.kmt-single-post) .entry-title', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'font-size');
 	kemet_responsive_slider('kemet-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a', 'font-size');
@@ -822,7 +823,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[footer-widget-title-border-size]', function (value) {
 		value.bind(function (border) {
 
-			var dynamicStyle = 'kemet-footer .widget .widget-head { border-bottom-width: ' + border + 'px }';
+			var dynamicStyle = '.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head { border-bottom-width: ' + border + 'px }';
 			dynamicStyle += '}';
 
 			kemet_add_dynamic_css('footer-widget-title-border-size', dynamicStyle);
@@ -852,10 +853,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Widget Title Font 
 	 */
-	kemet_css('kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-head .widget-title');
-	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .widget-head .widget-title');
-	kemet_css('kemet-settings[kemet-footer-wgt-bg-color]', 'background-color', '.kemet-footer .widget');
-	kemet_css('kemet-settings[kemet-footer-wgt-title-separator-color]', 'border-color', '.kemet-footer .widget .widget-head');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-text-transform]', 'text-transform', '.kemet-footer .kmt-no-widget-row .widget-head .widget-title , .kmt-footer-copyright .kmt-no-widget-row .widget-head .widget-title');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-line-height]', 'line-height', '.kemet-footer .widget-head .widget-title , .kmt-footer-copyright .widget-head .widget-title');
+	kemet_css('kemet-settings[kemet-footer-wgt-bg-color]', 'background-color', '.kemet-footer .widget , .kmt-footer-copyright .widget');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-separator-color]', 'border-color', '.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head');
 	// Footer Bar.
 	kemet_css('kemet-settings[footer-color]', 'color', '.kmt-footer-copyright');
 	kemet_css('kemet-settings[footer-link-color]', 'color', '.kmt-footer-copyright a');
@@ -877,7 +878,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[footer-font-size]', '.kemet-footer', 'font-size');
 
 	// Footer Widgets.
-	kemet_css('kemet-settings[kemet-footer-wgt-title-color]', 'color', '.kemet-footer .widget-head .widget-title, .kemet-footer .widget-head .widget-title a');
+	kemet_css('kemet-settings[kemet-footer-wgt-title-color]', 'color', '.kemet-footer .widget-head .widget-title, .kemet-footer .widget-head .widget-title a , .kmt-footer-copyright .widget-head .widget-title, .kmt-footer-copyright .widget-head .widget-title a');
 	kemet_css('kemet-settings[kemet-footer-text-color]', 'color', '.site-footer');
 	kemet_css('kemet-settings[kemet-footer-widget-meta-color]', 'color', '.kemet-footer .post-date');
 	kemet_css('kemet-settings[footer-button-color]', 'color', '.kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=“button”], .kemet-footer input[type=“submit”], .kemet-footerinput[type=“reset”]');

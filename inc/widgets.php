@@ -139,38 +139,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 			)
 		);
 
-				/**
-		 * Register Top Section1 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_top_widget_sectio1', array(
-				'name'          => esc_html__( 'Top Widget Section 1', 'kemet' ),
-				'id'            => 'top-widget-section1',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
-				'after_title'   => '</h4></div></div>',
-			)
-			)
-		);
-
-		/**
-		 * Register Top Section2 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_top_widget_sectio2', array(
-				'name'          => esc_html__( 'Top Widget Section 2', 'kemet' ),
-				'id'            => 'top-widget-section2',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
-				'after_title'   => '</h4></div></div>',
-			)
-			)
-		);
-
 		/**
 		 * Register Top Section2 Widget
 		 */

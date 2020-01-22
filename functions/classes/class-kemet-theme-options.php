@@ -218,6 +218,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'site-identity-spacing'				=> '',
 					'site-identity-spacing'				=> 'kemet-footer-wgt-title-separator-color',
 					'kemet-footer-wgt-bg-color'			=> '',
+					'footer-inner-widget-padding'		=> '',
 					'widget-title-border-size'			=> '',
 					'kemet-footer-wgt-title-separator-color' => '',
 					'enable-footer-widget-title-separator'	 => false,

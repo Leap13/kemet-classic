@@ -1007,7 +1007,7 @@ var toggleClass = function ( el, className ) {
     var searchStyle = function(){
         var hasOutSideMenu = document.querySelector('.kmt-outside-menu') != null,
             hasInsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items') != null;
-        
+            
         if (hasOutSideMenu) {
             var outSideMenu = document.querySelector('.kmt-outside-menu');
             var hasSearch = outSideMenu.querySelector('.search') != null;
@@ -1032,7 +1032,7 @@ var toggleClass = function ( el, className ) {
         } else if (hasInsideMenu && !hasOutSideMenu){
 
             var InsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items');
-            var hasSearch = InsideMenu.classList.contains('.search') != null;
+            var hasSearch = InsideMenu.classList.contains('.search') != '';
             var hasBreakPoint = document.querySelector('.kmt-header-break-point');
 
             if (hasSearch) {

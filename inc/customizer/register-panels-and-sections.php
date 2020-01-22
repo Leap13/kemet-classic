@@ -150,7 +150,7 @@
 			$wp_customize, 'section-blog',
 			array(
 				'priority' => 5,
-				'title'    => __( 'Blog / Archive', 'kemet' ),
+				'title'    => __( 'Blog/Archive', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-blog-group',
 			)
