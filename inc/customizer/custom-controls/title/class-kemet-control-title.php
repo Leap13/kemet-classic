@@ -36,17 +36,6 @@ class Kemet_Control_Title extends WP_Customize_Control {
 	public $caption = '';
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/title/';
-		wp_enqueue_style( 'kemet-title-css', $css_uri . 'title.css', null, KEMET_THEME_VERSION );
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()

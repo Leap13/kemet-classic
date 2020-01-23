@@ -148,6 +148,17 @@
 			// Set up variables
 			var elements 	= jQuery(this).data( 'element-connect' );
 			
+			var linkedInputs = jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input');
+
+			linkedInputs.each(function(){
+				var input_val = jQuery(this).val();
+				if (input_val != ''){
+					jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input').each(function (key, value) {
+						jQuery(this).val(input_val).change();
+					});
+				}
+			});
+
 			// Add connected class
 			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
 

@@ -221,20 +221,6 @@ $wp_customize->add_control(
 */
 $wp_customize->add_control(
     new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-post-style]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Blog Posts Style', 'kemet' ),
-            'section'  => 'section-blog',
-            'priority' => 40,
-            'settings' => array(),
-        )
-    )
-);
-/**
-* Option: Title
-*/
-$wp_customize->add_control(
-    new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-post-title]', array(
             'type'     => 'kmt-title',
             'label'    => __( 'Title and Meta Style', 'kemet' ),

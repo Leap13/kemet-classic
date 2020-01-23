@@ -29,20 +29,6 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
     public $type = 'kmt-icon-select';
 
     /**
-    * Enqueue control related scripts/styles.
-    *
-    * @access public
-    */
-
-    public function enqueue() {
-        $css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/icon-select/';
-        $js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/icon-select/';
-
-        wp_enqueue_script( 'kmt-icon-select', $js_uri . 'icon-select.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-        wp_enqueue_style( 'kmt-icon-select', $css_uri . 'icon-select.css', null, KEMET_THEME_VERSION );
-    }
-
-    /**
     * Refresh the parameters passed to the JavaScript via JSON.
     *
     * @see WP_Customize_Control::to_json()

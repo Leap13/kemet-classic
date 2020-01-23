@@ -85,32 +85,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 				break;
 		}
 	}
-
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$js_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/typography/';
-
-		wp_enqueue_script( 'kemet-typography', $js_uri . 'typography.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		$kemet_typo_localize = array(
-			'inherit' => __( 'Inherit', 'kemet' ),
-			'100'     => __( 'Thin 100', 'kemet' ),
-			'200'     => __( 'Extra-Light 200', 'kemet' ),
-			'300'     => __( 'Light 300', 'kemet' ),
-			'400'     => __( 'Normal 400', 'kemet' ),
-			'500'     => __( 'Medium 500', 'kemet' ),
-			'600'     => __( 'Semi-Bold 600', 'kemet' ),
-			'700'     => __( 'Bold 700', 'kemet' ),
-			'800'     => __( 'Extra-Bold 800', 'kemet' ),
-			'900'     => __( 'Ultra-Bold 900', 'kemet' ),
-		);
-
-		wp_localize_script( 'kemet-typography', 'kemetTypo', $kemet_typo_localize );
-	}
+	
 	/**
 	 * Renders the title and description for a control.
 	 *

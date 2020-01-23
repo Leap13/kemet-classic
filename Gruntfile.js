@@ -156,11 +156,31 @@ module.exports = function (grunt) {
 	                        dest: 'assets/js/minified',
 	                        cwd: 'assets/js/unminified',
 	                        ext: '.min.js'
-	                    },
+                        },
+                        {
+                            src: ['inc/customizer/custom-controls/**/*.js'],
+                            dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
+                        }
 	               	]
-                }
+                },
             },
+            // uglify: {
+            //     js: {
+            //         src: ['inc/customizer/custom-controls/**/*.js'],
+            //         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.min.js',
+            //     }
+            // },
+            // concat: {
+            //     css: {
+            //         src: ['inc/customizer/custom-controls/**/*.css'],
+            //         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
+            //     },
 
+            //     js: {
+            //         src: ['inc/customizer/custom-controls/**/*.js'],
+            //         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js'
+            //     }
+            // },
             cssmin: {
                 options: {
                     keepSpecialComments: 0
@@ -180,7 +200,10 @@ module.exports = function (grunt) {
 	                        cwd: 'assets/css/unminified',
 	                        ext: '.min.css'
 	                    },
-
+                        {
+                            src: ['inc/customizer/custom-controls/**/*.css'],
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
+                        },
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
@@ -370,7 +393,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-   // grunt.loadNpmTasks('grunt-contrib-concat');
+    //grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');
