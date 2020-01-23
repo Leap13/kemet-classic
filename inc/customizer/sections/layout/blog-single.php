@@ -175,7 +175,34 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Single Post / Page Title Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[letter-spacing-entry-title]', array(
+        'default'           => kemet_get_option( 'letter-spacing-entry-title' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-entry-title]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-blog-single',
+            'priority'       => 38,
+            'label'          => __( 'Title Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Single Post / Page Title Font Color
 */

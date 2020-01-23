@@ -189,6 +189,34 @@ $wp_customize->add_control(
     )
 );
 /**
+* Option: Archive Summary Box Title Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[letter-spacing-archive-summary-title]', array(
+        'default'           => kemet_get_option( 'letter-spacing-archive-summary-title' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-archive-summary-title]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-blog',
+            'priority'       => 38,
+            'label'          => __( 'Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
+/**
 * Option: Title
 */
 $wp_customize->add_control(
@@ -274,6 +302,62 @@ $wp_customize->add_control(
                     'max' =>200,
                 ),
                 'em' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
+/**
+* Option: Title Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[letter-spacing-page-title]', array(
+        'default'           => kemet_get_option( 'letter-spacing-page-title' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-page-title]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-blog',
+            'priority'       => 57,
+            'label'          => __( 'Title Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
+/**
+* Option: Meta Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[letter-spacing-page-meta]', array(
+        'default'           => kemet_get_option( 'letter-spacing-page-meta' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-page-meta]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-blog',
+            'priority'       => 58,
+            'label'          => __( 'Meta Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
                     'min' => 0.1,
                     'step' => 0.1,
                     'max' => 10,

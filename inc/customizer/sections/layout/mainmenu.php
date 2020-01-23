@@ -86,34 +86,6 @@ $header_rt_sections = array(
 		)
 	);
 	/**
-	* Option: Menu Letter Spacing
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-letter-spacing]', array(
-			'default'           => kemet_get_option( 'menu-letter-spacing' ),
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-letter-spacing]', array(
-				'type'           => 'kmt-responsive-slider',
-				'section'        => 'section-menu-header',
-				'priority'       => 13,
-				'label'          => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices'   => array(
-					'px' => array(
-						'min' => 0.1,
-						'step' => 0.1,
-						'max' => 10,
-					),
-				),
-			)
-		)
-	);
-	/**
 	 * Option:Menu Items Typography
 	 * Option: Font Family
 	 */
@@ -212,6 +184,34 @@ $header_rt_sections = array(
 			)
 		)
 	);
+	/**
+	* Option: Menu Letter Spacing
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-letter-spacing]', array(
+			'default'           => kemet_get_option( 'menu-letter-spacing' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-letter-spacing]', array(
+				'type'           => 'kmt-responsive-slider',
+				'section'        => 'section-menu-header',
+				'priority'       => 33,
+				'label'          => __( 'Letter Spacing', 'kemet' ),
+				'unit_choices'   => array(
+					'px' => array(
+						'min' => 0.1,
+						'step' => 0.1,
+						'max' => 10,
+					),
+				),
+			)
+		)
+	);	
 	/**
 	 * Option: Menu Background Color
 	 */
@@ -748,34 +748,6 @@ $header_rt_sections = array(
 			)
 		)
 	);
-	/**
-	* Option: SubMenu Font Size
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
-			'default'           => kemet_get_option( 'submenu-letter-spacing' ),
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
-				'type'           => 'kmt-responsive-slider',
-				'section'        => 'section-menu-header',
-				'priority'       => 153,
-				'label'          => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices'   => array(
-					'px' => array(
-						'min' => 0.1,
-						'step' => 0.1,
-						'max' => 10,
-					),
-				),
-			)
-		)
-	);
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
 			'default'           => kemet_get_option( 'sub-menu-items-font-family' ),
@@ -868,6 +840,34 @@ $header_rt_sections = array(
 					'min'  => 1,
 					'step' => 0.01,
 					'max'  => 5,
+				),
+			)
+		)
+	);
+	/**
+	* Option: SubMenu Font Size
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
+			'default'           => kemet_get_option( 'submenu-letter-spacing' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
+				'type'           => 'kmt-responsive-slider',
+				'section'        => 'section-menu-header',
+				'priority'       => 173,
+				'label'          => __( 'Letter Spacing', 'kemet' ),
+				'unit_choices'   => array(
+					'px' => array(
+						'min' => 0.1,
+						'step' => 0.1,
+						'max' => 10,
+					),
 				),
 			)
 		)

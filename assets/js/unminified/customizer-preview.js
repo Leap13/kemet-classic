@@ -1026,10 +1026,24 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 		});
 	});
+	kemet_responsive_slider('kemet-settings[footer-copyright-font-size]', '.kmt-footer-copyright', 'font-size');
 	//Letter Spacing
 	kemet_responsive_slider('kemet-settings[site-title-letter-spacing]', '.site-title a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[tagline-letter-spacing]', '.site-description', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[menu-letter-spacing]', '.main-header-menu a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[submenu-letter-spacing]', '.main-header-menu .sub-menu li a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[kemet-footer-widget-title-letter-spacing]', '.kemet-footer .widget-head .widget-title , .kmt-footer-copyright .widget-head .widget-title', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[kemet-footer-letter-spacing]', '.kemet-footer', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[footer-copyright-letter-spacing]', '.kmt-footer-copyright', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h1]', 'h1, .entry-content h1, .entry-content h1 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h2]', 'h2, .entry-content h2, .entry-content h2 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h3]', 'h3, .entry-content h3, .entry-content h3 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h4]', 'h4, .entry-content h4, .entry-content h4 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h5]', 'h5, .entry-content h5, .entry-content h5 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-h6]', 'h1, .entry-content h6, .entry-content h6 a', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[widget-title-letter-spacing]', '.widget .widget-head .widget-title', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-archive-summary-title]', '.kmt-archive-description .kmt-archive-title', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-page-title]', 'body:not(.kmt-single-post) .entry-title', 'letter-spacing');
+	kemet_responsive_slider('kemet-settings[letter-spacing-entry-title]', '.kmt-single-post .entry-header .entry-title', 'letter-spacing');
 })(jQuery);

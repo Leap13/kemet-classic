@@ -266,34 +266,6 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Widget Title Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-letter-spacing]', array(
-        'default'           => kemet_get_option( 'kemet-footer-widget-title-letter-spacing' ),
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-letter-spacing]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 37,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
-/**
 * Option: Widget Title Font Family
 */
 $wp_customize->add_setting(
@@ -393,6 +365,34 @@ $wp_customize->add_control(
     )
 );
 /**
+* Option: Widget Title Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-letter-spacing]', array(
+        'default'           => kemet_get_option( 'kemet-footer-widget-title-letter-spacing' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-widget-title-letter-spacing]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-kemet-footer',
+            'priority'       => 58,
+            'label'          => __( 'Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
+/**
  * Option: Title
  */
 $wp_customize->add_control(
@@ -434,6 +434,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-font-size]', array(
         'default'           => kemet_get_option( 'footer-font-size' ),
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
@@ -558,7 +559,34 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Widget Title Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kemet-footer-letter-spacing]', array(
+        'default'           => kemet_get_option( 'kemet-footer-letter-spacing' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-letter-spacing]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-kemet-footer',
+            'priority'       => 93,
+            'label'          => __( 'Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Title
 */

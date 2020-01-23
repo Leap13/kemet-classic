@@ -331,6 +331,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[footer-copyright-font-size]', array(
         'default'           => kemet_get_option( 'footer-copyright-font-size' ),
         'type'              => 'option',
+        'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
@@ -356,7 +357,34 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Footer Letter Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
+        'default'           => kemet_get_option( 'footer-copyright-letter-spacing' ),
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-footer-copyright',
+            'priority'       => 68,
+            'label'          => __( 'Letter Spacing', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Link Color
 */

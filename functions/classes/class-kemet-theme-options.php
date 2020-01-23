@@ -461,7 +461,21 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-letter-spacing'		=> '',
 					'submenu-letter-spacing'    => '',	
 					'kemet-footer-widget-title-letter-spacing' => '',
-					
+					'kemet-footer-letter-spacing' => '',
+					'footer-copyright-letter-spacing' => '',
+					'letter-spacing-body'			=> '',
+					'letter-spacing-h1'			=> '',
+					'letter-spacing-h2'			=> '',
+					'letter-spacing-h3'			=> '',
+					'letter-spacing-h4'			=> '',
+					'letter-spacing-h5'			=> '',
+					'letter-spacing-h6'			=> '',
+					'widget-title-letter-spacing' => '',
+					'letter-spacing-archive-summary-title' => '',
+					'letter-spacing-page-title'	=> '',
+					'letter-spacing-page-meta'	=> '',
+					'letter-spacing-entry-title'     => '',
+
 				)
 			);
 		}

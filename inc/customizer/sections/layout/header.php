@@ -221,14 +221,4 @@ $wp_customize->add_control(
 );
 
 
-// if ( isset( $wp_customize->selective_refresh ) ) {
-// 	$wp_customize->selective_refresh->add_partial(
-// 		KEMET_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-// 			'selector'            => '.main-header-bar .kmt-sitehead-custom-menu-items .kmt-custom-html',
-// 			'container_inclusive' => false,
-// 			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_header_main_rt_section_html' ),
-// 		 )
-// 	 );
-// }
-
 

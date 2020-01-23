@@ -64,6 +64,7 @@
 				controls: [
 					'kemet-settings[divider-section-header-typo-title]',
 					'kemet-settings[site-title-font-size]',
+					'kemet-settings[site-title-letter-spacing]',
 				],
 				callback: function( value ) {
 
@@ -97,6 +98,7 @@
 				controls: [
 					'kemet-settings[divider-section-header-typo-tagline]',
 					'kemet-settings[font-size-site-tagline]',
+					'kemet-settings[tagline-letter-spacing]',
 				],
 				callback: function( value ) {
 
