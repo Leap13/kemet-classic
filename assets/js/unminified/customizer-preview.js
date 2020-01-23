@@ -810,7 +810,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[widget-title-border-size]', function (value) {
 		value.bind(function (border) {
 
-			var dynamicStyle = '.widget-head { border-bottom-width: ' + border + 'px }';
+			var dynamicStyle = '.widget .widget-head { border-bottom-width: ' + border + 'px }';
 			dynamicStyle += '}';
 
 			kemet_add_dynamic_css('widget-title-border-size', dynamicStyle);

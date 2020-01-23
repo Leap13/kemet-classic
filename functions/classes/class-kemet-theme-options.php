@@ -217,7 +217,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'site-identity-spacing'				=> '',
 					'kemet-footer-wgt-bg-color'			=> '',
 					'footer-inner-widget-padding'		=> '',
-					'widget-title-border-size'			=> '',
 					'kemet-footer-wgt-title-separator-color' => '',
 					'enable-footer-widget-title-separator'	 => false,
 					// Header 
@@ -455,6 +454,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-input-border-radius' => '',
 					'footer-input-border-size' => '',
 					'enable-widget-title-separator'	=> false,
+					'footer-widget-title-border-size' => '',
 					//Letter Spacing
 					'site-title-letter-spacing'	=> '',
 					'tagline-letter-spacing'    => '',
