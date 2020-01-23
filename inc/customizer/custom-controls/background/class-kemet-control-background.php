@@ -66,22 +66,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
 		}
-
-		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			wp_localize_script(
-				'kemet-background', 'kemetCustomizerControlBackground', array(
-					'placeholder'  => __( 'No file selected', 'kemet' ),
-					'lessSettings' => __( 'Less Settings', 'kemet' ),
-					'moreSettings' => __( 'More Settings', 'kemet' ),
-				)
-			);
-		}
-
+		
 		/**
 		 * An Underscore (JS) template for this control's content (but not its container).
 		 *

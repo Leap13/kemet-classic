@@ -181,6 +181,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			//Extra Controls Script
 			wp_enqueue_style( 'custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/custom-controls' . '.min.css', null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/custom-controls'. '.min.js', array(), KEMET_THEME_VERSION, true );
+			wp_localize_script(
+				'custom-control-script', 'kemetCustomizerControlBackground', array(
+					'placeholder'  => __( 'No file selected', 'kemet' ),
+					'lessSettings' => __( 'Less Settings', 'kemet' ),
+					'moreSettings' => __( 'More Settings', 'kemet' ),
+				)
+			);
 			$kemet_typo_localize = array(
 				'inherit' => __( 'Inherit', 'kemet' ),
 				'100'     => __( 'Thin 100', 'kemet' ),
