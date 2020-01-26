@@ -43,14 +43,6 @@ body {
 .kmt-article-post{
 	border-bottom: 1px solid $color-border-content;
 }
-.kmt-separate-container{
-	&.blog{
-		.kmt-article-post{
-			padding-bottom: 0;
-		}
-	}
-}
-
 //separate container content layout
 .kmt-separate-container{
 	.kmt-archive-description{
