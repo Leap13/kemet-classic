@@ -82,7 +82,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_widgets_init', array(
 					'name'          => esc_html__( 'Main Sidebar', 'kemet' ),
 					'id'            => 'sidebar-1',
-					'description'   => '',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
@@ -99,7 +98,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_header_widgets_init', array(
 					'name'          => esc_html__( 'Header', 'kemet' ),
 					'id'            => 'header-widget',
-					'description'   => '',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
@@ -116,7 +114,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_footer_1_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 1', 'kemet' ),
 					'id'            => 'copyright-widget-1',
-					'description'   => '',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
@@ -130,7 +127,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_footer_2_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 2', 'kemet' ),
 					'id'            => 'copyright-widget-2',
-					'description'   => '',
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
 					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
