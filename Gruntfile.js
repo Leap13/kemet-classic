@@ -164,23 +164,6 @@ module.exports = function (grunt) {
 	               	]
                 },
             },
-            // uglify: {
-            //     js: {
-            //         src: ['inc/customizer/custom-controls/**/*.js'],
-            //         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.min.js',
-            //     }
-            // },
-            // concat: {
-            //     css: {
-            //         src: ['inc/customizer/custom-controls/**/*.css'],
-            //         dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
-            //     },
-
-            //     js: {
-            //         src: ['inc/customizer/custom-controls/**/*.js'],
-            //         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js'
-            //     }
-            // },
             cssmin: {
                 options: {
                     keepSpecialComments: 0

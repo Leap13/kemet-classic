@@ -29,6 +29,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $instance;
 
 		/**
+		 * Customizer Dependency Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $_dependency_arr = array();
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -53,6 +60,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
+			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 		}
 
 
@@ -78,7 +86,33 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			echo $output;
 		}
+		function filter_dynamic_setting_args( $setting_args, $setting_id ) {
+            if(isset($setting_args['required'])){
+				$this->update_dependency_arr( $setting_id, $setting_args['required'] );
+            }
 
+            return $setting_args;
+        }
+		/**
+		 * Update dependency in the dependency array.
+		 *
+		 * @param String $key name of the Setting/Control for which the dependency is added.
+		 * @param Array  $dependency dependency of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_dependency_arr( $key, $dependency ) {
+			self::$_dependency_arr[ $key ] = $dependency;
+		}
+
+		/**
+		 * Get dependency Array.
+		 *
+		 * @return Array Dependencies discovered when registering controls and settings.
+		 */
+		private function get_dependency_arr() {
+			return self::$_dependency_arr;
+		}
+		
 		/**
 		 * Register custom section and panel.
 		 *
@@ -208,7 +242,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'kemet-extend-customizer-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-extend-customizer-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KEMET_THEME_VERSION, true );
-
+			wp_enqueue_script( 'kemet-customizer-dependency', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'kemet-customizer-controls-js' ), KEMET_THEME_VERSION, true );
 			// Customizer Controls.
 			wp_enqueue_style( 'kemet-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-customizer-controls-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kemet-customizer-controls-toggle-js' ), KEMET_THEME_VERSION, true );
@@ -241,6 +275,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 						'theme'      => array(
 							'option' => KEMET_THEME_SETTINGS,
 						),
+						'config'     => $this->get_dependency_arr(),
 					)
 				)
 			);
