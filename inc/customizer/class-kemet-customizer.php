@@ -272,41 +272,18 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			wp_localize_script( 'custom-control-script', 'kemetTypo', $kemet_typo_localize );
 			// Customizer Core.
-			wp_enqueue_script( 'kemet-customizer-controls-toggle-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'kemet-customizer-dependency', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'kemet-extend-customizer-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-extend-customizer-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KEMET_THEME_VERSION, true );
-			wp_enqueue_script( 'kemet-customizer-dependency', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'kemet-customizer-controls-js' ), KEMET_THEME_VERSION, true );
+			
 			// Customizer Controls.
 			wp_enqueue_style( 'kemet-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kemet-customizer-controls-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kemet-customizer-controls-toggle-js' ), KEMET_THEME_VERSION, true );
 
 			wp_localize_script(
-				'kemet-customizer-controls-toggle-js', 'kemet', apply_filters(
+				'kemet-customizer-dependency', 'kemet', apply_filters(
 					'kemet_theme_customizer_js_localize', array(
-						'customizer' => array(
-							'settings' => array(
-								'sidebars'  => array(
-									'single'  => array(
-										'single-post-sidebar-layout',
-										'single-page-sidebar-layout',
-									),
-									'archive' => array(
-										'archive-post-sidebar-layout',
-									),
-								),
-								'container' => array(
-									'single'  => array(
-										'single-post-content-layout',
-										'single-page-content-layout',
-									),
-									'archive' => array(
-										'archive-post-content-layout',
-									),
-								),
-							),
-						),
 						'theme'      => array(
 							'option' => KEMET_THEME_SETTINGS,
 						),

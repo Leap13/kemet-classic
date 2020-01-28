@@ -43,6 +43,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[blog-single-width]', 
+            'conditions' => '==', 
+            'values' => 'custom',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -94,6 +99,11 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'blog-single-meta' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[blog-single-post-structure]', 
+            'conditions' => 'inarray', 
+            'values' => 'single-title-meta',
+        ),
     )
 );
 $wp_customize->add_control(

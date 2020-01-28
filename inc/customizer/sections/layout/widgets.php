@@ -329,6 +329,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[enable-widget-title-separator]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -350,6 +355,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[enable-widget-title-separator]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(

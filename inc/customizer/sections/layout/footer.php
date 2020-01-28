@@ -56,6 +56,11 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'footer-copyright-section-1' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -82,6 +87,12 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-section-1]', 
+            'conditions' => '!=/==', 
+            'values' => 'disabled/custom',
+            'operators' => '&&'
+        ),
     )
 );
 $wp_customize->add_control(
@@ -111,6 +122,11 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'footer-copyright-section-2' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -137,6 +153,12 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-section-2]', 
+            'conditions' => '!=/==', 
+            'values' => 'disabled/custom',
+            'operators' => '&&'
+        ),
     )
 );
 $wp_customize->add_control(
@@ -166,6 +188,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -194,6 +221,11 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'footer-layout-width' ),
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -218,6 +250,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -233,6 +270,15 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
+    )
+);
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
@@ -253,6 +299,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -278,6 +329,12 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-divider]', 
+            'conditions' => '!=/>=', 
+            'values' => 'disabled/1',
+            'operators' => '&&'
+        ),
     )
 );
 $wp_customize->add_control(
@@ -292,6 +349,15 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
+    )
+);
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
@@ -312,6 +378,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -333,6 +404,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -366,6 +442,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -394,6 +475,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(
@@ -415,6 +501,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'conditions' => '!=', 
+            'values' => 'disabled',
+        ),
     )
 );
 $wp_customize->add_control(

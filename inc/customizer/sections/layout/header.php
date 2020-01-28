@@ -71,7 +71,12 @@ $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[header-right-section]', array(
 		'default'           => kemet_get_option( 'header-right-section' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]', 
+            'conditions' => '==', 
+            'values' => 'header-main-layout-3',
+        ),
 	)
 );
 $wp_customize->add_control(
@@ -95,7 +100,13 @@ $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[header-right-section-menu]', array(
 		'default'           => kemet_get_option( 'header-right-section-menu' ),
 		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]/' . KEMET_THEME_SETTINGS . '[header-right-section]', 
+            'conditions' => '==/==', 
+            'values' => 'header-main-layout-3/menu',
+            'operators' => '&&'
+        ),
 	)
 );
 $wp_customize->add_control(
