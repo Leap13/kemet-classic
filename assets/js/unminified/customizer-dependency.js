@@ -14,7 +14,6 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @since 1.4.3
 	 * @class Kemet_Customizer
 	 */
     var Kemet_Customizer = {
@@ -25,71 +24,26 @@
 		 * Initializes the logic for showing and hiding controls
 		 * when a setting changes.
 		 *
-		 * @since 1.4.3
 		 * @access private
 		 * @method init
 		 */
         init: function () {
             var $this = this;
-            //$this.handleDependency();
-            //$this.hideEmptySections();
-            console.log(kemet.config);
-            //settingapi.control.each(function (control) { console.log(control.params) });
+            $this.checkDependency();
+            
             api.bind('change', function ( setting, data ) {
-                var has_dependents = $this.hasDependentControls( setting.id );
-    
-                if( has_dependents ) {
-                    
-                    //$this.handleDependency();
-                    //$this.hideEmptySections();
-                    
-                }
+                $this.checkDependency();
             });
         },
 
-        hasDependentControls: function( control_id ) {
-            var check = false;
-            
-            $.each(kemet.setting, function (index, val) {
-                
-                if( !_.isUndefined( val.required ) ) {
-
-                    var conditions = val.conditions;
-
-                    $.each( conditions, function (index, val) {
-
-                        var control = val[0];
-
-                        if( control_id == control ) {
-                            check = true;
-                            return;
-                        }
-                    });
-
-                } else {
-
-                    var control = val[0];
-
-                    if( control_id == control ) {
-                        check = true;
-                        return;
-                    }
-                }
-
-            });   
-
-            return check;              
-
-        },
 
 		/**
-		 * Handles dependency for controls.
+		 * Check Control Dependency.
 		 *
-		 * @since 1.4.3
 		 * @access private
-		 * @method handleDependency
+		 * @method checkDependency
 		 */
-        handleDependency: function () {
+        checkDependency: function () {
             var $this = this;
             var values = api.get();
             $this.checked_controls = {};
@@ -97,257 +51,150 @@
             _.each(values, function (value, id) {
                 var control = api.control(id);
 
-                $this.checkControlVisibility( control, id );
+                $this.checkVisibility( control, id );
                 
             });
         },
 
 		/**
-		 * Hide OR display controls according to dependency
+		 * Check Control Visibility
 		 *
-		 * @since 1.4.3
 		 * @access private
 		 * @method checkControlVisibility
 		 */
-        checkControlVisibility: function (control, id) {
+        checkVisibility: function (control, id) {
             var $this = this;
             var values = api.get();
 
-            if ( !_.isUndefined( control ) ) {
+            // If control has dependency defined
+            if ( 'undefined' != typeof kemet.config[id] ) {
+                var check = false;
+                var dependency = kemet.config[id];
+                
+                if ('undefined' !== typeof dependency ) {
+                    check = $this.checkConditions(dependency.conditions, values);
+                    
+                    this.checked_controls[id] = check;
 
-                // If control has dependency defined
-                if ( 'undefined' != typeof kemet.config[id] ) {
-                    var check = false;
-                    var required_param = kemet.config[id];
-                    var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
-                    var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
-
-                    if ( 'undefined' !== typeof conditions ) {
-                        check = $this.checkDependency(conditions, values, operator);
-
-                        this.checked_controls[id] = check;
-
-                        if (!check) {
-                            control.container.addClass('kmt-hide');
-                        } else {
-                            control.container.removeClass('kmt-hide');
-                        }
+                    if (!check) {
+                        control.container.slideUp(50);
+                    } else {
+                        control.container.slideDown(50);
                     }
                 }
             }
         },
 
-		// /**
-		//  * Checks dependency condtions for controls
-		//  *
-		//  * @since 1.4.3
-		//  * @access private
-		//  * @method checkDependency
-		//  */
-        // checkDependency: function (conditions, values, compare_operator) {
-        //     var control = this;
-        //     var check = true;
-        //     var returnNow = false;
-        //     var test = conditions[0];
+		/**
+		 * Checks Dependency Condtions
+		 *
+		 * @access private
+		 * @method checkConditions
+		 */
+        checkConditions: function (conditions, values) {
+            var control = this;
+            var check = false;
 
-        //     if ( _.isString( test ) ) {
+            if ( _.isArray( conditions ) ) {
 
-        //         var cond = conditions[1];
-        //         var cond_val = conditions[2];
-        //         var value;
+                $.each( conditions, function ( index, value ) {
 
-        //         if ( !_.isUndefined( kemet.config[test] ) ) {
+                    var control_id = value[0];
+                    var condition = value[1];
+                    var conditon_val2 = value[2];
+                    var operator = !_.isUndefined(value[3]) ? value[3] : '||';
+                    var conditon_val1 = !_.isUndefined( values[control_id] ) ? values[control_id] : '';
+                    
+                    var checker = control.checkCondition(conditon_val1, condition, conditon_val2);
+                    
+                    switch (operator) {
+                        case '||':
+                            check = (checker || check) ? true : false;
+                            break;
+                        case '&&':
+                            check = (checker && check) ? true : false;
+                            break;    
+                    }
 
-        //             var conditions = !_.isUndefined(kemet.config[test]['conditions']) ? kemet.config[test]['conditions'] : kemet.config[test];
-        //             var operator = !_.isUndefined(kemet.config[test]['operator']) ? kemet.config[test]['operator'] : 'AND';
+                }); 
+            }
 
-        //             if ( !_.isUndefined( conditions ) ) {
+            return check;
+        },
 
-        //                 // Check visibility for dependent controls also
-        //                 if ( ! control.checkDependency( conditions, values, operator ) ) {
-        //                     returnNow = true;
-        //                     check = false;
-        //                     if( 'AND' == compare_operator ) {
-        //                         return;
-        //                     }
-        //                 } else {
-        //                     var control_obj = api.control(test);
-        //                     control_obj.container.removeClass('kmt-hide');
-        //                 }
-        //             }
-        //         }
+        /**
+		 * Check Condition
+		 *
+		 * @access private
+		 * @method checkCondition
+		 */
+        checkCondition: function (value1, cond, value2) {
+            var checker = false;
+            switch (cond) {
+                case '===':
+                    checker = (value1 === value2) ? true : false;
+                    break;
+                case '>':
+                    checker = (value1 > value2) ? true : false;
+                    break;
+                case '<':
+                    checker = (value1 < value2) ? true : false;
+                    break;
+                case '<=':
+                    checker = (value1 <= value2) ? true : false;
+                    break;
+                case '>=':
+                    checker = (value1 >= value2) ? true : false;
+                    break;
+                case '!=':
+                    checker = (value1 != value2) ? true : false;
+                    break;
+                case 'empty':
+                    var _v = _.clone(value1);
+                    if (_.isObject(_v) || _.isArray(_v)) {
+                        _.each(_v, function (v, i) {
+                            if (_.isEmpty(v)) {
+                                delete _v[i];
+                            }
+                        });
 
-        //         if ( !_.isUndefined( values[test] ) && !returnNow && check ) {
-        //             value = values[test];
-        //             check = control.compareValues( value, cond, cond_val );
-        //         }
-                
+                        checker = _.isEmpty(_v) ? true : false;
+                    } else {
+                        checker = _.isNull(_v) || _v == '' ? true : false;
+                    }
+                    break;
+                case 'notEmpty':
+                    var _v = _.clone(value1);
+                    if (_.isObject(_v) || _.isArray(_v)) {
+                        _.each(_v, function (v, i) {
+                            if (_.isEmpty(v)) {
+                                delete _v[i];
+                            }
+                        })
+                    }
+                    checker = _.isEmpty(_v) ? false : true;
+                    break;
+                case 'inarray':
+                    if (_.isArray(value1)) {
+                        if ($.inArray(value2, value1) !== -1) {
+                            checker = true;
+                        }
+                    }
+                    break;
+                default:
+                    if (_.isArray(value2)) {
+                        if (!_.isEmpty(value2) && !_.isEmpty(value1)) {
+                            checker = _.contains(value2, value1);
+                        } else {
+                            checker = false;
+                        }
+                    } else {
+                        checker = (value1 == value2) ? true : false;
+                    }
+            }
 
-        //     } else if ( _.isArray( test ) ) {
-
-        //         $.each( conditions, function ( index, val ) {
-
-        //             var cond_key = val[0];
-        //             var cond_cond = val[1];
-        //             var cond_val = val[2];
-        //             var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : ''; 
-
-        //             if ( 'undefined' !== typeof kemet.config[cond_key] ) {
-
-        //                 var conditions = !_.isUndefined(kemet.config[cond_key]['conditions']) ? kemet.config[cond_key]['conditions'] : kemet.config[cond_key];
-        //                 var operator = !_.isUndefined(kemet.config[cond_key]['operator']) ? kemet.config[cond_key]['operator'] : 'AND';
-
-        //                 if ( !_.isUndefined( conditions ) ) {
-
-        //                     // Check visibility for dependent controls also
-        //                     if ( ! control.checkDependency( conditions, values, operator ) ) {
-
-        //                         check = false;
-        //                         if( 'AND' == compare_operator ) {
-        //                             return;
-        //                         }
-        //                     } else {
-        //                         check = true;
-        //                         var control_obj = api.control(cond_key);
-        //                         control_obj.container.removeClass('kmt-hide');
-        //                     }
-        //                 }
-        //             } else {
-        //                 check = true;
-        //             }
-
-        //             if( check ) {
-
-        //                 if ( 'AND' == compare_operator ) {
-        //                     if ( ! control.compareValues( t_val, cond_cond, cond_val ) ) {
-        //                         check = false;
-        //                         return false;
-        //                     }
-        //                 } else {
-
-        //                     if ( control.compareValues( t_val, cond_cond, cond_val ) ) {
-        //                         returnNow = true;
-        //                         check = true;
-        //                     } else {
-        //                         check = false;
-        //                     }
-        //                 }
-        //             }
-        //         });
-
-        //         // Break loop in case of OR operator
-        //         if ( returnNow && 'OR' == compare_operator ) {
-        //             check = true;
-        //         }
-        //     }
-
-        //     return check;
-        // },
-
-        // /**
-        //  * Hide Section without Controls.
-        //  *
-        // */
-        // hideEmptySections: function () {
-        //     $('ul.accordion-section.control-section-ast_section').each(function () {
-
-        //         var parentId = $(this).attr('id');
-        //         var visibleIt = false;
-        //         var controls = $(this).find(' > .customize-control');
-
-        //         if ( controls.length > 0 ) {
-
-        //             controls.each(function () {
-
-        //                 if ( ! $(this).hasClass('kmt-hide') && $(this).css('display') != 'none' ) {
-        //                     visibleIt = true;
-        //                 }
-        //             });
-
-        //             if (!visibleIt) {
-        //                 $('.control-section[aria-owns="' + parentId + '"]').addClass('kmt-hide');
-        //             } else {
-        //                 $('.control-section[aria-owns="' + parentId + '"]').removeClass('kmt-hide');
-        //             }
-        //         }
-        //     });
-
-        // },
-
-        // /**
-		//  * Compare values
-		//  *
-		//  * @since 1.4.3
-		//  * @access private
-		//  * @method compareValues
-		//  */
-        // compareValues: function (value1, cond, value2) {
-        //     var equal = false;
-        //     switch (cond) {
-        //         case '===':
-        //             equal = (value1 === value2) ? true : false;
-        //             break;
-        //         case '>':
-        //             equal = (value1 > value2) ? true : false;
-        //             break;
-        //         case '<':
-        //             equal = (value1 < value2) ? true : false;
-        //             break;
-        //         case '<=':
-        //             equal = (value1 <= value2) ? true : false;
-        //             break;
-        //         case '>=':
-        //             equal = (value1 >= value2) ? true : false;
-        //             break;
-        //         case '!=':
-        //             equal = (value1 != value2) ? true : false;
-        //             break;
-        //         case 'empty':
-        //             var _v = _.clone(value1);
-        //             if (_.isObject(_v) || _.isArray(_v)) {
-        //                 _.each(_v, function (v, i) {
-        //                     if (_.isEmpty(v)) {
-        //                         delete _v[i];
-        //                     }
-        //                 });
-
-        //                 equal = _.isEmpty(_v) ? true : false;
-        //             } else {
-        //                 equal = _.isNull(_v) || _v == '' ? true : false;
-        //             }
-        //             break;
-        //         case 'not_empty':
-        //             var _v = _.clone(value1);
-        //             if (_.isObject(_v) || _.isArray(_v)) {
-        //                 _.each(_v, function (v, i) {
-        //                     if (_.isEmpty(v)) {
-        //                         delete _v[i];
-        //                     }
-        //                 })
-        //             }
-        //             equal = _.isEmpty(_v) ? false : true;
-        //             break;
-        //         case 'contains':
-        //             if (_.isArray(value1)) {
-        //                 if ($.inArray(value2, value1) !== -1) {
-        //                     equal = true;
-        //                 }
-        //             }
-        //             break;
-        //         default:
-        //             if (_.isArray(value2)) {
-        //                 if (!_.isEmpty(value2) && !_.isEmpty(value1)) {
-        //                     equal = _.contains(value2, value1);
-        //                 } else {
-        //                     equal = false;
-        //                 }
-        //             } else {
-        //                 equal = (value1 == value2) ? true : false;
-        //             }
-        //     }
-
-        //     return equal;
-        // },
+            return checker;
+        },
     };
 
     $(function () { Kemet_Customizer.init(); });

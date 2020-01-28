@@ -86,9 +86,44 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			echo $output;
 		}
+		//Get Settings
 		function filter_dynamic_setting_args( $setting_args, $setting_id ) {
-            if(isset($setting_args['required'])){
-				$this->update_dependency_arr( $setting_id, $setting_args['required'] );
+			$dependency = array(
+				'conditions' => array(),
+				//'operators' => array(),
+			);
+            if(isset($setting_args['dependency']) && !empty($setting_args['dependency'])){
+				foreach($setting_args['dependency'] as $key => $values){
+
+					switch ( $key ) {
+
+						case 'controls':
+							$split_controls = explode("/", $values);
+							$controls = !empty($split_controls) ? $split_controls : $values;
+							break;
+						case 'conditions':
+							$split_conditions = explode("/", $values);
+							$conditions = !empty($split_conditions) ? $split_conditions : $values;
+							
+							break;
+						case 'operators':
+							$split_operators = explode("/", $values);
+							$operators = !empty($split_operators) ? $split_operators : $values;
+							
+							break;	
+						case 'values':
+							$split_con_values = explode("/", $values);
+							$con_values = !empty($split_con_values) ? $split_con_values : $values;
+							break;		
+					}
+
+				}
+				
+				for($i = 0 ; $i <= count($controls)-1 ; $i++){
+					$operator = !empty($operators) && isset($operators[$i-1]) ? $operators[$i-1] : '||'; 
+					$dependency['conditions'][] = array($controls[$i] , $conditions[$i] , $con_values[$i] , $operator);
+				}  
+				$this->update_dependency_arr( $setting_id, $dependency );
             }
 
             return $setting_args;
