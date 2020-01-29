@@ -90,7 +90,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		function filter_dynamic_setting_args( $setting_args, $setting_id ) {
 			$dependency = array(
 				'conditions' => array(),
-				//'operators' => array(),
 			);
             if(isset($setting_args['dependency']) && !empty($setting_args['dependency'])){
 				foreach($setting_args['dependency'] as $key => $values){
