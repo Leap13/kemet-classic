@@ -147,10 +147,6 @@
 
 			weightSelect.html(weightOptions);
 
-			if (!init) {
-				api(weightKey).set('');
-				api(weightKey).set(weightValue);
-			}
 		},
 	};
 
