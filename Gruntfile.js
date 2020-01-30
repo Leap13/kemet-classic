@@ -157,10 +157,10 @@ module.exports = function (grunt) {
 	                        cwd: 'assets/js/unminified',
 	                        ext: '.min.js'
                         },
-                        {
-                            src: ['inc/customizer/custom-controls/**/*.js'],
-                            dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
-                        }
+                        // {
+                        //     src: ['inc/customizer/custom-controls/**/*.js'],
+                        //     dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js',
+                        // }
 	               	]
                 },
             },
@@ -183,10 +183,10 @@ module.exports = function (grunt) {
 	                        cwd: 'assets/css/unminified',
 	                        ext: '.min.css'
 	                    },
-                        {
-                            src: ['inc/customizer/custom-controls/**/*.css'],
-                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
-                        },
+                        // {
+                        //     src: ['inc/customizer/custom-controls/**/*.css'],
+                        //     dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css',
+                        // },
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{

@@ -24,17 +24,10 @@
 		 * @method init
 		 */
 		init: function () {
-			KmtTypography._initFonts();
-		},
-
-		/**
-		 * Initializes logic for font controls.
-		 *
-		 * @access private
-		 * @method _initFonts
-		 */
-		_initFonts: function () {
-			$('.customize-control-kmt-font-family select').each(KmtTypography._initFont);
+			var $this = this;
+			$('.customize-control-kmt-font-family select').each(function () { $this.initFont($(this)); });
+			$('.customize-control-kmt-font-family select').bind('change', function () { $this.initFont($(this)); });
+			//$('.customize-control-kmt-font-family select').selectWoo();
 		},
 
 		/**
@@ -43,14 +36,13 @@
 		 * @access private
 		 * @method _initFont
 		 */
-		_initFont: function () {
-			var select = $(this),
+		initFont: function (select) {
+			var $this = this,
 				link = select.data('customize-setting-link'),
 				weight = select.data('connected-control');
 
 			if ('undefined' != typeof weight) {
-				api(link).bind(KmtTypography._fontSelectChange);
-				KmtTypography._setFontWeightOptions.apply(api(link), [true]);
+				api(link).bind($this.fontSelectChange(select));
 			}
 
 		},
@@ -61,8 +53,9 @@
 		 * @access private
 		 * @method _fontSelectChange
 		 */
-		_fontSelectChange: function () {
-			KmtTypography._setFontWeightOptions.apply(this, [false]);
+		fontSelectChange: function (fontSelect) {
+			var $this = this;
+				$this.setFontWeightOptions(fontSelect);
 
 		},
 
@@ -75,7 +68,7 @@
 		 * 
 		 * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
 		 */
-		_cleanGoogleFonts: function (fontValue) {
+		cleanGoogleFonts: function (fontValue) {
 			// Bail if fontVAlue does not contain a comma.
 			if (!fontValue.includes(',')) return fontValue;
 
@@ -90,7 +83,7 @@
 
 			return fontValue;
 		},
-
+	
 		/**
 		 * Sets the options for a font weight control when a
 		 * font family control changes.
@@ -99,24 +92,22 @@
 		 * @method _setFontWeightOptions
 		 * @param {Boolean} init Whether or not we're initializing this font weight control.
 		 */
-		_setFontWeightOptions: function (init) {
+		setFontWeightOptions: function (fontSelect) {
 			var i = 0,
-				fontSelect = api.control(this.id).container.find('select'),
-				fontValue = this(),
+				$this = this;
+				fontValue = fontSelect.val(),
 				selected = '',
 				weightKey = fontSelect.data('connected-control'),
 				inherit = fontSelect.data('inherit'),
 				weightSelect = api.control(weightKey).container.find('select'),
 				currentWeightTitle = weightSelect.data('inherit'),
-				weightValue = init ? weightSelect.val() : '400',
+				weightValue =  weightSelect.val(),
 				inheritWeightObject = ['inherit'],
 				weightObject = ['400', '600'],
 				weightOptions = '',
 				weightMap = kemetTypo;
-			if (fontValue == 'inherit') {
-				weightValue = init ? weightSelect.val() : 'inherit';
-			}
-			var fontValue = KmtTypography._cleanGoogleFonts(fontValue);
+
+			var fontValue = KmtTypography.cleanGoogleFonts(fontValue);
 
 			if (fontValue == 'inherit') {
 				weightObject = ['400', '500', '600', '700'];
@@ -141,8 +132,9 @@
 				} else {
 					selected = weightObject[i] == weightValue ? ' selected="selected"' : '';
 				}
-
-				weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
+				if ('undefined' != typeof weightMap[weightObject[i]]){
+					weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
+				}
 			}
 
 			weightSelect.html(weightOptions);

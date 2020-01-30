@@ -60,7 +60,19 @@ class Kemet_Control_Radio_Image extends WP_Customize_Control {
 		}
 
 	}
+	/**
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/radio-image/';
 
+		wp_enqueue_script( 'kemet-radio-image', $js_uri . 'radio-image.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-radio-image', $css_uri . 'radio-image.css', null, KEMET_THEME_VERSION );
+	
+	}
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *

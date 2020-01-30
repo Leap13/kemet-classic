@@ -66,6 +66,18 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['choices'] = $this->choices;
 	}
+	/**
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-select/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-select/';
+
+		wp_enqueue_script( 'kemet-responsive-select', $js_uri . 'responsive-select.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-responsive-select', $css_uri . 'responsive-select.css', null, KEMET_THEME_VERSION );
+	}
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).

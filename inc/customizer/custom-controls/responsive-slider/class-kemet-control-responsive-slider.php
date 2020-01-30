@@ -79,7 +79,19 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		$this->json['unit_choices']   = $this->unit_choices;
 
 	}
+	/**
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-slider/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-slider/';
+
+		wp_enqueue_script( 'kemet-responsive-slider', $js_uri . 'responsive-slider.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-responsive-slider', $css_uri . 'responsive-slider.css', null, KEMET_THEME_VERSION );
 	
+	}
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *

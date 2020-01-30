@@ -246,30 +246,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				}
 			}
 
-			//Extra Controls Script
-			wp_enqueue_style( 'custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/custom-controls' . '.min.css', null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/custom-controls'. '.min.js', array(), KEMET_THEME_VERSION, true );
-			wp_localize_script(
-				'custom-control-script', 'kemetCustomizerControlBackground', array(
-					'placeholder'  => __( 'No file selected', 'kemet' ),
-					'lessSettings' => __( 'Less Settings', 'kemet' ),
-					'moreSettings' => __( 'More Settings', 'kemet' ),
-				)
-			);
-			$kemet_typo_localize = array(
-				'inherit' => __( 'Inherit', 'kemet' ),
-				'100'     => __( 'Thin 100', 'kemet' ),
-				'200'     => __( 'Extra-Light 200', 'kemet' ),
-				'300'     => __( 'Light 300', 'kemet' ),
-				'400'     => __( 'Normal 400', 'kemet' ),
-				'500'     => __( 'Medium 500', 'kemet' ),
-				'600'     => __( 'Semi-Bold 600', 'kemet' ),
-				'700'     => __( 'Bold 700', 'kemet' ),
-				'800'     => __( 'Extra-Bold 800', 'kemet' ),
-				'900'     => __( 'Ultra-Bold 900', 'kemet' ),
-			);
-
-			wp_localize_script( 'custom-control-script', 'kemetTypo', $kemet_typo_localize );
 			// Customizer Core.
 			wp_enqueue_script( 'kemet-customizer-dependency', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
@@ -279,7 +255,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			
 			// Customizer Controls.
 			wp_enqueue_style( 'kemet-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
-
 			wp_localize_script(
 				'kemet-customizer-dependency', 'kemet', apply_filters(
 					'kemet_theme_customizer_js_localize', array(

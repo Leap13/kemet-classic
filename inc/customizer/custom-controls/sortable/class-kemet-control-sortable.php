@@ -53,6 +53,20 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 		$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
 
 	}
+	/**
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
+
+		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
+		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
+
+		wp_enqueue_script( 'kemet-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'kemet-sortable-css', $css_uri . 'sortable.css', null, KEMET_THEME_VERSION );
+
+	}
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
