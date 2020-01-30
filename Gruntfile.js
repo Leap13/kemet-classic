@@ -354,6 +354,7 @@ module.exports = function (grunt) {
                         'inc/customizer/custom-controls/responsive/responsive.css',
                         'inc/customizer/custom-controls/responsive-select/responsive-select.css',
                         'inc/customizer/custom-controls/responsive-slider/responsive-slider.css',
+                        'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css',
                         'inc/customizer/custom-controls/title/title.css'
                     ],
                     dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
@@ -369,6 +370,7 @@ module.exports = function (grunt) {
                         'inc/customizer/custom-controls/responsive/responsive.js',
                         'inc/customizer/custom-controls/responsive-select/responsive-select.js',
                         'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
+                        'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
                         'inc/customizer/custom-controls/title/title.js'
                     ],
                     dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js'

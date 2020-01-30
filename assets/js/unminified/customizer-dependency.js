@@ -10,7 +10,7 @@
 
     /* Internal shorthand */
     var api = wp.customize;
-    
+    console.log(api);
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
@@ -32,10 +32,53 @@
             $this.checkDependency();
             
             api.bind('change', function ( setting, data ) {
-                $this.checkDependency();
+                var has_dependents = $this.hasDependentControls(setting.id);
+
+                if (has_dependents) {
+                    $this.checkDependency();
+                }
             });
         },
 
+        /**
+         * 
+         * Check if control in dependency array
+         */
+        hasDependentControls: function (control_id) {
+
+            var check = false;
+
+            $.each(kemet.config, function (index, val) {
+
+                if (!_.isUndefined(val.conditions)) {
+
+                    var conditions = val.conditions;
+
+                    $.each(conditions, function (index, val) {
+
+                        var control = val[0];
+
+                        if (control_id == control) {
+                            check = true;
+                            return;
+                        }
+                    });
+
+                } else {
+
+                    var control = val[0];
+
+                    if (control_id == control) {
+                        check = true;
+                        return;
+                    }
+                }
+
+            });
+
+            return check;
+
+        },
 
 		/**
 		 * Check Control Dependency.

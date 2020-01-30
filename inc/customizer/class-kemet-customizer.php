@@ -60,6 +60,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
+			add_action( 'wp_enqueue_scripts', array( $this,'load_dashicons_front_end') );
 			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 		}
 
@@ -222,7 +223,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 
 		}
-
+		
+		//Dashicons
+		function load_dashicons_front_end() {
+		wp_enqueue_style( 'dashicons' );
+		}
 		/**
 		 * Customizer Controls
 		 *
@@ -245,9 +250,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					$css_prefix = '-rtl.css';
 				}
 			}
-
+			
 			// Customizer Core.
-			wp_enqueue_script( 'kemet-customizer-dependency', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'kemet-customizer-dependency-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'kemet-extend-customizer-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
@@ -256,7 +261,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Customizer Controls.
 			wp_enqueue_style( 'kemet-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
 			wp_localize_script(
-				'kemet-customizer-dependency', 'kemet', apply_filters(
+				'kemet-customizer-dependency-js', 'kemet', apply_filters(
 					'kemet_theme_customizer_js_localize', array(
 						'theme'      => array(
 							'option' => KEMET_THEME_SETTINGS,
@@ -266,8 +271,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				)
 			);
 			//Extra Controls Script
-			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/unminified/custom-controls' . '.css', null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kemet-custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/unminified/custom-controls' .  '.js' , array( 'jquery', 'customize-base', 'kemet-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ) , KEMET_THEME_VERSION, true );
+			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/custom-controls' . '.min.css', null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'kemet-custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/custom-controls' .  '.min.js' , array( 'jquery', 'customize-base', 'kemet-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ) , KEMET_THEME_VERSION, true );
 		}
 
 		/**
