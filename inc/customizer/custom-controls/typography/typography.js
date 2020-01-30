@@ -27,7 +27,7 @@
 			var $this = this;
 			$('.customize-control-kmt-font-family select').each(function () { $this.initFont($(this)); });
 			$('.customize-control-kmt-font-family select').bind('change', function () { $this.initFont($(this)); });
-			//$('.customize-control-kmt-font-family select').selectWoo();
+			$('.customize-control-kmt-font-family select').selectWoo();
 		},
 
 		/**
