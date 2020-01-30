@@ -75,20 +75,6 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 		}
 
 	}
-	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive/';
-
-		wp_enqueue_script( 'kemet-responsive', $js_uri . 'responsive.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'kemet-responsive-css', $css_uri . 'responsive.css', null, KEMET_THEME_VERSION );
-
-	}
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
