@@ -58,6 +58,16 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'inc/customizer/custom-controls/assets/css/unminified/',
+                            src: [
+                                '*.css',
+                                '!*-rtl.css',
+                            ],
+                            dest: 'inc/customizer/custom-controls/assets/css/unminified/',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
@@ -187,6 +197,10 @@ module.exports = function (grunt) {
                             src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
                             dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css'
                         },
+                        {
+                            src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css'
+                        },
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
@@ -197,7 +211,14 @@ module.exports = function (grunt) {
                     		src: 'assets/css/unminified/style-rtl.css',
 	                        dest: 'assets/css/minified/style.min-rtl.css',
 	                    },
-
+                        {
+                            src: 'assets/css/unminified/extend-customizer-rtl.css',
+                            dest: 'assets/css/minified/extend-customizer-rtl.min.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/customizer-controls-rtl.css',
+                            dest: 'assets/css/minified/customizer-controls-rtl.min.css',
+                        },
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
@@ -346,7 +367,8 @@ module.exports = function (grunt) {
             concat: {
                 css: {
                     src: [
-                        'inc/customizer/custom-controls/sortable/sortable.css' , 
+                        'inc/customizer/custom-controls/background/background.css' , 
+                        'inc/customizer/custom-controls/sortable/sortable.css',
                         'inc/customizer/custom-controls/slider/slider.css',
                         'inc/customizer/custom-controls/color/color.css',
                         'inc/customizer/custom-controls/icon-select/icon-select.css',

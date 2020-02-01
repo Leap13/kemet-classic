@@ -142,8 +142,9 @@
 				} else {
 					selected = weightObject[i] == weightValue ? ' selected="selected"' : '';
 				}
-
-				weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
+				if ('undefined' != typeof weightMap[weightObject[i]]){
+					weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
+				}
 			}
 
 			weightSelect.html(weightOptions);

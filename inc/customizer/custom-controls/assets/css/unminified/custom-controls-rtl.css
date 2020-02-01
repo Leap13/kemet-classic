@@ -53,11 +53,11 @@
   margin-top: 12px;
   display: block;
   padding: 5px 0 5px 0;
-  float: right;
+  float: left;
 }
 
 .customize-control-kmt-background .arrow-icon {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .customize-control-kmt-sortable ul.ui-sortable {
@@ -76,11 +76,11 @@
 }
 
 .customize-control-kmt-sortable ul.ui-sortable li .dashicons.dashicons-menu {
-  float: right;
+  float: left;
 }
 
 .customize-control-kmt-sortable ul.ui-sortable li .dashicons.visibility {
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .customize-control-kmt-sortable ul.ui-sortable li.invisible {
@@ -179,7 +179,7 @@
 
 .customize-control-kmt-slider .kemet_range_value {
   font-size: 14px;
-  padding: 0 0 0 5px;
+  padding: 0 5px 0 0;
   font-weight: 400;
   position: relative;
 }
@@ -188,7 +188,7 @@
   color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: -28px;
-  right: 0;
+  left: 0;
   /*float: right;*/
   display: inline-block;
   -webkit-transition: color 0.5s ease-in;
@@ -215,7 +215,7 @@
 }
 
 .kemet_range_value .kmt-range-unit {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .customize-control-kmt-color .wp-color-result span {
@@ -277,7 +277,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 .customize-control-kmt-radio-image label {
   position: relative;
   display: inline-block;
-  margin: 0 5px 5px 0;
+  margin: 0 0 5px 5px;
 }
 .customize-control-kmt-radio-image .image{
   display: flex;
@@ -317,8 +317,8 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
   right: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -329,7 +329,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 }
 
 .kmt-responsive-btns {
-  float: right;
+  float: left;
   line-height: 1;
   margin-top: 5px;
 }
@@ -361,7 +361,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 .customize-control-kmt-responsive .input-wrapper input {
   display: none;
   width: calc(100% - 52px);
-  float: left;
+  float: right;
 }
 
 .customize-control-kmt-responsive .input-wrapper input.active {
@@ -373,7 +373,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   margin: 0;
   display: none;
   padding: .1em;
-  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .customize-control-kmt-responsive .input-wrapper .kmt-responsive-input.active + .kmt-responsive-select {
@@ -386,7 +386,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 }
 
 .kmt-responsive-btns {
-  float: right;
+  float: left;
   line-height: 1;
   margin-top: 5px;
 }
@@ -511,7 +511,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .customize-control-kmt-responsive-slider .kemet_range_value {
 	font-size: 14px;
-	padding: 0 0 0 5px;
+	padding: 0 5px 0 0;
 	font-weight: 400;
 	position: relative;
 }
@@ -547,7 +547,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 }
 
 .kemet_range_value .kmt-range-unit {
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .customize-control-kmt-responsive-slider .input-field-wrapper {
@@ -571,12 +571,12 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
     font-size: 11px;
     text-transform: uppercase;
     top: -50px;
-    right: 1px;
+    left: 1px;
 }
 
 .customize-control-kmt-responsive-slider .kmt-slider-responsive-units li.single-unit {
   display: inline-block;
-  margin-left: 6px;
+  margin-right: 6px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -596,7 +596,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .kmt-responsive-control-btns {
 	line-height: 1;
-    padding-left: 5px;
+    padding-right: 5px;
 	margin-bottom: 7px;
 	display: inline-block;
 }
@@ -644,12 +644,12 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   font-size: 11px;
   text-transform: uppercase;
   top: 0;
-  right: 0;
+  left: 0;
 }
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units li.single-unit {
   display: inline-block;
-  margin-left: 6px;
+  margin-right: 6px;
   width: 16px;
   text-align: center;
   user-select: none;

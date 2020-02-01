@@ -1644,11 +1644,11 @@ a:hover {
 }
 
 .align-right {
-  text-align: left;
+  text-align: right;
 }
 
 .align-left {
-  text-align: right;
+  text-align: left;
 }
 
 .align-center {
@@ -2810,12 +2810,12 @@ body {
   text-align: right;
 }
 
-.header-main-layout-1.menu-left .kmt-main-header-bar-alignment {
+.header-main-layout-1.menu-right .kmt-main-header-bar-alignment {
   margin-left: auto;
   margin-right: 0;
 }
 
-.header-main-layout-1.menu-right .kmt-main-header-bar-alignment {
+.header-main-layout-1.menu-left .kmt-main-header-bar-alignment {
   margin-right: auto;
   margin-left: 0;
 }

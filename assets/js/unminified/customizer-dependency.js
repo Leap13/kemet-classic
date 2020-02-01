@@ -10,7 +10,7 @@
 
     /* Internal shorthand */
     var api = wp.customize;
-    console.log(api);
+    
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
