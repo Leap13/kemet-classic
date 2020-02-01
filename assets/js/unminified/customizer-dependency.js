@@ -120,9 +120,9 @@
                     this.checked_controls[id] = check;
 
                     if (!check) {
-                        control.container.slideUp(50);
+                        control.container.addClass('kmt-hide');
                     } else {
-                        control.container.slideDown(50);
+                        control.container.removeClass('kmt-hide');
                     }
                 }
             }
