@@ -119,7 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         )
     );
 
-    /**
+        /**
          * Option: Blog Post Archive
          */
         $wp_customize->add_setting(
@@ -270,7 +270,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         )
     );
-    /**
+        /**
         * Option: Title
         */
         $wp_customize->add_control(

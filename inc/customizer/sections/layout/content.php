@@ -94,7 +94,6 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
             'type'        => 'kmt-font-family',
-            //'kmt_inherit' => __( 'Default System Font', 'kemet' ),
             'section'     => 'section-contents',
             'priority'    => 15,
             'label'       => __( 'Font Family', 'kemet' ),
@@ -117,7 +116,6 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
             'type'        => 'kmt-font-weight',
-            //'kmt_inherit' => __( 'Default', 'kemet' ),
             'section'     => 'section-contents',
             'priority'    => 20,
             'label'       => __( 'Font Weight', 'kemet' ),

@@ -818,6 +818,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
+	/**
+	* Option: Font Family
+	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
 			'default'           => kemet_get_option( 'sub-menu-items-font-family' ),
@@ -1068,7 +1071,7 @@ $header_rt_sections = array(
 		)
 	);
 
-/**
+	/**
 	 * Option: Sub menu Border Color
 	 */
 	$wp_customize->add_setting(
@@ -1173,7 +1176,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Menu Icon Background Color
+	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
 			'default'           => kemet_get_option( 'mobile-menu-icon-bg-color' ),
@@ -1190,7 +1195,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Menu Icon Hover Color
+	*/
 		$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
 			'default'           => kemet_get_option( 'mobile-menu-icon-h-color' ),
@@ -1208,7 +1215,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Menu Icon Background Hover Color
+	*/
 	$wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
 		'default'           => kemet_get_option( 'mobile-menu-icon-bg-h-color' ),
@@ -1225,7 +1234,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Menu Links Color
+	*/
 		$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
 			'default'           => kemet_get_option( 'mobile-menu-items-color' ),
@@ -1243,7 +1254,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Menu Links Background Color
+	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
 			'default'           => kemet_get_option( 'mobile-menu-items-bg-color' ),
@@ -1260,6 +1273,9 @@ $header_rt_sections = array(
 			)
 		)
 	);
+	/**
+	 * Option: Menu Links Hover Color
+	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
 			'default'           => kemet_get_option( 'mobile-menu-items-h-color' ),
