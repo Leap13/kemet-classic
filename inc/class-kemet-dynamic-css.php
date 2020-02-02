@@ -673,9 +673,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer a:hover, .kemet-footer .no-widget-text a:hover, .kemet-footer a:focus, .kemet-footer .no-widget-text a:focus' => array(
 					'color' => esc_attr( $kemet_footer_link_h_color ),
 				),
-				'.kemet-footer .widget , .kmt-footer-copyright .widget' => array(
-					'background-color' => esc_attr( $kemet_footer_widget_bg_color ),
-				),
 				'.kemet-footer .calendar_wrap #today, .kemet-footer a:hover + .post-count' => array(
 					'background-color' => esc_attr( $kemet_footer_link_color ),
 				),
@@ -700,6 +697,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $footer_widget_padding,'bottom','desktop' ),
 					'padding-right'  => kemet_responsive_spacing( $footer_widget_padding,'right' ,'desktop' ),
 					'padding-left'   => kemet_responsive_spacing( $footer_widget_padding,'left'  ,'desktop' ),
+					'background-color' => esc_attr( $kemet_footer_widget_bg_color ),
 				),
 				// Single Post Meta.
 				'.kmt-comment-meta'                       => array(
