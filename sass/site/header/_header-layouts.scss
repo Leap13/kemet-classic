@@ -531,11 +531,9 @@
 	}
 }
 .kmt-header-break-point{
-	.main-navigation{
-		.kmt-sitehead-custom-menu-items{
-			&.hide-on-mobile{
-				display: none !important;
-			}
+	.kmt-sitehead-custom-menu-items{
+		&.hide-on-mobile{
+			display: none !important;
 		}
 	}
 }

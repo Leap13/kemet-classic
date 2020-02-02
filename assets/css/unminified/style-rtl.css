@@ -3432,7 +3432,7 @@ body {
   box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
 }
 
-.kmt-header-break-point .main-navigation .kmt-sitehead-custom-menu-items.hide-on-mobile {
+.kmt-header-break-point .kmt-sitehead-custom-menu-items.hide-on-mobile {
   display: none !important;
 }
 
