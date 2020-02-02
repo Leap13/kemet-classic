@@ -63,7 +63,7 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
-						printf ($value);
+						echo ($value);
 					}
 				}
 				?>
