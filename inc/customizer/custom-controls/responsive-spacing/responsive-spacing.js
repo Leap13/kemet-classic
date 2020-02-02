@@ -17,9 +17,6 @@
 		    
 		    control.kmtResponsiveInit();
 
-			// Set the spacing container.
-			// this.container = control.container.find( 'ul.kmt-spacing-wrapper' ).first();
-
 			// Save the value.
 			this.container.on( 'change keyup paste', 'input.kmt-spacing-input', function() {
 

@@ -56,10 +56,6 @@
   float: left;
 }
 
-.customize-control-kmt-background .arrow-icon {
-  margin-right: 5px;
-}
-
 .customize-control-kmt-sortable ul.ui-sortable {
   cursor: default;
 }
@@ -189,7 +185,6 @@
   position: absolute;
   top: -28px;
   left: 0;
-  /*float: right;*/
   display: inline-block;
   -webkit-transition: color 0.5s ease-in;
   -moz-transition: color 0.5s ease-in;
@@ -515,30 +510,6 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 	font-weight: 400;
 	position: relative;
 }
-
-/* .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset {
-    color: rgba(0, 0, 0, 0.2);
-    -webkit-transition: color 0.5s ease-in;
-    -moz-transition: color 0.5s ease-in;
-    -ms-transition: color 0.5s ease-in;
-    -o-transition: color 0.5s ease-in;
-    transition: color 0.5s ease-in;
-    right: -10px;
-    top: -25px;
-    position: relative;
-    display: block;
-    float: right;
-}
-
-.customize-control-kmt-responsive-slider .kmt-responsive-slider-reset span {
-	font-size: 13px;
-	line-height: 24px;
-}
-
-.customize-control-kmt-responsive-slider .kmt-responsive-slider-reset:hover, .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset:focus {
-	color: red;
-} */
-
 .kemet_range_value input.kmt-responsive-range-value-input {
 	width: 50px;
 	height: 22px;

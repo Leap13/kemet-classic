@@ -77,7 +77,9 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 
 		wp_enqueue_script( 'kemet-typography', $uri . 'typography.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
 
-		$kemet_typo_localize = array(
+		wp_localize_script( 'kemet-typography', 
+		'kemetTypo',
+		array(
 			'inherit' => __( 'Inherit', 'kemet' ),
 			'100'     => __( 'Thin 100', 'kemet' ),
 			'200'     => __( 'Extra-Light 200', 'kemet' ),
@@ -88,9 +90,8 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 			'700'     => __( 'Bold 700', 'kemet' ),
 			'800'     => __( 'Extra-Bold 800', 'kemet' ),
 			'900'     => __( 'Ultra-Bold 900', 'kemet' ),
-		);
-
-		wp_localize_script( 'kemet-typography', 'kemetTypo', $kemet_typo_localize );
+		)
+	 );
 
 	}
 

@@ -158,6 +158,7 @@
 
 	$(function () { KmtTypography.init(); });
 	$(function () {
+		//Inline Style
 		var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-kmt-font-weight');
 		font_weight_controls.each(function () {
 			var font_weight_control = jQuery(this);
