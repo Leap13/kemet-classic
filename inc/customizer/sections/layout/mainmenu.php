@@ -323,9 +323,9 @@ $header_rt_sections = array(
 					'type'              => 'option',
 					'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices'),
 					'dependency'  => array(
-						'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]/'.KEMET_THEME_SETTINGS . '[header-layouts]/'.KEMET_THEME_SETTINGS . '[header-layouts]', 
-						'conditions' => '==/==/==', 
-						'values' => 'header-main-layout-1/header-main-layout-2/header-main-layout-3',
+						'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]/'.KEMET_THEME_SETTINGS . '[header-layouts]', 
+						'conditions' => '==/==', 
+						'values' => 'header-main-layout-1/header-main-layout-2',
 					), 
 			)
 	);

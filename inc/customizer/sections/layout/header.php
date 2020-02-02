@@ -56,12 +56,35 @@ $wp_customize->add_control(
                     'label' => __( 'Header 3', 'kemet' ),
                     'path'  => KEMET_THEME_URI . 'assets/images/header-layout-03.png',
                 ),
-                'header-main-layout-4' => array(
-                    'label' => __( 'Header 4', 'kemet' ),
-                    'path'  => KEMET_THEME_URI . 'assets/images/header-layout-04.png',
-                ),
             ),
         )
+    )
+);
+/**
+* Option: Header 1 Logo Position
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[header-logo-position]', array(
+		'default'           => kemet_get_option( 'header-logo-position' ),
+		'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]', 
+            'conditions' => '==', 
+            'values' => 'header-main-layout-1',
+        ),
+	)
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[header-logo-position]', array(
+        'type'     => 'select',
+        'section'  => 'section-header',
+        'priority' => 25,
+        'label'    => __( 'Logo Position', 'kemet' ),
+        'choices'  => array(
+            '' => __( 'Left', 'kemet' ),
+            'reverse'    => __( 'Right', 'kemet' ),
+        ),
     )
 );
 /**
@@ -75,7 +98,7 @@ $wp_customize->add_setting(
         'dependency'  => array(
             'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]', 
             'conditions' => '==', 
-            'values' => 'header-main-layout-3',
+            'values' => 'header-main-layout-2',
         ),
 	)
 );
@@ -104,7 +127,7 @@ $wp_customize->add_setting(
         'dependency'  => array(
             'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]/' . KEMET_THEME_SETTINGS . '[header-right-section]', 
             'conditions' => '==/==', 
-            'values' => 'header-main-layout-3/menu',
+            'values' => 'header-main-layout-2/menu',
             'operators' => '&&'
         ),
 	)

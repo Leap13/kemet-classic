@@ -482,7 +482,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-header-custom-item a' => array(
 					'color' => esc_attr( $text_color ),
 				),
-				'.main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon' => array(
+				'.main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon' => array(
 					'border-bottom-width' => kemet_responsive_slider( $header_separator, 'desktop' ),
 				),
 				// Main - Menu Items.
@@ -1615,7 +1615,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			}
 
 			$meta_style = array(
-				'.main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon' => array(
+				'.main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon' => array(
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
 			);

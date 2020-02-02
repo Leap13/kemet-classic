@@ -563,7 +563,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Header Bottom Border width
 	 */
-	kemet_responsive_slider('kemet-settings[header-main-sep]', 'body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon', 'border-bottom-width');
+	kemet_responsive_slider('kemet-settings[header-main-sep]', 'body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon', 'border-bottom-width');
 
 	/**
      * widget Padding
@@ -596,7 +596,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 			if (color) {
 
-				var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-5 .main-header-container.logo-menu-icon { border-bottom-color: ' + color + '; } ';
+				var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon { border-bottom-color: ' + color + '; } ';
 				dynamicStyle += ' body.kmt-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
 
 				kemet_add_dynamic_css('header-main-sep-color', dynamicStyle);

@@ -243,6 +243,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-attachment' => 'scroll',
 					),
 					'header-right-section'             => 'none',
+					'header-logo-position'             => '',
 
 					// Sub Menu 
 					'submenu-border-color'			=> '',			

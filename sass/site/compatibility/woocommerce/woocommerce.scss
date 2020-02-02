@@ -227,8 +227,8 @@ p.demo_store,
 	}
 }
 
-.woocommerce .header-main-layout-2 .main-header-bar-wrap,
-.header-main-layout-2 .main-header-bar-wrap {
+.woocommerce .header-main-layout-1.reverse .main-header-bar-wrap,
+.header-main-layout-1.reverse .main-header-bar-wrap {
 	.kmt-site-header-cart {
 		.widget_shopping_cart {
 			right: auto;
@@ -297,7 +297,7 @@ p.demo_store,
 	 /** 
 	 * Header layout 3
 	 */
-	 .header-main-layout-2 {
+	 .header-main-layout-1.reverse {
 		/* No primary menu & no custom menu items */
 		&.kmt-no-menu-items {
     	 	.kmt-site-header-cart {
@@ -313,7 +313,7 @@ p.demo_store,
 		/** 
 	 * Header layout 2
 	 */
-	.header-main-layout-3 {
+	.header-main-layout-2 {
     	.main-header-container{
     		display: flex; 
 			justify-content: center;
@@ -359,7 +359,7 @@ p.demo_store,
 
 	    }
 
-	    .header-main-layout-2 {
+	    .header-main-layout-1.reverse {
 	    	.kmt-site-header-cart{
 	        	padding: 0 0 1em 1em;
 	        }
@@ -374,7 +374,7 @@ p.demo_store,
 
     	@media (max-width: $mx-col-sm) {
 	     	.header-main-layout-1,
-	     	.header-main-layout-2 {
+	     	.header-main-layout-1.reverse {
 	    	 	&.kmt-mobile-header-stack{
 	    	 		&.kmt-no-menu-items {
 	    	 			.kmt-site-header-cart{
@@ -393,14 +393,14 @@ p.demo_store,
 	    	 		}
     	 		}
 			}
-			.header-main-layout-3 {
+			.header-main-layout-2 {
 				&.kmt-mobile-header-inline{
 					.site-branding{
 						flex: auto;
 					}
 				}
 			}
-			.header-main-layout-2{
+			.header-main-layout-1.reverse{
 		 		&.kmt-mobile-header-stack{
 		 			.site-branding {
 		 				flex: 0 0 100%;
@@ -3925,14 +3925,14 @@ button.pswp__button--zoom:hover {
 .kmt-safari-browser-less-than-11 {
 
 	&.kmt-woocommerce-cart-menu {
-		.header-main-layout-3{
+		.header-main-layout-2{
 			.main-header-container {
 	  			display: block
 	  		}
 	  	}
 
 	  	&.kmt-header-custom-item-outside {
-	  		.header-main-layout-3 { 
+	  		.header-main-layout-2 { 
 	  			.main-header-container {
 			  		text-align: center;
 			  	}
@@ -3948,7 +3948,7 @@ button.pswp__button--zoom:hover {
 
 	&.kmt-woocommerce-cart-menu {
 		&.kmt-header-break-point {
-			.header-main-layout-3{
+			.header-main-layout-2{
 				.main-header-container {
 		  			display: flex;
 		  		}

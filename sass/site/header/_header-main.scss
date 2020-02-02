@@ -160,13 +160,13 @@ li.kmt-sitehead-custom-menu-items {
 		text-align: right;
 	}
 
-	&.header-main-layout-3 {
+	&.header-main-layout-2 {
 		.kmt-sitehead-custom-menu-items {
 			text-align: center;
 		}
 	}
 	
-	&.header-main-layout-2 {
+	&.header-main-layout-1.reverse {
 		.kmt-sitehead-custom-menu-items {
 			text-align: left;
 		}
@@ -356,7 +356,7 @@ li.kmt-sitehead-custom-menu-items {
 			order: 1;
 		}
 
-		.header-main-layout-3 {
+		.header-main-layout-2 {
 			.kmt-sitehead-custom-menu-items {
 				text-align: center;
 			}

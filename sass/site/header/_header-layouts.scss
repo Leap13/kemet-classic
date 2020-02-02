@@ -45,6 +45,7 @@
 	}
 	.kmt-main-header-bar-alignment {
 		margin-left: auto;
+		margin-right: 0;
 	}
 	.main-navigation {
 		padding-left: 15px;
@@ -67,7 +68,7 @@
 /**
  *  2 - Header Layout 2
 */
-.header-main-layout-2 {
+.header-main-layout-1.reverse {
 	.kmt-search-menu-icon{
 		right: auto;
 		left: 30px;
@@ -99,6 +100,7 @@
 	}
 	.kmt-main-header-bar-alignment {
 		margin-right: auto;
+		margin-left: 0;
 	}
 	.main-navigation {
 		padding-right: 15px;
@@ -118,7 +120,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-2 {
+	.header-main-layout-1.reverse {
 		.main-header-container{
 		  flex-direction: row-reverse;
 		}
@@ -149,7 +151,7 @@
 /**
  * 3 - Header Layout 3
 */
-.header-main-layout-3 {
+.header-main-layout-2 {
 	.kmt-header-logo-right-section{
 		width: 100%;
 		display: flex;
@@ -282,7 +284,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-3 {
+	.header-main-layout-2 {
 		.kmt-header-logo-right-section{
 			.kmt-mobile-menu-buttons{
 				padding: 10px;
@@ -335,7 +337,7 @@
 	.site-logo-img{
 		padding-right: 1em;
 	}
-	&.header-main-layout-3{
+	&.header-main-layout-2{
 		.site-logo-img + .kmt-site-title-wrap .site-title{
 			justify-content: flex-start;
 		}
@@ -395,7 +397,7 @@
  *  4 - Header Layout 4
 */
 .kmt-header-break-point{
-	.header-main-layout-4 {
+	.header-main-layout-3 {
 		.main-header-container{
 			ul#primary-menu , ul#left-menu{
 			position: static;
@@ -413,7 +415,7 @@
 	}
 }
 
-.header-main-layout-4 {
+.header-main-layout-3 {
 	.main-header-container
 	{
 		position: relative;
