@@ -106,6 +106,19 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 			)
 		);
 
+		register_sidebar(
+			apply_filters(
+				'kemet_header_right_section', array(
+				'name'          => esc_html__( 'Header Right Section', 'kemet' ),
+				'id'            => 'header-right-section',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
+			)
+			)
+		);
+		
 		/**
 		 * Register Footer Bar Widgets area
 		 */
@@ -132,22 +145,6 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
 					'after_title'   => '</h4></div></div>',
 				)
-			)
-		);
-
-		/**
-		 * Register Top Section2 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_header_right_section', array(
-				'name'          => esc_html__( 'Header Right Section', 'kemet' ),
-				'id'            => 'header-right-section',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
-				'after_title'   => '</h4></div></div>',
-			)
 			)
 		);
 

@@ -133,7 +133,7 @@
 			'priority' => 35,
 		)
 	);
-
+	// Blog
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-group',
@@ -144,7 +144,7 @@
 			)
 		)
 	);
-
+	//Blog/Archive
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog',
@@ -156,7 +156,7 @@
 			)
 		)
 	);
-
+	//Single Post
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-single',
