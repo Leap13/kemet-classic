@@ -210,7 +210,7 @@
     // Base Colors Main Panel
 	$wp_customize->add_section(
 		'section-colors-body', array(
-			'title'    => __( 'Colors', 'kemet' ),
+			'title'    => __( 'Global Colors', 'kemet' ),
 			'priority' => 15,
 		)
 	);
