@@ -69,31 +69,18 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$header_layouts = kemet_get_option('header-layouts');
 			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2'){
 				$menu_aglin 	= kemet_get_option('menu-alignment');
-				$rtl_menu_algin = '';
-				if(is_rtl()){
-					switch ( $menu_aglin ) {
 
-						case 'menu-left':
-							$rtl_menu_algin = 'menu-right';
-							break;
-						case 'menu-right':
-							$rtl_menu_algin = 'menu-left';
-							
-							break;
-						case 'menu-center':
-							$rtl_menu_algin = 'menu-center';
-							
-							break;			
-					}
-				}
-				$classes[] = is_rtl() ? $rtl_menu_algin : $menu_aglin;
+				$classes[] = $menu_aglin;
 			}
 			if($header_layouts == 'header-main-layout-1'){
 				$logo_position 	= kemet_get_option('header-logo-position');
+				$rtl_class = 'menu-rtl' ;
+				
 				if(is_rtl()){
 					$rtl_logo_position = $logo_position == '' ? 'reverse' : ''; 
+					$rtl_class = 'menu-ltr' ;
 				}
-				 
+			    $classes[] = $rtl_class;
 				$classes[] = is_rtl() ? $rtl_logo_position : $logo_position;
 			}
 
