@@ -60,7 +60,19 @@ class Kemet_Control_Color extends WP_Customize_Control {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
 	}
+/**
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
 
+		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/group/';
+		
+		wp_enqueue_style( 'group-style', $uri . 'group.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'group-script', $uri . 'group.js', array( 'jquery' ), KEMET_THEME_VERSION, true );
+
+    }
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *

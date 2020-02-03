@@ -35,6 +35,15 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		private static $_dependency_arr = array();
+
+		/**
+		 * Customizer Group Control.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $groups_arr = array();
+
 		/**
 		 * Initiator
 		 */
@@ -138,6 +147,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$this->update_dependency_arr( $setting_id, $dependency );
             }
 
+			if(isset($setting_args['parent']) && !empty($setting_args['parent'])){
+				$this->update_groups_arr( $setting_args['parent'] , $setting_id );
+			}
+
             return $setting_args;
         }
 		/**
@@ -160,6 +173,26 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			return self::$_dependency_arr;
 		}
 		
+		/**
+		 * Update groups in the groups array.
+		 *
+		 * @param String $key name of the Setting/Control for which the groups is added.
+		 * @param Array  $groups groups of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_groups_arr( $key, $dependency ) {
+			self::$groups_arr[ $key ][] = $dependency;
+		}
+
+		/**
+		 * Get groups Array.
+		 *
+		 * @return Array Dependencies discovered when registering controls and settings.
+		 */
+		private function get_groups_arr() {
+			return self::$groups_arr;
+		}
+
 		/**
 		 * Register custom section and panel.
 		 *
@@ -190,6 +223,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Title' );
 			$wp_customize->register_control_type( 'Kemet_Control_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
+			$wp_customize->register_control_type( 'Kemet_Control_Group' );
 
 			/**
 			 * Helper files
@@ -281,6 +315,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 						'config'     => $this->get_dependency_arr(),
 					)
 				)
+			);
+			wp_localize_script(
+				'group-script', 
+				'KmtGroups',
+				$this->get_groups_arr() 
 			);
 			//Extra Controls Script
 			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix , null, KEMET_THEME_VERSION );
