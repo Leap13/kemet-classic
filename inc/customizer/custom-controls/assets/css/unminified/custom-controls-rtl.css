@@ -691,3 +691,9 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
     padding: 7px 10px;
     margin-bottom: 0px;
 }
+.customize-control-kmt-notice{
+    padding-top: 20px;
+}
+.customize-control-kmt-notice .description.customize-control-description{
+    margin-bottom: 10px;
+}

@@ -260,8 +260,51 @@ if ( ! function_exists( 'kemet_get_font_family' ) ) {
 		return $value;
 	}
 }
+/**
+ * Check Plugin
+ */
+if ( ! function_exists( 'kemet_check_plugin' ) ) {
 
+	/**
+	 *
+	 * @param  string $value       String.
+	 * @return mixed boolean
+	 */
+	function kemet_check_plugin( $plugin = '' ) {
+		$check = false;
 
+		$plugins = get_plugins();
+		$plugin_path = $plugin . '/'. $plugin . '.php';
+		if(isset($plugins[$plugin_path])){
+			$check = true;
+		}
+		
+		return $check;
+	}
+}
+/**
+ * Check Plugin if Active
+ */
+if ( ! function_exists( 'kemet_is_addons_active' ) ) {
+
+	/**
+	 *
+	 * @param  string $value       String.
+	 * @return mixed boolean
+	 */
+	function kemet_is_addons_active( $plugin = '' ) {
+		$check = false;
+
+		$plugins = get_plugins();
+		$plugin_path = $plugin . '/'. $plugin . '.php';
+
+		if(isset($plugins[$plugin_path]) && is_plugin_active($plugin_path)){
+			$check = true;
+		}
+
+		return $check;
+	}
+}
 /**
  * Get CSS value
  */

@@ -256,3 +256,26 @@ $wp_customize->add_control(
 
 
 
+/**
+* Option: Get Kemet Addons Notice
+*/
+if(! kemet_is_addons_active('kemet-addons')){
+
+    $wp_customize->add_control(
+        new Kemet_Control_Notice(
+            $wp_customize, KEMET_THEME_SETTINGS . '[kemet-addons-header-notice]', array(
+                'type'     => 'kmt-notice',
+                'description' => kemet_check_plugin('kemet-addons') ?  __( 'For More Options Activate Kemet Addons', 'kemet' ) : __( 'For More Options Install Kemet Addons', 'kemet' ),
+                'button' => array(
+                    'url' => get_dashboard_url() ,
+                    'text' => kemet_check_plugin('kemet-addons') ? __( 'Active Now', 'kemet' ) : __( 'Get Now', 'kemet' ),
+                    'target' => '_blank'
+                    ),
+                'section'  => 'section-header',
+                'priority' => 999,
+                'settings' => array(),
+            )
+        )
+    );
+    
+}

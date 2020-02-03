@@ -11,6 +11,7 @@
 
 $control_dir = KEMET_THEME_DIR . 'inc/customizer/custom-controls';
 
+require $control_dir . '/notice/class-kemet-control-notice.php';
 require $control_dir . '/sortable/class-kemet-control-sortable.php';
 require $control_dir . '/radio-image/class-kemet-control-radio-image.php';
 require $control_dir . '/slider/class-kemet-control-slider.php';
