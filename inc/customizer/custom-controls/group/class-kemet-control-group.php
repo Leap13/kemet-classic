@@ -70,6 +70,8 @@ class Kemet_Control_Group extends WP_Customize_Control {
 			</label>
 		</div>
 		<div class="kmt-group-model">
+        <ul>
+        </ul>
 		</div>
 		<?php
 	}

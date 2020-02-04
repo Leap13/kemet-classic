@@ -9,8 +9,8 @@
 
     
     var api = wp.customize;
-    
-    wp.customize.controlConstructor['kmt-group'] = wp.customize.Control.extend({
+
+    KmtGroupControl = {
         
         ready: function () {
 
@@ -18,38 +18,48 @@
 
             var control = this;
 
-            control.getChlilderns();
+            var values = api.get();
 
+            _.each(values, function (value, id) {
+                var sub_control = api.control(id);
+                    
+                if (control.hasChild(id)) {
+
+                    control.getChlilderns(id);
+
+                }                
+            });
+            
+            
         },
 
-        hasChild: function () {
+        hasChild: function (control_id) {
 
             var check = false;
 
-            var control = this;
-
-            if (!_.isUndefined(KmtGroups[control.id])) {
+            if ('undefined' != typeof KmtGroups[control_id]) {
                 check = true;
             }
 
             return check;
         },
 
-        getChlilderns: function () {
+        getChlilderns: function (parentControl) {
+            var parentContainer = api.control(parentControl);
+            var model = parentContainer.container.find('.kmt-group-model ul');
+            var icon = parentContainer.container.find('.dashicons-edit');
 
-            var control = this;
-            var test = api.get();
-            var model = control.container.find('.kmt-group-model');
-
-            $.each(KmtGroups[control.id], function (index , val) {
+            $.each(KmtGroups[parentControl], function (index, val) {
+                var subControl = api.control(val).container;
+                var attr_id = subControl.attr('id');
+                var attr_class = subControl.attr('class');
                 
-                var parentControl = control.getControlId(val);
-
-                //api.control(val).container.prependTo($(model))
-                //api.control(val).container.find('div').hide();
-                //api.control(val).container.remove();
-                console.log();
+                $($(subControl).children()).wrap("<li id='" + attr_id +"' class='" + attr_class +"'></li>");
+                
+                $(subControl).children().prependTo($(model));
+                
             });
+            
         },
 
         getControlId: function(control){
@@ -58,6 +68,6 @@
             
             return id;
         }
-    });
-
+    }
+    $(function () { KmtGroupControl.ready(); });
 })(jQuery);
