@@ -148,23 +148,25 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'body-text-transform' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
-        
+        'parent'            => KEMET_THEME_SETTINGS . '[kmt-header-test-group]',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[body-text-transform]', array(
-        'type'     => 'select',
-        'section'  => 'section-contents',
-        'priority' => 25,
-        'label'    => __( 'Text Transform', 'kemet' ),
-        'choices'  => array(
-            ''           => __( 'Default', 'kemet' ),
-            'none'       => __( 'None', 'kemet' ),
-            'capitalize' => __( 'Capitalize', 'kemet' ),
-            'uppercase'  => __( 'Uppercase', 'kemet' ),
-            'lowercase'  => __( 'Lowercase', 'kemet' ),
-        ),
+    new Kemet_Control_Select(
+        $wp_customize, KEMET_THEME_SETTINGS . '[body-text-transform]', array(
+            'type'     => 'kmt-select',
+            'section'  => 'section-contents',
+            'priority' => 25,
+            'label'    => __( 'Text Transform', 'kemet' ),
+            'choices'  => array(
+                ''           => __( 'Default', 'kemet' ),
+                'none'       => __( 'None', 'kemet' ),
+                'capitalize' => __( 'Capitalize', 'kemet' ),
+                'uppercase'  => __( 'Uppercase', 'kemet' ),
+                'lowercase'  => __( 'Lowercase', 'kemet' ),
+            ),
+        )
     )
 );
 
@@ -203,6 +205,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[letter-spacing-body]', array(
         'default'           => kemet_get_option( 'letter-spacing-body' ),
         'type'              => 'option',
+        'parent'            => KEMET_THEME_SETTINGS . '[kmt-header-test-group]',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );

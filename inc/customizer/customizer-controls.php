@@ -24,3 +24,4 @@ require $control_dir . '/color/class-kemet-control-color.php';
 require $control_dir . '/background/class-kemet-control-background.php';
 require $control_dir . '/icon-select/class-kemet-control-icon-select.php';
 require $control_dir . '/group/class-kemet-control-group.php';
+require $control_dir . '/select/class-kemet-control-select.php';

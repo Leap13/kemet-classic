@@ -55,7 +55,8 @@
                 
                 $($(subControl).children()).wrap("<li id='" + attr_id + "' class='" + attr_class + "' data-control='" + val + "'></li>");
                 $(subControl).children().appendTo($(model));
-                
+                subControl.hide();
+
                 switch (subControlId.params.type) {
                     
                     case 'kmt-responsive-slider':
@@ -64,21 +65,15 @@
                         $('.kmt-group-model ul li#' + attr_id).on('input change', 'input[type=range]', function () {
                             var value = jQuery(this).val(),
                                 input_number = jQuery(this).closest('.input-field-wrapper').find('.kmt-responsive-range-value-input');
-
                             input_number.val(value);
-                            input_number.trigger('change');
-
                             $this.initResponsiveSlider('#' + attr_id , val);
                         });
 
                         // Save changes.
                         $('.kmt-group-model ul li#' + attr_id).on('input change', 'input[type=number]', function () {
                             var value = jQuery(this).val();
-                            jQuery(this).closest('.input-field-wrapper').find('input[type=range]').val(value);
-
+                            input_number = jQuery(this).closest('.input-field-wrapper').find('input[type=range]');
                             input_number.val(value);
-                            input_number.trigger('change');
-
                             $this.initResponsiveSlider('#' + attr_id, val);
                         });
 
@@ -165,6 +160,15 @@
                         });
 
                         break;
+                    case 'kmt-select':
+
+                        $('.kmt-group-model ul li#' + attr_id).on('change', 'select', function () {
+                            var value = $(this).val();
+
+                            api.control(val).setting.set(value);
+                        });
+
+                        break;    
                            
                 }
             });
