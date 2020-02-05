@@ -10,7 +10,7 @@
  */
 
 $control_dir = KEMET_THEME_DIR . 'inc/customizer/custom-controls';
-require $control_dir . '/hidden/class-kemet-control-hidden.php';
+
 require $control_dir . '/sortable/class-kemet-control-sortable.php';
 require $control_dir . '/radio-image/class-kemet-control-radio-image.php';
 require $control_dir . '/slider/class-kemet-control-slider.php';
