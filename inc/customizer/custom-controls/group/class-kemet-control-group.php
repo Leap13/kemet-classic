@@ -29,6 +29,14 @@ class Kemet_Control_Group extends WP_Customize_Control {
     public $type = 'kmt-group';
 
     /**
+    * The control childern.
+    *
+    * @access public
+    * @var array
+    */
+    public $childern = array();
+
+    /**
     * Refresh the parameters passed to the JavaScript via JSON.
     *
     * @see WP_Customize_Control::to_json()
@@ -40,7 +48,9 @@ class Kemet_Control_Group extends WP_Customize_Control {
         $this->json['description'] = $this->description;
         $this->json['label'] = esc_html( $this->label );
         $this->json['id']          = $this->id;
+        $this->json['childern']    = $this->childern;
 
+        //var_dump($this->childern);
     }
     
     /**
@@ -66,13 +76,16 @@ class Kemet_Control_Group extends WP_Customize_Control {
                     <# if ( data.description ) { #>
                         <span class="description customize-control-description">{{{ data.description }}}</span>
                     <# } #>
-					<span class="dashicons dashicons-edit"></span>
+					<span class="dashicons dashicons-edit model-button"></span>
 			</label>
-		</div>
-		<div class="kmt-group-model">
-        <ul>
-        </ul>
-		</div>
+        </div>
+        <div class="kmt-group-wrap">
+            <div class="kmt-group-model">
+                <ul class="model-list">
+                </ul>
+		    </div>
+        </div>
+		
 		<?php
 	}
 }

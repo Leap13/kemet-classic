@@ -78,6 +78,20 @@ $wp_customize->add_control(
         )
     )
 );
+/**
+* Option: Test Group
+*/
+$wp_customize->add_setting( KEMET_THEME_SETTINGS . '[kmt-header-test-group]', array());
+$wp_customize->add_control(
+    new Kemet_Control_Group(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-header-test-group]', array(
+            'type'     => 'kmt-group',
+            'label'    => __( 'Test Group', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 15,
+        )
+    )
+);
 
 /**
 * Option: Font Family
@@ -86,6 +100,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[body-font-family]', array(
         'default'           => kemet_get_option( 'body-font-family' ),
         'type'              => 'option',
+        'parent'            => KEMET_THEME_SETTINGS . '[kmt-header-test-group]',
         'sanitize_callback' => 'sanitize_text_field',
     )
 );
@@ -109,6 +124,7 @@ $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[body-font-weight]', array(
         'default'           => kemet_get_option( 'body-font-weight' ),
         'type'              => 'option',
+        'parent'            => KEMET_THEME_SETTINGS . '[kmt-header-test-group]',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
     )
 );
@@ -132,6 +148,7 @@ $wp_customize->add_setting(
         'default'           => kemet_get_option( 'body-text-transform' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
+        
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
     )
 );
@@ -159,6 +176,7 @@ $wp_customize->add_setting(
         'default'           => '',
         'type'              => 'option',
         'transport'         => 'postMessage',
+        'parent'            => KEMET_THEME_SETTINGS . '[kmt-header-test-group]',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
     )
 );

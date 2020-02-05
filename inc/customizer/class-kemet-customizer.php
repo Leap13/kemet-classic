@@ -150,7 +150,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			if(isset($setting_args['parent']) && !empty($setting_args['parent'])){
 				$this->update_groups_arr( $setting_args['parent'] , $setting_id );
 			}
-
+			
             return $setting_args;
         }
 		/**
@@ -224,6 +224,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 			$wp_customize->register_control_type( 'Kemet_Control_Group' );
+			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
 
 			/**
 			 * Helper files
