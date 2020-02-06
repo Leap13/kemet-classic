@@ -48,31 +48,15 @@ $wp_customize->add_control(
 /**
 * Option: Typography
 */
-$wp_customize->add_setting( KEMET_THEME_SETTINGS . '[kmt-content-typography]', array());
-$wp_customize->add_control(
-    new Kemet_Control_Group(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography]', array(
-            'type'     => 'kmt-group',
-            'label'    => __( 'Typography', 'kemet' ),
-            'section'  => 'section-contents',
-            'priority' => 10,
-        )
-    )
-);
-/**
-* Option: Body Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[font-size-body]', array(
-        'default'           => kemet_get_option( 'font-size-body' ),
-        'type'              => 'option',
-        'parent'            => KEMET_THEME_SETTINGS . '[kmt-content-typography]',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
+$fields = array(
+    KEMET_THEME_SETTINGS . '[font-size-body]' => array(
+        'settings' => array(
+            'default'           => kemet_get_option( 'font-size-body' ),
+            'type'              => 'option',
+            'parent'            => KEMET_THEME_SETTINGS . '[kmt-content-typography]',
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        ),
+        'args' => array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-contents',
             'priority'       => 10,
@@ -90,8 +74,53 @@ $wp_customize->add_control(
                 ),
             ),
         )
+    ),
+);
+$wp_customize->add_control(
+    new Kemet_Control_Group(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-content-typography]', array(
+            'type'     => 'kmt-group',
+            'label'    => __( 'Typography', 'kemet' ),
+            'section'  => 'section-contents',
+            'priority' => 10,
+            'fields'   => $fields,
+            'settings' => array(),
+        )
     )
 );
+/**
+* Option: Body Font Size
+*/
+// $wp_customize->add_setting(
+//     KEMET_THEME_SETTINGS . '[font-size-body]', array(
+//         'default'           => kemet_get_option( 'font-size-body' ),
+//         'type'              => 'option',
+//         'parent'            => KEMET_THEME_SETTINGS . '[kmt-content-typography]',
+//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+//     )
+// );
+// $wp_customize->add_control(
+//     new Kemet_Control_Responsive_Slider(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
+//             'type'           => 'kmt-responsive-slider',
+//             'section'        => 'section-contents',
+//             'priority'       => 10,
+//             'label'          => __( 'Font Size', 'kemet' ),
+//             'unit_choices'   => array(
+//                 'px' => array(
+//                     'min' => 1,
+//                     'step' => 1,
+//                     'max' =>200,
+//                 ),
+//                 'em' => array(
+//                     'min' => 0.1,
+//                     'step' => 0.1,
+//                     'max' => 10,
+//                 ),
+//             ),
+//         )
+//     )
+// );
 
 /**
 * Option: Font Family

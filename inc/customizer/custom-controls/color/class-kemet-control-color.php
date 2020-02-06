@@ -70,7 +70,7 @@ class Kemet_Control_Color extends WP_Customize_Control {
 		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/group/';
 		
 		wp_enqueue_style( 'group-style', $uri . 'group.css', null, KEMET_THEME_VERSION );
-		wp_enqueue_script( 'group-script', $uri . 'group.js', array( 'jquery' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_script( 'group-script', $uri . 'group-2.js', array( 'jquery' ), KEMET_THEME_VERSION, true );
 
     }
 	/**

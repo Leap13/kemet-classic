@@ -67,12 +67,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			//add_action( 'customize_register', array( $this, 'test' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
 			add_action( 'wp_enqueue_scripts', array( $this,'load_dashicons_front_end') );
 			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 		}
-
 
 		public function header_classes( $classes ) {
 			$header_layouts = kemet_get_option('header-layouts');
@@ -108,6 +108,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			echo $output;
 		}
+
 		//Get Settings
 		function filter_dynamic_setting_args( $setting_args, $setting_id ) {
 			$dependency = array(
@@ -147,9 +148,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$this->update_dependency_arr( $setting_id, $dependency );
             }
 
-			if(isset($setting_args['parent']) && !empty($setting_args['parent'])){
-				$this->update_groups_arr( $setting_args['parent'] , $setting_id );
-			}
+			// if(isset($setting_args['parent']) && !empty($setting_args['parent'])){
+			// 	$this->update_groups_arr( $setting_args['parent'] , $setting_id );
+			// }
 			
             return $setting_args;
         }
@@ -180,8 +181,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @param Array  $groups groups of the $name Setting/Control.
 		 * @return void
 		 */
-		private function update_groups_arr( $key, $dependency ) {
-			self::$groups_arr[ $key ][] = $dependency;
+		private function update_groups_arr( $key, $group ) {
+			self::$groups_arr[ $key ][] = $group;
 		}
 
 		/**
@@ -225,6 +226,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 			$wp_customize->register_control_type( 'Kemet_Control_Group' );
 			$wp_customize->register_control_type( 'Kemet_Control_Select' );
+			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
 
 			/**
 			 * Helper files
@@ -416,6 +418,32 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					}
 				}
 			}
+		}
+		//Add group
+		public static function add_group($id , $group){
+			$this->update_groups_arr( $id , $group );
+		}
+		//Create Control
+		public static function customize_register_controls( ) {
+			$controls = $this->get_groups_arr();
+			var_dump($controls);
+			// foreach($controls as $id => $settings){
+			// 	switch($settings){
+			// 		case 'settings':
+			// 		$wp_customize->add_setting($id, $settings);
+			// 			break;
+			// 		case 'args':
+			// 		$wp_customize->add_control(
+			// 			new Kemet_Control_Hidden($id , array(
+			// 					'type'           => 'kmt-hidden',
+			// 					'section'        => $settings['section'],
+			// 					'priority'       => $settings['priority'],
+			// 				)
+			// 			)
+			// 		);
+			// 			break;	
+			// 	}
+			// }
 		}
 	}
 }

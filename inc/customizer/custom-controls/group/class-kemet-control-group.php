@@ -34,25 +34,72 @@ class Kemet_Control_Group extends WP_Customize_Control {
     * @access public
     * @var array
     */
-    public $childern = array();
+    public $fields = array();
+
+    /**
+    * The control childern.
+    *
+    * @access public
+    * @var array
+    */
+    public $group = array();
+
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        add_action( 'customize_register', array( $this, 'customize_register_controls' ) );
+    }
 
     /**
     * Refresh the parameters passed to the JavaScript via JSON.
     *
     * @see WP_Customize_Control::to_json()
     */
-
     public function to_json() {
         parent::to_json();
 
         $this->json['description'] = $this->description;
         $this->json['label'] = esc_html( $this->label );
         $this->json['id']          = $this->id;
-        $this->json['childern']    = $this->childern;
-
-        //var_dump($this->childern);
+        $this->json['fields']    = $this->fields;
+        $this->json['sub_controls'] = array();
+        foreach($this->fields as $id => $settings){
+            switch($settings){
+                case 'args':
+                $this->json['sub_controls'] = $settings;
+                    break;
+            }   
+        }
+        $this->add_group(  $this->id , $this->id );
     }
     
+    public function add_group($id , $group){
+		$this->group[$id] = $group;
+    }
+    
+    public function customize_register_controls( $wp_customize ) {
+			$controls = $this->group;
+			
+			foreach($controls as $id => $settings){
+				switch($settings){
+					case 'settings':
+					$wp_customize->add_setting($id, $settings);
+						break;
+					case 'args':
+					$wp_customize->add_control(
+						new Kemet_Control_Hidden($id , array(
+								'type'           => 'kmt-hidden',
+								'section'        => $settings['section'],
+								'priority'       => $settings['priority'],
+							)
+						)
+					);
+						break;	
+				}
+			}
+        }
+        
     /**
     * An Underscore ( JS ) template for this control's content ( but not its container ).
     *

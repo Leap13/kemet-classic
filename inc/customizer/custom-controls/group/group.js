@@ -25,7 +25,8 @@
                 if ($this.hasChild(id)) {
                     
                     $this.getChlilderns(id);
-                }                
+                }
+                               
             });
             
             
@@ -49,13 +50,13 @@
             $.each(KmtGroups[parentControl] , function (index, val) {
                 var subControlId = api.control(val);
                 //Move Control Content To Group
-                var subControl = api.control(val).container,
-                    attr_class = 'sub-' + subControl.attr('class'),
-                    attr_id = 'sub-' + subControl.attr('id');
+                // var subControl = api.control(val).container,
+                //     attr_class = 'sub-' + subControl.attr('class'),
+                //     attr_id = 'sub-' + subControl.attr('id');
                 
-                $($(subControl).children()).wrap("<li id='" + attr_id + "' class='" + attr_class + "' data-control='" + val + "'></li>");
-                $(subControl).children().appendTo($(model));
-                subControl.hide();
+                // $($(subControl).children()).wrap("<li id='" + attr_id + "' class='" + attr_class + "' data-control='" + val + "'></li>");
+                // $(subControl).children().appendTo($(model));
+                // subControl.hide();
 
                 switch (subControlId.params.type) {
                     
@@ -157,11 +158,12 @@
                             var value = jQuery(this).val();
                             jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
                             control.setting.set(value);
+                            
                         });
 
                         break;
                     case 'kmt-select':
-
+                        
                         $('.kmt-group-model ul li#' + attr_id).on('change', 'select', function () {
                             var value = $(this).val();
 
