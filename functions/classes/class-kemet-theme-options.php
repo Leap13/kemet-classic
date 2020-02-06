@@ -271,7 +271,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'#'                  => '',
 					'header-main-sep-color'            => '',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
