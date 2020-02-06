@@ -208,22 +208,22 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_text_transform         = kemet_get_option( 'footer-text-transform' );
 			$footer_line_height            = kemet_get_option( 'footer-line-height' );
 			$footer_font_size              = kemet_get_option( 'footer-font-size' );
-			$footer_letter_spacing         = kemet_get_option( 'kemet-footer-letter-spacing' );
+			$footer_letter_spacing         = kemet_get_option( 'footer-letter-spacing' );
 			// Footer Styling
 			$space_footer        = kemet_get_option('footer-padding');
-			$kemet_footer_widget_title_font_size  = kemet_get_option( 'kemet-footer-widget-title-font-size' );
-			$kemet_footer_widget_title_letter_spacing  = kemet_get_option( 'kemet-footer-widget-title-letter-spacing' );
-			$kemet_footer_wgt_title_font_family    = kemet_get_option( 'kemet-footer-wgt-title-font-family' );
-			$kemet_footer_wgt_title_font_weight    = kemet_get_option( 'kemet-footer-wgt-title-font-weight' );
-			$kemet_footer_wgt_title_text_transform = kemet_get_option( 'kemet-footer-wgt-title-text-transform' );
-			$kemet_footer_wgt_title_line_height    = kemet_get_option( 'kemet-footer-wgt-title-line-height' );
+			$kemet_footer_widget_title_font_size  = kemet_get_option( 'footer-widget-title-font-size' );
+			$kemet_footer_widget_title_letter_spacing  = kemet_get_option( 'footer-widget-title-letter-spacing' );
+			$kemet_footer_wgt_title_font_family    = kemet_get_option( 'footer-wgt-title-font-family' );
+			$kemet_footer_wgt_title_font_weight    = kemet_get_option( 'footer-wgt-title-font-weight' );
+			$kemet_footer_wgt_title_text_transform = kemet_get_option( 'footer-wgt-title-text-transform' );
+			$kemet_footer_wgt_title_line_height    = kemet_get_option( 'footer-wgt-title-line-height' );
 			// Footer widget Spacing
 			$kemet_footer_space_widget = kemet_get_option('footer-widget-padding');
 			$footer_widget_padding = kemet_get_option('footer-inner-widget-padding');
 
 
 			// Footer widget Meta color
-			$kemet_footer_widget_meta_color = kemet_get_option( 'kemet-footer-widget-meta-color' );
+			$kemet_footer_widget_meta_color = kemet_get_option( 'footer-widget-meta-color' );
 
 			// Footer Bar Colors.
 			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
@@ -249,12 +249,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_sml_font_size        = kemet_get_option( 'footer-copyright-font-size' );
 			$footer_sml_letter_spacing   = kemet_get_option( 'footer-copyright-letter-spacing' );
 			// Color.
-			$kemet_footer_bg_obj             = kemet_get_option( 'kemet-footer-bg-obj' );
-			$kemet_footer_text_color         = kemet_get_option( 'kemet-footer-text-color' );
-			$kemet_footer_widget_title_color = kemet_get_option( 'kemet-footer-wgt-title-color' );
-			$kemet_footer_link_color         = kemet_get_option( 'kemet-footer-link-color' );
-			$kemet_footer_link_h_color       = kemet_get_option( 'kemet-footer-link-h-color' );
-			$kemet_footer_widget_bg_color       = kemet_get_option( 'kemet-footer-wgt-bg-color' );
+			$kemet_footer_bg_obj             = kemet_get_option( 'footer-bg-obj' );
+			$kemet_footer_text_color         = kemet_get_option( 'footer-text-color' );
+			$kemet_footer_widget_title_color = kemet_get_option( 'footer-wgt-title-color' );
+			$kemet_footer_link_color         = kemet_get_option( 'footer-link-color' );
+			$kemet_footer_link_h_color       = kemet_get_option( 'footer-link-h-color' );
+			$kemet_footer_widget_bg_color       = kemet_get_option( 'footer-wgt-bg-color' );
 
 			// sidebar input color 
 			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
@@ -1592,7 +1592,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			
 			//Footer Widget Title Border
 			$footer_widget_title_border_size       = kemet_get_option( 'footer-widget-title-border-size' );
-			$footer_widget_title_border_color      = kemet_get_option( 'kemet-footer-wgt-title-separator-color' );
+			$footer_widget_title_border_color      = kemet_get_option( 'footer-wgt-title-separator-color' );
 			$footer_enable_widget_title_separator  = kemet_get_option( 'enable-footer-widget-title-separator' );
 			if($footer_enable_widget_title_separator){
 				$footer_widget_separator_style = array(

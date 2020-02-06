@@ -309,7 +309,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 	 */
 	function kemet_main_footer_markup() {
 
-		$main_footer_layout = kemet_get_option( 'kemet-footer' );
+		$main_footer_layout = kemet_get_option( 'footer-layout' );
         $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
 
 		if ( apply_filters( 'kemet_main_footer_disable', false ) ) {
