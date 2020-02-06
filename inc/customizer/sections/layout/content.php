@@ -87,7 +87,7 @@ $wp_customize->add_control(
             'label'    => __( 'Typography', 'kemet' ),
             'section'  => 'section-contents',
             'priority' => 1,
-            //'fields'   => $fields,
+            'fields'   => $fields,
         )
     )
 );

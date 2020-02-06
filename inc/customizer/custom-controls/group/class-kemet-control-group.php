@@ -56,18 +56,11 @@ class Kemet_Control_Group extends WP_Customize_Control {
         $this->json['label'] = esc_html( $this->label );
         $this->json['id']          = $this->id;
         $this->json['fields']    = $this->fields;
-        $this->json['sub_controls'] = array();
+        $this->json['group'] = $this->group;
 
         foreach($this->fields as $id => $settings){
-            var_dump($settings['args']);
-            switch($settings){
-                case 'args':
-                $this->json['sub_controls'] = $settings;
-                    break;
-            }
-        } 
-        
-        //var_dump($this->fields);     
+            $this->json['group'][] = $settings['args'];
+        }     
     }
         
     /**
