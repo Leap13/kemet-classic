@@ -59,6 +59,8 @@ class Kemet_Control_Group extends WP_Customize_Control {
         $this->json['group'] = $this->group;
 
         foreach($this->fields as $id => $settings){
+            $settings['args']['id'] = $id;
+            $settings['args']['default'] = $settings['settings']['default'];
             $this->json['group'][] = $settings['args'];
         }     
     }
