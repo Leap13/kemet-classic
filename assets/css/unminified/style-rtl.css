@@ -2846,7 +2846,6 @@ body {
 }
 
 .header-main-layout-1 .main-navigation {
-  padding-right: 15px;
   vertical-align: top;
 }
 
@@ -2888,10 +2887,6 @@ body {
 .header-main-layout-1.reverse .kmt-main-header-bar-alignment {
   margin-left: auto;
   margin-right: 0;
-}
-
-.header-main-layout-1.reverse .main-navigation {
-  padding-left: 15px;
 }
 
 .header-main-layout-1.reverse .main-navigation ul {
