@@ -2120,7 +2120,7 @@ body {
   border-bottom: 1px solid #eeeeee;
 }
 
-.kmt-separate-container.blog .kmt-article-post {
+.kmt-separate-container.blog .kmt-article-post:not(:last-child) {
   padding-bottom: 0;
 }
 

@@ -193,7 +193,7 @@ $wp_customize->add_control(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-header',
             'priority'       => 70,
-            'label'          => __( 'Bottom Border Size', 'kemet' ),
+            'label'          => __( 'Border Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -220,7 +220,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[header-main-sep-color]', array(
             'section'  => 'section-header',
             'priority' => 80,
-            'label'    => __( 'Bottom Border Color', 'kemet' ),
+            'label'    => __( 'Border Color', 'kemet' ),
         )
     )
 );

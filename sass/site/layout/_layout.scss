@@ -45,7 +45,7 @@ body {
 }
 .kmt-separate-container{
 	&.blog{
-		.kmt-article-post{
+		.kmt-article-post:not(:last-child){
 			padding-bottom: 0;
 		}
 	}

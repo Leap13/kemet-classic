@@ -86,9 +86,6 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 					#><span class="kmt-range-unit">{{ data.suffix }}</span><#
 					} #>
 				</div>
-				<div class="kmt-slider-reset">
-					<span class="dashicons dashicons-image-rotate"></span>
-				</div>
 			</div>
 			<# if ( data.description ) { #>
 				<span class="description customize-control-description">{{{ data.description }}}</span>
