@@ -226,7 +226,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$kemet_footer_widget_meta_color = kemet_get_option( 'footer-widget-meta-color' );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = kemet_get_option( 'footer-bg-obj' );
+			$footer_bg_obj       = kemet_get_option( 'footer-bar-bg-obj' );
 			$footer_bar_spacing  = kemet_get_option( 'footer-bar-padding' );
 			$footer_color        = kemet_get_option( 'footer-color' );
 			$footer_link_color   = kemet_get_option( 'footer-link-color' );

@@ -706,7 +706,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-			'label'   => __( 'Search Box Button Hover Background Color', 'kemet' ),
+			'label'   => __( 'Search Box Button Background Hover Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 130,
 		  )
@@ -732,7 +732,7 @@ $header_rt_sections = array(
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
 		  $wp_customize, KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-			'label'   => __( 'Search Box Button Color', 'kemet' ),
+			'label'   => __( 'Button Text Color', 'kemet' ),
 			'section' => 'section-menu-header',
 			'priority' => 135,
 		  )
@@ -1041,7 +1041,7 @@ $header_rt_sections = array(
 			'type'        => 'number',
 			'section'     => 'section-menu-header',
 			'priority'    => 195,
-			'label'       => __( 'Top Border Size', 'kemet' ),
+			'label'       => __( 'Top Border Size(PX)', 'kemet' ),
 			'input_attrs' => array(
 				'min'  => 0,
 				'step' => 1,

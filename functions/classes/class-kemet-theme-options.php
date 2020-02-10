@@ -115,7 +115,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'link-h-color'                     => '#000000',
 
 					// Footer Colors.
-					'footer-bg-obj'                    => array(
+					'footer-bar-bg-obj'                    => array(
 						'background-color'      => '',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
