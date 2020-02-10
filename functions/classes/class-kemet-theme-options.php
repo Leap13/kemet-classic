@@ -234,7 +234,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'last-menu-item-spacing'		   => '',	
 					'display-submenu-border'           => true,
 					'header-bg-obj'                    =>  array(
-						'background-color'      => '',
+						'background-color'      => '#fff',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
