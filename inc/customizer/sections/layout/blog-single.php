@@ -118,26 +118,12 @@ $wp_customize->add_control(
                 'category' => __( 'Category', 'kemet' ),
                 'date'     => __( 'Publish Date', 'kemet' ),
                 'comments' => __( 'Comments', 'kemet' ),
-                'tag'      => __( 'Tag', 'kemet' ),
+                'tag'      => __( 'Tags', 'kemet' ),
             ),
         )
     )
 );
 
-/**
-* Option: Title
-*/
-$wp_customize->add_control(
-    new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-single-post-title]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Single Post Style', 'kemet' ),
-            'section'  => 'section-blog-single',
-            'priority' => 25,
-            'settings' => array(),
-        )
-    )
-);
 /**
 * Option: Title
 */

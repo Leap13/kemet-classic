@@ -247,7 +247,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[content-link-color]', array(
-            'label'   => __( 'link Color', 'kemet' ),
+            'label'   => __( 'Link Color', 'kemet' ),
             'priority'       => 40,
             'section' => 'section-contents',
         )
