@@ -12,6 +12,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
+
 /**
 * Option: Title
 */
@@ -31,7 +33,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-padding]', array(
-        'default'           => kemet_get_option( 'widget-padding' ),
+        'default'           => $defaults[ 'widget-padding' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -60,7 +62,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-margin-bottom]', array(
-        'default'           => kemet_get_option( 'widget-margin-bottom' ),
+        'default'           => $defaults[ 'widget-margin-bottom' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -101,7 +103,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-bg-color]', array(
-        'default'           => kemet_get_option( 'widget-bg-color' ),
+        'default'           => $defaults[ 'widget-bg-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -121,7 +123,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-color]', array(
-        'default'           => kemet_get_option( 'widget-title-color' ),
+        'default'           => $defaults[ 'widget-title-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -142,7 +144,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-font-size]', array(
-        'default'           => kemet_get_option( 'widget-title-font-size' ),
+        'default'           => $defaults[ 'widget-title-font-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -176,7 +178,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-font-family]', array(
-        'default'           => kemet_get_option( 'widget-title-font-family' ),
+        'default'           => $defaults[ 'widget-title-font-family' ],
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )
@@ -200,7 +202,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-font-weight]', array(
-        'default'           => kemet_get_option( 'widget-title-font-weight' ),
+        'default'           => $defaults[ 'widget-title-font-weight' ],
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
     )
@@ -223,7 +225,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-text-transform]', array(
-        'default'           => kemet_get_option( 'widget-title-text-transform' ),
+        'default'           => $defaults[ 'widget-title-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -250,7 +252,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-line-height]', array(
-        'default'           => kemet_get_option( 'widget-title-line-height' ),
+        'default'           => $defaults[ 'widget-title-line-height' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -277,7 +279,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-letter-spacing]', array(
-        'default'           => kemet_get_option( 'widget-title-letter-spacing' ),
+        'default'           => $defaults[ 'widget-title-letter-spacing' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -305,7 +307,7 @@ $wp_customize->add_control(
  */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[enable-widget-title-separator]', array(
-        'default'           =>  kemet_get_option( 'enable-widget-title-separator' ),
+        'default'           =>  $defaults[ 'enable-widget-title-separator' ],
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
     )
@@ -325,7 +327,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-border-color]', array(
-        'default'           => kemet_get_option( 'widget-title-border-color' ),
+        'default'           => $defaults[ 'widget-title-border-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -351,7 +353,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[widget-title-border-size]', array(
-        'default'           => kemet_get_option( 'widget-title-border-size' ),
+        'default'           => $defaults[ 'widget-title-border-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
