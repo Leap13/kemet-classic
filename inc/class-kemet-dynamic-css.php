@@ -518,7 +518,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu '  => array(
 					'background-color' => esc_attr( $menu_bg_color),
 				),
-				'.main-header-menu a'  => array(
+				'.kmt-sitehead-custom-menu-items , .main-header-menu a'  => array(
 					'color' => esc_attr( $menu_link_color ),
 					'font-family'    => kemet_get_font_family( $menu_font_family ),
 					'font-weight'     => esc_attr( $menu_font_weight ),
@@ -526,7 +526,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'desktop' ),	
 					'letter-spacing' => kemet_responsive_slider( $menu_letter_spacing , 'desktop' ),	 
 				),
-				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
+				'.kmt-sitehead-custom-menu-items , .main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
 					'line-height' => esc_attr( $menu_line_height ),
 				), 
 				'.main-header-menu > .menu-item:hover > a'  => array(
