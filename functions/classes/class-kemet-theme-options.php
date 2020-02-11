@@ -138,7 +138,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'footer-text-color'            => '',
 					'footer-link-color'            => '',
-					'footer-link-h-color'          => '',
 					'footer-widget-meta-color'     => '',
 					'footer-wgt-title-color'       => '',
 					'footer-button-color'				=> '',
@@ -216,6 +215,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-line-height'   => '',
 					'footer-padding'   => '',
 					'footer-copyright-letter-spacing' => '',
+					'footer-copyright-font-size'	=> '',
 					// General.
 					'kmt-header-retina-logo'           => '',
 					'kmt-header-logo-width'            => '',

@@ -236,6 +236,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						});#>
 					</ul>
 				</div>
+				<div class="kmt-responsive-slider-reset">
+					<span class="dashicons dashicons-image-rotate"></span>
+				</div>
 			</div>
 			<div class="kmt-slider-responsive-units-screen-wrap">
 				<div class="unit-input-wrapper kmt-slider-unit-wrapper">
