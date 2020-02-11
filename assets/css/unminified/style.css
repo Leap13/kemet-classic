@@ -2120,16 +2120,16 @@ body {
   border-bottom: 1px solid #eeeeee;
 }
 
-.kmt-separate-container.blog .kmt-article-post {
+.kmt-separate-container {
+  background-color: #f5f5f5;
+}
+
+.kmt-separate-container.blog .kmt-article-post, .kmt-separate-container.archive .kmt-article-post {
   padding-bottom: 0;
 }
 
-.kmt-separate-container.blog .kmt-article-post:only-of-type {
+.kmt-separate-container.blog .kmt-article-post:only-of-type, .kmt-separate-container.archive .kmt-article-post:only-of-type {
   padding: 100px;
-}
-
-.kmt-separate-container {
-  background-color: #f5f5f5;
 }
 
 .kmt-separate-container .kmt-archive-description {
@@ -2156,7 +2156,6 @@ body {
   background-color: #fff;
   margin: 0;
   padding: 100px;
-  padding-bottom: 0;
 }
 
 .kmt-separate-container .blog-layout-1 {

@@ -43,19 +43,19 @@ body {
 .kmt-article-post{
 	border-bottom: 1px solid $color-border-content;
 }
-.kmt-separate-container{
-	&.blog{
-		.kmt-article-post{
-			padding-bottom: 0;
-		}
-		.kmt-article-post:only-of-type{
-			padding: 100px;
-		}
-	}
-}
 
 //separate container content layout
 .kmt-separate-container{
+	&.blog , &.archive{
+		.kmt-article-post{
+			padding-bottom: 0;
+		}
+		.kmt-article-post{
+			&:only-of-type{
+				padding: 100px;
+			}
+		}
+	}
 	.kmt-archive-description{
 		border-top: 0;
 	}
@@ -77,7 +77,6 @@ body {
 		 background-color: $color-background-content;
 		 margin: 0;
 		 padding: 100px;
-		 padding-bottom: 0;
 	}
 	.blog-layout-1{
         padding: 0;

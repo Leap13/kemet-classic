@@ -57,7 +57,10 @@
 }
 .wp-core-ui .button-group.button-small .button, .wp-core-ui .button.button-small{
     margin-left: 6px;
-    padding: 0 8px;
-    min-height: 21px;
-    font-size: 13px;
+    min-height: 29px;
+    line-height: 1.18181818;
+}
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-default, .wp-picker-input-wrap .button.wp-picker-default{
+    line-height: 1.54545455;
+    min-height: 29px;
 }
