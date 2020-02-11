@@ -12,12 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
 /**
 * Option: Single Post Content Width
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-single-width]', array(
-        'default'           => kemet_get_option( 'blog-single-width' ),
+        'default'           => $defaults['blog-single-width'],
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
     )
@@ -39,7 +40,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-single-max-width]', array(
-        'default'           => kemet_get_option( 'blog-single-max-width' ),
+        'default'           => $defaults['blog-single-max-width'],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -71,7 +72,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-single-post-structure]', array(
-        'default'           => kemet_get_option( 'blog-single-post-structure' ),
+        'default'           => $defaults['blog-single-post-structure'],
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
     )
@@ -96,7 +97,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-single-meta]', array(
-        'default'           => kemet_get_option( 'blog-single-meta' ),
+        'default'           => $defaults[ 'blog-single-meta' ],
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
         'dependency'  => array(
@@ -143,7 +144,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[font-size-entry-title]', array(
-        'default'           => kemet_get_option( 'font-size-entry-title' ),
+        'default'           => $defaults[ 'font-size-entry-title' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -176,7 +177,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[letter-spacing-entry-title]', array(
-        'default'           => kemet_get_option( 'letter-spacing-entry-title' ),
+        'default'           => $defaults[ 'letter-spacing-entry-title' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -204,7 +205,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[font-color-entry-title]', array(
-        'default'           => kemet_get_option( 'font-color-entry-title' ),
+        'default'           => $defaults[ 'font-color-entry-title' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
