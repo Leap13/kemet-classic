@@ -468,6 +468,11 @@
 }
 
 .main-header-bar{
+	.kmt-sitehead-custom-menu-items{
+		&.widget{
+			margin: auto;
+		}
+	}
 	.kmt-sitehead-custom-menu-items , .header-right-section{
 		&.search-box{
 			.kmt-search-icon{

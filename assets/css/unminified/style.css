@@ -3366,6 +3366,10 @@ body {
   justify-content: flex-end;
 }
 
+.main-header-bar .kmt-sitehead-custom-menu-items.widget {
+  margin: auto;
+}
+
 .main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-icon, .main-header-bar .header-right-section.search-box .kmt-search-icon {
   display: none;
 }
