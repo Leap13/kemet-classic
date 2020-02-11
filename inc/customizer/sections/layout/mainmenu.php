@@ -12,6 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
 
 $header_rt_sections = array(
 	'none'      => __( 'None', 'kemet' ),
@@ -38,7 +39,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[disable-primary-nav]', array(
-			'default'           => kemet_get_option( 'disable-primary-nav' ),
+			'default'           => $defaults[ 'disable-primary-nav' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
@@ -57,7 +58,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-font-size]', array(
-			'default'           => kemet_get_option( 'menu-font-size' ),
+			'default'           => $defaults[ 'menu-font-size' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -91,7 +92,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-items-font-family]', array(
-			'default'           => kemet_get_option( 'menu-items-font-family' ),
+			'default'           => $defaults[ 'menu-items-font-family' ],
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -114,7 +115,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-items-font-weight]', array(
-			'default'           => kemet_get_option( 'menu-items-font-weight' ),
+			'default'           => $defaults[ 'menu-items-font-weight' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)
@@ -136,7 +137,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-items-text-transform]', array(
-			'default'           => kemet_get_option( 'menu-items-text-transform' ),
+			'default'           => $defaults[ 'menu-items-text-transform' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -162,7 +163,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-items-line-height]', array(
-			'default'           => kemet_get_option( 'menu-items-line-height' ),
+			'default'           => $defaults[ 'menu-items-line-height' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -189,7 +190,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-letter-spacing]', array(
-			'default'           => kemet_get_option( 'menu-letter-spacing' ),
+			'default'           => $defaults[ 'menu-letter-spacing' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -217,7 +218,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-			'default'           => kemet_get_option( 'menu-bg-color' ),
+			'default'           => $defaults[ 'menu-bg-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -236,7 +237,7 @@ $header_rt_sections = array(
 		*/
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[menu-link-color]', array(
-				'default'           => kemet_get_option( 'menu-link-h-color' ),
+				'default'           => $defaults[ 'menu-link-h-color' ],
 				'type'              => 'option',
 				'transport'         => 'postMessage',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -257,7 +258,7 @@ $header_rt_sections = array(
       */
 	  $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
-			'default'           => kemet_get_option( 'menu-link-h-color' ),
+			'default'           => $defaults[ 'menu-link-h-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -278,7 +279,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
-			'default'           => kemet_get_option( 'menu-link-bottom-border-color' ),
+			'default'           => $defaults[ 'menu-link-bottom-border-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -299,7 +300,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
-			'default'           => kemet_get_option( 'menu-link-active-color' ),
+			'default'           => $defaults[ 'menu-link-active-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -319,7 +320,7 @@ $header_rt_sections = array(
      */
     $wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[menu-alignment]',array(
-					'default'           => kemet_get_option('menu-alignment'),
+					'default'           => $defaults['menu-alignment'],
 					'type'              => 'option',
 					'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices'),
 					'dependency'  => array(
@@ -368,7 +369,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section]', array(
-			'default'           => kemet_get_option( 'header-main-rt-section' ),
+			'default'           => $defaults[ 'header-main-rt-section' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 		)
@@ -397,7 +398,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-display-outside-menu]', array(
-			'default'           => kemet_get_option( 'header-display-outside-menu' ),
+			'default'           => $defaults[ 'header-display-outside-menu' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'dependency'  => array(
@@ -420,7 +421,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[disable-last-menu-items-on-mobile]', array(
-			'default'           => kemet_get_option( 'disable-last-menu-items-on-mobile' ),
+			'default'           => $defaults[ 'disable-last-menu-items-on-mobile' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'dependency'  => array(
@@ -444,7 +445,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[last-menu-item-spacing]', array(
-			'default'           => kemet_get_option( 'last-menu-item-spacing' ),
+			'default'           => $defaults[ 'last-menu-item-spacing' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -474,7 +475,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-rt-section-html]', array(
-			'default'           => kemet_get_option( 'header-main-rt-section-html' ),
+			'default'           => $defaults[ 'header-main-rt-section-html' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
@@ -509,7 +510,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-style]', array(
-			'default'           => kemet_get_option( 'search-style' ),
+			'default'           => $defaults[ 'search-style' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 			'dependency'  => array(
@@ -536,7 +537,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-box-shadow]', array(
-			'default'           => kemet_get_option( 'search-box-shadow' ),
+			'default'           => $defaults[ 'search-box-shadow' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'dependency'  => array(
@@ -560,7 +561,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-border-size]', array(
-			'default'           => kemet_get_option( 'search-border-size' ),
+			'default'           => $defaults[ 'search-border-size' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -590,7 +591,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-border-color]', array(
-		  'default'           => kemet_get_option( 'search-border-color' ),
+		  'default'           => $defaults[ 'search-border-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -615,7 +616,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-input-bg-color]', array(
-		  'default'           => kemet_get_option( 'search-input-bg-color' ),
+		  'default'           => $defaults[ 'search-input-bg-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -640,7 +641,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-input-color]', array(
-		  'default'           => kemet_get_option( 'search-input-color' ),
+		  'default'           => $defaults[ 'search-input-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -665,7 +666,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-btn-bg-color]', array(
-		  'default'           => kemet_get_option( 'search-btn-bg-color' ),
+		  'default'           => $defaults[ 'search-btn-bg-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -691,7 +692,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-btn-h-bg-color]', array(
-		  'default'           => kemet_get_option( 'search-btn-h-bg-color' ),
+		  'default'           => $defaults[ 'search-btn-h-bg-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -717,7 +718,7 @@ $header_rt_sections = array(
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-btn-color]', array(
-		  'default'           => kemet_get_option( 'search-btn-color' ),
+		  'default'           => $defaults[ 'search-btn-color' ],
 		  'type'              => 'option',
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -759,7 +760,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-width]', array(
-			'default'           => kemet_get_option( 'submenu-width' ),
+			'default'           => $defaults[ 'submenu-width' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -790,7 +791,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-font-size]', array(
-			'default'           => kemet_get_option( 'submenu-font-size' ),
+			'default'           => $defaults[ 'submenu-font-size' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -823,7 +824,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
-			'default'           => kemet_get_option( 'sub-menu-items-font-family' ),
+			'default'           => $defaults[ 'sub-menu-items-font-family' ],
 			'type'              => 'option',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -846,7 +847,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]', array(
-			'default'           => kemet_get_option( 'sub-menu-items-font-weight' ),
+			'default'           => $defaults[ 'sub-menu-items-font-weight' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		)
@@ -868,7 +869,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-text-transform]', array(
-			'default'           => kemet_get_option( 'sub-menu-items-text-transform' ),
+			'default'           => $defaults[ 'sub-menu-items-text-transform' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
@@ -895,7 +896,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sub-menu-items-line-height]', array(
-			'default'           => kemet_get_option( 'sub-menu-items-line-height' ),
+			'default'           => $defaults[ 'sub-menu-items-line-height' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -922,7 +923,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
-			'default'           => kemet_get_option( 'submenu-letter-spacing' ),
+			'default'           => $defaults[ 'submenu-letter-spacing' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -950,7 +951,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
-			'default'           => kemet_get_option( 'submenu-bg-color' ),
+			'default'           => $defaults[ 'submenu-bg-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -969,7 +970,7 @@ $header_rt_sections = array(
       */
 	  $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
-			'default'           => kemet_get_option( 'submenu-link-color' ),
+			'default'           => $defaults[ 'submenu-link-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -990,7 +991,7 @@ $header_rt_sections = array(
       */
 	  $wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
-			'default'           => kemet_get_option( 'submenu-link-h-color' ),
+			'default'           => $defaults[ 'submenu-link-h-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1010,7 +1011,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
-			'default'           =>  kemet_get_option( 'submenu-top-border-color' ),
+			'default'           =>  $defaults[ 'submenu-top-border-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1030,7 +1031,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-top-border-size]', array(
-			'default'           => kemet_get_option( 'submenu-top-border-size' ),
+			'default'           => $defaults[ 'submenu-top-border-size' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -1055,7 +1056,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[display-submenu-border]', array(
-			'default'           =>  kemet_get_option( 'display-submenu-border' ),
+			'default'           =>  $defaults[ 'display-submenu-border' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 		)
@@ -1076,7 +1077,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[submenu-border-color]', array(
-			'default'           =>  kemet_get_option( 'submenu-border-color' ),
+			'default'           =>  $defaults[ 'submenu-border-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1112,7 +1113,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-menu-label]', array(
-			'default'           => kemet_get_option( 'header-main-menu-label' ),
+			'default'           => $defaults[ 'header-main-menu-label' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
@@ -1138,7 +1139,7 @@ $header_rt_sections = array(
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[header-main-menu-align]', array(
-			'default'           => kemet_get_option( 'header-main-menu-align' ),
+			'default'           => $defaults[ 'header-main-menu-align' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -1161,7 +1162,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-icon-color' ),
+			'default'           => $defaults[ 'mobile-menu-icon-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1181,7 +1182,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-icon-bg-color' ),
+			'default'           => $defaults[ 'mobile-menu-icon-bg-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -1200,7 +1201,7 @@ $header_rt_sections = array(
 	*/
 		$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-icon-h-color' ),
+			'default'           => $defaults[ 'mobile-menu-icon-h-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1220,7 +1221,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
-		'default'           => kemet_get_option( 'mobile-menu-icon-bg-h-color' ),
+		'default'           => $defaults[ 'mobile-menu-icon-bg-h-color' ],
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 	)
@@ -1239,7 +1240,7 @@ $header_rt_sections = array(
 	*/
 		$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-items-color' ),
+			'default'           => $defaults[ 'mobile-menu-items-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -1259,7 +1260,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-items-bg-color' ),
+			'default'           => $defaults[ 'mobile-menu-items-bg-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -1278,7 +1279,7 @@ $header_rt_sections = array(
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
-			'default'           => kemet_get_option( 'mobile-menu-items-h-color' ),
+			'default'           => $defaults[ 'mobile-menu-items-h-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
