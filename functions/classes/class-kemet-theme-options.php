@@ -105,6 +105,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'read-more-border-size'		  => '',
 					'readmore-border-color'		  => '',
 					'readmore-border-h-color'		  => '',
+					'readmore-bg-h-color'			=> '',
 					'letter-spacing-page-title'	=> '',
 					'letter-spacing-page-meta'	=> '',
 					'letter-spacing-entry-title'     => '',
