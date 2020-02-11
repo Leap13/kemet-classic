@@ -20,16 +20,9 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 	initKmtBgControl: function () {
 
 		var control = this,
-			value = {
-				'background-color': '',
-				'background-image': '',
-				'background-repeat': 'repeat',
-				'background-position': 'center center',
-				'background-size': 'auto',
-				'background-attachment': 'scroll',
-			},
+			value = control.setting._value,
 			picker = control.container.find('.kmt-color-control');
-
+		
 		// Hide unnecessary controls if the value doesn't have an image.
 		if (_.isUndefined(value['background-image']) || '' === value['background-image']) {
 			control.container.find('.background-wrapper > .background-repeat').hide();
@@ -37,7 +30,7 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 			control.container.find('.background-wrapper > .background-size').hide();
 			control.container.find('.background-wrapper > .background-attachment').hide();
 		}
-
+		
 		// Color.
 		picker.wpColorPicker({
 			change: function () {

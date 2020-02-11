@@ -2124,6 +2124,10 @@ body {
   padding-bottom: 0;
 }
 
+.kmt-separate-container.blog .kmt-article-post:only-of-type {
+  padding: 100px;
+}
+
 .kmt-separate-container {
   background-color: #f5f5f5;
 }
@@ -2846,7 +2850,6 @@ body {
 }
 
 .header-main-layout-1 .main-navigation {
-  padding-right: 15px;
   vertical-align: top;
 }
 
@@ -2888,10 +2891,6 @@ body {
 .header-main-layout-1.reverse .kmt-main-header-bar-alignment {
   margin-left: auto;
   margin-right: 0;
-}
-
-.header-main-layout-1.reverse .main-navigation {
-  padding-left: 15px;
 }
 
 .header-main-layout-1.reverse .main-navigation ul {
@@ -4109,7 +4108,6 @@ div.title {
   font-size: 22px;
   font-weight: normal;
   margin-bottom: 0px;
-  float: right;
 }
 
 .widget-head {
