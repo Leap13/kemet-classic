@@ -117,7 +117,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => array(
-						'background-color'      => '',
+						'background-color'      => '#333',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-link-h-color'              => '',
 					// Footer Widgets.
 					'footer-bg-obj'                => array(
-						'background-color'      => '',
+						'background-color'      => '#333',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -430,7 +430,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-post-sidebar-layout'       => 'default',
 					'archive-post-sidebar-layout'      => 'default',
 					'sidebar-bg-obj'				   =>  array(
-						'background-color'      => '',
+						'background-color'      => '#ffffff',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
