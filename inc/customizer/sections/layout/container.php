@@ -12,12 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
 	/**
 	* Option: Site Content Width
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-width]', array(
-			'default'           => kemet_get_option( 'site-content-width' ),
+			'default'           => $defaults[ 'site-content-width' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
@@ -45,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
-			'default'           => kemet_get_option( 'site-content-layout' ),
+			'default'           => $defaults[ 'site-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -70,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
-			'default'           => kemet_get_option( 'single-page-content-layout' ),
+			'default'           => $defaults[ 'single-page-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -96,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
-			'default'           => kemet_get_option( 'single-post-content-layout' ),
+			'default'           => $defaults[ 'single-post-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -122,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
-			'default'           => kemet_get_option( 'archive-post-content-layout' ),
+			'default'           => $defaults[ 'archive-post-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -148,7 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-			'default'           => kemet_get_option( 'site-layout-outside-bg-obj' ),
+			'default'           => $defaults[ 'site-layout-outside-bg-obj' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -183,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
-			'default'           => kemet_get_option( 'site-boxed-inner-bg' ),
+			'default'           => $defaults[ 'site-boxed-inner-bg' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -205,7 +206,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
    $wp_customize->add_setting(
        KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
-           'default'           => kemet_get_option( 'container-inner-spacing' ),
+           'default'           => $defaults[ 'container-inner-spacing' ],
            'type'              => 'option',
            'transport'         => 'postMessage',
            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -235,7 +236,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[content-separator-color]', array(
-			'default'           => kemet_get_option( 'content-separator-color' ),
+			'default'           => $defaults[ 'content-separator-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
