@@ -31,7 +31,7 @@
 				var wrapper = jQuery(this).closest('.wrapper'),
 					input_range = wrapper.find('input[type=range]'),
 					input_number = wrapper.find('.kemet_range_value .value'),
-					default_value = control.data('reset_value');
+					default_value = input_range.data('reset_value');
 
 				input_range.val(default_value);
 				input_number.val(default_value);
