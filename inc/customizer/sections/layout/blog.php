@@ -40,7 +40,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[blog-max-width]', array(
-        'default'           => kemet_get_option( 'blog-max-width' ),
+        'default'           => 1200,
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),

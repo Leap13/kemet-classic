@@ -55,3 +55,9 @@
   padding: 5px 0 5px 0;
   float: right;
 }
+.wp-core-ui .button-group.button-small .button, .wp-core-ui .button.button-small{
+    margin-left: 6px;
+    padding: 0 8px;
+    min-height: 21px;
+    font-size: 13px;
+}
