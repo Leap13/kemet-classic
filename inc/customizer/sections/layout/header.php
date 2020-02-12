@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     /**
      * Get WP menus
      *
-     * @since 1.3.7
+     * @since 1.0.0
      */
     function get_wp_menus() {
-        $menus 		= array( esc_html__( 'Select Your Menu', 'oceanwp' ) );
+        $menus 		= array( esc_html__( 'Select Your Menu', 'kemet' ) );
         $get_menus 	= get_terms( 'nav_menu', array( 'hide_empty' => true ) );
         foreach ( $get_menus as $menu) {
             $menus[$menu->term_id] = $menu->name;
