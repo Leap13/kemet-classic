@@ -521,11 +521,6 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 }
 .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset {
 	color: rgba(0, 0, 0, 0.2);
-	-webkit-transition: color 0.5s ease-in;
-	-moz-transition: color 0.5s ease-in;
-	-ms-transition: color 0.5s ease-in;
-	-o-transition: color 0.5s ease-in;
-	transition: color 0.5s ease-in;
 	display: block;
 	margin-right: 5px;
 }
