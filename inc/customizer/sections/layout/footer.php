@@ -270,7 +270,6 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
-<<<<<<< HEAD
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
         'dependency'  => array(
@@ -281,8 +280,6 @@ $wp_customize->add_setting(
         ),
     )
 );
-=======
->>>>>>> a746ff0dc5e5644c060db1a4b11c36252ad9200b
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
@@ -353,7 +350,6 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
-<<<<<<< HEAD
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
         'dependency'  => array(
@@ -364,8 +360,6 @@ $wp_customize->add_setting(
         ),
     )
 );
-=======
->>>>>>> a746ff0dc5e5644c060db1a4b11c36252ad9200b
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
