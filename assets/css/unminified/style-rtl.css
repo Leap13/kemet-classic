@@ -2124,14 +2124,6 @@ body {
   background-color: #f5f5f5;
 }
 
-.kmt-separate-container.blog .kmt-article-post, .kmt-separate-container.archive .kmt-article-post {
-  padding-bottom: 0;
-}
-
-.kmt-separate-container.blog .kmt-article-post:only-of-type, .kmt-separate-container.archive .kmt-article-post:only-of-type {
-  padding: 100px;
-}
-
 .kmt-separate-container .kmt-archive-description {
   border-top: 0;
 }
@@ -2159,7 +2151,6 @@ body {
 }
 
 .kmt-separate-container .blog-layout-1 {
-  padding: 0;
   border-bottom: 0;
 }
 

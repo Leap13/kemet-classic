@@ -46,16 +46,6 @@ body {
 
 //separate container content layout
 .kmt-separate-container{
-	&.blog , &.archive{
-		.kmt-article-post{
-			padding-bottom: 0;
-		}
-		.kmt-article-post{
-			&:only-of-type{
-				padding: 100px;
-			}
-		}
-	}
 	.kmt-archive-description{
 		border-top: 0;
 	}
@@ -79,7 +69,6 @@ body {
 		 padding: 100px;
 	}
 	.blog-layout-1{
-        padding: 0;
         border-bottom: 0;
     }
 	.kmt-article-single {
