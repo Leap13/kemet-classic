@@ -133,7 +133,7 @@
 			'priority' => 35,
 		)
 	);
-
+	// Blog
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-group',
@@ -144,19 +144,19 @@
 			)
 		)
 	);
-
+	//Blog/Archive
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog',
 			array(
 				'priority' => 5,
-				'title'    => __( 'Blog / Archive', 'kemet' ),
+				'title'    => __( 'Blog/Archive', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'section'  => 'section-blog-group',
 			)
 		)
 	);
-
+	//Single Post
 	$wp_customize->add_section(
 		new Kemet_WP_Customize_Section(
 			$wp_customize, 'section-blog-single',
@@ -210,7 +210,7 @@
     // Base Colors Main Panel
 	$wp_customize->add_section(
 		'section-colors-body', array(
-			'title'    => __( 'Colors & Background', 'kemet' ),
+			'title'    => __( 'Global Colors', 'kemet' ),
 			'priority' => 15,
 		)
 	);

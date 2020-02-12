@@ -34,3 +34,6 @@
   color: #1e8cbe; 
   border-color: #f1f1f1; 
 }
+.customize-control-kmt-icon-select .icon-select.rtl{
+      flex-direction: row-reverse;
+}

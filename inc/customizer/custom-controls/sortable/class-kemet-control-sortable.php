@@ -28,21 +28,6 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	public $type = 'kmt-sortable';
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
-		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/sortable/';
-
-		wp_enqueue_script( 'kemet-sortable', $js_uri . 'sortable.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'kemet-sortable-css', $css_uri . 'sortable.css', null, KEMET_THEME_VERSION );
-
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()

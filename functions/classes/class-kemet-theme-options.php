@@ -93,6 +93,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					'font-color-entry-title'		   => '',
 					'listing-post-meta-color'		  => '',
 					'font-size-page-meta'			  => '',	
 					'listing-post-title-color'		  => '',	
@@ -103,7 +104,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'read-more-border-radius'		  => '',
 					'read-more-border-size'		  => '',
 					'readmore-border-color'		  => '',
-					'readmore-border-h-color'		  => '',	
+					'readmore-border-h-color'		  => '',
+					'readmore-bg-h-color'			=> '',
+					'letter-spacing-page-title'	=> '',
+					'letter-spacing-page-meta'	=> '',
+					'letter-spacing-entry-title'     => '',
 					// Kemet Colors.
 					'text-color'                       => '#333333',
 					'link-color'                       => '#191919',
@@ -111,8 +116,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'link-h-color'                     => '#000000',
 
 					// Footer Colors.
-					'footer-bg-obj'                    => array(
-						'background-color'      => '',
+					'footer-bar-bg-obj'                    => array(
+						'background-color'      => '#333',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -123,19 +128,18 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-link-color'                => '',
 					'footer-link-h-color'              => '',
 					// Footer Widgets.
-					'kemet-footer-bg-obj'                => array(
-						'background-color'      => '',
+					'footer-bg-obj'                => array(
+						'background-color'      => '#333',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
 						'background-size'       => 'auto',
 						'background-attachment' => 'scroll',
 					),
-					'kemet-footer-text-color'            => '',
-					'kemet-footer-link-color'            => '',
-					'kemet-footer-link-h-color'          => '',
-					'kemet-footer-widget-meta-color'     => '',
-					'kemet-footer-wgt-title-color'       => '',
+					'footer-text-color'            => '',
+					'footer-link-color'            => '',
+					'footer-widget-meta-color'     => '',
+					'footer-wgt-title-color'       => '',
 					'footer-button-color'				=> '',
 					'footer-button-h-color'				=> '',
 					'footer-button-bg-color'			=> '',
@@ -146,6 +150,18 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-input-border-color'			=> '',
 					'enable-footer-content-center'       => 0,
 					'footer-font-size' 					=> '',
+					'footer-widget-padding'   => '',
+					'footer-widget-title-font-size'   => '',
+					'footer-wgt-title-font-family' => 'inherit',
+					'footer-wgt-title-font-weight' => 'inherit',	
+					'footer-wgt-title-text-transform' => '',
+					'footer-wgt-title-line-height' => '',
+					'footer-wgt-bg-color'			=> '',
+					'footer-inner-widget-padding'		=> '',
+					'footer-wgt-title-separator-color' => '',
+					'enable-footer-widget-title-separator'	 => false,
+					'footer-widget-title-letter-spacing' => '',
+					'footer-letter-spacing' => '',
 					// Kemet Buttons & Fields.
 					'button-color'                     => '',
 					'button-h-color'                   => '',
@@ -158,6 +174,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-spacing' 				   => '',
 					'input-bg-color'				   => '',
 					'input-text-color'				   => '',
+					'input-border-color'				   => '',
+					'input-radius'				   => '',
+					'input-border-size'				   => '',
 					'input-border-color'				   => '',
 					// Main Menu 
 					'menu-link-color'						=> '',
@@ -178,6 +197,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'search-input-bg-color'					=> '#fff',
 					'search-input-color'					=> '',
 					'search-border-size'					=> 1,
+					'menu-letter-spacing'		=> '',	
 					// Kemet Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
@@ -186,6 +206,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-copyright-section-2-part'      => __( 'Powered by [theme_author]', 'kemet' ),
 					'footer-copyright-dist-equal-align'      => true,
 					'footer-copyright-divider'               => 1,
+					'footer-bar-padding'					 => '',
 					'footer-copyright-divider-color'         => '#7a7a7a',
 					'footer-layout-width'              => 'content',
 					'footer-font-family' => 'inherit',
@@ -193,15 +214,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-text-transform'	=> '',
 					'footer-line-height'   => '',
 					'footer-padding'   => '',
-					'footer-widget-padding'   => '',
-					'kemet-footer-widget-title-font-size'   => '',
-					'footer-padding'   => '',
-					'footer-padding'   => '',
-					'footer-padding'   => '',
-					'kemet-footer-wgt-title-font-family' => 'inherit',
-					'kemet-footer-wgt-title-font-weight' => 'inherit',	
-					'kemet-footer-wgt-title-text-transform' => '',
-					'kemet-footer-wgt-title-line-height' => '',
+					'footer-copyright-letter-spacing' => '',
+					'footer-copyright-font-size'	=> '',
 					// General.
 					'kmt-header-retina-logo'           => '',
 					'kmt-header-logo-width'            => '',
@@ -209,6 +223,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
 					'logo-title-inline'                => 0,
+					'tagline-color'				=> '',
 					'site-identity-spacing'				=> '',
 					// Header 
 					'disable-primary-nav'              => false,
@@ -218,10 +233,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'disable-last-menu-items-on-mobile'=> false,
 					'header-display-outside-menu'      => false,
 					'menu-alignment'				   => '',	
-					'last-menu-item-spacing'		   => '',	
+					'last-menu-item-spacing'		   => '',
+					'header-right-section-menu'	       => '',
+					'header-main-sep'				   => '',
+					'header-padding'				   => '',
 					'display-submenu-border'           => true,
 					'header-bg-obj'                    =>  array(
-						'background-color'      => '',
+						'background-color'      => '#fff',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -229,7 +247,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-attachment' => 'scroll',
 					),
 					'header-right-section'             => 'none',
-					
+					'header-logo-position'             => '',
 
 					// Sub Menu 
 					'submenu-border-color'			=> '',			
@@ -244,6 +262,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-link-h-color'   =>   '',
 					'submenu-top-border-size'   => '',
 					'submenu-top-border-color'   =>'',
+					'submenu-font-size'   =>'',
+					'submenu-letter-spacing'    => '',
 					// Mobile Menu 
 					'mobile-menu-icon-color'      => '',
 					'mobile-menu-icon-bg-color'      => '',
@@ -255,9 +275,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'#'                  => '',
 					'header-main-sep-color'            => '',
-					'header-main-layout-width'         => 'content',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 
@@ -328,16 +346,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'site-title-letter-spacing'	=> '',
+					'tagline-letter-spacing'    => '',
 					'font-size-entry-title'            => array(
 						'desktop'      => 30,
-						'tablet'       => '',
-						'mobile'       => '',
-						'desktop-unit' => 'px',
-						'tablet-unit'  => 'px',
-						'mobile-unit'  => 'px',
-					),
-					'font-size-archive-summary-title'  => array(
-						'desktop'      => 40,
 						'tablet'       => '',
 						'mobile'       => '',
 						'desktop-unit' => 'px',
@@ -400,6 +412,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'letter-spacing-body'			=> '',
+					'letter-spacing-h1'			=> '',
+					'letter-spacing-h2'			=> '',
+					'letter-spacing-h3'			=> '',
+					'letter-spacing-h4'			=> '',
+					'letter-spacing-h5'			=> '',
+					'letter-spacing-h6'			=> '',
 					//Content
 					'content-text-color'  => '',
 					'content-link-color' => '',
@@ -411,7 +430,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-post-sidebar-layout'       => 'default',
 					'archive-post-sidebar-layout'      => 'default',
 					'sidebar-bg-obj'				   =>  array(
-						'background-color'      => '',
+						'background-color'      => '#ffffff',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -425,24 +444,28 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sidebar-input-border-color' => '',	
 					'sidebar-input-color'		=> '',
 					'sidebar-input-bg-color'	=> '',
-					'side-bar-widgets-separator-color'	=> '',
 					// Sidebar.
-					'kemet-footer'                       => 'disabled',
+					'footer-layout'                       => 'disabled',
+					'sidebar-input-border-radius'		=> '',
+					'sidebar-input-border-size'			=> '',	
 
-					//header
-					'enable-transparent'  => 0,
 					//Widgets
 					'widget-title-font-family' => 'inherit',
 					'widget-title-font-weight'	=> 'inherit',
 					'widget-title-text-transform'	=> '',
 					'widget-title-line-height'	=> '',
 					'widget-padding'	=> '',
-					'Widget-bg-color' => '',
+					'widget-bg-color' => '',
 					'widget-margin-bottom'	=> '',
 					'widget-title-color'	=> '',
 					'widget-title-font-size'	=> '',
-					'widget-title-border-size'	=> '',
-					'widget-title-border-color' => '',
+					'widget-title-border-size'	=> 1,
+					'widget-title-border-color' => '#eee',
+					'footer-input-border-radius' => '',
+					'footer-input-border-size' => '',
+					'enable-widget-title-separator'	=> false,
+					'footer-widget-title-border-size' => '',
+					'widget-title-letter-spacing' => '',
 				)
 			);
 		}

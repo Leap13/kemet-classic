@@ -154,6 +154,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[shop-archive-width]', 
+            'conditions' => '==', 
+            'values' => 'custom',
+        ),
     )
 );
 $wp_customize->add_control(

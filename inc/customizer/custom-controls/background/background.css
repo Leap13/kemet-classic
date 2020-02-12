@@ -1,7 +1,6 @@
 .customize-control-kmt-background {
   position: relative;
 }
-
 .customize-control-kmt-background .wp-picker-container input[type="text"].wp-color-picker {
   max-width: 65px !important;
 }
@@ -56,7 +55,12 @@
   padding: 5px 0 5px 0;
   float: right;
 }
-
-.customize-control-kmt-background .arrow-icon {
-  margin-left: 5px;
+.wp-core-ui .button-group.button-small .button, .wp-core-ui .button.button-small{
+    margin-left: 6px;
+    min-height: 29px;
+    line-height: 1.18181818;
+}
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-default, .wp-picker-input-wrap .button.wp-picker-default{
+    line-height: 1.54545455;
+    min-height: 29px;
 }

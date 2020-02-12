@@ -29,6 +29,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $instance;
 
 		/**
+		 * Customizer Dependency Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $_dependency_arr = array();
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -53,16 +60,30 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
+			add_action( 'wp_enqueue_scripts', array( $this,'load_dashicons_front_end') );
+			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 		}
 
 
 		public function header_classes( $classes ) {
 			$header_layouts = kemet_get_option('header-layouts');
-			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' || $header_layouts == 'header-main-layout-3'){
+			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2'){
 				$menu_aglin 	= kemet_get_option('menu-alignment');
+
 				$classes[] = $menu_aglin;
 			}
+			if($header_layouts == 'header-main-layout-1'){
+				$logo_position 	= kemet_get_option('header-logo-position');
+				$rtl_class = 'menu-rtl' ;
 				
+				if(is_rtl()){
+					$rtl_logo_position = $logo_position == '' ? 'reverse' : ''; 
+					$rtl_class = 'menu-ltr' ;
+				}
+			    $classes[] = $rtl_class;
+				$classes[] = is_rtl() ? $rtl_logo_position : $logo_position;
+			}
+
 			return $classes;
 		 }
 		 
@@ -78,7 +99,67 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			echo $output;
 		}
+		//Get Settings
+		function filter_dynamic_setting_args( $setting_args, $setting_id ) {
+			$dependency = array(
+				'conditions' => array(),
+			);
+            if(isset($setting_args['dependency']) && !empty($setting_args['dependency'])){
+				foreach($setting_args['dependency'] as $key => $values){
 
+					switch ( $key ) {
+
+						case 'controls':
+							$split_controls = explode("/", $values);
+							$controls = !empty($split_controls) ? $split_controls : $values;
+							break;
+						case 'conditions':
+							$split_conditions = explode("/", $values);
+							$conditions = !empty($split_conditions) ? $split_conditions : $values;
+							
+							break;
+						case 'operators':
+							$split_operators = explode("/", $values);
+							$operators = !empty($split_operators) ? $split_operators : $values;
+							
+							break;	
+						case 'values':
+							$split_con_values = explode("/", $values);
+							$con_values = !empty($split_con_values) ? $split_con_values : $values;
+							break;		
+					}
+
+				}
+				
+				for($i = 0 ; $i <= count($controls)-1 ; $i++){
+					$operator = !empty($operators) && isset($operators[$i-1]) ? $operators[$i-1] : '||'; 
+					$dependency['conditions'][] = array($controls[$i] , $conditions[$i] , $con_values[$i] , $operator);
+				}  
+				$this->update_dependency_arr( $setting_id, $dependency );
+            }
+
+            return $setting_args;
+        }
+		/**
+		 * Update dependency in the dependency array.
+		 *
+		 * @param String $key name of the Setting/Control for which the dependency is added.
+		 * @param Array  $dependency dependency of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_dependency_arr( $key, $dependency ) {
+			self::$_dependency_arr[ $key ] = $dependency;
+		}
+
+		/**
+		 * Get dependency Array.
+		 *
+		 * @return Array Dependencies discovered when registering controls and settings.
+		 */
+		private function get_dependency_arr() {
+			return self::$_dependency_arr;
+		}
+		
 		/**
 		 * Register custom section and panel.
 		 *
@@ -154,7 +235,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 
 		}
-
+		
+		//Dashicons
+		function load_dashicons_front_end() {
+		wp_enqueue_style( 'dashicons' );
+		}
 		/**
 		 * Customizer Controls
 		 *
@@ -177,50 +262,29 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					$css_prefix = '-rtl.css';
 				}
 			}
-
+			
 			// Customizer Core.
-			wp_enqueue_script( 'kemet-customizer-controls-toggle-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'kemet-customizer-dependency-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
 			wp_enqueue_style( 'kemet-extend-customizer-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-extend-customizer-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KEMET_THEME_VERSION, true );
-
+			
 			// Customizer Controls.
 			wp_enqueue_style( 'kemet-customizer-controls-css', KEMET_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kemet-customizer-controls-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kemet-customizer-controls-toggle-js' ), KEMET_THEME_VERSION, true );
-
 			wp_localize_script(
-				'kemet-customizer-controls-toggle-js', 'kemet', apply_filters(
+				'kemet-customizer-dependency-js', 'kemet', apply_filters(
 					'kemet_theme_customizer_js_localize', array(
-						'customizer' => array(
-							'settings' => array(
-								'sidebars'  => array(
-									'single'  => array(
-										'single-post-sidebar-layout',
-										'single-page-sidebar-layout',
-									),
-									'archive' => array(
-										'archive-post-sidebar-layout',
-									),
-								),
-								'container' => array(
-									'single'  => array(
-										'single-post-content-layout',
-										'single-page-content-layout',
-									),
-									'archive' => array(
-										'archive-post-content-layout',
-									),
-								),
-							),
-						),
 						'theme'      => array(
 							'option' => KEMET_THEME_SETTINGS,
 						),
+						'config'     => $this->get_dependency_arr(),
 					)
 				)
 			);
-
+			//Extra Controls Script
+			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix , null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'kemet-custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir . '/custom-controls' .  $js_prefix , array( 'jquery', 'customize-base', 'kemet-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ) , KEMET_THEME_VERSION, true );
 		}
 
 		/**

@@ -342,7 +342,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return array
 		 */
 		function related_products_args( $args ) {
-			var_dump($col);
 			$col                    = kemet_get_option( 'shop-grids' );
 			$args['posts_per_page'] = $col['desktop'];
 			return $args;
@@ -372,8 +371,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'kemet' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			);
 			register_sidebar(
@@ -383,8 +382,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'description'   => __( 'This sidebar will be used on Single Product page.', 'kemet' ),
 					'before_widget' => '<div id="%1$s" class="widget %2$s">',
 					'after_widget'  => '</div>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			);
 		}

@@ -58,6 +58,16 @@ module.exports = function (grunt) {
                             dest: 'assets/css/unminified/compatibility/woocommerce',
                             ext: '-rtl.css'
                         },
+                        {
+                            expand: true,
+                            cwd: 'inc/customizer/custom-controls/assets/css/unminified/',
+                            src: [
+                                '*.css',
+                                '!*-rtl.css',
+                            ],
+                            dest: 'inc/customizer/custom-controls/assets/css/unminified/',
+                            ext: '-rtl.css'
+                        },
                     ]
               	}
             },
@@ -156,11 +166,14 @@ module.exports = function (grunt) {
 	                        dest: 'assets/js/minified',
 	                        cwd: 'assets/js/unminified',
 	                        ext: '.min.js'
-	                    },
+                        },
+                        {
+                            src: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
+                            dest: 'inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js'
+                        },
 	               	]
-                }
+                },
             },
-
             cssmin: {
                 options: {
                     keepSpecialComments: 0
@@ -179,8 +192,15 @@ module.exports = function (grunt) {
 	                        dest: 'assets/css/minified',
 	                        cwd: 'assets/css/unminified',
 	                        ext: '.min.css'
-	                    },
-
+                        },
+                        {
+                            src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css',
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css'
+                        },
+                        {
+                            src: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css',
+                            dest: 'inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css'
+                        },
 	                    // Generating RTL files from '/unminified/' into '/minified/'
                     	// NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
@@ -191,7 +211,14 @@ module.exports = function (grunt) {
                     		src: 'assets/css/unminified/style-rtl.css',
 	                        dest: 'assets/css/minified/style.min-rtl.css',
 	                    },
-
+                        {
+                            src: 'assets/css/unminified/extend-customizer-rtl.css',
+                            dest: 'assets/css/minified/extend-customizer-rtl.min.css',
+                        },
+                        {
+                            src: 'assets/css/unminified/customizer-controls-rtl.css',
+                            dest: 'assets/css/minified/customizer-controls-rtl.min.css',
+                        },
 	                    // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
 	                    // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
                     	{
@@ -337,7 +364,40 @@ module.exports = function (grunt) {
                     ]
                 }
             },
+            concat: {
+                css: {
+                    src: [
+                        'inc/customizer/custom-controls/background/background.css' , 
+                        'inc/customizer/custom-controls/sortable/sortable.css',
+                        'inc/customizer/custom-controls/slider/slider.css',
+                        'inc/customizer/custom-controls/color/color.css',
+                        'inc/customizer/custom-controls/icon-select/icon-select.css',
+                        'inc/customizer/custom-controls/radio-image/radio-image.css',
+                        'inc/customizer/custom-controls/responsive/responsive.css',
+                        'inc/customizer/custom-controls/responsive-select/responsive-select.css',
+                        'inc/customizer/custom-controls/responsive-slider/responsive-slider.css',
+                        'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css',
+                        'inc/customizer/custom-controls/title/title.css'
+                    ],
+                    dest: 'inc/customizer/custom-controls/assets/css/unminified/custom-controls.css'
+                },
 
+                js: {
+                    src: [
+                        'inc/customizer/custom-controls/sortable/sortable.js',
+                        'inc/customizer/custom-controls/slider/slider.js',
+                        'inc/customizer/custom-controls/color/color.js',
+                        'inc/customizer/custom-controls/icon-select/icon-select.js',
+                        'inc/customizer/custom-controls/radio-image/radio-image.js',
+                        'inc/customizer/custom-controls/responsive/responsive.js',
+                        'inc/customizer/custom-controls/responsive-select/responsive-select.js',
+                        'inc/customizer/custom-controls/responsive-slider/responsive-slider.js',
+                        'inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js',
+                        'inc/customizer/custom-controls/title/title.js'
+                    ],
+                    dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js'
+                }
+            },
             charset: {
             dist: {
                 options: {
@@ -370,7 +430,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-   // grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-clean');

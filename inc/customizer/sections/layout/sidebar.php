@@ -13,13 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$defaults = Kemet_Theme_Options::defaults();
 
     /**
      * Option: Sidebar Width
      */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[site-sidebar-width]', array(
-            'default'           => kemet_get_option( 'site-sidebar-width' ),
+            'default'           => $defaults[ 'site-sidebar-width' ],
             'type'              => 'option',
             'transport'         => 'postMessage',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
@@ -49,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
      */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[site-sidebar-layout]', array(
-            'default'           => kemet_get_option( 'site-sidebar-layout' ),
+            'default'           => $defaults[ 'site-sidebar-layout' ],
             'type'              => 'option',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
         )
@@ -74,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
      */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[single-page-sidebar-layout]', array(
-            'default'           => kemet_get_option( 'single-page-sidebar-layout' ),
+            'default'           => $defaults[ 'single-page-sidebar-layout' ],
             'type'              => 'option',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
         )
@@ -95,11 +96,36 @@ if ( ! defined( 'ABSPATH' ) ) {
     );
 
     /**
+     * Option: Blog Post
+     */
+    $wp_customize->add_setting(
+        KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
+            'default'           => $defaults[ 'single-post-sidebar-layout' ],
+            'type'              => 'option',
+            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        )
+    );
+    $wp_customize->add_control(
+        KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
+            'type'     => 'select',
+            'section'  => 'section-sidebars',
+            'priority' => 25,
+            'label'    => __( 'Blog Posts', 'kemet' ),
+            'choices'  => array(
+                'default'       => __( 'Default', 'kemet' ),
+                'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+                'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+                'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
+            ),
+        )
+    );
+
+        /**
          * Option: Blog Post Archive
          */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
-                'default'           => kemet_get_option( 'archive-post-sidebar-layout' ),
+                'default'           => $defaults[ 'archive-post-sidebar-layout' ],
                 'type'              => 'option',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
             )
@@ -108,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             KEMET_THEME_SETTINGS . '[archive-post-sidebar-layout]', array(
                 'type'     => 'select',
                 'section'  => 'section-sidebars',
-                'priority' => 25,
+                'priority' => 30,
                 'label'    => __( 'Blog Post Archives', 'kemet' ),
                 'choices'  => array(
                     'default'       => __( 'Default', 'kemet' ),
@@ -120,36 +146,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         );
 
     /**
-     * Option: Blog Post
-     */
-    $wp_customize->add_setting(
-        KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-            'default'           => kemet_get_option( 'single-post-sidebar-layout' ),
-            'type'              => 'option',
-            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-        )
-    );
-    $wp_customize->add_control(
-        KEMET_THEME_SETTINGS . '[single-post-sidebar-layout]', array(
-            'type'     => 'select',
-            'section'  => 'section-sidebars',
-            'priority' => 30,
-            'label'    => __( 'Blog Posts', 'kemet' ),
-            'choices'  => array(
-                'default'       => __( 'Default', 'kemet' ),
-                'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
-                'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
-                'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
-            ),
-        )
-    );
-
-    /**
 	 * Option: sidebar Background
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[sidebar-bg-obj]', array(
-			'default'           => kemet_get_option( 'sidebar-bg-obj' ),
+			'default'           => $defaults[ 'sidebar-bg-obj' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -166,12 +167,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 		)
     );
 
-            /**
+        /**
+        * Option: Title
+        */
+        $wp_customize->add_control(
+            new Kemet_Control_Title(
+                $wp_customize, KEMET_THEME_SETTINGS . '[kmt-sidebar-style]', array(
+                    'type'     => 'kmt-title',
+                    'label'    => __( 'Sidebar Content Style', 'kemet' ),
+                    'section'  => 'section-sidebars',
+                    'priority' => 40,
+                    'settings' => array(),
+                )
+            )
+        );
+        /**
          * Option: Text Color
         */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[sidebar-text-color]', array(
-                'default'           => kemet_get_option( 'sidebar-text-color' ),
+                'default'           => $defaults[ 'sidebar-text-color' ],
                 'type'              => 'option',
                 'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -181,7 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-text-color]', array(
                     'label'   => __( 'Text Color', 'kemet' ),
-                    'priority'       => 40,
+                    'priority'       => 45,
                     'section' => 'section-sidebars',
                 )
             )
@@ -193,7 +208,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
-				'default'           => kemet_get_option( 'sidebar-link-color' ),
+				'default'           => $defaults[ 'sidebar-link-color' ],
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -202,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			new Kemet_Control_Color(
 				$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-link-color]', array(
 					'label'   => __( 'Link Color', 'kemet' ),
-					'priority'       => 45,
+					'priority'       => 50,
 					'section' => 'section-sidebars',
 				)
 			)
@@ -213,7 +228,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         */
 		$wp_customize->add_setting(
 			KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
-				'default'           => kemet_get_option( 'sidebar-link-h-color' ),
+				'default'           => $defaults[ 'sidebar-link-h-color' ],
 				'type'              => 'option',
 				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			)
@@ -222,7 +237,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			new Kemet_Control_Color(
 				$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-link-h-color]', array(
 					'label'   => __( 'Link Hover Color', 'kemet' ),
-					'priority'       => 50,
+					'priority'       => 55,
 					'section' => 'section-sidebars',
 				)
 			)
@@ -232,7 +247,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
     $wp_customize->add_setting(
         KEMET_THEME_SETTINGS . '[sidebar-padding]', array(
-            'default'           => kemet_get_option( 'sidebar-padding' ),
+            'default'           => $defaults[ 'sidebar-padding' ],
             'type'              => 'option',
             'transport'         => 'postMessage',
             'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -243,8 +258,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-padding]', array(
                 'type'           => 'kmt-responsive-spacing',
                 'section'        => 'section-sidebars',
-                'priority'       => 55,
-                'label'          => __( 'sidebar Padding', 'kemet' ),
+                'priority'       => 60,
+                'label'          => __( 'Sidebar Padding', 'kemet' ),
                 'linked_choices' => true,
                 'unit_choices'   => array( 'px', 'em', '%' ),
                 'choices'        => array(
@@ -256,33 +271,26 @@ if ( ! defined( 'ABSPATH' ) ) {
             )
         )
     );
-
-    /**
-         * Option: Sidebar Input border Color
-         */
-        $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
-                'default'           => kemet_get_option( 'sidebar-input-border-color' ),
-                'type'              => 'option',
-                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-            )
-        );
+        /**
+        * Option: Title
+        */
         $wp_customize->add_control(
-            new Kemet_Control_Color(
-                $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
-                    'priority'       => 60,
-                    'section' => 'section-sidebars',
-                    'label'   => __( 'Sidebar Input Border Color', 'kemet' ),
+            new Kemet_Control_Title(
+                $wp_customize, KEMET_THEME_SETTINGS . '[kmt-sidebar-title]', array(
+                    'type'     => 'kmt-title',
+                    'label'    => __( 'Sidebar Input Fields Style', 'kemet' ),
+                    'section'  => 'section-sidebars',
+                    'priority' => 65,
+                    'settings' => array(),
                 )
             )
         );
-
         /**
          * Option: Sidebar Input color
          */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[sidebar-input-color]', array(
-                'default'           => kemet_get_option( 'sidebar-input-color' ),
+                'default'           => $defaults[ 'sidebar-input-color' ],
                 'type'              => 'option',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
@@ -291,8 +299,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-color]', array(
                     'section' => 'section-sidebars',
-                    'label'   => __( 'Sidebar Input Color', 'kemet' ),
-                    'priority'       =>65,
+                    'label'   => __( 'Input Field Text Color', 'kemet' ),
+                    'priority'       =>70,
                 )
             )
         );
@@ -301,7 +309,7 @@ if ( ! defined( 'ABSPATH' ) ) {
          */
         $wp_customize->add_setting(
             KEMET_THEME_SETTINGS . '[sidebar-input-bg-color]', array(
-                'default'           => kemet_get_option( 'sidebar-input-bg-color' ),
+                'default'           => $defaults[ 'sidebar-input-bg-color' ],
                 'type'              => 'option',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
@@ -309,31 +317,99 @@ if ( ! defined( 'ABSPATH' ) ) {
         $wp_customize->add_control(
             new Kemet_Control_Color(
                 $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-bg-color]', array(
-                    'priority'       => 70,
+                    'priority'       => 75,
                     'section' => 'section-sidebars',
-                    'label'   => __( 'Sidebar Input Background Color', 'kemet' ),
+                    'label'   => __( 'Input Field Background Color', 'kemet' ),
                 )
             )
         );
-
         /**
-        * Option: Widgets separator Color
-        */
+         * Option: Sidebar Input border Color
+         */
         $wp_customize->add_setting(
-            KEMET_THEME_SETTINGS . '[side-bar-widgets-separator-color]', array(
-                'default'           => kemet_get_option( 'side-bar-widgets-separator-color' ),
+            KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
+                'default'           => $defaults[ 'sidebar-input-border-color' ],
                 'type'              => 'option',
-                'transport'         => 'postMessage',
                 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
             )
         );
         $wp_customize->add_control(
             new Kemet_Control_Color(
-                $wp_customize, KEMET_THEME_SETTINGS . '[side-bar-widgets-separator-color]', array(
-                    'type'    => 'kmt-color',
-                    'priority'    => 75,
-                    'label'   => __( 'Separator Color', 'kemet' ),
+                $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-border-color]', array(
+                    'priority'       => 80,
                     'section' => 'section-sidebars',
+                    'label'   => __( 'Sidebar Input Border Color', 'kemet' ),
+                )
+            )
+        );
+        /**
+        * Option: Input Field Border Radius
+        */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[sidebar-input-border-radius]', array(
+                'default'           => $defaults[ 'sidebar-input-border-radius' ],
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+            )
+        );
+        $wp_customize->add_control(
+            new Kemet_Control_Responsive_Slider(
+                $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-border-radius]', array(
+                    'type'           => 'kmt-responsive-slider',
+                    'section'        => 'section-sidebars',
+                    'priority'       => 85,
+                    'label'          => __( 'Input Field Border Radius', 'kemet' ),
+                    'unit_choices'   => array(
+                        'px' => array(
+                            'min' => 1,
+                            'step' => 1,
+                            'max' =>200,
+                        ),
+                        'em' => array(
+                            'min' => 0.1,
+                            'step' => 0.1,
+                            'max' => 10,
+                        ),
+                        '%' => array(
+                            'min' => 1,
+                            'step' => 1,
+                            'max' => 100,
+                        ),
+                    ),
+                )
+            )
+        );
+        /**
+        * Option: Input Field Border Radius
+        */
+        $wp_customize->add_setting(
+            KEMET_THEME_SETTINGS . '[sidebar-input-border-size]', array(
+                'default'           => $defaults[ 'sidebar-input-border-size' ],
+                'type'              => 'option',
+                'transport'         => 'postMessage',
+                'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+            )
+        );
+        $wp_customize->add_control(
+            new Kemet_Control_Responsive_Slider(
+                $wp_customize, KEMET_THEME_SETTINGS . '[sidebar-input-border-size]', array(
+                    'type'           => 'kmt-responsive-slider',
+                    'section'        => 'section-sidebars',
+                    'priority'       => 90,
+                    'label'          => __( 'Input Field Border Size', 'kemet' ),
+                    'unit_choices'   => array(
+                        'px' => array(
+                            'min' => 1,
+                            'step' => 1,
+                            'max' =>200,
+                        ),
+                        'em' => array(
+                            'min' => 0.1,
+                            'step' => 0.1,
+                            'max' => 10,
+                        ),
+                    ),
                 )
             )
         );

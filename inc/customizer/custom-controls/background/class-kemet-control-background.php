@@ -66,17 +66,14 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
 		}
-
 		/**
 		 * Enqueue control related scripts/styles.
 		 *
 		 * @access public
 		 */
 		public function enqueue() {
-			$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/background/';
 			$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/background/';
 
-			wp_enqueue_style( 'kemet-background', $css_uri . 'background.css', null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-background', $js_uri . 'background.js', array(), KEMET_THEME_VERSION, true );
 			wp_localize_script(
 				'kemet-background', 'kemetCustomizerControlBackground', array(

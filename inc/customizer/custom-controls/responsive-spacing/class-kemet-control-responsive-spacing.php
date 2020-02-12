@@ -44,20 +44,6 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	public $unit_choices = array( 'px' => 'px' );
 
 	/**
-	 * Enqueue control related scripts/styles.
-	 *
-	 * @access public
-	 */
-	public function enqueue() {
-
-		$css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
-		$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/responsive-spacing/';
-
-		wp_enqueue_script( 'kemet-responsive-spacing', $js_uri . 'responsive-spacing.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-		wp_enqueue_style( 'kemet-responsive-spacing', $css_uri . 'responsive-spacing.css', null, KEMET_THEME_VERSION );
-	}
-
-	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -227,20 +213,20 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper tablet"><# 
+				<ul class="kmt-spacing-wrapper tablet">
 
-					if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li><#
-					}
-					_.each( data.choices, function( choiceLabel, choiceID ) { 
+					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
 						<input type='number' class='kmt-spacing-input kmt-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
+					<# if ( data.linked_choices ) { #>
+					<li class="kmt-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+					<# } #>
 					<ul class="kmt-spacing-responsive-units kmt-spacing-tablet-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
@@ -254,19 +240,20 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper mobile"><# 
-					if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-					</li><#
-					}
-					_.each( data.choices, function( choiceLabel, choiceID ) { 
+				<ul class="kmt-spacing-wrapper mobile"> 
+
+					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
 					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
 						<input type='number' class='kmt-spacing-input kmt-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
 						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
+					<# if ( data.linked_choices ) { #>
+					<li class="kmt-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					</li>
+					<# } #>
 					<ul class="kmt-spacing-responsive-units kmt-spacing-mobile-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';

@@ -841,9 +841,9 @@ var toggleClass = function ( el, className ) {
     
 
     //Header4 Left Menu
-    var header4_active = document.querySelector('.header-main-layout-4') != null;
+    var header4_active = document.querySelector('.header-main-layout-3') != null;
     if (header4_active == true) {
-        var header4 = document.querySelectorAll('.header-main-layout-4');
+        var header4 = document.querySelectorAll('.header-main-layout-3');
         var header4_icon = header4[0].querySelectorAll('.main-header-menu-toggle');
         var header4_left_menu = header4[0].querySelectorAll('.main-header-bar-navigation');
         if (header4_left_menu.length > 1){
@@ -1007,7 +1007,7 @@ var toggleClass = function ( el, className ) {
     var searchStyle = function(){
         var hasOutSideMenu = document.querySelector('.kmt-outside-menu') != null,
             hasInsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items') != null;
-        
+            
         if (hasOutSideMenu) {
             var outSideMenu = document.querySelector('.kmt-outside-menu');
             var hasSearch = outSideMenu.querySelector('.search') != null;
@@ -1032,7 +1032,7 @@ var toggleClass = function ( el, className ) {
         } else if (hasInsideMenu && !hasOutSideMenu){
 
             var InsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items');
-            var hasSearch = InsideMenu.classList.contains('.search') != null;
+            var hasSearch = InsideMenu.classList.contains('.search') != '';
             var hasBreakPoint = document.querySelector('.kmt-header-break-point');
 
             if (hasSearch) {

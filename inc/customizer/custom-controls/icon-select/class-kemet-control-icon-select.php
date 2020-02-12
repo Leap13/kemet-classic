@@ -29,20 +29,6 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
     public $type = 'kmt-icon-select';
 
     /**
-    * Enqueue control related scripts/styles.
-    *
-    * @access public
-    */
-
-    public function enqueue() {
-        $css_uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/icon-select/';
-        $js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/icon-select/';
-
-        wp_enqueue_script( 'kmt-icon-select', $js_uri . 'icon-select.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
-        wp_enqueue_style( 'kmt-icon-select', $css_uri . 'icon-select.css', null, KEMET_THEME_VERSION );
-    }
-
-    /**
     * Refresh the parameters passed to the JavaScript via JSON.
     *
     * @see WP_Customize_Control::to_json()
@@ -79,6 +65,7 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
         * @access protected
         */
         protected function content_template() {
+            $rtl_class = is_rtl() ? 'rtl' : '';
 		?>
 		<label class="customizer-text">
 			<# if ( data.label ) { #>
@@ -88,7 +75,7 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 		</label>
-		<div id="input_{{ data.id }}" class="icon-select clr">  
+		<div id="input_{{ data.id }}" class="icon-select <?php echo $rtl_class; ?>">  
 			<# for ( key in data.choices ) { #>	
 				<label>
 					<input class="icon-select-input" type="radio" value="{{ key }}" name="_customize-icon-select-{{ data.id }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked<# } #> />

@@ -706,10 +706,10 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '<div class="kmt-main-header-bar-alignment">';
 				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';	
-					wp_nav_menu( $primary_menu_args );
-					if ( 'header-main-layout-4' == $header_layout && has_nav_menu( 'left_menu' )) {
+					if ( 'header-main-layout-3' == $header_layout && has_nav_menu( 'left_menu' )) {
 					wp_nav_menu( $left_menu_args );
 					}
+					wp_nav_menu( $primary_menu_args );
 				echo  '</div>';
 				echo  '</nav>';
 				echo  '</div>';
@@ -828,7 +828,6 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		$primary_menu_disable     = kemet_get_option( 'disable-primary-nav' );
 		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
 		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
-		$header_transparent       = kemet_get_option( 'enable-transparent' );
 		$header_layouts 			  = kemet_get_option( 'header-layouts' );
 
 		if ( $menu_logo_location ) {
@@ -846,10 +845,6 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 		// Add class if Inline Logo & Site Title.
 		if ( $logo_title_inline ) {
 			$classes[] = 'kmt-logo-title-inline';
-		}
-		
-		if($header_transparent){
-			$classes[] = 'kmt-header-transparent';
 		}
 		
 		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
@@ -881,60 +876,6 @@ if ( ! function_exists( 'kemet_footer_classes' ) ) {
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 }
-
-/**
- * Function to Add Header Breakpoint Style
- */
-if ( ! function_exists( 'kemet_header_breakpoint_style' ) ) {
-
-	/**
-	 * Function to Add Header Breakpoint Style
-	 *
-	 */
-	function kemet_header_breakpoint_style() {
-
-		// Header Break Point.
-		$header_break_point = kemet_header_break_point();
-
-		ob_start();
-		?>
-		.main-header-bar-wrap::before {
-			content: '<?php echo esc_html( $header_break_point ); ?>';
-		}
-
-		@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-			.main-header-bar-wrap::before {
-				content: '';
-			}
-		}
-		<?php
-
-		$kemet_header_width = kemet_get_option( 'header-main-layout-width' );
-
-		/* Width for Header */
-		if ( 'content' != $kemet_header_width ) {
-			$genral_global_responsive = array(
-				'#sitehead .kmt-container' => array(
-					'max-width'     => '100%',
-					'padding-left'  => '35px',
-					'padding-right' => '35px',
-				),
-			);
-
-			/* Parse CSS from array()*/
-			echo kemet_parse_css( $genral_global_responsive, $header_break_point );
-		}
-
-		$dynamic_css = ob_get_clean();
-
-		// trim white space for faster page loading.
-		$dynamic_css = Kemet_Enqueue_Scripts::trim_css( $dynamic_css );
-
-		wp_add_inline_style( 'kemet-theme-css', $dynamic_css );
-	}
-}
-
-add_action( 'wp_enqueue_scripts', 'kemet_header_breakpoint_style' );
 
 /**
  * Function to filter comment form's default fields

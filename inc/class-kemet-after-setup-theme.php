@@ -120,17 +120,6 @@ if ( ! class_exists( 'Kemet_Setup' ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
-			// /**
-			//  * Enable support for header image
-			//  */
-			// add_theme_support( 'custom-header', apply_filters( 'kemet_custom_header_args', array(
-			// 	'width'              => 2000,
-			// 	'height'             => 1200,
-			// 	'flex-height'        => true,
-			// 	'video'              => true,
-			// ) ) );
-
-
 			if ( apply_filters( 'kemet_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );

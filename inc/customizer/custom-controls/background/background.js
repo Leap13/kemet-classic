@@ -20,16 +20,9 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 	initKmtBgControl: function () {
 
 		var control = this,
-			value = {
-				'background-color': '',
-				'background-image': '',
-				'background-repeat': 'repeat',
-				'background-position': 'center center',
-				'background-size': 'auto',
-				'background-attachment': 'scroll',
-			},
+			value = control.setting._value,
 			picker = control.container.find('.kmt-color-control');
-
+		
 		// Hide unnecessary controls if the value doesn't have an image.
 		if (_.isUndefined(value['background-image']) || '' === value['background-image']) {
 			control.container.find('.background-wrapper > .background-repeat').hide();
@@ -37,7 +30,7 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 			control.container.find('.background-wrapper > .background-size').hide();
 			control.container.find('.background-wrapper > .background-attachment').hide();
 		}
-
+		
 		// Color.
 		picker.wpColorPicker({
 			change: function () {
@@ -115,6 +108,8 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 				// Show extra controls if the value has an image.
 				if ('' !== imageUrl) {
 					control.container.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
+					control.container.find('.more-settings').attr('data-direction', 'up');
+					control.container.find('.message').html(kemetCustomizerControlBackground.lessSettings)
 				}
 
 				value['background-image'] = imageUrl;
@@ -154,7 +149,6 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 
 			control.container.find('.more-settings').attr('data-direction', 'down');
 			control.container.find('.more-settings').find('.message').html(kemetCustomizerControlBackground.moreSettings);
-			control.container.find('.more-settings').find('.icon').html('↓');
 
 			if (preview.length) {
 				preview.removeClass().addClass('placeholder').html(kemetCustomizerControlBackground.placeholder);
@@ -176,11 +170,9 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 			if ('down' === $this.attr('data-direction')) {
 				$this.attr('data-direction', 'up');
 				$this.find('.message').html(kemetCustomizerControlBackground.lessSettings)
-				$this.find('.icon').html('↑');
 			} else {
 				$this.attr('data-direction', 'down');
 				$this.find('.message').html(kemetCustomizerControlBackground.moreSettings)
-				$this.find('.icon').html('↓');
 			}
 		});
 	},

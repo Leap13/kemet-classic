@@ -25,29 +25,51 @@
 			text-align: left;
 		}
 	}
-	&.menu-left{
+	&.menu-rtl{
+		&.menu-left{
 		.kmt-main-header-bar-alignment {
 			margin-right: auto;
 			margin-left: 0;
 		}
-	}
-	&.menu-right{
-		.kmt-main-header-bar-alignment {
-			margin-left: auto;
-			margin-right: 0;
+		}
+		&.menu-right{
+			.kmt-main-header-bar-alignment {
+				margin-left: auto;
+				margin-right: 0;
+			}
+		}
+		&.menu-center{
+			.kmt-main-header-bar-alignment {
+				margin-right: auto;
+				margin-left: auto;
+			}
 		}
 	}
-	&.menu-center{
+	&.menu-ltr{
+		&.menu-left{
 		.kmt-main-header-bar-alignment {
-			margin-right: auto;
+			margin-right: 0;
 			margin-left: auto;
+		}
+		}
+		&.menu-right{
+			.kmt-main-header-bar-alignment {
+				margin-left: 0;
+				margin-right: auto;
+			}
+		}
+		&.menu-center{
+			.kmt-main-header-bar-alignment {
+				margin-right: auto;
+				margin-left: auto;
+			}
 		}
 	}
 	.kmt-main-header-bar-alignment {
 		margin-left: auto;
+		margin-right: 0;
 	}
 	.main-navigation {
-		padding-left: 15px;
 		vertical-align: top;
 	}
 }
@@ -65,9 +87,9 @@
 	}
 }
 /**
- *  2 - Header Layout 2
+ *  2 - Header Layout 1 Reverse
 */
-.header-main-layout-2 {
+.header-main-layout-1.reverse {
 	.kmt-search-menu-icon{
 		right: auto;
 		left: 30px;
@@ -79,29 +101,11 @@
 	.main-header-container	{
 		  flex-direction: row-reverse;
 	}
-	&.menu-left{
-		.kmt-main-header-bar-alignment {
-			margin-right: auto;
-			margin-left: 0;
-		}
-	}
-	&.menu-right{
-		.kmt-main-header-bar-alignment {
-			margin-left: auto;
-			margin-right: 0;
-		}
-	}
-	&.menu-center{
-		.kmt-main-header-bar-alignment {
-			margin-right: auto;
-			margin-left: auto;
-		}
-	}
 	.kmt-main-header-bar-alignment {
 		margin-right: auto;
+		margin-left: 0;
 	}
 	.main-navigation {
-		padding-right: 15px;
 		ul {
 			justify-content: flex-start;
 		}
@@ -118,7 +122,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-2 {
+	.header-main-layout-1.reverse {
 		.main-header-container{
 		  flex-direction: row-reverse;
 		}
@@ -149,7 +153,7 @@
 /**
  * 3 - Header Layout 3
 */
-.header-main-layout-3 {
+.header-main-layout-2 {
 	.kmt-header-logo-right-section{
 		width: 100%;
 		display: flex;
@@ -282,7 +286,7 @@
 }
 
 .kmt-header-break-point {
-	.header-main-layout-3 {
+	.header-main-layout-2 {
 		.kmt-header-logo-right-section{
 			.kmt-mobile-menu-buttons{
 				padding: 10px;
@@ -335,7 +339,7 @@
 	.site-logo-img{
 		padding-right: 1em;
 	}
-	&.header-main-layout-3{
+	&.header-main-layout-2{
 		.site-logo-img + .kmt-site-title-wrap .site-title{
 			justify-content: flex-start;
 		}
@@ -395,7 +399,7 @@
  *  4 - Header Layout 4
 */
 .kmt-header-break-point{
-	.header-main-layout-4 {
+	.header-main-layout-3 {
 		.main-header-container{
 			ul#primary-menu , ul#left-menu{
 			position: static;
@@ -413,7 +417,7 @@
 	}
 }
 
-.header-main-layout-4 {
+.header-main-layout-3 {
 	.main-header-container
 	{
 		position: relative;
@@ -464,6 +468,11 @@
 }
 
 .main-header-bar{
+	.kmt-sitehead-custom-menu-items{
+		&.widget{
+			margin: auto;
+		}
+	}
 	.kmt-sitehead-custom-menu-items , .header-right-section{
 		&.search-box{
 			.kmt-search-icon{
@@ -525,11 +534,9 @@
 	}
 }
 .kmt-header-break-point{
-	.main-navigation{
-		.kmt-sitehead-custom-menu-items{
-			&.hide-on-mobile{
-				display: none !important;
-			}
+	.kmt-sitehead-custom-menu-items{
+		&.hide-on-mobile{
+			display: none !important;
 		}
 	}
 }

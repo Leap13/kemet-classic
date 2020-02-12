@@ -82,11 +82,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_widgets_init', array(
 					'name'          => esc_html__( 'Main Sidebar', 'kemet' ),
 					'id'            => 'sidebar-1',
-					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -99,15 +98,27 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_header_widgets_init', array(
 					'name'          => esc_html__( 'Header', 'kemet' ),
 					'id'            => 'header-widget',
-					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
 
+		register_sidebar(
+			apply_filters(
+				'kemet_header_right_section', array(
+				'name'          => esc_html__( 'Header Right Section', 'kemet' ),
+				'id'            => 'header-right-section',
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
+			)
+			)
+		);
+		
 		/**
 		 * Register Footer Bar Widgets area
 		 */
@@ -116,11 +127,10 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_footer_1_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 1', 'kemet' ),
 					'id'            => 'copyright-widget-1',
-					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
 			)
 		);
@@ -130,60 +140,11 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'kemet_footer_2_widgets_init', array(
 					'name'          => esc_html__( 'Footer Bar Section 2', 'kemet' ),
 					'id'            => 'copyright-widget-2',
-					'description'   => '',
-					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<h2 class="widget-title">',
-					'after_title'   => '</h2>',
+					'before_widget' => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+					'after_title'   => '</h4></div></div>',
 				)
-			)
-		);
-
-				/**
-		 * Register Top Section1 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_top_widget_sectio1', array(
-				'name'          => esc_html__( 'Top Widget Section 1', 'kemet' ),
-				'id'            => 'top-widget-section1',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-			)
-		);
-
-		/**
-		 * Register Top Section2 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_top_widget_sectio2', array(
-				'name'          => esc_html__( 'Top Widget Section 2', 'kemet' ),
-				'id'            => 'top-widget-section2',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
-			)
-		);
-
-		/**
-		 * Register Top Section2 Widget
-		 */
-		register_sidebar(
-			apply_filters(
-				'kemet_header_right_section', array(
-				'name'          => esc_html__( 'Header Right Section', 'kemet' ),
-				'id'            => 'header-right-section',
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			)
 			)
 		);
 
@@ -196,8 +157,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-1',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -207,8 +168,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-2',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -218,8 +179,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-3',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -229,8 +190,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-4',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 
@@ -240,8 +201,8 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 				'id'            => 'main-footer-widget-5',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
+				'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+				'after_title'   => '</h4></div></div>',
 			)
 		);
 

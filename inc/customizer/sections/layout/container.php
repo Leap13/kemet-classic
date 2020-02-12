@@ -12,12 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
 	/**
 	* Option: Site Content Width
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-width]', array(
-			'default'           => kemet_get_option( 'site-content-width' ),
+			'default'           => $defaults[ 'site-content-width' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
@@ -45,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-content-layout]', array(
-			'default'           => kemet_get_option( 'site-content-layout' ),
+			'default'           => $defaults[ 'site-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -70,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
-			'default'           => kemet_get_option( 'single-page-content-layout' ),
+			'default'           => $defaults[ 'single-page-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -79,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		KEMET_THEME_SETTINGS . '[single-page-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
-			'label'    => __( 'Container for Pages', 'kemet' ),
+			'label'    => __( 'Pages Container', 'kemet' ),
 			'priority' => 15,
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
@@ -96,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[single-post-content-layout]', array(
-			'default'           => kemet_get_option( 'single-post-content-layout' ),
+			'default'           => $defaults[ 'single-post-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -106,7 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 20,
-			'label'    => __( 'Container for Blog Posts', 'kemet' ),
+			'label'    => __( 'Blog Posts Container', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
@@ -122,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[archive-post-content-layout]', array(
-			'default'           => kemet_get_option( 'archive-post-content-layout' ),
+			'default'           => $defaults[ 'archive-post-content-layout' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
@@ -132,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 25,
-			'label'    => __( 'Container for Blog Archives', 'kemet' ),
+			'label'    => __( 'Blog Archives Container', 'kemet' ),
 			'choices'  => array(
 				'default'                 => __( 'Default', 'kemet' ),
 				'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
@@ -144,26 +145,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	);
 
 	/**
-	 * Option: Title
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Title(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-body-bg-title]', array(
-				'type'     => 'kmt-title',
-				'label'    => __( 'Body Background', 'kemet' ),
-				'section'  => 'section-container-layout',
-				'priority' => 30,
-				'settings' => array(),
-			)
-		)
-	);
-
-	/**
 	 * Option: Body Background
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-			'default'           => kemet_get_option( 'site-layout-outside-bg-obj' ),
+			'default'           => $defaults[ 'site-layout-outside-bg-obj' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -186,7 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Kemet_Control_Title(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-boxed-title]', array(
 				'type'     => 'kmt-title',
-				'label'    => __( 'Boxed Inner Background', 'kemet' ),
+				'label'    => __( 'Boxed Layout Content Settings', 'kemet' ),
 				'section'  => 'section-container-layout',
 				'priority' => 36,
 				'settings' => array(),
@@ -198,7 +184,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
-			'default'           => kemet_get_option( 'site-boxed-inner-bg' ),
+			'default'           => $defaults[ 'site-boxed-inner-bg' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
@@ -210,21 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'type'     => 'kmt-background',
 				'section'  => 'section-container-layout',
 				'priority' => 40,
-				'label'    => __( 'Boxed Inner Background', 'kemet' ),
-			)
-		)
-	);
-		/**
-	 * Option: Title
-	 */
-	$wp_customize->add_control(
-		new Kemet_Control_Title(
-			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-site-body-spacing-title]', array(
-				'type'     => 'kmt-title',
-				'label'    => __( 'Body Spacing', 'kemet' ),
-				'section'  => 'section-container-layout',
-				'priority' => 45,
-				'settings' => array(),
+				'label'    => __( 'Boxed Background', 'kemet' ),
 			)
 		)
 	);
@@ -234,7 +206,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     */
    $wp_customize->add_setting(
        KEMET_THEME_SETTINGS . '[container-inner-spacing]', array(
-           'default'           => kemet_get_option( 'container-inner-spacing' ),
+           'default'           => $defaults[ 'container-inner-spacing' ],
            'type'              => 'option',
            'transport'         => 'postMessage',
            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
@@ -246,12 +218,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-container-layout',
                'priority'       => 50,
-               'label'          => __( 'Inner Container Spacing', 'kemet' ),
+               'label'          => __( 'Boxed Container Spacing', 'kemet' ),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(
                    'top'    => __( 'Top', 'kemet' ),
-                   'right'  => __( 'Right', 'kemet' ),
+				   'right'  => __( 'Right', 'kemet' ),
+				   'bottom' => __( 'Bottom', 'kemet' ),
                    'left'   => __( 'Left', 'kemet' ),
                ),
            )
@@ -263,7 +236,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	*/
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[content-separator-color]', array(
-			'default'           => kemet_get_option( 'content-separator-color' ),
+			'default'           => $defaults[ 'content-separator-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
@@ -274,7 +247,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$wp_customize, KEMET_THEME_SETTINGS . '[content-separator-color]', array(
 				'type'    => 'kmt-color',
 				'priority'    => 55,
-				'label'   => __( 'Content separator Color', 'kemet' ),
+				'label'   => __( 'Content Separator Color', 'kemet' ),
 				'section' => 'section-container-layout',
 			)
 		)
