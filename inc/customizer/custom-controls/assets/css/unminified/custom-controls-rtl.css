@@ -190,19 +190,12 @@
 
 .customize-control-kmt-slider .kmt-slider-reset {
   color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: -28px;
-  left: 0;
   display: inline-block;
-  -webkit-transition: color 0.5s ease-in;
-  -moz-transition: color 0.5s ease-in;
-  -ms-transition: color 0.5s ease-in;
-  -o-transition: color 0.5s ease-in;
-  transition: color 0.5s ease-in;
+  margin-right: 5px;
 }
 
 .customize-control-kmt-slider .kmt-slider-reset span {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 22px;
 }
 
@@ -526,7 +519,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 }
 
 .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset span {
-	font-size: 17px;
+	font-size: 15px;
     line-height: 30px;
 }
 
