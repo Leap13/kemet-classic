@@ -17,13 +17,15 @@ $blog_post_order = kemet_get_option( 'blog-post-structure' );
 	<div class="post-content kmt-col-md-12">
 	<?php foreach($blog_post_order as $item){ ?>
 		<?php 
-		if($item == 'image'){
-			kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb kmt-col-md-12">', '</div>' ); 
-		}
+		switch($item){
+			case 'image':
+				kemet_get_post_thumbnail( '<div class="kmt-blog-featured-section post-thumb kmt-col-md-12">', '</div>' );
+				
+				break;
 		?>
 
 		<?php 
-		if($item == 'title-meta'){
+		case 'title-meta':
 			do_action( 'kemet_archive_entry_header_before' ); ?> 
 			<header class="entry-header">
 				<?php
@@ -46,9 +48,11 @@ $blog_post_order = kemet_get_option( 'blog-post-structure' );
 
 				?>
 			</header><!-- .entry-header -->
-		<?php } ?>
 		<?php 
-		if($item == 'content-readmore'){	
+				break;
+		?>
+		<?php 
+		case 'content-readmore':
 			do_action( 'kemet_archive_entry_header_after' ); ?>
 				<div class="entry-content clear" itemprop="text">
 
@@ -69,7 +73,9 @@ $blog_post_order = kemet_get_option( 'blog-post-structure' );
 					);
 				?>
 			</div><!-- .entry-content .clear -->
-		<?php } ?>
+		<?php 
+				break;
+			} ?>
 		<?php } ?>
 	</div><!-- .post-content -->
 
