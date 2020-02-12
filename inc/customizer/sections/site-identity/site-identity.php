@@ -385,10 +385,10 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
         'dependency'  => array(
-				'controls' =>  KEMET_THEME_SETTINGS . '[display-site-title]/' . KEMET_THEME_SETTINGS . '[display-site-tagline]/' . 'custom_logo', 
-				'conditions' => '==/==/!=', 
-                'values' => '1/1/',
-                'operators' => '&&/&&'
+				'controls' =>  KEMET_THEME_SETTINGS . '[display-site-title]/' . 'custom_logo', 
+				'conditions' => '==/!=', 
+                'values' => '1/',
+                'operators' => '&&'
 			),
     )
 );
