@@ -1,5 +1,0 @@
-{
-    "editor.formatOnPaste": true,
-    "php.validate.executablePath": "/usr/bin/php",
-    "phpcs.standard": "WordPress",
-}
