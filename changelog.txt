@@ -3,3 +3,24 @@ v 0.0.1
 
 v 0.1.1
 - New: Page Options. 
+
+v 1.0.0
+- Added: New theme options panel.
+- Added: Menu items typography option.
+- Added: New customizer section to customize buttons & fields styles.
+- Added: Search box style to display in the header.
+- Added: Responsive menu Settings.
+- Added: Extra footer styling options to customizer.
+- Added: Extra sidebar styling options to customizer.
+- Added: Extra widgets styling options to customizer.
+- Added: Letter spacing option to typography control.
+- Added: Single post options to customize post style.
+- Added: Header overlay option.
+- Added: Alignment control for Main menu.
+- Tweak: Top bar section moved to Kemet Addons plugin for better performance and management.
+- Tweak: Changes in the customizer controls styles files for better performance and speed.
+- Fixed: Content spacing option doesn't work.
+- Fixed: Submenu items doesn't work in responsive.
+- Fixed: Retina logo doesn't work.
+- Fixed: Right & left menus don't work in responsive in header3.
+- Fixed: Font weight option doesn't work
