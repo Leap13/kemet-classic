@@ -276,7 +276,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
-        'sanitize_callback' => ''    
+        'sanitize_callback' => false    
         ),
     )
 );
@@ -356,7 +356,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
-        'sanitize_callback' => ''    
+        'sanitize_callback' => false    
         ),
     )
 );
