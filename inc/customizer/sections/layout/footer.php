@@ -270,15 +270,6 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
@@ -349,15 +340,6 @@ $wp_customize->add_control(
 /**
 * Option: Title
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
 $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
