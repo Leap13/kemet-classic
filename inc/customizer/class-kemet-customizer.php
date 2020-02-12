@@ -137,7 +137,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				}  
 				$this->update_dependency_arr( $setting_id, $dependency );
             }
-
+			unset($setting_args['dependency']);
             return $setting_args;
         }
 		/**

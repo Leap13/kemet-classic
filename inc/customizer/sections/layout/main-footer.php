@@ -158,6 +158,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
+        'sanitize_callback' => ''    
         ),
     )
 );
@@ -476,6 +477,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
+        'sanitize_callback' => ''    
         ),
     )
 );
@@ -715,6 +717,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
+        'sanitize_callback' => ''    
         ),
     )
 );
@@ -893,6 +896,7 @@ $wp_customize->add_setting(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
+        'sanitize_callback' => ''
         ),
     )
 );
