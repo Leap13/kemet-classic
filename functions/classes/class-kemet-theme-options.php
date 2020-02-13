@@ -305,7 +305,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-attachment' => 'scroll',
 					),
 					'container-inner-spacing'	=> '',	
-					'content-separator-color'	=> '',
+					'content-separator-color'	=> '#eeeeee',
 					// Typography.
 					'body-font-family'                 => 'inherit',
 					'body-font-weight'                 => 'inherit',

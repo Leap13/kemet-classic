@@ -41,16 +41,13 @@ body {
 	}
 }
 .kmt-article-post{
-	border-bottom: 1px solid $color-border-content;
+	border-bottom: 1px solid;
 }
 
 //separate container content layout
 .kmt-separate-container{
 	.kmt-archive-description{
 		border-top: 0;
-	}
-	.kmt-article-post{
-		border-bottom: 0;
 	}
 	background-color: $color-background-sep-content-body;
 	#primary{

@@ -466,7 +466,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	//Single Post Content Separator Color
 	wp.customize('kemet-settings[content-separator-color]', function (value) {
 		value.bind(function (border_color) {
-			jQuery('body:not(.kmt-separate-container) .kmt-article-post, body:not(.kmt-separate-container) #primary,body:not(.kmt-separate-container) #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment').css('border-color', border_color);
+			jQuery('body .kmt-article-post, body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment').css('border-color', border_color);
 		});
 	});
 	/**

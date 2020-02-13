@@ -2117,7 +2117,7 @@ body {
 }
 
 .kmt-article-post {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid;
 }
 
 .kmt-separate-container {
@@ -2126,10 +2126,6 @@ body {
 
 .kmt-separate-container .kmt-archive-description {
   border-top: 0;
-}
-
-.kmt-separate-container .kmt-article-post {
-  border-bottom: 0;
 }
 
 .kmt-separate-container #primary {
