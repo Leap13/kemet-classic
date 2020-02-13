@@ -12,12 +12,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$defaults = Kemet_Theme_Options::defaults();
 	/**
 	 * Option: Theme Color
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[theme-color]', array(
-			'default'           => '#191919',
+			'default'           => $defaults[ 'theme-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -37,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[link-color]', array(
-			'default'           => kemet_get_option( 'link-color' ),
+			'default'           => $defaults[ 'link-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -57,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[text-color]', array(
-			'default'           => kemet_get_option( 'text-color' ),
+			'default'           => $defaults[ 'text-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
@@ -78,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[link-h-color]', array(
-			'default'           => kemet_get_option( 'link-h-color' ),
+			'default'           => $defaults[ 'link-h-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
