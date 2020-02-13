@@ -159,6 +159,7 @@ $wp_customize->add_setting(
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
+        'sanitize_callback' 	=> 'wp_kses',
     )
 );
 $wp_customize->add_control(
@@ -477,6 +478,7 @@ $wp_customize->add_setting(
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
+        'sanitize_callback' 	=> 'wp_kses',
     )
 );
 $wp_customize->add_control(
@@ -716,6 +718,7 @@ $wp_customize->add_setting(
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
+        'sanitize_callback' 	=> 'wp_kses',
     )
 );
 $wp_customize->add_control(
@@ -894,6 +897,7 @@ $wp_customize->add_setting(
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
+        'sanitize_callback' 	=> 'wp_kses',
     )
 );
 $wp_customize->add_control(

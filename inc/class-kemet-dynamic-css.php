@@ -966,7 +966,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'body, .kmt-separate-container' => kemet_get_background_obj( $box_bg_obj ),
             
 			);
-			$parse_css             .= kemet_parse_css( $separate_container_css );
+			$parse_css .= kemet_parse_css( $separate_container_css );
 
 			$tablet_typo = array();
 
