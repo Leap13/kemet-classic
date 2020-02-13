@@ -94,7 +94,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					'font-color-entry-title'		   => '',
-					'listing-post-meta-color'		  => '',
+					'listing-post-meta-color'		  => '#575757',
 					'font-size-page-meta'			  => '',	
 					'listing-post-title-color'		  => '',	
 					'readmore-text-color'		  => '',
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
 					'logo-title-inline'                => 0,
-					'tagline-color'				=> '',
+					'tagline-color'				=> '#666',
 					'site-identity-spacing'				=> '',
 					// Header 
 					'disable-primary-nav'              => false,

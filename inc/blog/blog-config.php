@@ -20,7 +20,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 	 * @param  string $separator Separator.
 	 * @return string            post meta markup.
 	 */
-	function kemet_get_post_meta( $post_meta, $separator = '/' ) {
+	function kemet_get_post_meta( $post_meta, $separator = '' ) {
 
 		$output_str = '';
 		$loop_count = 1;
