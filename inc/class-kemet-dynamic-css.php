@@ -703,10 +703,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.site-header .menu-icon' => array(
-					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
-					'background-color' => esc_attr( $btn_bg_color ),
-				),
 				'.site-header .icon-bars-btn span' => array(
 					'background-color'            => esc_attr( $btn_text_color ),
 				), 
