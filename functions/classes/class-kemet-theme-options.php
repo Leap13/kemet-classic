@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-wgt-title-line-height' => '',
 					'footer-wgt-bg-color'			=> '',
 					'footer-inner-widget-padding'		=> '',
-					'footer-wgt-title-separator-color' => '',
+					'footer-wgt-title-separator-color' => '#191919',
 					'enable-footer-widget-title-separator'	 => false,
 					'footer-widget-title-letter-spacing' => '',
 					'footer-letter-spacing' => '',
@@ -460,11 +460,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'widget-title-color'	=> '',
 					'widget-title-font-size'	=> '',
 					'widget-title-border-size'	=> 1,
-					'widget-title-border-color' => '#eee',
+					'widget-title-border-color' => '#eaeaea',
 					'footer-input-border-radius' => '',
 					'footer-input-border-size' => '',
 					'enable-widget-title-separator'	=> false,
-					'footer-widget-title-border-size' => '',
+					'footer-widget-title-border-size' => '1',
 					'widget-title-letter-spacing' => '',
 				)
 			);
