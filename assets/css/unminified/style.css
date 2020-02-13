@@ -2514,7 +2514,6 @@ body {
 .main-header-menu ul {
   border-top-style: solid;
   border-top-width: 2px;
-  border-top-color: #eaeaea;
 }
 
 .main-header-menu ul ul {
@@ -2576,16 +2575,11 @@ body {
   margin-right: 2px;
 }
 
-.kmt-header-break-point .kmt-header-custom-item {
-  background-color: #f9f9f9;
-}
-
 .kmt-header-break-point .main-header-menu {
   background-color: #f9f9f9;
 }
 
 .kmt-header-break-point .main-header-menu ul {
-  background-color: #f9f9f9;
   position: static;
   opacity: 1;
   visibility: visible;
@@ -3652,7 +3646,6 @@ body {
   z-index: 4;
   position: relative;
   line-height: 4;
-  border-bottom: 1px solid #eee;
 }
 
 .main-header-bar .main-header-bar-navigation:empty {
@@ -3907,10 +3900,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation .kmt-submenu-expanded > .kmt-menu-toggle::before {
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
-}
-
-.kmt-header-break-point .main-header-bar .main-header-bar-navigation .main-header-menu {
-  border-top: 1px solid #eaeaea;
 }
 
 .kmt-header-break-point .main-navigation {
@@ -4324,7 +4313,6 @@ div.title {
  *
  */
 .kmt-footer-copyright-content {
-  background-color: #333333;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -4422,22 +4410,6 @@ div.title {
   }
 }
 
-.site-footer {
-  color: #fff;
-}
-
-.site-footer .widget-title {
-  color: #eaeaea;
-}
-
-.site-footer a {
-  color: #eaeaea;
-}
-
-.site-footer a:hover, .site-footer a:focus {
-  color: #fff;
-}
-
 .site-footer ul {
   margin: 0;
   list-style-type: none;
@@ -4451,7 +4423,6 @@ div.title {
  * Footer Widget Layouts
  */
 .kemet-footer-overlay {
-  background-color: #333333;
   padding-top: 30px;
   padding-bottom: 30px;
 }

@@ -93,7 +93,6 @@
 	ul {
 		border-top-style: solid;
 		border-top-width: 2px;
-		border-top-color: #eaeaea;
 		ul{
 			top: 0px;
 		}
@@ -145,14 +144,10 @@
 			}
 		}
 	}
-	.kmt-header-custom-item {
-		background-color: $color-background-nav-mobile;
-	}
 
 	.main-header-menu {
 		background-color: $color-background-nav-mobile;
 		ul {
-			background-color: $color-background-nav-mobile;
 			position: static;
 			opacity: 1;
 			visibility: visible;

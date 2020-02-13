@@ -56,7 +56,6 @@
 	z-index: 4;
 	position: relative;
 	line-height: 4;
-	border-bottom: 1px solid #eee;
 	.main-header-bar-navigation {
 
 		&:empty {
@@ -285,10 +284,6 @@ li.kmt-sitehead-custom-menu-items {
 				>.kmt-menu-toggle::before {
 				   transform: rotateX(180deg);
 				}
-			}
-
-			.main-header-menu {
-				border-top: 1px solid #eaeaea;
 			}
 		}
 	}

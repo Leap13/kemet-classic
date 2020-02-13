@@ -126,7 +126,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'footer-color'                     => '',
 					'footer-link-color'                => '',
-					'footer-link-h-color'              => '',
+					'footer-link-h-color'              => '#ffffff',
 					// Footer Widgets.
 					'footer-bg-obj'                => array(
 						'background-color'      => '#333',
@@ -136,10 +136,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'background-size'       => 'auto',
 						'background-attachment' => 'scroll',
 					),
-					'footer-text-color'            => '',
-					'footer-link-color'            => '',
+					'footer-text-color'            => '#ffffff',
+					'footer-link-color'            => '#eaeaea',
 					'footer-widget-meta-color'     => '',
-					'footer-wgt-title-color'       => '',
+					'footer-wgt-title-color'       => '#eaeaea',
 					'footer-button-color'				=> '',
 					'footer-button-h-color'				=> '',
 					'footer-button-bg-color'			=> '',
@@ -258,10 +258,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sub-menu-items-line-height'                 => '',
 					'sub-menu-items-text-transform'              => '',
 					'sub-menu-link-bottom-border-color'              => '',
-					'submenu-bg-color'                       =>'',
+					'submenu-bg-color'                       =>'#fff',
 					'submenu-link-h-color'   =>   '',
 					'submenu-top-border-size'   => '',
-					'submenu-top-border-color'   =>'',
+					'submenu-top-border-color'   =>'#eaeaea',
 					'submenu-font-size'   =>'',
 					'submenu-letter-spacing'    => '',
 					// Mobile Menu 
@@ -275,7 +275,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'header-main-sep-color'            => '',
+					'header-main-sep-color'            => '#eeeeee',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 
