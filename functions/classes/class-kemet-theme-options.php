@@ -297,7 +297,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-post-content-layout'       => 'default',
 					'archive-post-content-layout'      => 'default',
 					'site-boxed-inner-bg'			   => array(
-						'background-color'      => '',
+						'background-color'      => '#ffffff',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
