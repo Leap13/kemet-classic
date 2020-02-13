@@ -783,7 +783,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
-					'line-height' => '1.45',
+					'line-height' => '1.70',
 					'color'       => esc_attr( $link_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(

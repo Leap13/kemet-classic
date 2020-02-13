@@ -113,11 +113,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'text-color'                       => '#333333',
 					'link-color'                       => '#191919',
 					'theme-color'                      => '#191919',
-					'link-h-color'                     => '#000000',
+					'link-h-color'                     => '#fab522',
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => array(
-						'background-color'      => '#333',
+						'background-color'      => '#232323',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-link-h-color'              => '#ffffff',
 					// Footer Widgets.
 					'footer-bg-obj'                => array(
-						'background-color'      => '#333',
+						'background-color'      => '#232323',
 						'background-image'      => '',
 						'background-repeat'     => 'repeat',
 						'background-position'   => 'center center',
@@ -167,9 +167,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-h-color'                   => '',
 					'button-bg-color'                  => '',
 					'button-bg-h-color'                => '',
-					'btn-border-color'				   => '',	
-					'btn-border-size'				   => '',
-					'btn-border-h-color'			   => '',	
+					'btn-border-color'				   => '#191919',	
+					'btn-border-size'				   => 1,
+					'btn-border-h-color'			   => '#fab522',	
 					'button-radius'					   => '',
 					'button-spacing' 				   => '',
 					'input-bg-color'				   => '',

@@ -161,7 +161,6 @@ $wp_customize->add_control(
 				'section'     => 'section-buttons-fields',
 				'priority'    => 30,
 				'label'       => __( 'Border Size', 'kemet' ),
-				'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,

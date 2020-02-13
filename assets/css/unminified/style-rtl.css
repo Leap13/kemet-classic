@@ -5005,7 +5005,7 @@ input[type="color"]::-webkit-color-swatch {
 
 /* 2 - Single Post Article Header */
 .single .entry-header .kmt-single-post-order + .post-thumb img {
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 0;
 }
 
@@ -5019,7 +5019,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .entry-header .post-thumb img {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 
 .page .has-post-thumbnail .post-thumb img {
