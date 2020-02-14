@@ -109,6 +109,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'letter-spacing-page-title'	=> '',
 					'letter-spacing-page-meta'	=> '',
 					'letter-spacing-entry-title'     => '',
+					'overlay-image-bg-color'		  => '#f67207',
+					'overlay-icon-color'			=> '#000',
+					'overlay-icon-h-color'	=> '#f67207',
+					'overlay-icon-bg-color'	=> '#fff',
+					'overlay-icon-bg-h-color'     => '',
 					// Kemet Colors.
 					'text-color'                       => '#333333',
 					'link-color'                       => '#191919',

@@ -5721,7 +5721,11 @@ input[type="color"]::-webkit-color-swatch {
   padding-left: 0;
 }
 
-.kmt-blog-featured-section .overlay-image {
+.post-thumb-img-content {
+  position: relative;
+}
+
+.post-thumb-img-content .overlay-image {
   height: 100%;
   top: 0;
   -webkit-transition: all 0.3s linear 0s;
@@ -5749,9 +5753,7 @@ input[type="color"]::-webkit-color-swatch {
   overflow: hidden;
 }
 
-.kmt-blog-featured-section .overlay-image .overlay-color {
-  position: absolute;
-  background-color: #f67207;
+.post-thumb-img-content .overlay-image .overlay-color {
   width: 100%;
   height: 100%;
   opacity: .5;
@@ -5760,14 +5762,13 @@ input[type="color"]::-webkit-color-swatch {
   width: 100%;
 }
 
-.kmt-blog-featured-section .overlay-image .post-details {
+.post-thumb-img-content .overlay-image .post-details {
   width: 100%;
   text-align: center;
 }
 
-.kmt-blog-featured-section .overlay-image .enlarge, .kmt-blog-featured-section .overlay-image .post-link {
+.post-thumb-img-content .overlay-image .enlarge, .post-thumb-img-content .overlay-image .post-link {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.7);
   -webkit-border-radius: 50%;
   border-radius: 50%;
   width: 35px;
@@ -5778,17 +5779,13 @@ input[type="color"]::-webkit-color-swatch {
   transition: all 0.3s linear 0s;
 }
 
-.kmt-blog-featured-section .overlay-image .enlarge:hover, .kmt-blog-featured-section .overlay-image .post-link:hover {
-  color: #f67207;
-}
-
-.kmt-blog-featured-section .overlay-image .enlarge {
+.post-thumb-img-content .overlay-image .enlarge {
   -webkit-transform: translateX(-200px);
   -ms-transform: translateX(-200px);
   transform: translateX(-200px);
 }
 
-.kmt-blog-featured-section .overlay-image .enlarge:before {
+.post-thumb-img-content .overlay-image .enlarge:before {
   content: "\e90d";
   font-family: Kemet-font;
   font-style: normal;
@@ -5805,13 +5802,13 @@ input[type="color"]::-webkit-color-swatch {
   font-weight: 500;
 }
 
-.kmt-blog-featured-section .overlay-image .post-link {
+.post-thumb-img-content .overlay-image .post-link {
   -webkit-transform: translateX(200px);
   -ms-transform: translateX(200px);
   transform: translateX(200px);
 }
 
-.kmt-blog-featured-section .overlay-image .post-link:before {
+.post-thumb-img-content .overlay-image .post-link:before {
   content: "\f103";
   font-family: "dashicons";
   font-style: normal;
@@ -5828,12 +5825,12 @@ input[type="color"]::-webkit-color-swatch {
   font-weight: 500;
 }
 
-.kmt-blog-featured-section:hover > .overlay-image {
+.post-thumb-img-content:hover > .overlay-image {
   opacity: 1;
   visibility: visible;
 }
 
-.kmt-blog-featured-section:hover > .overlay-image .enlarge, .kmt-blog-featured-section:hover > .overlay-image .post-link {
+.post-thumb-img-content:hover > .overlay-image .enlarge, .post-thumb-img-content:hover > .overlay-image .post-link {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);

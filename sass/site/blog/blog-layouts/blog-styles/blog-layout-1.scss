@@ -22,7 +22,8 @@
         padding-right: 0;
     }
 }
-.kmt-blog-featured-section{
+.post-thumb-img-content{
+    position: relative;
     .overlay-image{
         height: 100%;
         top: 0;
@@ -36,8 +37,6 @@
         justify-content: center;
         overflow: hidden;
         .overlay-color{
-            position: absolute;
-            background-color: #f67207;
             width: 100%;
             height: 100%;
             opacity: .5;
@@ -51,16 +50,12 @@
         }
         .enlarge , .post-link{
             position: relative;
-            background-color: rgba(255,255,255, 0.7);
             border-radius: 50%;
             width: 35px;
             height: 35px;
             display: inline-block;
             margin: 5px;
             transition: all 0.3s linear 0s;
-            &:hover{
-                color: #f67207;
-            }
         }
         .enlarge{
             -webkit-transform: translateX(200px);
