@@ -178,10 +178,6 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
 
-			// Light Box.
-			wp_enqueue_style( 'prettyPhoto-css', KEMET_THEME_URI . 'assets/prettyphoto/css/prettyPhoto.css' , null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'prettyPhoto-js', KEMET_THEME_URI . 'assets/prettyphoto/js/jquery.prettyPhoto.js', array(), KEMET_THEME_VERSION, true );
-
 		}
 
 		/**

@@ -1188,19 +1188,15 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 					)
 				);
 
-				if ( '' != $post_thumb && !is_singular('post')) {
+				if ( '' != $post_thumb ) {
 					$output .= '<div class="post-thumb-img-content post-thumb">';
+					if ( ! $check_is_singular ) {
+						$output .= '<a href="' . esc_url( get_permalink() ) . '" >';
+					}
 					$output .= $post_thumb;
-					$output .= '<div class="overlay-image">';
-					$output .= '<div class="overlay-color"></div>';
-					$output .= '<div class="post-details">';
-					$output .= '<a class="post-link" href='. esc_url( get_permalink() ) .'></a>';
-					$output .= '<a class="enlarge" rel="prettyPhoto[post-'. get_the_ID() .']"  href="'. get_the_post_thumbnail_url(get_the_ID()) .'"></a>';
-					$output .= '</div></div>';
-					$output .= '</div>';
-				}else if('' != $post_thumb && is_singular('post')){
-					$output .= '<div class="post-thumb-img-content post-thumb">';
-					$output .= $post_thumb;
+					if ( ! $check_is_singular ) {
+						$output .= '</a>';
+					}
 					$output .= '</div>';
 				}
 			}

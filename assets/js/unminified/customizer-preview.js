@@ -999,13 +999,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[readmore-bg-color]', 'background-color', '.content-area .read-more a');
 	kemet_css('kemet-settings[readmore-bg-h-color]', 'background-color', '.content-area .read-more a:hover');
 	kemet_responsive_slider('kemet-settings[read-more-border-size]', '.content-area .read-more a', 'border-width');
-	kemet_responsive_slider('kemet-settings[read-more-border-radius]', '.content-area .read-more a', 'border-radius');
-	kemet_css('kemet-settings[overlay-icon-color]', 'color', '.overlay-image .post-details a');
-	kemet_css('kemet-settings[overlay-icon-h-color]', 'color', '.overlay-image .post-details a:hover');
-	kemet_css('kemet-settings[overlay-image-bg-color]', 'background-color', '.overlay-image .overlay-color');
-	kemet_css('kemet-settings[overlay-icon-bg-color]', 'background-color', '.overlay-image .post-details a');
-	kemet_css('kemet-settings[overlay-icon-bg-h-color]', 'background-color', '.overlay-image .post-details a:hover');
-	
+	kemet_responsive_slider('kemet-settings[read-more-border-radius]', '.content-area .read-more a', 'border-radius');	
 	wp.customize('kemet-settings[readmore-border-color]', function (value) {
 		value.bind(function (border_color) {
 
