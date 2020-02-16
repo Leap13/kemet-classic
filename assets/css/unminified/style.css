@@ -2516,6 +2516,11 @@ body {
   top: 0px;
 }
 
+.submenu-box-shadow ul {
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
 .kmt-header-break-point .main-navigation {
   padding-left: 0;
 }
@@ -2591,6 +2596,11 @@ body {
 .kmt-header-break-point .main-header-menu li.kmt-sub-menu-goes-outside:hover > ul,
 .kmt-header-break-point .main-header-menu li.kmt-sub-menu-goes-outside.focus > ul {
   left: 0;
+}
+
+.kmt-header-break-point .submenu-box-shadow ul {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .kmt-header-break-point .submenu-with-border ul {

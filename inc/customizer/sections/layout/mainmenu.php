@@ -754,7 +754,24 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Submenu Box Shadow
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-box-shadow]', array(
+			'default'           => $defaults[ 'submenu-box-shadow' ],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[submenu-box-shadow]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'label'    => __( 'Submenu Box Shadow', 'kemet' ),
+			'priority' => 141,
+		)
+	);
 	/**
 	 * Option: Submenu Width
 	 */

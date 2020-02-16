@@ -237,7 +237,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-right-section-menu'	       => '',
 					'header-main-sep'				   => '',
 					'header-padding'				   => '',
-					'display-submenu-border'           => true,
+					'display-submenu-border'           => false,
 					'header-bg-obj'                    =>  array(
 						'background-color'      => '#ffffff',
 						'background-image'      => '',
@@ -254,7 +254,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-width'					=> '',
 					'submenu-link-color'             =>'',
 					'sub-menu-items-font-family'                 => 'inherit',
-					'sub-menu-items-font-weight'                 => 'inherit',
+					'sub-menu-items-font-weight'                 => '400',
 					'sub-menu-items-line-height'                 => '',
 					'sub-menu-items-text-transform'              => '',
 					'sub-menu-link-bottom-border-color'              => '',
@@ -264,6 +264,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-top-border-color'   =>'#eaeaea',
 					'submenu-font-size'   =>'',
 					'submenu-letter-spacing'    => '',
+					'submenu-box-shadow'		=> true,
 					// Mobile Menu 
 					'mobile-menu-icon-color'      => '',
 					'mobile-menu-icon-bg-color'      => '',
