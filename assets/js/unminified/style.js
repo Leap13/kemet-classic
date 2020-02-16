@@ -1032,7 +1032,7 @@ var toggleClass = function ( el, className ) {
         } else if (hasInsideMenu && !hasOutSideMenu){
 
             var InsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items');
-            var hasSearch = InsideMenu.classList.contains('.search') != '';
+            var hasSearch = InsideMenu.classList.contains('search') != '';
             var hasBreakPoint = document.querySelector('.kmt-header-break-point');
 
             if (hasSearch) {

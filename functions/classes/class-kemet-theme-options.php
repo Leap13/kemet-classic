@@ -280,7 +280,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-menu-align'           => 'inline',
 
 					// Site Layout.
-					'site-content-width'               => 1140,
+					'site-content-width'               => 1200,
 					'site-layout-outside-bg-obj'       => array(
 						'background-color'      => '',
 						'background-image'      => '',
