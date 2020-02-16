@@ -3788,6 +3788,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
+.kmt-sitehead-custom-menu-items > div {
+  padding: 1em;
+}
+
 .main-header-menu > .menu-item > a {
   border-bottom: 1px solid transparent;
 }

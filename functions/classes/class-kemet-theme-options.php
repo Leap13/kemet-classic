@@ -184,7 +184,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-link-active-color' => '',
 					'menu-bg-color'							 => '',
 					'menu-items-font-family'                 => 'inherit',
-					'menu-items-font-weight'                 => 'inherit',
+					'menu-items-font-weight'                 => '400',
 					'menu-items-line-height'                 => '',
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
