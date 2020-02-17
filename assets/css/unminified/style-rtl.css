@@ -2436,7 +2436,6 @@ body .kmt-oembed-container * {
 
 .main-navigation {
   display: inline-block;
-  font-weight: 600;
 }
 
 .main-navigation ul {
@@ -2501,6 +2500,10 @@ body .kmt-oembed-container * {
   transform: translate(0, -50%) rotate(-270deg);
 }
 
+.main-header-menu ul ul.sub-menu li a {
+  border: 0;
+}
+
 .main-header-menu ul {
   border-top-style: solid;
   border-top-width: 2px;
@@ -2511,8 +2514,8 @@ body .kmt-oembed-container * {
 }
 
 .submenu-box-shadow ul {
-  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
 }
 
 .kmt-header-break-point .main-navigation {

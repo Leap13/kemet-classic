@@ -245,7 +245,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sub-menu-link-bottom-border-color'              => '',
 					'submenu-bg-color'                       =>'',
 					'submenu-link-h-color'   =>   '',
-					'submenu-top-border-size'   => '',
+					'submenu-top-border-size'   => 0,
 					'submenu-top-border-color'   =>'',
 					'submenu-font-size'   =>'',
 					'submenu-letter-spacing'    => '',
