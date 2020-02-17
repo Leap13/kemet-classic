@@ -112,14 +112,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Kemet Colors.
 					'text-color'                       => '',
 					'link-color'                       => '',
-					'theme-color'                      => '#191919',
+					'theme-color'                      => '#44AAF1',
 					'link-h-color'                     => '',
 					'smart-skin'				   => '',	
-					't1-color'                     => '#333333',
-					't2-color'                     => '',
-					'b1-color'                     => '',
-					'ft-color'                     => '',
-					'fb-color'                     => '',
+					't1-color'                     => '#353844',
+					't2-color'                     => '#60626C',
+					'b1-color'                     => '#E8EAEC',
+					'ft-color'                     => '#FBFBFB',
+					'fb-color'                     => '#42434E',
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => '',

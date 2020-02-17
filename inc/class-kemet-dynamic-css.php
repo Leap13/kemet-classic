@@ -62,15 +62,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			// Color Options.
-			$text_color       = kemet_get_option( 'text-color' );
 			$theme_color      = kemet_get_option( 'theme-color' );
 			$t1_color      = kemet_get_option( 't1-color' );
 			$t2_color      = kemet_get_option( 't2-color' );
 			$b1_color      = kemet_get_option( 'b1-color' );
 			$ft_color      = kemet_get_option( 'ft-color' );
 			$fb_color      = kemet_get_option( 'fb-color' );
-			$link_color       = kemet_get_option( 'link-color', $theme_color );
-			$link_hover_color = kemet_get_option( 'link-h-color' );
 
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 			$header_logo_width  = kemet_get_option( 'kmt-header-responsive-logo-width' );
