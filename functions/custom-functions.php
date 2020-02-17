@@ -1418,3 +1418,112 @@ if ( ! function_exists( 'kemet_prop' ) ) :
 	}
 
 endif;
+
+if ( !function_exists( 'kemet_hex2rgba' ) ) {
+
+    /**
+     * Convert hexdec color string to rgb(a) string
+     * @param string $color
+     * @param real $opacity
+     * @param bol $echo
+     * @return string
+     */
+    function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
+
+        $default = 'rgb(0,0,0)';
+
+        //Return default if no color provided
+        if ( empty( $color ) ) {
+            return $default;
+        }
+
+        //Sanitize $color if "#" is provided 
+        if ( $color[ 0 ] == '#' ) {
+            $color = substr( $color, 1 );
+        }
+
+        //Check if color has 6 or 3 characters and get values
+        if ( strlen( $color ) == 6 ) {
+            $hex = array( $color[ 0 ] . $color[ 1 ], $color[ 2 ] . $color[ 3 ], $color[ 4 ] . $color[ 5 ] );
+        } elseif ( strlen( $color ) == 3 ) {
+            $hex = array( $color[ 0 ] . $color[ 0 ], $color[ 1 ] . $color[ 1 ], $color[ 2 ] . $color[ 2 ] );
+        } else {
+            return $default;
+        }
+
+        //Convert hexadec to rgb
+        $rgb = array_map( 'hexdec', $hex );
+
+        //Check if opacity is set(rgba or rgb)
+        if ( $opacity ) {
+            if ( abs( $opacity ) > 1 ) {
+                $opacity = 1.0;
+            }
+            if ( $echo ) {
+                $output = 'rgba(' . implode( ",", $rgb ) . ',' . $opacity . ')';
+            } else {
+                $rgb[]  = $opacity;
+                $output = $rgb;
+            }
+        } else {
+            if ( $echo ) {
+                $output = 'rgb(' . implode( ",", $rgb ) . ')';
+            } else {
+                $output = $rgb;
+            }
+        }
+
+        //Return rgb(a) color string
+        return $output;
+    }
+
+}
+
+if ( !function_exists( 'kemet_color_brightness' ) ) {
+
+    /**
+     * Change color brightness to be darker or lighter
+     * @param string $hex color hex
+     * @param float $percent brightness percent from 0 to 1
+     * @param string $brightness light or dark
+     * @return string the new generated color hex
+     */
+    function kemet_color_brightness( $hex, $percent, $brightness = 'light' ) {
+
+        if ( $brightness == 'dark' ) {
+            $percent = $percent * -1;
+        }
+
+        $rgb = kemet_hex2rgba( $hex );
+        //// CALCULATE 
+        for ( $i = 0; $i < 3; $i++ ) {
+            // See if brighter or darker
+            if ( $percent > 0 ) {
+                // Lighter
+                $rgb[ $i ] = round( $rgb[ $i ] * $percent ) + round( 255 * (1 - $percent) );
+            } else {
+                // Darker
+                $positivePercent = $percent - ($percent * 2);
+                $rgb[ $i ]       = round( $rgb[ $i ] * $positivePercent ) + round( 0 * (1 - $positivePercent) );
+            }
+            // In case rounding up causes us to go to 256
+            if ( $rgb[ $i ] > 255 ) {
+                $rgb[ $i ] = 255;
+            }
+        }
+        //// RBG to Hex
+        $new_hex = '#';
+        for ( $i = 0; $i < 3; $i++ ) {
+            // Convert the decimal digit to hex
+            $hexDigit = dechex( $rgb[ $i ] );
+            // Add a leading zero if necessary
+            if ( strlen( $hexDigit ) == 1 ) {
+                $hexDigit = "0" . $hexDigit;
+            }
+            // Append to the hex string
+            $new_hex .= $hexDigit;
+        }
+        return $new_hex;
+    }
+
+}

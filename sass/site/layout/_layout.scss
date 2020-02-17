@@ -3,9 +3,6 @@
 	display: none !important;
 }
 
-body {
-	background-color: $color-background-body;
-}
 // Page alignment
 #page {
 	display: block;
@@ -305,19 +302,19 @@ body {
 @media (min-width: $col-md) {
 	.kmt-right-sidebar {
 		#primary {
-			border-right: 1px solid $color-border-content;
+			border-right: 1px solid;
 		}
 		#secondary{
-			border-left: 1px solid $color-border-content;
+			border-left: 1px solid;
 			margin-left: -1px;
 		}
 	}
 	.kmt-left-sidebar {
 		#primary {
-			border-left: 1px solid $color-border-content;
+			border-left: 1px solid;
 		}
 		#secondary{
-			border-right: 1px solid $color-border-content;
+			border-right: 1px solid;
 			margin-right: -1px;
 		}
 	}

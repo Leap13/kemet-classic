@@ -1314,8 +1314,6 @@ html {
 
 body {
   color: #808285;
-  background: #ffffff;
-  /* Fallback for when there is no custom background color defined. */
   font-style: normal;
 }
 
@@ -2076,10 +2074,6 @@ body .kmt-oembed-container * {
   display: none !important;
 }
 
-body {
-  background-color: #ffffff;
-}
-
 #page {
   display: block;
 }
@@ -2364,17 +2358,17 @@ body {
 
 @media (min-width: 769px) {
   .kmt-right-sidebar #primary {
-    border-left: 1px solid #eeeeee;
+    border-left: 1px solid;
   }
   .kmt-right-sidebar #secondary {
-    border-right: 1px solid #eeeeee;
+    border-right: 1px solid;
     margin-right: -1px;
   }
   .kmt-left-sidebar #primary {
-    border-right: 1px solid #eeeeee;
+    border-right: 1px solid;
   }
   .kmt-left-sidebar #secondary {
-    border-left: 1px solid #eeeeee;
+    border-left: 1px solid;
     margin-left: -1px;
   }
   .kmt-separate-container.kmt-right-sidebar #primary, .kmt-separate-container.kmt-left-sidebar #primary {
@@ -4308,7 +4302,6 @@ div.title {
 }
 
 .kmt-separate-container.kmt-two-container #secondary .widget {
-  background-color: #fff;
   padding: 2em;
   margin-bottom: 2em;
 }

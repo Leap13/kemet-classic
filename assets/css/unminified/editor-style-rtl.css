@@ -1313,8 +1313,6 @@ html {
 
 body {
   color: #808285;
-  background: #ffffff;
-  /* Fallback for when there is no custom background color defined. */
   font-style: normal;
 }
 

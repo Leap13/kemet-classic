@@ -122,26 +122,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'fb-color'                     => '',
 
 					// Footer Colors.
-					'footer-bar-bg-obj'                    => array(
-						'background-color'      => '#232323',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'footer-bar-bg-obj'                    => '',
 					'footer-color'                     => '',
 					'footer-link-color'                => '',
-					'footer-link-h-color'              => '#ffffff',
+					'footer-link-h-color'              => '',
 					// Footer Widgets.
-					'footer-bg-obj'                => array(
-						'background-color'      => '#232323',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'footer-bg-obj'                => '',
 					'footer-text-color'            => '',
 					'footer-link-color'            => '',
 					'footer-widget-meta-color'     => '',
@@ -174,7 +160,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-bg-color'                  => '',
 					'button-bg-h-color'                => '',
 					'btn-border-color'				   => '',	
-					'btn-border-size'				   => 1,
+					'btn-border-size'				   => 0,
 					'btn-border-h-color'			   => '',	
 					'button-radius'					   => '',
 					'button-spacing' 				   => '',
@@ -244,14 +230,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-sep'				   => '',
 					'header-padding'				   => '',
 					'display-submenu-border'           => false,
-					'header-bg-obj'                    =>  array(
-						'background-color'      => '',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'header-bg-obj'                    =>  '',
 					'header-right-section'             => 'none',
 					'header-logo-position'             => '',
 
@@ -267,7 +246,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-bg-color'                       =>'',
 					'submenu-link-h-color'   =>   '',
 					'submenu-top-border-size'   => '',
-					'submenu-top-border-color'   =>'#eaeaea',
+					'submenu-top-border-color'   =>'',
 					'submenu-font-size'   =>'',
 					'submenu-letter-spacing'    => '',
 					'submenu-box-shadow'		=> true,
@@ -282,20 +261,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
-					'header-main-sep-color'            => '#eeeeee',
+					'header-main-sep-color'            => '',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
 
 					// Site Layout.
 					'site-content-width'               => 1200,
-					'site-layout-outside-bg-obj'       => array(
-						'background-color'      => '',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'site-layout-outside-bg-obj'       => '',
 					// Container.
 					'site-title-color'	=> '',
 					'site-title-h-color'	=> '',
@@ -303,14 +275,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'single-page-content-layout'       => 'default',
 					'single-post-content-layout'       => 'default',
 					'archive-post-content-layout'      => 'default',
-					'site-boxed-inner-bg'			   => array(
-						'background-color'      => '',
-						'background-image'      => '',
-						'background-repeat'     => 'repeat',
-						'background-position'   => 'center center',
-						'background-size'       => 'auto',
-						'background-attachment' => 'scroll',
-					),
+					'site-boxed-inner-bg'			   => '',
 					'container-inner-spacing'	=> '',	
 					'content-separator-color'	=> '',
 					// Typography.
