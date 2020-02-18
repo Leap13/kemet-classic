@@ -222,14 +222,14 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 	function kemet_get_dynamic_header_content( $option ) {
 
 		$output  = array();
-		$section = kemet_get_option( $option );
+		$sections = kemet_get_option( $option );
                 
                 
-         if ( is_array( $section ) ) {
+         if ( is_array( $sections ) ) {
 			
-			foreach ( $section as $sectionnn ) {
+			foreach ( $sections as $section ) {
 
-				switch ( $sectionnn ) {
+				switch ( $section ) {
 
 			case 'search':
 					$output[] = kemet_get_search( $option );
@@ -244,7 +244,7 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 				break;
 
 			default:
-					$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $section );
+					$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $sections );
 				break;
 		}
                         }
