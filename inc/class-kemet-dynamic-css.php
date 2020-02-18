@@ -442,7 +442,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-single-post .entry-header .entry-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'desktop' ),
 					'letter-spacing' => kemet_responsive_slider( $single_post_title_letter_spacing, 'desktop' ),
-                    'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
+                    'color' => esc_attr( $single_post_title_font_color ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'desktop' ),
@@ -848,7 +848,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			    '.site-header .main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
-					'color' => kemet_adjust_brightness( $t1_color, 75, 'darken' ),
+					'color' => kemet_color_brightness( $t1_color, 75, 'darken' ),
 				),
 
 				// 404 Page.
