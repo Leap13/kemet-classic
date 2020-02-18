@@ -65,6 +65,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$theme_color      = kemet_get_option( 'theme-color' );
 			$t1_color      = kemet_get_option( 't1-color' );
 			$t2_color      = kemet_get_option( 't2-color' );
+			$global_border_color      = kemet_get_option( 'global-border-color' );
 			$b1_color      = kemet_get_option( 'b1-color' );
 			$ft_color      = kemet_get_option( 'ft-color' );
 			$fb_color      = kemet_get_option( 'fb-color' );
@@ -81,12 +82,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$input_text_color = kemet_get_option( 'input-text-color' );
 			$input_border_radius = kemet_get_option( 'input-radius' );
 			$input_border_size = kemet_get_option( 'input-border-size' );
-			$input_border_color = kemet_get_option( 'input-border-color' , $t2_color);
+			$input_border_color = kemet_get_option( 'input-border-color' , $global_border_color);
 
         	 // Boxed inner Options
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($b1_color , 0.99 , 'dark')));
 			$container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
-			$single_content_separator_color = kemet_get_option( 'content-separator-color' , $t2_color);
+			$single_content_separator_color = kemet_get_option( 'content-separator-color' , $global_border_color);
 			
 			// Typography.
 			$body_font_size                  = kemet_get_option( 'font-size-body' );
@@ -124,7 +125,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_font_family 				= kemet_get_option( 'menu-items-font-family' );
 			$menu_font_weight 				= kemet_get_option( 'menu-items-font-weight' );
 			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
-			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color' , $t2_color);
+			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color' , $global_border_color);
 			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
 			$menu_font_size					= kemet_get_option( 'menu-font-size' );
 			$menu_letter_spacing		    = kemet_get_option( 'menu-letter-spacing' );
@@ -150,7 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$last_menu_items_spacing		= kemet_get_option( 'last-menu-item-spacing' );
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
-			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $t2_color);
+			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $global_border_color);
 			// Mobile Menu Options
 			$mobile_menu_icon_color        = kemet_get_option('mobile-menu-icon-color');
 			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
@@ -165,7 +166,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_link_color             = kemet_get_option( 'submenu-link-color' , $t1_color );
 			$submenu_link_h_color           = kemet_get_option( 'submenu-link-h-color' , $theme_color );
 			$display_submenu_border  		= kemet_get_option( 'display-submenu-border' );
-			$submenu_border_color  			= kemet_get_option( 'submenu-border-color'  , $t2_color);
+			$submenu_border_color  			= kemet_get_option( 'submenu-border-color'  , $global_border_color);
 
 			//Content Heading Color
 			$heading_h1_font_color            = kemet_get_option( 'font-color-h1' );
@@ -191,14 +192,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
 			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
 			$readmore_text_color      = kemet_get_option( 'readmore-text-color' );
-			$meta_color      = kemet_get_option( 'post-meta-color' );
+			$meta_color      = kemet_get_option( 'post-meta-color' , $t2_color);
 			$readmore_text_h_color    = kemet_get_option( 'readmore-text-h-color' );
 			$readmore_padding    = kemet_get_option( 'readmore-padding' );
 			$readmore_bg_color    = kemet_get_option( 'readmore-bg-color' );
 			$readmore_bg_h_color   = kemet_get_option( 'readmore-bg-h-color' );
 			$readmore_border_radius    = kemet_get_option( 'read-more-border-radius' );
 			$readmore_border_size     = kemet_get_option( 'read-more-border-size' );
-			$readmore_border_color    = kemet_get_option( 'readmore-border-color'  , $t2_color);
+			$readmore_border_color    = kemet_get_option( 'readmore-border-color'  , $global_border_color);
 			$readmore_border_h_color  = kemet_get_option( 'readmore-border-h-color' );
 			$archive_post_meta_font_size = kemet_get_option( 'font-size-page-meta' );
 			$archive_post_meta_letter_spacing = kemet_get_option( 'letter-spacing-page-meta' );
@@ -242,7 +243,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Footer Input Color 
 			$footer_input_color        = kemet_get_option( 'footer-input-color' , kemet_color_brightness($ft_color , 0.8 , 'dark'));
 			$footer_input_bg_color     = kemet_get_option( 'footer-input-bg-color' , kemet_color_brightness($fb_color , 0.82 , 'dark'));
-			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color'  , $t2_color);
+			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color'  , $global_border_color);
 			$footer_input_border_size     = kemet_get_option( 'footer-input-border-size' );
 			$footer_input_border_radius     = kemet_get_option( 'footer-input-border-radius' );
 			// Footer Bar Font.
@@ -259,7 +260,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// sidebar input color 
 			$sidebar_input_color        = kemet_get_option( 'sidebar-input-color' );
 			$sidebar_input_bg_color     = kemet_get_option( 'sidebar-input-bg-color' );
-			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color'  , $t2_color);
+			$sidebar_input_border_color     = kemet_get_option( 'sidebar-input-border-color'  , $global_border_color);
 			$sidebar_input_border_radius     = kemet_get_option( 'sidebar-input-border-radius' );
 			$sidebar_input_border_size     = kemet_get_option( 'sidebar-input-border-size' );
 
@@ -321,7 +322,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Search Style
 			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' );
 			$search_input_color = kemet_get_option( 'search-input-color' );
-			$search_border_color         = Kemet_get_option('search-border-color' , $t2_color);
+			$search_border_color         = Kemet_get_option('search-border-color' , $global_border_color);
 			$search_btn_bg_color         = kemet_get_option('search-btn-bg-color'); 
             $search_btn_h_bg_color       = kemet_get_option('search-btn-h-bg-color'); 
             $search_btn_color            = kemet_get_option('search-btn-color'); 
@@ -441,7 +442,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-single-post .entry-header .entry-title' => array(
 					'font-size' => kemet_responsive_slider( $single_post_title_font_size, 'desktop' ),
 					'letter-spacing' => kemet_responsive_slider( $single_post_title_letter_spacing, 'desktop' ),
-                    'color' => esc_attr( $single_post_title_font_color ),
+                    'color' => kemet_hex_to_rgba( $single_post_title_font_color ),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'desktop' ),
@@ -847,7 +848,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			    '.site-header .main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
-					'color' => kemet_color_brightness( $t1_color, .75, 'dark' ),
+					'color' => kemet_adjust_brightness( $t1_color, 75, 'darken' ),
 				),
 
 				// 404 Page.
@@ -1493,7 +1494,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'.kmt-footer-copyright' => array(
 						'border-top-style' => 'solid',
 						'border-top-width' => kemet_get_css_value( $copyright_footer_divider, 'px' ),
-						'border-top-color' => esc_attr( $copyright_footer_divider_color  , $t2_color),
+						'border-top-color' => esc_attr( $copyright_footer_divider_color  , $global_border_color),
 					),
 				);
 				$parse_css     .= kemet_parse_css( $sml_footer_css );
@@ -1543,13 +1544,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 *
 			 *   - Sidebar Positions CSS
 			 */
-			$t2_color      = kemet_get_option( 't2-color' );
+			$global_border_color      = kemet_get_option( 'global-border-color' );
 			$secondary_width = kemet_get_option( 'site-sidebar-width' );
 			$primary_width   = absint( 100 - $secondary_width );
 			$meta_style      = '';
 
 			// Header Separator.
-			$header_separator_color = kemet_get_option( 'header-main-sep-color' , $t2_color );
+			$header_separator_color = kemet_get_option( 'header-main-sep-color' , $global_border_color );
 
 			$meta_style = array(
 				'.kmt-header-break-point .site-header' => array(
@@ -1561,7 +1562,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Widget Title Border
 			$widget_title_border_size       = kemet_get_option( 'widget-title-border-size' );
-			$widget_title_border_color      = kemet_get_option( 'widget-title-border-color'  , $t2_color);
+			$widget_title_border_color      = kemet_get_option( 'widget-title-border-color'  , $global_border_color);
 			$enable_widget_title_separator  = kemet_get_option( 'enable-widget-title-separator' );
 			
 			if($enable_widget_title_separator){

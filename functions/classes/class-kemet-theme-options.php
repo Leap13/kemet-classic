@@ -117,6 +117,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'smart-skin'				   => '',	
 					't1-color'                     => '#353844',
 					't2-color'                     => '#60626C',
+					'global-border-color'		   => '#000',	
 					'b1-color'                     => '#E8EAEC',
 					'ft-color'                     => '#FBFBFB',
 					'fb-color'                     => '#42434E',

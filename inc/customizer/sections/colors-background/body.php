@@ -88,18 +88,37 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: T2 Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[t2-color]', array(
-			'default'           => $defaults[ 't2-color' ],
+		KEMET_THEME_SETTINGS . '[global-border-color]', array(
+			'default'           => $defaults[ 'global-border-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[t2-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[global-border-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'T2 Color', 'kemet' ),
+			)
+		)
+	);
+	/**
+	 * Option: T1 Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[t1-color]', array(
+			'default'           => $defaults[ 't1-color' ],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[t1-color]', array(
+				'section'  => 'section-colors-body',
+				'priority' => 5,
+				'label'    => __( 'Border Color', 'kemet' ),
 			)
 		)
 	);
