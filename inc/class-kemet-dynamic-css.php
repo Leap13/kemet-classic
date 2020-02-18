@@ -243,7 +243,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Footer Input Color 
 			$footer_input_color        = kemet_get_option( 'footer-input-color' , kemet_color_brightness($ft_color , 0.8 , 'dark'));
 			$footer_input_bg_color     = kemet_get_option( 'footer-input-bg-color' , kemet_color_brightness($fb_color , 0.82 , 'dark'));
-			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color'  , $global_border_color);
+			$footer_input_border_color     = kemet_get_option( 'footer-input-border-color'  , kemet_color_brightness($fb_color , 0.9 , 'dark'));
 			$footer_input_border_size     = kemet_get_option( 'footer-input-border-size' );
 			$footer_input_border_radius     = kemet_get_option( 'footer-input-border-radius' );
 			// Footer Bar Font.
