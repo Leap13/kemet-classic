@@ -211,7 +211,7 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
         $copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
 		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
 		
-		if ( apply_filters('kmt_footer_copyright_layout_disable', false)) {
+		if ( $copyright_footer_layout == 'disabled') {
 			return;
 		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
 			get_template_part( 'templates/footer/copyright-footer-layout' );
@@ -235,7 +235,8 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 *
 	 */
 	function kemet_sitehead_primary_template() {
-		if ( apply_filters( 'kemet_primary_header_enabled', true ) ) {
+		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', 'default' );
+		if ( $kemet_header_layout !== 'disable' ) {
 			get_template_part( 'templates/header/header-main-layout' );
 		}
 	}
@@ -311,8 +312,8 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 
 		$main_footer_layout = kemet_get_option( 'footer-layout' );
         $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
-
-		if ( apply_filters( 'kemet_main_footer_disable', false ) ) {
+		
+		if ( $main_footer_layout == 'disabled' ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {

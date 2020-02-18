@@ -66,7 +66,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 
 		public function header_classes( $classes ) {
-			$header_layouts = kemet_get_option('header-layouts');
+			$header_layouts = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
 			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2'){
 				$menu_aglin 	= kemet_get_option('menu-alignment');
 
