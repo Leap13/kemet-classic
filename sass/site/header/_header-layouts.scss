@@ -72,6 +72,13 @@
 	.main-navigation {
 		vertical-align: top;
 	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
 }
 .kmt-header-break-point {
 	.header-main-layout-1 {
@@ -118,6 +125,13 @@
 	}
 	.kmt-sitehead-custom-menu-items{
 		position: relative;
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:first-child{
+				padding-left: 0;
+			}
+		}
 	}
 }
 
