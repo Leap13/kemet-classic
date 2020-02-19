@@ -20,7 +20,15 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 	initKmtBgControl: function () {
 
 		var control = this,
-			value = control.setting._value,
+			defaults = {
+				'background-color': "",
+				'background-image': "",
+				'background-repeat': "repeat",
+				'background-position': "center center",
+				'background-size': "auto",
+				'background-attachment': "scroll",
+			},
+			value = control.setting._value != '' ? control.setting._value : defaults,
 			picker = control.container.find('.kmt-color-control');
 		
 		// Hide unnecessary controls if the value doesn't have an image.

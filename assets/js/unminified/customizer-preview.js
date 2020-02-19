@@ -315,27 +315,31 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	var gen_bg_css = '';
 	var bg_img = bg_obj['background-image'];
 	var bg_color = bg_obj['background-color'];
-
+	console.log(bg_obj);
 	if ('' === bg_color && '' === bg_img) {
 		wp_customize.preview.send('refresh');
 	} else {
-		if ('' !== bg_img && '' !== bg_color) {
-			if (undefined !== bg_color) {
-				gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
+		if (('undefined' != typeof bg_img && '' !== bg_img) && ('undefined' != typeof bg_color && '' !== bg_color)) {
+			if ( '' != bg_color) {
+				gen_bg_css = 'background-image: url(' + bg_img + '), linear-gradient(to right, ' + bg_color + ', ' + bg_color + ');';
 			}
-		} else if ('' !== bg_img) {
+		} else if ('undefined' != typeof bg_img && '' != bg_img) {
 			gen_bg_css = 'background-image: url(' + bg_img + ');';
-		} else if ('' !== bg_color) {
+		} else if ('undefined' != typeof bg_color && '' != bg_color) {
 			gen_bg_css = 'background-color: ' + bg_color + ';';
 			gen_bg_css += 'background-image: none;';
 		}
 
-		if ('' !== bg_img) {
+		if ('undefined' != typeof bg_img && '' !== bg_img) {
+			var backgroundRepeat = 'undefined' != typeof bg_obj['background-repeat'] ? bg_obj['background-repeat'] : 'repeat',
+				backgroundPosition = 'undefined' != typeof bg_obj['background-position'] ? bg_obj['background-position'] : 'center center',
+				backgroundSize = 'undefined' != typeof bg_obj['background-size'] ? bg_obj['background-size'] : 'auto',
+				backgroundAttachment = 'undefined' != typeof bg_obj['background-attachment'] ? bg_obj['background-attachment'] : 'inherit';
 
-			gen_bg_css += 'background-repeat: ' + bg_obj['background-repeat'] + ';';
-			gen_bg_css += 'background-position: ' + bg_obj['background-position'] + ';';
-			gen_bg_css += 'background-size: ' + bg_obj['background-size'] + ';';
-			gen_bg_css += 'background-attachment: ' + bg_obj['background-attachment'] + ';';
+			gen_bg_css += 'background-repeat: ' + backgroundRepeat + ';';
+			gen_bg_css += 'background-position: ' + backgroundPosition + ';';
+			gen_bg_css += 'background-size: ' + backgroundSize + ';';
+			gen_bg_css += 'background-attachment: ' + backgroundAttachment + ';';
 		}
 		var dynamicStyle = style.replace("{{css}}", gen_bg_css);
 
