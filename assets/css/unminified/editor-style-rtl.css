@@ -2122,8 +2122,3 @@ h6,
 .elementor-editor-active elementor-element > .elementor-element-overlay {
   z-index: 9999;
 }
-
-.elementor-page #primary {
-  margin: 0px;
-  padding: 0px;
-}
