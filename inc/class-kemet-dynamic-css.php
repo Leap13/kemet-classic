@@ -845,7 +845,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'desktop' ),
 				),
 			 	//layout header
-			    '.site-header .main-header-bar '  => kemet_get_background_obj( $header_bg_obj ),
+			    '.site-header .main-header-bar , .kemet-merged-top-bar-header'  => kemet_get_background_obj( $header_bg_obj ),
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
 					'color' => kemet_color_brightness( $t1_color, 75, 'darken' ),
