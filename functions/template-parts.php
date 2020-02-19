@@ -211,7 +211,7 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
         $copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
 		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
 		
-		if ( $copyright_footer_layout == 'disabled') {
+		if ( !apply_filters( 'kmt_footer_copyright_layout_disable', true ) ) {
 			return;
 		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
 			get_template_part( 'templates/footer/copyright-footer-layout' );
@@ -313,7 +313,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 		$main_footer_layout = kemet_get_option( 'footer-layout' );
         $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
 		
-		if ( $main_footer_layout == 'disabled' ) {
+		if ( !apply_filters( 'kemet_main_footer_disable', true ) ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {
