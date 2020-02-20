@@ -198,7 +198,7 @@ $wp_customize->add_control(
             'label'          => __( 'Border Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 15,
                 ),

@@ -125,7 +125,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_font_family 				= kemet_get_option( 'menu-items-font-family' );
 			$menu_font_weight 				= kemet_get_option( 'menu-items-font-weight' );
 			$menu_line_height                = kemet_get_option( 'menu-items-line-height' );
-			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color' , $global_border_color);
+			$menu_link_bottom_border_color   = kemet_get_option( 'menu-link-bottom-border-color' , $theme_color);
 			$menu_text_transform             = kemet_get_option( 'menu-items-text-transform' );
 			$menu_font_size					= kemet_get_option( 'menu-font-size' );
 			$menu_letter_spacing		    = kemet_get_option( 'menu-letter-spacing' );
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_font_size					= kemet_get_option( 'submenu-font-size' );
 			$submenu_letter_spacing					= kemet_get_option( 'submenu-letter-spacing' );
 			//Layout Header
-			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , array('background-color' => kemet_color_brightness($b1_color , 0.99 , 'dark')));
+			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , $b1_color);
 			$space_header              = kemet_get_option( 'header-padding' );
 			$header_separator       = kemet_get_option( 'header-main-sep');
 			
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$last_menu_items_spacing		= kemet_get_option( 'last-menu-item-spacing' );
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
-			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $global_border_color);
+			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $theme_color);
 			// Mobile Menu Options
 			$mobile_menu_icon_color        = kemet_get_option('mobile-menu-icon-color');
 			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
@@ -294,9 +294,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * Apply text hover color depends on link hover color
 			 */
 			$btn_text_hover_color = kemet_get_option( 'button-h-color' );
-			if ( empty( $btn_text_hover_color ) ) {
-				$btn_text_hover_color = kemet_get_foreground_color( $theme_color );
-			}
 			$btn_bg_color       = kemet_get_option( 'button-bg-color', $theme_color );
 			$btn_border_size     = kemet_get_option( 'btn-border-size' );
 			$btn_border_color    = kemet_get_option( 'btn-border-color' );
@@ -304,7 +301,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $theme_color );
 
 			// Spacing of Big Footer.
-			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' , kemet_color_brightness($ft_color , 0.8 , 'dark'));
+			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' , kemet_color_brightness($ft_color , 0.4 , 'dark'));
 			$copyright_footer_divider       = kemet_get_option( 'footer-copyright-divider' );
 
 			/**
@@ -879,14 +876,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-pagination a, .page-links .page-link, .single .post-navigation a' => array(
 					'color' => esc_attr( $t1_color ),
 				),
-				'.kmt-pagination a:hover, .kmt-pagination a:focus, .kmt-pagination > span:hover:not(.dots), .kmt-pagination > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
+				'.kmt-pagination a:hover, .kmt-pagination a:focus, .kmt-pagination > span:hover:not(.dots), .kmt-pagination .nav-links > span.current, .page-links > .page-link, .page-links .page-link:hover, .post-navigation a:hover' => array(
 					'color' => esc_attr( $theme_color ),
 				),
 
             // Layout - Container
             '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.single-post.kmt-separate-container .comment-respond ,.single-post.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ,.single-post.kmt-separate-container .comments-count-wrapper' => kemet_get_background_obj( $box_bg_inner_boxed ),
 				
-			'body .kmt-article-post, body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment' => array(
+			'body:not(.kmt-separate-container) .kmt-article-post > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment' => array(
 				'border-color' => esc_attr($single_content_separator_color),
 			),
             /**
