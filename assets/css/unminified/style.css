@@ -3159,6 +3159,7 @@ body .kmt-oembed-container * {
 
 .header-main-layout-2 .widget {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .kmt-header-break-point .header-main-layout-2 .kmt-header-logo-right-section .kmt-mobile-menu-buttons {
