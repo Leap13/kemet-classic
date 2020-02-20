@@ -30,7 +30,9 @@
 					 kemet_toggle_buttons_markup();
 				} ?>
 				<?php kemet_primary_navigation_markup(); ?>
+				<?php if(kemet_get_option('header-layouts') != 'header-main-layout-3'){ ?>
 				<?php echo kemet_header_custom_item_outside_menu(); ?>
+				<?php } ?>
 			</div><!-- Main Header Container -->
 		</div><!-- kmt-row -->
 		<?php kemet_main_header_bar_bottom(); ?>

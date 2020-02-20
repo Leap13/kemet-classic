@@ -87,8 +87,9 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		$classes[] = 'kemet-' . KEMET_THEME_VERSION;
 
 		$outside_menu = kemet_get_option( 'header-display-outside-menu' );
+		$header_layout      = kemet_get_option( 'header-layouts' );
 
-		if ( $outside_menu ) {
+		if ( $outside_menu || $header_layout != 'header-main-layout-3') {
 			$classes[] = 'kmt-header-custom-item-outside';
 		} else {
 			$classes[] = 'kmt-header-custom-item-inside';
@@ -657,7 +658,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 
 			$display_outside = kemet_get_option( 'header-display-outside-menu' );
 
-			if ( 'none' != $custom_header_section && ! $display_outside ) {
+			if ( 'none' != $custom_header_section && (! $display_outside || $header_layout == 'header-main-layout-3') ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
 				echo kemet_sitehead_get_menu_items();
 				echo '</div>';

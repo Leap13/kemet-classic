@@ -402,9 +402,10 @@ $header_rt_sections = array(
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'dependency'  => array(
-				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]', 
-				'conditions' => 'notEmpty', 
-				'values' => '',
+				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]/' . KEMET_THEME_SETTINGS . '[header-layouts]', 
+				'conditions' => 'notEmpty/!=', 
+				'values' => '/header-main-layout-3',
+				'operators' => '&&'
 			),
 		)
 	);

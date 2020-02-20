@@ -2839,7 +2839,11 @@ body .kmt-oembed-container * {
   vertical-align: top;
 }
 
-.header-main-layout-1 .kmt-sitehead-custom-menu-items > div:last-child {
+.header-main-layout-1:not(.reverse) .main-header-menu > li:last-child > a {
+  padding-left: 0;
+}
+
+.header-main-layout-1:not(.reverse) .kmt-sitehead-custom-menu-items > div:last-child {
   padding-left: 0;
 }
 
@@ -2905,6 +2909,10 @@ body .kmt-oembed-container * {
 
 .header-main-layout-1.reverse .kmt-sitehead-custom-menu-items {
   position: relative;
+}
+
+.header-main-layout-1.reverse .main-header-menu > li:first-child > a {
+  padding-right: 0;
 }
 
 .header-main-layout-1.reverse .kmt-sitehead-custom-menu-items > div:first-child {
@@ -3093,7 +3101,7 @@ body .kmt-oembed-container * {
 
 .header-main-layout-2 .kmt-main-header-bar-alignment {
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 0;
   line-height: 1;
 }
 
@@ -3135,6 +3143,18 @@ body .kmt-oembed-container * {
 
 .header-main-layout-2 .kmt-sitehead-custom-menu-items {
   position: relative;
+}
+
+.header-main-layout-2 .main-header-menu > li:last-child > a {
+  padding-left: 0;
+}
+
+.header-main-layout-2 .main-header-menu > li:first-child > a {
+  padding-right: 0;
+}
+
+.header-main-layout-2 .kmt-sitehead-custom-menu-items > div:last-child {
+  padding-left: 0;
 }
 
 .header-main-layout-2 .widget {
@@ -3276,7 +3296,7 @@ body .kmt-oembed-container * {
 }
 
 /**
- *  4 - Header Layout 4
+ *  4 - Header Layout 3
 */
 .kmt-header-break-point .header-main-layout-3 .main-header-container ul#primary-menu, .kmt-header-break-point .header-main-layout-3 .main-header-container ul#left-menu, .kmt-header-break-point .header-main-layout-3 .main-header-container #primary-menu > ul {
   position: static;
@@ -3296,6 +3316,14 @@ body .kmt-oembed-container * {
 
 .kmt-header-break-point .header-main-layout-3.main-header-bar .main-header-bar-navigation {
   display: block;
+}
+
+.header-main-layout-3 .main-header-menu:not(#left-menu) > li:last-child > a, .header-main-layout-3 .main-header-menu:not(#left-menu) > li:last-child > div {
+  padding-left: 0;
+}
+
+.header-main-layout-3 #left-menu > li:first-child > a, .header-main-layout-3 #left-menu > li:first-child > div {
+  padding-right: 0;
 }
 
 .header-main-layout-3 .main-header-container {
@@ -3708,7 +3736,7 @@ body .kmt-oembed-container * {
   position: absolute;
   z-index: 3;
   left: auto;
-  top: 50px;
+  top: auto;
   left: 30px;
 }
 
