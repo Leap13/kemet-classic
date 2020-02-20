@@ -139,7 +139,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_font_size					= kemet_get_option( 'submenu-font-size' );
 			$submenu_letter_spacing					= kemet_get_option( 'submenu-letter-spacing' );
 			//Layout Header
-			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , $b1_color);
+			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , array('background-color' => $b1_color));
 			$space_header              = kemet_get_option( 'header-padding' );
 			$header_separator       = kemet_get_option( 'header-main-sep');
 			
@@ -703,9 +703,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.site-header .icon-bars-btn span' => array(
-					'background-color'            => esc_attr( $btn_text_color ),
-				), 
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'color'            => esc_attr( $btn_text_color ),

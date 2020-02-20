@@ -1511,9 +1511,7 @@ input[type="submit"] {
   border-color: #eaeaea;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #e6e6e6;
   padding: .6em 1em;
-  color: #fff;
 }
 
 button:hover, button:focus,
@@ -1527,7 +1525,6 @@ input[type="reset"]:hover,
 input[type="reset"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  color: #fff;
   border-color: #eaeaea;
 }
 
