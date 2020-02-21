@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$last_menu_items_spacing		= kemet_get_option( 'last-menu-item-spacing' );
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
-			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $theme_color);
+			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $global_border_color);
 			// Mobile Menu Options
 			$mobile_menu_icon_color        = kemet_get_option('mobile-menu-icon-color');
 			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
