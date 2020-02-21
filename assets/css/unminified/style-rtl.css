@@ -3686,6 +3686,10 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
   margin-left: 10px;
 }
 
+.main-header-content {
+  padding: 0 15px;
+}
+
 /**
  * 4 - Search Form & Main Header
  */

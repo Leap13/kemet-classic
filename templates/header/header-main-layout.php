@@ -18,7 +18,7 @@
 		<?php kemet_main_header_bar_top(); ?>
 		<div class="kmt-container">
 
-			<div class="kmt-flex main-header-container">
+			<div class="kmt-flex main-header-container main-header-content">
 				<?php if((kemet_get_option('header-layouts') == 'header-main-layout-2') && kemet_get_option( 'header-right-section' ) != 'none' ){ ?>
 				<div class="kmt-header-logo-right-section">
 					<?php kemet_site_branding_markup(); ?>
