@@ -156,8 +156,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-widget-title-letter-spacing' => '',
 					'footer-letter-spacing' => '',
 					// Kemet Buttons & Fields.
-					'button-color'                     => '',
-					'button-h-color'                   => '#ffffff',
+					'button-color'                     => '#ffffff',
+					'button-h-color'                   => '',
 					'button-bg-color'                  => '',
 					'button-bg-h-color'                => '',
 					'btn-border-color'				   => '',	

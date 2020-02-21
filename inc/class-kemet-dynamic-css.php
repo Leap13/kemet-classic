@@ -267,7 +267,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text color depends on link color
 			 */
-			$btn_text_color = kemet_get_option( 'button-color' , $t1_color);
+			$btn_text_color = kemet_get_option( 'button-color' );
 
 			//sidebar
 			$sidebar_bg_obj               = kemet_get_option( 'sidebar-bg-obj');
