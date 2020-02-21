@@ -17,6 +17,26 @@
 /**
  * 1 - Header Layout 1
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-1:not(.reverse){
+	.main-header-menu {
+		> li{
+			&:last-child{
+				> a{
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
+	}
+}
 .header-main-layout-1 {
 	.main-header-bar-navigation {
 		text-align: right;
@@ -72,24 +92,6 @@
 	.main-navigation {
 		vertical-align: top;
 	}
-	&:not(.reverse){
-	.main-header-menu {
-		> li{
-			&:last-child{
-				> a{
-					padding-right: 0;
-				}
-			}
-		}
-	}
-	.kmt-sitehead-custom-menu-items{
-		> div{
-			&:last-child{
-				padding-right: 0;
-			}
-		}
-	}
-	}
 }
 .kmt-header-break-point {
 	.header-main-layout-1 {
@@ -107,6 +109,26 @@
 /**
  *  2 - Header Layout 1 Reverse
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-1.reverse {
+		.main-header-menu {
+		> li{
+			&:first-child{
+				> a{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:first-child{
+				padding-left: 0;
+			}
+		}
+	}
+}
+}
 .header-main-layout-1.reverse {
 	.kmt-search-menu-icon{
 		right: auto;
@@ -136,22 +158,6 @@
 	}
 	.kmt-sitehead-custom-menu-items{
 		position: relative;
-	}
-	.main-header-menu {
-		> li{
-			&:first-child{
-				> a{
-					padding-left: 0;
-				}
-			}
-		}
-	}
-	.kmt-sitehead-custom-menu-items{
-		> div{
-			&:first-child{
-				padding-left: 0;
-			}
-		}
 	}
 }
 
@@ -184,6 +190,31 @@
 /**
  * 3 - Header Layout 2
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-2{
+		.main-header-menu {
+			> li{
+			&:last-child{
+				> a{
+					padding-right: 0;
+				}
+			}
+			&:first-child{
+				> a{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
+	}
+}
 .header-main-layout-2 {
 	.kmt-header-logo-right-section{
 		width: 100%;
@@ -311,27 +342,6 @@
 	}
 	.kmt-sitehead-custom-menu-items{
 		position: relative;
-	}
-	.main-header-menu {
-		> li{
-			&:last-child{
-				> a{
-					padding-right: 0;
-				}
-			}
-			&:first-child{
-				> a{
-					padding-left: 0;
-				}
-			}
-		}
-	}
-	.kmt-sitehead-custom-menu-items{
-		> div{
-			&:last-child{
-				padding-right: 0;
-			}
-		}
 	}
 	.widget{
 		text-align: center;
@@ -476,26 +486,29 @@
 		} 
 	}
 }
-
-.header-main-layout-3 {
+body:not(.kmt-header-break-point){
+	.header-main-layout-3 {
 	.main-header-menu:not(#left-menu) {
 		> li{
 			&:last-child{
-				> a , > div{
-					padding-right: 0;
+					> a , > div{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+		#left-menu {
+			> li{
+				&:first-child{
+					> a , > div{
+						padding-left: 0;
+					}
 				}
 			}
 		}
 	}
-	#left-menu {
-		> li{
-			&:first-child{
-				> a , > div{
-					padding-left: 0;
-				}
-			}
-		}
-	}
+}	
+.header-main-layout-3 {
 	.main-header-container
 	{
 		position: relative;
