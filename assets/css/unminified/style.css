@@ -2500,7 +2500,7 @@ body .kmt-oembed-container * {
   transform: translate(0, -50%) rotate(270deg);
 }
 
-.main-header-menu ul ul.sub-menu li a {
+.main-header-menu ul li:last-child > a {
   border: 0;
 }
 
@@ -5002,8 +5002,9 @@ input[type="color"]::-webkit-color-swatch {
 
 .single .post-navigation {
   margin: 0;
-  padding: 2em 0 0;
-  border-top: 1px solid #eeeeee;
+  padding: 2em 0;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 @media (max-width: 768px) {
@@ -5099,6 +5100,8 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-separate-container .post-navigation {
   border-top: 0;
+  padding-left: 3.33333em;
+  padding-right: 3.33333em;
 }
 
 @media (max-width: 420px) {
@@ -5285,8 +5288,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area {
-  border-top: 1px solid #eeeeee;
-  margin-top: 2em;
+  border-top-width: 1px;
+  border-top-style: solid;
   /*  1 - Textarea Styles */
   /*  2 - Input Fields Styles */
   /*  4 - Comment List Styles  */

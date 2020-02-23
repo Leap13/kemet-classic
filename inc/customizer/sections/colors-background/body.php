@@ -47,7 +47,7 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[t1-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'T1', 'kemet' ),
+				'label'    => __( 'Main Headings', 'kemet' ),
 			)
 		)
 	);
@@ -66,7 +66,7 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[t2-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'T2', 'kemet' ),
+				'label'    => __( 'Body Content', 'kemet' ),
 			)
 		)
 	);
@@ -85,7 +85,7 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[global-border-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'Border Color', 'kemet' ),
+				'label'    => __( 'Borders/Separators', 'kemet' ),
 			)
 		)
 	);
@@ -104,7 +104,7 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[b1-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'B1 Color', 'kemet' ),
+				'label'    => __( 'Footer Content', 'kemet' ),
 			)
 		)
 	);
@@ -123,7 +123,7 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[ft-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'FT Color', 'kemet' ),
+				'label'    => __( 'Footer Background', 'kemet' ),
 			)
 		)
 	);
