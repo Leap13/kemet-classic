@@ -94,7 +94,7 @@ if ( ! function_exists( 'kemet_sitehead_custom_page_menu_items' ) ) :
 	 */
 	function kemet_sitehead_custom_page_menu_items( $args ) {
 
-		$header_layout = kemet_get_option('header-layouts');
+		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		if ( isset( $args['theme_location'] ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3')) {
 
 			if ( 'primary' === $args['theme_location'] ) {
@@ -130,7 +130,7 @@ if ( ! function_exists( 'kemet_sitehead_custom_nav_menu_items' ) ) :
 	 */
 	function kemet_sitehead_custom_nav_menu_items( $items, $args ) {
 
-		$header_layout = kemet_get_option('header-layouts');
+		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		if ( isset( $args->theme_location ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3') ) {
 
 			if ( 'primary' === $args->theme_location ) {
@@ -166,7 +166,7 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$display_outside_menu       = kemet_get_option( 'header-display-outside-menu' );
-		$header_layout = kemet_get_option('header-layouts');
+		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && (! $display_outside_menu || $header_layout == 'header-main-layout-3') ) ) {
 			$menu_title          = trim( apply_filters( 'kemet_main_menu_toggle_label', kemet_get_option( 'header-main-menu-label' ) ) );
 			$menu_icon           = apply_filters( 'kemet_main_menu_toggle_icon', 'menu-toggle-icon' );
@@ -213,7 +213,7 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
         $copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
 		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
 		
-		if ( apply_filters('kmt_footer_copyright_layout_disable', false)) {
+		if ( !apply_filters('kmt_footer_copyright_layout_disable', true)) {
 			return;
 		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
 			get_template_part( 'templates/footer/copyright-footer-layout' );
@@ -237,7 +237,8 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 *
 	 */
 	function kemet_sitehead_primary_template() {
-		if ( apply_filters( 'kemet_primary_header_enabled', true ) ) {
+		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', 'default' );
+		if ( $kemet_header_layout !== 'disable' ) {
 			get_template_part( 'templates/header/header-main-layout' );
 		}
 	}
@@ -314,7 +315,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 		$main_footer_layout = kemet_get_option( 'footer-layout' );
         $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
 
-		if ( apply_filters( 'kemet_main_footer_disable', false ) ) {
+		if ( !apply_filters( 'kemet_main_footer_disable', true ) ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {
@@ -352,7 +353,7 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	 *
 	 */
 	function kemet_header_custom_item_outside_menu() {
-		$header_layout = kemet_get_option('header-layouts');
+		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		if ( kemet_get_option( 'header-display-outside-menu' ) &&  $header_layout != 'header-main-layout-3') {
 			$markup = kemet_sitehead_get_menu_items( false );
 
