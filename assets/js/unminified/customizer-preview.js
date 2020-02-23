@@ -582,7 +582,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			}
 
 			if (marginBottom) {
-				var dynamicStyle = '.widget { margin-bottom: ' + marginBottom + 'em; } ';
+				var dynamicStyle = '.widget { margin-bottom: ' + marginBottom + 'px; } ';
 				kemet_add_dynamic_css('widget-margin-bottom', dynamicStyle);
 			}
 

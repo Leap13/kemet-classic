@@ -450,7 +450,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $theme_color ),
 					'color'            => esc_attr( $highlight_theme_color ),
 				),
-				'h1, .entry-title a, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a' => array(
+				'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' => array(
 					'color' => esc_attr( $t1_color ),
 				),
 				'body' => array(
@@ -780,7 +780,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Blog Post Meta Typography.
 				'.entry-meta, .entry-meta *'              => array(
-					'line-height' => '1.70',
 					'color'       => esc_attr( $t1_color ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
@@ -804,9 +803,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.sidebar-main a:hover' =>  array(
 					'color' => esc_attr( $sidebar_link_h_color ),
-				),
-				'.widget' => array(
-					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom, 'em' ),
 				),
 				'div.widget' => array(
 					'background-color' => esc_attr( $Widget_bg_color),
@@ -833,6 +829,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				//widget Spacing
 				'.widget' => array(
+					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom ),
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'desktop' ),

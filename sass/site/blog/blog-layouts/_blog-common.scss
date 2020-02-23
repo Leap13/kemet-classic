@@ -1,7 +1,9 @@
 /**
  *  Blog Common
  */
-
+.entry-meta , .entry-meta *{
+	line-height: 1.70;
+}
 .page .entry-header {
 	margin-bottom: 1.5em;
 }
