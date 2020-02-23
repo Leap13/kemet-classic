@@ -190,6 +190,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Title' );
 			$wp_customize->register_control_type( 'Kemet_Control_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
+			$wp_customize->register_control_type( 'Kemet_Control_Smart_Skin' );
 
 			/**
 			 * Helper files

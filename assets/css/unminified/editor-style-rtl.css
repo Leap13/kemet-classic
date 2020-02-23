@@ -1313,8 +1313,6 @@ html {
 
 body {
   color: #808285;
-  background: #ffffff;
-  /* Fallback for when there is no custom background color defined. */
   font-style: normal;
 }
 
@@ -1513,9 +1511,7 @@ input[type="submit"] {
   border-color: #eaeaea;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: #e6e6e6;
   padding: .6em 1em;
-  color: #fff;
 }
 
 button:hover, button:focus,
@@ -1529,7 +1525,6 @@ input[type="reset"]:hover,
 input[type="reset"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  color: #fff;
   border-color: #eaeaea;
 }
 
@@ -2123,9 +2118,4 @@ h6,
 
 .elementor-editor-active elementor-element > .elementor-element-overlay {
   z-index: 9999;
-}
-
-.elementor-page #primary {
-  margin: 0px;
-  padding: 0px;
 }

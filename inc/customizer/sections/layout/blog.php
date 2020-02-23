@@ -310,7 +310,7 @@ $wp_customize->add_control(
 * Option:Post Meta Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[post-meta-color]', array(
+    KEMET_THEME_SETTINGS . '[listing-post-meta-color]', array(
         'default'           => $defaults[ 'listing-post-meta-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
@@ -319,7 +319,7 @@ $wp_customize->add_setting(
 );
 $wp_customize->add_control(
     new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[post-meta-color]', array(
+        $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-meta-color]', array(
             'label'   => __( 'Meta Font Color', 'kemet' ),
             'priority'       => 65,
             'section' => 'section-blog',

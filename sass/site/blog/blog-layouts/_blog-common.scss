@@ -1,11 +1,17 @@
 /**
  *  Blog Common
  */
-
+.entry-meta , .entry-meta *{
+	line-height: 1.70;
+}
 .page .entry-header {
 	margin-bottom: 1.5em;
 }
-
+.entry-meta{
+	 > span{
+		margin-right: 10px;
+	}
+}
 .entry-meta span:before:first {
 	margin-left: 0px;
 }
@@ -13,31 +19,31 @@
 .entry-meta .comments-link:before {
     content: "\e906";
 	font-family: Kemet-font;
-	margin: 0px 5px;
+	margin-right: 5px;
 }
 
 .entry-meta .cat-links:before {
     content: "\e904";
 	font-family: Kemet-font;
-	margin: 0px 5px;
+	margin-right: 5px;
 }
 
 .entry-meta .posted-by:before {
     content: "\e901";
 	font-family: Kemet-font;
-	margin: 0px 5px;
+	margin-right: 5px;
 }
 
 .entry-meta .posted-on:before {
     content: "\e902";
 	font-family: Kemet-font;
-	margin: 0px 5px;
+	margin-right: 5px;
 }
 
 .entry-meta .tags-links:before {
     content: "\e910";
 	font-family: Kemet-font;
-	margin: 0px 5px;
+	margin-right: 5px;
 }
 
 .search .entry-header {

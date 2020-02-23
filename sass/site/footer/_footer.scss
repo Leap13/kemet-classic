@@ -4,20 +4,6 @@
 @import "footer-copyright-layout-2";
 
 .site-footer {
-	color: $footer-text-color;
-
-	.widget-title {
-		color: $footer-link-color;
-	}
-
-	a {
-		color: $footer-link-color;
-		&:hover,
-		&:focus {
-	    	color: $footer-link-hover-color;
-	    }
-	}
-
 	ul {
 	    margin: 0;
 	    list-style-type: none;

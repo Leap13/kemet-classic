@@ -17,6 +17,26 @@
 /**
  * 1 - Header Layout 1
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-1:not(.reverse){
+	.main-header-menu {
+		> li{
+			&:last-child{
+				> a{
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
+	}
+}
 .header-main-layout-1 {
 	.main-header-bar-navigation {
 		text-align: right;
@@ -89,6 +109,26 @@
 /**
  *  2 - Header Layout 1 Reverse
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-1.reverse {
+		.main-header-menu {
+		> li{
+			&:first-child{
+				> a{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:first-child{
+				padding-left: 0;
+			}
+		}
+	}
+}
+}
 .header-main-layout-1.reverse {
 	.kmt-search-menu-icon{
 		right: auto;
@@ -147,12 +187,34 @@
 	}
 }
 
-.kmt-site-title-wrap {
-		padding-top: 10px;
-}
 /**
- * 3 - Header Layout 3
+ * 3 - Header Layout 2
 */
+body:not(.kmt-header-break-point){
+	.header-main-layout-2{
+		.main-header-menu {
+			> li{
+			&:last-child{
+				> a{
+					padding-right: 0;
+				}
+			}
+			&:first-child{
+				> a{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+	.kmt-sitehead-custom-menu-items{
+		> div{
+			&:last-child{
+				padding-right: 0;
+			}
+		}
+	}
+	}
+}
 .header-main-layout-2 {
 	.kmt-header-logo-right-section{
 		width: 100%;
@@ -251,7 +313,7 @@
 	}
 	.kmt-main-header-bar-alignment{
 		margin-right: auto;
-   		margin-left: auto;
+   		margin-left: 0;
 		line-height: 1;
 	}
 	.site-branding {
@@ -259,7 +321,8 @@
 		text-align: center;
 	}
 	.site-title {
-		justify-content: center;
+		text-align: center;
+    	display: block;
 	}
 	.main-navigation {
 		ul{
@@ -282,6 +345,7 @@
 	}
 	.widget{
 		text-align: center;
+		margin-bottom: 0;
 	}
 }
 
@@ -305,6 +369,10 @@
 			left: auto;
 		}
 		.site-branding{
+			display: block;
+		}
+		.site-title {
+			text-align: left;
 			display: block;
 		}
 		.kmt-mobile-menu-buttons{
@@ -396,19 +464,21 @@
 }
 
 /**
- *  4 - Header Layout 4
+ *  4 - Header Layout 3
 */
 .kmt-header-break-point{
 	.header-main-layout-3 {
 		.main-header-container{
-			ul#primary-menu , ul#left-menu{
+			ul#primary-menu , ul#left-menu , #primary-menu > ul{
 			position: static;
-			width: 100%;	
+			width: 100%;
+			transform: translateY(0);	
 		}
-		}
-		.kmt-main-header-bar-alignment{
+		> .kmt-main-header-bar-alignment , > .main-header-bar-navigation{
 			flex: auto;
 		}
+		}
+		
 		&.main-header-bar{
 			.main-header-bar-navigation{
 				display: block;
@@ -416,16 +486,38 @@
 		} 
 	}
 }
-
+body:not(.kmt-header-break-point){
+	.header-main-layout-3 {
+	.main-header-menu:not(#left-menu) {
+		> li{
+			&:last-child{
+					> a , > div{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+		#left-menu {
+			> li{
+				&:first-child{
+					> a , > div{
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+}	
 .header-main-layout-3 {
 	.main-header-container
 	{
 		position: relative;
 		display: flex;
 		justify-content: center;
-	}
-	.kmt-main-header-bar-alignment {
+
+		> .kmt-main-header-bar-alignment , > .main-header-bar-navigation{
 		flex: 0;
+		}
 	}
 	.site-branding
 	{
@@ -439,15 +531,16 @@
 	}
 	.main-header-container
 	{
-		ul#primary-menu
+		ul#primary-menu , #primary-menu > ul
 		{
 			position: absolute;
 			right: 0;
-			top:0;
+			top: 50%;
+    		transform: translateY(-50%);
 			width: 40%;
 			
 		}
-		ul#primary-menu.kmt-justify-content-flex-end
+		ul#primary-menu.kmt-justify-content-flex-end , #primary-menu > ul.kmt-justify-content-flex-end
 		{
 			justify-content: flex-start;
 			
@@ -456,7 +549,8 @@
 		{
 			position: absolute;
 			left: 0;
-			top:0;
+			top: 50%;
+    		transform: translateY(-50%);
 			width: 40%;
 		}
 		ul#left-menu.kmt-justify-content-flex-end

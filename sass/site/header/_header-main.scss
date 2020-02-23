@@ -26,7 +26,7 @@
 }
 
 .kmt-site-identity {
-	padding: 20px 0px;
+	padding: 30px 0px;
 }
 
 .kmt-menu-toggle {
@@ -48,7 +48,9 @@
 	float: left;
 	margin-right: 10px;
 }
-
+.main-header-content{
+	padding: 0 15px;
+}
 /**
  * 4 - Search Form & Main Header
  */
@@ -56,8 +58,6 @@
 	z-index: 4;
 	position: relative;
 	line-height: 4;
-	border-bottom: 1px solid #eee;
-	background-color: #fff;
 	.main-header-bar-navigation {
 
 		&:empty {
@@ -95,7 +95,7 @@
 	position: absolute;
 	z-index: 3;
 	right: auto;
-	top: 50px;
+	top: auto;
 	right: 30px;
 	.kemet-search-icon {
 		line-height: normal;
@@ -137,7 +137,6 @@
 	}
 }
 li.kmt-sitehead-custom-menu-items {
-	padding: 0 1em;
 
 	a {
 		padding-left: 0;
@@ -173,9 +172,11 @@ li.kmt-sitehead-custom-menu-items {
 	}	
 }
 .kmt-sitehead-custom-menu-items{
-	padding: 0 1em;
 	.kmt-search-icon .kemet-search-icon {
 		line-height: 1;
+	}
+	> div{
+		padding: 1em;
 	}
 }
 .main-header-menu {
@@ -255,7 +256,7 @@ li.kmt-sitehead-custom-menu-items {
 
 					display: inline-block;
 					position: absolute;
-					font-size: 0px;;
+					font-size: 0px;
 					top: -1px;
 					right: 20px;
 					cursor: pointer;
@@ -287,10 +288,6 @@ li.kmt-sitehead-custom-menu-items {
 				   transform: rotateX(180deg);
 				}
 			}
-
-			.main-header-menu {
-				border-top: 1px solid #eaeaea;
-			}
 		}
 	}
 
@@ -299,7 +296,7 @@ li.kmt-sitehead-custom-menu-items {
 		display: block;
 		width: 100%;
 		.main-header-menu{
-			text-align: center;
+			text-align: left;
 		}
 		.kmt-sitehead-custom-menu-items{
 			display: block;

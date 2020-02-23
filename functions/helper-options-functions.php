@@ -360,7 +360,7 @@ if ( ! function_exists( 'kemet_get_background_obj' ) ) {
 		if ( '' !== $bg_img && '' !== $bg_color ) {
 			$gen_bg_css = array(
 				'background-color' => 'unset',
-				'background-image' => 'linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . '), url(' . esc_url( $bg_img ) . ')',
+				'background-image' => 'url(' . esc_url( $bg_img ) . ') , linear-gradient(to right, ' . esc_attr( $bg_color ) . ', ' . esc_attr( $bg_color ) . ')',
 			);
 		} elseif ( '' !== $bg_img ) {
 			$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
@@ -785,104 +785,3 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 
 	add_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
 }
-
-
-/**
- * Adjust the HEX color brightness
- */
-if ( ! function_exists( 'kemet_adjust_brightness' ) ) {
-
-	/**
-	 * Adjust Brightness
-	 *
-	 * @param  string $hex   Color code in HEX.
-	 * @param  number $steps brightness value.
-	 * @param  string $type  brightness is reverse or default.
-	 * @return string        Color code in HEX.
-	 */
-	function kemet_adjust_brightness( $hex, $steps, $type ) {
-
-		// Get rgb vars.
-		$hex = str_replace( '#', '', $hex );
-
-		$shortcode_atts = array(
-			'r' => hexdec( substr( $hex, 0, 2 ) ),
-			'g' => hexdec( substr( $hex, 2, 2 ) ),
-			'b' => hexdec( substr( $hex, 4, 2 ) ),
-		);
-
-		// Should we darken the color?
-		if ( 'reverse' == $type && $shortcode_atts['r'] + $shortcode_atts['g'] + $shortcode_atts['b'] > 382 ) {
-			$steps = -$steps;
-		} elseif ( 'darken' == $type ) {
-			$steps = -$steps;
-		}
-
-		// Build the new color.
-		$steps = max( -255, min( 255, $steps ) );
-
-		$shortcode_atts['r'] = max( 0, min( 255, $shortcode_atts['r'] + $steps ) );
-		$shortcode_atts['g'] = max( 0, min( 255, $shortcode_atts['g'] + $steps ) );
-		$shortcode_atts['b'] = max( 0, min( 255, $shortcode_atts['b'] + $steps ) );
-
-		$r_hex = str_pad( dechex( $shortcode_atts['r'] ), 2, '0', STR_PAD_LEFT );
-		$g_hex = str_pad( dechex( $shortcode_atts['g'] ), 2, '0', STR_PAD_LEFT );
-		$b_hex = str_pad( dechex( $shortcode_atts['b'] ), 2, '0', STR_PAD_LEFT );
-
-		return '#' . $r_hex . $g_hex . $b_hex;
-	}
-} // End if.
-
-/**
- * Convert colors from HEX to RGBA
- */
-if ( ! function_exists( 'kemet_hex_to_rgba' ) ) :
-
-	/**
-	 * Convert colors from HEX to RGBA
-	 *
-	 * @param  string  $color   Color code in HEX.
-	 * @param  boolean $opacity Color code opacity.
-	 * @return string           Color code in RGB or RGBA.
-	 */
-	function kemet_hex_to_rgba( $color, $opacity = false ) {
-
-		$default = 'rgb(0,0,0)';
-
-		// Return default if no color provided.
-		if ( empty( $color ) ) {
-			return $default;
-		}
-
-		// Sanitize $color if "#" is provided.
-		if ( '#' == $color[0] ) {
-			$color = substr( $color, 1 );
-		}
-
-		// Check if color has 6 or 3 characters and get values.
-		if ( 6 == strlen( $color ) ) {
-			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-		} elseif ( 3 == strlen( $color ) ) {
-			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-		} else {
-			return $default;
-		}
-
-		// Convert HEX to RGB.
-		$rgb = array_map( 'hexdec', $hex );
-
-		// Check if opacity is set(RGBA or RGB).
-		if ( $opacity ) {
-			if ( 1 < abs( $opacity ) ) {
-				$opacity = 1.0;
-			}
-			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
-		} else {
-			$output = 'rgb(' . implode( ',', $rgb ) . ')';
-		}
-
-		// Return RGB(a) color string.
-		return $output;
-	}
-
-endif;

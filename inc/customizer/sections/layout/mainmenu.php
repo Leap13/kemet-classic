@@ -402,9 +402,10 @@ $header_rt_sections = array(
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
 			'dependency'  => array(
-				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]', 
-				'conditions' => 'notEmpty', 
-				'values' => '',
+				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]/' . KEMET_THEME_SETTINGS . '[header-layouts]', 
+				'conditions' => 'notEmpty/!=', 
+				'values' => '/header-main-layout-3',
+				'operators' => '&&'
 			),
 		)
 	);
@@ -754,7 +755,24 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Submenu Box Shadow
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-box-shadow]', array(
+			'default'           => $defaults[ 'submenu-box-shadow' ],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[submenu-box-shadow]', array(
+			'type'     => 'checkbox',
+			'section'  => 'section-menu-header',
+			'label'    => __( 'Submenu Box Shadow', 'kemet' ),
+			'priority' => 141,
+		)
+	);
 	/**
 	 * Option: Submenu Width
 	 */

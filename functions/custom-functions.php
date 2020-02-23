@@ -87,8 +87,9 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		$classes[] = 'kemet-' . KEMET_THEME_VERSION;
 
 		$outside_menu = kemet_get_option( 'header-display-outside-menu' );
+		$header_layout      = kemet_get_option( 'header-layouts' );
 
-		if ( $outside_menu ) {
+		if ( $outside_menu || $header_layout != 'header-main-layout-3') {
 			$classes[] = 'kmt-header-custom-item-outside';
 		} else {
 			$classes[] = 'kmt-header-custom-item-inside';
@@ -222,14 +223,14 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 	function kemet_get_dynamic_header_content( $option ) {
 
 		$output  = array();
-		$section = kemet_get_option( $option );
+		$sections = kemet_get_option( $option );
                 
                 
-         if ( is_array( $section ) ) {
+         if ( is_array( $sections ) ) {
 			
-			foreach ( $section as $sectionnn ) {
+			foreach ( $sections as $section ) {
 
-				switch ( $sectionnn ) {
+				switch ( $section ) {
 
 			case 'search':
 					$output[] = kemet_get_search( $option );
@@ -244,7 +245,7 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 				break;
 
 			default:
-					$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $section );
+					$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $sections );
 				break;
 		}
                         }
@@ -651,12 +652,13 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$header_layout      = kemet_get_option( 'header-layouts' );
+		$submenu_has_boxshadow = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
 
 		if ( $disable_primary_navigation ) {
 
 			$display_outside = kemet_get_option( 'header-display-outside-menu' );
 
-			if ( 'none' != $custom_header_section && ! $display_outside ) {
+			if ( 'none' != $custom_header_section && (! $display_outside || $header_layout == 'header-main-layout-3') ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
 				echo kemet_sitehead_get_menu_items();
 				echo '</div>';
@@ -671,7 +673,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow . '">',
 				'after'          => '</ul>',
 			);
 
@@ -685,7 +687,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
 				'menu_id'         => 'primary-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -694,7 +696,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			$left_menu_args = array(
 				'theme_location'  => 'left_menu',
 				'menu_id'         => 'left-menu',
-				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class,
+				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
 				'container'       => 'div',
 				'container_class' => 'main-header-bar-navigation',
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
@@ -1417,3 +1419,116 @@ if ( ! function_exists( 'kemet_prop' ) ) :
 	}
 
 endif;
+
+if ( !function_exists( 'kemet_hex2rgba' ) ) {
+
+    /**
+     * Convert hexdec color string to rgb(a) string
+     * @param string $color
+     * @param real $opacity
+     * @param bol $echo
+     * @return string
+     */
+    function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
+
+        $default = 'rgb(0,0,0)';
+
+        //Return default if no color provided
+        if ( empty( $color ) ) {
+            return $default;
+        }
+
+        //Sanitize $color if "#" is provided 
+        if ( $color[ 0 ] == '#' ) {
+            $color = substr( $color, 1 );
+        }
+
+        //Check if color has 6 or 3 characters and get values
+        if ( strlen( $color ) == 6 ) {
+            $hex = array( $color[ 0 ] . $color[ 1 ], $color[ 2 ] . $color[ 3 ], $color[ 4 ] . $color[ 5 ] );
+        } elseif ( strlen( $color ) == 3 ) {
+            $hex = array( $color[ 0 ] . $color[ 0 ], $color[ 1 ] . $color[ 1 ], $color[ 2 ] . $color[ 2 ] );
+        } else {
+            return $default;
+        }
+
+        //Convert hexadec to rgb
+        $rgb = array_map( 'hexdec', $hex );
+
+        //Check if opacity is set(rgba or rgb)
+        if ( $opacity ) {
+            if ( abs( $opacity ) > 1 ) {
+                $opacity = 1.0;
+            }
+            if ( $echo ) {
+                $output = 'rgba(' . implode( ",", $rgb ) . ',' . $opacity . ')';
+            } else {
+                $rgb[]  = $opacity;
+                $output = $rgb;
+            }
+        } else {
+            if ( $echo ) {
+                $output = 'rgb(' . implode( ",", $rgb ) . ')';
+            } else {
+                $output = $rgb;
+            }
+        }
+
+        //Return rgb(a) color string
+        return $output;
+    }
+
+}
+
+if ( !function_exists( 'kemet_color_brightness' ) ) {
+
+    /**
+     * Change color brightness to be darker or lighter
+     * @param string $hex color hex
+     * @param float $percent brightness percent from 0 to 1
+     * @param string $brightness light or dark
+     * @return string the new generated color hex
+     */
+    function kemet_color_brightness( $hex, $percent, $brightness = 'light' ) {
+		if($hex != ''){
+			if ( $brightness == 'dark' ) {
+				$percent = $percent * -1;
+			}
+
+			$rgb = kemet_hex2rgba( $hex );
+			//// CALCULATE 
+			for ( $i = 0; $i < 3; $i++ ) {
+				// See if brighter or darker
+				if ( $percent > 0 ) {
+					// Lighter
+					$rgb[ $i ] = round( $rgb[ $i ] * $percent ) + round( 255 * (1 - $percent) );
+				} else {
+					// Darker
+					$positivePercent = $percent - ($percent * 2);
+					$rgb[ $i ]       = round( $rgb[ $i ] * $positivePercent ) + round( 0 * (1 - $positivePercent) );
+				}
+				// In case rounding up causes us to go to 256
+				if ( $rgb[ $i ] > 255 ) {
+					$rgb[ $i ] = 255;
+				}
+			}
+			//// RBG to Hex
+			$new_hex = '#';
+			for ( $i = 0; $i < 3; $i++ ) {
+				// Convert the decimal digit to hex
+				$hexDigit = dechex( $rgb[ $i ] );
+				// Add a leading zero if necessary
+				if ( strlen( $hexDigit ) == 1 ) {
+					$hexDigit = "0" . $hexDigit;
+				}
+				// Append to the hex string
+				$new_hex .= $hexDigit;
+			}
+			return $new_hex;
+		}else{
+			return;
+		}
+        
+    }
+
+}

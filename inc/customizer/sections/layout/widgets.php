@@ -77,9 +77,9 @@ $wp_customize->add_control(
             'label'       => __( 'Margin Bottom (PX)', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
-                'min'  => 0.5,
-                'step' => 0.01,
-                'max'  => 5,
+                'min'  => 10,
+                'step' => 1,
+                'max'  => 100,
             ),
         )
     )

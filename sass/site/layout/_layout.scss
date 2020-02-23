@@ -3,9 +3,6 @@
 	display: none !important;
 }
 
-body {
-	background-color: $color-background-body;
-}
 // Page alignment
 #page {
 	display: block;
@@ -41,16 +38,16 @@ body {
 	}
 }
 .kmt-article-post{
-	border-bottom: 1px solid $color-border-content;
+	> div{
+		border-bottom: 1px;
+		border-bottom-style: solid;
+	}
 }
 
 //separate container content layout
 .kmt-separate-container{
 	.kmt-archive-description{
 		border-top: 0;
-	}
-	.kmt-article-post{
-		border-bottom: 0;
 	}
 	background-color: $color-background-sep-content-body;
 	#primary{
@@ -64,9 +61,12 @@ body {
 	}
 	.kmt-article-post,
 	.kmt-article-single{
-		 background-color: $color-background-content;
 		 margin: 0;
 		 padding: 100px;
+	}
+	.kmt-article-post{
+		border-bottom: 1px;
+		border-bottom-style: solid;
 	}
 	.blog-layout-1{
         border-bottom: 0;
@@ -309,19 +309,21 @@ body {
 @media (min-width: $col-md) {
 	.kmt-right-sidebar {
 		#primary {
-			border-right: 1px solid $color-border-content;
+			border-right-width: 1px;
+			border-style: solid;
 		}
 		#secondary{
-			border-left: 1px solid $color-border-content;
+			border-left-width: 1px;
+			border-style: solid;
 			margin-left: -1px;
 		}
 	}
 	.kmt-left-sidebar {
 		#primary {
-			border-left: 1px solid $color-border-content;
+			border-left: 1px solid;
 		}
 		#secondary{
-			border-right: 1px solid $color-border-content;
+			border-right: 1px solid;
 			margin-right: -1px;
 		}
 	}
@@ -353,9 +355,4 @@ body {
 		}
 	}
 }
-.elementor-page {
-    #primary{
-        margin: 0px;
-        padding: 0px;
-    }
-}
+
