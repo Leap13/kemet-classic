@@ -17,6 +17,7 @@ v 1.0.0
 - Added: Single post options to customize post style.
 - Added: Header overlay option.
 - Added: Alignment control for Main menu.
+- Added: Global Colors Section to control all website elements colors and backgrounds.
 - Tweak: Top bar section moved to Kemet Addons plugin for better performance and management.
 - Tweak: Changes in the customizer controls styles files for better performance and speed.
 - Fixed: Content spacing option doesn't work.
