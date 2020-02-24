@@ -111,13 +111,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'letter-spacing-entry-title'     => '',
 					// Kemet Colors.
 					'smart-skin'				   => '',
-					'theme-color'                      => '#44aaf1',	
-					't1-color'                     => '#353844',
-					't2-color'                     => '#60626c',
-					'global-border-color'		   => '#ededed',	
+					'theme-color'                      => '#0085ba',	
+					't1-color'                     => '#333333',
+					't2-color'                     => '#444140',
+					'global-border-color'		   => '#eaeaea',	
 					'b1-color'                     => '#ffffff',
 					'ft-color'                     => '#fbfbfb',
-					'fb-color'                     => '#42434e',
+					'fb-color'                     => '#222222',
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => '',

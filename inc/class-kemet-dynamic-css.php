@@ -298,7 +298,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_border_size     = kemet_get_option( 'btn-border-size' );
 			$btn_border_color    = kemet_get_option( 'btn-border-color' );
 			$btn_border_h_color  = kemet_get_option( 'btn-border-h-color' );				
-			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color', $theme_color );
+			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color',  kemet_color_brightness($theme_color , 0.8 , 'dark') );
 
 			// Spacing of Big Footer.
 			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' , kemet_color_brightness($ft_color , 0.4 , 'dark'));
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'a, .page-title'                          => array(
 					'color' => esc_attr( $t1_color ),
 				),
-				'a:hover, a:focus'                        => array(
+				'a:hover, a:focus , .widget_search .search-form:hover:after' => array(
 					'color' => esc_attr( $theme_color ),
 				),
 				'body, button, input, select, textarea'   => array(
@@ -549,6 +549,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $submenu_bg_color),
 					'border-top-width' => kemet_get_css_value( $submenu_top_border_size, 'px' ),
 					'border-top-color' => esc_attr( $submenu_top_border_color ),
+				),
+				'.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul'  => array(
+					'top' => kemet_get_css_value( '-'.$submenu_top_border_size, 'px' ),
 				),
 
 				'.main-header-menu .sub-menu a' => array(

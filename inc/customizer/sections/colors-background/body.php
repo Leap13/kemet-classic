@@ -29,6 +29,7 @@ $defaults = Kemet_Theme_Options::defaults();
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Primary Color', 'kemet' ),
+				'description' => __("Used for buttons background (a darker shade from it used for mouseover) and a hover color for links." , 'kemet'),
 			)
 		)
 	);
@@ -47,7 +48,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[t1-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'T1', 'kemet' ),
+				'label'    => __( 'Headings & Links Color', 'kemet' ),
+				'description' => __("Used for all titles from H1 to H6, widget titles, main menu links and all other body links." , 'kemet'),
 			)
 		)
 	);
@@ -66,7 +68,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[t2-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'T2', 'kemet' ),
+				'label'    => __( 'Body Text & Meta Color', 'kemet' ),
+				'description' => __("Used for body text, meta color, and forms' input text color." , 'kemet'),
 			)
 		)
 	);
@@ -85,7 +88,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[global-border-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'Border Color', 'kemet' ),
+				'label'    => __( 'Border & Separator Color', 'kemet' ),
+				'description' => __("Used for all the borders and separators across the website." , 'kemet'),
 			)
 		)
 	);
@@ -104,7 +108,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[b1-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'B1 Color', 'kemet' ),
+				'label'    => __( 'Background Color', 'kemet' ),
+				'description' => __("Used for body background color, (a tint from it used for the input, page title and widgets backgrounds)." , 'kemet'),
 			)
 		)
 	);
@@ -123,7 +128,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[ft-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'FT Color', 'kemet' ),
+				'label'    => __( 'Footer Text Color', 'kemet' ),
+				'description' => __("Used for footer titles and links, a darker shades of it used for footer body text, meta data and separators." , 'kemet'),
 			)
 		)
 	);
@@ -142,7 +148,8 @@ $defaults = Kemet_Theme_Options::defaults();
 			$wp_customize, KEMET_THEME_SETTINGS . '[fb-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
-				'label'    => __( 'FB Color', 'kemet' ),
+				'label'    => __( 'Footer Background Color', 'kemet' ),
+				'description' => __("Used for the footer background color, and a darker shade from it used for input fields background, footer buttons, and copyright area." , 'kemet'),
 			)
 		)
 	);

@@ -687,7 +687,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		setting.bind(function (border) {
 
 			var dynamicStyle = '.main-header-menu ul.sub-menu { border-top-width: ' + border + 'px }';
-
+			dynamicStyle += '.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul { top: -' + border + 'px }'
 			kemet_add_dynamic_css('submenu-top-border-size', dynamicStyle);
 
 		});

@@ -83,8 +83,8 @@
 			top: 50%;
 			transform: translate(0, -50%) rotate(270deg);
 		}
-		ul.sub-menu{
-			li a{
+		li:last-child{
+			> a{
 				border: 0;
 			}
 		}
