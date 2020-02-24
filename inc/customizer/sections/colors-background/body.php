@@ -29,7 +29,7 @@ $defaults = Kemet_Theme_Options::defaults();
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Primary Color', 'kemet' ),
-				'description' => __("Used for buttons background (a darker shade from it used for mouseover) and a hover color for links." , 'kemet'),
+				'description' => __("Used for buttons background (a darker shade from it used for mouseover), and hover color for links." , 'kemet'),
 			)
 		)
 	);
@@ -37,19 +37,19 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: T1 Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[t1-color]', array(
-			'default'           => $defaults[ 't1-color' ],
+		KEMET_THEME_SETTINGS . '[headings-links-color]', array(
+			'default'           => $defaults[ 'headings-links-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[t1-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[headings-links-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Headings & Links Color', 'kemet' ),
-				'description' => __("Used for all titles from H1 to H6, widget titles, main menu links and all other body links." , 'kemet'),
+				'description' => __("Used for all titles from H1 to H6, widgets' title, main menu links, and all other body links." , 'kemet'),
 			)
 		)
 	);
@@ -57,15 +57,15 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: T2 Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[t2-color]', array(
-			'default'           => $defaults[ 't2-color' ],
+		KEMET_THEME_SETTINGS . '[text-meta-color]', array(
+			'default'           => $defaults[ 'text-meta-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[t2-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[text-meta-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Body Text & Meta Color', 'kemet' ),
@@ -97,19 +97,19 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: B1 Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[b1-color]', array(
-			'default'           => $defaults[ 'b1-color' ],
+		KEMET_THEME_SETTINGS . '[global-background-color]', array(
+			'default'           => $defaults[ 'global-background-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[b1-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[global-background-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Background Color', 'kemet' ),
-				'description' => __("Used for body background color, (a tint from it used for the input, page title and widgets backgrounds)." , 'kemet'),
+				'description' => __("Used for the body background color, a tint from it used for the input, page title, and widgets' background." , 'kemet'),
 			)
 		)
 	);
@@ -117,19 +117,19 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: FT Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[ft-color]', array(
-			'default'           => $defaults[ 'ft-color' ],
+		KEMET_THEME_SETTINGS . '[global-footer-text-color]', array(
+			'default'           => $defaults[ 'global-footer-text-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[ft-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[global-footer-text-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Footer Text Color', 'kemet' ),
-				'description' => __("Used for footer titles and links, a darker shades of it used for footer body text, meta data and separators." , 'kemet'),
+				'description' => __("Used for footer titles, and links. Darker shades from it are used for input fields background, footer buttons, and copyright area." , 'kemet'),
 			)
 		)
 	);
@@ -137,19 +137,19 @@ $defaults = Kemet_Theme_Options::defaults();
 	 * Option: FB Color
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[fb-color]', array(
-			'default'           => $defaults[ 'fb-color' ],
+		KEMET_THEME_SETTINGS . '[global-footer-bg-color]', array(
+			'default'           => $defaults[ 'global-footer-bg-color' ],
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
 	$wp_customize->add_control(
 		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[fb-color]', array(
+			$wp_customize, KEMET_THEME_SETTINGS . '[global-footer-bg-color]', array(
 				'section'  => 'section-colors-body',
 				'priority' => 5,
 				'label'    => __( 'Footer Background Color', 'kemet' ),
-				'description' => __("Used for the footer background color, and a darker shade from it used for input fields background, footer buttons, and copyright area." , 'kemet'),
+				'description' => __("Used for the footer background, and a darker shade from it is used for the input fields background, footer buttons, and copyright area." , 'kemet'),
 			)
 		)
 	);

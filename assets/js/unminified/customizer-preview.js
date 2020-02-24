@@ -254,7 +254,7 @@ function kemet_css(control, css_property, selector, unit) {
 			control = control.replace('[', '-');
 			control = control.replace(']', '');
 
-			if (new_value) {
+			if (new_value != '') {
 
 				/**
 				 *	If ( unit == 'url' ) then = url('{VALUE}')
@@ -315,7 +315,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	var gen_bg_css = '';
 	var bg_img = bg_obj['background-image'];
 	var bg_color = bg_obj['background-color'];
-	console.log(bg_obj);
+	
 	if ('' === bg_color && '' === bg_img) {
 		wp_customize.preview.send('refresh');
 	} else {
@@ -661,19 +661,18 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[search-btn-bg-color]', 'background-color', '.kmt-search-menu-icon .search-submit');
 	kemet_css('kemet-settings[search-btn-h-bg-color]', 'background-color', '.kmt-search-menu-icon .search-submit:hover');
 	kemet_css('kemet-settings[search-btn-color]', 'color', '.kmt-search-menu-icon .search-submit');
-	kemet_css('kemet-settings[search-input-bg-color]', 'background-color', '.kmt-search-menu-icon form .search-field');
+	kemet_css('kemet-settings[search-input-bg-color]', 'background-color', '.kmt-search-menu-icon form');
 	kemet_css('kemet-settings[search-input-color]', 'color', '.kmt-search-menu-icon form .search-field');
 	wp.customize('kemet-settings[search-border-size]', function (setting) {
 		setting.bind(function (border) {
-			var dynamicStyle = '.search-box .kmt-search-menu-icon .search-form { border-width: ' + border + 'px } .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form { border-width: ' + border + 'px }';
+			var dynamicStyle = '.search-box .kmt-search-menu-icon form .search-field { border-width: ' + border + 'px } .top-bar-search-box .kemet-top-header-section .kmt-search-menu-icon .search-form .search-field { border-width: ' + border + 'px }';
 
 			kemet_add_dynamic_css('search-border-size', dynamicStyle);
 		});
 	});
 	wp.customize('kemet-settings[search-border-color]', function (value) {
 		value.bind(function (border_color) {
-			jQuery('.kmt-search-menu-icon form').css('border-color', border_color);
-			jQuery('.kmt-search-menu-icon form').css('background-color', border_color);
+			jQuery('.kmt-search-menu-icon form .search-field').css('border-color', border_color);
 		});
 	});
 	/**submenu color */

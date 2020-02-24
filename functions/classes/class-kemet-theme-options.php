@@ -112,12 +112,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Kemet Colors.
 					'smart-skin'				   => '',
 					'theme-color'                      => '#0085ba',	
-					't1-color'                     => '#333333',
-					't2-color'                     => '#444140',
+					'headings-links-color'                     => '#333333',
+					'text-meta-color'                     => '#444140',
 					'global-border-color'		   => '#eaeaea',	
-					'b1-color'                     => '#ffffff',
-					'ft-color'                     => '#fbfbfb',
-					'fb-color'                     => '#222222',
+					'global-background-color'                     => '#ffffff',
+					'global-footer-text-color'                     => '#fbfbfb',
+					'global-footer-bg-color'                     => '#222222',
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => '',
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
 					'search-style'							=> 'search-icon',
-					'search-box-shadow'							=> false,
+					'search-box-shadow'							=> true,
 					'search-btn-bg-color'					=> '',
 					'search-btn-h-bg-color'					=> '',
 					'search-btn-color'						=> '',
