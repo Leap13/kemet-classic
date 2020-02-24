@@ -2413,6 +2413,7 @@ body .kmt-oembed-container * {
 /* 1 - Primary Menus */
 .kemet-search-icon {
   vertical-align: middle;
+  font-size: 15px;
 }
 
 .kemet-search-icon::before {
@@ -2428,10 +2429,6 @@ body .kmt-oembed-container * {
 
 .kmt-search-container {
   position: relative;
-}
-
-.kmt-search-icon .kemet-search-icon {
-  font-size: 1.3em;
 }
 
 .main-navigation {
@@ -3750,7 +3747,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 }
 
 .kmt-search-menu-icon form {
-  border-style: solid;
+  padding: 15px;
   line-height: 1;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -3771,7 +3768,8 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
   color: inherit;
   font-size: inherit;
   width: 240px;
-  margin: 5px;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .kmt-search-menu-icon .search-field:focus {

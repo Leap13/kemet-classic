@@ -102,7 +102,7 @@
 	}
 
 	form {
-		border-style: solid;
+		padding: 15px;
 		line-height: 1;
 		@include kmt-border-radius();
 		display: inline-block;
@@ -119,7 +119,8 @@
 		color: inherit;
 		font-size: inherit;
 		width: 240px;
-		margin: 5px;
+		border-width: 1px;
+		border-style: solid;
 		&:focus {
 			outline: none;
 		}

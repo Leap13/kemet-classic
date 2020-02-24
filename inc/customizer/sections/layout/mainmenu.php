@@ -622,9 +622,10 @@ $header_rt_sections = array(
 		  'transport'         => 'postMessage',
 		  'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		  'dependency'  => array(
-				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]', 
-				'conditions' => 'inarray', 
-				'values' => 'search',
+				'controls' =>  KEMET_THEME_SETTINGS . '[header-main-rt-section]/' . KEMET_THEME_SETTINGS . '[search-style]', 
+				'conditions' => 'inarray/==', 
+				'values' => 'search/search-icon',
+				'operators' => '&&'
 			),
 		)
 	);

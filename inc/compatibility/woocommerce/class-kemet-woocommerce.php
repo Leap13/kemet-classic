@@ -648,8 +648,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			 * - Variable Declaration
 			 */
 			$theme_color  = kemet_get_option( 'theme-color' );
-			$t1_color      = kemet_get_option( 't1-color' );
-			$t2_color      = kemet_get_option( 't2-color' );
+			$headings_links_color      = kemet_get_option( 'headings-links-color' );
+			$text_meta_color      = kemet_get_option( 'text-meta-color' );
 
 			$btn_color = kemet_get_option( 'button-color' );
 			$btn_h_color = kemet_get_option( 'button-h-color' , $btn_color );
@@ -667,7 +667,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$css_output = array(
 				'.woocommerce span.onsale'                => array(
 					'background-color' => esc_attr($theme_color),
-					'color'            => esc_attr($t2_color),
+					'color'            => esc_attr($text_meta_color),
 				),
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled' => array(
 					'color'            => esc_attr($btn_color),
@@ -680,27 +680,27 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'background-color' => esc_attr($btn_bg_h_color),
 				),
 				'.woocommerce-message, .woocommerce-info' => array(
-					'border-top-color' => esc_attr($t1_color),
+					'border-top-color' => esc_attr($headings_links_color),
 				),
 				'.woocommerce-message::before,.woocommerce-info::before' => array(
-					'color' => esc_attr($t1_color),
+					'color' => esc_attr($headings_links_color),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .kmt-woo-product-category, .wc-layered-nav-rating a' => array(
-					'color' => esc_attr($t2_color),
+					'color' => esc_attr($text_meta_color),
 				),
 				// Form Fields, Pagination border Color.
 				'.woocommerce nav.woocommerce-pagination ul,.woocommerce nav.woocommerce-pagination ul li' => array(
-					'border-color' => esc_attr($t1_color),
+					'border-color' => esc_attr($headings_links_color),
 				),
 				'.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current' => array(
-					'background' => esc_attr($t1_color),
+					'background' => esc_attr($headings_links_color),
 					'color'      => esc_attr($btn_color),
 				),
 				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
 					'color' => esc_attr($theme_color),
 				),
 				'.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
-					'background-color' => esc_attr($t1_color),
+					'background-color' => esc_attr($headings_links_color),
 				),
 				// Button Typography.
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
@@ -708,30 +708,30 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'padding'       => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
 				'.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
-					'color' => esc_attr($t1_color),
+					'color' => esc_attr($headings_links_color),
 				),
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
-					'background' => esc_attr($t1_color),
+					'background' => esc_attr($headings_links_color),
 				),
 
 				/**
 				 * Cart in menu
 				 */
 				'.kmt-site-header-cart a'                 => array(
-					'color' => esc_attr( $t2_color ),
+					'color' => esc_attr( $text_meta_color ),
 				),
 
 				'.kmt-site-header-cart a:focus, .kmt-site-header-cart a:hover, .kmt-site-header-cart .current-menu-item a' => array(
-					'color' => esc_attr( $t1_color ),
+					'color' => esc_attr( $headings_links_color ),
 				),
 
 				'.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
-					'color' => esc_attr( $t1_color ),
+					'color' => esc_attr( $headings_links_color ),
 				),
 
 				'.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover' => array(
-					'color'            => esc_attr( $t1_color ),
-					'border-color'     => esc_attr( $t1_color ),
+					'color'            => esc_attr( $headings_links_color ),
+					'border-color'     => esc_attr( $headings_links_color ),
 					'background-color' => esc_attr( '#ffffff' ),
 				),
 			);
@@ -821,8 +821,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border'         => esc_attr( '1px solid #ccc' ),
 				),
 				'.woocommerce #content table.wishlist_table.cart a.remove:hover' => array(
-					'color'            => esc_attr( $t1_color . '!important' ),
-					'border-color'     => esc_attr( $t1_color ),
+					'color'            => esc_attr( $headings_links_color . '!important' ),
+					'border-color'     => esc_attr( $headings_links_color ),
 					'background-color' => esc_attr( '#ffffff' ),
 				),
 			);

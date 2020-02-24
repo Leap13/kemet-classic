@@ -1,5 +1,6 @@
 .kemet-search-icon {
 	vertical-align: middle;
+	font-size: 15px;
 }
 .kemet-search-icon::before {
 	content: "\e90d";
@@ -13,9 +14,6 @@
 }
 .kmt-search-container{
 	position: relative;
-}
-.kmt-search-icon .kemet-search-icon {
-	font-size: 1.3em;
 }
 
 .main-navigation {
