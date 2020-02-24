@@ -10,27 +10,6 @@
  * @link        https://kemet.io/
  */
 
-/**
- * Set theme images sizes
- */
-function leap_theme_image_sizes() {
-    set_post_thumbnail_size( 50, 50, true );
-    add_image_size( 'leap-thumbnail', 100, 100, true );
-    add_image_size( 'leap-related-thumbnail', 190, 145, true );
-    add_image_size( 'leap-slider', 1140, 450, true );
-
-    add_image_size( 'leap-portfolio-grid', 567, 'auto', true );
-    add_image_size( 'leap-portfolio-1col', 1140, 450, true );
-    add_image_size( 'leap-portfolio-2col', 567, 378, true );
-    add_image_size( 'leap-portfolio-3col', 567, 378, true );
-    add_image_size( 'leap-portfolio-4col', 567, 378, true );
-    add_image_size( 'leap-portfolio-cat', 567, 378, true );
-    add_image_size( 'leap-portfolio-single', 1140, 'auto', true );
-    add_image_size( 'leap-570x570', 570, 570, true );
-}
-
-add_action( 'after_setup_theme', 'leap_theme_image_sizes' ,1);
-
 add_action( 'wp_head', 'kemet_pingback_header' );
 
 /**
