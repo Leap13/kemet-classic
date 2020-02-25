@@ -634,7 +634,7 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
 
 		
-		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		if ( apply_filters( 'kemet_post_title_enabled', true ) ) {
 
 			$title  = kemet_get_the_title( $post_id );
 			$before = apply_filters( 'kemet_the_title_before', $before );
