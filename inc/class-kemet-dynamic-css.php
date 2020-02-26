@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
         	 // Boxed inner Options
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($global_bg_color , 0.99 , 'dark')));
 			$container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
-			$content_padding     = kemet_get_option( 'content-padding' );
+			$content_padding     = apply_filters('kemet_content_padding' , kemet_get_option( 'content-padding' ));
 			$single_content_separator_color = kemet_get_option( 'content-separator-color' , $global_border_color);
 			
 			// Typography.
