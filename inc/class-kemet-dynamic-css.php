@@ -87,6 +87,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
         	 // Boxed inner Options
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($global_bg_color , 0.99 , 'dark')));
 			$container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
+			$content_padding     = kemet_get_option( 'content-padding' );
 			$single_content_separator_color = kemet_get_option( 'content-separator-color' , $global_border_color);
 			
 			// Typography.
@@ -892,6 +893,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
 			'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
 			   ),
+			'#primary #main' => array(
+					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'desktop' ),
+				),   
 			//Search From Style
 			'.kmt-search-menu-icon form' => array(
 					'background-color' => esc_attr($search_input_bg_color),
@@ -1146,13 +1151,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 /**
                 * Content Spacing Tablet
                 */
-            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ' => array(
+            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ' => array(
                 'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'tablet' ),
                 'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'tablet' ),
 				'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'tablet' ),
 				'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'tablet' ),
             ),
-            
+            '#primary #main' => array(
+					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'tablet' ),
+					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'tablet' ),
+			),
             '.kemet-footer .kmt-container ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'tablet' ),
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'tablet' ),
@@ -1352,11 +1360,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
            /**
 			* Content Spacing Mobile
 			*/
-            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single ' => array(
+            '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li' => array(
                 'padding-top'    => kemet_responsive_spacing( $container_inner_spacing, 'top', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $container_inner_spacing, 'right', 'mobile' ),
 				'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'mobile' ),
 				'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'mobile' ),
+			),
+			'#primary #main' => array(
+				'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'mobile' ),
+				'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'mobile' ),
 			),
 			//header spacing
 			'.main-header-bar' => array(

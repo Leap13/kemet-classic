@@ -14,9 +14,6 @@
 	float: left;
 	width: $width-site-main;
 }
-#primary{
-	margin: 4em 0;
-}
 
 #secondary{
 	margin: 4em 0 2.5em;
@@ -43,7 +40,10 @@
 		border-bottom-style: solid;
 	}
 }
-
+#main{
+    padding-top: 4em;
+	padding-bottom: 4em;
+}
 //separate container content layout
 .kmt-separate-container{
 	.kmt-archive-description{
@@ -51,7 +51,6 @@
 	}
 	background-color: $color-background-sep-content-body;
 	#primary{
-		padding: 4em 0;
 		margin: 0;
 		border: 0;
 	}
@@ -87,7 +86,6 @@
 		.kmt-article-single {
 		    padding: 1.5em 2.14em;
 		}
-		#primary,
 		#secondary{
 			padding: 1.5em 0;
 		}
@@ -216,7 +214,6 @@
 		&.kmt-right-sidebar #primary,
 		&.kmt-left-sidebar #primary,
 		#primary {
-		    margin: 4em 0 ;
 		    padding: 0;
 		}
 	}
@@ -290,7 +287,6 @@
 			padding-right: 0;
 		}
 	}
-	#primary,
 	#secondary {
 		padding: 1.5em 0;
 		margin: 0;

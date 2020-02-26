@@ -181,6 +181,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'search-style'							=> 'search-icon',
 					'search-box-shadow'							=> true,
 					'search-btn-bg-color'					=> '',
+					'content-padding'						=> '',
 					'search-btn-h-bg-color'					=> '',
 					'search-btn-color'						=> '',
 					'search-border-color'					=> '',
