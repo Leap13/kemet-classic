@@ -2103,7 +2103,7 @@ body .kmt-oembed-container * {
   margin-bottom: 0;
 }
 
-.kmt-article-post > div {
+body:not(.kmt-separate-container) .kmt-article-post > div {
   border-bottom: 1px;
   border-bottom-style: solid;
 }
