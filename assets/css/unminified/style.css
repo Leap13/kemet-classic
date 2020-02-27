@@ -4755,6 +4755,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+.read-more a {
+  display: inline-block;
+}
+
 .kmt-no-thumb .kmt-blog-featured-section {
   margin-bottom: 0;
 }
