@@ -2107,7 +2107,7 @@ body .kmt-oembed-container * {
   margin-bottom: 0;
 }
 
-.kmt-article-post > div {
+body:not(.kmt-separate-container) .kmt-article-post > div {
   border-bottom: 1px;
   border-bottom-style: solid;
 }
@@ -4774,6 +4774,10 @@ input[type="color"]::-webkit-color-swatch {
 
 .read-more {
   margin-bottom: 0;
+}
+
+.read-more a {
+  display: inline-block;
 }
 
 .kmt-no-thumb .kmt-blog-featured-section {
