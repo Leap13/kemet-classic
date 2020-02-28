@@ -1937,7 +1937,6 @@ input[type="submit"]:focus {
 }
 
 .kmt-header-break-point .kmt-search-menu-icon .search-form {
-  padding: 0;
   display: block;
 }
 
@@ -3357,10 +3356,9 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 .header-main-layout-3 .main-header-container ul#primary-menu, .header-main-layout-3 .main-header-container #primary-menu > ul {
   position: absolute;
   left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-55%);
+  -ms-transform: translateY(-55%);
+  transform: translateY(-55%);
   width: 40%;
 }
 
@@ -3375,10 +3373,9 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 .header-main-layout-3 .main-header-container ul#left-menu {
   position: absolute;
   right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-55%);
+  -ms-transform: translateY(-55%);
+  transform: translateY(-55%);
   width: 40%;
 }
 

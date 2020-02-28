@@ -85,10 +85,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$input_border_color = kemet_get_option( 'input-border-color' , $global_border_color);
 
         	 // Boxed inner Options
-			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($global_bg_color , 0.99 , 'dark')));
+			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($global_bg_color , 0.97 , 'dark')));
 			$container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
 			$content_padding     = apply_filters('kemet_content_padding' , kemet_get_option( 'content-padding' ));
-			$single_content_separator_color = kemet_get_option( 'content-separator-color' , $global_border_color);
+			$single_content_separator_color = kemet_get_option( 'content-separator-color' , kemet_color_brightness($global_border_color , 0.95 , 'dark'));
 			
 			// Typography.
 			$body_font_size                  = kemet_get_option( 'font-size-body' );
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_font_size					= kemet_get_option( 'submenu-font-size' );
 			$submenu_letter_spacing					= kemet_get_option( 'submenu-letter-spacing' );
 			//Layout Header
-			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , array('background-color' => $global_bg_color));
+			$header_bg_obj             = kemet_get_option( 'header-bg-obj' , array( 'background-color' => $global_bg_color ));
 			$space_header              = kemet_get_option( 'header-padding' );
 			$header_separator       = kemet_get_option( 'header-main-sep');
 			
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_bg_hover_color = kemet_get_option( 'button-bg-h-color',  kemet_color_brightness($theme_color , 0.8 , 'dark') );
 
 			// Spacing of Big Footer.
-			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' , kemet_color_brightness($global_footer_text_color , 0.4 , 'dark'));
+			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color' , kemet_color_brightness($global_footer_text_color , 0.22 , 'dark'));
 			$copyright_footer_divider       = kemet_get_option( 'footer-copyright-divider' );
 
 			/**
@@ -808,7 +808,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a:hover' =>  array(
 					'color' => esc_attr( $sidebar_link_h_color ),
 				),
-				'div.widget' => array(
+				'.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget' => array(
 					'background-color' => esc_attr( $Widget_bg_color),
 				),
 				//sidebar input style 
@@ -879,7 +879,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
             // Layout - Container
-            '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.single-post.kmt-separate-container .comment-respond ,.single-post.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ,.single-post.kmt-separate-container .comments-count-wrapper' => kemet_get_background_obj( $box_bg_inner_boxed ),
+            '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.single-post.kmt-separate-container .comment-respond ,.single-post.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ,.single-post.kmt-separate-container .comments-count-wrapper ,.kmt-separate-container.kmt-two-container div.widget' => kemet_get_background_obj( $box_bg_inner_boxed ),
 				
 			'body:not(.kmt-separate-container) .kmt-article-post > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment' => array(
 				'border-color' => esc_attr($single_content_separator_color),
