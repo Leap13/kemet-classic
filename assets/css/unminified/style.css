@@ -2214,8 +2214,11 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
   padding: 2em;
 }
 
-.kmt-page-builder-template .entry-header {
+.kmt-page-builder-template .kmt-article-post:not(:first-child) .entry-header {
   margin-top: 4em;
+}
+
+.kmt-page-builder-template .entry-header {
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -4770,6 +4773,10 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 0;
 }
 
+.read-more a {
+  display: inline-block;
+}
+
 .kmt-no-thumb .kmt-blog-featured-section {
   margin-bottom: 0;
 }
@@ -5720,10 +5727,13 @@ input[type="color"]::-webkit-color-swatch {
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
+body:not(.kmt-separate-container) .blog-layout-1 {
+  padding-bottom: 2em;
+}
+
 .blog-layout-1 {
   width: 100%;
   display: inline-block;
-  padding-bottom: 2em;
   vertical-align: middle;
 }
 

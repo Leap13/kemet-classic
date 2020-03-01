@@ -2,11 +2,15 @@
 @import "../../../variables-site/structure.scss";
 @import "../../../variables-site/colors.scss";
 
+body:not(.kmt-separate-container){
+    .blog-layout-1 {
+        padding-bottom: 2em;
+    }
+}
 .blog-layout-1 {
 
     width: 100%;
     display: inline-block;
-    padding-bottom: 2em;
     vertical-align: middle;
 
     .posted-on {
