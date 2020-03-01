@@ -16,8 +16,15 @@
 				value,
 				thisInput,
 				inputDefault,
-				changeAction;
+				changeAction,
+				sliderInput = this.container.find('input[type=range]'),
+				defaultValue = control.params.default,
+				sliderMin = sliderInput.attr('min');
 
+			//If input dosen't have default value start with min
+			if (defaultValue == ''){
+				sliderInput.val(sliderMin);
+			}	
 			// Update the text value.
 			jQuery( 'input[type=range]' ).on( 'input change', function() {
 				var value 		 = jQuery( this ).attr( 'value' ),
@@ -39,8 +46,15 @@
 			});
 			// Save changes.
 			this.container.on( 'input change', 'input[type=number]', function() {
-				var value = jQuery( this ).val();
-				jQuery( this ).closest( '.wrapper' ).find( 'input[type=range]' ).val( value );
+				var value = jQuery( this ).val(),
+					input_range = jQuery(this).closest('.wrapper').find('input[type=range]'),
+					inputRangeVal = jQuery(this).val(),
+					sliderMin = input_range.attr('min');
+
+				if ('undefined' == typeof value || value == '') {
+					inputRangeVal = sliderMin;
+				}
+				input_range.val(inputRangeVal);
 				control.setting.set( value );
 			});
 		}

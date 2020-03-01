@@ -75,8 +75,15 @@
 				value,
 				thisInput,
 				inputDefault,
-				changeAction;
+				changeAction,
+				sliderInput = this.container.find('input[type=range]'),
+				defaultValue = control.params.default,
+				sliderMin = sliderInput.attr('min');
 
+			//If input dosen't have default value start with min
+			if (defaultValue == ''){
+				sliderInput.val(sliderMin);
+			}	
 			// Update the text value.
 			jQuery( 'input[type=range]' ).on( 'input change', function() {
 				var value 		 = jQuery( this ).attr( 'value' ),
@@ -98,8 +105,15 @@
 			});
 			// Save changes.
 			this.container.on( 'input change', 'input[type=number]', function() {
-				var value = jQuery( this ).val();
-				jQuery( this ).closest( '.wrapper' ).find( 'input[type=range]' ).val( value );
+				var value = jQuery( this ).val(),
+					input_range = jQuery(this).closest('.wrapper').find('input[type=range]'),
+					inputRangeVal = jQuery(this).val(),
+					sliderMin = input_range.attr('min');
+
+				if ('undefined' == typeof value || value == '') {
+					inputRangeVal = sliderMin;
+				}
+				input_range.val(inputRangeVal);
 				control.setting.set( value );
 			});
 		}
@@ -436,11 +450,23 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 		var control = this,
 			value,
 			thisInput,
-			inputDefault,
-			changeAction;
+			inputDefault = control.params.default,
+			changeAction,
+			sliderInput = this.container.find('.input-field-wrapper input[type=range]');
 
 		control.kmtResponsiveInit();
 
+		//If input dosen't have default value start with min
+		sliderInput.each(function(){
+		var	inputRange = jQuery(this),
+			inputDevice = inputRange.data('device'),
+			sliderMin = inputRange.attr('min');
+			
+			if ('undefined' == typeof inputDefault[inputDevice] || inputDefault[inputDevice] == ''){
+
+				inputRange.val(sliderMin);
+			}
+		});
 		// Update the text value.
 		this.container.on('input change', 'input[type=range]', function () {
 			var value = jQuery(this).val(),
@@ -465,9 +491,15 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 
 		// Save changes.
 		this.container.on('input change', 'input[type=number]', function () {
-			var value = jQuery(this).val();
-			jQuery(this).closest('.input-field-wrapper').find('input[type=range]').val(value);
-
+			var value = jQuery(this).val(),
+				input_range = jQuery(this).closest('.input-field-wrapper').find('input[type=range]'),
+				inputDevice = input_range.data('device'),
+				sliderMin = input_range.attr('min');
+				
+			if ('undefined' == typeof value || value == '') {
+				value = sliderMin;
+			}
+			input_range.val(value);
 			control.updateValue();
 		});
 	},
