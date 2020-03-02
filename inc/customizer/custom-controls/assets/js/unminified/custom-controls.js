@@ -100,10 +100,6 @@
 					input_range = wrapper.find('input[type=range]'),
 					input_number = wrapper.find('.kemet_range_value .value'),
 					default_value = input_range.data('reset_value');
-
-				if (default_value == '' || 'undefined' == typeof default_value){
-					default_value = startPoint;
-				}
 				
 				input_range.val(default_value);
 				input_number.val(default_value);
@@ -458,6 +454,8 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 			thisInput,
 			inputDefault = control.params.default,
 			changeAction,
+			startPoint = control.params.start_point,
+			startPoint = 'undefined' != typeof startPoint && startPoint != '' ? startPoint : 0,
 			sliderInput = this.container.find('.input-field-wrapper input[type=range]');
 
 		control.kmtResponsiveInit();
@@ -465,12 +463,12 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 		//If input dosen't have default value start with min
 		sliderInput.each(function(){
 		var	inputRange = jQuery(this),
-			inputDevice = inputRange.data('device'),
-			sliderMin = inputRange.attr('min');
+			input_number = jQuery(this).closest('.input-field-wrapper').find('.kmt-responsive-range-value-input'),
+			inputDevice = inputRange.data('device');
 			
 			if ('undefined' == typeof inputDefault[inputDevice] || inputDefault[inputDevice] == ''){
-
-				inputRange.val(sliderMin);
+				inputRange.val(startPoint);
+				input_number.val(startPoint);
 			}
 		});
 		// Update the text value.
@@ -499,9 +497,8 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 		this.container.on('input change', 'input[type=number]', function () {
 			var value = jQuery(this).val(),
 				input_range = jQuery(this).closest('.input-field-wrapper').find('input[type=range]'),
-				inputDevice = input_range.data('device'),
 				sliderMin = input_range.attr('min');
-				
+
 			if ('undefined' == typeof value || value == '') {
 				value = sliderMin;
 			}
@@ -586,11 +583,12 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 
 			$this.siblings().removeClass('active');
 			$this.addClass('active');
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('min', unit_min);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('max', unit_max);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('step', unit_step);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').val('');
-
+			var rangeInput = control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]');
+			rangeInput.attr('min', unit_min);
+			rangeInput.attr('max', unit_max);
+			rangeInput.attr('step', unit_step);
+			rangeInput.val('');
+			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input').trigger('change');
 			control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val(unit_value);
 
 			// Update value on change.

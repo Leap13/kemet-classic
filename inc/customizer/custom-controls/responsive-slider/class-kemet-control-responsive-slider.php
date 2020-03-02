@@ -37,6 +37,13 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 */
 	public $suffix = '';
 	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $start_point = '';
+	/**
 	 * The unit type.
 	 *
 	 * @access public
@@ -69,7 +76,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				'mobile-unit'  => 'px',
 			);
 		}
-
+		$this->json['start_point'] = $this->start_point;
 		$this->json['value']  = $val;
 		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
@@ -149,16 +156,21 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			}
 
 			if ( data.default['desktop'] ) { 
-				default_desktop = data.default['desktop'];
+				default_desktop = data.default['desktop'] != '' ? data.default['desktop'] : data.start_point;
+			}else if(!data.default['desktop']){
+				default_desktop = data.start_point;
 			} 
-
 			if ( data.default['tablet'] ) { 
-				default_tablet = data.default['tablet'];
-			} 
-
+				default_tablet = data.default['tablet'] != '' ? data.default['tablet'] : data.start_point;
+			}else if(!data.default['tablet']){
+				default_tablet = data.start_point;
+			}  
+			
 			if ( data.default['mobile'] ) { 
-				default_mobile = data.default['mobile'];
-			} #>
+				default_mobile = data.default['mobile'] != '' ? data.default['mobile'] : data.start_point;
+			}else if(!data.default['mobile']){
+				default_mobile = data.start_point;
+			}  #>
 			<# 
 				var desktop_attrs = '',
 					tablet_attrs = '',

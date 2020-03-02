@@ -122,20 +122,21 @@ $wp_customize->add_control(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 25,
+            'start_point'    => 0,
             'label'          => __( 'Border Radius', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 10,
                 ),
                 '%' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 100,
                 ),
@@ -313,20 +314,21 @@ $wp_customize->add_control(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 65,
+            'start_point'    => 0,
             'label'          => __( 'Border Radius', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 10,
                 ),
                 '%' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 100,
                 ),
