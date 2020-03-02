@@ -63,6 +63,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
 		$this->json['start_point'] = $this->start_point;
+		$this->json['reset_point'] = !empty( $this->json['default'] ) ? $this->json['default'] : $this->start_point;
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
@@ -86,7 +87,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
 			<div class="wrapper">
-				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
+				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.reset_point }}" />
 				<div class="kemet_range_value">
 					<input type="number" class="value kmt-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {

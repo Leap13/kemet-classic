@@ -17,8 +17,8 @@
 				thisInput,
 				inputDefault,
 				changeAction,
-				sliderInput = this.container.find('input[type=range]'),
-				numberInput = this.container.find('input[type=number]'),
+				sliderInput = control.container.find('input[type=range]'),
+				numberInput = control.container.find('input[type=number]'),
 				defaultValue = control.params.default,
 				startPoint = control.params.start_point,
 				startPoint = 'undefined' != typeof startPoint && startPoint != '' ? startPoint : 0;
@@ -41,7 +41,7 @@
 					input_range = wrapper.find('input[type=range]'),
 					input_number = wrapper.find('.kemet_range_value .value'),
 					default_value = input_range.data('reset_value');
-
+				
 				input_range.val(default_value);
 				input_number.val(default_value);
 				input_number.change();
@@ -50,14 +50,14 @@
 			this.container.on( 'input change', 'input[type=number]', function() {
 				var value = jQuery( this ).val(),
 					input_range = jQuery(this).closest('.wrapper').find('input[type=range]'),
-					inputRangeVal = jQuery(this).val();
+					rangeMin = input_range.attr('min');
 
-				if ('undefined' == typeof value || value == '') {
-					inputRangeVal = startPoint;
+				if ( value == '' || value == 0 ){
+					value = rangeMin;
 				}
+
 				control.setting.set( value );
-				input_range.val( inputRangeVal );
-				jQuery(this).val( inputRangeVal );
+				input_range.val(value);
 			});
 		}
 	});
