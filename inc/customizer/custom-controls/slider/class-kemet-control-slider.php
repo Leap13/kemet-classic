@@ -38,6 +38,14 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 	public $suffix = '';
 
 	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $start_point = '';
+
+	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -54,7 +62,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
-
+		$this->json['start_point'] = $this->start_point;
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';

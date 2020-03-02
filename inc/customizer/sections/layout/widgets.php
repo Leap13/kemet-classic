@@ -76,6 +76,7 @@ $wp_customize->add_control(
             'priority'    => 10,
             'label'       => __( 'Margin Bottom (PX)', 'kemet' ),
             'suffix'      => '',
+            'start_point' => 44.8,
             'input_attrs' => array(
                 'min'  => 10,
                 'step' => 1,
@@ -266,6 +267,7 @@ $wp_customize->add_control(
             'priority'    => 50,
             'label'       => __( 'Line Height', 'kemet' ),
             'suffix'      => '',
+            'start_point' => 1.5,
             'input_attrs' => array(
                 'min'  => 1,
                 'step' => 0.01,

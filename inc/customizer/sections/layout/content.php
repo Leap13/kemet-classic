@@ -171,6 +171,7 @@ $wp_customize->add_control(
             'priority'    => 30,
             'label'       => __( 'Line Height', 'kemet' ),
             'suffix'      => '',
+            'start_point' => 1.85714285714286,
             'input_attrs' => array(
                 'min'  => 1,
                 'step' => 0.01,
@@ -225,6 +226,7 @@ $wp_customize->add_control(
             'priority'    => 35,
             'label'       => __( 'Paragraph Margin Bottom', 'kemet' ),
             'suffix'      => '',
+            'start_point' => 1.75,
             'input_attrs' => array(
                 'min'  => 0.5,
                 'step' => 0.01,

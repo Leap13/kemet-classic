@@ -18,18 +18,20 @@
 				inputDefault,
 				changeAction,
 				sliderInput = this.container.find('input[type=range]'),
+				numberInput = this.container.find('input[type=number]'),
 				defaultValue = control.params.default,
-				sliderMin = sliderInput.attr('min');
-
+				startPoint = control.params.start_point,
+				startPoint = 'undefined' != typeof startPoint && startPoint != '' ? startPoint : 0;
+			
 			//If input dosen't have default value start with min
 			if (defaultValue == ''){
-				sliderInput.val(sliderMin);
+				sliderInput.val(startPoint);
+				numberInput.val(startPoint);
 			}	
 			// Update the text value.
 			jQuery( 'input[type=range]' ).on( 'input change', function() {
 				var value 		 = jQuery( this ).attr( 'value' ),
 					input_number = jQuery( this ).closest( '.wrapper' ).find( '.kemet_range_value .value' );
-
 				input_number.val( value );
 				input_number.change();
 			});
@@ -48,14 +50,14 @@
 			this.container.on( 'input change', 'input[type=number]', function() {
 				var value = jQuery( this ).val(),
 					input_range = jQuery(this).closest('.wrapper').find('input[type=range]'),
-					inputRangeVal = jQuery(this).val(),
-					sliderMin = input_range.attr('min');
+					inputRangeVal = jQuery(this).val();
 
 				if ('undefined' == typeof value || value == '') {
-					inputRangeVal = sliderMin;
+					inputRangeVal = startPoint;
 				}
-				input_range.val(inputRangeVal);
 				control.setting.set( value );
+				input_range.val( inputRangeVal );
+				jQuery(this).val( inputRangeVal );
 			});
 		}
 	});
