@@ -28,7 +28,7 @@ wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.
 			input_number.val(value);
 			input_number.trigger('change');
 		});
-		
+
 		// Handle the reset button.
 		this.container.on('click', '.kmt-responsive-slider-reset', function () {
 

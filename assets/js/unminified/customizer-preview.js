@@ -411,7 +411,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[site-boxed-inner-bg]', function (value) {
 		value.bind(function (bg_obj) {
 
-			var dynamicStyle = '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.single-post.kmt-separate-container .comment-respond ,.single-post.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li ,.single-post.kmt-separate-container .comments-count-wrapper { {{css}} }';
+			var dynamicStyle = '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.kmt-separate-container .comment-respond ,.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.kmt-separate-container .kmt-comment-list li ,.kmt-separate-container .comments-count-wrapper ,.kmt-separate-container.kmt-two-container div.widget { {{css}} }';
 
 			kemet_background_obj_css(wp.customize, bg_obj, 'site-boxed-inner-bg', dynamicStyle);
 		});
@@ -736,6 +736,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Container Inner Spacing
 	 */
 	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[content-padding]', '#primary #main', 'padding', ['top','bottom']);
     /**
 	 * Site Identity Spacing
 	 */
@@ -938,7 +939,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * widget background
 	 */
-	kemet_css('kemet-settings[widget-bg-color]', 'background-color', '.widget');
+	kemet_css('kemet-settings[widget-bg-color]', 'background-color', '.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget');
 	kemet_responsive_spacing('kemet-settings[sidebar-padding]', 'div.sidebar-main', 'padding', ['top', 'bottom', 'right', 'left']);
 	/**
 	 * sidebar Background

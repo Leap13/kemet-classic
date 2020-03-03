@@ -125,17 +125,17 @@ $wp_customize->add_control(
             'label'          => __( 'Border Radius', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 10,
                 ),
                 '%' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 100,
                 ),
@@ -316,17 +316,17 @@ $wp_customize->add_control(
             'label'          => __( 'Border Radius', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' =>100,
                 ),
                 'em' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 10,
                 ),
                 '%' => array(
-                    'min' => 1,
+                    'min' => 0,
                     'step' => 1,
                     'max' => 100,
                 ),
@@ -352,7 +352,7 @@ $wp_customize->add_control(
 				'section'     => 'section-buttons-fields',
 				'priority'    => 70,
 				'label'       => __( 'Border Size', 'kemet' ),
-				'suffix'      => '',
+                'suffix'      => '',
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,

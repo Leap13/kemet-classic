@@ -12,6 +12,7 @@
  */
 
 $header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
+$classes = apply_filters( 'header_container_classes', array());
 ?>
 <?php do_action('kemet_before_main_header'); ?>
 <div class="main-header-bar-wrap">
@@ -19,7 +20,7 @@ $header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option(
 		<?php kemet_main_header_bar_top(); ?>
 		<div class="kmt-container">
 
-			<div class="kmt-flex main-header-container main-header-content">
+			<div class="kmt-flex main-header-container <?php echo implode(" ",$classes); ?>">
 				<?php if(($header_layout == 'header-main-layout-2') && kemet_get_option( 'header-right-section' ) != 'none' ){ ?>
 				<div class="kmt-header-logo-right-section">
 					<?php kemet_site_branding_markup(); ?>

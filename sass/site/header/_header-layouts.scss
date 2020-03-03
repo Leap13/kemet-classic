@@ -535,8 +535,7 @@ body:not(.kmt-header-break-point){
 		{
 			position: absolute;
 			right: 0;
-			top: 50%;
-    		transform: translateY(-50%);
+    		transform: translateY(-55%);
 			width: 40%;
 			
 		}
@@ -549,8 +548,7 @@ body:not(.kmt-header-break-point){
 		{
 			position: absolute;
 			left: 0;
-			top: 50%;
-    		transform: translateY(-50%);
+    		transform: translateY(-55%);
 			width: 40%;
 		}
 		ul#left-menu.kmt-justify-content-flex-end
