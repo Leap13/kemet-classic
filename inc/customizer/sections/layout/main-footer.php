@@ -427,7 +427,6 @@ $wp_customize->add_control(
             'priority'    => 55,
             'label'       => __( 'Line Height', 'kemet' ),
             'suffix'      => '',
-            'start_point' => 1.5,
             'input_attrs' => array(
                 'min'  => 1,
                 'step' => 0.01,
@@ -668,7 +667,6 @@ $wp_customize->add_control(
             'priority'    => 90,
             'label'       => __( 'Line Height', 'kemet' ),
             'suffix'      => '',
-            'start_point' => 1.85714285714286,
             'input_attrs' => array(
                 'min'  => 1,
                 'step' => 0.01,

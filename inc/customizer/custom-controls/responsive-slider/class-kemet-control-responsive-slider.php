@@ -37,13 +37,6 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 */
 	public $suffix = '';
 	/**
-	 * The control type.
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $start_point = '';
-	/**
 	 * The unit type.
 	 *
 	 * @access public
@@ -76,7 +69,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				'mobile-unit'  => 'px',
 			);
 		}
-		$this->json['start_point'] = $this->start_point;
+
 		$this->json['value']  = $val;
 		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
@@ -156,21 +149,16 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			}
 
 			if ( data.default['desktop'] ) { 
-				default_desktop = data.default['desktop'] != '' ? data.default['desktop'] : data.start_point;
-			}else if(!data.default['desktop']){
-				default_desktop = data.start_point;
+				default_desktop = data.default['desktop'];
 			} 
+
 			if ( data.default['tablet'] ) { 
-				default_tablet = data.default['tablet'] != '' ? data.default['tablet'] : data.start_point;
-			}else if(!data.default['tablet']){
-				default_tablet = data.start_point;
-			}  
-			
+				default_tablet = data.default['tablet'];
+			} 
+
 			if ( data.default['mobile'] ) { 
-				default_mobile = data.default['mobile'] != '' ? data.default['mobile'] : data.start_point;
-			}else if(!data.default['mobile']){
-				default_mobile = data.start_point;
-			}  #>
+				default_mobile = data.default['mobile'];
+			} #>
 			<# 
 				var desktop_attrs = '',
 					tablet_attrs = '',
@@ -189,7 +177,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			 });#>
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
-					<input type="range" {{{desktop_attrs}}}  value="{{ value_desktop }}" data-device="desktop" data-reset_value="{{ default_desktop }}" />
+					<input type="range" {{{desktop_attrs}}}  value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
 					<div class="kemet_range_value">
 						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value="{{ value_desktop }}" {{{desktop_attrs}}} /><#
 						if ( data.suffix ) {
@@ -209,7 +197,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					</ul>
 				</div>
 				<div class="input-field-wrapper tablet">
-					<input  type="range" {{{tablet_attrs}}} value="{{ value_tablet }}" data-device="tablet" data-reset_value="{{ default_tablet }}" />
+					<input  type="range" {{{tablet_attrs}}} value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
 					<div class="kemet_range_value">
 						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value="{{ value_tablet }}" {{{tablet_attrs}}} /><#
 						if ( data.suffix ) {
@@ -229,7 +217,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					</ul>
 				</div>
 				<div class="input-field-wrapper mobile">
-					<input type="range" value="{{ value_mobile }}" data-device="mobile" data-reset_value="{{ default_mobile }}" {{{mobile_attrs}}} />
+					<input type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" {{{mobile_attrs}}} />
 					<div class="kemet_range_value">
 						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value="{{ value_mobile }}"  {{{mobile_attrs}}} /><#
 						if ( data.suffix ) {
