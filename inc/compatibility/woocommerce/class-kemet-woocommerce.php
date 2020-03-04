@@ -696,7 +696,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'background' => esc_attr($headings_links_color),
 					'color'      => esc_attr($btn_color),
 				),
-				'.woocommerce-MyAccount-navigation-link.is-active a' => array(
+				'.woocommerce-MyAccount-navigation-link.is-active a , .woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .add_to_cart_button:hover' => array(
 					'color' => esc_attr($theme_color),
 				),
 				'.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
@@ -729,7 +729,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => esc_attr( $headings_links_color ),
 				),
 
-				'.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover' => array(
+				'.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .add_to_cart_button' => array(
 					'color'            => esc_attr( $headings_links_color ),
 					'border-color'     => esc_attr( $headings_links_color ),
 					'background-color' => esc_attr( '#ffffff' ),

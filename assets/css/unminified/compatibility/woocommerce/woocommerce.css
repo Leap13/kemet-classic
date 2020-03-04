@@ -2698,7 +2698,8 @@ p.demo_store a,
 .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
   margin-bottom: .5em;
   padding: 0;
-  font-size: 1em;
+  font-size: 19px;
+  text-align: center;
 }
 
 .woocommerce ul.products li.product .kmt-woo-product-category,
@@ -2712,7 +2713,7 @@ p.demo_store a,
 
 .woocommerce ul.products li.product .star-rating,
 .woocommerce-page ul.products li.product .star-rating {
-  margin: 0 auto .5em 0;
+  margin: 0 auto;
   backface-visibility: hidden;
 }
 
