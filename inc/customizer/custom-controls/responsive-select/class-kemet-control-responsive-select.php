@@ -48,7 +48,7 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
 		}
-
+		//var_dump($this->json['default']);
 		$val = maybe_unserialize( $this->value() );
 
 		if ( ! is_array( $val ) || is_numeric( $val ) ) {
@@ -122,17 +122,17 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 			<div class="input-wrapper kmt-responsive-wrapper">
 				<select class="kmt-responsive-select desktop active" data-id='desktop' >
 				<# _.each( data.choices, function( value, key ) { #>
-					<option value="{{{ key }}}" <# if ( value_desktop === key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
+					<option value="{{{ key }}}" <# if ( value_desktop == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>
 				</select>
 				<select class="kmt-responsive-select tablet" data-id='tablet' >
 				<# _.each( data.choices, function( value, key ) { #>
-					<option value="{{{ key }}}" <# if ( value_tablet === key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
+					<option value="{{{ key }}}" <# if ( value_tablet == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>
 				</select>
 				<select class="kmt-responsive-select mobile" data-id='mobile' >
 				<# _.each( data.choices, function( value, key ) { #>
-					<option value="{{{ key }}}" <# if ( value_mobile === key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
+					<option value="{{{ key }}}" <# if ( value_mobile == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>
 				</select>
 			</div>	
