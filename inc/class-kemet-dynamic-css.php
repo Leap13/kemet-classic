@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$box_bg_inner_boxed = kemet_get_option( 'site-boxed-inner-bg' , array('background-color' => kemet_color_brightness($global_bg_color , 0.97 , 'dark')));
 			$container_inner_spacing     = kemet_get_option( 'container-inner-spacing' );
 			$content_padding     = apply_filters('kemet_content_padding' , kemet_get_option( 'content-padding' ));
-			$single_content_separator_color = kemet_get_option( 'content-separator-color' , kemet_color_brightness($global_border_color , 0.95 , 'dark'));
+			$single_content_separator_color = kemet_get_option( 'content-separator-color' , kemet_color_brightness($global_border_color , 0.955 , 'dark'));
 			
 			// Typography.
 			$body_font_size                  = kemet_get_option( 'font-size-body' );
