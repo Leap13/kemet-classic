@@ -1,8 +1,7 @@
-v 0.0.1
-- Initial release
-
-v 0.1.1
-- New: Page Options. 
+v 1.0.1
+- Added: Boxed header option.
+- Tweak: Enhance content spacing option.
+- Fixed: Page Options Consolelog Error.
 
 v 1.0.0
 - Added: New theme options panel.
@@ -25,3 +24,9 @@ v 1.0.0
 - Fixed: Retina logo doesn't work.
 - Fixed: Right & left menus don't work in responsive in header3.
 - Fixed: Font weight option doesn't work
+
+v 0.1.1
+- New: Page Options. 
+
+v 0.0.1
+- Initial release
