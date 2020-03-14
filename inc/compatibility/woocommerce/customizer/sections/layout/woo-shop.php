@@ -111,9 +111,6 @@ $wp_customize->add_control(
             'priority' => 30,
             'label'    => __( 'Shop Product Structure', 'kemet' ),
             'choices'  => array(
-                'title'      => __( 'Title', 'kemet' ),
-                'price'      => __( 'Price', 'kemet' ),
-                'ratings'    => __( 'Ratings', 'kemet' ),
                 'short_desc' => __( 'Short Description', 'kemet' ),
                 'add_cart'   => __( 'Add To Cart', 'kemet' ),
                 'category'   => __( 'Category', 'kemet' ),

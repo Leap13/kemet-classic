@@ -19,14 +19,6 @@
  */
 .woocommerce, .woocommerce-page {
 
-	.woocommerce-message,
-	.woocommerce-error,
-	.woocommerce-info {
-		.button {
-			float: right;
-		}
-	}
-
 	/**
 	 * General layout styles
 	 */
@@ -106,7 +98,6 @@
 
 		div.summary {
 			float: right;
-			width: 48%;
 			clear: none;
 		}
 
@@ -607,8 +598,7 @@
 		}
 
 		.cart_totals {
-			float: right;
-			width: 48%;
+			width: 100%;
 		}
 	}
 

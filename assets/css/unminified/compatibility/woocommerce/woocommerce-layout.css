@@ -45,14 +45,6 @@
 	 */
 }
 
-.woocommerce .woocommerce-message .button,
-.woocommerce .woocommerce-error .button,
-.woocommerce .woocommerce-info .button, .woocommerce-page .woocommerce-message .button,
-.woocommerce-page .woocommerce-error .button,
-.woocommerce-page .woocommerce-info .button {
-  float: right;
-}
-
 .woocommerce .col2-set, .woocommerce-page .col2-set {
   *zoom: 1;
   width: 100%;
@@ -161,7 +153,6 @@
 .woocommerce #content div.product div.summary, .woocommerce-page div.product div.summary,
 .woocommerce-page #content div.product div.summary {
   float: right;
-  width: 48%;
   clear: none;
 }
 
@@ -647,8 +638,7 @@
 }
 
 .woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
-  float: right;
-  width: 48%;
+  width: 100%;
 }
 
 .woocommerce ul.cart_list li,
