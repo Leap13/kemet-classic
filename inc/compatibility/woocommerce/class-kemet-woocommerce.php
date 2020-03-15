@@ -534,8 +534,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				 */
 				add_action( 'woocommerce_after_shop_loop_item', 'kemet_woo_woocommerce_shop_product_content' ,2);
 
-				// Summary.
-				add_action( 'kemet_woo_quick_view_product_summary', 'kemet_woo_woocommerce_shop_product_content' );
 			}
 		}
 
