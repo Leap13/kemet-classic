@@ -297,6 +297,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 
 				$classes[] = 'kmt-woo-shop-archive';
+				$classes[] = 'shop-grid';
 			}
 			// Cart menu is emabled.
 			$rt_section = kemet_get_option( 'header-main-rt-section' );
