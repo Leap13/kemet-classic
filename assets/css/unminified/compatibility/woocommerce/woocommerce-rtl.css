@@ -4511,6 +4511,10 @@ button.pswp__button--zoom:hover {
   position: relative;
 }
 
+.woocommerce ul.products li.product .product-list-details > a img:not(:first-child) {
+  padding: 10px;
+}
+
 .woocommerce ul.products li.product .product-list-details .woocommerce-loop-product__title {
   margin-top: 20px;
 }

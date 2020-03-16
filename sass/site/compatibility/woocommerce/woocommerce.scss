@@ -3927,6 +3927,11 @@ button.pswp__button--zoom:hover {
             .product-list-details {
                 padding: 10px;
 				position: relative;
+				> a{
+					img:not(:first-child){
+						padding: 10px;
+					}
+				}
 				.woocommerce-loop-product__title{
 					margin-top: 20px;
 				}
