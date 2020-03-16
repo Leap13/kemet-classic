@@ -704,7 +704,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-color'     => esc_attr($btn_bg_color),
 					'background-color' => esc_attr($btn_bg_color),
 				),
-				'.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
+				'.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
 					'border-color'     => esc_attr($global_border_color),
 				),
 				'.woocommerce button.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover' => array(
