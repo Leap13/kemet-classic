@@ -3886,6 +3886,14 @@ button.pswp__button--zoom:hover {
 							border-top-width: 1px;
 							border-top-style: solid;
 						}
+						.kmt-qv-btn-wrap{
+							margin-top: .5em;
+    						margin-bottom: .5em;
+							a{
+								padding: 0;
+								margin: 0;
+							}
+						}
 						.button , .added_to_cart{
 							display: block;
 							background-color: transparent;
