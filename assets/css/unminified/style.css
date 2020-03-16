@@ -3560,7 +3560,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
  * 8 - Header Widget Area
  */
 .kmt-header-widget-area {
-  line-height: 1.65;
+  line-height: inherit;
 }
 
 .kmt-header-widget-area .widget-title,
@@ -3658,7 +3658,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 }
 
 .kmt-site-identity {
-  padding: 30px 0px;
+  padding: 27px 0px;
 }
 
 .kmt-menu-toggle {
