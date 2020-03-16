@@ -699,7 +699,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap , .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
 					'background-color' => esc_attr($global_bg_color),
 				),
-				'.woocommerce button.button, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button' => array(
+				'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button' => array(
 					'color'            => esc_attr($btn_color),
 					'border-color'     => esc_attr($btn_bg_color),
 					'background-color' => esc_attr($btn_bg_color),
@@ -707,7 +707,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
 					'border-color'     => esc_attr($global_border_color),
 				),
-				'.woocommerce button.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover' => array(
+				'.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover' => array(
 					'color'            => esc_attr($btn_h_color),
 					'border-color'     => esc_attr($btn_bg_h_color),
 					'background-color' => esc_attr($btn_bg_h_color),
@@ -733,7 +733,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'background-color' => esc_attr($headings_links_color),
 				),
 				// Button Typography.
-				'.woocommerce button.button, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+				'.woocommerce button.button,body:not(.shop-grid) a.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'padding'       => kemet_get_css_value( $btn_vertical_padding, 'px' ) . ' ' . kemet_get_css_value( $btn_horizontal_padding, 'px' ),
 				),
@@ -768,14 +768,14 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			/* Parse CSS from array() */
 			$css_output = kemet_parse_css( $css_output );
 			$tablet_typography = array(
-				'.woocommerce button.button, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+				'.woocommerce button.button , body:not(.shop-grid) a.button , body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
 				),
 			);
 			/* Parse CSS from array()*/
 			$css_output .= kemet_parse_css( $tablet_typography, '', '768' );
 			$mobile_typography = array(
-				'.woocommerce button.button, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+				'.woocommerce button.button, body:not(.shop-grid) a.button,body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
 				),
 			);

@@ -1577,10 +1577,6 @@ a:hover, a:focus {
   color: midnightblue;
 }
 
-a:focus {
-  outline: thin dotted;
-}
-
 a:hover {
   outline: 0;
 }
