@@ -4511,7 +4511,7 @@ button.pswp__button--zoom:hover {
   position: relative;
 }
 
-.woocommerce ul.products li.product .product-list-details > a img:not(:first-child) {
+.woocommerce ul.products li.product .product-list-details > a img:not(:first-of-type) {
   padding: 10px;
 }
 
