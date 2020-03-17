@@ -1180,11 +1180,6 @@ p.demo_store a,
   margin: 0;
 }
 
-.woocommerce div.product .related.products ul.products li.product {
-  width: 22.5%;
-  width: calc( 25% - 15px);
-}
-
 @media (max-width: 768px) and (min-width: 545px) {
   .woocommerce div.product .related.products ul.products li.product {
     width: 30.2%;
@@ -4475,7 +4470,7 @@ button.pswp__button--zoom:hover {
 }
 
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap > * {
-  padding: 10px 0px;
+  padding: 10px;
   border-top-width: 1px;
   border-top-style: solid;
 }
@@ -4537,6 +4532,11 @@ button.pswp__button--zoom:hover {
 
 .shop-grid.woocommerce ul.products li.product .product-list-details .woocommerce-loop-product__title {
   margin-top: 20px;
+}
+
+.shop-grid.woocommerce ul.products li.product .product-list-details .kmt-shop-product-out-of-stock {
+  bottom: 5em;
+  padding: .5em .7em;
 }
 
 .shop-grid.woocommerce ul.products li.product .star-rating::before {

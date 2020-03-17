@@ -1076,11 +1076,6 @@ p.demo_store,
 			ul.products{
 				margin:0;
 
-				li.product {
-					width: 22.5%;
-					width: calc( 25% - 15px );
-				}
-
 				@media( max-width: $mx-col-md ) and ( min-width: $col-sm ) {
 					li.product {
 						width: 30.2%;
@@ -3882,7 +3877,7 @@ button.pswp__button--zoom:hover {
 						border-bottom: 1px solid;
 						margin: -1px;
 						> *{
-							padding: 10px 0px;
+							padding: 10px;
 							border-top-width: 1px;
 							border-top-style: solid;
 						}
@@ -3944,6 +3939,10 @@ button.pswp__button--zoom:hover {
 					}
 					.woocommerce-loop-product__title{
 						margin-top: 20px;
+					}
+					.kmt-shop-product-out-of-stock{
+						bottom: 5em;
+						padding: .5em .7em;
 					}
 				}
 				.star-rating{
