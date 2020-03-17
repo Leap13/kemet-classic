@@ -296,7 +296,7 @@ p.demo_store a,
 }
 
 .kmt-cart-menu-wrap .count {
-  font-size: 1.3em;
+  font-size: 15px;
 }
 
 .kmt-cart-menu-wrap .count:before {
@@ -306,7 +306,6 @@ p.demo_store a,
   font-size: 1.6rem;
   font-weight: 500;
   text-rendering: auto;
-  margin-bottom: 8px;
   vertical-align: middle;
 }
 
