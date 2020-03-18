@@ -366,6 +366,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-weight'    => kemet_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
 				),
+				'figcaption'                                    => array(
+					'color'     => esc_attr( kemet_color_brightness($text_meta_color , 0.88 , 'light') ),
+				),
 				'.site-title'                             => array(
 					'font-size' => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
 				),

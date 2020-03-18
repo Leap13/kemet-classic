@@ -116,6 +116,12 @@ summary {
   display: block;
 }
 
+figcaption {
+  font-size: 13px;
+  text-align: center;
+  line-height: 13px;
+}
+
 audio,
 canvas,
 progress,
