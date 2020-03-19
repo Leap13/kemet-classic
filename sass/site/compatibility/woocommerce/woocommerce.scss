@@ -2482,20 +2482,6 @@ p.demo_store,
 		}
 	}
 
-	#content .kmt-woocommerce-container div.product div.images,
-	.kmt-woocommerce-container div.product div.images {
-		width: 380px;
-		margin-right: 3%;
-		margin-bottom: 20px;
-		max-width: 40%;
-	}
-
-	#content .kmt-woocommerce-container div.product div.summary,
-	.kmt-woocommerce-container div.product div.summary {
-		max-width: 57%;
-	}
-
-
 	#content {
 		table.cart {
 			td.actions .input-text {
@@ -2560,7 +2546,18 @@ p.demo_store,
 		}
 	}
 }
+#content .kmt-woocommerce-container div.product div.images,
+.kmt-woocommerce-container div.product div.images {
+	width: 380px;
+	margin-right: 3%;
+	margin-bottom: 20px;
+	max-width: 40%;
+}
 
+#content .kmt-woocommerce-container div.product div.summary,
+.kmt-woocommerce-container div.product div.summary {
+	max-width: 57%;
+}
 //Seperate container layout
 .kmt-separate-container{
 	.kmt-woocommerce-container{
