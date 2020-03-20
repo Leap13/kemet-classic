@@ -108,7 +108,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
             'type'     => 'kmt-sortable',
             'section'  => 'section-woo-shop',
-            'priority' => 30,
+            'priority' => 60,
             'label'    => __( 'Shop Product Structure', 'kemet' ),
             'choices'  => array(
                 'short_desc' => __( 'Short Description', 'kemet' ),
@@ -133,7 +133,7 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
         'type'     => 'select',
         'section'  => 'section-woo-shop',
-        'priority' => 220,
+        'priority' => 35,
         'label'    => __( 'Shop Archive Content Width', 'kemet' ),
         'choices'  => array(
             'default' => __( 'Default', 'kemet' ),
@@ -163,7 +163,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
             'type'        => 'kmt-slider',
             'section'     => 'section-woo-shop',
-            'priority'    => 225,
+            'priority'    => 40,
             'label'       => __( 'Enter Width', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
