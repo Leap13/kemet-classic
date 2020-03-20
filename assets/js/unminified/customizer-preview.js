@@ -311,16 +311,16 @@ function kemet_add_dynamic_css(control, style) {
  * Generate background_obj CSS
  */
 function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
-	
+
 	var gen_bg_css = '';
 	var bg_img = bg_obj['background-image'];
 	var bg_color = bg_obj['background-color'];
-	
+
 	if ('' === bg_color && '' === bg_img) {
 		wp_customize.preview.send('refresh');
 	} else {
 		if (('undefined' != typeof bg_img && '' !== bg_img) && ('undefined' != typeof bg_color && '' !== bg_color)) {
-			if ( '' != bg_color) {
+			if ('' != bg_color) {
 				gen_bg_css = 'background-image: url(' + bg_img + '), linear-gradient(to right, ' + bg_color + ', ' + bg_color + ');';
 			}
 		} else if ('undefined' != typeof bg_img && '' != bg_img) {
@@ -516,7 +516,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 */
 	kemet_responsive_slider('kemet-settings[button-radius]', '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]', 'border-radius');
 	if (jQuery('body').hasClass('woocommerce')) {
-		kemet_responsive_slider('kemet-settings[button-radius]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'border-radius');
+		kemet_responsive_slider('kemet-settings[button-radius]', 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button', 'border-radius');
 	}
 	/**
 	 * Button Border Color
@@ -526,10 +526,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		value.bind(function (border_color) {
 			jQuery('').css('border-color', border_color);
 			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-color: ' + border_color + '; } ';
-			kemet_add_dynamic_css('btn-border-color', dynamicStyle);
+
 			if (jQuery('body').hasClass('woocommerce')) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled { border-color: ' + border_color + '; } ';
+				dynamicStyle += 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button { border-color: ' + border_color + '; } ';
 			}
+			kemet_add_dynamic_css('btn-border-color', dynamicStyle);
 		});
 	});
 	wp.customize('kemet-settings[btn-border-h-color]', function (value) {
@@ -542,7 +543,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 				var dynamicStyle = 'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus { border-color: ' + color + '; } ';
 			}
 			if (jQuery('body').hasClass('woocommerce')) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled { border-color: ' + color + '; } ';
+				dynamicStyle += '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover { border-color: ' + color + '; } ';
 			}
 			kemet_add_dynamic_css('btn-border-h-color', dynamicStyle);
 		});
@@ -551,7 +552,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		setting.bind(function (border) {
 
 			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-width: ' + border + 'px }';
-
+			if (jQuery('body').hasClass('woocommerce')) {
+				dynamicStyle += 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button { border-width: ' + border + 'px }';
+			}
 			kemet_add_dynamic_css('btn-border-size', dynamicStyle);
 		});
 	});
