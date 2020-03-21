@@ -676,6 +676,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce table.shop_table thead, .woocommerce-page table.shop_table thead , table.shop_table tr:nth-child(even) , table.shop_table thead tr' => array(
 					'background-color' => esc_attr(kemet_color_brightness($global_bg_color , 0.94 , 'dark')),
 				),
+				'.kmt-separate-container.woocommerce .product ,.kmt-separate-container.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
+					'background-color' => esc_attr(kemet_color_brightness($global_bg_color , 0.97 , 'dark')),
+					'border-color' => esc_attr($global_border_color),
+				),
 				'.woocommerce table.shop_table td, .woocommerce-page table.shop_table td , .woocommerce table.shop_table, .woocommerce-page table.shop_table , .woocommerce-cart .cart-collaterals .cross-sells , .woocommerce-cart .cart-collaterals .cart_totals>h2, .woocommerce-cart .cart-collaterals .cross-sells>h2'                => array(
 					'border-color' => esc_attr($global_border_color),
 				),

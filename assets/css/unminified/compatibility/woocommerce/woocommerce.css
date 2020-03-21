@@ -4436,6 +4436,10 @@ button.pswp__button--zoom:hover {
 }
 
 /* Extra style */
+.shop-grid.woocommerce ul.products li.product {
+  height: fit-content;
+}
+
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap {
   text-align: center;
   border-width: 1px;

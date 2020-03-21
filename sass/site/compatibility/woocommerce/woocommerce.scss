@@ -3848,6 +3848,7 @@ button.pswp__button--zoom:hover {
 	&.woocommerce{
 		ul.products{
 			li.product{
+				height: fit-content;
 				.kemet-shop-thumbnail-wrap{
 					text-align: center;
 					border-width: 1px;
