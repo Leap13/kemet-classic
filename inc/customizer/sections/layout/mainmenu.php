@@ -782,6 +782,29 @@ $header_rt_sections = array(
 		)
 	);
 	/**
+	* Option: Submenu Animation
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sub-menu-animation]', array(
+			'default'           => $defaults[ 'sub-menu-animation' ],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[sub-menu-animation]', array(
+			'type'     => 'select',
+			'section'  => 'section-menu-header',
+			'priority' => 142,
+			'label'    => __( 'Submenu Animation', 'kemet' ),
+			'choices'  => array(
+				'none'    => __( 'None', 'kemet' ),
+				'Fade' => __( 'Fade', 'kemet' ),
+				'fade-move' => __( 'Fade and Move', 'kemet' ),
+			),	
+		)
+	);
+	/**
 	 * Option: Submenu Box Shadow
 	 */
 	$wp_customize->add_setting(
@@ -796,7 +819,7 @@ $header_rt_sections = array(
 			'type'     => 'checkbox',
 			'section'  => 'section-menu-header',
 			'label'    => __( 'Submenu Box Shadow', 'kemet' ),
-			'priority' => 142,
+			'priority' => 143,
 		)
 	);
 	/**
