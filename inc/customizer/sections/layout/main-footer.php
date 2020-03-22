@@ -64,7 +64,44 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+ * Option: Sticky Footer
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[enable-sticky-footer]', array(
+        'default'           => kemet_get_option( 'enable-sticky-footer' ),
+        'type'              => 'option',
+        'description'       => 'This option add a height to your content to keep your footer at the bottom of your page.',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[enable-sticky-footer]', array(
+        'section'  => 'section-kemet-footer',
+        'label'    => __( 'Enable Sticky Footer', 'kemet' ),
+        'priority' => 6,
+        'type'     => 'checkbox',
+    )
+);
+/**
+ * Option: Sticky Footer
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[enable-parallax-effect]', array(
+        'default'           => kemet_get_option( 'enable-parallax-effect' ),
+        'type'              => 'option',
+        'description'       => 'Add a parallax effect to your footer.',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[enable-parallax-effect]', array(
+        'section'  => 'section-kemet-footer',
+        'label'    => __( 'Enable Parallax Effect', 'kemet' ),
+        'priority' => 6,
+        'type'     => 'checkbox',
+    )
+);
 /**
 * Option: Footer Content Align Center
 */

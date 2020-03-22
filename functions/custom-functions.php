@@ -95,6 +95,17 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-header-custom-item-inside';
 		}
 
+		//Footer
+		$kemet_sticky_footer = kemet_get_option('enable-sticky-footer');
+		$kemet_parallax_effect = kemet_get_option('enable-parallax-effect');
+
+		if($kemet_sticky_footer){
+			$classes[] = 'kmt-sticky-footer';
+		}
+		if($kemet_parallax_effect){
+			$classes[] = 'kmt-footer-parallax-effect';
+		}
+
 		return $classes;
 	}
 }
@@ -883,6 +894,12 @@ if ( ! function_exists( 'kemet_footer_classes' ) ) {
 
 		$classes = array_unique( apply_filters( 'kemet_footer_class', array( 'site-footer' ) ) );
 
+		$kemet_parallax_effect = kemet_get_option('enable-parallax-effect');
+
+		if($kemet_parallax_effect){
+			$classes[] = 'kmt-footer-parallax';
+		}
+		
 		$classes = array_map( 'sanitize_html_class', $classes );
 
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';

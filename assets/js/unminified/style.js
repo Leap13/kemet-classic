@@ -1266,3 +1266,76 @@ var toggleClass = function ( el, className ) {
 		}, false );
 	}
 })();
+
+/**
+ * Sticky Footer
+ */
+(function ($) {
+
+    var window = $(window),
+        lastWindowWidth = window.width(),
+        lastWindowHeight = window.height();
+
+    window.on('load', function () {
+
+        fixedFooter();
+    });
+
+    window.resize(function () {
+
+        var windowWidth = window.width(),
+            windowHeight = window.height();
+
+        if (lastWindowWidth !== windowWidth || lastWindowHeight !== windowHeight) {
+            fixedFooter();
+        }
+
+    });
+
+    function fixedFooter() {
+
+        if (!$('body').hasClass('kmt-sticky-footer')) {
+            return;
+        }
+
+        var contentHeight = $('#content').outerHeight(),
+            htmlHeight = $('html').height(),
+            offset = 0,
+            adminBar = $('#wpadminbar');
+
+        if (adminBar.length) {
+            offset = adminBar.outerHeight();
+        }
+
+        var minHeight = contentHeight + (window.height() - htmlHeight - offset);
+
+        // Add min height
+        $('#content').css('min-height', minHeight);
+
+    }
+
+    //Parallax footer
+    $(document).on('ready', function () {
+
+        parallaxFooter();
+    });
+
+    $(window).on('resize', function () {
+
+        parallaxFooter();
+    });
+
+    
+    function parallaxFooter() {
+
+        if ($('body').hasClass('kmt-footer-parallax-effect')) {
+
+            setTimeout(function () {
+                $('#content').css('margin-bottom', $('.kmt-footer-parallax').outerHeight());
+            }, 1);
+
+        }
+
+    }
+    
+})(jQuery);

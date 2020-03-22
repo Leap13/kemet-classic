@@ -4533,6 +4533,21 @@ div.title {
   width: 20%;
 }
 
+/**
+ * Parallax footer
+ */
+.kmt-footer-parallax {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.kmt-footer-parallax-effect #content {
+  z-index: 1;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;

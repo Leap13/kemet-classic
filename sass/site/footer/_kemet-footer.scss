@@ -26,7 +26,20 @@
     }
     
 }
+/**
+ * Parallax footer
+ */
+.kmt-footer-parallax {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
 
+.kmt-footer-parallax-effect #content {
+	z-index: 1;
+}
 @media all and (max-width : $mx-col-md) {
 	.kemet-footer-widget-1 {
 		.widget:last-child {
