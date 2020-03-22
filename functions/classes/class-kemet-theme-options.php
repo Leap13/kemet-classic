@@ -178,6 +178,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-line-height'                 => '',
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
+					'display-responsive-menu-point'			=> 921,
 					'search-style'							=> 'search-icon',
 					'search-box-shadow'							=> true,
 					'search-btn-bg-color'					=> '',

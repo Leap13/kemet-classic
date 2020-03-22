@@ -768,7 +768,10 @@ if ( ! function_exists( 'kemet_header_break_point' ) ) {
 	 * @return number
 	 */
 	function kemet_header_break_point() {
-		return absint( apply_filters( 'kemet_header_break_point', 921 ) );
+
+		$kemet_responsive_menu_point = kemet_get_option('display-responsive-menu-point');
+		
+		return absint( apply_filters( 'kemet_responsive_menu_point', $kemet_responsive_menu_point ) );
 	}
 }
 

@@ -756,6 +756,31 @@ $header_rt_sections = array(
 			)
 		)
 	);
+	 /**
+	* Option: Display Responsive Menu at Width
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[display-responsive-menu-point]', array(
+			'default'           => $defaults[ 'display-responsive-menu-point' ],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[display-responsive-menu-point]', array(
+				'type'        => 'kmt-slider',
+				'section'     => 'section-menu-header',
+				'priority'    => 141,
+				'label'       => __( 'Display Responsive Menu at Width', 'kemet' ),
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 1920,
+				),
+			)
+		)
+	);
 	/**
 	 * Option: Submenu Box Shadow
 	 */
@@ -771,7 +796,7 @@ $header_rt_sections = array(
 			'type'     => 'checkbox',
 			'section'  => 'section-menu-header',
 			'label'    => __( 'Submenu Box Shadow', 'kemet' ),
-			'priority' => 141,
+			'priority' => 142,
 		)
 	);
 	/**
