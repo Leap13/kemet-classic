@@ -653,6 +653,13 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$header_layout      = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		$submenu_has_boxshadow = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
+		$kemet_submenu_animation = kemet_get_option('sub-menu-animation');
+		$kmt_submenu_classes = array();
+		$kmt_submenu_classes[] = $submenu_has_boxshadow;
+
+		if($kemet_submenu_animation != 'none'){
+			$kmt_submenu_classes[] = 'submenu-' . $kemet_submenu_animation;
+		}
 
 		if ( $disable_primary_navigation ) {
 
@@ -664,8 +671,8 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '</div>';
 			}
 		} else {
-
-			$submenu_class = apply_filters( 'primary_submenu_classes', array('submenu-with-border' , $submenu_has_boxshadow) );
+			$kmt_submenu_classes[] = 'submenu-with-border';
+			$submenu_class = apply_filters( 'primary_submenu_classes', implode(' ', $kmt_submenu_classes) );
 
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
@@ -673,7 +680,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . implode('', $submenu_class) . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
 
@@ -1535,19 +1542,3 @@ if ( !function_exists( 'kemet_color_brightness' ) ) {
     }
 
 }
-/**
- * SubMenu Classes
- */
-if ( !function_exists( 'kemet_submenu_classes' ) ) {
-
-	function kemet_submenu_classes($classes){
-		$kemet_submenu_animation = kemet_get_option('sub-menu-animation');
-
-		if($kemet_submenu_animation != 'none'){
-			$classes[] = $kemet_submenu_animation;
-		}
-		var_dump($classes);
-		return $classes;
-	}
-}
-add_filter('primary_submenu_classes' , 'kemet_submenu_classes');

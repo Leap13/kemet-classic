@@ -799,7 +799,7 @@ $header_rt_sections = array(
 			'label'    => __( 'Submenu Animation', 'kemet' ),
 			'choices'  => array(
 				'none'    => __( 'None', 'kemet' ),
-				'Fade' => __( 'Fade', 'kemet' ),
+				'fade' => __( 'Fade', 'kemet' ),
 				'fade-move' => __( 'Fade and Move', 'kemet' ),
 			),	
 		)
