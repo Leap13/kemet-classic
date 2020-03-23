@@ -2109,6 +2109,10 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
   border-bottom-style: solid;
 }
 
+.kmt-article-post > div {
+  overflow: hidden;
+}
+
 #main {
   padding-top: 4em;
   padding-bottom: 4em;
@@ -5791,22 +5795,22 @@ input[type="color"]::-webkit-color-swatch {
 /*----------  Media Query max-width Structure   ----------*/
 /*----------  Break-point min-width Structure   ----------*/
 /*----------  Break-point max-width Structure   ----------*/
-body:not(.kmt-separate-container) .blog-layout-1 {
+body:not(.kmt-separate-container) .blog-post-layout-1 {
   padding-bottom: 2em;
 }
 
-.blog-layout-1 {
+.blog-post-layout-1 {
   width: 100%;
   display: inline-block;
   vertical-align: middle;
 }
 
-.blog-layout-1 .posted-on {
+.blog-post-layout-1 .posted-on {
   right: 0;
 }
 
-.blog-layout-1 .post-thumb,
-.blog-layout-1 .post-content {
+.blog-post-layout-1 .post-thumb,
+.blog-post-layout-1 .post-content {
   padding-right: 0;
   padding-left: 0;
 }
