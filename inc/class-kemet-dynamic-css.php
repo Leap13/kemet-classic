@@ -639,7 +639,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $footer_button_bg_h_color),
 				),
 				//header spacing
-				'.main-header-bar' => array(
+				'.site-header:not(.kmt-is-sticky) .main-header-bar' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'desktop' ),
@@ -1064,7 +1064,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
 				),
 				//header
-				'.main-header-bar' => array(
+				'.site-header:not(.kmt-is-sticky) .main-header-bar' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'tablet' ),
 					'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'tablet' ),
@@ -1374,7 +1374,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'mobile' ),
 			),
 			//header spacing
-			'.main-header-bar' => array(
+			'.site-header:not(.kmt-is-sticky) .main-header-bar' => array(
 				'padding-top'    => kemet_responsive_spacing( $space_header, 'top', 'mobile' ),
 				'padding-bottom' => kemet_responsive_spacing( $space_header, 'bottom', 'mobile' ),
 				'padding-right' => kemet_responsive_spacing( $space_header, 'right', 'mobile' ),
