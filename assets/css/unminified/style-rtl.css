@@ -2468,8 +2468,8 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
 
 .main-header-menu.submenu-fade ul {
   opacity: 0;
-  -webkit-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
 }
 
 @media (min-width: 769px) {
