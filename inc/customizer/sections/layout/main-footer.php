@@ -84,25 +84,6 @@ $wp_customize->add_control(
     )
 );
 /**
- * Option: Sticky Footer
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[enable-parallax-effect]', array(
-        'default'           => kemet_get_option( 'enable-parallax-effect' ),
-        'type'              => 'option',
-        'description'       => 'Add a parallax effect to your footer.',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[enable-parallax-effect]', array(
-        'section'  => 'section-kemet-footer',
-        'label'    => __( 'Enable Parallax Effect', 'kemet' ),
-        'priority' => 6,
-        'type'     => 'checkbox',
-    )
-);
-/**
 * Option: Footer Content Align Center
 */
 $wp_customize->add_setting(

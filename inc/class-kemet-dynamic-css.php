@@ -610,7 +610,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer .widget-title,.kemet-footer .widget-head .widget-title,.kemet-footer .widget-head .widget-title a , .kmt-footer-copyright .widget-head .widget-title,.kmt-footer-copyright .widget-head .widget-title a' => array(
 					'color' => esc_attr( $kemet_footer_widget_title_color ),
 				),
-				'.kmt-footer-parallax-effect #content'   => kemet_get_background_obj( $box_bg_obj ),
+				'.kmt-sticky-footer #content'   => kemet_get_background_obj( $box_bg_obj ),
 				'.site-footer'                          => array(
 					'color' => esc_attr( $kemet_footer_text_color ),
 				),

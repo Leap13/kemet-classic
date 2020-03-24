@@ -4534,9 +4534,9 @@ div.title {
 }
 
 /**
- * Parallax footer
+ * Sticky footer
  */
-.kmt-footer-parallax {
+.sticky-footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -4544,7 +4544,7 @@ div.title {
   z-index: -1;
 }
 
-.kmt-footer-parallax-effect #content {
+.kmt-sticky-footer #content {
   z-index: 1;
 }
 
