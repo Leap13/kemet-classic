@@ -18,6 +18,10 @@ textarea {
     background-color: #fafafa;
     box-shadow: none;
     box-sizing: border-box;
+    &::placeholder{
+        color: inherit;
+        opacity: 0.5;
+    }
     @include kmt-transition();
 }
 
