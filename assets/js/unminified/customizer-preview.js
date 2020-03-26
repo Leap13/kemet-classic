@@ -1051,4 +1051,42 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[letter-spacing-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-page-title]', 'body:not(.kmt-single-post) .entry-title', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-entry-title]', '.kmt-single-post .entry-header .entry-title', 'letter-spacing');
+
+	/*
+	* Woocommerce
+	*/
+	kemet_css('kemet-settings[rating-color]', 'color', '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before');
+	/**
+	 * DropDown
+	 */
+	wp.customize('kemet-settings[cart-dropdown-width]', function (setting) {
+		setting.bind(function (width) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { width: ' + (parseInt(width)) + 'px }';
+
+			kemet_add_dynamic_css('cart-dropdown-width', dynamicStyle);
+
+		});
+	});
+	wp.customize('kemet-settings[cart-dropdown-border-size]', function (setting) {
+		setting.bind(function (border) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { border-width: ' + (parseInt(border)) + 'px }';
+
+			kemet_add_dynamic_css('cart-dropdown-border-size', dynamicStyle);
+
+		});
+	});
+
+	wp.customize('kemet-settings[cart-dropdown-bg-color]', function (setting) {
+		setting.bind(function (color) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { background-color: ' + color + ' }';
+			dynamicStyle += '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before ,.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after { border-bottom-color: ' + color + ' }';
+			kemet_add_dynamic_css('cart-dropdown-bg-color', dynamicStyle);
+
+		});
+	});
+	kemet_css('kemet-settings[cart-dropdown-border-color]', 'border-color', '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart');
+
 })(jQuery);
