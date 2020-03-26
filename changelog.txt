@@ -1,3 +1,8 @@
+v 1.0.2
+- Added: Boxed & stretched header option.
+- Tweak: Enhance content spacing option.
+- Fixed: Page options Consolelog Error.
+
 v 1.0.1
 - Added: Boxed header option.
 - Tweak: Enhance content spacing option.
