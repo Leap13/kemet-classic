@@ -1270,29 +1270,20 @@ var toggleClass = function ( el, className ) {
 /**
  * Sticky Footer
  */
-(function ($) {
+(function () {
 
-    $(document).on('ready', function () {
-
-        parallaxFooter();
-    });
-
-    $(window).on('resize', function () {
-
-        parallaxFooter();
-    });
-
-    
     function parallaxFooter() {
-
-        if ($('body').hasClass('kmt-sticky-footer')) {
-
+        var $body = document.body;
+        if ($body.classList.contains('kmt-sticky-footer')) {
+            var $content = $body.querySelector('#content'),
+                $stickFooter = $body.querySelector('.sticky-footer');
             setTimeout(function () {
-                $('#content').css('margin-bottom', $('.sticky-footer').outerHeight());
+                $content.style.marginBottom = $stickFooter.offsetHeight + 'px';
             }, 1);
-
         }
-
     }
     
-})(jQuery);
+    window.addEventListener("resize", parallaxFooter());
+    parallaxFooter();
+
+})();
