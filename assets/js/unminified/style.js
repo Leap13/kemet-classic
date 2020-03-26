@@ -1266,3 +1266,33 @@ var toggleClass = function ( el, className ) {
 		}, false );
 	}
 })();
+
+/**
+ * Sticky Footer
+ */
+(function ($) {
+
+    $(document).on('ready', function () {
+
+        parallaxFooter();
+    });
+
+    $(window).on('resize', function () {
+
+        parallaxFooter();
+    });
+
+    
+    function parallaxFooter() {
+
+        if ($('body').hasClass('kmt-sticky-footer')) {
+
+            setTimeout(function () {
+                $('#content').css('margin-bottom', $('.sticky-footer').outerHeight());
+            }, 1);
+
+        }
+
+    }
+    
+})(jQuery);

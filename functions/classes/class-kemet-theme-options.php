@@ -121,6 +121,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => '',
+					'enable-sticky-footer'			   => false,
 					'footer-color'                     => '',
 					'footer-link-color'                => '',
 					'footer-link-h-color'              => '',
@@ -178,6 +179,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-line-height'                 => '',
 					'menu-items-text-transform'              => '',
 					'menu-link-bottom-border-color'              => '',
+					'display-responsive-menu-point'			=> 921,
+					'sub-menu-animation'					=> 'none',
 					'search-style'							=> 'search-icon',
 					'search-box-shadow'							=> true,
 					'search-btn-bg-color'					=> '',

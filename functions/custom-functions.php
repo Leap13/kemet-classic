@@ -95,6 +95,13 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-header-custom-item-inside';
 		}
 
+		//Footer
+		$kemet_sticky_footer = kemet_get_option('enable-sticky-footer');
+
+		if($kemet_sticky_footer){
+			$classes[] = 'kmt-sticky-footer';
+		}
+
 		return $classes;
 	}
 }
@@ -653,6 +660,13 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$header_layout      = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 		$submenu_has_boxshadow = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
+		$kemet_submenu_animation = kemet_get_option('sub-menu-animation');
+		$kmt_submenu_classes = array();
+		$kmt_submenu_classes[] = $submenu_has_boxshadow;
+
+		if($kemet_submenu_animation != 'none'){
+			$kmt_submenu_classes[] = 'submenu-' . $kemet_submenu_animation;
+		}
 
 		if ( $disable_primary_navigation ) {
 
@@ -664,8 +678,8 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '</div>';
 			}
 		} else {
-
-			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
+			$kmt_submenu_classes[] = 'submenu-with-border';
+			$submenu_class = apply_filters( 'primary_submenu_classes', implode(' ', $kmt_submenu_classes) );
 
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
@@ -673,7 +687,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
-				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow . '">',
+				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
 				'after'          => '</ul>',
 			);
 
@@ -768,7 +782,10 @@ if ( ! function_exists( 'kemet_header_break_point' ) ) {
 	 * @return number
 	 */
 	function kemet_header_break_point() {
-		return absint( apply_filters( 'kemet_header_break_point', 921 ) );
+
+		$kemet_responsive_menu_point = kemet_get_option('display-responsive-menu-point');
+		
+		return absint( apply_filters( 'kemet_responsive_menu_point', $kemet_responsive_menu_point ) );
 	}
 }
 
@@ -873,6 +890,12 @@ if ( ! function_exists( 'kemet_footer_classes' ) ) {
 
 		$classes = array_unique( apply_filters( 'kemet_footer_class', array( 'site-footer' ) ) );
 
+		$kemet_sticky_effect = kemet_get_option('enable-sticky-footer');
+
+		if($kemet_sticky_effect){
+			$classes[] = 'sticky-footer';
+		}
+		
 		$classes = array_map( 'sanitize_html_class', $classes );
 
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';

@@ -26,7 +26,20 @@
     }
     
 }
+/**
+ * Sticky footer
+ */
+.sticky-footer {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
 
+.kmt-sticky-footer #content {
+	z-index: 1;
+}
 @media all and (max-width : $mx-col-md) {
 	.kemet-footer-widget-1 {
 		.widget:last-child {

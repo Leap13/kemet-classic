@@ -116,6 +116,12 @@ summary {
   display: block;
 }
 
+figcaption {
+  font-size: 13px;
+  text-align: center;
+  line-height: 13px;
+}
+
 audio,
 canvas,
 progress,
@@ -1577,10 +1583,6 @@ a:hover, a:focus {
   color: midnightblue;
 }
 
-a:focus {
-  outline: thin dotted;
-}
-
 a:hover {
   outline: 0;
 }
@@ -2457,6 +2459,53 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
 .main-header-menu li.focus > ul {
   left: 0;
   right: auto;
+}
+
+.main-header-menu.submenu-fade li:hover > ul,
+.main-header-menu.submenu-fade li.focus > ul {
+  opacity: 1;
+}
+
+.main-header-menu.submenu-fade ul {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+@media (min-width: 769px) {
+  .main-header-menu.submenu-fade ul li:hover > ul,
+  .main-header-menu.submenu-fade ul li.focus > ul {
+    opacity: 1;
+  }
+}
+
+.main-header-menu.submenu-fade-move li:hover > ul,
+.main-header-menu.submenu-fade-move li.focus > ul {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.main-header-menu.submenu-fade-move ul {
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
+}
+
+@media (min-width: 769px) {
+  .main-header-menu.submenu-fade-move ul li:hover > ul,
+  .main-header-menu.submenu-fade-move ul li.focus > ul {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .main-header-menu ul {
@@ -3560,7 +3609,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
  * 8 - Header Widget Area
  */
 .kmt-header-widget-area {
-  line-height: 1.65;
+  line-height: inherit;
 }
 
 .kmt-header-widget-area .widget-title,
@@ -3658,7 +3707,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 }
 
 .kmt-site-identity {
-  padding: 30px 0px;
+  padding: 27px 0px;
 }
 
 .kmt-menu-toggle {
@@ -4484,6 +4533,21 @@ div.title {
   width: 20%;
 }
 
+/**
+ * Sticky footer
+ */
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.kmt-sticky-footer #content {
+  z-index: 1;
+}
+
 @media all and (max-width: 768px) {
   .kemet-footer-widget-1 .widget:last-child {
     margin: 0 0 2.8em;
@@ -4533,6 +4597,90 @@ textarea {
   box-sizing: border-box;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
+}
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="number"]::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="url"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+input[type="search"]::-webkit-input-placeholder,
+input[type=reset]::-webkit-input-placeholder,
+input[type=tel]::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input[type="text"]:-moz-placeholder,
+input[type="number"]:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="url"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+input[type="search"]:-moz-placeholder,
+input[type=reset]:-moz-placeholder,
+input[type=tel]:-moz-placeholder,
+select:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input[type="text"]::-moz-placeholder,
+input[type="number"]::-moz-placeholder,
+input[type="email"]::-moz-placeholder,
+input[type="url"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder,
+input[type="search"]::-moz-placeholder,
+input[type=reset]::-moz-placeholder,
+input[type=tel]::-moz-placeholder,
+select::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="url"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type=reset]:-ms-input-placeholder,
+input[type=tel]:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input[type="text"]::-ms-input-placeholder,
+input[type="number"]::-ms-input-placeholder,
+input[type="email"]::-ms-input-placeholder,
+input[type="url"]::-ms-input-placeholder,
+input[type="password"]::-ms-input-placeholder,
+input[type="search"]::-ms-input-placeholder,
+input[type=reset]::-ms-input-placeholder,
+input[type=tel]::-ms-input-placeholder,
+select::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+input[type="email"]::placeholder,
+input[type="url"]::placeholder,
+input[type="password"]::placeholder,
+input[type="search"]::placeholder,
+input[type=reset]::placeholder,
+input[type=tel]::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: inherit;
+  opacity: 0.5;
 }
 
 input[type="text"]:focus,
