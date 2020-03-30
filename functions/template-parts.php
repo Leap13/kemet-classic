@@ -60,14 +60,14 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 			}
 			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo esc_attr( $hide_classes )  . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
-						echo ($value);
+						echo __($value);
 					}
 				}
 				?>
-			</<?php echo esc_attr( $html_element ); ?>>
+			</<?php echo __( $html_element ); ?>>
 			<?php
 			$markup = ob_get_clean();
 		}

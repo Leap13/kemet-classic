@@ -75,7 +75,7 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 		</label>
-		<div id="input_{{ data.id }}" class="icon-select <?php echo $rtl_class; ?>">  
+		<div id="input_{{ data.id }}" class="icon-select <?php echo __( $rtl_class ); ?>">  
 			<# for ( key in data.choices ) { #>	
 				<label>
 					<input class="icon-select-input" type="radio" value="{{ key }}" name="_customize-icon-select-{{ data.id }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked<# } #> />

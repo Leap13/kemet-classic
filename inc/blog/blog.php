@@ -132,7 +132,7 @@ if ( ! function_exists( 'kemet_blog_post_get_featured_item' ) ) {
 			}
 		}
 
-		echo $post_featured_data; // WPCS: XSS OK.
+		echo __( $post_featured_data ); // WPCS: XSS OK.
 	}
 }
 
