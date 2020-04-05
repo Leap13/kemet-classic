@@ -3864,6 +3864,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   text-align: left;
 }
 
+.kmt-sitehead-custom-menu-items.widget {
+  overflow: visible;
+}
+
 .kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }

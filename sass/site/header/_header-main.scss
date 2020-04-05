@@ -173,6 +173,9 @@ li.kmt-sitehead-custom-menu-items {
 	}	
 }
 .kmt-sitehead-custom-menu-items{
+	&.widget{
+        overflow: visible;
+    }
 	.kmt-search-icon .kemet-search-icon {
 		line-height: 1;
 	}
