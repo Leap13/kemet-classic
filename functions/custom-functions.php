@@ -1325,8 +1325,6 @@ if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 
 			}
 		}
-
-		remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
 		
 		return apply_filters( 'kemet_replace_header_attr', $attr );
 	}
