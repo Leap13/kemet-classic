@@ -3567,10 +3567,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 /**
  * 6 - all and (max-width: $mx-break-point)
  */
-.kmt-header-break-point .main-header-bar {
-  border: 0;
-}
-
 .kmt-header-break-point .nav-fallback-text {
   float: none;
 }
