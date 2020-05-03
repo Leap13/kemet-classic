@@ -1,3 +1,6 @@
+v 1.0.3
+
+
 v 1.0.2
 - Added: Boxed & stretched header option.
 - Tweak: Enhance content spacing option.
