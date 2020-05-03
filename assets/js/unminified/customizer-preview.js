@@ -601,7 +601,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			if (color) {
 
 				var dynamicStyle = ' body:not(.kmt-header-break-point) .main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon { border-bottom-color: ' + color + '; } ';
-				dynamicStyle += ' body.kmt-header-break-point .site-header { border-bottom-color: ' + color + '; } ';
+				dynamicStyle += ' .kmt-header-break-point .site-header .main-header-bar ,.kmt-header-break-point .header-main-layout-4 .main-header-container.logo-menu-icon { border-bottom-color: ' + color + '; } ';
 
 				kemet_add_dynamic_css('header-main-sep-color', dynamicStyle);
 			}

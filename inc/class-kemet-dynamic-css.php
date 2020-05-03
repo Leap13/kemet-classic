@@ -1561,7 +1561,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$header_separator_color = kemet_get_option( 'header-main-sep-color' , $global_border_color );
 
 			$meta_style = array(
-				'.kmt-header-break-point .site-header' => array(
+				'.kmt-header-break-point .site-header .main-header-bar ,.kmt-header-break-point .header-main-layout-4 .main-header-container.logo-menu-icon' => array(
 					'border-bottom-color' => esc_attr( $header_separator_color ),
 				),
 			);
