@@ -1,5 +1,5 @@
 v 1.0.3
-
+- Fixed: Header Bottom Border in responsive issue.
 
 v 1.0.2
 - Added: Boxed & stretched header option.
