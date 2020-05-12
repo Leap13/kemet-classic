@@ -43,10 +43,13 @@ body:not(.kmt-separate-container ){
 	}
 }
 .kmt-article-post{
-		> div{
-			overflow: hidden;
-		}
+	> div{
+		overflow: hidden;
 	}
+}
+.blog-posts-container{
+	overflow: hidden;
+}
 #main{
     padding-top: 4em;
 	padding-bottom: 4em;
