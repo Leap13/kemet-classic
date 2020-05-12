@@ -200,7 +200,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_bg_h_color   = kemet_get_option( 'readmore-bg-h-color' );
 			$readmore_border_radius    = kemet_get_option( 'read-more-border-radius' );
 			$readmore_border_size     = kemet_get_option( 'read-more-border-size' );
-			$readmore_border_color    = kemet_get_option( 'readmore-border-color'  , $global_border_color);
+			$readmore_border_color    = kemet_get_option( 'readmore-border-color'  , kemet_color_brightness($global_border_color , 0.955 , 'dark'));
 			$readmore_border_h_color  = kemet_get_option( 'readmore-border-h-color' );
 			$archive_post_meta_font_size = kemet_get_option( 'font-size-page-meta' );
 			$archive_post_meta_letter_spacing = kemet_get_option( 'letter-spacing-page-meta' );
@@ -761,8 +761,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
 					'background-color' => esc_attr( $readmore_bg_color),
 					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
-					'border-color'     => esc_attr( $readmore_border_color),
 					'border-style'	   => 'solid',
+					'border-color'     => esc_attr( $readmore_border_color),
 					'border-width' => kemet_responsive_slider( $readmore_border_size , 'desktop'),
 				),
 				//Content Heading Color
