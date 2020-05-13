@@ -1044,7 +1044,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[letter-spacing-h5]', 'h5, .entry-content h5, .entry-content h5 a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-h6]', 'h1, .entry-content h6, .entry-content h6 a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[widget-title-letter-spacing]', '.widget .widget-head .widget-title', 'letter-spacing');
-	kemet_responsive_slider('kemet-settings[letter-spacing-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-page-title]', 'body:not(.kmt-single-post) .entry-title', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-entry-title]', '.kmt-single-post .entry-header .entry-title', 'letter-spacing');
 })(jQuery);
