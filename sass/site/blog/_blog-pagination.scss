@@ -72,8 +72,6 @@
         }
     }
     .next.page-numbers {
-        float: right;
-        text-align: right;
         @media(max-width: $mx-col-md) {
             display: inherit;
             float: none;

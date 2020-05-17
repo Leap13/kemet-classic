@@ -5762,11 +5762,6 @@ input[type="color"]::-webkit-color-swatch {
   cursor: default;
 }
 
-.kmt-pagination .next.page-numbers {
-  float: left;
-  text-align: left;
-}
-
 @media (max-width: 768px) {
   .kmt-pagination .next.page-numbers {
     display: inherit;
