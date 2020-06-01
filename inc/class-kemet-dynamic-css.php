@@ -192,7 +192,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//Listing Post Page
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
+			$listing_post_title_hover_color         = kemet_get_option( 'listing-post-title-hover-color' );
 			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
+			$main_entry_content_color         = kemet_get_option( 'main-entry-content-color' );
 			$meta_color      = kemet_get_option( 'listing-post-meta-color' , $text_meta_color);
 			$archive_post_meta_font_size = kemet_get_option( 'font-size-page-meta' );
             //Footer Font
@@ -736,8 +738,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $content_link_h_color ),
 				),
 				//Listing Post Page
+				'.content-area .entry-title a:hover' =>  array(
+					'color' => esc_attr( $listing_post_title_hover_color ),
+				),
 				'.content-area .entry-title a' =>  array(
 					'color' => esc_attr( $listing_post_title_color ),
+				),
+				'.content-area .entry-content' =>  array(
+					'color' => esc_attr( $main_entry_content_color ),
 				),
 				//Content Heading Color
 				' h1, .entry-content h1, .entry-content h1 a' =>  array(

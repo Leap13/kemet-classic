@@ -97,6 +97,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'listing-post-meta-color'		  => '',
 					'font-size-page-meta'			  => '',	
 					'listing-post-title-color'		  => '',
+					'main-entry-content-color'		  => '',	
+					'listing-post-title-hover-color'  => '',	
 					'post-title-font-family'          => 'inherit',
 					'readmore-as-button' => false,	
 					'readmore-text-color'		  => '',

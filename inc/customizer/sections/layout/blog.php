@@ -299,6 +299,26 @@ $wp_customize->add_control(
     )
 );
 /**
+* Option:Post Title Hover Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[listing-post-title-hover-color]', array(
+        'default'           => $defaults[ 'listing-post-title-hover-color' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-title-hover-color]', array(
+            'label'   => __( 'Title Hover Color', 'kemet' ),
+            'priority'       => 61,
+            'section' => 'section-blog',
+        )
+    )
+);
+/**
 * Option:Post Meta Color
 */
 $wp_customize->add_setting(
@@ -318,7 +338,26 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option:Post Main Content Entry Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[main-entry-content-color]', array(
+        'default'           => $defaults[ 'main-entry-content-color' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[main-entry-content-color]', array(
+            'label'   => __( 'Main Content Entry Color', 'kemet' ),
+            'priority'       => 66,
+            'section' => 'section-blog',
+        )
+    )
+);
 /**
 * Option: Title
 */

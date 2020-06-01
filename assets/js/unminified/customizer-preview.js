@@ -996,6 +996,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Listing Post 
 	 */
 	kemet_css('kemet-settings[listing-post-title-color]', 'color', '.content-area .entry-title a');
+	kemet_css('kemet-settings[listing-post-title-hover-color]', 'color', '.content-area .entry-title a:hover');
+	kemet_css('kemet-settings[main-entry-content-color]', 'color', '.content-area .entry-content');
 	kemet_css('kemet-settings[readmore-text-color]', 'color', '.content-area .read-more a');
 	kemet_css('kemet-settings[readmore-text-h-color]', 'color', '.content-area .read-more a:hover');
 	kemet_responsive_spacing('kemet-settings[readmore-padding]', 'body .content-area .read-more a', 'padding', ['top', 'bottom', 'right', 'left']);
