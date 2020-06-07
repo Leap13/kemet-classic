@@ -237,7 +237,7 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 *
 	 */
 	function kemet_sitehead_primary_template() {
-		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', 'default' );
+		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
 		if ( $kemet_header_layout !== 'disable' ) {
 			get_template_part( 'templates/header/header-main-layout' );
 		}

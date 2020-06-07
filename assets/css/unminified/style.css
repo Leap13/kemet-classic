@@ -3441,6 +3441,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 
 .main-header-bar .kmt-sitehead-custom-menu-items.widget {
   margin: auto;
+  overflow: visible;
 }
 
 .main-header-bar .kmt-sitehead-custom-menu-items.search-box .kmt-search-icon, .main-header-bar .header-right-section.search-box .kmt-search-icon {
