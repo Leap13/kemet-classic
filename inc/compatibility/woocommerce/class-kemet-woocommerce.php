@@ -295,11 +295,16 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		function shop_page_products_item_class( $classes = '' ) {
 
+			$layout_style = kemet_get_option('shop-layout');
 			if ( is_shop() || is_product_taxonomy() ) {
-				$shop_grid = kemet_get_option( 'shop-grids' );
-				$classes[] = 'columns-' . $shop_grid['desktop'];
-				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
-				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
+
+				if($layout_style == 'shop-grid'){
+					$shop_grid = kemet_get_option( 'shop-grids' );
+					$classes[] = 'columns-' . $shop_grid['desktop'];
+					$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
+					$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
+				}
+				
 
 				$classes[] = 'kmt-woo-shop-archive';
 				$classes[] = 'shop-grid';
