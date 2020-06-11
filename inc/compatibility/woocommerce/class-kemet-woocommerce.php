@@ -298,13 +298,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$layout_style = kemet_get_option('shop-layout');
 			if ( is_shop() || is_product_taxonomy() ) {
 
-				if($layout_style == 'shop-grid'){
-					$shop_grid = kemet_get_option( 'shop-grids' );
-					$classes[] = 'columns-' . $shop_grid['desktop'];
-					$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
-					$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
-				}
-				
+				$shop_grid = kemet_get_option( 'shop-grids' );
+				$classes[] = 'columns-' . $shop_grid['desktop'];
+				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
+				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 
 				$classes[] = 'kmt-woo-shop-archive';
 				$classes[] = 'shop-grid';

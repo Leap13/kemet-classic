@@ -282,7 +282,8 @@ add_action( 'woocommerce_before_shop_loop_item', 'product_list_details' , 8);
  * Woocommerce shop/product details div close tag.
  */      
 function after_shop_loop_item_title() {
-
+    
+	echo '<div class="product-info">';
 	/**
 	 * Add Product Title on shop page for all products.
 	 */
@@ -302,6 +303,7 @@ function after_shop_loop_item_title() {
 	woocommerce_template_loop_rating();
 	do_action( 'kemet_woo_shop_rating_after' );
 
+	echo '</div>';
 	echo '</a>';
 	do_action( 'kemet_product_list_details_bottom' );
 	echo '</div>';
