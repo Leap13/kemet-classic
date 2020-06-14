@@ -224,3 +224,10 @@
 			'title'    => __( 'Buttons & Fields', 'kemet' ),
 		)
 	);
+
+	$wp_customize->add_section( new Kemet_Customizer_Notification( $wp_customize, 'kemet_upsell_section_test', array(
+		'title'    => esc_html__( 'Kemet Addons Available', 'kemet' ),
+		'description'      => 'To Get More Options',
+		'slug'      => 'kemet-addons',
+		'priority' => 0,
+	) ) );

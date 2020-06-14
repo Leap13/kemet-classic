@@ -73,6 +73,12 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 		 */
 		public function enqueue() {
 			$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/background/';
+			$uritest = KEMET_THEME_URI . 'inc/customizer/notification/';
+		
+			wp_enqueue_script( 'kemet-customizer-notification', $uritest . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_style( 'kemet-customizer-notification-style', $uritest . 'notification.css', null, KEMET_THEME_VERSION );
+
+
 
 			wp_enqueue_script( 'kemet-background', $js_uri . 'background.js', array(), KEMET_THEME_VERSION, true );
 			wp_localize_script(
