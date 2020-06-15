@@ -71,11 +71,17 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 		 */
 		protected function render_template() {
 			?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section cannot-expand control-section-{{ data.type }} " style="display: block;" >
-			<h3 class="section-title">
-				{{ data.title }}
-			</h3>
-            <div class="action-button">{{{data.button_html}}}</div>
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section cannot-expand control-section-{{ data.type }} " >
+			
+			<div class="kmt-notification">
+				<h3 class="section-title">
+					{{ data.title }}
+				</h3>
+
+				<# if ( data.description ) { #><p class="notification-description">{{ data.description }}</p><# } #>
+
+				<# if ( data.button_html ) { #><div class="action-button">{{{data.button_html}}}</div><# } #>
+			</div>
 		</li>
 			<?php
         }

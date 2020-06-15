@@ -1,4 +1,4 @@
-.kmt-active-plugin .dashicons{
+.kmt-notification .action-button .dashicons{
     margin-top: 5px;
   -webkit-animation: rotating 2s linear infinite;
   -moz-animation: rotating 2s linear infinite;
@@ -21,4 +21,13 @@
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   } 
+}
+.control-section-kemet-customizer-notification{
+  display: block !important;
+}
+.control-section-kemet-customizer-notification .kmt-notification{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-left: 4px solid #fff;
+    padding: 10px 10px 11px 14px;
 }

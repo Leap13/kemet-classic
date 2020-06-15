@@ -225,9 +225,16 @@
 		)
 	);
 
-	$wp_customize->add_section( new Kemet_Customizer_Notification( $wp_customize, 'kemet_upsell_section_test', array(
-		'title'    => esc_html__( 'Kemet Addons Available', 'kemet' ),
-		'description'      => 'To Get More Options',
-		'slug'      => 'kemet-addons',
-		'priority' => 0,
-	) ) );
+	/**
+	 * Kemet Addons Notidication
+	 */
+	if( ! class_exists('Kemet_Addons' ) ){
+
+		$wp_customize->add_section( new Kemet_Customizer_Notification( $wp_customize, 'kemet_addons_notification', array(
+			'title'    => esc_html__( 'Kemet Addons Available', 'kemet' ),
+			'description'      => 'Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of extra customization options.',
+			'slug'      => 'kemet-addons',
+			'priority' => 0,
+		) ) );
+		
+	}

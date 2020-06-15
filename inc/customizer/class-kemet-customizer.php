@@ -55,6 +55,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 */
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'sections_scripts' ) );
 			add_action( 'customize_register', array( $this, 'kemet_notification_section' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
@@ -65,11 +66,24 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 			
 		}
+		/**
+		 * Section Scripts
+		 */
+		function sections_scripts(){
 
+			if( ! class_exists('Kemet_Addons' ) ){
+				
+				$uri = KEMET_THEME_URI . 'inc/customizer/notification/';
+				
+				wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
+				wp_enqueue_style( 'kemet-customizer-notification-style', $uri . 'notification.css', null, KEMET_THEME_VERSION );
+			}
+
+		}
 		/**
 		 * Add upgrade link configurations controls.
 		 *
-		 * @since 1.0.0
+		 * @since 1.0.4
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public function kemet_notification_section( $wp_customize ) {
