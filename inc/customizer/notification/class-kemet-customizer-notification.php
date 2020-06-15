@@ -71,7 +71,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 		 */
 		protected function render_template() {
 			?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section cannot-expand control-section-{{ data.type }} " >
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-defaul" >
 			
 			<div class="kmt-notification">
 				<h3 class="section-title">

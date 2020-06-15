@@ -22,9 +22,6 @@
     transform: rotate(360deg);
   } 
 }
-.control-section-kemet-customizer-notification{
-  display: block !important;
-}
 .control-section-kemet-customizer-notification .kmt-notification{
     background-color: #fff;
     border: 1px solid #ddd;

@@ -98,3 +98,14 @@ function plugin_action(event) {
 
     }
 }
+(function (api) {
+    // Extends our custom kemet-customizer-notifications section.
+    api.sectionConstructor['kemet-customizer-notification'] = api.Section.extend({
+        // No events for this type of section.
+        attachEvents: function () { },
+        // Always make the section active.
+        isContextuallyActive: function () {
+            return true;
+        }
+    });
+})(wp.customize);
