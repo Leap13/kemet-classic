@@ -1,3 +1,7 @@
+v 1.0.4
+- Added: Disable Header option.
+- Added: Kemet Addons notification in customizer.
+
 v 1.0.3
 - Fixed: Header Bottom Border in responsive issue.
 
