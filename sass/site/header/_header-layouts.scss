@@ -563,6 +563,7 @@ body:not(.kmt-header-break-point){
 	.kmt-sitehead-custom-menu-items{
 		&.widget{
 			margin: auto;
+			overflow: visible;
 		}
 	}
 	.kmt-sitehead-custom-menu-items , .header-right-section{
