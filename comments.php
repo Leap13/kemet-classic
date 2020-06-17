@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'kemet' ); ?>">
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'kemet' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 
@@ -62,7 +62,7 @@ if ( post_password_required() ) {
 		</ol><!-- .kmt-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_html_e( 'Comments Navigation', 'kemet' ); ?>">
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'kemet' ); ?>">
 			<h3 class="screen-reader-text"><?php echo esc_html( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 				<div class="nav-previous"><?php previous_comments_link( kemet_theme_strings( 'string-comment-navigation-previous', false ) ); ?></div>

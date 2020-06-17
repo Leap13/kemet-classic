@@ -20,7 +20,7 @@
 </head>
 
 <body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
-
+<?php wp_body_open(); ?>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
     
