@@ -232,7 +232,7 @@
 
 		$wp_customize->add_section( new Kemet_Customizer_Notification( $wp_customize, 'kemet_addons_notification', array(
 			'title'    => esc_html__( 'Kemet Addons Available', 'kemet' ),
-			'description'      => 'Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of extra customization options.',
+			'description'      => esc_html__('Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of extra customization options.', 'kemet'),
 			'slug'      => 'kemet-addons',
 			'priority' => 0,
 		) ) );
