@@ -47,7 +47,7 @@ $wp_customize->add_control(
             'type'     => 'kmt-radio-image',
             'choices'  => array(
                 'disable' => array(
-                    'label' => __( 'Disable', 'kemet-addons' ),
+                    'label' => __( 'Disable', 'kemet' ),
                     'path'  => KEMET_THEME_URI . '/assets/images/disable.png',
                 ),
                 'header-main-layout-1' => array(

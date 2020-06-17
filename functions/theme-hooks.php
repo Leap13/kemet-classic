@@ -371,3 +371,12 @@ function kemet_404_content_template() {
 function kemet_body_bottom() {
 	do_action( 'kemet_body_bottom' );
 }
+/**
+ *  Backward compatibility
+ */
+if ( ! function_exists( 'wp_body_open' ) ) {
+
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+}
