@@ -194,6 +194,10 @@ if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 				}
 			}
 
+			if ( class_exists( 'TInvWL_Wishlist' ) ) {
+				echo '<div class="woo-wishlist-btn button">'. do_shortcode( '[ti_wishlists_addtowishlist]' ) .'</div>';
+			}
+
 			do_action( 'kemet_woo_shop_summary_wrap_bottom' );
 			echo '</div>';
 			do_action( 'kemet_woo_shop_after_summary_wrap' );
@@ -273,8 +277,9 @@ endif;
  */
 function product_list_details() {
 
-	echo '<div class="product-list-details">';
+	echo '<div class="product-list-details">';	
 	do_action( 'kemet_product_list_details_top' );
+	echo '<div class="product-list-img">';
 	echo '<a href="' . esc_url( get_the_permalink() ) . '" class="kmt-loop-product__link">';
 }
 add_action( 'woocommerce_before_shop_loop_item', 'product_list_details' , 8);
@@ -282,7 +287,9 @@ add_action( 'woocommerce_before_shop_loop_item', 'product_list_details' , 8);
  * Woocommerce shop/product details div close tag.
  */      
 function after_shop_loop_item_title() {
-    
+
+	do_action( 'kemet_product_list_image_bottom' );
+	echo '</div>';
 	echo '<div class="product-info">';
 	/**
 	 * Add Product Title on shop page for all products.

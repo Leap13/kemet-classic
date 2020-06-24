@@ -3843,6 +3843,28 @@ button.pswp__button--zoom:hover {
 		}
 	}
 }
+body:not(.kmt-separate-container){
+	&.woocommerce{
+		.kmt-article-post{
+			 > div{
+				 border: none;
+			 }
+		}
+		ul.products{
+			li.product{
+				.woo-wishlist-btn{
+					margin-bottom: 0;
+				}
+				> .tinv-wishlist{
+					display: none;
+				}
+				.tinvwl_add_to_wishlist_button{
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
 /* Extra style */
 .shop-grid{
 	&.woocommerce{
@@ -3898,6 +3920,9 @@ button.pswp__button--zoom:hover {
 							&:hover{
 								background-color: transparent;
 							}
+						}
+						.tinvwl_add_to_wishlist_button{
+							margin-top: 0;
 						}
 						.kmt-product-rating{
 							.star-rating{
