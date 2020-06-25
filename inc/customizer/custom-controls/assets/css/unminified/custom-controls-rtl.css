@@ -698,7 +698,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   border: 1px solid #ddd;
 }
 
-.customize-control-kmt-title .customizer-text {
+.customize-control-kmt-title .customize-control-title {
     font-size: 14px;
     background-color: #ffffff;
     color: #525252;
@@ -706,7 +706,11 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
     display: block;
 }
 
-.customize-control-kmt-title .customize-control-title {
+.customize-control-kmt-title .customize-control-title{
     padding: 7px 10px;
+    margin-bottom: 0px;
+}
+.customize-control-kmt-title .description.customize-control-description{
+    padding: 7px 0;
     margin-bottom: 0px;
 }
