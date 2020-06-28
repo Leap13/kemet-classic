@@ -896,7 +896,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'desktop' ),
 			'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'desktop' ),
 			   ),
-			'#primary #main' => array(
+			'.site-content #primary' => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'desktop' ),
 				),   
@@ -1160,7 +1160,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'tablet' ),
 				'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'tablet' ),
             ),
-            '#primary #main' => array(
+            '.site-content #primary' => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'tablet' ),
 			),
@@ -1369,7 +1369,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'padding-left'  => kemet_responsive_spacing( $container_inner_spacing, 'left', 'mobile' ),
 				'padding-bottom' => kemet_responsive_spacing( $container_inner_spacing, 'bottom', 'mobile' ),
 			),
-			'#primary #main' => array(
+			'.site-content #primary' => array(
 				'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'mobile' ),
 				'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'mobile' ),
 			),

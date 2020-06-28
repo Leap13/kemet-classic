@@ -736,7 +736,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Container Inner Spacing
 	 */
 	kemet_responsive_spacing('kemet-settings[container-inner-spacing]', '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container', 'padding', ['top', 'bottom', 'right', 'left']);
-	kemet_responsive_spacing('kemet-settings[content-padding]', '#primary #main', 'padding', ['top','bottom']);
+	kemet_responsive_spacing('kemet-settings[content-padding]', '.site-content #primary', 'padding', ['top','bottom']);
     /**
 	 * Site Identity Spacing
 	 */
