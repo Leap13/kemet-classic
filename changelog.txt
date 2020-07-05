@@ -1,3 +1,6 @@
+v 1.0.5 version
+- Fixed: Content Spacing with Elementor issue.
+
 v 1.0.4
 - Added: Disable Header option.
 - Added: Kemet Addons notification in customizer.
