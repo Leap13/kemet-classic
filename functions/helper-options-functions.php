@@ -785,3 +785,17 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 
 	add_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
 }
+
+/**
+ * Content Layout
+ */
+function content_layout($default){
+
+	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
+	
+	if ( !empty($meta) ) {
+		$defaults = $meta;
+	}
+	return $defaults;
+}
+add_filter( 'kemet_get_content_layout', 'content_layout' );
