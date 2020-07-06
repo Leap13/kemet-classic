@@ -66,12 +66,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			<?php
 		}
 
-		/**
-		 * Elementor Content layout set as Page Builder
-		 *
-		 * @return void
-		 * @since  1.0.5
-		 */
+
 		function elementor_default_setting() {
 
 			if ( 'post' == get_post_type() ) {
@@ -107,12 +102,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 		}
 
-		/**
-		 * Add z-index CSS for elementor's drag drop
-		 *
-		 * @return void
-		 * @since  1.0.5
-		 */
 		public function elementor_overlay_zindex() {
 
 			// return if we are not on Elementor's edit page.
@@ -130,12 +119,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			<?php
 		}
 
-		/**
-		 * Check is elementor activated.
-		 *
-		 * @param int $id Post/Page Id.
-		 * @return boolean
-		 */
 		 function is_elementor_activated( $id ) {
 			
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
@@ -147,13 +130,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 		}
 
-		/**
-		 * Check if Elementor Editor is open.
-		 *
-		 * @since  1.0.5
-		 *
-		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
-		 */
 		private function is_elementor_editor() {
 			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
