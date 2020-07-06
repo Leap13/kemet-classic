@@ -1,5 +1,6 @@
 v 1.0.5 version
-- Fixed: Content Spacing with Elementor issue.
+- Fixed: Content Spacing issue.
+- Tweak: Elementor compatibility.
 
 v 1.0.4
 - Added: Disable Header option.
