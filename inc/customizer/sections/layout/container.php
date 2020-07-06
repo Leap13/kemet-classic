@@ -200,7 +200,35 @@ $defaults = Kemet_Theme_Options::defaults();
 			)
 		)
 	);
-    
+
+    /**
+    * Option - Content Padding
+    */
+   $wp_customize->add_setting(
+       KEMET_THEME_SETTINGS . '[content-padding]', array(
+           'default'           => $defaults[ 'content-padding' ],
+           'type'              => 'option',
+           'transport'         => 'postMessage',
+           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+       )
+   );
+   $wp_customize->add_control(
+       new Kemet_Control_Responsive_Spacing(
+           $wp_customize, KEMET_THEME_SETTINGS . '[content-padding]', array(
+               'type'           => 'kmt-responsive-spacing',
+               'section'        => 'section-container-layout',
+               'priority'       => 50,
+               'label'          => __( 'Content Padding', 'kemet' ),
+               'linked_choices' => true,
+               'unit_choices'   => array( 'px', 'em', '%' ),
+               'choices'        => array(
+                   'top'    => __( 'Top', 'kemet' ),
+				   'bottom' => __( 'Bottom', 'kemet' ),
+               ),
+           )
+       )
+   );
+
    /**
     * Option - Container Inner Spacing
     */
@@ -230,33 +258,7 @@ $defaults = Kemet_Theme_Options::defaults();
            )
        )
    );
-  /**
-    * Option - Content Padding
-    */
-   $wp_customize->add_setting(
-       KEMET_THEME_SETTINGS . '[content-padding]', array(
-           'default'           => $defaults[ 'content-padding' ],
-           'type'              => 'option',
-           'transport'         => 'postMessage',
-           'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-       )
-   );
-   $wp_customize->add_control(
-       new Kemet_Control_Responsive_Spacing(
-           $wp_customize, KEMET_THEME_SETTINGS . '[content-padding]', array(
-               'type'           => 'kmt-responsive-spacing',
-               'section'        => 'section-container-layout',
-               'priority'       => 50,
-               'label'          => __( 'Content Padding', 'kemet' ),
-               'linked_choices' => true,
-               'unit_choices'   => array( 'px', 'em', '%' ),
-               'choices'        => array(
-                   'top'    => __( 'Top', 'kemet' ),
-				   'bottom' => __( 'Bottom', 'kemet' ),
-               ),
-           )
-       )
-   );
+   
    /**
 	* Option: Content separator Color
 	*/
