@@ -42,7 +42,7 @@ body:not(.kmt-separate-container ){
 		}
 	}
 }
-#main{
+#primary{
     padding-top: 4em;
 	padding-bottom: 4em;
 }
@@ -146,10 +146,8 @@ body:not(.kmt-separate-container ){
 	.kmt-pagination {
 		padding: 2em;
 	}
-	.kmt-article-post:not(:first-child){
-		.entry-header {
-			margin-top: 4em;
-		}
+	.entry-header {
+		margin-top: 4em;
 	}
 	.entry-header {
 		&.kmt-no-title.kmt-no-thumbnail{

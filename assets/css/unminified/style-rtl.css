@@ -2109,7 +2109,7 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
   border-bottom-style: solid;
 }
 
-#main {
+#primary {
   padding-top: 4em;
   padding-bottom: 4em;
 }
@@ -2216,7 +2216,7 @@ body:not(.kmt-separate-container) .kmt-article-post > div {
   padding: 2em;
 }
 
-.kmt-page-builder-template .kmt-article-post:not(:first-child) .entry-header {
+.kmt-page-builder-template .entry-header {
   margin-top: 4em;
 }
 

@@ -46,7 +46,7 @@
 }
 .customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper li input.kmt-spacing-input {
   text-align: center;
-  padding: 3px;
+  padding: 0 3px;
 }
 
 .customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.active {

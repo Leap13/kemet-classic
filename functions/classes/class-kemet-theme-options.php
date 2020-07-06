@@ -184,7 +184,23 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'search-style'							=> 'search-icon',
 					'search-box-shadow'							=> true,
 					'search-btn-bg-color'					=> '',
-					'content-padding'						=> '',
+					'content-padding'						=> array(
+					'desktop'      => array(
+							'top'    => '',
+							'bottom' => '',
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'bottom' => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'bottom' => '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
 					'search-btn-h-bg-color'					=> '',
 					'search-btn-color'						=> '',
 					'search-border-color'					=> '',
