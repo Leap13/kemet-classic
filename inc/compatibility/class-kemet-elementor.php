@@ -53,13 +53,6 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		}
 
 		/**
-		 * Compatibility CSS for Elementor Headings after Elementor-v2.9.9
-		 *
-		 * In v2.9.9 Elementor has removed [ .elementor-widget-heading .elementor-heading-title { margin: 0 } ] this CSS.
-		 * Again in v2.9.10 Elementor added this as .elementor-heading-title { margin: 0 } but still our [ .entry-content heading { margin-bottom: 20px } ] CSS overrding their fix.
-		 *
-		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
-		 *
 		 * @return void
 		 * @since  1.0.4
 		 */

@@ -794,8 +794,8 @@ function content_layout($default){
 	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
 	
 	if ( !empty($meta) ) {
-		$defaults = $meta;
+		$default = $meta;
 	}
-	return $defaults;
+	return $default;
 }
 add_filter( 'kemet_get_content_layout', 'content_layout' );
