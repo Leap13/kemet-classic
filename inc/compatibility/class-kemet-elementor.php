@@ -68,8 +68,8 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 
 		function elementor_default_setting() {
-
-			if ( 'post' == get_post_type() ) {
+			
+			if ( false == kemet_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 

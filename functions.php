@@ -71,3 +71,6 @@ require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-customizer.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-contact-form-7.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-builder.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor-pro.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-themer.php';

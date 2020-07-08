@@ -602,7 +602,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			}
 			?>
 			<div id="primary" class="content-area primary">
-
+				<?php kemet_primary_content_top(); ?>
 				<main id="main" class="site-main" role="main">
 					<div class="kmt-woocommerce-container">
 			<?php
@@ -616,6 +616,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					</div> <!-- .kmt-woocommerce-container -->
 				</main> <!-- #main -->
 
+			<?php kemet_primary_content_bottom(); ?>
+			
 			</div> <!-- #primary -->
 			<?php
 			$site_sidebar = kemet_layout();
