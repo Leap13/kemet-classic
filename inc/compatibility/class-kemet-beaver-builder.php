@@ -50,7 +50,7 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 
 		function beaver_builder_default_setting() {
 
-			if ( false == kemet_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kemet_enable_page_builder() || 'post' == get_post_type() ) {
 				return;
             }
             
