@@ -1548,3 +1548,14 @@ if ( !function_exists( 'kemet_color_brightness' ) ) {
     }
 
 }
+if ( ! function_exists( 'kemet_enable_page_builder' ) ) :
+
+	/**
+	 * Allow filter to enable/disable page builder compatibility.
+	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
+	 */
+	function kemet_enable_page_builder() {
+		return apply_filters( 'kemet_enable_page_builder', true );
+	}
+
+endif;
