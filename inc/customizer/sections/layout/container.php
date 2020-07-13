@@ -208,7 +208,7 @@ $defaults = Kemet_Theme_Options::defaults();
        KEMET_THEME_SETTINGS . '[content-padding]', array(
            'default'           => $defaults[ 'content-padding' ],
            'type'              => 'option',
-           'transport'         => 'postMessage',
+		   'transport'         => 'postMessage',
            'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
        )
    );
@@ -218,7 +218,8 @@ $defaults = Kemet_Theme_Options::defaults();
                'type'           => 'kmt-responsive-spacing',
                'section'        => 'section-container-layout',
                'priority'       => 50,
-               'label'          => __( 'Content Padding', 'kemet' ),
+			   'label'          => __( 'Content Padding', 'kemet' ),
+			   'description'	   => __('This value will be changed to 0px in the pages built with a page builder','kemet'),
                'linked_choices' => true,
                'unit_choices'   => array( 'px', 'em', '%' ),
                'choices'        => array(
