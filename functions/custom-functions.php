@@ -1559,3 +1559,17 @@ if ( ! function_exists( 'kemet_enable_page_builder' ) ) :
 	}
 
 endif;
+/**
+ * Header Layouts
+ */
+function kemet_header_layout($layout) {
+	
+	$kemet_layouts = array('header-main-layout-1' , 'header-main-layout-2' , 'header-main-layout-3');
+
+	if(! class_exists('Kemet_Addons' ) && !in_array( $layout , $kemet_layouts ) ){
+		$layout = 'header-main-layout-1';
+	}
+
+	return $layout;
+}
+add_filter( 'kemet_primary_header_layout', 'kemet_header_layout' );
