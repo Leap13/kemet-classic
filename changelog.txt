@@ -1,3 +1,6 @@
+v 1.0.6 version
+- Tweak: Beaver Builder compatibility.
+
 v 1.0.5 version
 - Fixed: Content Spacing issue.
 - Tweak: Elementor compatibility.
