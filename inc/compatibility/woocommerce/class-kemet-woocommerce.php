@@ -294,8 +294,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return array.
 		 */
 		function shop_page_products_item_class( $classes = '' ) {
-
-			$layout_style = kemet_get_option('shop-layout');
+			
 			if ( is_shop() || is_product_taxonomy() ) {
 
 				$shop_grid = kemet_get_option( 'shop-grids' );
