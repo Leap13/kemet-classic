@@ -386,7 +386,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'width' => kemet_responsive_slider($header_logo_width,'desktop'),
 				),
                 /* Site Identity Spacing */
-				'#sitehead.site-header .kmt-site-identity'  => array(
+				'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity'  => array(
 					'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
 					'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
@@ -843,7 +843,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_widget, 'left', 'desktop' ),
 				),
 			 	//layout header
-			    '.site-header .main-header-bar , .kemet-merged-top-bar-header'  => kemet_get_background_obj( $header_bg_obj ),
+			    '.site-header:not(.kmt-is-sticky) .main-header-bar , .kemet-merged-top-bar-header'  => kemet_get_background_obj( $header_bg_obj ),
 				// Blockquote Text Color.
 				'blockquote, blockquote a'                => array(
 					'color' => kemet_color_brightness( $headings_links_color, 75, 'darken' ),
@@ -1016,7 +1016,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size'      => kemet_responsive_slider( $widget_title_font_size, 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $widget_title_letter_spacing, 'tablet' ),
 				),
-				'#sitehead.site-header .kmt-site-identity'  => array(
+				'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity'  => array(
 					'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'tablet' ),
 					'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'tablet' ),
@@ -1243,7 +1243,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select'  => array(
 					'border-radius' => kemet_responsive_slider( $sidebar_input_border_radius, 'mobile' ),
 				),
-				'#sitehead.site-header .kmt-site-identity'  => array(
+				'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity'  => array(
 					'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'mobile' ),
 					'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'mobile' ),
