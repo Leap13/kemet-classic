@@ -74,3 +74,4 @@ require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-builder.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor-pro.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-themer.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-header-footer-elementor.php';
