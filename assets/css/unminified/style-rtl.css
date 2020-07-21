@@ -2104,7 +2104,7 @@ body .kmt-oembed-container * {
   margin-bottom: 0;
 }
 
-body:not(.kmt-separate-container) .kmt-article-post > div {
+body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   border-bottom: 1px;
   border-bottom-style: solid;
 }
@@ -2892,10 +2892,6 @@ body:not(.kmt-header-break-point) .header-main-layout-1:not(.reverse) .kmt-siteh
   vertical-align: top;
 }
 
-.kmt-header-break-point .header-main-layout-1 .site-branding {
-  padding-left: 1em;
-}
-
 .kmt-header-break-point .header-main-layout-1 .main-header-bar-navigation {
   text-align: right;
 }
@@ -3228,6 +3224,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 
 .kmt-header-break-point .header-main-layout-2 .site-branding {
   display: block;
+  width: auto;
 }
 
 .kmt-header-break-point .header-main-layout-2 .site-title {
@@ -3242,7 +3239,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 
 .kmt-header-break-point .header-main-layout-2 .site-branding,
 .kmt-header-break-point .header-main-layout-2 .kmt-mobile-menu-buttons {
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
 }
 
 .kmt-header-break-point .header-main-layout-2 .main-header-bar {
@@ -3307,6 +3304,9 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
     -moz-box-pack: left;
     -ms-flex-pack: left;
     justify-content: left;
+  }
+  .kmt-header-break-point .kmt-outside-menu .kmt-sitehead-custom-menu-items > div {
+    padding: 0.5em;
   }
   .kmt-header-break-point .kmt-mobile-header-stack .main-header-bar {
     padding: 1em 0 0;
@@ -3893,11 +3893,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  margin-left: auto;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -3910,11 +3906,12 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   display: initial;
 }
 
-.kmt-header-break-point li.kmt-sitehead-custom-menu-items {
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-bottom: 1em;
-  margin-top: 1em;
+.kmt-header-break-point .kmt-outside-menu li.kmt-sitehead-custom-menu-items {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .kmt-header-break-point .kmt-site-identity {

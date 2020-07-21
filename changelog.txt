@@ -1,3 +1,8 @@
+v 1.0.7 version
+- Tweak: Elementor- Header, Footer & Blocks Template compatibility.
+- Fixed: Responsive menu issue.
+- Fixed: product image styling issue.
+
 v 1.0.6 version
 - Tweak: Beaver Builder compatibility.
 

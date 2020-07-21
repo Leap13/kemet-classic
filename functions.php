@@ -8,7 +8,7 @@
 /**
  * Define Constants.
  */
-define('KEMET_THEME_VERSION', '1.0.6');
+define('KEMET_THEME_VERSION', '1.0.7');
 define('KEMET_THEME_DIR', get_template_directory().'/');
 define('KEMET_THEME_URI', get_template_directory_uri().'/');
 define('KEMET_THEME_SETTINGS', 'kemet-settings');
@@ -74,3 +74,4 @@ require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-builder.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor-pro.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-themer.php';
+require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-header-footer-elementor.php';

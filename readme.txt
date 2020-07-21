@@ -5,7 +5,7 @@ Author: Leap13
 Author URI: https://leap13.com/
 Requires PHP: 5.6
 Tested up to: 5.4
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Requires at least: WordPress 4.7
 Contributors: leap13
 License: GNU General Public License v2 or later
