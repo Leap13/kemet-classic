@@ -2892,10 +2892,6 @@ body:not(.kmt-header-break-point) .header-main-layout-1:not(.reverse) .kmt-siteh
   vertical-align: top;
 }
 
-.kmt-header-break-point .header-main-layout-1 .site-branding {
-  padding-left: 1em;
-}
-
 .kmt-header-break-point .header-main-layout-1 .main-header-bar-navigation {
   text-align: right;
 }
@@ -3242,7 +3238,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 
 .kmt-header-break-point .header-main-layout-2 .site-branding,
 .kmt-header-break-point .header-main-layout-2 .kmt-mobile-menu-buttons {
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
 }
 
 .kmt-header-break-point .header-main-layout-2 .main-header-bar {
@@ -3910,11 +3906,20 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   display: initial;
 }
 
-.kmt-header-break-point li.kmt-sitehead-custom-menu-items {
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-bottom: 1em;
-  margin-top: 1em;
+.kmt-header-break-point .kmt-outside-menu {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.kmt-header-break-point .kmt-outside-menu li.kmt-sitehead-custom-menu-items {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .kmt-header-break-point .kmt-site-identity {

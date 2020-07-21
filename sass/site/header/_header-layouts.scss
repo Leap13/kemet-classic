@@ -95,9 +95,6 @@ body:not(.kmt-header-break-point){
 }
 .kmt-header-break-point {
 	.header-main-layout-1 {
-		.site-branding{
-			padding-right: 1em;
-		}
 		.main-header-bar-navigation {
 			text-align: left;
 		}
@@ -381,7 +378,7 @@ body:not(.kmt-header-break-point){
 		}
 		.site-branding,
 		.kmt-mobile-menu-buttons {
-			padding-bottom: 1em;
+			padding-bottom: 1.5em;
 		}
 		.main-header-bar {
 	    	padding: 1em 0 0;
