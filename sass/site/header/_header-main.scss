@@ -205,7 +205,7 @@ li.kmt-sitehead-custom-menu-items {
 	}
 	.site-branding{
 		display: flex;
-		flex: 1;
+		margin-right: auto;
 		align-self: center;
 		padding-bottom: 1.5em;
 	}
@@ -216,7 +216,6 @@ li.kmt-sitehead-custom-menu-items {
 	}
 
 	.kmt-outside-menu{
-		flex: 1;
 		li.kmt-sitehead-custom-menu-items {
 			justify-content: flex-end;
 		}

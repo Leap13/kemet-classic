@@ -3224,6 +3224,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 
 .kmt-header-break-point .header-main-layout-2 .site-branding {
   display: block;
+  width: auto;
 }
 
 .kmt-header-break-point .header-main-layout-2 .site-title {
@@ -3303,6 +3304,9 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
     -moz-box-pack: left;
     -ms-flex-pack: left;
     justify-content: left;
+  }
+  .kmt-header-break-point .kmt-outside-menu .kmt-sitehead-custom-menu-items > div {
+    padding: 0.5em;
   }
   .kmt-header-break-point .kmt-mobile-header-stack .main-header-bar {
     padding: 1em 0 0;
@@ -3889,11 +3893,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  margin-right: auto;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -3904,14 +3904,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding: 0;
   width: auto;
   display: initial;
-}
-
-.kmt-header-break-point .kmt-outside-menu {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .kmt-header-break-point .kmt-outside-menu li.kmt-sitehead-custom-menu-items {

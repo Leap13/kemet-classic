@@ -367,6 +367,7 @@ body:not(.kmt-header-break-point){
 		}
 		.site-branding{
 			display: block;
+			width: auto;
 		}
 		.site-title {
 			text-align: left;
@@ -427,6 +428,13 @@ body:not(.kmt-header-break-point){
 
 			.site-title {
 				justify-content: left;
+			}
+		}
+		.kmt-outside-menu{
+			.kmt-sitehead-custom-menu-items{
+				>div{
+					padding: 0.5em;
+				}
 			}
 		}
 		.kmt-mobile-header-stack {

@@ -542,7 +542,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
 					'color' => esc_attr( $menu_link_active_color ),
 				),
-				'.site-header .kmt-sitehead-custom-menu-items > div' => array(
+				'.site-header .kmt-sitehead-custom-menu-items > div , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > div' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'desktop' ),
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'desktop' ),
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'desktop' ),
@@ -1026,7 +1026,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'tablet' ),
 					'border-width' => kemet_responsive_slider( $readmore_border_size , 'tablet'),
 				),
-				'.site-header .kmt-sitehead-custom-menu-items' => array(
+				'.site-header .kmt-sitehead-custom-menu-items > div , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > div' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'tablet' ),
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'tablet' ),
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'tablet' ),
@@ -1253,7 +1253,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'mobile' ),
 					'border-width' => kemet_responsive_slider( $readmore_border_size , 'mobile'),
 				),
-				'.site-header .kmt-sitehead-custom-menu-items' => array(
+				'.site-header .kmt-sitehead-custom-menu-items > div , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > div' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'mobile' ),
                 'padding-bottom' => kemet_responsive_spacing( $last_menu_items_spacing, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'mobile' ),
