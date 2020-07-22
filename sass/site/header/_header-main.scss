@@ -181,9 +181,10 @@ li.kmt-sitehead-custom-menu-items {
 	}
 }
 .main-header-menu {
-	> .menu-item { 
+	> .menu-item:hover { 
 		 > a {
-			 border-bottom: 1px solid transparent;
+			 border-bottom-width: 1px;
+			 border-bottom-style: solid;
 		 }
 	}
 }
@@ -193,7 +194,7 @@ li.kmt-sitehead-custom-menu-items {
 			 border-bottom: 1px solid transparent;
 		 }
 	}
-} 
+}
 .kmt-header-break-point {
 
 	&.kmt-header-custom-item-outside {

@@ -27,7 +27,39 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Blog - Buttons Font Size
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
+        'default'           => $defaults[ 'buttons-font-size' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-buttons-fields',
+            'priority'       => 2,
+            'label'          => __( 'Buttons Font Size', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 1,
+                    'step' => 1,
+                    'max' =>200,
+                ),
+                'em' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Button Color
 */

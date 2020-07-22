@@ -518,6 +518,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	if (jQuery('body').hasClass('woocommerce')) {
 		kemet_responsive_slider('kemet-settings[button-radius]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'border-radius');
 	}
+	kemet_responsive_slider('kemet-settings[buttons-font-size]', '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]', 'font-size');
+	if (jQuery('body').hasClass('woocommerce')) {
+		kemet_responsive_slider('kemet-settings[buttons-font-size]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'font-size');
+	}
 	/**
 	 * Button Border Color
 	 */

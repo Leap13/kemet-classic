@@ -3869,8 +3869,9 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding: 1em;
 }
 
-.main-header-menu > .menu-item > a {
-  border-bottom: 1px solid transparent;
+.main-header-menu > .menu-item:hover > a {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .main-header-menu > .menu-item > a {

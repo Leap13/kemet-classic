@@ -178,6 +178,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h6_font_color            = kemet_get_option( 'font-color-h6' );
 
 			// Button Styling.
+			$btn_font_size      = kemet_get_option( 'buttons-font-size' );
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 			$btn_padding 			= kemet_get_option( 'button-spacing' );
 			$highlight_link_color   = kemet_get_foreground_color( $theme_color );
@@ -721,6 +722,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding , 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $btn_padding , 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $btn_padding , 'left', 'desktop' ),
+					'font-size'		=> kemet_responsive_slider( $btn_font_size , 'desktop' ),
 				),
 
 				'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' => array(
@@ -1062,6 +1064,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
+					'font-size'		=> kemet_responsive_slider( $btn_font_size , 'desktop' ),
 				),
 				//header
 				'.site-header:not(.kmt-is-sticky) .main-header-bar' => array(
@@ -1280,6 +1283,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Button Typography.
 				'.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
+					'font-size'		=> kemet_responsive_slider( $btn_font_size , 'desktop' ),
 				),
 				//post readmore spacing
 				'.content-area p.read-more a' => array(
