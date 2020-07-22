@@ -1447,4 +1447,48 @@ $header_rt_sections = array(
 		)
 	);
 
+	/**
+	 * Option: Border Size
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-border-size]', array(
+			'default'           => $defaults[ 'mobile-menu-items-border-size' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-border-size]', array(
+			'type'        => 'number',
+			'section'     => 'section-menu-header',
+			'priority'    => 260,
+			'label'       => __( 'Border Bottom Size', 'kemet' ),
+			'input_attrs' => array(
+				'min'  => 0,
+				'step' => 1,
+				'max'  => 15,
+			),
+		)
+	);
 
+	/**
+	 * Option:Menu Mobile Menu Border Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[mobile-menu-items-border-color]', array(
+			'default'           => $defaults[ 'mobile-menu-items-border-color' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-border-color]', array(
+				'label'   => __( 'Border Bottom Color', 'kemet' ),
+				'priority'       => 265,
+				'section' => 'section-menu-header',
+			)
+		)
+	);

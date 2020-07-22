@@ -289,6 +289,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-menu-items-color'      => '',
 					'mobile-menu-items-bg-color'      => '',
 					'mobile-menu-items-h-color'      => '',
+					'mobile-menu-items-border-size'	=> '',
+					'mobile-menu-items-border-color'	=> '',
 
 					//Header Sections
 					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',

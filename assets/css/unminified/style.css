@@ -2571,7 +2571,8 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   padding: 0 20px;
   display: inline-block;
   width: 100%;
-  border-bottom: 1px solid #dadada;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .kmt-header-break-point .main-navigation ul.children li a,

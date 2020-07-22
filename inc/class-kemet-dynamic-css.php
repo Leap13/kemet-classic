@@ -164,6 +164,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$mobile_menu_items_color        = kemet_get_option('mobile-menu-items-color');
 			$mobile_menu_items_bg_color        = kemet_get_option('mobile-menu-items-bg-color' , kemet_color_brightness($global_bg_color , 0.99 , 'dark'));
 			$mobile_menu_items_h_color        = kemet_get_option('mobile-menu-items-h-color');
+			$mobile_menu_items_border_color        = kemet_get_option('mobile-menu-items-border-color' , $global_border_color);
+			$mobile_menu_items_border_size        = kemet_get_option('mobile-menu-items-border-size');
 
 			//header submenu
 			$submenu_bg_color               = kemet_get_option( 'submenu-bg-color' , kemet_color_brightness($global_bg_color , 0.99 , 'dark') );
@@ -510,17 +512,16 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon' => array(
 					'color'  => esc_attr( $mobile_menu_icon_h_color ),
 				),
-				'.toggle-on li a, .menu-toggle.toggled .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children>.kmt-menu-toggle' => array(
+				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a' => array(
 					'color'  => esc_attr( $mobile_menu_items_color ),
+					'border-color'  => esc_attr( $mobile_menu_items_border_color ),
+					'border-bottom-width' => kemet_get_css_value( $mobile_menu_items_border_size , 'px' ),
 				),
-				'.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a' => array(
+				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a:hover, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a:hover,.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a' => array(
 					'color'  => esc_attr( $mobile_menu_items_h_color ),
 				),
-				'.toggle-on .main-header-menu' => array(
+				'.toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu' => array(
 					'background-color' => esc_attr( $mobile_menu_items_bg_color ),
-				),
-				'.toggle-on .main-header-menu .menu-item:hover > a' => array(
-					'border-bottom-color'  => esc_attr( $mobile_menu_items_h_color ),
 				),
 
 				'input[type="radio"]:checked, input[type=reset], input[type="checkbox"]:checked, input[type="checkbox"]:hover:checked, input[type="checkbox"]:focus:checked, input[type=range]::-webkit-slider-thumb' => array(

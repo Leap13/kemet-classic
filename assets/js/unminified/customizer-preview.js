@@ -742,9 +742,18 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_css('kemet-settings[mobile-menu-icon-h-color]', 'color', '.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon');
 	kemet_css('kemet-settings[mobile-menu-icon-bg-color]', 'background-color', '.kmt-mobile-menu-buttons .menu-toggle');
 	kemet_css('kemet-settings[mobile-menu-icon-bg-h-color]', 'background-color', '.kmt-mobile-menu-buttons .menu-toggle:hover, .kmt-mobile-menu-buttons .menu-toggle.toggled');
-	kemet_css('kemet-settings[mobile-menu-items-color]', 'color', '.toggle-on li a');
-	kemet_css('kemet-settings[mobile-menu-items-h-color]', 'color', '.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a');
+	kemet_css('kemet-settings[mobile-menu-items-color]', 'color', '.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a');
+	kemet_css('kemet-settings[mobile-menu-items-h-color]', 'color', '.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a:hover, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a:hover,.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a');
+	kemet_css('kemet-settings[mobile-menu-items-border-color]', 'border-color', '.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a');
 
+	wp.customize('kemet-settings[mobile-menu-items-border-size]', function (setting) {
+		setting.bind(function (border) {
+
+			var dynamicStyle = '.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a { border-bottom-width: ' + border + 'px }';
+			kemet_add_dynamic_css('mobile-menu-items-border-size', dynamicStyle);
+
+		});
+	});
 	/**
 	 * Container Inner Spacing
 	 */
