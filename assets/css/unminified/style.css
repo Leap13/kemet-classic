@@ -3865,7 +3865,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   line-height: 1;
 }
 
-.kmt-sitehead-custom-menu-items > div {
+.kmt-sitehead-custom-menu-items > * {
   padding: 1em;
 }
 

@@ -627,7 +627,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
      * Header Spacing
      */
 	kemet_responsive_spacing('kemet-settings[header-padding]', '.site-header:not(.kmt-is-sticky) .main-header-bar', 'padding', ['top', 'bottom', 'right', 'left']);
-	kemet_responsive_spacing('kemet-settings[last-menu-item-spacing]', '.site-header .kmt-sitehead-custom-menu-items > div , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > div', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing('kemet-settings[last-menu-item-spacing]', '.site-header .kmt-sitehead-custom-menu-items > * , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > * ', 'padding', ['top', 'bottom', 'right', 'left']);
 
 	/**
 	 * menu background
@@ -640,7 +640,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 			kemet_background_obj_css(wp.customize, bg_obj, 'menu-bg-color', dynamicStyle);
 		});
 	});
-	kemet_css('kemet-settings[menu-link-color]', 'color', '.kmt-sitehead-custom-menu-items , .main-header-menu a');
+	kemet_responsive_spacing('kemet-settings[main-menu-item-spacing]', '.kmt-header-break-point .main-navigation ul li a,.kmt-sitehead-custom-menu-items > *, .main-header-menu a', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_css('kemet-settings[menu-link-color]', 'color', '.kmt-sitehead-custom-menu-items > *, .main-header-menu a');
 	kemet_css('kemet-settings[menu-link-bottom-border-color]', 'border-bottom-color', '.main-header-menu > .menu-item:hover > a');
 	kemet_css('kemet-settings[menu-items-text-transform]', 'text-transform', '.main-header-menu a');
 	kemet_css('kemet-settings[menu-items-line-height]', 'line-height', '.kmt-sitehead-custom-menu-items , .main-header-menu > .menu-item > a, .main-header-menu > .menu-item');
@@ -652,6 +653,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 */
 	kemet_css('kemet-settings[sub-menu-items-text-transform]', 'text-transform', '.main-header-menu .sub-menu li a');
 	kemet_css('kemet-settings[sub-menu-items-line-height]', 'line-height', '.main-header-menu .sub-menu li a');
+	kemet_responsive_spacing('kemet-settings[sub-menu-item-spacing]', '.main-header-menu .sub-menu li a,.kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a ', 'padding', ['top', 'bottom', 'right', 'left']);
 	
 	wp.customize('kemet-settings[submenu-bg-color]', function (value) {
 		value.bind(function (bg_obj) {
@@ -811,6 +813,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[sidebar-input-border-size]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-width');
 	kemet_responsive_slider('kemet-settings[sidebar-input-border-radius]', '.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select', 'border-radius');
 	kemet_css('kemet-settings[widget-title-color]', 'color', '.widget-head .widget-title');
+	kemet_responsive_slider('kemet-settings[sidebar-content-font-size]', '#secondary .sidebar-main *:not(.widget-title)', 'font-size');
 	/**
 	 * widget Title Border width
 	 */
@@ -999,6 +1002,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Listing Post 
 	 */
+	kemet_responsive_spacing('kemet-settings[pagination-padding]', '.site-content .kmt-pagination', 'padding', ['top', 'bottom', 'right', 'left']);
 	kemet_css('kemet-settings[listing-post-title-color]', 'color', '.content-area .entry-title a');
 	kemet_css('kemet-settings[readmore-text-color]', 'color', '.content-area .read-more a');
 	kemet_css('kemet-settings[readmore-text-h-color]', 'color', '.content-area .read-more a:hover');

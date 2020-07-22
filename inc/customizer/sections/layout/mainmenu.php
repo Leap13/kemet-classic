@@ -350,6 +350,37 @@ $header_rt_sections = array(
 			)
 		)
 	);
+
+	/**
+	 * Option: Main Menu Spacing
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[main-menu-item-spacing]', array(
+			'default'           => $defaults[ 'main-menu-item-spacing' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[main-menu-item-spacing]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-menu-header',
+				'priority'       => 61,
+				'label'          => __( 'Main Menu Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
+
 	/**
 	 * Option: Title
 	 */
@@ -1132,6 +1163,36 @@ $header_rt_sections = array(
 				'section'  => 'section-menu-header',
 				'priority' => 205,
 				'label'    => __( 'Submenu Separator Color', 'kemet' ),
+			)
+		)
+	);
+
+	/**
+	 * Option: SubMenu Spacing
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[sub-menu-item-spacing]', array(
+			'default'           => $defaults[ 'sub-menu-item-spacing' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-item-spacing]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-menu-header',
+				'priority'       => 206,
+				'label'          => __( 'SubMenu Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
 			)
 		)
 	);
