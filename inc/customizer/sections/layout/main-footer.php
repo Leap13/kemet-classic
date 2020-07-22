@@ -429,7 +429,7 @@ $wp_customize->add_setting(
         'default'           => $defaults[ 'footer-wgt-title-line-height' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
         'dependency'  => array(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
@@ -438,17 +438,28 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Slider(
+    new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-wgt-title-line-height]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-kemet-footer',
-            'priority'    => 55,
-            'label'       => __( 'Line Height', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 1,
-                'step' => 0.01,
-                'max'  => 5,
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-kemet-footer',
+            'priority'       => 55,
+            'label'          => __( 'Line Height', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' =>100,
+                ),
+                'em' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 10,
+                ),
+                '%' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 100,
+                ),
             ),
         )
     )
@@ -669,7 +680,7 @@ $wp_customize->add_setting(
         'default'           => $defaults[ 'footer-line-height' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
         'dependency'  => array(
             'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
             'conditions' => '!=', 
@@ -678,17 +689,28 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Slider(
+    new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[footer-line-height]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-kemet-footer',
-            'priority'    => 90,
-            'label'       => __( 'Line Height', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 1,
-                'step' => 0.01,
-                'max'  => 5,
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-kemet-footer',
+            'priority'       => 90,
+            'label'          => __( 'Line Height', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' =>100,
+                ),
+                'em' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 10,
+                ),
+                '%' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 100,
+                ),
             ),
         )
     )

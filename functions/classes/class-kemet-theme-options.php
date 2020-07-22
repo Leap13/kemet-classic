@@ -171,6 +171,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'input-radius'				   => '',
 					'input-border-size'				   => '',
 					'input-border-color'				   => '',
+					'input-border-color'				   => '',
+					'input-spacing'						   => '',	
 					// Main Menu 
 					'main-menu-item-spacing'			    => '',
 					'menu-link-color'						=> '',
