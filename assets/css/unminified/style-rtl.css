@@ -5662,7 +5662,6 @@ input[type="color"]::-webkit-color-swatch {
 .post-navigation a,
 .kmt-pagination .prev.page-numbers,
 .kmt-pagination .next.page-numbers {
-  padding: 0 1.5em;
   height: 2.33333em;
   line-height: -webkit-calc(2.33333em - 3px);
   line-height: calc(2.33333em - 3px);
@@ -5678,18 +5677,12 @@ input[type="color"]::-webkit-color-swatch {
   display: inline-block;
   width: 100%;
   padding-top: 2em;
+  padding-bottom: 40px;
 }
 
 @media (max-width: 768px) {
   .kmt-pagination {
     padding-top: 1.5em;
-  }
-}
-
-@media (min-width: 993px) {
-  .kmt-pagination {
-    padding-right: 3.33333em;
-    padding-left: 3.33333em;
   }
 }
 
@@ -5707,6 +5700,7 @@ input[type="color"]::-webkit-color-swatch {
 .kmt-pagination .nav-links {
   display: inline-block;
   width: 100%;
+  text-align: left;
 }
 
 @media (max-width: 420px) {

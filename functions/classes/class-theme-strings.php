@@ -62,8 +62,8 @@ if ( ! function_exists( 'kemet_theme_strings' ) ) {
 				'string-blog-meta-leave-a-comment'       => __( 'Leave a Comment', 'kemet' ),
 				'string-blog-meta-one-comment'           => __( '1 Comment', 'kemet' ),
 				'string-blog-meta-multiple-comment'      => __( '% Comments', 'kemet' ),
-				'string-blog-navigation-next'            => __( 'Next Page >', 'kemet' ),
-				'string-blog-navigation-previous'        =>  __( '< Previous Page', 'kemet' ),
+				'string-blog-navigation-next'            => __( 'Next >', 'kemet' ),
+				'string-blog-navigation-previous'        =>  __( '< Previous', 'kemet' ),
 
 				// Single Post Default Strings.
 				'string-single-page-links-before'        => __( 'Pages:', 'kemet' ),
