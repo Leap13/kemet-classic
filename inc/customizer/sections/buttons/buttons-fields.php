@@ -27,7 +27,39 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Blog - Buttons Font Size
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
+        'default'           => $defaults[ 'buttons-font-size' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-buttons-fields',
+            'priority'       => 2,
+            'label'          => __( 'Buttons Font Size', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 1,
+                    'step' => 1,
+                    'max' =>200,
+                ),
+                'em' => array(
+                    'min' => 0.1,
+                    'step' => 0.1,
+                    'max' => 10,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Button Color
 */
@@ -342,25 +374,36 @@ $wp_customize->add_setting(
         'default'           => $defaults[ 'input-border-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-		new Kemet_Control_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[input-border-size]', array(
-				'type'        => 'kmt-slider',
-				'section'     => 'section-buttons-fields',
-				'priority'    => 70,
-				'label'       => __( 'Border Size', 'kemet' ),
-                'suffix'      => '',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 10,
-				),
-			)
-		)
-	);
+    new Kemet_Control_Responsive_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[input-border-size]', array(
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-buttons-fields',
+            'priority'       => 70,
+            'label'          => __( 'Border Size', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' =>100,
+                ),
+                'em' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 10,
+                ),
+                '%' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 100,
+                ),
+            ),
+        )
+    )
+);
 /**
 * Option: Border Color
 */
@@ -378,6 +421,36 @@ $wp_customize->add_control(
             'section' => 'section-buttons-fields',
             'label'   => __( 'Border Color', 'kemet' ),
             'priority'    => 75,
+        )
+    )
+);
+
+/**
+* Option - Button Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[input-spacing]', array(
+        'default'           => $defaults[ 'input-spacing' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Spacing(
+        $wp_customize, KEMET_THEME_SETTINGS . '[input-spacing]', array(
+            'type'           => 'kmt-responsive-spacing',
+            'section'        => 'section-buttons-fields',
+            'priority'       => 85,
+            'label'          => __( 'Padding', 'kemet' ),
+            'linked_choices' => true,
+            'unit_choices'   => array( 'px', 'em', '%' ),
+            'choices'        => array(
+                'top'    => __( 'Top', 'kemet' ),
+                'right'  => __( 'Right', 'kemet' ),
+                'bottom' => __( 'Bottom', 'kemet' ),
+                'left'   => __( 'Left', 'kemet' ),
+            ),
         )
     )
 );

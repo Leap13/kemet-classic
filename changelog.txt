@@ -1,3 +1,17 @@
+v 1.0.8 version
+- Added: Five Blog Layouts using Kemet Addons. 
+- Added: Responsive controls for font size in buttons options.
+- Added: Responsive controls for font size in sidebar content.
+- Added: Responsive controls for product name font size.
+- Added: Responsive controls for main menu spacing.
+- Added: Responsive controls for pagination spacing.
+- Added: Responsive controls for body line height.
+- Added: Responsive controls for widget titles line height.
+- Added: Responsive controls for menu item line height.
+- Added: Responsive controls for Button's spacing and height.
+- Added: Border color option for separator menu item in responsive.
+- Tweak: Default border color for menu item in hover.
+
 v 1.0.7 version
 - Tweak: Elementor- Header, Footer & Blocks Template compatibility.
 - Fixed: Responsive menu issue.

@@ -245,7 +245,9 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function kemet_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
+				$classes = apply_filters( 'kemet_blog_post_container', array('blog-posts-container'));
 				echo '<div class="kmt-row">';
+					echo '<div class="' . implode(" ",$classes) . '">';
 			}
 		}
 
@@ -256,6 +258,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function kemet_templat_part_wrap_close() {
 			if ( is_archive() || is_search() || is_home() ) {
+					echo '</div>';
 				echo '</div>';
 			}
 		}

@@ -4,7 +4,6 @@
 .post-navigation a,
 .kmt-pagination .prev.page-numbers,
 .kmt-pagination .next.page-numbers {
-    padding: 0 1.5em;
     height: 2.33333em;
     line-height: calc(2.33333em - 3px);
 }
@@ -19,26 +18,24 @@
     display: inline-block;
     width: 100%;
     padding-top: 2em;
+    padding-bottom: 40px;
     @media(max-width: $mx-col-md) {
         padding-top: 1.5em;
     }
-    @media(min-width: $col-lg) {
-        padding-left: 3.33333em;
-        padding-right: 3.33333em;
-    }
     .page-numbers {
         display: inline-block;
-        width: 2.33333em;
-        height: 2.33333em;
+        width: 1.5em;
+        height: 1.5em;
         font-size: 16px;
         font-size: 1.06666rem;
-        line-height: calc(2.33333em - 3px);
+        line-height: calc(1.5em - 3px);
         text-align: center;
     }
 
     .nav-links {
         display: inline-block;
         width: 100%;
+        text-align: right;
     }
 
     @media( max-width: $mx-col-xs) {
@@ -75,8 +72,6 @@
         }
     }
     .next.page-numbers {
-        float: right;
-        text-align: right;
         @media(max-width: $mx-col-md) {
             display: inherit;
             float: none;

@@ -255,21 +255,32 @@ $wp_customize->add_setting(
         'default'           => $defaults[ 'widget-title-line-height' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Slider(
+    new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[widget-title-line-height]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-widgets',
-            'priority'    => 50,
-            'label'       => __( 'Line Height', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 1,
-                'step' => 0.01,
-                'max'  => 5,
+            'type'           => 'kmt-responsive-slider',
+            'section'        => 'section-widgets',
+            'priority'       => 50,
+            'label'          => __( 'Line Height', 'kemet' ),
+            'unit_choices'   => array(
+                'px' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' =>100,
+                ),
+                'em' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 10,
+                ),
+                '%' => array(
+                    'min' => 0,
+                    'step' => 1,
+                    'max' => 100,
+                ),
             ),
         )
     )
