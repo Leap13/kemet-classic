@@ -79,8 +79,8 @@ if ( ! function_exists( 'kemet_theme_strings' ) ) {
 		);
 
 		if ( is_rtl() ) {
-			$defaults['string-blog-navigation-next']     = __( 'Next Page >', 'kemet' );
-			$defaults['string-blog-navigation-previous'] = __( '< Previous Page', 'kemet' );
+			$defaults['string-blog-navigation-next']     = __( 'Next >', 'kemet' );
+			$defaults['string-blog-navigation-previous'] = __( '< Previous', 'kemet' );
 
 			/* translators: 1: Post type label */
 			$defaults['string-single-navigation-next'] = __( 'Next %s >', 'kemet' );

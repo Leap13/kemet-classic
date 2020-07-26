@@ -994,6 +994,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	/**
 	 * Content Text Color
 	 */
+	kemet_css('kemet-settings[listing-post-title-hover-color]', 'color', '.content-area .entry-title a:hover');
+	kemet_css('kemet-settings[main-entry-content-color]', 'color', '.content-area .entry-content');
 	kemet_css('kemet-settings[content-text-color]', 'color', '.entry-content');
 	wp.customize('kemet-settings[listing-post-meta-color]', function (value) {
 		value.bind(function (color) {
@@ -1061,7 +1063,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[letter-spacing-h5]', 'h5, .entry-content h5, .entry-content h5 a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-h6]', 'h1, .entry-content h6, .entry-content h6 a', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[widget-title-letter-spacing]', '.widget .widget-head .widget-title', 'letter-spacing');
-	kemet_responsive_slider('kemet-settings[letter-spacing-page-meta]', 'body:not(.kmt-single-post) .entry-meta', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-page-title]', 'body:not(.kmt-single-post) .entry-title', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-entry-title]', '.kmt-single-post .entry-header .entry-title', 'letter-spacing');
 })(jQuery);

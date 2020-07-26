@@ -197,36 +197,23 @@ $wp_customize->add_control(
         )
     )
 );
-/**
-* Option: Blog - Post Meta Font Size
-*/
+ /**
+ * Option: Post Title Font Family
+ */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[font-size-page-meta]', array(
-        'default'           => $defaults[ 'font-size-page-meta' ],
+    KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
+        'default'           => $defaults[ 'page-title-font-family' ],
         'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => 'sanitize_text_field',
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-meta]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-blog',
-            'priority'       => 55,
-            'label'          => __( 'Meta Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
+    new Kemet_Control_Typography(
+        $wp_customize, KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
+            'type'     => 'kmt-font-family',
+            'label'    => __( 'Title Font Family', 'kemet-addons' ),
+            'section'  => 'section-blog',
+            'priority' => 51,
         )
     )
 );
@@ -259,34 +246,6 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Meta Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-page-meta]', array(
-        'default'           => $defaults[ 'letter-spacing-page-meta' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-page-meta]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-blog',
-            'priority'       => 58,
-            'label'          => __( 'Meta Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
-/**
 * Option:Post Title Color
 */
 $wp_customize->add_setting(
@@ -302,6 +261,26 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-title-color]', array(
             'label'   => __( 'Title Font Color', 'kemet' ),
             'priority'       => 60,
+            'section' => 'section-blog',
+        )
+    )
+);
+/**
+* Option:Post Title Hover Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[listing-post-title-hover-color]', array(
+        'default'           => $defaults[ 'listing-post-title-hover-color' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[listing-post-title-hover-color]', array(
+            'label'   => __( 'Title Hover Color', 'kemet' ),
+            'priority'       => 61,
             'section' => 'section-blog',
         )
     )
@@ -356,7 +335,26 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option:Post Main Content Entry Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[main-entry-content-color]', array(
+        'default'           => $defaults[ 'main-entry-content-color' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize, KEMET_THEME_SETTINGS . '[main-entry-content-color]', array(
+            'label'   => __( 'Main Content Entry Color', 'kemet' ),
+            'priority'       => 66,
+            'section' => 'section-blog',
+        )
+    )
+);
 /**
 * Option: Title
 */
@@ -372,6 +370,24 @@ $wp_customize->add_control(
     )
 );
 /**
+ * Option: Enable Read more as button
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[readmore-as-button]', array(
+        'default'           => $defaults[ 'readmore-as-button' ],
+        'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[readmore-as-button]', array(
+        'type'            => 'checkbox',
+        'section'         => 'section-blog',
+        'label'           => __( 'Enable Read More As Button', 'kemet-addons' ),
+        'priority'        => 71,
+    )
+);
+/**
 * Option:Post Read More Text Color
 */
 $wp_customize->add_setting(
@@ -380,6 +396,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -401,6 +422,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -422,6 +448,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -442,6 +473,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -462,6 +498,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -500,6 +541,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -528,6 +574,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -549,6 +600,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
@@ -569,6 +625,11 @@ $wp_customize->add_setting(
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+            'conditions' => '==', 
+            'values' => true,
+        ),
     )
 );
 $wp_customize->add_control(
