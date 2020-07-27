@@ -202,6 +202,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$listing_post_content_color         = kemet_get_option( 'post-content-color' );
 			$main_entry_content_color         = kemet_get_option( 'main-entry-content-color' );
 			$archive_post_meta_font_size = kemet_get_option( 'font-size-page-meta' );
+			$meta_color = kemet_get_option( 'listing-post-meta-color' );
 			$pagination_padding    = kemet_get_option( 'pagination-padding' );
             //Footer Font
 			$footer_font_family            = kemet_get_option( 'footer-font-family' );
