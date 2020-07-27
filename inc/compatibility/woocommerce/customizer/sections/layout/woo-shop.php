@@ -149,7 +149,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[product-title-font-size]', array(
-        'default'           => $defaults[ 'product-title-font-size' ],
+        'default'           => kemet_get_option( 'product-title-font-size' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -183,7 +183,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[product-content-font-size]', array(
-        'default'           => $defaults[ 'product-content-font-size' ],
+        'default'           => kemet_get_option( 'product-content-font-size' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
@@ -217,7 +217,7 @@ $wp_customize->add_control(
 */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[product-price-font-size]', array(
-        'default'           => $defaults[ 'product-price-font-size' ],
+        'default'           => kemet_get_option( 'product-price-font-size' ),
         'type'              => 'option',
         'transport'         => 'postMessage',
         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),

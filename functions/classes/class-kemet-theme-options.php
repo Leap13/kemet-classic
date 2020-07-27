@@ -135,6 +135,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'readmore-bg-h-color'			=> '',
 					'letter-spacing-page-title'	=> '',
 					'letter-spacing-entry-title'     => '',
+					'page-title-font-family'		=> 'inherit',
 					// Kemet Colors.
 					'smart-skin'				   => '',
 					'theme-color'                      => '#0085ba',	
