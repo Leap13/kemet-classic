@@ -301,6 +301,10 @@ function kemet_sidebars_before() {
 	do_action( 'kemet_sidebars_before' );
 }
 
+function kemet_sidebars_after() {
+	do_action( 'kemet_sidebars_after' );
+}
+
 /**
  * Semantic <footer> hooks
  *
