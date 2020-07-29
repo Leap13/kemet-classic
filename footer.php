@@ -16,7 +16,11 @@
 
 		</div><!-- #content --> 
 
+		<?php kemet_footer_before(); ?>
+
 		<?php kemet_footer(); ?>
+
+		<?php kemet_footer_after(); ?>
 
 	</div><!-- #page -->
 

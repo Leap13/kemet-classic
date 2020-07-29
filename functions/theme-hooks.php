@@ -237,6 +237,20 @@ function kemet_entry_content_after() {
 }
 
 /**
+ * Primary Content Top
+ */
+function kemet_primary_content_top() {
+	do_action( 'kemet_primary_content_top' );
+}
+
+/**
+ * Primary Content Bottom
+ */
+function kemet_primary_content_bottom() {
+	do_action( 'kemet_primary_content_bottom' );
+}
+
+/**
  * Entry Top
  */
 function kemet_entry_top() {
@@ -300,7 +314,9 @@ function kemet_blog_post_featured_format() {
 function kemet_sidebars_before() {
 	do_action( 'kemet_sidebars_before' );
 }
-
+/**
+ * Sidebars after
+ */
 function kemet_sidebars_after() {
 	do_action( 'kemet_sidebars_after' );
 }
@@ -334,7 +350,19 @@ function kemet_footer_content() {
 function kemet_footer_content_bottom() {
 	do_action( 'kemet_footer_content_bottom' );
 }
+/**
+ * Footer before
+ */
+function kemet_footer_before() {
+	do_action( 'kemet_footer_before' );
+}
 
+/**
+ * Footer after
+ */
+function kemet_footer_after() {
+	do_action( 'kemet_footer_after' );
+}
 /**
  * Archive header
  */
@@ -375,6 +403,30 @@ function kemet_404_content_template() {
 function kemet_body_bottom() {
 	do_action( 'kemet_body_bottom' );
 }
+
+/**
+ * Body Top
+ */
+function kemet_body_top() {
+	do_action( 'kemet_body_top' );
+}
+
+/**
+ * Comments block hooks
+ *
+ * $kemet_supports[] = 'comments';
+ */
+function kemet_comments_before() {
+	do_action( 'kemet_comments_before' );
+}
+
+/**
+ * Comments after.
+ */
+function kemet_comments_after() {
+	do_action( 'kemet_comments_after' );
+}
+
 /**
  *  Backward compatibility
  */
