@@ -259,6 +259,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;
 
+			$defaults['product-title-font-size']     = '';
+			$defaults['product-content-font-size']     = '';
+			$defaults['product-price-font-size']     = '';
+
 			return $defaults;
 		}
 
