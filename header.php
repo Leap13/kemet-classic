@@ -10,6 +10,7 @@
  * 
  */
 ?><!DOCTYPE html>
+<?php kemet_html_before(); ?>
 <html <?php language_attributes(); ?>>
 <head>
 <?php kemet_head_top(); ?>
@@ -17,6 +18,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <?php wp_head(); ?>
+<?php kemet_head_bottom(); ?>
 </head>
 
 <body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
@@ -31,6 +33,10 @@
     
     <?php kemet_after_header_block(); ?>
 
+	<?php kemet_content_before(); ?>
+
 	<div id="content" class="site-content">
 
 		<div class="kmt-container">
+
+		<?php kemet_content_top(); ?>

@@ -88,10 +88,20 @@ add_filter( 'current_theme_supports-kemet_hooks', 'kemet_current_theme_supports'
  *
  * $kemet_supports[] = 'head';
  */
+function kemet_html_before() {
+	do_action( 'kemet_html_before' );
+}
+
 function kemet_head_top() {
 	do_action( 'kemet_head_top' );
 }
 
+/**
+ * Head Bottom
+ */
+function kemet_head_bottom() {
+	do_action( 'kemet_head_bottom' );
+}
 /**
  * Site Header
  */
@@ -175,6 +185,33 @@ function kemet_sitehead_toggle_buttons_after() {
 	do_action( 'kemet_sitehead_toggle_buttons_after' );
 }
 
+/**
+ * Content before
+ */
+function kemet_content_before() {
+	do_action( 'kemet_content_before' );
+}
+
+/**
+ * Content after
+ */
+function kemet_content_after() {
+	do_action( 'kemet_content_after' );
+}
+
+/**
+ * Content top
+ */
+function kemet_content_top() {
+	do_action( 'kemet_content_top' );
+}
+
+/**
+ * Content bottom
+ */
+function kemet_content_bottom() {
+	do_action( 'kemet_content_bottom' );
+}
 
 /**
  * Content while before

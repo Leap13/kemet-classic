@@ -33,6 +33,7 @@ $classes   = implode( ' ', $classes );
 <div class="<?php echo esc_attr( $classes ); ?>">
 	<div class="kemet-footer-overlay">
 		<div class="kmt-container">
+		<?php do_action( 'kemet_footer_inside_container_top' ); ?>
 			<div class="kmt-row">
 				<div class="kmt-col-lg-12 kmt-col-md-12 kmt-col-sm-12 kmt-col-xs-12 kemet-footer-widget kemet-footer-widget-1">
 					<?php kemet_get_footer_widget( 'main-footer-widget-1' ); ?>
@@ -49,6 +50,7 @@ $classes   = implode( ' ', $classes );
 					<?php kemet_get_footer_widget( 'main-footer-widget-4' ); ?>
 				</div>
 			</div><!-- .kmt-row -->
+		<?php do_action( 'kemet_footer_inside_container_bottom' ); ?>
 		</div><!-- .kmt-container -->
 	</div><!-- .kemet-footer-overlay-->
 </div><!-- .kmt-theme-footer .kemet-footer-layout-6 -->
