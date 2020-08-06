@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
+$defaults = Kemet_Theme_Options::defaults();
 /**
 * Option: Shop Columns
 */
