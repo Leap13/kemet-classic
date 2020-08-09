@@ -1104,6 +1104,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 		});
 	});
-	kemet_css('kemet-settings[cart-dropdown-border-color]', 'border-color', '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart');
+	kemet_css('kemet-settings[cart-dropdown-border-color]', 'border-color', '.site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart');
 
 })(jQuery);

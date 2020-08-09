@@ -690,7 +690,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_dropdown_bg_color = kemet_get_option( 'cart-dropdown-bg-color' ,$global_bg_color );
 
 			$css_output = array(
-				'.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart' => array(
+				'.site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart' => array(
 					'width' => kemet_get_css_value( $cart_dropdown_width , 'px' ),
 					'background-color' => esc_attr($cart_dropdown_bg_color), 
 					'border-width' => kemet_get_css_value( $cart_dropdown_border_size , 'px' ),
