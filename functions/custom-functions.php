@@ -350,6 +350,9 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 		} elseif ( 'top-section-2' == $option_name ) {
 			$widget_id = 'top-widget-section2';
 		}
+		if ( 'off-canvas-filter' == $option_name ) {
+			$widget_id = 'off-canvas-filter-widget';
+		}
 
 		echo '<div class="kmt-' . $widget_id . '-area">';
 				kemet_get_sidebar( $widget_id );

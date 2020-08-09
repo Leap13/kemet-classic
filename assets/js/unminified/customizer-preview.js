@@ -515,8 +515,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Button Border Radius
 	 */
 	kemet_responsive_slider('kemet-settings[button-radius]', '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]', 'border-radius');
-	if (jQuery('body').hasClass('woocommerce')) {
-		kemet_responsive_slider('kemet-settings[button-radius]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'border-radius');
+	if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
+		kemet_responsive_slider('kemet-settings[button-radius]', 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button', 'border-radius');
 	}
 
 	kemet_responsive_slider('kemet-settings[product-title-font-size]', '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title', 'font-size');
@@ -526,7 +526,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[product-content-font-size]', '.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description', 'font-size');
 
 	kemet_responsive_slider('kemet-settings[buttons-font-size]', '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]', 'font-size');
-	if (jQuery('body').hasClass('woocommerce')) {
+	if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
 		kemet_responsive_slider('kemet-settings[buttons-font-size]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'font-size');
 	}
 	/**
@@ -537,10 +537,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		value.bind(function (border_color) {
 			jQuery('').css('border-color', border_color);
 			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-color: ' + border_color + '; } ';
-			kemet_add_dynamic_css('btn-border-color', dynamicStyle);
-			if (jQuery('body').hasClass('woocommerce')) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled { border-color: ' + border_color + '; } ';
+			if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
+				dynamicStyle += 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button { border-color: ' + border_color + '; } ';
 			}
+			kemet_add_dynamic_css('btn-border-color', dynamicStyle);
 		});
 	});
 	wp.customize('kemet-settings[btn-border-h-color]', function (value) {
@@ -552,8 +552,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 				var dynamicStyle = 'button:focus, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus { border-color: ' + color + '; } ';
 			}
-			if (jQuery('body').hasClass('woocommerce')) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled { border-color: ' + color + '; } ';
+			if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
+				dynamicStyle += '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover { border-color: ' + color + '; } ';
 			}
 			kemet_add_dynamic_css('btn-border-h-color', dynamicStyle);
 		});
@@ -563,6 +563,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 			var dynamicStyle = '.menu-toggle, button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover { border-width: ' + border + 'px }';
 
+			if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
+				dynamicStyle += 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button { border-width: ' + border + 'px }';
+			}
+
 			kemet_add_dynamic_css('btn-border-size', dynamicStyle);
 		});
 	});
@@ -571,7 +575,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	 * Button Horizontal Padding
 	 */
 	kemet_responsive_spacing('kemet-settings[button-spacing]', '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]', 'padding', ['top', 'bottom', 'right', 'left']);
-	if (jQuery('body').hasClass('woocommerce')) {
+	if (jQuery('body').hasClass('woocommerce') || jQuery('body').hasClass('woocommerce-page')) {
 		kemet_responsive_spacing('kemet-settings[button-spacing]', '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', ['top', 'bottom', 'right', 'left']);
 	}
 
@@ -1065,4 +1069,41 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	kemet_responsive_slider('kemet-settings[widget-title-letter-spacing]', '.widget .widget-head .widget-title', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-page-title]', 'body:not(.kmt-single-post) .entry-title', 'letter-spacing');
 	kemet_responsive_slider('kemet-settings[letter-spacing-entry-title]', '.kmt-single-post .entry-header .entry-title', 'letter-spacing');
+	/*
+	* Woocommerce
+	*/
+	kemet_css('kemet-settings[rating-color]', 'color', '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before');
+	/**
+	 * DropDown
+	 */
+	wp.customize('kemet-settings[cart-dropdown-width]', function (setting) {
+		setting.bind(function (width) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { width: ' + (parseInt(width)) + 'px }';
+
+			kemet_add_dynamic_css('cart-dropdown-width', dynamicStyle);
+
+		});
+	});
+	wp.customize('kemet-settings[cart-dropdown-border-size]', function (setting) {
+		setting.bind(function (border) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { border-width: ' + (parseInt(border)) + 'px }';
+
+			kemet_add_dynamic_css('cart-dropdown-border-size', dynamicStyle);
+
+		});
+	});
+
+	wp.customize('kemet-settings[cart-dropdown-bg-color]', function (setting) {
+		setting.bind(function (color) {
+
+			var dynamicStyle = '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart { background-color: ' + color + ' }';
+			dynamicStyle += '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before ,.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after { border-bottom-color: ' + color + ' }';
+			kemet_add_dynamic_css('cart-dropdown-bg-color', dynamicStyle);
+
+		});
+	});
+	kemet_css('kemet-settings[cart-dropdown-border-color]', 'border-color', '.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart');
+
 })(jQuery);
