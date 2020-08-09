@@ -22,7 +22,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-shop-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Shop Settings', 'kemet-addons' ),
+            'label'    => __( 'Shop Settings', 'kemet' ),
             'section'  => 'section-woo-shop',
             'priority' => 10,
             'settings' => array(),

@@ -21,7 +21,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-rating-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Rating Style', 'kemet-addons' ),
+            'label'    => __( 'Rating Style', 'kemet' ),
             'section'  => 'section-woo-general',
             'priority' => 15,
             'settings' => array(),
@@ -43,7 +43,7 @@ $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize, KEMET_THEME_SETTINGS . '[rating-color]', array(
             'section' => 'section-woo-general',
-            'label'   => __( 'Rating color', 'kemet-addons' ),
+            'label'   => __( 'Rating color', 'kemet' ),
             'priority'=> 15,
         )
     )
@@ -56,7 +56,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-cart-dropdown-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Cart Dropdowns Settings', 'kemet-addons' ),
+            'label'    => __( 'Cart Dropdowns Settings', 'kemet' ),
             'section'  => 'section-woo-general',
             'priority' => 20,
             'settings' => array(),
@@ -105,7 +105,7 @@ $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-bg-color]', array(
             'section' => 'section-woo-general',
-            'label'   => __( 'Cart Dropdown Background Color', 'kemet-addons' ),
+            'label'   => __( 'Cart Dropdown Background Color', 'kemet' ),
             'priority'=> 25,
         )
     )
@@ -152,7 +152,7 @@ $wp_customize->add_control(
     new WP_Customize_Color_Control(
         $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-border-color]', array(
             'section' => 'section-woo-general',
-            'label'   => __( 'Cart Dropdown Border Color', 'kemet-addons' ),
+            'label'   => __( 'Cart Dropdown Border Color', 'kemet' ),
             'priority'=> 35,
         )
     )
