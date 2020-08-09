@@ -422,7 +422,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
 
 				$woo_sidebar = kemet_get_option( 'woocommerce-sidebar-layout' );
-
+				$shop_sidebar = '';
+				
 				if ( 'default' !== $woo_sidebar ) {
 
 					$sidebar_layout = $woo_sidebar;
