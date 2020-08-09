@@ -24,8 +24,11 @@ if ( ! function_exists( 'kemet_woo_shop_products_title' ) ) :
 	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_products_title() {
+		//echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
+
 		echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
 
+		//echo '</a>';
 	}
 
 endif;
@@ -190,7 +193,7 @@ if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 						break;
 				}
 			}
-			
+
 			if ( class_exists( 'TInvWL_Wishlist' ) ) {
 				echo '<div class="woo-wishlist-btn button">'. do_shortcode( '[ti_wishlists_addtowishlist]' ) .'</div>';
 			}
@@ -274,7 +277,7 @@ endif;
  */
 function product_list_details() {
 
-	echo '<div class="product-list-details">';
+	echo '<div class="product-list-details">';	
 	do_action( 'kemet_product_list_details_top' );
 	echo '<div class="product-list-img">';
 	echo '<a href="' . esc_url( get_the_permalink() ) . '" class="kmt-loop-product__link">';
@@ -288,7 +291,6 @@ function after_shop_loop_item_title() {
 	do_action( 'kemet_product_list_image_bottom' );
 	echo '</div>';
 	echo '<div class="product-info">';
-
 	/**
 	 * Add Product Title on shop page for all products.
 	 */
