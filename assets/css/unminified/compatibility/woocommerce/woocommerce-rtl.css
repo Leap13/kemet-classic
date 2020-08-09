@@ -158,7 +158,6 @@ p.demo_store a,
 
 .woocommerce .kmt-site-header-cart .widget_shopping_cart,
 .kmt-site-header-cart .widget_shopping_cart {
-  background-color: #fff;
   position: absolute;
   top: 100%;
   width: 280px;
@@ -169,7 +168,8 @@ p.demo_store a,
   line-height: 1.618;
   box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
   transition: all 0.3s ease;
-  border: 2px solid #E6E6E6;
+  border-width: 2px;
+  border-style: solid;
   opacity: 0;
   visibility: hidden;
 }
@@ -296,7 +296,7 @@ p.demo_store a,
 }
 
 .kmt-cart-menu-wrap .count {
-  font-size: 1.3em;
+  font-size: 15px;
 }
 
 .kmt-cart-menu-wrap .count:before {
@@ -306,7 +306,6 @@ p.demo_store a,
   font-size: 1.6rem;
   font-weight: 500;
   text-rendering: auto;
-  margin-bottom: 8px;
   vertical-align: middle;
 }
 
@@ -1178,11 +1177,6 @@ p.demo_store a,
 
 .woocommerce div.product .related.products ul.products {
   margin: 0;
-}
-
-.woocommerce div.product .related.products ul.products li.product {
-  width: 22.5%;
-  width: calc( 25% - 15px);
 }
 
 @media (max-width: 768px) and (min-width: 545px) {
@@ -2751,23 +2745,6 @@ p.demo_store a,
   font-weight: 700;
 }
 
-.woocommerce #content .kmt-woocommerce-container div.product div.images,
-.woocommerce .kmt-woocommerce-container div.product div.images,
-.woocommerce-page #content .kmt-woocommerce-container div.product div.images,
-.woocommerce-page .kmt-woocommerce-container div.product div.images {
-  width: 380px;
-  margin-left: 3%;
-  margin-bottom: 20px;
-  max-width: 40%;
-}
-
-.woocommerce #content .kmt-woocommerce-container div.product div.summary,
-.woocommerce .kmt-woocommerce-container div.product div.summary,
-.woocommerce-page #content .kmt-woocommerce-container div.product div.summary,
-.woocommerce-page .kmt-woocommerce-container div.product div.summary {
-  max-width: 57%;
-}
-
 .woocommerce #content table.cart td.actions .input-text,
 .woocommerce-page #content table.cart td.actions .input-text {
   width: auto;
@@ -2832,6 +2809,19 @@ p.demo_store a,
   .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li a {
     display: block;
   }
+}
+
+#content .kmt-woocommerce-container div.product div.images,
+.kmt-woocommerce-container div.product div.images {
+  width: 380px;
+  margin-left: 3%;
+  margin-bottom: 20px;
+  max-width: 40%;
+}
+
+#content .kmt-woocommerce-container div.product div.summary,
+.kmt-woocommerce-container div.product div.summary {
+  max-width: 57%;
 }
 
 .kmt-separate-container .kmt-woocommerce-container {
@@ -4444,7 +4434,27 @@ button.pswp__button--zoom:hover {
   display: flex;
 }
 
+body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
+  border: none;
+}
+
+body:not(.kmt-separate-container).woocommerce ul.products li.product .woo-wishlist-btn {
+  margin-bottom: 0;
+}
+
+body:not(.kmt-separate-container).woocommerce ul.products li.product > .tinv-wishlist {
+  display: none;
+}
+
+body:not(.kmt-separate-container).woocommerce ul.products li.product .tinvwl_add_to_wishlist_button {
+  margin-top: 0;
+}
+
 /* Extra style */
+.shop-grid.woocommerce ul.products li.product {
+  height: fit-content;
+}
+
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap {
   text-align: center;
   border-width: 1px;
@@ -4474,7 +4484,7 @@ button.pswp__button--zoom:hover {
 }
 
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap > * {
-  padding: 10px 0px;
+  padding: 10px;
   border-top-width: 1px;
   border-top-style: solid;
 }
@@ -4501,6 +4511,10 @@ button.pswp__button--zoom:hover {
 
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .button:hover {
   background-color: transparent;
+}
+
+.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .tinvwl_add_to_wishlist_button {
+  margin-top: 0;
 }
 
 .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .kmt-product-rating .star-rating::before {
@@ -4536,6 +4550,11 @@ button.pswp__button--zoom:hover {
 
 .shop-grid.woocommerce ul.products li.product .product-list-details .woocommerce-loop-product__title {
   margin-top: 20px;
+}
+
+.shop-grid.woocommerce ul.products li.product .product-list-details .kmt-shop-product-out-of-stock {
+  bottom: 5em;
+  padding: .5em .7em;
 }
 
 .shop-grid.woocommerce ul.products li.product .star-rating::before {

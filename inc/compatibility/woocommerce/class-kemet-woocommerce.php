@@ -667,6 +667,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$btn_h_color = kemet_get_option( 'button-h-color' , $btn_color );
 			$btn_bg_color   = kemet_get_option( 'button-bg-color' , $theme_color);
 			$btn_bg_h_color = kemet_get_option( 'button-bg-h-color' , kemet_color_brightness($theme_color , 0.8 , 'dark') );
+			$btn_border_color    = kemet_get_option( 'btn-border-color' );
+			$btn_padding 			= kemet_get_option( 'button-spacing' );
+			$btn_border_size     = kemet_get_option( 'btn-border-size' );
+			$btn_border_color    = kemet_get_option( 'btn-border-color' );
+			$btn_border_h_color  = kemet_get_option( 'btn-border-h-color' );
 
 			$btn_border_radius      = kemet_get_option( 'button-radius' );
 
@@ -799,6 +804,15 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce a' => array(
 					'color'            => esc_attr( $headings_links_color ),
 					'border-color'     => esc_attr( $global_border_color ),
+				),
+				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title'                => array(
+					'font-size'            => kemet_responsive_slider( $product_title_font_size, 'desktop' ),
+				),
+				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins'                => array(
+					'font-size'            => kemet_responsive_slider( $product_price_font_size, 'desktop' ),
+				),
+				'.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description'                => array(
+					'font-size'            => kemet_responsive_slider( $product_content_font_size, 'desktop' ),
 				),
 			);
 

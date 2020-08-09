@@ -14,121 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $defaults = Kemet_Theme_Options::defaults();
-/**
- * Option: Rating color
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[rating-color]', array(
-        'default'           => $defaults[ 'rating-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
-    )
-);
-$wp_customize->add_control(
-    new WP_Customize_Color_Control(
-        $wp_customize, KEMET_THEME_SETTINGS . '[rating-color]', array(
-            'section' => 'section-woo-general',
-            'label'   => __( 'Rating color', 'kemet-addons' ),
-            'priority'=> 15,
-        )
-    )
-);
-/**
-* Option: Cart Dropdown Width (px)
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[cart-dropdown-width]', array(
-        'default'           => $defaults['cart-dropdown-width'],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-width]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-woo-general',
-            'priority'    => 20,
-            'label'       => __( 'Cart Dropdowns Width (px)', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 50,
-                'step' => 1,
-                'max'  => 600,
-            ),
-        )
-    )
-);
-/**
- * Option: Cart Dropdown Background Color
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[cart-dropdown-bg-color]', array(
-        'default'           => $defaults[ 'cart-dropdown-bg-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
-    )
-);
-$wp_customize->add_control(
-    new WP_Customize_Color_Control(
-        $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-bg-color]', array(
-            'section' => 'section-woo-general',
-            'label'   => __( 'Cart Dropdown Background Color', 'kemet-addons' ),
-            'priority'=> 25,
-        )
-    )
-);
-/**
-* Option: Cart Dropdown Border Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[cart-dropdown-border-size]', array(
-        'default'           => $defaults['cart-dropdown-border-size'],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-border-size]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-woo-general',
-            'priority'    => 30,
-            'label'       => __( 'Cart Dropdown Border Size', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 1,
-                'step' => 1,
-                'max'  => 100,
-            ),
-        )
-    )
-);
-/**
- * Option: Cart Dropdown Border Color
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[cart-dropdown-border-color]', array(
-        'default'           => $defaults[ 'cart-dropdown-border-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_hex_color' ),
-    )
-);
-$wp_customize->add_control(
-    new WP_Customize_Color_Control(
-        $wp_customize, KEMET_THEME_SETTINGS . '[cart-dropdown-border-color]', array(
-            'section' => 'section-woo-general',
-            'label'   => __( 'Cart Dropdown Border Color', 'kemet-addons' ),
-            'priority'=> 35,
-        )
-    )
-);
 
+/**
+ * Option: Title
+ */
+$wp_customize->add_control(
+    new Kemet_Control_Title(
+        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-shop-title]', array(
+            'type'     => 'kmt-title',
+            'label'    => __( 'Shop Settings', 'kemet-addons' ),
+            'section'  => 'section-woo-shop',
+            'priority' => 10,
+            'settings' => array(),
+        )
+    )
+);
 /**
 * Option: Shop Columns
 */
@@ -257,6 +157,38 @@ $wp_customize->add_control(
         ),
     )
 );
+/**
+* Option: Enter Width
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
+        'default'           => 1200,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'dependency'  => array(
+            'controls' =>  KEMET_THEME_SETTINGS . '[shop-archive-width]', 
+            'conditions' => '==', 
+            'values' => 'custom',
+        ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
+            'type'        => 'kmt-slider',
+            'section'     => 'section-woo-shop',
+            'priority'    => 36,
+            'label'       => __( 'Enter Width', 'kemet' ),
+            'suffix'      => '',
+            'input_attrs' => array(
+                'min'  => 768,
+                'step' => 1,
+                'max'  => 1920,
+            ),
+        )
+    )
+);
  /**
 * Option:  Product Title Font Size
 */
@@ -273,7 +205,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-size]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-woo-shop',
-            'priority'       => 221,
+            'priority'       => 37,
             'label'          => __( 'Product Title Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
@@ -307,7 +239,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-size]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-woo-shop',
-            'priority'       => 222,
+            'priority'       => 38,
             'label'          => __( 'Product Content Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
@@ -341,7 +273,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-size]', array(
             'type'           => 'kmt-responsive-slider',
             'section'        => 'section-woo-shop',
-            'priority'       => 223,
+            'priority'       => 39,
             'label'          => __( 'Product Price Font Size', 'kemet' ),
             'unit_choices'   => array(
                 'px' => array(
@@ -359,35 +291,3 @@ $wp_customize->add_control(
     )
 );
 
-/**
-* Option: Enter Width
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
-        'default'           => 1200,
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[shop-archive-width]', 
-            'conditions' => '==', 
-            'values' => 'custom',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
-            'type'        => 'kmt-slider',
-            'section'     => 'section-woo-shop',
-            'priority'    => 40,
-            'label'       => __( 'Enter Width', 'kemet' ),
-            'suffix'      => '',
-            'input_attrs' => array(
-                'min'  => 768,
-                'step' => 1,
-                'max'  => 1920,
-            ),
-        )
-    )
-);
