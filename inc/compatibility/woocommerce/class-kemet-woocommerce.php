@@ -232,7 +232,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			// Sidebar.
 			$defaults['woocommerce-sidebar-layout']    = 'no-sidebar';
-			$defaults['single-product-sidebar-layout'] = 'default';
+			$defaults['single-product-sidebar-layout'] = 'no-sidebar';
 
 			/* Shop */
 			$defaults['shop-grids']             = array(
@@ -695,6 +695,15 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'background-color' => esc_attr($cart_dropdown_bg_color), 
 					'border-width' => kemet_get_css_value( $cart_dropdown_border_size , 'px' ),
 					'border-color' => esc_attr($cart_dropdown_border_color),
+				),
+				'.woocommerce div.product form.cart .variations' => array(
+					'border-bottom-color' => esc_attr($global_border_color), 
+				),
+				'.woocommerce div.product form.cart .group_table td' => array(
+					'border-color' => esc_attr($global_border_color), 
+				),
+				'.woocommerce div.product .product_meta' => array(
+					'border-color' => esc_attr($global_border_color), 
 				),
 				'.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:before ,.woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart:after' => array(
 					'border-bottom-color' => esc_attr($cart_dropdown_bg_color), 
