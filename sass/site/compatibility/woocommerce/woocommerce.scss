@@ -3898,7 +3898,7 @@ body:not(.kmt-separate-container){
 }
 /* Extra style */
 .shop-grid{
-	&.woocommerce{
+	&.woocommerce , &.woocommerce-page{
 		ul.products{
 			li.product{
 				height: fit-content;

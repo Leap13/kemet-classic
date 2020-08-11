@@ -316,7 +316,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		function shop_page_products_item_class( $classes = '' ) {
 
-			if ( is_shop() || is_product_taxonomy() ) {
+			if ( is_shop() || is_product_taxonomy()  || is_cart()) {
 				$shop_grid = kemet_get_option( 'shop-grids' );
 				$classes[] = 'columns-' . $shop_grid['desktop'];
 				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
@@ -798,7 +798,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'padding-right' => kemet_responsive_spacing( $btn_padding , 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $btn_padding , 'left', 'desktop' ),
 				),
-				'.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
+				'.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
 					'border-color'     => esc_attr($global_border_color),
 				),
 				'.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover' => array(
