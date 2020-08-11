@@ -54,14 +54,6 @@ p.demo_store,
     width: 1px;
     word-wrap: normal !important;
 }
-.quantity{
-	.screen-reader-text {
-		height: auto;
-		position: static !important;
-		width: auto;
-	}
-}
-
 .admin-bar p.demo_store {
 	top: 32px;
 }
@@ -1273,22 +1265,37 @@ p.demo_store,
 	/**
 	 * Buttons
 	 */
+	
+	a.add_to_cart_button{
+		&.loading {
+			opacity: 0.25;
+			padding-right: 2.618em;
+
+			&::after {
+				font-family: 'WooCommerce';
+				content: '\e01c';
+				vertical-align: top;
+				-webkit-font-smoothing: antialiased;
+				font-weight: 400;
+				position: absolute;
+				top: auto;
+				right: 1em;
+				animation: spin 2s linear infinite;
+			}
+		}
+	} 
 	body:not(.shop-grid) a.button,
 	button.button,
 	input.button,
 	#respond input#submit {
 		font-size: 100%;
-		margin: 0;
-		line-height: 1;
+		line-height: 1.3;
 		cursor: pointer;
 		position: relative;
 		text-decoration: none;
 		overflow: visible;
-		padding: 0.5em 0.75em;
 		font-weight: normal;
-		border-radius: 3px;
 		left: auto;
-		border: 0;
 		display: inline-block;
 		background-image: none;
 		box-shadow: none;
@@ -2551,12 +2558,14 @@ p.demo_store,
 	width: 380px;
 	margin-right: 3%;
 	margin-bottom: 20px;
-	width: 40%;
+	width: 50%;
+	max-width: 50%;
 }
 
 #content .kmt-woocommerce-container div.product div.summary,
 .kmt-woocommerce-container div.product div.summary {
-	width: 57%;
+	width: 47%;
+	max-width: 47%;
 }
 @media only screen and (max-width: $mx-col-md){
 	#content .kmt-woocommerce-container div.product div.images,
@@ -2725,14 +2734,19 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-
-.woocommerce-message {
-	.button{
-		border-top-color: #8fae1b;
-
-		&::before {
-			content: '\e015';
-			color: #8fae1b;
+.woocommerce{
+	.woocommerce-message {
+		.button{
+			border: none;
+			background: none;
+			&::before {
+				content: '\e015';
+				color: #8fae1b;
+			}
+			&:hover{
+				border: none;
+				background: none;
+			}
 		}
 	}
 }
@@ -3230,11 +3244,6 @@ button.pswp__button--zoom:hover {
 				padding: .5em .75em;
 			}
 		}
-		.button {
-			padding: .5em 1em;
-			line-height: 1.5;
-		}
-
 		input.button{
 			display: inline-block;
 			width: auto;
@@ -4026,6 +4035,10 @@ body:not(.kmt-separate-container){
 		}
 	}
 	div.product{
+		span.onsale{
+            top: 30px;
+            left: 25px;
+        }
 		.quantity{
 			.screen-reader-text{
 				display: none;

@@ -24,11 +24,11 @@ if ( ! function_exists( 'kemet_woo_shop_products_title' ) ) :
 	 * @since 1.0.0
 	 */
 	function kemet_woo_shop_products_title() {
-		//echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
 
 		echo '<h2 class="woocommerce-loop-product__title">' . get_the_title() . '</h2>';
 
-		//echo '</a>';
+		echo '</a>';
 	}
 
 endif;

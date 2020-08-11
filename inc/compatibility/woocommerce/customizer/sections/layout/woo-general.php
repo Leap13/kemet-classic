@@ -83,7 +83,7 @@ $wp_customize->add_control(
             'label'       => __( 'Cart Dropdowns Width (px)', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
-                'min'  => 50,
+                'min'  => 200,
                 'step' => 1,
                 'max'  => 600,
             ),

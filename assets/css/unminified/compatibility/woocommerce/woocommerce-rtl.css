@@ -86,12 +86,6 @@ p.demo_store a,
   word-wrap: normal !important;
 }
 
-.quantity .screen-reader-text {
-  height: auto;
-  position: static !important;
-  width: auto;
-}
-
 .admin-bar p.demo_store {
   top: 32px;
 }
@@ -1380,22 +1374,35 @@ p.demo_store a,
   color: #8a7e88;
 }
 
+.woocommerce a.add_to_cart_button.loading {
+  opacity: 0.25;
+  padding-left: 2.618em;
+}
+
+.woocommerce a.add_to_cart_button.loading::after {
+  font-family: 'WooCommerce';
+  content: '\e01c';
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  position: absolute;
+  top: auto;
+  left: 1em;
+  animation: spin 2s linear infinite;
+}
+
 .woocommerce body:not(.shop-grid) a.button,
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce #respond input#submit {
   font-size: 100%;
-  margin: 0;
-  line-height: 1;
+  line-height: 1.3;
   cursor: pointer;
   position: relative;
   text-decoration: none;
   overflow: visible;
-  padding: 0.5em 0.75em;
   font-weight: normal;
-  border-radius: 3px;
   right: auto;
-  border: 0;
   display: inline-block;
   background-image: none;
   box-shadow: none;
@@ -2817,12 +2824,14 @@ p.demo_store a,
   width: 380px;
   margin-left: 3%;
   margin-bottom: 20px;
-  width: 40%;
+  width: 50%;
+  max-width: 50%;
 }
 
 #content .kmt-woocommerce-container div.product div.summary,
 .kmt-woocommerce-container div.product div.summary {
-  width: 57%;
+  width: 47%;
+  max-width: 47%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -3061,13 +3070,19 @@ button.pswp__button--zoom:hover {
   }
 }
 
-.woocommerce-message .button {
-  border-top-color: #8fae1b;
+.woocommerce .woocommerce-message .button {
+  border: none;
+  background: none;
 }
 
-.woocommerce-message .button::before {
+.woocommerce .woocommerce-message .button::before {
   content: '\e015';
   color: #8fae1b;
+}
+
+.woocommerce .woocommerce-message .button:hover {
+  border: none;
+  background: none;
 }
 
 .woocommerce-info .button {
@@ -3843,11 +3858,6 @@ button.pswp__button--zoom:hover {
   padding: .5em .75em;
 }
 
-.woocommerce-cart table.cart td.actions .button {
-  padding: .5em 1em;
-  line-height: 1.5;
-}
-
 .woocommerce-cart table.cart td.actions input.button {
   display: inline-block;
   width: auto;
@@ -4602,6 +4612,11 @@ body:not(.kmt-separate-container).woocommerce ul.products li.product .tinvwl_add
 .woocommerce table tr > td:first-child, .woocommerce table tr > th:first-child {
   border-right-width: 1px;
   border-right-style: solid;
+}
+
+.woocommerce div.product span.onsale {
+  top: 30px;
+  right: 25px;
 }
 
 .woocommerce div.product .quantity .screen-reader-text {
