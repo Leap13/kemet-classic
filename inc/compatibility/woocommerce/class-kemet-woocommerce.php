@@ -323,6 +323,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
 
 				$classes[] = 'kmt-woo-shop-archive';
+			}
+			if(is_shop() || is_singular( 'product' ) || is_product_taxonomy() || is_cart() || is_woocommerce()){
 				$classes[] = 'shop-grid';
 			}
 			// Cart menu is emabled.
