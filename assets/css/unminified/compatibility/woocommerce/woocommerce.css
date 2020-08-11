@@ -3823,6 +3823,19 @@ button.pswp__button--zoom:hover {
   font-weight: 700;
 }
 
+.woocommerce-cart .cart-collaterals {
+  display: flex;
+}
+
+.woocommerce-cart .cart-collaterals .cross-sells {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals {
+  flex: auto;
+}
+
 .woocommerce-cart .cart-collaterals .cross-sells li.product {
   padding-bottom: 1em;
 }
@@ -3836,7 +3849,7 @@ button.pswp__button--zoom:hover {
 .woocommerce-cart .cart-collaterals .cart_totals > h2,
 .woocommerce-cart .cart-collaterals .cross-sells > h2 {
   margin: 0;
-  border-bottom: 1px solid;
+  border: 1px solid;
 }
 
 .woocommerce-cart .hentry,
@@ -4461,15 +4474,15 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
   border: none;
 }
 
-body:not(.kmt-separate-container).woocommerce ul.products li.product .woo-wishlist-btn {
+.woocommerce ul.products li.product .woo-wishlist-btn, .woocommerce-page ul.products li.product .woo-wishlist-btn {
   margin-bottom: 0;
 }
 
-body:not(.kmt-separate-container).woocommerce ul.products li.product > .tinv-wishlist {
+.woocommerce ul.products li.product > .tinv-wishlist, .woocommerce-page ul.products li.product > .tinv-wishlist {
   display: none;
 }
 
-body:not(.kmt-separate-container).woocommerce ul.products li.product .tinvwl_add_to_wishlist_button {
+.woocommerce ul.products li.product .tinvwl_add_to_wishlist_button, .woocommerce-page ul.products li.product .tinvwl_add_to_wishlist_button {
   margin-top: 0;
 }
 

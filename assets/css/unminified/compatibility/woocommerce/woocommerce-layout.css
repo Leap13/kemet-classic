@@ -635,10 +635,6 @@
   width: 47%;
 }
 
-.woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
-  width: 100%;
-}
-
 .woocommerce ul.cart_list li,
 .woocommerce ul.product_list_widget li, .woocommerce-page ul.cart_list li,
 .woocommerce-page ul.product_list_widget li {
