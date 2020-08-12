@@ -77,11 +77,12 @@ wp.customize.controlConstructor['kmt-slider'] = wp.customize.Control.extend({
 			inputDefault,
 			changeAction;
 
+		
 		// Update the text value.
-		jQuery('input[type=range]').on('input change', function () {
-			var value = jQuery(this).attr('value'),
-				input_number = jQuery(this).closest('.wrapper').find('.kemet_range_value .value');
-
+		this.container.on('input change', 'input[type=range]', function () {
+			var value = jQuery(this).val(),
+				input_number = jQuery(this).closest('.wrapper').find('input[type=number]');
+			
 			input_number.val(value);
 			input_number.change();
 		});

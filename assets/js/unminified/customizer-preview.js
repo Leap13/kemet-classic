@@ -1107,6 +1107,29 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 		});
 	});
+	/**
+	 * Cart Icon Size
+	 */
+	wp.customize('kemet-settings[cart-icon-size]', function (setting) {
+		setting.bind(function (size) {
+
+			var dynamicStyle = '.kmt-cart-menu-wrap .count:before { font-size: ' + (parseInt(size)) + 'px }';
+
+			kemet_add_dynamic_css('cart-icon-size', dynamicStyle);
+
+		});
+	});
+
+	wp.customize('kemet-settings[cart-icon-center-vertically]', function (setting) {
+		setting.bind(function (top) {
+
+			var dynamicStyle = '.kmt-cart-menu-wrap .count:before { top: ' + (parseInt(top)) + 'px }';
+
+			kemet_add_dynamic_css('cart-icon-center-vertically', dynamicStyle);
+
+		});
+	});
+
 	wp.customize('kemet-settings[cart-dropdown-border-size]', function (setting) {
 		setting.bind(function (border) {
 

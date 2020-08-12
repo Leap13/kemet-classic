@@ -23,7 +23,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-shop-title]', array(
             'type'     => 'kmt-title',
             'label'    => __( 'Shop Settings', 'kemet' ),
-            'section'  => 'section-woo-shop',
+            'section'  => 'woocommerce_product_catalog',
             'priority' => 10,
             'settings' => array(),
         )
@@ -43,7 +43,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Select(
         $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
             'type'           => 'kmt-responsive-select',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 10,
             'label'          => __( 'Shop Columns', 'kemet' ),
             'choices'   => array(
@@ -70,7 +70,7 @@ $wp_customize->add_setting(
 );
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[shop-no-of-products]', array(
-        'section'     => 'section-woo-shop',
+        'section'     => 'woocommerce_product_catalog',
         'label'       => __( 'Products Per Page', 'kemet' ),
         'type'        => 'number',
         'priority'    => 15,
@@ -96,7 +96,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[shop-hover-style]', array(
         'type'     => 'select',
-        'section'  => 'section-woo-shop',
+        'section'  => 'woocommerce_product_catalog',
         'priority' => 20,
         'label'    => __( 'Product Image Hover Style', 'kemet' ),
         'choices'  => apply_filters(
@@ -123,7 +123,7 @@ $wp_customize->add_control(
     new Kemet_Control_Sortable(
         $wp_customize, KEMET_THEME_SETTINGS . '[shop-product-structure]', array(
             'type'     => 'kmt-sortable',
-            'section'  => 'section-woo-shop',
+            'section'  => 'woocommerce_product_catalog',
             'priority' => 60,
             'label'    => __( 'Shop Product Structure', 'kemet' ),
             'choices'  => array(
@@ -148,7 +148,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
         'type'     => 'select',
-        'section'  => 'section-woo-shop',
+        'section'  => 'woocommerce_product_catalog',
         'priority' => 35,
         'label'    => __( 'Shop Archive Content Width', 'kemet' ),
         'choices'  => array(
@@ -177,7 +177,7 @@ $wp_customize->add_control(
     new Kemet_Control_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
             'type'        => 'kmt-slider',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 36,
             'label'       => __( 'Enter Width', 'kemet' ),
             'suffix'      => '',
@@ -197,7 +197,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-product-title-title]', array(
             'type'     => 'kmt-title',
             'label'    => __( 'Product Title Style', 'kemet' ),
-            'section'  => 'section-woo-shop',
+            'section'  => 'woocommerce_product_catalog',
             'priority' => 37,
             'settings' => array(),
         )
@@ -219,7 +219,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-text-color]', array(
             'label'   => __( 'Font Color', 'kemet' ),
             'priority'       => 37,
-            'section' => 'section-woo-shop',
+            'section' => 'woocommerce_product_catalog',
         )
     )
 );
@@ -238,7 +238,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-size]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 37,
             'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
@@ -272,7 +272,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-family]', array(
             'type'        => 'kmt-font-family',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 37,
             'label'       => __( 'Font Family', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-title-font-weight]',
@@ -294,7 +294,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-weight]', array(
             'type'        => 'kmt-font-weight',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 37,
             'label'       => __( 'Font Weight', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-title-font-family]',
@@ -316,7 +316,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[product-title-text-transform]', array(
         'type'     => 'select',
-        'section'  => 'section-woo-shop',
+        'section'  => 'woocommerce_product_catalog',
         'priority' => 37,
         'label'    => __( 'Text Transform', 'kemet' ),
         'choices'  => array(
@@ -344,7 +344,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-title-line-height]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 37,
             'label'          => __( 'Line Height', 'kemet' ),
             'unit_choices'   => array(
@@ -382,7 +382,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-title]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 37,
             'label'          => __( 'Letter Spacing', 'kemet' ),
             'unit_choices'   => array(
@@ -405,7 +405,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-product-content-title]', array(
             'type'     => 'kmt-title',
             'label'    => __( 'Product Content Style', 'kemet' ),
-            'section'  => 'section-woo-shop',
+            'section'  => 'woocommerce_product_catalog',
             'priority' => 38,
             'settings' => array(),
         )
@@ -427,7 +427,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-text-color]', array(
             'label'   => __( 'Font Color', 'kemet' ),
             'priority'       => 38,
-            'section' => 'section-woo-shop',
+            'section' => 'woocommerce_product_catalog',
         )
     )
 );
@@ -447,7 +447,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-size]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 38,
             'label'          => __( 'Font Size', 'kemet' ),
             'unit_choices'   => array(
@@ -481,7 +481,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-family]', array(
             'type'        => 'kmt-font-family',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 38,
             'label'       => __( 'Font Family', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-content-font-weight]',
@@ -503,7 +503,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-weight]', array(
             'type'        => 'kmt-font-weight',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 38,
             'label'       => __( 'Font Weight', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-content-font-family]',
@@ -525,7 +525,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[product-content-text-transform]', array(
         'type'     => 'select',
-        'section'  => 'section-woo-shop',
+        'section'  => 'woocommerce_product_catalog',
         'priority' => 38,
         'label'    => __( 'Text Transform', 'kemet' ),
         'choices'  => array(
@@ -553,7 +553,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-content-line-height]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 38,
             'label'          => __( 'Line Height', 'kemet' ),
             'unit_choices'   => array(
@@ -591,7 +591,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-content]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 38,
             'label'          => __( 'Letter Spacing', 'kemet' ),
             'unit_choices'   => array(
@@ -613,7 +613,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-product-price-title]', array(
             'type'     => 'kmt-title',
             'label'    => __( 'Product Price Style', 'kemet' ),
-            'section'  => 'section-woo-shop',
+            'section'  => 'woocommerce_product_catalog',
             'priority' => 39,
             'settings' => array(),
         )
@@ -635,7 +635,7 @@ $wp_customize->add_control(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-text-color]', array(
             'label'   => __( 'Font Color', 'kemet' ),
             'priority'       => 39,
-            'section' => 'section-woo-shop',
+            'section' => 'woocommerce_product_catalog',
         )
     )
 );
@@ -655,7 +655,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-size]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 39,
             'label'          => __( 'Product Price Font Size', 'kemet' ),
             'unit_choices'   => array(
@@ -688,7 +688,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-family]', array(
             'type'        => 'kmt-font-family',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 39,
             'label'       => __( 'Font Family', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-price-font-weight]',
@@ -710,7 +710,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-weight]', array(
             'type'        => 'kmt-font-weight',
-            'section'     => 'section-woo-shop',
+            'section'     => 'woocommerce_product_catalog',
             'priority'    => 39,
             'label'       => __( 'Font Weight', 'kemet' ),
             'connect'     => KEMET_THEME_SETTINGS . '[product-price-font-family]',
@@ -732,7 +732,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[product-price-text-transform]', array(
         'type'     => 'select',
-        'section'  => 'section-woo-shop',
+        'section'  => 'woocommerce_product_catalog',
         'priority' => 39,
         'label'    => __( 'Text Transform', 'kemet' ),
         'choices'  => array(
@@ -760,7 +760,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[product-price-line-height]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 39,
             'label'          => __( 'Line Height', 'kemet' ),
             'unit_choices'   => array(
@@ -798,7 +798,7 @@ $wp_customize->add_control(
     new Kemet_Control_Responsive_Slider(
         $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-price]', array(
             'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-woo-shop',
+            'section'        => 'woocommerce_product_catalog',
             'priority'       => 39,
             'label'          => __( 'Letter Spacing', 'kemet' ),
             'unit_choices'   => array(

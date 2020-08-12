@@ -260,6 +260,11 @@ p.demo_store a,
   border-width: 1px;
 }
 
+.woocommerce .kmt-site-header-cart.hide-cart .kmt-site-header-cart-li,
+.kmt-site-header-cart.hide-cart .kmt-site-header-cart-li {
+  display: none;
+}
+
 .main-header-bar-wrap .kmt-site-header-cart .widget_shopping_cart .cart_list a.remove {
   color: #ccc;
 }
@@ -301,6 +306,7 @@ p.demo_store a,
   font-weight: 500;
   text-rendering: auto;
   vertical-align: middle;
+  position: relative;
 }
 
 .kmt-woocommerce-cart-menu {

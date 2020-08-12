@@ -210,7 +210,12 @@ p.demo_store,
 				}
 			}
 		}
-    }
+	}
+	&.hide-cart{
+		.kmt-site-header-cart-li{
+			display: none;
+		}
+	}
 }
 
 .main-header-bar-wrap {
@@ -262,6 +267,7 @@ p.demo_store,
 			font-weight: 500;
 			text-rendering: auto;
 			vertical-align: middle;
+			position: relative;
 		}
 	}
 }
