@@ -27,7 +27,7 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[disable-cart-if-empty]', array(
         'type'            => 'checkbox',
         'section'         => 'section-woo-cart-menu-items',
-        'label'           => __( 'Disable Cart If Empty', 'kemet-addons' ),
+        'label'           => __( 'Disable Cart If Empty', 'kemet' ),
         'priority'        => 10,
     )
 );
@@ -46,12 +46,12 @@ $wp_customize->add_control(
         'priority'   => 11,
         'section'    => 'section-woo-cart-menu-items',
         'type'     => 'select',
-        'label'    => __( 'Display', 'kemet-addons' ),
+        'label'    => __( 'Display', 'kemet' ),
         'choices'  => array(
-            'icon'        => __( 'Icon', 'kemet-addons' ),
-            'icon-total'        => __( 'Icon And Cart Total', 'kemet-addons' ),
-            'icon-count'        => __( 'Icon And Cart count', 'kemet-addons' ),
-            'icon-count-total' => __( 'Icon And Cart count + total', 'kemet-addons' ),
+            'icon'        => __( 'Icon', 'kemet' ),
+            'icon-total'        => __( 'Icon And Cart Total', 'kemet' ),
+            'icon-count'        => __( 'Icon And Cart count', 'kemet' ),
+            'icon-count-total' => __( 'Icon And Cart count + total', 'kemet' ),
         ),
     )
 );
