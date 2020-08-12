@@ -274,7 +274,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return void
 		 */
 		function controls_scripts() {
-
+			global $wp_version;
+			
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
 			$dir        = 'minified';
@@ -289,6 +290,30 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				if ( SCRIPT_DEBUG ) {
 					$css_prefix = '-rtl.css';
 				}
+			}
+			
+			wp_enqueue_style( 'wp-color-picker' );
+			/*
+			 * This is only needed in WordPress version >= 5.5 because wpColorPickerL10n has been removed.
+			 *
+			 * @see https://github.com/WordPress/WordPress/commit/7e7b70cd1ae5772229abb769d0823411112c748b
+			 *
+			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
+			 * @see https://github.com/kallookoo/wp-color-picker-alpha/issues/35
+			 */
+			if ( version_compare( $wp_version, '5.4.99', '>=' ) ) {
+				wp_localize_script(
+					'wp-color-picker',
+					'wpColorPickerL10n',
+					array(
+						'clear'            => __( 'Clear', 'kemet' ),
+						'clearAriaLabel'   => __( 'Clear color', 'kemet' ),
+						'defaultString'    => __( 'Default', 'kemet' ),
+						'defaultAriaLabel' => __( 'Select default color', 'kemet' ),
+						'pick'             => __( 'Select Color', 'kemet' ),
+						'defaultLabel'     => __( 'Color value', 'kemet' ),
+					)
+				);
 			}
 			
 			// Customizer Core.
