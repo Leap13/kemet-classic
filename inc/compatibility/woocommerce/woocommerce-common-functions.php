@@ -289,13 +289,14 @@ add_action( 'woocommerce_before_shop_loop_item', 'product_list_details' , 8);
 function after_shop_loop_item_title() {
 
 	do_action( 'kemet_product_list_image_bottom' );
+	echo '</a>';
 	echo '</div>';
 	echo '<div class="product-info">';
 	/**
 	 * Add Product Title on shop page for all products.
 	 */
 	do_action( 'kemet_woo_shop_title_before' );
-	kemet_woo_woocommerce_template_loop_product_title();
+	kemet_woo_shop_products_title();
 	do_action( 'kemet_woo_shop_title_after' );
 	/**
 	 * Add Product Price on shop page for all products.
