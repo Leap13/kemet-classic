@@ -167,36 +167,99 @@ $wp_customize->add_control(
 /**
 * Option: Blog - Post Title Font Size
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
-        'default'           => $defaults[ 'font-size-page-title' ],
+// $wp_customize->add_setting(
+//     KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
+//         'default'           => $defaults[ 'font-size-page-title' ],
+//         'type'              => 'option',
+//         'transport'         => 'postMessage',
+//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+//     )
+// );
+// $wp_customize->add_control(
+//     new Kemet_Control_Responsive_Slider(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
+//             'type'           => 'kmt-responsive-slider',
+//             'section'        => 'section-blog',
+//             'priority'       => 50,
+//             'label'          => __( 'Title Font Size', 'kemet' ),
+//             'unit_choices'   => array(
+//                 'px' => array(
+//                     'min' => 1,
+//                     'step' => 1,
+//                     'max' =>200,
+//                 ),
+//                 'em' => array(
+//                     'min' => 0.1,
+//                     'step' => 0.1,
+//                     'max' => 10,
+//                 ),
+//             ),
+//         )
+//     )
+// );
+
+
+/**
+* Option: Typography
+*/
+$fields = array(
+      
+    /**
+    * Option: Title Font Size
+    */
+      array(
+        'id'                => '[font-size-page-title]',
+        'default'           => $defaults ['font-size-page-title'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-blog',
-            'priority'       => 50,
-            'label'          => __( 'Title Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'priority'          => 50,
+        'label'          => __( 'Title Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+
 );
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-blog-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'section-blog',
+    'priority' => 1,
+    'fields'   => $fields,
+    'settings' => array(),
+);
+Kemet_Generate_Control_Group::get_instance($wp_customize, $group_settings , $fields);
+
+// $wp_customize->add_setting(
+//     KEMET_THEME_SETTINGS . '[kmt-blog-typography]', array(
+//         'fields'  => $fields,
+//     )
+// );
+// $wp_customize->add_control(
+//     new Kemet_Control_Group(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-blog-typography]', array(
+//             'type'     => 'kmt-group',
+//             'label'    => __( 'Typography', 'kemet' ),
+//             'section'  => 'section-blog',
+//             'priority' => 1,
+//             'fields'   => $fields,
+//             'settings' => array(),
+//         )
+//     )
+// );
+
  /**
  * Option: Post Title Font Family
  */

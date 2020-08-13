@@ -1,0 +1,80 @@
+.customize-control-kmt-group .kmt-group-model.open{
+    display: block;
+}
+.customize-control-kmt-group .kmt-group-wrap{
+    position: relative;
+}
+.customize-control-kmt-group .kmt-group-model ul.model-list{
+    padding: 0 15px;
+}
+.customize-control-kmt-group .kmt-group-control{
+    position: relative;
+}
+.customize-control-kmt-group .kmt-group-model{
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 15px rgba(0,0,0,.3);
+    box-shadow: 0 2px 15px rgba(0,0,0,.3);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 9px;
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+}
+.customize-control-kmt-group .kmt-group-model::before{
+    content: '';
+    position: absolute;
+    top: -17px;
+    right: 8px;
+    border: 9px solid transparent;
+    border-bottom-color: #fff;
+    pointer-events: none;
+}
+.kmt-group-model ul.model-list li.sub-customize-control:first-child {
+    margin-top: 15px;
+}
+.kmt-group-model ul.model-list li.sub-customize-control:last-child {
+    margin-bottom: 15px;
+}
+.customize-control-kmt-group .model-button{
+    right: 2px;
+    top: -2px;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 4px;
+    background: #fff;
+}
+.customize-control-kmt-group .model-button.open{
+    color: #0073aa;
+}
+.customize-control-kmt-group .model-button.open::before{
+    content: "\f158" 
+}
+.customize-control-kmt-group .sub-customize-control {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-bottom: 12px;
+}
+.customize-control-kmt-group .sub-customize-control select{
+    width: 100%;
+}
+.kmt-group-model ul.model-list{
+    overflow: hidden;
+}
+.kmt-group-model ul.model-list .customize-control:last-child{
+    padding-bottom: 15px;
+}
+.kmt-group-model ul.model-list .customize-control:first-child{
+    padding-top: 15px;
+}
+.kmt-group-model ul.model-list .customize-control{
+    margin-bottom: 0;
+}
