@@ -142,7 +142,7 @@
 				} else {
 					selected = weightObject[i] == weightValue ? ' selected="selected"' : '';
 				}
-				if ('undefined' != typeof weightMap[weightObject[i]]){
+				if ('undefined' != typeof weightMap[weightObject[i]]) {
 					weightOptions += '<option value="' + weightObject[i] + '"' + selected + '>' + weightMap[weightObject[i]] + '</option>';
 				}
 			}
@@ -162,12 +162,15 @@
 		var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-kmt-font-weight');
 		font_weight_controls.each(function () {
 			var font_weight_control = jQuery(this);
-			var font_tranform_control = font_weight_control.next('.customize-control-select');
+			var font_tranform_control = font_weight_control.next('.customize-control-select'),
+				font_tranform_control_kmt_select = font_weight_control.next('.customize-control-kmt-select');
 
 			font_weight_control.addClass('controls-inline');
 			font_weight_control.css('padding-right', '5px');
 			font_tranform_control.addClass('controls-inline');
 			font_tranform_control.css('padding-left', '5px');
+			font_tranform_control_kmt_select.addClass('controls-inline');
+			font_tranform_control_kmt_select.css('padding-left', '5px');
 		})
 
 	});

@@ -8,7 +8,7 @@
         fields = control.params.group;
 
       var group = control.getGroupContent(fields);
-
+      control.container.find(".model-list").append(group.html);
       _.each(group.controls, function (attrs, key) {
         controlTypes.push({
           id: attrs.id,
@@ -23,7 +23,7 @@
 
         switch (attrs.type) {
           case "kmt-responsive-slider":
-            control.container.find(".model-list").append(group.html);
+
             //Save Value on In put Change
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
@@ -167,9 +167,10 @@
 
               control.setFontWeightOptions(
                 family,
-                weight
-
+                weight,
+                attrs.connect
               );
+              api.control(attrs.connect).setting.set('');
             });
 
             break;
@@ -178,15 +179,29 @@
               weight = 'li#customize-control-' + controlContainerID,
               family = (attrs.connect).replace("kemet-settings[", ""),
               family = 'li#customize-control-' + family.replace("]", ""),
-              controlID = attrs.id;
+              value = attrs.value != '' ? attrs.value : 400;
+            controlID = attrs.id;
 
             control.setFontWeightOptions(
               family,
-              weight
+              weight,
+              "kemet-settings" + controlID
             );
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
-              .find("select").val(attrs.value);
+              .find("select").val(value);
+
+            $(
+              ".kmt-group-model ul li#customize-control-" + controlContainerID
+            ).on("change", "select", function () {
+              var select = $(this),
+                value = select.val();
+
+              control.initSelect(value, controlID);
+            });
+            break;
+          case "kmt-select":
+            controlID = attrs.id;
 
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
@@ -207,6 +222,7 @@
         fieldsHtml = "";
 
       _.each(fields, function (attr, index) {
+
         var control_id = "kemet-settings" + attr.id;
         var values = api.get();
         var newValue = values[control_id] ? values[control_id] : "";
@@ -294,7 +310,7 @@
       var control_id = "kemet-settings" + control;
       api.control(control_id).setting.set(newValue);
     },
-    setFontWeightOptions: function (select, fontWeightContainer) {
+    setFontWeightOptions: function (select, fontWeightContainer, weightKey) {
       var i = 0,
         fontValue = $(select).find("select").val(),
         selected = "",
@@ -350,10 +366,9 @@
 
       weightSelect.html(weightOptions);
     },
-    initSelect: function (value, control) {
-      "use strict";
+    initSelect: function (value, controlID) {
 
-      var control_id = "kemet-settings" + control;
+      var control_id = "kemet-settings" + controlID;
       api.control(control_id).setting.set(value);
     },
     initResponsiveTrigger: function (wrap) {

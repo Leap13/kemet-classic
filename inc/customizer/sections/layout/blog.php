@@ -218,28 +218,8 @@ $group_settings = array(
     'fields'   => $fields,
     'settings' => array(),
 );
-Kemet_Generate_Control_Group::get_instance($wp_customize, $group_settings , $fields);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
- /**
- * Option: Post Title Font Family
- */
-// $wp_customize->add_setting(
-//     KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
-//         'default'           => $defaults[ 'page-title-font-family' ],
-//         'type'              => 'option',
-//         'sanitize_callback' => 'sanitize_text_field',
-//     )
-// );
-// $wp_customize->add_control(
-//     new Kemet_Control_Typography(
-//         $wp_customize, KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
-//             'type'     => 'kmt-font-family',
-//             'label'    => __( 'Title Font Family', 'kemet' ),
-//             'section'  => 'section-blog',
-//             'priority' => 51,
-//         )
-//     )
-// );
 /**
 * Option: Title Letter Spacing
 */

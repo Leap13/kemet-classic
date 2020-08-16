@@ -179,6 +179,75 @@ $fields = array(
         'priority'          => 15,
         'connect'           => KEMET_THEME_SETTINGS . '[body-font-family]',
     ),
+    /**
+    * Option: Body Text Transform
+    */
+    array(
+        'id'                => '[body-text-transform]',
+        'default'           => $defaults[ 'body-text-transform' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'section-contents',
+        'priority'          => 25,
+        'choices'  => array(
+            ''           => __( 'Default', 'kemet' ),
+            'none'       => __( 'None', 'kemet' ),
+            'capitalize' => __( 'Capitalize', 'kemet' ),
+            'uppercase'  => __( 'Uppercase', 'kemet' ),
+            'lowercase'  => __( 'Lowercase', 'kemet' ),
+        ),
+    ),
+    /**
+    * Option: Body Line Height
+    */
+      array(
+        'id'                => '[body-line-height]',
+        'default'           => $defaults ['body-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-contents',
+        'transport'         => 'postMessage',
+        'priority'          => 30,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+            '%' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 100,
+            ),
+        ),
+    ),
+    /**
+    * Option: Body Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-body]',
+        'default'           => $defaults ['letter-spacing-body'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-contents',
+        'priority'       => 33,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
 );
 $group_settings = array(
     'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-content-typography]',
@@ -189,99 +258,9 @@ $group_settings = array(
     'fields'   => $fields,
     'settings' => array(),
 );
-Kemet_Generate_Control_Group::get_instance($wp_customize, $group_settings , $fields);
-/**
-* Option: Body Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[body-text-transform]', array(
-        'default'           => $defaults[ 'body-text-transform' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[body-text-transform]', array(
-        'type'     => 'select',
-        'section'  => 'section-contents',
-        'priority' => 25,
-        'label'    => __( 'Text Transform', 'kemet' ),
-        'choices'  => array(
-            ''           => __( 'Default', 'kemet' ),
-            'none'       => __( 'None', 'kemet' ),
-            'capitalize' => __( 'Capitalize', 'kemet' ),
-            'uppercase'  => __( 'Uppercase', 'kemet' ),
-            'lowercase'  => __( 'Lowercase', 'kemet' ),
-        ),
-    )
-);
 
-/**
-* Option: Body Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[body-line-height]', array(
-        'default'           => $defaults[ 'body-line-height' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[body-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-contents',
-            'priority'       => 30,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
-            ),
-        )
-    )
-);
-/**
-* Option: Body Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-body]', array(
-        'default'           => $defaults[ 'letter-spacing-body' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-body]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-contents',
-            'priority'       => 33,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+
 /**
 * Option: Paragraph Margin Bottom
 */

@@ -51,7 +51,6 @@ class Kemet_Control_Select extends WP_Customize_Control {
 		}
 		$this->json['value'] = $this->value();
 		$this->json['label'] = esc_html( $this->label );
-		$this->json['choices'] = $this->choices;
 	}
 
 	/**

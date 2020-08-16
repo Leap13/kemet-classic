@@ -18,39 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 */
 
 class Kemet_Generate_Control_Group {
-
-    /**
-     * Instance
-     *
-     * @access private
-     * @var object
-     */
-    private static $instance;
-        
-    /**
-    * The control Id.
-    *
-    * @access public
-    * @var string
-    */
-    public $group_settings = array();
-
-    /**
-    * The control childern.
-    *
-    * @access public
-    * @var array
-    */
-    public $fields = array();
-    
-    /**
-    * wp_customize.
-    *
-    * @access public
-    * @var array
-    */
-    public $wp_customize = array();
-
+            
     /**
     * sanitize array.
     *
@@ -61,32 +29,20 @@ class Kemet_Generate_Control_Group {
         'kmt-responsive-slider' => array('Kemet_Customizer_Sanitizes' , 'sanitize_responsive_slider'),
         'kmt-font-family' => 'sanitize_text_field',
         'kmt-font-weight' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
+        'kmt-select' => 'sanitize_text_field',
     );
-
-    /**
-     * Initiator
-     */
-    public static function get_instance($wp_customize, $group_settings , $fields) {
-        if ( ! isset( self::$instance ) ) {
-            self::$instance = new self($wp_customize, $group_settings , $fields);
-        }
-        return self::$instance;
-    }
 
     /**
      * Constructor
      */    
     function __construct( $wp_customize, $group_settings , $fields ) {
-		$this->group_settings = $group_settings;
-        $this->fields = $fields;
-        $this->wp_customize = $wp_customize;
 
-        $this->create_group($wp_customize);
-        $this->create_hidden_controls($wp_customize);
+        $this->create_group($wp_customize , $group_settings);
+        $this->create_hidden_controls($wp_customize , $fields);
     }
-    function create_hidden_controls($wp_customize){
+    function create_hidden_controls($wp_customize , $fields){
         
-        $options = $this->fields;
+        $options = $fields;
         
         foreach($options as $option){
 
@@ -95,11 +51,10 @@ class Kemet_Generate_Control_Group {
                 'type' => $option['type'],
                 'sanitize_callback' => $this->sanitize[$option['control_type']],
             ); 
-
+            
             if(isset($option['transport'])){
                 $setting['transport'] = $option['transport'];
             }   
-
             $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], $setting);
             $wp_customize->add_control(
                 new Kemet_Control_Hidden($wp_customize , KEMET_THEME_SETTINGS . $option['id'] ,array(
@@ -112,11 +67,11 @@ class Kemet_Generate_Control_Group {
         }
     }
 
-    function create_group($wp_customize){
+    function create_group($wp_customize , $group_settings){
         
         $wp_customize->add_control(
             new Kemet_Control_Group(
-                $wp_customize, $this->group_settings['parent_id'], $this->group_settings
+                $wp_customize, $group_settings['parent_id'], $group_settings
             )
         );
     }
