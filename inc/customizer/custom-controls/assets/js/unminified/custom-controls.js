@@ -944,7 +944,7 @@ jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
               weight,
               "kemet-settings" + controlID
             );
-            console.log(value);
+
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select").val(value);
 
