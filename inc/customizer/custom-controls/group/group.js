@@ -17,14 +17,13 @@
         });
       });
 
-      control.container.find(".model-list").append(group.html);
-
       _.each(controlTypes, function (attrs, index) {
         var controlContainerID = attrs.id.replace("[", "");
         controlContainerID = controlContainerID.replace("]", "");
 
         switch (attrs.type) {
           case "kmt-responsive-slider":
+            control.container.find(".model-list").append(group.html);
             //Save Value on In put Change
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
@@ -76,45 +75,45 @@
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("min", unit_min);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("max", unit_max);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("step", unit_step);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .val("");
 
@@ -136,64 +135,66 @@
 
             break;
           case "kmt-font-family":
+
+            var controlID = attrs.id;
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select")
-              .selectWoo({
-                width: "100%",
-              });
+              .html(kemet.font_family_select);
+
+            $(".kmt-group-model ul li#customize-control-" + controlContainerID)
+              .find("select").val(attrs.value);
+
+            $(".kmt-group-model ul li#customize-control-" + controlContainerID)
+              .find("select")
+              .select2().css('width', '100%');
 
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
             ).on("change", "select", function () {
               var select = $(this),
-                link = select.data("customize-setting-link"),
-                weight = select.data("connected-control");
+                value = select.val();
 
-              var fontFamilyContainer = $(
-                ".kmt-group-model ul li#customize-control-" +
-                  api.control(link).container.attr("id")
-              );
-              var fontWeightContainer = $(
-                ".kmt-group-model ul li#customize-control-" +
-                  api.control(weight).container.attr("id")
-              );
+              control.initSelect(value, controlID);
+            });
 
-              $this.setFontWeightOptions(
-                fontFamilyContainer,
-                fontWeightContainer
+            $(
+              ".kmt-group-model ul li#customize-control-" + controlContainerID
+            ).on("change", "select", function () {
+              var attrs = control.getField(fields, controlID),
+                family = 'li#customize-control-' + controlContainerID,
+                weight = attrs.connect.replace("kemet-settings[", ""),
+                weight = 'li#customize-control-' + weight.replace("]", "");
+
+              control.setFontWeightOptions(
+                family,
+                weight
+
               );
             });
 
             break;
           case "kmt-font-weight":
+            var attrs = control.getField(fields, attrs.id),
+              weight = 'li#customize-control-' + controlContainerID,
+              family = (attrs.connect).replace("kemet-settings[", ""),
+              family = 'li#customize-control-' + family.replace("]", ""),
+              controlID = attrs.id;
+
+            control.setFontWeightOptions(
+              family,
+              weight
+            );
+
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
-              .find("select")
-              .each(function () {
-                var select = $(this),
-                  weight = select.data("customize-setting-link"),
-                  family = select.data("connected-control");
-
-                var fontFamilyContainer = $(
-                  ".kmt-group-model ul li#customize-control-" +
-                    api.control(family).container.attr("id")
-                );
-                var fontWeightContainer = $(
-                  ".kmt-group-model ul li#customize-control-" +
-                    api.control(weight).container.attr("id")
-                );
-
-                $this.setFontWeightOptions(
-                  fontFamilyContainer,
-                  fontWeightContainer
-                );
-              });
+              .find("select").val(attrs.value);
 
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
             ).on("change", "select", function () {
-              var value = $(this).val();
+              var select = $(this),
+                value = select.val();
 
-              api.control(val).setting.set(value);
+              control.initSelect(value, controlID);
             });
             break;
         }
@@ -210,6 +211,14 @@
         var values = api.get();
         var newValue = values[control_id] ? values[control_id] : "";
         var type = attr.control_type;
+        switch (type) {
+          case "kmt-font-family":
+            type = "kmt-select";
+            break;
+          case "kmt-font-weight":
+            type = "kmt-select";
+            break;
+        }
         var templateId = "customize-control-" + type + "-content";
         var template = wp.template(templateId);
         var value = newValue || attr.default;
@@ -237,6 +246,18 @@
       result.html = fieldsHtml;
 
       return result;
+    },
+    getField: function (fields, fieldID) {
+      "use strict";
+      var controlAttrs = '';
+      _.each(fields, function (attrs, index) {
+
+        if (fieldID == attrs.id) {
+
+          controlAttrs = attrs;
+        }
+      });
+      return controlAttrs;
     },
     initResponsiveSlider: function (controlContainer, control) {
       "use strict";
@@ -275,7 +296,7 @@
     },
     setFontWeightOptions: function (select, fontWeightContainer) {
       var i = 0,
-        fontValue = select.find("select").val(),
+        fontValue = $(select).find("select").val(),
         selected = "",
         weightSelect = $(fontWeightContainer).find("select"),
         currentWeightTitle = weightSelect.data("inherit"),
@@ -329,6 +350,12 @@
 
       weightSelect.html(weightOptions);
     },
+    initSelect: function (value, control) {
+      "use strict";
+
+      var control_id = "kemet-settings" + control;
+      api.control(control_id).setting.set(value);
+    },
     initResponsiveTrigger: function (wrap) {
       $(wrap)
         .find(".kmt-responsive-control-btns button")
@@ -344,8 +371,8 @@
 
           jQuery(
             '.wp-full-overlay-footer .devices button[data-device="' +
-              device +
-              '"]'
+            device +
+            '"]'
           ).trigger("click");
         });
     },

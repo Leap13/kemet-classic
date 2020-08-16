@@ -58,7 +58,9 @@ class Kemet_Generate_Control_Group {
     * @var array
     */
     public $sanitize = array(
-        'kmt-responsive-slider' => 'sanitize_responsive_slider',
+        'kmt-responsive-slider' => array('Kemet_Customizer_Sanitizes' , 'sanitize_responsive_slider'),
+        'kmt-font-family' => 'sanitize_text_field',
+        'kmt-font-weight' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
     );
 
     /**
@@ -87,15 +89,18 @@ class Kemet_Generate_Control_Group {
         $options = $this->fields;
         
         foreach($options as $option){
-                
-            $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], 
-                array(
-                    'default' => $option['default'],
-                    'type' => $option['type'],
-                    'transport' => $option['transport'],
-                    'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', $this->sanitize[$option['control_type']] ),
-                )
-            );
+
+            $setting = array(
+                'default' => $option['default'],
+                'type' => $option['type'],
+                'sanitize_callback' => $this->sanitize[$option['control_type']],
+            ); 
+
+            if(isset($option['transport'])){
+                $setting['transport'] = $option['transport'];
+            }   
+
+            $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], $setting);
             $wp_customize->add_control(
                 new Kemet_Control_Hidden($wp_customize , KEMET_THEME_SETTINGS . $option['id'] ,array(
                         'type'           => 'kmt-hidden',
