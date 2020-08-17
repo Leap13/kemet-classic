@@ -29,106 +29,41 @@ $wp_customize->add_control(
 /**
 * Option: Content Text Color
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[content-text-color]', array(
-        'default'           => $defaults[ 'content-text-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[content-text-color]', array(
-            'label'   => __( 'Font Color', 'kemet' ),
-            'priority'       => 5,
-            'section' => 'section-contents',
-        )
-    )
-);
-
-/**
-* Option: Body Font Size
-*/
 // $wp_customize->add_setting(
-//     KEMET_THEME_SETTINGS . '[font-size-body]', array(
-//         'default'           => $defaults[ 'font-size-body' ],
+//     KEMET_THEME_SETTINGS . '[content-text-color]', array(
+//         'default'           => $defaults[ 'content-text-color' ],
 //         'type'              => 'option',
-//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+//         'transport'         => 'postMessage',
+//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 //     )
 // );
 // $wp_customize->add_control(
-//     new Kemet_Control_Responsive_Slider(
-//         $wp_customize, KEMET_THEME_SETTINGS . '[font-size-body]', array(
-//             'type'           => 'kmt-responsive-slider',
-//             'section'        => 'section-contents',
-//             'priority'       => 10,
-//             'label'          => __( 'Font Size', 'kemet' ),
-//             'unit_choices'   => array(
-//                 'px' => array(
-//                     'min' => 1,
-//                     'step' => 1,
-//                     'max' =>200,
-//                 ),
-//                 'em' => array(
-//                     'min' => 0.1,
-//                     'step' => 0.1,
-//                     'max' => 10,
-//                 ),
-//             ),
+//     new Kemet_Control_Color(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[content-text-color]', array(
+//             'label'   => __( 'Font Color', 'kemet' ),
+//             'priority'       => 5,
+//             'section' => 'section-contents',
 //         )
 //     )
 // );
 
 /**
-* Option: Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[body-font-family]', array(
-        'default'           => $defaults[ 'body-font-family' ],
-        'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-    )
-);
-
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[body-font-family]', array(
-            'type'        => 'kmt-font-family',
-            'section'     => 'section-contents',
-            'priority'    => 15,
-            'label'       => __( 'Font Family', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[body-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[body-font-weight]', array(
-        'default'           => $defaults[ 'body-font-weight' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[body-font-weight]', array(
-            'type'        => 'kmt-font-weight',
-            'section'     => 'section-contents',
-            'priority'    => 20,
-            'label'       => __( 'Font Weight', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[body-font-family]',
-        )
-    )
-);
-/**
 * Option: Typography
 */
 $fields = array(
-      
+     /**
+    * Option: Content Text Color
+    */
+      array(
+        'id'                => '[content-text-color]',
+        'default'           => $defaults ['content-text-color'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-color',
+        'transport'         => 'postMessage',
+        'section'           => 'section-contents',
+        'priority'          => 5,
+        'label'          => __( 'Font Color', 'kemet' ),
+    ),
     /**
     * Option: Title Font Size
     */
@@ -255,7 +190,6 @@ $group_settings = array(
     'label'    => __( 'Typography', 'kemet' ),
     'section'  => 'section-contents',
     'priority' => 1,
-    'fields'   => $fields,
     'settings' => array(),
 );
 

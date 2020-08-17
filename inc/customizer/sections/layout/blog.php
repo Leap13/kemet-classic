@@ -215,7 +215,6 @@ $group_settings = array(
     'label'    => __( 'Typography', 'kemet' ),
     'section'  => 'section-blog',
     'priority' => 1,
-    'fields'   => $fields,
     'settings' => array(),
 );
 new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);

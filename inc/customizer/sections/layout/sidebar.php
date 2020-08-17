@@ -147,25 +147,52 @@ $defaults = Kemet_Theme_Options::defaults();
     /**
 	 * Option: sidebar Background
 	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[sidebar-bg-obj]', array(
-			'default'           => $defaults[ 'sidebar-bg-obj' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Background(
-			$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-bg-obj]', array(
-				'type'    => 'kmt-background',
-                'section' => 'section-sidebars',
-                'priority' => 35,
-				'label'   => __( 'Sidebar Background', 'kemet' ),
-			)
-		)
-    );
-
+	// $wp_customize->add_setting(
+	// 	KEMET_THEME_SETTINGS . '[sidebar-bg-obj]', array(
+	// 		'default'           => $defaults[ 'sidebar-bg-obj' ],
+	// 		'type'              => 'option',
+	// 		'transport'         => 'postMessage',
+	// 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+	// 	)
+	// );
+	// $wp_customize->add_control(
+	// 	new Kemet_Control_Background(
+	// 		$wp_customize, KEMET_THEME_SETTINGS . '[sidebar-bg-obj]', array(
+	// 			'type'    => 'kmt-background',
+    //             'section' => 'section-sidebars',
+    //             'priority' => 35,
+	// 			'label'   => __( 'Sidebar Background', 'kemet' ),
+	// 		)
+	// 	)
+    // );
+/**
+* Option: Colors
+*/
+$fields = array(
+    /**
+	 * Option: sidebar Background
+	 */
+    array(
+        'id'                => '[sidebar-bg-obj]',
+        'default'           => $defaults[ 'sidebar-bg-obj' ],
+        'type'              => 'option',
+        'control_type'      => 'kmt-background',
+        'label'             => __( 'Sidebar Background', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 1,
+        'transport'         => 'postMessage',
+    ),
+    
+);
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-sidebar-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Colors', 'kemet' ),
+    'section'  => 'section-sidebars',
+    'priority' => 1,
+    'settings' => array(),
+);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
         /**
         * Option: Title
         */

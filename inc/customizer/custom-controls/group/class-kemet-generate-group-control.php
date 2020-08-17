@@ -30,6 +30,8 @@ class Kemet_Generate_Control_Group {
         'kmt-font-family' => 'sanitize_text_field',
         'kmt-font-weight' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
         'kmt-select' => 'sanitize_text_field',
+        'kmt-color' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'kmt-background' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
     );
 
     /**
@@ -37,7 +39,7 @@ class Kemet_Generate_Control_Group {
      */    
     function __construct( $wp_customize, $group_settings , $fields ) {
 
-        $this->create_group($wp_customize , $group_settings);
+        $this->create_group($wp_customize , $group_settings, $fields);
         $this->create_hidden_controls($wp_customize , $fields);
     }
     function create_hidden_controls($wp_customize , $fields){
@@ -67,8 +69,10 @@ class Kemet_Generate_Control_Group {
         }
     }
 
-    function create_group($wp_customize , $group_settings){
+    function create_group($wp_customize , $group_settings, $fields){
         
+        $group_settings['fields'] = $fields;
+
         $wp_customize->add_control(
             new Kemet_Control_Group(
                 $wp_customize, $group_settings['parent_id'], $group_settings

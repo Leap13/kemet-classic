@@ -796,16 +796,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//sidebar
-				'.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
 
-				'div.sidebar-main' => array(
+				'div.sidebar-main' => kemet_get_background_obj( $sidebar_bg_obj ),
+				'.sidebar-main' =>  array(
+					'color' => esc_attr( $sidebar_text_color ),
 					'padding-top'    => kemet_responsive_spacing( $sidebar_padding, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $sidebar_padding, 'bottom', 'desktop' ),
 					'padding-right' => kemet_responsive_spacing( $sidebar_padding, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $sidebar_padding, 'left', 'desktop' ),
-				),
-				'.sidebar-main' =>  array(
-					'color' => esc_attr( $sidebar_text_color ),
 				),
 				'.sidebar-main a' =>  array(
 					'color' => esc_attr( $sidebar_link_color ),
