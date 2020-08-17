@@ -762,17 +762,78 @@ jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
     ready: function () {
       var control = this,
         controlTypes = [],
+        html = '',
         fields = control.params.group;
 
-      var group = control.getGroupContent(fields);
-      control.container.find(".model-list").append(group.html);
-      _.each(group.controls, function (attrs, key) {
-        controlTypes.push({
-          id: attrs.id,
-          value: attrs.value,
-          type: attrs.type,
+      if ("undefined" != typeof fields.tabs) {
+        var controlID = control.params.id.replace("[", "-"),
+          controlID = controlID.replace("]", ""),
+          count = 0;
+
+        html += '<div id=' + controlID + ' class="kmt-group-tabs">';
+        html += '<ul class="kmt-tabs-list">';
+
+        _.each(fields.tabs, function (value, key) {
+          var classes = "";
+
+          if (count == 0) {
+            classes += 'active';
+          }
+
+          html +=
+            '<li class="' +
+            classes +
+            '"><a href="#' +
+            key +
+            '-tab"><span>' +
+            key +
+            "</span></a></li>";
+
+          count++;
         });
-      });
+
+        html += "</ul>";
+
+        html += '<div class="kmt-tab-wrap" >';
+
+        _.each(fields.tabs, function (tab, key) {
+          html += '<div id="' + key + '-tab" class="tab">';
+
+          var group = control.getGroupContent(tab);
+
+          html += group.html;
+
+          _.each(group.controls, function (attrs, key) {
+            controlTypes.push({
+              id: attrs.id,
+              value: attrs.value,
+              type: attrs.type,
+            });
+          });
+
+          html += "</div>";
+        });
+
+        html += "</div></div>";
+
+        control.container.find(".model-list").append(html);
+
+        $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
+      } else {
+
+        var group = control.getGroupContent(fields);
+        html += group.html
+        control.container.find(".model-list").append(html);
+        _.each(group.controls, function (attrs, key) {
+          controlTypes.push({
+            id: attrs.id,
+            value: attrs.value,
+            type: attrs.type,
+          });
+        });
+
+      }
+
 
       _.each(controlTypes, function (attrs, index) {
         var controlContainerID = attrs.id.replace("[", "");

@@ -59,7 +59,11 @@ class Kemet_Control_Group extends WP_Customize_Control {
         $this->json['group'] = $this->group;
 
         foreach($this->fields as  $field){
-            $this->json['group'][] = $field;
+            if ( array_key_exists( 'tab', $field ) ) {
+				$this->json['group']['tabs'][ $field['tab'] ][] = $field;
+			}else{
+                $this->json['group'][] = $field;
+            }
         }     
     }
     

@@ -217,7 +217,7 @@ $group_settings = array(
     'priority' => 1,
     'settings' => array(),
 );
-new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
 /**
 * Option: Title Letter Spacing
@@ -389,108 +389,79 @@ $wp_customize->add_control(
         'priority'        => 71,
     )
 );
-/**
-* Option:Post Read More Text Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
-        'default'           => $defaults[ 'readmore-text-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-            'conditions' => '==', 
-            'values' => true,
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-color]', array(
-            'label'   => __( 'Read More Color', 'kemet' ),
-            'priority'       => 75,
-            'section' => 'section-blog',
-        )
-    )
-);
 
 /**
-* Option:Post Read More Text Color Hover
+* Option: Typography
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
-        'default'           => $defaults[ 'readmore-text-h-color' ],
+$fields = array(
+      
+    /**
+    * Option - Read More Color
+    */
+      array(
+        'id'                => '[readmore-text-color]',
+        'default'           => $defaults ['readmore-text-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-            'conditions' => '==', 
-            'values' => true,
-        ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Read More Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-blog',
+        'tab'               => __('Normal' , 'kemet')
+    ),  
+     /**
+    * Option - Read More Hover Color
+    */
+      array(
+        'id'                => '[readmore-text-h-color]',
+        'default'           => $defaults ['readmore-text-h-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Read More Hover Color', 'kemet' ),
+        'priority'          => 5,
+        'section'           => 'section-blog',
+        'tab'               => __('Hover' , 'kemet')
+    ),   
+    /**
+    * Option - Read More Background Color
+    */
+      array(
+        'id'                => '[readmore-bg-color]',
+        'default'           => $defaults ['readmore-bg-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Read More Background Color', 'kemet' ),
+        'priority'          => 10,
+        'section'           => 'section-blog',
+        'tab'               => __('Normal' , 'kemet')
+    ),  
+     /**
+    * Option - Read More Background Hover Color
+    */
+      array(
+        'id'                => '[readmore-bg-h-color]',
+        'default'           => $defaults ['readmore-bg-h-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Read More Hover Background Color', 'kemet' ),
+        'priority'          => 15,
+        'section'           => 'section-blog',
+        'tab'               => __('Hover' , 'kemet')
+    ), 
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[readmore-text-h-color]', array(
-            'label'   => __( 'Read More Hover Color', 'kemet' ),
-            'priority'       => 80,
-            'section' => 'section-blog',
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-readmore-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Read More Colors', 'kemet' ),
+    'section'  => 'section-blog',
+    'priority' => 80,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
-/**
-* Option: Read More Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[readmore-bg-color]', array(
-        'default'           => $defaults[ 'readmore-bg-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-            'conditions' => '==', 
-            'values' => true,
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-color]', array(
-            'section'  => 'section-blog',
-            'priority' => 85,
-            'label'    => __( 'Read More Background Color', 'kemet' ),
-        )
-    )
-);
-/**
-* Option: Read More Background Color Hover
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
-        'default'           => $defaults[ 'readmore-bg-h-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-            'conditions' => '==', 
-            'values' => true,
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[readmore-bg-h-color]', array(
-            'section'  => 'section-blog',
-            'priority' => 90,
-            'label'    => __( 'Read More Background Hover Color', 'kemet' ),
-        )
-    )
-);
 /**
 * Option: Read More Border Radius
 */
@@ -688,4 +659,4 @@ $group_settings = array(
     'priority' => 115,
     'settings' => array(),
 );
-new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);

@@ -92,3 +92,44 @@
 .kmt-group-model ul.model-list .customize-control .kmt-responsive-control-btns{
     padding-left: 0;
 }
+.kmt-group-model .kmt-tabs-list{
+    display: flex;
+    padding-top: 15px;
+}
+.kmt-group-model .kmt-tabs-list li{
+    text-align: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: background-color 0.1s linear;
+    line-height: 30px;
+    outline: none;
+}
+.kmt-group-model .kmt-tabs-list li a{
+    width: 100%;
+    display: inline-block;
+    color: #555d66;
+    text-decoration: none;
+    transition: none;
+    box-shadow: none;
+}
+.kmt-group-model .kmt-tabs-list li:not(:first-child) {
+    border-left-width: 0;
+}
+.kmt-group-model .kmt-tabs-list li:first-child {
+    border-radius: 3px 0 0 3px;
+}
+.kmt-group-model .kmt-tabs-list li:last-child{
+    border-radius:0 3px 3px 0;
+}
+.kmt-group-model .kmt-tabs-list li.ui-state-active{
+    background-color: #0073aa;
+    border: 1px solid rgba(0,0,0,.1);
+    outline: none;
+    color: #fff;
+}
+ .kmt-group-model .kmt-tabs-list li.ui-state-active a{
+     color: #fff;
+ }
