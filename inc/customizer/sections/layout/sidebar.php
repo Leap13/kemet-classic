@@ -192,7 +192,7 @@ $group_settings = array(
     'priority' => 1,
     'settings' => array(),
 );
-//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
         /**
         * Option: Title
         */

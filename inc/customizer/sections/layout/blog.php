@@ -217,7 +217,7 @@ $group_settings = array(
     'priority' => 1,
     'settings' => array(),
 );
-//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
 /**
 * Option: Title Letter Spacing
@@ -458,7 +458,11 @@ $group_settings = array(
     'label'    => __( 'Read More Colors', 'kemet' ),
     'section'  => 'section-blog',
     'priority' => 80,
-    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+        'conditions' => '==', 
+        'values' => true,
+    ),
 );
 new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
@@ -654,9 +658,13 @@ $fields = array(
 $group_settings = array(
     'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-readmore-spacing]',
     'type'     => 'kmt-group',
-    'label'    => __( 'Read More', 'kemet' ),
+    'label'    => __( 'Read More Spacing', 'kemet' ),
     'section'  => 'section-blog',
     'priority' => 115,
-    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+        'conditions' => '==', 
+        'values' => true,
+    ),
 );
-//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);

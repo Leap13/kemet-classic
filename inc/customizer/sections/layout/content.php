@@ -193,7 +193,7 @@ $group_settings = array(
     'settings' => array(),
 );
 
-//new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
 /**
 * Option: Paragraph Margin Bottom

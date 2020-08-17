@@ -3,6 +3,44 @@
 
   wp.customize.controlConstructor["kmt-group"] = wp.customize.Control.extend({
     ready: function () {
+
+      var control = this;
+
+      /* Model Popup */
+      $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(
+        function (e) {
+          if (!$(e.target).closest(".kmt-group-model").length && !$(e.target).closest(".model-button").length) {
+            $(".model-button.open").trigger("click");
+          }
+        }
+      );
+      control.container.on('click', '.kmt-group-control .model-button', function () {
+
+        var $this = $(this),
+          parentWrap = $this.closest(".customize-control-kmt-group"),
+          Section = parentWrap.parents(".control-section");
+
+        if ($this.hasClass("open")) {
+          parentWrap.find(".kmt-group-model").hide();
+        } else {
+          /* Close popup when another popup is clicked to open */
+          var getOpenPopup = Section.find(
+            ".model-button.open"
+          );
+          if (getOpenPopup.length > 0) {
+            getOpenPopup.trigger("click");
+          }
+
+          if (!$.trim(parentWrap.find('.model-list').html())) {
+            control.loadModelPopup();
+          }
+          parentWrap.find(".kmt-group-model").show();
+        }
+        $(this).toggleClass("open");
+      });
+    },
+    loadModelPopup: function () {
+
       var control = this,
         controlTypes = [],
         html = '',
@@ -781,16 +819,4 @@
     },
   });
 
-  $(function () {
-    var modelButton = $(".model-button");
-    $(modelButton).click(function () {
-      $(this).toggleClass("open");
-      $(this)
-        .parent()
-        .parent()
-        .parent()
-        .find(".kmt-group-model")
-        .toggleClass("open");
-    });
-  });
 })(jQuery);

@@ -73,6 +73,16 @@ class Kemet_Generate_Control_Group {
 
     function create_group($wp_customize , $group_settings, $fields){
         
+        if(isset( $group_settings['dependency'] )){
+
+            $settings_array = array(
+                'dependency' => $group_settings['dependency'],
+                'sanitize_callback' 	=> '',
+            );
+
+            $wp_customize->add_setting( $group_settings['parent_id'], $settings_array);
+        }
+
         $group_settings['fields'] = $fields;
 
         $wp_customize->add_control(
