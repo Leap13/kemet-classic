@@ -256,6 +256,18 @@
 
             control.initResponsiveTrigger(".kmt-group-model ul li");
             break;
+          case "kmt-responsive-spacing":
+
+            var controlID = "kemet-settings" + attrs.id,
+              controlValue = attrs.value;
+            // Save the value.
+            $(".kmt-group-model ul li#customize-control-" + controlContainerID).on('change keyup paste', 'input.kmt-spacing-input', function () {
+
+              // Update value on change.
+              control.initResponsiveSpacing(controlContainerID, controlID);
+            });
+
+            break;
         }
       });
     },
@@ -658,7 +670,54 @@
       });
 
       api.control(control).setting.set(newValue);
-    }
+    },
+    initResponsiveSpacing: function (controlContainerID, control) {
+      'use strict';
+
+      var newValue = {
+        'desktop': {},
+        'tablet': {},
+        'mobile': {},
+        'desktop-unit': 'px',
+        'tablet-unit': 'px',
+        'mobile-unit': 'px',
+      };
+
+      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-desktop').each(function () {
+        var spacing_input = jQuery(this),
+          item = spacing_input.data('id'),
+          item_value = spacing_input.val();
+
+        newValue['desktop'][item] = item_value;
+      });
+
+      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-tablet').each(function () {
+        var spacing_input = jQuery(this),
+          item = spacing_input.data('id'),
+          item_value = spacing_input.val();
+
+        newValue['tablet'][item] = item_value;
+      });
+
+      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-mobile').each(function () {
+        var spacing_input = jQuery(this),
+          item = spacing_input.data('id'),
+          item_value = spacing_input.val();
+
+        newValue['mobile'][item] = item_value;
+      });
+
+      $('li#customize-control-' + controlContainerID).find('.kmt-spacing-unit-wrapper .kmt-spacing-unit-input').each(function () {
+        var spacing_unit = jQuery(this),
+          device = spacing_unit.attr('data-device'),
+          device_val = spacing_unit.val(),
+          name = device + '-unit';
+
+        newValue[name] = device_val;
+      });
+
+      api.control(control).setting.set(newValue);
+    },
   });
 
   $(function () {

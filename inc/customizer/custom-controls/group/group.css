@@ -5,7 +5,7 @@
     position: relative;
 }
 .customize-control-kmt-group .kmt-group-model ul.model-list{
-    padding: 0 15px;
+    padding: 0 10px;
 }
 .customize-control-kmt-group .kmt-group-control{
     position: relative;
@@ -37,10 +37,7 @@
     margin-top: 10px;
 }
 .kmt-group-model ul.model-list li.customize-control:first-child {
-    margin-top: 15px;
-}
-.kmt-group-model ul.model-list li.customize-control:last-child {
-    margin-bottom: 15px;
+    margin-top: 0;
 }
 .kmt-group-model ul.model-list .customize-control.controls-inline{
     width: 50%;
@@ -91,4 +88,7 @@
 }
 .customize-control-kmt-hidden{
     display: none !important;
+}
+.kmt-group-model ul.model-list .customize-control .kmt-responsive-control-btns{
+    padding-left: 0;
 }

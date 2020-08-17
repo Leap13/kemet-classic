@@ -621,34 +621,71 @@ $wp_customize->add_control(
 /**
 * Option - Read More Spacing
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[readmore-padding]', array(
-        'default'           => $defaults[ 'readmore-padding' ],
+// $wp_customize->add_setting(
+//     KEMET_THEME_SETTINGS . '[readmore-padding]', array(
+//         'default'           => $defaults[ 'readmore-padding' ],
+//         'type'              => 'option',
+//         'transport'         => 'postMessage',
+//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+//         'dependency'  => array(
+//             'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+//             'conditions' => '==', 
+//             'values' => true,
+//         ),
+//     )
+// );
+// $wp_customize->add_control(
+//     new Kemet_Control_Responsive_Spacing(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[readmore-padding]', array(
+//             'type'           => 'kmt-responsive-spacing',
+//             'section'        => 'section-blog',
+//             'priority'       => 115,
+//             'label'          => __( 'Read More Padding', 'kemet' ),
+//             'linked_choices' => true,
+//             'unit_choices'   => array( 'px', 'em', '%' ),
+//             'choices'        => array(
+//                 'top'    => __( 'Top', 'kemet' ),
+//                 'right'  => __( 'Right', 'kemet' ),
+//                 'bottom' => __( 'Bottom', 'kemet' ),
+//                 'left'   => __( 'Left', 'kemet' ),
+//             ),
+//         )
+//     )
+// );
+
+/**
+* Option: Typography
+*/
+$fields = array(
+      
+    /**
+    * Option - Read More Spacing
+    */
+      array(
+        'id'                => '[readmore-padding]',
+        'default'           => $defaults ['readmore-padding'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-            'conditions' => '==', 
-            'values' => true,
+        'control_type'      => 'kmt-responsive-spacing',
+        'section'           => 'section-blog',
+        'priority'          => 1,
+        'label'          => __( 'Read More Padding', 'kemet' ),
+        'linked_choices' => true,
+        'unit_choices'   => array( 'px', 'em', '%' ),
+        'choices'        => array(
+            'top'    => __( 'Top', 'kemet' ),
+            'right'  => __( 'Right', 'kemet' ),
+            'bottom' => __( 'Bottom', 'kemet' ),
+            'left'   => __( 'Left', 'kemet' ),
         ),
-    )
+    ),    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Spacing(
-        $wp_customize, KEMET_THEME_SETTINGS . '[readmore-padding]', array(
-            'type'           => 'kmt-responsive-spacing',
-            'section'        => 'section-blog',
-            'priority'       => 115,
-            'label'          => __( 'Read More Padding', 'kemet' ),
-            'linked_choices' => true,
-            'unit_choices'   => array( 'px', 'em', '%' ),
-            'choices'        => array(
-                'top'    => __( 'Top', 'kemet' ),
-                'right'  => __( 'Right', 'kemet' ),
-                'bottom' => __( 'Bottom', 'kemet' ),
-                'left'   => __( 'Left', 'kemet' ),
-            ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-readmore-spacing]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Read More', 'kemet' ),
+    'section'  => 'section-blog',
+    'priority' => 115,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
