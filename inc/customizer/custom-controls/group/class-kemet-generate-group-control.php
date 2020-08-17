@@ -32,6 +32,7 @@ class Kemet_Generate_Control_Group {
         'kmt-select' => 'sanitize_text_field',
         'kmt-color' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         'kmt-background' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+        'kmt-responsive-select' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' )
     );
 
     /**

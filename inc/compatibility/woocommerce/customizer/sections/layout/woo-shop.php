@@ -16,31 +16,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
 * Option: Shop Columns
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[shop-grids]', array(
+// $wp_customize->add_setting(
+//     KEMET_THEME_SETTINGS . '[shop-grids]', array(
+//         'default'           => kemet_get_option('shop-grids'),
+//         'type'              => 'option',
+//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
+//     )
+// );
+// $wp_customize->add_control(
+//     new Kemet_Control_Responsive_Select(
+//         $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
+//             'type'           => 'kmt-responsive-select',
+//             'section'        => 'section-woo-shop',
+//             'priority'       => 10,
+//             'label'          => __( 'Shop Columns', 'kemet' ),
+//             'choices'   => array(
+//                 '1' => 'One',
+//                 '2' => 'Two',
+//                 '3' => 'Three',
+//                 '4' => 'Four',
+//                 '5' => 'Five',
+//                 '6' => 'Six',
+//             ),
+//         )
+//     )
+// );
+
+$fields = array(
+    /**
+    * Option: Shop Columns
+    */
+    array(
+        'id'                => '[shop-grids]',
         'default'           => kemet_get_option('shop-grids'),
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
+        'control_type'      => 'kmt-responsive-select',
+        'label'             => __( 'Shop', 'kemet' ),
+        'section'           => 'section-woo-shop',
+        'priority'          => 10,
+        'choices'   => array(
+            '1' => 'One',
+            '2' => 'Two',
+            '3' => 'Three',
+            '4' => 'Four',
+            '5' => 'Five',
+            '6' => 'Six',
+        ),
     )
 );
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Select(
-        $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
-            'type'           => 'kmt-responsive-select',
-            'section'        => 'section-woo-shop',
-            'priority'       => 10,
-            'label'          => __( 'Shop Columns', 'kemet' ),
-            'choices'   => array(
-                '1' => 'One',
-                '2' => 'Two',
-                '3' => 'Three',
-                '4' => 'Four',
-                '5' => 'Five',
-                '6' => 'Six',
-            ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-woo-shop-group]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Shop Settings', 'kemet' ),
+    'section'  => 'section-woo-shop',
+    'priority' => 1,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
 /**
 * Option: Products Per Page
