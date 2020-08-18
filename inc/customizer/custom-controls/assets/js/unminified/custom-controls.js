@@ -382,7 +382,7 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 
 			newValue[item] = item_value;
 		});
-		
+
 		control.setting.set(newValue);
 	},
 
@@ -392,12 +392,12 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 
 		var control = this;
 
-		this.container.on('click', '.kmt-responsive-slider-btns button', function (event) {
+		control.container.on('click', '.kmt-responsive-select-btns button', function (event) {
 
 			event.preventDefault();
 
 			var device = jQuery(this).attr('data-device');
-	
+
 			if ('desktop' == device) {
 				device = 'tablet';
 			} else if ('tablet' == device) {
@@ -1039,8 +1039,7 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
               }
             );
 
-            control.initResponsiveTrigger(".kmt-group-model ul li");
-
+            control.initResponsiveTrigger();
             break;
           case "kmt-font-family":
             var controlID = attrs.id;
@@ -1167,7 +1166,7 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
               }
             });
 
-            control.initResponsiveTrigger(".kmt-group-model ul li");
+            control.initResponsiveTrigger();
             break;
           case "kmt-responsive-spacing":
             var controlID = "kemet-settings" + attrs.id,
@@ -1180,6 +1179,7 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
               control.initResponsiveSpacing(controlContainerID, controlID);
             });
             control.responsiveSpacingConnect();
+            control.initResponsiveTrigger();
             break;
           case "kmt-slider":
 
@@ -1362,11 +1362,16 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
       var control_id = "kemet-settings" + controlID;
       api.control(control_id).setting.set(value);
     },
-    initResponsiveTrigger: function (wrap) {
-      $(wrap)
+    initResponsiveTrigger: function () {
+      this.initResponsiveBtn();
+      $(".kmt-group-model ul li")
         .find(".kmt-responsive-control-btns button")
         .on("click", function (event) {
+
+          event.preventDefault();
+
           var device = $(this).attr("data-device");
+
           if ("desktop" == device) {
             device = "tablet";
           } else if ("tablet" == device) {
@@ -1374,13 +1379,14 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
           } else {
             device = "desktop";
           }
-
+          console.log(device);
           $(
             '.wp-full-overlay-footer .devices button[data-device="' +
             device +
             '"]'
           ).trigger("click");
         });
+      this.deviceBtnTrigger();
     },
     initColor: function (controlContainer, control) {
       $("li#customize-control-" + controlContainer)
@@ -1850,6 +1856,30 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
         font_tranform_control_kmt_select.addClass('controls-inline');
         font_tranform_control_kmt_select.css('padding-left', '5px');
       })
+    },
+    deviceBtnTrigger: function () {
+      $(' .wp-full-overlay-footer .devices button ').on('click', function () {
+
+        var device = $(this).attr('data-device');
+
+        $('.customize-control .kmt-responsive-control-btns > li').removeClass('active');
+        $('.customize-control .kmt-responsive-control-btns > li.' + device).addClass('active');
+      });
+    },
+    initResponsiveBtn: function () {
+
+      var active = '';
+      $(' .wp-full-overlay-footer .devices button').each(function () {
+
+        var device = $(this).attr('data-device');
+
+        if ($(this).hasClass('active')) {
+          active += device;
+        }
+      });
+
+      $('.kmt-responsive-control-btns > li.' + active).addClass('active');
+      $('.kmt-responsive-control-btns > li.' + active).siblings().removeClass('active');
     }
   });
 })(jQuery);

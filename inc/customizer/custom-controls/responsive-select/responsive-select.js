@@ -64,7 +64,7 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 
 			newValue[item] = item_value;
 		});
-		
+
 		control.setting.set(newValue);
 	},
 
@@ -74,12 +74,12 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 
 		var control = this;
 
-		this.container.on('click', '.kmt-responsive-slider-btns button', function (event) {
+		control.container.on('click', '.kmt-responsive-select-btns button', function (event) {
 
 			event.preventDefault();
 
 			var device = jQuery(this).attr('data-device');
-	
+
 			if ('desktop' == device) {
 				device = 'tablet';
 			} else if ('tablet' == device) {
