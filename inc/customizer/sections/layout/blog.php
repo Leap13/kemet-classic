@@ -405,7 +405,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Color', 'kemet' ),
-        'priority'          => 1,
+        'priority'          => 2,
         'section'           => 'section-blog',
         'tab'               => __('Normal' , 'kemet')
     ),  
@@ -419,7 +419,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Hover Color', 'kemet' ),
-        'priority'          => 5,
+        'priority'          => 1,
         'section'           => 'section-blog',
         'tab'               => __('Hover' , 'kemet')
     ),   
@@ -433,7 +433,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Background Color', 'kemet' ),
-        'priority'          => 10,
+        'priority'          => 2,
         'section'           => 'section-blog',
         'tab'               => __('Normal' , 'kemet')
     ),  
@@ -447,7 +447,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Hover Background Color', 'kemet' ),
-        'priority'          => 15,
+        'priority'          => 1,
         'section'           => 'section-blog',
         'tab'               => __('Hover' , 'kemet')
     ), 
@@ -593,40 +593,6 @@ $wp_customize->add_control(
         )
     )
 );
-/**
-* Option - Read More Spacing
-*/
-// $wp_customize->add_setting(
-//     KEMET_THEME_SETTINGS . '[readmore-padding]', array(
-//         'default'           => $defaults[ 'readmore-padding' ],
-//         'type'              => 'option',
-//         'transport'         => 'postMessage',
-//         'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-//         'dependency'  => array(
-//             'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
-//             'conditions' => '==', 
-//             'values' => true,
-//         ),
-//     )
-// );
-// $wp_customize->add_control(
-//     new Kemet_Control_Responsive_Spacing(
-//         $wp_customize, KEMET_THEME_SETTINGS . '[readmore-padding]', array(
-//             'type'           => 'kmt-responsive-spacing',
-//             'section'        => 'section-blog',
-//             'priority'       => 115,
-//             'label'          => __( 'Read More Padding', 'kemet' ),
-//             'linked_choices' => true,
-//             'unit_choices'   => array( 'px', 'em', '%' ),
-//             'choices'        => array(
-//                 'top'    => __( 'Top', 'kemet' ),
-//                 'right'  => __( 'Right', 'kemet' ),
-//                 'bottom' => __( 'Bottom', 'kemet' ),
-//                 'left'   => __( 'Left', 'kemet' ),
-//             ),
-//         )
-//     )
-// );
 
 /**
 * Option: Typography

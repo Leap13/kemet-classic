@@ -57,10 +57,10 @@ class Kemet_Control_Group extends WP_Customize_Control {
         $this->json['id']          = $this->id;
         $this->json['fields']    = $this->fields;
         $this->json['group'] = $this->group;
-
-        foreach($this->fields as  $field){
+        $sorted_data = wp_list_sort( $this->fields , 'priority' );
+        foreach( $sorted_data as  $field){
             if ( array_key_exists( 'tab', $field ) ) {
-				$this->json['group']['tabs'][ $field['tab'] ][] = $field;
+                $this->json['group']['tabs'][ $field['tab'] ][] = $field;
 			}else{
                 $this->json['group'][] = $field;
             }

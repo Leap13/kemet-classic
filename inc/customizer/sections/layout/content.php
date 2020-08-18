@@ -61,7 +61,7 @@ $fields = array(
         'control_type'      => 'kmt-color',
         'transport'         => 'postMessage',
         'section'           => 'section-contents',
-        'priority'          => 5,
+        'priority'          => 6,
         'label'          => __( 'Font Color', 'kemet' ),
     ),
     /**
@@ -73,7 +73,7 @@ $fields = array(
         'type'              => 'option',
         'control_type'      => 'kmt-responsive-slider',
         'section'           => 'section-contents',
-        'priority'          => 10,
+        'priority'          => 5,
         'label'          => __( 'Font Size', 'kemet' ),
         'unit_choices'   => array(
             'px' => array(
@@ -98,7 +98,7 @@ $fields = array(
         'control_type'      => 'kmt-font-family',
         'label'             => __( 'Font Family', 'kemet' ),
         'section'           => 'section-contents',
-        'priority'          => 15,
+        'priority'          => 4,
         'connect'           => KEMET_THEME_SETTINGS . '[body-font-weight]',
     ),
      /**
@@ -111,7 +111,7 @@ $fields = array(
         'control_type'      => 'kmt-font-weight',
         'label'             => __( 'Font Weight', 'kemet' ),
         'section'           => 'section-contents',
-        'priority'          => 15,
+        'priority'          => 5,
         'connect'           => KEMET_THEME_SETTINGS . '[body-font-family]',
     ),
     /**
@@ -125,7 +125,7 @@ $fields = array(
         'control_type'      => 'kmt-select',
         'label'             => __( 'Text Transform', 'kemet' ),
         'section'           => 'section-contents',
-        'priority'          => 25,
+        'priority'          => 3,
         'choices'  => array(
             ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
@@ -144,7 +144,7 @@ $fields = array(
         'control_type'      => 'kmt-responsive-slider',
         'section'           => 'section-contents',
         'transport'         => 'postMessage',
-        'priority'          => 30,
+        'priority'          => 2,
         'label'          => __( 'Line Height', 'kemet' ),
         'unit_choices'   => array(
             'px' => array(
@@ -173,7 +173,7 @@ $fields = array(
         'type'              => 'option',
         'control_type'      => 'kmt-responsive-slider',
         'section'           => 'section-contents',
-        'priority'       => 33,
+        'priority'       => 1,
         'label'          => __( 'Letter Spacing', 'kemet' ),
         'unit_choices'   => array(
             'px' => array(
