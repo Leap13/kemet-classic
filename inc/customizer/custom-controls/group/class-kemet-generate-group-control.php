@@ -34,6 +34,7 @@ class Kemet_Generate_Control_Group {
         'kmt-background' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
         'kmt-responsive-select' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
         'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'kmt-slider' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
     );
 
     /**

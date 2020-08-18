@@ -144,6 +144,21 @@
                 .find("input[type=range]");
               input_number.val(value);
 
+              // Handle the reset button.
+              $(
+                ".kmt-group-model ul li#customize-control-" + controlContainerID
+              ).on('click', '.kmt-responsive-slider-reset', function () {
+
+                var wrapper = jQuery(this).parent().find('.input-field-wrapper.active'),
+                  input_range = wrapper.find('input[type=range]'),
+                  input_number = wrapper.find('.kmt-responsive-range-value-input'),
+                  default_value = input_range.data('reset_value');
+
+                input_range.val(default_value);
+                input_number.val(default_value);
+                input_number.trigger('change');
+              });
+
               control.initResponsiveSlider(controlContainerID, attrs.id);
             });
 
@@ -243,7 +258,7 @@
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select")
-              .select2()
+              .selectWoo({ width: '100%' })
               .css("width", "100%");
 
             $(
@@ -294,6 +309,7 @@
 
               control.initSelect(value, controlID);
             });
+            control.inlineControls();
             break;
           case "kmt-select":
             controlID = attrs.id;
@@ -368,6 +384,32 @@
               control.initResponsiveSpacing(controlContainerID, controlID);
             });
             control.responsiveSpacingConnect();
+            break;
+          case "kmt-slider":
+
+            var controlID = "kemet-settings" + attrs.id;
+
+            // Update the text value.
+            $('input[type=range]').on('input change', function () {
+              var value = $(this).val(),
+                input_number = $(this).closest('.wrapper').find('.kemet_range_value .value');
+
+              input_number.val(value);
+              input_number.change();
+            });
+            // Handle the reset button.
+            $('.kmt-slider-reset').click(function () {
+              var wrapper = $(this).closest('.wrapper'),
+                input_range = wrapper.find('input[type=range]'),
+                input_number = wrapper.find('.kemet_range_value .value'),
+                default_value = input_range.data('reset_value');
+
+              input_range.val(default_value);
+              input_number.val(default_value);
+              input_number.change();
+            });
+
+            control.initSlider(controlContainerID, controlID);
             break;
         }
       });
@@ -477,7 +519,7 @@
         weightMap = kemetTypo;
 
       if (fontValue == "inherit") {
-        weightValue = weightSelect.val();
+        weightOptions += '<option value="inherit" selected="selected">Inherit</option>';
       }
       var fontValue = KmtTypography._cleanGoogleFonts(fontValue);
 
@@ -989,5 +1031,29 @@
           });
       });
     },
+    initSlider: function (controlContainerID, control) {
+      // Save changes.
+      $("li#customize-control-" + controlContainerID).on('input change', 'input[type=number]', function () {
+        var value = jQuery(this).val();
+        jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
+        api.control(control).setting.set(value);
+      });
+    },
+    inlineControls: function () {
+      //Inline Style
+      var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-kmt-font-weight');
+      font_weight_controls.each(function () {
+        var font_weight_control = jQuery(this);
+        var font_tranform_control = font_weight_control.next('.customize-control-select'),
+          font_tranform_control_kmt_select = font_weight_control.next('.customize-control-kmt-select');
+
+        font_weight_control.addClass('controls-inline');
+        font_weight_control.css('padding-right', '5px');
+        font_tranform_control.addClass('controls-inline');
+        font_tranform_control.css('padding-left', '5px');
+        font_tranform_control_kmt_select.addClass('controls-inline');
+        font_tranform_control_kmt_select.css('padding-left', '5px');
+      })
+    }
   });
 })(jQuery);
