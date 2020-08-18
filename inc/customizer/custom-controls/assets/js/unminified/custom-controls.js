@@ -968,45 +968,45 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("min", unit_min);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("max", unit_max);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("step", unit_step);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .val("");
 
@@ -1335,8 +1335,8 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
 
           $(
             '.wp-full-overlay-footer .devices button[data-device="' +
-              device +
-              '"]'
+            device +
+            '"]'
           ).trigger("click");
         });
     },
@@ -1636,8 +1636,8 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
     saveBackgroundValue: function (value, controlContainerID, control) {
       var input = $(
         "li#customize-control-" +
-          controlContainerID +
-          " .background-hidden-value"
+        controlContainerID +
+        " .background-hidden-value"
       );
 
       $(input).attr("value", JSON.stringify(value)).trigger("change");
@@ -1648,8 +1648,8 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
     initResponsiveSelect: function (controlContainerID, control) {
       // Set the spacing container.
       var responsiveContainer = $("li#customize-control-" + controlContainerID)
-          .find(".kmt-responsive-wrapper")
-          .first(),
+        .find(".kmt-responsive-wrapper")
+        .first(),
         newValue = {};
 
       responsiveContainer

@@ -172,45 +172,45 @@
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("min", unit_min);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("max", unit_max);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .attr("step", unit_step);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                      device +
-                      " .kmt-responsive-range-" +
-                      device +
-                      "-input ,.input-field-wrapper." +
-                      device +
-                      " input[type=range]"
+                    device +
+                    " .kmt-responsive-range-" +
+                    device +
+                    "-input ,.input-field-wrapper." +
+                    device +
+                    " input[type=range]"
                   )
                   .val("");
 
@@ -539,8 +539,8 @@
 
           $(
             '.wp-full-overlay-footer .devices button[data-device="' +
-              device +
-              '"]'
+            device +
+            '"]'
           ).trigger("click");
         });
     },
@@ -840,8 +840,8 @@
     saveBackgroundValue: function (value, controlContainerID, control) {
       var input = $(
         "li#customize-control-" +
-          controlContainerID +
-          " .background-hidden-value"
+        controlContainerID +
+        " .background-hidden-value"
       );
 
       $(input).attr("value", JSON.stringify(value)).trigger("change");
@@ -852,8 +852,8 @@
     initResponsiveSelect: function (controlContainerID, control) {
       // Set the spacing container.
       var responsiveContainer = $("li#customize-control-" + controlContainerID)
-          .find(".kmt-responsive-wrapper")
-          .first(),
+        .find(".kmt-responsive-wrapper")
+        .first(),
         newValue = {};
 
       responsiveContainer
