@@ -736,6 +736,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   left: 0;
   z-index: 999;
   width: 100%;
+  margin-bottom: 20px;
 }
 .customize-control-kmt-group .kmt-group-model::before {
   content: "";
@@ -847,6 +848,8 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
   color: #fff;
 }
 .kmt-group-model .customize-control-title {
-  margin-bottom: 10px;
   font-size: 13px;
+}
+#customize-theme-controls .control-section.open {
+  height: 100%;
 }

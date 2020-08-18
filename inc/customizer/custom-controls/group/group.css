@@ -23,6 +23,7 @@
   right: 0;
   z-index: 999;
   width: 100%;
+  margin-bottom: 20px;
 }
 .customize-control-kmt-group .kmt-group-model::before {
   content: "";
@@ -135,4 +136,7 @@
 }
 .kmt-group-model .customize-control-title {
   font-size: 13px;
+}
+#customize-theme-controls .control-section.open {
+  height: 100%;
 }

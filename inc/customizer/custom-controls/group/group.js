@@ -3,47 +3,49 @@
 
   wp.customize.controlConstructor["kmt-group"] = wp.customize.Control.extend({
     ready: function () {
-
       var control = this;
 
       /* Model Popup */
       $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(
         function (e) {
-          if (!$(e.target).closest(".kmt-group-model").length && !$(e.target).closest(".model-button").length) {
+          if (
+            !$(e.target).closest(".kmt-group-model").length &&
+            !$(e.target).closest(".model-button").length
+          ) {
             $(".model-button.open").trigger("click");
           }
         }
       );
-      control.container.on('click', '.kmt-group-control .model-button', function () {
+      control.container.on(
+        "click",
+        ".kmt-group-control .model-button",
+        function () {
+          var $this = $(this),
+            parentWrap = $this.closest(".customize-control-kmt-group"),
+            Section = parentWrap.parents(".control-section");
 
-        var $this = $(this),
-          parentWrap = $this.closest(".customize-control-kmt-group"),
-          Section = parentWrap.parents(".control-section");
+          if ($this.hasClass("open")) {
+            parentWrap.find(".kmt-group-model").hide();
+          } else {
+            /* Close popup when another popup is clicked to open */
+            var getOpenPopup = Section.find(".model-button.open");
+            if (getOpenPopup.length > 0) {
+              getOpenPopup.trigger("click");
+            }
 
-        if ($this.hasClass("open")) {
-          parentWrap.find(".kmt-group-model").hide();
-        } else {
-          /* Close popup when another popup is clicked to open */
-          var getOpenPopup = Section.find(
-            ".model-button.open"
-          );
-          if (getOpenPopup.length > 0) {
-            getOpenPopup.trigger("click");
+            if (!$.trim(parentWrap.find(".model-list").html())) {
+              control.loadModelPopup();
+            }
+            parentWrap.find(".kmt-group-model").show();
           }
-
-          if (!$.trim(parentWrap.find('.model-list').html())) {
-            control.loadModelPopup();
-          }
-          parentWrap.find(".kmt-group-model").show();
+          $(this).toggleClass("open");
         }
-        $(this).toggleClass("open");
-      });
+      );
     },
     loadModelPopup: function () {
-
       var control = this,
         controlTypes = [],
-        html = '',
+        html = "",
         fields = control.params.group;
 
       if ("undefined" != typeof fields.tabs) {
@@ -51,14 +53,14 @@
           controlID = controlID.replace("]", ""),
           count = 0;
 
-        html += '<div id=' + controlID + ' class="kmt-group-tabs">';
+        html += "<div id=" + controlID + ' class="kmt-group-tabs">';
         html += '<ul class="kmt-tabs-list">';
 
         _.each(fields.tabs, function (value, key) {
           var classes = "";
 
           if (count == 0) {
-            classes += 'active';
+            classes += "active";
           }
 
           html +=
@@ -101,9 +103,8 @@
 
         $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
       } else {
-
         var group = control.getGroupContent(fields);
-        html += group.html
+        html += group.html;
         control.container.find(".model-list").append(html);
         _.each(group.controls, function (attrs, key) {
           controlTypes.push({
@@ -112,9 +113,7 @@
             type: attrs.type,
           });
         });
-
       }
-
 
       _.each(controlTypes, function (attrs, index) {
         var controlContainerID = attrs.id.replace("[", "");
@@ -122,13 +121,12 @@
 
         switch (attrs.type) {
           case "kmt-responsive-slider":
-
             //Save Value on In put Change
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
             ).on("input change", "input[type=range]", function () {
-              var value = jQuery(this).val(),
-                input_number = jQuery(this)
+              var value = $(this).val(),
+                input_number = $(this)
                   .closest(".input-field-wrapper")
                   .find(".kmt-responsive-range-value-input");
 
@@ -140,8 +138,8 @@
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
             ).on("input change", "input[type=number]", function () {
-              var value = jQuery(this).val();
-              input_number = jQuery(this)
+              var value = $(this).val();
+              input_number = $(this)
                 .closest(".input-field-wrapper")
                 .find("input[type=range]");
               input_number.val(value);
@@ -156,7 +154,7 @@
               "click",
               ".kmt-slider-responsive-units .single-unit",
               function () {
-                var unit = jQuery(this);
+                var unit = $(this);
                 var control = $(".kmt-group-model ul li#" + controlContainerID);
                 if (unit.hasClass("active")) {
                   return false;
@@ -165,7 +163,7 @@
                   unit_min = unit.attr("data-min"),
                   unit_max = unit.attr("data-max"),
                   unit_step = unit.attr("data-step"),
-                  device = jQuery(
+                  device = $(
                     ".wp-full-overlay-footer .devices button.active"
                   ).attr("data-device");
 
@@ -174,45 +172,45 @@
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                    device +
-                    " .kmt-responsive-range-" +
-                    device +
-                    "-input ,.input-field-wrapper." +
-                    device +
-                    " input[type=range]"
+                      device +
+                      " .kmt-responsive-range-" +
+                      device +
+                      "-input ,.input-field-wrapper." +
+                      device +
+                      " input[type=range]"
                   )
                   .attr("min", unit_min);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                    device +
-                    " .kmt-responsive-range-" +
-                    device +
-                    "-input ,.input-field-wrapper." +
-                    device +
-                    " input[type=range]"
+                      device +
+                      " .kmt-responsive-range-" +
+                      device +
+                      "-input ,.input-field-wrapper." +
+                      device +
+                      " input[type=range]"
                   )
                   .attr("max", unit_max);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                    device +
-                    " .kmt-responsive-range-" +
-                    device +
-                    "-input ,.input-field-wrapper." +
-                    device +
-                    " input[type=range]"
+                      device +
+                      " .kmt-responsive-range-" +
+                      device +
+                      "-input ,.input-field-wrapper." +
+                      device +
+                      " input[type=range]"
                   )
                   .attr("step", unit_step);
                 $(control)
                   .find(
                     ".input-field-wrapper." +
-                    device +
-                    " .kmt-responsive-range-" +
-                    device +
-                    "-input ,.input-field-wrapper." +
-                    device +
-                    " input[type=range]"
+                      device +
+                      " .kmt-responsive-range-" +
+                      device +
+                      "-input ,.input-field-wrapper." +
+                      device +
+                      " input[type=range]"
                   )
                   .val("");
 
@@ -234,18 +232,19 @@
 
             break;
           case "kmt-font-family":
-
             var controlID = attrs.id;
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select")
               .html(kemet.font_family_select);
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
-              .find("select").val(attrs.value);
+              .find("select")
+              .val(attrs.value);
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select")
-              .select2().css('width', '100%');
+              .select2()
+              .css("width", "100%");
 
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
@@ -260,25 +259,21 @@
               ".kmt-group-model ul li#customize-control-" + controlContainerID
             ).on("change", "select", function () {
               var attrs = control.getField(fields, controlID),
-                family = 'li#customize-control-' + controlContainerID,
+                family = "li#customize-control-" + controlContainerID,
                 weight = attrs.connect.replace("kemet-settings[", ""),
-                weight = 'li#customize-control-' + weight.replace("]", "");
+                weight = "li#customize-control-" + weight.replace("]", "");
 
-              control.setFontWeightOptions(
-                family,
-                weight,
-                attrs.connect
-              );
-              api.control(attrs.connect).setting.set('');
+              control.setFontWeightOptions(family, weight, attrs.connect);
+              api.control(attrs.connect).setting.set("");
             });
 
             break;
           case "kmt-font-weight":
             var attrs = control.getField(fields, attrs.id),
-              weight = 'li#customize-control-' + controlContainerID,
-              family = (attrs.connect).replace("kemet-settings[", ""),
-              family = 'li#customize-control-' + family.replace("]", ""),
-              value = attrs.value != '' ? attrs.value : 400;
+              weight = "li#customize-control-" + controlContainerID,
+              family = attrs.connect.replace("kemet-settings[", ""),
+              family = "li#customize-control-" + family.replace("]", ""),
+              value = attrs.value != "" ? attrs.value : 400;
             controlID = attrs.id;
 
             control.setFontWeightOptions(
@@ -288,7 +283,8 @@
             );
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
-              .find("select").val(value);
+              .find("select")
+              .val(value);
 
             $(
               ".kmt-group-model ul li#customize-control-" + controlContainerID
@@ -312,60 +308,66 @@
             });
             break;
           case "kmt-color":
-
             var controlID = "kemet-settings" + attrs.id;
             control.initColor(controlContainerID, controlID);
 
             break;
           case "kmt-background":
-
             var controlID = "kemet-settings" + attrs.id,
               controlValue = attrs.value;
 
-            control.initBackgroundColor(controlContainerID, controlID, controlValue);
+            control.initBackgroundColor(
+              controlContainerID,
+              controlID,
+              controlValue
+            );
             break;
           case "kmt-responsive-select":
-
             var controlID = "kemet-settings" + attrs.id,
               controlValue = attrs.value;
 
             /**
-           * Save on change / keyup / paste
-           */
-            $(".kmt-group-model ul li#customize-control-" + controlContainerID).on('change keyup paste', 'select.kmt-responsive-select', function () {
+             * Save on change / keyup / paste
+             */
+            $(
+              ".kmt-group-model ul li#customize-control-" + controlContainerID
+            ).on(
+              "change keyup paste",
+              "select.kmt-responsive-select",
+              function () {
+                value = $(this).val();
 
-              value = jQuery(this).val();
-
-              // Update value on change.
-              control.initResponsiveSelect(controlContainerID, controlID);
-            });
+                // Update value on change.
+                control.initResponsiveSelect(controlContainerID, controlID);
+              }
+            );
 
             /**
              * Refresh preview frame on blur
              */
-            $(".kmt-group-model ul li#customize-control-" + controlContainerID).on('blur', 'input', function () {
+            $(
+              ".kmt-group-model ul li#customize-control-" + controlContainerID
+            ).on("blur", "input", function () {
+              value = $(this).val() || "";
 
-              value = jQuery(this).val() || '';
-
-              if (value == '') {
+              if (value == "") {
                 wp.customize.previewer.refresh();
               }
-
             });
 
             control.initResponsiveTrigger(".kmt-group-model ul li");
             break;
           case "kmt-responsive-spacing":
-
             var controlID = "kemet-settings" + attrs.id,
               controlValue = attrs.value;
             // Save the value.
-            $(".kmt-group-model ul li#customize-control-" + controlContainerID).on('change keyup paste', 'input.kmt-spacing-input', function () {
-
+            $(
+              ".kmt-group-model ul li#customize-control-" + controlContainerID
+            ).on("change keyup paste", "input.kmt-spacing-input", function () {
               // Update value on change.
               control.initResponsiveSpacing(controlContainerID, controlID);
             });
-
+            control.responsiveSpacingConnect();
             break;
         }
       });
@@ -377,7 +379,6 @@
         fieldsHtml = "";
 
       _.each(fields, function (attr, index) {
-
         var control_id = "kemet-settings" + attr.id;
         var values = api.get();
         var newValue = values[control_id] ? values[control_id] : "";
@@ -420,11 +421,9 @@
     },
     getField: function (fields, fieldID) {
       "use strict";
-      var controlAttrs = '';
+      var controlAttrs = "";
       _.each(fields, function (attrs, index) {
-
         if (fieldID == attrs.id) {
-
           controlAttrs = attrs;
         }
       });
@@ -446,7 +445,7 @@
       $("li#customize-control-" + controlContainer)
         .find(".kmt-responsive-range-value-input")
         .each(function () {
-          var responsive_input = jQuery(this),
+          var responsive_input = $(this),
             item = responsive_input.data("id"),
             item_value = responsive_input.val();
 
@@ -455,7 +454,7 @@
       $("li#customize-control-" + controlContainer)
         .find(".kmt-slider-unit-wrapper .kmt-slider-unit-input")
         .each(function () {
-          var slider_unit = jQuery(this),
+          var slider_unit = $(this),
             device = slider_unit.attr("data-device"),
             device_val = slider_unit.val(),
             name = device + "-unit";
@@ -522,7 +521,6 @@
       weightSelect.html(weightOptions);
     },
     initSelect: function (value, controlID) {
-
       var control_id = "kemet-settings" + controlID;
       api.control(control_id).setting.set(value);
     },
@@ -530,7 +528,7 @@
       $(wrap)
         .find(".kmt-responsive-control-btns button")
         .on("click", function (event) {
-          var device = jQuery(this).attr("data-device");
+          var device = $(this).attr("data-device");
           if ("desktop" == device) {
             device = "tablet";
           } else if ("tablet" == device) {
@@ -539,284 +537,456 @@
             device = "desktop";
           }
 
-          jQuery(
+          $(
             '.wp-full-overlay-footer .devices button[data-device="' +
-            device +
-            '"]'
+              device +
+              '"]'
           ).trigger("click");
         });
     },
     initColor: function (controlContainer, control) {
+      $("li#customize-control-" + controlContainer)
+        .find(".kmt-color-picker-alpha")
+        .wpColorPicker({
+          /**
+           * @param {Event} event - standard $ event, produced by whichever
+           * control was changed.
+           * @param {Object} ui - standard $ UI object, with a color member
+           * containing a Color.js object.
+           */
+          change: function (event, ui) {
+            var element = event.target;
+            var color = ui.color.toString();
 
-      $("li#customize-control-" + controlContainer).find('.kmt-color-picker-alpha').wpColorPicker({
-				/**
-         * @param {Event} event - standard jQuery event, produced by whichever
-         * control was changed.
-         * @param {Object} ui - standard jQuery UI object, with a color member
-         * containing a Color.js object.
-         */
-        change: function (event, ui) {
-          var element = event.target;
-          var color = ui.color.toString();
+            if ($("html").hasClass("colorpicker-ready")) {
+              api.control(control).setting.set(color);
+            }
+          },
 
-          if (jQuery('html').hasClass('colorpicker-ready')) {
-            api.control(control).setting.set(color);
-          }
-        },
+          /**
+           * @param {Event} event - standard $ event, produced by "Clear"
+           * button.
+           */
+          clear: function (event) {
+            var element = $(event.target)
+              .closest(".wp-picker-input-wrap")
+              .find(".wp-color-picker")[0];
+            var color = "";
 
-        /**
-         * @param {Event} event - standard jQuery event, produced by "Clear"
-         * button.
-         */
-        clear: function (event) {
-          var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-          var color = '';
-
-          if (element) {
-            // Add your code here
-            api.control(control).setting.set(color);
-          }
-        }
-      });
-
+            if (element) {
+              // Add your code here
+              api.control(control).setting.set(color);
+            }
+          },
+        });
     },
     initBackgroundColor: function (controlContainer, controlID, controlValue) {
-
       var control = this,
         defaults = {
-          'background-color': "",
-          'background-image': "",
-          'background-repeat': "repeat",
-          'background-position': "center center",
-          'background-size': "auto",
-          'background-attachment': "scroll",
+          "background-color": "",
+          "background-image": "",
+          "background-repeat": "repeat",
+          "background-position": "center center",
+          "background-size": "auto",
+          "background-attachment": "scroll",
         },
-        value = controlValue != '' ? controlValue : defaults,
-        picker = $("li#customize-control-" + controlContainer).find('.kmt-color-control');
+        value = controlValue != "" ? controlValue : defaults,
+        picker = $("li#customize-control-" + controlContainer).find(
+          ".kmt-color-control"
+        );
 
       // Hide unnecessary controls if the value doesn't have an image.
-      if (_.isUndefined(value['background-image']) || '' === value['background-image']) {
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-repeat').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-position').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-size').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-attachment').hide();
+      if (
+        _.isUndefined(value["background-image"]) ||
+        "" === value["background-image"]
+      ) {
+        $("li#customize-control-" + controlContainer)
+          .find(".background-wrapper > .background-repeat")
+          .hide();
+        $("li#customize-control-" + controlContainer)
+          .find(".background-wrapper > .background-position")
+          .hide();
+        $("li#customize-control-" + controlContainer)
+          .find(".background-wrapper > .background-size")
+          .hide();
+        $("li#customize-control-" + controlContainer)
+          .find(".background-wrapper > .background-attachment")
+          .hide();
       }
 
       // Color.
       picker.wpColorPicker({
         change: function () {
-          if (jQuery('html').hasClass('background-colorpicker-ready')) {
+          if ($("html").hasClass("background-colorpicker-ready")) {
             setTimeout(function () {
-              value['background-color'] = picker.val();
+              value["background-color"] = picker.val();
               control.saveBackgroundValue(value, controlContainer, controlID);
             }, 100);
           }
         },
 
         /**
-           * @param {Event} event - standard jQuery event, produced by "Clear"
-           * button.
-           */
+         * @param {Event} event - standard $ event, produced by "Clear"
+         * button.
+         */
         clear: function (event) {
-          var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
+          var element = $(event.target)
+            .closest(".wp-picker-input-wrap")
+            .find(".wp-color-picker")[0];
 
           if (element) {
-            value['background-color'] = '';
+            value["background-color"] = "";
             control.saveBackgroundValue(value, controlContainer, controlID);
           }
-        }
+        },
       });
 
       // Background-Repeat.
-      $("li#customize-control-" + controlContainer).on('change', '.background-repeat select', function () {
-        value['background-repeat'] = jQuery(this).val();
-        control.saveBackgroundValue(value, controlContainer, controlID);
-      });
+      $("li#customize-control-" + controlContainer).on(
+        "change",
+        ".background-repeat select",
+        function () {
+          value["background-repeat"] = $(this).val();
+          control.saveBackgroundValue(value, controlContainer, controlID);
+        }
+      );
 
       // Background-Size.
-      $("li#customize-control-" + controlContainer).on('change click', '.background-size input', function () {
-        value['background-size'] = jQuery(this).val();
-        control.saveBackgroundValue(value, controlContainer, controlID);
-      });
+      $("li#customize-control-" + controlContainer).on(
+        "change click",
+        ".background-size input",
+        function () {
+          value["background-size"] = $(this).val();
+          control.saveBackgroundValue(value, controlContainer, controlID);
+        }
+      );
 
       // Background-Position.
-      $("li#customize-control-" + controlContainer).on('change', '.background-position select', function () {
-        value['background-position'] = jQuery(this).val();
-        control.saveBackgroundValue(value, controlContainer, controlID);
-      });
+      $("li#customize-control-" + controlContainer).on(
+        "change",
+        ".background-position select",
+        function () {
+          value["background-position"] = $(this).val();
+          control.saveBackgroundValue(value, controlContainer, controlID);
+        }
+      );
 
       // Background-Attachment.
-      $("li#customize-control-" + controlContainer).on('change click', '.background-attachment input', function () {
-        value['background-attachment'] = jQuery(this).val();
-        control.saveBackgroundValue(value, controlContainer, controlID);
-      });
+      $("li#customize-control-" + controlContainer).on(
+        "change click",
+        ".background-attachment input",
+        function () {
+          value["background-attachment"] = $(this).val();
+          control.saveBackgroundValue(value, controlContainer, controlID);
+        }
+      );
 
       // Background-Image.
-      $("li#customize-control-" + controlContainer).on('click', '.background-image-upload-button', function (e) {
-        var image = wp.media({ multiple: false }).open().on('select', function () {
+      $("li#customize-control-" + controlContainer).on(
+        "click",
+        ".background-image-upload-button",
+        function (e) {
+          var image = wp
+            .media({ multiple: false })
+            .open()
+            .on("select", function () {
+              // This will return the selected image from the Media Uploader, the result is an object.
+              var uploadedImage = image.state().get("selection").first(),
+                previewImage = uploadedImage.toJSON().sizes.full.url,
+                imageUrl,
+                imageID,
+                imageWidth,
+                imageHeight,
+                preview,
+                removeButton;
 
-          // This will return the selected image from the Media Uploader, the result is an object.
-          var uploadedImage = image.state().get('selection').first(),
-            previewImage = uploadedImage.toJSON().sizes.full.url,
-            imageUrl,
-            imageID,
-            imageWidth,
-            imageHeight,
-            preview,
-            removeButton;
+              if (!_.isUndefined(uploadedImage.toJSON().sizes.medium)) {
+                previewImage = uploadedImage.toJSON().sizes.medium.url;
+              } else if (
+                !_.isUndefined(uploadedImage.toJSON().sizes.thumbnail)
+              ) {
+                previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
+              }
 
-          if (!_.isUndefined(uploadedImage.toJSON().sizes.medium)) {
-            previewImage = uploadedImage.toJSON().sizes.medium.url;
-          } else if (!_.isUndefined(uploadedImage.toJSON().sizes.thumbnail)) {
-            previewImage = uploadedImage.toJSON().sizes.thumbnail.url;
-          }
+              imageUrl = uploadedImage.toJSON().sizes.full.url;
+              imageID = uploadedImage.toJSON().id;
+              imageWidth = uploadedImage.toJSON().width;
+              imageHeight = uploadedImage.toJSON().height;
 
-          imageUrl = uploadedImage.toJSON().sizes.full.url;
-          imageID = uploadedImage.toJSON().id;
-          imageWidth = uploadedImage.toJSON().width;
-          imageHeight = uploadedImage.toJSON().height;
+              // Show extra controls if the value has an image.
+              if ("" !== imageUrl) {
+                $("li#customize-control-" + controlContainer)
+                  .find(
+                    ".background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment"
+                  )
+                  .show();
+                $("li#customize-control-" + controlContainer)
+                  .find(".more-settings")
+                  .attr("data-direction", "up");
+                $("li#customize-control-" + controlContainer)
+                  .find(".message")
+                  .html(kemetCustomizerControlBackground.lessSettings);
+              }
 
-          // Show extra controls if the value has an image.
-          if ('' !== imageUrl) {
-            $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
-            $("li#customize-control-" + controlContainer).find('.more-settings').attr('data-direction', 'up');
-            $("li#customize-control-" + controlContainer).find('.message').html(kemetCustomizerControlBackground.lessSettings)
-          }
+              value["background-image"] = imageUrl;
+              control.saveBackgroundValue(value, controlContainer, controlID);
+              preview = $("li#customize-control-" + controlContainer).find(
+                ".placeholder, .thumbnail"
+              );
+              removeButton = $("li#customize-control-" + controlContainer).find(
+                ".background-image-upload-remove-button"
+              );
 
-          value['background-image'] = imageUrl;
+              if (preview.length) {
+                preview
+                  .removeClass()
+                  .addClass("thumbnail thumbnail-image")
+                  .html('<img src="' + previewImage + '" alt="" />');
+              }
+              if (removeButton.length) {
+                removeButton.show();
+              }
+            });
+
+          e.preventDefault();
+        }
+      );
+
+      $("li#customize-control-" + controlContainer).on(
+        "click",
+        ".background-image-upload-remove-button",
+        function (e) {
+          var preview, removeButton;
+
+          e.preventDefault();
+
+          value["background-image"] = "";
           control.saveBackgroundValue(value, controlContainer, controlID);
-          preview = $("li#customize-control-" + controlContainer).find('.placeholder, .thumbnail');
-          removeButton = $("li#customize-control-" + controlContainer).find('.background-image-upload-remove-button');
+
+          preview = $("li#customize-control-" + controlContainer).find(
+            ".placeholder, .thumbnail"
+          );
+          removeButton = $("li#customize-control-" + controlContainer).find(
+            ".background-image-upload-remove-button"
+          );
+
+          // Hide unnecessary controls.
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-repeat")
+            .hide();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-position")
+            .hide();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-size")
+            .hide();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-attachment")
+            .hide();
+
+          $("li#customize-control-" + controlContainer)
+            .find(".more-settings")
+            .attr("data-direction", "down");
+          $("li#customize-control-" + controlContainer)
+            .find(".more-settings")
+            .find(".message")
+            .html(kemetCustomizerControlBackground.moreSettings);
 
           if (preview.length) {
-            preview.removeClass().addClass('thumbnail thumbnail-image').html('<img src="' + previewImage + '" alt="" />');
+            preview
+              .removeClass()
+              .addClass("placeholder")
+              .html(kemetCustomizerControlBackground.placeholder);
           }
           if (removeButton.length) {
-            removeButton.show();
+            removeButton.hide();
           }
-        });
-
-        e.preventDefault();
-      });
-
-      $("li#customize-control-" + controlContainer).on('click', '.background-image-upload-remove-button', function (e) {
-
-        var preview,
-          removeButton;
-
-        e.preventDefault();
-
-        value['background-image'] = '';
-        control.saveBackgroundValue(value, controlContainer, controlID);
-
-        preview = $("li#customize-control-" + controlContainer).find('.placeholder, .thumbnail');
-        removeButton = $("li#customize-control-" + controlContainer).find('.background-image-upload-remove-button');
-
-        // Hide unnecessary controls.
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-repeat').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-position').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-size').hide();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-attachment').hide();
-
-        $("li#customize-control-" + controlContainer).find('.more-settings').attr('data-direction', 'down');
-        $("li#customize-control-" + controlContainer).find('.more-settings').find('.message').html(kemetCustomizerControlBackground.moreSettings);
-
-        if (preview.length) {
-          preview.removeClass().addClass('placeholder').html(kemetCustomizerControlBackground.placeholder);
         }
-        if (removeButton.length) {
-          removeButton.hide();
+      );
+
+      $("li#customize-control-" + controlContainer).on(
+        "click",
+        ".more-settings",
+        function (e) {
+          var $this = $(this);
+          // Hide unnecessary controls.
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-repeat")
+            .toggle();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-position")
+            .toggle();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-size")
+            .toggle();
+          $("li#customize-control-" + controlContainer)
+            .find(".background-wrapper > .background-attachment")
+            .toggle();
+
+          if ("down" === $this.attr("data-direction")) {
+            $this.attr("data-direction", "up");
+            $this
+              .find(".message")
+              .html(kemetCustomizerControlBackground.lessSettings);
+          } else {
+            $this.attr("data-direction", "down");
+            $this
+              .find(".message")
+              .html(kemetCustomizerControlBackground.moreSettings);
+          }
         }
-      });
-
-      $("li#customize-control-" + controlContainer).on('click', '.more-settings', function (e) {
-
-        var $this = jQuery(this);
-        // Hide unnecessary controls.
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-repeat').toggle();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-position').toggle();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-size').toggle();
-        $("li#customize-control-" + controlContainer).find('.background-wrapper > .background-attachment').toggle();
-
-        if ('down' === $this.attr('data-direction')) {
-          $this.attr('data-direction', 'up');
-          $this.find('.message').html(kemetCustomizerControlBackground.lessSettings)
-        } else {
-          $this.attr('data-direction', 'down');
-          $this.find('.message').html(kemetCustomizerControlBackground.moreSettings)
-        }
-      });
+      );
     },
     saveBackgroundValue: function (value, controlContainerID, control) {
-      var input = jQuery('li#customize-control-' + controlContainerID + ' .background-hidden-value');
+      var input = $(
+        "li#customize-control-" +
+          controlContainerID +
+          " .background-hidden-value"
+      );
 
-      jQuery(input).attr('value', JSON.stringify(value)).trigger('change');
+      $(input).attr("value", JSON.stringify(value)).trigger("change");
 
       api.control(control).setting.set(value);
     },
     initResponsiveSelect: function (controlContainerID, control) {
-
       // Set the spacing container.
-      var responsiveContainer = $('li#customize-control-' + controlContainerID).find('.kmt-responsive-wrapper').first(),
+      var responsiveContainer = $("li#customize-control-" + controlContainerID)
+          .find(".kmt-responsive-wrapper")
+          .first(),
         newValue = {};
 
-      responsiveContainer.find('select.kmt-responsive-select').each(function () {
-        var responsive_input = jQuery(this),
-          item = responsive_input.data('id'),
-          item_value = responsive_input.val();
+      responsiveContainer
+        .find("select.kmt-responsive-select")
+        .each(function () {
+          var responsive_input = $(this),
+            item = responsive_input.data("id"),
+            item_value = responsive_input.val();
 
-        newValue[item] = item_value;
-      });
+          newValue[item] = item_value;
+        });
 
       api.control(control).setting.set(newValue);
     },
     initResponsiveSpacing: function (controlContainerID, control) {
-      'use strict';
+      "use strict";
 
       var newValue = {
-        'desktop': {},
-        'tablet': {},
-        'mobile': {},
-        'desktop-unit': 'px',
-        'tablet-unit': 'px',
-        'mobile-unit': 'px',
+        desktop: {},
+        tablet: {},
+        mobile: {},
+        "desktop-unit": "px",
+        "tablet-unit": "px",
+        "mobile-unit": "px",
       };
 
-      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-desktop').each(function () {
-        var spacing_input = jQuery(this),
-          item = spacing_input.data('id'),
-          item_value = spacing_input.val();
+      $("li#customize-control-" + controlContainerID)
+        .find("input.kmt-spacing-desktop")
+        .each(function () {
+          var spacing_input = $(this),
+            item = spacing_input.data("id"),
+            item_value = spacing_input.val();
 
-        newValue['desktop'][item] = item_value;
-      });
+          newValue["desktop"][item] = item_value;
+        });
 
-      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-tablet').each(function () {
-        var spacing_input = jQuery(this),
-          item = spacing_input.data('id'),
-          item_value = spacing_input.val();
+      $("li#customize-control-" + controlContainerID)
+        .find("input.kmt-spacing-tablet")
+        .each(function () {
+          var spacing_input = $(this),
+            item = spacing_input.data("id"),
+            item_value = spacing_input.val();
 
-        newValue['tablet'][item] = item_value;
-      });
+          newValue["tablet"][item] = item_value;
+        });
 
-      $('li#customize-control-' + controlContainerID).find('input.kmt-spacing-mobile').each(function () {
-        var spacing_input = jQuery(this),
-          item = spacing_input.data('id'),
-          item_value = spacing_input.val();
+      $("li#customize-control-" + controlContainerID)
+        .find("input.kmt-spacing-mobile")
+        .each(function () {
+          var spacing_input = $(this),
+            item = spacing_input.data("id"),
+            item_value = spacing_input.val();
 
-        newValue['mobile'][item] = item_value;
-      });
+          newValue["mobile"][item] = item_value;
+        });
 
-      $('li#customize-control-' + controlContainerID).find('.kmt-spacing-unit-wrapper .kmt-spacing-unit-input').each(function () {
-        var spacing_unit = jQuery(this),
-          device = spacing_unit.attr('data-device'),
-          device_val = spacing_unit.val(),
-          name = device + '-unit';
+      $("li#customize-control-" + controlContainerID)
+        .find(".kmt-spacing-unit-wrapper .kmt-spacing-unit-input")
+        .each(function () {
+          var spacing_unit = $(this),
+            device = spacing_unit.attr("data-device"),
+            device_val = spacing_unit.val(),
+            name = device + "-unit";
 
-        newValue[name] = device_val;
-      });
+          newValue[name] = device_val;
+        });
 
       api.control(control).setting.set(newValue);
     },
-  });
+    responsiveSpacingConnect: function () {
+      // Connected button
+      $(".kmt-spacing-connected").on("click", function () {
+        // Remove connected class
+        $(this)
+          .parent()
+          .parent(".kmt-spacing-wrapper")
+          .find("input")
+          .removeClass("connected")
+          .attr("data-element-connect", "");
 
+        // Remove class
+        $(this)
+          .parent(".kmt-spacing-input-item-link")
+          .removeClass("disconnected");
+      });
+
+      // Disconnected button
+      $(".kmt-spacing-disconnected").on("click", function () {
+        // Set up variables
+        var elements = $(this).data("element-connect");
+
+        var linkedInputs = $(this)
+          .parent()
+          .parent(".kmt-spacing-wrapper")
+          .find(".kmt-spacing-input");
+
+        linkedInputs.each(function () {
+          var input_val = $(this).val();
+          if (input_val != "") {
+            $(this)
+              .parent()
+              .parent(".kmt-spacing-wrapper")
+              .find(".kmt-spacing-input")
+              .each(function (key, value) {
+                $(this).val(input_val).change();
+              });
+          }
+        });
+
+        // Add connected class
+        $(this)
+          .parent()
+          .parent(".kmt-spacing-wrapper")
+          .find("input")
+          .addClass("connected")
+          .attr("data-element-connect", elements);
+
+        // Add class
+        $(this).parent(".kmt-spacing-input-item-link").addClass("disconnected");
+      });
+
+      // Values connected inputs
+      $(".kmt-spacing-input-item").on("input", ".connected", function () {
+        var dataElement = $(this).attr("data-element-connect"),
+          currentFieldValue = $(this).val();
+
+        $(this)
+          .parent()
+          .parent(".kmt-spacing-wrapper")
+          .find('.connected[ data-element-connect="' + dataElement + '" ]')
+          .each(function (key, value) {
+            $(this).val(currentFieldValue).change();
+          });
+      });
+    },
+  });
 })(jQuery);

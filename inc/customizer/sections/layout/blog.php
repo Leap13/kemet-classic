@@ -405,7 +405,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Color', 'kemet' ),
-        'priority'          => 2,
+        'priority'          => 1,
         'section'           => 'section-blog',
         'tab'               => __('Normal' , 'kemet')
     ),  
@@ -447,7 +447,7 @@ $fields = array(
         'transport'         => 'postMessage',
         'control_type'      => 'kmt-color',
         'label'             => __( 'Read More Hover Background Color', 'kemet' ),
-        'priority'          => 1,
+        'priority'          => 2,
         'section'           => 'section-blog',
         'tab'               => __('Hover' , 'kemet')
     ), 
