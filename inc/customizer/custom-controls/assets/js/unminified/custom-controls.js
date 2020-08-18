@@ -1642,6 +1642,7 @@ jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
 
       $(input).attr("value", JSON.stringify(value)).trigger("change");
 
+      api.control(control).setting.set("");
       api.control(control).setting.set(value);
     },
     initResponsiveSelect: function (controlContainerID, control) {
