@@ -1,4 +1,7 @@
 <?php
+
+$defaults = Kemet_Theme_Options::defaults();
+
 /**
  * Option: Title
  */
@@ -11,6 +14,32 @@ $wp_customize->add_control(
             'priority' => 5,
             'settings' => array(),
         )
+    )
+);
+/**
+ * Option: Cart Icon
+ */
+ /**
+ * Option:Cart Display
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[shop-cart-icon]',array(
+        'default'           => $defaults[ 'shop-cart-icon' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array('Kemet_Customizer_Sanitizes','sanitize_choices'),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[shop-cart-icon]' ,array(
+        'priority'   => 6,
+        'section'    => 'section-woo-cart-menu-items',
+        'type'     => 'select',
+        'label'    => __( 'Display', 'kemet' ),
+        'choices'  => array(
+            'icon-cart'        => __( 'Cart', 'kemet' ),
+            'icon-bag'        => __( 'Bag', 'kemet' ),
+        ),
     )
 );
 /**

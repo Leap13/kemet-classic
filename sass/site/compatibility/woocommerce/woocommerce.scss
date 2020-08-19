@@ -258,16 +258,29 @@ p.demo_store,
 	line-height: 1;
 	.count {
 		font-size: 15px;
-		
-		&:before{
-			content: "\e903";
-			display: inline-block;
-			font-family: 'Kemet-font';
-			font-size: 1.6rem;
-			font-weight: 500;
-			text-rendering: auto;
-			vertical-align: middle;
-			position: relative;
+		&.icon-cart{
+			&:before{
+				content: "\e903";
+				display: inline-block;
+				font-family: 'Kemet-font';
+				font-size: 1.6rem;
+				font-weight: 500;
+				text-rendering: auto;
+				vertical-align: middle;
+				position: relative;
+			}
+		}
+		&.icon-bag{
+			&:before{
+				content: "\e90f";
+				display: inline-block;
+				font-family: 'Kemet-font';
+				font-size: 1.6rem;
+				font-weight: 500;
+				text-rendering: auto;
+				vertical-align: middle;
+				position: relative;
+			}
 		}
 	}
 }

@@ -286,6 +286,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$defaults['cart-icon-display'] = 'icon-count';
 			$defaults['cart-icon-size'] = '';
 			$defaults['cart-icon-center-vertically'] = '';
+			$defaults['shop-cart-icon'] = 'icon-cart';
 
 			return $defaults;
 		}
@@ -1114,6 +1115,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			$view_shopping_cart = apply_filters( 'kemet_woo_view_shopping_cart_title', __( 'View your shopping cart', 'kemet' ) );
 			$cart_display = kemet_get_option('cart-icon-display');
+			$cart_icon = kemet_get_option('shop-cart-icon');
 			$display = '';
 			switch($cart_display){
 				case 'icon':
@@ -1139,7 +1141,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 						?>
 							<div class="kmt-cart-menu-wrap">
 							
-								<span class="count"> 
+								<span class="count <?php echo $cart_icon; ?>"> 
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
 										echo wp_kses_post( $display );
