@@ -30,6 +30,24 @@ $wp_customize->add_control(
     )
 );
 /**
+* Option: Blog - Disable Breadcrumb
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[disable-shop-breadcrumb]', array(
+        'default'           => $defaults[ 'disable-shop-breadcrumb' ],
+        'type'              => 'option',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[disable-shop-breadcrumb]', array(
+        'type'    => 'checkbox',
+        'section' => 'woocommerce_product_catalog',
+        'label'   => __( 'Disable Breadcrumb', 'kemet' ),
+        'priority'          => 10,
+    )
+);
+/**
 * Option: Shop Columns
 */
 $wp_customize->add_setting(
