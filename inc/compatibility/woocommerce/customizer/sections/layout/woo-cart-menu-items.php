@@ -9,7 +9,7 @@ $wp_customize->add_control(
     new Kemet_Control_Title(
         $wp_customize, KEMET_THEME_SETTINGS . '[kmt-cart-dropdown-title]', array(
             'type'     => 'kmt-title',
-            'label'    => __( 'Cart Dropdowns Settings', 'kemet' ),
+            'label'    => __( 'Cart Dropdown Settings', 'kemet' ),
             'section'  => 'section-woo-cart-menu-items',
             'priority' => 5,
             'settings' => array(),
@@ -35,7 +35,7 @@ $wp_customize->add_control(
         'priority'   => 6,
         'section'    => 'section-woo-cart-menu-items',
         'type'     => 'select',
-        'label'    => __( 'Display', 'kemet' ),
+        'label'    => __( 'Icon Display', 'kemet' ),
         'choices'  => array(
             'icon-cart'        => __( 'Cart', 'kemet' ),
             'icon-bag'        => __( 'Bag', 'kemet' ),
@@ -157,7 +157,7 @@ $wp_customize->add_control(
             'type'        => 'kmt-slider',
             'section'     => 'section-woo-cart-menu-items',
             'priority'    => 15,
-            'label'       => __( 'Cart Dropdowns Width (px)', 'kemet' ),
+            'label'       => __( 'Cart Dropdown Width (px)', 'kemet' ),
             'suffix'      => '',
             'input_attrs' => array(
                 'min'  => 200,

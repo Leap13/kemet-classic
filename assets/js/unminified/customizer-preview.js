@@ -659,6 +659,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
 	kemet_css('kemet-settings[menu-link-h-color]', 'color', '.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover');
 	kemet_css('kemet-settings[menu-link-active-color]', 'color', '.main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a');
+	kemet_css(
+    "kemet-settings[menu-link-active-bg-color]",
+    "background-color",
+    ".main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a"
+  	);
 	/**
 	 * submenu background
 	 */
@@ -1113,7 +1118,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 	wp.customize('kemet-settings[cart-icon-size]', function (setting) {
 		setting.bind(function (size) {
 
-			var dynamicStyle = '.kmt-cart-menu-wrap .count:before { font-size: ' + (parseInt(size)) + 'px }';
+			var dynamicStyle =
+        ".kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before { font-size: " +
+        parseInt(size) +
+        "px }";
 
 			kemet_add_dynamic_css('cart-icon-size', dynamicStyle);
 

@@ -747,7 +747,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-width' => kemet_get_css_value( $cart_dropdown_border_size , 'px' ),
 					'border-color' => esc_attr($cart_dropdown_border_color),
 				),
-				'.kmt-cart-menu-wrap .count:before' => array(
+				'.kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before' => array(
 					'font-size' => kemet_get_css_value( $cart_icon_size , 'px' ), 
 					'top' => kemet_get_css_value( $cart_icon_center_vertically , 'px' ),
 				),
