@@ -315,7 +315,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					)
 				);
 			}
-			
+
 			// Customizer Core.
 			wp_enqueue_script( 'kemet-customizer-dependency-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array(), KEMET_THEME_VERSION, true );
 

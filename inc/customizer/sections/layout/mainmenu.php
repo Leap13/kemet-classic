@@ -327,6 +327,26 @@ $header_rt_sections = array(
 		)
 	);
 	/**
+	 * Option:Menu Active Link Bg Color
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-active-bg-color]', array(
+			'default'           => $defaults[ 'menu-link-active-bg-color' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-bg-color]', array(
+				'label'   => __( 'Link Active Background Color', 'kemet' ),
+				'priority'       => 55,
+				'section' => 'section-menu-header',
+			)
+		)
+	);
+	/**
      * Option: Main Menu Alignment
      */
     $wp_customize->add_setting(

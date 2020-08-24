@@ -3813,8 +3813,8 @@ body:not(.kmt-header-break-point) .header-main-layout-3 #left-menu > li:first-ch
 
 .kmt-search-menu-icon .search-field {
   border: none;
-  -webkit-transition: width .2s;
-  transition: width .2s;
+  -webkit-transition: width 0.2s;
+  transition: width 0.2s;
   -webkit-border-radius: inherit;
   border-radius: inherit;
   color: inherit;
@@ -3881,6 +3881,11 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .main-header-menu > .menu-item:hover > a {
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+.main-header-menu > .menu-item.current_page_item > a {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .main-header-menu > .menu-item > a {
@@ -3967,8 +3972,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding: 0 0.907em;
   font-weight: normal;
   line-height: inherit;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   border-width: 0px;
 }
 
@@ -3976,7 +3981,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle::before {
   font-weight: bold;
   content: "\e907";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   text-decoration: inherit;
   display: inline-block;
   font-size: medium;
@@ -4036,8 +4041,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 }
 
 .kmt-header-break-point .main-header-bar-navigation {
-  width: -webkit-calc( 100% + 40px);
-  width: calc( 100% + 40px);
+  width: -webkit-calc(100% + 40px);
+  width: calc(100% + 40px);
   margin: 0 -20px;
 }
 
@@ -4585,15 +4590,12 @@ input[type=reset],
 input[type=tel],
 select,
 textarea {
-  color: #666;
   padding: 0.75em;
   height: auto;
   border-width: 1px;
   border-style: solid;
-  border-color: #eaeaea;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background-color: #fafafa;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-sizing: border-box;

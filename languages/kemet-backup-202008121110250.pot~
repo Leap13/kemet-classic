@@ -1,26 +1,25 @@
 # <!=Copyright (C) 2020 Leap13
 # This file is distributed under the GNU General Public License v2 or later.=!>
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Kemet 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2020-08-12 11:10+0000\n"
+"POT-Creation-Date: 2020-08-12 13:03+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
 "X-Poedit-Basepath: ..\n"
 "X-Textdomain-Support: yes\n"
-"X-Generator: Loco https://localise.biz/\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: comments.php:33
@@ -61,7 +60,6 @@ msgid ""
 msgstr ""
 
 #: functions/admin/class-kemet-notices.php:70
-msgctxt "تفعيل كيميت ادونز"
 msgid "Activate Kemet Addons"
 msgstr ""
 
@@ -203,8 +201,8 @@ msgstr ""
 
 #: functions/classes/class-theme-strings.php:76
 msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching "
+"can help."
 msgstr ""
 
 #: functions/custom-functions.php:286
@@ -734,7 +732,6 @@ msgstr ""
 #: inc/customizer/sections/layout/main-footer.php:1041
 #: inc/customizer/sections/layout/mainmenu.php:242
 #: inc/customizer/sections/layout/mainmenu.php:1060
-msgctxt "لون الخلفيه"
 msgid "Background Color"
 msgstr ""
 
@@ -1374,8 +1371,7 @@ msgid "Content Padding"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:222
-msgid ""
-"This value will be changed to 0px in the pages built with a page builder"
+msgid "This value will be changed to 0px in the pages built with a page builder"
 msgstr ""
 
 #: inc/customizer/sections/layout/container.php:250
@@ -2057,8 +2053,7 @@ msgstr ""
 
 #: templates/content-none.php:23
 #, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: templates/content.php:34

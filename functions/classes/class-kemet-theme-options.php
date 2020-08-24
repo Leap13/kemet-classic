@@ -204,6 +204,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-link-color'						=> '',
 					'menu-link-h-color' => '',
 					'menu-link-active-color' => '',
+					'menu-link-active-bg-color' => '',
 					'menu-bg-color'							 => '',
 					'menu-items-font-family'                 => 'inherit',
 					'menu-items-font-weight'                 => '400',
