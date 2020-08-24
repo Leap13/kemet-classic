@@ -1,3 +1,11 @@
+v 1.1.0 version
+- Added: Woocommerce Layouts
+- Added: Background option for active menu item.
+- Fixed: Responsive control style issue.
+
+v 1.0.9 version
+- Fixed: Customizer not working with WordPress 5.5.
+
 v 1.0.8 version
 - Added: Five Blog Layouts using Kemet Addons. 
 - Added: Responsive controls for font size in buttons options.
