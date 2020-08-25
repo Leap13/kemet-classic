@@ -211,7 +211,7 @@ $wp_customize->add_control(
     new Kemet_Control_Typography(
         $wp_customize, KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
             'type'     => 'kmt-font-family',
-            'label'    => __( 'Title Font Family', 'kemet-addons' ),
+            'label'    => __( 'Title Font Family', 'kemet' ),
             'section'  => 'section-blog',
             'priority' => 51,
         )
@@ -383,7 +383,7 @@ $wp_customize->add_control(
     KEMET_THEME_SETTINGS . '[readmore-as-button]', array(
         'type'            => 'checkbox',
         'section'         => 'section-blog',
-        'label'           => __( 'Enable Read More As Button', 'kemet-addons' ),
+        'label'           => __( 'Enable Read More As Button', 'kemet' ),
         'priority'        => 71,
     )
 );
