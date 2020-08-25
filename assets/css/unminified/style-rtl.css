@@ -2427,7 +2427,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .kemet-search-icon::before {
   content: "\e90d";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   font-style: normal;
   font-weight: 600;
   text-decoration: inherit;
@@ -2451,6 +2451,53 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   position: relative;
 }
 
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade li:hover > ul,
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade li.focus > ul {
+  opacity: 1;
+}
+
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade ul {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.7s ease-in-out;
+}
+
+@media (min-width: 769px) {
+  body:not(.kmt-header-break-point) .main-header-menu.submenu-fade ul li:hover > ul,
+  body:not(.kmt-header-break-point) .main-header-menu.submenu-fade ul li.focus > ul {
+    opacity: 1;
+  }
+}
+
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade-move li:hover > ul,
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade-move li.focus > ul {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+body:not(.kmt-header-break-point) .main-header-menu.submenu-fade-move ul {
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+
+@media (min-width: 769px) {
+  body:not(.kmt-header-break-point) .main-header-menu.submenu-fade-move ul li:hover > ul,
+  body:not(.kmt-header-break-point) .main-header-menu.submenu-fade-move ul li.focus > ul {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .main-header-menu a {
   text-decoration: none;
   padding: 1em;
@@ -2467,53 +2514,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .main-header-menu li.focus > ul {
   right: 0;
   left: auto;
-}
-
-.main-header-menu.submenu-fade li:hover > ul,
-.main-header-menu.submenu-fade li.focus > ul {
-  opacity: 1;
-}
-
-.main-header-menu.submenu-fade ul {
-  opacity: 0;
-  -webkit-transition: opacity 0.7s ease-in-out;
-  transition: opacity 0.7s ease-in-out;
-}
-
-@media (min-width: 769px) {
-  .main-header-menu.submenu-fade ul li:hover > ul,
-  .main-header-menu.submenu-fade ul li.focus > ul {
-    opacity: 1;
-  }
-}
-
-.main-header-menu.submenu-fade-move li:hover > ul,
-.main-header-menu.submenu-fade-move li.focus > ul {
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.main-header-menu.submenu-fade-move ul {
-  -webkit-transform: translateY(4px);
-  -ms-transform: translateY(4px);
-  transform: translateY(4px);
-  opacity: 0;
-  -webkit-transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-}
-
-@media (min-width: 769px) {
-  .main-header-menu.submenu-fade-move ul li:hover > ul,
-  .main-header-menu.submenu-fade-move ul li.focus > ul {
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .main-header-menu ul {
@@ -2575,7 +2575,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   padding-right: 0;
 }
 
-.kmt-header-break-point .main-navigation ul li a {
+.kmt-header-break-point .main-navigation ul li > a {
   padding: 0 20px;
   display: inline-block;
   width: 100%;

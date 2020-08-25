@@ -505,12 +505,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-mobile-menu-buttons .menu-toggle:hover .menu-toggle-icon, .kmt-mobile-menu-buttons .menu-toggle.toggled .menu-toggle-icon' => array(
 					'color'  => esc_attr( $mobile_menu_icon_h_color ),
 				),
-				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a' => array(
+				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu > a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li > a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li > a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li > a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li > a' => array(
 					'color'  => esc_attr( $mobile_menu_items_color ),
 					'border-color'  => esc_attr( $mobile_menu_items_border_color ),
 					'border-bottom-width' => kemet_get_css_value( $mobile_menu_items_border_size , 'px' ),
 				),
-				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a:hover, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a:hover,.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a' => array(
+				'.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu > a:hover, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li > a:hover,.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item > a, .toggle-on .main-header-menu li.current_page_item > a, .toggle-on .main-header-menu .current-menu-ancestor > a, .kmt-header-break-point .toggle-on .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .toggle-on .menu-item-has-children.current_page_item>.kmt-menu-toggle, .toggle-on .main-header-menu li > a:hover, .toggle-on .main-header-menu li.current-menu-item  > a, .toggle-on .main-header-menu li.current_page_item  > a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover> a' => array(
 					'color'  => esc_attr( $mobile_menu_items_h_color ),
 				),
 				'.toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu' => array(
@@ -571,9 +571,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-style'        => 'solid',
 					'border-bottom-color'        => esc_attr( $submenu_border_color ),
 				),
-				
-				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a'  => array(
+				'.main-header-menu .sub-menu li > a , .kmt-header-break-point .main-navigation ul.children li > a , .kmt-header-break-point .main-navigation ul.sub-menu li > a ,.main-navigation .kemet-megamenu-item .kemet-megamenu .kemet-mega-menu-content'  => array(
 					'color' => esc_attr( $submenu_link_color ),
+				),
+				'.main-header-menu .sub-menu li > a , .kmt-header-break-point .main-navigation ul.children li > a , .kmt-header-break-point .main-navigation ul.sub-menu li > a ,.main-navigation .kemet-megamenu-item .kemet-megamenu .kemet-mega-menu-content'  => array(
 					'font-family'    => kemet_get_font_family( $sub_menu_font_family ),
 					'font-weight'     => esc_attr( $sub_menu_font_weight ),
 					'text-transform'  => esc_attr( $sub_menu_text_transform ),
@@ -1095,7 +1096,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $menu_link_spacing, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $menu_link_spacing, 'left', 'tablet' ),		
 				),
-				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a'  => array(
+				'.main-header-menu .sub-menu li > a , .kmt-header-break-point .main-navigation ul.children li > a , .kmt-header-break-point .main-navigation ul.sub-menu li > a ,.main-navigation .kemet-megamenu-item .kemet-megamenu .kemet-mega-menu-content'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'tablet' ),
 					'line-height' => kemet_responsive_slider( $sub_menu_line_height , 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $submenu_letter_spacing , 'tablet' ),
@@ -1344,7 +1345,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'mobile' ),
                 'padding-left'  => kemet_responsive_spacing( $last_menu_items_spacing, 'left', 'mobile' ),
 				),
-				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a'  => array(
+				'.main-header-menu .sub-menu li > a , .kmt-header-break-point .main-navigation ul.children li > a , .kmt-header-break-point .main-navigation ul.sub-menu li > a ,.main-navigation .kemet-megamenu-item .kemet-megamenu .kemet-mega-menu-content'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'mobile' ),
 					'line-height' => kemet_responsive_slider( $sub_menu_line_height , 'mobile' ),
 					'letter-spacing' => kemet_responsive_slider( $submenu_letter_spacing , 'mobile' ),
