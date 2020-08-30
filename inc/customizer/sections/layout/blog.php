@@ -202,7 +202,7 @@ $wp_customize->add_control(
  */
 $wp_customize->add_setting(
     KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
-        'default'           => $defaults[ 'page-title-font-family' ],
+        'default'           => $defaults[ 'post-title-font-family' ],
         'type'              => 'option',
         'sanitize_callback' => 'sanitize_text_field',
     )
