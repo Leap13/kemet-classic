@@ -381,7 +381,35 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	 * Option: Main Menu Spacing
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[main-menu-spacing]', array(
+			'default'           => $defaults[ 'main-menu-spacing' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Spacing(
+			$wp_customize, KEMET_THEME_SETTINGS . '[main-menu-spacing]', array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-menu-header',
+				'priority'       => 61,
+				'label'          => __( 'Main Menu Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			)
+		)
+	);
 	/**
 	 * Option: Main Menu Spacing
 	 */
@@ -399,7 +427,7 @@ $header_rt_sections = array(
 				'type'           => 'kmt-responsive-spacing',
 				'section'        => 'section-menu-header',
 				'priority'       => 61,
-				'label'          => __( 'Main Menu Spacing', 'kemet' ),
+				'label'          => __( 'Main Menu Item Spacing', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
 				'choices'        => array(
