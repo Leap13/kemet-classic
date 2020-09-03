@@ -1146,7 +1146,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 						?>
 							<div class="kmt-cart-menu-wrap">
 							
-								<span class="count <?php echo $cart_icon; ?>"> 
+								<span class="count <?php echo esc_attr( $cart_icon ); ?>"> 
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
 										echo wp_kses_post( $display );

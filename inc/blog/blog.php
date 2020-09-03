@@ -80,65 +80,6 @@ if ( ! function_exists( 'kemet_blog_get_post_meta' ) ) {
 }
 
 /**
- * Featured post meta.
- */
-if ( ! function_exists( 'kemet_blog_post_get_featured_item' ) ) {
-
-	/**
-	 * To featured image / gallery / audio / video etc. As per the post format.
-	 *
-	 * @return mixed
-	 */
-	function kemet_blog_post_get_featured_item() {
-
-		$post_featured_data = '';
-		$post_format        = get_post_format();
-
-		if ( has_post_thumbnail() ) {
-
-			$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
-			$post_featured_data .= get_the_post_thumbnail();
-			$post_featured_data .= '</a>';
-
-		} else {
-
-			switch ( $post_format ) {
-				case 'image':
-					break;
-
-				case 'video':
-					$post_featured_data = kemet_get_video_from_post( get_the_ID() );
-					break;
-
-				case 'gallery':
-					$post_featured_data = get_post_gallery( get_the_ID(), false );
-					if ( isset( $post_featured_data['ids'] ) ) {
-						$img_ids = explode( ',', $post_featured_data['ids'] );
-
-						$image_alt = get_post_meta( $img_ids[0], '_wp_attachment_image_alt', true );
-						$image_url = wp_get_attachment_url( $img_ids[0] );
-
-						if ( isset( $img_ids[0] ) ) {
-							$post_featured_data  = '<a href="' . esc_url( get_permalink() ) . '" >';
-							$post_featured_data .= '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $image_alt ) . '" >';
-							$post_featured_data .= '</a>';
-						}
-					}
-					break;
-
-				case 'audio':
-					$post_featured_data = do_shortcode( kemet_get_audios_from_post( get_the_ID() ) );
-					break;
-			}
-		}
-
-		echo $post_featured_data; // WPCS: XSS OK.
-	}
-}
-
-add_action( 'kemet_blog_post_featured_format', 'kemet_blog_post_get_featured_item' );
-
-/**
  * Single Post Thumbnail / Title & Meta Order
  */
 if ( ! function_exists( 'kemet_single_post_thumbnai_and_title_order' ) ) {

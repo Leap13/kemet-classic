@@ -207,7 +207,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			echo $html;
+			vprintf("%s" , $html );
 		} else {
 			return $html;
 		}
@@ -584,8 +584,8 @@ if ( ! function_exists( 'kemet_header_get_right_section' ) ) {
 
 		}
 		?>
-		<div class="<?php echo $classes; ?>">
-			<?php echo $output; ?>
+		<div class="<?php echo esc_attr( $classes ); ?>">
+			<?php vprintf("%s", $output ); ?>
 		</div>
 	<?php }
 }
@@ -1230,7 +1230,7 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'kemet_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			vprintf("%s" , $before . $output . $after) ; // WPCS: XSS OK.
 		} else {
 			return $before . $output . $after;
 		}

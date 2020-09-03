@@ -94,7 +94,7 @@ if ( ! function_exists( 'kemet_theme_strings' ) ) {
 		 * Print or return
 		 */
 		if ( $echo ) {
-			echo $output;
+			echo esc_html( $output );
 		} else {
 			return $output;
 		}

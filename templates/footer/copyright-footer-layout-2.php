@@ -43,13 +43,13 @@ switch ( $sections ) {
 
 					<?php if ( $section_1 ) : ?>
 						<div class="kmt-footer-copyright-section kmt-footer-copyright-section-1 <?php echo esc_attr( $section_class ); ?>" >
-							<?php echo $section_1; ?>
+							<?php vprintf("%s" , $section_1); ?>
 						</div>
 				<?php endif; ?>
 
 					<?php if ( $section_2 ) : ?>
 						<div class="kmt-footer-copyright-section kmt-footer-copyright-section-2 <?php echo esc_attr( $section_class ); ?>" >
-							<?php echo $section_2; ?>
+							<?php vprintf("%s" , $section_2); ?>
 						</div>
 				<?php endif; ?>
 

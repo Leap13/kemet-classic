@@ -120,11 +120,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return void
 		 */
 		public function print_footer_scripts() {
-			$output      = '<script type="text/javascript">';
-			$output 	.= Kemet_Fonts_Data::js();
-			$output     .= '</script>';
+			
+			$fonts 	= Kemet_Fonts_Data::js();
 
-			echo $output;
+			printf('<script type="text/javascript">%s</script>', $fonts);
 		}
 		//Get Settings
 		function filter_dynamic_setting_args( $setting_args, $setting_id ) {

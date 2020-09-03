@@ -286,13 +286,6 @@ function kemet_entry_content_blog() {
 }
 
 /**
- * Blog featured post section
- */
-function kemet_blog_post_featured_format() {
-	do_action( 'kemet_blog_post_featured_format' );
-}
-
-/**
  * Semantic <sidebar> hooks
  *
  * $kemet_supports[] = 'sidebar';
