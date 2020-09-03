@@ -1773,10 +1773,6 @@ object {
   background: #191919;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
