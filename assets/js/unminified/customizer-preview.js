@@ -652,6 +652,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 		});
 	});
 	kemet_responsive_spacing('kemet-settings[main-menu-item-spacing]', '.kmt-header-break-point .main-navigation ul li a,.kmt-sitehead-custom-menu-items > *, .main-header-menu a', 'padding', ['top', 'bottom', 'right', 'left']);
+	kemet_responsive_spacing(
+    "kemet-settings[main-menu-spacing]",
+    ".main-navigation ul.main-header-menu",
+    "padding",
+    ["top", "bottom", "right", "left"]
+  );
 	kemet_css('kemet-settings[menu-link-color]', 'color', '.kmt-sitehead-custom-menu-items > *, .main-header-menu a');
 	kemet_css('kemet-settings[menu-link-bottom-border-color]', 'border-bottom-color', '.main-header-menu > .menu-item:hover > a');
 	kemet_css('kemet-settings[menu-items-text-transform]', 'text-transform', '.main-header-menu a');

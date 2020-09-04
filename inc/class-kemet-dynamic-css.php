@@ -133,6 +133,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_font_size					= kemet_get_option( 'menu-font-size' );
 			$menu_letter_spacing		    = kemet_get_option( 'menu-letter-spacing' );
 			$menu_link_spacing		    = kemet_get_option( 'main-menu-item-spacing' );
+			$main_menu_spacing		    = kemet_get_option( 'main-menu-spacing' );
 
 			// Sub Menu Typography
 			$sub_menu_font_family 				= kemet_get_option( 'sub-menu-items-font-family' );
@@ -526,6 +527,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			    //header menu
 				'.main-header-menu '  => array(
 					'background-color' => esc_attr( $menu_bg_color),
+				),
+				'.main-navigation ul.main-header-menu '  => array(
+					'padding-top'    => kemet_responsive_spacing( $main_menu_spacing, 'top', 'desktop' ),
+					'padding-bottom' => kemet_responsive_spacing( $main_menu_spacing, 'bottom', 'desktop' ),
+					'padding-right' => kemet_responsive_spacing( $main_menu_spacing, 'right', 'desktop' ),
+					'padding-left'  => kemet_responsive_spacing( $main_menu_spacing, 'left', 'desktop' ),
 				),
 				'.kmt-sitehead-custom-menu-items > *, .main-header-menu a , .kmt-header-break-point .main-navigation ul li a'  => array(
 					'color' => esc_attr( $menu_link_color ),
@@ -1089,6 +1096,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
                 'padding-right' => kemet_responsive_spacing( $last_menu_items_spacing, 'right', 'tablet' ),
                 'padding-left'  => kemet_responsive_spacing( $last_menu_items_spacing, 'left', 'tablet' ),
 				),
+				'.main-navigation ul.main-header-menu '  => array(
+					'padding-top'    => kemet_responsive_spacing( $main_menu_spacing, 'top', 'tablets' ),
+					'padding-bottom' => kemet_responsive_spacing( $main_menu_spacing, 'bottom', 'tablet' ),
+					'padding-right' => kemet_responsive_spacing( $main_menu_spacing, 'right', 'tablet' ),
+					'padding-left'  => kemet_responsive_spacing( $main_menu_spacing, 'left', 'tablet' ),
+				),
 				'.main-header-menu a , .kmt-header-break-point .main-navigation ul li a'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $menu_letter_spacing , 'tablet' ),
@@ -1449,6 +1462,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_slider( $footer_font_size , 'mobile' ),
 					'letter-spacing' => kemet_responsive_slider( $footer_letter_spacing , 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $footer_line_height , 'mobile' ),
+				),
+				'.main-navigation ul.main-header-menu'  => array(
+					'padding-top'    => kemet_responsive_spacing( $main_menu_spacing, 'top', 'mobile' ),
+					'padding-bottom' => kemet_responsive_spacing( $main_menu_spacing, 'bottom', 'mobile' ),
+					'padding-right' => kemet_responsive_spacing( $main_menu_spacing, 'right', 'mobile' ),
+					'padding-left'  => kemet_responsive_spacing( $main_menu_spacing, 'left', 'mobile' ),
 				),
 				'.main-header-menu a , .kmt-header-break-point .main-navigation ul li a'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'mobile' ),

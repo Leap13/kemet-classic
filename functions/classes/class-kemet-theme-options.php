@@ -201,6 +201,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'input-spacing'						   => '',	
 					// Main Menu 
 					'main-menu-item-spacing'			    => '',
+					'main-menu-spacing'			    => '',
 					'menu-link-color'						=> '',
 					'menu-link-h-color' => '',
 					'menu-link-active-color' => '',

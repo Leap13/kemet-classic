@@ -32,7 +32,7 @@ class Kemet_Notification_Helper{
     /**
      * Get Button Html
      */
-    public function get_btn_html($slug){
+    public static function get_btn_html($slug){
         $plugin_path = $slug . '/'. $slug . '.php';
         $install_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin='.$slug.'' ), 'install-plugin_'.$slug );
         $activate_url   = wp_nonce_url( 'plugins.php?action=activate&plugin=' . $plugin_path . '&plugin_status=all&paged=1&amp;s', 'activate-plugin_' . $plugin_path ); 
