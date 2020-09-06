@@ -1570,8 +1570,16 @@ if ( !function_exists( 'kemet_color_brightness' ) ) {
 			if ( $brightness == 'dark' ) {
 				$percent = $percent * -1;
 			}
-
-			$rgb = kemet_hex2rgba( $hex );
+			if (strpos($hex, 'rgba') !== false) {
+				$order     = array("rgba", "(", ")");
+				$replace   = "";
+				$output  = str_replace($order, $replace, $hex);
+				$rgb = explode(",", $output);
+				$rgb = array_map('intval', $rgb);
+			}else{
+				$rgb = kemet_hex2rgba( $hex );
+			}
+			
 			//// CALCULATE 
 			for ( $i = 0; $i < 3; $i++ ) {
 				// See if brighter or darker
