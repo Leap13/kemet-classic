@@ -593,7 +593,6 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .kmt-responsive-control-btns {
   line-height: 1;
-  padding-right: 5px;
   margin-bottom: 7px;
   display: inline-block;
   vertical-align: top;
@@ -651,7 +650,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units li.single-unit {
   display: inline-block;
-  margin-right: 6px;
+  margin-right: 3px;
   width: 16px;
   text-align: center;
   user-select: none;
