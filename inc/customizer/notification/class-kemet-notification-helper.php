@@ -37,7 +37,7 @@ class Kemet_Notification_Helper{
         $install_url   = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin='.$slug.'' ), 'install-plugin_'.$slug );
         $activate_url   = wp_nonce_url( 'plugins.php?action=activate&plugin=' . $plugin_path . '&plugin_status=all&paged=1&amp;s', 'activate-plugin_' . $plugin_path ); 
         if ( is_file( ABSPATH . 'wp-content/plugins/' . $plugin_path ) ) {
-            if ( ! is_plugin_active($plugin_path) ) {
+             if ( ! !in_array( $plugin_path , apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
                 $button_label = __( 'Activate', 'kemet' );
                 $status = 'activate';
                 $button = '<a class="button button-primary kmt-plugin" data-status = '.$status.'  data-url-activate = '.$activate_url.' onclick="plugin_action(event)" >' . $button_label . '</a>';

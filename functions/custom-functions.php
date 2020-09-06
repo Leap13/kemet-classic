@@ -167,7 +167,12 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 			if ( apply_filters( 'kemet_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10, 4 );
 			}
+
 			$html .= get_custom_logo();
+
+			if( apply_filters( 'kemet_replace_logo_width', true ) ){
+				add_filter( 'kemet_attachment_image_logo', '__return_false');
+			}
 		}
 
 		$html .= '</span>';
@@ -1256,14 +1261,20 @@ if ( ! function_exists( 'kemet_replace_header_logo' ) ) :
 	function kemet_replace_header_logo( $image, $attachment_id, $size, $icon ) {
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$is_logo = apply_filters('kemet_attachment_image_logo' , true);
 
+		if( ! $is_logo ){
+			return apply_filters( 'kemet_replace_header_logo', $image );
+		}
+		
 		if ( ! is_customize_preview() && $custom_logo_id == $attachment_id && 'full' == $size ) {
 
 			$data = wp_get_attachment_image_src( $attachment_id, 'kmt-logo-size' );
-
+			
 			if ( false != $data ) {
 				$image = $data;
 			}
+			
 		}
 
 		return apply_filters( 'kemet_replace_header_logo', $image );
@@ -1321,8 +1332,6 @@ if ( ! function_exists( 'kemet_replace_header_attr' ) ) :
 
 			}
 		}
-
-		remove_filter( 'wp_get_attachment_image_src', 'kemet_replace_header_logo', 10 );
 		
 		return apply_filters( 'kemet_replace_header_attr', $attr );
 	}
