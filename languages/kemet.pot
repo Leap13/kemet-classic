@@ -3,7 +3,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Kemet 1.0.0\n"
+"Project-Id-Version: Wiz 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2020-08-12 11:10+0000\n"
 "MIME-Version: 1.0\n"
@@ -53,28 +53,28 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:59
+#: functions/admin/class-wiz-notices.php:59
 #: inc/customizer/register-panels-and-sections.php:235
 msgid ""
-"Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of "
+"Take full advantage of Wiz theme! Install Wiz Addons Plugin for tons of "
 "extra customization options."
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:70
+#: functions/admin/class-wiz-notices.php:70
 msgctxt "تفعيل كيميت ادونز"
-msgid "Activate Kemet Addons"
+msgid "Activate Wiz Addons"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:78
-msgid "Install Kemet Addons"
+#: functions/admin/class-wiz-notices.php:78
+msgid "Install Wiz Addons"
 msgstr ""
 
-#: functions/classes/class-kemet-theme-options.php:245
-#: functions/classes/class-kemet-theme-options.php:247
+#: functions/classes/class-wiz-theme-options.php:245
+#: functions/classes/class-wiz-theme-options.php:247
 msgid "Powered by [theme_author] WordPress Theme"
 msgstr ""
 
-#: functions/classes/class-kemet-theme-options.php:322
+#: functions/classes/class-wiz-theme-options.php:322
 msgid "Contact Us"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgid "Add Custom HTML"
 msgstr ""
 
 #: functions/custom-functions.php:422 functions/custom-functions.php:1371
-msgid "Kemet"
+msgid "Wiz"
 msgstr ""
 
 #: functions/custom-functions.php:462
@@ -284,7 +284,7 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:193
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:193
 #, php-format
 msgctxt "product categories"
 msgid "<mark class=\"count\">%1$s Product</mark>"
@@ -292,25 +292,25 @@ msgid_plural "<mark class=\"count\">%1$s Products</mark>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:395
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:395
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:397
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:397
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:406
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:406
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:408
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:408
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:1123
+#: inc/compatibility/woocommerce/class-wiz-woocommerce.php:1123
 msgid "View your shopping cart"
 msgstr ""
 
@@ -443,7 +443,7 @@ msgstr ""
 #: inc/compatibility/woocommerce/customizer/sections/section-container.php:34
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:33
 #: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:58
-#: inc/customizer/class-kemet-customizer.php:311
+#: inc/customizer/class-wiz-customizer.php:311
 #: inc/customizer/sections/layout/blog-single.php:33
 #: inc/customizer/sections/layout/blog.php:33
 #: inc/customizer/sections/layout/container.php:86
@@ -689,45 +689,45 @@ msgstr ""
 msgid "Availability:"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer-sanitizes.php:304
+#: inc/customizer/class-wiz-customizer-sanitizes.php:304
 msgid "Enter valid email address!"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:309
+#: inc/customizer/class-wiz-customizer.php:309
 msgid "Clear"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:310
+#: inc/customizer/class-wiz-customizer.php:310
 msgid "Clear color"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:312
+#: inc/customizer/class-wiz-customizer.php:312
 msgid "Select default color"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:313
+#: inc/customizer/class-wiz-customizer.php:313
 msgid "Select Color"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:314
+#: inc/customizer/class-wiz-customizer.php:314
 msgid "Color value"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:80
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:80
 msgid "No file selected"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:81
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:123
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:81
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:123
 msgid "Less Settings"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:82
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:125
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:82
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:125
 msgid "More Settings"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:107
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:107
 #: inc/customizer/sections/buttons/buttons-fields.php:96
 #: inc/customizer/sections/buttons/buttons-fields.php:326
 #: inc/customizer/sections/colors-background/body.php:111
@@ -738,152 +738,152 @@ msgctxt "لون الخلفيه"
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:112
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:112
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:117
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:117
 msgid "No File Selected"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:120
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:120
 msgid "Remove"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:121
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:121
 msgid "Select File"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:134
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:134
 msgid "No Repeat"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:135
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:135
 msgid "Repeat All"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:136
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:136
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:137
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:137
 msgid "Repeat Vertically"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:144
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:144
 msgid "Left Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:145
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:145
 msgid "Left Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:146
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:146
 msgid "Left Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:147
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:147
 msgid "Right Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:148
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:148
 msgid "Right Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:149
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:149
 msgid "Right Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:150
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:150
 msgid "Center Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:151
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:151
 msgid "Center Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:152
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:152
 msgid "Center Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:158
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:158
 msgid "Background Size"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:161
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:161
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:164
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:164
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:167
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:167
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:174
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:174
 msgid "Background Attachment"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:177
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:63
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:83
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:177
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:63
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:83
 #: inc/customizer/sections/layout/content.php:367
 #: inc/customizer/sections/layout/main-footer.php:415
 #: inc/customizer/sections/layout/main-footer.php:666
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:180
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:180
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:183
+#: inc/customizer/custom-controls/background/class-wiz-control-background.php:183
 msgid "Fixed"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:84
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:84
 msgid "Thin 100"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:85
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:85
 msgid "Extra-Light 200"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:86
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:86
 msgid "Light 300"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:87
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:87
 msgid "Normal 400"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:88
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:88
 msgid "Medium 500"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:89
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:89
 msgid "Semi-Bold 600"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:90
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:90
 msgid "Bold 700"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:91
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:91
 msgid "Extra-Bold 800"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:92
+#: inc/customizer/custom-controls/typography/class-wiz-control-typography.php:92
 msgid "Ultra-Bold 900"
 msgstr ""
 
-#: inc/customizer/notification/class-kemet-notification-helper.php:41
+#: inc/customizer/notification/class-wiz-notification-helper.php:41
 msgid "Activate"
 msgstr ""
 
-#: inc/customizer/notification/class-kemet-notification-helper.php:48
+#: inc/customizer/notification/class-wiz-notification-helper.php:48
 msgid "Install and Activate"
 msgstr ""
 
@@ -945,7 +945,7 @@ msgid "Buttons & Fields"
 msgstr ""
 
 #: inc/customizer/register-panels-and-sections.php:234
-msgid "Kemet Addons Available"
+msgid "Wiz Addons Available"
 msgstr ""
 
 #: inc/customizer/sections/buttons/buttons-fields.php:23
