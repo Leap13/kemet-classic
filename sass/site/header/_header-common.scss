@@ -44,7 +44,7 @@
 /**
  * 5 - Transparent Header
  */
-.kmt-header-transparent {
+.wiz-header-transparent {
     position: absolute;
     width: 100%;
 }
@@ -52,14 +52,14 @@
 /**
  * 6 - all and (max-width: $mx-break-point)
  */
-.kmt-header-break-point {
+.wiz-header-break-point {
 
     .nav-fallback-text {
         float: none;
     }
-    .kmt-header-custom-item{
+    .wiz-header-custom-item{
         border-top: 1px solid #eaeaea;
-        .kmt-sitehead-custom-menu-items{
+        .wiz-sitehead-custom-menu-items{
             padding-left: 20px;
             padding-right: 20px;
             margin-bottom: 1em;
@@ -77,17 +77,17 @@
 .main-header-bar {
     margin-left: auto;
     margin-right: auto;
-    @include kmt-transition();
+    @include wiz-transition();
 }
 
 .site-logo-img img {
-    @include kmt-transition();
+    @include wiz-transition();
 }
 
 /**
  * 8 - Header Widget Area
  */
- .kmt-header-widget-area{
+ .wiz-header-widget-area{
         line-height: inherit;
         .widget-title,
         .no-widget-text{
@@ -119,7 +119,7 @@
         }
     }
  .submenu-with-border{
-    .kmt-header-widget-area{
+    .wiz-header-widget-area{
         .widget{
             ul{
                 position: static;
@@ -132,8 +132,8 @@
         }
     }
 }
-.kmt-header-break-point {
-     .kmt-header-widget-area{
+.wiz-header-break-point {
+     .wiz-header-widget-area{
         .widget {
             margin: .5em 0;
             display: block;
@@ -144,8 +144,8 @@
 /**
  * 9 - Header Widget Area
  */
-.kmt-header-custom-item{
-    .kmt-header-widget-area{
+.wiz-header-custom-item{
+    .wiz-header-widget-area{
         .widget {
             margin: 0.5em;
             display: inline-block;

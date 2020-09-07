@@ -19,7 +19,7 @@ textarea {
         color: inherit;
         opacity: 0.5;
     }
-    @include kmt-transition();
+    @include wiz-transition();
 }
 
 input[type="text"]:focus, 

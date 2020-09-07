@@ -53,7 +53,7 @@ div.title {
 	}
 
 	li {
-		@include kmt-transition();
+		@include wiz-transition();
 	}
 }
 
@@ -66,7 +66,7 @@ div.title {
 		color: inherit;
 
 		&:after {
-			font-family: $font-family-kemet;
+			font-family: $font-family-wiz;
 			font-size: 1.2em;
 			font-weight: 600;
 			content: "\e90d";
@@ -138,7 +138,7 @@ div.title {
 		    font-size: 14px;
 		    margin-right: 4px;
 		    line-height: 1.5;
-		    @include kmt-transition();    
+		    @include wiz-transition();    
 		}
 	}
 }
@@ -202,9 +202,9 @@ div.title {
 }
 
 //separate container content layout
-.kmt-separate-container{
+.wiz-separate-container{
 	//two container content layout
-	&.kmt-two-container{
+	&.wiz-two-container{
 		#secondary{
 			.widget{
 				padding: 2em;

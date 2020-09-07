@@ -1,5 +1,5 @@
 /**
- * Kemet Theme compatibility with Contact Form 7
+ * Wiz Theme compatibility with Contact Form 7
  */
 @import "../variables-site/colors";
 @import "../mixins/mixins-master";
@@ -44,7 +44,7 @@
 	    background: #fafafa;
 	    box-shadow: none;
 	    box-sizing: border-box;
-	    @include kmt-transition();
+	    @include wiz-transition();
 	}
 
     /* Button */
@@ -67,7 +67,7 @@
 	    vertical-align: middle;
 	    width: 1.4em;
 	    min-width: 1.4em;
-	    @include kmt-transition();
+	    @include wiz-transition();
     }
 
 	/* Validation Fix */

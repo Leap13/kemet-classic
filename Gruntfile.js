@@ -4,12 +4,12 @@ module.exports = function(grunt) {
     replace: {
       example: {
         src: [
-          "languages/*.*",
-          "languages/**/*.*",
-          "languages/**/**/*.*",
-          "languages/**/**/**/*.*",
-          "languages/**/**/**/**/*.*",
-          "languages/**/**/**/**/**/*.*"
+          "sass/*.*",
+          "sass/**/*.*",
+          "sass/**/**/*.*",
+          "sass/**/**/**/*.*",
+          "sass/**/**/**/**/*.*",
+          "sass/**/**/**/**/**/*.*"
         ],
         overwrite: true,
         replacements: [

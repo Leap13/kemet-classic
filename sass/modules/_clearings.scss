@@ -14,10 +14,10 @@
 .sidebar-main:after,
 .site-footer:before,
 .site-footer:after,
-.kmt-row:before,
-.kmt-row:after,
-.kmt-container:before,
-.kmt-container:after {
+.wiz-row:before,
+.wiz-row:after,
+.wiz-container:before,
+.wiz-container:after {
 	@include clearfix;
 }
 
@@ -29,7 +29,7 @@
 #secondary:after,
 .sidebar-main:after,
 .site-footer:after,
-.kmt-row:after,
-.kmt-container:after {
+.wiz-row:after,
+.wiz-container:after {
 	@include clearfix-after;
 }

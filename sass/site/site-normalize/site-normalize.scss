@@ -30,7 +30,7 @@ a,
 .site-header a *,
 .site-footer a *,
 .secondary a * {
-    @include kmt-transition();
+    @include wiz-transition();
 }
 
 .capitalize {
@@ -63,7 +63,7 @@ blockquote {
     position: relative;
 }
 
-.kmt-button,
+.wiz-button,
 .button,
 input[type="button"],
 input[type="submit"] {
@@ -94,7 +94,7 @@ input[type="submit"] {
     a,
     &:hover a,
     &:focus a {
-        @include kmt-transition();
+        @include wiz-transition();
     }
 }
 
@@ -105,21 +105,21 @@ input[type="submit"] {
     color: $color-site-tagline;
 }
 
-.kmt-header-break-point {
+.wiz-header-break-point {
     .main-header-bar {
         .main-header-bar-navigation {
-            .kmt-search-icon {
+            .wiz-search-icon {
                 display: none;
             }
         }
     }
     
-    .kmt-search-menu-icon .search-field,
-    .kmt-search-menu-icon.kmt-inline-search .search-field {
+    .wiz-search-menu-icon .search-field,
+    .wiz-search-menu-icon.wiz-inline-search .search-field {
         padding-right: 5.5em;
     }
 
-    .kmt-search-menu-icon {
+    .wiz-search-menu-icon {
         &.search-box{
             .search-submit {
                 display: block;
@@ -132,7 +132,7 @@ input[type="submit"] {
             }
         }
     }
-    .kmt-search-menu-icon .search-form {
+    .wiz-search-menu-icon .search-form {
         display: block;
     }
 }

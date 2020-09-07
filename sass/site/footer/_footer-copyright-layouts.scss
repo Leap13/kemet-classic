@@ -3,12 +3,12 @@
  *
  */
 
-.kmt-footer-copyright-content {
+.wiz-footer-copyright-content {
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
-.kmt-footer-copyright {
+.wiz-footer-copyright {
     line-height: 1.85714285714286;
 	position: relative;
 
@@ -40,7 +40,7 @@
 
 /* Auto width footer sections */
 @media (min-width: $col-md ) {
-	.kmt-footer-copyright {
+	.wiz-footer-copyright {
 
 		.nav-menu {
 			li {
@@ -57,6 +57,6 @@
 }
 
 /* Hide edit shortcut button */
-.kmt-footer-site-title .customize-partial-edit-shortcut-button {
+.wiz-footer-site-title .customize-partial-edit-shortcut-button {
 	display: none;
 }

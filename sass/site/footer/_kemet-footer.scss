@@ -2,12 +2,12 @@
  * Footer Widget Layouts
  */
 
-.kemet-footer-overlay {
+.wiz-footer-overlay {
     padding-top: 30px;
     padding-bottom: 30px;
 }
 
-.kemet-footer {
+.wiz-footer {
 	p:last-child {
 	  	margin-bottom: 0;
 	}
@@ -16,11 +16,11 @@
 			margin-bottom: 0;
 		}
 	}
-	&.kemet-footer-align-center {
+	&.wiz-footer-align-center {
 		text-align: center;
 	}
-    &.kemet-footer-layout-5 {
-        .kmt-col-lg-2 {
+    &.wiz-footer-layout-5 {
+        .wiz-col-lg-2 {
             width: 20%;
         }
     }
@@ -37,11 +37,11 @@
     z-index: -1;
 }
 
-.kmt-sticky-footer #content {
+.wiz-sticky-footer #content {
 	z-index: 1;
 }
 @media all and (max-width : $mx-col-md) {
-	.kemet-footer-widget-1 {
+	.wiz-footer-widget-1 {
 		.widget:last-child {
 		  	margin: 0 0 2.8em;
 		}

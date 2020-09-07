@@ -1,11 +1,11 @@
-@mixin kmt-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
+@mixin wiz-transition( $property: all, $transition-time: 0.2s, $transition-function: linear ) {
     transition: $property $transition-time $transition-function;
 }
 
-@mixin kmt-has-child-menu-item() {
+@mixin wiz-has-child-menu-item() {
     content: "\e907";
     display: inline-block;
-    font-family: 'Kemet-font';
+    font-family: 'Wiz-font';
     font-size: 1rem;
     font-weight: bold;
     text-rendering: auto;
@@ -16,6 +16,6 @@
 
 }
 
-@mixin kmt-border-radius( $size: 2px ) {
+@mixin wiz-border-radius( $size: 2px ) {
     border-radius: $size;
 }

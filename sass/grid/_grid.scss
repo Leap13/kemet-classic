@@ -2,7 +2,7 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-.kmt-container {
+.wiz-container {
   @include make-container();
   @include make-container-max-widths();
 
@@ -14,7 +14,7 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 
-.kmt-container-fluid {
+.wiz-container-fluid {
   @include make-container();
 }
 
@@ -24,7 +24,7 @@
 // Rows contain and clear the floats of your columns.
 
 @if $enable-grid-classes {
-  .kmt-row {
+  .wiz-row {
     @include make-row();
   }
 }
@@ -49,8 +49,8 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .kmt-col-#{$breakpoint}-first { order: -1; }
-      .kmt-col-#{$breakpoint}-last  { order: 1; }
+      .wiz-col-#{$breakpoint}-first { order: -1; }
+      .wiz-col-#{$breakpoint}-last  { order: 1; }
     }
   }
 
@@ -58,9 +58,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .kmt-row-#{$breakpoint}-top    { align-items: flex-start; }
-      .kmt-row-#{$breakpoint}-center { align-items: center; }
-      .kmt-row-#{$breakpoint}-bottom { align-items: flex-end; }
+      .wiz-row-#{$breakpoint}-top    { align-items: flex-start; }
+      .wiz-row-#{$breakpoint}-center { align-items: center; }
+      .wiz-row-#{$breakpoint}-bottom { align-items: flex-end; }
     }
   }
 
@@ -68,9 +68,9 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .kmt-col-#{$breakpoint}-top    { align-self: flex-start; }
-      .kmt-col-#{$breakpoint}-center { align-self: center; }
-      .kmt-col-#{$breakpoint}-bottom { align-self: flex-end; }
+      .wiz-col-#{$breakpoint}-top    { align-self: flex-start; }
+      .wiz-col-#{$breakpoint}-center { align-self: center; }
+      .wiz-col-#{$breakpoint}-bottom { align-self: flex-end; }
     }
   }
 }

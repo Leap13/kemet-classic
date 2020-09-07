@@ -17,15 +17,15 @@
 }
 
 
-.kmt-comment-list {
+.wiz-comment-list {
     margin: 0;
     word-wrap: break-word;
     padding-bottom: 0.5em;
     list-style: none;
     li {
         list-style: none;
-        &.depth-1 .kmt-comment,
-        &.depth-2 .kmt-comment{
+        &.depth-1 .wiz-comment,
+        &.depth-2 .wiz-comment{
             border-bottom: 1px solid $color-border-content;
         }
     }
@@ -56,11 +56,11 @@
         margin-left: 1em;
     }
 
-    .kmt-comment-edit-reply-wrap{
+    .wiz-comment-edit-reply-wrap{
         display:flex;
         justify-content: flex-end;
     }
-    .kmt-edit-link{
+    .wiz-edit-link{
         flex: 1;
     }
     .comment-awaiting-moderation{
@@ -69,24 +69,24 @@
             .comment-edit-link {
             &:before {
                 content: "\e908";
-                font-family: 'Kemet-font';
+                font-family: 'Wiz-font';
                 margin: 0px 5px;
             }
         }
         .comment-reply-link {
             &:after {
                 content: "\e906";
-                font-family: 'Kemet-font';
+                font-family: 'Wiz-font';
                 margin: 0px 5px;
             }
         }
 }
 
-.kmt-comment {
+.wiz-comment {
     padding: 1em 0;
 }
 
-.kmt-comment-avatar-wrap {
+.wiz-comment-avatar-wrap {
     float: left;
     clear: right;
     margin-right: 1.33333em;
@@ -101,17 +101,17 @@
         }
     }
 }
-.kmt-comment-meta-wrap{
+.wiz-comment-meta-wrap{
     float: left;
     clear: right;
     padding: 0 0 1.33333em;
 }
 
-.kmt-comment-content{
+.wiz-comment-content{
     clear: both;
 }
 
-.kmt-comment-cite-wrap {
+.wiz-comment-cite-wrap {
     text-align: left;
     cite {
         font-style: normal;
@@ -124,12 +124,12 @@
     line-height: 1.65;
 }
 
-.kmt-comment-meta {
+.wiz-comment-meta {
     margin-bottom: 0.5em;
 
 }
 
-.kmt-comment-time {
+.wiz-comment-time {
 
     .timendate,
     .reply {
@@ -164,13 +164,13 @@
 
     /*  2 - Input Fields Styles */
     textarea#comment,
-    .kmt-comment-formwrap input[type="text"] {
+    .wiz-comment-formwrap input[type="text"] {
         width: 100%;
         border-radius: 0;
         vertical-align: middle;
         margin-bottom: 10px;
     }
-    .kmt-comment-formwrap{
+    .wiz-comment-formwrap{
         p{
             margin-bottom: 0;
         }
@@ -193,7 +193,7 @@
     }
 }
 
-.kmt-separate-container{
+.wiz-separate-container{
     .comments-count-wrapper{
         background-color: $color-background-content;
         padding: 2em 6.67em 0;
@@ -210,7 +210,7 @@
     .comments-area {
         border-top: 0;
     }
-    .kmt-comment-list{
+    .wiz-comment-list{
         padding-bottom: 0;
         li{
             background-color: $color-background-content;
@@ -230,7 +230,7 @@
                     padding: 1.5em 1em;
                     margin-bottom: 1.5em;
                 }
-                .kmt-comment{
+                .wiz-comment{
                     border-bottom: 0;
                 }
                 .children li {
@@ -239,8 +239,8 @@
                     margin-bottom: 0;
                 }
             }
-            &.depth-1 .kmt-comment,
-            &.depth-2 .kmt-comment{
+            &.depth-1 .wiz-comment,
+            &.depth-2 .wiz-comment{
                 border-bottom: 0;
             }
         }
@@ -302,7 +302,7 @@
     }
 }
 
-.kmt-page-builder-template{
+.wiz-page-builder-template{
   .comments-area{
     padding-left: 20px;
     padding-right: 20px;

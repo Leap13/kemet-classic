@@ -1,18 +1,18 @@
 /* ============================================================
   Archive Blogs
 ============================================================ */
-.kmt-author-box{
+.wiz-author-box{
 	img.avatar {
 	    border-radius: 50%;
 	    margin: 0 0 0 20px;
 	}
 }
 
-.kmt-archive-description{
+.wiz-archive-description{
 	margin-bottom: 2.5em;
 	padding-bottom: 1.3333em;
 	border-bottom: 1px solid $color-border-content;
-	.kmt-archive-title{
+	.wiz-archive-title{
     	margin-bottom: 4px;
     	font-size: 40px;
     	font-size: 2.85714rem;
@@ -27,53 +27,53 @@
 	}
 }
 @media (min-width: $col-md) {
-	.kmt-author-box{
+	.wiz-author-box{
 		display: flex;
 	}
-	.kmt-author-bio{
+	.wiz-author-bio{
 		flex:1;
 	}
 }
 
 @media (max-width: $mx-col-md) {
-	.kmt-author-box{
+	.wiz-author-box{
 		img.avatar {
 		    margin: 20px 0 0 0;
 		}
 	}
 }
 
-.kmt-separate-container {
-	.kmt-author-box,
-	.kmt-archive-description{
+.wiz-separate-container {
+	.wiz-author-box,
+	.wiz-archive-description{
 		background-color: $color-background-page-header;
 		padding-bottom: 0;
 		border-bottom: 0;
 	}
 }
-.kmt-separate-container{
+.wiz-separate-container{
 	@media (max-width: $mx-col-xl) {
-		.kmt-archive-description{
+		.wiz-archive-description{
 		    margin: 0;
 		    padding: 3.34em 2.4em;
 		}
 	}
 	@media (max-width: $mx-col-lg) {
-		.kmt-archive-description{
+		.wiz-archive-description{
 		    padding: 2.14em;
 		}
 	}
 	@media (max-width: $mx-col-sm) {
-		.kmt-archive-description{
+		.wiz-archive-description{
 		    padding: 1.5em 1em;
 		}
 	}
 }
 
 @media (min-width: $col-xl) {
-	.kmt-separate-container{
-		.kmt-author-box,
-		.kmt-archive-description{
+	.wiz-separate-container{
+		.wiz-author-box,
+		.wiz-archive-description{
 		    margin: 0;
 		    padding: 3.33333em 6.67em;
 		}

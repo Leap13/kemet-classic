@@ -1,71 +1,71 @@
 /**
  * Flexbox Framework
  *
- *  .kmt - prefix
+ *  .wiz - prefix
  *
  *  Flex classes generated as {prefix} + {css property - css value} .
  *
- *  E.g. Here '.kmt' is a prefix.
+ *  E.g. Here '.wiz' is a prefix.
  *
- *  .kmt-flex
- *  .kmt-flex-1
- *  .kmt-flex-2
- *  .kmt-flex-3
- *  .kmt-flex-4
- *  .kmt-flex-5
- *  .kmt-inline-flex
- *  .kmt-flex-direction-row
- *  .kmt-flex-direction-row-reverse
- *  .kmt-flex-direction-column
- *  .kmt-flex-direction-column-reverse
- *  .kmt-flex-wrap-nowrap
- *  .kmt-flex-wrap-wrap
- *  .kmt-flex-wrap-wrap-reverse
- *  .kmt-justify-content-flex-start
- *  .kmt-justify-content-flex-end
- *  .kmt-justify-content-center
- *  .kmt-justify-content-space-between
- *  .kmt-justify-content-space-around
- *  .kmt-align-items-flex-start
- *  .kmt-align-items-flex-end
- *  .kmt-align-items-center
- *  .kmt-align-items-baseline
- *  .kmt-align-items-stretch
- *  .kmt-align-content-flex-start
- *  .kmt-align-content-flex-end
- *  .kmt-align-content-center
- *  .kmt-align-content-space-between
- *  .kmt-align-content-space-around
- *  .kmt-align-content-stretch
- *  .kmt-order-1
- *  .kmt-order-2
- *  .kmt-order-3
- *  .kmt-order-4
- *  .kmt-order-5
- *  .kmt-flex-grow-1
- *  .kmt-flex-grow-2
- *  .kmt-flex-grow-3
- *  .kmt-flex-grow-4
- *  .kmt-flex-grow-5
- *  .kmt-flex-shrink-grow-1
- *  .kmt-flex-shrink-grow-2
- *  .kmt-flex-shrink-grow-3
- *  .kmt-flex-shrink-grow-4
- *  .kmt-flex-shrink-grow-5
- *  .kmt-flex-basis-grow-1
- *  .kmt-flex-basis-grow-2
- *  .kmt-flex-basis-grow-3
- *  .kmt-flex-basis-grow-4
- *  .kmt-flex-basis-grow-5
- *  .kmt-align-self-auto
- *  .kmt-align-self-flex-start
- *  .kmt-align-self-flex-end
- *  .kmt-align-self-center
- *  .kmt-align-self-baseline
- *  .kmt-align-self-stretch
+ *  .wiz-flex
+ *  .wiz-flex-1
+ *  .wiz-flex-2
+ *  .wiz-flex-3
+ *  .wiz-flex-4
+ *  .wiz-flex-5
+ *  .wiz-inline-flex
+ *  .wiz-flex-direction-row
+ *  .wiz-flex-direction-row-reverse
+ *  .wiz-flex-direction-column
+ *  .wiz-flex-direction-column-reverse
+ *  .wiz-flex-wrap-nowrap
+ *  .wiz-flex-wrap-wrap
+ *  .wiz-flex-wrap-wrap-reverse
+ *  .wiz-justify-content-flex-start
+ *  .wiz-justify-content-flex-end
+ *  .wiz-justify-content-center
+ *  .wiz-justify-content-space-between
+ *  .wiz-justify-content-space-around
+ *  .wiz-align-items-flex-start
+ *  .wiz-align-items-flex-end
+ *  .wiz-align-items-center
+ *  .wiz-align-items-baseline
+ *  .wiz-align-items-stretch
+ *  .wiz-align-content-flex-start
+ *  .wiz-align-content-flex-end
+ *  .wiz-align-content-center
+ *  .wiz-align-content-space-between
+ *  .wiz-align-content-space-around
+ *  .wiz-align-content-stretch
+ *  .wiz-order-1
+ *  .wiz-order-2
+ *  .wiz-order-3
+ *  .wiz-order-4
+ *  .wiz-order-5
+ *  .wiz-flex-grow-1
+ *  .wiz-flex-grow-2
+ *  .wiz-flex-grow-3
+ *  .wiz-flex-grow-4
+ *  .wiz-flex-grow-5
+ *  .wiz-flex-shrink-grow-1
+ *  .wiz-flex-shrink-grow-2
+ *  .wiz-flex-shrink-grow-3
+ *  .wiz-flex-shrink-grow-4
+ *  .wiz-flex-shrink-grow-5
+ *  .wiz-flex-basis-grow-1
+ *  .wiz-flex-basis-grow-2
+ *  .wiz-flex-basis-grow-3
+ *  .wiz-flex-basis-grow-4
+ *  .wiz-flex-basis-grow-5
+ *  .wiz-align-self-auto
+ *  .wiz-align-self-flex-start
+ *  .wiz-align-self-flex-end
+ *  .wiz-align-self-center
+ *  .wiz-align-self-baseline
+ *  .wiz-align-self-stretch
  */
 
-.kmt {
+.wiz {
     
     /*
     # LAYOUT
