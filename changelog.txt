@@ -12,7 +12,7 @@ v 1.0.9 version
 - Fixed: Customizer not working with WordPress 5.5.
 
 v 1.0.8 version
-- Added: Five Blog Layouts using Kemet Addons. 
+- Added: Five Blog Layouts using Wiz Addons. 
 - Added: Responsive controls for font size in buttons options.
 - Added: Responsive controls for font size in sidebar content.
 - Added: Responsive controls for product name font size.
@@ -39,7 +39,7 @@ v 1.0.5 version
 
 v 1.0.4
 - Added: Disable Header option.
-- Added: Kemet Addons notification in customizer.
+- Added: Wiz Addons notification in customizer.
 
 v 1.0.3
 - Fixed: Header Bottom Border in responsive issue.
@@ -68,7 +68,7 @@ v 1.0.0
 - Added: Header overlay option.
 - Added: Alignment control for Main menu.
 - Added: Global Colors Section to control all website elements colors and backgrounds.
-- Tweak: Top bar section moved to Kemet Addons plugin for better performance and management.
+- Tweak: Top bar section moved to Wiz Addons plugin for better performance and management.
 - Tweak: Changes in the customizer controls styles files for better performance and speed.
 - Fixed: Content spacing option doesn't work.
 - Fixed: Submenu items doesn't work in responsive.

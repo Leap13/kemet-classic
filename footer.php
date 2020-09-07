@@ -6,21 +6,21 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Kemet
+ * @package Wiz
  * 
  */
 
 ?>
 
-			</div> <!-- Kemet-container -->
+			</div> <!-- Wiz-container -->
 
 		</div><!-- #content --> 
 
-		<?php kemet_footer(); ?>
+		<?php wiz_footer(); ?>
 
 	</div><!-- #page -->
 
-	<?php kemet_body_bottom(); ?>
+	<?php wiz_body_bottom(); ?>
 
 	<?php wp_footer(); ?>
 

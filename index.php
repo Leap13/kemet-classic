@@ -9,27 +9,27 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Kemet
+ * @package Wiz
  * 
  */
 
 get_header(); ?>
 
-<?php if ( kemet_layout() == 'left-sidebar' ) : ?>
+<?php if ( wiz_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 
 <?php endif ?>
 
-	<div id="primary" <?php kemet_content_class(); ?>>
+	<div id="primary" <?php wiz_content_class(); ?>>
 
-		<?php kemet_content_loop(); ?>
+		<?php wiz_content_loop(); ?>
 
-		<?php kemet_pagination(); ?>
+		<?php wiz_pagination(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( kemet_layout() == 'right-sidebar' ) : ?>
+<?php if ( wiz_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 

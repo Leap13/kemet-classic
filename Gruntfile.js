@@ -3,18 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     replace: {
       example: {
-        src: [
-          "templates/*.*",
-          "templates/**/*.*",
-          "templates/**/**/*.*",
-          "templates/**/**/**/*.*",
-          "templates/**/**/**/**/*.*",
-          "templates/**/**/**/**/**/*.*"
-        ],
+        src: ["*.*"],
         overwrite: true,
         replacements: [
           {
-            from: "kmt", // string replacement
+            from: "wiz", // string replacement
             to: "wiz"
           }
         ]

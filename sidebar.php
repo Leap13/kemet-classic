@@ -4,11 +4,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Kemet
+ * @package Wiz
  * 
  */
 
-$sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
+$sidebar = apply_filters( 'wiz_get_sidebar', 'sidebar-1' );
 
 ?>
 
