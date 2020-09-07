@@ -2,49 +2,49 @@
 /**
  * Template parts
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
-add_action( 'kemet_sitehead_toggle_buttons', 'kemet_sitehead_toggle_buttons_primary' );
-add_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
-add_filter( 'wp_page_menu_args', 'kemet_sitehead_custom_page_menu_items', 10, 2 );
-add_filter( 'wp_nav_menu_items', 'kemet_sitehead_custom_nav_menu_items', 10, 2 );
-add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
-add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
-add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
-add_action( 'kemet_404_page', 'kemet_404_page_template' );
-add_action( 'kemet_footer_content', 'kemet_main_footer_markup', 1 );
-add_action( 'kemet_sitehead_content', 'kemet_header_custom_item_outside_menu', 10 );
+add_action( 'wiz_sitehead_toggle_buttons', 'wiz_sitehead_toggle_buttons_primary' );
+add_action( 'wiz_sitehead', 'wiz_sitehead_primary_template' );
+add_filter( 'wp_page_menu_args', 'wiz_sitehead_custom_page_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'wiz_sitehead_custom_nav_menu_items', 10, 2 );
+add_action( 'wiz_footer_content', 'wiz_footer_copyright_footer_template', 5 );
+add_action( 'wiz_entry_content_single', 'wiz_entry_content_single_template' );
+add_action( 'wiz_entry_content_blog', 'wiz_entry_content_blog_template' );
+add_action( 'wiz_404_page', 'wiz_404_page_template' );
+add_action( 'wiz_footer_content', 'wiz_main_footer_markup', 1 );
+add_action( 'wiz_sitehead_content', 'wiz_header_custom_item_outside_menu', 10 );
 
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
+if ( ! function_exists( 'wiz_sitehead_get_menu_items' ) ) :
 
 	/**
 	 * Custom Menu Item Markup
 	 *
 	 * => Used in hooks:
 	 *
-	 * @see kemet_sitehead_get_menu_items
-	 * @see kemet_sitehead_custom_nav_menu_items
+	 * @see wiz_sitehead_get_menu_items
+	 * @see wiz_sitehead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
 	 */
-	function kemet_sitehead_get_menu_items( $display_outside_markup = false ) {
+	function wiz_sitehead_get_menu_items( $display_outside_markup = false ) {
 
 		// Get selected custom menu items.
 		$markup = '';
-		$section                    = kemet_get_option( 'header-main-rt-section' );
-		$sections                   = kemet_get_dynamic_header_content( 'header-main-rt-section' );
-		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
+		$section                    = wiz_get_option( 'header-main-rt-section' );
+		$sections                   = wiz_get_dynamic_header_content( 'header-main-rt-section' );
+		$disable_primary_navigation = wiz_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
-		$search_style = kemet_get_option('search-style');
-		$hide_mobile = kemet_get_option('disable-last-menu-items-on-mobile');
+		$search_style = wiz_get_option('search-style');
+		$hide_mobile = wiz_get_option('disable-last-menu-items-on-mobile');
 		$hide_classes = '';
 		if($hide_mobile){
 			$hide_classes = 'hide-on-mobile';
@@ -58,9 +58,9 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 			if(in_array('search' , $section)){
 				$section[] = $search_style;
 			}
-			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
+			$menu_item_classes = apply_filters( 'wiz_sitehead_custom_menu_item', $section);
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
+			<<?php echo esc_attr( $html_element ); ?> class="wiz-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
 				foreach ( $sections as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						echo ($value);
@@ -72,7 +72,7 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 			$markup = ob_get_clean();
 		}
 
-		return apply_filters( 'kemet_sitehead_get_menu_items', $markup );
+		return apply_filters( 'wiz_sitehead_get_menu_items', $markup );
 	}
 
 endif;
@@ -80,7 +80,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_sitehead_custom_page_menu_items' ) ) :
+if ( ! function_exists( 'wiz_sitehead_custom_page_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -92,14 +92,14 @@ if ( ! function_exists( 'kemet_sitehead_custom_page_menu_items' ) ) :
 	 * @param  array $args Array of arguments.
 	 * @return array       Modified menu item array.
 	 */
-	function kemet_sitehead_custom_page_menu_items( $args ) {
+	function wiz_sitehead_custom_page_menu_items( $args ) {
 
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( isset( $args['theme_location'] ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3')) {
+		$header_layout = apply_filters( 'wiz_primary_header_layout', wiz_get_option( 'header-layouts' ) );
+		if ( isset( $args['theme_location'] ) && (! wiz_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3')) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
-				$markup = kemet_sitehead_get_menu_items();
+				$markup = wiz_sitehead_get_menu_items();
 
 				if ( $markup ) {
 					$args['after'] = $markup . '</ul>';
@@ -115,7 +115,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'kemet_sitehead_custom_nav_menu_items' ) ) :
+if ( ! function_exists( 'wiz_sitehead_custom_nav_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -128,14 +128,14 @@ if ( ! function_exists( 'kemet_sitehead_custom_nav_menu_items' ) ) :
 	 * @param  array $args  Nav menu item arguments array.
 	 * @return array       Modified menu item array.
 	 */
-	function kemet_sitehead_custom_nav_menu_items( $items, $args ) {
+	function wiz_sitehead_custom_nav_menu_items( $items, $args ) {
 
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( isset( $args->theme_location ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3') ) {
+		$header_layout = apply_filters( 'wiz_primary_header_layout', wiz_get_option( 'header-layouts' ) );
+		if ( isset( $args->theme_location ) && (! wiz_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3') ) {
 
 			if ( 'primary' === $args->theme_location ) {
 
-				$markup = kemet_sitehead_get_menu_items();
+				$markup = wiz_sitehead_get_menu_items();
 
 				if ( $markup ) {
 					$items .= $markup;
@@ -151,7 +151,7 @@ endif;
 /**
  * Header toggle buttons
  */
-if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
+if ( ! function_exists( 'wiz_sitehead_toggle_buttons_primary' ) ) {
 
 	/**
 	 * Header toggle buttons
@@ -161,23 +161,23 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 	 * /header.php
 	 *
 	 */
-	function kemet_sitehead_toggle_buttons_primary() {
+	function wiz_sitehead_toggle_buttons_primary() {
 
-		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
-		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
-		$display_outside_menu       = kemet_get_option( 'header-display-outside-menu' );
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
+		$disable_primary_navigation = wiz_get_option( 'disable-primary-nav' );
+		$custom_header_section      = wiz_get_option( 'header-main-rt-section' );
+		$display_outside_menu       = wiz_get_option( 'header-display-outside-menu' );
+		$header_layout = apply_filters( 'wiz_primary_header_layout', wiz_get_option( 'header-layouts' ) );
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && (! $display_outside_menu || $header_layout == 'header-main-layout-3') ) ) {
-			$menu_title          = trim( apply_filters( 'kemet_main_menu_toggle_label', kemet_get_option( 'header-main-menu-label' ) ) );
-			$menu_icon           = apply_filters( 'kemet_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_title          = trim( apply_filters( 'wiz_main_menu_toggle_label', wiz_get_option( 'header-main-menu-label' ) ) );
+			$menu_icon           = apply_filters( 'wiz_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
-			$screen_reader_title = __( 'Main Menu', 'kemet' );
+			$screen_reader_title = __( 'Main Menu', 'wiz' );
 			if ( '' !== $menu_title ) {
-				$menu_label_class    = 'kmt-menu-label';
+				$menu_label_class    = 'wiz-menu-label';
 				$screen_reader_title = $menu_title;
 			}
 		?>
-		<div class="kmt-button-wrap">			
+		<div class="wiz-button-wrap">			
 		<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
@@ -198,7 +198,7 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 /**
  * Small Footer
  */
-if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
+if ( ! function_exists( 'wiz_footer_copyright_footer_template' ) ) {
 
 	/**
 	 * Small Footer
@@ -208,12 +208,12 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 	 * /footer.php
 	 *
 	 */
-	function kemet_footer_copyright_footer_template() {
+	function wiz_footer_copyright_footer_template() {
 
-        $copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
-		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
+        $copyright_footer_layout = wiz_get_option( 'copyright-footer-layout' );
+		$copyright_footer_layout = apply_filters( 'wiz_footer_copyright_layout_disable', $copyright_footer_layout );
 		
-		if ( !apply_filters('kmt_footer_copyright_layout_disable', true)) {
+		if ( !apply_filters('wiz_footer_copyright_layout_disable', true)) {
 			return;
 		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
 			get_template_part( 'templates/footer/copyright-footer-layout' );
@@ -226,7 +226,7 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 /**
  * Header
  */
-if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
+if ( ! function_exists( 'wiz_sitehead_primary_template' ) ) {
 
 	/**
 	 * Header
@@ -236,9 +236,9 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 * /header.php
 	 *
 	 */
-	function kemet_sitehead_primary_template() {
-		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
-		if ( $kemet_header_layout !== 'disable' ) {
+	function wiz_sitehead_primary_template() {
+		$wiz_header_layout = apply_filters( 'wiz_primary_header_layout', wiz_get_option('header-layouts') );
+		if ( $wiz_header_layout !== 'disable' ) {
 			get_template_part( 'templates/header/header-main-layout' );
 		}
 	}
@@ -247,7 +247,7 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 /**
  * Single post markup
  */
-if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
+if ( ! function_exists( 'wiz_entry_content_single_template' ) ) {
 
 	/**
 	 * Single post markup
@@ -257,7 +257,7 @@ if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 	 * /templates/content-single.php
 	 *
 	 */
-	function kemet_entry_content_single_template() {
+	function wiz_entry_content_single_template() {
 		get_template_part( 'templates/single/single-layout' );
 	}
 }
@@ -265,7 +265,7 @@ if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 /**
  * Blog post list markup for blog & search page
  */
-if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
+if ( ! function_exists( 'wiz_entry_content_blog_template' ) ) {
 
 	/**
 	 * Blog post list markup for blog & search page
@@ -276,7 +276,7 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 * /templates/content-search.php
 	 *
 	 */
-	function kemet_entry_content_blog_template() {
+	function wiz_entry_content_blog_template() {
 		get_template_part( 'templates/blog/blog-layout' );
 	}
 }
@@ -284,7 +284,7 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 /**
  * 404 markup
  */
-if ( ! function_exists( 'kemet_404_page_template' ) ) {
+if ( ! function_exists( 'wiz_404_page_template' ) ) {
 
 	/**
 	 * 404 markup
@@ -294,7 +294,7 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 * /templates/content-404.php
 	 *
 	 */
-	function kemet_404_page_template() {
+	function wiz_404_page_template() {
 		get_template_part( 'templates/404/404-layout');
 	}
 }
@@ -302,7 +302,7 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 /**
  * Footer widgets markup
  */
-if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
+if ( ! function_exists( 'wiz_main_footer_markup' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -310,12 +310,12 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
 	 */
-	function kemet_main_footer_markup() {
+	function wiz_main_footer_markup() {
 
-		$main_footer_layout = kemet_get_option( 'footer-layout' );
-        $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
+		$main_footer_layout = wiz_get_option( 'footer-layout' );
+        $main_footer_layout = apply_filters( 'wiz_main_footer_disable', $main_footer_layout );
 
-		if ( !apply_filters( 'kemet_main_footer_disable', true ) ) {
+		if ( !apply_filters( 'wiz_main_footer_disable', true ) ) {
 			return;
 		} // Add markup.
 		else if ( 'layout-1' == $main_footer_layout ) {
@@ -344,7 +344,7 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 /**
  * Header menu item outside custom menu
  */
-if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
+if ( ! function_exists( 'wiz_header_custom_item_outside_menu' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -352,12 +352,12 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
 	 */
-	function kemet_header_custom_item_outside_menu() {
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( kemet_get_option( 'header-display-outside-menu' ) &&  $header_layout != 'header-main-layout-3') {
-			$markup = kemet_sitehead_get_menu_items( false );
+	function wiz_header_custom_item_outside_menu() {
+		$header_layout = apply_filters( 'wiz_primary_header_layout', wiz_get_option( 'header-layouts' ) );
+		if ( wiz_get_option( 'header-display-outside-menu' ) &&  $header_layout != 'header-main-layout-3') {
+			$markup = wiz_sitehead_get_menu_items( false );
 
-			echo '<div class="kmt-outside-menu">' . $markup . '</div>';
+			echo '<div class="wiz-outside-menu">' . $markup . '</div>';
 		}
 	}
 }

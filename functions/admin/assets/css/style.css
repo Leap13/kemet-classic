@@ -1,17 +1,17 @@
 @font-face {
-  font-family: 'KMTAncientOwl';
-  src:  url('../fonts/KMTAncientOwl.eot?qwkeny');
-  src:  url('../fonts/KMTAncientOwl.eot?qwkeny#iefix') format('embedded-opentype'),
-    url('../fonts/KMTAncientOwl.ttf?qwkeny') format('truetype'),
-    url('../fonts/KMTAncientOwl.woff?qwkeny') format('woff'),
-    url('../fonts/KMTAncientOwl.svg?qwkeny#KMTAncientOwl') format('svg');
+  font-family: 'WIZAncientOwl';
+  src:  url('../fonts/WIZAncientOwl.eot?qwkeny');
+  src:  url('../fonts/WIZAncientOwl.eot?qwkeny#iefix') format('embedded-opentype'),
+    url('../fonts/WIZAncientOwl.ttf?qwkeny') format('truetype'),
+    url('../fonts/WIZAncientOwl.woff?qwkeny') format('woff'),
+    url('../fonts/WIZAncientOwl.svg?qwkeny#WIZAncientOwl') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="kmticon-"], [class*=" kmticon-"] {
+[class^="wizicon-"], [class*=" wizicon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'KMTAncientOwl' !important;
+  font-family: 'WIZAncientOwl' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -24,30 +24,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.kmticon-AncientOwl:before {
+.wizicon-AncientOwl:before {
   content: "\e900";
   color:#fab522;
 }
 
-.kemet-notice-text {
+.wiz-notice-text {
   padding-left: 20px;
 }
 
-.kemet-notice-text p {
+.wiz-notice-text p {
   margin-top: 0px;
 }
-.kmt-notice {
+.wiz-notice {
     display: flex;
     align-items: center;
     border: 0px;
     padding: 0px;
 }
 
-.kemet-notice-logo {
+.wiz-notice-logo {
     padding: 24px;
     background-color: #2d2f4c;
 }
-.kmt-active-plugin .dashicons{
+.wiz-active-plugin .dashicons{
     margin-top: 5px;
   -webkit-animation: rotating 2s linear infinite;
   -moz-animation: rotating 2s linear infinite;

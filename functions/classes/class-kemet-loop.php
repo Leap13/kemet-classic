@@ -1,19 +1,19 @@
 <?php
 /**
- * Kemet Loop
+ * Wiz Loop
  *
- * @package Kemet
+ * @package Wiz
  * @since 1.0.0
  */
 
-if ( ! class_exists( 'Kemet_Loop' ) ) :
+if ( ! class_exists( 'Wiz_Loop' ) ) :
 
 	/**
-	 * Kemet_Loop
+	 * Wiz_Loop
 	 *
 	 * @since 1.0.0
 	 */
-	class Kemet_Loop {
+	class Wiz_Loop {
 
 		/**
 		 * Instance
@@ -46,29 +46,29 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function __construct() {
 			// Loop.
-			add_action( 'kemet_content_loop', array( $this, 'loop_markup' ) );
-			add_action( 'kemet_content_page_loop', array( $this, 'loop_markup_page' ) );
+			add_action( 'wiz_content_loop', array( $this, 'loop_markup' ) );
+			add_action( 'wiz_content_page_loop', array( $this, 'loop_markup_page' ) );
 
 			// Template Parts.
-			add_action( 'kemet_page_template_parts_content', array( $this, 'template_parts_page' ) );
-			add_action( 'kemet_page_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
-			add_action( 'kemet_template_parts_content', array( $this, 'template_parts_post' ) );
-			add_action( 'kemet_template_parts_content', array( $this, 'template_parts_search' ) );
-			add_action( 'kemet_template_parts_content', array( $this, 'template_parts_default' ) );
-			add_action( 'kemet_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+			add_action( 'wiz_page_template_parts_content', array( $this, 'template_parts_page' ) );
+			add_action( 'wiz_page_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+			add_action( 'wiz_template_parts_content', array( $this, 'template_parts_post' ) );
+			add_action( 'wiz_template_parts_content', array( $this, 'template_parts_search' ) );
+			add_action( 'wiz_template_parts_content', array( $this, 'template_parts_default' ) );
+			add_action( 'wiz_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
 
 			// Template None.
-			add_action( 'kemet_template_parts_content_none', array( $this, 'template_parts_none' ) );
-			add_action( 'kemet_template_parts_content_none', array( $this, 'template_parts_404' ) );
-			add_action( 'kemet_404_content_template', array( $this, 'template_parts_404' ) );
+			add_action( 'wiz_template_parts_content_none', array( $this, 'template_parts_none' ) );
+			add_action( 'wiz_template_parts_content_none', array( $this, 'template_parts_404' ) );
+			add_action( 'wiz_404_content_template', array( $this, 'template_parts_404' ) );
 
 			// Content top and bottom.
-			add_action( 'kemet_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
-			add_action( 'kemet_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+			add_action( 'wiz_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
+			add_action( 'wiz_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
-			// Add closing and ending div 'kmt-row'.
-			add_action( 'kemet_template_parts_content_top', array( $this, 'kemet_templat_part_wrap_open' ), 25 );
-			add_action( 'kemet_template_parts_content_bottom', array( $this, 'kemet_templat_part_wrap_close' ), 5 );
+			// Add closing and ending div 'wiz-row'.
+			add_action( 'wiz_template_parts_content_top', array( $this, 'wiz_templat_part_wrap_open' ), 25 );
+			add_action( 'wiz_template_parts_content_bottom', array( $this, 'wiz_templat_part_wrap_close' ), 5 );
 		}
 
 		/**
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'templates/content', kemet_get_post_format() );
+				get_template_part( 'templates/content', wiz_get_post_format() );
 			}
 		}
 
@@ -174,8 +174,8 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 * Template part loop
 		 *
 		 * @param  boolean $is_page Loop outputs different content action for content page and default content.
-		 *         if is_page is set to true - do_action( 'kemet_page_template_parts_content' ); is added
-		 *         if is_page is false - do_action( 'kemet_template_parts_content' ); is added.
+		 *         if is_page is set to true - do_action( 'wiz_page_template_parts_content' ); is added
+		 *         if is_page is false - do_action( 'wiz_template_parts_content' ); is added.
 		 * @since 1.0.0
 		 * @return void
 		 */
@@ -186,27 +186,27 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 
 				<?php if ( have_posts() ) : ?>
 
-					<?php do_action( 'kemet_template_parts_content_top' ); ?>
+					<?php do_action( 'wiz_template_parts_content_top' ); ?>
 
 					<?php
 					while ( have_posts() ) :
 						the_post();
 
 						if ( true == $is_page ) {
-							do_action( 'kemet_page_template_parts_content' );
+							do_action( 'wiz_page_template_parts_content' );
 						} else {
-							do_action( 'kemet_template_parts_content' );
+							do_action( 'wiz_template_parts_content' );
 						}
 
 						?>
 
 					<?php endwhile; ?>
 
-					<?php do_action( 'kemet_template_parts_content_bottom' ); ?>
+					<?php do_action( 'wiz_template_parts_content_bottom' ); ?>
 
 				<?php else : ?>
 
-					<?php do_action( 'kemet_template_parts_content_none' ); ?>
+					<?php do_action( 'wiz_template_parts_content_none' ); ?>
 
 				<?php endif; ?>
 
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_content_top() {
 			if ( is_archive() ) {
-				kemet_content_while_before();
+				wiz_content_while_before();
 			}
 		}
 
@@ -234,29 +234,29 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 		 */
 		public function template_parts_content_bottom() {
 			if ( is_archive() ) {
-				kemet_content_while_after();
+				wiz_content_while_after();
 			}
 		}
 
 		/**
-		 * Add wrapper div 'kmt-row' for Kemet template part.
+		 * Add wrapper div 'wiz-row' for Wiz template part.
 		 *
 		 * @return void
 		 */
-		public function kemet_templat_part_wrap_open() {
+		public function wiz_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
-				$classes = apply_filters( 'kemet_blog_post_container', array('blog-posts-container'));
-				echo '<div class="kmt-row">';
+				$classes = apply_filters( 'wiz_blog_post_container', array('blog-posts-container'));
+				echo '<div class="wiz-row">';
 					echo '<div class="' . implode(" ",$classes) . '">';
 			}
 		}
 
 		/**
-		 * Add closing wrapper div for 'kmt-row' after Kemet template part.
+		 * Add closing wrapper div for 'wiz-row' after Wiz template part.
 		 *
 		 * @return void
 		 */
-		public function kemet_templat_part_wrap_close() {
+		public function wiz_templat_part_wrap_close() {
 			if ( is_archive() || is_search() || is_home() ) {
 					echo '</div>';
 				echo '</div>';
@@ -268,6 +268,6 @@ if ( ! class_exists( 'Kemet_Loop' ) ) :
 	/**
 	 * Initialize class object with 'get_instance()' method
 	 */
-	Kemet_Loop::get_instance();
+	Wiz_Loop::get_instance();
 
 endif;

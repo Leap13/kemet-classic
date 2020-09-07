@@ -1,12 +1,12 @@
 <?php
 /**
- * Functions for Kemet Theme.
+ * Functions for Wiz Theme.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Foreground Color
  */
-if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
+if ( ! function_exists( 'wiz_get_foreground_color' ) ) {
 
 	/**
 	 * Foreground Color
@@ -24,7 +24,7 @@ if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
 	 * @param  string $hex Color code in HEX format.
 	 * @return string      Return foreground color depend on input HEX color.
 	 */
-	function kemet_get_foreground_color( $hex ) {
+	function wiz_get_foreground_color( $hex ) {
 
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
@@ -52,7 +52,7 @@ if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
 /**
  * Generate CSS
  */
-if ( ! function_exists( 'kemet_css' ) ) {
+if ( ! function_exists( 'wiz_css' ) ) {
 
 	/**
 	 * Generate CSS
@@ -63,7 +63,7 @@ if ( ! function_exists( 'kemet_css' ) ) {
 	 * @param  string $unit         CSS property unit.
 	 * @return void               Echo generated CSS.
 	 */
-	function kemet_css( $value = '', $css_property = '', $selector = '', $unit = '' ) {
+	function wiz_css( $value = '', $css_property = '', $selector = '', $unit = '' ) {
 
 		if ( $selector ) {
 			if ( $css_property && $value ) {
@@ -86,7 +86,7 @@ if ( ! function_exists( 'kemet_css' ) ) {
 /**
  * Get Font Size value
  */
-if ( ! function_exists( 'kemet_responsive_font' ) ) {
+if ( ! function_exists( 'wiz_responsive_font' ) ) {
 
 	/**
 	 * Get Font CSS value
@@ -96,18 +96,18 @@ if ( ! function_exists( 'kemet_responsive_font' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_responsive_font( $font, $device = 'desktop', $default = '' ) {
+	function wiz_responsive_font( $font, $device = 'desktop', $default = '' ) {
 
 		$css_val = '';
 
 		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
 			if ( '' != $default ) {
-				$font_size = kemet_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
+				$font_size = wiz_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
 			} else {
-				$font_size = kemet_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
+				$font_size = wiz_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
 			}
 		} elseif ( is_numeric( $font ) ) {
-			$font_size = kemet_get_css_value( $font );
+			$font_size = wiz_get_css_value( $font );
 		} else {
 			$font_size = ( ! is_array( $font ) ) ? $font : '';
 		}
@@ -118,7 +118,7 @@ if ( ! function_exists( 'kemet_responsive_font' ) ) {
 /**
  * Get Responsive Spacing
  */
-if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
+if ( ! function_exists( 'wiz_responsive_spacing' ) ) {
 
 	/**
 	 * Get Spacing value
@@ -129,12 +129,12 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
+	function wiz_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
-			$spacing = kemet_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+			$spacing = wiz_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
 		} elseif ( is_numeric( $option ) ) {
-			$spacing = kemet_get_css_value( $option );
+			$spacing = wiz_get_css_value( $option );
 		} else {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
@@ -146,7 +146,7 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 /**
  * Get Responsive Slider
  */
-if ( ! function_exists( 'kemet_responsive_slider' ) ) {
+if ( ! function_exists( 'wiz_responsive_slider' ) ) {
 
 	/**
 	 * Get Spacing value
@@ -156,16 +156,16 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_responsive_slider( $option, $device = 'desktop', $default = '' ) {
+	function wiz_responsive_slider( $option, $device = 'desktop', $default = '' ) {
 
 		if ( isset( $option[ $device ] ) && isset( $option[ $device . '-unit' ] ) ) {
 			if ( '' != $default ) {
-				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
+				$value = wiz_get_css_value( $option[ $device ], $option[ $device . '-unit' ], $default );
 			} else {
-				$value = kemet_get_css_value( $option[ $device ], $option[ $device . '-unit' ] );
+				$value = wiz_get_css_value( $option[ $device ], $option[ $device . '-unit' ] );
 			}
 		} elseif ( is_numeric( $option ) ) {
-			$value = kemet_get_css_value( $option );
+			$value = wiz_get_css_value( $option );
 		} else {
 			$value = ( ! is_array( $option ) ) ? $option : '';
 		}
@@ -177,27 +177,27 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 /**
  * Get Font Size value
  */
-if ( ! function_exists( 'kemet_get_font_css_value' ) ) {
+if ( ! function_exists( 'wiz_get_font_css_value' ) ) {
 
 	/**
 	 * Get Font CSS value
 	 *
 	 * Syntax:
 	 *
-	 *  kemet_get_font_css_value( VALUE, DEVICE, UNIT );
+	 *  wiz_get_font_css_value( VALUE, DEVICE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 *  kemet_get_css_value( VALUE, 'desktop', '%' );
-	 *  kemet_get_css_value( VALUE, 'tablet' );
-	 *  kemet_get_css_value( VALUE, 'mobile' );
+	 *  wiz_get_css_value( VALUE, 'desktop', '%' );
+	 *  wiz_get_css_value( VALUE, 'tablet' );
+	 *  wiz_get_css_value( VALUE, 'mobile' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
 	 * @param  string $device       CSS device.
 	 * @return mixed                CSS value depends on $unit & $device
 	 */
-	function kemet_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
+	function wiz_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
 
 		// If value is empty or 0 then return blank.
 		if ( '' == $value || 0 == $value ) {
@@ -216,7 +216,7 @@ if ( ! function_exists( 'kemet_get_font_css_value' ) ) {
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value            = intval( $value );
 					$fonts            = array();
-					$body_font_size   = kemet_get_option( 'font-size-body' );
+					$body_font_size   = wiz_get_option( 'font-size-body' );
 					$fonts['desktop'] = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
 					$fonts['tablet']  = ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $fonts['desktop'];
 					$fonts['mobile']  = ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $fonts['tablet'];
@@ -236,23 +236,23 @@ if ( ! function_exists( 'kemet_get_font_css_value' ) ) {
 /**
  * Get Font family
  */
-if ( ! function_exists( 'kemet_get_font_family' ) ) {
+if ( ! function_exists( 'wiz_get_font_family' ) ) {
 
 	/**
 	 * Get Font family
 	 *
 	 * Syntax:
 	 *
-	 *  kemet_get_font_family( VALUE, DEFAULT );
+	 *  wiz_get_font_family( VALUE, DEFAULT );
 	 *
 	 * E.g.
-	 *  kemet_get_font_family( VALUE, '' );
+	 *  wiz_get_font_family( VALUE, '' );
 	 *
 	 * @param  string $value       CSS value.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function kemet_get_font_family( $value = '' ) {
-		$system_fonts = Kemet_Font_Families::get_system_fonts();
+	function wiz_get_font_family( $value = '' ) {
+		$system_fonts = Wiz_Font_Families::get_system_fonts();
 		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
 			$value .= ',' . $system_fonts[ $value ]['fallback'];
 		}
@@ -265,21 +265,21 @@ if ( ! function_exists( 'kemet_get_font_family' ) ) {
 /**
  * Get CSS value
  */
-if ( ! function_exists( 'kemet_get_css_value' ) ) {
+if ( ! function_exists( 'wiz_get_css_value' ) ) {
 
 	/**
 	 * Get CSS value
 	 *
 	 * Syntax:
 	 *
-	 *  kemet_get_css_value( VALUE, UNIT );
+	 *  wiz_get_css_value( VALUE, UNIT );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
 	 * @param  string $default      CSS default font.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function kemet_get_css_value( $value = '', $unit = 'px', $default = '' ) {
+	function wiz_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
 		if ( '' == $value && '' == $default ) {
 			return $value;
@@ -291,7 +291,7 @@ if ( ! function_exists( 'kemet_get_css_value' ) ) {
 
 			case 'font':
 				if ( 'inherit' != $value ) {
-					$value   = kemet_get_font_family( $value );
+					$value   = wiz_get_font_family( $value );
 					$css_val = $value;
 				} elseif ( '' != $default ) {
 					$css_val = $default;
@@ -311,7 +311,7 @@ if ( ! function_exists( 'kemet_get_css_value' ) ) {
 			case 'rem':
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
-					$body_font_size = kemet_get_option( 'font-size-body' );
+					$body_font_size = wiz_get_option( 'font-size-body' );
 					if ( is_array( $body_font_size ) ) {
 						$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
 					} else {
@@ -341,7 +341,7 @@ if ( ! function_exists( 'kemet_get_css_value' ) ) {
 /**
  * Adjust the background obj.
  */
-if ( ! function_exists( 'kemet_get_background_obj' ) ) {
+if ( ! function_exists( 'wiz_get_background_obj' ) ) {
 
 	/**
 	 * Adjust Brightness
@@ -350,7 +350,7 @@ if ( ! function_exists( 'kemet_get_background_obj' ) ) {
 	 *
 	 * @return array         Color code in HEX.
 	 */
-	function kemet_get_background_obj( $bg_obj ) {
+	function wiz_get_background_obj( $bg_obj ) {
 
 		$gen_bg_css = array();
 
@@ -393,7 +393,7 @@ if ( ! function_exists( 'kemet_get_background_obj' ) ) {
 /**
  * Parse CSS
  */
-if ( ! function_exists( 'kemet_parse_css' ) ) {
+if ( ! function_exists( 'wiz_parse_css' ) ) {
 
 	/**
 	 * Parse CSS
@@ -403,7 +403,7 @@ if ( ! function_exists( 'kemet_parse_css' ) ) {
 	 * @param  string $max_media  Max Media breakpoint.
 	 * @return string             Generated CSS.
 	 */
-	function kemet_parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
+	function wiz_parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
 
 		$parse_css = '';
 		if ( is_array( $css_output ) && count( $css_output ) > 0 ) {
@@ -462,7 +462,7 @@ if ( ! function_exists( 'kemet_parse_css' ) ) {
 /**
  * Return Theme options.
  */
-if ( ! function_exists( 'kemet_get_option' ) ) {
+if ( ! function_exists( 'wiz_get_option' ) ) {
 
 	/**
 	 * Return Theme options.
@@ -471,33 +471,33 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 	 * @param  string $default      Option default value.
 	 * @return Mixed               Return option value.
 	 */
-	function kemet_get_option( $option, $default = '' ) {
+	function wiz_get_option( $option, $default = '' ) {
 
-		$theme_options = Kemet_Theme_Options::get_options();
+		$theme_options = Wiz_Theme_Options::get_options();
 
 		/**
-		 * Filter the options array for Kemet Settings.
+		 * Filter the options array for Wiz Settings.
 		 *
 		 * @var Array
 		 */
-		$theme_options = apply_filters( 'kemet_get_option_array', $theme_options, $option, $default );
+		$theme_options = apply_filters( 'wiz_get_option_array', $theme_options, $option, $default );
 
 		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
 		/**
-		 * Dynamic filter kemet_get_option_$option.
-		 * $option is the name of the Kemet Setting, Refer Kemet_Theme_Options::defaults() for option names from the theme.
+		 * Dynamic filter wiz_get_option_$option.
+		 * $option is the name of the Wiz Setting, Refer Wiz_Theme_Options::defaults() for option names from the theme.
 		 *
 		 * @var Mixed.
 		 */
-		return apply_filters( "kemet_get_option_{$option}", $value, $option, $default );
+		return apply_filters( "wiz_get_option_{$option}", $value, $option, $default );
 	}
 }
 
 /**
  * Helper function to get the current post id.
  */
-if ( ! function_exists( 'kemet_get_post_id' ) ) {
+if ( ! function_exists( 'wiz_get_post_id' ) ) {
 
 	/**
 	 * Get post ID.
@@ -505,9 +505,9 @@ if ( ! function_exists( 'kemet_get_post_id' ) ) {
 	 * @param  string $post_id_override Get override post ID.
 	 * @return number                   Post ID.
 	 */
-	function kemet_get_post_id( $post_id_override = '' ) {
+	function wiz_get_post_id( $post_id_override = '' ) {
 
-		if ( null == Kemet_Theme_Options::$post_id ) {
+		if ( null == Wiz_Theme_Options::$post_id ) {
 			global $post;
 
 			$post_id = 0;
@@ -521,36 +521,36 @@ if ( ! function_exists( 'kemet_get_post_id' ) ) {
 				$post_id = $post->ID;
 			}
 
-			Kemet_Theme_Options::$post_id = $post_id;
+			Wiz_Theme_Options::$post_id = $post_id;
 		}
 
-		return apply_filters( 'kemet_get_post_id', Kemet_Theme_Options::$post_id, $post_id_override );
+		return apply_filters( 'wiz_get_post_id', Wiz_Theme_Options::$post_id, $post_id_override );
 	}
 }
 
 
 /**
- * Display classes for kemet content div
+ * Display classes for wiz content div
  */
-if ( ! function_exists( 'kemet_content_class' ) ) {
+if ( ! function_exists( 'wiz_content_class' ) ) {
 
 	/**
-	 * Display classes for kemet content div
+	 * Display classes for wiz content div
 	 *
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        Echo classes.
 	 */
-	function kemet_content_class( $class = '' ) {
+	function wiz_content_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', kemet_get_primary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', wiz_get_primary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the primary element as an array.
  */
-if ( ! function_exists( 'kemet_get_primary_class' ) ) {
+if ( ! function_exists( 'wiz_get_primary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the primary element as an array.
@@ -558,7 +558,7 @@ if ( ! function_exists( 'kemet_get_primary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function kemet_get_primary_class( $class = '' ) {
+	function wiz_get_primary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
@@ -580,7 +580,7 @@ if ( ! function_exists( 'kemet_get_primary_class' ) ) {
 		}
 
 		// Filter primary div class names.
-		$classes = apply_filters( 'kemet_primary_class', $classes, $class );
+		$classes = apply_filters( 'wiz_primary_class', $classes, $class );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
 
@@ -591,7 +591,7 @@ if ( ! function_exists( 'kemet_get_primary_class' ) ) {
 /**
  * Get post format
  */
-if ( ! function_exists( 'kemet_get_post_format' ) ) {
+if ( ! function_exists( 'wiz_get_post_format' ) ) {
 
 	/**
 	 * Get post format
@@ -599,7 +599,7 @@ if ( ! function_exists( 'kemet_get_post_format' ) ) {
 	 * @param  string $post_format_override Override post formate.
 	 * @return string                       Return post format.
 	 */
-	function kemet_get_post_format( $post_format_override = '' ) {
+	function wiz_get_post_format( $post_format_override = '' ) {
 
 		if ( ( is_home() ) || is_archive() ) {
 			$post_format = 'blog';
@@ -607,14 +607,14 @@ if ( ! function_exists( 'kemet_get_post_format' ) ) {
 			$post_format = get_post_format();
 		}
 
-		return apply_filters( 'kemet_get_post_format', $post_format, $post_format_override );
+		return apply_filters( 'wiz_get_post_format', $post_format, $post_format_override );
 	}
 }
 
 /**
  * Wrapper function for the_title()
  */
-if ( ! function_exists( 'kemet_the_title' ) ) {
+if ( ! function_exists( 'wiz_the_title' ) ) {
 
 	/**
 	 * Wrapper function for the_title()
@@ -627,18 +627,18 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 	 * @param bool   $echo   Optional, default to true.Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function kemet_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
+	function wiz_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
 		$title             = '';
-		$blog_post_title   = kemet_get_option( 'blog-post-structure' );
-		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
+		$blog_post_title   = wiz_get_option( 'blog-post-structure' );
+		$single_post_title = wiz_get_option( 'blog-single-post-structure' );
 
 		
-		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
+		if ( apply_filters( 'wiz_the_title_enabled', true ) ) {
 
-			$title  = kemet_get_the_title( $post_id );
-			$before = apply_filters( 'kemet_the_title_before', $before );
-			$after  = apply_filters( 'kemet_the_title_after', $after );
+			$title  = wiz_get_the_title( $post_id );
+			$before = apply_filters( 'wiz_the_title_before', $before );
+			$after  = apply_filters( 'wiz_the_title_after', $after );
 
 			$title = $before . $title . $after;
 		}
@@ -656,7 +656,7 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 /**
  * Wrapper function for get_the_title()
  */
-if ( ! function_exists( 'kemet_get_the_title' ) ) {
+if ( ! function_exists( 'wiz_get_the_title' ) ) {
 
 	/**
 	 * Wrapper function for get_the_title()
@@ -667,7 +667,7 @@ if ( ! function_exists( 'kemet_get_the_title' ) ) {
 	 * @param bool $echo   Optional, default to false. Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function kemet_get_the_title( $post_id = 0, $echo = false ) {
+	function wiz_get_the_title( $post_id = 0, $echo = false ) {
 
 		$title = '';
 		if ( $post_id || is_singular() ) {
@@ -675,14 +675,14 @@ if ( ! function_exists( 'kemet_get_the_title' ) ) {
 		} else {
 			if ( is_front_page() && is_home() ) {
 				// Default homepage.
-				$title = apply_filters( 'kemet_the_default_home_page_title', esc_html__( 'Home', 'kemet' ) );
+				$title = apply_filters( 'wiz_the_default_home_page_title', esc_html__( 'Home', 'wiz' ) );
 			} elseif ( is_home() ) {
 				// blog page.
-				$title = apply_filters( 'kemet_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
+				$title = apply_filters( 'wiz_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
 			} elseif ( is_search() ) {
 
 				/* translators: 1: search string */
-				$title = apply_filters( 'kemet_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kemet' ), '<span>' . get_search_query() . '</span>' ) );
+				$title = apply_filters( 'wiz_the_search_page_title', sprintf( __( 'Search Results for: %s', 'wiz' ), '<span>' . get_search_query() . '</span>' ) );
 
 			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
 
@@ -707,26 +707,26 @@ if ( ! function_exists( 'kemet_get_the_title' ) ) {
 /**
  * Archive Page Title
  */
-if ( ! function_exists( 'kemet_archive_page_info' ) ) {
+if ( ! function_exists( 'wiz_archive_page_info' ) ) {
 
 	/**
 	 * Wrapper function for the_title()
 	 *
 	 * Displays title only if the page title bar is disabled.
 	 */
-	function kemet_archive_page_info() {
+	function wiz_archive_page_info() {
 
-		if ( apply_filters( 'kemet_title_bar_disable', true ) ) {
+		if ( apply_filters( 'wiz_title_bar_disable', true ) ) {
 
 			// Author.
 			if ( is_author() ) { ?>
 
-				<section class="kmt-author-box kmt-archive-description">
-					<div class="kmt-author-bio">
-						<h1 class='page-title kmt-archive-title'><?php echo get_the_author(); ?></h1>
+				<section class="wiz-author-box wiz-archive-description">
+					<div class="wiz-author-bio">
+						<h1 class='page-title wiz-archive-title'><?php echo get_the_author(); ?></h1>
 						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
 					</div>
-					<div class="kmt-author-avatar">
+					<div class="wiz-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
 					</div>
 				</section>
@@ -737,8 +737,8 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			} elseif ( is_category() ) {
 			?>
 
-				<section class="kmt-archive-description">
-					<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
+				<section class="wiz-archive-description">
+					<h1 class="page-title wiz-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
@@ -748,8 +748,8 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			} elseif ( is_tag() ) {
 			?>
 
-				<section class="kmt-archive-description">
-					<h1 class="page-title kmt-archive-title"><?php echo single_tag_title(); ?></h1>
+				<section class="wiz-archive-description">
+					<h1 class="page-title wiz-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
@@ -759,12 +759,12 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			} elseif ( is_search() ) {
 			?>
 
-				<section class="kmt-archive-description">
+				<section class="wiz-archive-description">
 					<?php
 						/* translators: 1: search string */
-						$title = apply_filters( 'kemet_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kemet' ), '<span>' . get_search_query() . '</span>' ) );
+						$title = apply_filters( 'wiz_the_search_page_title', sprintf( __( 'Search Results for: %s', 'wiz' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
-					<h1 class="page-title kmt-archive-title"> <?php echo wp_kses_post( $title ); ?> </h1>
+					<h1 class="page-title wiz-archive-title"> <?php echo wp_kses_post( $title ); ?> </h1>
 				</section>
 
 			<?php
@@ -773,8 +773,8 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 			} else {
 			?>
 
-				<section class="kmt-archive-description">
-					<?php the_archive_title( '<h1 class="page-title kmt-archive-title">', '</h1>' ); ?>
+				<section class="wiz-archive-description">
+					<?php the_archive_title( '<h1 class="page-title wiz-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
 				</section>
 
@@ -783,7 +783,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 		}
 	}
 
-	add_action( 'kemet_archive_top_info', 'kemet_archive_page_info' );
+	add_action( 'wiz_archive_top_info', 'wiz_archive_page_info' );
 }
 
 /**
@@ -791,11 +791,11 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
  */
 function content_layout($default){
 
-	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
+	$meta = get_post_meta( get_the_ID(), 'wiz-content-layout', true ); 
 	
 	if ( !empty($meta) ) {
 		$default = $meta;
 	}
 	return $default;
 }
-add_filter( 'kemet_get_content_layout', 'content_layout' );
+add_filter( 'wiz_get_content_layout', 'content_layout' );

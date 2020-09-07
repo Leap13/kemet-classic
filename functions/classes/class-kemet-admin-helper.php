@@ -4,19 +4,19 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
-if ( ! class_exists( 'Kemet_Admin_Helper' ) ) :
+if ( ! class_exists( 'Wiz_Admin_Helper' ) ) :
 
 	/**
 	 * Admin Helper
 	 */
-	final class Kemet_Admin_Helper {
+	final class Wiz_Admin_Helper {
 
 		/**
 		 * Returns an option from the database for

@@ -4,26 +4,26 @@ function active_plugin(event) {
 
     event.preventDefault();
 
-    var kemet_active_plugin = event.target,
-        status = kemet_active_plugin.getAttribute("data-status"),
+    var wiz_active_plugin = event.target,
+        status = wiz_active_plugin.getAttribute("data-status"),
         activate_url = '',
         install_url = '',
         deactivate_url = '';
 
     if(status == 'activate'){
 
-        activate_url = kemet_active_plugin.getAttribute("data-url-activate");
+        activate_url = wiz_active_plugin.getAttribute("data-url-activate");
         activate(activate_url);
 
     } else if (status == 'install'){
 
-        activate_url = kemet_active_plugin.getAttribute("data-url-activate");
-        install_url = kemet_active_plugin.getAttribute("data-url-install");
+        activate_url = wiz_active_plugin.getAttribute("data-url-activate");
+        install_url = wiz_active_plugin.getAttribute("data-url-install");
         install_and_activate(install_url);
 
     }else{
 
-        deactivate_url = kemet_active_plugin.getAttribute("data-url-deactivate");
+        deactivate_url = wiz_active_plugin.getAttribute("data-url-deactivate");
         deactivate(deactivate_url);
 
     }
@@ -34,13 +34,13 @@ function active_plugin(event) {
         // request state change event
         xhr.onreadystatechange = function () {
 
-            kemet_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
-            kemet_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Deactivating..';
+            wiz_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
+            wiz_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Deactivating..';
             // request completed?
             if (xhr.readyState !== 4) return;
 
             if (xhr.status === 200) {
-                location.replace("admin.php?page=kmt-framework")
+                location.replace("admin.php?page=wiz-framework")
             }
             else {
                 // request error
@@ -57,13 +57,13 @@ function active_plugin(event) {
         // request state change event
         xhr.onreadystatechange = function () {
 
-            kemet_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
-            kemet_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Activating..';
+            wiz_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
+            wiz_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Activating..';
             // request completed?
             if (xhr.readyState !== 4) return;
 
             if (xhr.status === 200) {
-                location.replace("admin.php?page=kmt-framework");
+                location.replace("admin.php?page=wiz-framework");
             }
             else {
                 // request error
@@ -80,8 +80,8 @@ function active_plugin(event) {
 
         // request state change event
         xhr.onreadystatechange = function () {
-            kemet_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
-            kemet_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Installing..';
+            wiz_active_plugin.setAttribute("style", "color:#444; background-color: #e5e5e5; border-color: #444;");
+            wiz_active_plugin.innerHTML = '<span class="dashicons dashicons-update"></span> Installing..';
             // request completed?
             if (xhr.readyState !== 4) return;
 

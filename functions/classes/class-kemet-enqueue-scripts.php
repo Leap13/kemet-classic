@@ -2,11 +2,11 @@
 /**
  * Loader Functions
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Enqueue Scripts
  */
-if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
+if ( ! class_exists( 'Wiz_Enqueue_Scripts' ) ) {
 
 	/**
 	 * Theme Enqueue Scripts
 	 */
-	class Kemet_Enqueue_Scripts {
+	class Wiz_Enqueue_Scripts {
 
 		/**
 		 * Class styles.
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'wiz_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 		}
 
@@ -60,16 +60,16 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js'  => array(
-					'kemet-theme-js' => 'style',
+					'wiz-theme-js' => 'style',
 				),
 
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'kemet-theme-css' => 'style',
+					'wiz-theme-css' => 'style',
 				),
 			);
 
-			return apply_filters( 'kemet_theme_assets', $default_assets );
+			return apply_filters( 'wiz_theme_assets', $default_assets );
 		}
 
 		/**
@@ -77,32 +77,32 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family = kemet_get_option( 'body-font-family' );
-			$font_weight = kemet_get_option( 'body-font-weight' );
+			$font_family = wiz_get_option( 'body-font-family' );
+			$font_weight = wiz_get_option( 'body-font-weight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			Wiz_Fonts::add_font( $font_family, $font_weight );
 
 			// Render headings font.
-			$font_family = kemet_get_option( 'headings-font-family' );
-			$font_weight = kemet_get_option( 'headings-font-weight' );
+			$font_family = wiz_get_option( 'headings-font-family' );
+			$font_weight = wiz_get_option( 'headings-font-weight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			Wiz_Fonts::add_font( $font_family, $font_weight );
 
 			// Render Widget Title Font
-			$font_family = kemet_get_option( 'widget-title-font-family' );
-			$font_weight = kemet_get_option( 'widget-title-font-wight' );
+			$font_family = wiz_get_option( 'widget-title-font-family' );
+			$font_weight = wiz_get_option( 'widget-title-font-wight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			Wiz_Fonts::add_font( $font_family, $font_weight );
 
 			// Render Menu Items
-			$font_family = kemet_get_option( 'menu-items-font-family' );
-			$font_weight = kemet_get_option( 'menu-items-font-wight' );
+			$font_family = wiz_get_option( 'menu-items-font-family' );
+			$font_weight = wiz_get_option( 'menu-items-font-wight' );
 
 			// Render SubMenu Items
-			$font_family = kemet_get_option( 'sub-menu-items-font-family' );
-			$font_weight = kemet_get_option( 'sub-menu-items-font-wight' );
+			$font_family = wiz_get_option( 'sub-menu-items-font-family' );
+			$font_weight = wiz_get_option( 'sub-menu-items-font-wight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			Wiz_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**
@@ -110,9 +110,9 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 */
 		public function enqueue_scripts() {
 
-			$kemet_enqueue = apply_filters( 'kemet_enqueue_theme_assets', true );
+			$wiz_enqueue = apply_filters( 'wiz_enqueue_theme_assets', true );
 
-			if ( ! $kemet_enqueue ) {
+			if ( ! $wiz_enqueue ) {
 				return;
 			}
 
@@ -120,8 +120,8 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$js_uri  = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
-			$css_uri = KEMET_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$js_uri  = WIZ_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = WIZ_THEME_URI . 'assets/css/' . $dir_name . '/';
 
 			// All assets.
 			$all_assets = self::theme_assets();
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 					$css_file = $css_uri . $style . $file_prefix . '.css';
 
 					// Register.
-					wp_register_style( $key, $css_file, array(), KEMET_THEME_VERSION, 'all' );
+					wp_register_style( $key, $css_file, array(), WIZ_THEME_VERSION, 'all' );
 
 					// Enqueue.
 					wp_enqueue_style( $key );
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 				foreach ( $scripts as $key => $script ) {
 
 					// Register.
-					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), KEMET_THEME_VERSION, true );
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), WIZ_THEME_VERSION, true );
 
 					// Enqueue.
 					wp_enqueue_script( $key );
@@ -159,19 +159,19 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			}
 
 			// Fonts - Render Fonts.
-			Kemet_Fonts::render_fonts();
+			Wiz_Fonts::render_fonts();
 
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_output() );
-			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
+			wp_add_inline_style( 'wiz-theme-css', Wiz_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'wiz-theme-css', Wiz_Dynamic_CSS::return_meta_output( true ) );
 
-			$kemet_localize = array(
-				'break_point' => kemet_header_break_point(),    // Header Break Point.
+			$wiz_localize = array(
+				'break_point' => wiz_header_break_point(),    // Header Break Point.
 			);
 
-			wp_localize_script( 'kemet-theme-js', 'kemet', apply_filters( 'kemet_theme_js_localize', $kemet_localize ) );
+			wp_localize_script( 'wiz-theme-js', 'wiz', apply_filters( 'wiz_theme_js_localize', $wiz_localize ) );
 
 			// Comment assets.
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -201,5 +201,5 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 	}
 
 	
-	new Kemet_Enqueue_Scripts();
+	new Wiz_Enqueue_Scripts();
 }

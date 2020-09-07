@@ -1,22 +1,22 @@
 <?php
 /**
- * Kemet Theme Options
+ * Wiz Theme Options
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 /**
  * Theme Options
  */
-if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
+if ( ! class_exists( 'Wiz_Theme_Options' ) ) {
 	/**
 	 * Theme Options
 	 */
-	class Kemet_Theme_Options {
+	class Wiz_Theme_Options {
 		/**
 		 * Class instance.
 		 *
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 		public static function defaults() {
 			// Defaults list of options.
 			return apply_filters(
-				'kemet_theme_defaults', array(
+				'wiz_theme_defaults', array(
 					// Blog Single.
 					'blog-single-post-structure'       => array(
 						'single-image',
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
-					// Kemet Blog.
+					// Wiz Blog.
 					'blog-post-structure'              => array(
 						'image',
 						'title-meta',
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'letter-spacing-page-title'	=> '',
 					'letter-spacing-entry-title'     => '',
 					'page-title-font-family'		=> 'inherit',
-					// Kemet Colors.
+					// Wiz Colors.
 					'smart-skin'				   => '',
 					'theme-color'                      => '#0085ba',	
 					'headings-links-color'                     => '#333333',
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'enable-footer-widget-title-separator'	 => false,
 					'footer-widget-title-letter-spacing' => '',
 					'footer-letter-spacing' => '',
-					// Kemet Buttons & Fields.
+					// Wiz Buttons & Fields.
 					'buttons-font-size'				   => '',	
 					'button-color'                     => '#ffffff',
 					'button-h-color'                   => '',
@@ -241,12 +241,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'search-input-color'					=> '',
 					'search-border-size'					=> 1,
 					'menu-letter-spacing'		=> '',	
-					// Kemet Footer 
+					// Wiz Footer 
 					'copyright-footer-layout'                => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'             => 'custom',
-					'footer-copyright-section-1-part'      => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
+					'footer-copyright-section-1-part'      => __( 'Powered by [theme_author] WordPress Theme', 'wiz' ),
 					'footer-copyright-section-2'             => '',
-					'footer-copyright-section-2-part'      => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
+					'footer-copyright-section-2-part'      => __( 'Powered by [theme_author] WordPress Theme', 'wiz' ),
 					'footer-copyright-dist-equal-align'      => true,
 					'footer-copyright-divider'               => 1,
 					'footer-bar-padding'					 => '',
@@ -260,9 +260,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-copyright-letter-spacing' => '',
 					'footer-copyright-font-size'	=> '',
 					// General.
-					'kmt-header-retina-logo'           => '',
-					'kmt-header-logo-width'            => '',
-					'kmt-header-responsive-logo-width' => '',
+					'wiz-header-retina-logo'           => '',
+					'wiz-header-logo-width'            => '',
+					'wiz-header-responsive-logo-width' => '',
 					'display-site-title'               => 1,
 					'display-site-tagline'             => 0,
 					'logo-title-inline'                => 0,
@@ -321,7 +321,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-menu-items-border-color'	=> '',
 
 					//Header Sections
-					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
+					'header-main-rt-section-html'      => '<button>' . __( 'Contact Us', 'wiz' ) . '</button>',
 					'header-main-sep-color'            => '',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
@@ -509,7 +509,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 		 */
 		public static function refresh() {
 			self::$db_options = wp_parse_args(
-				get_option( KEMET_THEME_SETTINGS ),
+				get_option( WIZ_THEME_SETTINGS ),
 				self::defaults()
 			);
 		}
@@ -518,4 +518,4 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Theme_Options::get_instance();
+Wiz_Theme_Options::get_instance();

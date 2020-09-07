@@ -4,23 +4,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
+if ( ! class_exists( 'Wiz_Admin_Settings' ) ) {
 
 	/**
-	 * Kemet Admin Settings
+	 * Wiz Admin Settings
 	 */
-	class Kemet_Admin_Settings {
+	class Wiz_Admin_Settings {
 
 		/**
 		 * View all actions
@@ -34,21 +34,21 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 * @var array $menu_page_title
 		 */
-		static public $menu_page_title = 'Kemet Theme';
+		static public $menu_page_title = 'Wiz Theme';
 
 		/**
 		 * Page title
 		 *
 		 * @var array $page_title
 		 */
-		static public $page_title = 'Kemet';
+		static public $page_title = 'Wiz';
 
 		/**
 		 * Plugin slug
 		 *
 		 * @var array $plugin_slug
 		 */
-		static public $plugin_slug = 'kemet';
+		static public $plugin_slug = 'wiz';
 
 		/**
 		 * Constructor
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 *
 		 */
 		static public function customizer_scripts() {
-			$color_palettes = json_encode( kemet_color_palette() );
+			$color_palettes = json_encode( wiz_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
@@ -90,11 +90,11 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$assets_js_uri = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$assets_js_uri = WIZ_THEME_URI . 'assets/js/' . $dir_name . '/';
 
-			wp_enqueue_script( 'kemet-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'wiz-color-alpha', $assets_js_uri . 'wp-color-picker-alpha' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), WIZ_THEME_VERSION, true );
 		}
 	}
 
-	new Kemet_Admin_Settings;
+	new Wiz_Admin_Settings;
 }
