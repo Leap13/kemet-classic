@@ -2,7 +2,7 @@
 /**
  * Footer Layout 3
  *
- * @since   Kemet 1.0.0
+ * @since   Wiz 1.0.0
  */
 
 /**
@@ -21,28 +21,28 @@ if ( ! is_user_logged_in() ) {
 	}
 }
 
-$classes[] = 'kemet-footer';
-$classes[] = 'kemet-footer-layout-3';
-if(kemet_get_option('enable-footer-content-center')) {
-	$classes[] = 'kemet-footer-align-center';
+$classes[] = 'wiz-footer';
+$classes[] = 'wiz-footer-layout-3';
+if(wiz_get_option('enable-footer-content-center')) {
+	$classes[] = 'wiz-footer-align-center';
 }
 $classes   = implode( ' ', $classes );
 ?>
 
 <div class="<?php echo esc_attr( $classes ); ?>">
-	<div class="kemet-footer-overlay">
-		<div class="kmt-container">
-			<div class="kmt-row">
-				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 kemet-footer-widget kemet-footer-widget-1">
-					<?php kemet_get_footer_widget( 'main-footer-widget-1' ); ?>
+	<div class="wiz-footer-overlay">
+		<div class="wiz-container">
+			<div class="wiz-row">
+				<div class="wiz-col-lg-4 wiz-col-md-4 wiz-col-sm-12 wiz-col-xs-12 wiz-footer-widget wiz-footer-widget-1">
+					<?php wiz_get_footer_widget( 'main-footer-widget-1' ); ?>
 				</div>
-				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 kemet-footer-widget kemet-footer-widget-2">
-					<?php kemet_get_footer_widget( 'main-footer-widget-2' ); ?>
+				<div class="wiz-col-lg-4 wiz-col-md-4 wiz-col-sm-12 wiz-col-xs-12 wiz-footer-widget wiz-footer-widget-2">
+					<?php wiz_get_footer_widget( 'main-footer-widget-2' ); ?>
 				</div>
-				<div class="kmt-col-lg-4 kmt-col-md-4 kmt-col-sm-12 kmt-col-xs-12 kemet-footer-widget kemet-footer-widget-3">
-					<?php kemet_get_footer_widget( 'main-footer-widget-3' ); ?>
+				<div class="wiz-col-lg-4 wiz-col-md-4 wiz-col-sm-12 wiz-col-xs-12 wiz-footer-widget wiz-footer-widget-3">
+					<?php wiz_get_footer_widget( 'main-footer-widget-3' ); ?>
 				</div>
-			</div><!-- .kmt-row -->
-		</div><!-- .kmt-container -->
-	</div><!-- .kemet-footer-overlay-->
-</div><!-- .kmt-theme-footer .kemet-footer-layout-3 -->
+			</div><!-- .wiz-row -->
+		</div><!-- .wiz-container -->
+	</div><!-- .wiz-footer-overlay-->
+</div><!-- .wiz-theme-footer .wiz-footer-layout-3 -->

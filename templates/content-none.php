@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Kemet
+ * @package Wiz
  * @since 1.0.0
  */
 
@@ -20,7 +20,7 @@
 				printf(
 					wp_kses(
 						/* translators: 1: link to new post */
-						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'kemet' ), array(
+						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wiz' ), array(
 							'a' => array(
 								'href' => array(),
 							),
@@ -32,12 +32,12 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php echo esc_html( kemet_theme_strings( 'string-search-nothing-found-message', false ) ); ?></p>
+			<p><?php echo esc_html( wiz_theme_strings( 'string-search-nothing-found-message', false ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
 
-			<p><?php echo esc_html( kemet_theme_strings( 'string-content-nothing-found-message', false ) ); ?></p>
+			<p><?php echo esc_html( wiz_theme_strings( 'string-content-nothing-found-message', false ) ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>

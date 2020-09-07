@@ -2,25 +2,25 @@
 /**
  * Template for 404
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 ?>
-<div class="kmt-404-layout">
+<div class="wiz-404-layout">
 
-	<?php kemet_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
+	<?php wiz_the_title( '<header class="page-header"><h1 class="page-title">', '</h1></header><!-- .page-header -->' ); ?>
 
 	<div class="page-content">
 
 		<div class="page-sub-title">
-			<?php echo esc_html( kemet_theme_strings( 'string-404-title', false ) ); ?>
+			<?php echo esc_html( wiz_theme_strings( 'string-404-title', false ) ); ?>
 		</div>
 
-		<div class="kmt-404-search">
+		<div class="wiz-404-search">
 			<?php the_widget( 'WP_Widget_Search' ); ?>
 		</div>
 
