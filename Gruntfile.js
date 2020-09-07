@@ -4,18 +4,18 @@ module.exports = function(grunt) {
     replace: {
       example: {
         src: [
-          "inc/*.*",
-          "inc/**/*.*",
-          "inc/**/**/*.*",
-          "inc/**/**/**/*.*",
-          "inc/**/**/**/**/*.*",
-          "inc/**/**/**/**/**/*.*"
+          "assets/*.*",
+          "assets/**/*.*",
+          "assets/**/**/*.*",
+          "assets/**/**/**/*.*",
+          "assets/**/**/**/**/*.*",
+          "assets/**/**/**/**/**/*.*"
         ],
         overwrite: true,
         replacements: [
           {
-            from: "KEMET", // string replacement
-            to: "WIZ"
+            from: "kmt", // string replacement
+            to: "wiz"
           }
         ]
       }

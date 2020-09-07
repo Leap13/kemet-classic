@@ -1,7 +1,7 @@
 /**
  * Extend Customizer Panel
  *
- * @package Kemet
+ * @package Wiz
  */
 
 ( function( $ ) {
@@ -16,7 +16,7 @@
     api.section.each( function( section ) {
 
       if (
-        'kmt_section' !== section.params.type ||
+        'wiz_section' !== section.params.type ||
         'undefined' === typeof section.params.section
       ) {
 
@@ -44,7 +44,7 @@
     api.panel.each( function( panel ) {
 
       if (
-        'kmt_panel' !== panel.params.type ||
+        'wiz_panel' !== panel.params.type ||
         'undefined' === typeof panel.params.panel
       ) {
 
@@ -78,7 +78,7 @@
     attachEvents: function() {
 
       if (
-        'kmt_panel' !== this.params.type ||
+        'wiz_panel' !== this.params.type ||
         'undefined' === typeof this.params.panel
       ) {
 
@@ -132,7 +132,7 @@
     embed: function() {
 
       if (
-        'kmt_panel' !== this.params.type ||
+        'wiz_panel' !== this.params.type ||
         'undefined' === typeof this.params.panel
       ) {
 
@@ -153,7 +153,7 @@
     isContextuallyActive: function() {
 
       if (
-        'kmt_panel' !== this.params.type
+        'wiz_panel' !== this.params.type
       ) {
 
         return _panelIsContextuallyActive.call( this );
@@ -211,7 +211,7 @@
     attachEvents: function() {
 
       if (
-        'kmt_section' !== this.params.type ||
+        'wiz_section' !== this.params.type ||
         'undefined' === typeof this.params.section
       ) {
 
@@ -265,7 +265,7 @@
     embed: function() {
 
       if (
-        'kmt_section' !== this.params.type ||
+        'wiz_section' !== this.params.type ||
         'undefined' === typeof this.params.section
       ) {
 
@@ -286,7 +286,7 @@
     isContextuallyActive: function() {
 
       if (
-        'kmt_section' !== this.params.type
+        'wiz_section' !== this.params.type
       ) {
 
         return _sectionIsContextuallyActive.call( this );

@@ -1,7 +1,7 @@
 /**
  * Customizer controls
  *
- * @package Kemet
+ * @package Wiz
  */
 
 (function ($) {
@@ -14,9 +14,9 @@
 	/**
 	 * Helper class for the main Customizer interface.
 	 *
-	 * @class Kemet_Customizer
+	 * @class Wiz_Customizer
 	 */
-    var Kemet_Customizer = {
+    var Wiz_Customizer = {
 
         controls: {},
 
@@ -48,7 +48,7 @@
 
             var check = false;
 
-            $.each(kemet.config, function (index, val) {
+            $.each(wiz.config, function (index, val) {
 
                 if (!_.isUndefined(val.conditions)) {
 
@@ -110,9 +110,9 @@
             var values = api.get();
 
             // If control has dependency defined
-            if ( 'undefined' != typeof kemet.config[id] ) {
+            if ( 'undefined' != typeof wiz.config[id] ) {
                 var check = false;
-                var dependency = kemet.config[id];
+                var dependency = wiz.config[id];
                 
                 if ('undefined' !== typeof dependency ) {
                     check = $this.checkConditions(dependency.conditions, values);
@@ -120,9 +120,9 @@
                     this.checked_controls[id] = check;
 
                     if (!check) {
-                        control.container.addClass('kmt-hide');
+                        control.container.addClass('wiz-hide');
                     } else {
-                        control.container.removeClass('kmt-hide');
+                        control.container.removeClass('wiz-hide');
                     }
                 }
             }
@@ -240,7 +240,7 @@
         },
     };
 
-    $(function () { Kemet_Customizer.init(); });
+    $(function () { Wiz_Customizer.init(); });
 
 
 })(jQuery);

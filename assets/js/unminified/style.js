@@ -660,7 +660,7 @@
  * Handles toggling the navigation menu for small screens and enables tab
  * support for dropdown menus.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 var isIE = false;
@@ -753,7 +753,7 @@ var toggleClass = function ( el, className ) {
 
 ( function() {
 
-	KemetNavigationMenu = function( parentList ) {
+	WizNavigationMenu = function( parentList ) {
 
 		for (var i = 0; i < parentList.length; i++) {
 
@@ -762,7 +762,7 @@ var toggleClass = function ( el, className ) {
 				// Insert Toggle Button.
 				var  toggleButton = document.createElement("BUTTON");        // Create a <button> element
 					toggleButton.setAttribute("role", "button");
-					toggleButton.setAttribute("class", "kmt-menu-toggle");
+					toggleButton.setAttribute("class", "wiz-menu-toggle");
 					toggleButton.setAttribute("aria-expanded", "false");
 					toggleButton.innerHTML="<span class='screen-reader-text'>Menu Toggle</span>";
 				parentList[i].insertBefore( toggleButton, parentList[i].childNodes[1] );
@@ -778,29 +778,29 @@ var toggleClass = function ( el, className ) {
 
 				// Submenu items goes outside?
 				if( menuGoingOutside ) {
-					parentList[i].classList.add( 'kmt-left-align-sub-menu' );
+					parentList[i].classList.add( 'wiz-left-align-sub-menu' );
 
 					var all_submenu_parents = parentList[i].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 					for (var k = 0; k < all_submenu_parents.length; k++) {
-						all_submenu_parents[k].classList.add( 'kmt-left-align-sub-menu' );
+						all_submenu_parents[k].classList.add( 'wiz-left-align-sub-menu' );
 					}
 				}
 
 				// Submenu Container goes to outside?
 				if( menuFromLeft < 240 ) {
-					parentList[i].classList.add( 'kmt-sub-menu-goes-outside' );
+					parentList[i].classList.add( 'wiz-sub-menu-goes-outside' );
 				}
 
 			};
 		};
 	};
 
-	KemetToggleMenu = function( kemet_menu_toggle ) {
+	WizToggleMenu = function( wiz_menu_toggle ) {
 		
 		/* Submenu button click */
-		for (var i = 0; i < kemet_menu_toggle.length; i++) {
+		for (var i = 0; i < wiz_menu_toggle.length; i++) {
 
-			kemet_menu_toggle[i].addEventListener( 'click', function ( event ) {
+			wiz_menu_toggle[i].addEventListener( 'click', function ( event ) {
 				event.preventDefault();
 
 				var parent_li = this.parentNode;
@@ -808,7 +808,7 @@ var toggleClass = function ( el, className ) {
 				var parent_li_child = parent_li.querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for (var j = 0; j < parent_li_child.length; j++) {
 
-					parent_li_child[j].classList.remove( 'kmt-submenu-expanded' );
+					parent_li_child[j].classList.remove( 'wiz-submenu-expanded' );
 					var parent_li_child_sub_menu = parent_li_child[j].querySelector( '.sub-menu, .children' );		
 					parent_li_child_sub_menu.style.display = 'none';
 				};
@@ -818,7 +818,7 @@ var toggleClass = function ( el, className ) {
 
 					if ( parent_li_sibling[j] != parent_li ) {
 
-						parent_li_sibling[j].classList.remove( 'kmt-submenu-expanded' );
+						parent_li_sibling[j].classList.remove( 'wiz-submenu-expanded' );
 						var all_sub_menu = parent_li_sibling[j].querySelectorAll( '.sub-menu, .children' );
 						for (var k = 0; k < all_sub_menu.length; k++) {		
 							all_sub_menu[k].style.display = 'none';		
@@ -827,8 +827,8 @@ var toggleClass = function ( el, className ) {
 				};
 
 				if ( parent_li.classList.contains( 'menu-item-has-children' ) || parent_li.classList.contains( 'page_item_has_children' ) ) {
-					toggleClass( parent_li, 'kmt-submenu-expanded' );
-					if ( parent_li.classList.contains( 'kmt-submenu-expanded' ) ) {
+					toggleClass( parent_li, 'wiz-submenu-expanded' );
+					if ( parent_li.classList.contains( 'wiz-submenu-expanded' ) ) {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'block';
 					} else {
 						parent_li.querySelector( '.sub-menu, .children' ).style.display = 'none';
@@ -852,7 +852,7 @@ var toggleClass = function ( el, className ) {
 
             var menuHasChildren = header4_left_menu[1].querySelectorAll('.menu-item-has-children, .page_item_has_children');
             for (var i = 0; i < menuHasChildren.length; i++) {
-                menuHasChildren[i].classList.remove('kmt-submenu-expanded');
+                menuHasChildren[i].classList.remove('wiz-submenu-expanded');
                 var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll('.sub-menu, .children');
                 for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
                     menuHasChildrenSubMenu[j].style.display = 'none';
@@ -868,10 +868,10 @@ var toggleClass = function ( el, className ) {
             }
             if ('undefined' !== typeof header4_left_menu[1]) {
                 var leftMenuparentList = header4_left_menu[1].querySelectorAll('ul.main-header-menu li');
-                KemetNavigationMenu(leftMenuparentList);
+                WizNavigationMenu(leftMenuparentList);
 
-                var kemet_left_menu_toggle = header4_left_menu[1].querySelectorAll('ul.main-header-menu .kmt-menu-toggle');
-                KemetToggleMenu(kemet_left_menu_toggle);
+                var wiz_left_menu_toggle = header4_left_menu[1].querySelectorAll('ul.main-header-menu .wiz-menu-toggle');
+                WizToggleMenu(wiz_left_menu_toggle);
             }
         });
         }
@@ -900,7 +900,7 @@ var toggleClass = function ( el, className ) {
 
 		    	var menuHasChildren = __main_header_all[event_index].querySelectorAll( '.menu-item-has-children, .page_item_has_children' );
 				for ( var i = 0; i < menuHasChildren.length; i++ ) {
-					menuHasChildren[i].classList.remove( 'kmt-submenu-expanded' );
+					menuHasChildren[i].classList.remove( 'wiz-submenu-expanded' );
 					var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll( '.sub-menu, .children' );		
 					for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {		
 						menuHasChildrenSubMenu[j].style.display = 'none';		
@@ -924,15 +924,15 @@ var toggleClass = function ( el, className ) {
 			
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
-				KemetNavigationMenu( parentList );
+				WizNavigationMenu( parentList );
 			 	
-			 	var kemet_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .kmt-menu-toggle' );
-				KemetToggleMenu( kemet_menu_toggle );
+			 	var wiz_menu_toggle = __main_header_all[i].querySelectorAll( 'ul.main-header-menu .wiz-menu-toggle' );
+				WizToggleMenu( wiz_menu_toggle );
 			}
 		};
 	}
 	
-	document.body.addEventListener("kemet-header-responsive-enabled", function() {
+	document.body.addEventListener("wiz-header-responsive-enabled", function() {
 
 		if ( __main_header_all.length > 0 ) {
 
@@ -951,9 +951,9 @@ var toggleClass = function ( el, className ) {
 					child_menu[k].style.display = '';
 				}
 
-				var searchIcons = __main_header_all[i].getElementsByClassName( 'kmt-search-menu-icon' );
+				var searchIcons = __main_header_all[i].getElementsByClassName( 'wiz-search-menu-icon' );
 				for ( var l = 0; l < searchIcons.length; l++ ) {
-					searchIcons[l].classList.remove( 'kmt-dropdown-active' );
+					searchIcons[l].classList.remove( 'wiz-dropdown-active' );
 					searchIcons[l].style.display = '';
 				}
 			}
@@ -963,7 +963,7 @@ var toggleClass = function ( el, className ) {
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
 
-		var break_point = kemet.break_point,
+		var break_point = wiz.break_point,
 			headerWrap = document.querySelectorAll( '.main-header-bar-wrap' );
 
 		if ( headerWrap.length > 0  ) {
@@ -983,20 +983,20 @@ var toggleClass = function ( el, className ) {
 					header_content_bp = header_content_bp.replace( /[^0-9]/g, '' );
 					header_content_bp = parseInt( header_content_bp );
 
-					// `kmt-header-break-point` class will use for Responsive Style of Header.
+					// `wiz-header-break-point` class will use for Responsive Style of Header.
 					if ( header_content_bp != break_point ) {
 						//remove menu toggled class.
 						if ( null != menu_toggle_all[i] ) {
 							menu_toggle_all[i].classList.remove( 'toggled' );
 						}
-						document.body.classList.remove( "kmt-header-break-point" );
-						var responsive_enabled = new CustomEvent( "kemet-header-responsive-enabled" );
+						document.body.classList.remove( "wiz-header-break-point" );
+						var responsive_enabled = new CustomEvent( "wiz-header-responsive-enabled" );
 						document.body.dispatchEvent( responsive_enabled );
 
 					} else {
 
-						document.body.classList.add( "kmt-header-break-point" );
-						var responsive_disabled = new CustomEvent( "kemet-header-responsive-disabled" );
+						document.body.classList.add( "wiz-header-break-point" );
+						var responsive_disabled = new CustomEvent( "wiz-header-responsive-disabled" );
 						document.body.dispatchEvent( responsive_disabled );
 					}
 				}
@@ -1005,15 +1005,15 @@ var toggleClass = function ( el, className ) {
 	}
     //Responsive Search Style 
     var searchStyle = function(){
-        var hasOutSideMenu = document.querySelector('.kmt-outside-menu') != null,
-            hasInsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items') != null;
+        var hasOutSideMenu = document.querySelector('.wiz-outside-menu') != null,
+            hasInsideMenu = document.querySelector('.wiz-sitehead-custom-menu-items') != null;
             
         if (hasOutSideMenu) {
-            var outSideMenu = document.querySelector('.kmt-outside-menu');
+            var outSideMenu = document.querySelector('.wiz-outside-menu');
             var hasSearch = outSideMenu.querySelector('.search') != null;
-            var hasBreakPoint = document.querySelector('.kmt-header-break-point');
+            var hasBreakPoint = document.querySelector('.wiz-header-break-point');
             if (hasSearch){
-                var searchType = outSideMenu.querySelector('.kmt-search-menu-icon').getAttribute('data-type');
+                var searchType = outSideMenu.querySelector('.wiz-search-menu-icon').getAttribute('data-type');
 
                 if (hasBreakPoint) {
                     if (searchType == 'search-box') {
@@ -1031,12 +1031,12 @@ var toggleClass = function ( el, className ) {
             }
         } else if (hasInsideMenu && !hasOutSideMenu){
 
-            var InsideMenu = document.querySelector('.kmt-sitehead-custom-menu-items');
+            var InsideMenu = document.querySelector('.wiz-sitehead-custom-menu-items');
             var hasSearch = InsideMenu.classList.contains('search') != '';
-            var hasBreakPoint = document.querySelector('.kmt-header-break-point');
+            var hasBreakPoint = document.querySelector('.wiz-header-break-point');
 
             if (hasSearch) {
-                var searchType = InsideMenu.querySelector('.kmt-search-menu-icon').getAttribute('data-type');
+                var searchType = InsideMenu.querySelector('.wiz-search-menu-icon').getAttribute('data-type');
 
                 if (hasBreakPoint) {
                     if (searchType == 'search-icon') {
@@ -1080,41 +1080,41 @@ var toggleClass = function ( el, className ) {
 
 	    bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "kmt-safari-browser-less-than-11" );
+		   bodyElement.classList.add( "wiz-safari-browser-less-than-11" );
 	    }
 	}
 
 	get_browser();
 	
 	/* Search Script */
-	var SearchIcons = document.getElementsByClassName( 'kemet-search-icon' );
+	var SearchIcons = document.getElementsByClassName( 'wiz-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
 		SearchIcons[i].onclick = function(event) {
             event.preventDefault();
-            var sibling = this.parentNode.parentNode.querySelector( '.kmt-search-menu-icon' );
-            if ( ! sibling.classList.contains( 'kmt-dropdown-active' ) ) {
-                sibling.classList.add( 'kmt-dropdown-active' );
+            var sibling = this.parentNode.parentNode.querySelector( '.wiz-search-menu-icon' );
+            if ( ! sibling.classList.contains( 'wiz-dropdown-active' ) ) {
+                sibling.classList.add( 'wiz-dropdown-active' );
                 sibling.querySelector( '.search-field' ).setAttribute('autocomplete','off');
                 setTimeout(function() {
                     sibling.querySelector( '.search-field' ).focus();
                 },200);
             } else {
-                sibling.classList.remove( 'kmt-dropdown-active' );
+                sibling.classList.remove( 'wiz-dropdown-active' );
             }
 		}
 	};
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
-		if ( ! this.classList.contains( 'kmt-header-break-point' ) ) {
+		if ( ! this.classList.contains( 'wiz-header-break-point' ) ) {
 
-			if ( ! event.target.classList.contains( 'kmt-search-menu-icon' ) && getParents( event.target, '.kmt-search-menu-icon' ).length === 0 && getParents( event.target, '.kmt-search-icon' ).length === 0  ) {
+			if ( ! event.target.classList.contains( 'wiz-search-menu-icon' ) && getParents( event.target, '.wiz-search-menu-icon' ).length === 0 && getParents( event.target, '.wiz-search-icon' ).length === 0  ) {
 
-				var dropdownSearchWrap = document.getElementsByClassName( 'kmt-search-menu-icon' );
+				var dropdownSearchWrap = document.getElementsByClassName( 'wiz-search-menu-icon' );
 
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
-					dropdownSearchWrap[i].classList.remove( 'kmt-dropdown-active' );
+					dropdownSearchWrap[i].classList.remove( 'wiz-dropdown-active' );
 				};
 			}
 		}
@@ -1237,7 +1237,7 @@ var toggleClass = function ( el, className ) {
  *
  * Learn more: https://github.com/Automattic/_s/pull/136
  *
- * @package Kemet
+ * @package Wiz
  */
 
 ( function() {
@@ -1274,7 +1274,7 @@ var toggleClass = function ( el, className ) {
 
     function parallaxFooter() {
         var $body = document.body;
-        if ($body.classList.contains('kmt-sticky-footer')) {
+        if ($body.classList.contains('wiz-sticky-footer')) {
             var $content = $body.querySelector('#content'),
                 $stickFooter = $body.querySelector('.sticky-footer');
             setTimeout(function () {
