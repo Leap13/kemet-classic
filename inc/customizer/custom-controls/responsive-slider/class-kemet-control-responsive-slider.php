@@ -4,10 +4,10 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Responsive Slider control (range).
  */
-class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
+class Wiz_Control_Responsive_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive-slider';
+	public $type = 'wiz-responsive-slider';
 
 	/**
 	 * The control type.
@@ -95,7 +95,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		<label for="">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="kmt-responsive-control-btns kmt-responsive-slider-btns">
+				<ul class="wiz-responsive-control-btns wiz-responsive-slider-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -178,13 +178,13 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
 					<input type="range" {{{desktop_attrs}}}  value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
-					<div class="kemet_range_value">
-						<input type="number" data-id='desktop' class="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value="{{ value_desktop }}" {{{desktop_attrs}}} /><#
+					<div class="wiz_range_value">
+						<input type="number" data-id='desktop' class="wiz-responsive-range-value-input wiz-responsive-range-desktop-input" value="{{ value_desktop }}" {{{desktop_attrs}}} /><#
 						if ( data.suffix ) {
-						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
+						#><span class="wiz-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
-					<ul class="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+					<ul class="wiz-slider-responsive-units wiz-slider-desktop-responsive-units">
 						<#_.each( data.unit_choices, function( data_attrs , unit_key) { 
 							unit_class = '';
 							if ( desktop_unit_val === unit_key ) { 
@@ -198,13 +198,13 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper tablet">
 					<input  type="range" {{{tablet_attrs}}} value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
-					<div class="kemet_range_value">
-						<input type="number" data-id='tablet' class="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value="{{ value_tablet }}" {{{tablet_attrs}}} /><#
+					<div class="wiz_range_value">
+						<input type="number" data-id='tablet' class="wiz-responsive-range-value-input wiz-responsive-range-tablet-input" value="{{ value_tablet }}" {{{tablet_attrs}}} /><#
 						if ( data.suffix ) {
-						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
+						#><span class="wiz-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
-					<ul class="kmt-slider-responsive-units kmt-slider-tablet-responsive-units">
+					<ul class="wiz-slider-responsive-units wiz-slider-tablet-responsive-units">
 						<#_.each( data.unit_choices, function( data_attrs , unit_key) { 
 							unit_class = '';
 							if ( tablet_unit_val === unit_key ) { 
@@ -218,13 +218,13 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper mobile">
 					<input type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" {{{mobile_attrs}}} />
-					<div class="kemet_range_value">
-						<input type="number" data-id='mobile' class="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value="{{ value_mobile }}"  {{{mobile_attrs}}} /><#
+					<div class="wiz_range_value">
+						<input type="number" data-id='mobile' class="wiz-responsive-range-value-input wiz-responsive-range-mobile-input" value="{{ value_mobile }}"  {{{mobile_attrs}}} /><#
 						if ( data.suffix ) {
-						#><span class="kmt-range-unit">{{ data.suffix }}</span><#
+						#><span class="wiz-range-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
-					<ul class="kmt-slider-responsive-units kmt-slider-mobile-responsive-units">
+					<ul class="wiz-slider-responsive-units wiz-slider-mobile-responsive-units">
 						<#_.each( data.unit_choices, function( data_attrs , unit_key) { 
 							unit_class = '';
 							if ( mobile_unit_val === unit_key ) { 
@@ -236,15 +236,15 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						});#>
 					</ul>
 				</div>
-				<div class="kmt-responsive-slider-reset">
+				<div class="wiz-responsive-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>
-			<div class="kmt-slider-responsive-units-screen-wrap">
-				<div class="unit-input-wrapper kmt-slider-unit-wrapper">
-					<input type='hidden' class='kmt-slider-unit-input kmt-slider-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
-					<input type='hidden' class='kmt-slider-unit-input kmt-slider-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
-					<input type='hidden' class='kmt-slider-unit-input kmt-slider-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
+			<div class="wiz-slider-responsive-units-screen-wrap">
+				<div class="unit-input-wrapper wiz-slider-unit-wrapper">
+					<input type='hidden' class='wiz-slider-unit-input wiz-slider-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
+					<input type='hidden' class='wiz-slider-unit-input wiz-slider-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
+					<input type='hidden' class='wiz-slider-unit-input wiz-slider-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 			</div>
 			<# if ( data.description ) { #>

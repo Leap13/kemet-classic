@@ -1,10 +1,10 @@
-.customize-control-kmt-color .wp-color-result span {
+.customize-control-wiz-color .wp-color-result span {
 	background: #f7f7f7;
 }
-.customize-control-kmt-color .wp-color-result span.color-alpha {
+.customize-control-wiz-color .wp-color-result span.color-alpha {
 	height:26px !important;
 }
-.customize-control-kmt-color .wp-color-result.button {
+.customize-control-wiz-color .wp-color-result.button {
 	min-height: 24px;
 }
 
@@ -12,6 +12,6 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 	    border: 1px solid #d0d0d0;
 }
 
-.customize-control-kmt-color .wp-picker-container input[type="text"].wp-color-picker {
+.customize-control-wiz-color .wp-picker-container input[type="text"].wp-color-picker {
 	width: 65px !important;
 }

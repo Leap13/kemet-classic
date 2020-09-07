@@ -1,12 +1,12 @@
 <?php
 /**
-* Kemet Theme Customizer Sanitize.
+* Wiz Theme Customizer Sanitize.
 *
-* @package     Kemet
-* @author      Kemet
-* @copyright   Copyright ( c ) 2019, Kemet
-* @link        https://kemet.io/
-* @since       Kemet 1.0.0
+* @package     Wiz
+* @author      Wiz
+* @copyright   Copyright ( c ) 2019, Wiz
+* @link        https://wiz.io/
+* @since       Wiz 1.0.0
 */
 
 // No direct access, please.
@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 * Customizer Sanitizes
 *
 */
-if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
+if ( ! class_exists( 'Wiz_Customizer_Sanitizes' ) ) {
 
     /**
     * Customizer Sanitizes Initial setup
     */
 
-    class Kemet_Customizer_Sanitizes {
+    class Wiz_Customizer_Sanitizes {
 
         /**
         * Instance
@@ -301,7 +301,7 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
         */
         static public function validate_email( $validity, $value ) {
             if ( ! is_email( $value ) ) {
-                $validity->add( 'required', __( 'Enter valid email address!', 'kemet' ) );
+                $validity->add( 'required', __( 'Enter valid email address!', 'wiz' ) );
             }
             return $validity;
         }
@@ -553,4 +553,4 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 /**
 * Kicking this off by calling 'get_instance()' method
 */
-Kemet_Customizer_Sanitizes::get_instance();
+Wiz_Customizer_Sanitizes::get_instance();

@@ -2,10 +2,10 @@
 /**
  * Customizer Control: responsive
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * A text control with validation for CSS units.
  */
-class Kemet_Control_Responsive extends WP_Customize_Control {
+class Wiz_Control_Responsive extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,7 +25,7 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive';
+	public $type = 'wiz-responsive';
 
 	/**
 	 * The control type.
@@ -91,7 +91,7 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 		<label class="customizer-text" for="" >
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="kmt-responsive-btns">
+				<ul class="wiz-responsive-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -129,24 +129,24 @@ class Kemet_Control_Responsive extends WP_Customize_Control {
 				value_mobile = data.value['mobile'];
 			} #>
 
-			<div class="input-wrapper kmt-responsive-wrapper">
+			<div class="input-wrapper wiz-responsive-wrapper">
 
-				<input {{{ data.inputAttrs }}} data-id='desktop' class="kmt-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
-				<select class="kmt-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<input {{{ data.inputAttrs }}} data-id='desktop' class="wiz-responsive-input desktop active" type="number" value="{{ value_desktop }}"/>
+				<select class="wiz-responsive-select desktop" data-id='desktop-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( data.value['desktop-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>
 				</select>
 
-				<input {{{ data.inputAttrs }}} data-id='tablet' class="kmt-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
-				<select class="kmt-responsive-select tablet" data-id='tablet-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<input {{{ data.inputAttrs }}} data-id='tablet' class="wiz-responsive-input tablet" type="number" value="{{ value_tablet }}"/>
+				<select class="wiz-responsive-select tablet" data-id='tablet-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( data.value['tablet-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>
 				</select>
 
-				<input {{{ data.inputAttrs }}} data-id='mobile' class="kmt-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
-				<select class="kmt-responsive-select mobile" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
+				<input {{{ data.inputAttrs }}} data-id='mobile' class="wiz-responsive-input mobile" type="number" value="{{ value_mobile }}"/>
+				<select class="wiz-responsive-select mobile" data-id='mobile-unit' <# if ( _.size( data.units ) === 1 ) { #> disabled="disabled" <# } #>>
 				<# _.each( data.units, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( data.value['mobile-unit'] === key ) { #> selected="selected" <# } #>>{{{ data.units[ key ] }}}</option>
 				<# }); #>

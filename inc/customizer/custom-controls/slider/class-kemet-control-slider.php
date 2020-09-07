@@ -4,10 +4,10 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Slider control (range).
  */
-class Kemet_Control_Slider extends WP_Customize_Control {
+class Wiz_Control_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-slider';
+	public $type = 'wiz-slider';
 
 	/**
 	 * The control type.
@@ -79,14 +79,14 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
-				<div class="kemet_range_value">
-					<input type="number" class="value kmt-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
+				<div class="wiz_range_value">
+					<input type="number" class="value wiz-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 
-					#><span class="kmt-range-unit">{{ data.suffix }}</span><#
+					#><span class="wiz-range-unit">{{ data.suffix }}</span><#
 					} #>
 				</div>
-				<div class="kmt-slider-reset">
+				<div class="wiz-slider-reset">
 					<span class="dashicons dashicons-image-rotate"></span>
 				</div>
 			</div>

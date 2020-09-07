@@ -2,11 +2,11 @@
 /**
  * Helper class for font settings.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 // Exit if accessed directly.
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Kemet Fonts
+ * Wiz Fonts
  */
-final class Kemet_Fonts {
+final class Wiz_Fonts {
 
 	/**
 	 * Get fonts to generate.
@@ -71,8 +71,8 @@ final class Kemet_Fonts {
 	 */
 	static public function get_fonts() {
 
-		do_action( 'kemet_get_fonts' );
-		return apply_filters( 'kemet_add_fonts', self::$fonts );
+		do_action( 'wiz_get_fonts' );
+		return apply_filters( 'wiz_add_fonts', self::$fonts );
 	}
 
 	/**
@@ -82,12 +82,12 @@ final class Kemet_Fonts {
 	 */
 	static public function render_fonts() {
 
-		$font_list = apply_filters( 'kemet_render_fonts', self::get_fonts() );
+		$font_list = apply_filters( 'wiz_render_fonts', self::get_fonts() );
 
 		$google_fonts = array();
 		$font_subset  = array();
 
-		$system_fonts = Kemet_Font_Families::get_system_fonts();
+		$system_fonts = Wiz_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
 			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) ) {
@@ -96,7 +96,7 @@ final class Kemet_Fonts {
 				$google_fonts[ $name ] = $font['variants'];
 
 				// Add Subset.
-				$subset = apply_filters( 'kemet_font_subset', '', $name );
+				$subset = apply_filters( 'wiz_font_subset', '', $name );
 				if ( ! empty( $subset ) ) {
 					$font_subset[] = $subset;
 				}
@@ -104,7 +104,7 @@ final class Kemet_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
-		wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
+		wp_enqueue_style( 'wiz-google-fonts', $google_font_url, array(), WIZ_THEME_VERSION, 'all' );
 	}
 
 	/**
@@ -124,7 +124,7 @@ final class Kemet_Fonts {
 		$font_args = array();
 		$family    = array();
 
-		$fonts = apply_filters( 'kemet_google_fonts', $fonts );
+		$fonts = apply_filters( 'wiz_google_fonts', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
@@ -134,7 +134,7 @@ final class Kemet_Fonts {
 					$font_weight = implode( ',', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
-				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
+				$font_family = str_replace( "'", '', wiz_prop( $font_family, 0 ) );
 				$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );

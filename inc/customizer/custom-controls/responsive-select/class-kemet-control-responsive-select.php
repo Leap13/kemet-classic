@@ -4,10 +4,10 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Responsive Slider control (range).
  */
-class Kemet_Control_Responsive_Select extends WP_Customize_Control {
+class Wiz_Control_Responsive_Select extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive-select';
+	public $type = 'wiz-responsive-select';
 
 	/**
 	 * The control type.
@@ -82,7 +82,7 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		<label for="">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="kmt-responsive-slider-btns kmt-responsive-control-btns">
+				<ul class="wiz-responsive-slider-btns wiz-responsive-control-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -119,18 +119,18 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 				value_mobile = data.value['mobile'];
 			}
 			 #>
-			<div class="input-wrapper kmt-responsive-wrapper">
-				<select class="kmt-responsive-select desktop active" data-id='desktop' >
+			<div class="input-wrapper wiz-responsive-wrapper">
+				<select class="wiz-responsive-select desktop active" data-id='desktop' >
 				<# _.each( data.choices, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( value_desktop == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>
 				</select>
-				<select class="kmt-responsive-select tablet" data-id='tablet' >
+				<select class="wiz-responsive-select tablet" data-id='tablet' >
 				<# _.each( data.choices, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( value_tablet == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>
 				</select>
-				<select class="kmt-responsive-select mobile" data-id='mobile' >
+				<select class="wiz-responsive-select mobile" data-id='mobile' >
 				<# _.each( data.choices, function( value, key ) { #>
 					<option value="{{{ key }}}" <# if ( value_mobile == key ) { #> selected="selected" <# } #>>{{{ data.choices[ key ] }}}</option>
 				<# }); #>

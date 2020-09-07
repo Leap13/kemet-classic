@@ -3,10 +3,10 @@
  *
  * Handles Slider control
  *
- * @package Kemet
+ * @package Wiz
  */
 
-wp.customize.controlConstructor['kmt-slider'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['wiz-slider'] = wp.customize.Control.extend({
 
 	ready: function () {
 
@@ -28,10 +28,10 @@ wp.customize.controlConstructor['kmt-slider'] = wp.customize.Control.extend({
 			input_number.change();
 		});
 		// Handle the reset button.
-		jQuery('.kmt-slider-reset').click(function () {
+		jQuery('.wiz-slider-reset').click(function () {
 			var wrapper = jQuery(this).closest('.wrapper'),
 				input_range = wrapper.find('input[type=range]'),
-				input_number = wrapper.find('.kemet_range_value .value'),
+				input_number = wrapper.find('.wiz_range_value .value'),
 				default_value = input_range.data('reset_value');
 
 			input_range.val(default_value);

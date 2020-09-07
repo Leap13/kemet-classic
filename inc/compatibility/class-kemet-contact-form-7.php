@@ -2,7 +2,7 @@
 /**
  * Contact Form 7 Compatibility File.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 // If plugin - 'Contact Form 7' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'WPCF7' ) ) {
 }
 
 /**
- * Kemet Contact Form 7 Compatibility
+ * Wiz Contact Form 7 Compatibility
  */
-if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
+if ( ! class_exists( 'Wiz_Contact_Form_7' ) ) :
 
 	/**
-	 * Kemet Contact Form 7 Compatibility
+	 * Wiz Contact Form 7 Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Kemet_Contact_Form_7 {
+	class Wiz_Contact_Form_7 {
 
 		/**
 		 * Member Variable
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'kemet_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'wiz_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
 		 * @since 1.0.0
 		 */
 		function add_styles( $assets ) {
-			$assets['css']['kemet-contact-form-7'] = 'compatibility/contact-form-7';
+			$assets['css']['wiz-contact-form-7'] = 'compatibility/contact-form-7';
 			return $assets;
 		}
 
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Contact_Form_7::get_instance();
+Wiz_Contact_Form_7::get_instance();

@@ -1,47 +1,47 @@
 <?php
 /**
-* Bottom Footer Options for Kemet Theme.
+* Bottom Footer Options for Wiz Theme.
 *
-* @package     Kemet
-* @author      Kemet
-* @copyright   Copyright ( c ) 2019, Kemet
-* @link        https://kemet.io/
-* @since       Kemet 1.0.0
+* @package     Wiz
+* @author      Wiz
+* @copyright   Copyright ( c ) 2019, Wiz
+* @link        https://wiz.io/
+* @since       Wiz 1.0.0
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-$defaults = Kemet_Theme_Options::defaults();
+$defaults = Wiz_Theme_Options::defaults();
 /**
 * Option: Footer Bar Layout
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[copyright-footer-layout]', array(
+    WIZ_THEME_SETTINGS . '[copyright-footer-layout]', array(
         'default'           => $defaults[ 'copyright-footer-layout' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_choices' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Radio_Image(
-        $wp_customize, KEMET_THEME_SETTINGS . '[copyright-footer-layout]', array(
-            'type'     => 'kmt-radio-image',
+    new Wiz_Control_Radio_Image(
+        $wp_customize, WIZ_THEME_SETTINGS . '[copyright-footer-layout]', array(
+            'type'     => 'wiz-radio-image',
             'section'  => 'section-footer-copyright',
             'priority' => 5,
-            'label'    => __( 'Footer Bar Layout', 'kemet' ),
+            'label'    => __( 'Footer Bar Layout', 'wiz' ),
             'choices'  => array(
                 'disabled'            => array(
-                    'label' => __( 'Disable', 'kemet' ),
-                    'path'  => KEMET_THEME_URI . 'assets/images/disable-copyright-area.png',
+                    'label' => __( 'Disable', 'wiz' ),
+                    'path'  => WIZ_THEME_URI . 'assets/images/disable-copyright-area.png',
                 ),
                 'copyright-footer-layout-1' => array(
-                    'label' => __( 'Footer Bar Layout 1', 'kemet' ),
-                    'path'  => KEMET_THEME_URI . 'assets/images/copyright-area-layout-1.png',
+                    'label' => __( 'Footer Bar Layout 1', 'wiz' ),
+                    'path'  => WIZ_THEME_URI . 'assets/images/copyright-area-layout-1.png',
                 ),
                 'copyright-footer-layout-2' => array(
-                    'label' => __( 'Footer Bar Layout 2', 'kemet' ),
-                    'path'  => KEMET_THEME_URI . 'assets/images/copyright-area-layout-2.png',
+                    'label' => __( 'Footer Bar Layout 2', 'wiz' ),
+                    'path'  => WIZ_THEME_URI . 'assets/images/copyright-area-layout-2.png',
                 ),
             ),
         )
@@ -52,28 +52,28 @@ $wp_customize->add_control(
 * Option: Section 1
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-1]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-1]', array(
         'default'           => $defaults[ 'footer-copyright-section-1' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_choices' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-1]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-1]', array(
         'type'     => 'select',
         'section'  => 'section-footer-copyright',
         'priority' => 10,
-        'label'    => __( 'First Section', 'kemet' ),
+        'label'    => __( 'First Section', 'wiz' ),
         'choices'  => array(
-            ''       => __( 'None', 'kemet' ),
-            'menu'   => __( 'Footer Menu', 'kemet' ),
-            'custom' => __( 'Custom Text', 'kemet' ),
-            'widget' => __( 'Widget', 'kemet' ),
+            ''       => __( 'None', 'wiz' ),
+            'menu'   => __( 'Footer Menu', 'wiz' ),
+            'custom' => __( 'Custom Text', 'wiz' ),
+            'widget' => __( 'Widget', 'wiz' ),
         ),
     )
 );
@@ -82,13 +82,13 @@ $wp_customize->add_control(
 * Option: Section 1 Custom Text
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
         'default'           => $defaults[ 'footer-copyright-section-1-part' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_html' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-section-1]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]/' . WIZ_THEME_SETTINGS . '[footer-copyright-section-1]', 
             'conditions' => '!=/==', 
             'values' => 'disabled/custom',
             'operators' => '&&'
@@ -96,20 +96,20 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
         'type'     => 'textarea',
         'section'  => 'section-footer-copyright',
         'priority' => 15,
-        'label'    => __( 'First Section Custom Text', 'kemet' ),
+        'label'    => __( 'First Section Custom Text', 'wiz' ),
     )
 );
 
 if ( isset( $wp_customize->selective_refresh ) ) {
     $wp_customize->selective_refresh->add_partial(
-        KEMET_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
-            'selector'            => '.kmt-footer-copyright-section-1',
+        WIZ_THEME_SETTINGS . '[footer-copyright-section-1-part]', array(
+            'selector'            => '.wiz-footer-copyright-section-1',
             'container_inclusive' => false,
-            'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_1_part' ),
+            'render_callback'     => array( 'Wiz_Customizer_Partials', '_render_footer_copyright_section_1_part' ),
         )
     );
 }
@@ -118,28 +118,28 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 * Option: Section 2
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-2]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-2]', array(
         'default'           => $defaults[ 'footer-copyright-section-2' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_choices' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-2]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-2]', array(
         'type'     => 'select',
         'section'  => 'section-footer-copyright',
         'priority' => 20,
-        'label'    => __( 'Second Section', 'kemet' ),
+        'label'    => __( 'Second Section', 'wiz' ),
         'choices'  => array(
-            ''       => __( 'None', 'kemet' ),
-            'menu'   => __( 'Footer Menu', 'kemet' ),
-            'custom' => __( 'Custom Text', 'kemet' ),
-            'widget' => __( 'Widget', 'kemet' ),
+            ''       => __( 'None', 'wiz' ),
+            'menu'   => __( 'Footer Menu', 'wiz' ),
+            'custom' => __( 'Custom Text', 'wiz' ),
+            'widget' => __( 'Widget', 'wiz' ),
         ),
     )
 );
@@ -148,13 +148,13 @@ $wp_customize->add_control(
 * Option: Section 2 Custom Text
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
         'default'           => $defaults[ 'footer-copyright-section-2-part' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_html' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_html' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-section-2]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]/' . WIZ_THEME_SETTINGS . '[footer-copyright-section-2]', 
             'conditions' => '!=/==', 
             'values' => 'disabled/custom',
             'operators' => '&&'
@@ -162,20 +162,20 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
         'type'     => 'textarea',
         'section'  => 'section-footer-copyright',
         'priority' => 25,
-        'label'    => __( 'Second Section Custom Text', 'kemet' ),
+        'label'    => __( 'Second Section Custom Text', 'wiz' ),
     )
 );
 
 if ( isset( $wp_customize->selective_refresh ) ) {
     $wp_customize->selective_refresh->add_partial(
-        KEMET_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
-            'selector'            => '.kmt-footer-copyright-section-2',
+        WIZ_THEME_SETTINGS . '[footer-copyright-section-2-part]', array(
+            'selector'            => '.wiz-footer-copyright-section-2',
             'container_inclusive' => false,
-            'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_2_part' ),
+            'render_callback'     => array( 'Wiz_Customizer_Partials', '_render_footer_copyright_section_2_part' ),
         )
     );
 }
@@ -183,32 +183,32 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 * Option - Widget Spacing
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-bar-padding]', array(
+    WIZ_THEME_SETTINGS . '[footer-bar-padding]', array(
         'default'           => $defaults[ 'footer-bar-padding' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Spacing(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-padding]', array(
-            'type'           => 'kmt-responsive-spacing',
+    new Wiz_Control_Responsive_Spacing(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-bar-padding]', array(
+            'type'           => 'wiz-responsive-spacing',
             'section'        => 'section-footer-copyright',
             'priority'       => 28,
-            'label'          => __( 'Footer Bar Spacing', 'kemet' ),
+            'label'          => __( 'Footer Bar Spacing', 'wiz' ),
             'linked_choices' => true,
             'unit_choices'   => array( 'px', 'em', '%' ),
             'choices'        => array(
-                'top'    => __( 'Top', 'kemet' ),
-                'right'  => __( 'Right', 'kemet' ),
-                'bottom' => __( 'Bottom', 'kemet' ),
-                'left'   => __( 'Left', 'kemet' ),
+                'top'    => __( 'Top', 'wiz' ),
+                'right'  => __( 'Right', 'wiz' ),
+                'bottom' => __( 'Bottom', 'wiz' ),
+                'left'   => __( 'Left', 'wiz' ),
             ),
         )
     )
@@ -217,26 +217,26 @@ $wp_customize->add_control(
 * Option: Footer Width
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
+    WIZ_THEME_SETTINGS . '[footer-layout-width]', array(
         'default'           => $defaults[ 'footer-layout-width' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_choices' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-layout-width]', array(
+    WIZ_THEME_SETTINGS . '[footer-layout-width]', array(
         'type'     => 'select',
         'section'  => 'section-footer-copyright',
         'priority' => 30,
-        'label'    => __( 'Footer Bar Width', 'kemet' ),
+        'label'    => __( 'Footer Bar Width', 'wiz' ),
         'choices'  => array(
-            'full'    => __( 'Full Width', 'kemet' ),
-            'content' => __( 'Content Width', 'kemet' ),
+            'full'    => __( 'Full Width', 'wiz' ),
+            'content' => __( 'Content Width', 'wiz' ),
         ),
     )
 );
@@ -245,25 +245,25 @@ $wp_customize->add_control(
 * Option: Footer Background
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
+    WIZ_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
         'default'           => $defaults[ 'footer-bar-bg-obj' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_background_obj' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Background(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
-            'type'    => 'kmt-background',
+    new Wiz_Control_Background(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
+            'type'    => 'wiz-background',
             'section' => 'section-footer-copyright',
             'priority' => 35,
-            'label'   => __( 'Footer Bar Background', 'kemet' ),
+            'label'   => __( 'Footer Bar Background', 'wiz' ),
         )
     )
 );
@@ -271,9 +271,9 @@ $wp_customize->add_control(
 * Option: Title
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
+    WIZ_THEME_SETTINGS . '[wiz-footer-bar-title]', array(
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
@@ -281,10 +281,10 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-title]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Footer Bar Settings', 'kemet' ),
+    new Wiz_Control_Title(
+        $wp_customize, WIZ_THEME_SETTINGS . '[wiz-footer-bar-title]', array(
+            'type'     => 'wiz-title',
+            'label'    => __( 'Footer Bar Settings', 'wiz' ),
             'section'  => 'section-footer-copyright',
             'priority' => 40,
             'settings' => array(),
@@ -295,24 +295,24 @@ $wp_customize->add_control(
 * Option: Footer Top Border
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-divider]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-divider]', array(
         'default'           => $defaults[ 'footer-copyright-divider' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_number' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-copyright-divider]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-divider]', array(
         'type'        => 'number',
         'section'     => 'section-footer-copyright',
         'priority'    => 45,
-        'label'       => __( 'Top Border Size', 'kemet' ),
+        'label'       => __( 'Top Border Size', 'wiz' ),
         'input_attrs' => array(
             'min'  => 0,
             'step' => 1,
@@ -325,13 +325,13 @@ $wp_customize->add_control(
 * Option: Footer Top Border Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
         'default'           => $defaults[ 'footer-copyright-divider-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]/' . KEMET_THEME_SETTINGS . '[footer-copyright-divider]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]/' . WIZ_THEME_SETTINGS . '[footer-copyright-divider]', 
             'conditions' => '!=/>=', 
             'values' => 'disabled/1',
             'operators' => '&&'
@@ -339,11 +339,11 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-copyright-divider-color]', array(
             'section'  => 'section-footer-copyright',
             'priority' => 50,
-            'label'    => __( 'Top Border Color', 'kemet' ),
+            'label'    => __( 'Top Border Color', 'wiz' ),
         )
     )
 );
@@ -351,9 +351,9 @@ $wp_customize->add_control(
 * Option: Title
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
+    WIZ_THEME_SETTINGS . '[wiz-footer-bar-content-title]', array(
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
@@ -361,10 +361,10 @@ $wp_customize->add_setting(
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-footer-bar-content-title]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Footer Bar Content Style', 'kemet' ),
+    new Wiz_Control_Title(
+        $wp_customize, WIZ_THEME_SETTINGS . '[wiz-footer-bar-content-title]', array(
+            'type'     => 'wiz-title',
+            'label'    => __( 'Footer Bar Content Style', 'wiz' ),
             'section'  => 'section-footer-copyright',
             'priority' => 55,
             'settings' => array(),
@@ -375,22 +375,22 @@ $wp_customize->add_control(
 * Option: Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-color]', array(
+    WIZ_THEME_SETTINGS . '[footer-color]', array(
         'default'           => $defaults[ 'footer-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-color]', array(
-            'label'   => __( 'Font Color', 'kemet' ),
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-color]', array(
+            'label'   => __( 'Font Color', 'wiz' ),
             'section' => 'section-footer-copyright',
             'priority' => 60,
         )
@@ -401,25 +401,25 @@ $wp_customize->add_control(
 * Option: Footer Font Size
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-font-size]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-font-size]', array(
         'default'           => $defaults[ 'footer-copyright-font-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-copyright-font-size]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-footer-copyright',
             'priority'       => 65,
-            'label'          => __( 'Font Size', 'kemet' ),
+            'label'          => __( 'Font Size', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -439,25 +439,25 @@ $wp_customize->add_control(
 * Option: Footer Letter Spacing
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
+    WIZ_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
         'default'           => $defaults[ 'footer-copyright-letter-spacing' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-copyright-letter-spacing]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-footer-copyright',
             'priority'       => 68,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
+            'label'          => __( 'Letter Spacing', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 0.1,
@@ -472,22 +472,22 @@ $wp_customize->add_control(
 * Option: Link Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-color]', array(
+    WIZ_THEME_SETTINGS . '[footer-link-color]', array(
         'default'           => $defaults[ 'footer-link-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
-            'label'   => __( 'Link Color', 'kemet' ),
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-link-color]', array(
+            'label'   => __( 'Link Color', 'wiz' ),
             'section' => 'section-footer-copyright',
             'priority'    => 70,
         )
@@ -498,22 +498,22 @@ $wp_customize->add_control(
 * Option: Link Hover Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
+    WIZ_THEME_SETTINGS . '[footer-link-h-color]', array(
         'default'           =>  $defaults[ 'footer-link-h-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
         'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+            'controls' =>  WIZ_THEME_SETTINGS . '[copyright-footer-layout]', 
             'conditions' => '!=', 
             'values' => 'disabled',
         ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
-            'label'   => __( 'Link Hover Color', 'kemet' ),
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[footer-link-h-color]', array(
+            'label'   => __( 'Link Hover Color', 'wiz' ),
             'section' => 'section-footer-copyright',
             'priority' => 75,
         )

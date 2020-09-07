@@ -1,19 +1,19 @@
 <?php
 /**
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
-if ( ! class_exists( 'Kemet_Setup' ) ) {
+if ( ! class_exists( 'Wiz_Setup' ) ) {
 
 	/**
-	 * Kemet_Setup initial setup
+	 * Wiz_Setup initial setup
 	 */
-	class Kemet_Setup {
+	class Wiz_Setup {
 
 		/**
 		 * Instance
@@ -47,19 +47,19 @@ if ( ! class_exists( 'Kemet_Setup' ) ) {
 		 */
 		function setup_theme() {
 
-			do_action( 'kemet_class_loaded' );
+			do_action( 'wiz_class_loaded' );
 
 			/**
 			 * Content Width
 			 */
 			if ( ! isset( $content_width ) ) {
-				$content_width = apply_filters( 'kemet_content_width', 700 );
+				$content_width = apply_filters( 'wiz_content_width', 700 );
 			}
 
 			/**
 			 * Make theme available for translation.
 			 */
-			load_theme_textdomain( 'kemet', KEMET_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'wiz', WIZ_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support
@@ -116,11 +116,11 @@ if ( ! class_exists( 'Kemet_Setup' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			if ( apply_filters( 'kemet_theme_editor_style', true ) ) {
+			if ( apply_filters( 'wiz_theme_editor_style', true ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
-			if ( apply_filters( 'kemet_fullwidth_oembed', true ) ) {
+			if ( apply_filters( 'wiz_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 				add_filter( 'oembed_result', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
@@ -137,18 +137,18 @@ if ( ! class_exists( 'Kemet_Setup' ) ) {
 		 */
 		function responsive_oembed_wrapper( $html, $url, $attr ) {
 
-			$add_kemet_oembed_wrapper = apply_filters( 'kemet_responsive_oembed_wrapper_enable', true );
+			$add_wiz_oembed_wrapper = apply_filters( 'wiz_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'kemet_allowed_fullwidth_oembed_providers', array(
+				'wiz_allowed_fullwidth_oembed_providers', array(
 					'vimeo.com',
 					'youtube.com',
 				)
 			);
 
-			if ( kemet_strposa( $url, $allowed_providers ) ) {
-				if ( $add_kemet_oembed_wrapper ) {
-					$html = ( '' !== $html ) ? '<div class="kmt-oembed-container">' . $html . '</div>' : '';
+			if ( wiz_strposa( $url, $allowed_providers ) ) {
+				if ( $add_wiz_oembed_wrapper ) {
+					$html = ( '' !== $html ) ? '<div class="wiz-oembed-container">' . $html . '</div>' : '';
 				}
 			}
 
@@ -157,4 +157,4 @@ if ( ! class_exists( 'Kemet_Setup' ) ) {
 	}
 }
 
-Kemet_Setup::get_instance();
+Wiz_Setup::get_instance();

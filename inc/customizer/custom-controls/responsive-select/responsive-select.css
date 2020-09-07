@@ -1,24 +1,24 @@
-.kmt-responsive-btns,
+.wiz-responsive-btns,
 .customize-control-title {
   display: inline-block;
 }
 
-.kmt-responsive-btns {
+.wiz-responsive-btns {
   float: right;
   line-height: 1;
   margin-top: 5px;
 }
 
-.kmt-responsive-btns > li {
+.wiz-responsive-btns > li {
   margin-bottom: 0;
   display: none;
 }
 
-.kmt-responsive-btns > li.active {
+.wiz-responsive-btns > li.active {
   display: inline-block;
 }
 
-.kmt-responsive-btns button[type="button"] {
+.wiz-responsive-btns button[type="button"] {
   padding: 0;
   cursor: pointer;
   background: none;
@@ -27,14 +27,14 @@
   outline: none;
 }
 
-.kmt-responsive-btns button[type="button"] > i {
+.wiz-responsive-btns button[type="button"] > i {
   width: 15px;
   height: 15px;
   font-size: 15px;
 }
-.customize-control-kmt-responsive-select .input-wrapper .kmt-responsive-select {
+.customize-control-wiz-responsive-select .input-wrapper .wiz-responsive-select {
   display: none;
 }
-.customize-control-kmt-responsive-select .input-wrapper .kmt-responsive-select.active{
+.customize-control-wiz-responsive-select .input-wrapper .wiz-responsive-select.active{
 	display: block;
 }

@@ -2,10 +2,10 @@
 /**
  * Customizer Control: typography.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Typography control.
  */
-final class Kemet_Control_Typography extends WP_Customize_Control {
+final class Wiz_Control_Typography extends WP_Customize_Control {
 
 	/**
 	 * Used to connect controls to each other.
@@ -39,9 +39,9 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 * Used to set the default font options.
 	 *
 	 * @since 1.0.0
-	 * @var string $kmt_inherit
+	 * @var string $wiz_inherit
 	 */
-	public $kmt_inherit = '';
+	public $wiz_inherit = '';
 
 	/**
 	 * If true, the preview button for a control will be rendered.
@@ -60,7 +60,7 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 * @param array                $args    Default parent's arguments.
 	 */
 	public function __construct( $manager, $id, $args = array() ) {
-		$this->kmt_inherit = __( 'Inherit', 'kemet' );
+		$this->wiz_inherit = __( 'Inherit', 'wiz' );
 		parent::__construct( $manager, $id, $args );
 	}
 	/**
@@ -70,26 +70,26 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 
-		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/typography/';
+		$uri = WIZ_THEME_URI . 'inc/customizer/custom-controls/typography/';
 		
-		wp_enqueue_style( 'kemet-select-woo-style', $uri . 'selectWoo.css', null, KEMET_THEME_VERSION );
-		wp_enqueue_script( 'kemet-select-woo-script', $uri . 'selectWoo.js', array( 'jquery' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_style( 'wiz-select-woo-style', $uri . 'selectWoo.css', null, WIZ_THEME_VERSION );
+		wp_enqueue_script( 'wiz-select-woo-script', $uri . 'selectWoo.js', array( 'jquery' ), WIZ_THEME_VERSION, true );
 
-		wp_enqueue_script( 'kemet-typography', $uri . 'typography.js', array( 'jquery', 'customize-base' ), KEMET_THEME_VERSION, true );
+		wp_enqueue_script( 'wiz-typography', $uri . 'typography.js', array( 'jquery', 'customize-base' ), WIZ_THEME_VERSION, true );
 
-		wp_localize_script( 'kemet-typography', 
-		'kemetTypo',
+		wp_localize_script( 'wiz-typography', 
+		'wizTypo',
 		array(
-			'inherit' => __( 'Inherit', 'kemet' ),
-			'100'     => __( 'Thin 100', 'kemet' ),
-			'200'     => __( 'Extra-Light 200', 'kemet' ),
-			'300'     => __( 'Light 300', 'kemet' ),
-			'400'     => __( 'Normal 400', 'kemet' ),
-			'500'     => __( 'Medium 500', 'kemet' ),
-			'600'     => __( 'Semi-Bold 600', 'kemet' ),
-			'700'     => __( 'Bold 700', 'kemet' ),
-			'800'     => __( 'Extra-Bold 800', 'kemet' ),
-			'900'     => __( 'Ultra-Bold 900', 'kemet' ),
+			'inherit' => __( 'Inherit', 'wiz' ),
+			'100'     => __( 'Thin 100', 'wiz' ),
+			'200'     => __( 'Extra-Light 200', 'wiz' ),
+			'300'     => __( 'Light 300', 'wiz' ),
+			'400'     => __( 'Normal 400', 'wiz' ),
+			'500'     => __( 'Medium 500', 'wiz' ),
+			'600'     => __( 'Semi-Bold 600', 'wiz' ),
+			'700'     => __( 'Bold 700', 'wiz' ),
+			'800'     => __( 'Extra-Bold 800', 'wiz' ),
+			'900'     => __( 'Ultra-Bold 900', 'wiz' ),
 		)
 	 );
 
@@ -107,12 +107,12 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 
 		switch ( $this->type ) {
 
-			case 'kmt-font-family':
-				$this->render_font( $this->kmt_inherit );
+			case 'wiz-font-family':
+				$this->render_font( $this->wiz_inherit );
 				break;
 
-			case 'kmt-font-weight':
-				$this->render_font_weight( $this->kmt_inherit );
+			case 'wiz-font-weight':
+				$this->render_font_weight( $this->wiz_inherit );
 				break;
 		}
 	}
@@ -143,14 +143,14 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	protected function render_connect_attribute() {
 		if ( $this->connect ) {
 			echo ' data-connected-control="' . esc_attr( $this->connect ) . '"';
-			echo ' data-inherit="' . esc_attr( $this->kmt_inherit ) . '"';
+			echo ' data-inherit="' . esc_attr( $this->wiz_inherit ) . '"';
 		}
 	}
 
 	/**
 	 * Renders a font control.
 	 *
-	 * @since 1.0.0 Added the action 'kemet_customizer_font_list' to support custom fonts.
+	 * @since 1.0.0 Added the action 'wiz_customizer_font_list' to support custom fonts.
 	 * @since 1.0.0
 	 * @param  string $default Inherit/Default.
 	 * @access protected
@@ -166,18 +166,18 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 		echo '<option value="inherit" ' . selected( 'inherit', $this->value(), false ) . '>' . esc_attr( $default ) . '</option>';
 		echo '<optgroup label="Other System Fonts">';
 
-		foreach ( Kemet_Font_Families::get_system_fonts() as $name => $variants ) {
+		foreach ( Wiz_Font_Families::get_system_fonts() as $name => $variants ) {
 			echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 
 		// Add Custom Font List Into Customizer.
-		do_action( 'kemet_customizer_font_list', $this->value() );
+		do_action( 'wiz_customizer_font_list', $this->value() );
 
 		echo '<optgroup label="Google">';
 
-		foreach ( Kemet_Font_Families::get_google_fonts() as $name => $single_font ) {
-			$variants = kemet_prop( $single_font, '0' );
-			$category = kemet_prop( $single_font, '1' );
+		foreach ( Wiz_Font_Families::get_google_fonts() as $name => $single_font ) {
+			$variants = wiz_prop( $single_font, '0' );
+			$category = wiz_prop( $single_font, '1' );
 			echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
 		}
 

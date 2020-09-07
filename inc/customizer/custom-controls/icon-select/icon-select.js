@@ -3,9 +3,9 @@
  *
  * Handles Icon Select
  *
- * @package Kemet
+ * @package Wiz
  */
-wp.customize.controlConstructor['kmt-icon-select'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['wiz-icon-select'] = wp.customize.Control.extend({
 
     ready: function () {
 

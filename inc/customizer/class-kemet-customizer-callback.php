@@ -1,19 +1,19 @@
 <?php
 /**
- * Kemet Theme Customizer Callback
+ * Wiz Theme Customizer Callback
  *
- * @package Kemet Theme
+ * @package Wiz Theme
  */
 
 /**
  * Customizer Callback
  */
-if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
+if ( ! class_exists( 'Wiz_Customizer_Callback' ) ) :
 
 	/**
 	 * Customizer Callback
 	 */
-	class Kemet_Customizer_Callback {
+	class Wiz_Customizer_Callback {
 
 		/**
 		 * Sidebar Archive

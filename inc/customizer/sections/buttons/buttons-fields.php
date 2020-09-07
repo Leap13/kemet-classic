@@ -1,26 +1,26 @@
 <?php
 /**
-* Buttons for Kemet Theme.
+* Buttons for Wiz Theme.
 *
-* @package     Kemet
-* @author      Kemet
-* @copyright   Copyright ( c ) 2019, Kemet
-* @link        https://kemet.io/
-* @since       Kemet 1.0.0
+* @package     Wiz
+* @author      Wiz
+* @copyright   Copyright ( c ) 2019, Wiz
+* @link        https://wiz.io/
+* @since       Wiz 1.0.0
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-$defaults = Kemet_Theme_Options::defaults();
+$defaults = Wiz_Theme_Options::defaults();
 /**
 * Option: Title
 */
 $wp_customize->add_control(
-    new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-buttons]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Buttons Style', 'kemet' ),
+    new Wiz_Control_Title(
+        $wp_customize, WIZ_THEME_SETTINGS . '[wiz-buttons]', array(
+            'type'     => 'wiz-title',
+            'label'    => __( 'Buttons Style', 'wiz' ),
             'section'  => 'section-buttons-fields',
             'priority' => 1,
             'settings' => array(),
@@ -31,20 +31,20 @@ $wp_customize->add_control(
 * Option: Blog - Buttons Font Size
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
+    WIZ_THEME_SETTINGS . '[buttons-font-size]', array(
         'default'           => $defaults[ 'buttons-font-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[buttons-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[buttons-font-size]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 2,
-            'label'          => __( 'Buttons Font Size', 'kemet' ),
+            'label'          => __( 'Buttons Font Size', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 1,
@@ -64,17 +64,17 @@ $wp_customize->add_control(
 * Option: Button Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-color]', array(
+    WIZ_THEME_SETTINGS . '[button-color]', array(
         'default'           => $defaults[ 'button-color' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Color', 'kemet' ),
+            'label'   => __( 'Text Color', 'wiz' ),
             'priority'    => 5,
         )
     )
@@ -83,17 +83,17 @@ $wp_customize->add_control(
 * Option: Button Background Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-bg-color]', array(
+    WIZ_THEME_SETTINGS . '[button-bg-color]', array(
         'default'           => $defaults[ 'button-bg-color' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-bg-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Color', 'kemet' ),
+            'label'   => __( 'Background Color', 'wiz' ),
             'priority'    => 10,
         )
     )
@@ -102,17 +102,17 @@ $wp_customize->add_control(
 * Option: Button Hover Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-h-color]', array(
+    WIZ_THEME_SETTINGS . '[button-h-color]', array(
         'default'           => $defaults[ 'button-h-color' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-h-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-h-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Hover Color', 'kemet' ),
+            'label'   => __( 'Text Hover Color', 'wiz' ),
             'priority'    => 15,
         )
     )
@@ -122,17 +122,17 @@ $wp_customize->add_control(
 * Option: Button Background Hover Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
+    WIZ_THEME_SETTINGS . '[button-bg-h-color]', array(
         'default'           => $defaults[ 'button-bg-h-color' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-bg-h-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Hover Color', 'kemet' ),
+            'label'   => __( 'Background Hover Color', 'wiz' ),
             'priority'    => 20,
         )
     )
@@ -141,20 +141,20 @@ $wp_customize->add_control(
 * Option: Button Radius
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-radius]', array(
+    WIZ_THEME_SETTINGS . '[button-radius]', array(
         'default'           => $defaults['button-radius'],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-radius]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-radius]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 25,
-            'label'          => __( 'Border Radius', 'kemet' ),
+            'label'          => __( 'Border Radius', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 0,
@@ -179,20 +179,20 @@ $wp_customize->add_control(
 * Option: Button Border Size
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[btn-border-size]', array(
+    WIZ_THEME_SETTINGS . '[btn-border-size]', array(
         'default'           => $defaults[ 'btn-border-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_number' ),
     )
 );
 $wp_customize->add_control(
-		new Kemet_Control_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[btn-border-size]', array(
-				'type'        => 'kmt-slider',
+		new Wiz_Control_Slider(
+			$wp_customize, WIZ_THEME_SETTINGS . '[btn-border-size]', array(
+				'type'        => 'wiz-slider',
 				'section'     => 'section-buttons-fields',
 				'priority'    => 30,
-				'label'       => __( 'Border Size', 'kemet' ),
+				'label'       => __( 'Border Size', 'wiz' ),
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
@@ -205,18 +205,18 @@ $wp_customize->add_control(
 * Option: Button Border Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[btn-border-color]', array(
+    WIZ_THEME_SETTINGS . '[btn-border-color]', array(
         'default'           => $defaults[ 'btn-border-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[btn-border-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Color', 'kemet' ),
+            'label'   => __( 'Border Color', 'wiz' ),
             'priority'    => 35,
         )
     )
@@ -226,18 +226,18 @@ $wp_customize->add_control(
 * Option: Button Border Hover color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[btn-border-h-color]', array(
+    WIZ_THEME_SETTINGS . '[btn-border-h-color]', array(
         'default'           => $defaults['btn-border-h-color'],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-h-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[btn-border-h-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Hover color', 'kemet' ),
+            'label'   => __( 'Border Hover color', 'wiz' ),
             'priority'    => 40,
         )
     )
@@ -247,27 +247,27 @@ $wp_customize->add_control(
 * Option - Button Spacing
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-spacing]', array(
+    WIZ_THEME_SETTINGS . '[button-spacing]', array(
         'default'           => $defaults[ 'button-spacing' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Spacing(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-spacing]', array(
-            'type'           => 'kmt-responsive-spacing',
+    new Wiz_Control_Responsive_Spacing(
+        $wp_customize, WIZ_THEME_SETTINGS . '[button-spacing]', array(
+            'type'           => 'wiz-responsive-spacing',
             'section'        => 'section-buttons-fields',
             'priority'       => 45,
-            'label'          => __( 'Padding', 'kemet' ),
+            'label'          => __( 'Padding', 'wiz' ),
             'linked_choices' => true,
             'unit_choices'   => array( 'px', 'em', '%' ),
             'choices'        => array(
-                'top'    => __( 'Top', 'kemet' ),
-                'right'  => __( 'Right', 'kemet' ),
-                'bottom' => __( 'Bottom', 'kemet' ),
-                'left'   => __( 'Left', 'kemet' ),
+                'top'    => __( 'Top', 'wiz' ),
+                'right'  => __( 'Right', 'wiz' ),
+                'bottom' => __( 'Bottom', 'wiz' ),
+                'left'   => __( 'Left', 'wiz' ),
             ),
         )
     )
@@ -276,10 +276,10 @@ $wp_customize->add_control(
 * Option: Title
 */
 $wp_customize->add_control(
-    new Kemet_Control_Title(
-        $wp_customize, KEMET_THEME_SETTINGS . '[kmt-input-color]', array(
-            'type'     => 'kmt-title',
-            'label'    => __( 'Input Fields Style', 'kemet' ),
+    new Wiz_Control_Title(
+        $wp_customize, WIZ_THEME_SETTINGS . '[wiz-input-color]', array(
+            'type'     => 'wiz-title',
+            'label'    => __( 'Input Fields Style', 'wiz' ),
             'section'  => 'section-buttons-fields',
             'priority' => 50,
             'settings' => array(),
@@ -291,18 +291,18 @@ $wp_customize->add_control(
 * Option: Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-text-color]', array(
+    WIZ_THEME_SETTINGS . '[input-text-color]', array(
         'default'           => $defaults[ 'input-text-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-text-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-text-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Color', 'kemet' ),
+            'label'   => __( 'Text Color', 'wiz' ),
             'priority'    => 55,
         )
     )
@@ -312,18 +312,18 @@ $wp_customize->add_control(
 * Option: Background Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-bg-color]', array(
+    WIZ_THEME_SETTINGS . '[input-bg-color]', array(
         'default'           => $defaults[ 'input-bg-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-bg-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-bg-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Color', 'kemet' ),
+            'label'   => __( 'Background Color', 'wiz' ),
             'priority'    => 60,
         )
     )
@@ -332,20 +332,20 @@ $wp_customize->add_control(
 * Option: Input Radius
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-radius]', array(
+    WIZ_THEME_SETTINGS . '[input-radius]', array(
         'default'           => $defaults['input-radius'],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-radius]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-radius]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 65,
-            'label'          => __( 'Border Radius', 'kemet' ),
+            'label'          => __( 'Border Radius', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 0,
@@ -370,20 +370,20 @@ $wp_customize->add_control(
 * Option: Input Border Size
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-border-size]', array(
+    WIZ_THEME_SETTINGS . '[input-border-size]', array(
         'default'           => $defaults[ 'input-border-size' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-border-size]', array(
-            'type'           => 'kmt-responsive-slider',
+    new Wiz_Control_Responsive_Slider(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-border-size]', array(
+            'type'           => 'wiz-responsive-slider',
             'section'        => 'section-buttons-fields',
             'priority'       => 70,
-            'label'          => __( 'Border Size', 'kemet' ),
+            'label'          => __( 'Border Size', 'wiz' ),
             'unit_choices'   => array(
                 'px' => array(
                     'min' => 0,
@@ -408,18 +408,18 @@ $wp_customize->add_control(
 * Option: Border Color
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-border-color]', array(
+    WIZ_THEME_SETTINGS . '[input-border-color]', array(
         'default'           => $defaults[ 'input-border-color' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_alpha_color' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-border-color]', array(
+    new Wiz_Control_Color(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-border-color]', array(
             'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Color', 'kemet' ),
+            'label'   => __( 'Border Color', 'wiz' ),
             'priority'    => 75,
         )
     )
@@ -429,27 +429,27 @@ $wp_customize->add_control(
 * Option - Button Spacing
 */
 $wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-spacing]', array(
+    WIZ_THEME_SETTINGS . '[input-spacing]', array(
         'default'           => $defaults[ 'input-spacing' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+        'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
     )
 );
 $wp_customize->add_control(
-    new Kemet_Control_Responsive_Spacing(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-spacing]', array(
-            'type'           => 'kmt-responsive-spacing',
+    new Wiz_Control_Responsive_Spacing(
+        $wp_customize, WIZ_THEME_SETTINGS . '[input-spacing]', array(
+            'type'           => 'wiz-responsive-spacing',
             'section'        => 'section-buttons-fields',
             'priority'       => 85,
-            'label'          => __( 'Padding', 'kemet' ),
+            'label'          => __( 'Padding', 'wiz' ),
             'linked_choices' => true,
             'unit_choices'   => array( 'px', 'em', '%' ),
             'choices'        => array(
-                'top'    => __( 'Top', 'kemet' ),
-                'right'  => __( 'Right', 'kemet' ),
-                'bottom' => __( 'Bottom', 'kemet' ),
-                'left'   => __( 'Left', 'kemet' ),
+                'top'    => __( 'Top', 'wiz' ),
+                'right'  => __( 'Right', 'wiz' ),
+                'bottom' => __( 'Bottom', 'wiz' ),
+                'left'   => __( 'Left', 'wiz' ),
             ),
         )
     )

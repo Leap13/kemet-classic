@@ -3,10 +3,10 @@
  *
  * Handles the responsive
  *
- * @package Kemet
+ * @package Wiz
  */
 
-wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['wiz-responsive-select'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing.
 	ready: function () {
@@ -16,12 +16,12 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 		var control = this,
 			value;
 
-		control.kmtResponsiveInit();
+		control.wizResponsiveInit();
 
 		/**
 		 * Save on change / keyup / paste
 		 */
-		this.container.on('change keyup paste', 'select.kmt-responsive-select', function () {
+		this.container.on('change keyup paste', 'select.wiz-responsive-select', function () {
 
 			value = jQuery(this).val();
 
@@ -55,9 +55,9 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 			newValue = {};
 
 		// Set the spacing container.
-		control.responsiveContainer = control.container.find('.kmt-responsive-wrapper').first();
+		control.responsiveContainer = control.container.find('.wiz-responsive-wrapper').first();
 
-		control.responsiveContainer.find('select.kmt-responsive-select').each(function () {
+		control.responsiveContainer.find('select.wiz-responsive-select').each(function () {
 			var responsive_input = jQuery(this),
 				item = responsive_input.data('id'),
 				item_value = responsive_input.val();
@@ -68,13 +68,13 @@ wp.customize.controlConstructor['kmt-responsive-select'] = wp.customize.Control.
 		control.setting.set(newValue);
 	},
 
-	kmtResponsiveInit: function () {
+	wizResponsiveInit: function () {
 
 		'use strict';
 
 		var control = this;
 
-		this.container.on('click', '.kmt-responsive-slider-btns button', function (event) {
+		this.container.on('click', '.wiz-responsive-slider-btns button', function (event) {
 
 			event.preventDefault();
 
@@ -97,6 +97,6 @@ jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
 
 	var device = jQuery(this).attr('data-device');
 
-	jQuery('.customize-control-kmt-responsive-select .input-wrapper select, .customize-control .kmt-responsive-btns > li').removeClass('active');
-	jQuery('.customize-control-kmt-responsive-select .input-wrapper select.' + device + ', .customize-control .kmt-responsive-btns > li.' + device).addClass('active');
+	jQuery('.customize-control-wiz-responsive-select .input-wrapper select, .customize-control .wiz-responsive-btns > li').removeClass('active');
+	jQuery('.customize-control-wiz-responsive-select .input-wrapper select.' + device + ', .customize-control .wiz-responsive-btns > li.' + device).addClass('active');
 });

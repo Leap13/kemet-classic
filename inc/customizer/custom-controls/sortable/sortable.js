@@ -3,10 +3,10 @@
  *
  * Handles sortable list
  *
- * @package Kemet
+ * @package Wiz
  */
 
-	wp.customize.controlConstructor['kmt-sortable'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['wiz-sortable'] = wp.customize.Control.extend({
 
 		ready: function() {
 

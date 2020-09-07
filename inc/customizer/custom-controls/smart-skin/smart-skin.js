@@ -3,10 +3,10 @@
  *
  * Handles the smart-skin
  *
- * @package Kemet
+ * @package Wiz
  */
 
-wp.customize.controlConstructor['kmt-smart-skin'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['wiz-smart-skin'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing.
 	ready: function () {

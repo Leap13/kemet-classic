@@ -2,10 +2,10 @@
 /**
  * Customizer Control: sortable.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Kemet_Control_Sortable extends WP_Customize_Control {
+class Wiz_Control_Sortable extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,7 +25,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-sortable';
+	public $type = 'wiz-sortable';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -66,7 +66,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='kmt-sortable'>
+		<label class='wiz-sortable'>
 			<span class="customize-control-title">
 				{{{ data.label }}}
 			</span>
@@ -76,7 +76,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 
 			<ul class="sortable">
 				<# _.each( data.value, function( choiceID ) { #>
-					<li {{{ data.inputAttrs }}} class='kmt-sortable-item' data-value='{{ choiceID }}'>
+					<li {{{ data.inputAttrs }}} class='wiz-sortable-item' data-value='{{ choiceID }}'>
 						<i class='dashicons dashicons-menu'></i>
 						<i class="dashicons dashicons-visibility visibility"></i>
 						{{{ data.choices[ choiceID ] }}}
@@ -84,7 +84,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
 					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-						<li {{{ data.inputAttrs }}} class='kmt-sortable-item invisible' data-value='{{ choiceID }}'>
+						<li {{{ data.inputAttrs }}} class='wiz-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}

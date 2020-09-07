@@ -4,7 +4,7 @@
  *
  * Handles Typography of the site
  *
- * @package Kemet
+ * @package Wiz
  */
 
 (function ($) {
@@ -34,8 +34,8 @@
 		 * @method _initFonts
 		 */
 		_initFonts: function () {
-			$('.customize-control-kmt-font-family select').each(KmtTypography._initFont);
-			$('.customize-control-kmt-font-family select').selectWoo();
+			$('.customize-control-wiz-font-family select').each(KmtTypography._initFont);
+			$('.customize-control-wiz-font-family select').selectWoo();
 		},
 
 		/**
@@ -113,7 +113,7 @@
 				inheritWeightObject = ['inherit'],
 				weightObject = ['400', '600'],
 				weightOptions = '',
-				weightMap = kemetTypo;
+				weightMap = wizTypo;
 			if (fontValue == 'inherit') {
 				weightValue = init ? weightSelect.val() : 'inherit';
 			}
@@ -159,7 +159,7 @@
 	$(function () { KmtTypography.init(); });
 	$(function () {
 		//Inline Style
-		var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-kmt-font-weight');
+		var font_weight_controls = jQuery('#customize-theme-controls').find('.customize-control-wiz-font-weight');
 		font_weight_controls.each(function () {
 			var font_weight_control = jQuery(this);
 			var font_tranform_control = font_weight_control.next('.customize-control-select');

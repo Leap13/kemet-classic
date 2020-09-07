@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 namespace Elementor;
@@ -13,16 +13,16 @@ if ( ! class_exists( '\Elementor\Plugin' ) ) {
 }
 
 /**
- * Kemet Elementor Compatibility
+ * Wiz Elementor Compatibility
  */
-if ( ! class_exists( 'Kemet_Elementor' ) ) :
+if ( ! class_exists( 'Wiz_Elementor' ) ) :
 
 	/**
-	 * Kemet Elementor Compatibility
+	 * Wiz Elementor Compatibility
 	 *
 	 * @since 1.0.5
 	 */
-	class Kemet_Elementor {
+	class Wiz_Elementor {
 
 		/**
 		 * Member Variable
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		 */
 		function enqueue_elementor_compatibility_styles() {
 			?>
-				<style type="text/css" id="kmt-elementor-compatibility-css">
+				<style type="text/css" id="wiz-elementor-compatibility-css">
 					.elementor-widget-heading .elementor-heading-title {
 						margin: 0;
 					}
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 		function elementor_default_setting() {
 
-			if ( false == kemet_enable_page_builder() || 'post' == get_post_type() ) {
+			if ( false == wiz_enable_page_builder() || 'post' == get_post_type() ) {
 				return;
 			}
 
@@ -79,21 +79,21 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 
 			global $post;
-			$id = kemet_get_post_id();
+			$id = wiz_get_post_id();
 			
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
 				
 				if ( $this->is_elementor_activated( $id ) ) {
 
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
+					$meta = get_post_meta( get_the_ID(), 'wiz-content-layout', true ); 
 					if(isset($meta)){
-						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
+						update_post_meta( $id, 'wiz-content-layout', 'page-builder' );
 					}else{
-						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
+						add_post_meta( $id, 'wiz-content-layout', 'page-builder' );
 					}
 					
 					add_filter(
-						'kemet_get_content_layout',
+						'wiz_get_content_layout',
 						function () {
 							return 'page-builder';
 						}
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			}
 
 			?>
-			<style type="text/css" id="kmt-elementor-overlay-css">
+			<style type="text/css" id="wiz-elementor-overlay-css">
 				.elementor-editor-active .elementor-element > .elementor-element-overlay {
 					z-index: 9999;
 				}
@@ -145,4 +145,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Elementor::get_instance();
+Wiz_Elementor::get_instance();

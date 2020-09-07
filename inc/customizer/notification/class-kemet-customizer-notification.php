@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.4
  */
-if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
+if ( ! class_exists( 'Wiz_Customizer_Notification' ) ) {
 
 	/**
-	 * Kemet_Customizer_Notification Initial setup
+	 * Wiz_Customizer_Notification Initial setup
 	 */
-	class Kemet_Customizer_Notification extends WP_Customize_Section {
+	class Wiz_Customizer_Notification extends WP_Customize_Section {
 
 		/**
 		 * The type of customize section being rendered.
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $type = 'kemet-customizer-notification';
+		public $type = 'wiz-customizer-notification';
 
 		/**
 		 * Custom pro button URL.
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
          * @return bool
          */
         public function create_plugin_install_button( $slug ) {
-            return Kemet_Notification_Helper::get_btn_html( $slug );
+            return Wiz_Notification_Helper::get_btn_html( $slug );
         }
     
 		/**
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 			?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-defaul" >
 			
-			<div class="kmt-notification">
+			<div class="wiz-notification">
 				<h3 class="section-title">
 					{{ data.title }}
 				</h3>
@@ -93,9 +93,9 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
          */
         public function enqueue() {
 
-        $uri = KEMET_THEME_URI . 'inc/customizer/notification/';
+        $uri = WIZ_THEME_URI . 'inc/customizer/notification/';
 		
-		wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
+		wp_enqueue_script( 'wiz-customizer-notification', $uri . 'notification-helper.js', array(), WIZ_THEME_VERSION, true );
         }
 	}
 

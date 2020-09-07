@@ -2,10 +2,10 @@
 /**
  * Customizer Control: title
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * A text control with validation for CSS units.
  */
-class Kemet_Control_Title extends WP_Customize_Control {
+class Wiz_Control_Title extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,7 +25,7 @@ class Kemet_Control_Title extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-title';
+	public $type = 'wiz-title';
 
 	/**
 	 * The control type.

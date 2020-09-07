@@ -2,11 +2,11 @@
 /**
  * Customizer Partial.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
- * @since       Kemet 1.0.0
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
+ * @since       Wiz 1.0.0
  */
 
 // No direct access, please.
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
+if ( ! class_exists( 'Wiz_Customizer_Partials' ) ) {
 
 	/**
 	 * Customizer Partials initial setup
 	 */
-	class Kemet_Customizer_Partials {
+	class Wiz_Customizer_Partials {
 
 		/**
 		 * Instance
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_partial_site_tagline() {
 
-			$site_tagline = kemet_get_option( 'display-site-tagline' );
+			$site_tagline = wiz_get_option( 'display-site-tagline' );
 
 			if ( true == $site_tagline ) {
 				return get_bloginfo( 'description', 'display' );
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_partial_site_title() {
 
-			$site_title = kemet_get_option( 'display-site-title' );
+			$site_title = wiz_get_option( 'display-site-title' );
 
 			if ( true == $site_title ) {
 				return get_bloginfo( 'name', 'display' );
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_header_main_rt_section_html() {
 
-			$right_section_html = kemet_get_option( 'header-main-rt-section-html' );
+			$right_section_html = wiz_get_option( 'header-main-rt-section-html' );
 
 			return do_shortcode( $right_section_html );
 		}
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_copyright_section_1_part() {
 
-			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-1-part' );
+			$output = wiz_get_copyright_footer_custom_text( 'footer-copyright-section-1-part' );
 			return do_shortcode( $output );
 		}
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		static function _render_footer_copyright_section_2_part() {
 
-			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-2-part' );
+			$output = wiz_get_copyright_footer_custom_text( 'footer-copyright-section-2-part' );
 			return do_shortcode( $output );
 		}
 	}
@@ -120,4 +120,4 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Customizer_Partials::get_instance();
+Wiz_Customizer_Partials::get_instance();

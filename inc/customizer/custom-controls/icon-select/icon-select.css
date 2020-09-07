@@ -1,4 +1,4 @@
-.customize-control-kmt-icon-select .icon-select 
+.customize-control-wiz-icon-select .icon-select 
 { 
   display: -webkit-box; 
   display: -ms-flexbox; 
@@ -7,7 +7,7 @@
   flex-wrap: wrap; 
   max-height: 216px; 
 }
-.customize-control-kmt-icon-select .icon-select label { 
+.customize-control-wiz-icon-select .icon-select label { 
   display: -webkit-box; 
   display: -ms-flexbox; 
   display: flex; 
@@ -16,10 +16,10 @@
   -moz-box-sizing: border-box; 
   box-sizing: border-box; 
 }
-.customize-control-kmt-icon-select .icon-select .icon-select-input { 
+.customize-control-wiz-icon-select .icon-select .icon-select-input { 
   display: none; 
 }
-.customize-control-kmt-icon-select .icon-select .icon-select-label { 
+.customize-control-wiz-icon-select .icon-select .icon-select-label { 
   display: block; 
   width: 100%; 
   background-color: #fff; 
@@ -29,11 +29,11 @@
   padding: 5px; 
   text-align: center; 
   }
-.customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
-.customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
+.customize-control-wiz-icon-select .icon-select .icon-select-label:hover,
+.customize-control-wiz-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
   color: #1e8cbe; 
   border-color: #f1f1f1; 
 }
-.customize-control-kmt-icon-select .icon-select.rtl{
+.customize-control-wiz-icon-select .icon-select.rtl{
       flex-direction: row-reverse;
 }

@@ -1,10 +1,10 @@
-/* global kemetCustomizerControlBackground */
+/* global wizCustomizerControlBackground */
 
 jQuery(window).on("load", function () {
 	jQuery('html').addClass('background-colorpicker-ready');
 });
 
-wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['wiz-background'] = wp.customize.Control.extend({
 
 	// When we're finished loading continue processing
 	ready: function () {
@@ -29,7 +29,7 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 				'background-attachment': "scroll",
 			},
 			value = control.setting._value != '' ? control.setting._value : defaults,
-			picker = control.container.find('.kmt-color-control');
+			picker = control.container.find('.wiz-color-control');
 		
 		// Hide unnecessary controls if the value doesn't have an image.
 		if (_.isUndefined(value['background-image']) || '' === value['background-image']) {
@@ -117,7 +117,7 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 				if ('' !== imageUrl) {
 					control.container.find('.background-wrapper > .background-repeat, .background-wrapper > .background-position, .background-wrapper > .background-size, .background-wrapper > .background-attachment').show();
 					control.container.find('.more-settings').attr('data-direction', 'up');
-					control.container.find('.message').html(kemetCustomizerControlBackground.lessSettings)
+					control.container.find('.message').html(wizCustomizerControlBackground.lessSettings)
 				}
 
 				value['background-image'] = imageUrl;
@@ -156,10 +156,10 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 			control.container.find('.background-wrapper > .background-attachment').hide();
 
 			control.container.find('.more-settings').attr('data-direction', 'down');
-			control.container.find('.more-settings').find('.message').html(kemetCustomizerControlBackground.moreSettings);
+			control.container.find('.more-settings').find('.message').html(wizCustomizerControlBackground.moreSettings);
 
 			if (preview.length) {
-				preview.removeClass().addClass('placeholder').html(kemetCustomizerControlBackground.placeholder);
+				preview.removeClass().addClass('placeholder').html(wizCustomizerControlBackground.placeholder);
 			}
 			if (removeButton.length) {
 				removeButton.hide();
@@ -177,10 +177,10 @@ wp.customize.controlConstructor['kmt-background'] = wp.customize.Control.extend(
 
 			if ('down' === $this.attr('data-direction')) {
 				$this.attr('data-direction', 'up');
-				$this.find('.message').html(kemetCustomizerControlBackground.lessSettings)
+				$this.find('.message').html(wizCustomizerControlBackground.lessSettings)
 			} else {
 				$this.attr('data-direction', 'down');
-				$this.find('.message').html(kemetCustomizerControlBackground.moreSettings)
+				$this.find('.message').html(wizCustomizerControlBackground.moreSettings)
 			}
 		});
 	},

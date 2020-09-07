@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 namespace Elementor;
@@ -19,16 +19,16 @@ use ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager;
 use ElementorPro\Modules\ThemeBuilder\Module;
 
 /**
- * Kemet Elementor Compatibility
+ * Wiz Elementor Compatibility
  */
-if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
+if ( ! class_exists( 'Wiz_Elementor_Pro' ) ) :
 
 	/**
-	 * Kemet Elementor Compatibility
+	 * Wiz Elementor Compatibility
 	 *
 	 * @since 1.0.6
 	 */
-	class Kemet_Elementor_Pro {
+	class Wiz_Elementor_Pro {
 
 		/**
 		 * Member Variable
@@ -52,11 +52,11 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		 */
 		function __construct() {
             add_action( 'elementor/theme/register_locations', array($this , 'register_elementor_locations') );
-            add_action( 'kemet_header', array( $this, 'replace_header' ), 0 );
-            add_action( 'kemet_footer', array( $this, 'replace_footer' ), 0 );
+            add_action( 'wiz_header', array( $this, 'replace_header' ), 0 );
+            add_action( 'wiz_footer', array( $this, 'replace_footer' ), 0 );
             add_filter( 'post_class', array( $this, 'remove_theme_post_class' ), 99 );
-            add_action( 'kemet_404_page', array( $this, 'replace_template_part_404' ), 0 );
-            add_action( 'kemet_template_parts_content_top', array( $this, 'replace_template_parts' ), 0 );
+            add_action( 'wiz_404_page', array( $this, 'replace_template_part_404' ), 0 );
+            add_action( 'wiz_template_parts_content_top', array( $this, 'replace_template_parts' ), 0 );
 		}
 
         /**
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		public function replace_header() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'header' );
 			if ( $did_location ) {
-				remove_action( 'kemet_header', 'kemet_header_markup' );
+				remove_action( 'wiz_header', 'wiz_header_markup' );
 			}
 		}
 
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
             $did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
             
 			if ( $did_location ) {
-				remove_action( 'kemet_footer', 'kemet_footer_markup' );
+				remove_action( 'wiz_footer', 'wiz_footer_markup' );
 			}
 		}
 
@@ -105,70 +105,70 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 				$classes = array_diff(
 					$classes,
 					array(
-						// Kemet common grid.
-						'kmt-col-xs-1',
-						'kmt-col-xs-2',
-						'kmt-col-xs-3',
-						'kmt-col-xs-4',
-						'kmt-col-xs-5',
-						'kmt-col-xs-6',
-						'kmt-col-xs-7',
-						'kmt-col-xs-8',
-						'kmt-col-xs-9',
-						'kmt-col-xs-10',
-						'kmt-col-xs-11',
-						'kmt-col-xs-12',
-						'kmt-col-sm-1',
-						'kmt-col-sm-2',
-						'kmt-col-sm-3',
-						'kmt-col-sm-4',
-						'kmt-col-sm-5',
-						'kmt-col-sm-6',
-						'kmt-col-sm-7',
-						'kmt-col-sm-8',
-						'kmt-col-sm-9',
-						'kmt-col-sm-10',
-						'kmt-col-sm-11',
-						'kmt-col-sm-12',
-						'kmt-col-md-1',
-						'kmt-col-md-2',
-						'kmt-col-md-3',
-						'kmt-col-md-4',
-						'kmt-col-md-5',
-						'kmt-col-md-6',
-						'kmt-col-md-7',
-						'kmt-col-md-8',
-						'kmt-col-md-9',
-						'kmt-col-md-10',
-						'kmt-col-md-11',
-						'kmt-col-md-12',
-						'kmt-col-lg-1',
-						'kmt-col-lg-2',
-						'kmt-col-lg-3',
-						'kmt-col-lg-4',
-						'kmt-col-lg-5',
-						'kmt-col-lg-6',
-						'kmt-col-lg-7',
-						'kmt-col-lg-8',
-						'kmt-col-lg-9',
-						'kmt-col-lg-10',
-						'kmt-col-lg-11',
-						'kmt-col-lg-12',
-						'kmt-col-xl-1',
-						'kmt-col-xl-2',
-						'kmt-col-xl-3',
-						'kmt-col-xl-4',
-						'kmt-col-xl-5',
-						'kmt-col-xl-6',
-						'kmt-col-xl-7',
-						'kmt-col-xl-8',
-						'kmt-col-xl-9',
-						'kmt-col-xl-10',
-						'kmt-col-xl-11',
-                        'kmt-col-xl-12',
-                        // Kemet Blog / Single Post.
-						'kmt-article-post',
-						'kmt-article-single',
+						// Wiz common grid.
+						'wiz-col-xs-1',
+						'wiz-col-xs-2',
+						'wiz-col-xs-3',
+						'wiz-col-xs-4',
+						'wiz-col-xs-5',
+						'wiz-col-xs-6',
+						'wiz-col-xs-7',
+						'wiz-col-xs-8',
+						'wiz-col-xs-9',
+						'wiz-col-xs-10',
+						'wiz-col-xs-11',
+						'wiz-col-xs-12',
+						'wiz-col-sm-1',
+						'wiz-col-sm-2',
+						'wiz-col-sm-3',
+						'wiz-col-sm-4',
+						'wiz-col-sm-5',
+						'wiz-col-sm-6',
+						'wiz-col-sm-7',
+						'wiz-col-sm-8',
+						'wiz-col-sm-9',
+						'wiz-col-sm-10',
+						'wiz-col-sm-11',
+						'wiz-col-sm-12',
+						'wiz-col-md-1',
+						'wiz-col-md-2',
+						'wiz-col-md-3',
+						'wiz-col-md-4',
+						'wiz-col-md-5',
+						'wiz-col-md-6',
+						'wiz-col-md-7',
+						'wiz-col-md-8',
+						'wiz-col-md-9',
+						'wiz-col-md-10',
+						'wiz-col-md-11',
+						'wiz-col-md-12',
+						'wiz-col-lg-1',
+						'wiz-col-lg-2',
+						'wiz-col-lg-3',
+						'wiz-col-lg-4',
+						'wiz-col-lg-5',
+						'wiz-col-lg-6',
+						'wiz-col-lg-7',
+						'wiz-col-lg-8',
+						'wiz-col-lg-9',
+						'wiz-col-lg-10',
+						'wiz-col-lg-11',
+						'wiz-col-lg-12',
+						'wiz-col-xl-1',
+						'wiz-col-xl-2',
+						'wiz-col-xl-3',
+						'wiz-col-xl-4',
+						'wiz-col-xl-5',
+						'wiz-col-xl-6',
+						'wiz-col-xl-7',
+						'wiz-col-xl-8',
+						'wiz-col-xl-9',
+						'wiz-col-xl-10',
+						'wiz-col-xl-11',
+                        'wiz-col-xl-12',
+                        // Wiz Blog / Single Post.
+						'wiz-article-post',
+						'wiz-article-single',
                     )
 				);
 			}
@@ -187,7 +187,7 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 				// Is Single?
 				$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 				if ( $did_location ) {
-					remove_action( 'kemet_404_page', 'kemet_404_page_template' );
+					remove_action( 'wiz_404_page', 'wiz_404_page_template' );
 				}
 			}
         }
@@ -201,15 +201,15 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			
 			if ( $did_location ) {
 				// Search and default.
-				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_search' ) );
-				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_default' ) );
+				remove_action( 'wiz_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_search' ) );
+				remove_action( 'wiz_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_default' ) );
 
 				// Remove pagination.
-				remove_action( 'kemet_pagination', 'kemet_number_pagination' );
-				remove_action( 'kemet_entry_after', 'kemet_single_post_navigation_markup' );
+				remove_action( 'wiz_pagination', 'wiz_number_pagination' );
+				remove_action( 'wiz_entry_after', 'wiz_single_post_navigation_markup' );
 
 				// Content.
-				remove_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
+				remove_action( 'wiz_entry_content_single', 'wiz_entry_content_single_template' );
 			}
 
 			// IS Single?
@@ -217,10 +217,10 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			
 			if ( $did_location ) {
                 
-				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
-				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_page' ) );
-				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_post' ) );
-                remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'wiz_page_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'wiz_page_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_page' ) );
+				remove_action( 'wiz_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_post' ) );
+                remove_action( 'wiz_template_parts_content', array( \Wiz_Loop::get_instance(), 'template_parts_comments' ), 15 );
             }
         }
 	}
@@ -230,4 +230,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Elementor_Pro::get_instance();
+Wiz_Elementor_Pro::get_instance();

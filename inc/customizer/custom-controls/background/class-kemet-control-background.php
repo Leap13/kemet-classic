@@ -4,22 +4,22 @@
  *
  * Creates a jQuery background control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
 /**
  * Field overrides.
  */
-if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Wiz_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
 	 * Background Control
 	 */
-	class Kemet_Control_Background extends WP_Customize_Control {
+	class Wiz_Control_Background extends WP_Customize_Control {
 
 		/**
 		 * The control type.
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 		 * @access public
 		 * @var string
 		 */
-		public $type = 'kmt-background';
+		public $type = 'wiz-background';
 
 		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
@@ -72,14 +72,14 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 		 * @access public
 		 */
 		public function enqueue() {
-			$js_uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/background/';
+			$js_uri  = WIZ_THEME_URI . 'inc/customizer/custom-controls/background/';
 
-			wp_enqueue_script( 'kemet-background', $js_uri . 'background.js', array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_script( 'wiz-background', $js_uri . 'background.js', array(), WIZ_THEME_VERSION, true );
 			wp_localize_script(
-				'kemet-background', 'kemetCustomizerControlBackground', array(
-					'placeholder'  => __( 'No file selected', 'kemet' ),
-					'lessSettings' => __( 'Less Settings', 'kemet' ),
-					'moreSettings' => __( 'More Settings', 'kemet' ),
+				'wiz-background', 'wizCustomizerControlBackground', array(
+					'placeholder'  => __( 'No file selected', 'wiz' ),
+					'lessSettings' => __( 'Less Settings', 'wiz' ),
+					'moreSettings' => __( 'More Settings', 'wiz' ),
 				)
 			);
 		}
@@ -104,25 +104,25 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 			
 				<!-- background-color -->
 				<div class="background-color">
-					<h4><?php esc_html_e( 'Background Color', 'kemet' ); ?></h4>
-					<input type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="kmt-color-control"/>
+					<h4><?php esc_html_e( 'Background Color', 'wiz' ); ?></h4>
+					<input type="text" data-default-color="{{ data.default['background-color'] }}" data-alpha="true" value="{{ data.value['background-color'] }}" class="wiz-color-control"/>
 				</div>
 				<!-- background-image -->
 				<div class="background-image">
-					<h4><?php esc_html_e( 'Background Image', 'kemet' ); ?></h4>
+					<h4><?php esc_html_e( 'Background Image', 'wiz' ); ?></h4>
 					<div class="attachment-media-view background-image-upload">
 						<# if ( data.value['background-image'] ) { #>
 							<div class="thumbnail thumbnail-image"><img src="{{ data.value['background-image'] }}" alt="thumbnail-image" /></div>
 						<# } else { #>
-							<div class="placeholder"><?php esc_html_e( 'No File Selected', 'kemet' ); ?></div>
+							<div class="placeholder"><?php esc_html_e( 'No File Selected', 'wiz' ); ?></div>
 						<# } #>
 						<div class="actions">
-							<button class="button background-image-upload-remove-button<# if ( ! data.value['background-image'] ) { #> hidden <# } #>"><?php esc_html_e( 'Remove', 'kemet' ); ?></button>
-							<button type="button" class="button background-image-upload-button"><?php esc_html_e( 'Select File', 'kemet' ); ?></button>
+							<button class="button background-image-upload-remove-button<# if ( ! data.value['background-image'] ) { #> hidden <# } #>"><?php esc_html_e( 'Remove', 'wiz' ); ?></button>
+							<button type="button" class="button background-image-upload-button"><?php esc_html_e( 'Select File', 'wiz' ); ?></button>
 							<# if ( data.value['background-image'] ) { #>
-								<a href="#" class="more-settings" data-direction="up"><span class="message"><?php esc_html_e( 'Less Settings', 'kemet' ); ?></span></a>
+								<a href="#" class="more-settings" data-direction="up"><span class="message"><?php esc_html_e( 'Less Settings', 'wiz' ); ?></span></a>
 							<# } else { #>
-								<a href="#" class="more-settings" data-direction="down"><span class="message"><?php esc_html_e( 'More Settings', 'kemet' ); ?></span></a>
+								<a href="#" class="more-settings" data-direction="down"><span class="message"><?php esc_html_e( 'More Settings', 'wiz' ); ?></span></a>
 							<# } #>
 						</div>
 					</div>
@@ -131,56 +131,56 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 				<!-- background-repeat -->
 				<div class="background-repeat">
 					<select {{{ data.inputAttrs }}}>
-						<option value="no-repeat"<# if ( 'no-repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'No Repeat', 'kemet' ); ?></option>
-						<option value="repeat"<# if ( 'repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat All', 'kemet' ); ?></option>
-						<option value="repeat-x"<# if ( 'repeat-x' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat Horizontally', 'kemet' ); ?></option>
-						<option value="repeat-y"<# if ( 'repeat-y' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat Vertically', 'kemet' ); ?></option>
+						<option value="no-repeat"<# if ( 'no-repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'No Repeat', 'wiz' ); ?></option>
+						<option value="repeat"<# if ( 'repeat' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat All', 'wiz' ); ?></option>
+						<option value="repeat-x"<# if ( 'repeat-x' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat Horizontally', 'wiz' ); ?></option>
+						<option value="repeat-y"<# if ( 'repeat-y' === data.value['background-repeat'] ) { #> selected <# } #>><?php esc_html_e( 'Repeat Vertically', 'wiz' ); ?></option>
 					</select>
 				</div>
 
 				<!-- background-position -->
 				<div class="background-position">
 					<select {{{ data.inputAttrs }}}>
-						<option value="left top"<# if ( 'left top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Top', 'kemet' ); ?></option>
-						<option value="left center"<# if ( 'left center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Center', 'kemet' ); ?></option>
-						<option value="left bottom"<# if ( 'left bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Bottom', 'kemet' ); ?></option>
-						<option value="right top"<# if ( 'right top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Top', 'kemet' ); ?></option>
-						<option value="right center"<# if ( 'right center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Center', 'kemet' ); ?></option>
-						<option value="right bottom"<# if ( 'right bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Bottom', 'kemet' ); ?></option>
-						<option value="center top"<# if ( 'center top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Top', 'kemet' ); ?></option>
-						<option value="center center"<# if ( 'center center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Center', 'kemet' ); ?></option>
-						<option value="center bottom"<# if ( 'center bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Bottom', 'kemet' ); ?></option>
+						<option value="left top"<# if ( 'left top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Top', 'wiz' ); ?></option>
+						<option value="left center"<# if ( 'left center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Center', 'wiz' ); ?></option>
+						<option value="left bottom"<# if ( 'left bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Left Bottom', 'wiz' ); ?></option>
+						<option value="right top"<# if ( 'right top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Top', 'wiz' ); ?></option>
+						<option value="right center"<# if ( 'right center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Center', 'wiz' ); ?></option>
+						<option value="right bottom"<# if ( 'right bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Right Bottom', 'wiz' ); ?></option>
+						<option value="center top"<# if ( 'center top' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Top', 'wiz' ); ?></option>
+						<option value="center center"<# if ( 'center center' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Center', 'wiz' ); ?></option>
+						<option value="center bottom"<# if ( 'center bottom' === data.value['background-position'] ) { #> selected <# } #>><?php esc_html_e( 'Center Bottom', 'wiz' ); ?></option>
 					</select>
 				</div>
 
 				<!-- background-size -->
 				<div class="background-size">
-					<h4><?php esc_html_e( 'Background Size', 'kemet' ); ?></h4>
+					<h4><?php esc_html_e( 'Background Size', 'wiz' ); ?></h4>
 					<div class="buttonset">
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="cover" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}cover" <# if ( 'cover' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'cover' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}cover"><?php esc_html_e( 'Cover', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'cover' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}cover"><?php esc_html_e( 'Cover', 'wiz' ); ?></label>
 						</input>
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="contain" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}contain" <# if ( 'contain' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'contain' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}contain"><?php esc_html_e( 'Contain', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'contain' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}contain"><?php esc_html_e( 'Contain', 'wiz' ); ?></label>
 						</input>
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="auto" name="_customize-bg-{{{ data.id }}}-size" id="{{ data.id }}auto" <# if ( 'auto' === data.value['background-size'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'auto' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}auto"><?php esc_html_e( 'Auto', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'auto' === data.value['background-size'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}auto"><?php esc_html_e( 'Auto', 'wiz' ); ?></label>
 						</input>
 					</div>
 				</div>
 
 				<!-- background-attachment -->
 				<div class="background-attachment">
-					<h4><?php esc_html_e( 'Background Attachment', 'kemet' ); ?></h4>
+					<h4><?php esc_html_e( 'Background Attachment', 'wiz' ); ?></h4>
 					<div class="buttonset">
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="inherit" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}inherit" <# if ( 'inherit' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}inherit"><?php esc_html_e( 'Inherit', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'inherit' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}inherit"><?php esc_html_e( 'Inherit', 'wiz' ); ?></label>
 						</input>
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="scroll" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}scroll" <# if ( 'scroll' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'scroll' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}scroll"><?php esc_html_e( 'Scroll', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'scroll' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}scroll"><?php esc_html_e( 'Scroll', 'wiz' ); ?></label>
 						</input>
 						<input {{{ data.inputAttrs }}} class="switch-input screen-reader-text" type="radio" value="fixed" name="_customize-bg-{{{ data.id }}}-attachment" id="{{ data.id }}fixed" <# if ( 'fixed' === data.value['background-attachment'] ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( 'fixed' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}fixed"><?php esc_html_e( 'Fixed', 'kemet' ); ?></label>
+							<label class="switch-label switch-label-<# if ( 'fixed' === data.value['background-attachment'] ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}fixed"><?php esc_html_e( 'Fixed', 'wiz' ); ?></label>
 						</input>
 					</div>
 				</div>

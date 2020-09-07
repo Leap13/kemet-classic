@@ -2,7 +2,7 @@
 /**
  * Beaver Themer Compatibility File.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 // If plugin - 'Beaver Builder' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'FLThemeBuilderLoader' ) || ! class_exists( 'FLThemeBuilder
 }
 
 /**
- * Kemet Beaver Themer Compatibility
+ * Wiz Beaver Themer Compatibility
  */
-if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
+if ( ! class_exists( 'Wiz_Beaver_Themer' ) ) :
 
 	/**
-	 * Kemet Beaver Themer Compatibility
+	 * Wiz Beaver Themer Compatibility
 	 *
 	 * @since 1.0.6
 	 */
-	class Kemet_Beaver_Themer {
+	class Wiz_Beaver_Themer {
 
 		/**
 		 * Member Variable
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
         
         
 		/**
-		 * Function to update Kemet header/footer with Beaver template
+		 * Function to update Wiz header/footer with Beaver template
 		 *
 		 */
 		public function replace_theme_header_footer() {
@@ -73,8 +73,8 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			// If we have a header, remove the theme header and hook in Theme Builder's.
 			if ( ! empty( $header_ids ) ) {
-				remove_action( 'kemet_header', 'kemet_header_markup' );
-				add_action( 'kemet_header', 'FLThemeBuilderLayoutRenderer::render_header' );
+				remove_action( 'wiz_header', 'wiz_header_markup' );
+				add_action( 'wiz_header', 'FLThemeBuilderLayoutRenderer::render_header' );
 			}
 
 			// Get the footer ID.
@@ -82,8 +82,8 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 
 			// If we have a footer, remove the theme footer and hook in Theme Builder's.
 			if ( ! empty( $footer_ids ) ) {
-				remove_action( 'kemet_footer', 'kemet_footer_markup' );
-				add_action( 'kemet_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
+				remove_action( 'wiz_footer', 'wiz_footer_markup' );
+				add_action( 'wiz_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
 
         }
@@ -102,70 +102,70 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 				$classes = array_diff(
 					$classes,
 					array(
-						// Kemet common grid.
-						'kmt-col-xs-1',
-						'kmt-col-xs-2',
-						'kmt-col-xs-3',
-						'kmt-col-xs-4',
-						'kmt-col-xs-5',
-						'kmt-col-xs-6',
-						'kmt-col-xs-7',
-						'kmt-col-xs-8',
-						'kmt-col-xs-9',
-						'kmt-col-xs-10',
-						'kmt-col-xs-11',
-						'kmt-col-xs-12',
-						'kmt-col-sm-1',
-						'kmt-col-sm-2',
-						'kmt-col-sm-3',
-						'kmt-col-sm-4',
-						'kmt-col-sm-5',
-						'kmt-col-sm-6',
-						'kmt-col-sm-7',
-						'kmt-col-sm-8',
-						'kmt-col-sm-9',
-						'kmt-col-sm-10',
-						'kmt-col-sm-11',
-						'kmt-col-sm-12',
-						'kmt-col-md-1',
-						'kmt-col-md-2',
-						'kmt-col-md-3',
-						'kmt-col-md-4',
-						'kmt-col-md-5',
-						'kmt-col-md-6',
-						'kmt-col-md-7',
-						'kmt-col-md-8',
-						'kmt-col-md-9',
-						'kmt-col-md-10',
-						'kmt-col-md-11',
-						'kmt-col-md-12',
-						'kmt-col-lg-1',
-						'kmt-col-lg-2',
-						'kmt-col-lg-3',
-						'kmt-col-lg-4',
-						'kmt-col-lg-5',
-						'kmt-col-lg-6',
-						'kmt-col-lg-7',
-						'kmt-col-lg-8',
-						'kmt-col-lg-9',
-						'kmt-col-lg-10',
-						'kmt-col-lg-11',
-						'kmt-col-lg-12',
-						'kmt-col-xl-1',
-						'kmt-col-xl-2',
-						'kmt-col-xl-3',
-						'kmt-col-xl-4',
-						'kmt-col-xl-5',
-						'kmt-col-xl-6',
-						'kmt-col-xl-7',
-						'kmt-col-xl-8',
-						'kmt-col-xl-9',
-						'kmt-col-xl-10',
-						'kmt-col-xl-11',
-                        'kmt-col-xl-12',
-                        // Kemet Blog / Single Post.
-						'kmt-article-post',
-						'kmt-article-single',
+						// Wiz common grid.
+						'wiz-col-xs-1',
+						'wiz-col-xs-2',
+						'wiz-col-xs-3',
+						'wiz-col-xs-4',
+						'wiz-col-xs-5',
+						'wiz-col-xs-6',
+						'wiz-col-xs-7',
+						'wiz-col-xs-8',
+						'wiz-col-xs-9',
+						'wiz-col-xs-10',
+						'wiz-col-xs-11',
+						'wiz-col-xs-12',
+						'wiz-col-sm-1',
+						'wiz-col-sm-2',
+						'wiz-col-sm-3',
+						'wiz-col-sm-4',
+						'wiz-col-sm-5',
+						'wiz-col-sm-6',
+						'wiz-col-sm-7',
+						'wiz-col-sm-8',
+						'wiz-col-sm-9',
+						'wiz-col-sm-10',
+						'wiz-col-sm-11',
+						'wiz-col-sm-12',
+						'wiz-col-md-1',
+						'wiz-col-md-2',
+						'wiz-col-md-3',
+						'wiz-col-md-4',
+						'wiz-col-md-5',
+						'wiz-col-md-6',
+						'wiz-col-md-7',
+						'wiz-col-md-8',
+						'wiz-col-md-9',
+						'wiz-col-md-10',
+						'wiz-col-md-11',
+						'wiz-col-md-12',
+						'wiz-col-lg-1',
+						'wiz-col-lg-2',
+						'wiz-col-lg-3',
+						'wiz-col-lg-4',
+						'wiz-col-lg-5',
+						'wiz-col-lg-6',
+						'wiz-col-lg-7',
+						'wiz-col-lg-8',
+						'wiz-col-lg-9',
+						'wiz-col-lg-10',
+						'wiz-col-lg-11',
+						'wiz-col-lg-12',
+						'wiz-col-xl-1',
+						'wiz-col-xl-2',
+						'wiz-col-xl-3',
+						'wiz-col-xl-4',
+						'wiz-col-xl-5',
+						'wiz-col-xl-6',
+						'wiz-col-xl-7',
+						'wiz-col-xl-8',
+						'wiz-col-xl-9',
+						'wiz-col-xl-10',
+						'wiz-col-xl-11',
+                        'wiz-col-xl-12',
+                        // Wiz Blog / Single Post.
+						'wiz-article-post',
+						'wiz-article-single',
                     )
 				);
 			}
@@ -181,13 +181,13 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		public function before_content( $post_id ) {
 
 			?>
-			<?php if ( 'left-sidebar' === kemet_layout() ) : ?>
+			<?php if ( 'left-sidebar' === wiz_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
 			<?php endif ?>
 
-			<div id="primary" <?php kemet_content_class(); ?>>
+			<div id="primary" <?php wiz_content_class(); ?>>
 			<?php
 		}
 
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 			?>
 			</div><!-- #primary -->
 
-			<?php if ( 'right-sidebar' === kemet_layout() ) : ?>
+			<?php if ( 'right-sidebar' === wiz_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
@@ -216,4 +216,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Beaver_Themer::get_instance();
+Wiz_Beaver_Themer::get_instance();

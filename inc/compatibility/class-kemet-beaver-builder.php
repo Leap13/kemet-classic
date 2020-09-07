@@ -2,7 +2,7 @@
 /**
  * Beaver Builder Compatibility File.
  *
- * @package Kemet
+ * @package Wiz
  */
 
 // If plugin - 'Beaver Builder' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'FLBuilderModel' ) ) {
 }
 
 /**
- * Kemet Beaver Builder Compatibility
+ * Wiz Beaver Builder Compatibility
  */
-if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
+if ( ! class_exists( 'Wiz_Beaver_Builder' ) ) :
 
 	/**
-	 * Kemet Beaver Builder Compatibility
+	 * Wiz Beaver Builder Compatibility
 	 *
 	 * @since 1.0.6
 	 */
-	class Kemet_Beaver_Builder {
+	class Wiz_Beaver_Builder {
 
 		/**
 		 * Member Variable
@@ -50,26 +50,26 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 
 		function beaver_builder_default_setting() {
 
-			if ( false == kemet_enable_page_builder() || 'post' == get_post_type() ) {
+			if ( false == wiz_enable_page_builder() || 'post' == get_post_type() ) {
 				return;
             }
             
 			global $post;
-			$id = kemet_get_post_id();
+			$id = wiz_get_post_id();
             
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
 				
 				if ( FLBuilderModel::is_builder_enabled() ) {
 
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
+					$meta = get_post_meta( get_the_ID(), 'wiz-content-layout', true ); 
 					if(isset($meta)){
-						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
+						update_post_meta( $id, 'wiz-content-layout', 'page-builder' );
 					}else{
-						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
+						add_post_meta( $id, 'wiz-content-layout', 'page-builder' );
 					}
 					
 					add_filter(
-						'kemet_get_content_layout',
+						'wiz_get_content_layout',
 						function () {
 							return 'page-builder';
 						}
@@ -85,4 +85,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Kemet_Beaver_Builder::get_instance();
+Wiz_Beaver_Builder::get_instance();

@@ -3,10 +3,10 @@
  *
  * Handles the spacing
  *
- * @package Kemet
+ * @package Wiz
  */
 
-	wp.customize.controlConstructor['kmt-responsive-spacing'] = wp.customize.Control.extend({
+	wp.customize.controlConstructor['wiz-responsive-spacing'] = wp.customize.Control.extend({
 
 		ready: function() {
 
@@ -15,10 +15,10 @@
 			var control = this,
 		    value;
 		    
-		    control.kmtResponsiveInit();
+		    control.wizResponsiveInit();
 
 			// Save the value.
-			this.container.on( 'change keyup paste', 'input.kmt-spacing-input', function() {
+			this.container.on( 'change keyup paste', 'input.wiz-spacing-input', function() {
 
 				value = jQuery( this ).val();
 
@@ -44,7 +44,7 @@
 					'mobile-unit'	: 'px',
 				};
 
-			control.container.find( 'input.kmt-spacing-desktop' ).each( function() {
+			control.container.find( 'input.wiz-spacing-desktop' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
@@ -52,7 +52,7 @@
 				newValue['desktop'][item] = item_value;
 			});
 
-			control.container.find( 'input.kmt-spacing-tablet' ).each( function() {
+			control.container.find( 'input.wiz-spacing-tablet' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
@@ -60,7 +60,7 @@
 				newValue['tablet'][item] = item_value;
 			});
 
-			control.container.find( 'input.kmt-spacing-mobile' ).each( function() {
+			control.container.find( 'input.wiz-spacing-mobile' ).each( function() {
 				var spacing_input = jQuery( this ),
 				item = spacing_input.data( 'id' ),
 				item_value = spacing_input.val();
@@ -68,7 +68,7 @@
 				newValue['mobile'][item] = item_value;
 			});
 
-			control.container.find('.kmt-spacing-unit-wrapper .kmt-spacing-unit-input').each( function() {
+			control.container.find('.wiz-spacing-unit-wrapper .wiz-spacing-unit-input').each( function() {
 				var spacing_unit 	= jQuery( this ),
 					device 			= spacing_unit.attr('data-device'),
 					device_val 		= spacing_unit.val(),
@@ -83,13 +83,13 @@
 		/**
 		 * Set the responsive devices fields
 		 */
-		kmtResponsiveInit : function() {
+		wizResponsiveInit : function() {
 			
 			'use strict';
 
 			var control = this;
 			
-			control.container.find( '.kmt-spacing-responsive-btns button' ).on( 'click', function( event ) {
+			control.container.find( '.wiz-spacing-responsive-btns button' ).on( 'click', function( event ) {
 
 				var device = jQuery(this).attr('data-device');
 				if( 'desktop' == device ) {
@@ -104,7 +104,7 @@
 			});
 
 			// Unit click
-			control.container.on( 'click', '.kmt-spacing-responsive-units .single-unit', function() {
+			control.container.on( 'click', '.wiz-spacing-responsive-units .single-unit', function() {
 				
 				var $this 		= jQuery(this);
 
@@ -118,7 +118,7 @@
 				$this.siblings().removeClass('active');
 				$this.addClass('active');
 
-				control.container.find('.kmt-spacing-unit-wrapper .kmt-spacing-' + device + '-unit').val( unit_value );
+				control.container.find('.wiz-spacing-unit-wrapper .wiz-spacing-' + device + '-unit').val( unit_value );
 
 				// Update value on change.
 				control.updateValue();
@@ -129,48 +129,48 @@
 	jQuery( document ).ready( function( ) {
 
 		// Connected button
-		jQuery( '.kmt-spacing-connected' ).on( 'click', function() {
+		jQuery( '.wiz-spacing-connected' ).on( 'click', function() {
 
 			// Remove connected class
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
+			jQuery(this).parent().parent( '.wiz-spacing-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
 			
 			// Remove class
-			jQuery(this).parent( '.kmt-spacing-input-item-link' ).removeClass( 'disconnected' );
+			jQuery(this).parent( '.wiz-spacing-input-item-link' ).removeClass( 'disconnected' );
 
 		} );
 
 		// Disconnected button
-		jQuery( '.kmt-spacing-disconnected' ).on( 'click', function() {
+		jQuery( '.wiz-spacing-disconnected' ).on( 'click', function() {
 
 			// Set up variables
 			var elements 	= jQuery(this).data( 'element-connect' );
 			
-			var linkedInputs = jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input');
+			var linkedInputs = jQuery(this).parent().parent('.wiz-spacing-wrapper').find('.wiz-spacing-input');
 
 			linkedInputs.each(function(){
 				var input_val = jQuery(this).val();
 				if (input_val != ''){
-					jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input').each(function (key, value) {
+					jQuery(this).parent().parent('.wiz-spacing-wrapper').find('.wiz-spacing-input').each(function (key, value) {
 						jQuery(this).val(input_val).change();
 					});
 				}
 			});
 
 			// Add connected class
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
+			jQuery(this).parent().parent( '.wiz-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
 
 			// Add class
-			jQuery(this).parent( '.kmt-spacing-input-item-link' ).addClass( 'disconnected' );
+			jQuery(this).parent( '.wiz-spacing-input-item-link' ).addClass( 'disconnected' );
 
 		} );
 
 		// Values connected inputs
-		jQuery( '.kmt-spacing-input-item' ).on( 'input', '.connected', function() {
+		jQuery( '.wiz-spacing-input-item' ).on( 'input', '.connected', function() {
 
 			var dataElement 	  = jQuery(this).attr( 'data-element-connect' ),
 				currentFieldValue = jQuery( this ).val();
 
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
+			jQuery(this).parent().parent( '.wiz-spacing-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
 				jQuery(this).val( currentFieldValue ).change();
 			} );
 
@@ -180,6 +180,6 @@
 	jQuery('.wp-full-overlay-footer .devices button ').on('click', function() {
 
 		var device = jQuery(this).attr('data-device');
-		jQuery( '.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper, .customize-control .kmt-spacing-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device ).addClass( 'active' );
+		jQuery( '.customize-control-wiz-responsive-spacing .input-wrapper .wiz-spacing-wrapper, .customize-control .wiz-spacing-responsive-btns > li' ).removeClass( 'active' );
+		jQuery( '.customize-control-wiz-responsive-spacing .input-wrapper .wiz-spacing-wrapper.' + device + ', .customize-control .wiz-spacing-responsive-btns > li.' + device ).addClass( 'active' );
 	});

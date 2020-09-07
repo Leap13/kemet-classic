@@ -4,10 +4,10 @@
  *
  * Creates a jQuery color control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Color control (alpha).
  */
-class Kemet_Control_Color extends WP_Customize_Control {
+class Wiz_Control_Color extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Kemet_Control_Color extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-color';
+	public $type = 'wiz-color';
 
 	/**
 	 * The control type.
@@ -92,7 +92,7 @@ class Kemet_Control_Color extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="customize-control-content">
-				<input class="kmt-color-picker-alpha color-picker-hex" type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
+				<input class="wiz-color-picker-alpha color-picker-hex" type="text" maxlength="7" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
 			</div>
 		</label>
 

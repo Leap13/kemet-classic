@@ -2,10 +2,10 @@
 /**
  * Helper class for font settings.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  */
 
 // Exit if accessed directly.
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Font info class for System and Google fonts.
  */
-if ( ! class_exists( 'Kemet_Font_Families' ) ) :
+if ( ! class_exists( 'Wiz_Font_Families' ) ) :
 
 	/**
 	 * Font info class for System and Google fonts.
 	 */
-	final class Kemet_Font_Families {
+	final class Wiz_Font_Families {
 
 		/**
 		 * System Fonts
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		 * Get System Fonts
 		 *
 		 *
-		 * @return Array All the system fonts in KEMET
+		 * @return Array All the system fonts in WIZ
 		 */
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 				);
 			}
 
-			return apply_filters( 'kemet_system_fonts', self::$system_fonts );
+			return apply_filters( 'wiz_system_fonts', self::$system_fonts );
 		}
 
 		/**
@@ -110,11 +110,11 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		public static function get_custom_fonts() {
 			$custom_fonts = array();
 
-			return apply_filters( 'kemet_custom_fonts', $custom_fonts );
+			return apply_filters( 'wiz_custom_fonts', $custom_fonts );
 		}
 
 		/**
-		 * Google Fonts used in kemet.
+		 * Google Fonts used in wiz.
 		 * Array is generated from the google-fonts.json file.
 		 *
 		 *
@@ -124,9 +124,9 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'kemet_google_fonts_json_file', KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file = apply_filters( 'wiz_google_fonts_json_file', WIZ_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
-				if ( ! file_exists( KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				if ( ! file_exists( WIZ_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
 					return array();
 				}
 
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 				}
 			}
 
-			return apply_filters( 'kemet_google_fonts', self::$google_fonts );
+			return apply_filters( 'wiz_google_fonts', self::$google_fonts );
 		}
 
 	}

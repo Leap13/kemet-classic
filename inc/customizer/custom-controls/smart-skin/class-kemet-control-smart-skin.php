@@ -4,10 +4,10 @@
  *
  * Creates a jQuery Smart Skin control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Smart Skin control (range).
  */
-class Kemet_Control_Smart_Skin extends WP_Customize_Control {
+class Wiz_Control_Smart_Skin extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -27,7 +27,7 @@ class Kemet_Control_Smart_Skin extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-smart-skin';
+	public $type = 'wiz-smart-skin';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -71,10 +71,10 @@ class Kemet_Control_Smart_Skin extends WP_Customize_Control {
 		 * @access public
 		 */
 		public function enqueue() {
-			$uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/smart-skin/';
+			$uri  = WIZ_THEME_URI . 'inc/customizer/custom-controls/smart-skin/';
 
-			wp_enqueue_style( 'kemet-smart-skin-css', $uri . 'smart-skin.css' , null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kemet-smart-skin-js', $uri . 'smart-skin.js', array(), KEMET_THEME_VERSION, true );
+			wp_enqueue_style( 'wiz-smart-skin-css', $uri . 'smart-skin.css' , null, WIZ_THEME_VERSION );
+			wp_enqueue_script( 'wiz-smart-skin-js', $uri . 'smart-skin.js', array(), WIZ_THEME_VERSION, true );
 			
 		}
 	/**

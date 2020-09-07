@@ -2,10 +2,10 @@
 /**
  * Customizer Control: responsive spacing
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
+class Wiz_Control_Responsive_Spacing extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,7 +25,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive-spacing';
+	public $type = 'wiz-responsive-spacing';
 
 	/**
 	 * The control type.
@@ -125,12 +125,12 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-		<label class='kmt-spacing-responsive' for="" >
+		<label class='wiz-spacing-responsive' for="" >
 
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
 			<# } #>
-			<ul class="kmt-responsive-control-btns kmt-spacing-responsive-btns">
+			<ul class="wiz-responsive-control-btns wiz-spacing-responsive-btns">
 				<li class="desktop active">
 					<button type="button" class="preview-desktop active" data-device="desktop">
 						<i class="dashicons dashicons-desktop"></i>
@@ -168,7 +168,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			} #>
 
 
-			<div class="kmt-spacing-responsive-outer-wrapper">
+			<div class="wiz-spacing-responsive-outer-wrapper">
 			<#
 			value_desktop = '';
 			value_tablet  = '';
@@ -185,22 +185,22 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 			if ( data.value['mobile'] ) { 
 				value_mobile = data.value['mobile'];
 			} #>
-			<div class="input-wrapper kmt-spacing-responsive-wrapper">
+			<div class="input-wrapper wiz-spacing-responsive-wrapper">
 
-				<ul class="kmt-spacing-wrapper desktop active"><# 
+				<ul class="wiz-spacing-wrapper desktop active"><# 
 					_.each( data.choices, function( choiceLabel, choiceID ) {
-					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input kmt-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
-						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+					#><li {{{ data.inputAttrs }}} class='wiz-spacing-input-item'>
+						<input type='number' class='wiz-spacing-input wiz-spacing-desktop' data-id= '{{ choiceID }}' value='{{ value_desktop[ choiceID ] }}'>
+						<span class="wiz-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><#
 					});
 					if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-							<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-							<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					<li class="wiz-spacing-input-item-link">
+							<span class="dashicons dashicons-admin-links wiz-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+							<span class="dashicons dashicons-editor-unlink wiz-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 						</li><#
 					}#>
-					<ul class="kmt-spacing-responsive-units kmt-spacing-desktop-responsive-units">
+					<ul class="wiz-spacing-responsive-units wiz-spacing-desktop-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( desktop_unit_val === unit_key ) { 
@@ -213,21 +213,21 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper tablet">
+				<ul class="wiz-spacing-wrapper tablet">
 
 					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
-					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input kmt-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
-						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+					#><li {{{ data.inputAttrs }}} class='wiz-spacing-input-item'>
+						<input type='number' class='wiz-spacing-input wiz-spacing-tablet' data-id='{{ choiceID }}' value='{{ value_tablet[ choiceID ] }}'>
+						<span class="wiz-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
 					<# if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					<li class="wiz-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links wiz-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink wiz-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					</li>
 					<# } #>
-					<ul class="kmt-spacing-responsive-units kmt-spacing-tablet-responsive-units">
+					<ul class="wiz-spacing-responsive-units wiz-spacing-tablet-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( tablet_unit_val === unit_key ) { 
@@ -240,21 +240,21 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 					</ul>
 				</ul>
 
-				<ul class="kmt-spacing-wrapper mobile"> 
+				<ul class="wiz-spacing-wrapper mobile"> 
 
 					<#_.each( data.choices, function( choiceLabel, choiceID ) { 
-					#><li {{{ data.inputAttrs }}} class='kmt-spacing-input-item'>
-						<input type='number' class='kmt-spacing-input kmt-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
-						<span class="kmt-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
+					#><li {{{ data.inputAttrs }}} class='wiz-spacing-input-item'>
+						<input type='number' class='wiz-spacing-input wiz-spacing-mobile' data-id='{{ choiceID }}' value='{{ value_mobile[ choiceID ] }}'>
+						<span class="wiz-spacing-title">{{{ data.choices[ choiceID ] }}}</span>
 					</li><# 
 					}); #>
 					<# if ( data.linked_choices ) { #>
-					<li class="kmt-spacing-input-item-link">
-						<span class="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
-						<span class="dashicons dashicons-editor-unlink kmt-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+					<li class="wiz-spacing-input-item-link">
+						<span class="dashicons dashicons-admin-links wiz-spacing-connected wp-ui-highlight" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
+						<span class="dashicons dashicons-editor-unlink wiz-spacing-disconnected" data-element-connect="{{ data.id }}" title="{{ data.title }}"></span>
 					</li>
 					<# } #>
-					<ul class="kmt-spacing-responsive-units kmt-spacing-mobile-responsive-units">
+					<ul class="wiz-spacing-responsive-units wiz-spacing-mobile-responsive-units">
 						<#_.each( data.unit_choices, function( unit_key ) { 
 							unit_class = '';
 							if ( mobile_unit_val === unit_key ) { 
@@ -268,11 +268,11 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 				</ul>
 			</div>
 
-			<div class="kmt-spacing-responsive-units-screen-wrap">
-				<div class="unit-input-wrapper kmt-spacing-unit-wrapper">
-					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
-					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
-					<input type='hidden' class='kmt-spacing-unit-input kmt-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
+			<div class="wiz-spacing-responsive-units-screen-wrap">
+				<div class="unit-input-wrapper wiz-spacing-unit-wrapper">
+					<input type='hidden' class='wiz-spacing-unit-input wiz-spacing-desktop-unit' data-device='desktop' value='{{desktop_unit_val}}'>
+					<input type='hidden' class='wiz-spacing-unit-input wiz-spacing-tablet-unit' data-device='tablet' value='{{tablet_unit_val}}'>
+					<input type='hidden' class='wiz-spacing-unit-input wiz-spacing-mobile-unit' data-device='mobile' value='{{mobile_unit_val}}'>
 				</div>
 			</div>
 

@@ -2,10 +2,10 @@
 /**
 * Customizer Control: icon-select
 *
-* @package     Kemet
-* @author      Kemet
-* @copyright   Copyright ( c ) 2019, Kemet
-* @link        https://kemet.io/
+* @package     Wiz
+* @author      Wiz
+* @copyright   Copyright ( c ) 2019, Wiz
+* @link        https://wiz.io/
 * @since       1.0.0
 */
 
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 * Icon Select
 */
 
-class Kemet_Control_Icon_Select extends WP_Customize_Control {
+class Wiz_Control_Icon_Select extends WP_Customize_Control {
 
     /**
     * The control type.
@@ -26,7 +26,7 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
     * @access public
     * @var string
     */
-    public $type = 'kmt-icon-select';
+    public $type = 'wiz-icon-select';
 
     /**
     * Refresh the parameters passed to the JavaScript via JSON.

@@ -4,10 +4,10 @@
  *
  * Creates a jQuery color control.
  *
- * @package     Kemet
- * @author      Kemet
- * @copyright   Copyright (c) 2019, Kemet
- * @link        https://kemet.io/
+ * @package     Wiz
+ * @author      Wiz
+ * @copyright   Copyright (c) 2019, Wiz
+ * @link        https://wiz.io/
  * @since       1.0.0
  */
 
@@ -24,7 +24,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 	 * @link https://gist.github.com/OriginalEXE/9a6183e09f4cae2f30b006232bb154af
 	 * @see WP_Customize_Section
 	 */
-	class Kemet_WP_Customize_Section extends WP_Customize_Section {
+	class Wiz_WP_Customize_Section extends WP_Customize_Section {
 
 		/**
 		 * Section
@@ -38,7 +38,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 		 *
 		 * @var string
 		 */
-		public $type = 'kmt_section';
+		public $type = 'wiz_section';
 
 		/**
 		 * Get section parameters for JS.

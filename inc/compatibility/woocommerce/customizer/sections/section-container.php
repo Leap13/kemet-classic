@@ -1,12 +1,12 @@
 <?php
 /**
- * Container Options for Kemet theme.
+ * Container Options for Wiz theme.
  *
- * @package     Kemet
+ * @package     Wiz
  * @author      Leap13
  * @copyright   Copyright (c) 2019, Leap13
  * @link        https://leap13.com/
- * @since       Kemet 1.0.0
+ * @since       Wiz 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,24 +18,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[woocommerce-content-layout]', array(
-			'default'           => kemet_get_option( 'woocommerce-content-layout' ),
+		WIZ_THEME_SETTINGS . '[woocommerce-content-layout]', array(
+			'default'           => wiz_get_option( 'woocommerce-content-layout' ),
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => array( 'Wiz_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[woocommerce-content-layout]', array(
+		WIZ_THEME_SETTINGS . '[woocommerce-content-layout]', array(
 			'type'     => 'select',
 			'section'  => 'section-container-layout',
 			'priority' => 85,
-			'label'    => __( 'Container for WooCommerce', 'kemet' ),
+			'label'    => __( 'Container for WooCommerce', 'wiz' ),
 			'choices'  => array(
-				'default'                 => __( 'Default', 'kemet' ),
-				'boxed-container'         => __( 'Boxed', 'kemet' ),
-				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+				'default'                 => __( 'Default', 'wiz' ),
+				'boxed-container'         => __( 'Boxed', 'wiz' ),
+				'content-boxed-container' => __( 'Content Boxed', 'wiz' ),
+				'plain-container'         => __( 'Full Width / Contained', 'wiz' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'wiz' ),
 			),
 		)
 	);

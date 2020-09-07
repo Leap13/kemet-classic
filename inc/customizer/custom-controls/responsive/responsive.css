@@ -1,24 +1,24 @@
-.kmt-responsive-btns,
+.wiz-responsive-btns,
 .customize-control-title {
   display: inline-block;
 }
 
-.kmt-responsive-btns {
+.wiz-responsive-btns {
   float: right;
   line-height: 1;
   margin-top: 5px;
 }
 
-.kmt-responsive-btns > li {
+.wiz-responsive-btns > li {
   margin-bottom: 0;
   display: none;
 }
 
-.kmt-responsive-btns > li.active {
+.wiz-responsive-btns > li.active {
   display: inline-block;
 }
 
-.kmt-responsive-btns button[type="button"] {
+.wiz-responsive-btns button[type="button"] {
   padding: 0;
   cursor: pointer;
   background: none;
@@ -27,23 +27,23 @@
   outline: none;
 }
 
-.kmt-responsive-btns button[type="button"] > i {
+.wiz-responsive-btns button[type="button"] > i {
   width: 15px;
   height: 15px;
   font-size: 15px;
 }
 
-.customize-control-kmt-responsive .input-wrapper input {
+.customize-control-wiz-responsive .input-wrapper input {
   display: none;
   width: calc(100% - 52px);
   float: left;
 }
 
-.customize-control-kmt-responsive .input-wrapper input.active {
+.customize-control-wiz-responsive .input-wrapper input.active {
   display: inline-block;
 }
 
-.customize-control-kmt-responsive .input-wrapper .kmt-responsive-select {
+.customize-control-wiz-responsive .input-wrapper .wiz-responsive-select {
   width: 50px;
   margin: 0;
   display: none;
@@ -51,6 +51,6 @@
   margin-left: 2px;
 }
 
-.customize-control-kmt-responsive .input-wrapper .kmt-responsive-input.active + .kmt-responsive-select {
+.customize-control-wiz-responsive .input-wrapper .wiz-responsive-input.active + .wiz-responsive-select {
   display: inline-block;
 }
