@@ -88,9 +88,22 @@ add_filter( 'current_theme_supports-kemet_hooks', 'kemet_current_theme_supports'
  *
  * $kemet_supports[] = 'head';
  */
+function kemet_html_before() {
+	do_action( 'kemet_html_before' );
+}
+
+
 function kemet_head_top() {
 	do_action( 'kemet_head_top' );
 }
+
+/**
+ * Head Bottom
+ */
+function kemet_head_bottom() {
+	do_action( 'kemet_head_bottom' );
+}
+
 
 /**
  * Site Header
@@ -175,6 +188,33 @@ function kemet_sitehead_toggle_buttons_after() {
 	do_action( 'kemet_sitehead_toggle_buttons_after' );
 }
 
+/**
+ * Content before
+ */
+function kemet_content_before() {
+	do_action( 'kemet_content_before' );
+}
+
+/**
+ * Content after
+ */
+function kemet_content_after() {
+	do_action( 'kemet_content_after' );
+}
+
+/**
+ * Content top
+ */
+function kemet_content_top() {
+	do_action( 'kemet_content_top' );
+}
+
+/**
+ * Content bottom
+ */
+function kemet_content_bottom() {
+	do_action( 'kemet_content_bottom' );
+}
 
 /**
  * Content while before
@@ -235,6 +275,21 @@ function kemet_entry_content_before() {
 function kemet_entry_content_after() {
 	do_action( 'kemet_entry_content_after' );
 }
+
+/**
+ * Primary Content Top
+ */
+function kemet_primary_content_top() {
+	do_action( 'kemet_primary_content_top' );
+}
+
+/**
+ * Primary Content Bottom
+ */
+function kemet_primary_content_bottom() {
+	do_action( 'kemet_primary_content_bottom' );
+}
+
 
 /**
  * Entry Top
@@ -302,6 +357,13 @@ function kemet_sidebars_before() {
 }
 
 /**
+ * Sidebars after
+ */
+function kemet_sidebars_after() {
+	do_action( 'kemet_sidebars_after' );
+}
+
+/**
  * Semantic <footer> hooks
  *
  * $kemet_supports[] = 'footer';
@@ -346,6 +408,21 @@ function kemet_pagination() {
 }
 
 /**
+ * Footer before
+ */
+function kemet_footer_before() {
+	do_action( 'kemet_footer_before' );
+}
+
+/**
+ * Footer after
+ */
+function kemet_footer_after() {
+	do_action( 'kemet_footer_after' );
+}
+
+
+/**
  * Entry content single
  */
 function kemet_entry_content_single() {
@@ -365,6 +442,30 @@ function kemet_404_page() {
 function kemet_404_content_template() {
 	do_action( 'kemet_404_content_template' );
 }
+
+/**
+ * Body Top
+ */
+function kemet_body_top() {
+	do_action( 'kemet_body_top' );
+}
+
+/**
+ * Comments block hooks
+ *
+ * $kemet_supports[] = 'comments';
+ */
+function kemet_comments_before() {
+	do_action( 'kemet_comments_before' );
+}
+
+/**
+ * Comments after.
+ */
+function kemet_comments_after() {
+	do_action( 'kemet_comments_after' );
+}
+
 /**
  * Body Bottom
  */

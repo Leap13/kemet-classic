@@ -10,6 +10,7 @@
  * 
  */
 ?><!DOCTYPE html>
+<?php kemet_html_before(); ?>
 <html <?php language_attributes(); ?>>
 <head>
 <?php kemet_head_top(); ?>
@@ -20,7 +21,11 @@
 </head>
 
 <body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
+
+<?php kemet_body_top(); ?>
+
 <?php wp_body_open(); ?>
+
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
     
@@ -30,6 +35,10 @@
     
     <?php kemet_after_header_block(); ?>
 
+	<?php kemet_content_before(); ?>
+
 	<div id="content" class="site-content">
 
 		<div class="kmt-container">
+
+		<?php kemet_content_top(); ?>

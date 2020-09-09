@@ -23,6 +23,8 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 	
+	<?php kemet_comments_before(); ?>
+
 	<?php // You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
 		<div class="comments-count-wrapper">
@@ -82,5 +84,7 @@ if ( post_password_required() ) {
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php comment_form(); ?>
+
+	<?php kemet_comments_after(); ?>
 
 </div><!-- #comments -->

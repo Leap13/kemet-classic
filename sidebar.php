@@ -16,12 +16,15 @@ $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 	<div class="sidebar-main">
 
-
+	<?php kemet_sidebars_before(); ?>
+	
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
 
 			<?php dynamic_sidebar( $sidebar ); ?>
 
 		<?php endif; ?>
+
+	<?php kemet_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->
 </div><!-- #secondary -->
