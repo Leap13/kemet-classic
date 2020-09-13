@@ -215,22 +215,37 @@
 }
 
 .customize-control-kmt-color .wp-color-result span {
-	background: #f7f7f7;
-}
-.customize-control-kmt-color .wp-color-result span.color-alpha {
-	height:26px !important;
+  background: #f7f7f7;
 }
 .customize-control-kmt-color .wp-color-result.button {
-	min-height: 24px;
+  min-height: 24px;
 }
 
-input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
-	    border: 1px solid #d0d0d0;
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+  border: 1px solid #d0d0d0;
 }
 
-.customize-control-kmt-color .wp-picker-container input[type="text"].wp-color-picker {
-	width: 65px !important;
+.customize-control-kmt-color
+  .wp-picker-container
+  input[type="text"].wp-color-picker {
+  width: 65px !important;
 }
+
 .customize-control-kmt-icon-select .icon-select 
 { 
   display: -webkit-box; 
@@ -593,10 +608,11 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .kmt-responsive-control-btns {
   line-height: 1;
-  padding-right: 5px;
   margin-bottom: 7px;
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  z-index: 8;
 }
 
 .kmt-responsive-control-btns > li {
@@ -651,7 +667,7 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units li.single-unit {
   display: inline-block;
-  margin-right: 6px;
+  margin-right: 3px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -726,4 +742,8 @@ input[type=color], input[type=date], input[type=datetime-local], input[type=date
 .customize-control-kmt-title .description.customize-control-description{
     padding: 7px 0;
     margin-bottom: 0px;
+}
+
+.select2-dropdown.increasedzindexclass {
+  z-index: 999999;
 }
