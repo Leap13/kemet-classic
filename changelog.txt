@@ -1,7 +1,10 @@
+v 1.1.2 version
+- Added: Custom layout hooks.
+- Fixed: Color control issue.
+
 v 1.1.1 version
 - Added: Menu item spacing option.
 - Fixed: Responsive menu issue.
-
 
 v 1.1.0 version
 - Added: Woocommerce Layouts
