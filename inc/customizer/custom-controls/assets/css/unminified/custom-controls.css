@@ -611,6 +611,8 @@ textarea {
   margin-bottom: 7px;
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  z-index: 8;
 }
 
 .kmt-responsive-control-btns > li {
