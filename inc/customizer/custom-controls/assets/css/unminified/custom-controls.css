@@ -741,3 +741,7 @@ textarea {
     padding: 7px 0;
     margin-bottom: 0px;
 }
+
+.select2-dropdown.increasedzindexclass {
+  z-index: 999999;
+}
