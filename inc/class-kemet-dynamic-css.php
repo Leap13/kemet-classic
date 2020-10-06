@@ -155,6 +155,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' , $theme_color);
 			$menu_link_active_color         = kemet_get_option( 'menu-link-active-color' );
 			$menu_link_active_bg_color         = kemet_get_option( 'menu-link-active-bg-color' );
+			$menu_link_active_radius         = kemet_get_option( 'menu-link-active-radius' );
 			$last_menu_items_spacing		= kemet_get_option( 'last-menu-item-spacing' );
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
@@ -558,6 +559,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
 					'color' => esc_attr( $menu_link_active_color ),
 					'background-color' => esc_attr( $menu_link_active_bg_color ),
+					'border-radius' => kemet_responsive_slider($menu_link_active_radius , 'desktop'),
 				),
 				'.site-header .kmt-sitehead-custom-menu-items > * , .site-header .kmt-outside-menu .kmt-sitehead-custom-menu-items > *' => array(
                 'padding-top'    => kemet_responsive_spacing( $last_menu_items_spacing, 'top', 'desktop' ),
@@ -1236,7 +1238,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $footer_letter_spacing , 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $footer_line_height , 'tablet' ),
 				),
-
+				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
+					'border-radius' => kemet_responsive_slider($menu_link_active_radius , 'tablet'),
+				),
 
                 /**
                 * Content Spacing Tablet
@@ -1450,6 +1454,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $footer_bar_spacing, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $footer_bar_spacing, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $footer_bar_spacing, 'left', 'mobile' ),
+				),
+				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a'  => array(
+					'border-radius' => kemet_responsive_slider($menu_link_active_radius , 'mobile'),
 				),
 				//Widget Font
 				'.widget .widget-head .widget-title '   => array(

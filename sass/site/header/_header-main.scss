@@ -185,15 +185,6 @@ li.kmt-sitehead-custom-menu-items {
   }
 }
 .main-header-menu {
-  > .menu-item.current_page_item,
-  .menu-item.current-menu-item,
-  .menu-item.current-menu-ancestor {
-    > a {
-      border-radius: 5px;
-    }
-  }
-}
-.main-header-menu {
   > .menu-item {
     > a {
       border-bottom: 1px solid transparent;

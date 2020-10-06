@@ -347,6 +347,44 @@ $header_rt_sections = array(
 		)
 	);
 	/**
+	* Option: Link Active Radius
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-link-active-radius]', array(
+			'default'           => $defaults['menu-link-active-radius'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Responsive_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-radius]', array(
+				'type'           => 'kmt-responsive-slider',
+				'section'        => 'section-menu-header',
+				'priority'       => 56,
+				'label'          => __( 'Link Active Border Radius', 'kemet' ),
+				'unit_choices'   => array(
+					'px' => array(
+						'min' => 0,
+						'step' => 1,
+						'max' =>100,
+					),
+					'em' => array(
+						'min' => 0,
+						'step' => 1,
+						'max' => 10,
+					),
+					'%' => array(
+						'min' => 0,
+						'step' => 1,
+						'max' => 100,
+					),
+				),
+			)
+		)
+	);
+	/**
      * Option: Main Menu Alignment
      */
     $wp_customize->add_setting(
