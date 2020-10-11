@@ -388,7 +388,7 @@
         // Change size strip and add margin for sliders
         self.controls.square.css({ "margin-right": "0" });
         var emptyWidth =
-            self.picker.width() - self.controls.square.width() - 20,
+            self.picker.width() - self.controls.square.width() - 25,
           stripsMargin = emptyWidth / 6,
           stripsWidth = emptyWidth / 2 - stripsMargin;
 
