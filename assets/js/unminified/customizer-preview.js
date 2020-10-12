@@ -1218,7 +1218,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
    */
   kemet_responsive_spacing(
     "kemet-settings[footer-padding]",
-    ".kemet-footer .kmt-container",
+    ".kemet-footer .kemet-footer-overlay",
     "padding",
     ["top", "bottom", "right", "left"]
   );

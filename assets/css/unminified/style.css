@@ -4171,7 +4171,8 @@ div.title {
   overflow: hidden;
 }
 
-.widget-title, h4.widget-title {
+.widget-title,
+h4.widget-title {
   font-size: 22px;
   font-weight: normal;
   margin-bottom: 0px;
@@ -4182,7 +4183,7 @@ div.title {
 }
 
 .widget {
-  margin-bottom: 2.8em;
+  padding-bottom: 2.8em;
 }
 
 .widget select {
@@ -4356,7 +4357,7 @@ div.title {
 }
 
 .widget_calendar tbody {
-  line-height: 2.10em;
+  line-height: 2.1em;
   text-align: center;
 }
 

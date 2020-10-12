@@ -669,7 +669,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $space_header, 'left', 'desktop' ),
 				),
 
-				'.kemet-footer .kmt-container' => array(
+				'.kemet-footer .kemet-footer-overlay' => array(
 				'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'desktop' ),
 				'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'desktop' ),
 				'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'desktop' ),
@@ -1255,7 +1255,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'tablet' ),
 			),
-            '.kemet-footer .kmt-container ' => array(
+            '.kemet-footer .kemet-footer-overlay ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'tablet' ),
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'tablet' ),
                 'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'tablet' ),
@@ -1513,7 +1513,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             '#secondary .sidebar-main *:not(.widget-title)' =>  array(
 				'font-size' => kemet_responsive_slider( $sidebar_content_font_size, 'mobile' ),
 			),    
-            '.kemet-footer .kmt-container ' => array(
+            '.kemet-footer .kemet-footer-overlay ' => array(
                 'padding-top'    => kemet_responsive_spacing( $space_footer, 'top', 'mobile' ),
                 'padding-bottom' => kemet_responsive_spacing( $space_footer, 'bottom', 'mobile' ),
                 'padding-right' => kemet_responsive_spacing( $space_footer, 'right', 'mobile' ),
