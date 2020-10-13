@@ -297,6 +297,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-border-color'			=> '',			
 					'submenu-width'					=> '',
 					'submenu-link-color'             =>'',
+					'submenu-bg-hover-color'  			=> '',
 					'sub-menu-items-font-family'                 => 'inherit',
 					'sub-menu-items-font-weight'                 => '400',
 					'sub-menu-items-line-height'                 => '',

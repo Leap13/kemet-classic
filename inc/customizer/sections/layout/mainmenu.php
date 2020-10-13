@@ -1137,6 +1137,7 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
 			'default'           => $defaults[ 'submenu-bg-color' ],
 			'type'              => 'option',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 		)
 	);
@@ -1169,7 +1170,26 @@ $header_rt_sections = array(
 			)
 		)
 	);
-	
+	/**
+	 * Option: SubMenu Background Hover Color
+	 */
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[submenu-bg-hover-color]', array(
+			'default'           => $defaults[ 'submenu-bg-hover-color' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Color(
+			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-hover-color]', array(
+        'priority'       => 181,
+        'section' => 'section-menu-header',
+				'label'   => __( 'Background Hover Color', 'kemet' ),
+			)
+		)
+	);
 	/**
       * Option:SubMenu Link Hover Color
       */

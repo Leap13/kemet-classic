@@ -173,6 +173,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			//header submenu
 			$submenu_bg_color               = kemet_get_option( 'submenu-bg-color' , kemet_color_brightness($global_bg_color , 0.99 , 'dark') );
+			$submenu_bg_hover_color         = kemet_get_option( 'submenu-bg-hover-color' );
 			$submenu_link_color             = kemet_get_option( 'submenu-link-color' , $headings_links_color );
 			$submenu_link_h_color           = kemet_get_option( 'submenu-link-h-color' , $theme_color );
 			$display_submenu_border  		= kemet_get_option( 'display-submenu-border' );
@@ -572,6 +573,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $submenu_bg_color),
 					'border-top-width' => kemet_get_css_value( $submenu_top_border_size, 'px' ),
 					'border-top-color' => esc_attr( $submenu_top_border_color ),
+				),
+				'.main-header-menu ul.sub-menu:hover'  => array(
+					'background-color' => esc_attr( $submenu_bg_hover_color),
 				),
 				'.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul'  => array(
 					'top' => kemet_get_css_value( '-'.$submenu_top_border_size, 'px' ),

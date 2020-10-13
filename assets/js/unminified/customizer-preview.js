@@ -1020,18 +1020,17 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ["top", "bottom", "right", "left"]
   );
 
-  wp.customize("kemet-settings[submenu-bg-color]", function(value) {
-    value.bind(function(bg_obj) {
-      var dynamicStyle = ".main-header-menu ul { {{css}} }";
+  kemet_css(
+    "kemet-settings[submenu-bg-color]",
+    "background-color",
+    ".main-header-menu ul.sub-menu"
+  );
 
-      kemet_background_obj_css(
-        wp.customize,
-        bg_obj,
-        "submenu-bg-color",
-        dynamicStyle
-      );
-    });
-  });
+  kemet_css(
+    "kemet-settings[submenu-bg-hover-color]",
+    "background-color",
+    ".main-header-menu ul.sub-menu:hover"
+  );
   //Search
   kemet_css(
     "kemet-settings[search-btn-bg-color]",
