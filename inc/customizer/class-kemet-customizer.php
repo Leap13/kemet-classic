@@ -219,6 +219,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 			$wp_customize->register_control_type( 'Kemet_Control_Smart_Skin' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Icon_Select' );
+			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Color' );
 
 			/**
 			 * Helper files

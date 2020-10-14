@@ -327,7 +327,64 @@ function kemet_responsive_icon_select(control, selector, type) {
         );
       } else {
         wp.customize.preview.send("refresh");
-        jQuery("style#" + control + "-" + spacingType).remove();
+        jQuery("style#" + control + "-" + selectType).remove();
+      }
+    });
+  });
+}
+/**
+ * Responsive Icons Select CSS
+ */
+function kemet_responsive_css(control, selector, type) {
+  wp.customize(control, function(value) {
+    value.bind(function(value) {
+      var selectType = "color";
+
+      if (value.desktop || value.tablet || value.mobile) {
+        if (typeof type != undefined) {
+          selectType = type + "";
+        }
+        // Remove <style> first!
+        control = control.replace("[", "-");
+        control = control.replace("]", "");
+        jQuery("style#" + control + "-" + selectType).remove();
+
+        var desktopSelect = "",
+          tabletSelect = "",
+          mobileSelect = "";
+
+        desktopSelect += selectType + ": " + value["desktop"] + " ;";
+
+        tabletSelect += selectType + ": " + value["tablet"] + " ;";
+
+        mobileSelect += selectType + ": " + value["mobile"] + " ;";
+
+        // Concat and append new <style>.
+        jQuery("head").append(
+          '<style id="' +
+            control +
+            "-" +
+            selectType +
+            '">' +
+            selector +
+            "	{ " +
+            desktopSelect +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            tabletSelect +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            mobileSelect +
+            " } }" +
+            "</style>"
+        );
+      } else {
+        wp.customize.preview.send("refresh");
+        jQuery("style#" + control + "-" + selectType).remove();
       }
     });
   });
@@ -958,10 +1015,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "padding",
     ["top", "bottom", "right", "left"]
   );
-  kemet_css(
+  kemet_responsive_css(
     "kemet-settings[menu-link-color]",
-    "color",
-    ".kmt-sitehead-custom-menu-items > *, .main-header-menu a"
+    ".kmt-sitehead-custom-menu-items > *, .main-header-menu a , .kmt-header-break-point .main-navigation ul li a",
+    "color"
   );
   kemet_css(
     "kemet-settings[menu-link-bottom-border-color]",
@@ -979,10 +1036,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "line-height"
   );
 
-  kemet_css(
+  kemet_responsive_css(
     "kemet-settings[menu-link-h-color]",
-    "color",
-    ".main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover"
+    ".main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover , .kmt-header-break-point .main-navigation ul li:hover a",
+    "color"
   );
   kemet_css(
     "kemet-settings[menu-link-active-color]",
@@ -1159,16 +1216,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "kemet-settings[mobile-menu-icon-bg-h-color]",
     "background-color",
     ".kmt-mobile-menu-buttons .menu-toggle:hover, .kmt-mobile-menu-buttons .menu-toggle.toggled"
-  );
-  kemet_css(
-    "kemet-settings[mobile-menu-items-color]",
-    "color",
-    ".kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a"
-  );
-  kemet_css(
-    "kemet-settings[mobile-menu-items-h-color]",
-    "color",
-    ".kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a:hover, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a:hover,.toggle-on .main-header-menu li a:hover, .toggle-on .main-header-menu li.current-menu-item a, .toggle-on .main-header-menu li.current_page_item a, .toggle-on .main-header-menu .current-menu-ancestor > a, .toggle-on .main-header-menu .sub-menu li:hover a"
   );
   kemet_css(
     "kemet-settings[mobile-menu-items-border-color]",

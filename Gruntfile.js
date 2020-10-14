@@ -387,6 +387,7 @@ module.exports = function(grunt) {
           "inc/customizer/custom-controls/title/title.css",
           "inc/customizer/custom-controls/typography/typography.css",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.css",
+          "inc/customizer/custom-controls/responsive-color/responsive-color.css"
         ],
         dest:
           "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css"
@@ -405,6 +406,7 @@ module.exports = function(grunt) {
           "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js",
           "inc/customizer/custom-controls/title/title.js",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
+          "inc/customizer/custom-controls/responsive-color/responsive-color.js"
         ],
         dest:
           "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js"

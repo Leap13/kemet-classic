@@ -451,6 +451,35 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
         }
 
         /**
+        * Sanitize Alpha color
+        *
+        * @param  string $color setting input.
+        * @return string        setting input value.
+        */
+        static public function sanitize_alpha_reponsive_color( $control ) {
+
+            if ( empty($control) ) {
+                return '';
+            }
+
+            $colors = array();
+
+            foreach( $control as $device => $color ){
+
+                if ( false === strpos( $color, 'rgba' ) ) {
+                    /* Hex sanitize */
+                    $colors[$device] = self::sanitize_hex_color( $color );
+                }else{
+                    /* rgba sanitize */
+                    $color = str_replace( ' ', '', $color );
+                    sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+                    $colors[$device] = 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+                }
+            }
+            return $colors;
+        }
+
+        /**
         * Sanitize html
         *
         * @param  string $input    setting input.

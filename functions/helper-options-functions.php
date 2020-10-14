@@ -174,6 +174,34 @@ if ( ! function_exists( 'kemet_responsive_icon_select' ) ) {
 	}
 }
 
+if ( ! function_exists( 'kemet_responsive_color' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_responsive_color( $option, $device = 'desktop' , $default = '' ) {
+
+		if( empty( $default ) || !is_array( $default ) ){
+
+			$default = array(
+				'desktop' => '',
+				'tablet' => '',
+				'mobile' => ''
+			);
+		}
+		
+		
+		$value = isset( $option[ $device ] ) ? $option[ $device ] : $default[ $device ];
+
+		return $value;
+	}
+}
+
 /**
  * Get Responsive Slider
  */

@@ -76,7 +76,7 @@ wp.customize.controlConstructor[
 
     var control = this;
 
-    this.container.on("click", ".kmt-responsive-slider-btns button", function(
+    this.container.on("click", ".kmt-responsive-select-btns button", function(
       event
     ) {
       event.preventDefault();
@@ -102,12 +102,12 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
   var device = jQuery(this).attr("data-device");
 
   jQuery(
-    ".customize-control-kmt-responsive-select .input-wrapper select, .customize-control .kmt-responsive-btns > li"
+    ".customize-control-kmt-responsive-select .input-wrapper select, .customize-control .kmt-responsive-select-btns > li"
   ).removeClass("active");
   jQuery(
     ".customize-control-kmt-responsive-select .input-wrapper select." +
       device +
-      ", .customize-control .kmt-responsive-btns > li." +
+      ", .customize-control .kmt-responsive-select-btns > li." +
       device
   ).addClass("active");
 });

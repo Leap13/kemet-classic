@@ -251,11 +251,11 @@ $header_rt_sections = array(
 				'default'           => $defaults[ 'menu-link-h-color' ],
 				'type'              => 'option',
 				'transport'         => 'postMessage',
-				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 			)
 		);
 		$wp_customize->add_control(
-			new Kemet_Control_Color(
+			new Kemet_Control_Responsive_Color(
 				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-color]', array(
 					'label'   => __( 'Link Color', 'kemet' ),
 					'priority'       => 40,
@@ -272,11 +272,11 @@ $header_rt_sections = array(
 			'default'           => $defaults[ 'menu-link-h-color' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Color(
+		new Kemet_Control_Responsive_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
 				'label'   => __( 'Link Hover Color', 'kemet' ),
 				'priority'       => 45,
@@ -1522,26 +1522,6 @@ $header_rt_sections = array(
 		)
 	);
 	/**
-	 * Option: Menu Links Color
-	*/
-		$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
-			'default'           => $defaults[ 'mobile-menu-items-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-color]', array(
-				'label'   => __( 'Menu Links Color', 'kemet' ),
-				'priority'       => 245,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-	/**
 	 * Option: Menu Links Background Color
 	*/
 	$wp_customize->add_setting(
@@ -1557,26 +1537,6 @@ $header_rt_sections = array(
 				'priority'       => 250,
 				'section' => 'section-menu-header',
 				'label'   => __( 'Menu Links Background Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-	 * Option: Menu Links Hover Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
-			'default'           => $defaults[ 'mobile-menu-items-h-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-h-color]', array(
-				'label'   => __( 'Menu Links Hover Color', 'kemet' ),
-				'priority'       => 255,
-				'section' => 'section-menu-header',
 			)
 		)
 	);
