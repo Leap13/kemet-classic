@@ -422,6 +422,32 @@ $header_rt_sections = array(
 		)
 	);
 	/**
+	* Option: Menu Item Border Bottom
+	*/
+	$wp_customize->add_setting(
+		KEMET_THEME_SETTINGS . '[menu-item-border-bottom]', array(
+			'default'           => $defaults[ 'menu-item-border-bottom' ],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Kemet_Control_Slider(
+			$wp_customize, KEMET_THEME_SETTINGS . '[menu-item-border-bottom]', array(
+				'type'        => 'kmt-slider',
+				'section'     => 'section-menu-header',
+				'priority'    => 61,
+				'label'       => __( 'Link Bottom Border Size on Hover', 'kemet' ),
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 50,
+				),
+			)
+		)
+	);
+	/**
 	 * Option: Main Menu Spacing
 	 */
 	$wp_customize->add_setting(

@@ -157,6 +157,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_link_active_bg_color         = kemet_get_option( 'menu-link-active-bg-color' );
 			$menu_link_active_radius         = kemet_get_option( 'menu-link-active-radius' );
 			$last_menu_items_spacing		= kemet_get_option( 'last-menu-item-spacing' );
+			$menu_link_border_bottom		= kemet_get_option( 'menu-item-border-bottom' );
 			// SubMenu Top Border.
 			$submenu_top_border_size       = kemet_get_option( 'submenu-top-border-size' );
 			$submenu_top_border_color       = kemet_get_option( 'submenu-top-border-color' , $global_border_color);
@@ -488,6 +489,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Header - Main Header CSS.
 				'.kmt-header-custom-item a' => array(
 					'color' => esc_attr( $headings_links_color ),
+				),
+				'.main-header-menu > li.menu-item > a' => array(
+					'border-bottom-width' => kemet_get_css_value( $menu_link_border_bottom , 'px' ),
 				),
 				'.main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon' => array(
 					'border-bottom-width' => kemet_responsive_slider( $header_separator, 'desktop' ),

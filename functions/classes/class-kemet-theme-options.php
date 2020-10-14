@@ -327,6 +327,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-sep-color'            => '',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					'menu-item-border-bottom'		   => 1,	
 
 					// Site Layout.
 					'site-content-width'               => 1200,
