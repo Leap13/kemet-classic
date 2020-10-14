@@ -570,11 +570,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
             	),
 				//submenu
 				'.main-header-menu ul.sub-menu'  => array(
-					'background-color' => esc_attr( $submenu_bg_color),
 					'border-top-width' => kemet_get_css_value( $submenu_top_border_size, 'px' ),
 					'border-top-color' => esc_attr( $submenu_top_border_color ),
 				),
-				'.main-header-menu ul.sub-menu:hover'  => array(
+				'.main-header-menu ul.sub-menu li'  => array(
+					'background-color' => esc_attr( $submenu_bg_color),
+				),
+				'.main-header-menu ul.sub-menu li:hover'  => array(
 					'background-color' => esc_attr( $submenu_bg_hover_color),
 				),
 				'.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul'  => array(

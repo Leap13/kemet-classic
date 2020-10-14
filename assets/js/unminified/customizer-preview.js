@@ -1023,13 +1023,13 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[submenu-bg-color]",
     "background-color",
-    ".main-header-menu ul.sub-menu"
+    ".main-header-menu ul.sub-menu li"
   );
 
   kemet_css(
     "kemet-settings[submenu-bg-hover-color]",
     "background-color",
-    ".main-header-menu ul.sub-menu:hover"
+    ".main-header-menu ul.sub-menu li:hover"
   );
   //Search
   kemet_css(
