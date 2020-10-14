@@ -876,16 +876,46 @@ var toggleClass = function ( el, className ) {
         });
         }
     }
-
-
-
+    
     var __main_header_all = document.querySelectorAll( '.main-header-bar-navigation' );
 	var menu_toggle_all 	= document.querySelectorAll( '.main-header-menu-toggle' );
+
+    window.addEventListener("click", function(e) {
+        var __main_header_all = document.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
+        var menu_toggle_all = document.querySelectorAll(
+          ".main-header-menu-toggle"
+        );
+        if ( menu_toggle_all.length > 0 ) {
+
+		    for (var i = 0; i < menu_toggle_all.length; i++) {
+
+                if (
+                  menu_toggle_all[i].classList.contains("toggled")
+                ) {
+                  if (
+                    !(
+                      __main_header_all[i].contains(e.target) ||
+                      menu_toggle_all[i].contains(e.target)
+                    )
+                  ) {
+                      
+                      toggleClass(__main_header_all[i], "toggle-on");
+                      toggleClass(menu_toggle_all[i], "toggled");
+                      __main_header_all[i].style.display = "";
+                    
+                  }
+                }
+            }
+        } 
+    });
 
 	if ( menu_toggle_all.length > 0 ) {
 
 		for (var i = 0; i < menu_toggle_all.length; i++) {
-			
+            
+            
 			menu_toggle_all[i].setAttribute('data-index', i);
 
 			menu_toggle_all[i].addEventListener( 'click', function( event ) {
@@ -919,9 +949,12 @@ var toggleClass = function ( el, className ) {
 								__main_header_all[event_index].style.display = '';		
 							}
 						break;
-				}
+                }
+
 		    }, false);
 			
+            
+
 			if ( 'undefined' !== typeof __main_header_all[i] ) {
 				var parentList = __main_header_all[i].querySelectorAll( 'ul.main-header-menu li' );
 				KemetNavigationMenu( parentList );
