@@ -291,7 +291,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-submenu-border'           => true,
 					'header-bg-obj'                    =>  '',
 					'header-right-section'             => 'none',
-					'header-logo-position'             => '',
 
 					// Sub Menu 
 					'submenu-border-color'			=> '',			
@@ -316,7 +315,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-menu-icon-bg-color'      => '',
 					'mobile-menu-icon-h-color'      => '',
 					'mobile-menu-icon-bg-h-color'      => '',
-					'mobile-menu-items-bg-color'      => '',
 					'mobile-menu-items-border-size'	=> '',
 					'mobile-menu-items-border-color'	=> '',
 

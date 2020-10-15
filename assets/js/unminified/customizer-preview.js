@@ -991,18 +991,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   /**
    * menu background
    */
-  wp.customize("kemet-settings[menu-bg-color]", function(value) {
-    value.bind(function(bg_obj) {
-      var dynamicStyle = ".main-header-menu { {{css}} }";
-
-      kemet_background_obj_css(
-        wp.customize,
-        bg_obj,
-        "menu-bg-color",
-        dynamicStyle
-      );
-    });
-  });
+  kemet_responsive_css(
+    "kemet-settings[menu-bg-color]",
+    "ul.main-header-menu , .toggle-on ul.main-header-menu , .toggle-on ul.main-header-menu ul.sub-menu",
+    "background-color"
+  );
   kemet_responsive_spacing(
     "kemet-settings[main-menu-item-spacing]",
     ".kmt-header-break-point .main-navigation ul li a,.kmt-sitehead-custom-menu-items > *, .main-header-menu a",
@@ -1080,13 +1073,13 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[submenu-bg-color]",
     "background-color",
-    ".main-header-menu ul.sub-menu li"
+    ".main-header-menu ul.sub-menu li.menu-item"
   );
 
   kemet_css(
     "kemet-settings[submenu-bg-hover-color]",
     "background-color",
-    ".main-header-menu ul.sub-menu li:hover"
+    ".main-header-menu ul.sub-menu li.menu-item:hover"
   );
   //Search
   kemet_css(

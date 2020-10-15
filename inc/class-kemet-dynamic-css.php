@@ -151,8 +151,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			
 			// header menu
 			$menu_bg_color            = kemet_get_option( 'menu-bg-color' );
-			$menu_link_color         = kemet_get_option( 'menu-link-color' );
-			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' );
+			$menu_link_color         = kemet_get_option( 'menu-link-color' , $headings_links_color);
+			$menu_link_h_color         = kemet_get_option( 'menu-link-h-color' , $theme_color);
 			$menu_link_active_color         = kemet_get_option( 'menu-link-active-color' );
 			$menu_link_active_bg_color         = kemet_get_option( 'menu-link-active-bg-color' );
 			$menu_link_active_radius         = kemet_get_option( 'menu-link-active-radius' );
@@ -166,7 +166,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$mobile_menu_icon_bg_color        = kemet_get_option('mobile-menu-icon-bg-color');
 			$mobile_menu_icon_h_color        = kemet_get_option('mobile-menu-icon-h-color');
 			$mobile_menu_icon_bg_h_color        = kemet_get_option('mobile-menu-icon-bg-h-color');
-			$mobile_menu_items_bg_color        = kemet_get_option('mobile-menu-items-bg-color' , kemet_color_brightness($global_bg_color , 0.99 , 'dark'));
 			$mobile_menu_items_border_color        = kemet_get_option('mobile-menu-items-border-color' , $global_border_color);
 			$mobile_menu_items_border_size        = kemet_get_option('mobile-menu-items-border-size');
 
@@ -515,9 +514,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-color'  => esc_attr( $mobile_menu_items_border_color ),
 					'border-bottom-width' => kemet_get_css_value( $mobile_menu_items_border_size , 'px' ),
 				),
-				'.toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu' => array(
-					'background-color' => esc_attr( $mobile_menu_items_bg_color ),
-				),
 
 				'input[type="radio"]:checked, input[type=reset], input[type="checkbox"]:checked, input[type="checkbox"]:hover:checked, input[type="checkbox"]:focus:checked, input[type=range]::-webkit-slider-thumb' => array(
 					'border-color'     => esc_attr( $headings_links_color ),
@@ -525,8 +521,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'box-shadow'       => 'none',
 				),
 			    //header menu
-				'.main-header-menu '  => array(
-					'background-color' => esc_attr( $menu_bg_color),
+				'.main-header-menu , .toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu'  => array(
+					'background-color' => kemet_responsive_color( $menu_bg_color , 'desktop'),
 				),
 				'.main-navigation ul.main-header-menu '  => array(
 					'padding-top'    => kemet_responsive_spacing( $main_menu_spacing, 'top', 'desktop' ),
@@ -1056,6 +1052,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing'      => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'tablet' ),
 				),
+				'.main-header-menu , .toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu'  => array(
+					'background-color' => kemet_responsive_color( $menu_bg_color , 'tablet'),
+				),
 				'.kmt-comment-list #cancel-comment-reply-link' => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'tablet' ),
 					'letter-spacing'      => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
@@ -1325,6 +1324,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_slider( $body_font_size, 'mobile' ),
 					'letter-spacing'      => kemet_responsive_slider( $body_letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'mobile' ),
+				),
+				'.main-header-menu , .toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu'  => array(
+					'background-color' => kemet_responsive_color( $menu_bg_color , 'mobile'),
 				),
 				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'mobile' ),

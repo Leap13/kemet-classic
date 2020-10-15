@@ -61,7 +61,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
-			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
 			add_action( 'wp_enqueue_scripts', array( $this,'load_dashicons_front_end') );
 			add_filter( 'customize_dynamic_setting_args', array($this , 'filter_dynamic_setting_args') ,10 , 2 );
 			
@@ -91,29 +90,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/notification/class-kemet-customizer-notification.php';
 			$wp_customize->register_section_type( 'Kemet_Customizer_Notification' );
 		}
-
-		public function header_classes( $classes ) {
-			$header_layouts = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
-			if($header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2'){
-				$menu_aglin 	= kemet_get_option('menu-alignment');
-
-				$classes[] = $menu_aglin;
-			}
-			if($header_layouts == 'header-main-layout-1'){
-				$logo_position 	= kemet_get_option('header-logo-position');
-				$rtl_class = 'menu-rtl' ;
-				
-				if(is_rtl()){
-					$rtl_logo_position = $logo_position == '' ? 'reverse' : ''; 
-					$rtl_class = 'menu-ltr' ;
-				}
-			    $classes[] = $rtl_class;
-				$classes[] = is_rtl() ? $rtl_logo_position : $logo_position;
-			}
-
-			return $classes;
-		 }
-		 
+ 
 		/**
 		 * Print Footer Scripts
 		 *

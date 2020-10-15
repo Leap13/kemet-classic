@@ -184,19 +184,19 @@ if ( ! function_exists( 'kemet_responsive_color' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_responsive_color( $option, $device = 'desktop' , $default = '' ) {
+	function kemet_responsive_color( $option, $device = 'desktop' ) {
 
-		if( empty( $default ) || !is_array( $default ) ){
+		if( !is_array( $option ) ){
 
-			$default = array(
-				'desktop' => '',
+			$option = array(
+				'desktop' => $option,
 				'tablet' => '',
 				'mobile' => ''
 			);
 		}
 		
 		
-		$value = isset( $option[ $device ] ) ? $option[ $device ] : $default[ $device ];
+		$value = isset( $option[ $device ] ) ? $option[ $device ] : '';
 
 		return $value;
 	}

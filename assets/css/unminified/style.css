@@ -2427,7 +2427,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .kemet-search-icon::before {
   content: "\e90d";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   font-style: normal;
   font-weight: 600;
   text-decoration: inherit;
@@ -2500,10 +2500,10 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   -ms-transform: translateY(4px);
   transform: translateY(4px);
   opacity: 0;
-  -webkit-transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
+  -webkit-transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 
 @media (min-width: 769px) {
@@ -2625,10 +2625,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .kmt-header-break-point .main-navigation ul.sub-menu li li li li a:before {
   content: "----";
   margin-right: 2px;
-}
-
-.kmt-header-break-point .main-header-menu {
-  background-color: #f9f9f9;
 }
 
 .kmt-header-break-point .main-header-menu ul {
@@ -2996,6 +2992,8 @@ body:not(.kmt-header-break-point) .header-main-layout-1.reverse .kmt-sitehead-cu
   -moz-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .kmt-header-break-point .header-main-layout-1.reverse .main-navigation {

@@ -231,14 +231,15 @@ $header_rt_sections = array(
 		KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
 			'default'           => $defaults[ 'menu-bg-color' ],
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 		)
 	);
 	$wp_customize->add_control(
-		new Kemet_Control_Color(
+		new Kemet_Control_Responsive_Color(
 			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-        'priority'       => 35,
-        'section' => 'section-menu-header',
+				'priority'       => 35,
+				'section' => 'section-menu-header',
 				'label'   => __( 'Background Color', 'kemet' ),
 			)
 		)
@@ -1518,25 +1519,6 @@ $header_rt_sections = array(
         'priority'       => 240,
         'section' => 'section-menu-header',
 				'label'   => __( 'Menu Icon Background Hover Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-	 * Option: Menu Links Background Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
-			'default'           => $defaults[ 'mobile-menu-items-bg-color' ],
-			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-items-bg-color]', array(
-				'priority'       => 250,
-				'section' => 'section-menu-header',
-				'label'   => __( 'Menu Links Background Color', 'kemet' ),
 			)
 		)
 	);

@@ -204,17 +204,21 @@
                 self.toggler.append('<span class="color-alpha" />');
               }
             }
-
-            self.toggler.find("span.color-alpha").css({
+            var colorAlphaCss = {
               width: "30px",
               height: "100%",
               position: "absolute",
-              top: 0,
-              left: 0,
+              top: "0",
               "border-top-left-radius": "2px",
               "border-bottom-left-radius": "2px",
               background: ui.color.toString()
-            });
+            };
+            if ($("html").attr("dir") == "rtl") {
+              colorAlphaCss["right"] = "0";
+            } else {
+              colorAlphaCss["left"] = "0";
+            }
+            self.toggler.find("span.color-alpha").css(colorAlphaCss);
           } else {
             self.toggler.css({ backgroundColor: ui.color.toString() });
           }
