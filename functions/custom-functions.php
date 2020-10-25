@@ -247,7 +247,7 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 					$output[] = kemet_get_custom_html( $option . '-html' );
 				break;
 
-			case 'widget':
+			case 'kmt-widget':
 					$output[] = kemet_get_custom_widget( $option );
 				break;
 

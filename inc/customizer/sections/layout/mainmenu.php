@@ -543,7 +543,7 @@ $header_rt_sections = array(
 				array(
 					'search'    => __( 'Search', 'kemet' ),
 					'text-html' => __( 'Text / HTML', 'kemet' ),
-					'widget'    => __( 'Widget', 'kemet' ),
+					'kmt-widget'    => __( 'Widget', 'kemet' ),
 				),
 				'primary-header'
 			),
