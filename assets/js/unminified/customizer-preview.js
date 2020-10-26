@@ -1444,7 +1444,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[widget-title-text-transform]",
     "text-transform",
-    ".widget-head .widget-title"
+    ".widget-head .widget-title , .widget-title"
   );
   kemet_responsive_slider(
     "kemet-settings[widget-title-line-height]",
