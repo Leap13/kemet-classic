@@ -67,33 +67,6 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Header 1 Logo Position
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[header-logo-position]', array(
-		'default'           => $defaults['header-logo-position'],
-		'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[header-layouts]', 
-            'conditions' => '==', 
-            'values' => 'header-main-layout-1',
-        ),
-	)
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[header-logo-position]', array(
-        'type'     => 'select',
-        'section'  => 'section-header',
-        'priority' => 25,
-        'label'    => __( 'Logo Position', 'kemet' ),
-        'choices'  => array(
-            '' => __( 'Left', 'kemet' ),
-            'reverse'    => __( 'Right', 'kemet' ),
-        ),
-    )
-);
-/**
 * Option: Header 3 Right Section
 */
 $wp_customize->add_setting(

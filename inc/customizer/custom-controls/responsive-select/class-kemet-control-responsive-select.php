@@ -82,7 +82,7 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		<label for="">
 			<# if ( data.label ) { #>
 				<span class="customize-control-title">{{{ data.label }}}</span>
-				<ul class="kmt-responsive-slider-btns kmt-responsive-control-btns">
+				<ul class="kmt-responsive-select-btns kmt-responsive-control-btns">
 					<li class="desktop active">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>

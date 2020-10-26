@@ -2427,7 +2427,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .kemet-search-icon::before {
   content: "\e90d";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   font-style: normal;
   font-weight: 600;
   text-decoration: inherit;
@@ -2500,10 +2500,10 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   -ms-transform: translateY(4px);
   transform: translateY(4px);
   opacity: 0;
-  -webkit-transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out , opacity 0.4s ease-in-out , -webkit-transform 0.4s ease-in-out;
+  -webkit-transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 
 @media (min-width: 769px) {
@@ -2625,10 +2625,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .kmt-header-break-point .main-navigation ul.sub-menu li li li li a:before {
   content: "----";
   margin-left: 2px;
-}
-
-.kmt-header-break-point .main-header-menu {
-  background-color: #f9f9f9;
 }
 
 .kmt-header-break-point .main-header-menu ul {
@@ -2996,6 +2992,8 @@ body:not(.kmt-header-break-point) .header-main-layout-1.reverse .kmt-sitehead-cu
   -moz-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  margin-right: auto;
+  margin-left: 0;
 }
 
 .kmt-header-break-point .header-main-layout-1.reverse .main-navigation {
@@ -3615,7 +3613,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 }
 
 .kmt-header-widget-area .widget {
-  margin: .5em;
+  padding-bottom: 0;
   display: inline-block;
   vertical-align: middle;
 }
@@ -3640,8 +3638,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 }
 
 .kmt-header-widget-area .widget:last-child {
-  margin-bottom: 0.5em;
-  margin-left: 0;
+  margin: 0;
 }
 
 .submenu-with-border .kmt-header-widget-area .widget ul {
@@ -3655,7 +3652,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 }
 
 .kmt-header-break-point .kmt-header-widget-area .widget {
-  margin: .5em 0;
+  margin: 0.5em 0;
   display: block;
 }
 
@@ -3869,20 +3866,9 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
   padding: 1em;
 }
 
-.main-header-menu > .menu-item:hover > a {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}
-
-.main-header-menu > .menu-item.current_page_item > a,
-.main-header-menu .menu-item.current-menu-item > a,
-.main-header-menu .menu-item.current-menu-ancestor > a {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
 .main-header-menu > .menu-item > a {
-  border-bottom: 1px solid transparent;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
 }
 
 .kmt-header-break-point {
@@ -4178,7 +4164,8 @@ div.title {
   overflow: hidden;
 }
 
-.widget-title, h4.widget-title {
+.widget-title,
+h4.widget-title {
   font-size: 22px;
   font-weight: normal;
   margin-bottom: 0px;
@@ -4189,7 +4176,7 @@ div.title {
 }
 
 .widget {
-  margin-bottom: 2.8em;
+  padding-bottom: 2.8em;
 }
 
 .widget select {
@@ -4363,7 +4350,7 @@ div.title {
 }
 
 .widget_calendar tbody {
-  line-height: 2.10em;
+  line-height: 2.1em;
   text-align: center;
 }
 

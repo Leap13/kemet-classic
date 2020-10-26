@@ -293,6 +293,28 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
             return $responsive;
         }
         /**
+        * Sanitize Responsive Icon Select
+        *
+        * @param  array|number $val Customizer setting input number.
+        * @return array        Return number.
+        */
+        static public function sanitize_responsive_icon_select( $val ) {
+
+            $responsive = array(
+                'desktop'      => '',
+                'tablet'       => '',
+                'mobile'       => '',
+            );
+            if ( is_array( $val ) ) {
+                $responsive['desktop']      = isset( $val['desktop'] ) ? $val['desktop'] : '';
+                $responsive['tablet']       = isset( $val['tablet'] ) ? $val['tablet'] : '';
+                $responsive['mobile']       = isset( $val['mobile'] ) ? $val['mobile'] : '';
+            } else {
+                $responsive['desktop'] = isset( $val ) ? $val : '';
+            }
+            return $responsive;
+        }
+        /**
         * Validate Email
         *
         * @param  object $validity setting input validity.
@@ -426,6 +448,35 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
             $color = str_replace( ' ', '', $color );
             sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
             return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+        }
+
+        /**
+        * Sanitize Alpha color
+        *
+        * @param  string $color setting input.
+        * @return string        setting input value.
+        */
+        static public function sanitize_alpha_reponsive_color( $control ) {
+
+            if ( empty($control) ) {
+                return '';
+            }
+
+            $colors = array();
+
+            foreach( $control as $device => $color ){
+
+                if ( false === strpos( $color, 'rgba' ) ) {
+                    /* Hex sanitize */
+                    $colors[$device] = self::sanitize_hex_color( $color );
+                }else{
+                    /* rgba sanitize */
+                    $color = str_replace( ' ', '', $color );
+                    sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+                    $colors[$device] = 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+                }
+            }
+            return $colors;
         }
 
         /**

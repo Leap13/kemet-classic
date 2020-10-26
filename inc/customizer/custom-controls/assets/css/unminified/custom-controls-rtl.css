@@ -747,3 +747,116 @@ textarea {
 .select2-dropdown.increasedzindexclass {
   z-index: 999999;
 }
+
+.customize-control-kmt-responsive-icon-select .responsive-icon-select {
+  display: none;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-height: 216px;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33.33%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-input {
+  display: none;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-label {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  color: #cccccc;
+  border: 1px solid #f1f1f1;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-label:hover,
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-input:checked
+  + .icon-select-label {
+  color: #1e8cbe;
+  border-color: #f1f1f1;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select.rtl {
+  flex-direction: row-reverse;
+}
+
+.customize-control-kmt-reponsive-color .wp-color-result span {
+  background: #f7f7f7;
+}
+.customize-control-kmt-reponsive-color .wp-color-result.button {
+  min-height: 24px;
+}
+.customize-control-kmt-reponsive-color .customize-control-content {
+  display: none;
+}
+.customize-control-kmt-reponsive-color .customize-control-content.active {
+  display: block;
+}
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
+  border: 1px solid #d0d0d0;
+}
+
+.customize-control-kmt-reponsive-color
+  .wp-picker-container
+  input[type="text"].wp-color-picker {
+  width: 65px !important;
+}
+.kmt-responsive-color-btns a {
+  cursor: pointer;
+  background: 100% 0;
+  border: none;
+  outline: 0;
+  padding: 0px;
+  border-radius: 20px;
+  background-color: #bbb;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+.kmt-responsive-color-btns a:focus {
+  outline: none;
+  box-shadow: none;
+}
+.kmt-responsive-color-btns a > i {
+  width: auto;
+  height: auto;
+  color: #fff;
+  font-size: 13px;
+  line-height: 25px;
+}

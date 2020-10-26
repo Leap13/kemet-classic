@@ -144,6 +144,65 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 }
 
 /**
+ * Get Responsive Icons Select
+ */
+if ( ! function_exists( 'kemet_responsive_icon_select' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_responsive_icon_select( $option, $device = 'desktop' , $default = '' ) {
+
+		if( empty( $default ) || !is_array( $default ) ){
+
+			$default = array(
+				'desktop' => '',
+				'tablet' => '',
+				'mobile' => ''
+			);
+		}
+		
+		
+		$value = isset( $option[ $device ] ) ? $option[ $device ] : $default[ $device ];
+
+		return $value;
+	}
+}
+
+if ( ! function_exists( 'kemet_responsive_color' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_responsive_color( $option, $device = 'desktop' ) {
+
+		if( !is_array( $option ) ){
+
+			$option = array(
+				'desktop' => $option,
+				'tablet' => '',
+				'mobile' => ''
+			);
+		}
+		
+		
+		$value = isset( $option[ $device ] ) ? $option[ $device ] : '';
+
+		return $value;
+	}
+}
+
+/**
  * Get Responsive Slider
  */
 if ( ! function_exists( 'kemet_responsive_slider' ) ) {

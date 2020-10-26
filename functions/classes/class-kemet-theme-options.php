@@ -206,6 +206,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-link-h-color' => '',
 					'menu-link-active-color' => '',
 					'menu-link-active-bg-color' => '',
+					'menu-link-active-radius' => '',
 					'menu-bg-color'							 => '',
 					'menu-items-font-family'                 => 'inherit',
 					'menu-items-font-weight'                 => '400',
@@ -290,12 +291,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-submenu-border'           => true,
 					'header-bg-obj'                    =>  '',
 					'header-right-section'             => 'none',
-					'header-logo-position'             => '',
 
 					// Sub Menu 
 					'submenu-border-color'			=> '',			
 					'submenu-width'					=> '',
 					'submenu-link-color'             =>'',
+					'submenu-bg-hover-color'  			=> '',
 					'sub-menu-items-font-family'                 => 'inherit',
 					'sub-menu-items-font-weight'                 => '400',
 					'sub-menu-items-line-height'                 => '',
@@ -314,9 +315,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-menu-icon-bg-color'      => '',
 					'mobile-menu-icon-h-color'      => '',
 					'mobile-menu-icon-bg-h-color'      => '',
-					'mobile-menu-items-color'      => '',
-					'mobile-menu-items-bg-color'      => '',
-					'mobile-menu-items-h-color'      => '',
 					'mobile-menu-items-border-size'	=> '',
 					'mobile-menu-items-border-color'	=> '',
 
@@ -325,6 +323,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-main-sep-color'            => '',
 					'header-main-menu-label'           => '',
 					'header-main-menu-align'           => 'inline',
+					'menu-item-border-bottom'		   => 1,	
 
 					// Site Layout.
 					'site-content-width'               => 1200,
