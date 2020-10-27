@@ -28,7 +28,7 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!wiz-fonts.css"
             ],
             dest: "assets/css/unminified",
             ext: "-rtl.css"
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!wiz-fonts.css"
             ],
             dest: "assets/css/unminified/compatibility",
             ext: "-rtl.css"
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!wiz-fonts.css"
             ],
             dest: "assets/css/unminified/compatibility/woocommerce",
             ext: "-rtl.css"
@@ -283,26 +283,26 @@ module.exports = function(grunt) {
           "!package-lock.json",
           "!phpcs.xml.dist"
         ],
-        dest: "kemet/"
+        dest: "wiz/"
       }
     },
 
     compress: {
       main: {
         options: {
-          archive: "kemet-" + pkgInfo.version + ".zip",
+          archive: "wiz-" + pkgInfo.version + ".zip",
           mode: "zip"
         },
         files: [
           {
-            src: ["./kemet/**"]
+            src: ["./wiz/**"]
           }
         ]
       }
     },
 
     clean: {
-      main: ["kemet"],
+      main: ["wiz"],
       zip: ["*.zip"]
     },
 
@@ -310,7 +310,7 @@ module.exports = function(grunt) {
       target: {
         options: {
           domainPath: "/",
-          potFilename: "languages/kemet.pot",
+          potFilename: "languages/wiz.pot",
           potHeaders: {
             poedit: true,
             "x-poedit-keywordslist": true
@@ -323,7 +323,7 @@ module.exports = function(grunt) {
 
     addtextdomain: {
       options: {
-        textdomain: "kemet"
+        textdomain: "wiz"
       },
       target: {
         files: {
@@ -517,6 +517,24 @@ module.exports = function(grunt) {
       grunt.task.run("replace");
     }
   });
+
+  grunt.loadNpmTasks("grunt-text-replace");
+  grunt.initConfig({
+    replace: {
+      example: {
+        src: "**",
+        overwrite: true,
+        replacements: [
+          {
+            pattern: "kmt", // string replacement
+            replacement: "wiz"
+          }
+        ]
+      }
+    }
+  });
+  grunt.registerTask("default", "replace");
+
 
   // i18n
   grunt.registerTask("i18n", ["addtextdomain", "makepot"]);

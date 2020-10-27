@@ -5,7 +5,7 @@
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/NerminLeap13/kemet.git"
+    "url": "git+https://gitlab.com/NerminLeap13/wiz.git"
   },
   "author": "",
   "license": "ISC",
@@ -32,9 +32,9 @@
   },
   "dependencies": {},
   "bugs": {
-    "url": "https://gitlab.com/NerminLeap13/kemet/issues"
+    "url": "https://gitlab.com/NerminLeap13/wiz/issues"
   },
-  "homepage": "https://gitlab.com/NerminLeap13/kemet#readme",
+  "homepage": "https://gitlab.com/NerminLeap13/wiz#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

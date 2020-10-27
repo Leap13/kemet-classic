@@ -10,35 +10,35 @@
  * 
  */
 ?><!DOCTYPE html>
-<?php kemet_html_before(); ?>
+<?php wiz_html_before(); ?>
 <html <?php language_attributes(); ?>>
 <head>
-<?php kemet_head_top(); ?>
+<?php wiz_head_top(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <?php wp_head(); ?>
 </head>
 
-<body <?php kemet_schema_body(); ?> <?php body_class(); ?>>
+<body <?php wiz_schema_body(); ?> <?php body_class(); ?>>
 
-<?php kemet_body_top(); ?>
+<?php wiz_body_top(); ?>
 
 <?php wp_body_open(); ?>
 
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( wiz_theme_strings( 'string-header-skip-link', false ) ); ?></a>
     
-    <?php kemet_before_header_block(); ?>
+    <?php wiz_before_header_block(); ?>
 
-	<?php kemet_header(); ?>
+	<?php wiz_header(); ?>
     
-    <?php kemet_after_header_block(); ?>
+    <?php wiz_after_header_block(); ?>
 
-	<?php kemet_content_before(); ?>
+	<?php wiz_content_before(); ?>
 
 	<div id="content" class="site-content">
 
-		<div class="kmt-container">
+		<div class="wiz-container">
 
-		<?php kemet_content_top(); ?>
+		<?php wiz_content_top(); ?>

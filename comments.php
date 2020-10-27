@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 	
-	<?php kemet_comments_before(); ?>
+	<?php wiz_comments_before(); ?>
 
 	<?php // You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
@@ -32,7 +32,7 @@ if ( post_password_required() ) {
 				<?php
 				 sprintf( 
 						/* translators: 1: number of comments */
-						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'kemet' ) ),
+						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wiz' ) ),
 						number_format_i18n( get_comments_number() ), get_the_title()
 				);
 
@@ -41,34 +41,34 @@ if ( post_password_required() ) {
 		</div>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'kemet' ); ?>">
-			<h3 class="screen-reader-text"><?php echo esc_html( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
+		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'wiz' ); ?>">
+			<h3 class="screen-reader-text"><?php echo esc_html( wiz_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( kemet_theme_strings( 'string-comment-navigation-previous', false ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( wiz_theme_strings( 'string-comment-navigation-previous', false ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( wiz_theme_strings( 'string-comment-navigation-next', false ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-above -->
 		<?php endif; ?>
 
-		<ol class="kmt-comment-list">
+		<ol class="wiz-comment-list">
 			<?php
 			wp_list_comments(
 				array(
-					'callback' => 'kemet_comment',
+					'callback' => 'wiz_comment',
 					'style'    => 'ol',
 				)
 			);
 			?>
-		</ol><!-- .kmt-comment-list -->
+		</ol><!-- .wiz-comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'kemet' ); ?>">
-			<h3 class="screen-reader-text"><?php echo esc_html( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
+		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Comments Navigation', 'wiz' ); ?>">
+			<h3 class="screen-reader-text"><?php echo esc_html( wiz_theme_strings( 'string-comment-navigation-next', false ) ); ?></h3>
 			<div class="nav-links">
-				<div class="nav-previous"><?php previous_comments_link( kemet_theme_strings( 'string-comment-navigation-previous', false ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( kemet_theme_strings( 'string-comment-navigation-next', false ) ); ?></div>
+				<div class="nav-previous"><?php previous_comments_link( wiz_theme_strings( 'string-comment-navigation-previous', false ) ); ?></div>
+				<div class="nav-next"><?php next_comments_link( wiz_theme_strings( 'string-comment-navigation-next', false ) ); ?></div>
 
 			</div><!-- .nav-links -->
 		</nav><!-- #comment-nav-below -->
@@ -80,11 +80,11 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php echo esc_html( kemet_theme_strings( 'string-comment-closed', false ) ); ?></p>
+		<p class="no-comments"><?php echo esc_html( wiz_theme_strings( 'string-comment-closed', false ) ); ?></p>
 	<?php endif; // Check for have_comments(). ?>
 
 	<?php comment_form(); ?>
 
-	<?php kemet_comments_after(); ?>
+	<?php wiz_comments_after(); ?>
 
 </div><!-- #comments -->

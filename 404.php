@@ -11,23 +11,23 @@
 
 get_header(); ?>
 
-<?php if ( kemet_layout() == 'left-sidebar' ) : ?>
+<?php if ( wiz_layout() == 'left-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 
 <?php endif ?>
 
-	<div id="primary" <?php kemet_content_class(); ?>>
+	<div id="primary" <?php wiz_content_class(); ?>>
 
-		<?php kemet_primary_content_top(); ?>
+		<?php wiz_primary_content_top(); ?>
 
-		<?php kemet_404_content_template(); ?>
+		<?php wiz_404_content_template(); ?>
 
-		<?php kemet_primary_content_bottom(); ?>	
+		<?php wiz_primary_content_bottom(); ?>	
 
 	</div><!-- #primary -->
 
-<?php if ( kemet_layout() == 'right-sidebar' ) : ?>
+<?php if ( wiz_layout() == 'right-sidebar' ) : ?>
 
 	<?php get_sidebar(); ?>
 

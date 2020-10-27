@@ -8,7 +8,7 @@
  * 
  */
 
-$sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
+$sidebar = apply_filters( 'wiz_get_sidebar', 'sidebar-1' );
 
 ?>
 
@@ -16,7 +16,7 @@ $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 	<div class="sidebar-main">
 
-	<?php kemet_sidebars_before(); ?>
+	<?php wiz_sidebars_before(); ?>
 	
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
 
@@ -24,7 +24,7 @@ $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 		<?php endif; ?>
 
-	<?php kemet_sidebars_after(); ?>
+	<?php wiz_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->
 </div><!-- #secondary -->

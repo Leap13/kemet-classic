@@ -1,6 +1,6 @@
 === KEMET Theme ===
 Theme Name: Kemet
-Theme URI: https://kemet.io/
+Theme URI: https://wiz.io/
 Author: Leap13
 Author URI: https://leap13.com/
 Requires PHP: 5.6
