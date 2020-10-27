@@ -2762,6 +2762,7 @@ button.pswp__button--zoom:hover {
 			&::before {
 				content: '\e015';
 				color: #8fae1b;
+				font-family: 'WooCommerce';
 			}
 			&:hover{
 				border: none;
@@ -2788,10 +2789,38 @@ button.pswp__button--zoom:hover {
 		&::before {
 			content: '\e016';
 			color: #b81c23;
+			font-family: 'WooCommerce';
 		}
 	}
 }
 
+ul.woocommerce-message {
+	border-top-color: #8fae1b;
+
+	&::before {
+		content: '\e015';
+		color: #8fae1b;
+		font-family: 'WooCommerce';
+	}
+}
+
+ul.woocommerce-info {
+	border-top-color: #1e85be;
+
+	&::before {
+		color: #1e85be;
+	}
+}
+
+ul.woocommerce-error {
+	border-top-color: #b81c23;
+
+	&::before {
+		content: '\e016';
+		font-family: 'WooCommerce';
+		color: #b81c23;
+	}
+}
 /**
  * Account page
  */

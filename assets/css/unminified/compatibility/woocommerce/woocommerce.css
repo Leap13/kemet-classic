@@ -3097,6 +3097,7 @@ button.pswp__button--zoom:hover {
 .woocommerce .woocommerce-message .button::before {
   content: '\e015';
   color: #8fae1b;
+  font-family: 'WooCommerce';
 }
 
 .woocommerce .woocommerce-message .button:hover {
@@ -3118,6 +3119,35 @@ button.pswp__button--zoom:hover {
 
 .woocommerce-error .button::before {
   content: '\e016';
+  color: #b81c23;
+  font-family: 'WooCommerce';
+}
+
+ul.woocommerce-message {
+  border-top-color: #8fae1b;
+}
+
+ul.woocommerce-message::before {
+  content: '\e015';
+  color: #8fae1b;
+  font-family: 'WooCommerce';
+}
+
+ul.woocommerce-info {
+  border-top-color: #1e85be;
+}
+
+ul.woocommerce-info::before {
+  color: #1e85be;
+}
+
+ul.woocommerce-error {
+  border-top-color: #b81c23;
+}
+
+ul.woocommerce-error::before {
+  content: '\e016';
+  font-family: 'WooCommerce';
   color: #b81c23;
 }
 
