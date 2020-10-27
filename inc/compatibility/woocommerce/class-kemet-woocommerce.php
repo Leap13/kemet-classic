@@ -459,14 +459,15 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-					$shop_sidebar = get_post_meta( $shop_page_id, 'site-sidebar-layout', true );
+					$meta = get_post_meta( $shop_page_id, 'kemet_page_options', true);
+					$shop_sidebar = ( isset( $meta['site-sidebar-layout'] ) && $meta['site-sidebar-layout'] ) ? $meta['site-sidebar-layout'] : 'default';		
 				} elseif ( is_product_taxonomy() ) {
 					$shop_sidebar = 'default';
 				} else {
                     if( class_exists( 'KFW' ) )  {
                     $meta = get_post_meta( get_the_ID(), 'kemet_page_options', true);
-                    $shop_sidebar = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
-                    }
+                    $shop_sidebar = ( isset( $meta['site-sidebar-layout'] ) && $meta['site-sidebar-layout'] ) ? $meta['site-sidebar-layout'] : 'default';
+					}
 				}
 
 				if ( 'default' !== $shop_sidebar && ! empty( $shop_sidebar ) ) {
