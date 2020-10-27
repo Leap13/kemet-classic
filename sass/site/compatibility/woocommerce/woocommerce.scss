@@ -2756,7 +2756,7 @@ button.pswp__button--zoom:hover {
 
 .woocommerce{
 	.woocommerce-message {
-		.button{
+		.button , a{
 			border: none;
 			background: none;
 			&::before {
@@ -2773,7 +2773,7 @@ button.pswp__button--zoom:hover {
 }
 
 .woocommerce-info {
-	.button{
+	.button , a{
 		border-top-color: #1e85be;
 
 		&::before {
@@ -2781,9 +2781,12 @@ button.pswp__button--zoom:hover {
 		}
 	}
 }
-
+ul.woocommerce-error{
+	margin: 0;
+	border: 0;
+}
 .woocommerce-error {
-	.button{
+	.button , a{
 		border-top-color: #b81c23;
 
 		&::before {
@@ -2792,33 +2795,19 @@ button.pswp__button--zoom:hover {
 			font-family: 'WooCommerce';
 		}
 	}
-}
-
-ul.woocommerce-message {
-	border-top-color: #8fae1b;
-
-	&::before {
-		content: '\e015';
-		color: #8fae1b;
-		font-family: 'WooCommerce';
-	}
-}
-
-ul.woocommerce-info {
-	border-top-color: #1e85be;
-
-	&::before {
-		color: #1e85be;
-	}
-}
-
-ul.woocommerce-error {
-	border-top-color: #b81c23;
-
-	&::before {
-		content: '\e016';
-		font-family: 'WooCommerce';
-		color: #b81c23;
+	li{
+		margin-bottom: 15px;
+		border: 1px solid rgb(231, 169, 169);
+		color: rgb(208, 69, 68);
+		padding: 8px;
+		position: relative;
+		text-align: center;
+		background-color: rgb(255, 233, 233);
+		&::before {
+			content: '\e016';
+			color: #b81c23;
+			font-family: 'WooCommerce';
+		}
 	}
 }
 /**
