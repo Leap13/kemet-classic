@@ -4175,7 +4175,9 @@ h4.widget-title {
   margin-bottom: 15px;
 }
 
-.widget {
+.sidebar-main .widget,
+.kemet-footer .widget,
+.kmt-footer-copyright .widget {
   padding-bottom: 2.8em;
 }
 

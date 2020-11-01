@@ -19,9 +19,14 @@ h4.widget-title {
 .widget-head {
   margin-bottom: 15px;
 }
+.sidebar-main,
+.kemet-footer,
+.kmt-footer-copyright {
+  .widget {
+    padding-bottom: 2.8em;
+  }
+}
 .widget {
-  padding-bottom: 2.8em;
-
   select {
     max-width: 100%;
   }

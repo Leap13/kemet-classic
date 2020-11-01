@@ -913,7 +913,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
    */
   kemet_responsive_spacing(
     "kemet-settings[widget-padding]",
-    ".widget",
+    ".sidebar-main .widget",
     "padding",
     ["top", "bottom", "right", "left"]
   );

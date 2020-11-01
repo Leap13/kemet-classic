@@ -851,7 +851,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//widget Spacing
-				'.widget' => array(
+				'.sidebar-main .widget' => array(
 					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom ),
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'desktop' ),
@@ -1175,7 +1175,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				//Widget Spacing
-				'.sidebar-main ' => array(
+				'.sidebar-main .widget' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'tablet' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'tablet' ),
@@ -1383,7 +1383,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'  => kemet_responsive_spacing( $submenu_link_spacing, 'left', 'mobile' ),
 				),
 				//Widget Spacing
-				'.sidebar-main ' => array(
+				'.sidebar-main .widget' => array(
 					'padding-top'    => kemet_responsive_spacing( $space_widget, 'top', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $space_widget, 'bottom', 'mobile' ),
 					'padding-right' => kemet_responsive_spacing( $space_widget, 'right', 'mobile' ),
