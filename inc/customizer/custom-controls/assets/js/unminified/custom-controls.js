@@ -1492,10 +1492,9 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
       api.control(control_id).setting.set(newValue);
     },
     setFontWeightOptions: function (select, fontWeightContainer, weightKey) {
+      console.log($(select).find("select"));
       var i = 0,
-        fontValue = $(select).find("select").val()
-          ? $(select).find("select").val()
-          : "inherit",
+        fontValue = $(select).find("select").val(),
         selected = "",
         weightSelect = $(fontWeightContainer).find("select"),
         currentWeightTitle = weightSelect.data("inherit"),

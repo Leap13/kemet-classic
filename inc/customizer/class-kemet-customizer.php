@@ -295,6 +295,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 							'option' => KEMET_THEME_SETTINGS,
 						),
 						'config'     => $this->get_dependency_arr(),
+						'font_family_select' => $this->font_family_select(),
 					)
 				)
 			);
@@ -304,6 +305,38 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// Select2
 			wp_enqueue_style( 'kemet-select2-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/select2.min.css' , null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-select2-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/select2.min.js', array( 'jquery' ) , KEMET_THEME_VERSION, true );
+		}
+
+		/**
+		 * Font Family DropDown
+		 */
+		function font_family_select(){
+
+			ob_start();
+
+			echo '<select>';
+			echo '<option value="inherit">' . __( 'Inherit', 'kemet' ) . '</option>';
+			echo '<optgroup label="Other System Fonts">';
+
+			foreach ( Kemet_Font_Families::get_system_fonts() as $name => $variants ) {
+				echo '<option value="' . esc_attr( $name ) . '">' . esc_attr( $name ) . '</option>';
+			}
+
+			// Add Custom Font List Into Customizer.
+			do_action( 'kemet_customizer_font_list', );
+
+			echo '<optgroup label="Google">';
+
+			foreach ( Kemet_Font_Families::get_google_fonts() as $name => $single_font ) {
+				$variants = kemet_prop( $single_font, '0' );
+				$category = kemet_prop( $single_font, '1' );
+				echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '">' . esc_attr( $name ) . '</option>';
+			}
+
+			echo '</select>';
+
+			return ob_get_clean();
+
 		}
 
 		/**
