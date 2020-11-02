@@ -297,206 +297,147 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Widget Title Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-widget-title-font-size]', array(
-        'default'           => $defaults[ 'footer-widget-title-font-size' ],
+ * Option:Sub Menu Items Typography
+ */
+
+$fields = array(
+    /**
+    * Option: Footer Font Size
+    */
+    array(
+        'id'                => '[footer-widget-title-font-size]',
+        'default'           => $defaults ['footer-widget-title-font-size'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-widget-title-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 35,
-            'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'priority'          => 2,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
-/**
-* Option: Widget Title Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-wgt-title-font-family]', array(
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[footer-wgt-title-font-family]',
         'default'           => $defaults[ 'footer-wgt-title-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-wgt-title-font-family]', array(
-            'type'     => 'kmt-font-family',
-            'label'    => __( 'Font Family', 'kemet' ),
-            'section'  => 'section-kemet-footer',
-            'priority' => 40,
-            'connect'  => KEMET_THEME_SETTINGS . '[footer-wgt-title-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Widget Title Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-wgt-title-font-weight]', array(
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[footer-wgt-title-font-weight]',
+    ),
+    /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[footer-wgt-title-font-weight]',
         'default'           => $defaults[ 'footer-wgt-title-font-weight' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-wgt-title-font-weight]', array(
-            'type'     => 'kmt-font-weight',
-            'label'    => __( 'Font Weight', 'kemet' ),
-            'section'  => 'section-kemet-footer',
-            'priority' => 45,
-            'connect'  => KEMET_THEME_SETTINGS . '[footer-wgt-title-font-family]',
-
-        )
-    )
-);
-
-/**
-* Option: Widget Title Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-wgt-title-text-transform]', array(
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[footer-wgt-title-font-family]',
+    ),
+    /**
+    * Option: Footer Text Transform
+    */
+    array(
+        'id'                => '[footer-wgt-title-text-transform]',
         'default'           => $defaults[ 'footer-wgt-title-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-wgt-title-text-transform]', array(
-        'section'  => 'section-kemet-footer',
-        'label'    => __( 'Text Transform', 'kemet' ),
-        'type'     => 'select',
-        'priority' => 50,
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 5,
         'choices'  => array(
-            ''           => __( 'Inherit', 'kemet' ),
+            ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
             'capitalize' => __( 'Capitalize', 'kemet' ),
             'uppercase'  => __( 'Uppercase', 'kemet' ),
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
-    )
+    ),
+    /**
+    * Option: Footer Line Height
+    */
+    array(
+        'id'                => '[footer-wgt-title-line-height]',
+        'default'           => $defaults ['footer-wgt-title-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+            '%' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 100,
+            ),
+        ),
+    ),
+    /**
+    * Option: Footer Letter Spacing
+    */
+    array(
+        'id'                => '[footer-widget-title-letter-spacing]',
+        'default'           => $defaults ['footer-widget-title-letter-spacing'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+);
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-footer-widgets-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'section-kemet-footer',
+    'priority' => 35,
+    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
 
-/**
-* Option: Widget Title Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-wgt-title-line-height]', array(
-        'default'           => $defaults[ 'footer-wgt-title-line-height' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-wgt-title-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 55,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
-            ),
-        )
-    )
-);
-/**
-* Option: Widget Title Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-widget-title-letter-spacing]', array(
-        'default'           => $defaults[ 'footer-widget-title-letter-spacing' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-widget-title-letter-spacing]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 58,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
  * Option: Title
  */
@@ -548,206 +489,147 @@ $wp_customize->add_control(
 );
 
 /**
-* Option: Footer Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-font-size]', array(
-        'default'           => $defaults[ 'footer-font-size' ],
+ * Option:Sub Menu Items Typography
+ */
+
+$fields = array(
+    /**
+    * Option: Footer Font Size
+    */
+    array(
+        'id'                => '[footer-font-size]',
+        'default'           => $defaults ['footer-font-size'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 70,
-            'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'priority'          => 2,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
-/**
-* Option: Footer Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-font-family]', array(
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[footer-font-family]',
         'default'           => $defaults[ 'footer-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-family]', array(
-            'type'     => 'kmt-font-family',
-            'label'    => __( 'Font Family', 'kemet' ),
-            'section'  => 'section-kemet-footer',
-            'priority' => 75,
-            'connect'  => KEMET_THEME_SETTINGS . '[footer-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Footer Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-font-weight]', array(
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[footer-font-weight]',
+    ),
+    /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[footer-font-weight]',
         'default'           => $defaults[ 'footer-font-weight' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-font-weight]', array(
-            'type'     => 'kmt-font-weight',
-            'label'    => __( 'Font Weight', 'kemet' ),
-            'section'  => 'section-kemet-footer',
-            'priority' => 80,
-            'connect'  => KEMET_THEME_SETTINGS . '[footer-font-family]',
-
-        )
-    )
-);
-
-/**
-* Option: Footer Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-text-transform]', array(
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[footer-font-family]',
+    ),
+    /**
+    * Option: Footer Text Transform
+    */
+    array(
+        'id'                => '[footer-text-transform]',
         'default'           => $defaults[ 'footer-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[footer-text-transform]', array(
-        'section'  => 'section-kemet-footer',
-        'label'    => __( 'Text Transform', 'kemet' ),
-        'type'     => 'select',
-        'priority' => 85,
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'section-kemet-footer',
+        'priority'          => 5,
         'choices'  => array(
-            ''           => __( 'Inherit', 'kemet' ),
+            ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
             'capitalize' => __( 'Capitalize', 'kemet' ),
             'uppercase'  => __( 'Uppercase', 'kemet' ),
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
-    )
+    ),
+    /**
+    * Option: Footer Line Height
+    */
+    array(
+        'id'                => '[footer-line-height]',
+        'default'           => $defaults ['footer-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+            '%' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 100,
+            ),
+        ),
+    ),
+    /**
+    * Option: Footer Letter Spacing
+    */
+    array(
+        'id'                => '[footer-letter-spacing]',
+        'default'           => $defaults ['footer-letter-spacing'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-kemet-footer',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+);
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-footer-widgets-content-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'section-kemet-footer',
+    'priority' => 70,
+    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
 
-/**
-* Option: Footer Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-line-height]', array(
-        'default'           => $defaults[ 'footer-line-height' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 90,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
-            ),
-        )
-    )
-);
-/**
-* Option: Widget Title Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-letter-spacing]', array(
-        'default'           => $defaults[ 'footer-letter-spacing' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-letter-spacing]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-kemet-footer',
-            'priority'       => 93,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Title
 */
