@@ -1154,7 +1154,10 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
               ".kmt-slider-responsive-units .single-unit",
               function () {
                 var unit = $(this);
-                var control = $(".kmt-group-model ul li#" + controlContainerID);
+                var controlID = $(
+                  ".kmt-group-model ul li#customize-control-" +
+                    controlContainerID
+                );
                 if (unit.hasClass("active")) {
                   return false;
                 }
@@ -1168,7 +1171,8 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
                 unit.siblings().removeClass("active");
                 unit.addClass("active");
-                $(control)
+                console.log(controlID);
+                $(controlID)
                   .find(
                     ".input-field-wrapper." +
                       device +
@@ -1179,7 +1183,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
                       " input[type=range]"
                   )
                   .attr("min", unit_min);
-                $(control)
+                $(controlID)
                   .find(
                     ".input-field-wrapper." +
                       device +
@@ -1190,7 +1194,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
                       " input[type=range]"
                   )
                   .attr("max", unit_max);
-                $(control)
+                $(controlID)
                   .find(
                     ".input-field-wrapper." +
                       device +
@@ -1201,7 +1205,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
                       " input[type=range]"
                   )
                   .attr("step", unit_step);
-                $(control)
+                $(controlID)
                   .find(
                     ".input-field-wrapper." +
                       device +
@@ -1213,7 +1217,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
                   )
                   .val("");
 
-                $(control)
+                $(controlID)
                   .find(
                     ".kmt-slider-unit-wrapper .kmt-slider-" + device + "-unit"
                   )
@@ -1492,7 +1496,6 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
       api.control(control_id).setting.set(newValue);
     },
     setFontWeightOptions: function (select, fontWeightContainer, weightKey) {
-      console.log($(select).find("select"));
       var i = 0,
         fontValue = $(select).find("select").val(),
         selected = "",
@@ -1569,7 +1572,6 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
           } else {
             device = "desktop";
           }
-          console.log(device);
           $(
             '.wp-full-overlay-footer .devices button[data-device="' +
               device +

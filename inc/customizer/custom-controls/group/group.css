@@ -140,3 +140,6 @@
 #customize-theme-controls .control-section.open {
   height: 100%;
 }
+.select2-container {
+  z-index: 999999;
+}
