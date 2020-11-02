@@ -207,26 +207,50 @@ $wp_customize->add_control(
         )
     )
 );
+
 /**
-* Option: Site Title Color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[site-title-color]', array(
-        'default'           => $defaults[ 'site-title-color' ],
+$fields = array(
+      
+    /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[site-title-color]',
+        'default'           => $defaults ['site-title-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Site Title Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'title_tagline',
+        'tab'               => __('Normal' , 'kemet')
+    ),  
+     /**
+    * Option - Hover Color
+    */
+      array(
+        'id'                => '[site-title-h-color]',
+        'default'           => $defaults ['site-title-h-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Site Title Hover Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'title_tagline',
+        'tab'               => __('Hover' , 'kemet')
+    ),   
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[site-title-color]', array(
-            'label'   => __( 'Site Title Color', 'kemet' ),
-            'priority'       => 35,
-            'section' => 'title_tagline',
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-site-title-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Site Title Colors', 'kemet' ),
+    'section'  => 'title_tagline',
+    'priority' => 35,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Tagline Color
 */
@@ -247,26 +271,7 @@ $wp_customize->add_control(
         )
     )
 );
-/**
-* Option: Site Title Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
-        'default'           => $defaults[ 'site-title-h-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[site-title-h-color]', array(
-            'label'   => __( 'Site Title Hover Color', 'kemet' ),
-            'priority'       => 45,
-            'section' => 'title_tagline',
-        )
-    )
-);
+
 /**
 * Option - Site Identity Padding
 */

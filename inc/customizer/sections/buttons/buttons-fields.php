@@ -60,83 +60,102 @@ $wp_customize->add_control(
         )
     )
 );
-/**
-* Option: Button Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-color]', array(
-        'default'           => $defaults[ 'button-color' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Color', 'kemet' ),
-            'priority'    => 5,
-        )
-    )
-);
-/**
-* Option: Button Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-bg-color]', array(
-        'default'           => $defaults[ 'button-bg-color' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Color', 'kemet' ),
-            'priority'    => 10,
-        )
-    )
-);
-/**
-* Option: Button Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-h-color]', array(
-        'default'           => $defaults[ 'button-h-color' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-h-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Hover Color', 'kemet' ),
-            'priority'    => 15,
-        )
-    )
-);
 
 /**
-* Option: Button Background Hover Color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
-        'default'           => $defaults[ 'button-bg-h-color' ],
+$fields = array(
+      
+    /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[button-color]',
+        'default'           => $defaults ['button-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Text Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Normal' , 'kemet')
+    ),  
+     /**
+    * Option - Background Color
+    */
+      array(
+        'id'                => '[button-bg-color]',
+        'default'           => $defaults ['button-bg-color'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Background Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+     /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[btn-border-color]',
+        'default'           => $defaults ['btn-border-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+    /**
+    * Option - Hover Color
+    */
+      array(
+        'id'                => '[button-h-color]',
+        'default'           => $defaults ['button-h-color'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Text Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Hover' , 'kemet')
+    ),  
+     /**
+    * Option - Background Hover Color
+    */
+      array(
+        'id'                => '[button-bg-h-color]',
+        'default'           => $defaults ['button-bg-h-color'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Background Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Hover' , 'kemet')
+    ),  
+     /**
+    * Option - Hover Color
+    */
+      array(
+        'id'                => '[btn-border-h-color]',
+        'default'           => $defaults ['btn-border-h-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Border Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-buttons-fields',
+        'tab'               => __('Hover' , 'kemet')
+    ),       
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[button-bg-h-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Hover Color', 'kemet' ),
-            'priority'    => 20,
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-buttons-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Buttons Colors', 'kemet' ),
+    'section'  => 'section-buttons-fields',
+    'priority' => 5,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Button Radius
 */
@@ -202,48 +221,6 @@ $wp_customize->add_control(
 		)
 	);
 /**
-* Option: Button Border Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[btn-border-color]', array(
-        'default'           => $defaults[ 'btn-border-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Color', 'kemet' ),
-            'priority'    => 35,
-        )
-    )
-);
-
-/**
-* Option: Button Border Hover color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[btn-border-h-color]', array(
-        'default'           => $defaults['btn-border-h-color'],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[btn-border-h-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Hover color', 'kemet' ),
-            'priority'    => 40,
-        )
-    )
-);
-
-/**
 * Option - Button Spacing
 */
 $wp_customize->add_setting(
@@ -288,46 +265,59 @@ $wp_customize->add_control(
 );
 
 /**
-* Option: Color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-text-color]', array(
-        'default'           => $defaults[ 'input-text-color' ],
+$fields = array(
+      
+    /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[input-text-color]',
+        'default'           => $defaults ['input-text-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-text-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Text Color', 'kemet' ),
-            'priority'    => 55,
-        )
-    )
-);
-
-/**
-* Option: Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-bg-color]', array(
-        'default'           => $defaults[ 'input-bg-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Text Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-buttons-fields',
+    ),  
+     /**
+    * Option - Hover Color
+    */
+      array(
+        'id'                => '[input-bg-color]',
+        'default'           => $defaults ['input-bg-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Background Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-buttons-fields',
+    ),
+    /**
+    * Option - Hover Color
+    */
+      array(
+        'id'                => '[input-border-color]',
+        'default'           => $defaults ['input-border-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Border Color', 'kemet' ),
+        'priority'          => 3,
+        'section'           => 'section-buttons-fields',
+    ),    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-bg-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Background Color', 'kemet' ),
-            'priority'    => 60,
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-site-title-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Input Colors', 'kemet' ),
+    'section'  => 'section-buttons-fields',
+    'priority' => 55,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Input Radius
 */
@@ -401,26 +391,6 @@ $wp_customize->add_control(
                     'max' => 100,
                 ),
             ),
-        )
-    )
-);
-/**
-* Option: Border Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[input-border-color]', array(
-        'default'           => $defaults[ 'input-border-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[input-border-color]', array(
-            'section' => 'section-buttons-fields',
-            'label'   => __( 'Border Color', 'kemet' ),
-            'priority'    => 75,
         )
     )
 );
