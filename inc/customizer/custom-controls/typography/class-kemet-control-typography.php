@@ -71,9 +71,6 @@ final class Kemet_Control_Typography extends WP_Customize_Control {
 	public function enqueue() {
 
 		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/typography/';
-		
-		wp_enqueue_style( 'kemet-select2-style', $uri . 'select2.min.css', null, KEMET_THEME_VERSION );
-		wp_enqueue_script( 'kemet-select2-script', $uri . 'select2.min.js', array( 'jquery' ), KEMET_THEME_VERSION, true );
 
 		wp_enqueue_script( 'kemet-typography', $uri . 'typography.js', array( 'jquery', 'kemet-select2-script','customize-base' ), KEMET_THEME_VERSION, true );
 
