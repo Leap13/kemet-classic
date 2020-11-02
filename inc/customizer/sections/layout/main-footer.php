@@ -489,7 +489,7 @@ $wp_customize->add_control(
 );
 
 /**
- * Option:Sub Menu Items Typography
+ * Option:Footer Items Typography
  */
 
 $fields = array(

@@ -140,12 +140,12 @@ $wp_customize->add_control(
 );
 
 /**
- * Option: Widget Items Typography
+ * Option: Widget Typography
  */
 
 $fields = array(
     /**
-    * Option: Submenu Font Size
+    * Option: Widget Font Size
     */
     array(
         'id'                => '[widget-title-font-size]',
