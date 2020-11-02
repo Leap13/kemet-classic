@@ -949,103 +949,72 @@ $header_rt_sections = array(
 	);
 	/**
 	 * Option:Sub Menu Items Typography
-	 * Option: Font Family
 	 */
-	/**
-	* Option: Submenu Font Size
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-font-size]', array(
-			'default'           => $defaults[ 'submenu-font-size' ],
+
+	$fields = array(
+		/**
+		* Option: Submenu Font Size
+		*/
+		array(
+			'id'                => '[submenu-font-size]',
+			'default'           => $defaults ['submenu-font-size'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-font-size]', array(
-				'type'           => 'kmt-responsive-slider',
-				'section'        => 'section-menu-header',
-				'priority'       => 150,
-				'label'          => __( 'Font Size', 'kemet' ),
-				'unit_choices'   => array(
-					'px' => array(
-						'min' => 1,
-						'step' => 1,
-						'max' =>200,
-					),
-					'em' => array(
-						'min' => 0.1,
-						'step' => 0.1,
-						'max' => 10,
-					),
+			'control_type'      => 'kmt-responsive-slider',
+			'section'           => 'section-menu-header',
+			'priority'          => 2,
+			'label'          => __( 'Font Size', 'kemet' ),
+			'unit_choices'   => array(
+				'px' => array(
+					'min' => 1,
+					'step' => 1,
+					'max' =>200,
 				),
-			)
-		)
-	);
-	/**
-	* Option: Font Family
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
+				'em' => array(
+					'min' => 0.1,
+					'step' => 0.1,
+					'max' => 10,
+				),
+			),
+		),
+		/**
+		 * Option: Font Family
+		 */
+		array(
+			'id'                => '[sub-menu-items-font-family]',
 			'default'           => $defaults[ 'sub-menu-items-font-family' ],
 			'type'              => 'option',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-
-	$wp_customize->add_control(
-		new Kemet_Control_Typography(
-			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]', array(
-				'type'        => 'kmt-font-family',
-				'section'     => 'section-menu-header',
-				'priority'    => 155,
-				'label'       => __( 'Font Family', 'kemet' ),
-				'connect'     => KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]',
-			)
-		)
-	);
-
-	/**
-	 * Option: SubMenu Font Weight
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]', array(
+			'control_type'      => 'kmt-font-family',
+			'label'             => __( 'Font Family', 'kemet' ),
+			'section'           => 'section-menu-header',
+			'priority'          => 3,
+			'connect'           => KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]',
+		),
+		/**
+		 * Option: Font Weight
+		 */
+		array(
+			'id'                => '[sub-menu-items-font-weight]',
 			'default'           => $defaults[ 'sub-menu-items-font-weight' ],
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Typography(
-			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-font-weight]', array(
-				'type'        => 'kmt-font-weight',
-				'section'     => 'section-menu-header',
-				'priority'    => 160,
-				'label'       => __( 'Font Weight', 'kemet' ),
-				'connect'     => KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]',
-			)
-		)
-	);
-
-	/**
-	 * Option: SubMenu Items Text Transform
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[sub-menu-items-text-transform]', array(
+			'control_type'      => 'kmt-font-weight',
+			'label'             => __( 'Font Weight', 'kemet' ),
+			'section'           => 'section-menu-header',
+			'priority'          => 4,
+			'connect'           => KEMET_THEME_SETTINGS . '[sub-menu-items-font-family]',
+		),
+		/**
+		* Option: Submenu Text Transform
+		*/
+		array(
+			'id'                => '[sub-menu-items-text-transform]',
 			'default'           => $defaults[ 'sub-menu-items-text-transform' ],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-		)
-	);
-	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[sub-menu-items-text-transform]', array(
-			'type'     => 'select',
-			'section'  => 'section-menu-header',
-			'priority' => 165,
-			'label'    => __( 'Text Transform', 'kemet' ),
+			'control_type'      => 'kmt-select',
+			'label'             => __( 'Text Transform', 'kemet' ),
+			'section'           => 'section-menu-header',
+			'priority'          => 5,
 			'choices'  => array(
 				''           => __( 'Default', 'kemet' ),
 				'none'       => __( 'None', 'kemet' ),
@@ -1053,75 +1022,68 @@ $header_rt_sections = array(
 				'uppercase'  => __( 'Uppercase', 'kemet' ),
 				'lowercase'  => __( 'Lowercase', 'kemet' ),
 			),
-		)
+		),
+		/**
+		* Option: Submenu Line Height
+		*/
+		array(
+			'id'                => '[sub-menu-items-line-height]',
+			'default'           => $defaults ['sub-menu-items-line-height'] ,
+			'type'              => 'option',
+			'control_type'      => 'kmt-responsive-slider',
+			'section'           => 'section-menu-header',
+			'transport'         => 'postMessage',
+			'priority'          => 6,
+			'label'          => __( 'Line Height', 'kemet' ),
+			'unit_choices'   => array(
+				'px' => array(
+					'min' => 0,
+					'step' => 1,
+					'max' =>100,
+				),
+				'em' => array(
+					'min' => 0,
+					'step' => 1,
+					'max' => 10,
+				),
+				'%' => array(
+					'min' => 0,
+					'step' => 1,
+					'max' => 100,
+				),
+			),
+		),
+		/**
+		* Option: Submenu Letter Spacing
+		*/
+		array(
+			'id'                => '[submenu-letter-spacing]',
+			'default'           => $defaults ['submenu-letter-spacing'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-responsive-slider',
+			'section'           => 'section-menu-header',
+			'priority'       => 7,
+			'label'          => __( 'Letter Spacing', 'kemet' ),
+			'unit_choices'   => array(
+				'px' => array(
+					'min' => 0.1,
+					'step' => 0.1,
+					'max' => 10,
+				),
+			),
+		),
+	);
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-sub-main-menu-typography]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Typography', 'kemet' ),
+		'section'  => 'section-menu-header',
+		'priority' => 150,
+		'settings' => array(),
 	);
 
-	/**
-	 * Option: Menu Items Line Height
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[sub-menu-items-line-height]', array(
-			'default'           => $defaults[ 'sub-menu-items-line-height' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[sub-menu-items-line-height]', array(
-				'type'           => 'kmt-responsive-slider',
-				'section'        => 'section-menu-header',
-				'priority'       => 170,
-				'label'          => __( 'Line Height', 'kemet' ),
-				'unit_choices'   => array(
-					'px' => array(
-						'min' => 0,
-						'step' => 1,
-						'max' =>100,
-					),
-					'em' => array(
-						'min' => 0,
-						'step' => 1,
-						'max' => 10,
-					),
-					'%' => array(
-						'min' => 0,
-						'step' => 1,
-						'max' => 100,
-					),
-				),
-			)
-		)
-	);
-	/**
-	* Option: SubMenu Font Size
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
-			'default'           => $defaults[ 'submenu-letter-spacing' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Slider(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-letter-spacing]', array(
-				'type'           => 'kmt-responsive-slider',
-				'section'        => 'section-menu-header',
-				'priority'       => 173,
-				'label'          => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices'   => array(
-					'px' => array(
-						'min' => 0.1,
-						'step' => 0.1,
-						'max' => 10,
-					),
-				),
-			)
-		)
-	);
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 	/**
 	 * Option: SubMenu Background Color
 	 */
