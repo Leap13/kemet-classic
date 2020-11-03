@@ -1316,84 +1316,68 @@ $header_rt_sections = array(
 	);
 
 	/**
-	 * Option: Mobile Menu Style options
+	* Option: Colors
 	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
-			'default'           => $defaults[ 'mobile-menu-icon-color' ],
+	$fields = array(
+		
+		/**
+		* Option - Color
+		*/
+		array(
+			'id'                => '[mobile-menu-icon-color]',
+			'default'           => $defaults ['mobile-menu-icon-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-color]', array(
-				'label'   => __( 'Menu Icon Color', 'kemet' ),
-				'priority'       => 225,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-	/**
-	 * Option: Menu Icon Background Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
-			'default'           => $defaults[ 'mobile-menu-icon-bg-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Icon Color', 'kemet' ),
+			'priority'          => 1,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		), 
+		array(
+			'id'                => '[mobile-menu-icon-bg-color]',
+			'default'           => $defaults ['mobile-menu-icon-bg-color'] ,
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-color]', array(
-        'priority'       => 230,
-        'section' => 'section-menu-header',
-				'label'   => __( 'Menu Icon Background Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-	 * Option: Menu Icon Hover Color
-	*/
-		$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
-			'default'           => $defaults[ 'mobile-menu-icon-h-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Background Color', 'kemet' ),
+			'priority'          => 2,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		), 
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[mobile-menu-icon-h-color]',
+			'default'           => $defaults ['mobile-menu-icon-h-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Icon Color', 'kemet' ),
+			'priority'          => 4,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		),
+		array(
+			'id'                => '[mobile-menu-icon-bg-h-color]',
+			'default'           => $defaults ['mobile-menu-icon-bg-h-color'] ,
+			'type'              => 'option',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Background Color', 'kemet' ),
+			'priority'          => 5,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		),
 	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-h-color]', array(
-				'label'   => __( 'Menu Icon Hover Color', 'kemet' ),
-				'priority'       => 235,
-				'section' => 'section-menu-header',
-			)
-		)
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-mobile-menu-icon-colors]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Menu Icon Colors', 'kemet' ),
+		'section'  => 'section-menu-header',
+		'priority' => 225,
+		'settings' => array(),
 	);
-	/**
-	 * Option: Menu Icon Background Hover Color
-	*/
-	$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
-		'default'           => $defaults[ 'mobile-menu-icon-bg-h-color' ],
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-	)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[mobile-menu-icon-bg-h-color]', array(
-        'priority'       => 240,
-        'section' => 'section-menu-header',
-				'label'   => __( 'Menu Icon Background Hover Color', 'kemet' ),
-			)
-		)
-	);
-
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 	/**
 	 * Option: Border Size
 	 */
