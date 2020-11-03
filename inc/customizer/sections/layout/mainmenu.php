@@ -189,129 +189,7 @@ $header_rt_sections = array(
 	);
 
 	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);	
-	/**
-	 * Option: Menu Background Color
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-			'default'           => $defaults[ 'menu-bg-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-bg-color]', array(
-				'priority'       => 35,
-				'section' => 'section-menu-header',
-				'label'   => __( 'Background Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-		 * Option:Menu Link Color
-		*/
-		$wp_customize->add_setting(
-			KEMET_THEME_SETTINGS . '[menu-link-color]', array(
-				'default'           => $defaults[ 'menu-link-h-color' ],
-				'type'              => 'option',
-				'transport'         => 'postMessage',
-				'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
-			)
-		);
-		$wp_customize->add_control(
-			new Kemet_Control_Responsive_Color(
-				$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-color]', array(
-					'label'   => __( 'Link Color', 'kemet' ),
-					'priority'       => 40,
-					'section' => 'section-menu-header',
-				)
-			)
-		);
-		
-	  /**
-      * Option:Menu Link Hover Color
-      */
-	  $wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
-			'default'           => $defaults[ 'menu-link-h-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Responsive_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-h-color]', array(
-				'label'   => __( 'Link Hover Color', 'kemet' ),
-				'priority'       => 45,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
 
-	/**
-	 * Option:Menu Link Bottom Border Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
-			'default'           => $defaults[ 'menu-link-bottom-border-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-bottom-border-color]', array(
-				'label'   => __( 'Link Bottom Border Color on Hover', 'kemet' ),
-				'priority'       => 50,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-
-	/**
-	 * Option:Menu Active Link Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
-			'default'           => $defaults[ 'menu-link-active-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-color]', array(
-				'label'   => __( 'Link Active Color', 'kemet' ),
-				'priority'       => 55,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-	/**
-	 * Option:Menu Active Link Bg Color
-	*/
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[menu-link-active-bg-color]', array(
-			'default'           => $defaults[ 'menu-link-active-bg-color' ],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[menu-link-active-bg-color]', array(
-				'label'   => __( 'Link Active Background Color', 'kemet' ),
-				'priority'       => 55,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
 	/**
 	* Option: Colors
 	*/
@@ -325,7 +203,7 @@ $header_rt_sections = array(
 			'default'           => $defaults ['menu-bg-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'control_type'      => 'kmt-color',
+			'control_type'      => 'kmt-reponsive-color',
 			'label'             => __( 'Menu Background Color', 'kemet' ),
 			'priority'          => 1,
 			'section'           => 'section-menu-header',
@@ -336,7 +214,7 @@ $header_rt_sections = array(
 			'default'           => $defaults ['menu-link-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'control_type'      => 'kmt-color',
+			'control_type'      => 'kmt-reponsive-color',
 			'label'             => __( 'Link Color', 'kemet' ),
 			'priority'          => 2,
 			'section'           => 'section-menu-header',
@@ -350,7 +228,7 @@ $header_rt_sections = array(
 			'default'           => $defaults ['menu-link-h-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'control_type'      => 'kmt-color',
+			'control_type'      => 'kmt-reponsive-color',
 			'label'             => __( 'Link Color', 'kemet' ),
 			'priority'          => 3,
 			'section'           => 'section-menu-header',

@@ -1400,6 +1400,11 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
             control.initSlider(controlContainerID, controlID);
             break;
+          case "kmt-reponsive-color":
+            var controlID = "kemet-settings" + attrs.id;
+            control.initResponsiveColor(controlContainerID, controlID);
+            control.initResponsiveTrigger();
+            break;
         }
       });
     },
@@ -1561,7 +1566,9 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
     initResponsiveTrigger: function () {
       this.initResponsiveBtn();
       $(".kmt-group-model ul li")
-        .find(".kmt-responsive-control-btns button")
+        .find(
+          ".kmt-responsive-control-btns button , .kmt-responsive-control-btns a"
+        )
         .on("click", function (event) {
           event.preventDefault();
 
@@ -2087,6 +2094,61 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
       $(".kmt-responsive-control-btns > li." + active)
         .siblings()
         .removeClass("active");
+    },
+    initResponsiveColor: function (controlContainer, controlID) {
+      var control = this;
+      $("li#customize-control-" + controlContainer)
+        .find(".kmt-color-picker-alpha")
+        .wpColorPicker({
+          /**
+           * @param {Event} event - standard jQuery event, produced by whichever
+           * control was changed.
+           * @param {Object} ui - standard jQuery UI object, with a color member
+           * containing a Color.js object.
+           */
+          change: function (event, ui) {
+            var element = jQuery(event.target);
+            var color = ui.color.toString();
+
+            if (jQuery("html").hasClass("colorpicker-ready")) {
+              control.updateResponsiveColorValues(color, element, controlID);
+            }
+          },
+
+          /**
+           * @param {Event} event - standard jQuery event, produced by "Clear"
+           * button.
+           */
+          clear: function (event) {
+            var element = jQuery(event.target);
+            var color = "";
+
+            if (element) {
+              // Add your code here
+              control.updateResponsiveColorValues(color, element, controlID);
+            }
+          },
+        });
+    },
+    updateResponsiveColorValues: function (color, element, control) {
+      var controlValue =
+          typeof api.control(control).setting.get() === "object"
+            ? api.control(control).setting.get()
+            : {
+                desktop: "",
+                tablet: "",
+                mobile: "",
+              },
+        newValue = {
+          desktop: controlValue["desktop"],
+          tablet: controlValue["tablet"],
+          mobile: controlValue["mobile"],
+        },
+        device = element.parents(".customize-control-content").data("device");
+
+      newValue[device] = color;
+
+      api.control(control).setting.set(newValue);
     },
   });
 })(jQuery);
