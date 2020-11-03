@@ -1884,15 +1884,23 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
     },
     saveBackgroundValue: function (value, controlContainerID, control) {
       var input = $(
-        "li#customize-control-" +
-          controlContainerID +
-          " .background-hidden-value"
-      );
+          "li#customize-control-" +
+            controlContainerID +
+            " .background-hidden-value"
+        ),
+        newValue = {
+          "background-color": value["background-color"],
+          "background-image": value["background-image"],
+          "background-repeat": value["background-repeat"],
+          "background-position": value["background-position"],
+          "background-size": value["background-size"],
+          "background-attachment": value["background-attachment"],
+          "refresh-customizer": false,
+        };
 
       $(input).attr("value", JSON.stringify(value)).trigger("change");
 
-      api.control(control).setting.set("");
-      api.control(control).setting.set(value);
+      api.control(control).setting.set(newValue);
     },
     initResponsiveSelect: function (controlContainerID, control) {
       // Set the spacing container.

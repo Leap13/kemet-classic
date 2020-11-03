@@ -154,7 +154,7 @@ $fields = array(
     
 );
 $group_settings = array(
-    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-boxed-bg-obj]',
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-header-obj]',
     'type'     => 'kmt-group',
     'label'    => __( 'Background', 'kemet' ),
     'section'  => 'section-header',

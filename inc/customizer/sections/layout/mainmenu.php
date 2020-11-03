@@ -1043,7 +1043,7 @@ $header_rt_sections = array(
 		),
 	);
 	$group_settings = array(
-		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-sub-main-menu-typography]',
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-sub-menu-typography]',
 		'type'     => 'kmt-group',
 		'label'    => __( 'Typography', 'kemet' ),
 		'section'  => 'section-menu-header',

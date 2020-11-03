@@ -240,33 +240,35 @@ $wp_customize->add_control(
         ),
     )
 );
-
 /**
-* Option: Footer Background
+* Option: Header Inner Background
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
+$fields = array(
+    array(
+        'id'                => '[footer-bar-bg-obj]',
         'default'           => $defaults[ 'footer-bar-bg-obj' ],
         'type'              => 'option',
+        'control_type'      => 'kmt-background',
+        'section'           => 'section-footer-copyright',
+        'priority'          => 1,
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
+    ),
+    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Background(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-bar-bg-obj]', array(
-            'type'    => 'kmt-background',
-            'section' => 'section-footer-copyright',
-            'priority' => 35,
-            'label'   => __( 'Footer Bar Background', 'kemet' ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-copyright-footer-layout]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Footer Bar Background', 'kemet' ),
+    'section'  => 'section-footer-copyright',
+    'priority' => 35,
+    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Title
 */
