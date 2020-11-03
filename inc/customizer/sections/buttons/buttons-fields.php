@@ -310,7 +310,7 @@ $fields = array(
     ),    
 );
 $group_settings = array(
-    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-site-title-colors]',
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-site-buttons-colors]',
     'type'     => 'kmt-group',
     'label'    => __( 'Input Colors', 'kemet' ),
     'section'  => 'section-buttons-fields',

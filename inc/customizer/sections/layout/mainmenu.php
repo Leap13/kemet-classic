@@ -312,7 +312,103 @@ $header_rt_sections = array(
 			)
 		)
 	);
-
+	/**
+	* Option: Colors
+	*/
+	$fields = array(
+		
+		/**
+		* Option - Color
+		*/
+		array(
+			'id'                => '[menu-bg-color]',
+			'default'           => $defaults ['menu-bg-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Menu Background Color', 'kemet' ),
+			'priority'          => 1,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		), 
+		array(
+			'id'                => '[menu-link-color]',
+			'default'           => $defaults ['menu-link-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Color', 'kemet' ),
+			'priority'          => 2,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		),  
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[menu-link-h-color]',
+			'default'           => $defaults ['menu-link-h-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Color', 'kemet' ),
+			'priority'          => 3,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		),
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[menu-link-bottom-border-color]',
+			'default'           => $defaults ['menu-link-bottom-border-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Border Color', 'kemet' ),
+			'priority'          => 4,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		), 
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[menu-link-active-color]',
+			'default'           => $defaults ['menu-link-active-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Color', 'kemet' ),
+			'priority'          => 5,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Active' , 'kemet')
+		), 
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[menu-link-active-bg-color]',
+			'default'           => $defaults ['menu-link-active-bg-color'] ,
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Background Color', 'kemet' ),
+			'priority'          => 6,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Active' , 'kemet')
+		), 
+		   
+	);
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-main-menu-colors]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Main Menu Colors', 'kemet' ),
+		'section'  => 'section-menu-header',
+		'priority' => 55,
+		'settings' => array(),
+	);
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 	/**
 	* Option: Link Active Radius
 	*/
