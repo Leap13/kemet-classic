@@ -234,9 +234,6 @@ $header_rt_sections = array(
 			'section'           => 'section-menu-header',
 			'tab'               => __('Hover' , 'kemet')
 		),
-		/**
-		* Option - Hover Color
-		*/
 		array(
 			'id'                => '[menu-link-bottom-border-color]',
 			'default'           => $defaults ['menu-link-bottom-border-color'] ,
@@ -249,7 +246,7 @@ $header_rt_sections = array(
 			'tab'               => __('Hover' , 'kemet')
 		), 
 		/**
-		* Option - Hover Color
+		* Option - Active Color
 		*/
 		array(
 			'id'                => '[menu-link-active-color]',
@@ -262,9 +259,6 @@ $header_rt_sections = array(
 			'section'           => 'section-menu-header',
 			'tab'               => __('Active' , 'kemet')
 		), 
-		/**
-		* Option - Hover Color
-		*/
 		array(
 			'id'                => '[menu-link-active-bg-color]',
 			'default'           => $defaults ['menu-link-active-bg-color'] ,
@@ -1059,105 +1053,81 @@ $header_rt_sections = array(
 
 	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 	/**
-	 * Option: SubMenu Background Color
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
-			'default'           => $defaults[ 'submenu-bg-color' ],
+	* Option: Colors
+	*/
+	$fields = array(
+		
+		/**
+		* Option - Color
+		*/
+		array(
+			'id'                => '[submenu-bg-color]',
+			'default'           => $defaults ['submenu-bg-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-color]', array(
-        'priority'       => 175,
-        'section' => 'section-menu-header',
-				'label'   => __( 'Background Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-      * Option:SubMenu Link Color
-      */
-	  $wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
-			'default'           => $defaults[ 'submenu-link-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Background Color', 'kemet' ),
+			'priority'          => 1,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		), 
+		array(
+			'id'                => '[submenu-link-color]',
+			'default'           => $defaults ['submenu-link-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-color]', array(
-				'label'   => __( 'Link Color', 'kemet' ),
-				'priority'       => 180,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-	/**
-	 * Option: SubMenu Background Hover Color
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-bg-hover-color]', array(
-			'default'           => $defaults[ 'submenu-bg-hover-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Color', 'kemet' ),
+			'priority'          => 2,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		),
+		array(
+			'id'                => '[submenu-top-border-color]',
+			'default'           => $defaults ['submenu-top-border-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-bg-hover-color]', array(
-        'priority'       => 181,
-        'section' => 'section-menu-header',
-				'label'   => __( 'Background Hover Color', 'kemet' ),
-			)
-		)
-	);
-	/**
-      * Option:SubMenu Link Hover Color
-      */
-	  $wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
-			'default'           => $defaults[ 'submenu-link-h-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Top Border Color', 'kemet' ),
+			'priority'          => 3,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Normal' , 'kemet')
+		),  
+		/**
+		* Option - Hover Color
+		*/
+		array(
+			'id'                => '[submenu-bg-hover-color]',
+			'default'           => $defaults ['submenu-bg-hover-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
-	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-link-h-color]', array(
-				'label'   => __( 'Link Hover Color', 'kemet' ),
-				'priority'       => 185,
-				'section' => 'section-menu-header',
-			)
-		)
-	);
-	/**
-	 * Option: top Border Color
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
-			'default'           =>  $defaults[ 'submenu-top-border-color' ],
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Background Color', 'kemet' ),
+			'priority'          => 4,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		),
+		array(
+			'id'                => '[submenu-link-h-color]',
+			'default'           => $defaults ['submenu-link-h-color'] ,
 			'type'              => 'option',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		)
+			'control_type'      => 'kmt-color',
+			'label'             => __( 'Link Color', 'kemet' ),
+			'priority'          => 5,
+			'section'           => 'section-menu-header',
+			'tab'               => __('Hover' , 'kemet')
+		),
 	);
-	$wp_customize->add_control(
-		new Kemet_Control_Color(
-			$wp_customize, KEMET_THEME_SETTINGS . '[submenu-top-border-color]', array(
-				'section'  => 'section-menu-header',
-				'priority' => 190,
-				'label'    => __( 'Top Border Color', 'kemet' ),
-			)
-		)
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-sub-menu-colors]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Submenu Colors', 'kemet' ),
+		'section'  => 'section-menu-header',
+		'priority' => 175,
+		'settings' => array(),
 	);
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 		/**
 	 * Option: submenu Top Border Size
 	 */
