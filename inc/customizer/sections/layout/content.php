@@ -208,48 +208,49 @@ $wp_customize->add_control(
         )
     )
 );
-
 /**
-* Option: Content Link Color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[content-link-color]', array(
-        'default'           => $defaults[ 'content-link-color' ],
+$fields = array(
+    
+    /**
+    * Option - Color
+    */
+    array(
+        'id'                => '[content-link-color]',
+        'default'           => $defaults ['content-link-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[content-link-color]', array(
-            'label'   => __( 'Link Color', 'kemet' ),
-            'priority'       => 40,
-            'section' => 'section-contents',
-        )
-    )
-);
-/**
-* Option: Content Link Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
-        'default'           => $defaults[ 'content-link-h-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Link Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-contents',
+        'tab'               => __( 'Normal', 'kemet' ),
+    ),  
+    /**
+    * Option - Hover Color
+    */
+    array(
+        'id'                => '[content-link-h-color]',
+        'default'           => $defaults ['content-link-h-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Link Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-contents',
+        'tab'               => __( 'Hover', 'kemet' ),
+    ),    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[content-link-h-color]', array(
-            'label'   => __( 'Link Hover Color', 'kemet' ),
-            'priority'       => 45,
-            'section' => 'section-contents',
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-content-link-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Link Colors', 'kemet' ),
+    'section'  => 'section-contents',
+    'priority' => 40,
+    'settings' => array(),
 );
-
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Title
 */
