@@ -151,11 +151,6 @@ $header_rt_sections = array(
 					'step' => 1,
 					'max' => 10,
 				),
-				'%' => array(
-					'min' => 0,
-					'step' => 1,
-					'max' => 100,
-				),
 			),
 		),
 		/**
@@ -304,11 +299,6 @@ $header_rt_sections = array(
 						'min' => 0,
 						'step' => 1,
 						'max' =>100,
-					),
-					'em' => array(
-						'min' => 0,
-						'step' => 1,
-						'max' => 10,
 					),
 					'%' => array(
 						'min' => 0,
@@ -1013,11 +1003,6 @@ $header_rt_sections = array(
 					'min' => 0,
 					'step' => 1,
 					'max' => 10,
-				),
-				'%' => array(
-					'min' => 0,
-					'step' => 1,
-					'max' => 100,
 				),
 			),
 		),

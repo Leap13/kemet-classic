@@ -341,11 +341,6 @@ $fields = array(
                 'step' => 1,
                 'max' => 10,
             ),
-            '%' => array(
-                'min' => 0,
-                'step' => 1,
-                'max' => 100,
-            ),
         ),
     ),
     /**
@@ -514,11 +509,6 @@ $fields = array(
                 'step' => 1,
                 'max' => 10,
             ),
-            '%' => array(
-                'min' => 0,
-                'step' => 1,
-                'max' => 100,
-            ),
         ),
     ),
     /**
@@ -685,11 +675,6 @@ $fields = array(
                 'min' => 0,
                 'step' => 1,
                 'max' => 10,
-            ),
-            '%' => array(
-                'min' => 0,
-                'step' => 1,
-                'max' => 100,
             ),
         ),
     ),

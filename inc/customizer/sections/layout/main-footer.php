@@ -397,11 +397,6 @@ $fields = array(
                 'step' => 1,
                 'max' => 10,
             ),
-            '%' => array(
-                'min' => 0,
-                'step' => 1,
-                'max' => 100,
-            ),
         ),
     ),
     /**
@@ -588,12 +583,7 @@ $fields = array(
                 'min' => 0,
                 'step' => 1,
                 'max' => 10,
-            ),
-            '%' => array(
-                'min' => 0,
-                'step' => 1,
-                'max' => 100,
-            ),
+            ), 
         ),
     ),
     /**
@@ -735,11 +725,6 @@ $wp_customize->add_control(
                     'step' => 1,
                     'max' =>100,
                 ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
                 '%' => array(
                     'min' => 1,
                     'step' => 1,
@@ -777,11 +762,6 @@ $wp_customize->add_control(
                     'min' => 1,
                     'step' => 1,
                     'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
                 ),
             ),
         )
@@ -1018,11 +998,6 @@ $wp_customize->add_control(
                     'min' => 1,
                     'step' => 1,
                     'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
                 ),
                 '%' => array(
                     'min' => 1,

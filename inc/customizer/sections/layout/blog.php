@@ -501,11 +501,6 @@ $wp_customize->add_control(
 						 'step' => 1,
 						 'max' => 100,
 					 ),
-					 'em' => array(
-						 'min' => 0.1,
-						 'step' => 0.1,
-						 'max' => 10,
-                     ),
                      '%' => array(
                         'min' => 1,
                         'step' => 1,
