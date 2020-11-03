@@ -302,6 +302,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			//Extra Controls Script
 			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix , null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir . '/custom-controls' .  $js_prefix , array( 'jquery', 'customize-base', 'kemet-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ) , KEMET_THEME_VERSION, true );
+			wp_localize_script(
+				'kemet-custom-control-script', 'kemetCustomizerControlBackground', array(
+					'placeholder'  => __( 'No file selected', 'kemet' ),
+					'lessSettings' => __( 'Less Settings', 'kemet' ),
+					'moreSettings' => __( 'More Settings', 'kemet' ),
+				)
+			);
 			// Select2
 			wp_enqueue_style( 'kemet-select2-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/select2.min.css' , null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-select2-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/select2.min.js', array( 'jquery' ) , KEMET_THEME_VERSION, true );
