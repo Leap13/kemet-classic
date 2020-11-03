@@ -657,79 +657,55 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Footer Input color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-input-color]', array(
-        'default'           => $defaults[ 'footer-input-color' ],
+$fields = array(
+      
+    /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[footer-input-color]',
+        'default'           => $defaults ['footer-input-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-color]', array(
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Input Field Text Color', 'kemet' ),
-            'priority'       => 100,
-        )
-    )
-);
-
-/**
-* Option: Footer Input Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
-        'default'           => $defaults[ 'footer-input-bg-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Text Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-kemet-footer',
+    ),  
+      array(
+        'id'                => '[footer-input-bg-color]',
+        'default'           => $defaults ['footer-input-bg-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-bg-color]', array(
-            'priority'       => 115,
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Input Field Background Color', 'kemet' ),
-        )
-    )
-);
-
-/**
-* Option: Footer Input border Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
-        'default'           => $defaults[ 'footer-input-border-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Background Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-kemet-footer',
+    ),
+      array(
+        'id'                => '[footer-input-border-color]',
+        'default'           => $defaults ['footer-input-border-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Border Color', 'kemet' ),
+        'priority'          => 3,
+        'section'           => 'section-kemet-footer',
+    ),    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-input-border-color]', array(
-            'priority'       => 120,
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Input Field Border Color', 'kemet' ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-footer-widget-input-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Input Colors', 'kemet' ),
+    'section'  => 'section-kemet-footer',
+    'priority' => 100,
+    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Input Field Border Radius
 */
@@ -903,209 +879,117 @@ $wp_customize->add_control(
         )
     )
 );
+
 /**
-* Option: Widget Background Color
+* Option: Colors
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-wgt-bg-color]', array(
-        'default'           => $defaults[ 'footer-wgt-bg-color' ],
+$fields = array(
+      
+    /**
+    * Option - Color
+    */
+      array(
+        'id'                => '[footer-wgt-bg-color]',
+        'default'           => $defaults ['footer-wgt-bg-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-wgt-bg-color]', array(
-            'label'   => __( 'Background Color', 'kemet' ),
-            'priority'       => 143,
-            'section' => 'section-kemet-footer',
-        )
-    )
-);
-/**
-* Option: Link Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-color]', array(
-        'default'           => $defaults[ 'footer-link-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Background Color', 'kemet' ),
+        'priority'          => 1,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Normal' , 'kemet')
+    ),  
+      array(
+        'id'                => '[footer-link-color]',
+        'default'           => $defaults ['footer-link-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
-            'label'   => __( 'Link Color', 'kemet' ),
-            'priority'       => 145,
-            'section' => 'section-kemet-footer',
-        )
-    )
-);
-
-/**
-* Option: Link Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
-        'default'           => $defaults[ 'footer-link-h-color' ],
-        'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
-            'label'   => __( 'Link Hover Color', 'kemet' ),
-            'priority'       => 150,
-            'section' => 'section-kemet-footer',
-        )
-    )
-);
-
-/**
-* Option: Widget Meta Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-widget-meta-color]', array(
-        'default'           => $defaults[ 'footer-widget-meta-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Link Color', 'kemet' ),
+        'priority'          => 2,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+     array(
+        'id'                => '[footer-widget-meta-color]',
+        'default'           => $defaults ['footer-widget-meta-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-widget-meta-color]', array(
-            'label'   => __( 'Widget Meta Color', 'kemet' ),
-            'priority'       => 155,
-            'section' => 'section-kemet-footer',
-        )
-    )
-);
-
-/**
-* Option: Button Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-button-color]', array(
-        'default'           => $defaults[ 'footer-button-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Meta Color', 'kemet' ),
+        'priority'          => 3,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+      array(
+        'id'                => '[footer-button-color]',
+        'default'           => $defaults ['footer-button-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-color]', array(
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Button Text Color', 'kemet' ),
-            'priority'       => 160,
-        )
-    )
-);
-/**
-* Option: Button Background Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
-        'default'           => $defaults[ 'footer-button-bg-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage', 
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-color]', array(
-            'priority'       => 165,
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Button Background Color', 'kemet' ),
-        )
-    )
-);
-/**
-* Option: Button Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
-        'default'           => $defaults[ 'footer-button-h-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Button Text Color', 'kemet' ),
+        'priority'          => 4,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+    array(
+        'id'                => '[footer-button-bg-color]',
+        'default'           => $defaults ['footer-button-bg-color'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-h-color]', array(
-            'priority'       => 170,
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Button Text Hover Color', 'kemet' ),
-        )
-    )
-);
-
-
-
-/**
-* Option: Button Background Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
-        'default'           => $defaults[ 'footer-button-bg-h-color' ],
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Button Background Color', 'kemet' ),
+        'priority'          => 5,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Normal' , 'kemet')
+    ),
+    /**
+    * Option - Hover Color
+    */ 
+    array(
+        'id'                => '[footer-link-h-color]',
+        'default'           => $defaults ['footer-link-h-color'] ,
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Link Color', 'kemet' ),
+        'priority'          => 6,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Hover' , 'kemet')
+    ),  
+      array(
+        'id'                => '[footer-button-h-color]',
+        'default'           => $defaults ['footer-button-h-color'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Button Text Color', 'kemet' ),
+        'priority'          => 7,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Hover' , 'kemet')
+    ),
+      array(
+        'id'                => '[footer-button-bg-h-color]',
+        'default'           => $defaults ['footer-button-bg-h-color'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-color',
+        'label'             => __( 'Button Background Color', 'kemet' ),
+        'priority'          => 8,
+        'section'           => 'section-kemet-footer',
+        'tab'               => __('Hover' , 'kemet')
+    ),   
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-button-bg-h-color]', array(
-            'priority'       => 175,
-            'section' => 'section-kemet-footer',
-            'label'   => __( 'Button Background Hover Color', 'kemet' ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-footer-widget-buttons-meta-colors]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Colors', 'kemet' ),
+    'section'  => 'section-kemet-footer',
+    'priority' => 144,
+    'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
-
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Button Radius
 */

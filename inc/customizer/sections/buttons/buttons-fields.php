@@ -282,9 +282,6 @@ $fields = array(
         'priority'          => 1,
         'section'           => 'section-buttons-fields',
     ),  
-     /**
-    * Option - Hover Color
-    */
       array(
         'id'                => '[input-bg-color]',
         'default'           => $defaults ['input-bg-color'] ,
@@ -295,9 +292,6 @@ $fields = array(
         'priority'          => 2,
         'section'           => 'section-buttons-fields',
     ),
-    /**
-    * Option - Hover Color
-    */
       array(
         'id'                => '[input-border-color]',
         'default'           => $defaults ['input-border-color'] ,
