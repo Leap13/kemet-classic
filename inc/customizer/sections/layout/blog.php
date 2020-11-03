@@ -465,6 +465,11 @@ $group_settings = array(
     'section'  => 'section-blog',
     'priority' => 72,
     'settings' => array(),
+    'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[readmore-as-button]', 
+        'conditions' => '==', 
+        'values' => true,
+    ),
 );
 new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
