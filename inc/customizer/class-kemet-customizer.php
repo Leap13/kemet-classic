@@ -330,7 +330,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			// Add Custom Font List Into Customizer.
-			do_action( 'kemet_customizer_font_list', );
+			do_action( 'kemet_customizer_font_list' );
 
 			echo '<optgroup label="Google">';
 
