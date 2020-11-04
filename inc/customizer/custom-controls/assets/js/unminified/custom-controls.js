@@ -1171,7 +1171,6 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
                 unit.siblings().removeClass("active");
                 unit.addClass("active");
-                console.log(controlID);
                 $(controlID)
                   .find(
                     ".input-field-wrapper." +
@@ -1311,8 +1310,9 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
             });
             break;
           case "kmt-color":
-            var controlID = "kemet-settings" + attrs.id;
-            control.initColor(controlContainerID, controlID);
+            var controlID = "kemet-settings" + attrs.id,
+              controlValue = attrs.value;
+            control.initColor(controlContainerID, controlID, controlValue);
 
             break;
           case "kmt-background":
@@ -1401,7 +1401,8 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
             control.initSlider(controlContainerID, controlID);
             break;
           case "kmt-reponsive-color":
-            var controlID = "kemet-settings" + attrs.id;
+            var controlID = "kemet-settings" + attrs.id,
+              controlValue = attrs.value;
             control.initResponsiveColor(controlContainerID, controlID);
             control.initResponsiveTrigger();
             break;
@@ -1589,7 +1590,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         });
       this.deviceBtnTrigger();
     },
-    initColor: function (controlContainer, control) {
+    initColor: function (controlContainer, control, controlValue) {
       $("li#customize-control-" + controlContainer)
         .find(".kmt-color-picker-alpha")
         .wpColorPicker({
@@ -1600,11 +1601,13 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
            * containing a Color.js object.
            */
           change: function (event, ui) {
-            var element = event.target;
-            var color = ui.color.toString();
-
             if ($("html").hasClass("colorpicker-ready")) {
-              api.control(control).setting.set(color);
+              var element = event.target;
+              var color = ui.color.toString();
+
+              if (color && controlValue != color) {
+                api.control(control).setting.set(color);
+              }
             }
           },
 
@@ -1661,12 +1664,15 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
       // Color.
       picker.wpColorPicker({
-        change: function () {
-          if ($("html").hasClass("colorpicker-ready")) {
+        change: function (event, ui) {
+          if ($("html").hasClass("background-colorpicker-ready")) {
+            var element = event.target;
+            var color = ui.color.toString();
             setTimeout(function () {
-              value["background-color"] = picker.val();
-              console.log("From Color");
-              control.saveBackgroundValue(value, controlContainer, controlID);
+              if (color && value["background-color"] != color) {
+                value["background-color"] = color;
+                control.saveBackgroundValue(value, controlContainer, controlID);
+              }
             }, 100);
           }
         },
@@ -1693,7 +1699,6 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         ".background-repeat select",
         function () {
           value["background-repeat"] = $(this).val();
-          console.log("From Select");
           control.saveBackgroundValue(value, controlContainer, controlID);
         }
       );
@@ -1897,8 +1902,9 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
           "background-position": value["background-position"],
           "background-size": value["background-size"],
           "background-attachment": value["background-attachment"],
+          "refresh-customizer": false,
         };
-      console.log("Here");
+
       $(input).attr("value", JSON.stringify(value)).trigger("change");
 
       api.control(control).setting.set(newValue);
@@ -2104,7 +2110,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         .siblings()
         .removeClass("active");
     },
-    initResponsiveColor: function (controlContainer, controlID) {
+    initResponsiveColor: function (controlContainer, controlID, controlValue) {
       var control = this;
       $("li#customize-control-" + controlContainer)
         .find(".kmt-color-picker-alpha")
@@ -2116,11 +2122,13 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
            * containing a Color.js object.
            */
           change: function (event, ui) {
-            var element = jQuery(event.target);
-            var color = ui.color.toString();
-
             if (jQuery("html").hasClass("colorpicker-ready")) {
-              control.updateResponsiveColorValues(color, element, controlID);
+              var element = jQuery(event.target);
+              var color = ui.color.toString();
+
+              if (color) {
+                control.updateResponsiveColorValues(color, element, controlID);
+              }
             }
           },
 
@@ -2140,9 +2148,10 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         });
     },
     updateResponsiveColorValues: function (color, element, control) {
-      var controlValue =
-          typeof api.control(control).setting.get() === "object"
-            ? api.control(control).setting.get()
+      var oldValue = api.control(control).setting.get(),
+        controlValue =
+          typeof oldValue === "object"
+            ? oldValue
             : {
                 desktop: "",
                 tablet: "",
@@ -2156,8 +2165,12 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         device = element.parents(".customize-control-content").data("device");
 
       newValue[device] = color;
-
-      api.control(control).setting.set(newValue);
+      if (oldValue != newValue) {
+        api.control(control).setting.set(newValue);
+      }
     },
   });
 })(jQuery);
+jQuery(window).on("load", function () {
+  jQuery("html").addClass("background-colorpicker-ready");
+});

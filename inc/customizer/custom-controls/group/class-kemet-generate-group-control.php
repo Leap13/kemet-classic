@@ -51,17 +51,15 @@ class Kemet_Generate_Control_Group {
         $options = $fields;
         
         foreach($options as $option){
-
-            $setting = array(
-                'default' => $option['default'],
-                'type' => $option['type'],
-                'sanitize_callback' => $this->sanitize[$option['control_type']],
-            ); 
             
             if(isset($option['transport'])){
                 $setting['transport'] = $option['transport'];
             }   
-            $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], $setting);
+            $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], array(
+                'default' => $option['default'],
+                'type' => $option['type'],
+                'sanitize_callback' => $this->sanitize[$option['control_type']],
+            ));
             $wp_customize->add_control(
                 new Kemet_Control_Hidden($wp_customize , KEMET_THEME_SETTINGS . $option['id'] ,array(
                         'type'           => 'kmt-hidden',
@@ -76,13 +74,10 @@ class Kemet_Generate_Control_Group {
     function create_group($wp_customize , $group_settings, $fields){
         
         if(isset( $group_settings['dependency'] )){
-
-            $settings_array = array(
+            $wp_customize->add_setting( $group_settings['parent_id'], array(
                 'dependency' => $group_settings['dependency'],
-                'sanitize_callback' 	=> '',
-            );
-
-            $wp_customize->add_setting( $group_settings['parent_id'], $settings_array);
+                'sanitize_callback' 	=> 'wp_kses',
+            ));
         }
 
         $group_settings['fields'] = $fields;
