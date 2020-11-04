@@ -50,15 +50,12 @@ class Kemet_Generate_Control_Group {
         
         $options = $fields;
         
-        foreach($options as $option){
-            
-            if(isset($option['transport'])){
-                $setting['transport'] = $option['transport'];
-            }   
+        foreach($options as $option){ 
             $wp_customize->add_setting( KEMET_THEME_SETTINGS . $option['id'], array(
                 'default' => $option['default'],
                 'type' => $option['type'],
                 'sanitize_callback' => $this->sanitize[$option['control_type']],
+                'transport' => isset($option['transport']) ? $option['transport'] : 'refresh',
             ));
             $wp_customize->add_control(
                 new Kemet_Control_Hidden($wp_customize , KEMET_THEME_SETTINGS . $option['id'] ,array(
