@@ -1,3 +1,12 @@
+v 1.1.5 version
+- Added: Typography group control in customizer options.
+- Added: Color group control in customizer options.
+- Added: Rsponsive submenu color options.
+- Fixed: Top bar widget spacing.
+- Fixed: Console error.
+- Fixed: Header Widget style issue.
+- Tweak: Improve woocommerce options.
+
 v 1.1.4 version
 - Added: Responsive control for menu text color.
 - Fixed: Sidebar border color option doesn't work.
