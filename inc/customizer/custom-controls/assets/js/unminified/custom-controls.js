@@ -1662,9 +1662,10 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
       // Color.
       picker.wpColorPicker({
         change: function () {
-          if ($("html").hasClass("background-colorpicker-ready")) {
+          if ($("html").hasClass("colorpicker-ready")) {
             setTimeout(function () {
               value["background-color"] = picker.val();
+              console.log("From Color");
               control.saveBackgroundValue(value, controlContainer, controlID);
             }, 100);
           }
@@ -1692,6 +1693,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         ".background-repeat select",
         function () {
           value["background-repeat"] = $(this).val();
+          console.log("From Select");
           control.saveBackgroundValue(value, controlContainer, controlID);
         }
       );
@@ -1895,9 +1897,8 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
           "background-position": value["background-position"],
           "background-size": value["background-size"],
           "background-attachment": value["background-attachment"],
-          "refresh-customizer": false,
         };
-
+      console.log("Here");
       $(input).attr("value", JSON.stringify(value)).trigger("change");
 
       api.control(control).setting.set(newValue);
