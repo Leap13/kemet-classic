@@ -1293,6 +1293,7 @@ var toggleClass = function (el, className) {
                 toggleClass(__main_header_all[i], "toggle-on");
                 if (__main_header_all[i].classList.contains("toggle-on")) {
                   __main_header_all[i].style.display = "block";
+
                 } else {
                   __main_header_all[i].style.display = "";
                 }
@@ -1315,7 +1316,10 @@ var toggleClass = function (el, className) {
             "ul.main-header-menu .kmt-menu-toggle"
           );
           KemetToggleMenu(kemet_menu_toggle);
-          KemetSetPosition(kemet_menu_toggle);
+
+          window.addEventListener("resize", function () {
+            KemetSetPosition(kemet_menu_toggle);
+          });
         }
       }
     }
