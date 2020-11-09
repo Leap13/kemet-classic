@@ -3,33 +3,33 @@
  * Licensed under MIT ( https://github.com/jonathantneal/flexibility/blob/master/LICENSE.md )
  */
 
-!(function() {
+!(function () {
   (window.flexibility = {}),
     Array.prototype.forEach ||
-      (Array.prototype.forEach = function(t) {
-        if (void 0 === this || null === this)
-          throw new TypeError(this + "is not an object");
-        if (!(t instanceof Function))
-          throw new TypeError(t + " is not a function");
-        for (
-          var e = Object(this),
-            i = arguments[1],
-            n = e instanceof String ? e.split("") : e,
-            r = Math.max(Math.min(n.length, 9007199254740991), 0) || 0,
-            o = -1;
-          ++o < r;
+    (Array.prototype.forEach = function (t) {
+      if (void 0 === this || null === this)
+        throw new TypeError(this + "is not an object");
+      if (!(t instanceof Function))
+        throw new TypeError(t + " is not a function");
+      for (
+        var e = Object(this),
+        i = arguments[1],
+        n = e instanceof String ? e.split("") : e,
+        r = Math.max(Math.min(n.length, 9007199254740991), 0) || 0,
+        o = -1;
+        ++o < r;
 
-        )
-          o in n && t.call(i, n[o], o, e);
-      }),
-    (function(t, e) {
+      )
+        o in n && t.call(i, n[o], o, e);
+    }),
+    (function (t, e) {
       "function" == typeof define && define.amd
         ? define([], e)
         : "object" == typeof exports
-        ? (module.exports = e())
-        : (t.computeLayout = e());
-    })(flexibility, function() {
-      var t = (function() {
+          ? (module.exports = e())
+          : (t.computeLayout = e());
+    })(flexibility, function () {
+      var t = (function () {
         function t(e) {
           if (
             ((!e.layout || e.isDirty) &&
@@ -41,9 +41,9 @@
                 right: 0,
                 bottom: 0
               }),
-            e.style || (e.style = {}),
-            e.children || (e.children = []),
-            e.style.measure && e.children && e.children.length)
+              e.style || (e.style = {}),
+              e.children || (e.children = []),
+              e.style.measure && e.children && e.children.length)
           )
             throw new Error(
               "Using custom measure function is supported only for leaf nodes."
@@ -83,8 +83,8 @@
           return void 0 !== n
             ? n
             : void 0 !== t.style.margin
-            ? t.style.margin
-            : 0;
+              ? t.style.margin
+              : 0;
         }
 
         function o(t, e) {
@@ -130,8 +130,8 @@
           return null != n && n >= 0
             ? n
             : void 0 !== t.style.padding && t.style.padding >= 0
-            ? t.style.padding
-            : 0;
+              ? t.style.padding
+              : 0;
         }
 
         function a(t, e) {
@@ -154,8 +154,8 @@
           return null != n && n >= 0
             ? n
             : void 0 !== t.style.padding && t.style.padding >= 0
-            ? t.style.padding
-            : 0;
+              ? t.style.padding
+              : 0;
         }
 
         function d(t, e) {
@@ -182,8 +182,8 @@
           return null != n && n >= 0
             ? n
             : void 0 !== t.style.borderWidth && t.style.borderWidth >= 0
-            ? t.style.borderWidth
-            : 0;
+              ? t.style.borderWidth
+              : 0;
         }
 
         function s(t, e) {
@@ -210,8 +210,8 @@
           return null != n && n >= 0
             ? n
             : void 0 !== t.style.borderWidth && t.style.borderWidth >= 0
-            ? t.style.borderWidth
-            : 0;
+              ? t.style.borderWidth
+              : 0;
         }
 
         function u(t, e) {
@@ -246,8 +246,8 @@
           return e.style.alignSelf
             ? e.style.alignSelf
             : t.style.alignItems
-            ? t.style.alignItems
-            : "stretch";
+              ? t.style.alignItems
+              : "stretch";
         }
 
         function x(t, e) {
@@ -309,11 +309,11 @@
 
         function H(t, e, i) {
           var n = {
-              row: t.style.minWidth,
-              "row-reverse": t.style.minWidth,
-              column: t.style.minHeight,
-              "column-reverse": t.style.minHeight
-            }[e],
+            row: t.style.minWidth,
+            "row-reverse": t.style.minWidth,
+            column: t.style.minHeight,
+            "column-reverse": t.style.minHeight
+          }[e],
             r = {
               row: t.style.maxWidth,
               "row-reverse": t.style.maxWidth,
@@ -370,8 +370,8 @@
             (ut = k(t, U)
               ? t.style.height
               : e(t.layout[ot[U]])
-              ? l - f(t, A)
-              : t.layout[ot[U]]),
+                ? l - f(t, A)
+                : t.layout[ot[U]]),
               (ut -= h(t, U));
             var yt = !k(t, A) && !dt,
               ct = !k(t, U) && e(t.layout[ot[U]]);
@@ -399,7 +399,7 @@
             Tt = null,
             $t = F;
           Et && ($t = t.layout[ot[R]] - Wt);
-          for (var Ht = 0, zt = 0, Bt = 0, Dt = 0, It = 0, Rt = 0; N > zt; ) {
+          for (var Ht = 0, zt = 0, Bt = 0, Dt = 0, It = 0, Rt = 0; N > zt;) {
             var jt,
               Ft,
               Mt = 0,
@@ -428,29 +428,29 @@
               else if (W(vt) === et)
                 for (
                   null === Ct && (Ct = vt),
-                    null !== Tt && (Tt.nextAbsoluteChild = vt),
-                    Tt = vt,
-                    mt = 0;
+                  null !== Tt && (Tt.nextAbsoluteChild = vt),
+                  Tt = vt,
+                  mt = 0;
                   2 > mt;
                   mt++
                 )
                   (pt = 0 !== mt ? q : U),
                     !e(t.layout[ot[pt]]) &&
-                      !k(vt, pt) &&
-                      C(vt, it[pt]) &&
-                      C(vt, nt[pt]) &&
-                      (vt.layout[ot[pt]] = z(
-                        H(
-                          vt,
-                          pt,
-                          t.layout[ot[pt]] -
-                            h(t, pt) -
-                            f(vt, pt) -
-                            $(vt, it[pt]) -
-                            $(vt, nt[pt])
-                        ),
-                        h(vt, pt)
-                      ));
+                    !k(vt, pt) &&
+                    C(vt, it[pt]) &&
+                    C(vt, nt[pt]) &&
+                    (vt.layout[ot[pt]] = z(
+                      H(
+                        vt,
+                        pt,
+                        t.layout[ot[pt]] -
+                        h(t, pt) -
+                        f(vt, pt) -
+                        $(vt, it[pt]) -
+                        $(vt, nt[pt])
+                      ),
+                      h(vt, pt)
+                    ));
               var Vt = 0;
               if (
                 (Et && L(vt)
@@ -465,23 +465,23 @@
                     kt
                       ? (Ft = k(t, U) ? t.layout[ot[U]] - at : l - f(t, U) - at)
                       : (jt = k(t, A)
-                          ? t.layout[ot[A]] - lt
-                          : n - f(t, A) - lt),
+                        ? t.layout[ot[A]] - lt
+                        : n - f(t, A) - lt),
                     0 === Bt && j(vt, jt, Ft, s),
                     W(vt) === tt && (qt++, (Vt = S(vt, R)))),
-                xt && Et && Mt + Vt > $t && ht !== Ht)
+                  xt && Et && Mt + Vt > $t && ht !== Ht)
               ) {
                 qt--, (Bt = 1);
                 break;
               }
               Gt && (W(vt) !== tt || L(vt)) && ((Gt = !1), (Ut = ht)),
                 Zt &&
-                  (W(vt) !== tt ||
-                    (Qt !== Y && Qt !== Q) ||
-                    e(vt.layout[ot[M]])) &&
-                  ((Zt = !1), (Ot = ht)),
+                (W(vt) !== tt ||
+                  (Qt !== Y && Qt !== Q) ||
+                  e(vt.layout[ot[M]])) &&
+                ((Zt = !1), (Ot = ht)),
                 Gt &&
-                  ((vt.layout[rt[R]] += Kt),
+                ((vt.layout[rt[R]] += Kt),
                   Et && D(t, vt, R),
                   (Kt += S(vt, R)),
                   (Pt = z(Pt, H(vt, M, S(vt, M))))),
@@ -497,12 +497,12 @@
               var ee,
                 ie,
                 ne = te / Nt;
-              for (Jt = _t; null !== Jt; )
+              for (Jt = _t; null !== Jt;)
                 (ee = ne * Jt.style.flex + h(Jt, R)),
                   (ie = H(Jt, R, ee)),
                   ee !== ie && ((te -= ie), (Nt -= Jt.style.flex)),
                   (Jt = Jt.nextFlexChild);
-              for (ne = te / Nt, 0 > ne && (ne = 0), Jt = _t; null !== Jt; )
+              for (ne = te / Nt, 0 > ne && (ne = 0), Jt = _t; null !== Jt;)
                 (Jt.layout[ot[R]] = H(Jt, R, ne * Jt.style.flex + h(Jt, R))),
                   (jt = F),
                   k(t, A)
@@ -521,11 +521,11 @@
                 (gt === _
                   ? (Xt = te / 2)
                   : gt === J
-                  ? (Xt = te)
-                  : gt === K
-                  ? ((te = z(te, 0)),
-                    (Yt = At + qt - 1 !== 0 ? te / (At + qt - 1) : 0))
-                  : gt === P && ((Yt = te / (At + qt)), (Xt = Yt / 2)));
+                    ? (Xt = te)
+                    : gt === K
+                      ? ((te = z(te, 0)),
+                        (Yt = At + qt - 1 !== 0 ? te / (At + qt - 1) : 0))
+                      : gt === P && ((Yt = te / (At + qt)), (Xt = Yt / 2)));
             for (Kt += Xt, ht = Ut; zt > ht; ++ht)
               (vt = t.children[ht]),
                 W(vt) === et && C(vt, it[R])
@@ -533,7 +533,7 @@
                   : ((vt.layout[rt[R]] += Kt),
                     Et && D(t, vt, R),
                     W(vt) === tt &&
-                      ((Kt += Yt + S(vt, R)),
+                    ((Kt += Yt + S(vt, R)),
                       (Pt = z(Pt, H(vt, M, S(vt, M))))));
             var re = t.layout[ot[M]];
             for (St || (re = z(H(t, M, Pt + Lt), Lt)), ht = Ot; zt > ht; ++ht)
@@ -567,8 +567,8 @@
             ye === X
               ? (ue += de)
               : ye === V
-              ? (ue += de / 2)
-              : ye === Y && ae > Dt && (se = de / Rt);
+                ? (ue += de / 2)
+                : ye === Y && ae > Dt && (se = de / Rt);
             var ce = 0;
             for (ht = 0; Rt > ht; ++ht) {
               var fe = ce,
@@ -598,37 +598,37 @@
           if (
             (Et ||
               ((t.layout[ot[R]] = z(H(t, R, It + y(t, R)), Wt)),
-              (R === G || R === Z) && (pe = !0)),
-            St ||
+                (R === G || R === Z) && (pe = !0)),
+              St ||
               ((t.layout[ot[M]] = z(H(t, M, Dt + Lt), Lt)),
-              (M === G || M === Z) && (xe = !0)),
-            pe || xe)
+                (M === G || M === Z) && (xe = !0)),
+              pe || xe)
           )
             for (ht = 0; N > ht; ++ht)
               (vt = t.children[ht]), pe && D(t, vt, R), xe && D(t, vt, M);
-          for (Tt = Ct; null !== Tt; ) {
+          for (Tt = Ct; null !== Tt;) {
             for (mt = 0; 2 > mt; mt++)
               (pt = 0 !== mt ? q : U),
                 !e(t.layout[ot[pt]]) &&
-                  !k(Tt, pt) &&
-                  C(Tt, it[pt]) &&
-                  C(Tt, nt[pt]) &&
-                  (Tt.layout[ot[pt]] = z(
-                    H(
-                      Tt,
-                      pt,
-                      t.layout[ot[pt]] -
-                        c(t, pt) -
-                        f(Tt, pt) -
-                        $(Tt, it[pt]) -
-                        $(Tt, nt[pt])
-                    ),
-                    h(Tt, pt)
-                  )),
+                !k(Tt, pt) &&
+                C(Tt, it[pt]) &&
                 C(Tt, nt[pt]) &&
-                  !C(Tt, it[pt]) &&
-                  (Tt.layout[it[pt]] =
-                    t.layout[ot[pt]] - Tt.layout[ot[pt]] - $(Tt, nt[pt]));
+                (Tt.layout[ot[pt]] = z(
+                  H(
+                    Tt,
+                    pt,
+                    t.layout[ot[pt]] -
+                    c(t, pt) -
+                    f(Tt, pt) -
+                    $(Tt, it[pt]) -
+                    $(Tt, nt[pt])
+                  ),
+                  h(Tt, pt)
+                )),
+                C(Tt, nt[pt]) &&
+                !C(Tt, it[pt]) &&
+                (Tt.layout[it[pt]] =
+                  t.layout[ot[pt]] - Tt.layout[ot[pt]] - $(Tt, nt[pt]));
             (vt = Tt),
               (Tt = Tt.nextAbsoluteChild),
               (vt.nextAbsoluteChild = null);
@@ -657,7 +657,7 @@
               (t.lastLayout.parentMaxWidth = e),
               (t.lastLayout.parentMaxHeight = i),
               (t.lastLayout.direction = r),
-              t.children.forEach(function(t) {
+              t.children.forEach(function (t) {
                 (t.layout.width = void 0),
                   (t.layout.height = void 0),
                   (t.layout.top = 0),
@@ -720,28 +720,28 @@
       })();
       return (
         "object" == typeof exports && (module.exports = t),
-        function(e) {
+        function (e) {
           t.fillNodes(e), t.computeLayout(e);
         }
       );
     }),
     !window.addEventListener &&
-      window.attachEvent &&
-      (function() {
-        (Window.prototype.addEventListener = HTMLDocument.prototype.addEventListener = Element.prototype.addEventListener = function(
+    window.attachEvent &&
+    (function () {
+      (Window.prototype.addEventListener = HTMLDocument.prototype.addEventListener = Element.prototype.addEventListener = function (
+        t,
+        e
+      ) {
+        this.attachEvent("on" + t, e);
+      }),
+        (Window.prototype.removeEventListener = HTMLDocument.prototype.removeEventListener = Element.prototype.removeEventListener = function (
           t,
           e
         ) {
-          this.attachEvent("on" + t, e);
-        }),
-          (Window.prototype.removeEventListener = HTMLDocument.prototype.removeEventListener = Element.prototype.removeEventListener = function(
-            t,
-            e
-          ) {
-            this.detachEvent("on" + t, e);
-          });
-      })(),
-    (flexibility.detect = function() {
+          this.detachEvent("on" + t, e);
+        });
+    })(),
+    (flexibility.detect = function () {
       var t = document.createElement("p");
       try {
         return (t.style.display = "flex"), "flex" === t.style.display;
@@ -750,22 +750,22 @@
       }
     }),
     !flexibility.detect() &&
-      document.attachEvent &&
-      document.documentElement.currentStyle &&
-      document.attachEvent("onreadystatechange", function() {
-        flexibility.onresize({
-          target: document.documentElement
-        });
-      }),
-    (flexibility.init = function(t) {
+    document.attachEvent &&
+    document.documentElement.currentStyle &&
+    document.attachEvent("onreadystatechange", function () {
+      flexibility.onresize({
+        target: document.documentElement
+      });
+    }),
+    (flexibility.init = function (t) {
       var e = t.onlayoutcomplete;
       return (
         e ||
-          (e = t.onlayoutcomplete = {
-            node: t,
-            style: {},
-            children: []
-          }),
+        (e = t.onlayoutcomplete = {
+          node: t,
+          style: {},
+          children: []
+        }),
         (e.style.display =
           t.currentStyle["-js-display"] || t.currentStyle.display),
         e
@@ -777,7 +777,7 @@
     n = document.documentElement,
     r = 0,
     o = 0;
-  flexibility.onresize = function(l) {
+  flexibility.onresize = function (l) {
     if (n.clientWidth !== r || n.clientHeight !== o) {
       (r = n.clientWidth),
         (o = n.clientHeight),
@@ -788,7 +788,7 @@
           ? l.target
           : document.documentElement;
       flexibility.walk(a),
-        (t = setTimeout(function() {
+        (t = setTimeout(function () {
           window.addEventListener("resize", flexibility.onresize);
         }, e / i));
     }
@@ -819,14 +819,14 @@
       valid: /^(flex-start|flex-end|center|space-between|space-around)$/
     }
   };
-  flexibility.updateFlexContainerCache = function(t) {
+  flexibility.updateFlexContainerCache = function (t) {
     var e = t.style,
       i = t.node.currentStyle,
       n = t.node.style,
       r = {};
     (i["flex-flow"] || n["flex-flow"] || "").replace(
       /^(row|row-reverse|column|column-reverse)\s+(nowrap|wrap|wrap-reverse)$/i,
-      function(t, e, i) {
+      function (t, e, i) {
         (r.flexDirection = e), (r.flexWrap = i);
       }
     );
@@ -863,12 +863,12 @@
       valid: /^([-+]?[0-9]+)$/
     }
   };
-  flexibility.updateFlexItemCache = function(t) {
+  flexibility.updateFlexItemCache = function (t) {
     var e = t.style,
       i = t.node.currentStyle,
       n = t.node.style,
       r = {};
-    (i.flex || n.flex || "").replace(/^\+?(0|[1-9][0-9]*)/, function(t) {
+    (i.flex || n.flex || "").replace(/^\+?(0|[1-9][0-9]*)/, function (t) {
       r.flexGrow = t;
     });
     for (var o in a) {
@@ -880,7 +880,7 @@
     }
   };
   var d =
-      "border:0 solid;clip:rect(0 0 0 0);display:inline-block;font:0/0 serif;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;overflow:hidden;padding:0;position:absolute;width:1em;",
+    "border:0 solid;clip:rect(0 0 0 0);display:inline-block;font:0/0 serif;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;overflow:hidden;padding:0;position:absolute;width:1em;",
     s = {
       medium: 4,
       none: 0,
@@ -909,7 +909,7 @@
     },
     y = /^([-+]?0|[-+]?[0-9]*\.?[0-9]+)/,
     c = 100;
-  (flexibility.updateLengthCache = function(t) {
+  (flexibility.updateLengthCache = function (t) {
     var e,
       i,
       n,
@@ -928,13 +928,13 @@
       y.test(v) || ("auto" === v && !/(width|height)/i.test(m))
         ? /%$/.test(v)
           ? (/^(bottom|height|top)$/.test(m)
-              ? (i || (i = l.offsetHeight), (n = i))
-              : (e || (e = l.offsetWidth), (n = e)),
+            ? (i || (i = l.offsetHeight), (n = i))
+            : (e || (e = l.offsetWidth), (n = e)),
             (o[m] = (parseFloat(v) * n) / c))
           : ((f.width = v), (o[m] = a.offsetWidth))
         : /^border/.test(m) && v in s
-        ? (o[m] = s[v])
-        : delete o[m];
+          ? (o[m] = s[v])
+          : delete o[m];
     }
     l.removeChild(a),
       "none" === h.borderTopStyle && (o.borderTopWidth = 0),
@@ -942,16 +942,16 @@
       "none" === h.borderBottomStyle && (o.borderBottomWidth = 0),
       "none" === h.borderLeftStyle && (o.borderLeftWidth = 0),
       o.width ||
-        o.minWidth ||
-        (/flex/.test(o.display)
-          ? (o.width = r.offsetWidth)
-          : (o.minWidth = r.offsetWidth)),
+      o.minWidth ||
+      (/flex/.test(o.display)
+        ? (o.width = r.offsetWidth)
+        : (o.minWidth = r.offsetWidth)),
       o.height ||
-        o.minHeight ||
-        /flex/.test(o.display) ||
-        (o.minHeight = r.offsetHeight);
+      o.minHeight ||
+      /flex/.test(o.display) ||
+      (o.minHeight = r.offsetHeight);
   }),
-    (flexibility.walk = function(t) {
+    (flexibility.walk = function (t) {
       var e = flexibility.init(t),
         i = e.style,
         n = i.display;
@@ -960,37 +960,37 @@
       if (
         (r &&
           (flexibility.updateFlexContainerCache(e),
-          (t.runtimeStyle.cssText =
-            "display:" + (r[1] ? "inline-block" : "block")),
-          (e.children = [])),
-        Array.prototype.forEach.call(t.childNodes, function(t, n) {
-          if (1 === t.nodeType) {
-            var o = flexibility.walk(t),
-              l = o.style;
-            (o.index = n),
-              r &&
+            (t.runtimeStyle.cssText =
+              "display:" + (r[1] ? "inline-block" : "block")),
+            (e.children = [])),
+          Array.prototype.forEach.call(t.childNodes, function (t, n) {
+            if (1 === t.nodeType) {
+              var o = flexibility.walk(t),
+                l = o.style;
+              (o.index = n),
+                r &&
                 (flexibility.updateFlexItemCache(o),
-                "auto" === l.alignSelf && (l.alignSelf = i.alignItems),
-                (l.flex = l.flexGrow),
-                (t.runtimeStyle.cssText = "display:inline-block"),
-                e.children.push(o));
-          }
-        }),
-        r)
+                  "auto" === l.alignSelf && (l.alignSelf = i.alignItems),
+                  (l.flex = l.flexGrow),
+                  (t.runtimeStyle.cssText = "display:inline-block"),
+                  e.children.push(o));
+            }
+          }),
+          r)
       ) {
-        e.children.forEach(function(t) {
+        e.children.forEach(function (t) {
           flexibility.updateLengthCache(t);
         }),
-          e.children.sort(function(t, e) {
+          e.children.sort(function (t, e) {
             return t.style.order - e.style.order || t.index - e.index;
           }),
           /-reverse$/.test(i.flexDirection) &&
-            (e.children.reverse(),
+          (e.children.reverse(),
             (i.flexDirection = i.flexDirection.replace(/-reverse$/, "")),
             "flex-start" === i.justifyContent
               ? (i.justifyContent = "flex-end")
               : "flex-end" === i.justifyContent &&
-                (i.justifyContent = "flex-start")),
+              (i.justifyContent = "flex-start")),
           flexibility.updateLengthCache(e),
           delete e.lastLayout,
           delete e.layout;
@@ -1010,11 +1010,11 @@
         var a = [],
           d = 1,
           s = "column" === i.flexDirection ? "width" : "height";
-        e.children.forEach(function(t) {
+        e.children.forEach(function (t) {
           (a[t.lineIndex] = Math.max(a[t.lineIndex] || 0, t.layout[s])),
             (d = Math.max(d, t.lineIndex + 1));
         }),
-          e.children.forEach(function(t) {
+          e.children.forEach(function (t) {
             var e = t.layout;
             "stretch" === t.style.alignSelf && (e[s] = a[t.lineIndex]),
               (t.node.runtimeStyle.cssText =
@@ -1052,7 +1052,7 @@ var isEdge = false;
  * @param  {String} selector Selector to match against [optional].
  * @return {Array}           The parent elements.
  */
-var getParents = function(elem, selector) {
+var getParents = function (elem, selector) {
   // Element.matches() polyfill.
   if (!Element.prototype.matches) {
     Element.prototype.matches =
@@ -1061,10 +1061,10 @@ var getParents = function(elem, selector) {
       Element.prototype.msMatchesSelector ||
       Element.prototype.oMatchesSelector ||
       Element.prototype.webkitMatchesSelector ||
-      function(s) {
+      function (s) {
         var matches = (this.document || this.ownerDocument).querySelectorAll(s),
           i = matches.length;
-        while (--i >= 0 && matches.item(i) !== this) {}
+        while (--i >= 0 && matches.item(i) !== this) { }
         return i > -1;
       };
   }
@@ -1094,7 +1094,7 @@ var getParents = function(elem, selector) {
  * @param  {String} selector Selector to match against [optional].
  * @return {Array}           The parent elements.
  */
-var toggleClass = function(el, className) {
+var toggleClass = function (el, className) {
   if (el.classList.contains(className)) {
     el.classList.remove(className);
   } else {
@@ -1103,7 +1103,7 @@ var toggleClass = function(el, className) {
 };
 
 // CustomEvent() constructor functionality in Internet Explorer 9 and higher.
-(function() {
+(function () {
   // Internet Explorer 6-11
   isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
@@ -1129,8 +1129,8 @@ var toggleClass = function(el, className) {
   window.CustomEvent = CustomEvent;
 })();
 
-(function() {
-  KemetNavigationMenu = function(parentList) {
+(function () {
+  KemetNavigationMenu = function (parentList) {
     for (var i = 0; i < parentList.length; i++) {
       if (null != parentList[i].querySelector(".sub-menu, .children")) {
         // Insert Toggle Button.
@@ -1171,12 +1171,12 @@ var toggleClass = function(el, className) {
     }
   };
 
-  KemetToggleMenu = function(kemet_menu_toggle) {
+  KemetToggleMenu = function (kemet_menu_toggle) {
     /* Submenu button click */
     for (var i = 0; i < kemet_menu_toggle.length; i++) {
       kemet_menu_toggle[i].addEventListener(
         "click",
-        function(event) {
+        function (event) {
           event.preventDefault();
 
           var parent_li = this.parentNode;
@@ -1226,12 +1226,22 @@ var toggleClass = function(el, className) {
     }
   };
 
+  KemetSetPosition = function (kemet_menu_toggle) {
+    /* Submenu button click */
+    for (var i = 0; i < kemet_menu_toggle.length; i++) {
+      var parent_li = kemet_menu_toggle[i].parentNode;
+      var link = parent_li.querySelector('a');
+      var top = window.getComputedStyle(link, null).getPropertyValue('padding-top');
+      kemet_menu_toggle[i].style.top = top;
+    }
+  };
+
   var __main_header_all = document.querySelectorAll(
     ".main-header-bar-navigation"
   );
   var menu_toggle_all = document.querySelector(".main-header-menu-toggle");
   if (menu_toggle_all !== null) {
-    window.addEventListener("click", function(e) {
+    window.addEventListener("click", function (e) {
       var main_header_wrap = document.querySelector(".main-navigation");
       if (
         !(
@@ -1253,7 +1263,7 @@ var toggleClass = function(el, className) {
 
     menu_toggle_all.addEventListener(
       "click",
-      function(event) {
+      function (event) {
         event.preventDefault();
 
         toggleClass(menu_toggle_all, "toggled");
@@ -1305,13 +1315,14 @@ var toggleClass = function(el, className) {
             "ul.main-header-menu .kmt-menu-toggle"
           );
           KemetToggleMenu(kemet_menu_toggle);
+          KemetSetPosition(kemet_menu_toggle);
         }
       }
     }
   }
   document.body.addEventListener(
     "kemet-header-responsive-enabled",
-    function() {
+    function () {
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
           if (null != __main_header_all[i]) {
@@ -1346,7 +1357,7 @@ var toggleClass = function(el, className) {
   );
 
   /* Add break point Class and related trigger */
-  var updateHeaderBreakPoint = function() {
+  var updateHeaderBreakPoint = function () {
     var break_point = kemet.break_point,
       headerWrap = document.querySelectorAll(".main-header-bar-wrap");
 
@@ -1393,7 +1404,7 @@ var toggleClass = function(el, className) {
     }
   };
   //Responsive Search Style
-  var searchStyle = function() {
+  var searchStyle = function () {
     var hasOutSideMenu = document.querySelector(".kmt-outside-menu") != null,
       hasInsideMenu =
         document.querySelector(".kmt-sitehead-custom-menu-items") != null;
@@ -1455,14 +1466,14 @@ var toggleClass = function(el, className) {
       }
     }
   };
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function () {
     updateHeaderBreakPoint();
     searchStyle();
   });
   updateHeaderBreakPoint();
   searchStyle();
 
-  var get_browser = function() {
+  var get_browser = function () {
     var ua = navigator.userAgent,
       tem,
       M =
@@ -1495,7 +1506,7 @@ var toggleClass = function(el, className) {
   /* Search Script */
   var SearchIcons = document.getElementsByClassName("kemet-search-icon");
   for (var i = 0; i < SearchIcons.length; i++) {
-    SearchIcons[i].onclick = function(event) {
+    SearchIcons[i].onclick = function (event) {
       event.preventDefault();
       var sibling = this.parentNode.parentNode.querySelector(
         ".kmt-search-menu-icon"
@@ -1505,7 +1516,7 @@ var toggleClass = function(el, className) {
         sibling
           .querySelector(".search-field")
           .setAttribute("autocomplete", "off");
-        setTimeout(function() {
+        setTimeout(function () {
           sibling.querySelector(".search-field").focus();
         }, 200);
       } else {
@@ -1515,7 +1526,7 @@ var toggleClass = function(el, className) {
   }
 
   /* Hide Dropdown on body click*/
-  document.body.onclick = function(event) {
+  document.body.onclick = function (event) {
     if (!this.classList.contains("kmt-header-break-point")) {
       if (
         !event.target.classList.contains("kmt-search-menu-icon") &&
@@ -1560,7 +1571,7 @@ var toggleClass = function(el, className) {
     menu.className += " nav-menu";
   }
 
-  button.onclick = function() {
+  button.onclick = function () {
     if (-1 !== container.className.indexOf("toggled")) {
       container.className = container.className.replace(" toggled", "");
       button.setAttribute("aria-expanded", "false");
@@ -1611,7 +1622,7 @@ var toggleClass = function(el, className) {
   /**
    * Toggles `focus` class to allow submenu access on tablets.
    */
-  (function(container) {
+  (function (container) {
     var touchStartFn,
       i,
       parentLink = container.querySelectorAll(
@@ -1619,7 +1630,7 @@ var toggleClass = function(el, className) {
       );
 
     if ("ontouchstart" in window) {
-      touchStartFn = function(e) {
+      touchStartFn = function (e) {
         var menuItem = this.parentNode,
           i;
 
@@ -1654,7 +1665,7 @@ var toggleClass = function(el, className) {
  * @package Kemet
  */
 
-(function() {
+(function () {
   var is_webkit = navigator.userAgent.toLowerCase().indexOf("webkit") > -1,
     is_opera = navigator.userAgent.toLowerCase().indexOf("opera") > -1,
     is_ie = navigator.userAgent.toLowerCase().indexOf("msie") > -1;
@@ -1666,7 +1677,7 @@ var toggleClass = function(el, className) {
   ) {
     window.addEventListener(
       "hashchange",
-      function() {
+      function () {
         var id = location.hash.substring(1),
           element;
 
@@ -1692,13 +1703,13 @@ var toggleClass = function(el, className) {
 /**
  * Sticky Footer
  */
-(function() {
+(function () {
   function parallaxFooter() {
     var $body = document.body;
     if ($body.classList.contains("kmt-sticky-footer")) {
       var $content = $body.querySelector("#content"),
         $stickFooter = $body.querySelector(".sticky-footer");
-      setTimeout(function() {
+      setTimeout(function () {
         $content.style.marginBottom = $stickFooter.offsetHeight + "px";
       }, 1);
     }
@@ -1706,4 +1717,6 @@ var toggleClass = function(el, className) {
 
   window.addEventListener("resize", parallaxFooter());
   parallaxFooter();
+
+
 })();
