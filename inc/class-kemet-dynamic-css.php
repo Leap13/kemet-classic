@@ -542,6 +542,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $menu_link_spacing, 'right', 'desktop' ),
 					'padding-left'  => kemet_responsive_spacing( $menu_link_spacing, 'left', 'desktop' ),	 
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle::before, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle::before'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'desktop' ),
+				), 
 				'.kmt-sitehead-custom-menu-items > *, .main-header-menu > .menu-item > a, .main-header-menu > .menu-item'  => array(
 					'line-height' => kemet_responsive_slider( $menu_line_height , 'desktop' ),
 				), 
@@ -1119,6 +1122,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $menu_link_spacing, 'right', 'tablet' ),
 					'padding-left'  => kemet_responsive_spacing( $menu_link_spacing, 'left', 'tablet' ),		
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle::before, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle::before'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'tablet' ),
+				), 
 				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a'  => array(
 					'font-size'	 	=> kemet_responsive_slider( $submenu_font_size , 'tablet' ),
 					'line-height' => kemet_responsive_slider( $sub_menu_line_height , 'tablet' ),
@@ -1494,6 +1500,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right' => kemet_responsive_spacing( $menu_link_spacing, 'right', 'mobile' ),
 					'padding-left'  => kemet_responsive_spacing( $menu_link_spacing, 'left', 'mobile' ),		
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle::before, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle::before'  => array(
+					'font-size'	 	=> kemet_responsive_slider( $menu_font_size , 'mobile' ),
+				), 
 				'.main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover , .kmt-header-break-point .main-navigation ul li:hover a' => array (
 					'color' => kemet_responsive_color( $menu_link_h_color , 'mobile'),
 				),
