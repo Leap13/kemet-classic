@@ -134,27 +134,34 @@ $wp_customize->add_control(
         )
     )
 );
+
 /**
-* Option: header Background
+* Option: Header Inner Background
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-        'default'           => $defaults['header-bg-obj'],
+$fields = array(
+    /**
+     * Option: Header Background
+     */
+    array(
+        'id'                => '[header-bg-obj]',
+        'default'           => $defaults[ 'header-bg-obj' ],
         'type'              => 'option',
+        'control_type'      => 'kmt-background',
+        'section'           => 'section-header',
+        'priority'          => 1,
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-    )
+    ),
+    
 );
-$wp_customize->add_control(
-    new Kemet_Control_Background(
-        $wp_customize, KEMET_THEME_SETTINGS . '[header-bg-obj]', array(
-            'type'    => 'kmt-background',
-            'section' => 'section-header',
-            'priority' => 60,
-            'label'   => __( 'Header Background', 'kemet' ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-header-obj]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Background', 'kemet' ),
+    'section'  => 'section-header',
+    'priority' => 60,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Bottom Border Size
 */

@@ -197,6 +197,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Smart_Skin' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Icon_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Color' );
+			$wp_customize->register_control_type( 'Kemet_Control_Group' );
+			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
+			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 
 			/**
 			 * Helper files
@@ -205,6 +208,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-partials.php';
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-callback.php';
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-sanitizes.php';
+
+			// Group Control Generator
+			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/group/class-kemet-generate-group-control.php';
 		}
 
 		/**
@@ -289,12 +295,55 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 							'option' => KEMET_THEME_SETTINGS,
 						),
 						'config'     => $this->get_dependency_arr(),
+						'font_family_select' => $this->font_family_select(),
 					)
 				)
 			);
 			//Extra Controls Script
 			wp_enqueue_style( 'kemet-custom-control-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix , null, KEMET_THEME_VERSION );
 			wp_enqueue_script( 'kemet-custom-control-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir . '/custom-controls' .  $js_prefix , array( 'jquery', 'customize-base', 'kemet-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ) , KEMET_THEME_VERSION, true );
+			wp_localize_script(
+				'kemet-custom-control-script', 'kemetCustomizerControlBackground', array(
+					'placeholder'  => __( 'No file selected', 'kemet' ),
+					'lessSettings' => __( 'Less Settings', 'kemet' ),
+					'moreSettings' => __( 'More Settings', 'kemet' ),
+				)
+			);
+			// Select2
+			wp_enqueue_style( 'kemet-select2-css' , KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/minified/select2.min.css' , null, KEMET_THEME_VERSION );
+			wp_enqueue_script( 'kemet-select2-script', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/js/minified/select2.min.js', array( 'jquery' ) , KEMET_THEME_VERSION, true );
+		}
+
+		/**
+		 * Font Family DropDown
+		 */
+		function font_family_select(){
+
+			ob_start();
+
+			echo '<select>';
+			echo '<option value="inherit">' . __( 'Inherit', 'kemet' ) . '</option>';
+			echo '<optgroup label="Other System Fonts">';
+
+			foreach ( Kemet_Font_Families::get_system_fonts() as $name => $variants ) {
+				echo '<option value="' . esc_attr( $name ) . '">' . esc_attr( $name ) . '</option>';
+			}
+
+			// Add Custom Font List Into Customizer.
+			do_action( 'kemet_customizer_font_list' );
+
+			echo '<optgroup label="Google">';
+
+			foreach ( Kemet_Font_Families::get_google_fonts() as $name => $single_font ) {
+				$variants = kemet_prop( $single_font, '0' );
+				$category = kemet_prop( $single_font, '1' );
+				echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '">' . esc_attr( $name ) . '</option>';
+			}
+
+			echo '</select>';
+
+			return ob_get_clean();
+
 		}
 
 		/**

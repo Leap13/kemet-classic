@@ -132,19 +132,22 @@
 			text-align: left;
 
 			.coupon {
+				flex-wrap: wrap;
 				@include clearfix();
 				padding-bottom: 0.5em;
 
 				input,
 				.button,
 				.input-text {
-					width: 48%;
+					width: 100%;
 					box-sizing: border-box;
 				}
-
+				.input-text{
+					margin-bottom: 15px;
+				}
 				.input-text + .button,
 				.button.alt {
-					float: right;
+					float: none;
 				}
 			}
 		}

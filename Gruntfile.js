@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   "use strict";
   // Project configuration
   var autoprefixer = require("autoprefixer");
@@ -14,10 +14,10 @@ module.exports = function(grunt) {
         // rtlcss options
         config: {
           preserveComments: true,
-          greedy: true
+          greedy: true,
         },
         // generate source maps
-        map: false
+        map: false,
       },
       dist: {
         files: [
@@ -28,10 +28,10 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!kemet-fonts.css",
             ],
             dest: "assets/css/unminified",
-            ext: "-rtl.css"
+            ext: "-rtl.css",
           },
           {
             expand: true,
@@ -40,10 +40,10 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!kemet-fonts.css",
             ],
             dest: "assets/css/unminified/compatibility",
-            ext: "-rtl.css"
+            ext: "-rtl.css",
           },
           {
             expand: true,
@@ -52,27 +52,27 @@ module.exports = function(grunt) {
               "*.css",
               "!*-rtl.css",
               "!font-awesome.css",
-              "!kemet-fonts.css"
+              "!kemet-fonts.css",
             ],
             dest: "assets/css/unminified/compatibility/woocommerce",
-            ext: "-rtl.css"
+            ext: "-rtl.css",
           },
           {
             expand: true,
             cwd: "inc/customizer/custom-controls/assets/css/unminified/",
             src: ["*.css", "!*-rtl.css"],
             dest: "inc/customizer/custom-controls/assets/css/unminified/",
-            ext: "-rtl.css"
-          }
-        ]
-      }
+            ext: "-rtl.css",
+          },
+        ],
+      },
     },
 
     sass: {
       options: {
         sourcemap: "none",
         outputStyle: "expanded",
-        linefeed: "lf"
+        linefeed: "lf",
       },
       dist: {
         files: [
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
             "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css":
               "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss",
             "inc/customizer/custom-controls/background/background.css":
-              "inc/customizer/custom-controls/background/background.scss"
+              "inc/customizer/custom-controls/background/background.scss",
           },
 
           /* Common Style */
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
             cwd: "sass/",
             src: ["style.scss"],
             dest: "assets/css/unminified",
-            ext: ".css"
+            ext: ".css",
           },
           /* Compatibility */
           {
@@ -117,17 +117,17 @@ module.exports = function(grunt) {
             cwd: "sass/site/compatibility/",
             src: ["**.scss"],
             dest: "assets/css/unminified/compatibility",
-            ext: ".css"
+            ext: ".css",
           },
           {
             expand: true,
             cwd: "sass/site/compatibility/woocommerce",
             src: ["**.scss"],
             dest: "assets/css/unminified/compatibility/woocommerce",
-            ext: ".css"
-          }
-        ]
-      }
+            ext: ".css",
+          },
+        ],
+      },
     },
 
     postcss: {
@@ -143,20 +143,20 @@ module.exports = function(grunt) {
               "Explorer >= 7",
               "Firefox >= 17",
               "Opera >= 12.1",
-              "Safari >= 6.0"
+              "Safari >= 6.0",
             ],
-            cascade: false
-          })
-        ]
+            cascade: false,
+          }),
+        ],
       },
       style: {
         expand: true,
         src: [
           "assets/css/unminified/style.css",
           "assets/css/unminified/*.css",
-          "assets/css/unminified/compatibility/*.css"
-        ]
-      }
+          "assets/css/unminified/compatibility/*.css",
+        ],
+      },
     },
 
     uglify: {
@@ -168,20 +168,20 @@ module.exports = function(grunt) {
             src: ["**.js"],
             dest: "assets/js/minified",
             cwd: "assets/js/unminified",
-            ext: ".min.js"
+            ext: ".min.js",
           },
           {
             src:
               "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
             dest:
-              "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js"
-          }
-        ]
-      }
+              "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js",
+          },
+        ],
+      },
     },
     cssmin: {
       options: {
-        keepSpecialComments: 0
+        keepSpecialComments: 0,
       },
       css: {
         files: [
@@ -192,70 +192,71 @@ module.exports = function(grunt) {
             src: ["**/*.css", "!**/*-rtl.css"],
             dest: "assets/css/minified",
             cwd: "assets/css/unminified",
-            ext: ".min.css"
+            ext: ".min.css",
           },
           {
             src:
               "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
             dest:
-              "inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css"
+              "inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css",
           },
           {
             src:
               "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
             dest:
-              "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css"
+              "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css",
           },
           // Generating RTL files from '/unminified/' into '/minified/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
           {
             src: "assets/css/unminified/editor-style-rtl.css",
-            dest: "assets/css/minified/editor-style.min-rtl.css"
+            dest: "assets/css/minified/editor-style.min-rtl.css",
           },
           {
             src: "assets/css/unminified/style-rtl.css",
-            dest: "assets/css/minified/style.min-rtl.css"
+            dest: "assets/css/minified/style.min-rtl.css",
           },
           {
             src: "assets/css/unminified/extend-customizer-rtl.css",
-            dest: "assets/css/minified/extend-customizer-rtl.min.css"
+            dest: "assets/css/minified/extend-customizer-rtl.min.css",
           },
           {
             src: "assets/css/unminified/customizer-controls-rtl.css",
-            dest: "assets/css/minified/customizer-controls-rtl.min.css"
+            dest: "assets/css/minified/customizer-controls-rtl.min.css",
           },
           // Generating RTL files from '/unminified/compatibility/' into '/minified/compatibility/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
           {
             src: "assets/css/unminified/compatibility/contact-form-7-rtl.css",
-            dest: "assets/css/minified/compatibility/contact-form-7.min-rtl.css"
+            dest:
+              "assets/css/minified/compatibility/contact-form-7.min-rtl.css",
           },
           {
             src:
               "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
             dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css"
+              "assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css",
           },
           {
             src:
               "assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css",
             dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css"
+              "assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css",
           },
           {
             src:
               "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css",
             dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css"
-          }
-        ]
-      }
+              "assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css",
+          },
+        ],
+      },
     },
 
     copy: {
       main: {
         options: {
-          mode: true
+          mode: true,
         },
         src: [
           "**",
@@ -281,29 +282,29 @@ module.exports = function(grunt) {
           "!composer.json",
           "!composer.lock",
           "!package-lock.json",
-          "!phpcs.xml.dist"
+          "!phpcs.xml.dist",
         ],
-        dest: "kemet/"
-      }
+        dest: "kemet/",
+      },
     },
 
     compress: {
       main: {
         options: {
           archive: "kemet-" + pkgInfo.version + ".zip",
-          mode: "zip"
+          mode: "zip",
         },
         files: [
           {
-            src: ["./kemet/**"]
-          }
-        ]
-      }
+            src: ["./kemet/**"],
+          },
+        ],
+      },
     },
 
     clean: {
       main: ["kemet"],
-      zip: ["*.zip"]
+      zip: ["*.zip"],
     },
 
     makepot: {
@@ -313,17 +314,17 @@ module.exports = function(grunt) {
           potFilename: "languages/kemet.pot",
           potHeaders: {
             poedit: true,
-            "x-poedit-keywordslist": true
+            "x-poedit-keywordslist": true,
           },
           type: "wp-theme",
-          updateTimestamp: true
-        }
-      }
+          updateTimestamp: true,
+        },
+      },
     },
 
     addtextdomain: {
       options: {
-        textdomain: "kemet"
+        textdomain: "kemet",
       },
       target: {
         files: {
@@ -333,19 +334,19 @@ module.exports = function(grunt) {
             "!node_modules/**",
             "!php-tests/**",
             "!bin/**",
-            "!admin/bsf-core/**"
-          ]
-        }
-      }
+            "!admin/bsf-core/**",
+          ],
+        },
+      },
     },
 
     bumpup: {
       options: {
         updateProps: {
-          pkg: "package.json"
-        }
+          pkg: "package.json",
+        },
       },
-      file: "package.json"
+      file: "package.json",
     },
 
     replace: {
@@ -355,9 +356,9 @@ module.exports = function(grunt) {
         replacements: [
           {
             from: /Version: \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?(?:\+[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?\b/g,
-            to: "Version: <%= pkg.version %>"
-          }
-        ]
+            to: "Version: <%= pkg.version %>",
+          },
+        ],
       },
 
       theme_const: {
@@ -366,10 +367,10 @@ module.exports = function(grunt) {
         replacements: [
           {
             from: /KEMET_THEME_VERSION', '.*?'/g,
-            to: "KEMET_THEME_VERSION', '<%= pkg.version %>'"
-          }
-        ]
-      }
+            to: "KEMET_THEME_VERSION', '<%= pkg.version %>'",
+          },
+        ],
+      },
     },
     concat: {
       css: {
@@ -387,10 +388,11 @@ module.exports = function(grunt) {
           "inc/customizer/custom-controls/title/title.css",
           "inc/customizer/custom-controls/typography/typography.css",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.css",
-          "inc/customizer/custom-controls/responsive-color/responsive-color.css"
+          "inc/customizer/custom-controls/responsive-color/responsive-color.css",
+          "inc/customizer/custom-controls/group/group.css",
         ],
         dest:
-          "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css"
+          "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
       },
 
       js: {
@@ -406,11 +408,12 @@ module.exports = function(grunt) {
           "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js",
           "inc/customizer/custom-controls/title/title.js",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
-          "inc/customizer/custom-controls/responsive-color/responsive-color.js"
+          "inc/customizer/custom-controls/responsive-color/responsive-color.js",
+          "inc/customizer/custom-controls/group/group.js",
         ],
         dest:
-          "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js"
-      }
+          "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
+      },
     },
     charset: {
       dist: {
@@ -422,20 +425,20 @@ module.exports = function(grunt) {
             css: {
               ext: [".css"],
               detect: /^@charset\s+(".+?"|'.+?')/,
-              replace: '@charset "{{charset}}"'
-            }
-          }
+              replace: '@charset "{{charset}}"',
+            },
+          },
         },
         files: [
           {
             expand: true,
             cwd: "src",
             dest: "dist",
-            src: ["**/*.{css}"]
-          }
-        ]
-      }
-    }
+            src: ["**/*.{css}"],
+          },
+        ],
+      },
+    },
   });
 
   // Load grunt tasks
@@ -466,28 +469,28 @@ module.exports = function(grunt) {
   grunt.registerTask("minify", ["style", "uglify:js", "cssmin:css"]);
 
   // Update google Fonts
-  grunt.registerTask("google-fonts", function() {
+  grunt.registerTask("google-fonts", function () {
     var done = this.async();
     var request = require("request");
     var fs = require("fs");
 
     request(
       "https://www.googleapis.com/webfonts/v1/AIzaSyDzjH9arBe4Tjwq4JR2ehqX-MKE10MePkk",
-      function(error, response, body) {
+      function (error, response, body) {
         if (response && response.statusCode == 200) {
-          var fonts = JSON.parse(body).items.map(function(font) {
+          var fonts = JSON.parse(body).items.map(function (font) {
             return {
               [font.family]: {
                 variants: font.variants,
-                category: font.category
-              }
+                category: font.category,
+              },
             };
           });
 
           fs.writeFile(
             "assets/fonts/google-fonts.json",
             JSON.stringify(fonts, undefined, 4),
-            function(err) {
+            function (err) {
               if (!err) {
                 console.log("Google Fonts Updated!");
               }
@@ -503,11 +506,11 @@ module.exports = function(grunt) {
     "clean:zip",
     "copy:main",
     "compress:main",
-    "clean:main"
+    "clean:main",
   ]);
 
   // Bump Version - `grunt version-bump --ver=<version-number>`
-  grunt.registerTask("version-bump", function(ver) {
+  grunt.registerTask("version-bump", function (ver) {
     var newVersion = grunt.option("ver");
 
     if (newVersion) {

@@ -6,7 +6,7 @@
  * @package Kemet
  */
 
-(function($) {
+(function ($) {
   /* Internal shorthand */
   var api = wp.customize;
 
@@ -21,7 +21,7 @@
      *
      * @method init
      */
-    init: function() {
+    init: function () {
       KmtTypography._initFonts();
     },
 
@@ -31,13 +31,13 @@
      * @access private
      * @method _initFonts
      */
-    _initFonts: function() {
+    _initFonts: function () {
       $(".customize-control-kmt-font-family select").each(
         KmtTypography._initFont
       );
       $(".customize-control-kmt-font-family select").select2({
         width: "100%",
-        dropdownCssClass: "increasedzindexclass"
+        dropdownCssClass: "increasedzindexclass",
       });
     },
 
@@ -47,7 +47,7 @@
      * @access private
      * @method _initFont
      */
-    _initFont: function() {
+    _initFont: function () {
       var select = $(this),
         link = select.data("customize-setting-link"),
         weight = select.data("connected-control");
@@ -64,7 +64,7 @@
      * @access private
      * @method _fontSelectChange
      */
-    _fontSelectChange: function() {
+    _fontSelectChange: function () {
       KmtTypography._setFontWeightOptions.apply(this, [false]);
     },
 
@@ -77,7 +77,7 @@
      *
      * @return {String}  Font name where commas and inverted commas are removed if the font is a Google Font.
      */
-    _cleanGoogleFonts: function(fontValue) {
+    _cleanGoogleFonts: function (fontValue) {
       // Bail if fontVAlue does not contain a comma.
       if (!fontValue.includes(",")) return fontValue;
 
@@ -101,7 +101,7 @@
      * @method _setFontWeightOptions
      * @param {Boolean} init Whether or not we're initializing this font weight control.
      */
-    _setFontWeightOptions: function(init) {
+    _setFontWeightOptions: function (init) {
       var i = 0,
         fontSelect = api.control(this.id).container.find("select"),
         fontValue = this(),
@@ -126,7 +126,7 @@
         weightObject = KmtFontFamilies.system[fontValue].weights;
       } else if ("undefined" != typeof KmtFontFamilies.google[fontValue]) {
         weightObject = KmtFontFamilies.google[fontValue][0];
-        weightObject = Object.keys(weightObject).map(function(k) {
+        weightObject = Object.keys(weightObject).map(function (k) {
           return weightObject[k];
         });
       } else if (
@@ -163,18 +163,18 @@
         api(weightKey).set("");
         api(weightKey).set(weightValue);
       }
-    }
+    },
   };
 
-  $(function() {
+  $(function () {
     KmtTypography.init();
   });
-  $(function() {
+  $(function () {
     //Inline Style
     var font_weight_controls = jQuery("#customize-theme-controls").find(
       ".customize-control-kmt-font-weight"
     );
-    font_weight_controls.each(function() {
+    font_weight_controls.each(function () {
       var font_weight_control = jQuery(this);
       var font_tranform_control = font_weight_control.next(
         ".customize-control-select"

@@ -241,102 +241,75 @@ $wp_customize->add_control(
         )
     )
 );
- /**
-* Option:  Product Title Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-title-font-size]', array(
-        'default'           => kemet_get_option( 'product-title-font-size' ),
+
+/**
+ * Option: Product Title Typography
+ */
+
+$fields = array(
+    /**
+    * Option: Product Title Font Size
+    */
+    array(
+        'id'                => '[product-title-font-size]',
+        'default'           => $defaults ['product-title-font-size'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 37,
-            'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 2,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
-
-/**
-* Option: Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-title-font-family]', array(
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[product-title-font-family]',
         'default'           => $defaults[ 'product-title-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-    )
-);
-
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-family]', array(
-            'type'        => 'kmt-font-family',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 37,
-            'label'       => __( 'Font Family', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-title-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-title-font-weight]', array(
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-title-font-weight]',
+    ),
+    /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[product-title-font-weight]',
         'default'           => $defaults[ 'product-title-font-weight' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-title-font-weight]', array(
-            'type'        => 'kmt-font-weight',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 37,
-            'label'       => __( 'Font Weight', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-title-font-family]',
-        )
-    )
-);
-
-/**
-* Option: Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-title-text-transform]', array(
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-title-font-family]',
+    ),
+    /**
+    * Option: Product Title Text Transform
+    */
+    array(
+        'id'                => '[product-title-text-transform]',
         'default'           => $defaults[ 'product-title-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[product-title-text-transform]', array(
-        'type'     => 'select',
-        'section'  => 'woocommerce_product_catalog',
-        'priority' => 37,
-        'label'    => __( 'Text Transform', 'kemet' ),
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 5,
         'choices'  => array(
             ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
@@ -344,76 +317,63 @@ $wp_customize->add_control(
             'uppercase'  => __( 'Uppercase', 'kemet' ),
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
-    )
-);
-
-/**
-* Option: Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-title-line-height]', array(
-        'default'           => $defaults[ 'product-title-line-height' ],
+    ),
+    /**
+    * Option: Product Title Line Height
+    */
+    array(
+        'id'                => '[product-title-line-height]',
+        'default'           => $defaults ['product-title-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+    * Option: Product Title Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-product-title]',
+        'default'           => $defaults ['letter-spacing-product-title'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-title-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 37,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
             ),
-        )
-    )
+        ),
+    ),
 );
-/**
-* Option: Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-product-title]', array(
-        'default'           => $defaults[ 'letter-spacing-product-title' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-title]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 37,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-product-title-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'woocommerce_product_catalog',
+    'priority' => 37,
+    'settings' => array(),
 );
 
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 
 /**
  * Option: Title
@@ -450,102 +410,74 @@ $wp_customize->add_control(
     )
 );
 
- /**
-* Option:  Product Content Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-content-font-size]', array(
-        'default'           => kemet_get_option( 'product-content-font-size' ),
+/**
+ * Option: Product Content Typography
+ */
+
+$fields = array(
+    /**
+    * Option: Product Content Font Size
+    */
+    array(
+        'id'                => '[product-content-font-size]',
+        'default'           => $defaults ['product-content-font-size'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 38,
-            'label'          => __( 'Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 2,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
-
-/**
-* Option: Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-content-font-family]', array(
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[product-content-font-family]',
         'default'           => $defaults[ 'product-content-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-    )
-);
-
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-family]', array(
-            'type'        => 'kmt-font-family',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 38,
-            'label'       => __( 'Font Family', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-content-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-content-font-weight]', array(
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-content-font-weight]',
+    ),
+    /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[product-content-font-weight]',
         'default'           => $defaults[ 'product-content-font-weight' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-content-font-weight]', array(
-            'type'        => 'kmt-font-weight',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 38,
-            'label'       => __( 'Font Weight', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-content-font-family]',
-        )
-    )
-);
-
-/**
-* Option: Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-content-text-transform]', array(
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-content-font-family]',
+    ),
+    /**
+    * Option: Product Content Text Transform
+    */
+    array(
+        'id'                => '[product-content-text-transform]',
         'default'           => $defaults[ 'product-content-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[product-content-text-transform]', array(
-        'type'     => 'select',
-        'section'  => 'woocommerce_product_catalog',
-        'priority' => 38,
-        'label'    => __( 'Text Transform', 'kemet' ),
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 5,
         'choices'  => array(
             ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
@@ -553,76 +485,63 @@ $wp_customize->add_control(
             'uppercase'  => __( 'Uppercase', 'kemet' ),
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
-    )
-);
-
-/**
-* Option: Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-content-line-height]', array(
-        'default'           => $defaults[ 'product-content-line-height' ],
+    ),
+    /**
+    * Option: Product Content Line Height
+    */
+    array(
+        'id'                => '[product-content-line-height]',
+        'default'           => $defaults ['product-content-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+    * Option: Product Content Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-product-content]',
+        'default'           => $defaults ['letter-spacing-product-content'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-content-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 38,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
             ),
-        )
-    )
+        ),
+    ),
 );
-/**
-* Option: Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-product-content]', array(
-        'default'           => $defaults[ 'letter-spacing-product-content' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-content]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 38,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-product-content-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'woocommerce_product_catalog',
+    'priority' => 38,
+    'settings' => array(),
 );
 
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
  * Option: Title
  */
@@ -658,101 +577,74 @@ $wp_customize->add_control(
     )
 );
 
- /**
-* Option:  Product Price Font Size
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-price-font-size]', array(
-        'default'           => kemet_get_option( 'product-price-font-size' ),
+/**
+ * Option: Product Price Typography
+ */
+
+$fields = array(
+    /**
+    * Option: Product Price Font Size
+    */
+    array(
+        'id'                => '[product-price-font-size]',
+        'default'           => $defaults ['product-price-font-size'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-size]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 39,
-            'label'          => __( 'Product Price Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 2,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
-/**
-* Option: Font Family
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-price-font-family]', array(
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[product-price-font-family]',
         'default'           => $defaults[ 'product-price-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-    )
-);
-
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-family]', array(
-            'type'        => 'kmt-font-family',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 39,
-            'label'       => __( 'Font Family', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-price-font-weight]',
-        )
-    )
-);
-
-/**
-* Option: Font Weight
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-price-font-weight]', array(
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-price-font-weight]',
+    ),
+    /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[product-price-font-weight]',
         'default'           => $defaults[ 'product-price-font-weight' ],
         'type'              => 'option',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-price-font-weight]', array(
-            'type'        => 'kmt-font-weight',
-            'section'     => 'woocommerce_product_catalog',
-            'priority'    => 39,
-            'label'       => __( 'Font Weight', 'kemet' ),
-            'connect'     => KEMET_THEME_SETTINGS . '[product-price-font-family]',
-        )
-    )
-);
-
-/**
-* Option: Text Transform
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-price-text-transform]', array(
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[product-price-font-family]',
+    ),
+    /**
+    * Option: Product Price Text Transform
+    */
+    array(
+        'id'                => '[product-price-text-transform]',
         'default'           => $defaults[ 'product-price-text-transform' ],
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[product-price-text-transform]', array(
-        'type'     => 'select',
-        'section'  => 'woocommerce_product_catalog',
-        'priority' => 39,
-        'label'    => __( 'Text Transform', 'kemet' ),
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'woocommerce_product_catalog',
+        'priority'          => 5,
         'choices'  => array(
             ''           => __( 'Default', 'kemet' ),
             'none'       => __( 'None', 'kemet' ),
@@ -760,72 +652,60 @@ $wp_customize->add_control(
             'uppercase'  => __( 'Uppercase', 'kemet' ),
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
-    )
+    ),
+    /**
+    * Option: Product Price Line Height
+    */
+    array(
+        'id'                => '[product-price-line-height]',
+        'default'           => $defaults ['product-price-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+    * Option: Product Price Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-product-price]',
+        'default'           => $defaults ['letter-spacing-product-price'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'woocommerce_product_catalog',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+);
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-product-price-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Typography', 'kemet' ),
+    'section'  => 'woocommerce_product_catalog',
+    'priority' => 39,
+    'settings' => array(),
 );
 
-/**
-* Option: Line Height
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[product-price-line-height]', array(
-        'default'           => $defaults[ 'product-price-line-height' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[product-price-line-height]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 39,
-            'label'          => __( 'Line Height', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' =>100,
-                ),
-                'em' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 10,
-                ),
-                '%' => array(
-                    'min' => 0,
-                    'step' => 1,
-                    'max' => 100,
-                ),
-            ),
-        )
-    )
-);
-/**
-* Option: Letter Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-product-price]', array(
-        'default'           => $defaults[ 'letter-spacing-product-price' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-product-price]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'woocommerce_product_catalog',
-            'priority'       => 39,
-            'label'          => __( 'Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
-            ),
-        )
-    )
-);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);

@@ -1,3 +1,14 @@
+v 1.1.6 version
+- Fixed: Submenu style issues in responsive menu.
+- Tweak: Improve woocommerce checkout page in responsive.
+
+v 1.1.5 version
+- Added: Typography group control in customizer options.
+- Added: Color group control in customizer options.
+- Added: Rsponsive submenu color options.
+- Fixed: Console error.
+- Tweak: Improve woocommerce options.
+
 v 1.1.4 version
 - Added: Responsive control for menu text color.
 - Fixed: Sidebar border color option doesn't work.

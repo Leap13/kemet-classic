@@ -145,26 +145,32 @@ $defaults = Kemet_Theme_Options::defaults();
 	);
 
 	/**
-	 * Option: Body Background
-	 */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
+	* Option: Colors
+	*/
+	$fields = array(
+		/**
+		 * Option: Body Background
+		 */
+		array(
+			'id'                => '[site-layout-outside-bg-obj]',
 			'default'           => $defaults[ 'site-layout-outside-bg-obj' ],
 			'type'              => 'option',
+			'control_type'      => 'kmt-background',
+			'section'           => 'section-container-layout',
+			'priority'          => 1,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-		)
+		),
+		
 	);
-	$wp_customize->add_control(
-		new Kemet_Control_Background(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-layout-outside-bg-obj]', array(
-				'type'     => 'kmt-background',
-				'section'  => 'section-container-layout',
-				'priority' => 35,
-				'label'    => __( 'Body Background', 'kemet' ),
-			)
-		)
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-body-bg-obj]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Body Background', 'kemet' ),
+		'section'  => 'section-container-layout',
+		'priority' => 30,
+		'settings' => array(),
 	);
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
    	/**
 	 * Option: Title
 	 */
@@ -182,25 +188,30 @@ $defaults = Kemet_Theme_Options::defaults();
    /**
     * Option: Boxed Inner Background
     */
-	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
+	$fields = array(
+		/**
+		 * Option: Body Background
+		 */
+		array(
+			'id'                => '[site-boxed-inner-bg]',
 			'default'           => $defaults[ 'site-boxed-inner-bg' ],
 			'type'              => 'option',
+			'control_type'      => 'kmt-background',
+			'section'           => 'section-container-layout',
+			'priority'          => 1,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-		)
+		),
+		
 	);
-	$wp_customize->add_control(
-		new Kemet_Control_Background(
-			$wp_customize, KEMET_THEME_SETTINGS . '[site-boxed-inner-bg]', array(
-				'type'     => 'kmt-background',
-				'section'  => 'section-container-layout',
-				'priority' => 40,
-				'label'    => __( 'Boxed Background', 'kemet' ),
-			)
-		)
+	$group_settings = array(
+		'parent_id'       => KEMET_THEME_SETTINGS . '[kmt-boxed-bg-obj]',
+		'type'     => 'kmt-group',
+		'label'    => __( 'Boxed Background', 'kemet' ),
+		'section'  => 'section-container-layout',
+		'priority' => 40,
+		'settings' => array(),
 	);
-
+	new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
     /**
     * Option - Content Padding
     */
