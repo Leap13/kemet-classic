@@ -75,3 +75,9 @@ require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-builder.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-elementor-pro.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-beaver-themer.php';
 require_once KEMET_THEME_DIR.'inc/compatibility/class-kemet-header-footer-elementor.php';
+
+/**
+ * TGM
+ */
+require_once KEMET_THEME_DIR.'functions/tgm/bundled-plugins.php';
+require_once KEMET_THEME_DIR.'functions/tgm/class-tgm-plugin-activation.php';
