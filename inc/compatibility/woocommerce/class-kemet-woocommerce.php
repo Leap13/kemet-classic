@@ -699,7 +699,8 @@ if (! class_exists('Kemet_Woocommerce')) :
             $text_meta_color      = kemet_get_option('text-meta-color');
             $global_border_color      = kemet_get_option('global-border-color');
             $global_bg_color      = kemet_get_option('global-background-color');
-
+            $body_bg_color      = wiz_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
+            
             $btn_color = kemet_get_option('button-color');
             $btn_h_color = kemet_get_option('button-h-color', $btn_color);
             $btn_bg_color   = kemet_get_option('button-bg-color', $theme_color);
@@ -809,7 +810,7 @@ if (! class_exists('Kemet_Woocommerce')) :
                     'border-color' => esc_attr($global_border_color),
                 ),
                 '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap , .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
-                    'background-color' => esc_attr($global_bg_color),
+                    'background-color' => esc_attr($body_bg_color['background-color']),
                 ),
                 'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button' => array(
                     'color'            => esc_attr($btn_color),
