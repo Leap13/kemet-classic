@@ -699,7 +699,7 @@ if (! class_exists('Kemet_Woocommerce')) :
             $text_meta_color      = kemet_get_option('text-meta-color');
             $global_border_color      = kemet_get_option('global-border-color');
             $global_bg_color      = kemet_get_option('global-background-color');
-            $body_bg_color      = wiz_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
+            $body_bg_color      = kemet_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
             
             $btn_color = kemet_get_option('button-color');
             $btn_h_color = kemet_get_option('button-h-color', $btn_color);
