@@ -1643,3 +1643,26 @@ function header_classes($classes)
     return $classes;
 }
 add_filter('kemet_header_class', 'header_classes', 10, 1);
+
+if ( ! function_exists( 'kemet_default_header_layout' ) ) {
+    function kemet_default_header_layout()
+    {
+        if(defined('KEMET_ADDONS_VERSION')){
+            $header_option = get_option( 'kemet_addons_options' ) ? get_option( 'kemet_addons_options' )['extra-headers'] : false;
+            if($header_option){
+                return;
+            }
+        }
+
+        add_filter( 'kemet_primary_header_layout',  function($header)
+        {
+            $theme_headers = array('header-main-layout-1' , 'header-main-layout-2' , 'header-main-layout-3');
+            if(in_array($header , $theme_headers)){
+                return $header;
+            }
+            return 'header-main-layout-1';
+        });
+    }
+}
+
+add_action( 'init', 'kemet_default_header_layout' );
