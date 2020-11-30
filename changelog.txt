@@ -1,5 +1,6 @@
 v 1.1.7 version
-- Fixed: Header styling isues with RTL.
+- Fixed: Header tyling isues with RTL.
+- Tweak: Improve Woocommerce listing style in responsive. 
 
 v 1.1.6 version
 - Fixed: Submenu style issues in responsive menu.
