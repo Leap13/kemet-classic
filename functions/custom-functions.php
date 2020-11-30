@@ -1648,7 +1648,8 @@ if ( ! function_exists( 'kemet_default_header_layout' ) ) {
     function kemet_default_header_layout()
     {
         if(defined('KEMET_ADDONS_VERSION')){
-            $header_option = get_option( 'kemet_addons_options' ) ? get_option( 'kemet_addons_options' )['extra-headers'] : false;
+            $header_option = get_option( 'kemet_addons_options' );
+            $header_option =  $header_option ? $header_option['extra-headers'] : false;
             if($header_option){
                 return;
             }
