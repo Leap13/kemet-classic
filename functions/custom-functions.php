@@ -414,7 +414,6 @@ if (! function_exists('kemet_get_copyright_footer_custom_text')) {
 
         if ('' != $option) {
             $output = kemet_get_option($option);
-            $output = str_replace('[current_year]', date_i18n('Y'), $output);
             $output = str_replace('[site_title]', '<span class="kmt-footer-site-title">' . get_bloginfo('name') . '</span>', $output);
 
             $theme_author = apply_filters(
