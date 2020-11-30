@@ -1,3 +1,6 @@
+v 1.1.7 version
+- Fixed: Header styling isues with RTL.
+
 v 1.1.6 version
 - Fixed: Submenu style issues in responsive menu.
 - Tweak: Improve woocommerce checkout page in responsive.

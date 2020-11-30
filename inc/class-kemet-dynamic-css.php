@@ -323,7 +323,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			//Search Style
 			$search_input_bg_color = kemet_get_option( 'search-input-bg-color' , $global_bg_color);
 			$search_input_color = kemet_get_option( 'search-input-color' );
-			$search_border_color         = Kemet_get_option('search-border-color' , $global_border_color);
+			$search_border_color         = kemet_get_option('search-border-color' , $global_border_color);
 			$search_btn_bg_color         = kemet_get_option('search-btn-bg-color'); 
             $search_btn_h_bg_color       = kemet_get_option('search-btn-h-bg-color'); 
             $search_btn_color            = kemet_get_option('search-btn-color'); 

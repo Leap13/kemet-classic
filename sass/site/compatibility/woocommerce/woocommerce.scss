@@ -3929,9 +3929,10 @@ body:not(.kmt-separate-container) {
   }
 }
 /* Extra style */
-.shop-grid {
-  &.woocommerce,
-  &.woocommerce-page {
+body,
+.woocommerce,
+.woocommerce-page {
+  &.shop-grid {
     ul.products {
       li.product {
         height: fit-content;
