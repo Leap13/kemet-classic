@@ -606,9 +606,9 @@ if (!class_exists('Kemet_Woocommerce')):
         add_filter('woocommerce_product_additional_information_heading', '__return_false');
 
         // Breadcrumb.
-        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
-        if (!kemet_get_option('single-product-breadcrumb-disable')) {
-            add_action('woocommerce_single_product_summary', 'woocommerce_breadcrumb', 2);
+
+        if (kemet_get_option('single-product-breadcrumb-disable') && is_product()) {
+            remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
         }
     }
 
@@ -627,7 +627,7 @@ if (!class_exists('Kemet_Woocommerce')):
         remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
         remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
         // Breadcrumb.
-        if (kemet_get_option('disable-shop-breadcrumb')) {
+        if (kemet_get_option('disable-shop-breadcrumb') && (is_shop() || is_product_taxonomy())) {
             remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
         }
     }
