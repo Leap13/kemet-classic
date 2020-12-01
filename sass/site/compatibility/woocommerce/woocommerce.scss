@@ -164,7 +164,6 @@ p.demo_store,
       overflow-y: auto;
       li {
         padding: 0.5em 2em 0.5em 5em;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
         &:last-child {
           border-bottom: 0;
@@ -2011,10 +2010,6 @@ p.demo_store,
         display: inline;
       }
     }
-
-    .amount {
-      font-weight: 700;
-    }
   }
 
   p.woocommerce-shipping-contents {
@@ -3619,7 +3614,6 @@ ul.woocommerce-error {
       padding: 0.6em 0 0.6em 5em;
       min-height: 5em;
       position: relative;
-      border-bottom: 1px solid #e2e2e2;
       margin: 0;
       line-height: 1.5;
 
@@ -3637,9 +3631,24 @@ ul.woocommerce-error {
       width: calc(50% - 5px);
       margin-right: 5px;
       text-align: center;
+      background: transparent;
+      &::before {
+        content: "\e903";
+        font-family: Kemet-font;
+        speak: none;
+        vertical-align: sub;
+        margin-right: 5px;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
     }
 
     .checkout.wc-forward {
+      &::before {
+        content: "\f147";
+        font-family: dashicons;
+      }
       margin-left: 5px;
       margin-right: 0;
     }
@@ -3666,8 +3675,10 @@ ul.woocommerce-error {
   .widget_shopping_cart .total,
   &.widget_shopping_cart .total {
     padding: 5px 0;
-    border-top: 1px solid #e2e2e2;
-    border-bottom: 1px solid #e2e2e2;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     margin-bottom: 1.3em;
   }
 
@@ -3700,10 +3711,6 @@ ul.woocommerce-error {
         }
       }
     }
-
-    > li:first-child {
-      border: none;
-    }
   }
 
   .widget {
@@ -3713,11 +3720,6 @@ ul.woocommerce-error {
 
     ins {
       background: inherit;
-    }
-
-    .amount,
-    ins {
-      font-weight: 700;
     }
 
     .star-rating {
@@ -3796,8 +3798,6 @@ ul.woocommerce-error {
   display: flex;
 
   .search-field {
-    flex: auto;
-    width: 100%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

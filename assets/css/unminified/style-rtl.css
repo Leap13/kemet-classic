@@ -4091,6 +4091,10 @@ h4.widget-title {
   list-style-type: none;
 }
 
+.widget ul > li:last-child {
+  border: none;
+}
+
 .widget_nav_menu ul ul.sub-menu {
   margin-top: 0.25em;
 }
@@ -4407,6 +4411,10 @@ h4.widget-title {
 .kemet-footer-overlay {
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.kemet-footer .widget ul > li:last-child {
+  border: none;
 }
 
 .kemet-footer p:last-child {

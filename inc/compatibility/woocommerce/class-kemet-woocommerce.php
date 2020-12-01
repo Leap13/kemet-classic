@@ -699,6 +699,8 @@ $site_sidebar = kemet_layout();
         $global_border_color = kemet_get_option('global-border-color');
         $global_bg_color = kemet_get_option('global-background-color');
         $body_bg_color = kemet_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
+        $global_footer_text_color = kemet_get_option('global-footer-text-color');
+        $kemet_footer_link_color = kemet_get_option('footer-link-color', $global_footer_text_color);
 
         $btn_color = kemet_get_option('button-color');
         $btn_h_color = kemet_get_option('button-h-color', $btn_color);
@@ -852,7 +854,7 @@ $site_sidebar = kemet_layout();
                 'color' => esc_attr($theme_color),
             ),
             '.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
-                'background-color' => esc_attr($headings_links_color),
+                'background-color' => esc_attr($theme_color),
             ),
             // Button Typography.
             '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
@@ -880,6 +882,15 @@ $site_sidebar = kemet_layout();
             '.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce a' => array(
                 'color' => esc_attr($headings_links_color),
                 'border-color' => esc_attr($global_border_color),
+            ),
+            '.woocommerce .site-footer a.remove:hover, .woocommerce .site-footer a' => array(
+                'color' => esc_attr($kemet_footer_link_color),
+            ),
+            '.woocommerce .site-footer a:hover' => array(
+                'color' => esc_attr($theme_color),
+            ),
+            '.woocommerce .widget .amount, .woocommerce .widget ins' => array(
+                'color' => esc_attr($theme_color),
             ),
             '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title' => array(
                 'font-size' => kemet_responsive_slider($product_title_font_size, 'desktop'),
