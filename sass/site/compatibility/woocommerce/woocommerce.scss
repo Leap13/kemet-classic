@@ -1827,7 +1827,24 @@ p.demo_store,
         display: block;
         font-weight: 700;
       }
-
+      img {
+        float: left;
+        margin-left: 4px;
+        width: 50px;
+        height: auto;
+        box-shadow: none;
+        border-width: 1px;
+        border-style: solid;
+        &:hover {
+          opacity: 0.6;
+          filter: alpha(opacity=.6);
+          filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=.6)";
+          box-shadow: 0 0 2px rgb(102, 102, 102);
+        }
+      }
+      .product-title {
+        font-weight: normal;
+      }
       img {
         float: right;
         margin-left: 4px;
@@ -3240,6 +3257,9 @@ ul.woocommerce-error {
  * Cart Page
  */
 .woocommerce-cart {
+  .wc-backward {
+    background: transparent;
+  }
   table.shop_table {
     .woocommerce-Price-amount,
     td.product-name {
@@ -3592,6 +3612,7 @@ ul.woocommerce-error {
     }
   }
 }
+body,
 .woocommerce {
   #secondary {
     .woocommerce ul.cart_list,
@@ -3611,8 +3632,7 @@ ul.woocommerce-error {
   ul.product_list_widget {
     .cart_list li,
     li {
-      padding: 0.6em 0 0.6em 5em;
-      min-height: 5em;
+      padding: 15px 0;
       position: relative;
       margin: 0;
       line-height: 1.5;
@@ -3685,12 +3705,31 @@ ul.woocommerce-error {
   ul.product_list_widget {
     li {
       img {
-        position: absolute;
-        left: 0;
-        width: 4em;
-        margin: 0 0 0.5em 0;
-        top: 50%;
-        transform: translateY(-50%);
+        margin-right: 10px;
+      }
+      .reviewer {
+        float: right;
+        font-size: 12px;
+      }
+      .star-rating {
+        float: left;
+        overflow: hidden;
+        position: relative;
+        height: 1em;
+        line-height: 1;
+        font-size: 0.85em;
+        width: 5.4em;
+        font-family: star;
+        margin-top: 12px;
+        margin-right: 10px;
+      }
+      > * {
+        margin-top: 7px;
+      }
+      ins,
+      del,
+      .amount {
+        display: inline-block;
       }
     }
   }
@@ -3785,7 +3824,6 @@ ul.woocommerce-error {
 
 .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
-  padding: 0.5em 1.8em 0.5em 5em;
   a.remove {
     position: absolute;
     left: auto;

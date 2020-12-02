@@ -4143,6 +4143,7 @@ h4.widget-title {
 
 .widget_search .search-form > label {
   position: relative;
+  width: 100%;
 }
 
 .widget_search .search-form input[type="submit"],

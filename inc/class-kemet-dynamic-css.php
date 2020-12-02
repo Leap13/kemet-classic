@@ -910,6 +910,9 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                 'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
                     'border-color' => esc_attr($single_content_separator_color),
                 ),
+                '.comments-area , .single .post-navigation' => array(
+                    'border-top-color' => esc_attr( $global_border_color ),
+                ),
                 /**
                  * Content Spacing Desktop
                  */
