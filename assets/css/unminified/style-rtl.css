@@ -5172,10 +5172,6 @@ input[type="color"]::-webkit-color-swatch {
  *  3 - Submit Button Styles
  *  4 - Comment List Styles
 */
-.comments-count-wrapper {
-  padding: 2em 0;
-}
-
 .comments-count-wrapper .comments-title {
   font-weight: normal;
   word-wrap: break-word;
@@ -5224,7 +5220,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .kmt-comment-list .comment-respond p {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .kmt-comment-list #cancel-comment-reply-link {
@@ -5262,13 +5258,13 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-comment-list .comment-edit-link:before {
   content: "\e908";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   margin: 0px 5px;
 }
 
 .kmt-comment-list .comment-reply-link:after {
   content: "\e906";
-  font-family: 'Kemet-font';
+  font-family: "Kemet-font";
   margin: 0px 5px;
 }
 
@@ -5390,29 +5386,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-left: 10px;
 }
 
-.kmt-separate-container .comments-count-wrapper {
-  background-color: #fff;
-  padding: 2em 6.67em 0;
-}
-
-@media (max-width: 1200px) {
-  .kmt-separate-container .comments-count-wrapper {
-    padding: 2em 3.34em;
-  }
-}
-
-@media (max-width: 768px) {
-  .kmt-separate-container .comments-count-wrapper {
-    padding: 2em 2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .kmt-separate-container .comments-count-wrapper {
-    padding: 1.5em 1em;
-  }
-}
-
 .kmt-separate-container .comments-area {
   border-top: 0;
 }
@@ -5488,7 +5461,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .kmt-separate-container .kmt-comment-list .bypostauthor {
-    padding: .5em;
+    padding: 0.5em;
   }
 }
 
@@ -5508,7 +5481,7 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (max-width: 544px) {
   .kmt-separate-container .kmt-comment-list .bypostauthor li {
-    padding: 0 .5em 0 0;
+    padding: 0 0.5em 0 0;
   }
 }
 
