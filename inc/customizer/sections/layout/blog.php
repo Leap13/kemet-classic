@@ -165,86 +165,265 @@ $wp_customize->add_control(
     )
 );
 /**
-* Option: Blog - Post Title Font Size
+* Option: Typography
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
-        'default'           => $defaults[ 'font-size-page-title' ],
+$fields = array(
+    /**
+    * Option: Title Font Size
+    */
+      array(
+        'id'                => '[font-size-page-title]',
+        'default'           => $defaults ['font-size-page-title'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[font-size-page-title]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-blog',
-            'priority'       => 50,
-            'label'          => __( 'Title Font Size', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 1,
-                    'step' => 1,
-                    'max' =>200,
-                ),
-                'em' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'priority'          => 1,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
-);
- /**
- * Option: Post Title Font Family
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
-        'default'           => $defaults[ 'page-title-font-family' ],
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+     /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[post-title-font-family]',
+        'default'           => $defaults[ 'post-title-font-family' ],
         'type'              => 'option',
-        'sanitize_callback' => 'sanitize_text_field',
-    )
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[post-title-font-weight]',
+    ),
+     /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[post-title-font-weight]',
+        'default'           => $defaults[ 'post-title-font-weight' ],
+        'type'              => 'option',
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[post-title-font-family]',
+    ),
+    /**
+    * Option: Title Text Transform
+    */
+    array(
+        'id'                => '[post-title-text-transform]',
+        'default'           => $defaults[ 'post-title-text-transform' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 5,
+        'choices'  => array(
+            ''           => __( 'Default', 'kemet' ),
+            'none'       => __( 'None', 'kemet' ),
+            'capitalize' => __( 'Capitalize', 'kemet' ),
+            'uppercase'  => __( 'Uppercase', 'kemet' ),
+            'lowercase'  => __( 'Lowercase', 'kemet' ),
+        ),
+    ),
+    /**
+    * Option: Title Line Height
+    */
+      array(
+        'id'                => '[post-title-line-height]',
+        'default'           => $defaults ['post-title-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+    * Option: Title Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-page-title]',
+        'default'           => $defaults ['letter-spacing-page-title'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
 );
-$wp_customize->add_control(
-    new Kemet_Control_Typography(
-        $wp_customize, KEMET_THEME_SETTINGS . '[post-title-font-family]', array(
-            'type'     => 'kmt-font-family',
-            'label'    => __( 'Title Font Family', 'kemet' ),
-            'section'  => 'section-blog',
-            'priority' => 51,
-        )
-    )
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kemet-post-titles-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Title Typography', 'kemet' ),
+    'section'  => 'section-blog',
+    'priority' => 50,
+    'settings' => array(),
 );
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
-* Option: Title Letter Spacing
+* Option: Typography
 */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[letter-spacing-page-title]', array(
-        'default'           => $defaults[ 'letter-spacing-page-title' ],
+$fields = array(
+    /**
+    * Option: Title Font Size
+    */
+      array(
+        'id'                => '[font-size-post-meta]',
+        'default'           => $defaults ['font-size-post-meta'] ,
         'type'              => 'option',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[letter-spacing-page-title]', array(
-            'type'           => 'kmt-responsive-slider',
-            'section'        => 'section-blog',
-            'priority'       => 57,
-            'label'          => __( 'Title Letter Spacing', 'kemet' ),
-            'unit_choices'   => array(
-                'px' => array(
-                    'min' => 0.1,
-                    'step' => 0.1,
-                    'max' => 10,
-                ),
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'priority'          => 1,
+        'label'          => __( 'Font Size', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 1,
+                'step' => 1,
+                'max' =>200,
             ),
-        )
-    )
+            'em' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
+     /**
+     * Option: Font Family
+     */
+    array(
+        'id'                => '[post-meta-font-family]',
+        'default'           => $defaults[ 'post-meta-font-family' ],
+        'type'              => 'option',
+        'control_type'      => 'kmt-font-family',
+        'label'             => __( 'Font Family', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 3,
+        'connect'           => KEMET_THEME_SETTINGS . '[post-meta-font-weight]',
+    ),
+     /**
+     * Option: Font Weight
+     */
+    array(
+        'id'                => '[post-meta-font-weight]',
+        'default'           => $defaults[ 'post-meta-font-weight' ],
+        'type'              => 'option',
+        'control_type'      => 'kmt-font-weight',
+        'label'             => __( 'Font Weight', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 4,
+        'connect'           => KEMET_THEME_SETTINGS . '[post-meta-font-family]',
+    ),
+    /**
+    * Option: Title Text Transform
+    */
+    array(
+        'id'                => '[post-meta-text-transform]',
+        'default'           => $defaults[ 'post-meta-text-transform' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-select',
+        'label'             => __( 'Text Transform', 'kemet' ),
+        'section'           => 'section-blog',
+        'priority'          => 5,
+        'choices'  => array(
+            ''           => __( 'Default', 'kemet' ),
+            'none'       => __( 'None', 'kemet' ),
+            'capitalize' => __( 'Capitalize', 'kemet' ),
+            'uppercase'  => __( 'Uppercase', 'kemet' ),
+            'lowercase'  => __( 'Lowercase', 'kemet' ),
+        ),
+    ),
+    /**
+    * Option: Title Line Height
+    */
+      array(
+        'id'                => '[post-meta-line-height]',
+        'default'           => $defaults ['post-meta-line-height'] ,
+        'type'              => 'option',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'transport'         => 'postMessage',
+        'priority'          => 6,
+        'label'          => __( 'Line Height', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' =>100,
+            ),
+            'em' => array(
+                'min' => 0,
+                'step' => 1,
+                'max' => 10,
+            ),
+        ),
+    ),
+    /**
+    * Option: Title Letter Spacing
+    */
+    array(
+        'id'                => '[letter-spacing-post-meta]',
+        'default'           => $defaults ['letter-spacing-post-meta'] ,
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'control_type'      => 'kmt-responsive-slider',
+        'section'           => 'section-blog',
+        'priority'       => 7,
+        'label'          => __( 'Letter Spacing', 'kemet' ),
+        'unit_choices'   => array(
+            'px' => array(
+                'min' => 0.1,
+                'step' => 0.1,
+                'max' => 10,
+            ),
+        ),
+    ),
 );
+$group_settings = array(
+    'parent_id'       => KEMET_THEME_SETTINGS . '[kemet-post-meta-typography]',
+    'type'     => 'kmt-group',
+    'label'    => __( 'Meta Typography', 'kemet' ),
+    'section'  => 'section-blog',
+    'priority' => 55,
+    'settings' => array(),
+);
+new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
 /**
 * Option: Colors
 */

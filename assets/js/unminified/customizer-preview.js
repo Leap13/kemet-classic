@@ -1318,13 +1318,38 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_slider(
     "kemet-settings[font-size-page-title]",
-    "body:not(.kmt-single-post) .entry-title",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a",
     "font-size"
   );
   kemet_responsive_slider(
-    "kemet-settings[font-size-page-meta]",
-    "body:not(.kmt-single-post) .entry-meta",
+    "kemet-settings[post-title-line-height]",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a",
+    "line-height"
+  );
+  kemet_css(
+    "kemet-settings[post-title-text-transform]",
+    "text-transform",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[font-size-post-meta]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
     "font-size"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[post-meta-line-height]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
+    "line-height"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[letter-spacing-post-meta]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
+    "letter-spacing"
+  );
+  kemet_css(
+    "kemet-settings[post-meta-text-transform]",
+    "text-transform",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *"
   );
   kemet_responsive_slider(
     "kemet-settings[font-size-h1]",
@@ -1836,9 +1861,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   wp.customize("kemet-settings[listing-post-meta-color]", function (value) {
     value.bind(function (color) {
       var dynamicStyle =
-        "body:not(.kmt-single-post) .entry-meta * { color: " + color + "; } ";
+        ".blog-posts-container .entry-meta * { color: " + color + "; } ";
       dynamicStyle +=
-        "body:not(.kmt-single-post) .entry-meta { color: " + color + "; } ";
+        ".blog-posts-container .entry-meta { color: " + color + "; } ";
       kemet_add_dynamic_css("listing-post-meta-color", dynamicStyle);
     });
   });
@@ -2004,7 +2029,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_slider(
     "kemet-settings[letter-spacing-page-title]",
-    "body:not(.kmt-single-post) .entry-title",
+    ".blog-posts-container .entry-title",
     "letter-spacing"
   );
   kemet_responsive_slider(
