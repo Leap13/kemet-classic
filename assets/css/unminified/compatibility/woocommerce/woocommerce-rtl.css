@@ -4443,6 +4443,17 @@ body ul.product_list_widget li .amount,
   display: inline-block;
 }
 
+body ul.product_list_widget li del .amount,
+.woocommerce ul.product_list_widget li del .amount {
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+body ul.product_list_widget li del .amount:hover,
+.woocommerce ul.product_list_widget li del .amount:hover {
+  text-decoration: none;
+}
+
 body ul.product-categories > li,
 .woocommerce ul.product-categories > li {
   padding: 2px 0px;

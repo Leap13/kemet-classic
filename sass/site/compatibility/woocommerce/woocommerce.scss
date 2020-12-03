@@ -3724,6 +3724,13 @@ body,
       .amount {
         display: inline-block;
       }
+      del .amount {
+        font-size: 12px;
+        text-decoration: line-through;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 
