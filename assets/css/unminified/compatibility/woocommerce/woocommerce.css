@@ -2030,15 +2030,6 @@ p.demo_store a,
   font-weight: normal;
 }
 
-.woocommerce ul.cart_list li img,
-.woocommerce ul.product_list_widget li img {
-  float: right;
-  margin-left: 4px;
-  width: 32px;
-  height: auto;
-  box-shadow: none;
-}
-
 .woocommerce ul.cart_list li dl,
 .woocommerce ul.product_list_widget li dl {
   margin: 0;
