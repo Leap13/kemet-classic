@@ -749,6 +749,9 @@ $site_sidebar = kemet_layout();
         $cart_dropdown_bg_color = kemet_get_option('cart-dropdown-bg-color', $global_bg_color);
 
         $css_output = array(
+            'ul.product_list_widget li ins .amount , ul.product_list_widget li > .amount' => array(
+                'color' => esc_attr($theme_color),
+            ),
             '.woocommerce ul.product_list_widget li img' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
