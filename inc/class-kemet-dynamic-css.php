@@ -278,7 +278,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             /**
              * Apply text color depends on link color
              */
-            $btn_text_color = kemet_get_option('button-color');
+            $btn_text_color = kemet_get_option('button-color', '#ffffff');
 
             //sidebar
             $sidebar_bg_obj = kemet_get_option('sidebar-bg-obj');
@@ -406,7 +406,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'font-size' => kemet_responsive_slider($site_tagline_font_size, 'desktop'),
                     'letter-spacing' => kemet_responsive_slider($tagline_letter_spacing, 'desktop'),
                 ),
-                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a' => array(
+                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a' => array(
                     'font-size' => kemet_responsive_slider($archive_post_title_font_size, 'desktop'),
                     'font-family' => kemet_get_font_family($archive_post_title_font_family),
                     'font-weight' => kemet_get_css_value($archive_post_title_font_weight, 'font'),
@@ -414,7 +414,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'text-transform' => esc_attr($archive_post_title_text_transform),
                     'letter-spacing' => kemet_responsive_slider($archive_post_title_letter_spacing, 'desktop'),
                 ),
-                '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta *' => array(
+                '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *' => array(
                     'font-size' => kemet_responsive_slider($archive_post_meta_font_size, 'desktop'),
                     'font-family' => kemet_get_font_family($archive_post_meta_font_family),
                     'font-weight' => kemet_get_css_value($archive_post_meta_font_weight, 'font'),
@@ -924,10 +924,10 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'border-color' => esc_attr($single_content_separator_color),
                 ),
                 '.comments-area' => array(
-                    'border-top-color' => esc_attr( $global_border_color ),
+                    'border-top-color' => esc_attr($global_border_color),
                 ),
                 '.single .post-navigation' => array(
-                    'border-color' => esc_attr( $global_border_color ),
+                    'border-color' => esc_attr($global_border_color),
                 ),
                 /**
                  * Content Spacing Desktop
@@ -1221,12 +1221,12 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'font-size' => kemet_responsive_slider($site_tagline_font_size, 'tablet'),
                     'letter-spacing' => kemet_responsive_slider($tagline_letter_spacing, 'desktop'),
                 ),
-                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a' => array(
+                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a' => array(
                     'font-size' => kemet_responsive_slider($archive_post_title_font_size, 'tablet'),
                     'line-height' => kemet_responsive_slider($archive_post_title_line_height, 'tablet'),
                     'letter-spacing' => kemet_responsive_slider($archive_post_title_letter_spacing, 'tablet'),
                 ),
-                '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta *' => array(
+                '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta *, .category-blog .entry-meta *' => array(
                     'font-size' => kemet_responsive_slider($archive_post_meta_font_size, 'tablet'),
                     'line-height' => kemet_responsive_slider($archive_post_meta_line_height, 'tablet'),
                     'letter-spacing' => kemet_responsive_slider($archive_post_meta_letter_spacing, 'tablet'),
@@ -1443,13 +1443,15 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'font-size' => kemet_responsive_slider($site_tagline_font_size, 'mobile'),
                     'letter-spacing' => kemet_responsive_slider($tagline_letter_spacing, 'desktop'),
                 ),
-                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a' => array(
+                '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a' => array(
                     'font-size' => kemet_responsive_slider($archive_post_title_font_size, 'mobile'),
                     'line-height' => kemet_responsive_slider($archive_post_title_line_height, 'mobile'),
                     'letter-spacing' => kemet_responsive_slider($archive_post_title_letter_spacing, 'mobile'),
                 ),
-                '.blog-posts-container .entry-meta' => array(
+                '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta *, .category-blog .entry-meta *' => array(
                     'font-size' => kemet_responsive_slider($archive_post_meta_font_size, 'mobile'),
+                    'line-height' => kemet_responsive_slider($archive_post_meta_line_height, 'mobile'),
+                    'letter-spacing' => kemet_responsive_slider($archive_post_meta_letter_spacing, 'mobile'),
                 ),
                 'h1, .entry-content h1, .entry-content h1 a' => array(
                     'font-size' => kemet_responsive_slider($heading_h1_font_size, 'mobile', 30),

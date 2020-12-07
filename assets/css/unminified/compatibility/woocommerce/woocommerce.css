@@ -3581,6 +3581,18 @@ ul.woocommerce-error {
   clear: both;
 }
 
+.woocommerce-cart #payment ul.payment_methods .woocommerce-message,
+.woocommerce-cart #payment ul.payment_methods .woocommerce-error,
+.woocommerce-cart #payment ul.payment_methods .woocommerce-info,
+.woocommerce-checkout #payment ul.payment_methods .woocommerce-message,
+.woocommerce-checkout #payment ul.payment_methods .woocommerce-error,
+.woocommerce-checkout #payment ul.payment_methods .woocommerce-info,
+#add_payment_method #payment ul.payment_methods .woocommerce-message,
+#add_payment_method #payment ul.payment_methods .woocommerce-error,
+#add_payment_method #payment ul.payment_methods .woocommerce-info {
+  padding: 20px;
+}
+
 .woocommerce-cart #payment ul.payment_methods li,
 .woocommerce-checkout #payment ul.payment_methods li,
 #add_payment_method #payment ul.payment_methods li {

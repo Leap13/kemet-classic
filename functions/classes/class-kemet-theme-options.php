@@ -108,7 +108,7 @@ if (!class_exists('Kemet_Theme_Options')) {
                     'post-meta-font-weight' => '',
                     'post-meta-text-transform' => '',
                     'post-meta-line-height' => '',
-                    'letter-spacing-post-meta' => '',  
+                    'letter-spacing-post-meta' => '',
                     'listing-post-title-color' => '',
                     'main-entry-content-color' => '',
                     'listing-post-title-hover-color' => '',
@@ -196,7 +196,7 @@ if (!class_exists('Kemet_Theme_Options')) {
                     'footer-widget-list-border-color' => '',
                     // Kemet Buttons & Fields.
                     'buttons-font-size' => '',
-                    'button-color' => '#ffffff',
+                    'button-color' => '',
                     'button-h-color' => '',
                     'button-bg-color' => '',
                     'button-bg-h-color' => '',

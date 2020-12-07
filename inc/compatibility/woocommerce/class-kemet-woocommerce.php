@@ -702,7 +702,7 @@ $site_sidebar = kemet_layout();
         $global_footer_text_color = kemet_get_option('global-footer-text-color');
         $kemet_footer_link_color = kemet_get_option('footer-link-color', $global_footer_text_color);
 
-        $btn_color = kemet_get_option('button-color');
+        $btn_color = kemet_get_option('button-color', '#ffffff');
         $btn_h_color = kemet_get_option('button-h-color', $btn_color);
         $btn_bg_color = kemet_get_option('button-bg-color', $theme_color);
         $btn_bg_h_color = kemet_get_option('button-bg-h-color', kemet_color_brightness($theme_color, 0.8, 'dark'));

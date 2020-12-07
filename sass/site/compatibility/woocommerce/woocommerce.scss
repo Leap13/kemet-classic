@@ -3063,7 +3063,11 @@ ul.woocommerce-error {
       border-bottom: 1px solid darken($secondary, 10%);
       margin: 0;
       list-style: none outside;
-
+      .woocommerce-message,
+      .woocommerce-error,
+      .woocommerce-info {
+        padding: 20px;
+      }
       li {
         line-height: 2;
         text-align: left;

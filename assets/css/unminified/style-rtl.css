@@ -5114,7 +5114,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .single .entry-header .post-thumb + .kmt-single-post-order {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 .single .entry-header .post-thumb img {
