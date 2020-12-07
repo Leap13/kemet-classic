@@ -163,14 +163,13 @@ p.demo_store,
       max-height: 50vh;
       overflow-y: auto;
       li {
-        padding: 0.5em 2em 0.5em 5em;
-
         &:last-child {
           border-bottom: 0;
         }
         img {
           max-width: 4em;
           margin: 0 0 0.5em 0;
+          margin-right: 10px;
         }
       }
     }
