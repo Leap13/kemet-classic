@@ -1667,4 +1667,4 @@ function svg_upload_support($mimes)
     return $mimes;
 }
 
-add_action('init', 'svg_upload_support');
+add_action('upload_mimes', 'svg_upload_support');

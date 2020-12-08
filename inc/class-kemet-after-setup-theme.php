@@ -135,8 +135,6 @@ if (!class_exists('Kemet_Setup')) {
                 add_filter('oembed_result', array($this, 'responsive_oembed_wrapper'), 10, 3);
             }
 
-            // WooCommerce.
-            add_theme_support('woocommerce');
         }
 
         /**
