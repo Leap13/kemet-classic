@@ -2382,11 +2382,15 @@ p.demo_store,
           margin-bottom: 0.8em;
         }
       }
+      .price {
+        display: inline-block;
+      }
       .woocommerce-loop-product__title {
         margin-bottom: 0.5em;
         padding: 0;
         font-size: 1em;
         text-align: center;
+        margin-top: 20px;
       }
       .kmt-woo-product-category {
         font-size: 0.85em;
@@ -2396,7 +2400,6 @@ p.demo_store,
         opacity: 0.6;
       }
       .star-rating {
-        margin: 0 auto;
         backface-visibility: hidden;
       }
 
@@ -4069,9 +4072,6 @@ body,
             img:not(:first-of-type) {
               padding: 10px;
             }
-          }
-          .woocommerce-loop-product__title {
-            margin-top: 20px;
           }
           .kmt-shop-product-out-of-stock {
             bottom: 5em;

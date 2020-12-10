@@ -784,13 +784,34 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title",
     "font-size"
   );
-
+  kemet_responsive_spacing(
+    "kemet-settings[product-title-spacing]",
+    ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
   kemet_responsive_slider(
     "kemet-settings[product-price-font-size]",
     ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins",
     "font-size"
   );
-
+  kemet_responsive_spacing(
+    "kemet-settings[product-price-spacing]",
+    ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price , ul.products li.product .price",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
+  kemet_responsive_slider(
+    "kemet-settings[product-rating-font-size]",
+    ".woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating",
+    "font-size"
+  );
+  kemet_responsive_spacing(
+    "kemet-settings[product-rating-spacing]",
+    ".woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
   kemet_responsive_slider(
     "kemet-settings[product-content-font-size]",
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description",
