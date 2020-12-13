@@ -42,7 +42,11 @@
 }
 
 .woocommerce table.shop_table_responsive tbody tr:first-child td:first-child,
-.woocommerce-page table.shop_table_responsive tbody tr:first-child td:first-child {
+.woocommerce-page
+  table.shop_table_responsive
+  tbody
+  tr:first-child
+  td:first-child {
   border-top: 0;
 }
 
@@ -74,7 +78,8 @@
   float: left;
 }
 
-.woocommerce table.shop_table_responsive tr td.product-remove::before, .woocommerce table.shop_table_responsive tr td.actions::before,
+.woocommerce table.shop_table_responsive tr td.product-remove::before,
+.woocommerce table.shop_table_responsive tr td.actions::before,
 .woocommerce-page table.shop_table_responsive tr td.product-remove::before,
 .woocommerce-page table.shop_table_responsive tr td.actions::before {
   display: none;
@@ -109,9 +114,10 @@
   width: 100%;
 }
 
-.woocommerce ul.products li.product, .woocommerce[class*='columns-'] ul.products li.product,
+.woocommerce ul.products li.product,
+.woocommerce[class*="columns-"] ul.products li.product,
 .woocommerce-page ul.products li.product,
-.woocommerce-page[class*='columns-'] ul.products li.product {
+.woocommerce-page[class*="columns-"] ul.products li.product {
   display: inline-block;
   margin-right: 20px;
   vertical-align: top;
@@ -153,14 +159,15 @@
   padding-bottom: 0.5em;
 }
 
-.woocommerce table.cart td.actions .coupon::before, .woocommerce table.cart td.actions .coupon::after,
+.woocommerce table.cart td.actions .coupon::before,
+.woocommerce table.cart td.actions .coupon::after,
 .woocommerce #content table.cart td.actions .coupon::before,
 .woocommerce #content table.cart td.actions .coupon::after,
 .woocommerce-page table.cart td.actions .coupon::before,
 .woocommerce-page table.cart td.actions .coupon::after,
 .woocommerce-page #content table.cart td.actions .coupon::before,
 .woocommerce-page #content table.cart td.actions .coupon::after {
-  content: ' ';
+  content: " ";
   display: table;
 }
 
