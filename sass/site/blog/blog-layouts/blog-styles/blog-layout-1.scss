@@ -1,24 +1,22 @@
-
 @import "../../../variables-site/structure.scss";
 @import "../../../variables-site/colors.scss";
 
-body:not(.kmt-separate-container){
-    .blog-post-layout-1 {
-        padding-bottom: 2em;
-    }
+body:not(.kmt-separate-container) {
+  .blog-post-layout-1 {
+    padding-bottom: 2em;
+  }
 }
 .blog-post-layout-1 {
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
 
-    width: 100%;
-    display: inline-block;
-    vertical-align: middle;
-
-    .posted-on {
-        left: 0;
-    }
-    .post-thumb,
-    .post-content {
-        padding-left: 0;
-        padding-right: 0;
-    }
+  .posted-on {
+    left: 0;
+  }
+  .post-thumb,
+  .post-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

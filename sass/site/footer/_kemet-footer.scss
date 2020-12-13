@@ -8,6 +8,13 @@
 }
 
 .kemet-footer {
+  .widget {
+    ul {
+      > li:last-child {
+        border: none;
+      }
+    }
+  }
   p:last-child {
     margin-bottom: 0;
   }

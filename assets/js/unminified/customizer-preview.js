@@ -74,23 +74,23 @@ function kemet_responsive_font_size(control, selector) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          '">' +
-          selector +
-          "	{ " +
-          fontSize +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          TabletFontSize +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          MobileFontSize +
-          " } }" +
-          "</style>"
+            control +
+            '">' +
+            selector +
+            "	{ " +
+            fontSize +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            TabletFontSize +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            MobileFontSize +
+            " } }" +
+            "</style>"
         );
       } else {
         jQuery("style#" + control).remove();
@@ -184,27 +184,27 @@ function kemet_responsive_spacing(control, selector, type, side) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          "-" +
-          spacingType +
-          "-" +
-          sidesString +
-          '">' +
-          selector +
-          "	{ " +
-          desktopPadding +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletPadding +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobilePadding +
-          " } }" +
-          "</style>"
+            control +
+            "-" +
+            spacingType +
+            "-" +
+            sidesString +
+            '">' +
+            selector +
+            "	{ " +
+            desktopPadding +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            tabletPadding +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            mobilePadding +
+            " } }" +
+            "</style>"
         );
       } else {
         wp.customize.preview.send("refresh");
@@ -248,25 +248,25 @@ function kemet_responsive_slider(control, selector, type) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          "-" +
-          spacingType +
-          '">' +
-          selector +
-          "	{ " +
-          desktopWidth +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletWidth +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileWidth +
-          " } }" +
-          "</style>"
+            control +
+            "-" +
+            spacingType +
+            '">' +
+            selector +
+            "	{ " +
+            desktopWidth +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            tabletWidth +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            mobileWidth +
+            " } }" +
+            "</style>"
         );
       } else {
         wp.customize.preview.send("refresh");
@@ -305,25 +305,25 @@ function kemet_responsive_icon_select(control, selector, type) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          "-" +
-          selectType +
-          '">' +
-          selector +
-          "	{ " +
-          desktopSelect +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletSelect +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileSelect +
-          " } }" +
-          "</style>"
+            control +
+            "-" +
+            selectType +
+            '">' +
+            selector +
+            "	{ " +
+            desktopSelect +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            tabletSelect +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            mobileSelect +
+            " } }" +
+            "</style>"
         );
       } else {
         wp.customize.preview.send("refresh");
@@ -362,25 +362,25 @@ function kemet_responsive_css(control, selector, type) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          "-" +
-          selectType +
-          '">' +
-          selector +
-          "	{ " +
-          desktopSelect +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletSelect +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileSelect +
-          " } }" +
-          "</style>"
+            control +
+            "-" +
+            selectType +
+            '">' +
+            selector +
+            "	{ " +
+            desktopSelect +
+            " }" +
+            "@media (max-width: 768px) {" +
+            selector +
+            "	{ " +
+            tabletSelect +
+            " } }" +
+            "@media (max-width: 544px) {" +
+            selector +
+            "	{ " +
+            mobileSelect +
+            " } }" +
+            "</style>"
         );
       } else {
         wp.customize.preview.send("refresh");
@@ -410,13 +410,13 @@ function kemet_css_font_size(control, selector) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          '">' +
-          selector +
-          "	{ " +
-          fontSize +
-          " }" +
-          "</style>"
+            control +
+            '">' +
+            selector +
+            "	{ " +
+            fontSize +
+            " }" +
+            "</style>"
         );
       } else {
         jQuery("style#" + control).remove();
@@ -464,15 +464,15 @@ function kemet_css(control, css_property, selector, unit) {
         // Concat and append new <style>.
         jQuery("head").append(
           '<style id="' +
-          control +
-          '">' +
-          selector +
-          "	{ " +
-          css_property +
-          ": " +
-          new_value +
-          " }" +
-          "</style>"
+            control +
+            '">' +
+            selector +
+            "	{ " +
+            css_property +
+            ": " +
+            new_value +
+            " }" +
+            "</style>"
         );
       } else {
         wp.customize.preview.send("refresh");
@@ -531,9 +531,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
     if ("undefined" != typeof bg_img && "" !== bg_img) {
       var backgroundRepeat =
-        "undefined" != typeof bg_obj["background-repeat"]
-          ? bg_obj["background-repeat"]
-          : "repeat",
+          "undefined" != typeof bg_obj["background-repeat"]
+            ? bg_obj["background-repeat"]
+            : "repeat",
         backgroundPosition =
           "undefined" != typeof bg_obj["background-position"]
             ? bg_obj["background-position"]
@@ -751,13 +751,14 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   /**
    * Small Footer Top Border Color
    */
-  wp.customize("kemet-settings[footer-copyright-divider-color]", function (
-    value
-  ) {
-    value.bind(function (border_color) {
-      jQuery(".kmt-footer-copyright").css("border-top-color", border_color);
-    });
-  });
+  wp.customize(
+    "kemet-settings[footer-copyright-divider-color]",
+    function (value) {
+      value.bind(function (border_color) {
+        jQuery(".kmt-footer-copyright").css("border-top-color", border_color);
+      });
+    }
+  );
 
   /**
    * Button Border Radius
@@ -783,13 +784,34 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title",
     "font-size"
   );
-
+  kemet_responsive_spacing(
+    "kemet-settings[product-title-spacing]",
+    ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
   kemet_responsive_slider(
     "kemet-settings[product-price-font-size]",
     ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins",
     "font-size"
   );
-
+  kemet_responsive_spacing(
+    "kemet-settings[product-price-spacing]",
+    ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price , ul.products li.product .price",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
+  kemet_responsive_slider(
+    "kemet-settings[product-rating-font-size]",
+    ".woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating",
+    "font-size"
+  );
+  kemet_responsive_spacing(
+    "kemet-settings[product-rating-spacing]",
+    ".woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
   kemet_responsive_slider(
     "kemet-settings[product-content-font-size]",
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description",
@@ -1216,17 +1238,18 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ".kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a"
   );
 
-  wp.customize("kemet-settings[mobile-menu-items-border-size]", function (
-    setting
-  ) {
-    setting.bind(function (border) {
-      var dynamicStyle =
-        ".kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a { border-bottom-width: " +
-        border +
-        "px }";
-      kemet_add_dynamic_css("mobile-menu-items-border-size", dynamicStyle);
-    });
-  });
+  wp.customize(
+    "kemet-settings[mobile-menu-items-border-size]",
+    function (setting) {
+      setting.bind(function (border) {
+        var dynamicStyle =
+          ".kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul li a ,.kmt-header-break-point .kmt-main-header-bar-alignment .main-header-menu .sub-menu li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.children li a, .kmt-header-break-point .kmt-main-header-bar-alignment .main-navigation ul.sub-menu li a { border-bottom-width: " +
+          border +
+          "px }";
+        kemet_add_dynamic_css("mobile-menu-items-border-size", dynamicStyle);
+      });
+    }
+  );
 
   wp.customize("kemet-settings[menu-item-border-bottom]", function (setting) {
     setting.bind(function (border) {
@@ -1316,13 +1339,38 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_slider(
     "kemet-settings[font-size-page-title]",
-    "body:not(.kmt-single-post) .entry-title",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a",
     "font-size"
   );
   kemet_responsive_slider(
-    "kemet-settings[font-size-page-meta]",
-    "body:not(.kmt-single-post) .entry-meta",
+    "kemet-settings[post-title-line-height]",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a",
+    "line-height"
+  );
+  kemet_css(
+    "kemet-settings[post-title-text-transform]",
+    "text-transform",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[font-size-post-meta]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
     "font-size"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[post-meta-line-height]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
+    "line-height"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[letter-spacing-post-meta]",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
+    "letter-spacing"
+  );
+  kemet_css(
+    "kemet-settings[post-meta-text-transform]",
+    "text-transform",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *"
   );
   kemet_responsive_slider(
     "kemet-settings[font-size-h1]",
@@ -1491,19 +1539,20 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   /**
    * widget Title Border width
    */
-  wp.customize("kemet-settings[footer-widget-title-border-size]", function (
-    value
-  ) {
-    value.bind(function (border) {
-      var dynamicStyle =
-        ".kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head { border-bottom-width: " +
-        border +
-        "px }";
-      dynamicStyle += "}";
+  wp.customize(
+    "kemet-settings[footer-widget-title-border-size]",
+    function (value) {
+      value.bind(function (border) {
+        var dynamicStyle =
+          ".kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head { border-bottom-width: " +
+          border +
+          "px }";
+        dynamicStyle += "}";
 
-      kemet_add_dynamic_css("footer-widget-title-border-size", dynamicStyle);
-    });
-  });
+        kemet_add_dynamic_css("footer-widget-title-border-size", dynamicStyle);
+      });
+    }
+  );
   /**
    * widget Title Border color
    */
@@ -1521,7 +1570,21 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
       }
     });
   });
+  wp.customize("kemet-settings[widget-list-border-color]", function (value) {
+    value.bind(function (color) {
+      if (color == "") {
+        wp.customize.preview.send("refresh");
+      }
 
+      var dynamicStyle =
+        ".widget ul > li { border-bottom-color: " + color + "; } ";
+      dynamicStyle +=
+        ".woocommerce .widget_shopping_cart .total, .woocommerce.widget_shopping_cart .total{ border-color: " +
+        color +
+        "; }";
+      kemet_add_dynamic_css("widget-list-border-color", dynamicStyle);
+    });
+  });
   /**
    * Widget Title Font
    */
@@ -1562,7 +1625,26 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "color",
     ".kmt-single-post .entry-header .entry-title, .page-title"
   );
+  wp.customize(
+    "kemet-settings[footer-widget-list-border-color]",
+    function (value) {
+      value.bind(function (color) {
+        if (color == "") {
+          wp.customize.preview.send("refresh");
+        }
 
+        var dynamicStyle =
+          ".kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li { border-bottom-color: " +
+          color +
+          "; } ";
+        dynamicStyle +=
+          ".kemet-footer .woocommerce .widget_shopping_cart .total,.kemet-footer .woocommerce.widget_shopping_cart .total, .kmt-footer-copyright .woocommerce .widget_shopping_cart .total, .	kmt-footer-copyright .woocommerce.widget_shopping_cart .total{ border-color: " +
+          color +
+          "; }";
+        kemet_add_dynamic_css("footer-widget-list-border-color", dynamicStyle);
+      });
+    }
+  );
   wp.customize("kemet-settings[footer-bar-bg-obj]", function (value) {
     value.bind(function (bg_obj) {
       var dynamicStyle =
@@ -1800,9 +1882,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   wp.customize("kemet-settings[listing-post-meta-color]", function (value) {
     value.bind(function (color) {
       var dynamicStyle =
-        "body:not(.kmt-single-post) .entry-meta * { color: " + color + "; } ";
+        ".blog-posts-container .entry-meta * { color: " + color + "; } ";
       dynamicStyle +=
-        "body:not(.kmt-single-post) .entry-meta { color: " + color + "; } ";
+        ".blog-posts-container .entry-meta { color: " + color + "; } ";
       kemet_add_dynamic_css("listing-post-meta-color", dynamicStyle);
     });
   });
@@ -1968,7 +2050,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_slider(
     "kemet-settings[letter-spacing-page-title]",
-    "body:not(.kmt-single-post) .entry-title",
+    ".blog-posts-container .entry-title",
     "letter-spacing"
   );
   kemet_responsive_slider(
@@ -2081,16 +2163,17 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     });
   });
 
-  wp.customize("kemet-settings[cart-icon-center-vertically]", function (
-    setting
-  ) {
-    setting.bind(function (top) {
-      var dynamicStyle =
-        ".kmt-cart-menu-wrap .count:before { top: " + parseInt(top) + "px }";
+  wp.customize(
+    "kemet-settings[cart-icon-center-vertically]",
+    function (setting) {
+      setting.bind(function (top) {
+        var dynamicStyle =
+          ".kmt-cart-menu-wrap .count:before { top: " + parseInt(top) + "px }";
 
-      kemet_add_dynamic_css("cart-icon-center-vertically", dynamicStyle);
-    });
-  });
+        kemet_add_dynamic_css("cart-icon-center-vertically", dynamicStyle);
+      });
+    }
+  );
 
   wp.customize("kemet-settings[cart-dropdown-border-size]", function (setting) {
     setting.bind(function (border) {
