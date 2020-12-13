@@ -1,6 +1,11 @@
+v 1.1.8 version
+- Added: Spacing options to product details in listing.
+- Tweak: Improve default woocommerce widgets style.
+- Tweak: Support svg logo.
+
 v 1.1.7 version
-- Fixed: Header tyling isues with RTL.
-- Tweak: Improve Woocommerce listing style in responsive. 
+- Fixed: Header styling issues with RTL.
+- Tweak: Improve Woocommerce listing style in responsive.
 
 v 1.1.6 version
 - Fixed: Submenu style issues in responsive menu.
