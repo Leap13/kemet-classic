@@ -392,14 +392,14 @@ $wp_customize->add_control(
             'type' => 'kmt-responsive-spacing',
             'section' => 'woocommerce_product_catalog',
             'priority' => 37,
-            'label' => __('Spacing', 'kemet-addons'),
+            'label' => __('Spacing', 'kemet'),
             'linked_choices' => true,
             'unit_choices' => array('px'),
             'choices' => array(
-                'top' => __('Top', 'kemet-addons'),
-                'right' => __('Right', 'kemet-addons'),
-                'bottom' => __('Bottom', 'kemet-addons'),
-                'left' => __('Left', 'kemet-addons'),
+                'top' => __('Top', 'kemet'),
+                'right' => __('Right', 'kemet'),
+                'bottom' => __('Bottom', 'kemet'),
+                'left' => __('Left', 'kemet'),
             ),
         )
     )
@@ -757,14 +757,14 @@ $wp_customize->add_control(
             'type' => 'kmt-responsive-spacing',
             'section' => 'woocommerce_product_catalog',
             'priority' => 39,
-            'label' => __('Spacing', 'kemet-addons'),
+            'label' => __('Spacing', 'kemet'),
             'linked_choices' => true,
             'unit_choices' => array('px'),
             'choices' => array(
-                'top' => __('Top', 'kemet-addons'),
-                'right' => __('Right', 'kemet-addons'),
-                'bottom' => __('Bottom', 'kemet-addons'),
-                'left' => __('Left', 'kemet-addons'),
+                'top' => __('Top', 'kemet'),
+                'right' => __('Right', 'kemet'),
+                'bottom' => __('Bottom', 'kemet'),
+                'left' => __('Left', 'kemet'),
             ),
         )
     )
@@ -836,14 +836,14 @@ $wp_customize->add_control(
             'type' => 'kmt-responsive-spacing',
             'section' => 'woocommerce_product_catalog',
             'priority' => 39,
-            'label' => __('Spacing', 'kemet-addons'),
+            'label' => __('Spacing', 'kemet'),
             'linked_choices' => true,
             'unit_choices' => array('px'),
             'choices' => array(
-                'top' => __('Top', 'kemet-addons'),
-                'right' => __('Right', 'kemet-addons'),
-                'bottom' => __('Bottom', 'kemet-addons'),
-                'left' => __('Left', 'kemet-addons'),
+                'top' => __('Top', 'kemet'),
+                'right' => __('Right', 'kemet'),
+                'bottom' => __('Bottom', 'kemet'),
+                'left' => __('Left', 'kemet'),
             ),
         )
     )
