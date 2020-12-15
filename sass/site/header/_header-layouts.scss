@@ -274,10 +274,6 @@ body:not(.kmt-header-break-point) {
       text-align: center;
       display: block;
     }
-    .site-branding,
-    .kmt-mobile-menu-buttons {
-      padding-bottom: 1.5em;
-    }
     .main-header-bar {
       padding: 1em 0 0;
     }
@@ -347,7 +343,6 @@ body:not(.kmt-header-break-point) {
       .kmt-mobile-menu-buttons {
         justify-content: center;
         text-align: center;
-        padding-bottom: 1em;
         padding-right: 0;
       }
     }
@@ -385,6 +380,48 @@ body:not(.kmt-header-break-point) {
     &.main-header-bar {
       .main-header-bar-navigation {
         display: block;
+      }
+    }
+  }
+}
+body:not(.kmt-header-break-point) {
+  .header-main-layout-3 {
+    &.header-stretched-width {
+      .main-header-content {
+        position: relative;
+      }
+      .site-branding {
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .kmt-main-header-bar-alignment {
+        flex: auto;
+      }
+      .main-navigation {
+        display: block;
+      }
+      .main-header-bar-navigation {
+        width: 40%;
+        &.left-menu {
+          float: left;
+        }
+        &.right-menu {
+          float: right;
+        }
+        ul#primary-menu {
+          position: static;
+          transform: none;
+          right: auto;
+          width: auto;
+        }
+        ul#left-menu {
+          position: static;
+          transform: none;
+          left: auto;
+          width: auto;
+        }
       }
     }
   }

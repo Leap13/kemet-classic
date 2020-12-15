@@ -659,7 +659,7 @@ if (!function_exists('kemet_primary_navigation_markup')) {
         $kemet_submenu_animation = kemet_get_option('sub-menu-animation');
         $kmt_submenu_classes = array();
         $kmt_submenu_classes[] = $submenu_has_boxshadow;
-
+        $main_menu_container_classes = $header_layout == 'header-main-layout-3' ? 'main-header-bar-navigation right-menu' : 'main-header-bar-navigation';
         if ($kemet_submenu_animation != 'none') {
             $kmt_submenu_classes[] = 'submenu-' . $kemet_submenu_animation;
         }
@@ -698,7 +698,7 @@ if (!function_exists('kemet_primary_navigation_markup')) {
                 'menu_id' => 'primary-menu',
                 'menu_class' => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
                 'container' => 'div',
-                'container_class' => 'main-header-bar-navigation',
+                'container_class' => $main_menu_container_classes,
                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
             );
             // Left Menu.
@@ -707,7 +707,7 @@ if (!function_exists('kemet_primary_navigation_markup')) {
                 'menu_id' => 'left-menu',
                 'menu_class' => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
                 'container' => 'div',
-                'container_class' => 'main-header-bar-navigation',
+                'container_class' => 'main-header-bar-navigation left-menu',
                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
             );
 

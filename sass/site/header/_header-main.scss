@@ -196,7 +196,6 @@ li.kmt-sitehead-custom-menu-items {
     display: flex;
     margin-right: auto;
     align-self: center;
-    padding-bottom: 1.5em;
   }
   ul li.kmt-sitehead-custom-menu-items a {
     padding: 0;
@@ -221,7 +220,7 @@ li.kmt-sitehead-custom-menu-items {
 
   .main-header-bar {
     display: block;
-    padding: 1.5em 0 0;
+    padding: 1.5em 0;
     line-height: 3;
 
     .main-header-bar-navigation {
@@ -334,7 +333,6 @@ li.kmt-sitehead-custom-menu-items {
     }
 
     .kmt-sitehead-custom-menu-items {
-      padding-bottom: 1.5em;
       order: 1;
     }
 
