@@ -13,7 +13,7 @@
 
 $header_layout = apply_filters('kemet_primary_header_layout', kemet_get_option('header-layouts'));
 $classes = apply_filters('header_container_classes', array());
-$header_width = wiz_get_option('header-main-layout-width');
+$header_width = kemet_get_option('header-main-layout-width');
 
 ?>
 <?php do_action('kemet_before_main_header');?>
