@@ -13,12 +13,14 @@
 
 $header_layout = apply_filters('kemet_primary_header_layout', kemet_get_option('header-layouts'));
 $classes = apply_filters('header_container_classes', array());
+$header_width = wiz_get_option('header-main-layout-width');
+
 ?>
 <?php do_action('kemet_before_main_header');?>
 <div class="main-header-bar-wrap">
 	<div class="main-header-bar">
 		<?php kemet_main_header_bar_top();
-if ($header_layout == 'header-main-layout-3') {
+if ($header_layout == 'header-main-layout-3' && $header_width == 'stretched') {
     echo "<div class='main-header-content'>";
 }
 
@@ -43,7 +45,7 @@ if ($header_layout == 'header-main-layout-3') {
 			</div><!-- Main Header Container -->
 		</div><!-- kmt-row -->
 		<?php kemet_main_header_bar_bottom();
-if ($header_layout == 'header-main-layout-3') {
+if ($header_layout == 'header-main-layout-3' && $header_width == 'stretched') {
     echo "<div/>";
 }
 ?>
