@@ -873,7 +873,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'padding-left' => kemet_responsive_spacing($space_widget, 'left', 'desktop'),
                 ),
                 //layout header
-                '.site-header:not(.kmt-is-sticky) .main-header-bar , .kemet-merged-top-bar-header' => kemet_get_background_obj($header_bg_obj),
+                '.site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header' => kemet_get_background_obj($header_bg_obj),
                 // Blockquote Text Color.
                 'blockquote, blockquote a' => array(
                     'color' => kemet_color_brightness($headings_links_color, 75, 'darken'),
