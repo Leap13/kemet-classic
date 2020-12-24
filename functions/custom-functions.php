@@ -804,7 +804,8 @@ function kemet_header_breakpoint_style()
 	}
 	<?php
 
-    $kemet_header_width = kemet_get_option('header-main-layout-width');
+    $kemet_header_width = apply_filters('kemet_header_width', kemet_get_option('header-main-layout-width'));
+
 
     /* Width for Header */
     if ('full' == $kemet_header_width) {
