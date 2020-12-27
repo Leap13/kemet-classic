@@ -102,8 +102,53 @@ if (!class_exists('Kemet_Woocommerce')):
             add_action('customize_register', array($this, 'customize_register'), 11);
 
             add_filter('woocommerce_get_stock_html', 'kemet_woo_product_in_stock', 10, 2);
+            add_filter('yith_wcwl_browse_wishlist_label', '__return_false');
+            add_filter('yith_wcwl_loop_positions', array($this, 'kemet_wishlist_position'));
+            add_filter('yith_wcwl_button_label', array($this, 'add_to_wishlist_text'));
+            add_filter('yith_wcwl_positions', array($this, 'kemet_wishlist_position'));
+            add_filter('yith_wcwl_positions', array($this, 'kemet_wishlist_position'));
+            add_filter('woocommerce_single_product_summary', array($this, 'kemet_single_wishist'), 31);
         }
 
+        /**
+         * Single Product wishlist position
+         *
+         * @param string $hooks
+         * @return string
+         */
+        public function kemet_single_wishist($content)
+    {
+            global $product, $yith_wcwl;
+
+            if (isset($yith_wcwl)) {
+                $content .= do_shortcode('[yith_wcwl_add_to_wishlist]');
+                echo $content;
+            }
+
+        }
+        /**
+         * Wishlist Position
+         *
+         * @param string $hooks
+         * @return string
+         */
+        public function kemet_wishlist_position($hooks)
+    {
+            return 'shortcode';
+
+        }
+
+        /**
+         * Add to Wishlist Text
+         *
+         * @param string $text
+         * @return string
+         */
+        public function add_to_wishlist_text($text)
+    {
+            $text = __("Wishlist", "kemet");
+            return $text;
+        }
         /**
          * Rating Markup
          *
@@ -827,7 +872,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
                 'background-color' => esc_attr(kemet_color_brightness($body_bg_color['background-color'], 0.55, 'light')),
             ),
-            'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button' => array(
+            'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button , #yith-wcwl-form .button' => array(
                 'color' => esc_attr($btn_color),
                 'background-color' => esc_attr($btn_bg_color),
                 'border' => 'solid',
@@ -842,7 +887,7 @@ $site_sidebar = kemet_layout();
             '.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap, body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap , body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
-            '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover' => array(
+            '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover, #yith-wcwl-form .button:hover' => array(
                 'color' => esc_attr($btn_h_color),
                 'border-color' => esc_attr($btn_border_h_color),
                 'background-color' => esc_attr($btn_bg_h_color),
@@ -896,6 +941,12 @@ $site_sidebar = kemet_layout();
             '.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce a' => array(
                 'color' => esc_attr($headings_links_color),
                 'border-color' => esc_attr($global_border_color),
+            ),
+            '.shop-grid .yith-wcwl-add-to-wishlist' => array(
+                'color' => esc_attr($headings_links_color),
+            ),
+            '.shop-grid .yith-wcwl-add-to-wishlist:hover' => array(
+                'color' => esc_attr($theme_color),
             ),
             '.woocommerce .site-footer a.remove:hover, .woocommerce .site-footer a' => array(
                 'color' => esc_attr($kemet_footer_link_color),

@@ -48,16 +48,16 @@ if (!function_exists('kemet_woo_shop_parent_category')):
     function kemet_woo_shop_parent_category()
 {
         if (apply_filters('kemet_woo_shop_parent_category', true)): ?>
-		<span class="kmt-woo-product-category">
-			<?php
+																	<span class="kmt-woo-product-category">
+																		<?php
     global $product;
         $product_categories = function_exists('wc_get_product_category_list') ? wc_get_product_category_list(get_the_ID(), ',', '', '') : $product->get_categories(',', '', '');
 
         echo $product_categories;
 
         ?>
-		</span>
-		<?php
+																	</span>
+																	<?php
 endif;
 }
 endif;
@@ -79,8 +79,8 @@ if (!function_exists('kemet_woo_shop_out_of_stock')):
         $out_of_stock_string = apply_filters('kemet_woo_shop_out_of_stock_string', __('Out of stock', 'kemet'));
         if ('outofstock' === $out_of_stock) {
             ?>
-											<span class="kmt-shop-product-out-of-stock"><?php echo esc_html($out_of_stock_string); ?></span>
-										<?php
+																										<span class="kmt-shop-product-out-of-stock"><?php echo esc_html($out_of_stock_string); ?></span>
+																									<?php
     }
     }
 
@@ -100,12 +100,12 @@ if (!function_exists('kemet_woo_shop_product_short_description')):
     function kemet_woo_shop_product_short_description()
 {
         ?>
-									<?php if (has_excerpt()) {?>
-										<div class="kmt-woo-shop-product-description">
-											<?php the_excerpt();?>
-										</div>
-									<?php }?>
-									<?php
+																								<?php if (has_excerpt()) {?>
+																									<div class="kmt-woo-shop-product-description">
+																										<?php the_excerpt();?>
+																									</div>
+																								<?php }?>
+																								<?php
     }
 endif;
 /**
@@ -130,11 +130,11 @@ if (!function_exists('kemet_woo_product_in_stock')):
             if (!empty($availability) && $stock_quantity) {
                 ob_start();
                 ?>
-												<p class="kmt-stock-detail">
-													<span class="kmt-stock-avail"><?php esc_html_e('Availability:', 'kemet');?></span>
-													<span class="stock in-stock"><?php echo esc_html($availability); ?></span>
-												</p>
-												<?php
+																											<p class="kmt-stock-detail">
+																												<span class="kmt-stock-avail"><?php esc_html_e('Availability:', 'kemet');?></span>
+																												<span class="stock in-stock"><?php echo esc_html($availability); ?></span>
+																											</p>
+																											<?php
     $markup = ob_get_clean();
             }
         }
@@ -195,10 +195,6 @@ if (!function_exists('kemet_woo_woocommerce_shop_product_content')) {
                     default:
                         break;
                 }
-            }
-
-            if (class_exists('TInvWL_Wishlist')) {
-                echo '<div class="woo-wishlist-btn button">' . do_shortcode('[ti_wishlists_addtowishlist]') . '</div>';
             }
 
             do_action('kemet_woo_shop_summary_wrap_bottom');
@@ -325,3 +321,22 @@ function after_shop_loop_item_title()
     echo '</div>';
 }
 add_action('woocommerce_after_shop_loop_item', 'after_shop_loop_item_title', 1);
+
+function kemet_get_wishlist()
+{
+    if (class_exists('YITH_WCWL')) {
+        $enabled_on_loop = 'yes' == get_option('yith_wcwl_show_on_loop', 'no');
+        if ($enabled_on_loop) {
+            echo '<div class="woo-wishlist-btn button">' . do_shortcode('[yith_wcwl_add_to_wishlist]') . '</div>';
+        }
+    }
+}
+
+add_action('kemet_woo_shop_add_to_cart_after', 'kemet_get_wishlist');
+
+function kemet_added_to_wishlist($default)
+{
+    $default = __("Added", "kemet-addons");
+    return $default;
+}
+add_filter('yith_wcwl_product_already_in_wishlist_text_button', 'kemet_added_to_wishlist');
