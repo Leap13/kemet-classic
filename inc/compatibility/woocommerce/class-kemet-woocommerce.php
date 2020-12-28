@@ -102,53 +102,8 @@ if (!class_exists('Kemet_Woocommerce')):
             add_action('customize_register', array($this, 'customize_register'), 11);
 
             add_filter('woocommerce_get_stock_html', 'kemet_woo_product_in_stock', 10, 2);
-            add_filter('yith_wcwl_browse_wishlist_label', '__return_false');
-            add_filter('yith_wcwl_loop_positions', array($this, 'kemet_wishlist_position'));
-            add_filter('yith_wcwl_button_label', array($this, 'add_to_wishlist_text'));
-            add_filter('yith_wcwl_positions', array($this, 'kemet_wishlist_position'));
-            add_filter('yith_wcwl_positions', array($this, 'kemet_wishlist_position'));
-            add_filter('woocommerce_single_product_summary', array($this, 'kemet_single_wishist'), 31);
         }
 
-        /**
-         * Single Product wishlist position
-         *
-         * @param string $hooks
-         * @return string
-         */
-        public function kemet_single_wishist($content)
-    {
-            global $product, $yith_wcwl;
-
-            if (isset($yith_wcwl)) {
-                $content .= do_shortcode('[yith_wcwl_add_to_wishlist]');
-                echo $content;
-            }
-
-        }
-        /**
-         * Wishlist Position
-         *
-         * @param string $hooks
-         * @return string
-         */
-        public function kemet_wishlist_position($hooks)
-    {
-            return 'shortcode';
-
-        }
-
-        /**
-         * Add to Wishlist Text
-         *
-         * @param string $text
-         * @return string
-         */
-        public function add_to_wishlist_text($text)
-    {
-            $text = __("Wishlist", "kemet");
-            return $text;
-        }
         /**
          * Rating Markup
          *
@@ -941,12 +896,6 @@ $site_sidebar = kemet_layout();
             '.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce a' => array(
                 'color' => esc_attr($headings_links_color),
                 'border-color' => esc_attr($global_border_color),
-            ),
-            '.shop-grid .yith-wcwl-add-to-wishlist' => array(
-                'color' => esc_attr($headings_links_color),
-            ),
-            '.shop-grid .yith-wcwl-add-to-wishlist:hover' => array(
-                'color' => esc_attr($theme_color),
             ),
             '.woocommerce .site-footer a.remove:hover, .woocommerce .site-footer a' => array(
                 'color' => esc_attr($kemet_footer_link_color),
