@@ -447,6 +447,8 @@ module.exports = function (grunt) {
         files: {
           "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css":
             "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce.css",
           "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css":
             "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
           "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css":
