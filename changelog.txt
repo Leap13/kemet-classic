@@ -1,3 +1,6 @@
+v 1.1.9 version
+- Fixed: Stretched header style issue.
+
 v 1.1.8 version
 - Added: Spacing options to product details in listing.
 - Tweak: Improve default woocommerce widgets style.
