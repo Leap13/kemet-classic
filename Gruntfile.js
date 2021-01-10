@@ -439,6 +439,46 @@ module.exports = function (grunt) {
         ],
       },
     },
+    wpcss: {
+      target: {
+        options: {
+          commentSpacing: true, // Whether to clean up newlines around comments between CSS rules.
+        },
+        files: {
+          "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css":
+            "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
+          "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css":
+            "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce-layout.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce-layout.css",
+          "assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css":
+            "assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css",
+          "assets/css/unminified/compatibility/contact-form-7.css":
+            "assets/css/unminified/compatibility/contact-form-7.css",
+          "assets/css/unminified/compatibility/contact-form-7-rtl.css":
+            "assets/css/unminified/compatibility/contact-form-7-rtl.css",
+          "assets/css/unminified/style.css": "assets/css/unminified/style.css",
+          "assets/css/unminified/style-rtl.css":
+            "assets/css/unminified/style-rtl.css",
+          "assets/css/unminified/extend-customizer-rtl.css":
+            "assets/css/unminified/extend-customizer-rtl.css",
+          "assets/css/unminified/customizer-controls-rtl.css":
+            "assets/css/unminified/customizer-controls-rtl.css",
+          "assets/css/unminified/editor-style.css":
+            "assets/css/unminified/editor-style.css",
+          "assets/css/unminified/editor-style-rtl.css":
+            "assets/css/unminified/editor-style-rtl.css",
+        },
+      },
+    },
   });
 
   // Load grunt tasks
@@ -455,6 +495,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-bumpup");
   grunt.loadNpmTasks("grunt-text-replace");
   grunt.loadNpmTasks("grunt-charset");
+  grunt.loadNpmTasks("grunt-wp-css");
 
   // rtlcss, you will still need to install ruby and sass on your system manually to run this
   grunt.registerTask("rtl", ["rtlcss"]);
@@ -466,7 +507,7 @@ module.exports = function (grunt) {
   grunt.registerTask("style", ["scss", "postcss:style", "rtl"]);
 
   // min all
-  grunt.registerTask("minify", ["style", "uglify:js", "cssmin:css"]);
+  grunt.registerTask("minify", ["style", "wpcss", "uglify:js", "cssmin:css"]);
 
   // Update google Fonts
   grunt.registerTask("google-fonts", function () {

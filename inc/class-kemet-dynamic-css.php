@@ -158,7 +158,8 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $menu_bg_color = kemet_get_option('menu-bg-color');
             $menu_link_color = kemet_get_option('menu-link-color', $headings_links_color);
             $menu_link_h_color = kemet_get_option('menu-link-h-color', $theme_color);
-            $menu_link_active_color = kemet_get_option('menu-link-active-color');
+            $menu_link_bottom_border_color = kemet_get_option('menu-link-bottom-border-color', isset($menu_link_h_color['desktop']) ? $menu_link_h_color['desktop'] : $menu_link_h_color);
+            $menu_link_active_color = kemet_get_option('menu-link-active-color', isset($menu_link_h_color['desktop']) ? $menu_link_h_color['desktop'] : $menu_link_h_color);
             $menu_link_active_bg_color = kemet_get_option('menu-link-active-bg-color');
             $menu_link_active_radius = kemet_get_option('menu-link-active-radius');
             $last_menu_items_spacing = kemet_get_option('last-menu-item-spacing');
@@ -873,7 +874,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'padding-left' => kemet_responsive_spacing($space_widget, 'left', 'desktop'),
                 ),
                 //layout header
-                '.site-header:not(.kmt-is-sticky) .main-header-bar , .kemet-merged-top-bar-header' => kemet_get_background_obj($header_bg_obj),
+                '.site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header' => kemet_get_background_obj($header_bg_obj),
                 // Blockquote Text Color.
                 'blockquote, blockquote a' => array(
                     'color' => kemet_color_brightness($headings_links_color, 75, 'darken'),
