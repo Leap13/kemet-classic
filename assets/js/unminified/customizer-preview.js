@@ -1746,6 +1746,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea',
     "border-width"
   );
+  kemet_responsive_spacing(
+    "kemet-settings[footer-widget-input-padding]",
+    '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea',
+    "padding",
+    ["top", "bottom", "right", "left"]
+  );
   /*
    * Woocommerce Shop Archive Custom Width
    */

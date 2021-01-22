@@ -258,6 +258,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $footer_input_border_color = kemet_get_option('footer-input-border-color', kemet_color_brightness($global_footer_bg_color, 0.9, 'dark'));
             $footer_input_border_size = kemet_get_option('footer-input-border-size');
             $footer_input_border_radius = kemet_get_option('footer-input-border-radius');
+            $footer_input_padding = kemet_get_option('footer-widget-input-padding');
             // Footer Bar Font.
             $footer_sml_font_size = kemet_get_option('footer-copyright-font-size');
             $footer_sml_letter_spacing = kemet_get_option('footer-copyright-letter-spacing');
@@ -722,6 +723,10 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'border-color' => esc_attr($footer_input_border_color),
                     'border-width' => kemet_responsive_slider($footer_input_border_size, 'desktop'),
                     'border-radius' => kemet_responsive_slider($footer_input_border_radius, 'desktop'),
+                    'padding-top' => kemet_responsive_spacing($footer_input_padding, 'top', 'desktop'),
+                    'padding-bottom' => kemet_responsive_spacing($footer_input_padding, 'bottom', 'desktop'),
+                    'padding-right' => kemet_responsive_spacing($footer_input_padding, 'right', 'desktop'),
+                    'padding-left' => kemet_responsive_spacing($footer_input_padding, 'left', 'desktop'),
                 ),
 
                 '.kemet-footer-overlay' => kemet_get_background_obj($kemet_footer_bg_obj),
@@ -1160,6 +1165,10 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                 '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea' => array(
                     'border-width' => kemet_responsive_slider($footer_input_border_size, 'tablet'),
                     'border-radius' => kemet_responsive_slider($footer_input_border_radius, 'tablet'),
+                    'padding-top' => kemet_responsive_spacing($footer_input_padding, 'top', 'tablet'),
+                    'padding-bottom' => kemet_responsive_spacing($footer_input_padding, 'bottom', 'tablet'),
+                    'padding-right' => kemet_responsive_spacing($footer_input_padding, 'right', 'tablet'),
+                    'padding-left' => kemet_responsive_spacing($footer_input_padding, 'left', 'tablet'),
                 ),
                 //Input
                 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select,.widget_search .search-field, .widget_search .search-field:focus' => array(
@@ -1369,6 +1378,10 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                 '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea' => array(
                     'border-width' => kemet_responsive_slider($footer_input_border_size, 'mobile'),
                     'border-radius' => kemet_responsive_slider($footer_input_border_radius, 'mobile'),
+                    'padding-top' => kemet_responsive_spacing($footer_input_padding, 'top', 'mobile'),
+                    'padding-bottom' => kemet_responsive_spacing($footer_input_padding, 'bottom', 'mobile'),
+                    'padding-right' => kemet_responsive_spacing($footer_input_padding, 'right', 'mobile'),
+                    'padding-left' => kemet_responsive_spacing($footer_input_padding, 'left', 'mobile'),
                 ),
                 //Input
                 'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select , .widget_search .search-field, .widget_search .search-field:focus' => array(

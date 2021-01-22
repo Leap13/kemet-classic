@@ -503,6 +503,7 @@ if (!class_exists('Kemet_Theme_Options')) {
                     'widget-title-border-color' => '',
                     'footer-input-border-radius' => '',
                     'footer-input-border-size' => '',
+                    'footer-widget-input-padding' => '',
                     'enable-widget-title-separator' => false,
                     'footer-widget-title-border-size' => '1',
                     'widget-title-letter-spacing' => '',
