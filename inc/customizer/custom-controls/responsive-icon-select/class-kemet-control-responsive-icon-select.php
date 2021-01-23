@@ -154,4 +154,11 @@ class Kemet_Control_Responsive_Icon_Select extends WP_Customize_Control {
 		</div>
 		<?php
 	}
+
+	/**
+	 * Render the control's content.
+	 *
+	 * @see WP_Customize_Control::render_content()
+	 */
+	protected function render_content() {}
 }

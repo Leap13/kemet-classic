@@ -1067,7 +1067,6 @@ p.demo_store,
       width: 40px;
       line-height: 40px;
     }
-
     .woocommerce-tabs,
     .related.products {
       display: block;
@@ -1126,7 +1125,12 @@ p.demo_store,
     -webkit-font-smoothing: antialiased;
     z-index: 9;
   }
-
+  @media (max-width: $mx-col-sm) {
+    span.onsale {
+      font-size: 12px;
+      width: auto;
+    }
+  }
   /**
 	 * Product loops
 	 */

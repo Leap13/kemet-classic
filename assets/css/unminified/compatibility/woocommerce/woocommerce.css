@@ -1263,6 +1263,13 @@ p.demo_store a,
 	text-align: center;
 }
 
+@media (max-width: 544px) {
+	.woocommerce span.onsale {
+		width: auto;
+		font-size: 12px;
+	}
+}
+
 .woocommerce .products ul,
 .woocommerce ul.products {
 	clear: both;
