@@ -2652,6 +2652,13 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	padding-left: 20px;
 }
 
+.kmt-right-sidebar .elementor-section.elementor-section-stretched,
+.kmt-left-sidebar .elementor-section.elementor-section-stretched,
+.kmt-no-sidebar .elementor-section.elementor-section-stretched {
+	right: 0 !important;
+	max-width: 100%;
+}
+
 @media (min-width: 993px) {
 	.kmt-separate-container.kmt-right-sidebar #primary,
 	.kmt-separate-container.kmt-left-sidebar #primary,
