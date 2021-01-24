@@ -1306,9 +1306,9 @@ p.demo_store a,
 }
 
 .woocommerce ul.products li.product .onsale {
-	top: 30px;
+	top: 10%;
 	right: auto;
-	left: 25px;
+	left: 10%;
 	margin: -0.5em -0.5em 0 0;
 }
 
