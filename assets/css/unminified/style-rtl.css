@@ -2476,8 +2476,8 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	overflow: hidden;
 }
 
-.kmt-separate-container {
-	background-color: #f5f5f5;
+.kmt-separate-container.kmt-two-container #primary {
+	margin: 4em 0 2.5em;
 }
 
 .kmt-separate-container .kmt-archive-description {

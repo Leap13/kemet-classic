@@ -56,10 +56,14 @@ body:not(.kmt-separate-container) {
 }
 //separate container content layout
 .kmt-separate-container {
+  &.kmt-two-container {
+    #primary {
+      margin: 4em 0 2.5em;
+    }
+  }
   .kmt-archive-description {
     border-top: 0;
   }
-  background-color: $color-background-sep-content-body;
   #primary {
     margin: 0;
     border: 0;
