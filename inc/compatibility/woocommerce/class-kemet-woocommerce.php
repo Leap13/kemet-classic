@@ -864,7 +864,7 @@ $site_sidebar = kemet_layout();
                 'background' => esc_attr($theme_color),
                 'color' => esc_attr($btn_color),
             ),
-            '.woocommerce-MyAccount-navigation-link.is-active a , .woocommerce a:hover , .woocommerce ul.products li.product .price' => array(
+            '.woocommerce-MyAccount-navigation-link.is-active a, .woocommerce ul.products li.product .price' => array(
                 'color' => esc_attr($theme_color),
             ),
             '.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle' => array(
@@ -881,23 +881,13 @@ $site_sidebar = kemet_layout();
             /**
              * Cart in menu
              */
-            '.kmt-site-header-cart a' => array(
-                'color' => esc_attr($text_meta_color),
-            ),
-
-            '.kmt-site-header-cart a:focus, .kmt-site-header-cart a:hover, .kmt-site-header-cart .current-menu-item a' => array(
-                'color' => esc_attr($headings_links_color),
-            ),
-
             '.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
                 'color' => esc_attr($headings_links_color),
             ),
-
-            '.woocommerce a.remove:hover, .kmt-woocommerce-cart-menu .main-header-menu .woocommerce-custom-menu-item li:hover > a.remove:hover , .woocommerce a' => array(
-                'color' => esc_attr($headings_links_color),
+            '.woocommerce .widget_shopping_cart .total' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
-            '.woocommerce .site-footer a.remove:hover, .woocommerce .site-footer a' => array(
+            '.woocommerce .site-footer a' => array(
                 'color' => esc_attr($kemet_footer_link_color),
             ),
             '.woocommerce .site-footer a:hover' => array(

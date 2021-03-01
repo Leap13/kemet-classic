@@ -139,7 +139,6 @@ h4.widget-title {
     margin-top: 10px;
     display: inline-block;
     a {
-      border: 1px solid $color-border-dotted-widget;
       padding: 0.5em 0.9em;
       display: inline-block;
       margin-bottom: 4px;
@@ -177,7 +176,6 @@ h4.widget-title {
   thead {
     line-height: 2.5em;
     a {
-      color: $color-background-active;
       font-size: 1rem;
       vertical-align: middle;
     }

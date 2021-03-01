@@ -1053,7 +1053,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
   kemet_responsive_css(
     "kemet-settings[menu-link-h-color]",
-    ".main-header-menu li:hover a, .main-header-menu .kmt-sitehead-custom-menu-items a:hover , .kmt-header-break-point .main-navigation ul li:hover a",
+    ".main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover a",
     "color"
   );
   kemet_css(

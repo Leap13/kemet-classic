@@ -140,9 +140,9 @@ li.kmt-sitehead-custom-menu-items {
     padding-left: 0;
     padding-right: 0;
   }
-  a,
-  a:hover,
-  a:focus {
+  a:not(.button),
+  a:not(.button):hover,
+  a:not(.button):focus {
     background: transparent;
   }
   .kmt-search-icon .kemet-search-icon {
@@ -318,7 +318,7 @@ li.kmt-sitehead-custom-menu-items {
     margin: 0 -20px;
   }
   .main-header-menu {
-    ul ul {
+    ul.sub-menu ul.sub-menu {
       top: 0;
     }
   }

@@ -1,11 +1,5 @@
 a {
-	color: $color-link;
-
-	&:hover,
-	&:focus {
-		color: $color-link-hover;
-	}
-	&:hover {
-		outline: 0;
-	}
+  &:hover {
+    outline: 0;
+  }
 }
