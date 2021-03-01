@@ -4501,7 +4501,8 @@ body.widget_product_tag_cloud .tagcloud a,
 	margin-right: 4px;
 	margin-bottom: 4px;
 	padding: 0.5em 0.9em;
-	border: 1px solid #e2e2e2;
+	border-width: 1px;
+	border-style: solid;
 	font-size: 14px;
 	line-height: 1.5;
 	transition: all 0.2s linear;
@@ -4646,19 +4647,11 @@ body .widget_product_tag_cloud .tagcloud a,
 	margin-bottom: 4px;
 	padding: 0.5em 0.9em;
 	padding: 0.5em 1.2em;
-	border: 1px solid #e2e2e2;
+	border-width: 1px;
+	border-style: solid;
 	font-size: 12px !important;
 	font-size: 0.8rem !important;
 	line-height: 1.5;
-}
-
-body .widget_product_tag_cloud .tagcloud a a:hover,
-body .widget_product_tag_cloud .tagcloud a a:focus,
-body .widget_product_tag_cloud .tagcloud a a.current-item,
-.woocommerce .widget_product_tag_cloud .tagcloud a a:hover,
-.woocommerce .widget_product_tag_cloud .tagcloud a a:focus,
-.woocommerce .widget_product_tag_cloud .tagcloud a a.current-item {
-	background-color: #fafafa;
 }
 
 .woocommerce .widget_shopping_cart .cart_list li a.remove,

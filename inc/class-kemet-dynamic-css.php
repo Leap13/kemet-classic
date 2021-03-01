@@ -490,11 +490,13 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                 ),
 
                 // Typography.
-                '.tagcloud a:hover, .tagcloud a:focus, .tagcloud a.current-item' => array(
-                    'color' => kemet_get_foreground_color($theme_color),
-                    'border-color' => esc_attr($headings_links_color),
-                    'background-color' => esc_attr($headings_links_color),
-                ),
+                '.widget_product_tag_cloud .tagcloud a'            => array(
+					'border-color' => esc_attr( $global_border_color ),
+				),
+
+				'.kmt-footer .widget_tag_cloud .tagcloud a , .kmt-footer-copyright .widget_tag_cloud .tagcloud a' => array(
+					'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) ),
+				),
 
                 // Header - Main Header CSS.
                 '.kmt-header-custom-item a' => array(
@@ -703,11 +705,6 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
 
                 '.kemet-footer a' => array(
                     'color' => esc_attr($kemet_footer_link_color),
-                ),
-
-                '.kemet-footer .tagcloud a:hover, .kemet-footer .tagcloud a.current-item' => array(
-                    'border-color' => esc_attr($kemet_footer_link_color),
-                    'background-color' => esc_attr($kemet_footer_link_color),
                 ),
 
                 '.kemet-footer a:hover, .kemet-footer .no-widget-text a:hover, .kemet-footer a:focus, .kemet-footer .no-widget-text a:focus' => array(
@@ -1009,9 +1006,6 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             // Foreground color.
             if (!empty($kemet_footer_link_color)) {
                 $kemet_footer_tagcloud = array(
-                    '.kemet-footer .tagcloud a:hover, .kemet-footer .tagcloud a.current-item' => array(
-                        'color' => kemet_get_foreground_color($theme_color),
-                    ),
                     '.kemet-footer .calendar_wrap #today' => array(
                         'color' => kemet_get_foreground_color($theme_color),
                     ),
