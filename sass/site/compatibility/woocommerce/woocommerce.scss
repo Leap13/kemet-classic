@@ -1317,7 +1317,6 @@ p.demo_store,
     &:disabled[disabled] {
       cursor: not-allowed;
       opacity: 0.5;
-      padding: 0.618em 1em;
     }
   }
 
@@ -2494,11 +2493,6 @@ p.demo_store,
       .button {
         display: inline-block;
         width: auto;
-
-        &[name="apply_coupon"] {
-          padding: 9px 12px;
-          font-weight: normal;
-        }
         @media (max-width: $mx-col-sm) {
           width: 100%;
         }
@@ -3484,12 +3478,7 @@ ul.woocommerce-error {
       }
 
       .button {
-        padding: 0.5em 1em;
         vertical-align: initial;
-        line-height: 1.35;
-        &[name="apply_coupon"] {
-          padding: 10px 40px;
-        }
       }
 
       @media (max-width: 420px) {
@@ -3505,7 +3494,6 @@ ul.woocommerce-error {
 
         .button[name="apply_coupon"] {
           width: 100%;
-          padding: 10px 5px;
         }
       }
     }

@@ -1501,7 +1501,6 @@ p.demo_store a,
 .woocommerce #respond input#submit:disabled,
 .woocommerce #respond input#submit.disabled,
 .woocommerce #respond input#submit:disabled[disabled] {
-	padding: 0.618em 1em;
 	opacity: 0.5;
 	cursor: not-allowed;
 }
@@ -2863,12 +2862,6 @@ p.demo_store a,
 .woocommerce-page #content table.cart .button {
 	display: inline-block;
 	width: auto;
-}
-
-.woocommerce #content table.cart .button[name="apply_coupon"],
-.woocommerce-page #content table.cart .button[name="apply_coupon"] {
-	padding: 9px 12px;
-	font-weight: normal;
 }
 
 @media (max-width: 544px) {
@@ -4287,13 +4280,7 @@ ul.woocommerce-error {
 }
 
 .woocommerce form.checkout_coupon .button {
-	padding: 0.5em 1em;
-	line-height: 1.35;
 	vertical-align: initial;
-}
-
-.woocommerce form.checkout_coupon .button[name="apply_coupon"] {
-	padding: 10px 40px;
 }
 
 @media (max-width: 420px) {
@@ -4310,7 +4297,6 @@ ul.woocommerce-error {
 
 	.woocommerce form.checkout_coupon .button[name="apply_coupon"] {
 		width: 100%;
-		padding: 10px 5px;
 	}
 }
 
