@@ -760,6 +760,9 @@ $site_sidebar = kemet_layout();
 			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
 
         $css_output = array(
+            '.woocommerce .woocommerce-message .button ,.woocommerce-info .button, .woocommerce-info a' => array(
+					'color' => esc_attr( $headings_links_color ),
+				),
             'ul.product_list_widget li ins .amount , ul.product_list_widget li > .amount' => array(
                 'color' => esc_attr( $theme_color ),
             ),
