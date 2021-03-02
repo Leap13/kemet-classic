@@ -755,13 +755,19 @@ $site_sidebar = kemet_layout();
         $cart_dropdown_border_size = kemet_get_option('cart-dropdown-border-size');
         $cart_dropdown_border_color = kemet_get_option('cart-dropdown-border-color', $global_border_color);
         $cart_dropdown_bg_color = kemet_get_option('cart-dropdown-bg-color', $global_bg_color);
+        // Widget Separator
+			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
+			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
 
         $css_output = array(
             'ul.product_list_widget li ins .amount , ul.product_list_widget li > .amount' => array(
-                'color' => esc_attr($theme_color),
+                'color' => esc_attr( $theme_color ),
             ),
-            '.woocommerce ul.product_list_widget li img' => array(
-                'border-color' => esc_attr($global_border_color),
+            '.woocommerce ul.product_list_widget li img , ul.product_list_widget li img' => array(
+                'border-color' => esc_attr( $global_border_color ),
+            ),
+            '.kmt-site-header-cart .widget_shopping_cart .product_list_widget li, .woocommerce .kmt-site-header-cart .widget_shopping_cart .product_list_widget li' => array(
+                'border-color' => esc_attr( $cart_dropdown_border_color ),
             ),
             '.site-header .kmt-site-header-cart .widget_shopping_cart, .woocommerce .site-header .kmt-site-header-cart .widget_shopping_cart' => array(
                 'width' => kemet_get_css_value($cart_dropdown_width, 'px'),
@@ -883,9 +889,12 @@ $site_sidebar = kemet_layout();
                 'background-color' => esc_attr($theme_color),
             ),
             // Button Typography.
-            '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before' => array(
-                'color' => esc_attr($rating_color),
+            '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before , .product_list_widget .star-rating' => array(
+                'color' => esc_attr( $rating_color ),
             ),
+            '.woocommerce .widget .amount, .woocommerce .widget ins , ul.product_list_widget .amount, ul.product_list_widget ins' => array(
+					'color' => esc_attr( $theme_color ),
+				),
             '.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
                 'background' => esc_attr($headings_links_color),
             ),
@@ -896,7 +905,7 @@ $site_sidebar = kemet_layout();
             '.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
                 'color' => esc_attr($headings_links_color),
             ),
-            '.woocommerce .widget_shopping_cart .total' => array(
+            '.woocommerce .widget_shopping_cart .total,.widget_shopping_cart .total' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
             '.woocommerce .site-footer a' => array(
@@ -953,9 +962,21 @@ $site_sidebar = kemet_layout();
                 'line-height' => kemet_responsive_slider($product_content_line_height, 'desktop'),
             ),
         );
-
+        
         /* Parse CSS from array() */
         $css_output = kemet_parse_css($css_output);
+
+        if ( $widget_list_border ) {
+				$widget_list_style = array(
+					'ul.product_list_widget > li' => array(
+						'border-bottom-style' => esc_attr( 'solid' ),
+						'border-bottom-width' => esc_attr( '1px' ),
+						'border-bottom-color' => esc_attr( $widget_list_border_color ),
+					),
+				);
+				$css_output        .= kemet__parse_css( $widget_list_style );
+			}
+
         $tablet_typography = array(
             '.woocommerce button.button , body:not(.shop-grid) a.button , body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'tablet'),
