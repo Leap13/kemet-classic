@@ -3490,6 +3490,10 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 	padding: 10px;
 }
 
+.kmt-header-break-point .header-main-layout-2 .kmt-header-logo-right-section .header-right-section {
+	display: none;
+}
+
 .kmt-header-break-point .header-main-layout-2 .kmt-outside-menu {
 	margin-left: auto;
 }

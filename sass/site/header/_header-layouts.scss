@@ -250,6 +250,10 @@ body:not(.kmt-header-break-point) {
         padding: 10px;
         margin-left: auto;
       }
+      // Hide Right Section in Responsive
+      .header-right-section {
+        display: none;
+      }
     }
     .kmt-outside-menu {
       margin-left: auto;
