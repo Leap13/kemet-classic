@@ -974,7 +974,7 @@ $site_sidebar = kemet_layout();
 						'border-bottom-color' => esc_attr( $widget_list_border_color ),
 					),
 				);
-				$css_output        .= kemet__parse_css( $widget_list_style );
+				$css_output        .= kemet_parse_css( $widget_list_style );
 			}
 
         $tablet_typography = array(
