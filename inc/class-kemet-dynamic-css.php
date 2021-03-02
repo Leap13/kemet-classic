@@ -1778,7 +1778,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $widget_list_border_color = kemet_get_option('widget-list-border-color', $global_border_color);
             if ($widget_list_border) {
                 $widget_list_style = array(
-                    '.widget ul > li' => array(
+                    '.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
                         'border-bottom-style' => esc_attr('solid'),
                         'border-bottom-width' => esc_attr('1px'),
                         'border-bottom-color' => esc_attr($widget_list_border_color),

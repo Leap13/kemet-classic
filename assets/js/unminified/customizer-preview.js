@@ -1577,7 +1577,9 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
       }
 
       var dynamicStyle =
-        ".widget ul > li { border-bottom-color: " + color + "; } ";
+        ".widget ul > li, .yith-woocompare-widget ul.products-list li:not( .list_empty ) { border-bottom-color: " +
+        color +
+        "; } ";
       dynamicStyle +=
         ".woocommerce .widget_shopping_cart .total, .woocommerce.widget_shopping_cart .total{ border-color: " +
         color +
