@@ -827,7 +827,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
                 'background-color' => esc_attr(kemet_color_brightness($body_bg_color['background-color'], 0.55, 'light')),
             ),
-            'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button , #yith-wcwl-form .button' => array(
+            'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button , #yith-wcwl-form .button, .woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'color' => esc_attr($btn_color),
                 'background-color' => esc_attr($btn_bg_color),
                 'border' => 'solid',
@@ -839,10 +839,22 @@ $site_sidebar = kemet_layout();
                 'padding-right' => kemet_responsive_spacing($btn_padding, 'right', 'desktop'),
                 'padding-left' => kemet_responsive_spacing($btn_padding, 'left', 'desktop'),
             ),
+            '.shop-grid ul.products li.product .button'  => array(
+                'color' => esc_attr( $headings_links_color ),
+            ),
+            '.shop-grid ul.products li.product .button:hover , .woocommerce-info .button:hover, .woocommerce-info a:hover'  => array(
+                'color' => esc_attr( $theme_color ),
+            ),
+            '.single-product .product a.compare.button, .woocommerce .widget_shopping_cart a:not(.button)' => array(
+                'color' => esc_attr( $headings_links_color )
+            ),
+            '.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
+                'color' => esc_attr( $theme_color )
+            ),
             '.shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , .shop-grid.woocommerce-page ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap, body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap , body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap>* , body.shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
-            '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover, #yith-wcwl-form .button:hover' => array(
+            '.woocommerce button.button:hover , body:not(.shop-grid) a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce button.button.alt:hover,body:not(.shop-grid) a.button.alt, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover ,.woocommerce a.checkout-button:hover, #yith-wcwl-form .button:hover,.woocommerce-js .yith-woocompare-widget a.compare:hover' => array(
                 'color' => esc_attr($btn_h_color),
                 'border-color' => esc_attr($btn_border_h_color),
                 'background-color' => esc_attr($btn_bg_h_color),
