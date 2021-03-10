@@ -4626,6 +4626,11 @@ h4.widget-title {
 	padding: 16px 45px 16px 15px;
 }
 
+.widget_recent_comments ul > li {
+	margin-bottom: 0;
+	padding: 15px 0;
+}
+
 /* Widget - Archive */
 /* Widget - Categories */
 .widget_pages ul.children,
