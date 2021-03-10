@@ -129,6 +129,25 @@ $header_rt_sections = array(
 			),
 		),
 		/**
+		* Option: Main Menu Font Style
+		*/
+		array(
+			'id'           => '[menu-items-font-style]',
+			'default'      => $defaults['menu-items-font-style'],
+			'type'         => 'option',
+			'transport'    => 'postMessage',
+			'control_type' => 'kmt-select',
+			'label'        => __( 'Font Style', 'kemet' ),
+			'section'      => 'section-menu-header',
+			'priority'     => 5,
+			'choices'      => array(
+				'inherit' => __( 'Inherit', 'kemet' ),
+				'normal'  => __( 'Normal', 'kemet' ),
+				'italic'  => __( 'Italic', 'kemet' ),
+				'oblique' => __( 'Oblique', 'kemet' ),
+			),
+		),
+		/**
 		* Option: Main Menu Line Height
 		*/
 		array(
@@ -520,7 +539,156 @@ $header_rt_sections = array(
 			'priority' => 80,
 		)
 	);
+	/**
+	* Option: Typography
+	*/
+	$fields = array(
+		/**
+		* Option: Main Menu Font Size
+		*/
+		array(
+			'id'           => '[last-menu-items-font-size]',
+			'default'      => $defaults ['menu-font-size'],
+			'type'         => 'option',
+			'transport'    => 'postMessage',
+			'control_type' => 'kmt-responsive-slider',
+			'section'      => 'section-menu-header',
+			'priority'     => 2,
+			'label'        => __( 'Font Size', 'kemet' ),
+			'unit_choices' => array(
+				'px' => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 200,
+				),
+				'em' => array(
+					'min'  => 0.1,
+					'step' => 0.1,
+					'max'  => 10,
+				),
+			),
+		),
+		/**
+		 * Option: Font Family
+		 */
+		array(
+			'id'           => '[last-menu-items-font-family]',
+			'default'      => $defaults['last-menu-items-font-family'],
+			'type'         => 'option',
+			'control_type' => 'kmt-font-family',
+			'label'        => __( 'Font Family', 'kemet' ),
+			'section'      => 'section-menu-header',
+			'priority'     => 3,
+			'connect'      => KEMET_THEME_SETTINGS . '[last-menu-items-font-weight]',
+		),
+		/**
+		 * Option: Font Weight
+		 */
+		array(
+			'id'           => '[last-menu-items-font-weight]',
+			'default'      => $defaults['last-menu-items-font-weight'],
+			'type'         => 'option',
+			'control_type' => 'kmt-font-weight',
+			'label'        => __( 'Font Weight', 'kemet' ),
+			'section'      => 'section-menu-header',
+			'priority'     => 4,
+			'connect'      => KEMET_THEME_SETTINGS . '[last-menu-items-font-family]',
+		),
+		/**
+		* Option: Main Menu Text Transform
+		*/
+		array(
+			'id'           => '[last-menu-items-text-transform]',
+			'default'      => $defaults['last-menu-items-text-transform'],
+			'type'         => 'option',
+			'transport'    => 'postMessage',
+			'control_type' => 'kmt-select',
+			'label'        => __( 'Text Transform', 'kemet' ),
+			'section'      => 'section-menu-header',
+			'priority'     => 5,
+			'choices'      => array(
+				''           => __( 'Default', 'kemet' ),
+				'none'       => __( 'None', 'kemet' ),
+				'capitalize' => __( 'Capitalize', 'kemet' ),
+				'uppercase'  => __( 'Uppercase', 'kemet' ),
+				'lowercase'  => __( 'Lowercase', 'kemet' ),
+			),
+		),
+		/**
+		* Option: Main Menu Font Style
+		*/
+		array(
+			'id'           => '[last-menu-items-font-style]',
+			'default'      => $defaults['last-menu-items-font-style'],
+			'type'         => 'option',
+			'transport'    => 'postMessage',
+			'control_type' => 'kmt-select',
+			'label'        => __( 'Font Style', 'kemet' ),
+			'section'      => 'section-menu-header',
+			'priority'     => 5,
+			'choices'      => array(
+				'inherit' => __( 'Inherit', 'kemet' ),
+				'normal'  => __( 'Normal', 'kemet' ),
+				'italic'  => __( 'Italic', 'kemet' ),
+				'oblique' => __( 'Oblique', 'kemet' ),
+			),
+		),
+		/**
+		* Option: Main Menu Line Height
+		*/
+		array(
+			'id'           => '[last-menu-items-line-height]',
+			'default'      => $defaults ['last-menu-items-line-height'],
+			'type'         => 'option',
+			'control_type' => 'kmt-responsive-slider',
+			'section'      => 'section-menu-header',
+			'transport'    => 'postMessage',
+			'priority'     => 6,
+			'label'        => __( 'Line Height', 'kemet' ),
+			'unit_choices' => array(
+				'px' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
+				'em' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 10,
+				),
+			),
+		),
+		/**
+		* Option: Main Menu Letter Spacing
+		*/
+		array(
+			'id'           => '[last-menu-items-letter-spacing]',
+			'default'      => $defaults ['last-menu-items-letter-spacing'],
+			'type'         => 'option',
+			'transport'    => 'postMessage',
+			'control_type' => 'kmt-responsive-slider',
+			'section'      => 'section-menu-header',
+			'priority'     => 7,
+			'label'        => __( 'Letter Spacing', 'kemet' ),
+			'unit_choices' => array(
+				'px' => array(
+					'min'  => 0.1,
+					'step' => 0.1,
+					'max'  => 10,
+				),
+			),
+		),
+	);
+	$group_settings = array(
+		'parent_id' => KEMET_THEME_SETTINGS . '[kmt-last-menu-items-typography]',
+		'type'      => 'kmt-group',
+		'label'     => __( 'Typography', 'kemet' ),
+		'section'   => 'section-menu-header',
+		'priority'  => 81,
+		'settings'  => array(),
+	);
 
+	new Kemet_Generate_Control_Group( $wp_customize, $group_settings, $fields );
 	/**
 	 * Option: Last Custom Menu Spacing
 	 */
