@@ -240,6 +240,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Title Font Style
+	*/
+	array(
+		'id'           => '[post-title-font-style]',
+		'default'      => $defaults['post-title-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-blog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
     * Option: Title Line Height
     */
       array(
@@ -369,6 +388,25 @@ $fields = array(
             'lowercase'  => __( 'Lowercase', 'kemet' ),
         ),
     ),
+    /**
+	* Option: Post Meta Font Style
+	*/
+	array(
+		'id'           => '[post-meta-font-style]',
+		'default'      => $defaults['post-meta-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-blog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
     /**
     * Option: Title Line Height
     */

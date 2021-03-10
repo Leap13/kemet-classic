@@ -1381,6 +1381,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".blog-posts-container .entry-title , .blog-posts-container .entry-title a"
   );
+  kemet_css(
+    "kemet-settings[post-title-font-style]",
+    "font-style",
+    ".blog-posts-container .entry-title , .blog-posts-container .entry-title a"
+  );
   kemet_responsive_slider(
     "kemet-settings[font-size-post-meta]",
     ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *",
@@ -1399,6 +1404,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[post-meta-text-transform]",
     "text-transform",
+    ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *"
+  );
+  kemet_css(
+    "kemet-settings[post-meta-font-style]",
+    "font-style",
     ".blog-posts-container .entry-meta , .blog-posts-container .entry-meta *"
   );
   kemet_responsive_slider(

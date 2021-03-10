@@ -113,6 +113,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $archive_post_title_font_size = kemet_get_option('font-size-page-title');
             $archive_post_title_font_weight = kemet_get_option('post-title-font-weight');
             $archive_post_title_text_transform = kemet_get_option('post-title-text-transform');
+            $archive_post_title_font_style     = kemet_get_option( 'post-title-font-style' );
             $archive_post_title_line_height = kemet_get_option('post-title-line-height');
             $archive_post_title_font_family = kemet_get_option('post-title-font-family');
             $archive_post_title_letter_spacing = kemet_get_option('letter-spacing-page-title');
@@ -221,6 +222,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $archive_post_meta_font_family = kemet_get_option('post-meta-font-family');
             $archive_post_meta_font_weight = kemet_get_option('post-meta-font-weight');
             $archive_post_meta_text_transform = kemet_get_option('post-meta-text-transform');
+            $archive_post_meta_font_style     = kemet_get_option( 'post-meta-font-style' );
             $archive_post_meta_line_height = kemet_get_option('post-meta-line-height');
             $archive_post_meta_letter_spacing = kemet_get_option('letter-spacing-post-meta');
             $meta_color = kemet_get_option('listing-post-meta-color');
@@ -423,6 +425,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'font-weight' => kemet_get_css_value($archive_post_title_font_weight, 'font'),
                     'line-height' => kemet_responsive_slider($archive_post_title_line_height, 'desktop'),
                     'text-transform' => esc_attr($archive_post_title_text_transform),
+                    'font-style' => esc_attr($archive_post_title_font_style),
                     'letter-spacing' => kemet_responsive_slider($archive_post_title_letter_spacing, 'desktop'),
                 ),
                 '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *' => array(
@@ -431,6 +434,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'font-weight' => kemet_get_css_value($archive_post_meta_font_weight, 'font'),
                     'line-height' => kemet_responsive_slider($archive_post_meta_line_height, 'desktop'),
                     'text-transform' => esc_attr($archive_post_meta_text_transform),
+                    'font-style' => esc_attr($archive_post_meta_font_style),
                     'letter-spacing' => kemet_responsive_slider($archive_post_meta_letter_spacing, 'desktop'),
                     'color' => esc_attr($meta_color),
                 ),
