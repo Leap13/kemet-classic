@@ -2116,6 +2116,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title"
   );
+  kemet_css(
+    "kemet-settings[product-title-font-style]",
+    "font-style",
+    ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title"
+  );
   kemet_responsive_slider(
     "kemet-settings[product-title-line-height]",
     ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title",
@@ -2139,6 +2144,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description"
   );
+  kemet_css(
+    "kemet-settings[product-content-font-style]",
+    "font-style",
+    ".woocommerce ul.products li.product .wiz-woo-product-category, .woocommerce-page ul.products li.product .wiz-woo-product-category, .woocommerce ul.products li.product .wiz-woo-shop-product-description, .woocommerce-page ul.products li.product .wiz-woo-shop-product-description"
+  );
   kemet_responsive_slider(
     "kemet-settings[product-content-line-height]",
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description",
@@ -2160,6 +2170,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[product-price-text-transform]",
     "text-transform",
+    ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins"
+  );
+  kemet_css(
+    "kemet-settings[product-price-font-style]",
+    "font-style",
     ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins"
   );
   kemet_responsive_slider(

@@ -319,6 +319,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Product Title Font Style
+	*/
+	array(
+		'id'           => '[product-title-font-style]',
+		'default'      => $defaults['product-title-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-blog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
      * Option: Product Title Line Height
      */
     array(
@@ -517,6 +536,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Product Content Font Style
+	*/
+	array(
+		'id'           => '[product-content-font-style]',
+		'default'      => $defaults['product-content-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'woocommerce_product_catalog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
      * Option: Product Content Line Height
      */
     array(
@@ -683,6 +721,25 @@ $fields = array(
             'lowercase' => __('Lowercase', 'kemet'),
         ),
     ),
+    /**
+	* Option: Product Price Font Style
+	*/
+	array(
+		'id'           => '[product-price-font-style]',
+		'default'      => $defaults['product-price-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'woocommerce_product_catalog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
     /**
      * Option: Product Price Line Height
      */

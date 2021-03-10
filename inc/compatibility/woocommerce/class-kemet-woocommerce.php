@@ -255,6 +255,7 @@ if (!class_exists('Kemet_Woocommerce')):
             $defaults['product-title-font-family'] = '';
             $defaults['product-title-font-weight'] = '';
             $defaults['product-title-text-transform'] = '';
+            $defaults['product-title-font-style']       = '';
             $defaults['product-title-line-height'] = '';
             $defaults['letter-spacing-product-title'] = '';
             $defaults['product-content-text-color'] = '';
@@ -262,6 +263,7 @@ if (!class_exists('Kemet_Woocommerce')):
             $defaults['product-content-font-family'] = '';
             $defaults['product-content-font-weight'] = '';
             $defaults['product-content-text-transform'] = '';
+            $defaults['product-content-font-style']       = '';
             $defaults['product-content-line-height'] = '';
             $defaults['letter-spacing-product-content'] = '';
             $defaults['product-price-font-size'] = '';
@@ -269,6 +271,7 @@ if (!class_exists('Kemet_Woocommerce')):
             $defaults['product-price-font-family'] = '';
             $defaults['product-price-font-weight'] = '';
             $defaults['product-price-text-transform'] = '';
+            $defaults['product-price-font-style']       = '';
             $defaults['product-price-line-height'] = '';
             $defaults['letter-spacing-product-price'] = '';
 
@@ -726,6 +729,7 @@ $site_sidebar = kemet_layout();
         $product_title_font_family = kemet_get_option('product-title-font-family');
         $product_title_font_weight = kemet_get_option('product-title-font-weight');
         $product_title_text_transform = kemet_get_option('product-title-text-transform');
+        $product_title_font_style       = wiz_get_option( 'product-title-font-style' );
         $product_title_line_height = kemet_get_option('product-title-line-height');
         $product_title_letter_spacing = kemet_get_option('letter-spacing-product-title');
         $product_content_font_color = kemet_get_option('product-content-text-color');
@@ -733,6 +737,7 @@ $site_sidebar = kemet_layout();
         $product_content_font_family = kemet_get_option('product-content-font-family');
         $product_content_font_weight = kemet_get_option('product-content-font-weight');
         $product_content_text_transform = kemet_get_option('product-content-text-transform');
+        $product_content_font_style     = wiz_get_option( 'product-content-font-style' );
         $product_content_line_height = kemet_get_option('product-content-line-height');
         $product_content_letter_spacing = kemet_get_option('letter-spacing-product-content');
         $product_price_font_color = kemet_get_option('product-price-text-color');
@@ -740,6 +745,7 @@ $site_sidebar = kemet_layout();
         $product_price_font_family = kemet_get_option('product-price-font-family');
         $product_price_font_weight = kemet_get_option('product-price-font-weight');
         $product_price_text_transform = kemet_get_option('product-price-text-transform');
+        $product_price_font_style       = wiz_get_option( 'product-price-font-style' );
         $product_price_line_height = kemet_get_option('product-price-line-height');
         $product_price_letter_spacing = kemet_get_option('letter-spacing-product-price');
         $rating_color = kemet_get_option('rating-color', $theme_color);
@@ -927,6 +933,7 @@ $site_sidebar = kemet_layout();
                 'font-family' => kemet_get_font_family($product_title_font_family),
                 'font-weight' => esc_attr($product_title_font_weight),
                 'text-transform' => esc_attr($product_title_text_transform),
+                'font-style'     => esc_attr( $product_title_font_style ),
                 'line-height' => kemet_responsive_slider($product_title_line_height, 'desktop'),
                 'margin-top' => kemet_responsive_spacing($product_title_spacing, 'top', 'desktop'),
                 'margin-right' => kemet_responsive_spacing($product_title_spacing, 'right', 'desktop'),
@@ -940,6 +947,7 @@ $site_sidebar = kemet_layout();
                 'font-family' => kemet_get_font_family($product_price_font_family),
                 'font-weight' => esc_attr($product_price_font_weight),
                 'text-transform' => esc_attr($product_price_text_transform),
+                'font-style'     => esc_attr( $product_price_font_style ),
                 'line-height' => kemet_responsive_slider($product_price_line_height, 'desktop'),
             ),
             '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price , ul.products li.product .price' => array(
@@ -962,6 +970,7 @@ $site_sidebar = kemet_layout();
                 'font-family' => kemet_get_font_family($product_content_font_family),
                 'font-weight' => esc_attr($product_content_font_weight),
                 'text-transform' => esc_attr($product_content_text_transform),
+                'font-style'     => esc_attr( $product_content_font_style ),
                 'line-height' => kemet_responsive_slider($product_content_line_height, 'desktop'),
             ),
         );
