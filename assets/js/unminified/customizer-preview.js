@@ -1513,6 +1513,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
 
   kemet_css(
+    "kemet-settings[body-font-style]",
+    "font-style",
+    "body, button, input, select, textarea"
+  );
+
+  kemet_css(
     "kemet-settings[headings-text-transform]",
     "text-transform",
     "h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a"

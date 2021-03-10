@@ -377,6 +377,7 @@ if (!class_exists('Kemet_Theme_Options')) {
                     'body-line-height' => '',
                     'para-margin-bottom' => '',
                     'body-text-transform' => '',
+                    'body-font-style'     => 'inherit',
                     'headings-font-family' => 'inherit',
                     'headings-font-weight' => 'inherit',
                     'headings-text-transform' => '',

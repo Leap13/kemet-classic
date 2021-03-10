@@ -99,6 +99,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
             $body_line_height = kemet_get_option('body-line-height');
             $para_margin_bottom = kemet_get_option('para-margin-bottom');
             $body_text_transform = kemet_get_option('body-text-transform');
+            $body_font_style   = kemet_get_option( 'body-font-style' );
             $headings_font_family = kemet_get_option('headings-font-family');
             $headings_font_weight = kemet_get_option('headings-font-weight');
             $headings_text_transform = kemet_get_option('headings-text-transform');
@@ -379,6 +380,7 @@ if (!class_exists('Kemet_Dynamic_CSS')) {
                     'letter-spacing' => kemet_responsive_slider($body_letter_spacing, 'desktop'),
                     'line-height' => kemet_responsive_slider($body_line_height, 'desktop'),
                     'text-transform' => esc_attr($body_text_transform),
+                    'font-style'     => esc_attr( $body_font_style ),
                 ),
                 'p, .entry-content p' => array(
                     'margin-bottom' => kemet_get_css_value($para_margin_bottom, 'em'),
