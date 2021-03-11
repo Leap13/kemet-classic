@@ -817,22 +817,35 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description",
     "font-size"
   );
-
-  kemet_responsive_slider(
-    "kemet-settings[buttons-font-size]",
-    '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]',
-    "font-size"
-  );
+  var $btn_selectors = '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]';
   if (
     jQuery("body").hasClass("woocommerce") ||
     jQuery("body").hasClass("woocommerce-page")
   ) {
-    kemet_responsive_slider(
-      "kemet-settings[buttons-font-size]",
-      ".woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]",
-      "font-size"
-    );
+    $btn_selectors +=
+      " ,.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]";
   }
+  kemet_responsive_slider(
+    "kemet-settings[buttons-font-size]",
+    $btn_selectors,
+    "font-size"
+  );
+  kemet_css(
+    "kemet-settings[buttons-text-transform]",
+    "text-transform",
+    $btn_selectors
+  );
+  kemet_css("kemet-settings[buttons-font-style]", "font-style", $btn_selectors);
+  kemet_responsive_slider(
+    "kemet-settings[buttons-line-height]",
+    $btn_selectors,
+    "line-height"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[buttons-letter-spacing]",
+    $btn_selectors,
+    "letter-spacing"
+  );
   /**
    * Button Border Color
    */
@@ -1107,6 +1120,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[sub-menu-items-text-transform]",
     "text-transform",
+    ".main-header-menu .sub-menu li a"
+  );
+  kemet_css(
+    "kemet-settings[sub-menu-items-font-style]",
+    "font-style",
     ".main-header-menu .sub-menu li a"
   );
   kemet_responsive_slider(
@@ -1539,6 +1557,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".widget-head .widget-title , .widget-title"
   );
+  kemet_css(
+    "kemet-settings[widget-title-font-style]",
+    "font-style",
+    ".widget-head .widget-title , .widget-title"
+  );
   kemet_responsive_slider(
     "kemet-settings[widget-title-line-height]",
     ".widget-head .widget-title",
@@ -1640,6 +1663,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".kemet-footer .widget-head .widget-title, .kmt-footer-copyright .widget-head .widget-title"
   );
+  kemet_css(
+    "kemet-settings[footer-wgt-title-font-style]",
+    "font-style",
+    ".kemet-footer .widget-head .widget-title, .kmt-footer-copyright .widget-head .widget-title"
+  );
   kemet_responsive_slider(
     "kemet-settings[footer-wgt-title-line-height]",
     ".kemet-footer .widget-head .widget-title , .kmt-footer-copyright .widget-head .widget-title",
@@ -1715,6 +1743,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[footer-text-transform]",
     "text-transform",
+    ".kemet-footer"
+  );
+  kemet_css(
+    "kemet-settings[footer-font-style]",
+    "font-style",
     ".kemet-footer"
   );
   kemet_responsive_slider(
@@ -1820,34 +1853,58 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     });
   });
   //Input
+  //Input
+  $inputs_selectors =
+    'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .wiz-single-post .wpcf7 input:not([type=submit]), .wiz-single-post .wpcf7 input:not([type=submit]):focus, .wiz-single-post .wpcf7 select:focus, .wiz-single-post .wpcf7 textarea:focus';
+  kemet_responsive_slider(
+    "kemet-settings[inputs-font-size]",
+    $inputs_selectors,
+    "font-size"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[inputs-line-height]",
+    $inputs_selectors,
+    "line-height"
+  );
+  kemet_responsive_slider(
+    "kemet-settings[inputs-letter-spacing]",
+    $inputs_selectors,
+    "letter-spacing"
+  );
+  kemet_css(
+    "kemet-settings[inputs-text-transform]",
+    "text-transform",
+    $inputs_selectors
+  );
+  kemet_css("kemet-settings[inputs-font-style]", "font-style", $inputs_selectors);
   kemet_responsive_slider(
     "kemet-settings[input-radius]",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select',
+    $inputs_selectors,
     "border-radius"
   );
   kemet_responsive_slider(
     "kemet-settings[input-border-size]",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select',
+    $inputs_selectors,
     "border-width"
   );
   kemet_css(
     "kemet-settings[input-text-color]",
     "color",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select'
+    $inputs_selectors
   );
   kemet_css(
     "kemet-settings[input-bg-color]",
     "background-color",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select'
+    $inputs_selectors
   );
   kemet_css(
     "kemet-settings[input-border-color]",
     "border-color",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select'
+    $inputs_selectors
   );
   kemet_responsive_spacing(
     "kemet-settings[input-spacing]",
-    'input,input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="reset"],input[type="search"], textarea , select,.widget_search .search-field, .widget_search .search-field:focus',
+    $inputs_selectors,
     "padding",
     ["top", "bottom", "right", "left"]
   );

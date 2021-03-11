@@ -4164,8 +4164,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 	border-style: solid;
 	-webkit-border-radius: inherit;
 	border-radius: inherit;
-	color: inherit;
-	font-size: inherit;
 	-webkit-transition: width 0.2s;
 	transition: width 0.2s;
 }
