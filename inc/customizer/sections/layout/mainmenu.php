@@ -456,7 +456,7 @@ $header_rt_sections = array(
 		new Kemet_Control_Title(
 			$wp_customize, KEMET_THEME_SETTINGS . '[kmt-last-custom-menu-title]', array(
 				'type'     => 'kmt-title',
-				'label'    => __( 'Last Custom Menu Settings', 'kemet' ),
+				'label'    => __( 'Last Custom Menu Item Settings', 'kemet' ),
 				'section'  => 'section-menu-header',
 				'priority' => 65,
 				'settings' => array(),
