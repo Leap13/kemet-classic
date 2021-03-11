@@ -492,9 +492,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $single_post_title_letter_spacing, 'desktop' ),
 					'color'          => esc_attr( $single_post_title_font_color ),
 				),
-				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size' => kemet_responsive_slider( $body_font_size, 'desktop' ),
-				),
 
 				// Global CSS.
 				'::selection'                              => array(
@@ -1143,11 +1140,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'tablet' ),
 				),
-				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size'      => kemet_responsive_slider( $body_font_size, 'tablet' ),
-					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
-					'line-height'    => kemet_responsive_slider( $body_line_height, 'tablet' ),
-				),
 				'.kmt-sitehead-custom-menu-items > *, .main-header-menu > .menu-item > a, .main-header-menu > .menu-item' => array(
 					'line-height' => kemet_responsive_slider( $menu_line_height, 'tablet' ),
 				),
@@ -1437,11 +1429,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.main-header-menu , .toggle-on .main-header-menu , .toggle-on .main-header-menu ul.sub-menu' => array(
 					'background-color' => kemet_responsive_color( $menu_bg_color, 'mobile' ),
-				),
-				'#secondary, #secondary button, #secondary input, #secondary select, #secondary textarea' => array(
-					'font-size'      => kemet_responsive_slider( $body_font_size, 'mobile' ),
-					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'mobile' ),
-					'line-height'    => kemet_responsive_slider( $body_line_height, 'mobile' ),
 				),
 				'.site-title'                           => array(
 					'font-size' => kemet_responsive_slider( $site_title_font_size, 'mobile' ),
