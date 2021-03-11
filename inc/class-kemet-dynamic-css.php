@@ -508,7 +508,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $text_meta_color ),
 				),
 				// Input
-				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .wiz-single-post .wpcf7 input:not([type=submit]), .wiz-single-post .wpcf7 input:not([type=submit]):focus, .wiz-single-post .wpcf7 select:focus, .wiz-single-post .wpcf7 textarea:focus' => array(
+				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .kmt-single-post .wpcf7 input:not([type=submit]), .kmt-single-post .wpcf7 input:not([type=submit]):focus, .kmt-single-post .wpcf7 select:focus, .kmt-single-post .wpcf7 textarea:focus' => array(
 					'color'            => esc_attr( $text_meta_color ),
 					'background-color' => esc_attr( $input_bg_color ),
 					'border-color'     => esc_attr( $input_border_color ),
@@ -1241,7 +1241,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $footer_input_padding, 'left', 'tablet' ),
 				),
 				// Input
-				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .wiz-single-post .wpcf7 input:not([type=submit]), .wiz-single-post .wpcf7 input:not([type=submit]):focus, .wiz-single-post .wpcf7 select:focus, .wiz-single-post .wpcf7 textarea:focus' => array(
+				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .kmt-single-post .wpcf7 input:not([type=submit]), .kmt-single-post .wpcf7 input:not([type=submit]):focus, .kmt-single-post .wpcf7 select:focus, .kmt-single-post .wpcf7 textarea:focus' => array(
 					'border-radius'  => kemet_responsive_slider( $input_border_radius, 'tablet' ),
 					'border-width'   => kemet_responsive_slider( $input_border_size, 'tablet' ),
 					'padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'tablet' ),
@@ -1459,7 +1459,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $footer_input_padding, 'left', 'mobile' ),
 				),
 				// Input
-				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .wiz-single-post .wpcf7 input:not([type=submit]), .wiz-single-post .wpcf7 input:not([type=submit]):focus, .wiz-single-post .wpcf7 select:focus, .wiz-single-post .wpcf7 textarea:focus' => array(
+				'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .kmt-single-post .wpcf7 input:not([type=submit]), .kmt-single-post .wpcf7 input:not([type=submit]):focus, .kmt-single-post .wpcf7 select:focus, .kmt-single-post .wpcf7 textarea:focus' => array(
 					'border-radius'  => kemet_responsive_slider( $input_border_radius, 'mobile' ),
 					'border-width'   => kemet_responsive_slider( $input_border_size, 'mobile' ),
 					'padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'mobile' ),

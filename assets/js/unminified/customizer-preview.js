@@ -1855,7 +1855,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   //Input
   //Input
   $inputs_selectors =
-    'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .wiz-single-post .wpcf7 input:not([type=submit]), .wiz-single-post .wpcf7 input:not([type=submit]):focus, .wiz-single-post .wpcf7 select:focus, .wiz-single-post .wpcf7 textarea:focus';
+    'input, input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .widget_search .search-field, .widget_search .search-field:focus, .kmt-single-post .wpcf7 input:not([type=submit]), .kmt-single-post .wpcf7 input:not([type=submit]):focus, .kmt-single-post .wpcf7 select:focus, .kmt-single-post .wpcf7 textarea:focus';
   kemet_responsive_slider(
     "kemet-settings[inputs-font-size]",
     $inputs_selectors,
@@ -2220,7 +2220,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[product-content-font-style]",
     "font-style",
-    ".woocommerce ul.products li.product .wiz-woo-product-category, .woocommerce-page ul.products li.product .wiz-woo-product-category, .woocommerce ul.products li.product .wiz-woo-shop-product-description, .woocommerce-page ul.products li.product .wiz-woo-shop-product-description"
+    ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description"
   );
   kemet_responsive_slider(
     "kemet-settings[product-content-line-height]",
