@@ -1,3 +1,13 @@
+v 1.1.10 version
+- Added: Woocommerce product list style.
+- Added: Last menu item options.
+- Added: Font style option to typography group control.
+- Added: Font size options for buttons.
+- Tweak: Enhance search icon style.
+- Fixed: Header layout 2 responsive isue.
+- Fixed: Recent comments widget spacing issue.
+- Fixed: Posts navigation issue in responsive.
+
 v 1.1.9 version
 - Fixed: Stretched header style issue.
 
