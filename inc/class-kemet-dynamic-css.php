@@ -670,7 +670,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'body:not(.kmt-header-break-point) .main-header-menu ul.sub-menu' => array(
 					'width' => kemet_get_css_value( $sub_menu_width, 'px' ),
 				),
-				'body:not(.kmt-header-break-point).rtl .main-header-menu ul.sub-menu' => array(
+				'body:not(.kmt-header-break-point).rtl .main-header-menu li:hover li:hover > ul.sub-menu' => array(
 					'right' => kemet_get_css_value( $sub_menu_width, 'px' ),
 				),
 				'.main-header-menu .sub-menu li:hover > a' => array(
