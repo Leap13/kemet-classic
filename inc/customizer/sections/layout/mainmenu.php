@@ -755,7 +755,7 @@ $header_rt_sections = array(
 	}
 
 	/**
-	 * Option: Search Box Style
+	 * Option: Search Item Style
 	 */
 	$wp_customize->add_setting(
 		KEMET_THEME_SETTINGS . '[search-style]', array(
@@ -774,7 +774,7 @@ $header_rt_sections = array(
 			'type'     => 'select',
 			'section'  => 'section-menu-header',
 			'priority' => 95,
-			'label'    => __( 'Search Box Style', 'kemet' ),
+			'label'    => __( 'Search Item Style', 'kemet' ),
 			'choices'  => array(
 				'search-box'  => __( 'Search Box', 'kemet' ),
 				'search-icon' => __( 'Icon', 'kemet' ),
