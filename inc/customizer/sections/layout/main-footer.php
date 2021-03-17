@@ -1039,6 +1039,17 @@ $fields = array(
 		'section'      => 'section-kemet-footer',
 		'tab'          => __( 'Normal', 'kemet' ),
 	),
+	array(
+		'id'           => '[footer-button-border-color]',
+		'default'      => $defaults['footer-button-border-color'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-color',
+		'label'        => __( 'Button Border Color', 'kemet' ),
+		'priority'     => 6,
+		'section'      => 'section-kemet-footer',
+		'tab'          => __( 'Normal', 'kemet' ),
+	),
 	/**
 	 * Option - Hover Color
 	 */
@@ -1088,6 +1099,66 @@ $group_settings = array(
 	),
 );
 new Kemet_Generate_Control_Group( $wp_customize, $group_settings, $fields );
+
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[kemet-footer-btn-title]', array(
+        'dependency' => array(
+			'controls'   => KEMET_THEME_SETTINGS . '[footer-layout]',
+			'conditions' => '!=',
+			'values'     => 'disabled',
+		),
+        'sanitize_callback' 	=> 'wp_kses',
+    )
+);
+$wp_customize->add_control(
+	new Kemet_Control_Title(
+		$wp_customize, KEMET_THEME_SETTINGS . '[kemet-footer-btn-title]', array(
+			'type'     => 'kmt-title',
+			'label'    => __( 'Footer Widget Buttons Style', 'kemet' ),
+			'section'  => 'section-kemet-footer',
+			'priority' => 180,
+			'settings' => array(),
+		)
+	)
+);
+/**
+ * Option: Button Border Size
+ */
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[footer-button-border-width]', array(
+		'default'           => $defaults['footer-button-border-width'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		'dependency'        => array(
+			'controls'   => KEMET_THEME_SETTINGS . '[footer-layout]',
+			'conditions' => '!=',
+			'values'     => 'disabled',
+		),
+	)
+);
+$wp_customize->add_control(
+	new Kemet_Control_Responsive_Slider(
+		$wp_customize, KEMET_THEME_SETTINGS . '[footer-button-border-width]', array(
+			'type'         => 'kmt-responsive-slider',
+			'section'      => 'section-kemet-footer',
+			'priority'     => 185,
+			'label'        => __( 'Button Border Size', 'kemet' ),
+			'unit_choices' => array(
+				'px' => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 100,
+				),
+				'%'  => array(
+					'min'  => 1,
+					'step' => 1,
+					'max'  => 100,
+				),
+			),
+		)
+	)
+);
 /**
  * Option: Button Radius
  */
@@ -1109,7 +1180,7 @@ $wp_customize->add_control(
 		$wp_customize, KEMET_THEME_SETTINGS . '[footer-button-radius]', array(
 			'type'         => 'kmt-responsive-slider',
 			'section'      => 'section-kemet-footer',
-			'priority'     => 180,
+			'priority'     => 190,
 			'label'        => __( 'Button Radius', 'kemet' ),
 			'unit_choices' => array(
 				'px' => array(

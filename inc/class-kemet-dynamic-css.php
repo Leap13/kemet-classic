@@ -278,6 +278,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_button_bg_color      = kemet_get_option( 'footer-button-bg-color', kemet_color_brightness( $global_footer_bg_color, 0.82, 'dark' ) );
 			$footer_button_bg_h_color    = kemet_get_option( 'footer-button-bg-h-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'dark' ) );
 			$footer_button_border_radius = kemet_get_option( 'footer-button-radius' );
+			$footer_button_border_width  = kemet_get_option( 'footer-button-border-width' );
+			$footer_button_border_color  = kemet_get_option( 'footer-button-border-color', kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) );
 
 			// Footer Input Color
 			$footer_input_color         = kemet_get_option( 'footer-input-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
@@ -719,7 +721,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer button,.kemet-footer .button, .kemet-footer .kmt-button,.kemet-footer .button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=button], .kemet-footer input[type=submit], .kemet-footer input[type=reset]' => array(
 					'color'            => esc_attr( $footer_button_color ),
 					'background-color' => esc_attr( $footer_button_bg_color ),
+					'border-color'     => esc_attr( $footer_button_border_color ),
 					'border-radius'    => kemet_responsive_slider( $footer_button_border_radius, 'desktop' ),
+					'border-width'     => kemet_responsive_slider( $footer_button_border_width, 'desktop' ),
 				),
 
 				'.kemet-footer'                            => array(
@@ -1389,6 +1393,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Main Footer
 				'.kemet-footer button, .kemet-footer .kmt-button,.kemet-footer .button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=button], .kemet-footer input[type=submit], .kemet-footerinput[type=reset]' => array(
 					'border-radius' => kemet_responsive_slider( $footer_button_border_radius, 'tablet' ),
+					'border-width'     => kemet_responsive_slider( $footer_button_border_width, 'tablet' ),
 				),
 				'.site-content .kmt-pagination'         => array(
 					'padding-top'    => kemet_responsive_spacing( $pagination_padding, 'top', 'tablet' ),
@@ -1521,6 +1526,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Main Footer
 				'.kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=button], .kemet-footer input[type=submit], .kemet-footerinput[type=reset]' => array(
 					'border-radius' => kemet_responsive_slider( $footer_button_border_radius, 'mobile' ),
+					'border-width'     => kemet_responsive_slider( $footer_button_border_width, 'mobile' ),
 				),
 
 				'.site-header .site-description'        => array(

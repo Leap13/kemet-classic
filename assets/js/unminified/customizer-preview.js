@@ -1817,6 +1817,16 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "border-radius"
   );
   kemet_responsive_slider(
+    "kemet-settings[footer-button-border-width]",
+    ".kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=“button”], .kemet-footer input[type=“submit”], .kemet-footerinput[type=“reset”]",
+    "border-width"
+  );
+  kemet_css(
+    "kemet-settings[footer-button-border-color]",
+    "border-color",
+    ".kemet-footer button, .kemet-footer .kmt-button, .kemet-footer .button, .kemet-footer input#submit, .kemet-footer input[type=“button”], .kemet-footer input[type=“submit”], .kemet-footerinput[type=“reset”]"
+  );
+  kemet_responsive_slider(
     "kemet-settings[footer-input-border-radius]",
     '.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea',
     "border-radius"
