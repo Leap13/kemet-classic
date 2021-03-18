@@ -10,13 +10,7 @@ Requires at least: WordPress 4.7
 Contributors: leap13
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-
-=== Tags ===
-Tags: one-column, two-columns,
-left-sidebar, e-commerce, right-sidebar, custom-colors,
-custom-menu, editor-style, featured-images, full-width-template,
-microformats, post-formats, rtl-language-support, theme-options,
-threaded-comments, translation-ready, blog, WPML compatible
+Tags: custom-menu, custom-logo, entertainment, featured-images, full-width-template, one-column, two-columns, left-sidebar, e-commerce, right-sidebar, custom-colors, editor-style, featured-images, full-width-template, microformats, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready, blog
 
 === Description ===
 Description: Kemet is a modern WordPress which is built 
