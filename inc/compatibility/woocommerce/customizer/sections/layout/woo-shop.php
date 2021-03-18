@@ -48,35 +48,6 @@ $wp_customize->add_control(
     )
 );
 /**
- * Option: Shop Columns
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[shop-grids]', array(
-        'default' => kemet_get_option('shop-grids'),
-        'type' => 'option',
-        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_responsive_select'),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Select(
-        $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
-            'type' => 'kmt-responsive-select',
-            'section' => 'woocommerce_product_catalog',
-            'priority' => 10,
-            'label' => __('Shop Columns', 'kemet'),
-            'choices' => array(
-                '1' => 'One',
-                '2' => 'Two',
-                '3' => 'Three',
-                '4' => 'Four',
-                '5' => 'Five',
-                '6' => 'Six',
-            ),
-        )
-    )
-);
-
-/**
  * Option: Products Per Page
  */
 $wp_customize->add_setting(
@@ -91,7 +62,7 @@ $wp_customize->add_control(
         'section' => 'woocommerce_product_catalog',
         'label' => __('Products Per Page', 'kemet'),
         'type' => 'number',
-        'priority' => 15,
+        'priority' => 10,
         'input_attrs' => array(
             'min' => 1,
             'step' => 1,
@@ -99,7 +70,88 @@ $wp_customize->add_control(
         ),
     )
 );
-
+/**
+ * Option: Shop Columns
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[shop-grids]', array(
+        'default' => kemet_get_option('shop-grids'),
+        'type' => 'option',
+        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_responsive_select'),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Select(
+        $wp_customize, KEMET_THEME_SETTINGS . '[shop-grids]', array(
+            'type' => 'kmt-responsive-select',
+            'section' => 'woocommerce_product_catalog',
+            'priority' => 15,
+            'label' => __('Shop Columns', 'kemet'),
+            'choices' => array(
+                '1' => 'One',
+                '2' => 'Two',
+                '3' => 'Three',
+                '4' => 'Four',
+                '5' => 'Five',
+                '6' => 'Six',
+            ),
+        )
+    )
+);
+/**
+ * Option: Shop Archive Content Width
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
+        'default' => kemet_get_option('shop-archive-width'),
+        'type' => 'option',
+        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_choices'),
+    )
+);
+$wp_customize->add_control(
+    KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
+        'type' => 'select',
+        'section' => 'woocommerce_product_catalog',
+        'priority' => 17,
+        'label' => __('Shop Archive Content Width', 'kemet'),
+        'choices' => array(
+            'default' => __('Default', 'kemet'),
+            'custom' => __('Custom', 'kemet'),
+        ),
+    )
+);
+/**
+ * Option: Enter Width
+ */
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
+        'default' => 1200,
+        'type' => 'option',
+        'transport' => 'postMessage',
+        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_number'),
+        'dependency' => array(
+            'controls' => KEMET_THEME_SETTINGS . '[shop-archive-width]',
+            'conditions' => '==',
+            'values' => 'custom',
+        ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Slider(
+        $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
+            'type' => 'kmt-slider',
+            'section' => 'woocommerce_product_catalog',
+            'priority' => 18,
+            'label' => __('Enter Width', 'kemet'),
+            'suffix' => '',
+            'input_attrs' => array(
+                'min' => 768,
+                'step' => 1,
+                'max' => 1920,
+            ),
+        )
+    )
+);
 /**
  * Option: Product Hover Style
  */
@@ -153,60 +205,8 @@ $wp_customize->add_control(
     )
 );
 
-/**
- * Option: Shop Archive Content Width
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
-        'default' => kemet_get_option('shop-archive-width'),
-        'type' => 'option',
-        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_choices'),
-    )
-);
-$wp_customize->add_control(
-    KEMET_THEME_SETTINGS . '[shop-archive-width]', array(
-        'type' => 'select',
-        'section' => 'woocommerce_product_catalog',
-        'priority' => 35,
-        'label' => __('Shop Archive Content Width', 'kemet'),
-        'choices' => array(
-            'default' => __('Default', 'kemet'),
-            'custom' => __('Custom', 'kemet'),
-        ),
-    )
-);
-/**
- * Option: Enter Width
- */
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
-        'default' => 1200,
-        'type' => 'option',
-        'transport' => 'postMessage',
-        'sanitize_callback' => array('Kemet_Customizer_Sanitizes', 'sanitize_number'),
-        'dependency' => array(
-            'controls' => KEMET_THEME_SETTINGS . '[shop-archive-width]',
-            'conditions' => '==',
-            'values' => 'custom',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Slider(
-        $wp_customize, KEMET_THEME_SETTINGS . '[shop-archive-max-width]', array(
-            'type' => 'kmt-slider',
-            'section' => 'woocommerce_product_catalog',
-            'priority' => 36,
-            'label' => __('Enter Width', 'kemet'),
-            'suffix' => '',
-            'input_attrs' => array(
-                'min' => 768,
-                'step' => 1,
-                'max' => 1920,
-            ),
-        )
-    )
-);
+
+
 /**
  * Option: Title
  */

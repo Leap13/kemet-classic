@@ -96,6 +96,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'pagination-padding'                   => '',
 					'font-color-entry-title'               => '',
+					'comment-button-spacing'               => '',
+					'single-post-meta-color'               => '',
 					'listing-post-meta-color'              => '',
 					'post-title-font-weight'               => '',
 					'post-title-text-transform'            => '',

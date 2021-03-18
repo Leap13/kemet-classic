@@ -221,7 +221,59 @@ $wp_customize->add_control(
         )
     )
 );
-
+/**
+* Option: Single Post / Page Title Meta Color
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[single-post-meta-color]',
+    array(
+        'default'           => $defaults[ 'single-post-meta-color' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Color(
+        $wp_customize,
+        KEMET_THEME_SETTINGS . '[single-post-meta-color]',
+        array(
+            'type'    => 'kmt-color',
+            'priority'    => 41,
+            'label'   => __('Post Meta Color', 'kemet'),
+            'section' => 'section-blog-single',
+        )
+    )
+);
+/**
+* Option - Comment Button Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[comment-button-spacing]', array(
+        'default'           => $defaults[ 'comment-button-spacing' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Spacing(
+        $wp_customize, KEMET_THEME_SETTINGS . '[comment-button-spacing]', array(
+            'type'           => 'kmt-responsive-spacing',
+            'section'        => 'section-blog-single',
+            'priority'       => 70,
+            'label'          => __( 'Comment Button Spacing', 'kemet' ),
+            'linked_choices' => true,
+            'unit_choices'   => array( 'px', 'em', '%' ),
+            'choices'        => array(
+                'top'    => __( 'Top', 'kemet' ),
+                'right'  => __( 'Right', 'kemet' ),
+                'bottom' => __( 'Bottom', 'kemet' ),
+                'left'   => __( 'Left', 'kemet' ),
+            ),
+        )
+    )
+);
 
 
 

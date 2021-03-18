@@ -1700,6 +1700,17 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "color",
     ".kmt-single-post .entry-header .entry-title, .page-title"
   );
+  kemet_css(
+    "kemet-settings[single-post-meta-color]",
+    "color",
+    ".kmt-single-post .entry-meta,.kmt-single-post  .entry-meta *"
+  );
+  kemet_responsive_spacing(
+    "kemet-settings[comment-button-spacing]",
+    ".comments-area .form-submit input#submit",
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
   wp.customize(
     "kemet-settings[footer-widget-list-border-color]",
     function (value) {

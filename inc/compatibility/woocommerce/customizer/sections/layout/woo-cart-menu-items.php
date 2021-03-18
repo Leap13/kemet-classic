@@ -77,10 +77,10 @@ $wp_customize->add_control(
         'type'     => 'select',
         'label'    => __( 'Display', 'kemet' ),
         'choices'  => array(
-            'icon'        => __( 'Icon', 'kemet' ),
-            'icon-total'        => __( 'Icon And Cart Total', 'kemet' ),
-            'icon-count'        => __( 'Icon And Cart count', 'kemet' ),
-            'icon-count-total' => __( 'Icon And Cart count + total', 'kemet' ),
+            'icon'             => __( 'Icon Only', 'kemet' ),
+			'icon-total'       => __( 'Icon & Cart Total', 'kemet' ),
+			'icon-count'       => __( 'Icon & Cart Count', 'kemet' ),
+			'icon-count-total' => __( 'Icon & Cart Count + Total', 'kemet' ),
         ),
     )
 );

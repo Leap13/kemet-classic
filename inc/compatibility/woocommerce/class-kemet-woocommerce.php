@@ -290,8 +290,8 @@ if (!class_exists('Kemet_Woocommerce')):
             $defaults['cart-dropdown-border-color'] = '';
             $defaults['disable-cart-if-empty'] = false;
             $defaults['cart-icon-display'] = 'icon-count';
-            $defaults['cart-icon-size'] = '';
-            $defaults['cart-icon-center-vertically'] = '';
+            $defaults['cart-icon-size']              = 20;
+            $defaults['cart-icon-center-vertically'] = 0;
             $defaults['shop-cart-icon'] = 'icon-cart';
             $defaults['product-title-spacing'] = '';
             $defaults['product-price-spacing'] = '';
@@ -718,6 +718,13 @@ $site_sidebar = kemet_layout();
         $btn_border_size = kemet_get_option('btn-border-size');
         $btn_border_color = kemet_get_option('btn-border-color');
         $btn_border_h_color = kemet_get_option('btn-border-h-color');
+        $btn_font_size         = kemet_get_option( 'buttons-font-size' );
+        $btn_font_family       = kemet_get_option( 'buttons-font-family' );
+        $btn_font_weight       = kemet_get_option( 'buttons-font-weight' );
+        $btn_text_tranform     = kemet_get_option( 'buttons-text-transform' );
+        $btn_font_style        = kemet_get_option( 'buttons-font-style' );
+        $btn_line_height       = kemet_get_option( 'buttons-line-height' );
+        $btn_letter_spacing    = kemet_get_option( 'buttons-letter-spacing' );
 
         $btn_border_radius = kemet_get_option('button-radius');
 
@@ -842,7 +849,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
                 'background-color' => esc_attr(kemet_color_brightness($body_bg_color['background-color'], 0.55, 'light')),
             ),
-            'body:not(.shop-grid) a.button , .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button , #yith-wcwl-form .button, .woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) a.button, a.added_to_cart, .woocommerce button.button, .woocommerce #respond input#submit.alt,body:not(.shop-grid) a.button.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button , #yith-wcwl-form .button, .woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'color' => esc_attr($btn_color),
                 'background-color' => esc_attr($btn_bg_color),
                 'border' => 'solid',
@@ -853,11 +860,18 @@ $site_sidebar = kemet_layout();
                 'padding-bottom' => kemet_responsive_spacing($btn_padding, 'bottom', 'desktop'),
                 'padding-right' => kemet_responsive_spacing($btn_padding, 'right', 'desktop'),
                 'padding-left' => kemet_responsive_spacing($btn_padding, 'left', 'desktop'),
+                'font-size'        => kemet_responsive_slider( $btn_font_size, 'desktop' ),
+                'font-family'      => kemet_get_font_family( $btn_font_family ),
+                'font-weight'      => esc_attr( $btn_font_weight ),
+                'text-transform'   => esc_attr( $btn_text_tranform ),
+                'font-style'       => esc_attr( $btn_font_style ),
+                'line-height'      => kemet_responsive_slider( $btn_line_height, 'desktop' ),
+                'letter-spacing'   => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
             ),
-            '.shop-grid ul.products li.product .button'  => array(
+            '.shop-grid ul.products li.product .button , .shop-grid ul.products li.product .added_to_cart'  => array(
                 'color' => esc_attr( $headings_links_color ),
             ),
-            '.shop-grid ul.products li.product .button:hover , .woocommerce-info .button:hover, .woocommerce-info a:hover'  => array(
+            '.shop-grid ul.products li.product .button:hover , .woocommerce-info .button:hover, .woocommerce-info a:hover, .shop-grid ul.products li.product .added_to_cart:hover'  => array(
                 'color' => esc_attr( $theme_color ),
             ),
             '.single-product .product a.compare.button, .woocommerce .widget_shopping_cart a:not(.button)' => array(
@@ -990,8 +1004,11 @@ $site_sidebar = kemet_layout();
 			}
 
         $tablet_typography = array(
-            '.woocommerce button.button , body:not(.shop-grid) a.button , body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+            '.woocommerce button.button, a.added_to_cart, body:not(.shop-grid) a.button , body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'tablet'),
+                'font-size'      => kemet_responsive_slider( $btn_font_size, 'tablet' ),
+                'line-height'    => kemet_responsive_slider( $btn_line_height, 'tablet' ),
+                'letter-spacing' => kemet_responsive_slider( $btn_letter_spacing, 'tablet' ),
             ),
             '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title , ul.products li.product .woocommerce-loop-product__title' => array(
                 'font-size' => kemet_responsive_slider($product_title_font_size, 'tablet'),
@@ -1029,8 +1046,11 @@ $site_sidebar = kemet_layout();
         /* Parse CSS from array()*/
         $css_output .= kemet_parse_css($tablet_typography, '', '768');
         $mobile_typography = array(
-            '.woocommerce button.button, body:not(.shop-grid) a.button,body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
+            '.woocommerce button.button, a.added_to_cart, body:not(.shop-grid) a.button,body:not(.shop-grid) a.button.alt, .woocommerce #respond input#submit.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'mobile'),
+                'font-size'      => kemet_responsive_slider( $btn_font_size, 'mobile' ),
+                'line-height'    => kemet_responsive_slider( $btn_line_height, 'mobile' ),
+                'letter-spacing' => kemet_responsive_slider( $btn_letter_spacing, 'mobile' ),
             ),
             '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title , ul.products li.product .woocommerce-loop-product__title' => array(
                 'font-size' => kemet_responsive_slider($product_title_font_size, 'mobile'),
