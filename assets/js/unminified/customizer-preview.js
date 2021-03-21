@@ -818,7 +818,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "font-size"
   );
   var $btn_selectors =
-    '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]';
+    '.menu-toggle,button,.button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]';
   if (
     jQuery("body").hasClass("woocommerce") ||
     jQuery("body").hasClass("woocommerce-page")
@@ -1507,7 +1507,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
   kemet_responsive_slider(
     "kemet-settings[body-line-height]",
-    "body, button, input, select, textarea",
+    "body, button, input, select, textarea, .button",
     "line-height"
   );
   // paragraph margin bottom.
@@ -1528,13 +1528,13 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[body-text-transform]",
     "text-transform",
-    "body, button, input, select, textarea"
+    "body, button, input, select, textarea, .button"
   );
 
   kemet_css(
     "kemet-settings[body-font-style]",
     "font-style",
-    "body, button, input, select, textarea"
+    "body, button, input, select, textarea, .button"
   );
 
   kemet_css(
@@ -1590,7 +1590,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_slider(
     "kemet-settings[sidebar-content-font-size]",
-    "#secondary .sidebar-main *:not(.widget-title)",
+    "#secondary .sidebar-main",
     "font-size"
   );
   /**

@@ -394,7 +394,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'a:not(.button):hover, a:not(.button):focus , .widget_search .search-form:hover:after' => array(
 					'color' => esc_attr( $theme_color ),
 				),
-				'body, button, input, select, textarea'    => array(
+				'body, button, input, select, textarea, .button'    => array(
 					'font-family'    => kemet_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'desktop' ),
@@ -922,7 +922,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main a:hover'                    => array(
 					'color' => esc_attr( $sidebar_link_h_color ),
 				),
-				'#secondary .sidebar-main *:not(.widget-title)' => array(
+				'#secondary .sidebar-main' => array(
 					'font-size' => kemet_responsive_slider( $sidebar_content_font_size, 'desktop' ),
 				),
 				'.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget' => array(
@@ -1147,7 +1147,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Tablet Typography */
 			$tablet_typography = array(
-				'body, button, input, select, textarea' => array(
+				'body, button, input, select, textarea, .button' => array(
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'tablet' ),
@@ -1268,7 +1268,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.sidebar-main input,.sidebar-main input[type="text"],.sidebar-main input[type="email"],.sidebar-main input[type="url"],.sidebar-main input[type="password"],.sidebar-main input[type="reset"],.sidebar-main input[type="search"],.sidebar-main textarea ,.sidebar-main select' => array(
 					'border-radius' => kemet_responsive_slider( $sidebar_input_border_radius, 'tablet' ),
 				),
-				'#secondary .sidebar-main *:not(.widget-title)' => array(
+				'#secondary .sidebar-main' => array(
 					'font-size' => kemet_responsive_slider( $sidebar_content_font_size, 'tablet' ),
 				),
 				// Button Typography.
@@ -1444,7 +1444,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Mobile Typography */
 			$mobile_typography = array(
-				'body, button, input, select, textarea' => array(
+				'body, button, input, select, textarea, .button' => array(
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'mobile' ),
 					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'mobile' ),
@@ -1682,7 +1682,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-right'  => kemet_responsive_spacing( $sidebar_padding, 'right', 'mobile' ),
 					'padding-left'   => kemet_responsive_spacing( $sidebar_padding, 'left', 'mobile' ),
 				),
-				'#secondary .sidebar-main *:not(.widget-title)' => array(
+				'#secondary .sidebar-main' => array(
 					'font-size' => kemet_responsive_slider( $sidebar_content_font_size, 'mobile' ),
 				),
 				'.kemet-footer .kemet-footer-overlay '  => array(
