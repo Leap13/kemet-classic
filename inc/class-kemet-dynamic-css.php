@@ -169,8 +169,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// header menu
 			$menu_bg_color                 = kemet_get_option( 'menu-bg-color' );
-			$menu_link_color               = kemet_get_option( 'menu-link-color', $headings_links_color );
-			$menu_link_h_color             = kemet_get_option( 'menu-link-h-color', $theme_color );
+			$menu_link_color               = apply_filters( 'kemet_main_menu_link_color', kemet_get_option( 'menu-link-color', $headings_links_color ) );
+			$menu_link_h_color             = apply_filters( 'kemet_main_menu_link_h_color', kemet_get_option( 'menu-link-h-color', $theme_color ) );
 			$menu_link_bottom_border_color = kemet_get_option( 'menu-link-bottom-border-color', isset( $menu_link_h_color['desktop'] ) ? $menu_link_h_color['desktop'] : $menu_link_h_color );
 			$menu_link_active_color        = kemet_get_option( 'menu-link-active-color', isset( $menu_link_h_color['desktop'] ) ? $menu_link_h_color['desktop'] : $menu_link_h_color );
 			$menu_link_active_bg_color     = kemet_get_option( 'menu-link-active-bg-color' );
