@@ -1646,11 +1646,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
       }
 
       var dynamicStyle =
-        ".widget ul > li, .yith-woocompare-widget ul.products-list li:not( .list_empty ) { border-bottom-color: " +
+        "#secondary .widget ul > li ,.kfw-widget-posts-list .kmt-wdg-posts-list li, .tweets-container>div:not(:last-child) { border-bottom-color: " +
         color +
         "; } ";
       dynamicStyle +=
-        ".woocommerce .widget_shopping_cart .total, .woocommerce.widget_shopping_cart .total{ border-color: " +
+        ".widget_shopping_cart .total, .woocommerce .widget_shopping_cart .total, .woocommerce.widget_shopping_cart .total{ border-color: " +
         color +
         "; }";
       kemet_add_dynamic_css("widget-list-border-color", dynamicStyle);

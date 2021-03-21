@@ -5249,7 +5249,7 @@ input[type="color"]::-webkit-color-swatch {
  */
 .entry-meta,
 .entry-meta * {
-	line-height: 1.70;
+	line-height: 1.7;
 }
 
 .page .entry-header {
@@ -5356,13 +5356,6 @@ input[type="color"]::-webkit-color-swatch {
 .archive .entry-title,
 .search .entry-title {
 	line-height: 1.3;
-}
-
-.blog .format-status .entry-title,
-.archive .format-status .entry-title,
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-	display: none;
 }
 
 .page-title {

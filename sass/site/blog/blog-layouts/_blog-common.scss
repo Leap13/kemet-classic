@@ -1,158 +1,152 @@
 /**
  *  Blog Common
  */
-.entry-meta , .entry-meta *{
-	line-height: 1.70;
+.entry-meta,
+.entry-meta * {
+  line-height: 1.7;
 }
 .page .entry-header {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 }
-.entry-meta{
-	 > span{
-		margin-right: 10px;
-	}
+.entry-meta {
+  > span {
+    margin-right: 10px;
+  }
 }
 .entry-meta span:before:first {
-	margin-left: 0px;
+  margin-left: 0px;
 }
 
 .entry-meta .comments-link:before {
-    content: "\e906";
-	font-family: Kemet-font;
-	margin-right: 5px;
+  content: "\e906";
+  font-family: Kemet-font;
+  margin-right: 5px;
 }
 
 .entry-meta .cat-links:before {
-    content: "\e904";
-	font-family: Kemet-font;
-	margin-right: 5px;
+  content: "\e904";
+  font-family: Kemet-font;
+  margin-right: 5px;
 }
 
 .entry-meta .posted-by:before {
-    content: "\e901";
-	font-family: Kemet-font;
-	margin-right: 5px;
+  content: "\e901";
+  font-family: Kemet-font;
+  margin-right: 5px;
 }
 
 .entry-meta .posted-on:before {
-    content: "\e902";
-	font-family: Kemet-font;
-	margin-right: 5px;
+  content: "\e902";
+  font-family: Kemet-font;
+  margin-right: 5px;
 }
 
 .entry-meta .tags-links:before {
-    content: "\e910";
-	font-family: Kemet-font;
-	margin-right: 5px;
+  content: "\e910";
+  font-family: Kemet-font;
+  margin-right: 5px;
 }
 
 .search .entry-header {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .kmt-single-post .entry-header {
-		&.kmt-header-without-markup,
-		&.kmt-no-title.kmt-no-thumbnail {
-			margin-bottom: 0;
-		}
+  &.kmt-header-without-markup,
+  &.kmt-no-title.kmt-no-thumbnail {
+    margin-bottom: 0;
+  }
 }
 
 .entry-header {
-    margin-bottom: 1em;
-    word-wrap: break-word;
-    + .kmt-blog-featured-section{
-    	margin-top:0.5em;
-    }
+  margin-bottom: 1em;
+  word-wrap: break-word;
+  + .kmt-blog-featured-section {
+    margin-top: 0.5em;
+  }
 }
 
 .entry-content {
-	word-wrap: break-word;
-	p {
-		margin-bottom: 1.6em;
-	}
+  word-wrap: break-word;
+  p {
+    margin-bottom: 1.6em;
+  }
 }
 
 .read-more {
-	margin-bottom: 0;
-	a{
-		display: inline-block;
-	}
+  margin-bottom: 0;
+  a {
+    display: inline-block;
+  }
 }
 
 .kmt-no-thumb {
-	.kmt-blog-featured-section {
-		margin-bottom: 0;
-	}
-	.entry-header {
-		+ .kmt-blog-featured-section{
-			margin-top:0;
-		}
-	}
+  .kmt-blog-featured-section {
+    margin-bottom: 0;
+  }
+  .entry-header {
+    + .kmt-blog-featured-section {
+      margin-top: 0;
+    }
+  }
 }
 
 .kmt-blog-featured-section {
-	margin-bottom: 1.5em;
+  margin-bottom: 1.5em;
 
-	.gallery {
-		margin-bottom: 0;
-	}
+  .gallery {
+    margin-bottom: 0;
+  }
 }
 
 .error404 .page-header {
-    margin-bottom: 1.5em;
-	.page-title {
-    	margin-bottom: 0;
-	}
+  margin-bottom: 1.5em;
+  .page-title {
+    margin-bottom: 0;
+  }
 }
 
-.blog, 
+.blog,
 .archive,
 .search {
-	.entry-title {
-		line-height: 1.3;
-	}
-}
-
-.blog .format-status .entry-title,
-.archive .format-status .entry-title,
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-	display: none;
+  .entry-title {
+    line-height: 1.3;
+  }
 }
 
 .page-title {
-    margin-bottom: 1em;
-    font-weight: normal;
+  margin-bottom: 1em;
+  font-weight: normal;
 }
 
 .entry-title {
-    margin-bottom: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .kmt-article-post {
-    margin-bottom: 2.5em;
+  margin-bottom: 2.5em;
 }
 .kmt-article-post:last-child {
-	margin-bottom: 0;
-	border-bottom:0;
+  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 .search .site-content .search-form {
-    margin-bottom: 3em;
+  margin-bottom: 3em;
 }
 
 .blog-layout-1 {
-    /* 2 - Blog Thumbnail Styles */
-    .post-thumb {
-        padding-left: 0;
-        padding-right: 0;
-        position: relative;
-    }
+  /* 2 - Blog Thumbnail Styles */
+  .post-thumb {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+  }
 }
 
-.blog-layout-grid .site-main .kmt-row{
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	flex-wrap: wrap;
-  }
+.blog-layout-grid .site-main .kmt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
