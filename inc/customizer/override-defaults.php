@@ -21,6 +21,9 @@ $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 $wp_customize->get_setting( 'custom_logo' )->transport      = 'refresh';
+if ( class_exists( 'WooCommerce' ) ) {
+	$wp_customize->get_setting( 'woocommerce_demo_store_notice' )->default = esc_html__( '“Free Shipping on All Orders Until February 28. Hurry Up!”.', 'kemet' );
+}
 
 /**
  * Override Controls
