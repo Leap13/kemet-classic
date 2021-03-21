@@ -91,6 +91,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$input_border_radius  = kemet_get_option( 'input-radius' );
 			$input_border_size    = kemet_get_option( 'input-border-size' );
 			$input_border_color   = kemet_get_option( 'input-border-color', $global_border_color );
+			$input_label_color    = kemet_get_option( 'input-label-color' );
 			$input_spacing        = kemet_get_option( 'input-spacing' );
 
 			// Boxed inner Options
@@ -535,7 +536,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'line-height'      => kemet_responsive_slider( $input_line_height, 'desktop' ),
 					'letter-spacing'   => kemet_responsive_slider( $input_letter_spacing, 'desktop' ),
 				),
-
+				'form label'                               => array(
+					'color' => esc_attr( $input_label_color ),
+				),
 				// Typography.
 				'.widget_product_tag_cloud .tagcloud a'    => array(
 					'border-color' => esc_attr( $global_border_color ),

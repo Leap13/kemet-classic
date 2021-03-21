@@ -219,6 +219,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'input-bg-color'                       => '',
 					'input-text-color'                     => '',
 					'input-border-color'                   => '',
+					'input-label-color'                    => '',
 					'input-radius'                         => '',
 					'input-border-size'                    => '',
 					'input-border-color'                   => '',

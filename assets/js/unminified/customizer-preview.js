@@ -1926,6 +1926,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "padding",
     ["top", "bottom", "right", "left"]
   );
+  kemet_css("kemet-settings[input-label-color]", "color", "form label");
   /**
    * widget background
    */

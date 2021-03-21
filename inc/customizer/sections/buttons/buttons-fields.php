@@ -572,6 +572,16 @@ $fields         = array(
 		'priority'     => 3,
 		'section'      => 'section-buttons-fields',
 	),
+	array(
+		'id'           => '[input-label-color]',
+		'default'      => $defaults['input-label-color'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-color',
+		'label'        => __( 'Label Color', 'kemet' ),
+		'priority'     => 3,
+		'section'      => 'section-buttons-fields',
+	),
 );
 $group_settings = array(
 	'parent_id' => KEMET_THEME_SETTINGS . '[kmt-site-input-colors]',
