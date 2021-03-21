@@ -1159,9 +1159,6 @@ $site_sidebar = kemet_layout();
         /* Parse CSS from array() */
         $yith_wcwl_main_style = kemet_parse_css($yith_wcwl_main_style);
 
-        /* Parse CSS from array()*/
-        $yith_wcwl_main_style .= kemet_parse_css($yith_wcwl_main_style_small, '', '768');
-
         wp_add_inline_style('yith-wcwl-main', $yith_wcwl_main_style);
     }
 
