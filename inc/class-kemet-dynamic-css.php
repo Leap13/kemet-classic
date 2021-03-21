@@ -539,10 +539,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => esc_attr( $input_label_color ),
 				),
 				// Typography.
-				'.widget_product_tag_cloud .tagcloud a'    => array(
+				'.widget_product_tag_cloud .tagcloud a, .widget_tag_cloud .tagcloud a'    => array(
 					'border-color' => esc_attr( $global_border_color ),
 				),
-
+				
 				'.kmt-footer .widget_tag_cloud .tagcloud a , .kmt-footer-copyright .widget_tag_cloud .tagcloud a' => array(
 					'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) ),
 				),
