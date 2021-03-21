@@ -5828,7 +5828,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area .form-submit {
-	margin-bottom: 0;
+	margin-bottom: 30px;
 }
 
 .comments-area textarea#comment,
