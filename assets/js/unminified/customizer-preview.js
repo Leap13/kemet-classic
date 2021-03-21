@@ -817,7 +817,8 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     ".woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description",
     "font-size"
   );
-  var $btn_selectors = '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]';
+  var $btn_selectors =
+    '.menu-toggle,button,.kmt-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]';
   if (
     jQuery("body").hasClass("woocommerce") ||
     jQuery("body").hasClass("woocommerce-page")
@@ -1686,12 +1687,12 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   // Footer Bar.
   kemet_css("kemet-settings[footer-color]", "color", ".kmt-footer-copyright");
   kemet_css(
-    "kemet-settings[footer-link-color]",
+    "kemet-settings[copyright-link-color]",
     "color",
     ".kmt-footer-copyright a"
   );
   kemet_css(
-    "kemet-settings[footer-link-h-color]",
+    "kemet-settings[copyright-link-h-color]",
     "color",
     ".kmt-footer-copyright a:hover"
   );
@@ -1756,11 +1757,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     ".kemet-footer"
   );
-  kemet_css(
-    "kemet-settings[footer-font-style]",
-    "font-style",
-    ".kemet-footer"
-  );
+  kemet_css("kemet-settings[footer-font-style]", "font-style", ".kemet-footer");
   kemet_responsive_slider(
     "kemet-settings[footer-line-height]",
     ".kemet-footer",
@@ -1897,7 +1894,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "text-transform",
     $inputs_selectors
   );
-  kemet_css("kemet-settings[inputs-font-style]", "font-style", $inputs_selectors);
+  kemet_css(
+    "kemet-settings[inputs-font-style]",
+    "font-style",
+    $inputs_selectors
+  );
   kemet_responsive_slider(
     "kemet-settings[input-radius]",
     $inputs_selectors,
@@ -1908,11 +1909,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     $inputs_selectors,
     "border-width"
   );
-  kemet_css(
-    "kemet-settings[input-text-color]",
-    "color",
-    $inputs_selectors
-  );
+  kemet_css("kemet-settings[input-text-color]", "color", $inputs_selectors);
   kemet_css(
     "kemet-settings[input-bg-color]",
     "background-color",

@@ -232,7 +232,8 @@ li.kmt-sitehead-custom-menu-items {
 
       .page_item_has_children,
       .menu-item-has-children {
-        .sub-menu {
+        .sub-menu,
+        ul.children {
           display: none;
         }
 
@@ -316,7 +317,8 @@ li.kmt-sitehead-custom-menu-items {
     margin: 0 -20px;
   }
   .main-header-menu {
-    ul.sub-menu ul.sub-menu {
+    ul.sub-menu ul.sub-menu,
+    ul.children ul.children {
       top: 0;
     }
   }

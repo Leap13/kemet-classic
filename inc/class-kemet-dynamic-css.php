@@ -271,8 +271,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_bg_obj       = kemet_get_option( 'footer-bar-bg-obj', array( 'background-color' => kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) ) );
 			$footer_bar_spacing  = kemet_get_option( 'footer-bar-padding' );
 			$footer_color        = kemet_get_option( 'footer-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_link_color   = kemet_get_option( 'footer-link-color', $global_footer_text_color );
-			$footer_link_h_color = kemet_get_option( 'footer-link-h-color', $theme_color );
+			$footer_link_color   = kemet_get_option( 'copyright-link-color', $global_footer_text_color );
+			$footer_link_h_color = kemet_get_option( 'copyright-link-h-color', $theme_color );
 
 			// Footer Button color
 			$footer_button_color         = kemet_get_option( 'footer-button-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
