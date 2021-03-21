@@ -1114,9 +1114,6 @@ $site_sidebar = kemet_layout();
          * YITH WooCommerce Wishlist Style
          */
         $yith_wcwl_main_style = array(
-            '.yes-js.js_active .kmt-plain-container.kmt-single-post #primary' => array(
-                'margin' => esc_attr('4em 0'),
-            ),
             '.js_active .kmt-plain-container.kmt-single-post .entry-header' => array(
                 'margin-top' => esc_attr('0'),
             ),
@@ -1162,12 +1159,6 @@ $site_sidebar = kemet_layout();
         /* Parse CSS from array() */
         $yith_wcwl_main_style = kemet_parse_css($yith_wcwl_main_style);
 
-        $yith_wcwl_main_style_small = array(
-            '.yes-js.js_active .kmt-plain-container.kmt-single-post #primary' => array(
-                'padding' => esc_attr('1.5em 0'),
-                'margin' => esc_attr('0'),
-            ),
-        );
         /* Parse CSS from array()*/
         $yith_wcwl_main_style .= kemet_parse_css($yith_wcwl_main_style_small, '', '768');
 
