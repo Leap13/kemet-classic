@@ -614,7 +614,7 @@ p.demo_store a,
 
 .woocommerce div.product span.price,
 .woocommerce div.product p.price {
-	margin: 0 0 0.2em;
+	margin: 0 0 0.5em;
 	color: #77a464;
 	font-size: 1.5rem;
 	font-weight: normal;
