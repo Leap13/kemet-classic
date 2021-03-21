@@ -144,7 +144,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$menu_font_family              = kemet_get_option( 'menu-items-font-family' );
 			$menu_font_weight              = kemet_get_option( 'menu-items-font-weight' );
 			$menu_line_height              = kemet_get_option( 'menu-items-line-height' );
-			$menu_link_bottom_border_color = kemet_get_option( 'menu-link-bottom-border-color', $theme_color );
 			$menu_text_transform           = kemet_get_option( 'menu-items-text-transform' );
 			$menu_font_style               = kemet_get_option( 'menu-items-font-style' );
 			$menu_font_size                = kemet_get_option( 'menu-font-size' );
