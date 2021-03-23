@@ -2832,7 +2832,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	list-style: none;
 }
 
-.main-header-menu a:not(.button) {
+.main-header-menu li > a {
 	display: inline-block;
 	padding: 1em;
 	text-decoration: none;
@@ -4406,12 +4406,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-header-break-point .main-navigation .widget:last-child {
 	margin-bottom: 0;
-}
-
-.kmt-header-break-point .main-header-bar-navigation {
-	width: -webkit-calc(100% + 40px);
-	width: calc(100% + 40px);
-	margin: 0 -20px;
 }
 
 .kmt-header-break-point .main-header-menu ul.sub-menu ul.sub-menu,

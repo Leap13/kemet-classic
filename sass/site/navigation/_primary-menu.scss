@@ -27,7 +27,7 @@
 }
 
 .main-header-menu {
-  a:not(.button) {
+  li > a {
     text-decoration: none;
     padding: 1em;
     display: inline-block;
