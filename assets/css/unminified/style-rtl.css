@@ -2319,15 +2319,15 @@ input[type="submit"]:focus {
 }
 
 select,
-input {
-	line-height: 1;
-}
-
-body,
+input,
 button,
 input[type="button"],
 input[type="submit"],
 textarea {
+	line-height: 1.1;
+}
+
+body {
 	line-height: 1.85714285714286;
 }
 
