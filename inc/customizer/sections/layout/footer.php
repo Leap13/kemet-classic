@@ -373,31 +373,65 @@ $wp_customize->add_control(
         )
     )
 );
+
 /**
-* Option: Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-color]', array(
-        'default'           => $defaults[ 'footer-color' ],
-        'type'              => 'option',
+ * Option: Colors
+ */
+$fields         = array(
+	/**
+	 * Option - Color
+	 */
+	array(
+		'id'           => '[footer-color]',
+		'default'      => $defaults['footer-color'],
+		'type'         => 'option',
+		'control_type' => 'kmt-color',
         'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
+		'label'        => __( 'Text Color', 'kemet' ),
+		'priority'     => 1,
+		'section'      => 'section-footer-copyright',
+        'tab'          => __( 'Normal', 'kemet' ),
+	),
+	array(
+		'id'           => '[copyright-link-color]',
+		'default'      => $defaults['copyright-link-color'],
+		'type'         => 'option',
+		'control_type' => 'kmt-color',
+        'transport'         => 'postMessage',
+		'label'        => __( 'Links Color', 'kemet' ),
+		'priority'     => 2,
+		'section'      => 'section-footer-copyright',
+        'tab'          => __( 'Normal', 'kemet' ),
+	),
+    /**
+	 * Option - Hover Color
+	 */
+	array(
+		'id'           => '[copyright-link-h-color]',
+		'default'      => $defaults['copyright-link-h-color'],
+		'type'         => 'option',
+		'control_type' => 'kmt-color',
+        'transport'         => 'postMessage',
+		'label'        => __( 'Link Color', 'kemet' ),
+		'priority'     => 3,
+		'section'      => 'section-footer-copyright',
+		'tab'          => __( 'Hover', 'kemet' ),
+	),
 );
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-color]', array(
-            'label'   => __( 'Font Color', 'kemet' ),
-            'section' => 'section-footer-copyright',
-            'priority' => 60,
-        )
-    )
+$group_settings = array(
+	'parent_id'  => KEMET_THEME_SETTINGS . '[kmt-copyright-colors]',
+	'type'       => 'kmt-group',
+	'label'      => __( 'Colors', 'kemet' ),
+	'section'    => 'section-footer-copyright',
+	'priority'   => 60,
+	'settings'   => array(),
+	'dependency'  => array(
+        'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
+        'conditions' => '!=', 
+        'values' => 'disabled',
+    ),
 );
+new Kemet_Generate_Control_Group( $wp_customize, $group_settings, $fields );
 
 /**
 * Option: Footer Font Size
@@ -467,57 +501,6 @@ $wp_customize->add_control(
                     'max' => 10,
                 ),
             ),
-        )
-    )
-);
-/**
-* Option: Link Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-color]', array(
-        'default'           => $defaults[ 'footer-link-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-color]', array(
-            'label'   => __( 'Link Color', 'kemet' ),
-            'section' => 'section-footer-copyright',
-            'priority'    => 70,
-        )
-    )
-);
-
-/**
-* Option: Link Hover Color
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
-        'default'           =>  $defaults[ 'footer-link-h-color' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-        'dependency'  => array(
-            'controls' =>  KEMET_THEME_SETTINGS . '[copyright-footer-layout]', 
-            'conditions' => '!=', 
-            'values' => 'disabled',
-        ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Color(
-        $wp_customize, KEMET_THEME_SETTINGS . '[footer-link-h-color]', array(
-            'label'   => __( 'Link Hover Color', 'kemet' ),
-            'section' => 'section-footer-copyright',
-            'priority' => 75,
         )
     )
 );

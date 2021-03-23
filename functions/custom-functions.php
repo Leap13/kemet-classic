@@ -208,7 +208,7 @@ if (!function_exists('kemet_logo')) {
          * Echo or Return the Logo Markup
          */
         if ($echo) {
-            echo $html;
+            printf("%s" , $html);
         } else {
             return $html;
         }

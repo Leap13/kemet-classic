@@ -27,32 +27,6 @@
       text-align: center;
       color: #000;
     }
-
-    @media (min-width: $col-xs) {
-      .nav-links {
-        display: flex;
-      }
-
-      .nav-previous,
-      .nav-next {
-        flex: auto;
-      }
-    }
-
-    @media (max-width: $mx-col-xs) {
-      .nav-previous,
-      .nav-next {
-        width: 100%;
-
-        a {
-          width: 100%;
-        }
-      }
-
-      .nav-previous {
-        margin-bottom: 1em;
-      }
-    }
   }
 
   /*Page builder single post meta*/

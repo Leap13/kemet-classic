@@ -115,8 +115,6 @@
     border: none;
     transition: width 0.2s;
     border-radius: inherit;
-    color: inherit;
-    font-size: inherit;
     width: 240px;
     border-width: 1px;
     border-style: solid;
@@ -140,9 +138,9 @@ li.kmt-sitehead-custom-menu-items {
     padding-left: 0;
     padding-right: 0;
   }
-  a,
-  a:hover,
-  a:focus {
+  a:not(.button),
+  a:not(.button):hover,
+  a:not(.button):focus {
     background: transparent;
   }
   .kmt-search-icon .kemet-search-icon {
@@ -234,7 +232,8 @@ li.kmt-sitehead-custom-menu-items {
 
       .page_item_has_children,
       .menu-item-has-children {
-        .sub-menu {
+        .sub-menu,
+        ul.children {
           display: none;
         }
 
@@ -313,12 +312,9 @@ li.kmt-sitehead-custom-menu-items {
   }
 
   /* Main Header */
-  .main-header-bar-navigation {
-    width: calc(100% + 40px);
-    margin: 0 -20px;
-  }
   .main-header-menu {
-    ul ul {
+    ul.sub-menu ul.sub-menu,
+    ul.children ul.children {
       top: 0;
     }
   }

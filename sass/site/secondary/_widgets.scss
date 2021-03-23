@@ -109,7 +109,15 @@ h4.widget-title {
     padding: 16px 45px 16px 15px;
   }
 }
-
+// Recent Comments
+.widget_recent_comments {
+  ul {
+    > li {
+      margin-bottom: 0;
+      padding: 15px 0;
+    }
+  }
+}
 /* Widget - Archive */
 /* Widget - Categories */
 .widget_pages,
@@ -139,8 +147,9 @@ h4.widget-title {
     margin-top: 10px;
     display: inline-block;
     a {
-      border: 1px solid $color-border-dotted-widget;
       padding: 0.5em 0.9em;
+      border-width: 1px;
+      border-style: solid;
       display: inline-block;
       margin-bottom: 4px;
       font-size: 14px;
@@ -177,7 +186,6 @@ h4.widget-title {
   thead {
     line-height: 2.5em;
     a {
-      color: $color-background-active;
       font-size: 1rem;
       vertical-align: middle;
     }

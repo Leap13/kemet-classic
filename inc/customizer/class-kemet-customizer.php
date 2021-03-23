@@ -426,12 +426,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					$fullsizepath = get_attached_file( $image->ID );
 
 					if ( false !== $fullsizepath || file_exists( $fullsizepath ) ) {
-
-						$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
-
-						if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {
-							wp_update_attachment_metadata( $image->ID, $metadata );
-						}
+						if(function_exists('wp_generate_attachment_metadata')){
+							$metadata = wp_generate_attachment_metadata( $image->ID, $fullsizepath );
+							if ( ! is_wp_error( $metadata ) && ! empty( $metadata ) ) {
+								wp_update_attachment_metadata( $image->ID, $metadata );
+							}
+						}						
 					}
 				}
 			}

@@ -240,6 +240,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Title Font Style
+	*/
+	array(
+		'id'           => '[post-title-font-style]',
+		'default'      => $defaults['post-title-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-blog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
     * Option: Title Line Height
     */
       array(
@@ -370,6 +389,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Post Meta Font Style
+	*/
+	array(
+		'id'           => '[post-meta-font-style]',
+		'default'      => $defaults['post-meta-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-blog',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
     * Option: Title Line Height
     */
       array(
@@ -478,35 +516,7 @@ $group_settings = array(
     'settings' => array(),
 );
 new Kemet_Generate_Control_Group($wp_customize, $group_settings , $fields);
-/**
-* Option - Pagination Spacing
-*/
-$wp_customize->add_setting(
-    KEMET_THEME_SETTINGS . '[pagination-padding]', array(
-        'default'           => $defaults[ 'pagination-padding' ],
-        'type'              => 'option',
-        'transport'         => 'postMessage',
-        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-    )
-);
-$wp_customize->add_control(
-    new Kemet_Control_Responsive_Spacing(
-        $wp_customize, KEMET_THEME_SETTINGS . '[pagination-padding]', array(
-            'type'           => 'kmt-responsive-spacing',
-            'section'        => 'section-blog',
-            'priority'       => 66,
-            'label'          => __( 'Pagination Spacing', 'kemet' ),
-            'linked_choices' => true,
-            'unit_choices'   => array( 'px', 'em', '%' ),
-            'choices'        => array(
-                'top'    => __( 'Top', 'kemet' ),
-                'right'  => __( 'Right', 'kemet' ),
-                'bottom' => __( 'Bottom', 'kemet' ),
-                'left'   => __( 'Left', 'kemet' ),
-            ),
-        )
-    )
-);
+
 /**
 * Option:Post Main Content Entry Color
 */
@@ -522,7 +532,7 @@ $wp_customize->add_control(
     new Kemet_Control_Color(
         $wp_customize, KEMET_THEME_SETTINGS . '[main-entry-content-color]', array(
             'label'   => __( 'Main Content Entry Color', 'kemet' ),
-            'priority'       => 66,
+            'priority'       => 27,
             'section' => 'section-blog',
         )
     )
@@ -745,6 +755,36 @@ $wp_customize->add_control(
             'section'        => 'section-blog',
             'priority'       => 115,
             'label'          => __( 'Read More Padding', 'kemet' ),
+            'linked_choices' => true,
+            'unit_choices'   => array( 'px', 'em', '%' ),
+            'choices'        => array(
+                'top'    => __( 'Top', 'kemet' ),
+                'right'  => __( 'Right', 'kemet' ),
+                'bottom' => __( 'Bottom', 'kemet' ),
+                'left'   => __( 'Left', 'kemet' ),
+            ),
+        )
+    )
+);
+
+/**
+* Option - Pagination Spacing
+*/
+$wp_customize->add_setting(
+    KEMET_THEME_SETTINGS . '[pagination-padding]', array(
+        'default'           => $defaults[ 'pagination-padding' ],
+        'type'              => 'option',
+        'transport'         => 'postMessage',
+        'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+    )
+);
+$wp_customize->add_control(
+    new Kemet_Control_Responsive_Spacing(
+        $wp_customize, KEMET_THEME_SETTINGS . '[pagination-padding]', array(
+            'type'           => 'kmt-responsive-spacing',
+            'section'        => 'section-blog',
+            'priority'       => 175,
+            'label'          => __( 'Pagination Spacing', 'kemet' ),
             'linked_choices' => true,
             'unit_choices'   => array( 'px', 'em', '%' ),
             'choices'        => array(

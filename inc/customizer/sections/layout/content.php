@@ -122,6 +122,25 @@ $fields = array(
         ),
     ),
     /**
+	* Option: Body Font Style
+	*/
+	array(
+		'id'           => '[body-font-style]',
+		'default'      => $defaults['body-font-style'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-select',
+		'label'        => __( 'Font Style', 'kemet' ),
+		'section'      => 'section-contents',
+		'priority'     => 5,
+		'choices'      => array(
+			'inherit' => __( 'Inherit', 'kemet' ),
+			'normal'  => __( 'Normal', 'kemet' ),
+			'italic'  => __( 'Italic', 'kemet' ),
+			'oblique' => __( 'Oblique', 'kemet' ),
+		),
+	),
+    /**
     * Option: Body Line Height
     */
       array(
