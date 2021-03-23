@@ -1910,14 +1910,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'border-bottom-width' => esc_attr( '1px' ),
 						'border-bottom-color' => esc_attr( $footer_widget_list_border_color ),
 					),
-					'.kemet-footer .woocommerce .widget_shopping_cart .total,.kemet-footer .woocommerce.widget_shopping_cart .total, .kmt-footer-copyright .woocommerce .widget_shopping_cart .total, .	kmt-footer-copyright .woocommerce.widget_shopping_cart .total' => array(
+					'.kemet-footer .woocommerce .widget_shopping_cart .total,.kemet-footer .woocommerce.widget_shopping_cart .total, .kmt-footer-copyright .woocommerce .widget_shopping_cart .total, .kmt-footer-copyright .woocommerce.widget_shopping_cart .total' => array(
 						'border-color' => esc_attr( $footer_widget_list_border_color ),
 					),
 				);
 				$parse_css        .= kemet_parse_css( $widget_list_style );
 			} elseif ( ! $footer_widget_list_border && $widget_list_border_color ) {
 				$footer_widget_separator_style = array(
-					'.	kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li' => array(
+					'.	kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li, .kemet-footer .woocommerce .widget_shopping_cart .total' => array(
 						'border' => 'none',
 					),
 				);

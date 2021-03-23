@@ -877,6 +877,9 @@ $site_sidebar = kemet_layout();
             '.single-product .product a.compare.button, .woocommerce .widget_shopping_cart a:not(.button)' => array(
                 'color' => esc_attr( $headings_links_color )
             ),
+            '.widget_shopping_cart' => array(
+                'color' => esc_attr( $text_meta_color ),
+            ),
             '.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
                 'color' => esc_attr( $theme_color )
             ),
