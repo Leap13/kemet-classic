@@ -1,3 +1,10 @@
+v 1.1.12 version
+- Added: Header options enhancements.
+- Added: Menu items color options.
+- Fixed: Top bar menu style issue.
+- Fixed: Woocommerce button style.
+- Fixed: Posts tags style issue in listing.
+
 v 1.1.11 version
 - Fixed: RTL sub menu style
 
