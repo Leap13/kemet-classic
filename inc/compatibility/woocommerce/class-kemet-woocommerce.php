@@ -827,7 +827,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce-tabs .entry-content' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
-            '.woocommerce-message , .woocommerce-error , .woocommerce-info' => array(
+            '.woocommerce .woocommerce-message ,.woocommerce .woocommerce-error ,.woocommerce .woocommerce-info' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
             '.order-total' => array(
@@ -897,7 +897,7 @@ $site_sidebar = kemet_layout();
                 'border-color' => esc_attr($btn_border_h_color),
                 'background-color' => esc_attr($btn_bg_h_color),
             ),
-            '.woocommerce-message, .woocommerce-info' => array(
+            '.woocommerce .woocommerce-message,.woocommerce .woocommerce-info' => array(
                 'border-top-color' => esc_attr($global_border_color),
             ),
             '.woocommerce-message::before,.woocommerce-info::before' => array(

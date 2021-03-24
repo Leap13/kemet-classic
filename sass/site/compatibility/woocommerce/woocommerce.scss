@@ -2593,52 +2593,50 @@ button.pswp__button--close:hover {
 button.pswp__button--zoom:hover {
   background-position: -88px 0;
 }
-
-.woocommerce-message,
-.woocommerce-error,
-.woocommerce-info {
-  text-align: center;
-  padding: 0.5em 3.5em;
-  margin: 0 0 2em;
-  position: relative;
-  border: 1px solid;
-  list-style: none outside;
-  @include clearfix();
-  width: auto;
-  word-wrap: break-word;
-
-  .button {
-    background-color: transparent;
-    padding: 0;
+.woocommerce,
+.woocommerce-page {
+  .woocommerce-message,
+  .woocommerce-error,
+  .woocommerce-info {
+    text-align: center;
+    padding: 0.5em 3.5em;
+    margin: 0 0 2em;
     position: relative;
-    &::before {
-      font-family: "WooCommerce";
-      content: "\e028";
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(-20px, 0);
+    border: 1px solid;
+    list-style: none outside;
+    @include clearfix();
+    width: auto;
+    word-wrap: break-word;
+
+    .button {
+      background-color: transparent;
+      padding: 0;
+      position: relative;
+      &::before {
+        font-family: "WooCommerce";
+        content: "\e028";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-20px, 0);
+      }
+    }
+
+    li {
+      list-style: none outside !important; // Required for default theme compatibility
+      padding-left: 0 !important; // Required for default theme compatibility
+      margin-left: 0 !important; // Required for default theme compatibility
+    }
+    @media (max-width: $mx-col-sm) {
+      display: flex;
+      flex-wrap: wrap;
+      a.button {
+        order: 1;
+        margin-top: 0.5em;
+      }
     }
   }
-
-  li {
-    list-style: none outside !important; // Required for default theme compatibility
-    padding-left: 0 !important; // Required for default theme compatibility
-    margin-left: 0 !important; // Required for default theme compatibility
-  }
-
-  @media (max-width: $mx-col-sm) {
-    display: flex;
-    flex-wrap: wrap;
-    a.button {
-      order: 1;
-      margin-top: 0.5em;
-    }
-  }
-}
-
-.woocommerce {
   .woocommerce-message {
     .button,
     a {
@@ -2655,48 +2653,48 @@ button.pswp__button--zoom:hover {
       }
     }
   }
-}
+  .woocommerce-info {
+    .button,
+    a {
+      border-top-color: #1e85be;
 
-.woocommerce-info {
-  .button,
-  a {
-    border-top-color: #1e85be;
+      &::before {
+        color: #1e85be;
+      }
+    }
+  }
+  ul.woocommerce-error {
+    margin: 0;
+    border: 0;
+  }
+  .woocommerce-error {
+    .button,
+    a {
+      border-top-color: #b81c23;
 
-    &::before {
-      color: #1e85be;
+      &::before {
+        content: "\e016";
+        color: #b81c23;
+        font-family: "WooCommerce";
+      }
+    }
+    li {
+      margin-bottom: 15px;
+      border: 1px solid rgb(231, 169, 169);
+      color: rgb(208, 69, 68);
+      padding: 8px;
+      position: relative;
+      text-align: center;
+      background-color: rgb(255, 233, 233);
+      &::before {
+        content: "\e016";
+        color: #b81c23;
+        font-family: "WooCommerce";
+      }
     }
   }
 }
-ul.woocommerce-error {
-  margin: 0;
-  border: 0;
-}
-.woocommerce-error {
-  .button,
-  a {
-    border-top-color: #b81c23;
 
-    &::before {
-      content: "\e016";
-      color: #b81c23;
-      font-family: "WooCommerce";
-    }
-  }
-  li {
-    margin-bottom: 15px;
-    border: 1px solid rgb(231, 169, 169);
-    color: rgb(208, 69, 68);
-    padding: 8px;
-    position: relative;
-    text-align: center;
-    background-color: rgb(255, 233, 233);
-    &::before {
-      content: "\e016";
-      color: #b81c23;
-      font-family: "WooCommerce";
-    }
-  }
-}
 /**
  * Account page
  */
