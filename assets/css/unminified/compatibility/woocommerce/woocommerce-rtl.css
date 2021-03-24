@@ -5020,7 +5020,8 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .added_to_cart {
 	display: block;
 	background-color: transparent;
-	font-weight: normal;
+	font-family: inherit;
+	font-weight: inherit;
 }
 
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .add_to_cart_button,

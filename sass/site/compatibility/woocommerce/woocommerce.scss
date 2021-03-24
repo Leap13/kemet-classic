@@ -3814,9 +3814,10 @@ body:not(.kmt-separate-container) {
           }
           .button,
           .added_to_cart {
+            font-weight: inherit;
+            font-family: inherit;
             display: block;
             background-color: transparent;
-            font-weight: normal;
           }
           .add_to_cart_button,
           .added_to_cart {
