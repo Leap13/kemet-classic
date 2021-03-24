@@ -706,9 +706,12 @@ $site_sidebar = kemet_layout();
         $global_border_color = kemet_get_option('global-border-color');
         $global_bg_color = kemet_get_option('global-background-color');
         $body_bg_color = kemet_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
+        $global_footer_bg_color   = kemet_get_option( 'global-footer-bg-color' );
         $global_footer_text_color = kemet_get_option('global-footer-text-color');
         $kemet_footer_link_color = kemet_get_option('footer-link-color', $global_footer_text_color);
-
+        $kemet_footer_link_h_color       = kemet_get_option( 'footer-link-h-color', $theme_color );
+		$kemet_footer_widget_bg_color    = kemet_get_option( 'footer-wgt-bg-color' );
+        
         $btn_color = kemet_get_option('button-color', '#ffffff');
         $btn_h_color = kemet_get_option('button-h-color', $btn_color);
         $btn_bg_color = kemet_get_option('button-bg-color', $theme_color);
@@ -769,8 +772,8 @@ $site_sidebar = kemet_layout();
         $cart_dropdown_border_color = kemet_get_option('cart-dropdown-border-color', $global_border_color);
         $cart_dropdown_bg_color = kemet_get_option('cart-dropdown-bg-color', $global_bg_color);
         // Widget Separator
-			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+        $widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
+        $widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
 
         $css_output = array(
             '.woocommerce .woocommerce-message .button ,.woocommerce-info .button, .woocommerce-info a' => array(
@@ -880,6 +883,9 @@ $site_sidebar = kemet_layout();
             '.widget_shopping_cart' => array(
                 'color' => esc_attr( $text_meta_color ),
             ),
+            '.kemet-footer .widget_shopping_cart' => array(
+                'color' => esc_attr( $global_footer_text_color ),
+            ),
             '.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
                 'color' => esc_attr( $theme_color )
             ),
@@ -938,6 +944,20 @@ $site_sidebar = kemet_layout();
             '.woocommerce a.remove:hover, .woocommerce-page a.remove:hover' => array(
                 'color' => esc_attr( $theme_color ),
                 'border-color' => esc_attr( kemet_color_brightness( $global_border_color, 0.9, 'dark' ) )
+            ),
+            '.woocommerce .kemet-footer a.remove, .woocommerce-page .kemet-footer a.remove' => array(
+                'color' => esc_attr( $kemet_footer_link_color ),
+                'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) )
+            ),
+            '.woocommerce .kemet-footer a.remove:hover, .woocommerce-page .kemet-footer a.remove:hover' => array(
+                'color' => esc_attr( $kemet_footer_link_h_color ),
+                'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.8, 'light' ) )
+            ),
+            '.kemet-footer .woocommerce.widget_shopping_cart a:not(.button)' => array(
+                'color' => esc_attr( $kemet_footer_link_color ),
+            ),
+            '.kemet-footer .woocommerce.widget_shopping_cart a:not(.button):hover' => array(
+                'color' => esc_attr( $kemet_footer_link_h_color ),
             ),
             '.woocommerce .widget .amount, .woocommerce .widget ins' => array(
                 'color' => esc_attr($theme_color),
