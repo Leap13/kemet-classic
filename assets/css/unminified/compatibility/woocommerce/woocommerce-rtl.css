@@ -2613,8 +2613,6 @@ p.demo_store a,
 
 .woocommerce .widget_product_search button,
 .woocommerce-page .widget_product_search button {
-	padding: 10px 20px;
-
 	flex: 0 0 auto;
 }
 
