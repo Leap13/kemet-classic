@@ -88,7 +88,6 @@ pre {
   font-family: "Courier 10 Pitch", Courier, monospace;
   margin-bottom: 1.6em;
   overflow: auto;
-  max-width: 100%;
   padding: 1.6em;
 }
 
@@ -109,6 +108,10 @@ hr {
   border: 0;
   height: 1px;
   margin-bottom: 1.5em;
+  &.wp-block-separator {
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+  }
 }
 
 .kmt-button,

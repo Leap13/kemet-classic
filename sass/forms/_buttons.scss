@@ -3,7 +3,9 @@ button,
 .button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.wp-block-button__link,
+a.wp-block-button__link {
   border: 1px solid;
   border-radius: 2px;
   padding: 0.6em 1em;
@@ -11,5 +13,20 @@ input[type="submit"] {
   &:active,
   &:focus {
     outline: none;
+  }
+}
+
+.wp-block-button__link {
+  margin-bottom: 10px;
+}
+.wp-block-button {
+  &.is-style-outline {
+    > a.wp-block-button__link {
+      border-width: 2px;
+      border-style: solid;
+      &:hover {
+        background-color: transparent;
+      }
+    }
   }
 }

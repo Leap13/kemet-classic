@@ -1,28 +1,28 @@
 .alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
+  display: inline;
+  float: left;
+  margin-right: 2em;
 }
 
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
+  display: inline;
+  float: right;
+  margin-left: 2em;
 }
 
-.aligncenter {
-	clear: both;
-	@include center-block;
+.aligncenter:not([class^="wp-block"]) {
+  clear: both;
+  @include center-block;
 }
 
 .align-right {
-    text-align: right;
+  text-align: right;
 }
 
 .align-left {
-    text-align: left;
+  text-align: left;
 }
 
 .align-center {
-    text-align: center;
+  text-align: center;
 }

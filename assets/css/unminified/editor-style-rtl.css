@@ -118,10 +118,22 @@ summary {
 	display: block;
 }
 
-figcaption {
+figcaption,
+figcaption.gallery-caption {
 	font-size: 13px;
-	line-height: 13px;
 	text-align: center;
+}
+
+figcaption.gallery-caption {
+	margin: 4px 0;
+}
+
+.wp-block-image figcaption {
+	line-height: inherit;
+}
+
+.wp-block-image figcaption a {
+	display: block;
 }
 
 audio,
@@ -1737,7 +1749,6 @@ acronym {
 
 pre {
 	overflow: auto;
-	max-width: 100%;
 	margin-bottom: 1.6em;
 	padding: 1.6em;
 	background: #eee;
@@ -1763,6 +1774,11 @@ hr {
 	margin-bottom: 1.5em;
 	border: 0;
 	background-color: #ccc;
+}
+
+hr.wp-block-separator {
+	padding-top: 0.1px;
+	padding-bottom: 0.1px;
 }
 
 .kmt-button,
@@ -1858,7 +1874,9 @@ button,
 .button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.wp-block-button__link,
+a.wp-block-button__link {
 	padding: 0.6em 1em;
 	border: 1px solid;
 	-webkit-border-radius: 2px;
@@ -1876,8 +1894,25 @@ input[type="button"]:focus,
 input[type="reset"]:active,
 input[type="reset"]:focus,
 input[type="submit"]:active,
-input[type="submit"]:focus {
+input[type="submit"]:focus,
+.wp-block-button__link:active,
+.wp-block-button__link:focus,
+a.wp-block-button__link:active,
+a.wp-block-button__link:focus {
 	outline: none;
+}
+
+.wp-block-button__link {
+	margin-bottom: 10px;
+}
+
+.wp-block-button.is-style-outline > a.wp-block-button__link {
+	border-width: 2px;
+	border-style: solid;
+}
+
+.wp-block-button.is-style-outline > a.wp-block-button__link:hover {
+	background-color: transparent;
 }
 
 input[type="text"],
@@ -1939,16 +1974,16 @@ textarea {
 .alignleft {
 	display: inline;
 	float: right;
-	margin-left: 1.5em;
+	margin-left: 2em;
 }
 
 .alignright {
 	display: inline;
 	float: left;
-	margin-right: 1.5em;
+	margin-right: 2em;
 }
 
-.aligncenter {
+.aligncenter:not([class^="wp-block"]) {
 	display: block;
 	clear: both;
 	margin-right: auto;
@@ -2168,9 +2203,10 @@ p {
 	margin-bottom: 1.75em;
 }
 
-blockquote {
+blockquote,
+blockquote.wp-block-quote {
 	position: relative;
-	margin: 1.5em 3em 1.5em 1em;
+	margin: 1.5em auto;
 	padding: 1.2em;
 	font-size: 1.1em;
 	line-height: inherit;
@@ -2364,18 +2400,29 @@ body {
 }
 
 /* Kemet Respnosive oEmbed Video container */
+.kmt-single-post .wp-block-embed__wrapper::before {
+	display: none !important;
+}
+
 .kmt-oembed-container {
 	overflow: hidden;
 	position: relative;
-	max-width: 100%;
+	width: 100%;
+	/* 16.9 */
 	height: 0;
+	padding-bottom: 56.25%;
+	background-color: #000;
+}
+
+.kmt-oembed-container.relaxed {
 	height: auto;
-	padding-top: 56.25%;
+	min-height: 200px;
+	padding-bottom: 10px;
+	background: none;
 }
 
 .kmt-oembed-container iframe,
-.kmt-oembed-container object,
-.kmt-oembed-container embed {
+.kmt-oembed-container audio {
 	position: absolute;
 	top: 0;
 	right: 0;

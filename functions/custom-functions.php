@@ -1669,3 +1669,114 @@ function svg_upload_support($mimes)
 }
 
 add_action('upload_mimes', 'svg_upload_support');
+
+/**
+ * Gutenberg Support
+ *
+ * @return void
+ */
+function gutenberg_support() {
+	// Adding support for core block visual styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
+	/* Add support for responsive embedded content. */
+	add_theme_support( 'responsive-embeds' );
+
+	add_theme_support( 'editor-styles' );
+
+	add_editor_style( 'style-editor.css' );
+
+	// Global Color
+	$theme_color          = kemet_get_option( 'theme-color' );
+	$headings_links_color = kemet_get_option( 'headings-links-color' );
+	$text_meta_color      = kemet_get_option( 'text-meta-color' );
+	$global_border_color  = kemet_get_option( 'global-border-color' );
+	$global_bg_color      = kemet_get_option( 'global-background-color' );
+
+	add_theme_support(
+		'editor-color-palette', array(
+			array(
+				'name'  => __( 'Global Color', 'kemet' ),
+				'slug'  => 'global',
+				'color' => $theme_color,
+			),
+			array(
+				'name'  => __( 'Global Background Color', 'kemet' ),
+				'slug'  => 'global-bg',
+				'color' => $global_bg_color,
+			),
+			array(
+				'name'  => __( 'Global Headings Color', 'kemet' ),
+				'slug'  => 'headings-links',
+				'color' => $headings_links_color,
+			),
+			array(
+				'name'  => __( 'Global Text Color', 'kemet' ),
+				'slug'  => 'text-meta',
+				'color' => $text_meta_color,
+			),
+			array(
+				'name'  => __( 'Global Border Color', 'kemet' ),
+				'slug'  => 'global-border',
+				'color' => $global_border_color,
+			),
+		)
+	);
+
+	add_theme_support(
+		'editor-font-sizes', array(
+			array(
+				'name'      => __( 'Small', 'kemet' ),
+				'shortName' => __( 'S', 'kemet' ),
+				'size'      => 12,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => __( 'Normal', 'kemet' ),
+				'shortName' => __( 'M', 'kemet' ),
+				'size'      => 15,
+				'slug'      => 'normal',
+			),
+			array(
+				'name'      => __( 'Large', 'kemet' ),
+				'shortName' => __( 'L', 'kemet' ),
+				'size'      => 17,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => __( 'Huge', 'kemet' ),
+				'shortName' => __( 'XL', 'kemet' ),
+				'size'      => 23,
+				'slug'      => 'huge',
+			),
+		)
+	);
+}
+
+add_action( 'after_setup_theme', 'gutenberg_support', 10 );
+
+if ( ! function_exists( 'kemet_wrap_embed_media' ) ) {
+	/**
+	 *  Wrap video embeds with a generic class
+	 */
+	function kemet_wrap_embed_media( $html ) {
+
+		// List of emebeds we want a responsive but auto height orientation
+
+	     if (false !== strpos( $html, 'twitter' ) ||
+	     	 false !== strpos( $html, 'facebook') ||
+	     	 false !== strpos( $html, 'mixcloud') ) {
+	        return '<div class="kmt-oembed-container relaxed">' . $html . '</div>';
+	    }
+	    else {
+	    	// Widescreen responsive format
+	        return '<div class="kmt-oembed-container">' . $html . '</div>';
+		}
+	}
+
+}
+
+add_filter( 'embed_oembed_html', 'kemet_wrap_embed_media' );
