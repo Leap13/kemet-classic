@@ -282,6 +282,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_button_border_radius = kemet_get_option( 'footer-button-radius' );
 			$footer_button_border_width  = kemet_get_option( 'footer-button-border-width' );
 			$footer_button_border_color  = kemet_get_option( 'footer-button-border-color', kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) );
+			$footer_button_border_h_color  = kemet_get_option( 'footer-button-border-h-color', $footer_button_border_color );
 
 			// Footer Input Color
 			$footer_input_color         = kemet_get_option( 'footer-input-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
@@ -748,6 +749,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kemet-footer button:focus, .kemet-footer button:hover, .kemet-footer .kmt-button:hover, .kemet-footer .button:hover, .kemet-footer a.button:hover, .kemet-footer input[type=reset]:hover, .kemet-footer input[type=reset]:focus, .kemet-footer input#submit:hover, .kemet-footer input#submit:focus, .kemet-footer input[type="button"]:hover, .kemet-footer input[type="button"]:focus, .kemet-footer input[type="submit"]:hover, .kemet-footer input[type="submit"]:focus' => array(
 					'color'            => esc_attr( $footer_button_hover_color ),
 					'background-color' => esc_attr( $footer_button_bg_h_color ),
+					'border-color'     => esc_attr( $footer_button_border_h_color )
 				),
 				// header spacing
 				'.site-header:not(.kmt-is-sticky) .main-header-bar' => array(

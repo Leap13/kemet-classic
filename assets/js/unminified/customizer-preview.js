@@ -1795,7 +1795,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "background-color",
     footerBtnHover
   );
-
   /**
    * Footer Button Border Radius
    */
@@ -1813,6 +1812,11 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     "kemet-settings[footer-button-border-color]",
     "border-color",
     footerBtn
+  );
+  kemet_css(
+    "kemet-settings[footer-button-border-h-color]",
+    "border-color",
+    footerBtnHover
   );
   kemet_responsive_slider(
     "kemet-settings[footer-input-border-radius]",

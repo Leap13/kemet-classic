@@ -177,6 +177,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-button-bg-color'               => '',
 					'footer-button-bg-h-color'             => '',
 					'footer-button-border-color'               => '',
+					'footer-button-border-h-color'         => '',
 					'footer-button-radius'                 => '',
 					'footer-button-border-width'                 => '',
 					'footer-input-color'                   => '',
