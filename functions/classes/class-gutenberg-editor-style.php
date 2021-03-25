@@ -351,6 +351,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'font-size'   => esc_attr( '1.75em' ),
 					'margin-bottom' => esc_attr( '1.6em' )
 				),
+				$blocks_parent . ' .wp-block-pullquote.alignright p, ' . $blocks_parent . ' .wp-block-pullquote.alignleft p' => array(
+					'font-size' => esc_attr( '1.25em' )
+				),
 				$blocks_parent . ' p, ' . $blocks_parent . ' blockquote p:last-child' => array(
 					'margin-bottom' => esc_attr( '1.6em' )
 				),
