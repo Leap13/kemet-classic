@@ -219,6 +219,11 @@ body:not(.kmt-separate-container) {
     padding-right: ($grid-gutter-width / 2);
   }
 }
+.kmt-plain-container {
+  &.single .post-navigation {
+    padding-bottom: 0;
+  }
+}
 .kmt-right-sidebar,
 .kmt-left-sidebar,
 .kmt-no-sidebar {

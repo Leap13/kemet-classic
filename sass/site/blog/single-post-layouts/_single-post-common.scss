@@ -79,16 +79,11 @@
 }
 
 .post-password-form {
-  text-align: center;
   @media (max-width: $mx-col-xs) {
     input[type="password"] {
       display: block;
       margin: 10px auto;
     }
-  }
-  input[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 2px;
   }
 }
 .kmt-single-post {
@@ -108,6 +103,11 @@
     display: inline;
     float: left;
     margin-right: 2em;
+  }
+  .alignright {
+    display: inline;
+    float: right;
+    margin-left: 2em;
   }
   img[class*="wp-image"].alignleft,
   .wp-caption.alignleft {
@@ -140,6 +140,12 @@
     &:hover {
       opacity: 1;
     }
+  }
+  pre.wp-block-verse {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+  }
+  p.has-drop-cap {
+    overflow: hidden;
   }
 }
 .wp-block-cover.has-left-content {

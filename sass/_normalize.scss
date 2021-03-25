@@ -104,6 +104,11 @@ figcaption.gallery-caption {
     }
   }
 }
+.wp-caption {
+  a {
+    display: block;
+  }
+}
 audio,
 canvas,
 progress,
@@ -202,7 +207,9 @@ pre,
 samp {
   font-size: 1em;
 }
-
+code {
+  padding: 2px;
+}
 button,
 input,
 optgroup,

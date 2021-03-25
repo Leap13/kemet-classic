@@ -5,9 +5,9 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .wp-block-button__link,
-a.wp-block-button__link {
+a.wp-block-button__link,
+.wp-block-search button.wp-block-search__button {
   border: 1px solid;
-  border-radius: 2px;
   padding: 0.6em 1em;
 
   &:active,
@@ -20,6 +20,9 @@ a.wp-block-button__link {
   margin-bottom: 10px;
 }
 .wp-block-button {
+  &.aligncenter {
+    text-align: center;
+  }
   &.is-style-outline {
     > a.wp-block-button__link {
       border-width: 2px;

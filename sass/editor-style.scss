@@ -78,20 +78,14 @@
 @import "site/site-normalize/typography";
 @import "site/media/galleries";
 
-
 body {
-	margin: 20px;
-	vertical-align: baseline;
-	color: $color-text-main;
+  margin: 20px;
+  vertical-align: baseline;
+  color: $color-text-main;
 }
 
 a {
-	color: $color-link;
-}
-
-a:hover,
-a:focus {
-	color: $color-text-main;
+  color: $color-link;
 }
 
 h1,
@@ -106,12 +100,12 @@ h5,
 .entry-content h5,
 h6,
 .entry-content h6 {
-	font-weight: bold;
-	line-height: 1.6;
+  font-weight: bold;
+  line-height: 1.6;
 }
 
 p {
- margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 h1,
@@ -132,7 +126,7 @@ h5,
 h6,
 .entry-content h6,
 .entry-content h6 a {
-	color: $color-text-main;
+  color: $color-text-main;
 }
 
 /**
@@ -142,19 +136,19 @@ h6,
 .mce-item-table td,
 .mce-item-table th,
 .mce-item-table caption {
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.0980392);
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.0980392);
 }
 .mce-item-table td,
 .mce-item-table th {
-    border-width: 0 1px 1px 0;
+  border-width: 0 1px 1px 0;
 }
 .mce-item-table {
-    border-right-width: 0;
-    border-bottom-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
 }
 .elementor-editor-active {
-    elementor-element > .elementor-element-overlay {
-        z-index: 9999;
-    }
+  elementor-element > .elementor-element-overlay {
+    z-index: 9999;
+  }
 }

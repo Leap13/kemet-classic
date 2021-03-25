@@ -61,15 +61,16 @@ q {
     content: "";
   }
 }
-blockquote {
+blockquote,
+blockquote.wp-block-quote {
   border-left: 5px solid rgba(0, 0, 0, 0.05);
   padding: 20px;
   font-size: 1.2em;
   font-style: italic;
   margin: 0 0 1.5em;
   position: relative;
-  p:last-child {
-    margin: 0;
+  &.has-text-align-right {
+    border-left: none;
   }
 }
 
@@ -83,12 +84,14 @@ acronym {
   cursor: help;
 }
 
-pre {
+pre,
+pre.wp-block-code {
   background: $color-background-pre;
   font-family: "Courier 10 Pitch", Courier, monospace;
   margin-bottom: 1.6em;
   overflow: auto;
   padding: 1.6em;
+  white-space: pre-wrap;
 }
 
 code,
@@ -96,6 +99,7 @@ kbd,
 tt,
 var {
   font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  line-height: 1.85714285714286;
 }
 
 img {

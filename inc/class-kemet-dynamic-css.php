@@ -407,9 +407,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-single-post .wp-block-cover-text a:hover, .kmt-single-post .wp-block-cover-text a:active, .kmt-single-post .wp-block-cover-image-text a:active, .kmt-single-post .wp-block-cover-image-text a:focus, .kmt-single-post .wp-block-cover-image-text a:hover' => array(
 					'color' => esc_attr( $theme_color ),
 				),
-				'.kmt-single-post .wp-block-cover-image .wp-block-cover-image-text, .kmt-single-post .wp-block-cover .wp-block-cover-text, .kmt-single-post section.wp-block-cover-image>h2' => array(
-					'font-size' => esc_attr( '17px' ),
-				),
 				'.wp-block-cover .wp-block-cover-text:not(.has-text-color)' => array(
 					'color' => esc_attr( '#fff' ),
 				),
@@ -450,7 +447,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'a:not(.button):hover, a:not(.button):focus , .widget_search .search-form:hover:after' => array(
 					'color' => esc_attr( $theme_color ),
 				),
-				'body, button, input, select, textarea, .button'    => array(
+				'body, button, input, select, textarea, .button, a.wp-block-button__link'    => array(
 					'font-family'    => kemet_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'desktop' ),
@@ -878,7 +875,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'.menu-toggle, button, a.button:hover, .button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, .wp-block-button a.wp-block-button__link' => array(
+				'.menu-toggle, button, a.button:hover, .button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'color'            => esc_attr( $btn_text_color ),
 					'background-color' => esc_attr( $btn_bg_color ),
@@ -898,7 +895,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing'   => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
 				),
 
-				'button:focus, a.button:hover, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, a.button:focus, .wp-block-button a.wp-block-button__link:hover' => array(
+				'button:focus, a.button:hover, .menu-toggle:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, a.button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
 					'border-color'     => esc_attr( $btn_border_h_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
@@ -1204,7 +1201,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Tablet Typography */
 			$tablet_typography = array(
-				'body, button, input, select, textarea, .button' => array(
+				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'tablet' ),
@@ -1332,7 +1329,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_slider( $sidebar_content_font_size, 'tablet' ),
 				),
 				// Button Typography.
-				'.menu-toggle, button, .button , a.button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, a.button:focus, .wp-block-button a.wp-block-button__link' => array(
+				'.menu-toggle, button, .button , a.button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, a.button:focus, .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
 					'font-size'      => kemet_responsive_slider( $btn_font_size, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $btn_line_height, 'tablet' ),
@@ -1504,7 +1501,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Mobile Typography */
 			$mobile_typography = array(
-				'body, button, input, select, textarea, .button' => array(
+				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
 					'font-size'      => kemet_responsive_slider( $body_font_size, 'mobile' ),
 					'letter-spacing' => kemet_responsive_slider( $body_letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $body_line_height, 'mobile' ),
@@ -1591,7 +1588,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'mobile' ),
 				),
 				// Button Typography.
-				'.menu-toggle, button, .button, a.button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, a.button:focus, .wp-block-button a.wp-block-button__link' => array(
+				'.menu-toggle, button, .button, a.button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, a.button:focus, .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
 					'font-size'      => kemet_responsive_slider( $btn_font_size, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $btn_line_height, 'mobile' ),

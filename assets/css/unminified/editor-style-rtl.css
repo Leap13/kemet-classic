@@ -136,6 +136,10 @@ figcaption.gallery-caption {
 	display: block;
 }
 
+.wp-caption a {
+	display: block;
+}
+
 audio,
 canvas,
 progress,
@@ -235,6 +239,10 @@ kbd,
 pre,
 samp {
 	font-size: 1em;
+}
+
+code {
+	padding: 2px;
 }
 
 button,
@@ -1724,7 +1732,8 @@ q:after {
 	content: "";
 }
 
-blockquote {
+blockquote,
+blockquote.wp-block-quote {
 	position: relative;
 	margin: 0 0 1.5em;
 	padding: 20px;
@@ -1733,8 +1742,9 @@ blockquote {
 	font-style: italic;
 }
 
-blockquote p:last-child {
-	margin: 0;
+blockquote.has-text-align-right,
+blockquote.wp-block-quote.has-text-align-right {
+	border-right: none;
 }
 
 address {
@@ -1747,12 +1757,14 @@ acronym {
 	cursor: help;
 }
 
-pre {
+pre,
+pre.wp-block-code {
 	overflow: auto;
 	margin-bottom: 1.6em;
 	padding: 1.6em;
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
+	white-space: pre-wrap;
 }
 
 code,
@@ -1760,6 +1772,7 @@ kbd,
 tt,
 var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	line-height: 1.85714285714286;
 }
 
 img {
@@ -1876,11 +1889,10 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .wp-block-button__link,
-a.wp-block-button__link {
+a.wp-block-button__link,
+.wp-block-search button.wp-block-search__button {
 	padding: 0.6em 1em;
 	border: 1px solid;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
 }
 
 button:active,
@@ -1898,12 +1910,18 @@ input[type="submit"]:focus,
 .wp-block-button__link:active,
 .wp-block-button__link:focus,
 a.wp-block-button__link:active,
-a.wp-block-button__link:focus {
+a.wp-block-button__link:focus,
+.wp-block-search button.wp-block-search__button:active,
+.wp-block-search button.wp-block-search__button:focus {
 	outline: none;
 }
 
 .wp-block-button__link {
 	margin-bottom: 10px;
+}
+
+.wp-block-button.aligncenter {
+	text-align: center;
 }
 
 .wp-block-button.is-style-outline > a.wp-block-button__link {
@@ -2067,7 +2085,6 @@ object {
 
 .wp-caption {
 	max-width: 100%;
-	margin-bottom: 1.5em;
 }
 
 .wp-caption img[class*="wp-image-"] {
@@ -2334,13 +2351,17 @@ input[type="submit"]:focus {
 	font-family: "Open Sans", sans-serif;
 }
 
-select,
-input,
 button,
+.button,
 input[type="button"],
 input[type="submit"],
 textarea {
-	line-height: 1.1;
+	line-height: 1.85714285714286;
+}
+
+select,
+input {
+	line-height: 1;
 }
 
 body {
@@ -2426,14 +2447,7 @@ body {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
-	height: 100%;
-}
-
-body .kmt-oembed-container * {
-	position: absolute;
-	top: 0;
-	right: 0;
+	bottom: 0;
 	width: 100%;
 	height: 100%;
 }
@@ -2446,11 +2460,6 @@ body {
 
 a {
 	color: #191919;
-}
-
-a:hover,
-a:focus {
-	color: #333;
 }
 
 h1,

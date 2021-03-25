@@ -1725,35 +1725,6 @@ function gutenberg_support() {
 			),
 		)
 	);
-
-	add_theme_support(
-		'editor-font-sizes', array(
-			array(
-				'name'      => __( 'Small', 'kemet' ),
-				'shortName' => __( 'S', 'kemet' ),
-				'size'      => 12,
-				'slug'      => 'small',
-			),
-			array(
-				'name'      => __( 'Normal', 'kemet' ),
-				'shortName' => __( 'M', 'kemet' ),
-				'size'      => 15,
-				'slug'      => 'normal',
-			),
-			array(
-				'name'      => __( 'Large', 'kemet' ),
-				'shortName' => __( 'L', 'kemet' ),
-				'size'      => 17,
-				'slug'      => 'large',
-			),
-			array(
-				'name'      => __( 'Huge', 'kemet' ),
-				'shortName' => __( 'XL', 'kemet' ),
-				'size'      => 23,
-				'slug'      => 'huge',
-			),
-		)
-	);
 }
 
 add_action( 'after_setup_theme', 'gutenberg_support', 10 );
