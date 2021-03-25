@@ -840,7 +840,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => esc_attr( $kemet_footer_link_color ),
 				),
 
-				'.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea,.kmt-single-post .kemet-footer .wpcf7 input:not([type=submit]),.kmt-single-post .kemet-footer .wpcf7 input:not([type=submit]):focus,.kmt-single-post .kemet-footer .wpcf7 select:focus,.kmt-single-post .kemet-footer .wpcf7 textarea:focus' => array(
+				'.kemet-footer input,.kemet-footer input[type="text"],.kemet-footer input[type="email"],.kemet-footer input[type="url"],.kemet-footer input[type="password"],.kemet-footer input[type="reset"],.kemet-footer input[type="search"],.kemet-footer textarea,.kmt-single-post .kemet-footer .wpcf7 input:not([type=submit]),.kmt-single-post .kemet-footer .wpcf7 input:not([type=submit]):focus,.kmt-single-post .kemet-footer .wpcf7 select:focus,.kmt-single-post .kemet-footer .wpcf7 textarea:focus, .kemet-footer .widget_search .search-field, .kemet-footer .widget_search .search-field:focus' => array(
 					'color'          => esc_attr( $footer_input_color ),
 					'background'     => esc_attr( $footer_input_bg_color ),
 					'border-color'   => esc_attr( $footer_input_border_color ),
