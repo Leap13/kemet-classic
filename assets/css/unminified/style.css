@@ -4324,7 +4324,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	padding: 1em;
 }
 
-.main-header-menu > .menu-item > a {
+.main-header-menu > .menu-item > a,
+.main-header-menu > .page_item > a {
 	border-bottom-style: solid;
 	border-bottom-color: transparent;
 }

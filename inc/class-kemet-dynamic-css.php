@@ -605,7 +605,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-header-custom-item a'                => array(
 					'color' => esc_attr( $headings_links_color ),
 				),
-				'.main-header-menu > li.menu-item > a'     => array(
+				'.main-header-menu > li.menu-item > a, .main-header-menu > li.page_item > a' => array(
 					'border-bottom-width' => kemet_get_css_value( $menu_link_border_bottom, 'px' ),
 				),
 				'.main-header-bar, .header-main-layout-4 .main-header-container.logo-menu-icon' => array(
@@ -680,10 +680,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle::before, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle::before' => array(
 					'font-size' => kemet_responsive_slider( $menu_font_size, 'desktop' ),
 				),
-				'.kmt-sitehead-custom-menu-items > *, .main-header-menu > .menu-item > a, .main-header-menu > .menu-item' => array(
+				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item, .main-header-menu > .page_item > a, .main-header-menu > .page_item' => array(
 					'line-height' => kemet_responsive_slider( $menu_line_height, 'desktop' ),
 				),
-				'.main-header-menu > .menu-item:hover > a' => array(
+				'.site-header .main-header-menu > .menu-item:hover > a,.site-header .main-header-menu > .page_item:hover > a' => array(
 					'border-bottom-color' => esc_attr( $menu_link_bottom_border_color ),
 				),
 				'.main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover > a' => array(
@@ -711,17 +711,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.main-header-menu ul.sub-menu li:hover'   => array(
 					'background-color' => esc_attr( $submenu_bg_hover_color ),
 				),
-				'.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul' => array(
+				'.main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul, .main-header-menu ul.children li.page_item_has_children:hover > ul' => array(
 					'top' => kemet_get_css_value( '-' . $submenu_top_border_size, 'px' ),
 				),
 
-				'.main-header-menu .sub-menu a'            => array(
+				'.main-header-menu .sub-menu a , .main-header-menu .children a'            => array(
 					'border-bottom-width' => ( true == $display_submenu_border ) ? '1px' : '0px',
 					'border-style'        => 'solid',
 					'border-bottom-color' => esc_attr( $submenu_border_color ),
 				),
 
-				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a, .kmt-header-break-point .main-navigation ul.sub-menu li a' => array(
+				'.main-header-menu .sub-menu li a , .kmt-header-break-point .main-navigation ul.children li a' => array(
 					'color'          => esc_attr( $submenu_link_color ),
 					'font-family'    => kemet_get_font_family( $sub_menu_font_family ),
 					'font-weight'    => esc_attr( $sub_menu_font_weight ),
@@ -1217,7 +1217,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'blockquote p, blockquote em'                          => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'tablet' ),
 				),
-				'.kmt-sitehead-custom-menu-items > *, .main-header-menu > .menu-item > a, .main-header-menu > .menu-item' => array(
+				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item, .main-header-menu > .page_item > a, .main-header-menu > .page_item' => array(
 					'line-height' => kemet_responsive_slider( $menu_line_height, 'tablet' ),
 				),
 				'.site-title'                           => array(
@@ -1776,7 +1776,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $pagination_padding, 'left', 'mobile' ),
 					'padding-bottom' => kemet_responsive_spacing( $pagination_padding, 'bottom', 'mobile' ),
 				),
-				'.kmt-sitehead-custom-menu-items > *, .main-header-menu > .menu-item > a, .main-header-menu > .menu-item' => array(
+				'.main-header-menu > .menu-item > a, .main-header-menu > .menu-item, .main-header-menu > .page_item > a, .main-header-menu > .page_item' => array(
 					'line-height' => kemet_responsive_slider( $menu_line_height, 'mobile' ),
 				),
 			);

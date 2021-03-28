@@ -1205,7 +1205,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
       var dynamicStyle =
         ".main-header-menu ul.sub-menu { border-top-width: " + border + "px }";
       dynamicStyle +=
-        ".main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul { top: -" +
+        ".main-header-menu ul.sub-menu li.menu-item-has-children:hover > ul , .main-header-menu ul.children li.page_item_has_children:hover > ul { top: -" +
         border +
         "px }";
       kemet_add_dynamic_css("submenu-top-border-size", dynamicStyle);
@@ -1290,7 +1290,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   wp.customize("kemet-settings[menu-item-border-bottom]", function (setting) {
     setting.bind(function (border) {
       var dynamicStyle =
-        ".main-header-menu > li.menu-item > a { border-bottom-width: " +
+        ".main-header-menu > li.menu-item > a,.main-header-menu > li.page_item > a { border-bottom-width: " +
         border +
         "px }";
       kemet_add_dynamic_css("menu-item-border-bottom", dynamicStyle);
