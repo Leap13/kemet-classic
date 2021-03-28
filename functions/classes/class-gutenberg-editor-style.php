@@ -384,6 +384,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'margin-top' => esc_attr( '1em' ),
 					'font-style' => esc_attr( 'normal' ),
 				),
+				'.block-editor-block-list__block.is-large .wp-block-quote__citation' => array(
+					'font-size' => esc_attr( '1.125em' ),
+				),
 				// Heading H1 - H6 font size.
 				'.edit-post-visual-editor .block-editor-block-list__block h1, .wp-block-heading h1, .wp-block-freeform.block-library-rich-text__tinymce h1, .edit-post-visual-editor .wp-block-heading h1, .wp-block-heading h1.editor-rich-text__tinymce, .editor-post-title.editor-post-title__block .editor-post-title__input,.edit-post-visual-editor .block-editor-block-list__layout h1' => array(
 					'font-size'   => kemet_responsive_slider( $heading_h1_font_size, 'desktop' ),
