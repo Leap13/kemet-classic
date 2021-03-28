@@ -1064,7 +1064,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   kemet_css(
     "kemet-settings[menu-link-bottom-border-color]",
     "border-bottom-color",
-    ".site-header .main-header-menu > .menu-item:hover > a , .ss-content .main-header-menu .menu-item:hover>a, .site-header .main-header-menu > .page_item:hover > a , .ss-content .main-header-menu .page_item:hover>a"
+    ".site-header .main-header-menu > .menu-item:hover > a, .ss-content .main-header-menu .menu-item:hover>a, .ss-content .main-header-menu li.menu-item:last-child:hover>a, .ss-content .main-header-menu .page_item:hover>a, .ss-content .main-header-menu li.page_item:last-child:hover>a"
   );
   kemet_css(
     "kemet-settings[menu-items-text-transform]",
