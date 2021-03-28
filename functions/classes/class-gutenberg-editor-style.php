@@ -287,6 +287,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote' => array(
 					'border-width' => esc_attr( '5px' ),
 				),
+				$blocks_parent . ' .wp-block-quote.is-large, ' . $blocks_parent . ' .wp-block-quote.is-style-large' => array(
+					'border' => esc_attr( 'none' ),
+				),
 				'.edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption.aligncenter' => array(
 					'margin-left' => esc_attr( 'auto' ),
 					'margin-right' => esc_attr( 'auto' ),
@@ -368,6 +371,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				),
 				$blocks_parent . ' .wp-block-gallery' => array(
 					'margin-bottom' => esc_attr( '20px' )
+				),
+				$blocks_parent . ' .wp-block-cover__inner-container' => array(
+					'max-width' => esc_attr( '840px' )
 				),
 				'.block-editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote, .wp-block-freeform.block-library-rich-text__tinymce blockquote ,.edit-post-visual-editor .wp-block-quote.has-text-align-right, ' . $blocks_parent . ' blockquote, ' . $blocks_parent . ' blockquote.wp-block-quote' => array(
 					'border-color' => esc_attr( $global_border_color ),
@@ -510,7 +516,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'line-height'      => kemet_responsive_slider( $btn_line_height, 'desktop' ),
 					'letter-spacing'   => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
 				),
-				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus' => array(
+				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus, ' . $blocks_parent . ' .button:hover, ' . $blocks_parent . ' input[type=reset]:hover' => array(
 					'color'            => esc_attr( $btn_text_hover_color ),
 					'border-color'     => esc_attr( $btn_border_h_color ),
 					'background-color' => esc_attr( $btn_bg_hover_color ),
