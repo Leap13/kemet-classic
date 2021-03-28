@@ -1747,6 +1747,11 @@ blockquote.wp-block-quote.has-text-align-right {
 	border-left: none;
 }
 
+blockquote cite,
+blockquote.wp-block-quote cite {
+	display: inline-block;
+}
+
 address {
 	margin: 0 0 1.5em;
 }

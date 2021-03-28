@@ -72,6 +72,9 @@ blockquote.wp-block-quote {
   &.has-text-align-right {
     border-left: none;
   }
+  cite {
+    display: inline-block;
+  }
 }
 
 address {

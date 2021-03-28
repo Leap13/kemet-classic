@@ -369,7 +369,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				$blocks_parent . ' .wp-block-gallery' => array(
 					'margin-bottom' => esc_attr( '20px' )
 				),
-				'.block-editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote, .wp-block-freeform.block-library-rich-text__tinymce blockquote ,.edit-post-visual-editor .wp-block-quote.has-text-align-right, ' . $blocks_parent . ' blockquote' => array(
+				'.block-editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote, .wp-block-freeform.block-library-rich-text__tinymce blockquote ,.edit-post-visual-editor .wp-block-quote.has-text-align-right, ' . $blocks_parent . ' blockquote, ' . $blocks_parent . ' blockquote.wp-block-quote' => array(
 					'border-color' => esc_attr( $global_border_color ),
 				),
 				'.wp-block-pullquote .wp-block-pullquote__citation' => array(
