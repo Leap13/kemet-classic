@@ -3802,7 +3802,6 @@ body:not(.kmt-separate-container) {
             border-top-style: solid;
           }
           .kmt-qv-btn-wrap {
-            margin-top: 0.5em;
             margin-bottom: 0.5em;
             a {
               padding: 0;
@@ -3815,6 +3814,7 @@ body:not(.kmt-separate-container) {
             font-family: inherit;
             display: block;
             background-color: transparent;
+            border-radius: 0;
           }
           .add_to_cart_button,
           .added_to_cart {

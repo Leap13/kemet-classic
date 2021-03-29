@@ -5049,7 +5049,6 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 }
 
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .kmt-qv-btn-wrap {
-	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
 
@@ -5061,6 +5060,7 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .button,
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .added_to_cart {
 	display: block;
+	border-radius: 0;
 	background-color: transparent;
 	font-family: inherit;
 	font-weight: inherit;
