@@ -852,7 +852,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
                 'background-color' => esc_attr(kemet_color_brightness($body_bg_color['background-color'], 0.55, 'light')),
             ),
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'color' => esc_attr($btn_color),
                 'background-color' => esc_attr($btn_bg_color),
                 'border' => 'solid',
@@ -1026,7 +1026,7 @@ $site_sidebar = kemet_layout();
 			}
 
         $tablet_typography = array(
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'tablet'),
                 'font-size'      => kemet_responsive_slider( $btn_font_size, 'tablet' ),
                 'line-height'    => kemet_responsive_slider( $btn_line_height, 'tablet' ),
@@ -1068,7 +1068,7 @@ $site_sidebar = kemet_layout();
         /* Parse CSS from array()*/
         $css_output .= kemet_parse_css($tablet_typography, '', '768');
         $mobile_typography = array(
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'mobile'),
                 'font-size'      => kemet_responsive_slider( $btn_font_size, 'mobile' ),
                 'line-height'    => kemet_responsive_slider( $btn_line_height, 'mobile' ),
