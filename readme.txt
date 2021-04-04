@@ -4,8 +4,8 @@ Theme URI: https://kemet.io/
 Author: Leap13
 Author URI: https://leap13.com/
 Requires PHP: 5.6
-Tested up to: 5.6
-Stable tag: 1.1.12
+Tested up to: 5.7
+Stable tag: 1.1.13
 Requires at least: WordPress 4.7
 Contributors: leap13
 License: GNU General Public License v2 or later
