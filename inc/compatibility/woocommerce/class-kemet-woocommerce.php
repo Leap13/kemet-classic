@@ -706,9 +706,12 @@ $site_sidebar = kemet_layout();
         $global_border_color = kemet_get_option('global-border-color');
         $global_bg_color = kemet_get_option('global-background-color');
         $body_bg_color = kemet_get_option('site-layout-outside-bg-obj', array('background-color' => $global_bg_color));
+        $global_footer_bg_color   = kemet_get_option( 'global-footer-bg-color' );
         $global_footer_text_color = kemet_get_option('global-footer-text-color');
         $kemet_footer_link_color = kemet_get_option('footer-link-color', $global_footer_text_color);
-
+        $kemet_footer_link_h_color       = kemet_get_option( 'footer-link-h-color', $theme_color );
+		$kemet_footer_widget_bg_color    = kemet_get_option( 'footer-wgt-bg-color' );
+        
         $btn_color = kemet_get_option('button-color', '#ffffff');
         $btn_h_color = kemet_get_option('button-h-color', $btn_color);
         $btn_bg_color = kemet_get_option('button-bg-color', $theme_color);
@@ -769,8 +772,8 @@ $site_sidebar = kemet_layout();
         $cart_dropdown_border_color = kemet_get_option('cart-dropdown-border-color', $global_border_color);
         $cart_dropdown_bg_color = kemet_get_option('cart-dropdown-bg-color', $global_bg_color);
         // Widget Separator
-			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+        $widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
+        $widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
 
         $css_output = array(
             '.woocommerce .woocommerce-message .button ,.woocommerce-info .button, .woocommerce-info a' => array(
@@ -824,7 +827,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce-tabs .entry-content' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
-            '.woocommerce-message , .woocommerce-error , .woocommerce-info' => array(
+            '.woocommerce .woocommerce-message ,.woocommerce .woocommerce-error ,.woocommerce .woocommerce-info' => array(
                 'border-color' => esc_attr($global_border_color),
             ),
             '.order-total' => array(
@@ -849,7 +852,7 @@ $site_sidebar = kemet_layout();
             '.woocommerce li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap ,.woocommerce li.product .kemet-shop-thumbnail-wrap .product-list-details' => array(
                 'background-color' => esc_attr(kemet_color_brightness($body_bg_color['background-color'], 0.55, 'light')),
             ),
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'color' => esc_attr($btn_color),
                 'background-color' => esc_attr($btn_bg_color),
                 'border' => 'solid',
@@ -880,6 +883,9 @@ $site_sidebar = kemet_layout();
             '.widget_shopping_cart' => array(
                 'color' => esc_attr( $text_meta_color ),
             ),
+            '.kemet-footer .widget_shopping_cart' => array(
+                'color' => esc_attr( $global_footer_text_color ),
+            ),
             '.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
                 'color' => esc_attr( $theme_color )
             ),
@@ -891,7 +897,7 @@ $site_sidebar = kemet_layout();
                 'border-color' => esc_attr($btn_border_h_color),
                 'background-color' => esc_attr($btn_bg_h_color),
             ),
-            '.woocommerce-message, .woocommerce-info' => array(
+            '.woocommerce .woocommerce-message,.woocommerce .woocommerce-info' => array(
                 'border-top-color' => esc_attr($global_border_color),
             ),
             '.woocommerce-message::before,.woocommerce-info::before' => array(
@@ -938,6 +944,20 @@ $site_sidebar = kemet_layout();
             '.woocommerce a.remove:hover, .woocommerce-page a.remove:hover' => array(
                 'color' => esc_attr( $theme_color ),
                 'border-color' => esc_attr( kemet_color_brightness( $global_border_color, 0.9, 'dark' ) )
+            ),
+            '.woocommerce .kemet-footer a.remove, .woocommerce-page .kemet-footer a.remove' => array(
+                'color' => esc_attr( $kemet_footer_link_color ),
+                'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) )
+            ),
+            '.woocommerce .kemet-footer a.remove:hover, .woocommerce-page .kemet-footer a.remove:hover' => array(
+                'color' => esc_attr( $kemet_footer_link_h_color ),
+                'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.8, 'light' ) )
+            ),
+            '.kemet-footer .woocommerce.widget_shopping_cart a:not(.button)' => array(
+                'color' => esc_attr( $kemet_footer_link_color ),
+            ),
+            '.kemet-footer .woocommerce.widget_shopping_cart a:not(.button):hover' => array(
+                'color' => esc_attr( $kemet_footer_link_h_color ),
             ),
             '.woocommerce .widget .amount, .woocommerce .widget ins' => array(
                 'color' => esc_attr($theme_color),
@@ -1006,7 +1026,7 @@ $site_sidebar = kemet_layout();
 			}
 
         $tablet_typography = array(
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'tablet'),
                 'font-size'      => kemet_responsive_slider( $btn_font_size, 'tablet' ),
                 'line-height'    => kemet_responsive_slider( $btn_line_height, 'tablet' ),
@@ -1048,7 +1068,7 @@ $site_sidebar = kemet_layout();
         /* Parse CSS from array()*/
         $css_output .= kemet_parse_css($tablet_typography, '', '768');
         $mobile_typography = array(
-            'body:not(.shop-grid) a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
+            'body:not(.shop-grid) li.product a.added_to_cart, woocommerce #respond input#submit.alt,  .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled ,.woocommerce a.checkout-button, #yith-wcwl-form .button ,.woocommerce-js .yith-woocompare-widget a.compare' => array(
                 'border-radius' => kemet_responsive_slider($btn_border_radius, 'mobile'),
                 'font-size'      => kemet_responsive_slider( $btn_font_size, 'mobile' ),
                 'line-height'    => kemet_responsive_slider( $btn_line_height, 'mobile' ),

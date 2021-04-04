@@ -175,7 +175,8 @@ li.kmt-sitehead-custom-menu-items {
   }
 }
 .main-header-menu {
-  > .menu-item {
+  > .menu-item,
+  > .page_item {
     > a {
       border-bottom-style: solid;
       border-bottom-color: transparent;

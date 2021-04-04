@@ -47,8 +47,66 @@ if (! class_exists('Kemet_Enqueue_Scripts')) {
         {
             add_action('kemet_get_fonts', array( $this, 'add_fonts' ), 1);
             add_action('wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1);
+            add_action( 'enqueue_block_editor_assets', array( $this, 'editor_scripts' ) );
+			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
         }
 
+        /**
+		 * Gutenberg editor scripts & styles
+		 *
+		 * @return void
+		 */
+		public function editor_scripts() {
+			// Fonts - Render Fonts.
+			Kemet_Fonts::render_fonts();
+
+			wp_register_style( 'kemet-block-editor-styles', false );
+			wp_enqueue_style( 'kemet-block-editor-styles' );
+			wp_add_inline_style( 'kemet-block-editor-styles', apply_filters( 'kemet_gutenberg_block_dynamic_css', Kemet_Gutenberg_Editor_Style::dynamic_css() ) );
+		}
+
+		/**
+		 * Admin body classes.
+		 *
+		 * Body classes to be added to <body> tag in admin page
+		 *
+		 * @param String $classes body classes returned from the filter.
+		 * @return String body classes to be added to <body> tag in admin page
+		 */
+		public function admin_body_class( $classes ) {
+
+			global $pagenow;
+			$screen = get_current_screen();
+
+			$post_id = get_the_ID();
+
+			if ( $post_id ) {
+				$meta_content_layout = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
+				$meta                = get_post_meta( get_the_ID(), 'kemet_page_options', true );
+				$content_layout      = ( isset( $meta['site-content-layout'] ) ) ? $meta['site-content-layout'] : '';
+				$meta_content_layout = '' != $content_layout ? $content_layout : $meta_content_layout;
+			}
+
+			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
+				$content_layout = $meta_content_layout;
+			} else {
+				$content_layout = kemet_get_option( 'site-content-layout' );
+			}
+
+			if ( 'content-boxed-container' == $content_layout ) {
+				$classes .= ' kmt-separate-container';
+			} elseif ( 'boxed-container' == $content_layout ) {
+				$classes .= ' kmt-separate-container kmt-two-container';
+			} elseif ( 'page-builder' == $content_layout ) {
+				$classes .= ' kmt-page-builder-template';
+			} elseif ( 'plain-container' == $content_layout ) {
+				$classes .= ' kmt-plain-container';
+			}
+
+			$classes .= ' kmt-theme-container';
+
+			return $classes;
+		}
         
         /**
          * List of all assets.

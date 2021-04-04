@@ -20,7 +20,7 @@
   word-wrap: break-word;
   padding-bottom: 0.5em;
   list-style: none;
-  li {
+  li.comment {
     list-style: none;
     &.depth-1 .kmt-comment,
     &.depth-2 .kmt-comment {
@@ -289,5 +289,10 @@
     padding-right: 20px;
     margin-top: 2em;
     margin-bottom: 2em;
+  }
+}
+.kmt-plain-container {
+  .comments-area {
+    margin-top: 2em;
   }
 }

@@ -1084,6 +1084,17 @@ $fields = array(
 		'section'      => 'section-kemet-footer',
 		'tab'          => __( 'Hover', 'kemet' ),
 	),
+	array(
+		'id'           => '[footer-button-border-h-color]',
+		'default'      => $defaults['footer-button-border-h-color'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-color',
+		'label'        => __( 'Button Border Color', 'kemet' ),
+		'priority'     => 9,
+		'section'      => 'section-kemet-footer',
+		'tab'          => __( 'Hover', 'kemet' ),
+	),
 );
 $group_settings = array(
 	'parent_id'  => KEMET_THEME_SETTINGS . '[kmt-footer-widget-buttons-meta-colors]',
