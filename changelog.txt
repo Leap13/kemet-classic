@@ -3,7 +3,6 @@ v 1.1.13 version
 - Fixed: Vertical menu issue in Header layout 5.
 - Fixed: Button style issue in Fotter.
 - Tweak: Compatibility with the updated Gutenberg plugin.
-- Tweak: Code refactored for better performance and security.
 
 v 1.1.12 version
 - Added: Header options enhancements.
