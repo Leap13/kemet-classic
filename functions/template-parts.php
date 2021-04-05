@@ -33,40 +33,40 @@ if ( ! function_exists( 'kemet_sitehead_get_menu_items' ) ) :
 	 * @see kemet_sitehead_get_menu_items
 	 * @see kemet_sitehead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
-	 *
 	 */
 	function kemet_sitehead_get_menu_items( $display_outside_markup = false ) {
 
 		// Get selected custom menu items.
-		$markup = '';
+		$markup                     = '';
 		$section                    = kemet_get_option( 'header-main-rt-section' );
 		$sections                   = kemet_get_dynamic_header_content( 'header-main-rt-section' );
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
-		$search_style = kemet_get_option('search-style');
-		$hide_mobile = kemet_get_option('disable-last-menu-items-on-mobile');
-		$hide_classes = '';
-		if($hide_mobile){
+		$search_style               = kemet_get_option( 'search-style' );
+		$hide_mobile                = kemet_get_option( 'disable-last-menu-items-on-mobile' );
+		$hide_classes               = '';
+		if ( $hide_mobile ) {
 			$hide_classes = 'hide-on-mobile';
 		}
 		if ( $disable_primary_navigation || $display_outside_markup ) {
 			$html_element = 'div';
 		}
-		
+
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			if(in_array('search' , $section)){
+			if ( in_array( 'search', $section ) ) {
 				$section[] = $search_style;
 			}
-			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section);
+			$menu_item_classes = apply_filters( 'kemet_sitehead_custom_menu_item', $section );
 			?>
-			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo $hide_classes . " " . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				<?php
-				foreach ( $sections as $key => $value ) {
-					if ( ! empty( $value ) ) {
-						echo ($value);
-					}
-				}
-				?>
+			<<?php echo esc_attr( $html_element ); ?> class="kmt-sitehead-custom-menu-items <?php echo esc_attr( $hide_classes ) . ' ' . esc_attr( join( ' ', $menu_item_classes ) ); ?>">				
+						<?php
+						foreach ( $sections as $key => $value ) {
+							if ( ! empty( $value ) ) {
+								echo ( $value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							}
+						}
+						?>
 			</<?php echo esc_attr( $html_element ); ?>>
 			<?php
 			$markup = ob_get_clean();
@@ -95,7 +95,7 @@ if ( ! function_exists( 'kemet_sitehead_custom_page_menu_items' ) ) :
 	function kemet_sitehead_custom_page_menu_items( $args ) {
 
 		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( isset( $args['theme_location'] ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3')) {
+		if ( isset( $args['theme_location'] ) && ( ! kemet_get_option( 'header-display-outside-menu' ) || 'header-main-layout-3' == $header_layout ) ) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
@@ -131,7 +131,7 @@ if ( ! function_exists( 'kemet_sitehead_custom_nav_menu_items' ) ) :
 	function kemet_sitehead_custom_nav_menu_items( $items, $args ) {
 
 		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( isset( $args->theme_location ) && (! kemet_get_option( 'header-display-outside-menu' ) || $header_layout == 'header-main-layout-3') ) {
+		if ( isset( $args->theme_location ) && ( ! kemet_get_option( 'header-display-outside-menu' ) || 'header-main-layout-3' == $header_layout ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
 
@@ -159,15 +159,14 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 	 * => Used in files:
 	 *
 	 * /header.php
-	 *
 	 */
 	function kemet_sitehead_toggle_buttons_primary() {
 
 		$disable_primary_navigation = kemet_get_option( 'disable-primary-nav' );
 		$custom_header_section      = kemet_get_option( 'header-main-rt-section' );
 		$display_outside_menu       = kemet_get_option( 'header-display-outside-menu' );
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && (! $display_outside_menu || $header_layout == 'header-main-layout-3') ) ) {
+		$header_layout              = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
+		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ( ! $display_outside_menu || 'header-main-layout-3' == $header_layout ) ) ) {
 			$menu_title          = trim( apply_filters( 'kemet_main_menu_toggle_label', kemet_get_option( 'header-main-menu-label' ) ) );
 			$menu_icon           = apply_filters( 'kemet_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
@@ -176,7 +175,7 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 				$menu_label_class    = 'kmt-menu-label';
 				$screen_reader_title = $menu_title;
 			}
-		?>
+			?>
 		<div class="kmt-button-wrap">			
 		<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="main-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
@@ -190,7 +189,7 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 				<?php } ?>
 			</button>
 		</div>
-	<?php
+			<?php
 		}
 	}
 }
@@ -206,18 +205,17 @@ if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
 	 * => Used in files:
 	 *
 	 * /footer.php
-	 *
 	 */
 	function kemet_footer_copyright_footer_template() {
 
-        $copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
+		$copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
 		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
-		
-		if ( !apply_filters('kmt_footer_copyright_layout_disable', true)) {
+
+		if ( ! apply_filters( 'kmt_footer_copyright_layout_disable', true ) ) {
 			return;
-		} else if('copyright-footer-layout-1' == $copyright_footer_layout ){
+		} elseif ( 'copyright-footer-layout-1' == $copyright_footer_layout ) {
 			get_template_part( 'templates/footer/copyright-footer-layout' );
-		} else if('copyright-footer-layout-2' == $copyright_footer_layout) {
+		} elseif ( 'copyright-footer-layout-2' == $copyright_footer_layout ) {
 			get_template_part( 'templates/footer/copyright-footer-layout-2' );
 		}
 	}
@@ -234,11 +232,10 @@ if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
 	 * => Used in files:
 	 *
 	 * /header.php
-	 *
 	 */
 	function kemet_sitehead_primary_template() {
-		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option('header-layouts') );
-		if ( $kemet_header_layout !== 'disable' ) {
+		$kemet_header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
+		if ( 'disable' !== $kemet_header_layout ) {
 			get_template_part( 'templates/header/header-main-layout' );
 		}
 	}
@@ -255,7 +252,6 @@ if ( ! function_exists( 'kemet_entry_content_single_template' ) ) {
 	 * => Used in files:
 	 *
 	 * /templates/content-single.php
-	 *
 	 */
 	function kemet_entry_content_single_template() {
 		get_template_part( 'templates/single/single-layout' );
@@ -274,7 +270,6 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 *
 	 * /templates/content-blog.php
 	 * /templates/content-search.php
-	 *
 	 */
 	function kemet_entry_content_blog_template() {
 		get_template_part( 'templates/blog/blog-layout' );
@@ -292,10 +287,9 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 * => Used in files:
 	 *
 	 * /templates/content-404.php
-	 *
 	 */
 	function kemet_404_page_template() {
-		get_template_part( 'templates/404/404-layout');
+		get_template_part( 'templates/404/404-layout' );
 	}
 }
 
@@ -308,32 +302,25 @@ if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
 	 * Footer widgets markup
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
-	 *
 	 */
 	function kemet_main_footer_markup() {
 
 		$main_footer_layout = kemet_get_option( 'footer-layout' );
-        $main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
+		$main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
 
-		if ( !apply_filters( 'kemet_main_footer_disable', true ) ) {
+		if ( ! apply_filters( 'kemet_main_footer_disable', true ) ) {
 			return;
-		} // Add markup.
-		else if ( 'layout-1' == $main_footer_layout ) {
+		} elseif ( 'layout-1' == $main_footer_layout ) { // Add markup.
 			get_template_part( 'templates/main-footer/layout-1' );
-		}
-		else if ( 'layout-2' == $main_footer_layout ) {
+		} elseif ( 'layout-2' == $main_footer_layout ) {
 			get_template_part( 'templates/main-footer/layout-2' );
-		}
-		else if ( 'layout-3' == $main_footer_layout ) {
+		} elseif ( 'layout-3' == $main_footer_layout ) {
 			get_template_part( 'templates/main-footer/layout-3' );
-		}
-		else if ( 'layout-4' == $main_footer_layout ) {
+		} elseif ( 'layout-4' == $main_footer_layout ) {
 			get_template_part( 'templates/main-footer/layout-4' );
-		}
-		else if ( 'layout-5' == $main_footer_layout ) {
+		} elseif ( 'layout-5' == $main_footer_layout ) {
 			get_template_part( 'templates/main-footer/layout-5' );
-		}
-		else if ( 'layout-6' == $main_footer_layout ) {
+		} elseif ( 'layout-6' == $main_footer_layout ) {
 			get_template_part( 'templates/main-footer/layout-6' );
 		}
 
@@ -350,14 +337,13 @@ if ( ! function_exists( 'kemet_header_custom_item_outside_menu' ) ) {
 	 * Footer widgets markup
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
-	 *
 	 */
 	function kemet_header_custom_item_outside_menu() {
 		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		if ( kemet_get_option( 'header-display-outside-menu' ) &&  $header_layout != 'header-main-layout-3') {
+		if ( kemet_get_option( 'header-display-outside-menu' ) && 'header-main-layout-3' != $header_layout ) {
 			$markup = kemet_sitehead_get_menu_items( false );
 
-			echo '<div class="kmt-outside-menu">' . $markup . '</div>';
+			echo '<div class="kmt-outside-menu">' . $markup . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
