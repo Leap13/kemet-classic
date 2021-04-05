@@ -77,7 +77,7 @@ if ( ! function_exists( 'kemet_css' ) ) {
 				$css .= '	' . $css_property . ': ' . $value . ';';
 				$css .= '}';
 
-				printf($css);
+				printf( $css ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -156,18 +156,17 @@ if ( ! function_exists( 'kemet_responsive_icon_select' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function kemet_responsive_icon_select( $option, $device = 'desktop' , $default = '' ) {
+	function kemet_responsive_icon_select( $option, $device = 'desktop', $default = '' ) {
 
-		if( empty( $default ) || !is_array( $default ) ){
+		if ( empty( $default ) || ! is_array( $default ) ) {
 
 			$default = array(
 				'desktop' => '',
-				'tablet' => '',
-				'mobile' => ''
+				'tablet'  => '',
+				'mobile'  => '',
 			);
 		}
-		
-		
+
 		$value = isset( $option[ $device ] ) ? $option[ $device ] : $default[ $device ];
 
 		return $value;
@@ -181,21 +180,19 @@ if ( ! function_exists( 'kemet_responsive_color' ) ) {
 	 *
 	 * @param  array  $option    CSS value.
 	 * @param  string $device  CSS device.
-	 * @param  string $default Default value.
 	 * @return mixed
 	 */
 	function kemet_responsive_color( $option, $device = 'desktop' ) {
 
-		if( !is_array( $option ) ){
+		if ( ! is_array( $option ) ) {
 
 			$option = array(
 				'desktop' => $option,
-				'tablet' => '',
-				'mobile' => ''
+				'tablet'  => '',
+				'mobile'  => '',
 			);
 		}
-		
-		
+
 		$value = isset( $option[ $device ] ) ? $option[ $device ] : '';
 
 		return $value;
@@ -405,11 +402,11 @@ if ( ! function_exists( 'kemet_get_background_obj' ) ) {
 	/**
 	 * Adjust Brightness
 	 *
-	 * @param  array $bg_obj   Color code in HEX.
-	 *
-	 * @return array         Color code in HEX.
+	 * @param string $selector selector.
+	 * @param array  $bg_obj background object.
+	 * @return string
 	 */
-	function kemet_get_background_obj( $selector = '' , $bg_obj = array() ) {
+	function kemet_get_background_obj( $selector = '', $bg_obj = array() ) {
 		$gen_bg_css = array();
 
 		$bg_img   = isset( $bg_obj['background-image'] ) ? $bg_obj['background-image'] : '';
@@ -705,7 +702,6 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 		$blog_post_title   = kemet_get_option( 'blog-post-structure' );
 		$single_post_title = kemet_get_option( 'blog-single-post-structure' );
 
-		
 		if ( apply_filters( 'kemet_the_title_enabled', true ) ) {
 
 			$title  = kemet_get_the_title( $post_id );
@@ -714,7 +710,6 @@ if ( ! function_exists( 'kemet_the_title' ) ) {
 
 			$title = $before . $title . $after;
 		}
-		
 
 		// This will work same as `the_title` function but with Custom Title if exits.
 		if ( $echo ) {
@@ -803,33 +798,33 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 					</div>
 				</section>
 
-			<?php
+				<?php
 
-			// Category.
+				// Category.
 			} elseif ( is_category() ) {
-			?>
+				?>
 
 				<section class="kmt-archive-description">
 					<h1 class="page-title kmt-archive-title"><?php echo single_cat_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
-			<?php
+				<?php
 
-			// Tag.
+				// Tag.
 			} elseif ( is_tag() ) {
-			?>
+				?>
 
 				<section class="kmt-archive-description">
 					<h1 class="page-title kmt-archive-title"><?php echo single_tag_title(); ?></h1>
 					<?php the_archive_description(); ?>
 				</section>
 
-			<?php
+				<?php
 
-			// Search.
+				// Search.
 			} elseif ( is_search() ) {
-			?>
+				?>
 
 				<section class="kmt-archive-description">
 					<?php
@@ -839,18 +834,18 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 					<h1 class="page-title kmt-archive-title"> <?php echo wp_kses_post( $title ); ?> </h1>
 				</section>
 
-			<?php
+				<?php
 
-			// Other.
+				// Other.
 			} else {
-			?>
+				?>
 
 				<section class="kmt-archive-description">
 					<?php the_archive_title( '<h1 class="page-title kmt-archive-title">', '</h1>' ); ?>
 					<?php the_archive_description(); ?>
 				</section>
 
-		<?php
+				<?php
 			}
 		}
 	}
@@ -860,12 +855,15 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
 
 /**
  * Content Layout
+ *
+ * @param string $default default layout.
+ * @return mixed
  */
-function content_layout($default){
+function content_layout( $default ) {
 
-	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
-	
-	if ( !empty($meta) ) {
+	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
+
+	if ( ! empty( $meta ) ) {
 		$default = $meta;
 	}
 	return $default;
