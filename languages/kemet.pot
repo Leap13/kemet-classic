@@ -46,18 +46,18 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:59
+#: functions/admin/class-kemet-admin-notices.php:59
 #: inc/customizer/register-panels-and-sections.php:197
 msgid ""
 "Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of "
 "extra customization options."
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:70
+#: functions/admin/class-kemet-admin-notices.php:70
 msgid "Activate Kemet Addons"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:78
+#: functions/admin/class-kemet-admin-notices.php:78
 msgid "Install Kemet Addons"
 msgstr ""
 
