@@ -261,28 +261,21 @@ module.exports = function (grunt) {
         src: [
           "**",
           "!node_modules/**",
-          "!build/**",
-          "!css/sourcemap/**",
+          "!nbproject/**",
+          "!private/**",
           "!.git/**",
-          "!bin/**",
-          "!.gitlab-ci.yml",
-          "!bin/**",
-          "!tests/**",
-          "!phpunit.xml.dist",
           "!*.sh",
+          "!*.ds_store",
           "!*.map",
           "!Gruntfile.js",
           "!package.json",
           "!.gitignore",
-          "!phpunit.xml",
-          "!README.md",
           "!sass/**",
-          "!codesniffer.ruleset.xml",
-          "!vendor/**",
           "!composer.json",
           "!composer.lock",
           "!package-lock.json",
           "!phpcs.xml.dist",
+          "!phpcs.xml",
         ],
         dest: "kemet/",
       },
@@ -332,9 +325,6 @@ module.exports = function (grunt) {
             "*.php",
             "**/*.php",
             "!node_modules/**",
-            "!php-tests/**",
-            "!bin/**",
-            "!admin/bsf-core/**",
           ],
         },
       },
@@ -507,7 +497,7 @@ module.exports = function (grunt) {
   grunt.registerTask("style", ["scss", "postcss:style", "rtl"]);
 
   // min all
-  grunt.registerTask("minify", ["style", "wpcss", "uglify:js", "cssmin:css"]);
+  grunt.registerTask("minify", ["style", "uglify:js", "cssmin:css"]);
 
   // Update google Fonts
   grunt.registerTask("google-fonts", function () {
