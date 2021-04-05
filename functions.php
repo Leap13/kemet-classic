@@ -29,7 +29,7 @@ if (is_admin()) {
 
 require_once KEMET_THEME_DIR.'inc/customizer/class-kemet-fonts.php';
 
-require_once KEMET_THEME_DIR . 'functions/classes/class-gutenberg-editor-style.php';
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-gutenberg-editor-style.php';
 
 /**
  * Functions.
