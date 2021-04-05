@@ -9,49 +9,48 @@
  * @since       Kemet 1.0.0
  */
 
-if (! defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 /**
  * Theme Enqueue Scripts
  */
-if (! class_exists('Kemet_Enqueue_Scripts')) {
+if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 
-    /**
-     * Theme Enqueue Scripts
-     */
-    class Kemet_Enqueue_Scripts
-    {
+	/**
+	 * Theme Enqueue Scripts
+	 */
+	class Kemet_Enqueue_Scripts {
 
-        /**
-         * Class styles.
-         *
-         * @access public
-         * @var $styles Enqueued styles.
-         */
-        public static $styles;
 
-        /**
-         * Class scripts.
-         *
-         * @access public
-         * @var $scripts Enqueued scripts.
-         */
-        public static $scripts;
+		/**
+		 * Class styles.
+		 *
+		 * @access public
+		 * @var $styles Enqueued styles.
+		 */
+		public static $styles;
 
-        /**
-         * Constructor
-         */
-        public function __construct()
-        {
-            add_action('kemet_get_fonts', array( $this, 'add_fonts' ), 1);
-            add_action('wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1);
-            add_action( 'enqueue_block_editor_assets', array( $this, 'editor_scripts' ) );
+		/**
+		 * Class scripts.
+		 *
+		 * @access public
+		 * @var $scripts Enqueued scripts.
+		 */
+		public static $scripts;
+
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
+			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'editor_scripts' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
-        }
+		}
 
-        /**
+		/**
 		 * Gutenberg editor scripts & styles
 		 *
 		 * @return void
@@ -60,7 +59,7 @@ if (! class_exists('Kemet_Enqueue_Scripts')) {
 			// Fonts - Render Fonts.
 			Kemet_Fonts::render_fonts();
 
-			wp_register_style( 'kemet-block-editor-styles', false );
+			wp_register_style( 'kemet-block-editor-styles', false, array(), KEMET_THEME_VERSION );
 			wp_enqueue_style( 'kemet-block-editor-styles' );
 			wp_add_inline_style( 'kemet-block-editor-styles', apply_filters( 'kemet_gutenberg_block_dynamic_css', Kemet_Gutenberg_Editor_Style::dynamic_css() ) );
 		}
@@ -107,157 +106,152 @@ if (! class_exists('Kemet_Enqueue_Scripts')) {
 
 			return $classes;
 		}
-        
-        /**
-         * List of all assets.
-         *
-         * @return array assets array.
-         */
-        public static function theme_assets()
-        {
-            $default_assets = array(
 
-                // handle => location ( in /assets/js/ ) ( without .js ext).
-                'js'  => array(
-                    'kemet-theme-js' => 'style',
-                ),
+		/**
+		 * List of all assets.
+		 *
+		 * @return array assets array.
+		 */
+		public static function theme_assets() {
+			$default_assets = array(
 
-                // handle => location ( in /assets/css/ ) ( without .css ext).
-                'css' => array(
-                    'kemet-theme-css' => 'style',
-                ),
-            );
+				// handle => location ( in /assets/js/ ) ( without .js ext).
+				'js'  => array(
+					'kemet-theme-js' => 'style',
+				),
 
-            return apply_filters('kemet_theme_assets', $default_assets);
-        }
+				// handle => location ( in /assets/css/ ) ( without .css ext).
+				'css' => array(
+					'kemet-theme-css' => 'style',
+				),
+			);
 
-        /**
-         * Add Fonts
-         */
-        public function add_fonts()
-        {
-            $font_family = kemet_get_option('body-font-family');
-            $font_weight = kemet_get_option('body-font-weight');
+			return apply_filters( 'kemet_theme_assets', $default_assets );
+		}
 
-            Kemet_Fonts::add_font($font_family, $font_weight);
+		/**
+		 * Add Fonts
+		 */
+		public function add_fonts() {
+			$font_family = kemet_get_option( 'body-font-family' );
+			$font_weight = kemet_get_option( 'body-font-weight' );
 
-            // Render headings font.
-            $font_family = kemet_get_option('headings-font-family');
-            $font_weight = kemet_get_option('headings-font-weight');
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 
-            Kemet_Fonts::add_font($font_family, $font_weight);
+			// Render headings font.
+			$font_family = kemet_get_option( 'headings-font-family' );
+			$font_weight = kemet_get_option( 'headings-font-weight' );
 
-            // Render Widget Title Font
-            $font_family = kemet_get_option('widget-title-font-family');
-            $font_weight = kemet_get_option('widget-title-font-wight');
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 
-            Kemet_Fonts::add_font($font_family, $font_weight);
+			// Render Widget Title Font.
+			$font_family = kemet_get_option( 'widget-title-font-family' );
+			$font_weight = kemet_get_option( 'widget-title-font-wight' );
 
-            // Render Menu Items
-            $font_family = kemet_get_option('menu-items-font-family');
-            $font_weight = kemet_get_option('menu-items-font-wight');
+			Kemet_Fonts::add_font( $font_family, $font_weight );
 
-            // Render SubMenu Items
-            $font_family = kemet_get_option('sub-menu-items-font-family');
-            $font_weight = kemet_get_option('sub-menu-items-font-wight');
+			// Render Menu Items.
+			$font_family = kemet_get_option( 'menu-items-font-family' );
+			$font_weight = kemet_get_option( 'menu-items-font-wight' );
 
-            Kemet_Fonts::add_font($font_family, $font_weight);
-        }
+			// Render SubMenu Items.
+			$font_family = kemet_get_option( 'sub-menu-items-font-family' );
+			$font_weight = kemet_get_option( 'sub-menu-items-font-wight' );
 
-        /**
-         * Enqueue Scripts
-         */
-        public function enqueue_scripts()
-        {
-            $kemet_enqueue = apply_filters('kemet_enqueue_theme_assets', true);
+			Kemet_Fonts::add_font( $font_family, $font_weight );
+		}
 
-            if (! $kemet_enqueue) {
-                return;
-            }
+		/**
+		 * Enqueue Scripts
+		 */
+		public function enqueue_scripts() {
+			$kemet_enqueue = apply_filters( 'kemet_enqueue_theme_assets', true );
 
-            /* Directory and Extension */
-            $file_prefix = (SCRIPT_DEBUG) ? '' : '.min';
-            $dir_name    = (SCRIPT_DEBUG) ? 'unminified' : 'minified';
+			if ( ! $kemet_enqueue ) {
+				return;
+			}
 
-            $js_uri  = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
-            $css_uri = KEMET_THEME_URI . 'assets/css/' . $dir_name . '/';
+			/* Directory and Extension */
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-            // All assets.
-            $all_assets = self::theme_assets();
-            $styles     = $all_assets['css'];
-            $scripts    = $all_assets['js'];
+			$js_uri  = KEMET_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = KEMET_THEME_URI . 'assets/css/' . $dir_name . '/';
 
-            if (is_array($styles) && ! empty($styles)) {
-                // Register & Enqueue Styles.
-                foreach ($styles as $key => $style) {
+			// All assets.
+			$all_assets = self::theme_assets();
+			$styles     = $all_assets['css'];
+			$scripts    = $all_assets['js'];
 
-                    // Generate CSS URL.
-                    $css_file = $css_uri . $style . $file_prefix . '.css';
+			if ( is_array( $styles ) && ! empty( $styles ) ) {
+				// Register & Enqueue Styles.
+				foreach ( $styles as $key => $style ) {
 
-                    // Register.
-                    wp_register_style($key, $css_file, array(), KEMET_THEME_VERSION, 'all');
+					// Generate CSS URL.
+					$css_file = $css_uri . $style . $file_prefix . '.css';
 
-                    // Enqueue.
-                    wp_enqueue_style($key);
+					// Register.
+					wp_register_style( $key, $css_file, array(), KEMET_THEME_VERSION, 'all' );
 
-                    // RTL support.
-                    wp_style_add_data($key, 'rtl', 'replace');
-                }
-            }
+					// Enqueue.
+					wp_enqueue_style( $key );
 
-            if (is_array($scripts) && ! empty($scripts)) {
-                // Register & Enqueue Scripts.
-                foreach ($scripts as $key => $script) {
+					// RTL support.
+					wp_style_add_data( $key, 'rtl', 'replace' );
+				}
+			}
 
-                    // Register.
-                    wp_register_script($key, $js_uri . $script . $file_prefix . '.js', array(), KEMET_THEME_VERSION, true);
+			if ( is_array( $scripts ) && ! empty( $scripts ) ) {
+				// Register & Enqueue Scripts.
+				foreach ( $scripts as $key => $script ) {
 
-                    // Enqueue.
-                    wp_enqueue_script($key);
-                }
-            }
+					// Register.
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), KEMET_THEME_VERSION, true );
 
-            // Fonts - Render Fonts.
-            Kemet_Fonts::render_fonts();
+					// Enqueue.
+					wp_enqueue_script( $key );
+				}
+			}
 
-            /**
-             * Inline styles
-             */
-            wp_add_inline_style('kemet-theme-css', Kemet_Dynamic_CSS::return_output());
-            wp_add_inline_style('kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output(true));
+			// Fonts - Render Fonts.
+			Kemet_Fonts::render_fonts();
 
-            $kemet_localize = array(
-                'break_point' => kemet_header_break_point(),    // Header Break Point.
-            );
+			/**
+			 * Inline styles
+			 */
+			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
 
-            wp_localize_script('kemet-theme-js', 'kemet', apply_filters('kemet_theme_js_localize', $kemet_localize));
+			$kemet_localize = array(
+				'break_point' => kemet_header_break_point(),    // Header Break Point.
+			);
 
-            // Comment assets.
-            if (is_singular() && comments_open() && get_option('thread_comments')) {
-                wp_enqueue_script('comment-reply');
-            }
-        }
+			wp_localize_script( 'kemet-theme-js', 'kemet', apply_filters( 'kemet_theme_js_localize', $kemet_localize ) );
 
-        /**
-         * Trim CSS
-         *
-         * @param string $css CSS content to trim.
-         * @return string
-         */
-        public static function trim_css($css = '')
-        {
+			// Comment assets.
+			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+				wp_enqueue_script( 'comment-reply' );
+			}
+		}
 
-            // Trim white space for faster page loading.
-            if (! empty($css)) {
-                $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
-                $css = str_replace(array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $css);
-                $css = str_replace(', ', ',', $css);
-            }
+		/**
+		 * Trim CSS
+		 *
+		 * @param string $css CSS content to trim.
+		 * @return string
+		 */
+		public static function trim_css( $css = '' ) {
+			// Trim white space for faster page loading.
+			if ( ! empty( $css ) ) {
+				$css = preg_replace( '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css );
+				$css = str_replace( array( "\r\n", "\r", "\n", "\t", '  ', '    ', '    ' ), '', $css );
+				$css = str_replace( ', ', ',', $css );
+			}
 
-            return $css;
-        }
-    }
+			return $css;
+		}
+	}
 
-    
-    new Kemet_Enqueue_Scripts();
+
+	new Kemet_Enqueue_Scripts();
 }
