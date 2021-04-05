@@ -185,13 +185,13 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return mixed
 		 */
 		public function subcategory_count_markup( $content, $category ) {
-			$content = sprintf( // WPCS: XSS OK.
-				/* translators: 1: number of products */
-				_nx( '<mark class="count">%1$s Product</mark>', '<mark class="count">%1$s Products</mark>', $category->count, 'product categories', 'kemet' ),
+			$content = sprintf( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					/* translators: 1: number of products */
+				_nx( '%1$s Product', '%1$s Products', $category->count, 'product categories', 'kemet' ),
 				number_format_i18n( $category->count )
 			);
 
-			return $content;
+			return '<mark class="count">' . $content . '</mark>';
 		}
 
 		/**
