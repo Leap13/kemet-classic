@@ -163,8 +163,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-bar-bg-obj'                    => '',
 					'enable-sticky-footer'                 => false,
 					'footer-color'                         => '',
-					'copyright-link-color'                    => '',
-					'copyright-link-h-color'                  => '',
+					'copyright-link-color'                 => '',
+					'copyright-link-h-color'               => '',
 					// Footer Widgets.
 					'footer-bg-obj'                        => '',
 					'footer-text-color'                    => '',
@@ -176,10 +176,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'footer-button-h-color'                => '',
 					'footer-button-bg-color'               => '',
 					'footer-button-bg-h-color'             => '',
-					'footer-button-border-color'               => '',
+					'footer-button-border-color'           => '',
 					'footer-button-border-h-color'         => '',
 					'footer-button-radius'                 => '',
-					'footer-button-border-width'                 => '',
+					'footer-button-border-width'           => '',
 					'footer-input-color'                   => '',
 					'footer-input-bg-color'                => '',
 					'footer-input-border-color'            => '',
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'inputs-line-height'                   => '',
 					'inputs-letter-spacing'                => '',
 					'inputs-font-style'                    => 'inherit',
-					// Main Menu
+					// Main Menu.
 					'main-menu-item-spacing'               => '',
 					'main-menu-spacing'                    => '',
 					'menu-link-color'                      => '',
@@ -277,7 +277,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'search-input-color'                   => '',
 					'search-border-size'                   => 1,
 					'menu-letter-spacing'                  => '',
-					// Kemet Footer
+					// Kemet Footer.
 					'copyright-footer-layout'              => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'           => 'custom',
 					'footer-copyright-section-1-part'      => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
@@ -305,7 +305,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'logo-title-inline'                    => 0,
 					'tagline-color'                        => '',
 					'site-identity-spacing'                => '',
-					// Header
+					// Header.
 					'disable-primary-nav'                  => false,
 					'header-layouts'                       => 'header-main-layout-1',
 					'header-main-rt-section'               => array( 'search' ),
@@ -327,7 +327,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'display-submenu-border'               => true,
 					'header-bg-obj'                        => '',
 					'header-right-section'                 => 'none',
-					// Last menu item
+					// Last menu item.
 					'last-menu-items-font-family'          => 'inherit',
 					'last-menu-items-font-weight'          => '400',
 					'last-menu-items-line-height'          => '',
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'last-menu-items-letter-spacing'       => '',
 					'last-menu-items-text-transform'       => '',
 					'last-menu-items-font-style'           => 'inherit',
-					// Sub Menu
+					// Sub Menu.
 					'submenu-border-color'                 => '',
 					'submenu-width'                        => '',
 					'submenu-link-color'                   => '',
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'submenu-letter-spacing'               => '',
 					'submenu-box-shadow'                   => true,
 					'sub-menu-item-spacing'                => '',
-					// Mobile Menu
+					// Mobile Menu.
 					'mobile-menu-icon-color'               => '',
 					'mobile-menu-icon-bg-color'            => '',
 					'mobile-menu-icon-h-color'             => '',
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-menu-items-border-size'        => '',
 					'mobile-menu-items-border-color'       => '',
 
-					// Header Sections
+					// Header Sections.
 					'header-main-rt-section-html'          => '<button>' . __( 'Contact Us', 'kemet' ) . '</button>',
 					'header-main-sep-color'                => '',
 					'header-main-menu-label'               => '',
@@ -496,7 +496,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'letter-spacing-h4'                    => '',
 					'letter-spacing-h5'                    => '',
 					'letter-spacing-h6'                    => '',
-					// Content
+					// Content.
 					'content-text-color'                   => '',
 					'content-link-color'                   => '',
 					'content-link-h-color'                 => '',
@@ -520,7 +520,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'sidebar-input-border-radius'          => '',
 					'sidebar-input-border-size'            => '',
 
-					// Widgets
+					// Widgets.
 					'widget-title-font-family'             => 'inherit',
 					'widget-title-font-weight'             => 'inherit',
 					'widget-title-text-transform'          => '',
