@@ -17,14 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Shop Page
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]',
+		array(
 			'default'           => kemet_get_option( 'woocommerce-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]',
+		array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 125,
@@ -42,14 +44,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * Option: Single Product
 	 */
 	$wp_customize->add_setting(
-		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]',
+		array(
 			'default'           => kemet_get_option( 'single-product-sidebar-layout' ),
 			'type'              => 'option',
 			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 		)
 	);
 	$wp_customize->add_control(
-		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]', array(
+		KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]',
+		array(
 			'type'     => 'select',
 			'section'  => 'section-sidebars',
 			'priority' => 135,
