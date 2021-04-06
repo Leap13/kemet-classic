@@ -8,7 +8,7 @@
 namespace Elementor;
 
 // If plugin - 'Elementor' not exist then return.
-if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' )  ) {
+if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' ) ) {
 	return;
 }
 
@@ -50,26 +50,29 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 		/**
 		 * Constructor
 		 */
-		function __construct() {
-            add_action( 'elementor/theme/register_locations', array($this , 'register_elementor_locations') );
-            add_action( 'kemet_header', array( $this, 'replace_header' ), 0 );
-            add_action( 'kemet_footer', array( $this, 'replace_footer' ), 0 );
-            add_filter( 'post_class', array( $this, 'remove_theme_post_class' ), 99 );
-            add_action( 'kemet_404_page', array( $this, 'replace_template_part_404' ), 0 );
-            add_action( 'kemet_template_parts_content_top', array( $this, 'replace_template_parts' ), 0 );
+		public function __construct() {
+			add_action( 'elementor/theme/register_locations', array( $this, 'register_elementor_locations' ) );
+			add_action( 'kemet_header', array( $this, 'replace_header' ), 0 );
+			add_action( 'kemet_footer', array( $this, 'replace_footer' ), 0 );
+			add_filter( 'post_class', array( $this, 'remove_theme_post_class' ), 99 );
+			add_action( 'kemet_404_page', array( $this, 'replace_template_part_404' ), 0 );
+			add_action( 'kemet_template_parts_content_top', array( $this, 'replace_template_parts' ), 0 );
 		}
 
-        /**
-         * Registering all core locations.
-         */
-        function register_elementor_locations( $elementor_theme_manager ) {
+		/**
+		 * Registering all core locations.
+		 *
+		 * @param object $elementor_theme_manager elementor theme manager class.
+		 */
+		public function register_elementor_locations( $elementor_theme_manager ) {
 
-            $elementor_theme_manager->register_all_core_location();
+			$elementor_theme_manager->register_all_core_location();
 
-        }
+		}
 
-        /**
+		/**
 		 * Header Support
+		 *
 		 * @return void
 		 */
 		public function replace_header() {
@@ -81,17 +84,18 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 
 		/**
 		 * Footer Support
+		 *
 		 * @return void
 		 */
 		public function replace_footer() {
-            $did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
-            
+			$did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
+
 			if ( $did_location ) {
 				remove_action( 'kemet_footer', 'kemet_footer_markup' );
 			}
 		}
 
-        /**
+		/**
 		 * Remove theme post's default classes when Elementor's template builder is activated.
 		 *
 		 * @param  array $classes Post Classes.
@@ -165,18 +169,18 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 						'kmt-col-xl-9',
 						'kmt-col-xl-10',
 						'kmt-col-xl-11',
-                        'kmt-col-xl-12',
-                        // Kemet Blog / Single Post.
+						'kmt-col-xl-12',
+						// Kemet Blog / Single Post.
 						'kmt-article-post',
 						'kmt-article-single',
-                    )
+					)
 				);
 			}
 
 			return $classes;
-        }
+		}
 
-        /**
+		/**
 		 * Override 404 page
 		 *
 		 * @return void
@@ -190,15 +194,16 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 					remove_action( 'kemet_404_page', 'kemet_404_page_template' );
 				}
 			}
-        }
-        /**
+		}
+		/**
 		 * Template Parts Support
+		 *
 		 * @return void
 		 */
 		public function replace_template_parts() {
 			// Is Archive?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
-			
+
 			if ( $did_location ) {
 				// Search and default.
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_search' ) );
@@ -214,15 +219,15 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 
 			// IS Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
-			
+
 			if ( $did_location ) {
-                
+
 				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
 				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_page' ) );
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_post' ) );
-                remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
-            }
-        }
+				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
+			}
+		}
 	}
 
 endif;
