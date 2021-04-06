@@ -54,16 +54,16 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
 			$val = array(
-				'desktop'      => $val,
-				'tablet'       => '',
-				'mobile'       => '',
+				'desktop' => $val,
+				'tablet'  => '',
+				'mobile'  => '',
 			);
 		}
 
 		$this->json['value']   = $val;
-		$this->json['link']   = $this->get_link();
-		$this->json['id']     = $this->id;
-		$this->json['label']  = esc_html( $this->label );
+		$this->json['link']    = $this->get_link();
+		$this->json['id']      = $this->id;
+		$this->json['label']   = esc_html( $this->label );
 		$this->json['choices'] = $this->choices;
 	}
 
@@ -118,7 +118,7 @@ class Kemet_Control_Responsive_Select extends WP_Customize_Control {
 			if ( data.value['mobile'] ) { 
 				value_mobile = data.value['mobile'];
 			}
-			 #>
+			#>
 			<div class="input-wrapper kmt-responsive-wrapper">
 				<select class="kmt-responsive-select desktop active" data-id='desktop' >
 				<# _.each( data.choices, function( value, key ) { #>
