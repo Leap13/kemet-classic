@@ -51,14 +51,14 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 		}
 		$val = maybe_unserialize( $this->value() );
 
-        if ( ! is_array( $val ) || is_numeric( $val ) ) {
+		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
 			$val = array(
-				'desktop'      => $val,
-				'tablet'       => '',
-				'mobile'       => '',
+				'desktop' => $val,
+				'tablet'  => '',
+				'mobile'  => '',
 			);
-        }
+		}
 		$this->json['value']  = $val;
 		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
@@ -83,7 +83,6 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 		?>
-
 		<#
 		var defaultValueAttr = function(deviceDefaultValue){
 			var defaultValue = '#RRGGBB', defaultValueAttr = '';
@@ -138,8 +137,8 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 			if ( data.value['mobile'] ) { 
 				value_mobile = data.value['mobile'];
 			}
-			
-            default_desktop = '';
+
+			default_desktop = '';
 			default_tablet  = '';
 			default_mobile  = '';
 
@@ -154,10 +153,10 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 			if ( data.default['mobile'] ) { 
 				default_mobile = defaultValueAttr ( data.default['mobile'] );
 			}
-			 #>
-			 <div class="responsive-color-control">
-			 	<div class="customize-control-content desktop active" data-device="desktop">
-				    <input class="kmt-color-picker-alpha color-picker-hex" type="text" data-alpha="true" placeholder="{{ value_desktop }}" {{ default_desktop }} value="{{value_desktop}}" />
+			#>
+			<div class="responsive-color-control">
+				<div class="customize-control-content desktop active" data-device="desktop">
+					<input class="kmt-color-picker-alpha color-picker-hex" type="text" data-alpha="true" placeholder="{{ value_desktop }}" {{ default_desktop }} value="{{value_desktop}}" />
 				</div>
 				<div class="customize-control-content tablet" data-device="tablet">
 					<input class="kmt-color-picker-alpha color-picker-hex" type="text" data-alpha="true" placeholder="{{ value_tablet }}" {{ default_tablet }} value="{{value_tablet}}" />
@@ -165,8 +164,7 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 				<div class="customize-control-content mobile" data-device="mobile">
 					<input class="kmt-color-picker-alpha color-picker-hex" type="text" data-alpha="true" placeholder="{{ value_mobile }}" {{ default_mobile }} value="{{value_mobile}}" />
 				</div>
-			 </div>
-			
+			</div>
 		</label>
 
 		<?php
