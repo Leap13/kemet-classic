@@ -75,8 +75,8 @@ if ( ! function_exists( 'kemet_woo_shop_out_of_stock' ) ) :
 		$out_of_stock_string = apply_filters( 'kemet_woo_shop_out_of_stock_string', __( 'Out of stock', 'kemet' ) );
 		if ( 'outofstock' === $out_of_stock ) {
 			?>
-																												<span class="kmt-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
-																											<?php
+			<span class="kmt-shop-product-out-of-stock"><?php echo esc_html( $out_of_stock_string ); ?></span>
+			<?php
 		}
 	}
 
@@ -95,12 +95,12 @@ if ( ! function_exists( 'kemet_woo_shop_product_short_description' ) ) :
 	 */
 	function kemet_woo_shop_product_short_description() {
 		?>
-																										<?php if ( has_excerpt() ) { ?>
-																											<div class="kmt-woo-shop-product-description">
-																												<?php the_excerpt(); ?>
-																											</div>
-																										<?php } ?>
-																										<?php
+		<?php if ( has_excerpt() ) { ?>
+			<div class="kmt-woo-shop-product-description">
+				<?php the_excerpt(); ?>
+			</div>
+		<?php } ?>
+		<?php
 	}
 endif;
 /**
@@ -123,12 +123,12 @@ if ( ! function_exists( 'kemet_woo_product_in_stock' ) ) :
 			if ( ! empty( $availability ) && $stock_quantity ) {
 				ob_start();
 				?>
-																													<p class="kmt-stock-detail">
-																														<span class="kmt-stock-avail"><?php esc_html_e( 'Availability:', 'kemet' ); ?></span>
-																														<span class="stock in-stock"><?php echo esc_html( $availability ); ?></span>
-																													</p>
-																													<?php
-																													$markup = ob_get_clean();
+				<p class="kmt-stock-detail">
+					<span class="kmt-stock-avail"><?php esc_html_e( 'Availability:', 'kemet' ); ?></span>
+					<span class="stock in-stock"><?php echo esc_html( $availability ); ?></span>
+				</p>
+				<?php
+				$markup = ob_get_clean();
 			}
 		}
 
