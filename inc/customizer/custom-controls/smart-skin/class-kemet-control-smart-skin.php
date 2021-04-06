@@ -40,43 +40,43 @@ class Kemet_Control_Smart_Skin extends WP_Customize_Control {
 		$this->json['default'] = $this->setting->default;
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
-			}
+		}
 			$val = maybe_unserialize( $this->value() );
 
-			if ( ! is_array( $val ) || is_numeric( $val ) ) {
+		if ( ! is_array( $val ) || is_numeric( $val ) ) {
 
-				$val = array(
-					'primary'  => '',
-					't1'       => '',
-					't2'       => '',
-					'b1' 	   => '',
-					'ft'       => '',
-					'fb'       => '',
-				);
-			}
+			$val = array(
+				'primary' => '',
+				't1'      => '',
+				't2'      => '',
+				'b1'      => '',
+				'ft'      => '',
+				'fb'      => '',
+			);
+		}
 			$this->json['value'] = $val;
-			foreach ( $this->choices as $key => $value ) {
-				$this->json['choices'][ $key ]        = esc_url( $value['path'] );
-				$this->json['choices_titles'][ $key ] = $value['label'];
-				$this->json['colors'] = $value['colors'];
-			}
+		foreach ( $this->choices as $key => $value ) {
+			$this->json['choices'][ $key ]        = esc_url( $value['path'] );
+			$this->json['choices_titles'][ $key ] = $value['label'];
+			$this->json['colors']                 = $value['colors'];
+		}
 
 			$this->json['link'] = $this->get_link();
 			$this->json['id']   = $this->id;
-			
+
 	}
 	/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			$uri  = KEMET_THEME_URI . 'inc/customizer/custom-controls/smart-skin/';
+	 * Enqueue control related scripts/styles.
+	 *
+	 * @access public
+	 */
+	public function enqueue() {
+		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/smart-skin/';
 
-			wp_enqueue_style( 'kemet-smart-skin-css', $uri . 'smart-skin.css' , null, KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kemet-smart-skin-js', $uri . 'smart-skin.js', array(), KEMET_THEME_VERSION, true );
-			
-		}
+		wp_enqueue_style( 'kemet-smart-skin-css', $uri . 'smart-skin.css', null, KEMET_THEME_VERSION );
+		wp_enqueue_script( 'kemet-smart-skin-js', $uri . 'smart-skin.js', array(), KEMET_THEME_VERSION, true );
+
+	}
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
 	 *
