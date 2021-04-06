@@ -5,7 +5,7 @@
  * @package Kemet
  */
 
-namespace Elementor;
+namespace Elementor; // phpcs:ignore
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) ) {
@@ -44,19 +44,21 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 		/**
 		 * Constructor
 		 */
-		function __construct() {
+		public function __construct() {
 			add_action( 'wp', array( $this, 'elementor_default_setting' ), 20 );
 			add_action( 'elementor/preview/init', array( $this, 'elementor_default_setting' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
-			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );	
+			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 		}
 
 		/**
+		 * Elementor styles
+		 *
 		 * @return void
 		 * @since  1.0.4
 		 */
-		function enqueue_elementor_compatibility_styles() {
+		public function enqueue_elementor_compatibility_styles() {
 			?>
 				<style type="text/css" id="kmt-elementor-compatibility-css">
 					.elementor-widget-heading .elementor-heading-title {
@@ -66,8 +68,12 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			<?php
 		}
 
-
-		function elementor_default_setting() {
+		/**
+		 * Elementor Default content layout
+		 *
+		 * @return mixed
+		 */
+		public function elementor_default_setting() {
 
 			if ( false == kemet_enable_page_builder() || 'post' == get_post_type() ) {
 				return;
@@ -80,28 +86,38 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 
 			global $post;
 			$id = kemet_get_post_id();
-			
+
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
-				
+
 				if ( $this->is_elementor_activated( $id ) ) {
 
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
-					if(isset($meta)){
+					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
+					if ( isset( $meta ) ) {
 						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					}else{
+					} else {
 						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
 					}
-					
-					add_filter(
-						'kemet_get_content_layout',
-						function () {
-							return 'page-builder';
-						}
-					);
+
+					add_filter( 'kemet_get_content_layout', array( $this, 'elementor_default_content_layout' ) );
 				}
 			}
 		}
 
+		/**
+		 * Beaver Builder default content layout
+		 *
+		 * @param string $layout page layout.
+		 * @return string
+		 */
+		public function elementor_default_content_layout( $layout ) {
+			return 'page-builder';
+		}
+
+		/**
+		 * Elementor css
+		 *
+		 * @return mixed
+		 */
 		public function elementor_overlay_zindex() {
 
 			// return if we are not on Elementor's edit page.
@@ -119,17 +135,28 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			<?php
 		}
 
-		 function is_elementor_activated( $id ) {
-			
+		/**
+		 * Check if page build with elementor
+		 *
+		 * @param integer $id page id.
+		 * @return boolean
+		 */
+		public function is_elementor_activated( $id ) {
+
 			if ( version_compare( ELEMENTOR_VERSION, '1.5.0', '<' ) ) {
-				
+
 				return ( 'builder' === Plugin::$instance->db->get_edit_mode( $id ) );
 			} else {
-				
+
 				return Plugin::$instance->db->is_built_with_elementor( $id );
 			}
 		}
 
+		/**
+		 * Check if page edit with elementor
+		 *
+		 * @return boolean
+		 */
 		private function is_elementor_editor() {
 			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
