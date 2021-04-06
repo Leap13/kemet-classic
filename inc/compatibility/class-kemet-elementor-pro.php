@@ -5,18 +5,20 @@
  * @package Kemet
  */
 
-namespace Elementor;
+namespace Elementor; // phpcs:ignore
 
 // If plugin - 'Elementor' not exist then return.
 if ( ! class_exists( '\Elementor\Plugin' ) || ! class_exists( 'ElementorPro\Modules\ThemeBuilder\Module' ) ) {
 	return;
 }
 
-namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport;
+namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport; // phpcs:ignore
 
+// @codingStandardsIgnoreStart
 use Elementor\TemplateLibrary\Source_Local;
 use ElementorPro\Modules\ThemeBuilder\Classes\Locations_Manager;
 use ElementorPro\Modules\ThemeBuilder\Module;
+// @codingStandardsIgnoreEnd
 
 /**
  * Kemet Elementor Compatibility
@@ -206,8 +208,10 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 
 			if ( $did_location ) {
 				// Search and default.
+				// @codingStandardsIgnoreStart
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_search' ) );
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_default' ) );
+				// @codingStandardsIgnoreEnd
 
 				// Remove pagination.
 				remove_action( 'kemet_pagination', 'kemet_number_pagination' );
@@ -221,11 +225,12 @@ if ( ! class_exists( 'Kemet_Elementor_Pro' ) ) :
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 
 			if ( $did_location ) {
-
+				// @codingStandardsIgnoreStart
 				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
 				remove_action( 'kemet_page_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_page' ) );
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_post' ) );
 				remove_action( 'kemet_template_parts_content', array( \Kemet_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				// @codingStandardsIgnoreEnd
 			}
 		}
 	}
