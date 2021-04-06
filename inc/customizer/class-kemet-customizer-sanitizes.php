@@ -154,21 +154,21 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 
 			if ( isset( $val['desktop'] ) ) {
 				$spacing['desktop'] = array_map(
-					function ( $value ) {
+					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
 					},
 					$val['desktop']
 				);
 
 				$spacing['tablet'] = array_map(
-					function ( $value ) {
+					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
 					},
 					$val['tablet']
 				);
 
 				$spacing['mobile'] = array_map(
-					function ( $value ) {
+					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
 					},
 					$val['mobile']

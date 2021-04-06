@@ -40,7 +40,6 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		/**
 		 * Get System Fonts
 		 *
-		 *
 		 * @return Array All the system fonts in KEMET
 		 */
 		public static function get_system_fonts() {
@@ -117,7 +116,6 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		 * Google Fonts used in kemet.
 		 * Array is generated from the google-fonts.json file.
 		 *
-		 *
 		 * @return Array Array of Google Fonts.
 		 */
 		public static function get_google_fonts() {
@@ -132,7 +130,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 
 				global $wp_filesystem;
 				if ( empty( $wp_filesystem ) ) {
-					require_once ABSPATH . '/wp-admin/includes/file.php';
+					require_once ABSPATH . '/wp-admin/includes/file.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 					WP_Filesystem();
 				}
 

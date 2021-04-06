@@ -85,8 +85,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public function kemet_notification_section( $wp_customize ) {
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require KEMET_THEME_DIR . 'inc/customizer/notification/class-kemet-notification-helper.php';
 			require KEMET_THEME_DIR . 'inc/customizer/notification/class-kemet-customizer-notification.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			$wp_customize->register_section_type( 'Kemet_Customizer_Notification' );
 		}
 
@@ -189,8 +191,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_panel_type( 'Kemet_WP_Customize_Panel' );
 			$wp_customize->register_section_type( 'Kemet_WP_Customize_Section' );
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-kemet-wp-customize-panel.php';
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-kemet-wp-customize-section.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 * Register controls
@@ -213,6 +217,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
 			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Helper files
 			 */
@@ -223,6 +228,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			// Group Control Generator.
 			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/group/class-kemet-generate-control-group.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 		/**
@@ -232,6 +238,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 */
 		public function customize_register( $wp_customize ) {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Override Defaults
 			 */
@@ -258,7 +265,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
-
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 		/**
