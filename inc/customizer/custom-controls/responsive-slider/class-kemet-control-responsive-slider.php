@@ -43,6 +43,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @var array
 	 */
 	public $unit_choices = array();
+
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
@@ -76,8 +77,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
 
-		$this->json['unit_choices']   = $this->unit_choices;
-
+		$this->json['unit_choices'] = $this->unit_choices;
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 						</button>
 					</li>
 				</ul>
-			<# }  
+			<# }
 			desktop_unit_val = 'px';
 			tablet_unit_val  = 'px';
 			mobile_unit_val  = 'px';
@@ -164,8 +164,8 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					tablet_attrs = '',
 					mobile_attrs = '';
 			#>
-			 <#_.each( data.unit_choices, function( data_attrs , unit_key) { 
-				 	if(unit_key == desktop_unit_val){
+			<#_.each( data.unit_choices, function( data_attrs , unit_key) { 
+					if(unit_key == desktop_unit_val){
 					desktop_attrs = "min = " + data_attrs.min + " " + "max = " + data_attrs.max + " step = " + data_attrs.step; 
 					}
 					if(unit_key == tablet_unit_val ){
@@ -174,7 +174,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 					if(unit_key == mobile_unit_val ){
 						mobile_attrs = "min = " + data_attrs.min + " " + "max = " + data_attrs.max + " step = " + data_attrs.step;
 					}
-			 });#>
+			});#>
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
 					<input type="range" {{{desktop_attrs}}}  value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
