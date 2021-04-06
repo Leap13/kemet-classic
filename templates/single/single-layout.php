@@ -35,7 +35,6 @@
 
 		<?php
 			kemet_edit_post_link(
-
 				sprintf(
 					/* translators: %s: Name of current post */
 					esc_html__( 'Edit %s', 'kemet' ),
@@ -44,7 +43,7 @@
 				'<span class="edit-link">',
 				'</span>'
 			);
-		?>
+			?>
 
 		<?php kemet_entry_content_after(); ?>
 
@@ -57,6 +56,6 @@
 					'link_after'  => '</span>',
 				)
 			);
-		?>
+			?>
 	</div><!-- .entry-content .clear -->
 </div>
