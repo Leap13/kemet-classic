@@ -210,7 +210,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-sanitizes.php';
 
 			// Group Control Generator
-			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/group/class-kemet-generate-group-control.php';
+			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/group/class-kemet-generate-control-group.php';
 		}
 
 		/**
