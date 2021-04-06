@@ -10,7 +10,7 @@
  */
 
 $control_dir = KEMET_THEME_DIR . 'inc/customizer/custom-controls';
-
+// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 require $control_dir . '/sortable/class-kemet-control-sortable.php';
 require $control_dir . '/radio-image/class-kemet-control-radio-image.php';
 require $control_dir . '/slider/class-kemet-control-slider.php';
@@ -29,3 +29,4 @@ require $control_dir . '/responsive-color/class-kemet-control-responsive-color.p
 require $control_dir . '/group/class-kemet-control-group.php';
 require $control_dir . '/hidden/class-kemet-control-hidden.php';
 require $control_dir . '/select/class-kemet-control-select.php';
+// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
