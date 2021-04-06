@@ -12,11 +12,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-	/**
-	 * Get WP menus
-	 *
-	 * @since 1.0.0
-	 */
+/**
+ * Get WP menus
+ *
+ * @since 1.0.0
+ */
 function get_wp_menus() {
 	$menus     = array( esc_html__( 'Select Your Menu', 'kemet' ) );
 	$get_menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
@@ -25,7 +25,7 @@ function get_wp_menus() {
 	}
 	return $menus;
 }
-	$defaults = Kemet_Theme_Options::defaults();
+$defaults = Kemet_Theme_Options::defaults();
 
 /**
 * Option: Header Layout
