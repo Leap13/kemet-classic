@@ -2,6 +2,7 @@
 /**
  * Footer Layout 3
  *
+ * @package     Kemet
  * @since   Kemet 1.0.0
  */
 
@@ -23,10 +24,10 @@ if ( ! is_user_logged_in() ) {
 
 $classes[] = 'kemet-footer';
 $classes[] = 'kemet-footer-layout-3';
-if(kemet_get_option('enable-footer-content-center')) {
+if ( kemet_get_option( 'enable-footer-content-center' ) ) {
 	$classes[] = 'kemet-footer-align-center';
 }
-$classes   = implode( ' ', $classes );
+$classes = implode( ' ', $classes );
 ?>
 
 <div class="<?php echo esc_attr( $classes ); ?>">
