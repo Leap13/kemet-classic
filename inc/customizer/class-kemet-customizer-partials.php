@@ -39,7 +39,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -52,21 +52,21 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Blog Name
 		 */
-		function _render_partial_blogname() {
+		public function render_partial_blogname() {
 			bloginfo( 'name' );
 		}
 
 		/**
 		 * Render Partial Blog Description
 		 */
-		function _render_partial_blogdescription() {
+		public function render_partial_blogdescription() {
 			bloginfo( 'description' );
 		}
 
 		/**
 		 * Render Partial Site Tagline
 		 */
-		static function _render_partial_site_tagline() {
+		public static function render_partial_site_tagline() {
 
 			$site_tagline = kemet_get_option( 'display-site-tagline' );
 
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Site Tagline
 		 */
-		static function _render_partial_site_title() {
+		public static function render_partial_site_title() {
 
 			$site_title = kemet_get_option( 'display-site-title' );
 
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Header Right Section HTML
 		 */
-		static function _render_header_main_rt_section_html() {
+		public static function render_header_main_rt_section_html() {
 
 			$right_section_html = kemet_get_option( 'header-main-rt-section-html' );
 
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 1
 		 */
-		static function _render_footer_copyright_section_1_part() {
+		public static function render_footer_copyright_section_1_part() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-1-part' );
 			return do_shortcode( $output );
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kemet_Customizer_Partials' ) ) {
 		/**
 		 * Render Partial Footer Section 2
 		 */
-		static function _render_footer_copyright_section_2_part() {
+		public static function render_footer_copyright_section_2_part() {
 
 			$output = kemet_get_copyright_footer_custom_text( 'footer-copyright-section-2-part' );
 			return do_shortcode( $output );

@@ -783,7 +783,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.main-header-bar .kmt-sitehead-custom-menu-items .kmt-custom-html',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_header_main_rt_section_html' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_header_main_rt_section_html' ),
 		)
 	);
 }

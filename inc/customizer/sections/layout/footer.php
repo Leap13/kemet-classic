@@ -117,7 +117,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.kmt-footer-copyright-section-1',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_1_part' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_footer_copyright_section_1_part' ),
 		)
 	);
 }
@@ -188,7 +188,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.kmt-footer-copyright-section-2',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_footer_copyright_section_2_part' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_footer_copyright_section_2_part' ),
 		)
 	);
 }
