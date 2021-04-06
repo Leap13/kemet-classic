@@ -2,85 +2,85 @@
  * Kemet Theme compatibility with Contact Form 7
  */
 .wpcf7 {
-	/* Button */
-	/* Validation Fix */
+  /* Button */
+  /* Validation Fix */
 }
 
 .wpcf7 .wpcf7-form .ajax-loader {
-	display: none;
+  display: none;
 }
 
 .wpcf7 form {
-	position: relative;
+  position: relative;
 }
 
 .wpcf7 form > p,
 .wpcf7 form > div {
-	margin-bottom: 1.2em;
+  margin-bottom: 1.2em;
 }
 
 .wpcf7 .wpcf7-form-control-wrap {
-	display: block;
-	width: 100%;
+  width: 100%;
+  display: block;
 }
 
 .wpcf7 input:not([type="submit"]):focus,
 .wpcf7 textarea:focus,
 .wpcf7 select:focus {
-	border-color: #eaeaea;
-	outline: 0;
-	background: #fff;
-	-webkit-box-shadow: none;
-	box-shadow: none;
+  background: #fff;
+  border-color: #eaeaea;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .wpcf7 input:not([type="submit"]),
 .wpcf7 textarea,
 .wpcf7 select {
-	width: 100%;
-	padding: 0.75em;
+  width: 100%;
+  padding: 0.75em;
 }
 
 .wpcf7 input[type="file"] {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	height: auto;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #eaeaea;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	color: #666;
-	background: #fafafa;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	-webkit-transition: all 0.2s linear;
-	transition: all 0.2s linear;
+  color: #666;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #fafafa;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .wpcf7 input[type="radio"],
 .wpcf7 input[type="checkbox"] {
-	display: inline-block;
-	clear: none;
-	width: 1.4em;
-	min-width: 1.4em;
-	height: 1.2em;
-	margin: -3px 4px 0 0;
-	padding: 0;
-	-webkit-border-radius: 0.2em;
-	border-radius: 0.2em;
-	outline: 0;
-	color: #555;
-	background: #e9eef2;
-	line-height: 0;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	-webkit-transition: all 0.2s linear;
-	transition: all 0.2s linear;
+  display: inline-block;
+  background: #e9eef2;
+  color: #555;
+  clear: none;
+  cursor: pointer;
+  line-height: 0;
+  height: 1.2em;
+  margin: -3px 4px 0 0;
+  outline: 0;
+  padding: 0;
+  -webkit-border-radius: 0.2em;
+  border-radius: 0.2em;
+  text-align: center;
+  vertical-align: middle;
+  width: 1.4em;
+  min-width: 1.4em;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .wpcf7 .wpcf7-validation-errors {
-	border-color: #f00;
+  border-color: #f00;
 }

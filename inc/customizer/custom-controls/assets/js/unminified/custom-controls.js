@@ -1244,7 +1244,24 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
             $(".kmt-group-model ul li#customize-control-" + controlContainerID)
               .find("select")
-              .select2({ width: "100%" })
+              .select2({
+                width: "100%",
+                templateResult: function (data, container) {
+                  var fontFamily = $(data.element).val();
+                  $(container).css("font-family", fontFamily);
+                  return data.text;
+                },
+                templateSelection: function (data) {
+                  var $data = $(
+                    '<span style="font-family:' +
+                      data.element.value +
+                      ';">' +
+                      data.text +
+                      "</span>"
+                  );
+                  return $data;
+                },
+              })
               .css("width", "100%");
 
             $(
