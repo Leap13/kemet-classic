@@ -8,7 +8,6 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Kemet
- * 
  */
 
 /*
@@ -22,18 +21,21 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-	
+
 	<?php kemet_comments_before(); ?>
 
-	<?php // You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) :
+		?>
 		<div class="comments-count-wrapper">
 			<h3 class="comments-title">
 				<?php
-				 sprintf( 
+				sprintf(
 						/* translators: 1: number of comments */
-						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'kemet' ) ),
-						number_format_i18n( get_comments_number() ), get_the_title()
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'kemet' ) ),
+					number_format_i18n( get_comments_number() ),
+					get_the_title()
 				);
 
 				?>
@@ -79,7 +81,7 @@ if ( post_password_required() ) {
 	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
+		?>
 		<p class="no-comments"><?php echo esc_html( kemet_theme_strings( 'string-comment-closed', false ) ); ?></p>
 	<?php endif; // Check for have_comments(). ?>
 
