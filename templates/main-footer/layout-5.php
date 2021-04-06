@@ -1,7 +1,8 @@
 <?php
 /**
- * Footer Layout 6
- * 
+ * Footer Layout 5
+ *
+ * @package     Kemet
  * @since   Kemet 1.0.0
  */
 
