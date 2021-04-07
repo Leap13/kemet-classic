@@ -452,7 +452,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'background-color' => $btn_bg_hover_color,
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
-					'border-radius'  => kemet_get_css_value( $btn_border_radius, 'px' ),
+					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
 					'padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
