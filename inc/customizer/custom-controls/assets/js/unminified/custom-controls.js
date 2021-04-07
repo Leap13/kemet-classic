@@ -6,104 +6,59 @@
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['kmt-sortable'] = wp.customize.Control.extend({
+wp.customize.controlConstructor["kmt-sortable"] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-		ready: function() {
+    var control = this;
 
-			'use strict';
+    // Set the sortable container.
+    control.sortableContainer = control.container.find("ul.sortable").first();
 
-			var control = this;
+    // Init sortable.
+    control.sortableContainer
+      .sortable({
+        // Update value when we stop sorting.
+        stop: function () {
+          control.updateValue();
+        },
+      })
+      .disableSelection()
+      .find("li")
+      .each(function () {
+        // Enable/disable options when we click on the eye of Thundera.
+        jQuery(this)
+          .find("i.visibility")
+          .click(function () {
+            jQuery(this)
+              .toggleClass("dashicons-visibility-faint")
+              .parents("li:eq(0)")
+              .toggleClass("invisible");
+          });
+      })
+      .click(function () {
+        // Update value on click.
+        control.updateValue();
+      });
+  },
 
-			// Set the sortable container.
-			control.sortableContainer = control.container.find( 'ul.sortable' ).first();
+  /**
+   * Updates the sorting list
+   */
+  updateValue: function () {
+    "use strict";
 
-			// Init sortable.
-			control.sortableContainer.sortable({
+    var control = this,
+      newValue = [];
 
-				// Update value when we stop sorting.
-				stop: function() {
-					control.updateValue();
-				}
-			}).disableSelection().find( 'li' ).each( function() {
+    this.sortableContainer.find("li").each(function () {
+      if (!jQuery(this).is(".invisible")) {
+        newValue.push(jQuery(this).data("value"));
+      }
+    });
 
-					// Enable/disable options when we click on the eye of Thundera.
-					jQuery( this ).find( 'i.visibility' ).click( function() {
-						jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'li:eq(0)' ).toggleClass( 'invisible' );
-					});
-			}).click( function() {
-
-				// Update value on click.
-				control.updateValue();
-			});
-		},
-
-		/**
-		 * Updates the sorting list
-		 */
-		updateValue: function() {
-
-			'use strict';
-
-			var control = this,
-		    newValue = [];
-
-			this.sortableContainer.find( 'li' ).each( function() {
-				if ( ! jQuery( this ).is( '.invisible' ) ) {
-					newValue.push( jQuery( this ).data( 'value' ) );
-				}
-			});
-
-			control.setting.set( newValue );
-		}
-	});
-
-/**
- * File slider.js
- *
- * Handles Slider control
- *
- * @package Kemet
- */
-
-wp.customize.controlConstructor['kmt-slider'] = wp.customize.Control.extend({
-
-	ready: function () {
-
-		'use strict';
-
-		var control = this,
-			value,
-			thisInput,
-			inputDefault,
-			changeAction;
-
-		
-		// Update the text value.
-		this.container.on('input change', 'input[type=range]', function () {
-			var value = jQuery(this).val(),
-				input_number = jQuery(this).closest('.wrapper').find('input[type=number]');
-			
-			input_number.val(value);
-			input_number.change();
-		});
-		// Handle the reset button.
-		jQuery('.kmt-slider-reset').click(function () {
-			var wrapper = jQuery(this).closest('.wrapper'),
-				input_range = wrapper.find('input[type=range]'),
-				input_number = wrapper.find('.kemet_range_value .value'),
-				default_value = input_range.data('reset_value');
-
-			input_range.val(default_value);
-			input_number.val(default_value);
-			input_number.change();
-		});
-		// Save changes.
-		this.container.on('input change', 'input[type=number]', function () {
-			var value = jQuery(this).val();
-			jQuery(this).closest('.wrapper').find('input[type=range]').val(value);
-			control.setting.set(value);
-		});
-	}
+    control.setting.set(newValue);
+  },
 });
 
 /**
@@ -114,54 +69,102 @@ wp.customize.controlConstructor['kmt-slider'] = wp.customize.Control.extend({
  * @package Kemet
  */
 
-jQuery(window).on("load", function() {
-  	jQuery('html').addClass('colorpicker-ready');
+wp.customize.controlConstructor["kmt-slider"] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
+
+    var control = this,
+      value,
+      thisInput,
+      inputDefault,
+      changeAction;
+
+    // Update the text value.
+    this.container.on("input change", "input[type=range]", function () {
+      var value = jQuery(this).val(),
+        input_number = jQuery(this)
+          .closest(".wrapper")
+          .find("input[type=number]");
+
+      input_number.val(value);
+      input_number.change();
+    });
+    // Handle the reset button.
+    jQuery(".kmt-slider-reset").click(function () {
+      var wrapper = jQuery(this).closest(".wrapper"),
+        input_range = wrapper.find("input[type=range]"),
+        input_number = wrapper.find(".kemet_range_value .value"),
+        default_value = input_range.data("reset_value");
+
+      input_range.val(default_value);
+      input_number.val(default_value);
+      input_number.change();
+    });
+    // Save changes.
+    this.container.on("input change", "input[type=number]", function () {
+      var value = jQuery(this).val();
+      jQuery(this).closest(".wrapper").find("input[type=range]").val(value);
+      control.setting.set(value);
+    });
+  },
 });
 
-	wp.customize.controlConstructor['kmt-color'] = wp.customize.Control.extend({
+/**
+ * File slider.js
+ *
+ * Handles Slider control
+ *
+ * @package Kemet
+ */
 
-		ready: function() {
+jQuery(window).on("load", function () {
+  jQuery("html").addClass("colorpicker-ready");
+});
 
-			'use strict';
+wp.customize.controlConstructor["kmt-color"] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-			var control = this,
-				value,
-				thisInput,
-				inputDefault,
-				changeAction;			
+    var control = this,
+      value,
+      thisInput,
+      inputDefault,
+      changeAction;
 
-			this.container.find('.kmt-color-picker-alpha' ).wpColorPicker({
-				/**
-			     * @param {Event} event - standard jQuery event, produced by whichever
-			     * control was changed.
-			     * @param {Object} ui - standard jQuery UI object, with a color member
-			     * containing a Color.js object.
-			     */
-			    change: function (event, ui) {
-			        var element = event.target;
-			        var color = ui.color.toString();
+    this.container.find(".kmt-color-picker-alpha").wpColorPicker({
+      /**
+       * @param {Event} event - standard jQuery event, produced by whichever
+       * control was changed.
+       * @param {Object} ui - standard jQuery UI object, with a color member
+       * containing a Color.js object.
+       */
+      change: function (event, ui) {
+        var element = event.target;
+        var color = ui.color.toString();
 
-			        if ( jQuery('html').hasClass('colorpicker-ready') ) {
-						control.setting.set( color );
-			        }
-			    },
+        if (jQuery("html").hasClass("colorpicker-ready")) {
+          control.setting.set(color);
+        }
+      },
 
-			    /**
-			     * @param {Event} event - standard jQuery event, produced by "Clear"
-			     * button.
-			     */
-			    clear: function (event) {
-			        var element = jQuery(event.target).closest('.wp-picker-input-wrap').find('.wp-color-picker')[0];
-			        var color = '';
+      /**
+       * @param {Event} event - standard jQuery event, produced by "Clear"
+       * button.
+       */
+      clear: function (event) {
+        var element = jQuery(event.target)
+          .closest(".wp-picker-input-wrap")
+          .find(".wp-color-picker")[0];
+        var color = "";
 
-			        if (element) {
-			            // Add your code here
-			        	control.setting.set( color );
-			        }
-			    }
-			});
-		}
-	});
+        if (element) {
+          // Add your code here
+          control.setting.set(color);
+        }
+      },
+    });
+  },
+});
 
 /**
  * File icon-select.js
@@ -170,21 +173,19 @@ jQuery(window).on("load", function() {
  *
  * @package Kemet
  */
-wp.customize.controlConstructor['kmt-icon-select'] = wp.customize.Control.extend({
+wp.customize.controlConstructor[
+  "kmt-icon-select"
+] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-    ready: function () {
+    var control = this;
 
-        'use strict';
-
-        var control = this;
-
-        // Change the value
-        this.container.on('change', 'input', function () {
-            control.setting.set(jQuery(this).val());
-        });
-
-    }
-
+    // Change the value
+    this.container.on("change", "input", function () {
+      control.setting.set(jQuery(this).val());
+    });
+  },
 });
 /**
  * File radio-image.js
@@ -194,22 +195,20 @@ wp.customize.controlConstructor['kmt-icon-select'] = wp.customize.Control.extend
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['kmt-radio-image'] = wp.customize.Control.extend({
+wp.customize.controlConstructor[
+  "kmt-radio-image"
+] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-		ready: function() {
+    var control = this;
 
-			'use strict';
-
-			var control = this;
-
-			// Change the value.
-			this.container.on( 'click', 'input', function() {
-				control.setting.set( jQuery( this ).val() );
-			});
-
-		}
-
-	});
+    // Change the value.
+    this.container.on("click", "input", function () {
+      control.setting.set(jQuery(this).val());
+    });
+  },
+});
 
 /**
  * File responsive.js
@@ -219,103 +218,117 @@ wp.customize.controlConstructor['kmt-icon-select'] = wp.customize.Control.extend
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['kmt-responsive'] = wp.customize.Control.extend({
+wp.customize.controlConstructor["kmt-responsive"] = wp.customize.Control.extend(
+  {
+    // When we're finished loading continue processing.
+    ready: function () {
+      "use strict";
 
-		// When we're finished loading continue processing.
-		ready: function() {
+      var control = this,
+        value;
 
-			'use strict';
+      control.kmtResponsiveInit();
 
-			var control = this,
-		    value;
+      /**
+       * Save on change / keyup / paste
+       */
+      this.container.on(
+        "change keyup paste",
+        "input.kmt-responsive-input, select.kmt-responsive-select",
+        function () {
+          value = jQuery(this).val();
 
-			control.kmtResponsiveInit();
-			
-			/**
-			 * Save on change / keyup / paste
-			 */
-			this.container.on( 'change keyup paste', 'input.kmt-responsive-input, select.kmt-responsive-select', function() {
+          // Update value on change.
+          control.updateValue();
+        }
+      );
 
-				value = jQuery( this ).val();
+      /**
+       * Refresh preview frame on blur
+       */
+      this.container.on("blur", "input", function () {
+        value = jQuery(this).val() || "";
 
-				// Update value on change.
-				control.updateValue();
-			});
+        if (value == "") {
+          wp.customize.previewer.refresh();
+        }
+      });
+    },
 
-			/**
-			 * Refresh preview frame on blur
-			 */
-			this.container.on( 'blur', 'input', function() {
+    /**
+     * Updates the sorting list
+     */
+    updateValue: function () {
+      "use strict";
 
-				value = jQuery( this ).val() || '';
+      var control = this,
+        newValue = {};
 
-				if ( value == '' ) {
-					wp.customize.previewer.refresh();
-				}
+      // Set the spacing container.
+      control.responsiveContainer = control.container
+        .find(".kmt-responsive-wrapper")
+        .first();
 
-			});
+      control.responsiveContainer
+        .find("input.kmt-responsive-input")
+        .each(function () {
+          var responsive_input = jQuery(this),
+            item = responsive_input.data("id"),
+            item_value = responsive_input.val();
 
-		},
+          newValue[item] = item_value;
+        });
 
-		/**
-		 * Updates the sorting list
-		 */
-		updateValue: function() {
+      control.responsiveContainer
+        .find("select.kmt-responsive-select")
+        .each(function () {
+          var responsive_input = jQuery(this),
+            item = responsive_input.data("id"),
+            item_value = responsive_input.val();
 
-			'use strict';
+          newValue[item] = item_value;
+        });
 
-			var control = this,
-		    newValue = {};
+      control.setting.set(newValue);
+    },
 
-		    // Set the spacing container.
-			control.responsiveContainer = control.container.find( '.kmt-responsive-wrapper' ).first();
+    kmtResponsiveInit: function () {
+      "use strict";
+      this.container
+        .find(".kmt-responsive-btns button")
+        .on("click", function (event) {
+          var device = jQuery(this).attr("data-device");
+          if ("desktop" == device) {
+            device = "tablet";
+          } else if ("tablet" == device) {
+            device = "mobile";
+          } else {
+            device = "desktop";
+          }
 
-			control.responsiveContainer.find( 'input.kmt-responsive-input' ).each( function() {
-				var responsive_input = jQuery( this ),
-				item = responsive_input.data( 'id' ),
-				item_value = responsive_input.val();
+          jQuery(
+            '.wp-full-overlay-footer .devices button[data-device="' +
+              device +
+              '"]'
+          ).trigger("click");
+        });
+    },
+  }
+);
 
-				newValue[item] = item_value;
+jQuery(" .wp-full-overlay-footer .devices button ").on("click", function () {
+  var device = jQuery(this).attr("data-device");
 
-			});
-
-			control.responsiveContainer.find( 'select.kmt-responsive-select' ).each( function() {
-				var responsive_input = jQuery( this ),
-				item = responsive_input.data( 'id' ),
-				item_value = responsive_input.val();
-
-				newValue[item] = item_value;
-			});
-
-			control.setting.set( newValue );
-		},
-
-		kmtResponsiveInit : function() {
-			
-			'use strict';
-			this.container.find( '.kmt-responsive-btns button' ).on( 'click', function( event ) {
-
-				var device = jQuery(this).attr('data-device');
-				if( 'desktop' == device ) {
-					device = 'tablet';
-				} else if( 'tablet' == device ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
-				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-			});
-		},
-	});
-	
-	jQuery(' .wp-full-overlay-footer .devices button ').on('click', function() {
-
-		var device = jQuery(this).attr('data-device');
-
-		jQuery( '.customize-control-kmt-responsive .input-wrapper input, .customize-control .kmt-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-kmt-responsive .input-wrapper input.' + device + ', .customize-control .kmt-responsive-btns > li.' + device ).addClass( 'active' );
-	});
+  jQuery(
+    ".customize-control-kmt-responsive .input-wrapper input, .customize-control .kmt-responsive-btns > li"
+  ).removeClass("active");
+  jQuery(
+    ".customize-control-kmt-responsive .input-wrapper input." +
+      device +
+      ", .customize-control .kmt-responsive-btns > li." +
+      device
+  ).addClass("active");
+});
 
 /**
  * File responsive.js
@@ -329,7 +342,7 @@ wp.customize.controlConstructor[
   "kmt-responsive-select"
 ] = wp.customize.Control.extend({
   // When we're finished loading continue processing.
-  ready: function() {
+  ready: function () {
     "use strict";
 
     var control = this,
@@ -343,7 +356,7 @@ wp.customize.controlConstructor[
     this.container.on(
       "change keyup paste",
       "select.kmt-responsive-select",
-      function() {
+      function () {
         value = jQuery(this).val();
 
         // Update value on change.
@@ -354,7 +367,7 @@ wp.customize.controlConstructor[
     /**
      * Refresh preview frame on blur
      */
-    this.container.on("blur", "input", function() {
+    this.container.on("blur", "input", function () {
       value = jQuery(this).val() || "";
 
       if (value == "") {
@@ -366,7 +379,7 @@ wp.customize.controlConstructor[
   /**
    * Updates the sorting list
    */
-  updateValue: function() {
+  updateValue: function () {
     "use strict";
 
     var control = this,
@@ -379,7 +392,7 @@ wp.customize.controlConstructor[
 
     control.responsiveContainer
       .find("select.kmt-responsive-select")
-      .each(function() {
+      .each(function () {
         var responsive_input = jQuery(this),
           item = responsive_input.data("id"),
           item_value = responsive_input.val();
@@ -390,34 +403,38 @@ wp.customize.controlConstructor[
     control.setting.set(newValue);
   },
 
-  kmtResponsiveInit: function() {
+  kmtResponsiveInit: function () {
     "use strict";
 
     var control = this;
 
-    this.container.on("click", ".kmt-responsive-select-btns button", function(
-      event
-    ) {
-      event.preventDefault();
+    this.container.on(
+      "click",
+      ".kmt-responsive-select-btns button",
+      function (event) {
+        event.preventDefault();
 
-      var device = jQuery(this).attr("data-device");
+        var device = jQuery(this).attr("data-device");
 
-      if ("desktop" == device) {
-        device = "tablet";
-      } else if ("tablet" == device) {
-        device = "mobile";
-      } else {
-        device = "desktop";
+        if ("desktop" == device) {
+          device = "tablet";
+        } else if ("tablet" == device) {
+          device = "mobile";
+        } else {
+          device = "desktop";
+        }
+
+        jQuery(
+          '.wp-full-overlay-footer .devices button[data-device="' +
+            device +
+            '"]'
+        ).trigger("click");
       }
-
-      jQuery(
-        '.wp-full-overlay-footer .devices button[data-device="' + device + '"]'
-      ).trigger("click");
-    });
-  }
+    );
+  },
 });
 
-jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
+jQuery(" .wp-full-overlay-footer .devices button ").on("click", function () {
   var device = jQuery(this).attr("data-device");
 
   jQuery(
@@ -439,146 +456,212 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
  * @package Kemet
  */
 
-wp.customize.controlConstructor['kmt-responsive-slider'] = wp.customize.Control.extend({
+wp.customize.controlConstructor[
+  "kmt-responsive-slider"
+] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-	ready: function () {
+    var control = this,
+      value,
+      thisInput,
+      inputDefault,
+      changeAction;
 
-		'use strict';
+    control.kmtResponsiveInit();
 
-		var control = this,
-			value,
-			thisInput,
-			inputDefault,
-			changeAction;
+    // Update the text value.
+    this.container.on("input change", "input[type=range]", function () {
+      var value = jQuery(this).val(),
+        input_number = jQuery(this)
+          .closest(".input-field-wrapper")
+          .find(".kmt-responsive-range-value-input");
 
-		control.kmtResponsiveInit();
+      input_number.val(value);
+      input_number.trigger("change");
+    });
 
-		// Update the text value.
-		this.container.on('input change', 'input[type=range]', function () {
-			var value = jQuery(this).val(),
-				input_number = jQuery(this).closest('.input-field-wrapper').find('.kmt-responsive-range-value-input');
+    // Handle the reset button.
+    this.container.on("click", ".kmt-responsive-slider-reset", function () {
+      var wrapper = jQuery(this).parent().find(".input-field-wrapper.active"),
+        input_range = wrapper.find("input[type=range]"),
+        input_number = wrapper.find(".kmt-responsive-range-value-input"),
+        default_value = input_range.data("reset_value");
 
-			input_number.val(value);
-			input_number.trigger('change');
-		});
+      input_range.val(default_value);
+      input_number.val(default_value);
+      input_number.trigger("change");
+    });
 
-		// Handle the reset button.
-		this.container.on('click', '.kmt-responsive-slider-reset', function () {
+    // Save changes.
+    this.container.on("input change", "input[type=number]", function () {
+      var value = jQuery(this).val();
+      jQuery(this)
+        .closest(".input-field-wrapper")
+        .find("input[type=range]")
+        .val(value);
 
-			var wrapper = jQuery(this).parent().find('.input-field-wrapper.active'),
-				input_range = wrapper.find('input[type=range]'),
-				input_number = wrapper.find('.kmt-responsive-range-value-input'),
-				default_value = input_range.data('reset_value');
+      control.updateValue();
+    });
+  },
 
-			input_range.val(default_value);
-			input_number.val(default_value);
-			input_number.trigger('change');
-		});
+  /**
+   * Updates the sorting list
+   */
+  updateValue: function () {
+    "use strict";
 
-		// Save changes.
-		this.container.on('input change', 'input[type=number]', function () {
-			var value = jQuery(this).val();
-			jQuery(this).closest('.input-field-wrapper').find('input[type=range]').val(value);
+    var control = this,
+      newValue = {
+        desktop: "",
+        tablet: "",
+        mobile: "",
+        "desktop-unit": "px",
+        "tablet-unit": "px",
+        "mobile-unit": "px",
+      };
 
-			control.updateValue();
-		});
-	},
+    // Set the Slider container.
+    control.responsiveContainer = control.container.find(".wrapper").first();
 
-	/**
-	 * Updates the sorting list
-	 */
-	updateValue: function () {
+    control.responsiveContainer
+      .find(".kmt-responsive-range-value-input")
+      .each(function () {
+        var responsive_input = jQuery(this),
+          item = responsive_input.data("id"),
+          item_value = responsive_input.val();
 
-		'use strict';
+        newValue[item] = item_value;
+      });
+    control.container
+      .find(".kmt-slider-unit-wrapper .kmt-slider-unit-input")
+      .each(function () {
+        var slider_unit = jQuery(this),
+          device = slider_unit.attr("data-device"),
+          device_val = slider_unit.val(),
+          name = device + "-unit";
 
-		var control = this,
-			newValue = {
-				'desktop': '',
-				'tablet': '',
-				'mobile': '',
-				'desktop-unit': 'px',
-				'tablet-unit': 'px',
-				'mobile-unit': 'px',
-			};
+        newValue[name] = device_val;
+      });
 
-		// Set the Slider container.
-		control.responsiveContainer = control.container.find('.wrapper').first();
+    control.setting.set(newValue);
+  },
 
-		control.responsiveContainer.find('.kmt-responsive-range-value-input').each(function () {
-			var responsive_input = jQuery(this),
-				item = responsive_input.data('id'),
-				item_value = responsive_input.val();
+  kmtResponsiveInit: function () {
+    "use strict";
 
-			newValue[item] = item_value;
+    var control = this;
 
-		});
-		control.container.find('.kmt-slider-unit-wrapper .kmt-slider-unit-input').each(function () {
-			var slider_unit = jQuery(this),
-				device = slider_unit.attr('data-device'),
-				device_val = slider_unit.val(),
-				name = device + '-unit';
+    this.container.on(
+      "click",
+      ".kmt-responsive-slider-btns button",
+      function (event) {
+        event.preventDefault();
+        var device = jQuery(this).attr("data-device");
+        if ("desktop" == device) {
+          device = "tablet";
+        } else if ("tablet" == device) {
+          device = "mobile";
+        } else {
+          device = "desktop";
+        }
 
-			newValue[name] = device_val;
-		});
+        jQuery(
+          '.wp-full-overlay-footer .devices button[data-device="' +
+            device +
+            '"]'
+        ).trigger("click");
+      }
+    );
 
-		control.setting.set(newValue);
-	},
+    // Unit click
+    control.container.on(
+      "click",
+      ".kmt-slider-responsive-units .single-unit",
+      function () {
+        var $this = jQuery(this);
 
-	kmtResponsiveInit: function () {
-		'use strict';
+        if ($this.hasClass("active")) {
+          return false;
+        }
+        var unit_value = $this.attr("data-unit"),
+          unit_min = $this.attr("data-min"),
+          unit_max = $this.attr("data-max"),
+          unit_step = $this.attr("data-step"),
+          device = jQuery(
+            ".wp-full-overlay-footer .devices button.active"
+          ).attr("data-device");
 
-		var control = this;
+        $this.siblings().removeClass("active");
+        $this.addClass("active");
+        control.container
+          .find(
+            ".input-field-wrapper." +
+              device +
+              " .kmt-responsive-range-" +
+              device +
+              "-input ,.input-field-wrapper." +
+              device +
+              " input[type=range]"
+          )
+          .attr("min", unit_min);
+        control.container
+          .find(
+            ".input-field-wrapper." +
+              device +
+              " .kmt-responsive-range-" +
+              device +
+              "-input ,.input-field-wrapper." +
+              device +
+              " input[type=range]"
+          )
+          .attr("max", unit_max);
+        control.container
+          .find(
+            ".input-field-wrapper." +
+              device +
+              " .kmt-responsive-range-" +
+              device +
+              "-input ,.input-field-wrapper." +
+              device +
+              " input[type=range]"
+          )
+          .attr("step", unit_step);
+        control.container
+          .find(
+            ".input-field-wrapper." +
+              device +
+              " .kmt-responsive-range-" +
+              device +
+              "-input ,.input-field-wrapper." +
+              device +
+              " input[type=range]"
+          )
+          .val("");
 
-		this.container.on('click', '.kmt-responsive-slider-btns button', function (event) {
+        control.container
+          .find(".kmt-slider-unit-wrapper .kmt-slider-" + device + "-unit")
+          .val(unit_value);
 
-			event.preventDefault();
-			var device = jQuery(this).attr('data-device');
-			if ('desktop' == device) {
-				device = 'tablet';
-			} else if ('tablet' == device) {
-				device = 'mobile';
-			} else {
-				device = 'desktop';
-			}
-
-			jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-		});
-
-		// Unit click
-		control.container.on('click', '.kmt-slider-responsive-units .single-unit', function () {
-
-			var $this = jQuery(this);
-
-			if ($this.hasClass('active')) {
-				return false;
-			}
-			var unit_value = $this.attr('data-unit'),
-				unit_min = $this.attr('data-min'),
-				unit_max = $this.attr('data-max'),
-				unit_step = $this.attr('data-step'),
-				device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-
-			$this.siblings().removeClass('active');
-			$this.addClass('active');
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('min', unit_min);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('max', unit_max);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').attr('step', unit_step);
-			control.container.find('.input-field-wrapper.' + device + ' .kmt-responsive-range-' + device + '-input ,.input-field-wrapper.' + device + ' input[type=range]').val('');
-
-			control.container.find('.kmt-slider-unit-wrapper .kmt-slider-' + device + '-unit').val(unit_value);
-
-			// Update value on change.
-			control.updateValue();
-		});
-	},
+        // Update value on change.
+        control.updateValue();
+      }
+    );
+  },
 });
 
-jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
+jQuery(" .wp-full-overlay-footer .devices button ").on("click", function () {
+  var device = jQuery(this).attr("data-device");
 
-	var device = jQuery(this).attr('data-device');
-
-	jQuery('.customize-control-kmt-responsive-slider .input-field-wrapper, .customize-control .kmt-responsive-slider-btns > li').removeClass('active');
-	jQuery('.customize-control-kmt-responsive-slider .input-field-wrapper.' + device + ', .customize-control .kmt-responsive-slider-btns > li.' + device).addClass('active');
+  jQuery(
+    ".customize-control-kmt-responsive-slider .input-field-wrapper, .customize-control .kmt-responsive-slider-btns > li"
+  ).removeClass("active");
+  jQuery(
+    ".customize-control-kmt-responsive-slider .input-field-wrapper." +
+      device +
+      ", .customize-control .kmt-responsive-slider-btns > li." +
+      device
+  ).addClass("active");
 });
 
 /**
@@ -589,183 +672,222 @@ jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
  * @package Kemet
  */
 
-	wp.customize.controlConstructor['kmt-responsive-spacing'] = wp.customize.Control.extend({
+wp.customize.controlConstructor[
+  "kmt-responsive-spacing"
+] = wp.customize.Control.extend({
+  ready: function () {
+    "use strict";
 
-		ready: function() {
+    var control = this,
+      value;
 
-			'use strict';
+    control.kmtResponsiveInit();
 
-			var control = this,
-		    value;
-		    
-		    control.kmtResponsiveInit();
+    // Save the value.
+    this.container.on(
+      "change keyup paste",
+      "input.kmt-spacing-input",
+      function () {
+        value = jQuery(this).val();
 
-			// Save the value.
-			this.container.on( 'change keyup paste', 'input.kmt-spacing-input', function() {
+        // Update value on change.
+        control.updateValue();
+      }
+    );
+  },
 
-				value = jQuery( this ).val();
+  /**
+   * Updates the spacing values
+   */
+  updateValue: function () {
+    "use strict";
 
-				// Update value on change.
-				control.updateValue();
-			});
-		},
+    var control = this,
+      newValue = {
+        desktop: {},
+        tablet: {},
+        mobile: {},
+        "desktop-unit": "px",
+        "tablet-unit": "px",
+        "mobile-unit": "px",
+      };
 
-		/**
-		 * Updates the spacing values
-		 */
-		updateValue: function() {
+    control.container.find("input.kmt-spacing-desktop").each(function () {
+      var spacing_input = jQuery(this),
+        item = spacing_input.data("id"),
+        item_value = spacing_input.val();
 
-			'use strict';
+      newValue["desktop"][item] = item_value;
+    });
 
-			var control = this,
-				newValue = {
-					'desktop' 		: {},
-					'tablet'  		: {},
-					'mobile'  		: {},
-					'desktop-unit'	: 'px',
-					'tablet-unit'	: 'px',
-					'mobile-unit'	: 'px',
-				};
+    control.container.find("input.kmt-spacing-tablet").each(function () {
+      var spacing_input = jQuery(this),
+        item = spacing_input.data("id"),
+        item_value = spacing_input.val();
 
-			control.container.find( 'input.kmt-spacing-desktop' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
+      newValue["tablet"][item] = item_value;
+    });
 
-				newValue['desktop'][item] = item_value;
-			});
+    control.container.find("input.kmt-spacing-mobile").each(function () {
+      var spacing_input = jQuery(this),
+        item = spacing_input.data("id"),
+        item_value = spacing_input.val();
 
-			control.container.find( 'input.kmt-spacing-tablet' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
+      newValue["mobile"][item] = item_value;
+    });
 
-				newValue['tablet'][item] = item_value;
-			});
+    control.container
+      .find(".kmt-spacing-unit-wrapper .kmt-spacing-unit-input")
+      .each(function () {
+        var spacing_unit = jQuery(this),
+          device = spacing_unit.attr("data-device"),
+          device_val = spacing_unit.val(),
+          name = device + "-unit";
 
-			control.container.find( 'input.kmt-spacing-mobile' ).each( function() {
-				var spacing_input = jQuery( this ),
-				item = spacing_input.data( 'id' ),
-				item_value = spacing_input.val();
+        newValue[name] = device_val;
+      });
 
-				newValue['mobile'][item] = item_value;
-			});
+    control.setting.set(newValue);
+  },
 
-			control.container.find('.kmt-spacing-unit-wrapper .kmt-spacing-unit-input').each( function() {
-				var spacing_unit 	= jQuery( this ),
-					device 			= spacing_unit.attr('data-device'),
-					device_val 		= spacing_unit.val(),
-					name 			= device + '-unit';
-					
-				newValue[ name ] = device_val;
-			});
+  /**
+   * Set the responsive devices fields
+   */
+  kmtResponsiveInit: function () {
+    "use strict";
 
-			control.setting.set( newValue );
-		},
+    var control = this;
 
-		/**
-		 * Set the responsive devices fields
-		 */
-		kmtResponsiveInit : function() {
-			
-			'use strict';
+    control.container
+      .find(".kmt-spacing-responsive-btns button")
+      .on("click", function (event) {
+        var device = jQuery(this).attr("data-device");
+        if ("desktop" == device) {
+          device = "tablet";
+        } else if ("tablet" == device) {
+          device = "mobile";
+        } else {
+          device = "desktop";
+        }
 
-			var control = this;
-			
-			control.container.find( '.kmt-spacing-responsive-btns button' ).on( 'click', function( event ) {
+        jQuery(
+          '.wp-full-overlay-footer .devices button[data-device="' +
+            device +
+            '"]'
+        ).trigger("click");
+      });
 
-				var device = jQuery(this).attr('data-device');
-				if( 'desktop' == device ) {
-					device = 'tablet';
-				} else if( 'tablet' == device ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
+    // Unit click
+    control.container.on(
+      "click",
+      ".kmt-spacing-responsive-units .single-unit",
+      function () {
+        var $this = jQuery(this);
 
-				jQuery( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
-			});
+        if ($this.hasClass("active")) {
+          return false;
+        }
 
-			// Unit click
-			control.container.on( 'click', '.kmt-spacing-responsive-units .single-unit', function() {
-				
-				var $this 		= jQuery(this);
+        var unit_value = $this.attr("data-unit"),
+          device = jQuery(
+            ".wp-full-overlay-footer .devices button.active"
+          ).attr("data-device");
 
-				if ( $this.hasClass('active') ) {
-					return false;
-				}
+        $this.siblings().removeClass("active");
+        $this.addClass("active");
 
-				var	unit_value 	= $this.attr('data-unit'),
-					device 		= jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-				
-				$this.siblings().removeClass('active');
-				$this.addClass('active');
+        control.container
+          .find(".kmt-spacing-unit-wrapper .kmt-spacing-" + device + "-unit")
+          .val(unit_value);
 
-				control.container.find('.kmt-spacing-unit-wrapper .kmt-spacing-' + device + '-unit').val( unit_value );
+        // Update value on change.
+        control.updateValue();
+      }
+    );
+  },
+});
 
-				// Update value on change.
-				control.updateValue();
-			});
-		},
-	});
+jQuery(document).ready(function () {
+  // Connected button
+  jQuery(".kmt-spacing-connected").on("click", function () {
+    // Remove connected class
+    jQuery(this)
+      .parent()
+      .parent(".kmt-spacing-wrapper")
+      .find("input")
+      .removeClass("connected")
+      .attr("data-element-connect", "");
 
-	jQuery( document ).ready( function( ) {
+    // Remove class
+    jQuery(this)
+      .parent(".kmt-spacing-input-item-link")
+      .removeClass("disconnected");
+  });
 
-		// Connected button
-		jQuery( '.kmt-spacing-connected' ).on( 'click', function() {
+  // Disconnected button
+  jQuery(".kmt-spacing-disconnected").on("click", function () {
+    // Set up variables
+    var elements = jQuery(this).data("element-connect");
 
-			// Remove connected class
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( 'input' ).removeClass( 'connected' ).attr( 'data-element-connect', '' );
-			
-			// Remove class
-			jQuery(this).parent( '.kmt-spacing-input-item-link' ).removeClass( 'disconnected' );
+    var linkedInputs = jQuery(this)
+      .parent()
+      .parent(".kmt-spacing-wrapper")
+      .find(".kmt-spacing-input");
 
-		} );
+    linkedInputs.each(function () {
+      var input_val = jQuery(this).val();
+      if (input_val != "") {
+        jQuery(this)
+          .parent()
+          .parent(".kmt-spacing-wrapper")
+          .find(".kmt-spacing-input")
+          .each(function (key, value) {
+            jQuery(this).val(input_val).change();
+          });
+      }
+    });
 
-		// Disconnected button
-		jQuery( '.kmt-spacing-disconnected' ).on( 'click', function() {
+    // Add connected class
+    jQuery(this)
+      .parent()
+      .parent(".kmt-spacing-wrapper")
+      .find("input")
+      .addClass("connected")
+      .attr("data-element-connect", elements);
 
-			// Set up variables
-			var elements 	= jQuery(this).data( 'element-connect' );
-			
-			var linkedInputs = jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input');
+    // Add class
+    jQuery(this)
+      .parent(".kmt-spacing-input-item-link")
+      .addClass("disconnected");
+  });
 
-			linkedInputs.each(function(){
-				var input_val = jQuery(this).val();
-				if (input_val != ''){
-					jQuery(this).parent().parent('.kmt-spacing-wrapper').find('.kmt-spacing-input').each(function (key, value) {
-						jQuery(this).val(input_val).change();
-					});
-				}
-			});
+  // Values connected inputs
+  jQuery(".kmt-spacing-input-item").on("input", ".connected", function () {
+    var dataElement = jQuery(this).attr("data-element-connect"),
+      currentFieldValue = jQuery(this).val();
 
-			// Add connected class
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( 'input' ).addClass( 'connected' ).attr( 'data-element-connect', elements );
+    jQuery(this)
+      .parent()
+      .parent(".kmt-spacing-wrapper")
+      .find('.connected[ data-element-connect="' + dataElement + '" ]')
+      .each(function (key, value) {
+        jQuery(this).val(currentFieldValue).change();
+      });
+  });
+});
 
-			// Add class
-			jQuery(this).parent( '.kmt-spacing-input-item-link' ).addClass( 'disconnected' );
-
-		} );
-
-		// Values connected inputs
-		jQuery( '.kmt-spacing-input-item' ).on( 'input', '.connected', function() {
-
-			var dataElement 	  = jQuery(this).attr( 'data-element-connect' ),
-				currentFieldValue = jQuery( this ).val();
-
-			jQuery(this).parent().parent( '.kmt-spacing-wrapper' ).find( '.connected[ data-element-connect="' + dataElement + '" ]' ).each( function( key, value ) {
-				jQuery(this).val( currentFieldValue ).change();
-			} );
-
-		} );
-	});
-
-	jQuery('.wp-full-overlay-footer .devices button ').on('click', function() {
-
-		var device = jQuery(this).attr('data-device');
-		jQuery( '.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper, .customize-control .kmt-spacing-responsive-btns > li' ).removeClass( 'active' );
-		jQuery( '.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device ).addClass( 'active' );
-	});
+jQuery(".wp-full-overlay-footer .devices button ").on("click", function () {
+  var device = jQuery(this).attr("data-device");
+  jQuery(
+    ".customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper, .customize-control .kmt-spacing-responsive-btns > li"
+  ).removeClass("active");
+  jQuery(
+    ".customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper." +
+      device +
+      ", .customize-control .kmt-spacing-responsive-btns > li." +
+      device
+  ).addClass("active");
+});
 
 /**
  * File responsive-icon-select.js
@@ -777,7 +899,7 @@ jQuery(' .wp-full-overlay-footer .devices button ').on('click', function () {
 wp.customize.controlConstructor[
   "kmt-responsive-icon-select"
 ] = wp.customize.Control.extend({
-  ready: function() {
+  ready: function () {
     ("use strict");
 
     var control = this;
@@ -788,7 +910,7 @@ wp.customize.controlConstructor[
     /**
      * Save on change / keyup / paste
      */
-    control.container.on("change", "input.icon-select-input", function() {
+    control.container.on("change", "input.icon-select-input", function () {
       value = jQuery(this).val();
 
       // Update value on change.
@@ -798,17 +920,17 @@ wp.customize.controlConstructor[
   /**
    * Updates the sorting list
    */
-  updateValue: function() {
+  updateValue: function () {
     "use strict";
 
     var control = this,
       newValue = {
         desktop: "",
         tablet: "",
-        mobile: ""
+        mobile: "",
       };
 
-    control.container.find(".responsive-icon-select").each(function() {
+    control.container.find(".responsive-icon-select").each(function () {
       var responsive_input = jQuery(this).find("input:checked"),
         item = jQuery(this).data("device"),
         item_value =
@@ -819,7 +941,7 @@ wp.customize.controlConstructor[
 
     control.setting.set(newValue);
   },
-  kmtResponsiveInit: function() {
+  kmtResponsiveInit: function () {
     "use strict";
 
     var control = this;
@@ -827,7 +949,7 @@ wp.customize.controlConstructor[
     control.container.on(
       "click",
       ".kmt-responsive-icon-select-btns button",
-      function(event) {
+      function (event) {
         event.preventDefault();
 
         var device = jQuery(this).attr("data-device");
@@ -847,9 +969,9 @@ wp.customize.controlConstructor[
         ).trigger("click");
       }
     );
-  }
+  },
 });
-jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
+jQuery(" .wp-full-overlay-footer .devices button ").on("click", function () {
   var device = jQuery(this).attr("data-device");
 
   jQuery(
@@ -871,14 +993,14 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
  * @package Kemet
  */
 
-jQuery(window).on("load", function() {
+jQuery(window).on("load", function () {
   jQuery("html").addClass("colorpicker-ready");
 });
 
 wp.customize.controlConstructor[
   "kmt-reponsive-color"
 ] = wp.customize.Control.extend({
-  ready: function() {
+  ready: function () {
     "use strict";
 
     var control = this;
@@ -892,7 +1014,7 @@ wp.customize.controlConstructor[
        * @param {Object} ui - standard jQuery UI object, with a color member
        * containing a Color.js object.
        */
-      change: function(event, ui) {
+      change: function (event, ui) {
         var element = jQuery(event.target);
         var color = ui.color.toString();
 
@@ -905,7 +1027,7 @@ wp.customize.controlConstructor[
        * @param {Event} event - standard jQuery event, produced by "Clear"
        * button.
        */
-      clear: function(event) {
+      clear: function (event) {
         var element = jQuery(event.target);
         var color = "";
 
@@ -913,10 +1035,10 @@ wp.customize.controlConstructor[
           // Add your code here
           control.updateValues(color, element);
         }
-      }
+      },
     });
   },
-  updateValues: function(color, element) {
+  updateValues: function (color, element) {
     var control = this,
       controlValue =
         typeof control.setting.get() === "object"
@@ -924,12 +1046,12 @@ wp.customize.controlConstructor[
           : {
               desktop: "",
               tablet: "",
-              mobile: ""
+              mobile: "",
             },
       newValue = {
         desktop: controlValue["desktop"],
         tablet: controlValue["tablet"],
-        mobile: controlValue["mobile"]
+        mobile: controlValue["mobile"],
       },
       device = element.parents(".customize-control-content").data("device");
 
@@ -937,14 +1059,14 @@ wp.customize.controlConstructor[
 
     control.setting.set(newValue);
   },
-  kmtResponsiveInit: function() {
+  kmtResponsiveInit: function () {
     "use strict";
 
     var control = this;
 
     control.container
       .find(".kmt-responsive-color-btns a")
-      .click(function(event) {
+      .click(function (event) {
         event.preventDefault();
 
         var device = jQuery(this).attr("data-device");
@@ -963,9 +1085,9 @@ wp.customize.controlConstructor[
             '"]'
         ).trigger("click");
       });
-  }
+  },
 });
-jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
+jQuery(" .wp-full-overlay-footer .devices button ").on("click", function () {
   var device = jQuery(this).attr("data-device");
 
   jQuery(
