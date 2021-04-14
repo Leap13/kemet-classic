@@ -1,4 +1,13 @@
 <?php
+/**
+ * Kemet addons customizer section
+ *
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright (c) 2019, Kemet
+ * @link        https://kemet.io/
+ * @since       1.0.0
+ */
 
 // No direct access, please.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,25 +52,25 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 		 * @return string
 		 */
 		public function json() {
-			$json            = parent::json();
-            $json['description'] = $this->description;
-            $json['button_html'] =  $this->create_plugin_install_button($this->slug);
+			$json                = parent::json();
+			$json['description'] = $this->description;
+			$json['button_html'] = $this->create_plugin_install_button( $this->slug );
 
 			return $json;
 		}
 
 
-        /**
-         * Check plugin state.
-         *
-         * @param string $slug plugin slug.
-         *
-         * @return bool
-         */
-        public function create_plugin_install_button( $slug ) {
-            return Kemet_Notification_Helper::get_btn_html( $slug );
-        }
-    
+		/**
+		 * Check plugin state.
+		 *
+		 * @param string $slug plugin slug.
+		 *
+		 * @return bool
+		 */
+		public function create_plugin_install_button( $slug ) {
+			return Kemet_Notification_Helper::get_btn_html( $slug );
+		}
+
 		/**
 		 * Outputs the Underscore.js template.
 		 *
@@ -72,7 +81,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 		protected function render_template() {
 			?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-defaul" >
-			
+
 			<div class="kmt-notification">
 				<h3 class="section-title">
 					{{ data.title }}
@@ -84,19 +93,19 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 			</div>
 		</li>
 			<?php
-        }
-        
+		}
 
 
-        /**
-         * Enqueue Function.
-         */
-        public function enqueue() {
 
-        $uri = KEMET_THEME_URI . 'inc/customizer/notification/';
-		
-		wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
-        }
+		/**
+		 * Enqueue Function.
+		 */
+		public function enqueue() {
+
+			$uri = KEMET_THEME_URI . 'inc/customizer/notification/';
+
+			wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
+		}
 	}
 
 }

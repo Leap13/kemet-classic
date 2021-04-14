@@ -1,13 +1,13 @@
 <?php
 /**
-* Customizer Control: icon-select
-*
-* @package     Kemet
-* @author      Kemet
-* @copyright   Copyright ( c ) 2019, Kemet
-* @link        https://kemet.io/
-* @since       1.0.0
-*/
+ * Customizer Control: icon-select
+ *
+ * @package     Kemet
+ * @author      Kemet
+ * @copyright   Copyright ( c ) 2019, Kemet
+ * @link        https://kemet.io/
+ * @since       1.0.0
+ */
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

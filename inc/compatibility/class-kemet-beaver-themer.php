@@ -42,29 +42,26 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 		/**
 		 * Constructor
 		 */
-		function __construct() {
-            add_action( 'after_setup_theme', array( $this, 'header_footer_support' ) );
-            add_action( 'wp', array( $this, 'replace_theme_header_footer' ) );
-            add_filter( 'post_class', array( $this, 'remove_theme_post_class' ), 99 );
-            add_action( 'fl_theme_builder_before_render_content', array( $this, 'before_content' ), 10, 1 );
+		public function __construct() {
+			add_action( 'after_setup_theme', array( $this, 'header_footer_support' ) );
+			add_action( 'wp', array( $this, 'replace_theme_header_footer' ) );
+			add_filter( 'post_class', array( $this, 'remove_theme_post_class' ), 99 );
+			add_action( 'fl_theme_builder_before_render_content', array( $this, 'before_content' ), 10, 1 );
 			add_action( 'fl_theme_builder_after_render_content', array( $this, 'after_content' ), 10, 1 );
-        }
+		}
 
-        /**
+		/**
 		 * Function to add Theme Support
-		 *
 		 */
 		public function header_footer_support() {
 
 			add_theme_support( 'fl-theme-builder-headers' );
 			add_theme_support( 'fl-theme-builder-footers' );
 			add_theme_support( 'fl-theme-builder-parts' );
-        }
-        
-        
+		}
+
 		/**
 		 * Function to update Kemet header/footer with Beaver template
-		 *
 		 */
 		public function replace_theme_header_footer() {
 
@@ -86,9 +83,9 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 				add_action( 'kemet_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
 
-        }
-        
-        /**
+		}
+
+		/**
 		 * Remove theme post's default classes when Beaver Themer template builder is activated.
 		 *
 		 * @param  array $classes Post Classes.
@@ -162,18 +159,18 @@ if ( ! class_exists( 'Kemet_Beaver_Themer' ) ) :
 						'kmt-col-xl-9',
 						'kmt-col-xl-10',
 						'kmt-col-xl-11',
-                        'kmt-col-xl-12',
-                        // Kemet Blog / Single Post.
+						'kmt-col-xl-12',
+						// Kemet Blog / Single Post.
 						'kmt-article-post',
 						'kmt-article-single',
-                    )
+					)
 				);
 			}
 
 			return $classes;
-        }
-        
-        /**
+		}
+
+		/**
 		 * Function to theme before render content
 		 *
 		 * @param int $post_id Post ID.

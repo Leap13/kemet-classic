@@ -38,6 +38,21 @@
       $(".customize-control-kmt-font-family select").select2({
         width: "100%",
         dropdownCssClass: "increasedzindexclass",
+        templateResult: function (data, container) {
+          var fontFamily = $(data.element).val();
+          $(container).css("font-family", fontFamily);
+          return data.text;
+        },
+        templateSelection: function (data) {
+          var $data = $(
+            '<span style="font-family:' +
+              data.element.value +
+              ';">' +
+              data.text +
+              "</span>"
+          );
+          return $data;
+        },
       });
     },
 

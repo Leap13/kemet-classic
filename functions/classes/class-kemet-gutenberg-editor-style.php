@@ -17,7 +17,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 		/**
 		 * Dynamic css
 		 *
-		 * @return void
+		 * @return string
 		 */
 		public static function dynamic_css() {
 			global $pagenow;
@@ -33,23 +33,24 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			// container width.
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 			// Body.
-			$body_font_size      = kemet_get_option( 'font-size-body' );
-			$body_letter_spacing = kemet_get_option( 'letter-spacing-body' );
-			$body_line_height    = kemet_get_option( 'body-line-height' , 
-			array(
-				'desktop' => esc_attr( '1.85714285714286' ),
-				'tablet' => esc_attr( '1.85714285714286' ),
-				'mobile' => esc_attr( '1.85714285714286' ),
-				'desktop-unit' => 'em',
-				'tablet-unit'  => 'em',
-				'mobile-unit'  => 'em',
-				) 
+			$body_font_size       = kemet_get_option( 'font-size-body' );
+			$body_letter_spacing  = kemet_get_option( 'letter-spacing-body' );
+			$body_line_height     = kemet_get_option(
+				'body-line-height',
+				array(
+					'desktop'      => esc_attr( '1.85714285714286' ),
+					'tablet'       => esc_attr( '1.85714285714286' ),
+					'mobile'       => esc_attr( '1.85714285714286' ),
+					'desktop-unit' => 'em',
+					'tablet-unit'  => 'em',
+					'mobile-unit'  => 'em',
+				)
 			);
-			$body_text_transform = kemet_get_option( 'body-text-transform' );
-			$body_font_family    = kemet_body_font_family();
-			$body_font_weight    = kemet_get_option( 'body-font-weight' );
-			$body_font_style     = kemet_get_option( 'body-font-style' );
-			$box_bg_obj          = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );
+			$body_text_transform  = kemet_get_option( 'body-text-transform' );
+			$body_font_family     = kemet_body_font_family();
+			$body_font_weight     = kemet_get_option( 'body-font-weight' );
+			$body_font_style      = kemet_get_option( 'body-font-style' );
+			$box_bg_obj           = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );
 			$content_text_color   = kemet_get_option( 'content-text-color', $text_meta_color );
 			$content_link_color   = kemet_get_option( 'content-link-color', $headings_links_color );
 			$content_link_h_color = kemet_get_option( 'content-link-h-color', $theme_color );
@@ -66,7 +67,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$heading_h6_font_size        = kemet_get_option( 'font-size-h6' );
 			$single_post_title_font_size = kemet_get_option( 'font-size-entry-title' );
 			$highlight_theme_color       = kemet_get_foreground_color( $theme_color );
-			// Buttons
+			// Buttons.
 			$btn_text_color       = kemet_get_option( 'button-text-color', '#ffffff' );
 			$btn_text_hover_color = kemet_get_option( 'button-h-color' );
 			$btn_bg_color         = kemet_get_option( 'button-bg-color', $theme_color );
@@ -83,7 +84,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$btn_line_height      = kemet_get_option( 'buttons-line-height' );
 			$btn_font_style       = kemet_get_option( 'buttons-font-style' );
 			$btn_letter_spacing   = kemet_get_option( 'buttons-letter-spacing' );
-			// Input Options
+			// Input Options.
 			$input_font_size      = kemet_get_option( 'inputs-font-size' );
 			$input_font_family    = kemet_get_option( 'inputs-font-family' );
 			$input_font_weight    = kemet_get_option( 'inputs-font-weight' );
@@ -97,29 +98,30 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$input_border_size    = kemet_get_option( 'input-border-size' );
 			$input_border_color   = kemet_get_option( 'input-border-color', $global_border_color );
 			$input_label_color    = kemet_get_option( 'input-label-color' );
-			$input_spacing        = kemet_get_option( 'input-spacing', 
-			array(
-				'desktop'      => array(
-					'top'    => '0.75',
-					'right'  => '0.75',
-					'bottom' => '0.75',
-					'left'   => '0.75',
-				),
-				'tablet'       => array(
-					'top'    => '0.75',
-					'right'  => '0.75',
-					'bottom' => '0.75',
-					'left'   => '0.75',
-				),
-				'mobile'       => array(
-					'top'    => '0.75',
-					'right'  => '0.75',
-					'bottom' => '0.75',
-					'left'   => '0.75',
-				),
-				'desktop-unit' => 'em',
-				'tablet-unit'  => 'em',
-				'mobile-unit'  => 'em',
+			$input_spacing        = kemet_get_option(
+				'input-spacing',
+				array(
+					'desktop'      => array(
+						'top'    => '0.75',
+						'right'  => '0.75',
+						'bottom' => '0.75',
+						'left'   => '0.75',
+					),
+					'tablet'       => array(
+						'top'    => '0.75',
+						'right'  => '0.75',
+						'bottom' => '0.75',
+						'left'   => '0.75',
+					),
+					'mobile'       => array(
+						'top'    => '0.75',
+						'right'  => '0.75',
+						'bottom' => '0.75',
+						'left'   => '0.75',
+					),
+					'desktop-unit' => 'em',
+					'tablet-unit'  => 'em',
+					'mobile-unit'  => 'em',
 				)
 			);
 
@@ -135,13 +137,13 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$parse_css = '';
 
 			$blocks_parent = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .editor-styles-wrapper' : '.edit-post-visual-editor.editor-styles-wrapper';
-			$desktop_css = array(
+			$desktop_css   = array(
 				'html'                                    => array(
 					'font-size' => kemet_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
 				'.edit-post-visual-editor .editor-styles-wrapper' => array(
-					'margin' => esc_attr( '0' ),
-					'overflow-y' => esc_attr( 'visible' )
+					'margin'     => esc_attr( '0' ),
+					'overflow-y' => esc_attr( 'visible' ),
 				),
 				'.kmt-separate-container .edit-post-visual-editor, .kmt-page-builder-template .edit-post-visual-editor, .kmt-plain-container .edit-post-visual-editor' => array(
 					'padding' => esc_attr( '10px' ),
@@ -149,15 +151,15 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				$blocks_parent . ' .wp-block-categories ul[class*="wp-block-"], ' . $blocks_parent . ' .block-editor-block-list__block ul[class*="wp-block-"], ' . $blocks_parent . ' .block-editor-block-list__block ol[class*="wp-block-"]' => array(
 					'padding-left' => esc_attr( '0' ),
 				),
-				$blocks_parent . ' .wp-block-latest-comments__comment-excerpt p'  => array(
-					'font-size' => esc_attr( '0.875em' ),
+				$blocks_parent . ' .wp-block-latest-comments__comment-excerpt p' => array(
+					'font-size'   => esc_attr( '0.875em' ),
 					'line-height' => esc_attr( '1.8' ),
-					'margin' => esc_attr( '.36em 0 1.4em' )
+					'margin'      => esc_attr( '.36em 0 1.4em' ),
 				),
 				$blocks_parent . ' .wp-block-file .wp-block-file__button' => array(
 					'line-height' => esc_attr( '1.8' ),
 				),
-				// Input
+				// Input.
 				'.edit-post-visual-editor .block-editor-block-list__block input,input[type="text"],.edit-post-visual-editor .block-editor-block-list__block input[type="email"],.edit-post-visual-editor .block-editor-block-list__block input[type="url"],.edit-post-visual-editor .block-editor-block-list__block input[type="password"],.edit-post-visual-editor .block-editor-block-list__block input[type="reset"],.edit-post-visual-editor .block-editor-block-list__block input[type="search"], .edit-post-visual-editor .block-editor-block-list__block textarea , .edit-post-visual-editor .block-editor-block-list__block select,.edit-post-visual-editor .block-editor-block-list__block .widget_search .search-field,.edit-post-visual-editor .block-editor-block-list__block .widget_search .search-field:focus' => array(
 					'color'            => esc_attr( $content_text_color ),
 					'background-color' => esc_attr( $input_bg_color ),
@@ -187,18 +189,18 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote' => array(
 					'padding-left' => esc_attr( '1.2em' ),
-					'margin' => esc_attr( '1.5em auto' ),
+					'margin'       => esc_attr( '1.5em auto' ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquot a' => array(
-					'color' => esc_attr( $content_link_color ),
+					'color'           => esc_attr( $content_link_color ),
 					'text-decoration' => esc_attr( 'none' ),
 				),
 				'.block-editor-block-list__layout .block-editor-block-list__block' => array(
 					'width' => esc_attr( '100%' ),
 				),
 				'.block-editor-block-list__layout .block-editor-block-list__block.has-warning' => array(
-					'margin-left' => esc_attr( 'auto' ),
-					'margin-right' => esc_attr( 'auto' )
+					'margin-left'  => esc_attr( 'auto' ),
+					'margin-right' => esc_attr( 'auto' ),
 				),
 				'.block-editor-block-list__layout .block-editor-block-list__block > div' => array(
 					'overflow' => esc_attr( 'hidden' ),
@@ -209,16 +211,16 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				'.edit-post-visual-editor a:hover, .edit-post-visual-editor a:hover , .wp-block-freeform.block-library-rich-text__tinymce a:hover' => array(
 					'color' => esc_attr( $theme_color ),
 				),
-				'.edit-post-visual-editor p, ' . $blocks_parent . ' .wp-block-freeform.block-library-rich-text__tinymce pre'              => array(
+				'.edit-post-visual-editor p, ' . $blocks_parent . ' .wp-block-freeform.block-library-rich-text__tinymce pre' => array(
 					'color' => esc_attr( $content_text_color ),
 				),
-				$blocks_parent . ' hr' => array(
-					'border' => esc_attr( 'none' ),
-					'border-bottom' => esc_attr( '2px solid' ),
-					'border-color' => esc_attr( $global_border_color ),
+				$blocks_parent . ' hr'                    => array(
+					'border'           => esc_attr( 'none' ),
+					'border-bottom'    => esc_attr( '2px solid' ),
+					'border-color'     => esc_attr( $global_border_color ),
 					'background-color' => esc_attr( $global_border_color ),
 				),
-				$blocks_parent . ' hr.is-style-wide' => array(
+				$blocks_parent . ' hr.is-style-wide'      => array(
 					'border-bottom-width' => esc_attr( '1px' ),
 				),
 				'.kmt-theme-container .edit-post-visual-editor' => array(
@@ -242,43 +244,43 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'font-weight'    => kemet_get_css_value( $headings_font_weight, 'font' ),
 					'text-transform' => esc_attr( $headings_text_transform ),
 					'font-style'     => esc_attr( $headings_font_style ),
-					'margin-bottom' => esc_attr( '20px' )
+					'margin-bottom'  => esc_attr( '20px' ),
 				),
 				$blocks_parent . ' p,.block-editor-block-list__block p, .block-editor-block-list__layout, .editor-post-title, ' . $blocks_parent . ' li' => array(
 					'font-size' => kemet_responsive_slider( $body_font_size, 'desktop' ),
 				),
 				$blocks_parent . ' ul:not([class*="blocks"]), ' . $blocks_parent . ' ol:not([class*="blocks"]), ' . $blocks_parent . ' .wp-block-latest-posts.is-grid' => array(
-					'padding-left' => esc_attr( 'calc(20px + 1.5em)' )
+					'padding-left' => esc_attr( 'calc(20px + 1.5em)' ),
 				),
 				$blocks_parent . ' li ul:not([class*="blocks"]), ' . $blocks_parent . ' li ol:not([class*="blocks"])' => array(
-					'margin-left' => esc_attr( '1.5em' ),
-					'padding-left' => esc_attr( '0' )
+					'margin-left'  => esc_attr( '1.5em' ),
+					'padding-left' => esc_attr( '0' ),
 				),
 				$blocks_parent . ' .wp-block-freeform.block-library-rich-text__tinymce .wpview' => array(
 					'margin-bottom' => esc_attr( '0' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block li>ul' => array(
-					'list-style-type' => esc_attr( 'disc' )
+					'list-style-type' => esc_attr( 'disc' ),
 				),
-				$blocks_parent . ' p.has-background' => array(
-					'padding' => esc_attr( '1.25em 2.375em' )
+				$blocks_parent . ' p.has-background'      => array(
+					'padding' => esc_attr( '1.25em 2.375em' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce pre' => array(
-					'font-family' => kemet_get_css_value( '"Courier 10 Pitch",Courier,monospace', 'font' )
+					'font-family' => kemet_get_css_value( '"Courier 10 Pitch",Courier,monospace', 'font' ),
 				),
-				$blocks_parent . ' .wp-block-cover'=> array(
-					'padding' => esc_attr( '1em' )
+				$blocks_parent . ' .wp-block-cover'       => array(
+					'padding' => esc_attr( '1em' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption, .edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption *' => array(
-					'font-size' => esc_attr( '13px' ),
-					'color' => esc_attr( kemet_color_brightness( $content_text_color, 0.88, 'light' ) ),
+					'font-size'  => esc_attr( '13px' ),
+					'color'      => esc_attr( kemet_color_brightness( $content_text_color, 0.88, 'light' ) ),
 					'text-align' => esc_attr( 'center' ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce .gallery' => array(
 					'padding' => esc_attr( '0' ),
 				),
-				$blocks_parent . ' .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption .wp-caption-dd'=> array(
-					'margin' => esc_attr( '.8075em 0' ),
+				$blocks_parent . ' .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption .wp-caption-dd' => array(
+					'margin'      => esc_attr( '.8075em 0' ),
 					'padding-top' => esc_attr( '0' ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce .gallery .gallery-item' => array(
@@ -291,7 +293,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'border' => esc_attr( 'none' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption.aligncenter' => array(
-					'margin-left' => esc_attr( 'auto' ),
+					'margin-left'  => esc_attr( 'auto' ),
 					'margin-right' => esc_attr( 'auto' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block .wp-block-freeform.block-library-rich-text__tinymce dl.wp-caption.alignleft' => array(
@@ -306,7 +308,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				$blocks_parent . ' .block-editor-block-list__block .block-list-appender' => array(
 					'margin-bottom' => esc_attr( '0' ),
 				),
-				$blocks_parent . ' .wp-block-rss' => array(
+				$blocks_parent . ' .wp-block-rss'         => array(
 					'padding-left' => esc_attr( '0' ),
 				),
 				$blocks_parent . ' .block-editor-block-list__block.wp-block-column.wp-block-column' => array(
@@ -322,16 +324,16 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'font-style'     => esc_attr( $body_font_style ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote code' => array(
-					'font'    => kemet_get_css_value( '15px Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
+					'font'  => kemet_get_css_value( '15px Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
 					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
 				),
-				$blocks_parent . ' pre' => array(
-					'line-height'    => kemet_responsive_slider( $body_line_height, 'desktop' ),
+				$blocks_parent . ' pre'                   => array(
+					'line-height' => kemet_responsive_slider( $body_line_height, 'desktop' ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote code, ' . $blocks_parent . ' code' => array(
-					'font-family'    => kemet_get_css_value( 'Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
+					'font-family' => kemet_get_css_value( 'Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
 				),
-				'.block-editor-block-list__block, .wp-block-search .wp-block-search__label'         => array(
+				'.block-editor-block-list__block, .wp-block-search .wp-block-search__label' => array(
 					'color' => esc_attr( $content_text_color ),
 				),
 				/**
@@ -341,52 +343,52 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'color' => esc_attr( $headings_links_color ),
 				),
 				// Blockquote Text Color.
-				'.edit-post-visual-editor blockquote'                              => array(
+				'.edit-post-visual-editor blockquote'     => array(
 					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
 				),
 				'.edit-post-visual-editor blockquote .editor-rich-text__tinymce a, .edit-post-visual-editor blockquote a, .edit-post-visual-editor blockquote p' => array(
 					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
 				),
-				$blocks_parent . ' blockquote em' => array(
-					'font-size'      => kemet_responsive_slider( $body_font_size, 'desktop' ),
+				$blocks_parent . ' blockquote em'         => array(
+					'font-size' => kemet_responsive_slider( $body_font_size, 'desktop' ),
 				),
-				$blocks_parent . ' .wp-block-pullquote p'=> array(
-					'font-size'   => esc_attr( '1.75em' ),
-					'margin-bottom' => esc_attr( '1.6em' )
+				$blocks_parent . ' .wp-block-pullquote p' => array(
+					'font-size'     => esc_attr( '1.75em' ),
+					'margin-bottom' => esc_attr( '1.6em' ),
 				),
 				$blocks_parent . ' .wp-block-pullquote.alignright p, ' . $blocks_parent . ' .wp-block-pullquote.alignleft p' => array(
-					'font-size' => esc_attr( '1.25em' )
+					'font-size' => esc_attr( '1.25em' ),
 				),
 				$blocks_parent . ' p, ' . $blocks_parent . ' blockquote p:last-child' => array(
-					'margin-bottom' => esc_attr( '1.6em' )
+					'margin-bottom' => esc_attr( '1.6em' ),
 				),
 				$blocks_parent . ' .wp-block-pullquote.is-style-solid-color blockquote p' => array(
-					'margin-bottom' => esc_attr( '0' )
+					'margin-bottom' => esc_attr( '0' ),
 				),
-				$blocks_parent . ' .wp-block-pullquote' => array(
-					'margin-bottom'   => esc_attr( '1.75em' ),
+				$blocks_parent . ' .wp-block-pullquote'   => array(
+					'margin-bottom' => esc_attr( '1.75em' ),
 				),
 				$blocks_parent . ' .wp-block-quote.is-large p, ' . $blocks_parent . ' .wp-block-quote.is-style-large p' => array(
-					'font-size'   => esc_attr( '1.5em' ),
+					'font-size' => esc_attr( '1.5em' ),
 				),
-				$blocks_parent . ' .wp-block-gallery' => array(
-					'margin-bottom' => esc_attr( '20px' )
+				$blocks_parent . ' .wp-block-gallery'     => array(
+					'margin-bottom' => esc_attr( '20px' ),
 				),
 				$blocks_parent . ' .wp-block-cover__inner-container' => array(
-					'max-width' => esc_attr( '840px' )
+					'max-width' => esc_attr( '840px' ),
 				),
 				'.block-editor-block-list__block .wp-block-quote:not(.is-large):not(.is-style-large), .edit-post-visual-editor .wp-block-pullquote blockquote, .wp-block-freeform.block-library-rich-text__tinymce blockquote ,.edit-post-visual-editor .wp-block-quote.has-text-align-right, ' . $blocks_parent . ' blockquote, ' . $blocks_parent . ' blockquote.wp-block-quote' => array(
 					'border-color' => esc_attr( $global_border_color ),
 				),
 				'.wp-block-pullquote .wp-block-pullquote__citation' => array(
-					'color' => esc_attr( '#555' ),
+					'color'          => esc_attr( '#555' ),
 					'text-transform' => esc_attr( 'uppercase' ),
-					'font-size' => esc_attr( '.8125em' ),
-					'font-style' => esc_attr( 'normal' ),
+					'font-size'      => esc_attr( '.8125em' ),
+					'font-style'     => esc_attr( 'normal' ),
 				),
 				'.block-editor-block-list__block .wp-block-quote__citation' => array(
-					'color' => esc_attr( '#555' ),
-					'font-size' => esc_attr( '.8125em' ),
+					'color'      => esc_attr( '#555' ),
+					'font-size'  => esc_attr( '.8125em' ),
 					'margin-top' => esc_attr( '1em' ),
 					'font-style' => esc_attr( 'normal' ),
 				),
@@ -450,7 +452,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'background-color' => $btn_bg_hover_color,
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
-					'border-radius'  => kemet_get_css_value( $btn_border_radius, 'px' ),
+					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 					'padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
 					'padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
@@ -538,7 +540,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'tablet' ),
 					'padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'tablet' ),
 					'padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'tablet' ),
-					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
+					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'tablet' ),
 				),
 			);
 
@@ -553,7 +555,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'mobile' ),
 					'padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'mobile' ),
 					'padding-left'   => kemet_responsive_spacing( $btn_padding, 'left', 'mobile' ),
-					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
+					'border-radius'  => kemet_responsive_slider( $btn_border_radius, 'mobile' ),
 				),
 			);
 
@@ -929,7 +931,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			);
 
 			$parse_css .= kemet_parse_css( $kemet_gtn_mobile_css, '', '544' );
-			
+
 			if ( version_compare( get_bloginfo( 'version' ), '5.4.99', '>=' ) ) {
 				$gtn_full_wide_image_css = array(
 					'.wp-block[data-align="left"], .wp-block[data-align="right"]' => array(
@@ -944,12 +946,12 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 						'margin-right' => 'auto',
 					),
 					'.kmt-plain-container .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image' => array(
-						'max-width'    => 'unset',
-						'width'        => 'unset',
+						'max-width' => 'unset',
+						'width'     => 'unset',
 					),
 					'.kmt-plain-container .wp-block[data-align="full"] .wp-block-cover' => array(
-						'max-width'    => 'unset',
-						'width'        => 'unset',
+						'max-width' => 'unset',
+						'width'     => 'unset',
 					),
 					'.kmt-separate-container .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image' => array(
 						'margin-left'  => '-4.8em',
@@ -985,12 +987,12 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 						'width'        => 'unset',
 					),
 					'.kmt-plain-container .block-editor-block-list__layout .wp-block[data-align="full"] figure.wp-block-image' => array(
-						'max-width'    => 'unset',
-						'width'        => 'unset',
+						'max-width' => 'unset',
+						'width'     => 'unset',
 					),
 					'.kmt-plain-container .wp-block[data-align="full"] .wp-block-cover' => array(
-						'max-width'    => 'unset',
-						'width'        => 'unset',
+						'max-width' => 'unset',
+						'width'     => 'unset',
 					),
 				);
 			}

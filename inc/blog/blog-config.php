@@ -274,7 +274,6 @@ if ( ! function_exists( 'kemet_post_categories' ) ) {
 
 /**
  * Display classes for primary div
- *
  */
 if ( ! function_exists( 'kemet_blog_layout_class' ) ) {
 

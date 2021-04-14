@@ -2,11 +2,12 @@
 /**
  * Footer Layout 4
  *
+ * @package     Kemet
  * @since   Kemet 1.0.0
  */
 
 /**
- * 
+ *
  *
  * - User is not logged in. [AND]
  * - All widgets are not active.
@@ -24,10 +25,10 @@ if ( ! is_user_logged_in() ) {
 
 $classes[] = 'kemet-footer';
 $classes[] = 'kemet-footer-4col';
-if(kemet_get_option('enable-footer-content-center')) {
+if ( kemet_get_option( 'enable-footer-content-center' ) ) {
 	$classes[] = 'kemet-footer-align-center';
 }
-$classes   = implode( ' ', $classes );
+$classes = implode( ' ', $classes );
 ?>
 
 <div class="<?php echo esc_attr( $classes ); ?>">

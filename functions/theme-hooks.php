@@ -23,7 +23,8 @@
  * </code>
  */
 add_theme_support(
-	'kemet_hooks', array(
+	'kemet_hooks',
+	array(
 
 		/**
 		 * As a Theme developer, use the 'all' parameter, to declare support for all
@@ -92,7 +93,9 @@ function kemet_html_before() {
 	do_action( 'kemet_html_before' );
 }
 
-
+/**
+ * Head top
+ */
 function kemet_head_top() {
 	do_action( 'kemet_head_top' );
 }
@@ -125,23 +128,23 @@ function kemet_after_header_block() {
 function kemet_before_header_block() {
 	do_action( 'kemet_before_header_block' );
 }
- 
+
 /**
- * sitehead Top
+ * Sitehead Top
  */
 function kemet_sitehead_top() {
 	do_action( 'kemet_sitehead_top' );
 }
 
 /**
- * sitehead
+ * Sitehead
  */
 function kemet_sitehead() {
 	do_action( 'kemet_sitehead' );
 }
 
 /**
- * sitehead Bottom
+ * Sitehead Bottom
  */
 function kemet_sitehead_bottom() {
 	do_action( 'kemet_sitehead_bottom' );
@@ -477,6 +480,9 @@ function kemet_body_bottom() {
  */
 if ( ! function_exists( 'wp_body_open' ) ) {
 
+	/**
+	 * Body
+	 */
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}

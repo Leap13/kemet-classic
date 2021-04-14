@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Kemet 1.1.13\n"
+"Project-Id-Version: Kemet 1.1.14\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/kemet\n"
-"POT-Creation-Date: 2021-04-05 08:20:25+00:00\n"
+"POT-Creation-Date: 2021-04-08 09:39:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: comments.php:44 comments.php:67
+#: comments.php:46 comments.php:69
 msgid "Comments Navigation"
 msgstr ""
 
@@ -41,23 +41,23 @@ msgid "Left Menu"
 msgstr ""
 
 #: functions/admin/admin-functions.php:27
-#: inc/customizer/sections/layout/footer.php:74
-#: inc/customizer/sections/layout/footer.php:140
+#: inc/customizer/sections/layout/footer.php:79
+#: inc/customizer/sections/layout/footer.php:150
 msgid "Footer Menu"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:59
-#: inc/customizer/register-panels-and-sections.php:197
+#: functions/admin/class-kemet-admin-notices.php:58
+#: inc/customizer/register-panels-and-sections.php:218
 msgid ""
 "Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of "
 "extra customization options."
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:70
+#: functions/admin/class-kemet-admin-notices.php:69
 msgid "Activate Kemet Addons"
 msgstr ""
 
-#: functions/admin/class-kemet-notices.php:78
+#: functions/admin/class-kemet-admin-notices.php:77
 msgid "Install Kemet Addons"
 msgstr ""
 
@@ -70,144 +70,144 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:32
+#: functions/classes/class-theme-strings.php:31
 msgid "Skip to content"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:35
+#: functions/classes/class-theme-strings.php:34
 msgid "Oops! Looks Like You Got Lost"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:38
+#: functions/classes/class-theme-strings.php:37
 msgid "Nothing Found"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:39
+#: functions/classes/class-theme-strings.php:38
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:40
+#: functions/classes/class-theme-strings.php:39
 msgid "Start typing and press enter to search"
 msgstr ""
 
+#: functions/classes/class-theme-strings.php:40
 #: functions/classes/class-theme-strings.php:41
-#: functions/classes/class-theme-strings.php:42
 msgid "Start Typing&hellip;"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:43
+#: functions/classes/class-theme-strings.php:42
 msgid "Search &hellip;"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:46
+#: functions/classes/class-theme-strings.php:45
 msgid "Reply"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:47
+#: functions/classes/class-theme-strings.php:46
 msgid "Edit"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:48
+#: functions/classes/class-theme-strings.php:47
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:49
-#: functions/classes/class-theme-strings.php:63
+#: functions/classes/class-theme-strings.php:48
+#: functions/classes/class-theme-strings.php:62
 msgid "Leave a Comment"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:50
+#: functions/classes/class-theme-strings.php:49
 msgid "Cancel Reply"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:51
+#: functions/classes/class-theme-strings.php:50
 msgid "Post Comment &raquo;"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:52
+#: functions/classes/class-theme-strings.php:51
 msgid "Write your Comment here.."
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:53
+#: functions/classes/class-theme-strings.php:52
 msgid "Name*"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:54
+#: functions/classes/class-theme-strings.php:53
 msgid "Email*"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:55
+#: functions/classes/class-theme-strings.php:54
 msgid "Website"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:56
+#: functions/classes/class-theme-strings.php:55
 msgid "Comments are closed."
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:57
+#: functions/classes/class-theme-strings.php:56
 msgid "Comment navigation"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:58
+#: functions/classes/class-theme-strings.php:57
 msgid "Newer Comments"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:59
+#: functions/classes/class-theme-strings.php:58
 msgid "Older Comments"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:62
-#: functions/classes/class-theme-strings.php:70
+#: functions/classes/class-theme-strings.php:61
+#: functions/classes/class-theme-strings.php:69
 msgid "Pages:"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:64
+#: functions/classes/class-theme-strings.php:63
 msgid "1 Comment"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:65
+#: functions/classes/class-theme-strings.php:64
 msgid "% Comments"
+msgstr ""
+
+#: functions/classes/class-theme-strings.php:65
+#: functions/classes/class-theme-strings.php:82
+msgid "Next >"
 msgstr ""
 
 #: functions/classes/class-theme-strings.php:66
 #: functions/classes/class-theme-strings.php:83
-msgid "Next >"
-msgstr ""
-
-#: functions/classes/class-theme-strings.php:67
-#: functions/classes/class-theme-strings.php:84
 msgid "< Previous"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:72
-#: functions/classes/class-theme-strings.php:87
+#: functions/classes/class-theme-strings.php:71
+#: functions/classes/class-theme-strings.php:86
 #. translators: 1: Post type label
 msgid "Next %s >"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:74
-#: functions/classes/class-theme-strings.php:89
+#: functions/classes/class-theme-strings.php:73
+#: functions/classes/class-theme-strings.php:88
 #. translators: 1: Post type label
 msgid "< Previous %s"
 msgstr ""
 
-#: functions/classes/class-theme-strings.php:77
+#: functions/classes/class-theme-strings.php:76
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: functions/custom-functions.php:272
-#: inc/customizer/sections/layout/header.php:92
+#: functions/custom-functions.php:273
+#: inc/customizer/sections/layout/header.php:97
 #: inc/customizer/sections/layout/mainmenu.php:19
-#: inc/customizer/sections/layout/mainmenu.php:486
+#: inc/customizer/sections/layout/mainmenu.php:510
 #. translators: 1: Site Title Markup, 2: Site Tagline Markup
 msgid "Search"
 msgstr ""
 
-#: functions/custom-functions.php:300
+#: functions/custom-functions.php:301
 msgid "Add Custom HTML"
 msgstr ""
 
@@ -215,68 +215,69 @@ msgstr ""
 msgid "Kemet"
 msgstr ""
 
-#: functions/custom-functions.php:442
+#: functions/custom-functions.php:443
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: functions/custom-functions.php:478
+#: functions/custom-functions.php:479
 msgid "Assign Top Menu"
 msgstr ""
 
-#: functions/custom-functions.php:693
+#: functions/custom-functions.php:669 functions/custom-functions.php:698
+#: functions/custom-functions.php:709
 msgid "Site Navigation"
 msgstr ""
 
-#: functions/custom-functions.php:1085
+#: functions/custom-functions.php:1097
 msgid "Add Widget"
 msgstr ""
 
-#: functions/custom-functions.php:1120
+#: functions/custom-functions.php:1132
 msgid "Assign a widget here"
 msgstr ""
 
-#: functions/custom-functions.php:1648
+#: functions/custom-functions.php:1693
 msgid "Global Color"
 msgstr ""
 
-#: functions/custom-functions.php:1653
+#: functions/custom-functions.php:1698
 msgid "Global Background Color"
 msgstr ""
 
-#: functions/custom-functions.php:1658
+#: functions/custom-functions.php:1703
 msgid "Global Headings Color"
 msgstr ""
 
-#: functions/custom-functions.php:1663
+#: functions/custom-functions.php:1708
 msgid "Global Text Color"
 msgstr ""
 
-#: functions/custom-functions.php:1668
+#: functions/custom-functions.php:1713
 msgid "Global Border Color"
 msgstr ""
 
-#: functions/helper-options-functions.php:750
+#: functions/helper-options-functions.php:745
 msgid "Home"
 msgstr ""
 
-#: functions/helper-options-functions.php:757
-#: functions/helper-options-functions.php:837
+#: functions/helper-options-functions.php:752
+#: functions/helper-options-functions.php:832
 #. translators: 1: search string
 msgid "Search Results for: %s"
 msgstr ""
 
-#: functions/template-parts.php:174
-#: inc/customizer/register-panels-and-sections.php:63
+#: functions/template-parts.php:173
+#: inc/customizer/register-panels-and-sections.php:69
 msgid "Main Menu"
 msgstr ""
 
-#: functions/template-tags.php:32 templates/content-page.php:52
-#: templates/single/single-layout.php:41
+#: functions/template-tags.php:31 templates/content-page.php:51
+#: templates/single/single-layout.php:40
 #. translators: %s: Name of current post
 msgid "Edit %s"
 msgstr ""
 
-#: inc/blog/blog-config.php:158 inc/blog/blog-config.php:414
+#: inc/blog/blog-config.php:158 inc/blog/blog-config.php:413
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -298,917 +299,917 @@ msgstr ""
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:413
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:395
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:415
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:397
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:424
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:406
 msgid "Product Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:426
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:408
 msgid "This sidebar will be used on Single Product page."
 msgstr ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:1250
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:1214
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:22
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:23
 msgid "General"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:33
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:35
 msgid "Cart Menu Item"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:41
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:43
 msgid "Shop"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:47
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:56
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:50
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:60
 msgid "Single Product"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:58
+#: inc/compatibility/woocommerce/customizer/register-panels-and-sections.php:62
 msgid "Cart Page"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:12
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:19
 msgid "Cart Dropdown Settings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:38
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:48
 msgid "Icon Display"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:40
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:50
 msgid "Cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:41
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:51
 msgid "Bag"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:59
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:71
 msgid "Disable Cart If Empty"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:78
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:93
 msgid "Display"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:80
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:95
 msgid "Icon Only"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:81
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:96
 msgid "Icon & Cart Total"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:82
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:97
 msgid "Icon & Cart Count"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:83
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:98
 msgid "Icon & Cart Count + Total"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:104
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:122
 msgid "Icon Size"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:132
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:153
 msgid "Center Vertically"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:160
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:184
 msgid "Cart Dropdown Width (px)"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:185
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:212
 msgid "Cart Dropdown Background Color"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:207
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:237
 msgid "Cart Dropdown Border Size"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:232
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php:265
 msgid "Cart Dropdown Border Color"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php:24
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php:26
 msgid "Rating Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php:46
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php:51
 msgid "Rating color"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:29
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php:31
 msgid "Enable Upsells"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:29
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:46
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php:31
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:50
 msgid "Disable Breadcrumb"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:25
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:27
 msgid "Shop Settings"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:63
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:69
 msgid "Products Per Page"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:89
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:98
 msgid "Shop Columns"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:116
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:127
 msgid "Shop Archive Content Width"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:118
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:314
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:531
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:717
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:34
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:33
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:58
-#: inc/customizer/sections/buttons/buttons-fields.php:98
-#: inc/customizer/sections/buttons/buttons-fields.php:456
-#: inc/customizer/sections/layout/blog-single.php:33
-#: inc/customizer/sections/layout/blog.php:33
-#: inc/customizer/sections/layout/blog.php:235
-#: inc/customizer/sections/layout/blog.php:384
-#: inc/customizer/sections/layout/container.php:86
-#: inc/customizer/sections/layout/container.php:112
-#: inc/customizer/sections/layout/container.php:138
-#: inc/customizer/sections/layout/content.php:117
-#: inc/customizer/sections/layout/content.php:319
-#: inc/customizer/sections/layout/main-footer.php:416
-#: inc/customizer/sections/layout/main-footer.php:622
-#: inc/customizer/sections/layout/mainmenu.php:124
-#: inc/customizer/sections/layout/mainmenu.php:610
-#: inc/customizer/sections/layout/mainmenu.php:1145
-#: inc/customizer/sections/layout/sidebar.php:89
-#: inc/customizer/sections/layout/sidebar.php:114
-#: inc/customizer/sections/layout/sidebar.php:139
-#: inc/customizer/sections/layout/widgets.php:211
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:129
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:338
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:563
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:754
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:36
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:35
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:62
+#: inc/customizer/sections/buttons/buttons-fields.php:100
+#: inc/customizer/sections/buttons/buttons-fields.php:470
+#: inc/customizer/sections/layout/blog-single.php:35
+#: inc/customizer/sections/layout/blog.php:35
+#: inc/customizer/sections/layout/blog.php:250
+#: inc/customizer/sections/layout/blog.php:399
+#: inc/customizer/sections/layout/container.php:94
+#: inc/customizer/sections/layout/container.php:122
+#: inc/customizer/sections/layout/container.php:150
+#: inc/customizer/sections/layout/content.php:123
+#: inc/customizer/sections/layout/content.php:336
+#: inc/customizer/sections/layout/main-footer.php:446
+#: inc/customizer/sections/layout/main-footer.php:658
+#: inc/customizer/sections/layout/mainmenu.php:128
+#: inc/customizer/sections/layout/mainmenu.php:638
+#: inc/customizer/sections/layout/mainmenu.php:1212
+#: inc/customizer/sections/layout/sidebar.php:96
+#: inc/customizer/sections/layout/sidebar.php:123
+#: inc/customizer/sections/layout/sidebar.php:150
+#: inc/customizer/sections/layout/widgets.php:227
 msgid "Default"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:119
-#: inc/customizer/sections/layout/blog-single.php:34
-#: inc/customizer/sections/layout/blog.php:34
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:130
+#: inc/customizer/sections/layout/blog-single.php:36
+#: inc/customizer/sections/layout/blog.php:36
 msgid "Custom"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:145
-#: inc/customizer/sections/layout/blog-single.php:60
-#: inc/customizer/sections/layout/blog.php:61
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:159
+#: inc/customizer/sections/layout/blog-single.php:65
+#: inc/customizer/sections/layout/blog.php:66
 msgid "Enter Width"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:171
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:187
 msgid "Product Image Hover Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:175
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:315
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:532
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:718
-#: inc/customizer/sections/buttons/buttons-fields.php:99
-#: inc/customizer/sections/buttons/buttons-fields.php:457
-#: inc/customizer/sections/layout/blog.php:236
-#: inc/customizer/sections/layout/blog.php:385
-#: inc/customizer/sections/layout/content.php:118
-#: inc/customizer/sections/layout/content.php:347
-#: inc/customizer/sections/layout/footer.php:73
-#: inc/customizer/sections/layout/footer.php:139
-#: inc/customizer/sections/layout/header.php:91
-#: inc/customizer/sections/layout/main-footer.php:417
-#: inc/customizer/sections/layout/main-footer.php:623
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:191
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:339
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:564
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:755
+#: inc/customizer/sections/buttons/buttons-fields.php:101
+#: inc/customizer/sections/buttons/buttons-fields.php:471
+#: inc/customizer/sections/layout/blog.php:251
+#: inc/customizer/sections/layout/blog.php:400
+#: inc/customizer/sections/layout/content.php:124
+#: inc/customizer/sections/layout/content.php:366
+#: inc/customizer/sections/layout/footer.php:78
+#: inc/customizer/sections/layout/footer.php:149
+#: inc/customizer/sections/layout/header.php:96
+#: inc/customizer/sections/layout/main-footer.php:447
+#: inc/customizer/sections/layout/main-footer.php:659
 #: inc/customizer/sections/layout/mainmenu.php:18
-#: inc/customizer/sections/layout/mainmenu.php:125
-#: inc/customizer/sections/layout/mainmenu.php:611
-#: inc/customizer/sections/layout/mainmenu.php:1025
-#: inc/customizer/sections/layout/mainmenu.php:1146
-#: inc/customizer/sections/layout/widgets.php:212
+#: inc/customizer/sections/layout/mainmenu.php:129
+#: inc/customizer/sections/layout/mainmenu.php:639
+#: inc/customizer/sections/layout/mainmenu.php:1087
+#: inc/customizer/sections/layout/mainmenu.php:1213
+#: inc/customizer/sections/layout/widgets.php:228
 msgid "None"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:176
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:192
 msgid "Swap Images"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:198
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:217
 msgid "Shop Product Structure"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:200
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:219
 msgid "Short Description"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:201
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:220
 msgid "Add To Cart"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:202
-#: inc/customizer/sections/layout/blog-single.php:119
-#: inc/customizer/sections/layout/blog.php:122
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:221
+#: inc/customizer/sections/layout/blog-single.php:130
+#: inc/customizer/sections/layout/blog.php:133
 msgid "Category"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:217
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:238
 msgid "Product Title Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:238
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:455
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:641
-#: inc/customizer/sections/layout/content.php:43
-#: inc/customizer/sections/layout/content.php:382
-#: inc/customizer/sections/layout/content.php:478
-#: inc/customizer/sections/layout/content.php:573
-#: inc/customizer/sections/layout/content.php:668
-#: inc/customizer/sections/layout/content.php:764
-#: inc/customizer/sections/layout/content.php:860
-#: inc/customizer/sections/layout/main-footer.php:260
-#: inc/customizer/sections/layout/main-footer.php:546
-#: inc/customizer/sections/layout/widgets.php:135
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:262
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:487
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:678
+#: inc/customizer/sections/layout/content.php:49
+#: inc/customizer/sections/layout/content.php:406
+#: inc/customizer/sections/layout/content.php:513
+#: inc/customizer/sections/layout/content.php:619
+#: inc/customizer/sections/layout/content.php:725
+#: inc/customizer/sections/layout/content.php:832
+#: inc/customizer/sections/layout/content.php:939
+#: inc/customizer/sections/layout/main-footer.php:282
+#: inc/customizer/sections/layout/main-footer.php:582
+#: inc/customizer/sections/layout/widgets.php:151
 msgid "Font Color"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:261
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:478
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:664
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:863
-#: inc/customizer/sections/buttons/buttons-fields.php:45
-#: inc/customizer/sections/buttons/buttons-fields.php:403
-#: inc/customizer/sections/layout/blog.php:182
-#: inc/customizer/sections/layout/blog.php:331
-#: inc/customizer/sections/layout/content.php:64
-#: inc/customizer/sections/layout/content.php:406
-#: inc/customizer/sections/layout/content.php:501
-#: inc/customizer/sections/layout/content.php:596
-#: inc/customizer/sections/layout/content.php:692
-#: inc/customizer/sections/layout/content.php:788
-#: inc/customizer/sections/layout/content.php:883
-#: inc/customizer/sections/layout/footer.php:458
-#: inc/customizer/sections/layout/main-footer.php:363
-#: inc/customizer/sections/layout/main-footer.php:569
-#: inc/customizer/sections/layout/mainmenu.php:71
-#: inc/customizer/sections/layout/mainmenu.php:557
-#: inc/customizer/sections/layout/mainmenu.php:1092
-#: inc/customizer/sections/layout/sidebar.php:202
-#: inc/customizer/sections/layout/widgets.php:158
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:285
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:510
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:701
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:906
+#: inc/customizer/sections/buttons/buttons-fields.php:47
+#: inc/customizer/sections/buttons/buttons-fields.php:417
+#: inc/customizer/sections/layout/blog.php:197
+#: inc/customizer/sections/layout/blog.php:346
+#: inc/customizer/sections/layout/content.php:70
+#: inc/customizer/sections/layout/content.php:433
+#: inc/customizer/sections/layout/content.php:539
+#: inc/customizer/sections/layout/content.php:645
+#: inc/customizer/sections/layout/content.php:752
+#: inc/customizer/sections/layout/content.php:859
+#: inc/customizer/sections/layout/content.php:965
+#: inc/customizer/sections/layout/footer.php:490
+#: inc/customizer/sections/layout/main-footer.php:393
+#: inc/customizer/sections/layout/main-footer.php:605
+#: inc/customizer/sections/layout/mainmenu.php:75
+#: inc/customizer/sections/layout/mainmenu.php:585
+#: inc/customizer/sections/layout/mainmenu.php:1159
+#: inc/customizer/sections/layout/sidebar.php:218
+#: inc/customizer/sections/layout/widgets.php:174
 msgid "Font Size"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:283
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:500
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:686
-#: inc/customizer/sections/buttons/buttons-fields.php:67
-#: inc/customizer/sections/buttons/buttons-fields.php:425
-#: inc/customizer/sections/layout/blog.php:204
-#: inc/customizer/sections/layout/blog.php:353
-#: inc/customizer/sections/layout/content.php:86
-#: inc/customizer/sections/layout/content.php:297
-#: inc/customizer/sections/layout/main-footer.php:385
-#: inc/customizer/sections/layout/main-footer.php:591
-#: inc/customizer/sections/layout/mainmenu.php:93
-#: inc/customizer/sections/layout/mainmenu.php:579
-#: inc/customizer/sections/layout/mainmenu.php:1114
-#: inc/customizer/sections/layout/widgets.php:180
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:307
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:532
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:723
+#: inc/customizer/sections/buttons/buttons-fields.php:69
+#: inc/customizer/sections/buttons/buttons-fields.php:439
+#: inc/customizer/sections/layout/blog.php:219
+#: inc/customizer/sections/layout/blog.php:368
+#: inc/customizer/sections/layout/content.php:92
+#: inc/customizer/sections/layout/content.php:311
+#: inc/customizer/sections/layout/main-footer.php:415
+#: inc/customizer/sections/layout/main-footer.php:627
+#: inc/customizer/sections/layout/mainmenu.php:97
+#: inc/customizer/sections/layout/mainmenu.php:607
+#: inc/customizer/sections/layout/mainmenu.php:1181
+#: inc/customizer/sections/layout/widgets.php:196
 msgid "Font Family"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:296
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:513
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:699
-#: inc/customizer/sections/buttons/buttons-fields.php:80
-#: inc/customizer/sections/buttons/buttons-fields.php:438
-#: inc/customizer/sections/layout/blog.php:217
-#: inc/customizer/sections/layout/blog.php:366
-#: inc/customizer/sections/layout/content.php:99
-#: inc/customizer/sections/layout/content.php:322
-#: inc/customizer/sections/layout/main-footer.php:398
-#: inc/customizer/sections/layout/main-footer.php:604
-#: inc/customizer/sections/layout/mainmenu.php:106
-#: inc/customizer/sections/layout/mainmenu.php:592
-#: inc/customizer/sections/layout/mainmenu.php:1127
-#: inc/customizer/sections/layout/widgets.php:193
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:320
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:545
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:736
+#: inc/customizer/sections/buttons/buttons-fields.php:82
+#: inc/customizer/sections/buttons/buttons-fields.php:452
+#: inc/customizer/sections/layout/blog.php:232
+#: inc/customizer/sections/layout/blog.php:381
+#: inc/customizer/sections/layout/content.php:105
+#: inc/customizer/sections/layout/content.php:339
+#: inc/customizer/sections/layout/main-footer.php:428
+#: inc/customizer/sections/layout/main-footer.php:640
+#: inc/customizer/sections/layout/mainmenu.php:110
+#: inc/customizer/sections/layout/mainmenu.php:620
+#: inc/customizer/sections/layout/mainmenu.php:1194
+#: inc/customizer/sections/layout/widgets.php:209
 msgid "Font Weight"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:310
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:527
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:713
-#: inc/customizer/sections/buttons/buttons-fields.php:94
-#: inc/customizer/sections/buttons/buttons-fields.php:452
-#: inc/customizer/sections/layout/blog.php:231
-#: inc/customizer/sections/layout/blog.php:380
-#: inc/customizer/sections/layout/content.php:113
-#: inc/customizer/sections/layout/content.php:342
-#: inc/customizer/sections/layout/main-footer.php:412
-#: inc/customizer/sections/layout/main-footer.php:618
-#: inc/customizer/sections/layout/mainmenu.php:120
-#: inc/customizer/sections/layout/mainmenu.php:606
-#: inc/customizer/sections/layout/mainmenu.php:1141
-#: inc/customizer/sections/layout/widgets.php:207
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:334
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:559
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:750
+#: inc/customizer/sections/buttons/buttons-fields.php:96
+#: inc/customizer/sections/buttons/buttons-fields.php:466
+#: inc/customizer/sections/layout/blog.php:246
+#: inc/customizer/sections/layout/blog.php:395
+#: inc/customizer/sections/layout/content.php:119
+#: inc/customizer/sections/layout/content.php:361
+#: inc/customizer/sections/layout/main-footer.php:442
+#: inc/customizer/sections/layout/main-footer.php:654
+#: inc/customizer/sections/layout/mainmenu.php:124
+#: inc/customizer/sections/layout/mainmenu.php:634
+#: inc/customizer/sections/layout/mainmenu.php:1208
+#: inc/customizer/sections/layout/widgets.php:223
 msgid "Text Transform"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:316
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:533
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:719
-#: inc/customizer/sections/buttons/buttons-fields.php:100
-#: inc/customizer/sections/buttons/buttons-fields.php:458
-#: inc/customizer/sections/layout/blog.php:237
-#: inc/customizer/sections/layout/blog.php:386
-#: inc/customizer/sections/layout/content.php:119
-#: inc/customizer/sections/layout/content.php:348
-#: inc/customizer/sections/layout/main-footer.php:418
-#: inc/customizer/sections/layout/main-footer.php:624
-#: inc/customizer/sections/layout/mainmenu.php:126
-#: inc/customizer/sections/layout/mainmenu.php:612
-#: inc/customizer/sections/layout/mainmenu.php:1147
-#: inc/customizer/sections/layout/widgets.php:213
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:340
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:565
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:756
+#: inc/customizer/sections/buttons/buttons-fields.php:102
+#: inc/customizer/sections/buttons/buttons-fields.php:472
+#: inc/customizer/sections/layout/blog.php:252
+#: inc/customizer/sections/layout/blog.php:401
+#: inc/customizer/sections/layout/content.php:125
+#: inc/customizer/sections/layout/content.php:367
+#: inc/customizer/sections/layout/main-footer.php:448
+#: inc/customizer/sections/layout/main-footer.php:660
+#: inc/customizer/sections/layout/mainmenu.php:130
+#: inc/customizer/sections/layout/mainmenu.php:640
+#: inc/customizer/sections/layout/mainmenu.php:1214
+#: inc/customizer/sections/layout/widgets.php:229
 msgid "Capitalize"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:317
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:534
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:720
-#: inc/customizer/sections/buttons/buttons-fields.php:101
-#: inc/customizer/sections/buttons/buttons-fields.php:459
-#: inc/customizer/sections/layout/blog.php:238
-#: inc/customizer/sections/layout/blog.php:387
-#: inc/customizer/sections/layout/content.php:120
-#: inc/customizer/sections/layout/content.php:349
-#: inc/customizer/sections/layout/main-footer.php:419
-#: inc/customizer/sections/layout/main-footer.php:625
-#: inc/customizer/sections/layout/mainmenu.php:127
-#: inc/customizer/sections/layout/mainmenu.php:613
-#: inc/customizer/sections/layout/mainmenu.php:1148
-#: inc/customizer/sections/layout/widgets.php:214
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:341
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:566
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:757
+#: inc/customizer/sections/buttons/buttons-fields.php:103
+#: inc/customizer/sections/buttons/buttons-fields.php:473
+#: inc/customizer/sections/layout/blog.php:253
+#: inc/customizer/sections/layout/blog.php:402
+#: inc/customizer/sections/layout/content.php:126
+#: inc/customizer/sections/layout/content.php:368
+#: inc/customizer/sections/layout/main-footer.php:449
+#: inc/customizer/sections/layout/main-footer.php:661
+#: inc/customizer/sections/layout/mainmenu.php:131
+#: inc/customizer/sections/layout/mainmenu.php:641
+#: inc/customizer/sections/layout/mainmenu.php:1215
+#: inc/customizer/sections/layout/widgets.php:230
 msgid "Uppercase"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:318
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:535
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:721
-#: inc/customizer/sections/buttons/buttons-fields.php:102
-#: inc/customizer/sections/buttons/buttons-fields.php:460
-#: inc/customizer/sections/layout/blog.php:239
-#: inc/customizer/sections/layout/blog.php:388
-#: inc/customizer/sections/layout/content.php:121
-#: inc/customizer/sections/layout/content.php:350
-#: inc/customizer/sections/layout/main-footer.php:420
-#: inc/customizer/sections/layout/main-footer.php:626
-#: inc/customizer/sections/layout/mainmenu.php:128
-#: inc/customizer/sections/layout/mainmenu.php:614
-#: inc/customizer/sections/layout/mainmenu.php:1149
-#: inc/customizer/sections/layout/widgets.php:215
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:342
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:567
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:758
+#: inc/customizer/sections/buttons/buttons-fields.php:104
+#: inc/customizer/sections/buttons/buttons-fields.php:474
+#: inc/customizer/sections/layout/blog.php:254
+#: inc/customizer/sections/layout/blog.php:403
+#: inc/customizer/sections/layout/content.php:127
+#: inc/customizer/sections/layout/content.php:369
+#: inc/customizer/sections/layout/main-footer.php:450
+#: inc/customizer/sections/layout/main-footer.php:662
+#: inc/customizer/sections/layout/mainmenu.php:132
+#: inc/customizer/sections/layout/mainmenu.php:642
+#: inc/customizer/sections/layout/mainmenu.php:1216
+#: inc/customizer/sections/layout/widgets.php:231
 msgid "Lowercase"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:330
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:547
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:733
-#: inc/customizer/sections/buttons/buttons-fields.php:114
-#: inc/customizer/sections/buttons/buttons-fields.php:472
-#: inc/customizer/sections/layout/blog.php:251
-#: inc/customizer/sections/layout/blog.php:400
-#: inc/customizer/sections/layout/content.php:133
-#: inc/customizer/sections/layout/main-footer.php:432
-#: inc/customizer/sections/layout/main-footer.php:638
-#: inc/customizer/sections/layout/mainmenu.php:140
-#: inc/customizer/sections/layout/mainmenu.php:626
-#: inc/customizer/sections/layout/mainmenu.php:1161
-#: inc/customizer/sections/layout/widgets.php:227
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:354
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:579
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:770
+#: inc/customizer/sections/buttons/buttons-fields.php:116
+#: inc/customizer/sections/buttons/buttons-fields.php:486
+#: inc/customizer/sections/layout/blog.php:266
+#: inc/customizer/sections/layout/blog.php:415
+#: inc/customizer/sections/layout/content.php:139
+#: inc/customizer/sections/layout/main-footer.php:462
+#: inc/customizer/sections/layout/main-footer.php:674
+#: inc/customizer/sections/layout/mainmenu.php:144
+#: inc/customizer/sections/layout/mainmenu.php:654
+#: inc/customizer/sections/layout/mainmenu.php:1228
+#: inc/customizer/sections/layout/widgets.php:243
 msgid "Font Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:334
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:551
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:737
-#: inc/customizer/class-kemet-customizer.php:325
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:160
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:358
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:583
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:774
+#: inc/customizer/class-kemet-customizer.php:353
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:159
 #: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:63
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:80
-#: inc/customizer/sections/buttons/buttons-fields.php:118
-#: inc/customizer/sections/buttons/buttons-fields.php:476
-#: inc/customizer/sections/layout/blog.php:255
-#: inc/customizer/sections/layout/blog.php:404
-#: inc/customizer/sections/layout/content.php:137
-#: inc/customizer/sections/layout/content.php:346
-#: inc/customizer/sections/layout/main-footer.php:436
-#: inc/customizer/sections/layout/main-footer.php:642
-#: inc/customizer/sections/layout/mainmenu.php:144
-#: inc/customizer/sections/layout/mainmenu.php:630
-#: inc/customizer/sections/layout/mainmenu.php:1165
-#: inc/customizer/sections/layout/widgets.php:231
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:81
+#: inc/customizer/sections/buttons/buttons-fields.php:120
+#: inc/customizer/sections/buttons/buttons-fields.php:490
+#: inc/customizer/sections/layout/blog.php:270
+#: inc/customizer/sections/layout/blog.php:419
+#: inc/customizer/sections/layout/content.php:143
+#: inc/customizer/sections/layout/content.php:365
+#: inc/customizer/sections/layout/main-footer.php:466
+#: inc/customizer/sections/layout/main-footer.php:678
+#: inc/customizer/sections/layout/mainmenu.php:148
+#: inc/customizer/sections/layout/mainmenu.php:658
+#: inc/customizer/sections/layout/mainmenu.php:1232
+#: inc/customizer/sections/layout/widgets.php:247
 msgid "Inherit"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:335
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:552
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:738
-#: inc/customizer/sections/buttons/buttons-fields.php:119
-#: inc/customizer/sections/buttons/buttons-fields.php:207
-#: inc/customizer/sections/buttons/buttons-fields.php:220
-#: inc/customizer/sections/buttons/buttons-fields.php:234
-#: inc/customizer/sections/buttons/buttons-fields.php:477
-#: inc/customizer/sections/layout/blog.php:256
-#: inc/customizer/sections/layout/blog.php:405
-#: inc/customizer/sections/layout/blog.php:482
-#: inc/customizer/sections/layout/blog.php:493
-#: inc/customizer/sections/layout/blog.php:589
-#: inc/customizer/sections/layout/blog.php:600
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:359
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:584
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:775
+#: inc/customizer/sections/buttons/buttons-fields.php:121
+#: inc/customizer/sections/buttons/buttons-fields.php:210
+#: inc/customizer/sections/buttons/buttons-fields.php:223
+#: inc/customizer/sections/buttons/buttons-fields.php:237
+#: inc/customizer/sections/buttons/buttons-fields.php:491
+#: inc/customizer/sections/layout/blog.php:271
+#: inc/customizer/sections/layout/blog.php:420
+#: inc/customizer/sections/layout/blog.php:497
+#: inc/customizer/sections/layout/blog.php:508
 #: inc/customizer/sections/layout/blog.php:611
-#: inc/customizer/sections/layout/content.php:138
-#: inc/customizer/sections/layout/content.php:242
-#: inc/customizer/sections/layout/footer.php:393
-#: inc/customizer/sections/layout/footer.php:404
-#: inc/customizer/sections/layout/main-footer.php:437
-#: inc/customizer/sections/layout/main-footer.php:643
-#: inc/customizer/sections/layout/main-footer.php:998
-#: inc/customizer/sections/layout/main-footer.php:1008
-#: inc/customizer/sections/layout/main-footer.php:1019
-#: inc/customizer/sections/layout/main-footer.php:1029
-#: inc/customizer/sections/layout/main-footer.php:1040
-#: inc/customizer/sections/layout/main-footer.php:1051
-#: inc/customizer/sections/layout/mainmenu.php:145
-#: inc/customizer/sections/layout/mainmenu.php:224
-#: inc/customizer/sections/layout/mainmenu.php:235
-#: inc/customizer/sections/layout/mainmenu.php:631
-#: inc/customizer/sections/layout/mainmenu.php:1166
-#: inc/customizer/sections/layout/mainmenu.php:1244
-#: inc/customizer/sections/layout/mainmenu.php:1255
-#: inc/customizer/sections/layout/mainmenu.php:1266
-#: inc/customizer/sections/layout/mainmenu.php:1507
-#: inc/customizer/sections/layout/mainmenu.php:1517
-#: inc/customizer/sections/layout/sidebar.php:235
-#: inc/customizer/sections/layout/sidebar.php:245
-#: inc/customizer/sections/layout/widgets.php:232
-#: inc/customizer/sections/site-identity/site-identity.php:228
+#: inc/customizer/sections/layout/blog.php:622
+#: inc/customizer/sections/layout/blog.php:633
+#: inc/customizer/sections/layout/content.php:144
+#: inc/customizer/sections/layout/content.php:251
+#: inc/customizer/sections/layout/footer.php:422
+#: inc/customizer/sections/layout/footer.php:433
+#: inc/customizer/sections/layout/main-footer.php:467
+#: inc/customizer/sections/layout/main-footer.php:679
+#: inc/customizer/sections/layout/main-footer.php:1055
+#: inc/customizer/sections/layout/main-footer.php:1065
+#: inc/customizer/sections/layout/main-footer.php:1076
+#: inc/customizer/sections/layout/main-footer.php:1086
+#: inc/customizer/sections/layout/main-footer.php:1097
+#: inc/customizer/sections/layout/main-footer.php:1108
+#: inc/customizer/sections/layout/mainmenu.php:149
+#: inc/customizer/sections/layout/mainmenu.php:228
+#: inc/customizer/sections/layout/mainmenu.php:239
+#: inc/customizer/sections/layout/mainmenu.php:659
+#: inc/customizer/sections/layout/mainmenu.php:1233
+#: inc/customizer/sections/layout/mainmenu.php:1311
+#: inc/customizer/sections/layout/mainmenu.php:1322
+#: inc/customizer/sections/layout/mainmenu.php:1333
+#: inc/customizer/sections/layout/mainmenu.php:1594
+#: inc/customizer/sections/layout/mainmenu.php:1604
+#: inc/customizer/sections/layout/sidebar.php:251
+#: inc/customizer/sections/layout/sidebar.php:261
+#: inc/customizer/sections/layout/widgets.php:248
+#: inc/customizer/sections/site-identity/site-identity.php:246
 msgid "Normal"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:336
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:553
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:739
-#: inc/customizer/sections/buttons/buttons-fields.php:120
-#: inc/customizer/sections/buttons/buttons-fields.php:478
-#: inc/customizer/sections/layout/blog.php:257
-#: inc/customizer/sections/layout/blog.php:406
-#: inc/customizer/sections/layout/content.php:139
-#: inc/customizer/sections/layout/main-footer.php:438
-#: inc/customizer/sections/layout/main-footer.php:644
-#: inc/customizer/sections/layout/mainmenu.php:146
-#: inc/customizer/sections/layout/mainmenu.php:632
-#: inc/customizer/sections/layout/mainmenu.php:1167
-#: inc/customizer/sections/layout/widgets.php:233
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:360
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:585
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:776
+#: inc/customizer/sections/buttons/buttons-fields.php:122
+#: inc/customizer/sections/buttons/buttons-fields.php:492
+#: inc/customizer/sections/layout/blog.php:272
+#: inc/customizer/sections/layout/blog.php:421
+#: inc/customizer/sections/layout/content.php:145
+#: inc/customizer/sections/layout/main-footer.php:468
+#: inc/customizer/sections/layout/main-footer.php:680
+#: inc/customizer/sections/layout/mainmenu.php:150
+#: inc/customizer/sections/layout/mainmenu.php:660
+#: inc/customizer/sections/layout/mainmenu.php:1234
+#: inc/customizer/sections/layout/widgets.php:249
 msgid "Italic"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:337
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:554
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:740
-#: inc/customizer/sections/buttons/buttons-fields.php:121
-#: inc/customizer/sections/buttons/buttons-fields.php:479
-#: inc/customizer/sections/layout/blog.php:258
-#: inc/customizer/sections/layout/blog.php:407
-#: inc/customizer/sections/layout/content.php:140
-#: inc/customizer/sections/layout/main-footer.php:439
-#: inc/customizer/sections/layout/main-footer.php:645
-#: inc/customizer/sections/layout/mainmenu.php:147
-#: inc/customizer/sections/layout/mainmenu.php:633
-#: inc/customizer/sections/layout/mainmenu.php:1168
-#: inc/customizer/sections/layout/widgets.php:234
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:361
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:586
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:777
+#: inc/customizer/sections/buttons/buttons-fields.php:123
+#: inc/customizer/sections/buttons/buttons-fields.php:493
+#: inc/customizer/sections/layout/blog.php:273
+#: inc/customizer/sections/layout/blog.php:422
+#: inc/customizer/sections/layout/content.php:146
+#: inc/customizer/sections/layout/main-footer.php:469
+#: inc/customizer/sections/layout/main-footer.php:681
+#: inc/customizer/sections/layout/mainmenu.php:151
+#: inc/customizer/sections/layout/mainmenu.php:661
+#: inc/customizer/sections/layout/mainmenu.php:1235
+#: inc/customizer/sections/layout/widgets.php:250
 msgid "Oblique"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:351
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:568
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:754
-#: inc/customizer/sections/buttons/buttons-fields.php:135
-#: inc/customizer/sections/buttons/buttons-fields.php:493
-#: inc/customizer/sections/layout/blog.php:272
-#: inc/customizer/sections/layout/blog.php:421
-#: inc/customizer/sections/layout/content.php:154
-#: inc/customizer/sections/layout/main-footer.php:453
-#: inc/customizer/sections/layout/main-footer.php:659
-#: inc/customizer/sections/layout/mainmenu.php:161
-#: inc/customizer/sections/layout/mainmenu.php:647
-#: inc/customizer/sections/layout/mainmenu.php:1182
-#: inc/customizer/sections/layout/widgets.php:248
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:375
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:600
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:791
+#: inc/customizer/sections/buttons/buttons-fields.php:137
+#: inc/customizer/sections/buttons/buttons-fields.php:507
+#: inc/customizer/sections/layout/blog.php:287
+#: inc/customizer/sections/layout/blog.php:436
+#: inc/customizer/sections/layout/content.php:160
+#: inc/customizer/sections/layout/main-footer.php:483
+#: inc/customizer/sections/layout/main-footer.php:695
+#: inc/customizer/sections/layout/mainmenu.php:165
+#: inc/customizer/sections/layout/mainmenu.php:675
+#: inc/customizer/sections/layout/mainmenu.php:1249
+#: inc/customizer/sections/layout/widgets.php:264
 msgid "Line Height"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:376
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:593
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:779
-#: inc/customizer/sections/buttons/buttons-fields.php:160
-#: inc/customizer/sections/buttons/buttons-fields.php:518
-#: inc/customizer/sections/layout/blog.php:297
-#: inc/customizer/sections/layout/blog.php:446
-#: inc/customizer/sections/layout/content.php:178
-#: inc/customizer/sections/layout/content.php:439
-#: inc/customizer/sections/layout/content.php:534
-#: inc/customizer/sections/layout/content.php:629
-#: inc/customizer/sections/layout/content.php:725
-#: inc/customizer/sections/layout/content.php:821
-#: inc/customizer/sections/layout/content.php:916
-#: inc/customizer/sections/layout/footer.php:496
-#: inc/customizer/sections/layout/main-footer.php:478
-#: inc/customizer/sections/layout/main-footer.php:684
-#: inc/customizer/sections/layout/mainmenu.php:186
-#: inc/customizer/sections/layout/mainmenu.php:672
-#: inc/customizer/sections/layout/mainmenu.php:1207
-#: inc/customizer/sections/layout/widgets.php:273
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:400
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:625
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:816
+#: inc/customizer/sections/buttons/buttons-fields.php:162
+#: inc/customizer/sections/buttons/buttons-fields.php:532
+#: inc/customizer/sections/layout/blog.php:312
+#: inc/customizer/sections/layout/blog.php:461
+#: inc/customizer/sections/layout/content.php:184
+#: inc/customizer/sections/layout/content.php:469
+#: inc/customizer/sections/layout/content.php:575
+#: inc/customizer/sections/layout/content.php:681
+#: inc/customizer/sections/layout/content.php:788
+#: inc/customizer/sections/layout/content.php:895
+#: inc/customizer/sections/layout/content.php:1001
+#: inc/customizer/sections/layout/footer.php:531
+#: inc/customizer/sections/layout/main-footer.php:508
+#: inc/customizer/sections/layout/main-footer.php:720
+#: inc/customizer/sections/layout/mainmenu.php:190
+#: inc/customizer/sections/layout/mainmenu.php:700
+#: inc/customizer/sections/layout/mainmenu.php:1274
+#: inc/customizer/sections/layout/widgets.php:289
 msgid "Letter Spacing"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:389
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:606
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:792
-#: inc/customizer/sections/buttons/buttons-fields.php:173
-#: inc/customizer/sections/buttons/buttons-fields.php:531
-#: inc/customizer/sections/layout/content.php:191
-#: inc/customizer/sections/layout/main-footer.php:491
-#: inc/customizer/sections/layout/main-footer.php:697
-#: inc/customizer/sections/layout/mainmenu.php:199
-#: inc/customizer/sections/layout/mainmenu.php:685
-#: inc/customizer/sections/layout/mainmenu.php:1220
-#: inc/customizer/sections/layout/widgets.php:286
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:413
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:638
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:829
+#: inc/customizer/sections/buttons/buttons-fields.php:175
+#: inc/customizer/sections/buttons/buttons-fields.php:545
+#: inc/customizer/sections/layout/content.php:197
+#: inc/customizer/sections/layout/main-footer.php:521
+#: inc/customizer/sections/layout/main-footer.php:733
+#: inc/customizer/sections/layout/mainmenu.php:203
+#: inc/customizer/sections/layout/mainmenu.php:713
+#: inc/customizer/sections/layout/mainmenu.php:1287
+#: inc/customizer/sections/layout/widgets.php:302
 msgid "Typography"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:414
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:817
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:896
-#: inc/customizer/sections/layout/widgets.php:48
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:441
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:857
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:942
+#: inc/customizer/sections/layout/widgets.php:53
 msgid "Spacing"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:418
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:821
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:900
-#: inc/customizer/sections/buttons/buttons-fields.php:366
-#: inc/customizer/sections/buttons/buttons-fields.php:678
-#: inc/customizer/sections/layout/blog-single.php:269
-#: inc/customizer/sections/layout/blog.php:761
-#: inc/customizer/sections/layout/blog.php:791
-#: inc/customizer/sections/layout/container.php:237
-#: inc/customizer/sections/layout/container.php:265
-#: inc/customizer/sections/layout/footer.php:208
-#: inc/customizer/sections/layout/header.php:234
-#: inc/customizer/sections/layout/main-footer.php:210
-#: inc/customizer/sections/layout/main-footer.php:880
-#: inc/customizer/sections/layout/main-footer.php:938
-#: inc/customizer/sections/layout/main-footer.php:972
-#: inc/customizer/sections/layout/mainmenu.php:414
-#: inc/customizer/sections/layout/mainmenu.php:443
-#: inc/customizer/sections/layout/mainmenu.php:713
-#: inc/customizer/sections/layout/mainmenu.php:1391
-#: inc/customizer/sections/layout/sidebar.php:291
-#: inc/customizer/sections/layout/widgets.php:52
-#: inc/customizer/sections/site-identity/site-identity.php:296
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:445
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:861
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:946
+#: inc/customizer/sections/buttons/buttons-fields.php:378
+#: inc/customizer/sections/buttons/buttons-fields.php:701
+#: inc/customizer/sections/layout/blog-single.php:294
+#: inc/customizer/sections/layout/blog.php:792
+#: inc/customizer/sections/layout/blog.php:825
+#: inc/customizer/sections/layout/container.php:254
+#: inc/customizer/sections/layout/container.php:285
+#: inc/customizer/sections/layout/footer.php:224
+#: inc/customizer/sections/layout/header.php:252
+#: inc/customizer/sections/layout/main-footer.php:226
+#: inc/customizer/sections/layout/main-footer.php:928
+#: inc/customizer/sections/layout/main-footer.php:992
+#: inc/customizer/sections/layout/main-footer.php:1029
+#: inc/customizer/sections/layout/mainmenu.php:430
+#: inc/customizer/sections/layout/mainmenu.php:462
+#: inc/customizer/sections/layout/mainmenu.php:744
+#: inc/customizer/sections/layout/mainmenu.php:1469
+#: inc/customizer/sections/layout/sidebar.php:310
+#: inc/customizer/sections/layout/widgets.php:57
+#: inc/customizer/sections/site-identity/site-identity.php:320
 msgid "Top"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:419
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:822
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:901
-#: inc/customizer/sections/buttons/buttons-fields.php:367
-#: inc/customizer/sections/buttons/buttons-fields.php:679
-#: inc/customizer/sections/layout/blog-single.php:270
-#: inc/customizer/sections/layout/blog.php:762
-#: inc/customizer/sections/layout/blog.php:792
-#: inc/customizer/sections/layout/container.php:266
-#: inc/customizer/sections/layout/footer.php:209
-#: inc/customizer/sections/layout/header.php:235
-#: inc/customizer/sections/layout/main-footer.php:211
-#: inc/customizer/sections/layout/main-footer.php:881
-#: inc/customizer/sections/layout/main-footer.php:939
-#: inc/customizer/sections/layout/main-footer.php:973
-#: inc/customizer/sections/layout/mainmenu.php:415
-#: inc/customizer/sections/layout/mainmenu.php:444
-#: inc/customizer/sections/layout/mainmenu.php:714
-#: inc/customizer/sections/layout/mainmenu.php:1392
-#: inc/customizer/sections/layout/sidebar.php:292
-#: inc/customizer/sections/layout/widgets.php:53
-#: inc/customizer/sections/site-identity/site-identity.php:297
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:446
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:862
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:947
+#: inc/customizer/sections/buttons/buttons-fields.php:379
+#: inc/customizer/sections/buttons/buttons-fields.php:702
+#: inc/customizer/sections/layout/blog-single.php:295
+#: inc/customizer/sections/layout/blog.php:793
+#: inc/customizer/sections/layout/blog.php:826
+#: inc/customizer/sections/layout/container.php:286
+#: inc/customizer/sections/layout/footer.php:225
+#: inc/customizer/sections/layout/header.php:253
+#: inc/customizer/sections/layout/main-footer.php:227
+#: inc/customizer/sections/layout/main-footer.php:929
+#: inc/customizer/sections/layout/main-footer.php:993
+#: inc/customizer/sections/layout/main-footer.php:1030
+#: inc/customizer/sections/layout/mainmenu.php:431
+#: inc/customizer/sections/layout/mainmenu.php:463
+#: inc/customizer/sections/layout/mainmenu.php:745
+#: inc/customizer/sections/layout/mainmenu.php:1470
+#: inc/customizer/sections/layout/sidebar.php:311
+#: inc/customizer/sections/layout/widgets.php:58
+#: inc/customizer/sections/site-identity/site-identity.php:321
 msgid "Right"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:420
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:823
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:902
-#: inc/customizer/sections/buttons/buttons-fields.php:368
-#: inc/customizer/sections/buttons/buttons-fields.php:680
-#: inc/customizer/sections/layout/blog-single.php:271
-#: inc/customizer/sections/layout/blog.php:763
-#: inc/customizer/sections/layout/blog.php:793
-#: inc/customizer/sections/layout/container.php:238
-#: inc/customizer/sections/layout/container.php:267
-#: inc/customizer/sections/layout/footer.php:210
-#: inc/customizer/sections/layout/header.php:236
-#: inc/customizer/sections/layout/main-footer.php:212
-#: inc/customizer/sections/layout/main-footer.php:882
-#: inc/customizer/sections/layout/main-footer.php:940
-#: inc/customizer/sections/layout/main-footer.php:974
-#: inc/customizer/sections/layout/mainmenu.php:416
-#: inc/customizer/sections/layout/mainmenu.php:445
-#: inc/customizer/sections/layout/mainmenu.php:715
-#: inc/customizer/sections/layout/mainmenu.php:1393
-#: inc/customizer/sections/layout/sidebar.php:293
-#: inc/customizer/sections/layout/widgets.php:54
-#: inc/customizer/sections/site-identity/site-identity.php:298
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:447
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:863
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:948
+#: inc/customizer/sections/buttons/buttons-fields.php:380
+#: inc/customizer/sections/buttons/buttons-fields.php:703
+#: inc/customizer/sections/layout/blog-single.php:296
+#: inc/customizer/sections/layout/blog.php:794
+#: inc/customizer/sections/layout/blog.php:827
+#: inc/customizer/sections/layout/container.php:255
+#: inc/customizer/sections/layout/container.php:287
+#: inc/customizer/sections/layout/footer.php:226
+#: inc/customizer/sections/layout/header.php:254
+#: inc/customizer/sections/layout/main-footer.php:228
+#: inc/customizer/sections/layout/main-footer.php:930
+#: inc/customizer/sections/layout/main-footer.php:994
+#: inc/customizer/sections/layout/main-footer.php:1031
+#: inc/customizer/sections/layout/mainmenu.php:432
+#: inc/customizer/sections/layout/mainmenu.php:464
+#: inc/customizer/sections/layout/mainmenu.php:746
+#: inc/customizer/sections/layout/mainmenu.php:1471
+#: inc/customizer/sections/layout/sidebar.php:312
+#: inc/customizer/sections/layout/widgets.php:59
+#: inc/customizer/sections/site-identity/site-identity.php:322
 msgid "Bottom"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:421
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:824
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:903
-#: inc/customizer/sections/buttons/buttons-fields.php:369
-#: inc/customizer/sections/buttons/buttons-fields.php:681
-#: inc/customizer/sections/layout/blog-single.php:272
-#: inc/customizer/sections/layout/blog.php:764
-#: inc/customizer/sections/layout/blog.php:794
-#: inc/customizer/sections/layout/container.php:268
-#: inc/customizer/sections/layout/footer.php:211
-#: inc/customizer/sections/layout/header.php:237
-#: inc/customizer/sections/layout/main-footer.php:213
-#: inc/customizer/sections/layout/main-footer.php:883
-#: inc/customizer/sections/layout/main-footer.php:941
-#: inc/customizer/sections/layout/main-footer.php:975
-#: inc/customizer/sections/layout/mainmenu.php:417
-#: inc/customizer/sections/layout/mainmenu.php:446
-#: inc/customizer/sections/layout/mainmenu.php:716
-#: inc/customizer/sections/layout/mainmenu.php:1394
-#: inc/customizer/sections/layout/sidebar.php:294
-#: inc/customizer/sections/layout/widgets.php:55
-#: inc/customizer/sections/site-identity/site-identity.php:299
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:448
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:864
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:949
+#: inc/customizer/sections/buttons/buttons-fields.php:381
+#: inc/customizer/sections/buttons/buttons-fields.php:704
+#: inc/customizer/sections/layout/blog-single.php:297
+#: inc/customizer/sections/layout/blog.php:795
+#: inc/customizer/sections/layout/blog.php:828
+#: inc/customizer/sections/layout/container.php:288
+#: inc/customizer/sections/layout/footer.php:227
+#: inc/customizer/sections/layout/header.php:255
+#: inc/customizer/sections/layout/main-footer.php:229
+#: inc/customizer/sections/layout/main-footer.php:931
+#: inc/customizer/sections/layout/main-footer.php:995
+#: inc/customizer/sections/layout/main-footer.php:1032
+#: inc/customizer/sections/layout/mainmenu.php:433
+#: inc/customizer/sections/layout/mainmenu.php:465
+#: inc/customizer/sections/layout/mainmenu.php:747
+#: inc/customizer/sections/layout/mainmenu.php:1472
+#: inc/customizer/sections/layout/sidebar.php:313
+#: inc/customizer/sections/layout/widgets.php:60
+#: inc/customizer/sections/site-identity/site-identity.php:323
 msgid "Left"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:434
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:463
 msgid "Product Content Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:620
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:654
 msgid "Product Price Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:838
+#: inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php:878
 msgid "Product Rating Style"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:32
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:34
 msgid "Container for WooCommerce"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:35
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:37
 msgid "Boxed"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:36
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:38
 msgid "Content Boxed"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:37
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:39
 msgid "Full Width / Contained"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-container.php:38
+#: inc/compatibility/woocommerce/customizer/sections/section-container.php:40
 msgid "Full Width / Stretched"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:31
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:33
 msgid "WooCommerce"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:34
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:59
-#: inc/customizer/sections/layout/sidebar.php:65
-#: inc/customizer/sections/layout/sidebar.php:90
-#: inc/customizer/sections/layout/sidebar.php:115
-#: inc/customizer/sections/layout/sidebar.php:140
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:36
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:63
+#: inc/customizer/sections/layout/sidebar.php:70
+#: inc/customizer/sections/layout/sidebar.php:97
+#: inc/customizer/sections/layout/sidebar.php:124
+#: inc/customizer/sections/layout/sidebar.php:151
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:35
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:60
-#: inc/customizer/sections/layout/sidebar.php:66
-#: inc/customizer/sections/layout/sidebar.php:91
-#: inc/customizer/sections/layout/sidebar.php:116
-#: inc/customizer/sections/layout/sidebar.php:141
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:37
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:64
+#: inc/customizer/sections/layout/sidebar.php:71
+#: inc/customizer/sections/layout/sidebar.php:98
+#: inc/customizer/sections/layout/sidebar.php:125
+#: inc/customizer/sections/layout/sidebar.php:152
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:36
-#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:61
-#: inc/customizer/sections/layout/sidebar.php:67
-#: inc/customizer/sections/layout/sidebar.php:92
-#: inc/customizer/sections/layout/sidebar.php:117
-#: inc/customizer/sections/layout/sidebar.php:142
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:38
+#: inc/compatibility/woocommerce/customizer/sections/section-sidebar.php:65
+#: inc/customizer/sections/layout/sidebar.php:72
+#: inc/customizer/sections/layout/sidebar.php:99
+#: inc/customizer/sections/layout/sidebar.php:126
+#: inc/customizer/sections/layout/sidebar.php:153
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/compatibility/woocommerce/woocommerce-common-functions.php:79
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:75
 msgid "Out of stock"
 msgstr ""
 
-#: inc/compatibility/woocommerce/woocommerce-common-functions.php:134
+#: inc/compatibility/woocommerce/woocommerce-common-functions.php:127
 msgid "Availability:"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer-sanitizes.php:326
+#: inc/customizer/class-kemet-customizer-sanitizes.php:318
 msgid "Enter valid email address!"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:307
+#: inc/customizer/class-kemet-customizer.php:335
 msgid "No file selected"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:308
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:106
+#: inc/customizer/class-kemet-customizer.php:336
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:105
 msgid "Less Settings"
 msgstr ""
 
-#: inc/customizer/class-kemet-customizer.php:309
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:108
+#: inc/customizer/class-kemet-customizer.php:337
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:107
 msgid "More Settings"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:90
-#: inc/customizer/sections/buttons/buttons-fields.php:217
-#: inc/customizer/sections/buttons/buttons-fields.php:257
-#: inc/customizer/sections/buttons/buttons-fields.php:561
-#: inc/customizer/sections/colors-background/body.php:111
-#: inc/customizer/sections/layout/blog.php:597
-#: inc/customizer/sections/layout/blog.php:633
-#: inc/customizer/sections/layout/main-footer.php:755
-#: inc/customizer/sections/layout/main-footer.php:995
-#: inc/customizer/sections/layout/mainmenu.php:1241
-#: inc/customizer/sections/layout/mainmenu.php:1277
-#: inc/customizer/sections/layout/mainmenu.php:1514
-#: inc/customizer/sections/layout/mainmenu.php:1538
-#: inc/customizer/sections/layout/sidebar.php:335
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:89
+#: inc/customizer/sections/buttons/buttons-fields.php:220
+#: inc/customizer/sections/buttons/buttons-fields.php:260
+#: inc/customizer/sections/buttons/buttons-fields.php:575
+#: inc/customizer/sections/colors-background/body.php:126
+#: inc/customizer/sections/layout/blog.php:619
+#: inc/customizer/sections/layout/blog.php:655
+#: inc/customizer/sections/layout/main-footer.php:794
+#: inc/customizer/sections/layout/main-footer.php:1052
+#: inc/customizer/sections/layout/mainmenu.php:1308
+#: inc/customizer/sections/layout/mainmenu.php:1344
+#: inc/customizer/sections/layout/mainmenu.php:1601
+#: inc/customizer/sections/layout/mainmenu.php:1625
+#: inc/customizer/sections/layout/sidebar.php:356
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:95
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:94
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:100
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:99
 msgid "No File Selected"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:103
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:102
 msgid "Remove"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:104
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:103
 msgid "Select File"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:117
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:116
 msgid "No Repeat"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:118
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:117
 msgid "Repeat All"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:119
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:118
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:120
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:119
 msgid "Repeat Vertically"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:127
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:126
 msgid "Left Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:128
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:127
 msgid "Left Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:129
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:128
 msgid "Left Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:130
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:129
 msgid "Right Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:131
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:130
 msgid "Right Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:132
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:131
 msgid "Right Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:133
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:132
 msgid "Center Top"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:134
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:133
 msgid "Center Center"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:135
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:134
 msgid "Center Bottom"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:141
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:140
 msgid "Background Size"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:144
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:143
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:147
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:146
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:150
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:149
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:157
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:156
 msgid "Background Attachment"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:163
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:162
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/custom-controls/background/class-kemet-control-background.php:166
+#: inc/customizer/custom-controls/background/class-kemet-control-background.php:165
 msgid "Fixed"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:81
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:82
 msgid "Thin 100"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:82
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:83
 msgid "Extra-Light 200"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:83
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:84
 msgid "Light 300"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:84
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:85
 msgid "Normal 400"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:85
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:86
 msgid "Medium 500"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:86
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:87
 msgid "Semi-Bold 600"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:87
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:88
 msgid "Bold 700"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:88
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:89
 msgid "Extra-Bold 800"
 msgstr ""
 
-#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:89
+#: inc/customizer/custom-controls/typography/class-kemet-control-typography.php:90
 msgid "Ultra-Bold 900"
 msgstr ""
 
-#: inc/customizer/notification/class-kemet-notification-helper.php:41
+#: inc/customizer/notification/class-kemet-notification-helper.php:47
 msgid "Activate"
 msgstr ""
 
-#: inc/customizer/notification/class-kemet-notification-helper.php:48
+#: inc/customizer/notification/class-kemet-notification-helper.php:54
 msgid "Install and Activate"
 msgstr ""
 
@@ -1216,589 +1217,589 @@ msgstr ""
 msgid "“Free Shipping on All Orders Until February 28. Hurry Up!”."
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:20
+#: inc/customizer/register-panels-and-sections.php:21
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:30
+#: inc/customizer/register-panels-and-sections.php:32
 msgid "Container"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:39
-#: inc/customizer/register-panels-and-sections.php:51 inc/widgets.php:99
+#: inc/customizer/register-panels-and-sections.php:42
+#: inc/customizer/register-panels-and-sections.php:55 inc/widgets.php:101
 msgid "Header"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:76
+#: inc/customizer/register-panels-and-sections.php:83
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:88
+#: inc/customizer/register-panels-and-sections.php:96
 msgid "Footer Widgets"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:101
+#: inc/customizer/register-panels-and-sections.php:110
 msgid "Footer Bar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:113
+#: inc/customizer/register-panels-and-sections.php:123
 msgid "Content"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:122
+#: inc/customizer/register-panels-and-sections.php:133
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:131
+#: inc/customizer/register-panels-and-sections.php:143
 msgid "Widgets"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:142
+#: inc/customizer/register-panels-and-sections.php:155
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:153
+#: inc/customizer/register-panels-and-sections.php:167
 msgid "Blog/Archive"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:165
+#: inc/customizer/register-panels-and-sections.php:180
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:175
+#: inc/customizer/register-panels-and-sections.php:191
 msgid "Global Colors"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:186
+#: inc/customizer/register-panels-and-sections.php:203
 msgid "Buttons & Fields"
 msgstr ""
 
-#: inc/customizer/register-panels-and-sections.php:196
+#: inc/customizer/register-panels-and-sections.php:217
 msgid "Kemet Addons Available"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:23
+#: inc/customizer/sections/buttons/buttons-fields.php:25
 msgid "Buttons Style"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:204
-#: inc/customizer/sections/buttons/buttons-fields.php:244
-#: inc/customizer/sections/buttons/buttons-fields.php:551
-#: inc/customizer/sections/layout/blog.php:586
-#: inc/customizer/sections/layout/blog.php:622
-#: inc/customizer/sections/layout/footer.php:390
-#: inc/customizer/sections/layout/main-footer.php:746
-#: inc/customizer/sections/layout/sidebar.php:232
-#: inc/customizer/sections/layout/sidebar.php:326
+#: inc/customizer/sections/buttons/buttons-fields.php:207
+#: inc/customizer/sections/buttons/buttons-fields.php:247
+#: inc/customizer/sections/buttons/buttons-fields.php:565
+#: inc/customizer/sections/layout/blog.php:608
+#: inc/customizer/sections/layout/blog.php:644
+#: inc/customizer/sections/layout/footer.php:419
+#: inc/customizer/sections/layout/main-footer.php:785
+#: inc/customizer/sections/layout/sidebar.php:248
+#: inc/customizer/sections/layout/sidebar.php:347
 msgid "Text Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:231
-#: inc/customizer/sections/buttons/buttons-fields.php:271
-#: inc/customizer/sections/buttons/buttons-fields.php:571
-#: inc/customizer/sections/layout/blog.php:608
-#: inc/customizer/sections/layout/blog.php:644
-#: inc/customizer/sections/layout/header.php:209
-#: inc/customizer/sections/layout/main-footer.php:764
-#: inc/customizer/sections/layout/sidebar.php:344
+#: inc/customizer/sections/buttons/buttons-fields.php:234
+#: inc/customizer/sections/buttons/buttons-fields.php:274
+#: inc/customizer/sections/buttons/buttons-fields.php:585
+#: inc/customizer/sections/layout/blog.php:630
+#: inc/customizer/sections/layout/blog.php:666
+#: inc/customizer/sections/layout/header.php:224
+#: inc/customizer/sections/layout/main-footer.php:803
+#: inc/customizer/sections/layout/sidebar.php:365
 msgid "Border Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:247
-#: inc/customizer/sections/buttons/buttons-fields.php:260
-#: inc/customizer/sections/buttons/buttons-fields.php:274
-#: inc/customizer/sections/layout/blog.php:507
-#: inc/customizer/sections/layout/blog.php:625
-#: inc/customizer/sections/layout/blog.php:636
+#: inc/customizer/sections/buttons/buttons-fields.php:250
+#: inc/customizer/sections/buttons/buttons-fields.php:263
+#: inc/customizer/sections/buttons/buttons-fields.php:277
+#: inc/customizer/sections/layout/blog.php:522
 #: inc/customizer/sections/layout/blog.php:647
-#: inc/customizer/sections/layout/content.php:256
-#: inc/customizer/sections/layout/footer.php:418
-#: inc/customizer/sections/layout/main-footer.php:1064
-#: inc/customizer/sections/layout/main-footer.php:1075
-#: inc/customizer/sections/layout/main-footer.php:1085
-#: inc/customizer/sections/layout/main-footer.php:1096
-#: inc/customizer/sections/layout/mainmenu.php:249
-#: inc/customizer/sections/layout/mainmenu.php:260
-#: inc/customizer/sections/layout/mainmenu.php:1280
-#: inc/customizer/sections/layout/mainmenu.php:1291
-#: inc/customizer/sections/layout/mainmenu.php:1531
-#: inc/customizer/sections/layout/mainmenu.php:1541
-#: inc/customizer/sections/layout/sidebar.php:258
-#: inc/customizer/sections/site-identity/site-identity.php:242
+#: inc/customizer/sections/layout/blog.php:658
+#: inc/customizer/sections/layout/blog.php:669
+#: inc/customizer/sections/layout/content.php:265
+#: inc/customizer/sections/layout/footer.php:447
+#: inc/customizer/sections/layout/main-footer.php:1121
+#: inc/customizer/sections/layout/main-footer.php:1132
+#: inc/customizer/sections/layout/main-footer.php:1142
+#: inc/customizer/sections/layout/main-footer.php:1153
+#: inc/customizer/sections/layout/mainmenu.php:253
+#: inc/customizer/sections/layout/mainmenu.php:264
+#: inc/customizer/sections/layout/mainmenu.php:1347
+#: inc/customizer/sections/layout/mainmenu.php:1358
+#: inc/customizer/sections/layout/mainmenu.php:1618
+#: inc/customizer/sections/layout/mainmenu.php:1628
+#: inc/customizer/sections/layout/sidebar.php:274
+#: inc/customizer/sections/site-identity/site-identity.php:260
 msgid "Hover"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:280
+#: inc/customizer/sections/buttons/buttons-fields.php:283
 msgid "Buttons Colors"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:303
-#: inc/customizer/sections/buttons/buttons-fields.php:612
+#: inc/customizer/sections/buttons/buttons-fields.php:309
+#: inc/customizer/sections/buttons/buttons-fields.php:629
 msgid "Border Radius"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:336
-#: inc/customizer/sections/buttons/buttons-fields.php:645
-#: inc/customizer/sections/layout/header.php:182
+#: inc/customizer/sections/buttons/buttons-fields.php:345
+#: inc/customizer/sections/buttons/buttons-fields.php:665
+#: inc/customizer/sections/layout/header.php:194
 msgid "Border Size"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:362
-#: inc/customizer/sections/buttons/buttons-fields.php:674
-#: inc/customizer/sections/layout/header.php:230
-#: inc/customizer/sections/layout/main-footer.php:876
-#: inc/customizer/sections/site-identity/site-identity.php:292
+#: inc/customizer/sections/buttons/buttons-fields.php:374
+#: inc/customizer/sections/buttons/buttons-fields.php:697
+#: inc/customizer/sections/layout/header.php:248
+#: inc/customizer/sections/layout/main-footer.php:924
+#: inc/customizer/sections/site-identity/site-identity.php:316
 msgid "Padding"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:381
+#: inc/customizer/sections/buttons/buttons-fields.php:395
 msgid "Input Fields Style"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:581
+#: inc/customizer/sections/buttons/buttons-fields.php:595
 msgid "Label Color"
 msgstr ""
 
-#: inc/customizer/sections/buttons/buttons-fields.php:589
-#: inc/customizer/sections/layout/main-footer.php:772
-#: inc/customizer/sections/layout/sidebar.php:352
+#: inc/customizer/sections/buttons/buttons-fields.php:603
+#: inc/customizer/sections/layout/main-footer.php:811
+#: inc/customizer/sections/layout/sidebar.php:373
 msgid "Input Colors"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:31
+#: inc/customizer/sections/colors-background/body.php:34
 msgid "Primary Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:32
+#: inc/customizer/sections/colors-background/body.php:35
 msgid ""
 "Used for buttons background (a darker shade from it used for mouseover), "
 "and hover color for links."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:51
+#: inc/customizer/sections/colors-background/body.php:57
 msgid "Headings & Links Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:52
+#: inc/customizer/sections/colors-background/body.php:58
 msgid ""
 "Used for all titles from H1 to H6, widgets' title, main menu links, and all "
 "other body links."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:71
+#: inc/customizer/sections/colors-background/body.php:80
 msgid "Body Text & Meta Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:72
+#: inc/customizer/sections/colors-background/body.php:81
 msgid "Used for body text, meta color, and forms' input text color."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:91
+#: inc/customizer/sections/colors-background/body.php:103
 msgid "Border & Separator Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:92
+#: inc/customizer/sections/colors-background/body.php:104
 msgid "Used for all the borders and separators across the website."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:112
+#: inc/customizer/sections/colors-background/body.php:127
 msgid ""
 "Used for the body background color, a tint from it used for the input, page "
 "title, and widgets' background."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:131
+#: inc/customizer/sections/colors-background/body.php:149
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:132
+#: inc/customizer/sections/colors-background/body.php:150
 msgid ""
 "Used for footer titles, and links. Darker shades from it are used for input "
 "fields background, footer buttons, and copyright area."
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:151
+#: inc/customizer/sections/colors-background/body.php:172
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer/sections/colors-background/body.php:152
+#: inc/customizer/sections/colors-background/body.php:173
 msgid ""
 "Used for the footer background, and a darker shade from it is used for the "
 "input fields background, footer buttons, and copyright area."
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:31
+#: inc/customizer/sections/layout/blog-single.php:33
 msgid "Single Post Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:86
+#: inc/customizer/sections/layout/blog-single.php:94
 msgid "Single Post Structure"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:88
-#: inc/customizer/sections/layout/blog.php:90
+#: inc/customizer/sections/layout/blog-single.php:96
+#: inc/customizer/sections/layout/blog.php:98
 msgid "Featured Image"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:89
-#: inc/customizer/sections/layout/blog.php:91
+#: inc/customizer/sections/layout/blog-single.php:97
+#: inc/customizer/sections/layout/blog.php:99
 msgid "Title & Blog Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:116
+#: inc/customizer/sections/layout/blog-single.php:127
 msgid "Single Post Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:118
-#: inc/customizer/sections/layout/blog.php:123
+#: inc/customizer/sections/layout/blog-single.php:129
+#: inc/customizer/sections/layout/blog.php:134
 msgid "Author"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:120
-#: inc/customizer/sections/layout/blog.php:124
+#: inc/customizer/sections/layout/blog-single.php:131
+#: inc/customizer/sections/layout/blog.php:135
 msgid "Publish Date"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:121
-#: inc/customizer/sections/layout/blog.php:121
+#: inc/customizer/sections/layout/blog-single.php:132
+#: inc/customizer/sections/layout/blog.php:132
 msgid "Comments"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:122
+#: inc/customizer/sections/layout/blog-single.php:133
 msgid "Tags"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:135
+#: inc/customizer/sections/layout/blog-single.php:148
 msgid "Title and Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:159
-#: inc/customizer/sections/site-identity/site-identity.php:90
+#: inc/customizer/sections/layout/blog-single.php:175
+#: inc/customizer/sections/site-identity/site-identity.php:99
 msgid "Title Font Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:192
-#: inc/customizer/sections/site-identity/site-identity.php:166
+#: inc/customizer/sections/layout/blog-single.php:211
+#: inc/customizer/sections/site-identity/site-identity.php:181
 msgid "Title Letter Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:219
+#: inc/customizer/sections/layout/blog-single.php:241
 msgid "Post Title Font Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:243
+#: inc/customizer/sections/layout/blog-single.php:265
 msgid "Post Meta Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog-single.php:265
+#: inc/customizer/sections/layout/blog-single.php:290
 msgid "Comment Button Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:31
+#: inc/customizer/sections/layout/blog.php:33
 msgid "Blog Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:88
+#: inc/customizer/sections/layout/blog.php:96
 msgid "Blog Post Structure"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:92
+#: inc/customizer/sections/layout/blog.php:100
 msgid "Content & Readmore"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:119
+#: inc/customizer/sections/layout/blog.php:130
 msgid "Blog Meta"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:125
+#: inc/customizer/sections/layout/blog.php:136
 msgid "Tag"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:144
+#: inc/customizer/sections/layout/blog.php:157
 msgid "Blog Post Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:148
+#: inc/customizer/sections/layout/blog.php:161
 msgid "Full Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:149
+#: inc/customizer/sections/layout/blog.php:162
 msgid "Excerpt"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:160
+#: inc/customizer/sections/layout/blog.php:175
 msgid "Title and Meta Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:310
+#: inc/customizer/sections/layout/blog.php:325
 msgid "Title Typography"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:459
+#: inc/customizer/sections/layout/blog.php:474
 msgid "Meta Typography"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:479
-#: inc/customizer/sections/layout/blog.php:504
+#: inc/customizer/sections/layout/blog.php:494
+#: inc/customizer/sections/layout/blog.php:519
 msgid "Title Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:490
-#: inc/customizer/sections/layout/main-footer.php:1016
+#: inc/customizer/sections/layout/blog.php:505
+#: inc/customizer/sections/layout/main-footer.php:1073
 msgid "Meta Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:513
-#: inc/customizer/sections/layout/blog.php:653
-#: inc/customizer/sections/layout/footer.php:424
-#: inc/customizer/sections/layout/main-footer.php:1102
+#: inc/customizer/sections/layout/blog.php:528
+#: inc/customizer/sections/layout/blog.php:675
+#: inc/customizer/sections/layout/footer.php:453
+#: inc/customizer/sections/layout/main-footer.php:1159
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:534
+#: inc/customizer/sections/layout/blog.php:552
 msgid "Main Content Entry Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:547
+#: inc/customizer/sections/layout/blog.php:567
 msgid "Read More Button Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:568
+#: inc/customizer/sections/layout/blog.php:590
 msgid "Enable Read More As Button"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:686
+#: inc/customizer/sections/layout/blog.php:711
 msgid "Read More Border Radius"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:724
+#: inc/customizer/sections/layout/blog.php:752
 msgid "Read More Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:757
+#: inc/customizer/sections/layout/blog.php:788
 msgid "Read More Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/blog.php:787
+#: inc/customizer/sections/layout/blog.php:821
 msgid "Pagination Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:33
+#: inc/customizer/sections/layout/container.php:37
 msgid "Container Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:59
+#: inc/customizer/sections/layout/container.php:65
 msgid "Default Container"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:61
-#: inc/customizer/sections/layout/container.php:87
-#: inc/customizer/sections/layout/container.php:113
-#: inc/customizer/sections/layout/container.php:139
+#: inc/customizer/sections/layout/container.php:67
+#: inc/customizer/sections/layout/container.php:95
+#: inc/customizer/sections/layout/container.php:123
+#: inc/customizer/sections/layout/container.php:151
 msgid "Boxed Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:62
-#: inc/customizer/sections/layout/container.php:88
-#: inc/customizer/sections/layout/container.php:114
-#: inc/customizer/sections/layout/container.php:140
+#: inc/customizer/sections/layout/container.php:68
+#: inc/customizer/sections/layout/container.php:96
+#: inc/customizer/sections/layout/container.php:124
+#: inc/customizer/sections/layout/container.php:152
 msgid "Boxed Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:63
-#: inc/customizer/sections/layout/container.php:89
-#: inc/customizer/sections/layout/container.php:115
-#: inc/customizer/sections/layout/container.php:141
+#: inc/customizer/sections/layout/container.php:69
+#: inc/customizer/sections/layout/container.php:97
+#: inc/customizer/sections/layout/container.php:125
+#: inc/customizer/sections/layout/container.php:153
 msgid "Full Width Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:64
-#: inc/customizer/sections/layout/container.php:90
-#: inc/customizer/sections/layout/container.php:116
-#: inc/customizer/sections/layout/container.php:142
+#: inc/customizer/sections/layout/container.php:70
+#: inc/customizer/sections/layout/container.php:98
+#: inc/customizer/sections/layout/container.php:126
+#: inc/customizer/sections/layout/container.php:154
 msgid "Stretched Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:83
+#: inc/customizer/sections/layout/container.php:91
 msgid "Pages Container"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:110
+#: inc/customizer/sections/layout/container.php:120
 msgid "Blog Posts Container"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:136
+#: inc/customizer/sections/layout/container.php:148
 msgid "Blog Archives Container"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:168
+#: inc/customizer/sections/layout/container.php:180
 msgid "Body Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:181
+#: inc/customizer/sections/layout/container.php:195
 msgid "Boxed Layout Content Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:209
+#: inc/customizer/sections/layout/container.php:223
 msgid "Boxed Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:232
+#: inc/customizer/sections/layout/container.php:249
 msgid "Content Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:233
+#: inc/customizer/sections/layout/container.php:250
 msgid "This value will be changed to 0px in the pages built with a page builder"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:261
+#: inc/customizer/sections/layout/container.php:281
 msgid "Boxed Container Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/container.php:290
+#: inc/customizer/sections/layout/container.php:313
 msgid "Content Separator Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:22
+#: inc/customizer/sections/layout/content.php:25
 msgid "Body Content Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:215
+#: inc/customizer/sections/layout/content.php:224
 msgid "Paragraph Margin Bottom"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:239
-#: inc/customizer/sections/layout/content.php:253
-#: inc/customizer/sections/layout/footer.php:415
-#: inc/customizer/sections/layout/main-footer.php:1005
-#: inc/customizer/sections/layout/main-footer.php:1061
-#: inc/customizer/sections/layout/mainmenu.php:232
-#: inc/customizer/sections/layout/mainmenu.php:246
-#: inc/customizer/sections/layout/mainmenu.php:271
-#: inc/customizer/sections/layout/mainmenu.php:1252
-#: inc/customizer/sections/layout/mainmenu.php:1288
-#: inc/customizer/sections/layout/sidebar.php:242
-#: inc/customizer/sections/layout/sidebar.php:255
+#: inc/customizer/sections/layout/content.php:248
+#: inc/customizer/sections/layout/content.php:262
+#: inc/customizer/sections/layout/footer.php:444
+#: inc/customizer/sections/layout/main-footer.php:1062
+#: inc/customizer/sections/layout/main-footer.php:1118
+#: inc/customizer/sections/layout/mainmenu.php:236
+#: inc/customizer/sections/layout/mainmenu.php:250
+#: inc/customizer/sections/layout/mainmenu.php:275
+#: inc/customizer/sections/layout/mainmenu.php:1319
+#: inc/customizer/sections/layout/mainmenu.php:1355
+#: inc/customizer/sections/layout/sidebar.php:258
+#: inc/customizer/sections/layout/sidebar.php:271
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:262
+#: inc/customizer/sections/layout/content.php:271
 msgid "Link Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:275
+#: inc/customizer/sections/layout/content.php:286
 msgid "Headings Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:361
+#: inc/customizer/sections/layout/content.php:382
 msgid "Heading 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:457
+#: inc/customizer/sections/layout/content.php:489
 msgid "Heading 2"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:552
+#: inc/customizer/sections/layout/content.php:595
 msgid "Heading 3"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:647
+#: inc/customizer/sections/layout/content.php:701
 msgid "Heading 4"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:743
+#: inc/customizer/sections/layout/content.php:808
 msgid "Heading 5"
 msgstr ""
 
-#: inc/customizer/sections/layout/content.php:839
+#: inc/customizer/sections/layout/content.php:915
 msgid "Heading 6"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:32
+#: inc/customizer/sections/layout/footer.php:35
 msgid "Footer Bar Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:35
-#: inc/customizer/sections/layout/header.php:50
-#: inc/customizer/sections/layout/main-footer.php:36
+#: inc/customizer/sections/layout/footer.php:38
+#: inc/customizer/sections/layout/header.php:53
+#: inc/customizer/sections/layout/main-footer.php:39
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:39
+#: inc/customizer/sections/layout/footer.php:42
 msgid "Footer Bar Layout 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:43
+#: inc/customizer/sections/layout/footer.php:46
 msgid "Footer Bar Layout 2"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:71
+#: inc/customizer/sections/layout/footer.php:76
 msgid "First Section"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:75
-#: inc/customizer/sections/layout/footer.php:141
+#: inc/customizer/sections/layout/footer.php:80
+#: inc/customizer/sections/layout/footer.php:151
 msgid "Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:76
-#: inc/customizer/sections/layout/footer.php:142
-#: inc/customizer/sections/layout/header.php:94
+#: inc/customizer/sections/layout/footer.php:81
+#: inc/customizer/sections/layout/footer.php:152
+#: inc/customizer/sections/layout/header.php:99
 #: inc/customizer/sections/layout/mainmenu.php:21
-#: inc/customizer/sections/layout/mainmenu.php:488
+#: inc/customizer/sections/layout/mainmenu.php:512
 msgid "Widget"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:103
+#: inc/customizer/sections/layout/footer.php:110
 msgid "First Section Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:137
+#: inc/customizer/sections/layout/footer.php:147
 msgid "Second Section"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:169
+#: inc/customizer/sections/layout/footer.php:181
 msgid "Second Section Custom Text"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:204
+#: inc/customizer/sections/layout/footer.php:220
 msgid "Footer Bar Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:236
+#: inc/customizer/sections/layout/footer.php:254
 msgid "Footer Bar Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:238
+#: inc/customizer/sections/layout/footer.php:256
 msgid "Full Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:239
+#: inc/customizer/sections/layout/footer.php:257
 msgid "Content Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:261
+#: inc/customizer/sections/layout/footer.php:279
 msgid "Footer Bar Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:289
+#: inc/customizer/sections/layout/footer.php:310
 msgid "Footer Bar Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:317
+#: inc/customizer/sections/layout/footer.php:340
 msgid "Top Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:348
-#: inc/customizer/sections/layout/mainmenu.php:1263
+#: inc/customizer/sections/layout/footer.php:374
+#: inc/customizer/sections/layout/mainmenu.php:1330
 msgid "Top Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:369
+#: inc/customizer/sections/layout/footer.php:398
 msgid "Footer Bar Content Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/footer.php:401
+#: inc/customizer/sections/layout/footer.php:430
 msgid "Links Color"
 msgstr ""
 
@@ -1806,532 +1807,532 @@ msgstr ""
 msgid "Select Your Menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:46
+#: inc/customizer/sections/layout/header.php:49
 msgid "Header Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:54
+#: inc/customizer/sections/layout/header.php:57
 msgid "Header 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:58
+#: inc/customizer/sections/layout/header.php:61
 msgid "Header 2"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:62
+#: inc/customizer/sections/layout/header.php:65
 msgid "Header 3"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:89
+#: inc/customizer/sections/layout/header.php:94
 msgid "Right Section Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:93
+#: inc/customizer/sections/layout/header.php:98
 msgid "Menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:119
+#: inc/customizer/sections/layout/header.php:126
 msgid "Right Section Menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:130
+#: inc/customizer/sections/layout/header.php:139
 msgid "Header Layout Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/header.php:159
+#: inc/customizer/sections/layout/header.php:168
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:31
+#: inc/customizer/sections/layout/main-footer.php:34
 msgid "Footer Widgets Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:40
+#: inc/customizer/sections/layout/main-footer.php:43
 msgid "Layout 1"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:44
+#: inc/customizer/sections/layout/main-footer.php:47
 msgid "Layout 2"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:48
+#: inc/customizer/sections/layout/main-footer.php:51
 msgid "Layout 3"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:52
+#: inc/customizer/sections/layout/main-footer.php:55
 msgid "Layout 4"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:56
+#: inc/customizer/sections/layout/main-footer.php:59
 msgid "Layout 5"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:60
+#: inc/customizer/sections/layout/main-footer.php:63
 msgid "Layout 6"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:81
+#: inc/customizer/sections/layout/main-footer.php:86
 msgid "Enable Sticky Footer"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:105
+#: inc/customizer/sections/layout/main-footer.php:112
 msgid "Center Footer Content"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:125
-#: inc/customizer/sections/layout/widgets.php:309
+#: inc/customizer/sections/layout/main-footer.php:135
+#: inc/customizer/sections/layout/widgets.php:328
 msgid "Enable Widget List Separator"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:150
-#: inc/customizer/sections/layout/main-footer.php:311
-#: inc/customizer/sections/layout/widgets.php:334
-#: inc/customizer/sections/layout/widgets.php:380
+#: inc/customizer/sections/layout/main-footer.php:163
+#: inc/customizer/sections/layout/main-footer.php:339
+#: inc/customizer/sections/layout/widgets.php:356
+#: inc/customizer/sections/layout/widgets.php:408
 msgid "Separator Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:173
+#: inc/customizer/sections/layout/main-footer.php:186
 msgid "Footer Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:206
+#: inc/customizer/sections/layout/main-footer.php:222
 msgid "Footer Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:235
+#: inc/customizer/sections/layout/main-footer.php:254
 msgid "Footer Widget Title Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:287
-#: inc/customizer/sections/layout/widgets.php:355
+#: inc/customizer/sections/layout/main-footer.php:312
+#: inc/customizer/sections/layout/widgets.php:380
 msgid "Enable Widget Title Separator"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:339
-#: inc/customizer/sections/layout/widgets.php:406
+#: inc/customizer/sections/layout/main-footer.php:369
+#: inc/customizer/sections/layout/widgets.php:436
 msgid "Separator Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:520
+#: inc/customizer/sections/layout/main-footer.php:553
 msgid "Footer Widget Content Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:726
+#: inc/customizer/sections/layout/main-footer.php:765
 msgid "Footer Input Fields Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:805
-#: inc/customizer/sections/layout/sidebar.php:375
+#: inc/customizer/sections/layout/main-footer.php:847
+#: inc/customizer/sections/layout/sidebar.php:399
 msgid "Input Field Border Radius"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:843
-#: inc/customizer/sections/layout/sidebar.php:408
+#: inc/customizer/sections/layout/main-footer.php:888
+#: inc/customizer/sections/layout/sidebar.php:435
 msgid "Input Field Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:905
+#: inc/customizer/sections/layout/main-footer.php:956
 msgid "Footer Widget General Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:934
+#: inc/customizer/sections/layout/main-footer.php:988
 msgid "Widget Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:968
+#: inc/customizer/sections/layout/main-footer.php:1025
 msgid "Widget Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1026
-#: inc/customizer/sections/layout/main-footer.php:1072
-#: inc/customizer/sections/layout/mainmenu.php:986
+#: inc/customizer/sections/layout/main-footer.php:1083
+#: inc/customizer/sections/layout/main-footer.php:1129
+#: inc/customizer/sections/layout/mainmenu.php:1044
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1037
-#: inc/customizer/sections/layout/main-footer.php:1082
+#: inc/customizer/sections/layout/main-footer.php:1094
+#: inc/customizer/sections/layout/main-footer.php:1139
 msgid "Button Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1048
-#: inc/customizer/sections/layout/main-footer.php:1093
+#: inc/customizer/sections/layout/main-footer.php:1105
+#: inc/customizer/sections/layout/main-footer.php:1150
 msgid "Button Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1128
+#: inc/customizer/sections/layout/main-footer.php:1188
 msgid "Footer Widget Buttons Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1157
+#: inc/customizer/sections/layout/main-footer.php:1220
 msgid "Button Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/main-footer.php:1195
+#: inc/customizer/sections/layout/main-footer.php:1261
 msgid "Button Radius"
 msgstr ""
 
 #: inc/customizer/sections/layout/mainmenu.php:20
-#: inc/customizer/sections/layout/mainmenu.php:487
+#: inc/customizer/sections/layout/mainmenu.php:511
 msgid "Text / HTML"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:30
+#: inc/customizer/sections/layout/mainmenu.php:32
 msgid "Main Menu Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:51
+#: inc/customizer/sections/layout/mainmenu.php:55
 msgid "Disable Main Menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:221
+#: inc/customizer/sections/layout/mainmenu.php:225
 msgid "Menu Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:257
+#: inc/customizer/sections/layout/mainmenu.php:261
 msgid "Link Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:274
-#: inc/customizer/sections/layout/mainmenu.php:285
+#: inc/customizer/sections/layout/mainmenu.php:278
+#: inc/customizer/sections/layout/mainmenu.php:289
 msgid "Active"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:282
+#: inc/customizer/sections/layout/mainmenu.php:286
 msgid "Link Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:292
+#: inc/customizer/sections/layout/mainmenu.php:296
 msgid "Main Menu Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:315
+#: inc/customizer/sections/layout/mainmenu.php:322
 msgid "Link Active Border Radius"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:352
+#: inc/customizer/sections/layout/mainmenu.php:362
 msgid "Main Menu Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:384
+#: inc/customizer/sections/layout/mainmenu.php:397
 msgid "Link Bottom Border Size on Hover"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:410
+#: inc/customizer/sections/layout/mainmenu.php:426
 msgid "Main Menu Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:439
+#: inc/customizer/sections/layout/mainmenu.php:458
 msgid "Main Menu Item Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:459
+#: inc/customizer/sections/layout/mainmenu.php:480
 msgid "Last Custom Menu Item Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:482
+#: inc/customizer/sections/layout/mainmenu.php:506
 msgid "Last Custom Menu Item/s"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:515
+#: inc/customizer/sections/layout/mainmenu.php:541
 msgid "Make It a Standalone Menu"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:538
+#: inc/customizer/sections/layout/mainmenu.php:566
 msgid "Disable The Last Custom Menu on Mobile"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:709
+#: inc/customizer/sections/layout/mainmenu.php:740
 msgid "Last Custom Menu Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:743
+#: inc/customizer/sections/layout/mainmenu.php:776
 msgid "Last Custom Menu Text/HTML"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:777
+#: inc/customizer/sections/layout/mainmenu.php:813
 msgid "Search Item Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:779
+#: inc/customizer/sections/layout/mainmenu.php:815
 msgid "Search Box"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:780
+#: inc/customizer/sections/layout/mainmenu.php:816
 msgid "Icon"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:805
+#: inc/customizer/sections/layout/mainmenu.php:843
 msgid "Search Box Shadow"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:830
+#: inc/customizer/sections/layout/mainmenu.php:870
 msgid "Search Box Border Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:857
+#: inc/customizer/sections/layout/mainmenu.php:900
 msgid "Search Box Border Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:883
+#: inc/customizer/sections/layout/mainmenu.php:929
 msgid "Search Box Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:908
+#: inc/customizer/sections/layout/mainmenu.php:957
 msgid "Search Box Font Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:934
+#: inc/customizer/sections/layout/mainmenu.php:986
 msgid "Search Box Button Background Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:960
+#: inc/customizer/sections/layout/mainmenu.php:1015
 msgid "Search Box Button Background Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1000
+#: inc/customizer/sections/layout/mainmenu.php:1060
 msgid "Submenu Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1023
+#: inc/customizer/sections/layout/mainmenu.php:1085
 msgid "Submenu Animation"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1026
+#: inc/customizer/sections/layout/mainmenu.php:1088
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1027
+#: inc/customizer/sections/layout/mainmenu.php:1089
 msgid "Fade and Move"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1045
+#: inc/customizer/sections/layout/mainmenu.php:1109
 msgid "Submenu Box Shadow"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1066
+#: inc/customizer/sections/layout/mainmenu.php:1133
 msgid "Submenu Width (PX)"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1297
+#: inc/customizer/sections/layout/mainmenu.php:1364
 msgid "Submenu Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1319
+#: inc/customizer/sections/layout/mainmenu.php:1388
 msgid "Top Border Size(PX)"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1344
+#: inc/customizer/sections/layout/mainmenu.php:1416
 msgid "Submenu Separator"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1365
+#: inc/customizer/sections/layout/mainmenu.php:1440
 msgid "Submenu Separator Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1387
+#: inc/customizer/sections/layout/mainmenu.php:1465
 msgid "SubMenu Spacing"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1407
+#: inc/customizer/sections/layout/mainmenu.php:1487
 msgid "Responsive Menu Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1431
+#: inc/customizer/sections/layout/mainmenu.php:1514
 msgid "Display Responsive Menu at Width"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1462
+#: inc/customizer/sections/layout/mainmenu.php:1547
 msgid "Menu Label on Responsive Devices"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1482
+#: inc/customizer/sections/layout/mainmenu.php:1569
 msgid "Responsive Menu Alignment"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1484
+#: inc/customizer/sections/layout/mainmenu.php:1571
 msgid "Inline"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1485
+#: inc/customizer/sections/layout/mainmenu.php:1572
 msgid "Stack"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1504
-#: inc/customizer/sections/layout/mainmenu.php:1528
+#: inc/customizer/sections/layout/mainmenu.php:1591
+#: inc/customizer/sections/layout/mainmenu.php:1615
 msgid "Icon Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1547
+#: inc/customizer/sections/layout/mainmenu.php:1634
 msgid "Menu Icon Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1569
+#: inc/customizer/sections/layout/mainmenu.php:1658
 msgid "Border Bottom Size"
 msgstr ""
 
-#: inc/customizer/sections/layout/mainmenu.php:1592
+#: inc/customizer/sections/layout/mainmenu.php:1684
 msgid "Border Bottom Color"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:35
+#: inc/customizer/sections/layout/sidebar.php:38
 msgid "Sidebar Width(%)"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:41
+#: inc/customizer/sections/layout/sidebar.php:44
 msgid "Sidebar width will apply only when one of the following sidebar is set."
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:63
+#: inc/customizer/sections/layout/sidebar.php:68
 msgid "Default Layout"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:87
+#: inc/customizer/sections/layout/sidebar.php:94
 msgid "Pages"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:112
+#: inc/customizer/sections/layout/sidebar.php:121
 msgid "Blog Posts"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:137
+#: inc/customizer/sections/layout/sidebar.php:148
 msgid "Blog Post Archives"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:164
+#: inc/customizer/sections/layout/sidebar.php:175
 msgid "Sidebar Background"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:177
+#: inc/customizer/sections/layout/sidebar.php:190
 msgid "Sidebar Content Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:264
+#: inc/customizer/sections/layout/sidebar.php:280
 msgid "Content Colors"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:287
+#: inc/customizer/sections/layout/sidebar.php:306
 msgid "Sidebar Padding"
 msgstr ""
 
-#: inc/customizer/sections/layout/sidebar.php:306
+#: inc/customizer/sections/layout/sidebar.php:327
 msgid "Sidebar Input Fields Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/widgets.php:24
+#: inc/customizer/sections/layout/widgets.php:26
 msgid "Widget Settings"
 msgstr ""
 
-#: inc/customizer/sections/layout/widgets.php:77
+#: inc/customizer/sections/layout/widgets.php:85
 msgid "Margin Bottom (PX)"
 msgstr ""
 
-#: inc/customizer/sections/layout/widgets.php:94
+#: inc/customizer/sections/layout/widgets.php:104
 msgid "Widget Title Style"
 msgstr ""
 
-#: inc/customizer/sections/layout/widgets.php:117
+#: inc/customizer/sections/layout/widgets.php:130
 msgid "Widget Background Color"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:24
+#: inc/customizer/sections/site-identity/site-identity.php:26
 msgid "Site Identity"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:45
+#: inc/customizer/sections/site-identity/site-identity.php:49
 msgid "Display Site Title"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:64
+#: inc/customizer/sections/site-identity/site-identity.php:70
 msgid "Display Site Tagline"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:128
+#: inc/customizer/sections/site-identity/site-identity.php:140
 msgid "Tagline Font Size"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:199
+#: inc/customizer/sections/site-identity/site-identity.php:217
 msgid "Tagline Letter Spacing"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:225
+#: inc/customizer/sections/site-identity/site-identity.php:243
 msgid "Site Title Color"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:239
+#: inc/customizer/sections/site-identity/site-identity.php:257
 msgid "Site Title Hover Color"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:248
+#: inc/customizer/sections/site-identity/site-identity.php:266
 msgid "Site Title Colors"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:268
+#: inc/customizer/sections/site-identity/site-identity.php:289
 msgid "Tagline Color"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:311
+#: inc/customizer/sections/site-identity/site-identity.php:337
 msgid "Logo Settings"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:334
+#: inc/customizer/sections/site-identity/site-identity.php:363
 msgid "Retina Logo"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:361
+#: inc/customizer/sections/site-identity/site-identity.php:393
 msgid "Logo Width"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:379
+#: inc/customizer/sections/site-identity/site-identity.php:411
 msgid ""
 "This option will not increase your uploaded logo width beyond its original "
 "size."
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:404
+#: inc/customizer/sections/site-identity/site-identity.php:438
 msgid "Inline Logo & Site Title"
 msgstr ""
 
-#: inc/customizer/sections/site-identity/site-identity.php:417
+#: inc/customizer/sections/site-identity/site-identity.php:452
 msgid "Site Icon"
 msgstr ""
 
-#: inc/widgets.php:83
+#: inc/widgets.php:84
 msgid "Main Sidebar"
 msgstr ""
 
-#: inc/widgets.php:112
+#: inc/widgets.php:115
 msgid "Header Right Section"
 msgstr ""
 
-#: inc/widgets.php:128
+#: inc/widgets.php:132
 msgid "Footer Bar Section 1"
 msgstr ""
 
-#: inc/widgets.php:141
+#: inc/widgets.php:146
 msgid "Footer Bar Section 2"
 msgstr ""
 
-#: inc/widgets.php:156
+#: inc/widgets.php:161
 msgid "Footer Widget 1"
 msgstr ""
 
-#: inc/widgets.php:167
+#: inc/widgets.php:172
 msgid "Footer Widget 2"
 msgstr ""
 
-#: inc/widgets.php:178
+#: inc/widgets.php:183
 msgid "Footer Widget 3"
 msgstr ""
 
-#: inc/widgets.php:189
+#: inc/widgets.php:194
 msgid "Footer Widget 4"
 msgstr ""
 
-#: inc/widgets.php:200
+#: inc/widgets.php:205
 msgid "Footer Widget 5"
 msgstr ""
 
-#: templates/content-none.php:23
+#: templates/content-none.php:21
 #. translators: 1: link to new post
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
@@ -2367,7 +2368,7 @@ msgstr ""
 msgid "https://leap13.com/"
 msgstr ""
 
-#: comments.php:35
+#: comments.php:36
 #. translators: 1: number of comments
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -2375,10 +2376,10 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:197
+#: inc/compatibility/woocommerce/class-kemet-woocommerce.php:190
 #. translators: 1: number of products
 msgctxt "product categories"
-msgid "<mark class=\"count\">%1$s Product</mark>"
-msgid_plural "<mark class=\"count\">%1$s Products</mark>"
+msgid "%1$s Product"
+msgid_plural "%1$s Products"
 msgstr[0] ""
 msgstr[1] ""

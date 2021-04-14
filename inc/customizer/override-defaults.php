@@ -36,20 +36,22 @@ $wp_customize->get_control( 'header_textcolor' )->priority = 8;
 
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial(
-		'blogname', array(
+		'blogname',
+		array(
 			'selector'            => '.main-header-bar .site-title a,  .kmt-footer-copyright-wrap .kmt-footer-site-title',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_partial_site_title' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_partial_site_title' ),
 		)
 	);
 }
 
 if ( isset( $wp_customize->selective_refresh ) ) {
 	$wp_customize->selective_refresh->add_partial(
-		'blogdescription', array(
+		'blogdescription',
+		array(
 			'selector'            => '.main-header-bar .site-description',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', '_render_partial_site_tagline' ),
+			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_partial_site_tagline' ),
 		)
 	);
 }

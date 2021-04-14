@@ -73,7 +73,7 @@ if ( ! function_exists( 'kemet_blog_get_post_meta' ) ) {
 			$output_str = kemet_get_post_meta( $post_meta );
 
 			if ( ! empty( $output_str ) ) {
-				echo apply_filters( 'kemet_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // WPCS: XSS OK.
+				echo apply_filters( 'kemet_blog_post_meta', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
@@ -132,7 +132,7 @@ if ( ! function_exists( 'kemet_blog_post_get_featured_item' ) ) {
 			}
 		}
 
-		echo $post_featured_data; // WPCS: XSS OK.
+		echo $post_featured_data; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -145,10 +145,9 @@ if ( ! function_exists( 'kemet_single_post_thumbnai_and_title_order' ) ) {
 
 	/**
 	 * Single post Thubmnail, Title & Blog Meta order
-	 *
 	 */
 	function kemet_single_post_thumbnai_and_title_order() {
-		
+
 		$blog_post_thumb_title_order = kemet_get_option( 'blog-single-post-structure' );
 
 		if ( is_array( $blog_post_thumb_title_order ) ) {
@@ -203,7 +202,6 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 
 	/**
 	 * Blog post Thumbnail
-	 *
 	 */
 	function kemet_get_blog_post_title_meta() {
 
@@ -214,7 +212,7 @@ if ( ! function_exists( 'kemet_get_blog_post_title_meta' ) ) {
 			<?php
 
 				do_action( 'kemet_archive_post_title_before' );
-				
+
 				/* translators: 1: Current post link, 2: Current post id */
 				kemet_the_title( sprintf( '<h2 class="entry-title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>', get_the_id() );
 
@@ -244,8 +242,7 @@ if ( ! function_exists( 'kemet_get_single_post_title_meta' ) ) {
 
 	/**
 	 * Blog post Thumbnail
-	 *
-     * 	 */
+	 *   */
 	function kemet_get_single_post_title_meta() {
 
 		// Single Post Title and Single Post Meta.

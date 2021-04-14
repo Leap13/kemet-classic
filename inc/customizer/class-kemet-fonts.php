@@ -24,7 +24,7 @@ final class Kemet_Fonts {
 	 *
 	 * @var array $fonts
 	 */
-	static private $fonts = array();
+	private static $fonts = array();
 
 	/**
 	 * Adds data to the $fonts array for a font to be rendered.
@@ -33,7 +33,7 @@ final class Kemet_Fonts {
 	 * @param array  $variants An array of weight variants.
 	 * @return void
 	 */
-	static public function add_font( $name, $variants = array() ) {
+	public static function add_font( $name, $variants = array() ) {
 
 		if ( 'inherit' == $name ) {
 			return;
@@ -69,7 +69,7 @@ final class Kemet_Fonts {
 	/**
 	 * Get Fonts
 	 */
-	static public function get_fonts() {
+	public static function get_fonts() {
 
 		do_action( 'kemet_get_fonts' );
 		return apply_filters( 'kemet_add_fonts', self::$fonts );
@@ -80,7 +80,7 @@ final class Kemet_Fonts {
 	 *
 	 * @return void
 	 */
-	static public function render_fonts() {
+	public static function render_fonts() {
 
 		$font_list = apply_filters( 'kemet_render_fonts', self::get_fonts() );
 
@@ -117,7 +117,7 @@ final class Kemet_Fonts {
 	 *
 	 * @return string
 	 */
-	static public function google_fonts_url( $fonts, $subsets = array() ) {
+	public static function google_fonts_url( $fonts, $subsets = array() ) {
 
 		/* URL */
 		$base_url  = '//fonts.googleapis.com/css';
@@ -135,7 +135,7 @@ final class Kemet_Fonts {
 				}
 				$font_family = explode( ',', $font_name );
 				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
-				$family[]    = trim( $font_family . ':' . urlencode( trim( $font_weight ) ) );
+				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );
 			}
@@ -158,7 +158,7 @@ final class Kemet_Fonts {
 					$subsets = implode( ',', $subsets );
 				}
 
-				$font_args['subset'] = urlencode( trim( $subsets ) );
+				$font_args['subset'] = rawurlencode( trim( $subsets ) );
 			}
 
 			return add_query_arg( $font_args, $base_url );

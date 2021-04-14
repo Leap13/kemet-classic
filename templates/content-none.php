@@ -12,20 +12,20 @@
 
 <section class="no-results not-found">
 	<div class="page-content">
-
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
-
 			<p>
 			<?php
 				printf(
 					wp_kses(
 						/* translators: 1: link to new post */
-						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'kemet' ), array(
+						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'kemet' ),
+						array(
 							'a' => array(
 								'href' => array(),
 							),
 						)
-					), esc_url( admin_url( 'post-new.php' ) )
+					),
+					esc_url( admin_url( 'post-new.php' ) )
 				);
 			?>
 			</p>

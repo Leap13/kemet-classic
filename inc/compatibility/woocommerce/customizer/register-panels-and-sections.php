@@ -17,7 +17,8 @@ $wp_customize->get_section( 'woocommerce_store_notice' )->priority = 5;
 
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
-		$wp_customize, 'section-woo-general',
+		$wp_customize,
+		'section-woo-general',
 		array(
 			'title'    => __( 'General', 'kemet' ),
 			'panel'    => 'woocommerce',
@@ -28,7 +29,8 @@ $wp_customize->add_section(
 
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
-		$wp_customize, 'section-woo-cart-menu-items',
+		$wp_customize,
+		'section-woo-cart-menu-items',
 		array(
 			'title'    => __( 'Cart Menu Item', 'kemet' ),
 			'panel'    => 'woocommerce',
@@ -38,11 +40,12 @@ $wp_customize->add_section(
 );
 
 $wp_customize->get_section( 'woocommerce_product_catalog' )->priority = 20;
-$wp_customize->get_section( 'woocommerce_product_catalog' )->title = __( 'Shop', 'kemet' );
+$wp_customize->get_section( 'woocommerce_product_catalog' )->title    = __( 'Shop', 'kemet' );
 
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
-		$wp_customize, 'section-woo-shop-single',
+		$wp_customize,
+		'section-woo-shop-single',
 		array(
 			'title'    => __( 'Single Product', 'kemet' ),
 			'panel'    => 'woocommerce',
@@ -53,10 +56,11 @@ $wp_customize->add_section(
 
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
-		$wp_customize, 'section-woo-shop-cart',
+		$wp_customize,
+		'section-woo-shop-cart',
 		array(
 			'title'    => __( 'Cart Page', 'kemet' ),
-			'panel'  => 'woocommerce',
+			'panel'    => 'woocommerce',
 			'priority' => 30,
 		)
 	)

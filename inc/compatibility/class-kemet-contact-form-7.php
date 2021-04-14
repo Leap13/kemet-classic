@@ -34,7 +34,7 @@ if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self;
+				self::$instance = new self();
 			}
 			return self::$instance;
 		}
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Kemet_Contact_Form_7' ) ) :
 		 * @return array List of updated assets.
 		 * @since 1.0.0
 		 */
-		function add_styles( $assets ) {
+		public function add_styles( $assets ) {
 			$assets['css']['kemet-contact-form-7'] = 'compatibility/contact-form-7';
 			return $assets;
 		}

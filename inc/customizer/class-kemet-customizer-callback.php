@@ -20,7 +20,7 @@ if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
 		 *
 		 * @return boolean Return the sidebar status for Home, Archive & Search pages.
 		 */
-		public static function _sidebar_archive() {
+		public static function sidebar_archive() {
 
 			if ( is_home() || is_archive() || is_search() ) {
 				return true;
@@ -34,7 +34,7 @@ if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
 		 *
 		 * @return boolean Return the sidebar status for Single Post.
 		 */
-		public static function _sidebar_single() {
+		public static function sidebar_single() {
 
 			if ( is_single() ) {
 				return true;
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
 		 *
 		 * @return boolean Return the sidebar status for Single Page / Custom post type & 404.
 		 */
-		public static function _sidebar_page() {
+		public static function sidebar_page() {
 
 			if ( is_page() || is_404() ) {
 				return true;

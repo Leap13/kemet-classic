@@ -42,42 +42,50 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 		/**
 		 * Constructor
 		 */
-		function __construct() {
-            add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
-            add_action( 'do_meta_boxes', array( $this, 'beaver_builder_default_setting' ), 20 );		
-        }
+		public function __construct() {
+			add_action( 'wp', array( $this, 'beaver_builder_default_setting' ), 20 );
+			add_action( 'do_meta_boxes', array( $this, 'beaver_builder_default_setting' ), 20 );
+		}
 
-
-		function beaver_builder_default_setting() {
+		/**
+		 * Beaver builder compatibility
+		 *
+		 * @return void
+		 */
+		public function beaver_builder_default_setting() {
 
 			if ( false == kemet_enable_page_builder() || 'post' == get_post_type() ) {
 				return;
-            }
-            
+			}
+
 			global $post;
 			$id = kemet_get_post_id();
-            
+
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
-				
+
 				if ( FLBuilderModel::is_builder_enabled() ) {
 
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true ); 
-					if(isset($meta)){
+					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
+					if ( isset( $meta ) ) {
 						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					}else{
+					} else {
 						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
 					}
-					
-					add_filter(
-						'kemet_get_content_layout',
-						function () {
-							return 'page-builder';
-						}
-					);
+
+					add_filter( 'kemet_get_content_layout', array( $this, 'beaver_builder_default_content_layout' ) );
 				}
 			}
 		}
 
+		/**
+		 * Beaver Builder default content layout
+		 *
+		 * @param string $layout page layout.
+		 * @return string
+		 */
+		public function beaver_builder_default_content_layout( $layout ) {
+			return 'page-builder';
+		}
 	}
 
 endif;

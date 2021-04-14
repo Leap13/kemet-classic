@@ -321,11 +321,7 @@ module.exports = function (grunt) {
       },
       target: {
         files: {
-          src: [
-            "*.php",
-            "**/*.php",
-            "!node_modules/**",
-          ],
+          src: ["*.php", "**/*.php", "!node_modules/**"],
         },
       },
     },
@@ -497,7 +493,7 @@ module.exports = function (grunt) {
   grunt.registerTask("style", ["scss", "postcss:style", "rtl"]);
 
   // min all
-  grunt.registerTask("minify", ["style", "uglify:js", "cssmin:css"]);
+  grunt.registerTask("minify", ["style", "wpcss", "uglify:js", "cssmin:css"]);
 
   // Update google Fonts
   grunt.registerTask("google-fonts", function () {

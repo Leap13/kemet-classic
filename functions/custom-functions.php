@@ -46,7 +46,7 @@ if ( ! function_exists( 'kemet_schema_body' ) ) :
 		$result = apply_filters( 'kemet_schema_body_itemtype', $itemtype );
 
 		// Return our HTML.
-		echo apply_filters( 'kemet_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" );
+		echo apply_filters( 'kemet_schema_body', "itemtype='https://schema.org/" . esc_attr( $result ) . "' itemscope='itemscope'" ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 endif;
 
@@ -87,13 +87,13 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		$outside_menu  = kemet_get_option( 'header-display-outside-menu' );
 		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
 
-		if ( $outside_menu || $header_layout != 'header-main-layout-3' ) {
+		if ( $outside_menu || 'header-main-layout-3' != $header_layout ) {
 			$classes[] = 'kmt-header-custom-item-outside';
 		} else {
 			$classes[] = 'kmt-header-custom-item-inside';
 		}
 
-		// Footer
+		// Footer.
 		$kemet_sticky_footer = kemet_get_option( 'enable-sticky-footer' );
 
 		if ( $kemet_sticky_footer ) {
@@ -131,7 +131,7 @@ if ( ! function_exists( 'kemet_number_pagination' ) ) {
 			);
 			echo '</div>';
 			$output = ob_get_clean();
-			echo apply_filters( 'kemet_pagination_markup', $output ); // WPCS: XSS OK.
+			echo apply_filters( 'kemet_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -146,6 +146,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 	/**
 	 * Return or echo site logo markup.
 	 *
+	 * @param boolean $echo echo or not.
 	 * @return mixed echo or return markup.
 	 */
 	function kemet_logo( $echo = true ) {
@@ -200,7 +201,7 @@ if ( ! function_exists( 'kemet_logo' ) ) {
 		 * Echo or Return the Logo Markup
 		 */
 		if ( $echo ) {
-			printf( '%s', $html );
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $html;
 		}
@@ -264,7 +265,7 @@ if ( ! function_exists( 'kemet_get_search' ) ) {
 		$search_style      = kemet_get_option( 'search-style' );
 		$box_shadow        = '';
 		$search_box_shadow = kemet_get_option( 'search-box-shadow' );
-		if ( $search_box_shadow == true ) {
+		if ( true == $search_box_shadow ) {
 			$box_shadow = 'search-box-shadow';
 		}
 
@@ -338,7 +339,7 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 			$widget_id = 'off-canvas-filter-widget';
 		}
 
-		echo '<div class="kmt-' . $widget_id . '-area">';
+		echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
 		kemet_get_sidebar( $widget_id );
 		echo '</div>';
 
@@ -497,7 +498,7 @@ if ( ! function_exists( 'kemet_get_right_section_menu' ) ) {
 		ob_start();
 		$right_section_menu = kemet_get_option( 'header-right-section-menu' );
 
-		if ( $right_section_menu != 0 ) {
+		if ( 0 != $right_section_menu ) {
 			wp_nav_menu(
 				array(
 					'menu'            => $right_section_menu,
@@ -542,21 +543,25 @@ add_action( 'kemet_header', 'kemet_header_markup' );
  * Function to get Header Right Section
  */
 if ( ! function_exists( 'kemet_header_get_right_section' ) ) {
+
+	/**
+	 * Right section content
+	 */
 	function kemet_header_get_right_section() {
 		$output        = '';
 		$right_section = kemet_get_option( 'header-right-section' );
 		$classes       = 'header-right-section ';
-		if ( $right_section == 'search' ) {
+		if ( 'search' == $right_section ) {
 			$classes .= kemet_get_option( 'search-style' );
 			$output   = kemet_get_search();
-		} elseif ( $right_section == 'menu' ) {
+		} elseif ( 'menu' == $right_section ) {
 			$output = kemet_get_right_section_menu();
-		} elseif ( $right_section == 'widget' ) {
+		} elseif ( 'widget' == $right_section ) {
 			$output = kemet_get_custom_widget( 'header-right-section' );
 		}
 		?>
-		<div class="<?php echo $classes; ?>">
-			<?php echo $output; ?>
+		<div class="<?php echo esc_attr( $classes ); ?>">
+			<?php echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<?php
 	}
@@ -634,17 +639,17 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 		$kemet_submenu_animation     = kemet_get_option( 'sub-menu-animation' );
 		$kmt_submenu_classes         = array();
 		$kmt_submenu_classes[]       = $submenu_has_boxshadow;
-		$main_menu_container_classes = $header_layout == 'header-main-layout-3' ? 'main-header-bar-navigation right-menu' : 'main-header-bar-navigation';
-		if ( $kemet_submenu_animation != 'none' ) {
+		$main_menu_container_classes = 'header-main-layout-3' == $header_layout ? 'main-header-bar-navigation right-menu' : 'main-header-bar-navigation';
+		if ( 'none' != $kemet_submenu_animation ) {
 			$kmt_submenu_classes[] = 'submenu-' . $kemet_submenu_animation;
 		}
 
 		if ( $disable_primary_navigation ) {
 			$display_outside = kemet_get_option( 'header-display-outside-menu' );
 
-			if ( 'none' != $custom_header_section && ( ! $display_outside || $header_layout == 'header-main-layout-3' ) ) {
+			if ( 'none' != $custom_header_section && ( ! $display_outside || 'header-main-layout-3' == $header_layout ) ) {
 				echo '<div class="main-header-bar-navigation kmt-header-custom-item kmt-flex kmt-justify-content-flex-end">';
-				echo kemet_sitehead_get_menu_items();
+				echo kemet_sitehead_get_menu_items(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo '</div>';
 			}
 		} else {
@@ -661,7 +666,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				'after'          => '</ul>',
 			);
 
-			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+			$items_wrap  = '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 			$items_wrap .= '<div class="main-navigation">';
 			$items_wrap .= '<ul id="%1$s" class="%2$s">%3$s</ul>';
 			$items_wrap .= '</div>';
@@ -690,7 +695,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				// To add default alignment for navigation which can be added through any third party plugin.
 				// Do not add any CSS from theme except header alignment.
 				echo '<div class="kmt-main-header-bar-alignment">';
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr__( 'Site Navigation', 'kemet' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 				echo '<div class="main-navigation">';
 				if ( 'header-main-layout-3' == $header_layout && has_nav_menu( 'left_menu' ) ) {
 					wp_nav_menu( $left_menu_args );
@@ -701,7 +706,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 				echo '</div>';
 			} else {
 				echo '<div class="main-header-bar-navigation">';
-				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_attr( 'Site Navigation', 'kemet' ) . '">';
+				echo '<nav itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope" id="site-navigation" class="kmt-flex-grow-1" role="navigation" aria-label="' . esc_html__( 'Site Navigation', 'kemet' ) . '">';
 				wp_page_menu( $fallback_menu_args );
 				echo '</nav>';
 				echo '</div>';
@@ -788,7 +793,8 @@ function kemet_header_breakpoint_style() {
 		);
 
 		/* Parse CSS from array()*/
-		echo kemet_parse_css( $genral_global_responsive, $header_break_point );
+		echo esc_html( kemet_parse_css( $genral_global_responsive, $header_break_point ) );
+
 	} elseif ( 'stretched' == $kemet_header_width ) {
 		$genral_global_responsive = array(
 			'#sitehead .kmt-container' => array(
@@ -799,7 +805,7 @@ function kemet_header_breakpoint_style() {
 		);
 
 		/* Parse CSS from array()*/
-		echo kemet_parse_css( $genral_global_responsive, $header_break_point );
+		echo esc_html( kemet_parse_css( $genral_global_responsive, $header_break_point ) );
 	}
 
 	$dynamic_css = ob_get_clean();
@@ -810,6 +816,7 @@ function kemet_header_breakpoint_style() {
 	wp_add_inline_style( 'kemet-theme-css', $dynamic_css );
 }
 add_action( 'wp_enqueue_scripts', 'kemet_header_breakpoint_style' );
+
 /**
  * Function to get Body Font Family
  */
@@ -840,6 +847,11 @@ if ( ! function_exists( 'kemet_edit_post_link' ) ) {
 	/**
 	 * Function to get Edit Post Link
 	 *
+	 * @param string  $text link text.
+	 * @param string  $before before link.
+	 * @param string  $after after link.
+	 * @param integer $id post id.
+	 * @param string  $class class.
 	 * @return void
 	 */
 	function kemet_edit_post_link( $text, $before = '', $after = '', $id = 0, $class = 'post-edit-link' ) {
@@ -1220,7 +1232,7 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 		$output = apply_filters( 'kemet_get_post_thumbnail', $output, $before, $after );
 
 		if ( $echo ) {
-			echo $before . $output . $after; // WPCS: XSS OK.
+			echo $before . $output . $after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
 			return $before . $output . $after;
 		}
@@ -1423,25 +1435,25 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 	/**
 	 * Convert hexdec color string to rgb(a) string
 	 *
-	 * @param string $color
-	 * @param real   $opacity
-	 * @param bol    $echo
+	 * @param string  $color color.
+	 * @param boolean $opacity opacity.
+	 * @param boolean $echo echo or not.
 	 * @return string
 	 */
 	function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
 		$default = 'rgb(0,0,0)';
 
-		// Return default if no color provided
+		// Return default if no color provided.
 		if ( empty( $color ) ) {
 			return $default;
 		}
 
-		// Sanitize $color if "#" is provided
-		if ( $color[0] == '#' ) {
+		// Sanitize $color if "#" is provided.
+		if ( '#' == $color[0] ) {
 			$color = substr( $color, 1 );
 		}
 
-		// Check if color has 6 or 3 characters and get values
+		// Check if color has 6 or 3 characters and get values.
 		if ( strlen( $color ) == 6 ) {
 			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
 		} elseif ( strlen( $color ) == 3 ) {
@@ -1450,10 +1462,10 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 			return $default;
 		}
 
-		// Convert hexadec to rgb
+		// Convert hexadec to rgb.
 		$rgb = array_map( 'hexdec', $hex );
 
-		// Check if opacity is set(rgba or rgb)
+		// Check if opacity is set(rgba or rgb).
 		if ( $opacity ) {
 			if ( abs( $opacity ) > 1 ) {
 				$opacity = 1.0;
@@ -1472,7 +1484,7 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 			}
 		}
 
-		// Return rgb(a) color string
+		// Return rgb(a) color string.
 		return $output;
 	}
 }
@@ -1482,14 +1494,14 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 	/**
 	 * Change color brightness to be darker or lighter
 	 *
-	 * @param string $hex color hex
-	 * @param float  $percent brightness percent from 0 to 1
-	 * @param string $brightness light or dark
-	 * @return string the new generated color hex
+	 * @param string $hex color hex.
+	 * @param float  $percent brightness percent from 0 to 1.
+	 * @param string $brightness light or dark.
+	 * @return string the new generated color hex.
 	 */
 	function kemet_color_brightness( $hex, $percent, $brightness = 'light' ) {
-		if ( $hex != '' ) {
-			if ( $brightness == 'dark' ) {
+		if ( '' != $hex ) {
+			if ( 'dark' == $brightness ) {
 				$percent = $percent * -1;
 			}
 			if ( strpos( $hex, 'rgba' ) !== false ) {
@@ -1502,33 +1514,33 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 				$rgb = kemet_hex2rgba( $hex );
 			}
 
-			// CALCULATE
+			// CALCULATE.
 			for ( $i = 0; $i < 3; $i++ ) {
-				// See if brighter or darker
+				// See if brighter or darker.
 				if ( $percent > 0 ) {
-					// Lighter
+					// Lighter.
 					$rgb[ $i ] = round( $rgb[ $i ] * $percent ) + round( 255 * ( 1 - $percent ) );
 				} else {
-					// Darker
-					$positivePercent = $percent - ( $percent * 2 );
-					$rgb[ $i ]       = round( $rgb[ $i ] * $positivePercent ) + round( 0 * ( 1 - $positivePercent ) );
+					// Darker.
+					$positive_percent = $percent - ( $percent * 2 );
+					$rgb[ $i ]        = round( $rgb[ $i ] * $positive_percent ) + round( 0 * ( 1 - $positive_percent ) );
 				}
-				// In case rounding up causes us to go to 256
+				// In case rounding up causes us to go to 256.
 				if ( $rgb[ $i ] > 255 ) {
 					$rgb[ $i ] = 255;
 				}
 			}
-			// RBG to Hex
+			// RBG to Hex.
 			$new_hex = '#';
 			for ( $i = 0; $i < 3; $i++ ) {
-				// Convert the decimal digit to hex
-				$hexDigit = dechex( $rgb[ $i ] );
-				// Add a leading zero if necessary
-				if ( strlen( $hexDigit ) == 1 ) {
-					$hexDigit = '0' . $hexDigit;
+				// Convert the decimal digit to hex.
+				$hex_digit = dechex( $rgb[ $i ] );
+				// Add a leading zero if necessary.
+				if ( strlen( $hex_digit ) == 1 ) {
+					$hex_digit = '0' . $hex_digit;
 				}
-				// Append to the hex string
-				$new_hex .= $hexDigit;
+				// Append to the hex string.
+				$new_hex .= $hex_digit;
 			}
 			return $new_hex;
 		} else {
@@ -1548,8 +1560,12 @@ if ( ! function_exists( 'kemet_enable_page_builder' ) ) :
 	}
 
 endif;
+
 /**
  * Header Layouts
+ *
+ * @param string $layout header layout.
+ * @return string
  */
 function kemet_header_layout( $layout ) {
 	$kemet_layouts = array( 'header-main-layout-1', 'header-main-layout-2', 'header-main-layout-3' );
@@ -1562,14 +1578,20 @@ function kemet_header_layout( $layout ) {
 }
 add_filter( 'kemet_primary_header_layout', 'kemet_header_layout' );
 
+/**
+ * Header classes
+ *
+ * @param array $classes header classes.
+ * @return array
+ */
 function header_classes( $classes ) {
 	$header_layouts = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-	if ( $header_layouts == 'header-main-layout-1' || $header_layouts == 'header-main-layout-2' ) {
+	if ( 'header-main-layout-1' == $header_layouts || 'header-main-layout-2' == $header_layouts ) {
 		$menu_aglin = kemet_get_option( 'menu-alignment' );
 
 		$classes[] = $menu_aglin;
 	}
-	if ( $header_layouts == 'header-main-layout-1' ) {
+	if ( 'header-main-layout-1' == $header_layouts ) {
 		$menu_class = 'menu-rtl';
 
 		if ( is_rtl() ) {
@@ -1582,7 +1604,31 @@ function header_classes( $classes ) {
 }
 add_filter( 'kemet_header_class', 'header_classes', 10, 1 );
 
+if ( ! function_exists( 'theme_default_header_layout' ) ) {
+
+	/**
+	 * Default Header layout
+	 *
+	 * @param string $header header layout.
+	 * @return string
+	 */
+	function theme_default_header_layout( $header ) {
+		$theme_headers = array( 'header-main-layout-1', 'header-main-layout-2', 'header-main-layout-3' );
+		if ( in_array( $header, $theme_headers ) ) {
+			return $header;
+		}
+
+		return 'header-main-layout-1';
+	}
+}
+
 if ( ! function_exists( 'kemet_default_header_layout' ) ) {
+
+	/**
+	 * Default header layout
+	 *
+	 * @return mixed
+	 */
 	function kemet_default_header_layout() {
 		if ( defined( 'KEMET_ADDONS_VERSION' ) ) {
 			$header_option = get_option( 'kemet_addons_options' );
@@ -1592,20 +1638,18 @@ if ( ! function_exists( 'kemet_default_header_layout' ) ) {
 			}
 		}
 
-		add_filter(
-			'kemet_primary_header_layout', function ( $header ) {
-				$theme_headers = array( 'header-main-layout-1', 'header-main-layout-2', 'header-main-layout-3' );
-				if ( in_array( $header, $theme_headers ) ) {
-					return $header;
-				}
-				return 'header-main-layout-1';
-			}
-		);
+		add_filter( 'kemet_primary_header_layout', 'theme_default_header_layout' );
 	}
 }
 
 add_action( 'init', 'kemet_default_header_layout' );
 
+/**
+ * Support upload svg
+ *
+ * @param object $mimes allowed mimes.
+ * @return object
+ */
 function svg_upload_support( $mimes ) {
 	// New allowed mime types.
 	$mimes['svg']  = 'image/svg+xml';
@@ -1635,7 +1679,7 @@ function gutenberg_support() {
 
 	add_editor_style( 'style-editor.css' );
 
-	// Global Color
+	// Global Color.
 	$theme_color          = kemet_get_option( 'theme-color' );
 	$headings_links_color = kemet_get_option( 'headings-links-color' );
 	$text_meta_color      = kemet_get_option( 'text-meta-color' );
@@ -1643,7 +1687,8 @@ function gutenberg_support() {
 	$global_bg_color      = kemet_get_option( 'global-background-color' );
 
 	add_theme_support(
-		'editor-color-palette', array(
+		'editor-color-palette',
+		array(
 			array(
 				'name'  => __( 'Global Color', 'kemet' ),
 				'slug'  => 'global',
@@ -1677,17 +1722,20 @@ add_action( 'after_setup_theme', 'gutenberg_support', 10 );
 
 if ( ! function_exists( 'kemet_wrap_embed_media' ) ) {
 	/**
-	 *  Wrap video embeds with a generic class
+	 * Wrap video embeds with a generic class
+	 *
+	 * @param mixed $html embed html.
+	 * @return mixed
 	 */
 	function kemet_wrap_embed_media( $html ) {
 
-		// List of emebeds we want a responsive but auto height orientation
+		// List of emebeds we want a responsive but auto height orientation.
 		if ( false !== strpos( $html, 'twitter' ) ||
-			 false !== strpos( $html, 'facebook' ) ||
-			 false !== strpos( $html, 'mixcloud' ) ) {
+			false !== strpos( $html, 'facebook' ) ||
+			false !== strpos( $html, 'mixcloud' ) ) {
 			return '<div class="kmt-oembed-container relaxed">' . $html . '</div>';
 		} else {
-			// Widescreen responsive format
+			// Widescreen responsive format.
 			return '<div class="kmt-oembed-container">' . $html . '</div>';
 		}
 	}

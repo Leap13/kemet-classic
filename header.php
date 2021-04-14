@@ -7,8 +7,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Kemet
- * 
  */
+
 ?><!DOCTYPE html>
 <?php kemet_html_before(); ?>
 <html <?php language_attributes(); ?>>
@@ -28,12 +28,12 @@
 
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php echo esc_html( kemet_theme_strings( 'string-header-skip-link', false ) ); ?></a>
-    
-    <?php kemet_before_header_block(); ?>
+
+	<?php kemet_before_header_block(); ?>
 
 	<?php kemet_header(); ?>
-    
-    <?php kemet_after_header_block(); ?>
+
+	<?php kemet_after_header_block(); ?>
 
 	<?php kemet_content_before(); ?>
 

@@ -1,3 +1,7 @@
+v 1.1.14 version
+- Fixed: Boxed widgets in sidebar styling issue.
+- Tweak: Code refactored for better performance and faster customizer loading.
+
 v 1.1.13 version
 - Fixed: Product listing Grid style issue.
 - Fixed: Vertical menu issue in Header layout 5.
