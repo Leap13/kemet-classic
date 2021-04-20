@@ -675,6 +675,7 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 			// Primary Menu.
 			$primary_menu_args = array(
 				'theme_location'  => 'primary',
+				'menu'            => apply_filters( 'kemet_main_menu_slug', 'primary' ),
 				'menu_id'         => 'primary-menu',
 				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
 				'container'       => 'div',
