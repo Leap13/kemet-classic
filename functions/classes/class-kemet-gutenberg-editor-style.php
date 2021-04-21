@@ -5,7 +5,7 @@
  * @package     Kemet
  * @author      Kemet
  * @copyright   Copyright (c) 2019, Kemet
- * @link        https://themes.leap13.com
+ * @link        https://leap13.com
  */
 
 if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {

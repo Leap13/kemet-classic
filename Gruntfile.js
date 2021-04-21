@@ -346,6 +346,18 @@ module.exports = function (grunt) {
           },
         ],
       },
+      theme_main: {
+        src: ["readme.txt"],
+        overwrite: true,
+        replacements: [
+          {
+            from: /Stable tag: \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?(?:\+[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?\b/g,
+            to: "Stable tag: <%= pkg.version %>",
+          },
+        ],
+
+      },
+
 
       theme_const: {
         src: ["functions.php"],

@@ -1,3 +1,6 @@
+v 1.1.15 version
+- Added: New filter for the custom logo.
+
 v 1.1.14 version
 - Fixed: Boxed widgets in sidebar styling issue.
 - Tweak: Code refactored for better performance and faster customizer loading.
