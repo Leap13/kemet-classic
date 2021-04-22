@@ -671,6 +671,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $last_menu_letter_spacing, 'desktop' ),
 					'line-height'    => kemet_responsive_slider( $last_menu_line_height, 'desktop' ),
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle' => array(
+					'color' => kemet_responsive_color( $menu_link_color, 'desktop' ),
+				),
 				'.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon' => array(
 					'color' => kemet_responsive_color( $menu_link_color, 'desktop' ),
 				),
@@ -687,6 +690,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-bottom-color' => esc_attr( $menu_link_bottom_border_color ),
 				),
 				'.main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover > a' => array(
+					'color' => kemet_responsive_color( $menu_link_h_color, 'desktop' ),
+				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children:hover>.kmt-menu-toggle' => array(
 					'color' => kemet_responsive_color( $menu_link_h_color, 'desktop' ),
 				),
 				' .main-header-menu li.current-menu-item a, .main-header-menu li.current_page_item a, .main-header-menu .current-menu-ancestor > a' => array(
@@ -1277,8 +1283,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $last_menu_letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $last_menu_line_height, 'tablet' ),
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle' => array(
+					'color' => kemet_responsive_color( $menu_link_color, 'tablet' ),
+				),
 				'.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon' => array(
 					'color' => kemet_responsive_color( $menu_link_color, 'tablet' ),
+				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children:hover>.kmt-menu-toggle' => array(
+					'color' => kemet_responsive_color( $menu_link_h_color, 'tablet' ),
 				),
 				'.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon:hover' => array(
 					'color' => kemet_responsive_color( $menu_link_h_color, 'tablet' ),
@@ -1697,6 +1709,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'letter-spacing' => kemet_responsive_slider( $last_menu_letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $last_menu_line_height, 'mobile' ),
 				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle' => array(
+					'color' => kemet_responsive_color( $menu_link_color, 'mobile' ),
+				),
 				'.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon' => array(
 					'color' => kemet_responsive_color( $menu_link_color, 'mobile' ),
 				),
@@ -1707,6 +1722,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-size' => kemet_responsive_slider( $menu_font_size, 'mobile' ),
 				),
 				'.main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover > a' => array(
+					'color' => kemet_responsive_color( $menu_link_h_color, 'mobile' ),
+				),
+				'.kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children:hover>.kmt-menu-toggle' => array(
 					'color' => kemet_responsive_color( $menu_link_h_color, 'mobile' ),
 				),
 				/**
