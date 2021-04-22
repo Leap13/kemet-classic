@@ -986,7 +986,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   wp.customize("kemet-settings[header-bg-obj]", function (value) {
     value.bind(function (bg_obj) {
       var dynamicStyle =
-        ".site-header:not(.kmt-is-sticky) .main-header-bar , .kemet-merged-top-bar-header { {{css}} }";
+        ".site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header { {{css}} }";
       kemet_background_obj_css(
         wp.customize,
         bg_obj,
