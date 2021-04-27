@@ -240,7 +240,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
-			$css_output .= kemet_parse_css( $tablet_typography, '', kemet_get_tablet_breakpoint() );
+			$css_output .= kemet_parse_css( $tablet_typography, '', '768' );
 
 			if ( $is_site_rtl ) {
 				$mobile_min_width_css = array(
@@ -261,7 +261,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			}
 
 			/* Parse CSS from array() -> min-width: (mobile-breakpoint + 1) px */
-			$css_output .= kemet_parse_css( $mobile_min_width_css, kemet_get_mobile_breakpoint( '', 1 ) );
+			$css_output .= kemet_parse_css( $mobile_min_width_css, '', '544' );
 
 			$mobile_typography = array(
 				'#ld_course_list .entry-title'          => array(
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			}
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
-			$css_output .= kemet_parse_css( $mobile_typography_direction_css, '', kemet_get_mobile_breakpoint() );
+			$css_output .= kemet_parse_css( $mobile_typography_direction_css, '', '544' );
 
 			$dynamic_css .= apply_filters( 'kemet_theme_learndash_dynamic_css', $css_output );
 
