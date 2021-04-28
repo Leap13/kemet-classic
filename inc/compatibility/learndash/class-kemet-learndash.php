@@ -290,7 +290,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			);
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
-			$css_output .= kemet_parse_css( $mobile_typography, '', kemet_get_mobile_breakpoint() );
+			$css_output .= kemet_parse_css( $mobile_typography, '', '544' );
 
 			if ( $is_site_rtl ) {
 				$mobile_typography_direction_css = array(

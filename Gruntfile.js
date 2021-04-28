@@ -232,6 +232,11 @@ module.exports = function (grunt) {
               "assets/css/minified/compatibility/contact-form-7.min-rtl.css",
           },
           {
+            src: "assets/css/unminified/compatibility/bbpress-rtl.css",
+            dest:
+              "assets/css/minified/compatibility/bbpress.min-rtl.css",
+          },
+          {
             src:
               "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
             dest:
@@ -463,6 +468,10 @@ module.exports = function (grunt) {
             "assets/css/unminified/compatibility/contact-form-7.css",
           "assets/css/unminified/compatibility/contact-form-7-rtl.css":
             "assets/css/unminified/compatibility/contact-form-7-rtl.css",
+            "assets/css/unminified/compatibility/bbpress.css":
+            "assets/css/unminified/compatibility/bbpress.css",
+          "assets/css/unminified/compatibility/bbpress-rtl.css":
+            "assets/css/unminified/compatibility/bbpress-rtl.css",
           "assets/css/unminified/style.css": "assets/css/unminified/style.css",
           "assets/css/unminified/style-rtl.css":
             "assets/css/unminified/style-rtl.css",
