@@ -217,14 +217,11 @@ if ( ! function_exists( 'kemet_custom_logo' ) ) {
 			'<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
 			esc_url( home_url( '/' ) ),
 			wp_get_attachment_image(
-				apply_filters(
-					'kemet_custom_logo_args',
-					get_theme_mod( 'custom_logo' ), // Attachment id.
-					'kmt-logo-size', // Attachment size.
-					false, // Attachment icon.
-					array(
-						'class' => 'custom-logo',
-					)
+				apply_filters( 'kemet_custom_logo_id', get_theme_mod( 'custom_logo' ) ), // Attachment id.
+				'kmt-logo-size', // Attachment size.
+				false, // Attachment icon.
+				array(
+					'class' => 'custom-logo',
 				)
 			)
 		);
