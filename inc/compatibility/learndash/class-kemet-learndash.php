@@ -47,6 +47,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			// Sidebar Layout.
 			add_filter( 'kemet_layout', array( $this, 'sidebar_layout' ) );
 			add_filter( 'wp_enqueue_scripts', array( $this, 'dynamic_css' ) );
+			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 		}
 
 		/**
@@ -65,6 +66,19 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
             require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-container.php';
             require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-sidebar.php';
             // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		}
+
+		/**
+		 * Default Values
+		 *
+		 * @param array $defaults default value.
+		 * @return array
+		 */
+		public function theme_defaults( $defaults ) {
+			$defaults['learndash-sidebar-layout'] = 'no-sidebar';
+			$defaults['learndash-content-layout'] = 'default';
+
+			return $defaults;
 		}
 
 		/**
@@ -127,8 +141,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		/**
 		 * Dynamic CSS
 		 *
-		 * @param  string $dynamic_css dynamic css.
-		 * @return string
+		 * @return mixed
 		 */
 		public function dynamic_css() {
 			$static_css = array(

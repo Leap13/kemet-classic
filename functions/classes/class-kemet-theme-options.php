@@ -541,9 +541,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'widget-title-letter-spacing'          => '',
 					'enable-widget-list-separator'         => false,
 					'widget-list-border-color'             => '',
-					// LearnDash
-					'learndash-content-layout'             => 'plain-container',
-					'learndash-sidebar-layout'             => 'no-sidebar',
 				)
 			);
 		}
