@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 			// Sidebar Layout.
 			add_filter( 'kemet_layout', array( $this, 'sidebar_layout' ) );
-			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'wp_enqueue_scripts', array( $this, 'dynamic_css' ) );
 		}
 
 		/**
@@ -130,7 +130,37 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		 * @param  string $dynamic_css dynamic css.
 		 * @return string
 		 */
-		public function dynamic_css( $dynamic_css ) {
+		public function dynamic_css() {
+			// Register learndash css.
+			wp_register_style( 'kemet-learndash-style', false, array(), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'kemet-learndash-style' );
+
+			$static_css = array(
+				'.learndash-wrapper #learndash_mark_complete_button:hover, .learndash-wrapper .learndash_mark_complete_button:hover, .learndash-wrapper .learndash_mark_complete_button:focus' => array(
+					'font-family'    => 'inherit',
+					'font-weight'    => '800',
+					'text-transform' => 'none',
+				),
+				'body .learndash-wrapper .ld-button:hover' => array(
+					'color' => '#ffffff',
+				),
+			);
+
+			$static_css = kemet_parse_css( $static_css );
+
+			wp_add_inline_style( 'kemet-learndash-style', $static_css );
+
+			$active_ld_theme = '';
+
+			if ( is_callable( 'LearnDash_Theme_Register::get_active_theme_key' ) ) {
+				$active_ld_theme = LearnDash_Theme_Register::get_active_theme_key();
+			}
+
+			if ( 'ld30' === $active_ld_theme ) {
+				return;
+			}
+
+			$dynamic_css = '';
 
 			$is_site_rtl     = is_rtl();
 			$link_color      = kemet_get_option( 'content-link-color' );
@@ -205,8 +235,8 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 					'color' => $theme_color,
 				),
 				'body .thumbnail.course .ld_course_grid_price:before' => array(
-					'border-top-color'   =>  $theme_color,
-					'border-right-color' =>  $theme_color,
+					'border-top-color'   => $theme_color,
+					'border-right-color' => $theme_color,
 				),
 				'body .wpProQuiz_loadQuiz, body .wpProQuiz_lock' => array(
 					'border-color'     => $link_color,
@@ -317,7 +347,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 
 			$dynamic_css .= apply_filters( 'kemet_theme_learndash_dynamic_css', $css_output );
 
-			return $dynamic_css;
+			wp_add_inline_style( 'kemet-learndash-style', $dynamic_css );
 		}
 	}
 
