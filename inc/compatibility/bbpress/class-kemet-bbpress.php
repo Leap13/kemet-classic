@@ -153,25 +153,6 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 			$link_h_color                 = kemet_get_option( 'content-link-h-color' );
 			$global_border_color          = kemet_get_option( 'global-border-color' );
 			$global_bg_color              = kemet_get_option( 'global-background-color' );
-			$body_font_family             = kemet_body_font_family();
-			$link_forground_color         = kemet_get_foreground_color( $link_color );
-			$theme_forground_color        = kemet_get_foreground_color( $theme_color );
-			$btn_text_color               = kemet_get_option( 'button-color', '#ffffff' );
-			$btn_font_size                = kemet_get_option( 'buttons-font-size' );
-			$btn_font_family              = kemet_get_option( 'buttons-font-family' );
-			$btn_font_weight              = kemet_get_option( 'buttons-font-weight' );
-			$btn_text_tranform            = kemet_get_option( 'buttons-text-transform' );
-			$btn_font_style               = kemet_get_option( 'buttons-font-style' );
-			$btn_line_height              = kemet_get_option( 'buttons-line-height' );
-			$btn_letter_spacing           = kemet_get_option( 'buttons-letter-spacing' );
-			$btn_border_radius            = kemet_get_option( 'button-radius' );
-			$btn_padding                  = kemet_get_option( 'button-spacing' );
-			$btn_text_hover_color         = kemet_get_option( 'button-h-color' );
-			$btn_bg_color                 = kemet_get_option( 'button-bg-color', $theme_color );
-			$btn_border_size              = kemet_get_option( 'btn-border-size' );
-			$btn_border_color             = kemet_get_option( 'btn-border-color' );
-			$btn_border_h_color           = kemet_get_option( 'btn-border-h-color' );
-			$btn_bg_hover_color           = kemet_get_option( 'button-bg-h-color', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
 			$archive_post_title_font_size = kemet_get_option( 'font-size-page-title' );
 			// Input Options.
 			$input_font_size      = kemet_get_option( 'inputs-font-size' );
