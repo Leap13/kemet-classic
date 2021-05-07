@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 $wp_customize->add_control(
 	new Kemet_Control_Title(
 		$wp_customize,
-		KEMET_THEME_SETTINGS . '[woo-content-title]',
+		KEMET_THEME_SETTINGS . '[bbpress-content-title]',
 		array(
 			'type'     => 'kmt-title',
-			'label'    => __( 'Woocommerce', 'kemet' ),
+			'label'    => __( 'bbPress', 'kemet' ),
 			'section'  => 'section-container-layout',
-			'priority' => 85,
+			'priority' => 95,
 			'settings' => array(),
 		)
 	)
@@ -34,20 +34,20 @@ $wp_customize->add_control(
  * Option: Shop Page
  */
 $wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[woocommerce-content-layout]',
+	KEMET_THEME_SETTINGS . '[bbpress-content-layout]',
 	array(
-		'default'           => kemet_get_option( 'woocommerce-content-layout' ),
+		'default'           => kemet_get_option( 'bbpress-content-layout' ),
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
 	)
 );
 $wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[woocommerce-content-layout]',
+	KEMET_THEME_SETTINGS . '[bbpress-content-layout]',
 	array(
 		'type'     => 'select',
 		'section'  => 'section-container-layout',
-		'priority' => 85,
-		'label'    => __( 'Container for WooCommerce', 'kemet' ),
+		'priority' => 95,
+		'label'    => __( 'Container for bbPress', 'kemet' ),
 		'choices'  => array(
 			'default'                 => __( 'Default', 'kemet' ),
 			'boxed-container'         => __( 'Boxed', 'kemet' ),
