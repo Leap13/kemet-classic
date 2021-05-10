@@ -1725,3 +1725,33 @@ var toggleClass = function (el, className) {
   window.addEventListener("resize", parallaxFooter());
   parallaxFooter();
 })();
+
+/**
+ * Sticky Footer
+ */
+(function () {
+  function stickySidebar() {
+    var $body = document.body,
+      offsetTop = 20;
+    if ($body.classList.contains("kmt-sticky-sidebar")) {
+      if ($body.classList.contains("admin-bar")) {
+        offsetTop += 32;
+      }
+      var header = $body.querySelector("#sitehead");
+      if (header.classList.contains("kmt-sticky-header")) {
+        offsetTop += header.offsetHeight;
+      }
+      var sidebar = document.querySelector("#secondary");
+      if (sidebar) {
+        sidebar.style.top = Math.floor(offsetTop + 20) + "px";
+        sidebar.style.maxHeight =
+          "calc( 100vh - " + Math.floor(offsetTop + 20) + "px )";
+      }
+    }
+  }
+
+  document.addEventListener("scroll", function (e) {
+    stickySidebar();
+  });
+  stickySidebar();
+})();

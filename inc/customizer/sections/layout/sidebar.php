@@ -46,6 +46,26 @@ $wp_customize->add_control(
 	)
 );
 
+/**
+ * Option: Enable Sticky Sidebar
+ */
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[enable-sticky-sidebar]',
+	array(
+		'default'           => $defaults['enable-sticky-sidebar'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+	)
+);
+$wp_customize->add_control(
+	KEMET_THEME_SETTINGS . '[enable-sticky-sidebar]',
+	array(
+		'type'     => 'checkbox',
+		'section'  => 'section-sidebars',
+		'label'    => __( 'Enable Sticky Sidebar', 'kemet' ),
+		'priority' => 6,
+	)
+);
 
 /**
  * Option: Default Sidebar Position

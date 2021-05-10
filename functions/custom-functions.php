@@ -100,6 +100,12 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-sticky-footer';
 		}
 
+		// Sticky sidebar
+		$kemet_sticky_sidebar = kemet_get_option( 'enable-sticky-sidebar' );
+		if ( $kemet_sticky_sidebar ) {
+			$classes[] = 'kmt-sticky-sidebar';
+		}
+
 		return $classes;
 	}
 }
