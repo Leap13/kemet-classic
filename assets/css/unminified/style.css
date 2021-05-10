@@ -4869,6 +4869,25 @@ h4.widget-title {
 		position: sticky;
 		top: 20px;
 	}
+
+	.kmt-sticky-sidebar-widget {
+		overflow: visible;
+	}
+
+	.kmt-sticky-sidebar-widget #secondary {
+		overflow: visible;
+	}
+
+	.kmt-sticky-sidebar-widget #secondary .sidebar-main {
+		height: 100%;
+	}
+
+	.kmt-sticky-sidebar-widget #secondary .sidebar-main .widget:last-child {
+		overflow-y: auto;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 20px;
+	}
 }
 
 /*----------  Footer  ----------*/

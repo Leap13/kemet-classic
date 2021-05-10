@@ -1733,7 +1733,10 @@ var toggleClass = function (el, className) {
   function stickySidebar() {
     var $body = document.body,
       offsetTop = 0;
-    if ($body.classList.contains("kmt-sticky-sidebar")) {
+    if (
+      $body.classList.contains("kmt-sticky-sidebar") ||
+      $body.classList.contains("kmt-sticky-sidebar-widget")
+    ) {
       var primaryHeight = $body.querySelector("#primary").offsetHeight;
       var secondary = $body.querySelector("#secondary");
       secondary.style.height = primaryHeight + "px";
@@ -1744,11 +1747,25 @@ var toggleClass = function (el, className) {
       if (header.classList.contains("kmt-sticky-header")) {
         offsetTop += header.offsetHeight;
       }
-      var sidebar = $body.querySelector("#secondary .sidebar-main");
-      if (sidebar) {
-        sidebar.style.top = Math.floor(offsetTop) + "px";
-        sidebar.style.maxHeight =
-          "calc( 100vh - " + Math.floor(offsetTop) + "px )";
+
+      if ($body.classList.contains("kmt-sticky-sidebar")) {
+        var sidebar = $body.querySelector("#secondary .sidebar-main");
+        if (sidebar) {
+          sidebar.style.top = Math.floor(offsetTop) + "px";
+          sidebar.style.maxHeight =
+            "calc( 100vh - " + Math.floor(offsetTop) + "px )";
+        }
+      }
+
+      if ($body.classList.contains("kmt-sticky-sidebar-widget")) {
+        var lastWidget = $body.querySelector(
+          "#secondary .sidebar-main .widget:last-child"
+        );
+        if (lastWidget) {
+          lastWidget.style.top = Math.floor(offsetTop) + "px";
+          lastWidget.style.maxHeight =
+            "calc( 100vh - " + Math.floor(offsetTop) + "px )";
+        }
       }
     }
   }

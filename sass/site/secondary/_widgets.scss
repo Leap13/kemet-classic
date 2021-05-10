@@ -251,4 +251,18 @@ h4.widget-title {
       }
     }
   }
+  .kmt-sticky-sidebar-widget {
+    overflow: visible;
+    #secondary {
+      overflow: visible;
+      .sidebar-main {
+        height: 100%;
+        .widget:last-child {
+          position: sticky;
+          top: 20px;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
 }
