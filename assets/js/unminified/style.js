@@ -1727,7 +1727,7 @@ var toggleClass = function (el, className) {
 })();
 
 /**
- * Sticky Footer
+ * Sticky Sidebar
  */
 (function () {
   function stickySidebar() {
