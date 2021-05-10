@@ -242,10 +242,13 @@ h4.widget-title {
   .kmt-sticky-sidebar {
     overflow: visible;
     #secondary {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 20px;
-      overflow-y: auto;
+      overflow: visible;
+      .sidebar-main {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+        overflow-y: auto;
+      }
     }
   }
 }

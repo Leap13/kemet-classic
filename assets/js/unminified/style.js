@@ -1732,8 +1732,11 @@ var toggleClass = function (el, className) {
 (function () {
   function stickySidebar() {
     var $body = document.body,
-      offsetTop = 20;
+      offsetTop = 0;
     if ($body.classList.contains("kmt-sticky-sidebar")) {
+      var primaryHeight = $body.querySelector("#primary").offsetHeight;
+      var secondary = $body.querySelector("#secondary");
+      secondary.style.height = primaryHeight + "px";
       if ($body.classList.contains("admin-bar")) {
         offsetTop += 32;
       }
@@ -1741,11 +1744,11 @@ var toggleClass = function (el, className) {
       if (header.classList.contains("kmt-sticky-header")) {
         offsetTop += header.offsetHeight;
       }
-      var sidebar = document.querySelector("#secondary");
+      var sidebar = $body.querySelector("#secondary .sidebar-main");
       if (sidebar) {
-        sidebar.style.top = Math.floor(offsetTop + 20) + "px";
+        sidebar.style.top = Math.floor(offsetTop) + "px";
         sidebar.style.maxHeight =
-          "calc( 100vh - " + Math.floor(offsetTop + 20) + "px )";
+          "calc( 100vh - " + Math.floor(offsetTop) + "px )";
       }
     }
   }

@@ -4860,6 +4860,10 @@ h4.widget-title {
 	}
 
 	.kmt-sticky-sidebar #secondary {
+		overflow: visible;
+	}
+
+	.kmt-sticky-sidebar #secondary .sidebar-main {
 		overflow-y: auto;
 		position: -webkit-sticky;
 		position: sticky;
