@@ -1537,12 +1537,16 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 			if ( 'dark' == $brightness ) {
 				$percent = $percent * -1;
 			}
+			$is_rgba = false;
+			$opacity = '';
 			if ( strpos( $hex, 'rgba' ) !== false ) {
 				$order   = array( 'rgba', '(', ')' );
 				$replace = '';
 				$output  = str_replace( $order, $replace, $hex );
 				$rgb     = explode( ',', $output );
+				$opacity = $rgb[3];
 				$rgb     = array_map( 'intval', $rgb );
+				$is_rgba = true;
 			} else {
 				$rgb = kemet_hex2rgba( $hex );
 			}
@@ -1562,6 +1566,13 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 				if ( $rgb[ $i ] > 255 ) {
 					$rgb[ $i ] = 255;
 				}
+			}
+
+			if ( $is_rgba ) {
+				$rgb[3]     = $opacity;
+				$rgba_color = 'rgba(' . implode( ',', $rgb ) . ')';
+
+				return $rgba_color;
 			}
 			// RBG to Hex.
 			$new_hex = '#';
