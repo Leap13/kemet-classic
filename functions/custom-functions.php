@@ -100,7 +100,7 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-sticky-footer';
 		}
 
-		// Sticky sidebar
+		// Sticky sidebar.
 		$kemet_sticky_sidebar        = kemet_get_option( 'enable-sticky-sidebar' );
 		$kemet_sticky_sidebar_widget = kemet_get_option( 'only-stick-last-widget' );
 		if ( $kemet_sticky_sidebar && ! $kemet_sticky_sidebar_widget ) {
@@ -1163,8 +1163,11 @@ if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
 	 * @return void
 	 */
 	function kemet_get_footer_widget( $sidebar_id ) {
-		if ( is_active_sidebar( $sidebar_id ) ) {
+		// error_log( apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) );
+		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
+			ob_start();
 			dynamic_sidebar( $sidebar_id );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			global $wp_registered_sidebars;
 			$sidebar_name = '';
