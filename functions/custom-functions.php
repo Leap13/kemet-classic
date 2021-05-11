@@ -1120,8 +1120,10 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 	 * @return void
 	 */
 	function kemet_get_sidebar( $sidebar_id ) {
-		if ( is_active_sidebar( $sidebar_id ) ) {
+		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
+			ob_start();
 			dynamic_sidebar( $sidebar_id );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() );
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			?>
 			<div class="widget kmt-no-widget-row">
