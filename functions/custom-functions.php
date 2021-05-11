@@ -1137,6 +1137,21 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 }
 
 /**
+ * Kemet Sidebar
+ */
+if ( ! function_exists( 'kemet_dynamic_sidebar' ) ) {
+	/**
+	 * Kemet Sidebar
+	 *
+	 * @param int $sidebar_id sidebar id.
+	 */
+	function kemet_dynamic_sidebar( $sidebar_id ) {
+		ob_start();
+		dynamic_sidebar( $sidebar_id );
+		echo apply_filters( 'kemet_dynamic_sidebar_content', ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+}
+/**
  * Get Footer widgets
  */
 if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
