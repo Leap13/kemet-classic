@@ -1163,7 +1163,6 @@ if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
 	 * @return void
 	 */
 	function kemet_get_footer_widget( $sidebar_id ) {
-		// error_log( apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) );
 		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
 			ob_start();
 			dynamic_sidebar( $sidebar_id );
