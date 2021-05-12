@@ -1150,7 +1150,7 @@ if ( ! function_exists( 'kemet_dynamic_sidebar' ) ) {
 	function kemet_dynamic_sidebar( $sidebar_id ) {
 		ob_start();
 		dynamic_sidebar( $sidebar_id );
-		echo apply_filters( 'kemet_dynamic_sidebar_content', ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 /**
