@@ -1868,3 +1868,21 @@ if ( ! function_exists( 'kemet_allowed_html' ) ) {
 		return $allowed_html;
 	}
 }
+
+/**
+ * Alter main query for home page to exclude some categories
+ *
+ * @param object $query categories query.
+ * @return void
+ */
+function kemet_exclude_category( $query ) {
+	$exclude_cat = kemet_get_option( 'exclude-category-from-blog' );
+
+	if ( ! empty( $exclude_cat ) ) {
+		if ( $query->is_home() && $query->is_main_query() ) {
+			$query->set( 'category__not_in', array( $exclude_cat ) );
+		}
+	}
+}
+
+add_action( 'pre_get_posts', 'kemet_exclude_category' );

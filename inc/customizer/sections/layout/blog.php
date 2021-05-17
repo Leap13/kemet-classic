@@ -75,6 +75,28 @@ $wp_customize->add_control(
 );
 
 /**
+* Option: Exclude Category From Blog Page
+*/
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[exclude-category-from-blog]',
+	array(
+		'default'           => $defaults['exclude-category-from-blog'],
+		'type'              => 'option',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+	)
+);
+$wp_customize->add_control(
+	KEMET_THEME_SETTINGS . '[exclude-category-from-blog]',
+	array(
+		'type'     => 'select',
+		'section'  => 'section-blog',
+		'priority' => 5,
+		'label'    => __( 'Exclude Category From Blog Page', 'kemet' ),
+		'choices'  => kemet_get_all_categories(),
+	)
+);
+
+/**
 * Option: Display Post Structure
 */
 $wp_customize->add_setting(

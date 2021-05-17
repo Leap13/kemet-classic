@@ -95,6 +95,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					'pagination-padding'                   => '',
+					'exclude-category-from-blog'           => '',
 					'font-color-entry-title'               => '',
 					'comment-button-spacing'               => '',
 					'single-post-meta-color'               => '',
