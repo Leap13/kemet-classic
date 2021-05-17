@@ -1123,7 +1123,7 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
 			ob_start();
 			dynamic_sidebar( $sidebar_id );
-			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			?>
 			<div class="widget kmt-no-widget-row">
@@ -1168,7 +1168,7 @@ if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
 		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
 			ob_start();
 			dynamic_sidebar( $sidebar_id );
-			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			global $wp_registered_sidebars;
 			$sidebar_name = '';
