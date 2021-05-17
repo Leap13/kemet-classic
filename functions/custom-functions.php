@@ -106,7 +106,7 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		if ( $kemet_sticky_sidebar && ! $kemet_sticky_sidebar_widget ) {
 			$classes[] = 'kmt-sticky-sidebar';
 		}
-		if ( $kemet_sticky_sidebar_widget ) {
+		if ( $kemet_sticky_sidebar_widget && $kemet_sticky_sidebar ) {
 			$classes[] = 'kmt-sticky-sidebar-widget';
 		}
 		return $classes;

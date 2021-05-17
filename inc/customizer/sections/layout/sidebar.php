@@ -76,6 +76,11 @@ $wp_customize->add_setting(
 		'default'           => $defaults['only-stick-last-widget'],
 		'type'              => 'option',
 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_checkbox' ),
+		'dependency'        => array(
+			'controls'   => KEMET_THEME_SETTINGS . '[enable-sticky-sidebar]',
+			'conditions' => '==',
+			'values'     => true,
+		),
 	)
 );
 $wp_customize->add_control(

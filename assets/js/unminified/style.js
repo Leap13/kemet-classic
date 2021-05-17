@@ -728,18 +728,18 @@
     !window.addEventListener &&
       window.attachEvent &&
       (function () {
-        (Window.prototype.addEventListener = HTMLDocument.prototype.addEventListener = Element.prototype.addEventListener = function (
-          t,
-          e
-        ) {
-          this.attachEvent("on" + t, e);
-        }),
-          (Window.prototype.removeEventListener = HTMLDocument.prototype.removeEventListener = Element.prototype.removeEventListener = function (
-            t,
-            e
-          ) {
-            this.detachEvent("on" + t, e);
-          });
+        (Window.prototype.addEventListener =
+          HTMLDocument.prototype.addEventListener =
+          Element.prototype.addEventListener =
+            function (t, e) {
+              this.attachEvent("on" + t, e);
+            }),
+          (Window.prototype.removeEventListener =
+            HTMLDocument.prototype.removeEventListener =
+            Element.prototype.removeEventListener =
+              function (t, e) {
+                this.detachEvent("on" + t, e);
+              });
       })(),
     (flexibility.detect = function () {
       var t = document.createElement("p");
@@ -761,11 +761,12 @@
       var e = t.onlayoutcomplete;
       return (
         e ||
-          (e = t.onlayoutcomplete = {
-            node: t,
-            style: {},
-            children: [],
-          }),
+          (e = t.onlayoutcomplete =
+            {
+              node: t,
+              style: {},
+              children: [],
+            }),
         (e.style.display =
           t.currentStyle["-js-display"] || t.currentStyle.display),
         e
@@ -848,7 +849,8 @@
     },
     flexBasis: {
       initial: "auto",
-      valid: /^((?:[-+]?0|[-+]?[0-9]*\.?[0-9]+(?:%|ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmax|vmin|vw))|auto|fill|max-content|min-content|fit-content|content)$/,
+      valid:
+        /^((?:[-+]?0|[-+]?[0-9]*\.?[0-9]+(?:%|ch|cm|em|ex|in|mm|pc|pt|px|rem|vh|vmax|vmin|vw))|auto|fill|max-content|min-content|fit-content|content)$/,
     },
     flexGrow: {
       initial: 0,
@@ -1337,15 +1339,13 @@ var toggleClass = function (el, className) {
             __main_header_all[i].style.display = "";
           }
 
-          var sub_menu = __main_header_all[i].getElementsByClassName(
-            "sub-menu"
-          );
+          var sub_menu =
+            __main_header_all[i].getElementsByClassName("sub-menu");
           for (var j = 0; j < sub_menu.length; j++) {
             sub_menu[j].style.display = "";
           }
-          var child_menu = __main_header_all[i].getElementsByClassName(
-            "children"
-          );
+          var child_menu =
+            __main_header_all[i].getElementsByClassName("children");
           for (var k = 0; k < child_menu.length; k++) {
             child_menu[k].style.display = "";
           }
@@ -1739,7 +1739,11 @@ var toggleClass = function (el, className) {
     ) {
       var primaryHeight = $body.querySelector("#primary").offsetHeight;
       var secondary = $body.querySelector("#secondary");
-      secondary.style.height = primaryHeight + "px";
+
+      if (secondary.offsetHeight < primaryHeight) {
+        secondary.style.height = primaryHeight + "px";
+      }
+
       if ($body.classList.contains("admin-bar")) {
         offsetTop += 32;
       }
