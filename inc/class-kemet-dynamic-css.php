@@ -346,7 +346,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_bg_hover_color   = kemet_get_option( 'button-bg-h-color', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
 
 			// Spacing of Big Footer.
-			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $global_footer_text_color, 0.22, 'dark' ) );
+			$default_ft_divider_color       = ! empty( $footer_bg_obj['background-color'] ) ? $footer_bg_obj['background-color'] : $global_footer_bg_color;
+			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $default_ft_divider_color, 0.9, 'light' ) );
 			$copyright_footer_divider       = kemet_get_option( 'footer-copyright-divider' );
 
 			/**
@@ -1176,7 +1177,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$parse_css .= kemet_parse_css( $page_builder_comment, '545' );
 
 			// Bg Obj.
-			$parse_css .= kemet_get_background_obj( '.kmt-footer-copyright > .kmt-footer-copyright-content', $footer_bg_obj );
+			$parse_css .= kemet_get_background_obj( '.kmt-footer-copyright', $footer_bg_obj );
 			$parse_css .= kemet_get_background_obj( '.kmt-sticky-footer #content', $box_bg_obj );
 			$parse_css .= kemet_get_background_obj( '.kemet-footer-overlay', $kemet_footer_bg_obj );
 			// sidebar.
