@@ -13,3 +13,15 @@
     }
   }
 }
+.bbp-user-edit.single {
+  #bbp-your-profile {
+    fieldset {
+      input[type="text"],
+      select {
+        min-height: auto;
+        height: auto;
+        padding: 0.75em;
+      }
+    }
+  }
+}
