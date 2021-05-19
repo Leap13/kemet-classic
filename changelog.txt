@@ -1,3 +1,11 @@
+v 1.1.17 version
+- Added: Learndash Compatibiity
+- Added: bbPress Compatibility
+
+v 1.1.16 version
+- Fixed: Replace custom logo filter doesn't work.
+- Added: Custom font Addon.
+
 v 1.1.15 version
 - Added: New filter for the custom logo.
 
