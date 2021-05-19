@@ -268,26 +268,29 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$kemet_footer_widget_meta_color = kemet_get_option( 'footer-widget-meta-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = kemet_get_option( 'footer-bar-bg-obj', array( 'background-color' => kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) ) );
-			$footer_bar_spacing  = kemet_get_option( 'footer-bar-padding' );
-			$footer_color        = kemet_get_option( 'footer-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_link_color   = kemet_get_option( 'copyright-link-color', $global_footer_text_color );
-			$footer_link_h_color = kemet_get_option( 'copyright-link-h-color', $theme_color );
+			$footer_bg_obj                 = kemet_get_option( 'footer-bar-bg-obj', array( 'background-color' => kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) ) );
+			$kemet_footer_bg_obj           = kemet_get_option( 'footer-bg-obj', array( 'background-color' => $global_footer_bg_color ) );
+			$default_ft_copyright_bg_color = ! empty( $footer_bg_obj['background-color'] ) ? $footer_bg_obj['background-color'] : $global_footer_bg_color;
+			$default_main_ft_bg_color      = ! empty( $kemet_footer_bg_obj['background-color'] ) ? $kemet_footer_bg_obj['background-color'] : $global_footer_bg_color;
+			$footer_bar_spacing            = kemet_get_option( 'footer-bar-padding' );
+			$footer_color                  = kemet_get_option( 'footer-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
+			$footer_link_color             = kemet_get_option( 'copyright-link-color', $global_footer_text_color );
+			$footer_link_h_color           = kemet_get_option( 'copyright-link-h-color', $theme_color );
 
 			// Footer Button color.
 			$footer_button_color          = kemet_get_option( 'footer-button-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 			$footer_button_hover_color    = kemet_get_option( 'footer-button-h-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_button_bg_color       = kemet_get_option( 'footer-button-bg-color', kemet_color_brightness( $global_footer_bg_color, 0.82, 'dark' ) );
-			$footer_button_bg_h_color     = kemet_get_option( 'footer-button-bg-h-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'dark' ) );
+			$footer_button_bg_color       = kemet_get_option( 'footer-button-bg-color', 'rgba(0, 0, 0, 0.1)' );
+			$footer_button_bg_h_color     = kemet_get_option( 'footer-button-bg-h-color', 'rgba(0, 0, 0, 0.2)' );
 			$footer_button_border_radius  = kemet_get_option( 'footer-button-radius' );
 			$footer_button_border_width   = kemet_get_option( 'footer-button-border-width' );
-			$footer_button_border_color   = kemet_get_option( 'footer-button-border-color', kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) );
+			$footer_button_border_color   = kemet_get_option( 'footer-button-border-color', kemet_color_brightness( $default_main_ft_bg_color, 0.9, 'light' ) );
 			$footer_button_border_h_color = kemet_get_option( 'footer-button-border-h-color', $footer_button_border_color );
 
 			// Footer Input Color.
 			$footer_input_color         = kemet_get_option( 'footer-input-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_input_bg_color      = kemet_get_option( 'footer-input-bg-color', kemet_color_brightness( $global_footer_bg_color, 0.82, 'dark' ) );
-			$footer_input_border_color  = kemet_get_option( 'footer-input-border-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'dark' ) );
+			$footer_input_bg_color      = kemet_get_option( 'footer-input-bg-color', 'rgba( 0, 0, 0, 0.1 )' );
+			$footer_input_border_color  = kemet_get_option( 'footer-input-border-color', kemet_color_brightness( $default_main_ft_bg_color, 0.9, 'light' ) );
 			$footer_input_border_size   = kemet_get_option( 'footer-input-border-size' );
 			$footer_input_border_radius = kemet_get_option( 'footer-input-border-radius' );
 			$footer_input_padding       = kemet_get_option( 'footer-widget-input-padding' );
@@ -295,7 +298,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$footer_sml_font_size      = kemet_get_option( 'footer-copyright-font-size' );
 			$footer_sml_letter_spacing = kemet_get_option( 'footer-copyright-letter-spacing' );
 			// Color.
-			$kemet_footer_bg_obj             = kemet_get_option( 'footer-bg-obj', array( 'background-color' => $global_footer_bg_color ) );
 			$kemet_footer_text_color         = kemet_get_option( 'footer-text-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 			$kemet_footer_widget_title_color = kemet_get_option( 'footer-wgt-title-color', $global_footer_text_color );
 			$kemet_footer_link_color         = kemet_get_option( 'footer-link-color', $global_footer_text_color );
@@ -345,9 +347,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_border_h_color   = kemet_get_option( 'btn-border-h-color' );
 			$btn_bg_hover_color   = kemet_get_option( 'button-bg-h-color', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
 
-			// Spacing of Big Footer.
-			$default_ft_divider_color       = ! empty( $footer_bg_obj['background-color'] ) ? $footer_bg_obj['background-color'] : $global_footer_bg_color;
-			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $default_ft_divider_color, 0.9, 'light' ) );
+			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $default_ft_copyright_bg_color, 0.9, 'light' ) );
 			$copyright_footer_divider       = kemet_get_option( 'footer-copyright-divider' );
 
 			/**
