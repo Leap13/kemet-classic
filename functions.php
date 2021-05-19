@@ -10,7 +10,7 @@
 /**
  * Define Constants.
  */
-define( 'KEMET_THEME_VERSION', '1.1.14' );
+define( 'KEMET_THEME_VERSION', '1.1.17' );
 define( 'KEMET_THEME_DIR', get_template_directory() . '/' );
 define( 'KEMET_THEME_URI', get_template_directory_uri() . '/' );
 define( 'KEMET_THEME_SETTINGS', 'kemet-settings' );
@@ -73,6 +73,8 @@ require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';
  * Compatibility.
  */
 require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
+require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/class-kemet-learndash.php';
+require_once KEMET_THEME_DIR . 'inc/compatibility/bbpress/class-kemet-bbpress.php';
 require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-contact-form-7.php';
 require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-elementor.php';
 require_once KEMET_THEME_DIR . 'inc/compatibility/class-kemet-beaver-builder.php';

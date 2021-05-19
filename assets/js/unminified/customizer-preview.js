@@ -986,7 +986,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   wp.customize("kemet-settings[header-bg-obj]", function (value) {
     value.bind(function (bg_obj) {
       var dynamicStyle =
-        ".site-header:not(.kmt-is-sticky) .main-header-bar , .kemet-merged-top-bar-header { {{css}} }";
+        ".site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header { {{css}} }";
       kemet_background_obj_css(
         wp.customize,
         bg_obj,
@@ -1058,7 +1058,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   );
   kemet_responsive_css(
     "kemet-settings[menu-link-color]",
-    ".kmt-sitehead-custom-menu-items > *, .main-header-menu li > a , .kmt-header-break-point .main-navigation ul li a",
+    ".kmt-sitehead-custom-menu-items > *, .main-header-menu li > a , .kmt-header-break-point .main-navigation ul li a, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children>.kmt-menu-toggle",
     "color"
   );
   kemet_css(
@@ -1084,7 +1084,7 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 
   kemet_responsive_css(
     "kemet-settings[menu-link-h-color]",
-    ".main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover > a , .vertical-navigation ul li:hover > a",
+    ".main-header-menu li:hover > a, .main-header-menu .kmt-sitehead-custom-menu-items a:not(.button):hover , .kmt-header-break-point .main-navigation ul li:hover > a , .vertical-navigation ul li:hover > a, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .menu-item-has-children:hover>.kmt-menu-toggle, .kmt-header-break-point .main-header-bar .main-header-bar-navigation .page_item_has_children:hover>.kmt-menu-toggle",
     "color"
   );
   kemet_css(

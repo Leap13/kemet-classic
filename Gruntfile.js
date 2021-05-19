@@ -232,6 +232,11 @@ module.exports = function (grunt) {
               "assets/css/minified/compatibility/contact-form-7.min-rtl.css",
           },
           {
+            src: "assets/css/unminified/compatibility/bbpress-rtl.css",
+            dest:
+              "assets/css/minified/compatibility/bbpress.min-rtl.css",
+          },
+          {
             src:
               "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
             dest:
@@ -346,6 +351,18 @@ module.exports = function (grunt) {
           },
         ],
       },
+      theme_main: {
+        src: ["readme.txt"],
+        overwrite: true,
+        replacements: [
+          {
+            from: /Stable tag: \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?(?:\+[\da-z-A-Z-]+(?:\.[\da-z-A-Z-]+)*)?\b/g,
+            to: "Stable tag: <%= pkg.version %>",
+          },
+        ],
+
+      },
+
 
       theme_const: {
         src: ["functions.php"],
@@ -451,6 +468,10 @@ module.exports = function (grunt) {
             "assets/css/unminified/compatibility/contact-form-7.css",
           "assets/css/unminified/compatibility/contact-form-7-rtl.css":
             "assets/css/unminified/compatibility/contact-form-7-rtl.css",
+            "assets/css/unminified/compatibility/bbpress.css":
+            "assets/css/unminified/compatibility/bbpress.css",
+          "assets/css/unminified/compatibility/bbpress-rtl.css":
+            "assets/css/unminified/compatibility/bbpress-rtl.css",
           "assets/css/unminified/style.css": "assets/css/unminified/style.css",
           "assets/css/unminified/style-rtl.css":
             "assets/css/unminified/style-rtl.css",
