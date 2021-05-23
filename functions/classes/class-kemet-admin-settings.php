@@ -58,8 +58,31 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 			if ( ! is_admin() ) {
 				return;
 			}
-
+			add_action( 'admin_menu', array( $this, 'register_kemet_custom_menu_page' ), 1 );
+			add_action( 'admin_menu', array( $this, 'remove_kemet_submenu_menu' ), 99 );
 			add_action( 'after_setup_theme', __CLASS__ . '::init_admin_settings', 99 );
+		}
+
+		/**
+		 * Add Kemet menu Item
+		 *
+		 * @return void
+		 */
+		function register_kemet_custom_menu_page() {
+			if ( apply_filters( 'enable_kemet_admin_menu_item', false ) ) {
+				add_menu_page( __( 'Kemet Panel', 'kemet' ), __( 'Kemet', 'kemet' ), 'manage_options', 'kemet_panel', null, null );
+			}
+		}
+
+		/**
+		 * Rwmove Kemet submenu Item
+		 *
+		 * @return void
+		 */
+		function remove_kemet_submenu_menu() {
+			if ( apply_filters( 'enable_kemet_admin_menu_item', false ) ) {
+				remove_submenu_page( 'kemet_panel', 'kemet_panel' );
+			}
 		}
 
 		/**
