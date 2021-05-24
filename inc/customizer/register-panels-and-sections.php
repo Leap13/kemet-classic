@@ -204,6 +204,18 @@ $wp_customize->add_section(
 	)
 );
 
+/*
+* Header Builder section
+*/
+$wp_customize->add_section(
+	'section-header-builder',
+	array(
+		'priority' => 5,
+		'title'    => __( 'Header Builder', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	)
+);
+
 /**
  * Kemet Addons Notidication
  */

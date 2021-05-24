@@ -5076,19 +5076,6 @@ textarea::-webkit-input-placeholder {
 	color: inherit;
 }
 
-input[type="text"]:-moz-placeholder,
-input[type="number"]:-moz-placeholder,
-input[type="email"]:-moz-placeholder,
-input[type="url"]:-moz-placeholder,
-input[type="password"]:-moz-placeholder,
-input[type="search"]:-moz-placeholder,
-input[type="tel"]:-moz-placeholder,
-select:-moz-placeholder,
-textarea:-moz-placeholder {
-	opacity: 0.5;
-	color: inherit;
-}
-
 input[type="text"]::-moz-placeholder,
 input[type="number"]::-moz-placeholder,
 input[type="email"]::-moz-placeholder,
@@ -5098,19 +5085,6 @@ input[type="search"]::-moz-placeholder,
 input[type="tel"]::-moz-placeholder,
 select::-moz-placeholder,
 textarea::-moz-placeholder {
-	opacity: 0.5;
-	color: inherit;
-}
-
-input[type="text"]:-ms-input-placeholder,
-input[type="number"]:-ms-input-placeholder,
-input[type="email"]:-ms-input-placeholder,
-input[type="url"]:-ms-input-placeholder,
-input[type="password"]:-ms-input-placeholder,
-input[type="search"]:-ms-input-placeholder,
-input[type="tel"]:-ms-input-placeholder,
-select:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
 	opacity: 0.5;
 	color: inherit;
 }

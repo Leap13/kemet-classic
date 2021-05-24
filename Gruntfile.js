@@ -206,6 +206,18 @@ module.exports = function (grunt) {
             dest:
               "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css",
           },
+          {
+            src:
+              "inc/customizer/custom-controls/assets/css/unminified/builder-control.css",
+            dest:
+              "inc/customizer/custom-controls/assets/css/minified/builder-control.min.css",
+          },
+          {
+            src:
+              "inc/customizer/custom-controls/assets/css/unminified/builder-control-rtl.css",
+            dest:
+              "inc/customizer/custom-controls/assets/css/minified/builder-control-rtl.min.css",
+          },
           // Generating RTL files from '/unminified/' into '/minified/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
           {
@@ -233,8 +245,7 @@ module.exports = function (grunt) {
           },
           {
             src: "assets/css/unminified/compatibility/bbpress-rtl.css",
-            dest:
-              "assets/css/minified/compatibility/bbpress.min-rtl.css",
+            dest: "assets/css/minified/compatibility/bbpress.min-rtl.css",
           },
           {
             src:
@@ -360,9 +371,7 @@ module.exports = function (grunt) {
             to: "Stable tag: <%= pkg.version %>",
           },
         ],
-
       },
-
 
       theme_const: {
         src: ["functions.php"],
@@ -468,7 +477,7 @@ module.exports = function (grunt) {
             "assets/css/unminified/compatibility/contact-form-7.css",
           "assets/css/unminified/compatibility/contact-form-7-rtl.css":
             "assets/css/unminified/compatibility/contact-form-7-rtl.css",
-            "assets/css/unminified/compatibility/bbpress.css":
+          "assets/css/unminified/compatibility/bbpress.css":
             "assets/css/unminified/compatibility/bbpress.css",
           "assets/css/unminified/compatibility/bbpress-rtl.css":
             "assets/css/unminified/compatibility/bbpress-rtl.css",

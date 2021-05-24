@@ -29,4 +29,5 @@ require $control_dir . '/responsive-color/class-kemet-control-responsive-color.p
 require $control_dir . '/group/class-kemet-control-group.php';
 require $control_dir . '/hidden/class-kemet-control-hidden.php';
 require $control_dir . '/select/class-kemet-control-select.php';
+require $control_dir . '/class-kemet-control-builder.php';
 // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

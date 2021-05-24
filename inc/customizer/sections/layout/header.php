@@ -30,6 +30,89 @@ $defaults = Kemet_Theme_Options::defaults();
 /**
 * Option: Header Layout
 */
+$options = array(
+	KEMET_THEME_SETTINGS . '[header-desktop-items]' => array(
+		'settings'      => array(
+			'default'           => $defaults['header-desktop-items'],
+			'type'              => 'option',
+			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+		),
+		'section'       => 'section-header-builder',
+		'priority'      => 1,
+		'label'         => __( 'Header Layout Builder', 'kemet' ),
+		'control_class' => 'Kemet_Control_Builder',
+		'type'          => 'kmt-builder',
+		'choices'       => array(
+			'logo'         => array(
+				'name'    => esc_html__( 'Logo', 'kemet' ),
+				'section' => 'title_tagline',
+			),
+			'navigation'   => array(
+				'name'    => esc_html__( 'Primary Navigation', 'kemet' ),
+				'section' => 'kemet-customizer-primary-menu',
+			),
+			'navigation-2' => array(
+				'name'    => esc_html__( 'Secondary Navigation', 'kemet' ),
+				'section' => 'kemet-customizer-secondary-menu',
+			),
+			'search'       => array(
+				'name'    => esc_html__( 'Search', 'kemet' ),
+				'section' => 'kemet_customizer_header_search',
+			),
+		),
+		'partial'       => array(
+			'selector'            => '#masthead',
+			'container_inclusive' => true,
+			'render_callback'     => 'kemet_header_builder_markup',
+		),
+		'input_attrs'   => array(
+			'group'   => KEMET_THEME_SETTINGS . '[header-desktop-items]',
+			'rows'    => array( 'popup', 'top', 'main', 'bottom' ),
+			'zones'   => array(
+				'popup'  => array(
+					'popup_content' => 'Popup Content',
+				),
+				'top'    => array(
+					'top_left'         => 'Top - Left',
+					'top_left_center'  => 'Top - Left Center',
+					'top_center'       => 'Top - Center',
+					'top_right_center' => 'Top - Right Center',
+					'top_right'        => 'Top - Right',
+				),
+				'main'   => array(
+					'main_left'         => 'Main - Left',
+					'main_left_center'  => 'Main - Left Center',
+					'main_center'       => 'Main - Center',
+					'main_right_center' => 'Main - Right Center',
+					'main_right'        => 'Main - Right',
+				),
+				'bottom' => array(
+					'bottom_left'         => 'Bottom - Left',
+					'bottom_left_center'  => 'Bottom - Left Center',
+					'bottom_center'       => 'Bottom - Center',
+					'bottom_right_center' => 'Bottom - Right Center',
+					'bottom_right'        => 'Bottom - Right',
+				),
+			),
+			'status'  => array(
+				'top'    => true,
+				'main'   => true,
+				'bottom' => true,
+			),
+			'context' => array(
+				array(
+					'setting' => '_device',
+					'value'   => 'desktop',
+				),
+			),
+		),
+	),
+);
+
+Kemet_Customizer::get_instance()->add_customizer_options( $options );
+/**
+* Option: Header Layout
+*/
 $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[header-layouts]',
 	array(
