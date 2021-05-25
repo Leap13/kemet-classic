@@ -84,7 +84,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'main_left_center'  => array(),
 							'main_center'       => array(),
 							'main_right_center' => array(),
-							'main_right'        => array( 'menu-1' ),
+							'main_right'        => array( 'primary-menu' ),
 						),
 						'bottom' =>
 						array(

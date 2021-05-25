@@ -35,7 +35,7 @@ $options = array(
 		'settings'      => array(
 			'default'           => $defaults['header-desktop-items'],
 			'type'              => 'option',
-			'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
+			'sanitize_callback' => false,
 		),
 		'section'       => 'section-header-builder',
 		'priority'      => 1,
@@ -43,21 +43,35 @@ $options = array(
 		'control_class' => 'Kemet_Control_Builder',
 		'type'          => 'kmt-builder',
 		'choices'       => array(
-			'logo'         => array(
-				'name'    => esc_html__( 'Logo', 'kemet' ),
+			'logo'          => array(
+				'name'    => __( 'Logo', 'kemet' ),
+				'icon'    => 'admin-appearance',
 				'section' => 'title_tagline',
+				'delete'  => false,
 			),
-			'navigation'   => array(
-				'name'    => esc_html__( 'Primary Navigation', 'kemet' ),
-				'section' => 'kemet-customizer-primary-menu',
+			'search'        => array(
+				'name'    => __( 'Search', 'kemet' ),
+				'icon'    => 'search',
+				'section' => 'section-menu-header',
+				'delete'  => false,
 			),
-			'navigation-2' => array(
-				'name'    => esc_html__( 'Secondary Navigation', 'kemet' ),
-				'section' => 'kemet-customizer-secondary-menu',
+			'account'       => array(
+				'name'    => __( 'Account', 'kemet' ),
+				'icon'    => 'admin-users',
+				'section' => 'section-header-account',
+				'delete'  => false,
 			),
-			'search'       => array(
-				'name'    => esc_html__( 'Search', 'kemet' ),
-				'section' => 'kemet_customizer_header_search',
+			'primary-menu'  => array(
+				'name'    => __( 'Primary Menu', 'kemet' ),
+				'icon'    => 'menu',
+				'section' => 'section-menu-header',
+				'delete'  => false,
+			),
+			'toggle-button' => array(
+				'name'    => __( 'Button', 'kemet' ),
+				'icon'    => 'menu',
+				'section' => 'section-menu-header',
+				'delete'  => false,
 			),
 		),
 		'partial'       => array(

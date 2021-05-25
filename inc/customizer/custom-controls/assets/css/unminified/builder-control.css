@@ -26,8 +26,8 @@
   border-radius: 0;
 }
 
-#customize-control-kmtra-settings-builder-header,
-#customize-control-kmtra-settings-builder-footer {
+#customize-control-kemet-settings-builder-header,
+#customize-control-kemet-settings-builder-footer {
   background: #eee;
   transition: all 0.2s;
   backface-visibility: hidden;
@@ -36,15 +36,15 @@
   border-top: 1px solid #ddd;
 }
 
-.kmt-builder-hide #customize-control-kmtra-settings-builder-header,
-.kmt-builder-hide #customize-control-kmtra-settings-builder-footer {
+.kmt-builder-hide #customize-control-kemet-settings-builder-header,
+.kmt-builder-hide #customize-control-kemet-settings-builder-footer {
   transform: translateY(-628%);
   overflow: visible;
 }
 
-#customize-control-kmtra-settings-builder-header
+#customize-control-kemet-settings-builder-header
   .kmt-customize-control-description,
-#customize-control-kmtra-settings-builder-footer
+#customize-control-kemet-settings-builder-footer
   .kmt-customize-control-description {
   margin: 0px;
   text-align: right;
@@ -97,23 +97,23 @@
   top: auto;
 }
 
-#customize-control-kmtra-settings-builder-header,
-#customize-control-kmtra-settings-builder-footer {
+#customize-control-kemet-settings-builder-header,
+#customize-control-kemet-settings-builder-footer {
   display: flex !important;
   justify-content: space-between;
 }
 
-#customize-control-kmtra-settings-builder-header .kmt-customize-control-title,
-#customize-control-kmtra-settings-builder-footer .kmt-customize-control-title {
+#customize-control-kemet-settings-builder-header .kmt-customize-control-title,
+#customize-control-kemet-settings-builder-footer .kmt-customize-control-title {
   padding: 0 25px;
   text-align: center;
   color: #888;
 }
 
-#customize-control-kmtra-settings-builder-header
+#customize-control-kemet-settings-builder-header
   .kmt-customize-control-title
   .dashicons,
-#customize-control-kmtra-settings-builder-footer
+#customize-control-kemet-settings-builder-footer
   .kmt-customize-control-title
   .dashicons {
   margin-right: 10px;
@@ -283,10 +283,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 /*------------------------------------------------------------------------------------------------------------------*/
 
-#customize-control-kmtra-settings-header-sticky-link
-  + #customize-control-kmtra-settings-header-transparant-link,
-#customize-control-kmtra-settings-header-transparant-link
-  + #customize-control-kmtra-settings-header-sticky-link {
+#customize-control-kemet-settings-header-sticky-link
+  + #customize-control-kemet-settings-header-transparant-link,
+#customize-control-kemet-settings-header-transparant-link
+  + #customize-control-kemet-settings-header-sticky-link {
   margin-top: 0;
 }
 
@@ -353,10 +353,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin-left: 0;
 }
 
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-row-actions,
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-row-actions {
   position: inherit;
@@ -370,26 +370,26 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin: 4px;
 }
 
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-builder-item:first-child,
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-builder-item:first-child {
   margin-top: 8px;
 }
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-builder-item:last-child,
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-builder-item:last-child {
   margin-bottom: 8px;
 }
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-builder-item,
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-builder-item {
   margin: 4px;
@@ -855,22 +855,28 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   font-size: 10px;
 }
 
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-row-actions
   .dashicon,
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-row-actions
   .dashicon {
   margin-left: 10px;
   margin-right: 5px;
 }
-
-.kmt-builder-mode-header[data-row="above"] .kmt-row-actions,
-.kmt-builder-mode-header[data-row="below"] .kmt-row-actions,
-.kmt-builder-mode-footer[data-row="above"] .kmt-row-actions,
-.kmt-builder-mode-footer[data-row="primary"] .kmt-row-actions {
+.kmt-builder-item
+  > .kmt-builder-item-focus-icon.kmt-builder-item-icon
+  .dashicon {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+.kmt-builder-mode-header[data-row="top"] .kmt-row-actions,
+.kmt-builder-mode-header[data-row="bottom"] .kmt-row-actions,
+.kmt-builder-mode-footer[data-row="top"] .kmt-row-actions,
+.kmt-builder-mode-footer[data-row="main"] .kmt-row-actions {
   cursor: default;
 }
 
@@ -1022,13 +1028,16 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-item > .kmt-builder-item-icon.kmt-move-icon {
   margin-left: -10px;
-  transform: rotate(90deg);
-  margin-right: 0;
+  margin-right: 3px;
   cursor: grab;
   width: 18px;
   opacity: 0.7;
 }
-
+.kmt-builder-item > .kmt-builder-item-icon.kmt-move-icon .dashicons {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
 .kmt-builder-item-text {
   flex-grow: 1;
 }
@@ -1038,7 +1047,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .customize-control:not(.customize-control-kmt-builder-header-control)
-  + #customize-control-kmtra-settings-header-mobile-draggable-items.customize-control {
+  + #customize-control-kemet-settings-header-mobile-draggable-items.customize-control {
   padding-top: 0;
   border-top: 0;
 }
@@ -1133,9 +1142,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   overflow: visible;
 }
 
-li#customize-control-kmtra-settings-header-desktop-items,
-li#customize-control-kmtra-settings-header-mobile-items,
-li#customize-control-kmtra-settings-footer-desktop-items {
+li#customize-control-kemet-settings-header-desktop-items,
+li#customize-control-kemet-settings-header-mobile-items,
+li#customize-control-kemet-settings-footer-desktop-items {
   transition: all 0.3s;
   background: #eeeeee;
   border-top: 1px solid #dddddd;
@@ -1660,19 +1669,19 @@ li#customize-control-kmtra-settings-footer-desktop-items {
   height: 50px;
 }
 
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   .components-button.is-tertiary.active-radio
   svg,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   .components-button.is-tertiary
   svg,
-#customize-control-kmtra-settings-header-trigger-icon svg {
+#customize-control-kemet-settings-header-trigger-icon svg {
   width: 52px;
   height: 50px;
   margin-right: 10px;
 }
 
-#customize-control-kmtra-settings-header-trigger-icon .components-button-group {
+#customize-control-kemet-settings-header-trigger-icon .components-button-group {
   display: inline-flex;
 }
 
@@ -1998,7 +2007,7 @@ button.components-button.kmt-sorter-item-expand {
 .kmt-radio-icon-control
   .components-button-group.kmt-radio-container-control
   .components-button.is-tertiary,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   .components-button-group.kmt-radio-container-control
   .components-button.is-tertiary {
   min-width: 25%;
@@ -2021,10 +2030,10 @@ button.components-button.kmt-sorter-item-expand {
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
 }
 
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   .kmt-radio-container-control
   .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):hover,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   .kmt-radio-container-control
   .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):active,
 .kmt-radio-icon-control
@@ -2048,7 +2057,7 @@ button.components-button.kmt-sorter-item-expand {
   svg
   path,
 .kmt-icon-set svg,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   span.kmt-svg-iconset.svg-baseline
   svg
   path,
@@ -2068,12 +2077,12 @@ span.kmt-svg-iconset.svg-baseline svg circle {
   path,
 .active-radio .kmt-icon-set svg,
 .active-radio .kmt-icon-set svg,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   input:checked
   + .kmt-radio-img-svg
   svg
   path,
-#customize-control-kmtra-settings-header-trigger-icon
+#customize-control-kemet-settings-header-trigger-icon
   input:checked
   + .kmt-radio-img-svg
   svg
@@ -5309,7 +5318,7 @@ i.fipicon-angle-left:before {
   opacity: 1;
   visibility: visible;
 }
-.rtl #kmtra-reset.button {
+.rtl #kemet-reset.button {
   margin-left: 45px;
 }
 .rtl
@@ -5319,26 +5328,26 @@ i.fipicon-angle-left:before {
   right: unset;
 }
 
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-builder-area-content
   .sortable-ghost[data-id="mobile-trigger"],
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .popup-vertical-group
   .kmt-builder-area-content
   .sortable-ghost[data-id^="menu-"],
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-builder-area-content
   .sortable-ghost[data-id="mobile-trigger"],
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .popup-vertical-group
   .kmt-builder-area-content
   .sortable-ghost[data-id^="menu-"],
-#customize-control-kmtra-settings-header-desktop-items
+#customize-control-kemet-settings-header-desktop-items
   .kmt-builder-row-items
   .sortable-ghost[data-id="mobile-menu"],
-#customize-control-kmtra-settings-header-mobile-items
+#customize-control-kemet-settings-header-mobile-items
   .kmt-builder-row-items
   .sortable-ghost[data-id="mobile-menu"] {
   background: #fff;

@@ -11,7 +11,20 @@ const RowComponent = (props) => {
   let layout = "";
   let zone_count = 0;
   let enableRow = true;
-
+  let panel = "";
+  if ("header" === mode) {
+    switch (props.row) {
+      case "top":
+        panel = "section-topbar-header";
+        break;
+      case "main":
+        panel = "section-header";
+        break;
+      case "bottom":
+        panel = "section-header";
+        break;
+    }
+  }
   if ("footer" === mode) {
     layout = `kmt-grid-row-layout-${props.layout[props.row].layout.desktop}`;
     zone_count = props.layout[props.row].column - 1;
@@ -21,7 +34,6 @@ const RowComponent = (props) => {
       }
     });
   }
-  console.log(props.row + " " + mode);
   if (
     "popup" !== props.row &&
     "kemet-settings[header-desktop-items]" === props.controlParams.group &&
@@ -39,22 +51,22 @@ const RowComponent = (props) => {
 
   if (props.controlParams.hasOwnProperty("status")) {
     switch (props.row) {
-      case "above":
-        if (!props.controlParams.status.above) {
+      case "top":
+        if (!props.controlParams.status.top) {
           enableRow = false;
         }
 
         break;
 
-      case "primary":
-        if (!props.controlParams.status.primary) {
+      case "main":
+        if (!props.controlParams.status.main) {
           enableRow = false;
         }
 
         break;
 
-      case "below":
-        if (!props.controlParams.status.below) {
+      case "bottom":
+        if (!props.controlParams.status.bottom) {
           enableRow = false;
         }
 
@@ -63,7 +75,7 @@ const RowComponent = (props) => {
   }
   return (
     <div
-      className={`kmt-builder-area kmt-builder-mode-${mode} ${centerClass}`}
+      className={`kmt-builder-areas kmt-builder-mode-${mode} ${centerClass}`}
       data-row={props.row}
       data-row-section={"section-" + props.row + "-" + mode + "-builder"}
     >
@@ -75,11 +87,66 @@ const RowComponent = (props) => {
             : (props.row + " " + mode).charAt(0).toUpperCase() +
               (props.row + " " + mode).slice(1).toLowerCase()
         }
-        // onClick={() => props.focusPanel(props.row + "-" + mode)}
+        onClick={() => props.focusPanel(panel)}
       >
         <Dashicon icon="admin-generic" />
         {props.row === "popup" && <>{__("Off Canvas", "kemet")}</>}
       </Button>
+
+      <div
+        className={`kmt-builder-group kmt-builder-group-horizontal ${layout}`}
+        data-setting={props.row}
+      >
+        {Object.keys(props.controlParams.zones[props.row]).map(
+          (zone, index) => {
+            if (
+              props.row + "_left_center" === zone ||
+              props.row + "_right_center" === zone
+            ) {
+              return;
+            }
+            if (
+              "kemet-settings[header-desktop-items]" ===
+                props.controlParams.group &&
+              props.row + "_left" === zone
+            ) {
+              besideItems = props.items[props.row + "_left_center"];
+            }
+            if (
+              "kemet-settings[header-desktop-items]" ===
+                props.controlParams.group &&
+              props.row + "_right" === zone
+            ) {
+              besideItems = props.items[props.row + "_right_center"];
+            }
+            return (
+              <DropComponent
+                removeItem={(remove, removeRow, removeZone) =>
+                  props.removeItem(remove, removeRow, removeZone)
+                }
+                showDrop={() => props.showDrop()}
+                onUpdate={(updateRow, updateZone, updateItems) =>
+                  props.onUpdate(updateRow, updateZone, updateItems)
+                }
+                zone={zone}
+                row={props.row}
+                choices={props.choices}
+                key={zone}
+                mode={mode}
+                items={props.items[zone]}
+                centerItems={besideItems}
+                controlParams={props.controlParams}
+                onAddItem={(updateRow, updateZone, updateItems) =>
+                  props.onAddItem(updateRow, updateZone, updateItems)
+                }
+                hideDrop={() => props.hideDrop()}
+                settings={props.settings}
+                focusItem={(focus) => props.focusItem(focus)}
+              />
+            );
+          }
+        )}
+      </div>
     </div>
   );
 };

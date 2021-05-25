@@ -155,7 +155,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				)
 			);
 
-			wp_enqueue_style( 'kemet-react-customizer-controls-css', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/builder-control' . $css_prefix, null, KEMET_THEME_VERSION );
+			wp_enqueue_style(
+				'kemet-react-customizer-controls-css',
+				KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/builder-control' . $css_prefix,
+				array( 'wp-components' ),
+				KEMET_THEME_VERSION
+			);
 		}
 		/**
 		 * Section Scripts

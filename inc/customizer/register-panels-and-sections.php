@@ -46,6 +46,32 @@ $wp_customize->add_section(
 	)
 );
 
+/**
+ * Layout Panel
+ */
+$wp_customize->add_panel(
+	new Kemet_WP_Customize_Panel(
+		$wp_customize,
+		'panel-header-builder-group',
+		array(
+			'priority' => 10,
+			'title'    => __( 'Header Builder', 'kemet' ),
+		)
+	)
+);
+
+/*
+* Header Builder section
+*/
+$wp_customize->add_section(
+	'section-header-builder',
+	array(
+		'priority' => 5,
+		'title'    => __( 'Header Builder', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	)
+);
+
 // Layout Panel Header Header.
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(
@@ -53,9 +79,8 @@ $wp_customize->add_section(
 		'section-header',
 		array(
 			'title'    => __( 'Header', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'section'  => 'section-header-group',
-			'priority' => 5,
+			'panel'    => 'panel-header-builder-group',
+			'priority' => 10,
 		)
 	)
 );
@@ -67,9 +92,8 @@ $wp_customize->add_section(
 		'section-menu-header',
 		array(
 			'title'    => __( 'Main Menu', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'section'  => 'section-header-group',
-			'priority' => 10,
+			'panel'    => 'panel-header-builder-group',
+			'priority' => 15,
 		)
 	)
 );
@@ -201,18 +225,6 @@ $wp_customize->add_section(
 	array(
 		'priority' => 50,
 		'title'    => __( 'Buttons & Fields', 'kemet' ),
-	)
-);
-
-/*
-* Header Builder section
-*/
-$wp_customize->add_section(
-	'section-header-builder',
-	array(
-		'priority' => 5,
-		'title'    => __( 'Header Builder', 'kemet' ),
-		'panel'    => 'panel-header-builder-group',
 	)
 );
 
