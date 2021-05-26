@@ -29,3 +29,8 @@ textarea {
   input[type="text"].wp-color-picker {
   width: 65px !important;
 }
+
+.customize-control-kmt-color .description.customize-control-description {
+  cursor: auto;
+  display: inline-block;
+}
