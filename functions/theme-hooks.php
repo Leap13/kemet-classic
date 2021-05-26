@@ -151,6 +151,13 @@ function kemet_sitehead_bottom() {
 }
 
 /**
+ * Main Header
+ */
+function kemet_main_header() {
+	do_action( 'kemet_main_header' );
+}
+
+/**
  * Main Header bar top
  */
 function kemet_main_header_bar_top() {

@@ -39,6 +39,12 @@ $wp_customize->add_setting(
 		'default'           => $defaults['header-desktop-items'],
 		'type'              => 'option',
 		'sanitize_callback' => false,
+		'context'           => array(
+			array(
+				'setting' => '_device',
+				'value'   => 'desktop',
+			),
+		),
 	)
 );
 
@@ -82,12 +88,12 @@ $wp_customize->add_control(
 			'partial'     => array(
 				'selector'            => '#sitehead',
 				'container_inclusive' => true,
-				'render_callback'     => 'kemet_header_builder_markup',
+				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
 			),
 			'input_attrs' => array(
-				'group'   => 'header-desktop-items',
-				'rows'    => array( 'popup', 'top', 'main', 'bottom' ),
-				'zones'   => array(
+				'group' => 'header-desktop-items',
+				'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
+				'zones' => array(
 					'popup'  => array(
 						'popup_content' => 'Popup Content',
 					),
@@ -111,12 +117,6 @@ $wp_customize->add_control(
 						'bottom_center'       => 'Bottom - Center',
 						'bottom_right_center' => 'Bottom - Right Center',
 						'bottom_right'        => 'Bottom - Right',
-					),
-				),
-				'context' => array(
-					array(
-						'setting' => '_device',
-						'value'   => 'desktop',
 					),
 				),
 			),

@@ -10,7 +10,7 @@
  */
 
 add_action( 'kemet_sitehead_toggle_buttons', 'kemet_sitehead_toggle_buttons_primary' );
-add_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
+// add_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
 add_filter( 'wp_page_menu_args', 'kemet_sitehead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_sitehead_custom_nav_menu_items', 10, 2 );
 add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );

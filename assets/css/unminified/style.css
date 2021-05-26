@@ -4513,6 +4513,120 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	text-align: center;
 }
 
+.kmt-main-header-wrap {
+	position: relative;
+}
+
+.site-main-header-wrap {
+	min-height: 70px;
+}
+
+.kmt-builder-grid-row-container {
+	display: grid;
+
+	-webkit-align-content: center;
+	align-content: center;
+	-ms-flex-line-pack: center;
+}
+
+.kmt-container[class*="section-header-"] {
+	position: relative;
+}
+
+.kmt-container[class*="section-header-"] [class*="site-header-"] {
+	position: relative;
+}
+
+.kmt-grid-row {
+	display: grid;
+
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	grid-column-gap: 20px;
+	grid-template-columns: auto auto;
+	overflow-wrap: anywhere;
+}
+
+.kmt-grid-row.kmt-has-center-items {
+	grid-template-columns: 1fr auto 1fr;
+}
+
+.kmt-grid-row.kmt-has-center-items-only {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 100%;
+
+	-js-display: flex;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.site-header-section {
+	height: 100%;
+	min-height: 0;
+
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+}
+
+.kmt-grid-right-section {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.site-header-section > * {
+	padding: 0 10px;
+}
+
+.site-header-section > div:last-child {
+	padding-right: 0;
+}
+
+.site-header-section > div:first-child {
+	padding-left: 0;
+}
+
+.kmt-grid-left-center-section {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-ms-flex-pack: end;
+	-ms-flex-positive: 1;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.kmt-grid-right-center-section {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-ms-flex-pack: start;
+	-ms-flex-positive: 1;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+
 /* 7 - Header Toggle Buttons */
 .kmt-header-break-point .kmt-mobile-menu-buttons {
 	display: -webkit-box;

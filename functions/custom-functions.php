@@ -563,13 +563,6 @@ if ( ! function_exists( 'kemet_header_markup' ) ) {
 add_action( 'kemet_header', 'kemet_header_markup' );
 
 /**
- * Function to get site Header
- */
-function kemet_header_builder_markup() {
-	error_log( 'Worked' );
-	 do_action( 'kemet_header' );
-}
-/**
  * Function to get Header Right Section
  */
 if ( ! function_exists( 'kemet_header_get_right_section' ) ) {

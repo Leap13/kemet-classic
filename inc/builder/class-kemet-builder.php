@@ -1,0 +1,50 @@
+<?php
+/**
+ * Kemet Builder
+ *
+ * @package Kemet Theme
+ */
+
+/**
+ * Kemet Builder
+ */
+if ( ! class_exists( 'Kemet_Builder' ) ) :
+
+	/**
+	 * Kemet Builder
+	 */
+	class Kemet_Builder {
+		/**
+		 * Instance
+		 *
+		 * @access private
+		 * @var object
+		 */
+		private static $instance;
+
+		/**
+		 * Initiator
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
+
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
+            // @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require KEMET_THEME_DIR . 'inc/builder/class-builder-helper.php';
+			require KEMET_THEME_DIR . 'inc/builder/markup/class-kemet-header-markup.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		}
+	}
+
+	/**
+	 * Kicking this off by calling 'get_instance()' method
+	 */
+	Kemet_Builder::get_instance();
+endif;

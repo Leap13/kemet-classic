@@ -48,6 +48,7 @@ require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog.php';
 require_once KEMET_THEME_DIR . 'inc/blog/single-blog.php';
+require_once KEMET_THEME_DIR . 'inc/builder/class-kemet-builder.php';
 require_once KEMET_THEME_DIR . 'functions/template-parts.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-loop.php';
 
