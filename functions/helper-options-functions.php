@@ -869,3 +869,20 @@ function content_layout( $default ) {
 	return $default;
 }
 add_filter( 'kemet_get_content_layout', 'content_layout' );
+
+/**
+ * Get All Categories
+ */
+function kemet_get_all_categories() {
+	$categories = get_categories( array( 'hide_empty' => false ) );
+	$cats       = array(
+		'' => 'Select Category',
+	);
+	/* build categories */
+	if ( ! empty( $categories ) ) {
+		foreach ( $categories as $category ) {
+			$cats[ $category->term_id ] = $category->name;
+		}
+	}
+	return $cats;
+}
