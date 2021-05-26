@@ -11,17 +11,17 @@ const RowComponent = (props) => {
   let layout = "";
   let zone_count = 0;
   let enableRow = true;
-  let panel = "";
+  let section = "";
   if ("header" === mode) {
     switch (props.row) {
       case "top":
-        panel = "section-topbar-header";
+        section = "section-topbar-header";
         break;
       case "main":
-        panel = "section-header";
+        section = "section-header";
         break;
       case "bottom":
-        panel = "section-header";
+        section = "section-header";
         break;
     }
   }
@@ -36,7 +36,7 @@ const RowComponent = (props) => {
   }
   if (
     "popup" !== props.row &&
-    "kemet-settings[header-desktop-items]" === props.controlParams.group &&
+    "header-desktop-items" === props.controlParams.group &&
     typeof props.items[props.row + "_center"] != "undefined" &&
     props.items[props.row + "_center"] != null &&
     props.items[props.row + "_center"].length != null &&
@@ -87,7 +87,7 @@ const RowComponent = (props) => {
             : (props.row + " " + mode).charAt(0).toUpperCase() +
               (props.row + " " + mode).slice(1).toLowerCase()
         }
-        onClick={() => props.focusPanel(panel)}
+        onClick={() => props.focusSection(section)}
       >
         <Dashicon icon="admin-generic" />
         {props.row === "popup" && <>{__("Off Canvas", "kemet")}</>}
@@ -106,15 +106,13 @@ const RowComponent = (props) => {
               return;
             }
             if (
-              "kemet-settings[header-desktop-items]" ===
-                props.controlParams.group &&
+              "header-desktop-items" === props.controlParams.group &&
               props.row + "_left" === zone
             ) {
               besideItems = props.items[props.row + "_left_center"];
             }
             if (
-              "kemet-settings[header-desktop-items]" ===
-                props.controlParams.group &&
+              "header-desktop-items" === props.controlParams.group &&
               props.row + "_right" === zone
             ) {
               besideItems = props.items[props.row + "_right_center"];
@@ -141,7 +139,7 @@ const RowComponent = (props) => {
                 }
                 hideDrop={() => props.hideDrop()}
                 settings={props.settings}
-                focusItem={(focus) => props.focusItem(focus)}
+                focusSection={(focus) => props.focusSection(focus)}
               />
             );
           }

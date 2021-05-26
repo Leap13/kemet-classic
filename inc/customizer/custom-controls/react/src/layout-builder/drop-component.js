@@ -52,13 +52,12 @@ const DropComponent = (props) => {
     currentCenterList = sortCurrentCenterList;
   }
   const addSortable = (items, list, listLocation) => {
-    let id = listLocation.replace(props.row + "_", "-");
+    let id = listLocation.replace("_", "-");
     return (
       <Fragment>
         <ReactSortable
           animation={100}
           onStart={() => props.showDrop()}
-          // onEnd={() => props.hideDrop()}
           group={props.controlParams.group}
           className={`kmt-builder-drop kmt-builder-sortable-panel kmt-builder-drop-${
             location + id
@@ -80,18 +79,19 @@ const DropComponent = (props) => {
                       props.zone + listLocation
                     )
                   }
-                  focusItem={(focus) => props.focusItem(focus)}
+                  focusSection={(focus) => props.focusSection(focus)}
                   key={item}
                   index={index}
                   item={item}
                   controlParams={props.controlParams}
+                  choices={props.choices}
                 />
               );
             })}
         </ReactSortable>
         <AddComponent
           row={props.row}
-          list={list}
+          list={items}
           settings={props.settings}
           column={props.zone + listLocation}
           setList={(newState) =>
@@ -99,7 +99,7 @@ const DropComponent = (props) => {
           }
           key={location}
           location={location + listLocation}
-          id={"add-center-" + location}
+          id={"add" + id + "-" + location}
           controlParams={props.controlParams}
           choices={props.choices}
         />
@@ -120,11 +120,11 @@ const DropComponent = (props) => {
       className={`kmt-builder-area kmt-builder-area-${location}`}
       data-location={props.zone}
     >
-      {"kemet-settings[header-desktop-items]" === props.controlParams.group &&
+      {"header-desktop-items" === props.controlParams.group &&
         location == "right" &&
         addSortable(theCenterItems, currentCenterList, "_center")}
       {addSortable(theItems, currentList, "")}
-      {"kemet-settings[header-desktop-items]" === props.controlParams.group &&
+      {"header-desktop-items" === props.controlParams.group &&
         location == "left" &&
         addSortable(theCenterItems, currentCenterList, "_center")}
     </div>

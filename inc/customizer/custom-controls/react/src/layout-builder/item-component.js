@@ -1,49 +1,39 @@
 const { Dashicon, Button } = wp.components;
 const { __ } = wp.i18n;
 
-const ItemComponent = (props) => {
-  let choices =
-    KemetCustomizerData &&
-    KemetCustomizerData.choices &&
-    KemetCustomizerData.choices[props.controlParams.group]
-      ? KemetCustomizerData.choices[props.controlParams.group]
-      : [];
+const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
   return (
     <div
       className="kmt-builder-item"
-      data-id={props.item}
+      data-id={item}
       data-section={
-        undefined !== choices[props.item] &&
-        undefined !== choices[props.item].section
-          ? choices[props.item].section
+        undefined !== choices[item] && undefined !== choices[item].section
+          ? choices[item].section
           : ""
       }
-      key={props.item}
+      key={item}
     >
       <span className="kmt-builder-item-icon kmt-move-icon">
         <Dashicon icon="move" />
       </span>
       <span className="kmt-builder-item-text">
-        {undefined !== choices[props.item] &&
-        undefined !== choices[props.item].name
-          ? choices[props.item].name
+        {undefined !== choices[item] && undefined !== choices[item].name
+          ? choices[item].name
           : ""}
       </span>
       <Button
         className="kmt-builder-item-focus-icon kmt-builder-item-icon"
         aria-label={
-          __("Setting settings for", "kemet") +
+          __("Settings for", "kemet") +
           " " +
-          (undefined !== choices[props.item] &&
-          undefined !== choices[props.item].name
-            ? choices[props.item].name
+          (undefined !== choices[item] && undefined !== choices[item].name
+            ? choices[item].name
             : "")
         }
         onClick={() => {
-          props.focusItem(
-            undefined !== choices[props.item] &&
-              undefined !== choices[props.item].section
-              ? choices[props.item].section
+          focusSection(
+            undefined !== choices[item] && undefined !== choices[item].section
+              ? choices[item].section
               : ""
           );
         }}
@@ -55,13 +45,12 @@ const ItemComponent = (props) => {
         aria-label={
           __("Remove", "kemet") +
           " " +
-          (undefined !== choices[props.item] &&
-          undefined !== choices[props.item].name
-            ? choices[props.item].name
+          (undefined !== choices[item] && undefined !== choices[item].name
+            ? choices[item].name
             : "")
         }
         onClick={() => {
-          props.removeItem(props.item);
+          removeItem(item);
         }}
       >
         <Dashicon icon="no-alt" />

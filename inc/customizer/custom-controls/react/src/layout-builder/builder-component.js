@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 import PropTypes from "prop-types";
 import RowComponent from "./row-component";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const BuilderComponent = (props) => {
   let value = props.control.setting.get();
@@ -31,31 +31,17 @@ const BuilderComponent = (props) => {
       }
     : defaultParams;
 
-  let choices =
-    KemetCustomizerData &&
-    KemetCustomizerData.choices &&
-    KemetCustomizerData.choices[controlParams.group]
-      ? KemetCustomizerData.choices[controlParams.group]
-      : [];
-  const prevItems = [];
-  prevItems["revertDrag"] = false;
+  let choices = props.control.params.choices
+    ? props.control.params.choices
+    : [];
+
   const [state, setState] = useState({
     value: value,
-    prevItems: prevItems,
     isPopup: false,
   });
   let enablePopup = false;
-  if (props.control.container) {
-    enablePopup = props.control.container[0].getAttribute("hasPopup");
-  }
-  if (
-    "kemet-settings[header-desktop-items]" === controlParams.group ||
-    "kemet-settings[header-mobile-items]" === controlParams.group
-  ) {
-    staleValue = JSON.parse(JSON.stringify(state.value));
-  }
 
-  const updateValues = (value, row = "") => {
+  const updateValues = (value) => {
     let setting = props.control.setting;
 
     setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
@@ -74,11 +60,11 @@ const BuilderComponent = (props) => {
       dragZones[i].classList.remove("kmt-dragging-dropzones");
     }
 
-    setPopupFlag(true);
+    checkPopupVisibilty(true);
   };
   const onDragEnd = (row, zone, items) => {
-    let updateState = state.value;
-    let update = updateState[row];
+    let controlValue = state.value;
+    let rowValue = controlValue[row];
     let updateItems = [];
     {
       items.length > 0 &&
@@ -87,41 +73,43 @@ const BuilderComponent = (props) => {
         });
     }
 
-    if (!arraysEqual(update[zone], updateItems)) {
-      update[zone] = updateItems;
-      updateState[row][zone] = updateItems;
+    if (!arraysEqual(rowValue[zone], updateItems)) {
+      rowValue[zone] = updateItems;
+      controlValue[row][zone] = updateItems;
+
       if (
-        "kemet-settings[header-desktop-items]" === controlParams.group &&
+        "header-desktop-items" === controlParams.group &&
         row + "_center" === zone &&
         updateItems.length === 0
       ) {
-        if (update[row + "_left_center"].length > 0) {
-          update[row + "_left_center"].map((move) => {
-            updateState[row][row + "_left"].push(move);
+        console.log("Center");
+        if (rowValue[row + "_left_center"].length > 0) {
+          rowValue[row + "_left_center"].map((move) => {
+            controlValue[row][row + "_left"].push(move);
           });
-          updateState[row][row + "_left_center"] = [];
+          controlValue[row][row + "_left_center"] = [];
         }
 
-        if (update[row + "_right_center"].length > 0) {
-          update[row + "_right_center"].map((move) => {
-            updateState[row][row + "_right"].push(move);
+        if (rowValue[row + "_right_center"].length > 0) {
+          rowValue[row + "_right_center"].map((move) => {
+            controlValue[row][row + "_right"].push(move);
           });
-          updateState[row][row + "_right_center"] = [];
+          controlValue[row][row + "_right_center"] = [];
         }
       }
-      setPopupFlag(true);
+      checkPopupVisibilty(true);
       setState((prevState) => ({
         ...prevState,
-        value: updateState,
+        value: controlValue,
       }));
 
-      updateValues(updateState, row);
+      updateValues(controlValue);
     }
   };
 
   const onAddItem = (row, zone, items) => {
     onDragEnd(row, zone, items);
-    let event = new CustomEvent("kemetRemovedBuilderItem", {
+    let event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group,
     });
     document.dispatchEvent(event);
@@ -149,7 +137,7 @@ const BuilderComponent = (props) => {
     }
 
     if (
-      "kemet-settings[header-desktop-items]" === controlParams.group &&
+      "header-desktop-items" === controlParams.group &&
       row + "_center" === zone &&
       updateItems.length === 0
     ) {
@@ -171,40 +159,35 @@ const BuilderComponent = (props) => {
     update[zone] = updateItems;
     updateState[row][zone] = updateItems;
 
-    setPopupFlag(true);
+    checkPopupVisibilty(true);
 
     setState((prevState) => ({
       ...prevState,
       value: updateState,
     }));
 
-    updateValues(updateState, row);
+    updateValues(updateState);
     let event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group,
     });
     document.dispatchEvent(event);
   };
-  const focusItem = (item) => {
-    if (undefined !== props.customizer.section(item)) {
-      props.customizer.section(item).focus();
-    }
-  };
 
-  const focusPanel = (item) => {
+  const focusSection = (item) => {
     if (undefined !== props.customizer.section(item)) {
       props.customizer.section(item).focus();
     }
   };
-  const setPopupFlag = (refresh) => {
+  const checkPopupVisibilty = (refresh) => {
     let hasPopup = false;
-    if ("kemet-settings[header-desktop-items]" === props.control.id) {
+    if ("header-desktop-items" === controlParams.group) {
       controlParams.rows.map((row) => {
         if (inObject(state.value[row], "toggle-button")) {
           hasPopup = true;
         }
       });
     }
-    if ("kemet-settings[header-mobile-items]" === props.control.id) {
+    if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map((row) => {
         if (inObject(state.value[row], "toggle-mobile")) {
           hasPopup = true;
@@ -229,7 +212,7 @@ const BuilderComponent = (props) => {
     return false;
   };
 
-  setPopupFlag(false);
+  checkPopupVisibilty(false);
   return (
     <div className="kmt-control-field kmt-builder-items">
       {(true === state.isPopup || true === enablePopup) && (
@@ -247,8 +230,7 @@ const BuilderComponent = (props) => {
           onAddItem={(updateRow, updateZone, updateItems) =>
             onAddItem(updateRow, updateZone, updateItems)
           }
-          focusItem={(item) => focusItem(item)}
-          focusPanel={(item) => focusPanel(item)}
+          focusSection={(item) => focusSection(item)}
           hideDrop={() => onDragStop()}
           settings={state.value}
         />
@@ -271,8 +253,7 @@ const BuilderComponent = (props) => {
               onAddItem={(updateRow, updateZone, updateItems) =>
                 onAddItem(updateRow, updateZone, updateItems)
               }
-              focusItem={(item) => focusItem(item)}
-              focusPanel={(item) => focusPanel(item)}
+              focusSection={(item) => focusSection(item)}
               hideDrop={() => onDragStop()}
               items={state.value[row]}
               controlParams={controlParams}
@@ -284,6 +265,11 @@ const BuilderComponent = (props) => {
       </div>
     </div>
   );
+};
+
+BuilderComponent.propTypes = {
+  control: PropTypes.object.isRequired,
+  customizer: PropTypes.func.isRequired,
 };
 
 export default React.memo(BuilderComponent);

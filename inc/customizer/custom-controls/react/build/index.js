@@ -5524,25 +5524,17 @@ wp.customize.controlConstructor["kmt-builder"] = _layout_builder_control_js__WEB
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -5555,21 +5547,15 @@ var _wp$components = wp.components,
 var Fragment = wp.element.Fragment;
 
 var AddComponent = function AddComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
-    isVisible: false
-  }),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      visible = _useState2[0],
+      setVisible = _useState2[1];
 
   var addItem = function addItem(item, row, column) {
     var setList = props.setList,
         list = props.list;
-    setState(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        isVisible: false
-      });
-    });
+    setVisible(false);
     var updateItems = list;
     updateItems.push({
       id: item
@@ -5603,59 +5589,51 @@ var AddComponent = function AddComponent(props) {
       available = false;
     }
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Fragment, {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Fragment, {
       key: item
-    }, available && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
+    }, available && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Button, {
       isTertiary: true,
       className: "builder-add-btn",
       onClick: function onClick() {
         addItem(item, props.row, props.column);
       }
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "add-btn-icon"
-    }, " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
+    }, " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Dashicon, {
       icon: undefined !== choices[item] && undefined !== choices[item].icon ? choices[item].icon : ""
-    }), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    }), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "add-btn-title"
     }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : "")));
   };
 
   var toggleClose = function toggleClose() {
-    if (state.isVisible === true) {
-      setState(function (prevState) {
-        return _objectSpread(_objectSpread({}, prevState), {}, {
-          isVisible: false
-        });
-      });
+    if (visible === true) {
+      setVisible(false);
     }
   };
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("kmt-builder-add-item", ("kemet-settings[header-desktop-items]" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "right" === location ? "center-on-left" : null, ("kemet-settings[header-desktop-items]" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "left" === location ? "center-on-right" : null, ("kemet-settings[header-desktop-items]" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "left_center" === location ? "right-center-on-right" : null, ("kemet-settings[header-desktop-items]" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "right_center" === location ? "left-center-on-left" : null),
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-builder-add-item", ("header-desktop-items" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "right" === location ? "center-on-left" : null, ("header-desktop-items" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "left" === location ? "center-on-right" : null, ("header-desktop-items" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "left_center" === location ? "right-center-on-right" : null, ("header-desktop-items" === controlParams.group || "kemet-settings[footer-desktop-items]" === controlParams.group) && "right_center" === location ? "left-center-on-left" : null),
     key: id
-  }, state.isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Popover, {
+  }, visible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Popover, {
     position: "top",
     className: "kmt-popover-add-builder",
     onClose: toggleClose
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-popover-builder-list"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(ButtonGroup, {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(ButtonGroup, {
     className: "kmt-radio-container-control"
   }, Object.keys(choices).sort().map(function (item) {
     return renderItems(item, row, column);
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Button, {
     className: "kmt-builder-item-add-icon dashicon dashicons-plus-alt2",
     onClick: function onClick() {
-      setState(function (prevState) {
-        return _objectSpread(_objectSpread({}, prevState), {}, {
-          isVisible: true
-        });
-      });
+      setVisible(true);
     }
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (AddComponent);
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(AddComponent));
 
 /***/ }),
 
@@ -5700,13 +5678,10 @@ var BuilderComponent = function BuilderComponent(props) {
   value = value ? _objectSpread(_objectSpread({}, defaultValue), value) : defaultValue;
   var defaultParams = {};
   var controlParams = props.control.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.control.params.input_attrs) : defaultParams;
-  var choices = KemetCustomizerData && KemetCustomizerData.choices && KemetCustomizerData.choices[controlParams.group] ? KemetCustomizerData.choices[controlParams.group] : [];
-  var prevItems = [];
-  prevItems["revertDrag"] = false;
+  var choices = props.control.params.choices ? props.control.params.choices : [];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
     value: value,
-    prevItems: prevItems,
     isPopup: false
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
@@ -5715,16 +5690,7 @@ var BuilderComponent = function BuilderComponent(props) {
 
   var enablePopup = false;
 
-  if (props.control.container) {
-    enablePopup = props.control.container[0].getAttribute("hasPopup");
-  }
-
-  if ("kemet-settings[header-desktop-items]" === controlParams.group || "kemet-settings[header-mobile-items]" === controlParams.group) {
-    staleValue = JSON.parse(JSON.stringify(state.value));
-  }
-
   var updateValues = function updateValues(value) {
-    var row = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
     var setting = props.control.setting;
     setting.set(_objectSpread(_objectSpread(_objectSpread({}, setting.get()), value), {}, {
       flag: !setting.get().flag
@@ -5746,12 +5712,12 @@ var BuilderComponent = function BuilderComponent(props) {
       dragZones[i].classList.remove("kmt-dragging-dropzones");
     }
 
-    setPopupFlag(true);
+    checkPopupVisibilty(true);
   };
 
   var onDragEnd = function onDragEnd(row, zone, items) {
-    var updateState = state.value;
-    var update = updateState[row];
+    var controlValue = state.value;
+    var rowValue = controlValue[row];
     var updateItems = [];
     {
       items.length > 0 && items.map(function (item) {
@@ -5759,39 +5725,41 @@ var BuilderComponent = function BuilderComponent(props) {
       });
     }
 
-    if (!arraysEqual(update[zone], updateItems)) {
-      update[zone] = updateItems;
-      updateState[row][zone] = updateItems;
+    if (!arraysEqual(rowValue[zone], updateItems)) {
+      rowValue[zone] = updateItems;
+      controlValue[row][zone] = updateItems;
 
-      if ("kemet-settings[header-desktop-items]" === controlParams.group && row + "_center" === zone && updateItems.length === 0) {
-        if (update[row + "_left_center"].length > 0) {
-          update[row + "_left_center"].map(function (move) {
-            updateState[row][row + "_left"].push(move);
+      if ("header-desktop-items" === controlParams.group && row + "_center" === zone && updateItems.length === 0) {
+        console.log("Center");
+
+        if (rowValue[row + "_left_center"].length > 0) {
+          rowValue[row + "_left_center"].map(function (move) {
+            controlValue[row][row + "_left"].push(move);
           });
-          updateState[row][row + "_left_center"] = [];
+          controlValue[row][row + "_left_center"] = [];
         }
 
-        if (update[row + "_right_center"].length > 0) {
-          update[row + "_right_center"].map(function (move) {
-            updateState[row][row + "_right"].push(move);
+        if (rowValue[row + "_right_center"].length > 0) {
+          rowValue[row + "_right_center"].map(function (move) {
+            controlValue[row][row + "_right"].push(move);
           });
-          updateState[row][row + "_right_center"] = [];
+          controlValue[row][row + "_right_center"] = [];
         }
       }
 
-      setPopupFlag(true);
+      checkPopupVisibilty(true);
       setState(function (prevState) {
         return _objectSpread(_objectSpread({}, prevState), {}, {
-          value: updateState
+          value: controlValue
         });
       });
-      updateValues(updateState, row);
+      updateValues(controlValue);
     }
   };
 
   var _onAddItem = function onAddItem(row, zone, items) {
     onDragEnd(row, zone, items);
-    var event = new CustomEvent("kemetRemovedBuilderItem", {
+    var event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group
     });
     document.dispatchEvent(event);
@@ -5821,7 +5789,7 @@ var BuilderComponent = function BuilderComponent(props) {
       });
     }
 
-    if ("kemet-settings[header-desktop-items]" === controlParams.group && row + "_center" === zone && updateItems.length === 0) {
+    if ("header-desktop-items" === controlParams.group && row + "_center" === zone && updateItems.length === 0) {
       if (update[row + "_left_center"].length > 0) {
         update[row + "_left_center"].map(function (move) {
           updateState[row][row + "_left"].push(move);
@@ -5839,35 +5807,29 @@ var BuilderComponent = function BuilderComponent(props) {
 
     update[zone] = updateItems;
     updateState[row][zone] = updateItems;
-    setPopupFlag(true);
+    checkPopupVisibilty(true);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         value: updateState
       });
     });
-    updateValues(updateState, row);
+    updateValues(updateState);
     var event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group
     });
     document.dispatchEvent(event);
   };
 
-  var _focusItem = function focusItem(item) {
+  var _focusSection = function focusSection(item) {
     if (undefined !== props.customizer.section(item)) {
       props.customizer.section(item).focus();
     }
   };
 
-  var _focusPanel = function focusPanel(item) {
-    if (undefined !== props.customizer.section(item)) {
-      props.customizer.section(item).focus();
-    }
-  };
-
-  var setPopupFlag = function setPopupFlag(refresh) {
+  var checkPopupVisibilty = function checkPopupVisibilty(refresh) {
     var hasPopup = false;
 
-    if ("kemet-settings[header-desktop-items]" === props.control.id) {
+    if ("header-desktop-items" === controlParams.group) {
       controlParams.rows.map(function (row) {
         if (inObject(state.value[row], "toggle-button")) {
           hasPopup = true;
@@ -5875,7 +5837,7 @@ var BuilderComponent = function BuilderComponent(props) {
       });
     }
 
-    if ("kemet-settings[header-mobile-items]" === props.control.id) {
+    if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map(function (row) {
         if (inObject(state.value[row], "toggle-mobile")) {
           hasPopup = true;
@@ -5908,7 +5870,7 @@ var BuilderComponent = function BuilderComponent(props) {
     return false;
   };
 
-  setPopupFlag(false);
+  checkPopupVisibilty(false);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-control-field kmt-builder-items"
   }, (true === state.isPopup || true === enablePopup) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_row_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -5929,11 +5891,8 @@ var BuilderComponent = function BuilderComponent(props) {
     onAddItem: function onAddItem(updateRow, updateZone, updateItems) {
       return _onAddItem(updateRow, updateZone, updateItems);
     },
-    focusItem: function focusItem(item) {
-      return _focusItem(item);
-    },
-    focusPanel: function focusPanel(item) {
-      return _focusPanel(item);
+    focusSection: function focusSection(item) {
+      return _focusSection(item);
     },
     hideDrop: function hideDrop() {
       return onDragStop();
@@ -5961,11 +5920,8 @@ var BuilderComponent = function BuilderComponent(props) {
       onAddItem: function onAddItem(updateRow, updateZone, updateItems) {
         return _onAddItem(updateRow, updateZone, updateItems);
       },
-      focusItem: function focusItem(item) {
-        return _focusItem(item);
-      },
-      focusPanel: function focusPanel(item) {
-        return _focusPanel(item);
+      focusSection: function focusSection(item) {
+        return _focusSection(item);
       },
       hideDrop: function hideDrop() {
         return onDragStop();
@@ -5978,6 +5934,10 @@ var BuilderComponent = function BuilderComponent(props) {
   })));
 };
 
+BuilderComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  customizer: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
+};
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(BuilderComponent));
 
 /***/ }),
@@ -6071,13 +6031,12 @@ var DropComponent = function DropComponent(props) {
   }
 
   var addSortable = function addSortable(items, list, listLocation) {
-    var id = listLocation.replace(props.row + "_", "-");
+    var id = listLocation.replace("_", "-");
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react_sortablejs__WEBPACK_IMPORTED_MODULE_2__["ReactSortable"], {
       animation: 100,
       onStart: function onStart() {
         return props.showDrop();
-      } // onEnd={() => props.hideDrop()}
-      ,
+      },
       group: props.controlParams.group,
       className: "kmt-builder-drop kmt-builder-sortable-panel kmt-builder-drop-".concat(location + id),
       list: items,
@@ -6092,17 +6051,18 @@ var DropComponent = function DropComponent(props) {
         removeItem: function removeItem(remove) {
           return props.removeItem(remove, props.row, props.zone + listLocation);
         },
-        focusItem: function focusItem(focus) {
-          return props.focusItem(focus);
+        focusSection: function focusSection(focus) {
+          return props.focusSection(focus);
         },
         key: item,
         index: index,
         item: item,
-        controlParams: props.controlParams
+        controlParams: props.controlParams,
+        choices: props.choices
       });
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_add_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
       row: props.row,
-      list: list,
+      list: items,
       settings: props.settings,
       column: props.zone + listLocation,
       setList: function setList(newState) {
@@ -6110,7 +6070,7 @@ var DropComponent = function DropComponent(props) {
       },
       key: location,
       location: location + listLocation,
-      id: "add-center-" + location,
+      id: "add" + id + "-" + location,
       controlParams: props.controlParams,
       choices: props.choices
     }));
@@ -6126,7 +6086,7 @@ var DropComponent = function DropComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-builder-area kmt-builder-area-".concat(location),
     "data-location": props.zone
-  }, "kemet-settings[header-desktop-items]" === props.controlParams.group && location == "right" && addSortable(theCenterItems, currentCenterList, "_center"), addSortable(theItems, currentList, ""), "kemet-settings[header-desktop-items]" === props.controlParams.group && location == "left" && addSortable(theCenterItems, currentCenterList, "_center"));
+  }, "header-desktop-items" === props.controlParams.group && location == "right" && addSortable(theCenterItems, currentCenterList, "_center"), addSortable(theItems, currentList, ""), "header-desktop-items" === props.controlParams.group && location == "left" && addSortable(theCenterItems, currentCenterList, "_center"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(DropComponent));
@@ -6150,32 +6110,35 @@ var _wp$components = wp.components,
     Button = _wp$components.Button;
 var __ = wp.i18n.__;
 
-var ItemComponent = function ItemComponent(props) {
-  var choices = KemetCustomizerData && KemetCustomizerData.choices && KemetCustomizerData.choices[props.controlParams.group] ? KemetCustomizerData.choices[props.controlParams.group] : [];
+var ItemComponent = function ItemComponent(_ref) {
+  var item = _ref.item,
+      choices = _ref.choices,
+      removeItem = _ref.removeItem,
+      focusSection = _ref.focusSection;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-builder-item",
-    "data-id": props.item,
-    "data-section": undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : "",
-    key: props.item
+    "data-id": item,
+    "data-section": undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "",
+    key: item
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "kmt-builder-item-icon kmt-move-icon"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "move"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "kmt-builder-item-text"
-  }, undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ""), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+  }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
-    "aria-label": __("Setting settings for", "kemet") + " " + (undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ""),
+    "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
     onClick: function onClick() {
-      props.focusItem(undefined !== choices[props.item] && undefined !== choices[props.item].section ? choices[props.item].section : "");
+      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-icon",
-    "aria-label": __("Remove", "kemet") + " " + (undefined !== choices[props.item] && undefined !== choices[props.item].name ? choices[props.item].name : ""),
+    "aria-label": __("Remove", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
     onClick: function onClick() {
-      props.removeItem(props.item);
+      removeItem(item);
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "no-alt"
@@ -6212,20 +6175,20 @@ var RowComponent = function RowComponent(props) {
   var layout = "";
   var zone_count = 0;
   var enableRow = true;
-  var panel = "";
+  var section = "";
 
   if ("header" === mode) {
     switch (props.row) {
       case "top":
-        panel = "section-topbar-header";
+        section = "section-topbar-header";
         break;
 
       case "main":
-        panel = "section-header";
+        section = "section-header";
         break;
 
       case "bottom":
-        panel = "section-header";
+        section = "section-header";
         break;
     }
   }
@@ -6240,7 +6203,7 @@ var RowComponent = function RowComponent(props) {
     });
   }
 
-  if ("popup" !== props.row && "kemet-settings[header-desktop-items]" === props.controlParams.group && typeof props.items[props.row + "_center"] != "undefined" && props.items[props.row + "_center"] != null && props.items[props.row + "_center"].length != null && props.items[props.row + "_center"].length > 0) {
+  if ("popup" !== props.row && "header-desktop-items" === props.controlParams.group && typeof props.items[props.row + "_center"] != "undefined" && props.items[props.row + "_center"] != null && props.items[props.row + "_center"].length != null && props.items[props.row + "_center"].length > 0) {
     centerClass = "has-center-items";
   }
 
@@ -6281,7 +6244,7 @@ var RowComponent = function RowComponent(props) {
     className: "kmt-row-actions",
     title: props.row === "popup" ? __("Off Canvas", "kemet") : (props.row + " " + mode).charAt(0).toUpperCase() + (props.row + " " + mode).slice(1).toLowerCase(),
     onClick: function onClick() {
-      return props.focusPanel(panel);
+      return props.focusSection(section);
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
@@ -6293,11 +6256,11 @@ var RowComponent = function RowComponent(props) {
       return;
     }
 
-    if ("kemet-settings[header-desktop-items]" === props.controlParams.group && props.row + "_left" === zone) {
+    if ("header-desktop-items" === props.controlParams.group && props.row + "_left" === zone) {
       besideItems = props.items[props.row + "_left_center"];
     }
 
-    if ("kemet-settings[header-desktop-items]" === props.controlParams.group && props.row + "_right" === zone) {
+    if ("header-desktop-items" === props.controlParams.group && props.row + "_right" === zone) {
       besideItems = props.items[props.row + "_right_center"];
     }
 
@@ -6326,8 +6289,8 @@ var RowComponent = function RowComponent(props) {
         return props.hideDrop();
       },
       settings: props.settings,
-      focusItem: function focusItem(focus) {
-        return props.focusItem(focus);
+      focusSection: function focusSection(focus) {
+        return props.focusSection(focus);
       }
     });
   })));

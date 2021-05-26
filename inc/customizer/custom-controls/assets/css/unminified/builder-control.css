@@ -651,14 +651,14 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   .kmt-builder-group-horizontal
   .kmt-builder-area-right
   .kmt-builder-drop-right,
-.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left_center {
+.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left-center {
   justify-content: flex-end;
 }
 
-.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left_center,
+.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left-center,
 .kmt-builder-areas
   .kmt-builder-group-horizontal
-  .kmt-builder-drop-right_center {
+  .kmt-builder-drop-right-center {
   width: 0px;
   flex: 0;
   overflow: hidden;
@@ -684,8 +684,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   justify-content: center;
 }
 
-.kmt-builder-areas.has-center-items .kmt-builder-drop-left_center,
-.kmt-builder-areas.has-center-items .kmt-builder-drop-right_center {
+.kmt-builder-areas.has-center-items .kmt-builder-drop-left-center,
+.kmt-builder-areas.has-center-items .kmt-builder-drop-right-center {
   width: auto;
   flex: 1;
   overflow: visible;
@@ -693,13 +693,13 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-areas.has-center-items
   .kmt-dragging-dropzones
-  .kmt-builder-drop-left_center {
+  .kmt-builder-drop-left-center {
   min-width: 100px;
 }
 
 .kmt-builder-areas.has-center-items
   .kmt-dragging-dropzones
-  .kmt-builder-drop-right_center {
+  .kmt-builder-drop-right-center {
   min-width: 100px;
 }
 
@@ -2200,10 +2200,10 @@ span.kmt-svg-iconset.svg-baseline svg circle {
   bottom: 0 !important;
 }
 
-.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left_center,
+.kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-drop-left-center,
 .kmt-builder-areas
   .kmt-builder-group-horizontal
-  .kmt-builder-drop-right_center {
+  .kmt-builder-drop-right-center {
   display: none;
 }
 
@@ -2220,8 +2220,8 @@ span.kmt-svg-iconset.svg-baseline svg circle {
   box-shadow: -3px 7px 10px rgb(0 39 36 / 7%);
 }
 
-.kmt-builder-areas.has-center-items .kmt-builder-drop-left_center,
-.kmt-builder-areas.has-center-items .kmt-builder-drop-right_center {
+.kmt-builder-areas.has-center-items .kmt-builder-drop-left-center,
+.kmt-builder-areas.has-center-items .kmt-builder-drop-right-center {
   display: flex;
 }
 

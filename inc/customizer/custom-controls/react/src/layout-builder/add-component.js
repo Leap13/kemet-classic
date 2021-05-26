@@ -6,17 +6,12 @@ const { ButtonGroup, Dashicon, Popover, Button } = wp.components;
 const { Fragment } = wp.element;
 
 const AddComponent = (props) => {
-  const [state, setState] = useState({
-    isVisible: false,
-  });
+  const [visible, setVisible] = useState(false);
 
   const addItem = (item, row, column) => {
     const { setList, list } = props;
 
-    setState((prevState) => ({
-      ...prevState,
-      isVisible: false,
-    }));
+    setVisible(false);
 
     let updateItems = list;
     updateItems.push({
@@ -83,11 +78,8 @@ const AddComponent = (props) => {
   };
 
   const toggleClose = () => {
-    if (state.isVisible === true) {
-      setState((prevState) => ({
-        ...prevState,
-        isVisible: false,
-      }));
+    if (visible === true) {
+      setVisible(false);
     }
   };
 
@@ -95,22 +87,22 @@ const AddComponent = (props) => {
     <div
       className={classnames(
         "kmt-builder-add-item",
-        ("kemet-settings[header-desktop-items]" === controlParams.group ||
+        ("header-desktop-items" === controlParams.group ||
           "kemet-settings[footer-desktop-items]" === controlParams.group) &&
           "right" === location
           ? "center-on-left"
           : null,
-        ("kemet-settings[header-desktop-items]" === controlParams.group ||
+        ("header-desktop-items" === controlParams.group ||
           "kemet-settings[footer-desktop-items]" === controlParams.group) &&
           "left" === location
           ? "center-on-right"
           : null,
-        ("kemet-settings[header-desktop-items]" === controlParams.group ||
+        ("header-desktop-items" === controlParams.group ||
           "kemet-settings[footer-desktop-items]" === controlParams.group) &&
           "left_center" === location
           ? "right-center-on-right"
           : null,
-        ("kemet-settings[header-desktop-items]" === controlParams.group ||
+        ("header-desktop-items" === controlParams.group ||
           "kemet-settings[footer-desktop-items]" === controlParams.group) &&
           "right_center" === location
           ? "left-center-on-left"
@@ -118,7 +110,7 @@ const AddComponent = (props) => {
       )}
       key={id}
     >
-      {state.isVisible && (
+      {visible && (
         <Popover
           position="top"
           className="kmt-popover-add-builder"
@@ -138,14 +130,11 @@ const AddComponent = (props) => {
       <Button
         className="kmt-builder-item-add-icon dashicon dashicons-plus-alt2"
         onClick={() => {
-          setState((prevState) => ({
-            ...prevState,
-            isVisible: true,
-          }));
+          setVisible(true);
         }}
       ></Button>
     </div>
   );
 };
 
-export default AddComponent;
+export default React.memo(AddComponent);

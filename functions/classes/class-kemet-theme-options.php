@@ -69,7 +69,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 				array(
 					// Header Builder
 					'header-desktop-items'                 => array(
-						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
+						'popup'  => array( 'popup_content' => array( 'account' ) ),
 						'top'    =>
 						array(
 							'top_left'         => array(),

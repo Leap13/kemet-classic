@@ -37,6 +37,7 @@ class Kemet_Control_Builder extends WP_Customize_Control {
 
 		$this->json['default']     = $this->setting->default;
 		$this->json['input_attrs'] = $this->input_attrs;
+		$this->json['choices']     = $this->choices;
 	}
 
 	/**
