@@ -92,11 +92,8 @@ $wp_customize->add_control(
 			),
 			'input_attrs' => array(
 				'group' => 'header-desktop-items',
-				'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
+				'rows'  => array( 'top', 'main', 'bottom' ),
 				'zones' => array(
-					'popup'  => array(
-						'popup_content' => 'Popup Content',
-					),
 					'top'    => array(
 						'top_left'         => 'Top - Left',
 						'top_left_center'  => 'Top - Left Center',

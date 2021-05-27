@@ -180,13 +180,6 @@ const BuilderComponent = (props) => {
   };
   const checkPopupVisibilty = (refresh) => {
     let hasPopup = false;
-    if ("header-desktop-items" === controlParams.group) {
-      controlParams.rows.map((row) => {
-        if (inObject(state.value[row], "toggle-button")) {
-          hasPopup = true;
-        }
-      });
-    }
     if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map((row) => {
         if (inObject(state.value[row], "toggle-mobile")) {
