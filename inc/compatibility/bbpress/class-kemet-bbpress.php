@@ -1,6 +1,6 @@
 <?php
 /**
- * bbPress Compatibility File.
+ * BbPress Compatibility File.
  *
  * @package Kemet
  */
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 		}
 
 		/**
-		 * bbPress Container
+		 * BbPress Container
 		 *
 		 * @param string $sidebar_layout Layout type.
 		 *
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 		}
 
 		/**
-		 * bbPress Container
+		 * BbPress Container
 		 *
 		 * @param string $layout Layout type.
 		 *
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 				'#bbpress-forums fieldset.bbp-form' => array(
 					'border-color' => esc_attr( $input_border_color ),
 				),
-				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select, #bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea, #bbpress-forums #bbp-your-profile fieldset select' => array(
+				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select' => array(
 					'color'            => esc_attr( $text_meta_color ),
 					'background-color' => esc_attr( $input_bg_color ),
 					'border-color'     => esc_attr( $input_border_color ),
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 			$css_output = kemet_parse_css( $css_output );
 
 			$tablet_typography = array(
-				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select, #bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea, #bbpress-forums #bbp-your-profile fieldset select' => array(
+				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select' => array(
 					'border-radius'  => kemet_responsive_slider( $input_border_radius, 'tablet' ),
 					'border-width'   => kemet_responsive_slider( $input_border_size, 'tablet' ),
 					'padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'tablet' ),
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 			$css_output .= kemet_parse_css( $tablet_typography, '', '768' );
 
 			$mobile_typography = array(
-				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select, #bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea, #bbpress-forums #bbp-your-profile fieldset select' => array(
+				'.kmt-single-post #bbpress-forums fieldset.bbp-form input[type=text], .kmt-single-post #bbpress-forums fieldset.bbp-form select' => array(
 					'border-radius'  => kemet_responsive_slider( $input_border_radius, 'mobile' ),
 					'border-width'   => kemet_responsive_slider( $input_border_size, 'mobile' ),
 					'padding-top'    => kemet_responsive_spacing( $input_spacing, 'top', 'mobile' ),

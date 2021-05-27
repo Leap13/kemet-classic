@@ -351,7 +351,7 @@ module.exports = function (grunt) {
           },
         ],
       },
-      theme_main: {
+      theme_main2: {
         src: ["readme.txt"],
         overwrite: true,
         replacements: [

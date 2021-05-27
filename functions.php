@@ -10,6 +10,7 @@
 /**
  * Define Constants.
  */
+
 define( 'KEMET_THEME_VERSION', '1.1.17' );
 define( 'KEMET_THEME_DIR', get_template_directory() . '/' );
 define( 'KEMET_THEME_URI', get_template_directory_uri() . '/' );

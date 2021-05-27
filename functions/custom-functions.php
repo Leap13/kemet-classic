@@ -100,6 +100,15 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-sticky-footer';
 		}
 
+		// Sticky sidebar.
+		$kemet_sticky_sidebar        = kemet_get_option( 'enable-sticky-sidebar' );
+		$kemet_sticky_sidebar_widget = kemet_get_option( 'only-stick-last-widget' );
+		if ( $kemet_sticky_sidebar && ! $kemet_sticky_sidebar_widget ) {
+			$classes[] = 'kmt-sticky-sidebar';
+		}
+		if ( $kemet_sticky_sidebar_widget && $kemet_sticky_sidebar ) {
+			$classes[] = 'kmt-sticky-sidebar-widget';
+		}
 		return $classes;
 	}
 }
@@ -1111,8 +1120,10 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 	 * @return void
 	 */
 	function kemet_get_sidebar( $sidebar_id ) {
-		if ( is_active_sidebar( $sidebar_id ) ) {
+		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
+			ob_start();
 			dynamic_sidebar( $sidebar_id );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			?>
 			<div class="widget kmt-no-widget-row">
@@ -1128,6 +1139,21 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 }
 
 /**
+ * Kemet Sidebar
+ */
+if ( ! function_exists( 'kemet_dynamic_sidebar' ) ) {
+	/**
+	 * Kemet Sidebar
+	 *
+	 * @param int $sidebar_id sidebar id.
+	 */
+	function kemet_dynamic_sidebar( $sidebar_id ) {
+		ob_start();
+		dynamic_sidebar( $sidebar_id );
+		echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+}
+/**
  * Get Footer widgets
  */
 if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
@@ -1139,8 +1165,10 @@ if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
 	 * @return void
 	 */
 	function kemet_get_footer_widget( $sidebar_id ) {
-		if ( is_active_sidebar( $sidebar_id ) ) {
+		if ( is_active_sidebar( $sidebar_id ) || apply_filters( 'kemet_' . $sidebar_id . '_hook', false ) ) {
+			ob_start();
 			dynamic_sidebar( $sidebar_id );
+			echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
 			global $wp_registered_sidebars;
 			$sidebar_name = '';
@@ -1227,11 +1255,14 @@ if ( ! function_exists( 'kemet_get_post_thumbnail' ) ) {
 
 		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
-				$post_thumb = get_the_post_thumbnail(
-					get_the_ID(),
-					apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
-					array(
-						'itemprop' => 'image',
+				$post_thumb = apply_filters(
+					'kemet_featured_image_attrs',
+					get_the_post_thumbnail(
+						get_the_ID(),
+						apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
+						array(
+							'itemprop' => 'image',
+						)
 					)
 				);
 
@@ -1528,12 +1559,16 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 			if ( 'dark' == $brightness ) {
 				$percent = $percent * -1;
 			}
+			$is_rgba = false;
+			$opacity = '';
 			if ( strpos( $hex, 'rgba' ) !== false ) {
 				$order   = array( 'rgba', '(', ')' );
 				$replace = '';
 				$output  = str_replace( $order, $replace, $hex );
 				$rgb     = explode( ',', $output );
+				$opacity = $rgb[3];
 				$rgb     = array_map( 'intval', $rgb );
+				$is_rgba = true;
 			} else {
 				$rgb = kemet_hex2rgba( $hex );
 			}
@@ -1553,6 +1588,13 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 				if ( $rgb[ $i ] > 255 ) {
 					$rgb[ $i ] = 255;
 				}
+			}
+
+			if ( $is_rgba ) {
+				$rgb[3]     = $opacity;
+				$rgba_color = 'rgba(' . implode( ',', $rgb ) . ')';
+
+				return $rgba_color;
 			}
 			// RBG to Hex.
 			$new_hex = '#';
@@ -1847,3 +1889,4 @@ function kemet_exclude_category( $query ) {
 }
 
 add_action( 'pre_get_posts', 'kemet_exclude_category' );
+
