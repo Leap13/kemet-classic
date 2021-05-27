@@ -33,7 +33,7 @@ $wp_customize->add_section(
 		'section-woo-cart-menu-items',
 		array(
 			'title'    => __( 'Cart Menu Item', 'kemet' ),
-			'panel'    => 'woocommerce',
+			'panel'    => 'panel-header-builder-group',
 			'priority' => 15,
 		)
 	)

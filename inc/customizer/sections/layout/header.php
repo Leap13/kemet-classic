@@ -58,32 +58,55 @@ $wp_customize->add_control(
 			'label'       => __( 'Header Layout Builder', 'kemet' ),
 			'transport'   => 'postMessage',
 			'type'        => 'kmt-builder',
-			'choices'     => array(
-				'logo'         => array(
-					'name'    => __( 'Logo', 'kemet' ),
-					'icon'    => 'admin-appearance',
-					'section' => 'title_tagline',
-				),
-				'search'       => array(
-					'name'    => __( 'Search', 'kemet' ),
-					'icon'    => 'search',
-					'section' => 'section-menu-header',
-				),
-				'account'      => array(
-					'name'    => __( 'Account', 'kemet' ),
-					'icon'    => 'admin-users',
-					'section' => 'section-header-account',
-				),
-				'primary-menu' => array(
-					'name'    => __( 'Primary Menu', 'kemet' ),
-					'icon'    => 'menu',
-					'section' => 'section-menu-header',
-				),
-				'button'       => array(
-					'name'    => __( 'Button', 'kemet' ),
-					'icon'    => 'menu',
-					'section' => 'section-menu-header',
-				),
+			'choices'     => apply_filters(
+				'header_desktop_items',
+				array(
+					'logo'                 => array(
+						'name'    => __( 'Logo', 'kemet' ),
+						'icon'    => 'admin-appearance',
+						'section' => 'title_tagline',
+					),
+					'search'               => array(
+						'name'    => __( 'Search', 'kemet' ),
+						'icon'    => 'search',
+						'section' => 'section-menu-header',
+					),
+					'account'              => array(
+						'name'    => __( 'Account', 'kemet' ),
+						'icon'    => 'admin-users',
+						'section' => 'section-header-account',
+					),
+					'menu-primary'         => array(
+						'name'    => __( 'Primary Menu', 'kemet' ),
+						'icon'    => 'menu',
+						'section' => 'section-menu-header',
+					),
+					'button'               => array(
+						'name'    => __( 'Button', 'kemet' ),
+						'icon'    => 'button',
+						'section' => 'section-menu-header',
+					),
+					'html-1'               => array(
+						'name'    => __( 'Html 1', 'kemet' ),
+						'icon'    => 'text',
+						'section' => 'section-menu-header',
+					),
+					'html-2'               => array(
+						'name'    => __( 'Html 2', 'kemet' ),
+						'icon'    => 'text',
+						'section' => 'section-menu-header',
+					),
+					'widget-header-widget' => array(
+						'name'    => __( 'Widget 1', 'kemet' ),
+						'icon'    => 'wordpress-alt',
+						'section' => 'section-menu-header',
+					),
+					'widget-header-widget' => array(
+						'name'    => __( 'Widget 2', 'kemet' ),
+						'icon'    => 'wordpress-alt',
+						'section' => 'section-menu-header',
+					),
+				)
 			),
 			'partial'     => array(
 				'selector'            => '#sitehead',

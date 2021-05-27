@@ -54,5 +54,19 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			}
 			return false;
 		}
+
+		/**
+		 * Get Widget
+		 *
+		 * @param string $widget_id
+		 * @return string
+		 */
+		public static function get_custom_widget( $widget_id = '' ) {
+			ob_start();
+			echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
+			kemet_get_sidebar( $widget_id );
+			echo '</div>';
+			echo ob_get_clean();
+		}
 	}
 endif;

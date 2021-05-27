@@ -6,7 +6,7 @@
  */
 
 ?>
-<div class="kmt-header-item">
+<div class="kmt-header-item kmt-header-item-search">
 	<?php
 	/**
 	 * Kemet Header Search

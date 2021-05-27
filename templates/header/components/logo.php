@@ -6,7 +6,7 @@
  */
 
 ?>
-<div class="kmt-header-item kmt-flex">
+<div class="kmt-header-item kmt-flex kmt-header-item-logo">
 	<?php
 	/**
 	 * Kemet Site Identity

@@ -42,6 +42,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
+			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
+			add_action( 'kemet_header_html', array( $this, 'html_markup' ), 10, 1 );
+			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
 		}
 
 		/**
@@ -95,7 +98,12 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		public static function render_column_content( $column, $row, $builder = 'header', $device = 'desktop' ) {
 			$items = kemet_get_option( $builder . '-' . $device . '-items' );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
-				get_template_part( 'templates/' . $builder . '/components/' . $item );
+				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
+					$type = explode( '-', $item )[0];
+					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
+				} else {
+					get_template_part( 'templates/' . $builder . '/components/' . $item );
+				}
 			}
 		}
 
@@ -194,6 +202,33 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$search_html .= '</div>';
 
 			echo $search_html;
+		}
+
+		/**
+		 * Button
+		 */
+		public function button_markup() {
+			$text = esc_html__( 'Button', 'kemet' );
+			echo '<a href=' . esc_url( admin_url() ) . ' class="button" target="_blank">' . esc_html( $text ) . '</a>';
+		}
+
+		/**
+		 * Html
+		 *
+		 * @param string $html html type.
+		 */
+		public function html_markup( $html ) {
+			$option = 'header-main-rt-section-html';
+			echo kemet_get_custom_html( $option );
+		}
+
+		/**
+		 * Widget
+		 *
+		 * @param string $widget widget type.
+		 */
+		public function widget_markup( $widget ) {
+			Kemet_Builder_Helper::get_custom_widget( $widget );
 		}
 	}
 

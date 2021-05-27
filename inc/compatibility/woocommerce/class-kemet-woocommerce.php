@@ -82,7 +82,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
 
 			// Add Cart icon in Menu.
-			add_filter( 'kemet_get_dynamic_header_content', array( $this, 'woo_mini_cart_markup' ), 10, 3 );
+			add_filter( 'kemet_header_cart', array( $this, 'woo_mini_cart_markup' ) );
+			add_filter( 'header_desktop_items', array( $this, 'add_cart_header_item' ) );
 
 			// Add Cart option in dropdown.
 			add_filter( 'kemet_header_elements', array( $this, 'header_section_elements' ) );
@@ -1161,6 +1162,21 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		}
 
 		/**
+		 * Add cart item to header items
+		 *
+		 * @param array $items header items.
+		 * @return array
+		 */
+		public function add_cart_header_item( $items ) {
+			$items['cart'] = array(
+				'name'    => __( 'Cart', 'kemet' ),
+				'icon'    => 'cart',
+				'section' => 'section-woo-cart-menu-items',
+			);
+
+			return $items;
+		}
+		/**
 		 * Woocommerce mini cart markup markup
 		 *
 		 * @return html
@@ -1184,8 +1200,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				</div>
 			</div>
-				<?php
-				return ob_get_clean();
+			<?php
+			echo ob_get_clean();
 		}
 
 		/**

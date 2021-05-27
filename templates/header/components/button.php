@@ -6,8 +6,7 @@
  */
 
 ?>
-<div class="kmt-header-item">
-button
+<div class="kmt-header-item kmt-header-item-button">
 	<?php
 	/**
 	 * Kemet Header Button
