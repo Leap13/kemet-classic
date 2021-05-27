@@ -1889,3 +1889,4 @@ function kemet_exclude_category( $query ) {
 }
 
 add_action( 'pre_get_posts', 'kemet_exclude_category' );
+

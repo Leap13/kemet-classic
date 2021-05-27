@@ -262,6 +262,11 @@ textarea {
 	width: 65px !important;
 }
 
+.customize-control-kmt-color .description.customize-control-description {
+	display: inline-block;
+	cursor: auto;
+}
+
 .customize-control-kmt-icon-select .icon-select {
 	display: -webkit-box;
 	display: -ms-flexbox;

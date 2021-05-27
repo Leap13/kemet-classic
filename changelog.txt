@@ -1,3 +1,12 @@
+
+v 1.1.18 version
+- Fixed: Color control issue.
+- Added: Exclude category option.
+
+v 1.1.17 version
+- Added: Learndash Compatibiity
+- Added: bbPress Compatibility
+
 v 1.1.16 version
 - Fixed: Replace custom logo filter doesn't work.
 - Added: Custom font Addon.

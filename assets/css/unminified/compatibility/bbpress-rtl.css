@@ -1,0 +1,16 @@
+/**
+ * Kemet Theme compatibility with bbPress
+ */
+.kmt-single-post #bbpress-forums fieldset.bbp-form input[type="text"],
+.kmt-single-post #bbpress-forums fieldset.bbp-form select {
+	height: auto;
+	min-height: auto;
+	padding: 0.75em;
+}
+
+.bbp-user-edit.single #bbp-your-profile fieldset input[type="text"],
+.bbp-user-edit.single #bbp-your-profile fieldset select {
+	height: auto;
+	min-height: auto;
+	padding: 0.75em;
+}

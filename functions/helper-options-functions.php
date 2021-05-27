@@ -885,4 +885,6 @@ function kemet_get_all_categories() {
 		}
 	}
 	return $cats;
+
 }
+
