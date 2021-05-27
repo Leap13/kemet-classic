@@ -611,7 +611,7 @@ if ( ! function_exists( 'kemet_site_branding_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_sitehead_content', 'kemet_site_branding_markup', 8 );
+// add_action( 'kemet_sitehead_content', 'kemet_site_branding_markup', 8 );
 
 /**
  * Function to get Toggle Button Markup

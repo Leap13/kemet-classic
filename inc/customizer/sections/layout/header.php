@@ -59,27 +59,27 @@ $wp_customize->add_control(
 			'transport'   => 'postMessage',
 			'type'        => 'kmt-builder',
 			'choices'     => array(
-				'logo'          => array(
+				'logo'         => array(
 					'name'    => __( 'Logo', 'kemet' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 				),
-				'search'        => array(
+				'search'       => array(
 					'name'    => __( 'Search', 'kemet' ),
 					'icon'    => 'search',
 					'section' => 'section-menu-header',
 				),
-				'account'       => array(
+				'account'      => array(
 					'name'    => __( 'Account', 'kemet' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
 				),
-				'primary-menu'  => array(
+				'primary-menu' => array(
 					'name'    => __( 'Primary Menu', 'kemet' ),
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
 				),
-				'toggle-button' => array(
+				'button'       => array(
 					'name'    => __( 'Button', 'kemet' ),
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
