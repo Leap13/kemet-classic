@@ -35,7 +35,6 @@ const RowComponent = (props) => {
     });
   }
   if (
-    "popup" !== props.row &&
     "header-desktop-items" === props.controlParams.group &&
     typeof props.items[props.row + "_center"] != "undefined" &&
     props.items[props.row + "_center"] != null &&

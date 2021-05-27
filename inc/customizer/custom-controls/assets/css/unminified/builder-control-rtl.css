@@ -1052,8 +1052,16 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   border-top: 0;
 }
 
-.kmt-availbile-items-title {
+.kmt-available-items-title {
   padding: 10px 0;
+}
+
+.kmt-available-items-container {
+  min-width: 80px;
+  border: 1px dashed #a0aec0;
+  padding: 20px 10px 10px;
+  background: #fff;
+  color: #777;
 }
 
 .kmt-builder-item > .kmt-builder-item-icon.kmt-builder-item-focus-icon svg {

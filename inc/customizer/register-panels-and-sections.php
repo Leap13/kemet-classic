@@ -72,6 +72,18 @@ $wp_customize->add_section(
 	)
 );
 
+/*
+* Header Builder section
+*/
+$wp_customize->add_section(
+	'section-header-builder-layout',
+	array(
+		'priority' => 10,
+		'title'    => __( 'Header Layout', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	)
+);
+
 // Layout Panel Header Header.
 $wp_customize->add_section(
 	new Kemet_WP_Customize_Section(

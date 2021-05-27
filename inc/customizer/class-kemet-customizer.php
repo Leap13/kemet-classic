@@ -36,6 +36,22 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $dependency_arr = array();
 
 		/**
+		 * Customizer Controls Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $controls_arr = array();
+
+		/**
+		 * Customizer Choices Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $choices_arr = array();
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -61,9 +77,54 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
+			add_action( 'customize_register', array( $this, 'register_customizer_options' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_dashicons_front_end' ) );
 			add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 999 );
+		}
+
+		/**
+		 * Add customizer Control
+		 *
+		 * @param object $control control args.
+		 * @return void
+		 */
+		public function add_customizer_options( $options ) {
+			if ( ! is_array( $options ) ) {
+				return;
+			}
+
+			foreach ( $options as $control_id => $args ) {
+				$this->update_controls_arr( $control_id, $args );
+			}
+		}
+
+
+		/**
+		 * Add Customizer Controls
+		 *
+		 * @param object $wp_customize
+		 * @return object
+		 */
+		public function register_customizer_options( $wp_customize ) {
+			$options = $this->get_controls_arr();
+
+			foreach ( $options as $option_id => $args ) {
+				$option_id     = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
+				$control_class = $args['control_class'];
+				if ( isset( $args['choices'] ) ) {
+					$this->update_choices_arr( $option_id, $args['choices'] );
+				}
+				$wp_customize->add_setting(
+					$option_id,
+					$args['settings']
+				);
+				unset( $args['settings'] );
+				unset( $args['control_class'] );
+				$wp_customize->add_control(
+					new $control_class( $wp_customize, $option_id, $args ),
+				);
+			}
 		}
 
 		/**
@@ -84,6 +145,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				}
 			}
 
+			wp_localize_script(
+				'kemet-react-custom-control-script',
+				'KemetCustomizerData',
+				array(
+					'choices' => self::get_choices_arr(),
+				)
+			);
 			wp_enqueue_style(
 				'kemet-react-customizer-controls-css',
 				KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/builder-control' . $css_prefix,
@@ -206,6 +274,44 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		}
 
 		/**
+		 * Update Controls in the Controls array.
+		 *
+		 * @param String $key name of the Setting/Control for which the Controls is added.
+		 * @param Array  $Controls Controls of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_controls_arr( $key, $controls ) {
+			self::$controls_arr[ $key ] = $controls;
+		}
+
+		/**
+		 * Get Choices Array.
+		 *
+		 * @return Array Dependencies discovered when registering controls and settings.
+		 */
+		private function get_controls_arr() {
+			return self::$controls_arr;
+		}
+
+		/**
+		 * Update Choices in the Choices array.
+		 *
+		 * @param String $key name of the Setting/Control for which the Choices is added.
+		 * @param Array  $Controls Choices of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_choices_arr( $key, $controls ) {
+			self::$choices_arr[ $key ] = $controls;
+		}
+
+		/**
+		 * Get Choices Array.
+		 */
+		private function get_choices_arr() {
+			return self::$choices_arr;
+		}
+
+		/**
 		 * Register custom section and panel.
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
@@ -244,6 +350,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
 			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Builder' );
+			$wp_customize->register_control_type( 'Kemet_Control_Available' );
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**

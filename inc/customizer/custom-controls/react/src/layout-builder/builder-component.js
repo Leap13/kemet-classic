@@ -1,4 +1,3 @@
-/* jshint esversion: 6 */
 import PropTypes from "prop-types";
 import RowComponent from "./row-component";
 import { useState } from "react";

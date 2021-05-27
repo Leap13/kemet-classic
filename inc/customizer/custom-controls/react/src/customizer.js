@@ -51,7 +51,10 @@
 
       if (undefined !== section) {
         var $section = section.contentContainer,
-          section_layout = api.section("section-" + builderType);
+          section_layout = api.section(
+            "section-" + builderType + "-builder-layout"
+          );
+
         panel.expanded.bind(function (isExpanded) {
           Promise.all([
             _.each(section.controls(), function (control) {
