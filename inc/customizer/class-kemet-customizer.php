@@ -52,6 +52,52 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $choices_arr = array();
 
 		/**
+		 * Customizer Contexts Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $contexts_arr = array();
+
+		/**
+		 * Sanitize array.
+		 *
+		 * @access public
+		 * @var array
+		 */
+		public $sanitize = array(
+			'kmt-responsive-slider'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'kmt-font-family'        => 'sanitize_text_field',
+			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
+			'kmt-select'             => 'sanitize_text_field',
+			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
+			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+			'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
+		);
+
+		/**
+		 * Controls array.
+		 *
+		 * @access public
+		 * @var array
+		 */
+		public $custom_controls = array(
+			'kmt-available' => 'Kemet_Control_Available',
+			'kmt-builder'   => 'Kemet_Control_Builder',
+			'kmt-tabs'      => 'Kemet_Control_Tabs',
+		);
+
+		/**
+		 * Partials array.
+		 *
+		 * @access public
+		 * @var array
+		 */
+		public static $partials_arr = array();
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -81,6 +127,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_dashicons_front_end' ) );
 			add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 999 );
+			// add_filter( 'customize_dynamic_partial_args', array( $this, 'filter_dynamic_partial_args' ), 10, 2 );
 		}
 
 		/**
@@ -99,7 +146,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 		}
 
-
 		/**
 		 * Add Customizer Controls
 		 *
@@ -110,23 +156,75 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$options = $this->get_controls_arr();
 
 			foreach ( $options as $option_id => $args ) {
-				$option_id     = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
-				$control_class = $args['control_class'];
+				$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
+
+				if ( isset( $args['context'] ) ) {
+					$this->update_contexts_arr( $option_id, $args['context'] );
+				}
+
 				if ( isset( $args['choices'] ) ) {
 					$this->update_choices_arr( $option_id, $args['choices'] );
 				}
+
+				$settings = array(
+					'default'           => $this->get_control_prop( 'default', $args ),
+					'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
+					'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
+					'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
+				);
+
 				$wp_customize->add_setting(
 					$option_id,
-					$args['settings']
+					$settings
 				);
-				unset( $args['settings'] );
-				unset( $args['control_class'] );
-				$wp_customize->add_control(
-					new $control_class( $wp_customize, $option_id, $args ),
-				);
+				if ( isset( $this->custom_controls[ $args['type'] ] ) ) {
+					$wp_customize->add_control(
+						new $this->custom_controls[ $args['type'] ](
+							$wp_customize,
+							$option_id,
+							$args
+						)
+					);
+				} else {
+					$wp_customize->add_control(
+						$option_id,
+						$args
+					);
+				}
+
+				if ( '' != $this->get_control_prop( 'partial', $args ) ) {
+					$partials = array(
+						'selector'            => $this->get_control_prop( 'selector', $args['partial'] ),
+						'render_callback'     => $this->get_control_prop( 'render_callback', $args['partial'] ),
+						'container_inclusive' => $this->get_control_prop( 'container_inclusive', $args['partial'] ),
+						'fallback_refresh'    => $this->get_control_prop( 'fallback_refresh', $args['partial'], true ),
+					);
+					$wp_customize->selective_refresh->add_partial(
+						$option_id,
+						$partials
+					);
+				}
 			}
 		}
 
+		/**
+		 * Get Control Proparity
+		 *
+		 * @param string $prop prop.
+		 * @param array  $props props.
+		 * @param mixed  $default default.
+		 * @return mixed
+		 */
+		public function get_control_prop( $prop, $props, $default = null ) {
+			if ( isset( $props[ $prop ] ) && ! empty( $props[ $prop ] ) ) {
+				return $props[ $prop ];
+			}
+
+			if ( null != $default ) {
+				return $default;
+			}
+			return '';
+		}
 		/**
 		 * Customizer Scripts
 		 */
@@ -149,7 +247,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				'kemet-react-custom-control-script',
 				'KemetCustomizerData',
 				array(
-					'choices' => self::get_choices_arr(),
+					'choices'  => self::get_choices_arr(),
+					'contexts' => self::get_contexts_arr(),
 				)
 			);
 			wp_enqueue_style(
@@ -312,6 +411,41 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		}
 
 		/**
+		 * Update Contexts in the Contexts array.
+		 *
+		 * @param String $key name of the Setting/Control for which the Contexts is added.
+		 * @param Array  $Controls Contexts of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_contexts_arr( $key, $controls ) {
+			self::$contexts_arr[ $key ] = $controls;
+		}
+
+		/**
+		 * Get Contexts Array.
+		 */
+		private function get_contexts_arr() {
+			return self::$contexts_arr;
+		}
+
+		/**
+		 * Update Partials in the Partials array.
+		 *
+		 * @param String $key name of the Setting/Control for which the Partials is added.
+		 * @param Array  $Controls Partials of the $name Setting/Control.
+		 * @return void
+		 */
+		private function update_partials_arr( $key, $controls ) {
+			self::$partials_arr[ $key ] = $controls;
+		}
+
+		/**
+		 * Get Partials Array.
+		 */
+		private function get_partials_arr() {
+			return self::$partials_arr;
+		}
+		/**
 		 * Register custom section and panel.
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
@@ -351,6 +485,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Builder' );
 			$wp_customize->register_control_type( 'Kemet_Control_Available' );
+			$wp_customize->register_control_type( 'Kemet_Control_Tabs' );
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**

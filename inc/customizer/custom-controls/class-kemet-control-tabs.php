@@ -1,6 +1,6 @@
 <?php
 /**
- * Customizer Control: Builder.
+ * Customizer Control: Tabs.
  *
  * @package     Kemet
  * @author      Kemet
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Color control (alpha).
+ * Tabs control.
  */
-class Kemet_Control_Builder extends WP_Customize_Control {
+class Kemet_Control_Tabs extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -25,23 +25,23 @@ class Kemet_Control_Builder extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-builder';
+	public $type = 'kmt-tabs';
 
 	/**
-	 * Input attrs.
+	 * The control tabs.
+	 *
+	 * @access public
+	 * @var array
+	 */
+	public $tabs = array();
+
+	/**
+	 * The control active tab.
 	 *
 	 * @access public
 	 * @var string
 	 */
-	public $input_attrs = array();
-
-	/**
-	 * Responsive.
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $responsive = false;
+	public $active_tab = '';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -51,10 +51,9 @@ class Kemet_Control_Builder extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['default']     = $this->setting->default;
-		$this->json['input_attrs'] = $this->input_attrs;
-		$this->json['choices']     = $this->choices;
-		$this->json['responsive']  = $this->responsive;
+		$this->json['default']    = $this->setting->default;
+		$this->json['tabs']       = $this->tabs;
+		$this->json['active_tab'] = $this->active_tab;
 	}
 
 	/**

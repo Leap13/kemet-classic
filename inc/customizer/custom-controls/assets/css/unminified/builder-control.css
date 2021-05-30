@@ -12,56 +12,39 @@
   display: none;
 }
 
-.customize-control-kmt-builder-header-control .kmt-builder-tab-toggle,
-.customize-control-kmt-builder-header-control .kmt-builder-section-shortcut {
+.kmt-builder-tab-toggle,
+.kmt-builder-section-shortcut {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+.kmt-builder-show-button.kmt-builder-tab-toggle {
+  visibility: hidden;
+  margin-bottom: 20px;
+  opacity: 0;
+  bottom: 100%;
+  top: auto;
+}
+.kmt-builder-hide .kmt-builder-show-button.kmt-builder-tab-toggle {
+  visibility: visible;
+  opacity: 1;
+}
+.kmt-builder-tab-toggle:hover,
+.kmt-builder-section-shortcut:hover {
+  background: #f0f0f1;
+  border-color: #0a4b78;
+  color: #0a4b78;
+}
+
+.kmt-builder-tab-toggle span.dashicons,
+.kmt-builder-section-shortcut span.dashicons {
   font-size: 13px;
-  font-weight: 600;
-  z-index: 10;
-  color: #555d65;
-  background: #eeeeee;
-  vertical-align: top;
-  border: none;
-  border-left: 1px solid #dddddd;
-  padding: 8px 12px;
-  border-radius: 0;
-}
-
-#customize-control-kemet-settings-builder-header,
-#customize-control-kemet-settings-builder-footer {
-  background: #eee;
-  transition: all 0.2s;
-  backface-visibility: hidden;
-  z-index: 10;
-  height: 45px;
-  border-top: 1px solid #ddd;
-}
-
-.kmt-builder-hide #customize-control-kemet-settings-builder-header,
-.kmt-builder-hide #customize-control-kemet-settings-builder-footer {
-  transform: translateY(-628%);
-  overflow: visible;
-}
-
-#customize-control-kemet-settings-builder-header
-  .kmt-customize-control-description,
-#customize-control-kemet-settings-builder-footer
-  .kmt-customize-control-description {
-  margin: 0px;
-  text-align: right;
-}
-
-.button.kmt-builder-hide-button.kmt-builder-tab-toggle {
-  width: 100px;
-  text-align: center;
-}
-
-.customize-control-kmt-builder-header-control .kmt-builder-tab-toggle:hover,
-.customize-control-kmt-builder-header-control
-  .kmt-builder-section-shortcut:hover {
-  background: #eeeeee;
-  color: #0073aa;
-  border-color: #dddddd;
-  border-bottom: unset;
+  vertical-align: text-top;
+  line-height: 20px;
+  font-weight: bold;
 }
 
 .kmt-header-builder-active.kmt-builder-hide .kmt-builder-show-action,
@@ -74,49 +57,6 @@
 .kmt-footer-builder-active .kmt-builder-show-action,
 .kmt-footer-builder-active.kmt-builder-hide .kmt-builder-hide-action {
   display: none;
-}
-
-.customize-control-kmt-builder-header-control
-  .kmt-builder-tab-toggle
-  span.dashicons,
-.customize-control-kmt-builder-header-control
-  .kmt-builder-section-shortcut
-  span.dashicons {
-  font-size: 13px;
-  vertical-align: text-top;
-  line-height: 20px;
-  font-weight: bold;
-}
-
-.customize-control-kmt-builder-header-control
-  .kmt-builder-show-button.kmt-builder-tab-toggle {
-  visibility: hidden;
-  margin-bottom: 20px;
-  opacity: 0;
-  bottom: 100%;
-  top: auto;
-}
-
-#customize-control-kemet-settings-builder-header,
-#customize-control-kemet-settings-builder-footer {
-  display: flex !important;
-  justify-content: space-between;
-}
-
-#customize-control-kemet-settings-builder-header .kmt-customize-control-title,
-#customize-control-kemet-settings-builder-footer .kmt-customize-control-title {
-  padding: 0 25px;
-  text-align: center;
-  color: #888;
-}
-
-#customize-control-kemet-settings-builder-header
-  .kmt-customize-control-title
-  .dashicons,
-#customize-control-kemet-settings-builder-footer
-  .kmt-customize-control-title
-  .dashicons {
-  margin-right: 10px;
 }
 
 #customize-theme-controls
@@ -150,28 +90,26 @@
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button {
-  -webkit-box-flex: 1;
   flex: 1 1 0;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
   height: 40px;
   margin: 0;
+  margin-bottom: -1px;
   box-sizing: content-box;
   padding: 0 10px;
   cursor: pointer;
   border: 0;
   background: transparent;
-  border-top: 2px solid transparent;
+  border-bottom: 4px solid transparent;
   border-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button:not(:first-child) {
@@ -183,14 +121,15 @@
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button:not(.nav-tab-active):hover {
-  background: #ffffff;
-  color: #0072aa;
+  background: #e5e5e5 !important;
+  color: #444 !important;
+  border-bottom-color: #f9f9f9;
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button.nav-tab-active {
-  border-top-color: #0071a1;
-  color: #0073aa;
-  background-image: linear-gradient(180deg, #f3f5f6, #ffffff);
+  border-bottom-color: #007cba;
+  background: #f9f9f9;
+  color: #000;
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button.nav-tab-active:focus {
@@ -471,35 +410,53 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 #accordion-section-section-footer-builder {
   display: none !important;
 }
-
+.kmt-control-tabs {
+  position: relative;
+  margin-top: 10px;
+}
+.kmt-control-tabs.kmt-control-tabs-responsive {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 .kmt-build-tabs {
-  border-top: 1px solid #dddddd;
-  padding-top: 0;
-  border-bottom: 0;
+  border-bottom: 4px solid #ddd;
+  margin: 0;
+  padding-top: 9px;
+  padding-bottom: 0;
+  line-height: inherit;
+  display: flex;
+  padding: 0 12px;
 }
 
 .kmt-build-tabs .nav-tab {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 11px;
   font-weight: 600;
   font-style: normal;
-  height: 37px;
-  transition: 0.5s;
+  text-transform: uppercase;
+  height: 40px;
   margin: 0;
-  border-top: unset;
-  border-left: unset;
-  background: transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 1px solid #dddddd;
-  padding: 4px 20px 0;
+  margin-bottom: -4px;
+  padding: 0 18px;
   cursor: pointer;
+  border: 0;
   box-sizing: content-box;
+  border-bottom: 4px solid #ddd;
+  border-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .kmt-build-tabs-button span {
   padding-bottom: 4px;
+}
+
+.kmt-build-tabs .nav-tab:not(:first-child) {
+  margin-left: 8px;
 }
 
 .kmt-build-tabs .nav-tab .dashicons.dashicons-desktop {
@@ -512,10 +469,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-build-tabs .nav-tab.nav-tab-active {
-  background: #eeeeee;
-  color: #191e23;
-  box-shadow: none;
-  border-bottom: 4px solid #191e23;
+  border-bottom-color: #007cba;
+  background: #f9f9f9;
+  color: #000;
 }
 
 .kmt-build-tabs .nav-tab:hover,
@@ -533,9 +489,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   position: fixed !important;
   top: auto;
   left: 300px;
+  background: #eee;
   right: 0;
-  background: unset;
-  border-top: unset;
   bottom: 0;
   visibility: visible;
   height: auto;
@@ -776,7 +731,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   .in-sub-panel:not(.section-open)
   ul#sub-accordion-section-section-header-builder-layout {
   transform: none;
-  height: 100%;
+  height: auto;
   visibility: visible;
   top: 75px;
 }
@@ -813,8 +768,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-header-builder-is-active .preview-desktop #customize-preview,
 .kmt-header-builder-is-active .preview-tablet #customize-preview {
   height: auto;
-  margin-bottom: -1px;
-  bottom: 46px;
 }
 
 .customize-control-kmt-builder .kmt-builder-items {
@@ -1044,12 +997,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-item-start.kmt-move-item .kmt-builder-item {
   justify-content: flex-start;
-}
-
-.customize-control:not(.customize-control-kmt-builder-header-control)
-  + #customize-control-kemet-settings-header-mobile-draggable-items.customize-control {
-  padding-top: 0;
-  border-top: 0;
 }
 
 .kmt-available-items-title {

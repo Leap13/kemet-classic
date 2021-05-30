@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
+import ControlTabsComponent from "./control-tabs-component";
 import RowComponent from "./row-component";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 const BuilderComponent = (props) => {
   let value = props.control.setting.get();
-  let staleValue = {};
 
   let baseDefault = {};
   let defaultValue = props.control.params.default
@@ -33,6 +33,8 @@ const BuilderComponent = (props) => {
   let choices = props.control.params.choices
     ? props.control.params.choices
     : [];
+
+  let responsive = props.control.params.responsive;
 
   const [state, setState] = useState({
     value: value,
@@ -206,56 +208,61 @@ const BuilderComponent = (props) => {
 
   checkPopupVisibilty(false);
   return (
-    <div className="kmt-control-field kmt-builder-items">
-      {(true === state.isPopup || true === enablePopup) && (
-        <RowComponent
-          key={"popup"}
-          row={"popup"}
-          removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
-          controlParams={controlParams}
-          choices={choices}
-          items={state.value["popup"]}
-          showDrop={() => onDragStart()}
-          onUpdate={(updateRow, updateZone, updateItems) =>
-            onDragEnd(updateRow, updateZone, updateItems)
-          }
-          onAddItem={(updateRow, updateZone, updateItems) =>
-            onAddItem(updateRow, updateZone, updateItems)
-          }
-          focusSection={(item) => focusSection(item)}
-          hideDrop={() => onDragStop()}
-          settings={state.value}
-        />
-      )}
-      <div className="kmt-builder-row-items">
-        {controlParams.rows.map((row) => {
-          if ("popup" === row) {
-            return;
-          }
+    <Fragment>
+      <ControlTabsComponent responsive={responsive} />
+      <div className="kmt-control-field kmt-builder-items">
+        {(true === state.isPopup || true === enablePopup) && (
+          <RowComponent
+            key={"popup"}
+            row={"popup"}
+            removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
+            controlParams={controlParams}
+            choices={choices}
+            items={state.value["popup"]}
+            showDrop={() => onDragStart()}
+            onUpdate={(updateRow, updateZone, updateItems) =>
+              onDragEnd(updateRow, updateZone, updateItems)
+            }
+            onAddItem={(updateRow, updateZone, updateItems) =>
+              onAddItem(updateRow, updateZone, updateItems)
+            }
+            focusSection={(item) => focusSection(item)}
+            hideDrop={() => onDragStop()}
+            settings={state.value}
+          />
+        )}
+        <div className="kmt-builder-row-items">
+          {controlParams.rows.map((row) => {
+            if ("popup" === row) {
+              return;
+            }
 
-          return (
-            <RowComponent
-              removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
-              key={row}
-              row={row}
-              showDrop={() => onDragStart()}
-              onUpdate={(updateRow, updateZone, updateItems) =>
-                onDragEnd(updateRow, updateZone, updateItems)
-              }
-              onAddItem={(updateRow, updateZone, updateItems) =>
-                onAddItem(updateRow, updateZone, updateItems)
-              }
-              focusSection={(item) => focusSection(item)}
-              hideDrop={() => onDragStop()}
-              items={state.value[row]}
-              controlParams={controlParams}
-              choices={choices}
-              settings={state.value}
-            />
-          );
-        })}
+            return (
+              <RowComponent
+                removeItem={(remove, row, zone) =>
+                  removeItem(remove, row, zone)
+                }
+                key={row}
+                row={row}
+                showDrop={() => onDragStart()}
+                onUpdate={(updateRow, updateZone, updateItems) =>
+                  onDragEnd(updateRow, updateZone, updateItems)
+                }
+                onAddItem={(updateRow, updateZone, updateItems) =>
+                  onAddItem(updateRow, updateZone, updateItems)
+                }
+                focusSection={(item) => focusSection(item)}
+                hideDrop={() => onDragStop()}
+                items={state.value[row]}
+                controlParams={controlParams}
+                choices={choices}
+                settings={state.value}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

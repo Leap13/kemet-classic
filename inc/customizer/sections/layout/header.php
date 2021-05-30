@@ -31,19 +31,29 @@ $defaults = Kemet_Theme_Options::defaults();
 * Option: Header Layout
 */
 $options = array(
-	'header-desktop-items'          => array(
-		'settings'      => array(
-			'default'           => $defaults['header-desktop-items'],
-			'type'              => 'option',
-			'sanitize_callback' => false,
+	'header-builder-tabs'           => array(
+		'section'    => 'section-header-builder-layout',
+		'type'       => 'kmt-tabs',
+		'priority'   => 0,
+		'tabs'       => array(
+			'general' => array(
+				'label' => __( 'General', 'kemet' ),
+			),
+			'design'  => array(
+				'label' => __( 'Design', 'kemet' ),
+			),
 		),
-		'section'       => 'section-header-builder',
-		'priority'      => 1,
-		'label'         => __( 'Header Layout Builder', 'kemet' ),
-		'transport'     => 'postMessage',
-		'control_class' => 'Kemet_Control_Builder',
-		'type'          => 'kmt-builder',
-		'choices'       => apply_filters(
+		'active_tab' => 'general',
+	),
+	'header-desktop-items'          => array(
+		'default'     => $defaults['header-desktop-items'],
+		'section'     => 'section-header-builder',
+		'priority'    => 1,
+		'responsive'  => true,
+		'label'       => __( 'Header Layout Builder', 'kemet' ),
+		'transport'   => 'postMessage',
+		'type'        => 'kmt-builder',
+		'choices'     => apply_filters(
 			'header_desktop_items',
 			array(
 				'logo'                 => array(
@@ -93,12 +103,12 @@ $options = array(
 				),
 			)
 		),
-		'partial'       => array(
+		'partial'     => array(
 			'selector'            => '#sitehead',
 			'container_inclusive' => true,
 			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
 		),
-		'input_attrs'   => array(
+		'input_attrs' => array(
 			'group' => 'header-desktop-items',
 			'rows'  => array( 'top', 'main', 'bottom' ),
 			'zones' => array(
@@ -125,23 +135,28 @@ $options = array(
 				),
 			),
 		),
-	),
-
-	'header-desktop-availble-items' => array(
-		'settings'      => array(
-			'default'           => '',
-			'type'              => 'option',
-			'sanitize_callback' => false,
+		'context'     => array(
+			array(
+				'setting' => 'device',
+				'value'   => 'desktop',
+			),
 		),
-		'section'       => 'section-header-builder-layout',
-		'priority'      => 1,
-		'label'         => __( 'Available Items', 'kemet' ),
-		'transport'     => 'postMessage',
-		'control_class' => 'Kemet_Control_Available',
-		'type'          => 'kmt-available',
-		'input_attrs'   => array(
+	),
+	'header-desktop-availble-items' => array(
+		'section'     => 'section-header-builder-layout',
+		'priority'    => 1,
+		'label'       => __( 'Available Items', 'kemet' ),
+		'transport'   => 'postMessage',
+		'type'        => 'kmt-available',
+		'input_attrs' => array(
 			'group' => 'header-desktop-items',
 			'zones' => array( 'top', 'main', 'bottom' ),
+		),
+		'context'     => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
 		),
 	),
 );

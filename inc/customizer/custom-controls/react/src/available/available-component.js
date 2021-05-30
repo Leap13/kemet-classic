@@ -139,4 +139,9 @@ const AvailableComponent = (props) => {
   );
 };
 
+AvailableComponent.propTypes = {
+  control: PropTypes.object.isRequired,
+  customizer: PropTypes.func.isRequired,
+};
+
 export default React.memo(AvailableComponent);
