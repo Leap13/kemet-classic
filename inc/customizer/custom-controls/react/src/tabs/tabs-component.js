@@ -14,7 +14,6 @@ const TabsComponent = (props) => {
         ...props.control.params.tabs,
       }
     : defaultTabs;
-  console.log(tabs);
   const active = props.control.params.active_tab
     ? props.control.params.active_tab
     : "general";

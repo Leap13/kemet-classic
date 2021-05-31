@@ -6743,7 +6743,6 @@ var TabsComponent = function TabsComponent(props) {
     }
   };
   var tabs = props.control.params.tabs ? _objectSpread(_objectSpread({}, defaultTabs), props.control.params.tabs) : defaultTabs;
-  console.log(tabs);
   var active = props.control.params.active_tab ? props.control.params.active_tab : "general";
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-compontent-tabs nav-tab-wrapper wp-clearfix"
