@@ -8,10 +8,10 @@
 $slug = wp_parse_args(
 	$args,
 	array(
-		'type' => 'primary-menu',
+		'type' => 'header-menu-1',
 	)
 );
-$slug = explode( '-', $slug['type'] )[2];
+$slug = $slug['type'];
 ?>
 <div class="kmt-header-item kmt-header-item-menu">
 	<?php

@@ -43,47 +43,52 @@ $options = array(
 		'choices'     => apply_filters(
 			'header_desktop_items',
 			array(
-				'logo'                => array(
+				'logo'            => array(
 					'name'    => __( 'Logo', 'kemet' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 				),
-				'search'              => array(
+				'search'          => array(
 					'name'    => __( 'Search', 'kemet' ),
 					'icon'    => 'search',
 					'section' => 'section-menu-header',
 				),
-				'account'             => array(
+				'account'         => array(
 					'name'    => __( 'Account', 'kemet' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
 				),
-				'header-menu-primary' => array(
+				'primary-menu'    => array(
 					'name'    => __( 'Primary Menu', 'kemet' ),
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
 				),
-				'button'              => array(
+				'secondary-menu'  => array(
+					'name'    => __( 'Secondary Menu', 'kemet' ),
+					'icon'    => 'menu',
+					'section' => 'section-menu-header',
+				),
+				'button'          => array(
 					'name'    => __( 'Button', 'kemet' ),
 					'icon'    => 'button',
 					'section' => 'section-menu-header',
 				),
-				'header-html-1'       => array(
+				'header-html-1'   => array(
 					'name'    => __( 'Html 1', 'kemet' ),
 					'icon'    => 'text',
 					'section' => 'section-header-html-1',
 				),
-				'header-html-2'       => array(
+				'header-html-2'   => array(
 					'name'    => __( 'Html 2', 'kemet' ),
 					'icon'    => 'text',
 					'section' => 'section-header-html-2',
 				),
-				'header-widget-1'     => array(
+				'header-widget-1' => array(
 					'name'    => __( 'Widget 1', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',
 				),
-				'header-widget-2'     => array(
+				'header-widget-2' => array(
 					'name'    => __( 'Widget 2', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',

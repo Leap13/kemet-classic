@@ -48,8 +48,24 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'kemet_header_html', array( $this, 'render_html' ), 10, 1 );
+			add_action( 'init', array( $this, 'register_menu_locations' ) );
 		}
 
+		/**
+		 * Register menus
+		 */
+		function register_menu_locations() {
+
+			/**
+			 * Menus
+			 */
+			register_nav_menus(
+				array(
+					'primary-menu'   => __( 'Primary Menu', 'kemet' ),
+					'secondary-menu' => __( 'Secondary Menu', 'kemet' ),
+				)
+			);
+		}
 		/**
 		 * Register widget area.
 		 *
@@ -167,7 +183,6 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 					$type = explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
-					error_log( 'templates/' . $builder . '/components/' . $item );
 					get_template_part( 'templates/' . $builder . '/components/' . $item );
 				}
 			}
@@ -226,6 +241,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $menu menu slug.
 		 */
 		public function menu_markup( $menu ) {
+			error_log( $menu );
 			$custom_header_section   = kemet_get_option( 'header-main-rt-section' );
 			$submenu_has_boxshadow   = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
 			$kemet_submenu_animation = kemet_get_option( 'sub-menu-animation' );
@@ -240,7 +256,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			// Fallback Menu if menu not set.
 			$fallback_menu_args = array(
 				'theme_location' => $menu,
-				'menu_id'        => $menu . '-menu',
+				'menu_id'        => $menu,
 				'menu_class'     => 'main-navigation',
 				'container'      => 'div',
 				'before'         => '<ul class="main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . '">',
@@ -257,10 +273,10 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$menu_args = array(
 				'theme_location'  => $menu,
 				'menu'            => apply_filters( 'kemet_' . $menu . '_slug', $menu ),
-				'menu_id'         => $menu . '-menu',
+				'menu_id'         => $menu,
 				'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-flex-end' . $submenu_class . $submenu_has_boxshadow,
 				'container'       => 'div',
-				'container_class' => 'main-header-bar-navigation ' . $menu . '-menu',
+				'container_class' => 'main-header-bar-navigation ' . $menu,
 				'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			);
 
