@@ -37,7 +37,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'kemet_sitehead', array( $this, 'desktop_header' ) );
+			add_action( 'kemet_top_header', array( $this, 'top_header' ) );
 			add_action( 'kemet_main_header', array( $this, 'main_header' ) );
+			add_action( 'kemet_bottom_header', array( $this, 'bottom_header' ) );
 			add_action( 'kemet_render_header_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
@@ -98,6 +100,20 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Top Header
+		 */
+		public function top_header() {
+			set_query_var( 'row', 'top' );
+			get_template_part(
+				'templates/header/header',
+				'row',
+				array(
+					'row' => 'top',
+				)
+			);
+		}
+
+		/**
 		 * Main Header
 		 */
 		public function main_header() {
@@ -111,6 +127,19 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			);
 		}
 
+		/**
+		 * Bottom Header
+		 */
+		public function bottom_header() {
+			set_query_var( 'row', 'bottom' );
+			get_template_part(
+				'templates/header/header',
+				'row',
+				array(
+					'row' => 'bottom',
+				)
+			);
+		}
 		/**
 		 * Render Builder Colunm
 		 *
@@ -138,6 +167,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 					$type = explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
+					error_log( 'templates/' . $builder . '/components/' . $item );
 					get_template_part( 'templates/' . $builder . '/components/' . $item );
 				}
 			}

@@ -63,7 +63,7 @@ $options = array(
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
 				),
-				'header-button'       => array(
+				'button'              => array(
 					'name'    => __( 'Button', 'kemet' ),
 					'icon'    => 'button',
 					'section' => 'section-menu-header',
