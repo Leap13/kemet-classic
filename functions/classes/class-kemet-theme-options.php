@@ -69,30 +69,47 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 				array(
 					// Header Builder
 					'header-desktop-items'                 => array(
-						'popup'  => array( 'popup_content' => array( 'account' ) ),
-						'top'    =>
-						array(
+						'top'    => array(
 							'top_left'         => array(),
 							'top_left_center'  => array(),
 							'top_center'       => array(),
 							'top_right_center' => array(),
 							'top_right'        => array(),
 						),
-						'main'   =>
-						array(
+						'main'   => array(
 							'main_left'         => array( 'logo' ),
 							'main_left_center'  => array(),
 							'main_center'       => array(),
 							'main_right_center' => array(),
 							'main_right'        => array( 'primary-menu' ),
 						),
-						'bottom' =>
-						array(
+						'bottom' => array(
 							'bottom_left'         => array(),
 							'bottom_left_center'  => array(),
 							'bottom_center'       => array(),
 							'bottom_right_center' => array(),
 							'bottom_right'        => array(),
+						),
+					),
+					'header-mobile-items'                  => array(
+						'popup'  => array( 'popup_content' => array() ),
+						'top'    =>
+						array(
+							'top_left'   => array(),
+							'top_center' => array(),
+							'top_right'  => array(),
+						),
+						'main'   =>
+						array(
+							'main_left'   => array( 'logo' ),
+							'main_center' => array(),
+							'main_right'  => array( 'toggle-button' ),
+						),
+						'bottom' =>
+						array(
+							'bottom_left'   => array(),
+							'bottom_center' => array(),
+							'bottom_right'  => array(),
 						),
 					),
 					// Blog Single.

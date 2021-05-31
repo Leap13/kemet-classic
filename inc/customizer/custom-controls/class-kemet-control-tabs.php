@@ -44,6 +44,21 @@ class Kemet_Control_Tabs extends WP_Customize_Control {
 	public $active_tab = '';
 
 	/**
+	 * The control tabs type.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $tabs_type = '';
+
+	/**
+	 * The control responsive.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $responsive = '';
+	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
 	 *
 	 * @see WP_Customize_Control::to_json()
@@ -53,6 +68,8 @@ class Kemet_Control_Tabs extends WP_Customize_Control {
 
 		$this->json['default']    = $this->setting->default;
 		$this->json['tabs']       = $this->tabs;
+		$this->json['tabs_type']  = $this->tabs_type;
+		$this->json['responsive'] = $this->responsive;
 		$this->json['active_tab'] = $this->active_tab;
 	}
 

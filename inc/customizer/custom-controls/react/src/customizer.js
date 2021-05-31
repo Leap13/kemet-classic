@@ -101,16 +101,10 @@ import { func } from "prop-types";
     };
 
     $window.on("resize", resizePreviewer);
-    api.bind(function (device) {
-      setTimeout(function () {
-        resizePreviewer();
-      }, 250);
-    });
+
     api.previewedDevice.bind(function (device) {
       api.previewer.container.css({ bottom: "0px" });
-      setTimeout(function () {
-        resizePreviewer();
-      }, 250);
+      resizePreviewer();
     });
     if (KemetCustomizerData && KemetCustomizerData.contexts) {
       /**

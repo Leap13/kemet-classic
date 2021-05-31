@@ -202,6 +202,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			foreach ( $options as $option_id => $args ) {
+				$id        = $option_id;
 				$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
 
 				if ( isset( $args['context'] ) ) {
@@ -213,7 +214,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				}
 
 				$settings = array(
-					'default'           => isset( $defaults[ $option_id ] ) ? $defaults[ $option_id ] : '',
+					'default'           => isset( $defaults[ $id ] ) ? $defaults[ $id ] : '',
 					'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
 					'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
 					'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),

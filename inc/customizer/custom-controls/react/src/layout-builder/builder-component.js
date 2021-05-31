@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import ControlTabsComponent from "./control-tabs-component";
 import RowComponent from "./row-component";
 import { Fragment, useState } from "react";
 
@@ -209,7 +208,6 @@ const BuilderComponent = (props) => {
   checkPopupVisibilty(false);
   return (
     <Fragment>
-      <ControlTabsComponent responsive={responsive} />
       <div className="kmt-control-field kmt-builder-items">
         {(true === state.isPopup || true === enablePopup) && (
           <RowComponent

@@ -63,6 +63,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				array(
 					'primary-menu'   => __( 'Primary Menu', 'kemet' ),
 					'secondary-menu' => __( 'Secondary Menu', 'kemet' ),
+					'mobile-menu'    => __( 'Mobile Menu', 'kemet' ),
 				)
 			);
 		}
@@ -241,7 +242,6 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $menu menu slug.
 		 */
 		public function menu_markup( $menu ) {
-			error_log( $menu );
 			$custom_header_section   = kemet_get_option( 'header-main-rt-section' );
 			$submenu_has_boxshadow   = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
 			$kemet_submenu_animation = kemet_get_option( 'sub-menu-animation' );
