@@ -25,26 +25,13 @@ function get_wp_menus() {
 	}
 	return $menus;
 }
-$defaults = Kemet_Theme_Options::defaults();
-
+$defaults   = Kemet_Theme_Options::defaults();
+$customizer = Kemet_Customizer::get_instance();
 /**
-* Option: Header Layout
+* Option: Header Options
 */
 $options = array(
-	'header-builder-tabs'           => array(
-		'section'    => 'section-header-builder-layout',
-		'type'       => 'kmt-tabs',
-		'priority'   => 0,
-		'tabs'       => array(
-			'general' => array(
-				'label' => __( 'General', 'kemet' ),
-			),
-			'design'  => array(
-				'label' => __( 'Design', 'kemet' ),
-			),
-		),
-		'active_tab' => 'general',
-	),
+	// Header Builder
 	'header-desktop-items'          => array(
 		'default'     => $defaults['header-desktop-items'],
 		'section'     => 'section-header-builder',
@@ -56,47 +43,47 @@ $options = array(
 		'choices'     => apply_filters(
 			'header_desktop_items',
 			array(
-				'logo'                 => array(
+				'logo'                => array(
 					'name'    => __( 'Logo', 'kemet' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 				),
-				'search'               => array(
+				'search'              => array(
 					'name'    => __( 'Search', 'kemet' ),
 					'icon'    => 'search',
 					'section' => 'section-menu-header',
 				),
-				'account'              => array(
+				'account'             => array(
 					'name'    => __( 'Account', 'kemet' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
 				),
-				'menu-primary'         => array(
+				'header-menu-primary' => array(
 					'name'    => __( 'Primary Menu', 'kemet' ),
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
 				),
-				'button'               => array(
+				'header-button'       => array(
 					'name'    => __( 'Button', 'kemet' ),
 					'icon'    => 'button',
 					'section' => 'section-menu-header',
 				),
-				'html-1'               => array(
+				'header-html-1'       => array(
 					'name'    => __( 'Html 1', 'kemet' ),
 					'icon'    => 'text',
-					'section' => 'section-menu-header',
+					'section' => 'section-header-html-1',
 				),
-				'html-2'               => array(
+				'header-html-2'       => array(
 					'name'    => __( 'Html 2', 'kemet' ),
 					'icon'    => 'text',
-					'section' => 'section-menu-header',
+					'section' => 'section-header-html-2',
 				),
-				'widget-header-widget' => array(
+				'header-widget-1'     => array(
 					'name'    => __( 'Widget 1', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',
 				),
-				'widget-header-widget' => array(
+				'header-widget-2'     => array(
 					'name'    => __( 'Widget 2', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',
@@ -142,6 +129,12 @@ $options = array(
 			),
 		),
 	),
+	// Header Layout
+	'header-builder-tabs'           => array(
+		'section'  => 'section-header-builder-layout',
+		'type'     => 'kmt-tabs',
+		'priority' => 0,
+	),
 	'header-desktop-availble-items' => array(
 		'section'     => 'section-header-builder-layout',
 		'priority'    => 1,
@@ -159,10 +152,91 @@ $options = array(
 			),
 		),
 	),
+	// Html 1
+	'header-html-1-tabs'            => array(
+		'section'  => 'section-header-html-1',
+		'type'     => 'kmt-tabs',
+		'priority' => 0,
+	),
+	'header-html-1'                 => array(
+		'section'   => 'section-header-html-1',
+		'priority'  => 1,
+		'label'     => __( 'Html', 'kemet' ),
+		'transport' => 'postMessage',
+		'type'      => 'textarea',
+		'context'   => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
+		),
+		'partial'   => array(
+			'selector'            => '.kmt-header-html-1',
+			'container_inclusive' => false,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_1' ),
+		),
+	),
+	// Html 2
+	'header-html-2-tabs'            => array(
+		'section'  => 'section-header-html-2',
+		'type'     => 'kmt-tabs',
+		'priority' => 0,
+	),
+	'header-html-2'                 => array(
+		'section'   => 'section-header-html-2',
+		'priority'  => 1,
+		'label'     => __( 'Html', 'kemet' ),
+		'transport' => 'postMessage',
+		'type'      => 'textarea',
+		'context'   => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
+		),
+		'partial'   => array(
+			'selector'            => '.kmt-header-html-2',
+			'container_inclusive' => false,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_2' ),
+		),
+	),
 );
 
-Kemet_Customizer::get_instance()->add_customizer_options( $options );
+$customizer->add_customizer( $options, 'options' );
 
+$panels = array(
+	'panel-header-builder-group' => array(
+		'priority' => 10,
+		'title'    => __( 'Header Builder', 'kemet' ),
+	),
+);
+
+$customizer->add_customizer( $panels, 'panels' );
+
+$sections = array(
+	'section-header-builder'        => array(
+		'priority' => 5,
+		'title'    => __( 'Header Builder', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+	'section-header-builder-layout' => array(
+		'priority' => 10,
+		'title'    => __( 'Header Layout', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+	'section-header-html-1'         => array(
+		'priority' => 15,
+		'title'    => __( 'Html 1', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+	'section-header-html-2'         => array(
+		'priority' => 20,
+		'title'    => __( 'Html 2', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+);
+
+$customizer->add_customizer( $sections, 'sections' );
 /**
 * Option: Header Layout
 */

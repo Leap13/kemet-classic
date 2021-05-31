@@ -11,7 +11,7 @@ $slug = wp_parse_args(
 		'type' => 'primary-menu',
 	)
 );
-$slug = explode( '-', $slug['type'] )[1];
+$slug = explode( '-', $slug['type'] )[2];
 ?>
 <div class="kmt-header-item kmt-header-item-menu">
 	<?php

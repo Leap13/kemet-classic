@@ -68,5 +68,25 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			echo '</div>';
 			echo ob_get_clean();
 		}
+
+		/**
+		 * Get custom HTML added by user.
+		 *
+		 * @param  string $option_name Option name.
+		 * @return String TEXT/HTML added by user in options panel.
+		 */
+		public static function kemet_get_custom_html( $option_name = '', $class = 'kmt-custom-html' ) {
+			$custom_html         = '';
+			$custom_html_content = kemet_get_option( $option_name );
+			$custom_html         = '<div class="' . esc_attr( $class ) . '">';
+			if ( ! empty( $custom_html_content ) ) {
+				$custom_html .= do_shortcode( $custom_html_content );
+			} elseif ( current_user_can( 'edit_theme_options' ) ) {
+				$custom_html .= '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . KEMET_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kemet' ) . '</a>';
+			}
+			$custom_html .= '</div>';
+
+			return $custom_html;
+		}
 	}
 endif;

@@ -6734,9 +6734,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var __ = wp.i18n.__;
 
 var TabsComponent = function TabsComponent(props) {
-  var defaultTabs = {};
+  var defaultTabs = {
+    general: {
+      label: __("General", "kemet")
+    },
+    design: {
+      label: __("Design", "kemet")
+    }
+  };
   var tabs = props.control.params.tabs ? _objectSpread(_objectSpread({}, defaultTabs), props.control.params.tabs) : defaultTabs;
-  var active = props.control.params.active_tab;
+  console.log(tabs);
+  var active = props.control.params.active_tab ? props.control.params.active_tab : "general";
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-compontent-tabs nav-tab-wrapper wp-clearfix"
   }, Object.keys(tabs).map(function (tab) {

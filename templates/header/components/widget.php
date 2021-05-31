@@ -8,13 +8,13 @@
 $widget = wp_parse_args(
 	$args,
 	array(
-		'type' => 'widget-1',
+		'type' => 'header-widget-1',
 	)
 );
-$widget = explode( 'widget-', $widget['type'] )[1];
 
+$widget = $widget['type'];
 ?>
-<div class="kmt-header-item kmt-header-item-<?php echo esc_attr( $widget ); ?>">
+<div class="kmt-header-item kmt-<?php echo esc_attr( $widget ); ?>-item">
 	<?php
 	/**
 	 * Kemet Header Widget

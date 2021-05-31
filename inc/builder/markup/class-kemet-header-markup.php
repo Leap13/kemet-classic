@@ -43,8 +43,44 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
 			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
-			add_action( 'kemet_header_html', array( $this, 'html_markup' ), 10, 1 );
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
+			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+			add_action( 'kemet_header_html', array( $this, 'render_html' ), 10, 1 );
+		}
+
+		/**
+		 * Register widget area.
+		 *
+		 * @see https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+		 */
+		public function widgets_init() {
+			register_sidebar(
+				apply_filters(
+					'kemet_header_widgets_1',
+					array(
+						'name'          => esc_html__( 'Header Widget 1', 'kemet' ),
+						'id'            => 'header-widget-1',
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</div>',
+						'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+						'after_title'   => '</h4></div></div>',
+					)
+				)
+			);
+
+			register_sidebar(
+				apply_filters(
+					'kemet_header_widgets_2',
+					array(
+						'name'          => esc_html__( 'Header Widget 2', 'kemet' ),
+						'id'            => 'header-widget-2',
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget'  => '</div>',
+						'before_title'  => '<div class="widget-head"><div class="title"><h4 class="widget-title">',
+						'after_title'   => '</h4></div></div>',
+					)
+				)
+			);
 		}
 
 		/**
@@ -99,7 +135,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$items = kemet_get_option( $builder . '-' . $device . '-items' );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
 				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
-					$type = explode( '-', $item )[0];
+					$type = explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
 					get_template_part( 'templates/' . $builder . '/components/' . $item );
@@ -107,6 +143,40 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			}
 		}
 
+		/**
+		 * Html
+		 *
+		 * @param string $html html name.
+		 */
+		public function render_html( $html ) {
+			echo Kemet_Builder_Helper::kemet_get_custom_html( $html, 'kmt-' . $html );
+		}
+
+		/**
+		 * Html 1
+		 */
+		public function render_html_1() {
+			return $this->get_html( 'header-html-1' );
+		}
+
+		/**
+		 * Html 2
+		 */
+		public function render_html_2() {
+			return $this->get_html( 'header-html-2' );
+		}
+
+		/**
+		 * Html callback
+		 *
+		 * @param string $option option name.
+		 * @return string
+		 */
+		public function get_html( $option ) {
+			$html = kemet_get_option( $option );
+			error_log( $html );
+			return do_shortcode( $html );
+		}
 		/**
 		 * Site Title / Logo
 		 */

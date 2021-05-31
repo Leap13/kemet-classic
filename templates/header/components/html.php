@@ -8,12 +8,12 @@
 $html = wp_parse_args(
 	$args,
 	array(
-		'type' => 'html-1',
+		'type' => 'header-html-1',
 	)
 );
 $html = $html['type'];
 ?>
-<div class="kmt-header-item kmt-header-item-<?php echo esc_attr( $html ); ?>">
+<div class="kmt-header-item kmt-<?php echo esc_attr( $html ); ?>-item">
 	<?php
 	/**
 	 * Kemet Header Html

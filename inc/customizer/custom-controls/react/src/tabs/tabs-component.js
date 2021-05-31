@@ -3,7 +3,10 @@ import { Fragment } from "react";
 const { __ } = wp.i18n;
 
 const TabsComponent = (props) => {
-  let defaultTabs = {};
+  let defaultTabs = {
+    general: { label: __("General", "kemet") },
+    design: { label: __("Design", "kemet") },
+  };
 
   let tabs = props.control.params.tabs
     ? {
@@ -11,7 +14,10 @@ const TabsComponent = (props) => {
         ...props.control.params.tabs,
       }
     : defaultTabs;
-  const active = props.control.params.active_tab;
+  console.log(tabs);
+  const active = props.control.params.active_tab
+    ? props.control.params.active_tab
+    : "general";
   return (
     <div className="kmt-compontent-tabs nav-tab-wrapper wp-clearfix">
       {Object.keys(tabs).map((tab) => {

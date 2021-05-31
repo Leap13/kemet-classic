@@ -44,6 +44,22 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $controls_arr = array();
 
 		/**
+		 * Customizer Panels Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $panels_arr = array();
+
+		/**
+		 * Customizer Sections Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $sections_arr = array();
+
+		/**
 		 * Customizer Choices Array.
 		 *
 		 * @access private
@@ -91,13 +107,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		);
 
 		/**
-		 * Partials array.
-		 *
-		 * @access public
-		 * @var array
-		 */
-		public static $partials_arr = array();
-		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -127,7 +136,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_dashicons_front_end' ) );
 			add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 999 );
-			// add_filter( 'customize_dynamic_partial_args', array( $this, 'filter_dynamic_partial_args' ), 10, 2 );
 		}
 
 		/**
@@ -136,14 +144,29 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @param object $control control args.
 		 * @return void
 		 */
-		public function add_customizer_options( $options ) {
+		public function add_customizer( $options, $type = 'options' ) {
 			if ( ! is_array( $options ) ) {
 				return;
 			}
 
-			foreach ( $options as $control_id => $args ) {
-				$this->update_controls_arr( $control_id, $args );
+			switch ( $type ) {
+				case 'options':
+					foreach ( $options as $control_id => $args ) {
+						self::$controls_arr[ $control_id ] = $args;
+					}
+					break;
+				case 'panels':
+					foreach ( $options as $control_id => $args ) {
+						self::$panels_arr[ $control_id ] = $args;
+					}
+					break;
+				case 'sections':
+					foreach ( $options as $control_id => $args ) {
+						self::$sections_arr[ $control_id ] = $args;
+					}
+					break;
 			}
+
 		}
 
 		/**
@@ -153,7 +176,30 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return object
 		 */
 		public function register_customizer_options( $wp_customize ) {
-			$options = $this->get_controls_arr();
+			$options  = $this->get_controls_arr();
+			$panels   = $this->get_panels_arr();
+			$sections = $this->get_sections_arr();
+			$defaults = Kemet_Theme_Options::defaults();
+
+			foreach ( $panels as $panel_id => $args ) {
+				$wp_customize->add_panel(
+					new Kemet_WP_Customize_Panel(
+						$wp_customize,
+						$panel_id,
+						$args
+					)
+				);
+			}
+
+			foreach ( $sections as $section_id => $args ) {
+				$wp_customize->add_section(
+					new Kemet_WP_Customize_Section(
+						$wp_customize,
+						$section_id,
+						$args
+					)
+				);
+			}
 
 			foreach ( $options as $option_id => $args ) {
 				$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
@@ -163,11 +209,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				}
 
 				if ( isset( $args['choices'] ) ) {
-					$this->update_choices_arr( $option_id, $args['choices'] );
+					self::$choices_arr[ $option_id ] = $args['choices'];
 				}
 
 				$settings = array(
-					'default'           => $this->get_control_prop( 'default', $args ),
+					'default'           => isset( $defaults[ $option_id ] ) ? $defaults[ $option_id ] : '',
 					'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
 					'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
 					'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
@@ -347,20 +393,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					$operator                   = ! empty( $operators ) && isset( $operators[ $i - 1 ] ) ? $operators[ $i - 1 ] : '||';
 					$dependency['conditions'][] = array( $controls[ $i ], $conditions[ $i ], $con_values[ $i ], $operator );
 				}
-				$this->update_dependency_arr( $setting_id, $dependency );
+				self::$dependency_arr[ $setting_id ] = $dependency;
 			}
 
 			return $setting_args;
-		}
-		/**
-		 * Update dependency in the dependency array.
-		 *
-		 * @param String $key name of the Setting/Control for which the dependency is added.
-		 * @param Array  $dependency dependency of the $name Setting/Control.
-		 * @return void
-		 */
-		private function update_dependency_arr( $key, $dependency ) {
-			self::$dependency_arr[ $key ] = $dependency;
 		}
 
 		/**
@@ -373,17 +409,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		}
 
 		/**
-		 * Update Controls in the Controls array.
-		 *
-		 * @param String $key name of the Setting/Control for which the Controls is added.
-		 * @param Array  $Controls Controls of the $name Setting/Control.
-		 * @return void
-		 */
-		private function update_controls_arr( $key, $controls ) {
-			self::$controls_arr[ $key ] = $controls;
-		}
-
-		/**
 		 * Get Choices Array.
 		 *
 		 * @return Array Dependencies discovered when registering controls and settings.
@@ -393,21 +418,24 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		}
 
 		/**
-		 * Update Choices in the Choices array.
-		 *
-		 * @param String $key name of the Setting/Control for which the Choices is added.
-		 * @param Array  $Controls Choices of the $name Setting/Control.
-		 * @return void
-		 */
-		private function update_choices_arr( $key, $controls ) {
-			self::$choices_arr[ $key ] = $controls;
-		}
-
-		/**
 		 * Get Choices Array.
 		 */
 		private function get_choices_arr() {
 			return self::$choices_arr;
+		}
+
+		/**
+		 * Get Panels & Sections Array.
+		 */
+		private function get_panels_arr() {
+			return self::$panels_arr;
+		}
+
+		/**
+		 * Get Panels & Sections Array.
+		 */
+		private function get_Sections_arr() {
+			return self::$sections_arr;
 		}
 
 		/**
