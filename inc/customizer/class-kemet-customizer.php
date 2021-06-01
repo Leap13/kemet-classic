@@ -28,12 +28,30 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $instance;
 
 		/**
+		 * Customizer Configurations.
+		 *
+		 * @access Private
+		 * @since 1.4.3
+		 * @var Array
+		 */
+		private static $configuration;
+
+		/**
+		 * Customizer Dependency Array.
+		 *
+		 * @access Private
+		 * @since 1.4.3
+		 * @var array
+		 */
+		private static $_dependency_arr = array();
+
+		/**
 		 * Customizer Dependency Array.
 		 *
 		 * @access private
 		 * @var array
 		 */
-		private static $dependency_arr = array();
+		//private static $dependency_arr = array();
 		/**
 		 * Initiator
 		 */
@@ -53,6 +71,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Customizer
 			 */
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
+
+			if ( is_admin() || is_customize_preview() ) {
+				add_action( 'customize_register', array( $this, 'include_configurations' ), 20 );
+				add_action( 'customize_register', array( $this, 'register_customizer_settings' ), 50 );
+			}
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'sections_scripts' ) );
 			add_action( 'customize_register', array( $this, 'kemet_notification_section' ) );
@@ -62,6 +85,216 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_dashicons_front_end' ) );
 			add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
+
+		}
+
+		/**
+		 * Process and Register Customizer Panels, Sections, Settings and Controls.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		public function register_customizer_settings( $wp_customize ) {
+
+			$configurations = $this->get_customizer_configurations( $wp_customize );
+
+			foreach ( $configurations as $key => $config ) {
+				$config = wp_parse_args( $config, $this->get_kemet_customizer_configuration_defaults() );
+
+				switch ( $config['type'] ) {
+					case 'panel':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
+						$this->register_panel( $config, $wp_customize );
+
+						break;
+
+					case 'section':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
+						$this->register_section( $config, $wp_customize );
+
+						break;
+
+					case 'control':
+						// Remove type from configuration.
+						unset( $config['type'] );
+
+						$this->register_setting_control( $config, $wp_customize );
+
+						break;
+				}
+			}
+
+		}
+
+		/**
+		 * Filter and return Customizer Configurations.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Reference to WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return Array Customizer Configurations for registering Sections/Panels/Controls.
+		 */
+		private function get_customizer_configurations( $wp_customize ) {
+			if ( ! is_null( self::$configuration ) ) {
+				return self::$configuration;
+			}
+
+			return apply_filters( 'kemet_customizer_configurations', array(), $wp_customize );
+		}
+
+		/**
+		 * Return default values for the Customize Configurations.
+		 *
+		 * @since 1.4.3
+		 * @return Array default values for the Customizer Configurations.
+		 */
+		private function get_kemet_customizer_configuration_defaults() {
+			return apply_filters(
+				'kemet_customizer_configuration_defaults',
+				array(
+					'priority'             => null,
+					'title'                => null,
+					'label'                => null,
+					'name'                 => null,
+					'type'                 => null,
+					'description'          => null,
+					'capability'           => null,
+					'datastore_type'       => 'option', // theme_mod or option. Default option.
+					'settings'             => null,
+					'active_callback'      => null,
+					'sanitize_callback'    => null,
+					'sanitize_js_callback' => null,
+					'theme_supports'       => null,
+					'transport'            => null,
+					'default'              => null,
+					'selector'             => null,
+				)
+			);
+		}
+
+		/**
+		 * Register Customizer Panel.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		private function register_panel( $config, $wp_customize ) {
+			$wp_customize->add_panel( new Kemet_WP_Customize_Panel( $wp_customize, astar( $config, 'name' ), $config ) );
+		}
+
+		/**
+		 * Register Customizer Section.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		private function register_section( $config, $wp_customize ) {
+			$wp_customize->add_section( new Kemet_WP_Customize_Section( $wp_customize, astar( $config, 'name' ), $config ) );
+		}
+
+		/**
+		 * Register Customizer Control and Setting.
+		 *
+		 * @param Array                $config Panel Configuration settings.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+		 * @since 1.4.3
+		 * @return void
+		 */
+		private function register_setting_control( $config, $wp_customize ) {
+
+			$wp_customize->add_setting(
+				astar( $config, 'name' ), array(
+					'default'           => astar( $config, 'default' ),
+					'type'              => astar( $config, 'datastore_type' ),
+					'transport'         => astar( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => astar( $config, 'sanitize_callback', Kemet_Customizer_Control_Base::get_sanitize_call( astar( $config, 'control' ) ) ),
+				)
+			);
+
+			$instance = Kemet_Customizer_Control_Base::get_control_instance( astar( $config, 'control' ) );
+
+			$config['label'] = astar( $config, 'title' );
+			$config['type']  = astar( $config, 'control' );
+
+			// For ast-font control font-weight and font-family is passed as param `font-type` which needs to be converted to `type`.
+			if ( false !== astar( $config, 'font-type', false ) ) {
+				$config['type'] = astar( $config, 'font-type', false );
+			}
+
+			if ( false !== $instance ) {
+				$wp_customize->add_control(
+					new $instance( $wp_customize, astar( $config, 'name' ), $config )
+				);
+			} else {
+				$wp_customize->add_control( astar( $config, 'name' ), $config );
+			}
+
+			if ( astar( $config, 'partial', false ) ) {
+
+				if ( isset( $wp_customize->selective_refresh ) ) {
+					$wp_customize->selective_refresh->add_partial(
+						astar( $config, 'name' ), array(
+							'selector'            => astar( $config['partial'], 'selector' ),
+							'container_inclusive' => astar( $config['partial'], 'container_inclusive' ),
+							'render_callback'     => astar( $config['partial'], 'render_callback' ),
+						)
+					);
+				}
+			}
+
+			if ( false !== astar( $config, 'required', false ) ) {
+				$this->update_dependency_arr( astar( $config, 'name' ), astar( $config, 'required' ) );
+			}
+
+		}
+
+		// /**
+		//  * Update dependency in the dependency array.
+		//  *
+		//  * @param String $key name of the Setting/Control for which the dependency is added.
+		//  * @param Array  $dependency dependency of the $name Setting/Control.
+		//  * @since 1.4.3
+		//  * @return void
+		//  */
+		private function update_dependency_arr( $key, $dependency ) {
+			self::$_dependency_arr[ $key ] = $dependency;
+		}
+
+		// /**
+		//  * Get dependency Array.
+		//  *
+		//  * @since 1.4.3
+		//  * @return Array Dependencies discovered when registering controls and settings.
+		//  */
+		private function get_dependency_arr() {
+			return self::$_dependency_arr;
+		}
+
+		/**
+		 * Include Customizer Configuration files.
+		 *
+		 * @since 1.4.3
+		 * @return void
+		 */
+		public function include_configurations() {
+			require  KEMET_THEME_DIR . 'inc/customizer/config/class-kemet-customizer-config-base.php';
+
+			/**
+			 * Register Sections & Panels
+			 */
+			
+			require  KEMET_THEME_DIR . 'inc/customizer/config/class-kemet-customizer-register-sections-panels.php';
+			require  KEMET_THEME_DIR . 'inc/customizer/config/class-kemet-customizer-buttons-fields-configs.php';
+
+
 
 		}
 		/**
@@ -165,18 +398,18 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @param Array  $dependency dependency of the $name Setting/Control.
 		 * @return void
 		 */
-		private function update_dependency_arr( $key, $dependency ) {
-			self::$dependency_arr[ $key ] = $dependency;
-		}
+		// private function update_dependency_arr( $key, $dependency ) {
+		// 	self::$dependency_arr[ $key ] = $dependency;
+		// }
 
 		/**
 		 * Get dependency Array.
 		 *
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
-		private function get_dependency_arr() {
-			return self::$dependency_arr;
-		}
+		// private function get_dependency_arr() {
+		// 	return self::$dependency_arr;
+		// }
 
 		/**
 		 * Register custom section and panel.
@@ -194,11 +427,130 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-kemet-wp-customize-panel.php';
 			require KEMET_THEME_DIR . 'inc/customizer/extend-customizer/class-kemet-wp-customize-section.php';
+			require  KEMET_THEME_DIR . 'inc/customizer/custom-controls/class-kemet-customizer-control-base.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			/**
 			 * Register controls
 			 */
+
+			 /**
+			 * Add Controls
+			 */
+
+			Kemet_Customizer_Control_Base::add_control(
+				'color',
+				array(
+					'callback'         => 'WP_Customize_Color_Control',
+					'santize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-sortable',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Sortable',
+			// 		'santize_callback' => '',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-radio-image',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Radio_Image',
+			// 		'santize_callback' => 'sanitize_choices',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-slider',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Slider',
+			// 		'santize_callback' => '',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-responsive-slider',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Responsive_Slider',
+			// 		'santize_callback' => 'sanitize_responsive_slider',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-responsive',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Responsive',
+			// 		'santize_callback' => 'sanitize_responsive_typo',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-responsive-spacing',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Responsive_Spacing',
+			// 		'santize_callback' => 'sanitize_responsive_spacing',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-divider',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Divider',
+			// 		'santize_callback' => '',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-heading',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Heading',
+			// 		'santize_callback' => '',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-color',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Color',
+			// 		'santize_callback' => 'sanitize_alpha_color',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-description',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Description',
+			// 		'santize_callback' => '',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-background',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Background',
+			// 		'santize_callback' => 'sanitize_background_obj',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'image',
+			// 	array(
+			// 		'callback'         => 'WP_Customize_Image_Control',
+			// 		'santize_callback' => 'esc_url_raw',
+			// 	)
+			// );
+
+			// Astra_Customizer_Control_Base::add_control(
+			// 	'ast-font',
+			// 	array(
+			// 		'callback'         => 'Astra_Control_Typography',
+			// 		'santize_callback' => 'sanitize_text_field',
+			// 	)
+			// );
+
+
 			$wp_customize->register_control_type( 'Kemet_Control_Sortable' );
 			$wp_customize->register_control_type( 'Kemet_Control_Radio_Image' );
 			$wp_customize->register_control_type( 'Kemet_Control_Slider' );
@@ -247,7 +599,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/**
 			 * Register Sections & Panels
 			 */
-			require KEMET_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
+			//require KEMET_THEME_DIR . 'inc/customizer/register-panels-and-sections.php';
 
 			/**
 			 * Sections
@@ -264,7 +616,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/widgets.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
-			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
+			//require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
