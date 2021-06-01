@@ -1248,7 +1248,7 @@ var toggleClass = function (el, className) {
   var menu_toggle_all = document.querySelector(".main-header-menu-toggle");
   if (menu_toggle_all !== null) {
     window.addEventListener("click", function (e) {
-      var main_header_wrap = document.querySelector(".main-navigation");
+      // var main_header_wrap = document.querySelector(".main-navigation");
       if (
         !(
           menu_toggle_all.contains(e.target) ||
@@ -1257,13 +1257,13 @@ var toggleClass = function (el, className) {
         menu_toggle_all.classList.contains("toggled")
       ) {
         menu_toggle_all.classList.remove("toggled");
-        if (__main_header_all.length > 0) {
-          for (var i = 0; i < __main_header_all.length; i++) {
-            __main_header_all[i].classList.remove("toggle-on");
+        // if (__main_header_all.length > 0) {
+        //   for (var i = 0; i < __main_header_all.length; i++) {
+        //     __main_header_all[i].classList.remove("toggle-on");
 
-            __main_header_all[i].style.display = "none";
-          }
-        }
+        //     __main_header_all[i].style.display = "none";
+        //   }
+        // }
       }
     });
 
@@ -1366,14 +1366,11 @@ var toggleClass = function (el, className) {
   /* Add break point Class and related trigger */
   var updateHeaderBreakPoint = function () {
     var break_point = kemet.break_point,
-      headerWrap = document.querySelectorAll(".main-header-bar-wrap");
+      headerWrap = document.querySelectorAll("#kmt-mobile-header");
 
     if (headerWrap.length > 0) {
       for (var i = 0; i < headerWrap.length; i++) {
-        if (
-          headerWrap[i].tagName == "DIV" &&
-          headerWrap[i].classList.contains("main-header-bar-wrap")
-        ) {
+        if (headerWrap[i].tagName == "DIV") {
           var header_content_bp = window
             .getComputedStyle(headerWrap[i], "::before")
             .getPropertyValue("content");

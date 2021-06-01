@@ -115,25 +115,36 @@ import { func } from "prop-types";
         // Control Display.
         var setupControl = function (element) {
           var setting;
+          var getSetting = function (setting) {
+            switch (setting) {
+              case "device":
+                setting = api.previewedDevice;
+                break;
+              case "tab":
+                setting = api.state("kemetTab");
+                break;
+            }
+
+            return setting;
+          };
           var isDisplay = function () {
-            var isVisible = false;
+            var isVisible = true;
             _.each(rules, function (rule, ruleKey) {
-              var settingName = rule.setting,
+              var boolean = false,
+                operator = undefined != rule.operator ? rule.operator : "=",
                 ruleValue = rule.value;
-
-              switch (settingName) {
-                case "device":
-                  setting = api.previewedDevice;
-                  break;
-                case "tab":
-                  setting = api.state("kemetTab");
-                  break;
-              }
+              setting = getSetting(rule.setting);
               var settingValue = setting.get();
+              switch (operator) {
+                case "in_array":
+                  boolean = ruleValue.includes(settingValue);
+                  break;
 
-              if (settingValue == ruleValue) {
-                isVisible = true;
+                default:
+                  boolean = settingValue == ruleValue;
+                  break;
               }
+              isVisible = isVisible && boolean;
             });
             return isVisible;
           };
@@ -142,9 +153,15 @@ import { func } from "prop-types";
             element.active.set(isDisplay());
           };
 
+          _.each(rules, function (rule, ruleKey) {
+            setting = getSetting(rule.setting);
+            if (undefined != setting) {
+              setting.bind(setActiveState);
+            }
+          });
+
           element.active.validate = isDisplay;
           setActiveState();
-          setting.bind(setActiveState);
         };
         api.control(key, setupControl);
       });

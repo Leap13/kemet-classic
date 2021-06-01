@@ -644,7 +644,7 @@ if ( ! function_exists( 'kemet_toggle_buttons_markup' ) ) {
 	}
 }
 
-add_action( 'kemet_sitehead_content', 'kemet_toggle_buttons_markup', 9 );
+// add_action( 'kemet_sitehead_content', 'kemet_toggle_buttons_markup', 9 );
 
 /**
  * Function to get Primary navigation menu
@@ -793,12 +793,12 @@ function kemet_header_breakpoint_style() {
 
 	ob_start();
 	?>
-	.main-header-bar-wrap::before {
+	#kmt-mobile-header::before {
 		content: '<?php echo esc_html( $header_break_point ); ?>';
 	}
 
 	@media all and ( min-width: <?php echo esc_html( $header_break_point ); ?>px ) {
-		.main-header-bar-wrap::before {
+		#kmt-mobile-header::before {
 			content: '';
 		}
 	}

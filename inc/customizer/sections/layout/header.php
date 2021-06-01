@@ -149,47 +149,52 @@ $options = array(
 		'choices'     => apply_filters(
 			'header_mobile_items',
 			array(
-				'logo'            => array(
+				'logo'                 => array(
 					'name'    => __( 'Logo', 'kemet' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 				),
-				'search'          => array(
+				'mobile-button'        => array(
+					'name'    => __( 'Button', 'kemet' ),
+					'icon'    => 'button',
+					'section' => 'section-menu-header',
+				),
+				'search'               => array(
 					'name'    => __( 'Search', 'kemet' ),
 					'icon'    => 'search',
 					'section' => 'section-menu-header',
 				),
-				'account'         => array(
+				'account'              => array(
 					'name'    => __( 'Account', 'kemet' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
 				),
-				'mobile-menu'     => array(
-					'name'    => __( 'Primary Menu', 'kemet' ),
+				'mobile-menu'          => array(
+					'name'    => __( 'Mobile Menu', 'kemet' ),
 					'icon'    => 'menu',
 					'section' => 'section-menu-header',
 				),
-				'toggle-button'   => array(
+				'mobile-toggle'        => array(
 					'name'    => __( 'Toggle Button', 'kemet' ),
 					'icon'    => 'button',
 					'section' => 'section-menu-header',
 				),
-				'header-html-1'   => array(
+				'header-html-mobile-1' => array(
 					'name'    => __( 'Html 1', 'kemet' ),
 					'icon'    => 'text',
-					'section' => 'section-header-html-1',
+					'section' => 'section-header-html-mobile-1',
 				),
-				'header-html-2'   => array(
+				'header-html-mobile-2' => array(
 					'name'    => __( 'Html 2', 'kemet' ),
 					'icon'    => 'text',
-					'section' => 'section-header-html-2',
+					'section' => 'section-header-html-mobile-2',
 				),
-				'header-widget-1' => array(
+				'header-widget-1'      => array(
 					'name'    => __( 'Widget 1', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',
 				),
-				'header-widget-2' => array(
+				'header-widget-2'      => array(
 					'name'    => __( 'Widget 2', 'kemet' ),
 					'icon'    => 'wordpress-alt',
 					'section' => 'section-menu-header',
@@ -227,12 +232,9 @@ $options = array(
 		),
 		'context'     => array(
 			array(
-				'setting' => 'device',
-				'value'   => 'tablet',
-			),
-			array(
-				'setting' => 'device',
-				'value'   => 'mobile',
+				'setting'  => 'device',
+				'operator' => 'in_array',
+				'value'    => array( 'tablet', 'mobile' ),
 			),
 		),
 	),
@@ -256,6 +258,32 @@ $options = array(
 			array(
 				'setting' => 'tab',
 				'value'   => 'general',
+			),
+			array(
+				'setting' => 'device',
+				'value'   => 'desktop',
+			),
+		),
+	),
+	'header-mobile-availble-items'  => array(
+		'section'     => 'section-header-builder-layout',
+		'priority'    => 1,
+		'label'       => __( 'Available Items', 'kemet' ),
+		'transport'   => 'postMessage',
+		'type'        => 'kmt-available',
+		'input_attrs' => array(
+			'group' => 'header-mobile-items',
+			'zones' => array( 'popup', 'top', 'main', 'bottom' ),
+		),
+		'context'     => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
+			array(
+				'setting'  => 'device',
+				'operator' => 'in_array',
+				'value'    => array( 'tablet', 'mobile' ),
 			),
 		),
 	),
@@ -283,6 +311,24 @@ $options = array(
 			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_1' ),
 		),
 	),
+	'header-html-mobile-1'          => array(
+		'section'   => 'section-header-html-mobile-1',
+		'priority'  => 1,
+		'label'     => __( 'Html', 'kemet' ),
+		'transport' => 'postMessage',
+		'type'      => 'textarea',
+		'context'   => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
+		),
+		'partial'   => array(
+			'selector'            => '.kmt-header-html-mobile-1',
+			'container_inclusive' => false,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_1' ),
+		),
+	),
 	// Html 2
 	'header-html-2-tabs'            => array(
 		'section'  => 'section-header-html-2',
@@ -305,6 +351,24 @@ $options = array(
 			'selector'            => '.kmt-header-html-2',
 			'container_inclusive' => false,
 			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_2' ),
+		),
+	),
+	'header-html-mobile-2'          => array(
+		'section'   => 'section-header-html-mobile-2',
+		'priority'  => 1,
+		'label'     => __( 'Html', 'kemet' ),
+		'transport' => 'postMessage',
+		'type'      => 'textarea',
+		'context'   => array(
+			array(
+				'setting' => 'tab',
+				'value'   => 'general',
+			),
+		),
+		'partial'   => array(
+			'selector'            => '.kmt-header-html-mobile-2',
+			'container_inclusive' => false,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_2' ),
 		),
 	),
 );
@@ -333,12 +397,22 @@ $sections = array(
 	),
 	'section-header-html-1'         => array(
 		'priority' => 15,
-		'title'    => __( 'Html 1', 'kemet' ),
+		'title'    => __( 'Header Html 1', 'kemet' ),
 		'panel'    => 'panel-header-builder-group',
 	),
 	'section-header-html-2'         => array(
 		'priority' => 20,
-		'title'    => __( 'Html 2', 'kemet' ),
+		'title'    => __( 'Header Html 2', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+	'section-header-html-mobile-1'  => array(
+		'priority' => 25,
+		'title'    => __( 'Mobile Header Html 1', 'kemet' ),
+		'panel'    => 'panel-header-builder-group',
+	),
+	'section-header-html-mobile-2'  => array(
+		'priority' => 30,
+		'title'    => __( 'Mobile Header Html 2', 'kemet' ),
 		'panel'    => 'panel-header-builder-group',
 	),
 );

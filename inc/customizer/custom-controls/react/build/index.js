@@ -5690,28 +5690,41 @@ __webpack_require__.r(__webpack_exports__);
         var setupControl = function setupControl(element) {
           var setting;
 
+          var getSetting = function getSetting(setting) {
+            switch (setting) {
+              case "device":
+                setting = api.previewedDevice;
+                break;
+
+              case "tab":
+                setting = api.state("kemetTab");
+                break;
+            }
+
+            return setting;
+          };
+
           var isDisplay = function isDisplay() {
-            var isVisible = false;
+            var isVisible = true;
 
             _.each(rules, function (rule, ruleKey) {
-              var settingName = rule.setting,
+              var boolean = false,
+                  operator = undefined != rule.operator ? rule.operator : "=",
                   ruleValue = rule.value;
-
-              switch (settingName) {
-                case "device":
-                  setting = api.previewedDevice;
-                  break;
-
-                case "tab":
-                  setting = api.state("kemetTab");
-                  break;
-              }
-
+              setting = getSetting(rule.setting);
               var settingValue = setting.get();
 
-              if (settingValue == ruleValue) {
-                isVisible = true;
+              switch (operator) {
+                case "in_array":
+                  boolean = ruleValue.includes(settingValue);
+                  break;
+
+                default:
+                  boolean = settingValue == ruleValue;
+                  break;
               }
+
+              isVisible = isVisible && boolean;
             });
 
             return isVisible;
@@ -5721,9 +5734,16 @@ __webpack_require__.r(__webpack_exports__);
             element.active.set(isDisplay());
           };
 
+          _.each(rules, function (rule, ruleKey) {
+            setting = getSetting(rule.setting);
+
+            if (undefined != setting) {
+              setting.bind(setActiveState);
+            }
+          });
+
           element.active.validate = isDisplay;
           setActiveState();
-          setting.bind(setActiveState);
         };
 
         api.control(key, setupControl);
@@ -6155,7 +6175,7 @@ var BuilderComponent = function BuilderComponent(props) {
 
     if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map(function (row) {
-        if (inObject(state.value[row], "toggle-mobile")) {
+        if (inObject(state.value[row], "mobile-toggle")) {
           hasPopup = true;
         }
       });

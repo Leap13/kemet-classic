@@ -92,7 +92,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'header-mobile-items'                  => array(
-						'popup'  => array( 'popup_content' => array() ),
+						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
 						'top'    =>
 						array(
 							'top_left'   => array(),
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						array(
 							'main_left'   => array( 'logo' ),
 							'main_center' => array(),
-							'main_right'  => array( 'toggle-button' ),
+							'main_right'  => array( 'mobile-toggle' ),
 						),
 						'bottom' =>
 						array(

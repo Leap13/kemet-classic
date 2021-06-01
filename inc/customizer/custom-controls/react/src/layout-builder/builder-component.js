@@ -182,7 +182,7 @@ const BuilderComponent = (props) => {
     let hasPopup = false;
     if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map((row) => {
-        if (inObject(state.value[row], "toggle-mobile")) {
+        if (inObject(state.value[row], "mobile-toggle")) {
           hasPopup = true;
         }
       });

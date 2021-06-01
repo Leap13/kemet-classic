@@ -37,18 +37,25 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'kemet_sitehead', array( $this, 'desktop_header' ) );
+			add_action( 'kemet_mobile_header', array( $this, 'mobile_header' ) );
 			add_action( 'kemet_top_header', array( $this, 'top_header' ) );
 			add_action( 'kemet_main_header', array( $this, 'main_header' ) );
 			add_action( 'kemet_bottom_header', array( $this, 'bottom_header' ) );
+			add_action( 'kemet_top_mobile_header', array( $this, 'top_mobile_header' ) );
+			add_action( 'kemet_main_mobile_header', array( $this, 'main_mobile_header' ) );
+			add_action( 'kemet_bottom_mobile_header', array( $this, 'bottom_mobile_header' ) );
 			add_action( 'kemet_render_header_column', array( $this, 'render_column' ), 10, 2 );
+			add_action( 'kemet_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
 			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
+			add_action( 'kemet_header_mobile_button', array( $this, 'mobile_button_markup' ) );
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'kemet_header_html', array( $this, 'render_html' ), 10, 1 );
 			add_action( 'init', array( $this, 'register_menu_locations' ) );
+			add_action( 'kemet_mobile_toggle', array( $this, 'mobile_toggle_buttons_markup' ) );
 		}
 
 		/**
@@ -117,6 +124,13 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Mobile Header
+		 */
+		public function mobile_header() {
+			get_template_part( 'templates/header/header-mobile-layout' );
+		}
+
+		/**
 		 * Top Header
 		 */
 		public function top_header() {
@@ -170,6 +184,18 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Render Builder Colunm
+		 *
+		 * @param string $column column.
+		 * @param string $row row.
+		 */
+		public function render_mobile_column( $column, $row ) {
+			if ( Kemet_Builder_Helper::column_has_items( $column, $row, 'header', 'mobile' ) ) {
+				self::render_column_content( $column, $row, 'header', 'mobile' );
+			}
+		}
+
+		/**
 		 * Get Column Content
 		 *
 		 * @param string $column column.
@@ -210,6 +236,20 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function render_html_2() {
 			return $this->get_html( 'header-html-2' );
+		}
+
+		/**
+		 * Html 1
+		 */
+		public function render_html_mobile_1() {
+			return $this->get_html( 'header-html-mobile-1' );
+		}
+
+		/**
+		 * Html 2
+		 */
+		public function render_html_mobile_2() {
+			return $this->get_html( 'header-html-mobile-2' );
 		}
 
 		/**
@@ -329,6 +369,14 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Button
+		 */
+		public function mobile_button_markup() {
+			$text = esc_html__( 'Mobile Button', 'kemet' );
+			echo '<a href=' . esc_url( admin_url() ) . ' class="button" target="_blank">' . esc_html( $text ) . '</a>';
+		}
+
+		/**
 		 * Html
 		 *
 		 * @param string $html html type.
@@ -345,6 +393,73 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function widget_markup( $widget ) {
 			Kemet_Builder_Helper::get_custom_widget( $widget );
+		}
+
+		/**
+		 * Top Header
+		 */
+		public function top_mobile_header() {
+			set_query_var( 'row', 'top' );
+			get_template_part(
+				'templates/header/header-mobile',
+				'row',
+				array(
+					'row' => 'top',
+				)
+			);
+		}
+
+		/**
+		 * Main Header
+		 */
+		public function main_mobile_header() {
+			set_query_var( 'row', 'main' );
+			get_template_part(
+				'templates/header/header-mobile',
+				'row',
+				array(
+					'row' => 'main',
+				)
+			);
+		}
+
+		/**
+		 * Bottom Header
+		 */
+		public function bottom_mobile_header() {
+			set_query_var( 'row', 'bottom' );
+			get_template_part(
+				'templates/header/header-mobile',
+				'row',
+				array(
+					'row' => 'bottom',
+				)
+			);
+		}
+
+		/**
+		 * Toggle Button Markup
+		 */
+		function mobile_toggle_buttons_markup() {
+			$menu_title          = trim( apply_filters( 'kemet_main_menu_toggle_label', kemet_get_option( 'header-main-menu-label' ) ) );
+			$menu_icon           = apply_filters( 'kemet_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_label_class    = '';
+			$screen_reader_title = __( 'Main Menu', 'kemet' );
+			if ( '' !== $menu_title ) {
+				$menu_label_class    = 'kmt-menu-label';
+				$screen_reader_title = $menu_title;
+			}
+			?>
+			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" aria-expanded='false'>
+				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
+				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
+				<?php if ( '' != $menu_title ) { ?>
+					<span class="mobile-menu-wrap">
+						<span class="mobile-menu"><?php echo esc_html( $menu_title ); ?></span>
+					</span>
+				<?php } ?>
+			</button>
+			<?php
 		}
 	}
 

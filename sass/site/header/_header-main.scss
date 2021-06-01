@@ -405,3 +405,60 @@ li.kmt-sitehead-custom-menu-items {
   justify-content: flex-start;
   flex-grow: 1;
 }
+#kmt-mobile-header {
+  display: none;
+}
+.kmt-header-break-point {
+  #kmt-desktop-header {
+    display: none;
+  }
+  #kmt-mobile-header {
+    display: block;
+  }
+}
+#kmt-mobile-header {
+  position: relative;
+
+  .nav-fallback-text {
+    float: right;
+  }
+  &::before {
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.menu-toggle {
+  padding: 0;
+  width: 2.2em;
+  height: 2.1em;
+  font-size: 1.5em;
+  font-weight: normal;
+  border-radius: 2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 2px;
+  vertical-align: middle;
+  line-height: 1.85714285714286;
+  .menu-toggle-icon {
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2.05;
+
+    &:before {
+      content: "\e90c";
+      font-family: "Kemet-font";
+      text-decoration: inherit;
+      font-weight: 600;
+    }
+  }
+  &.toggled {
+    .menu-toggle-icon {
+      &:before {
+        content: "\e905";
+      }
+    }
+  }
+}

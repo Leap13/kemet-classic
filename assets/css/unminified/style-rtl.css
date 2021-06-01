@@ -4627,6 +4627,66 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	justify-content: flex-start;
 }
 
+#kmt-mobile-header {
+	display: none;
+}
+
+.kmt-header-break-point #kmt-desktop-header {
+	display: none;
+}
+
+.kmt-header-break-point #kmt-mobile-header {
+	display: block;
+}
+
+#kmt-mobile-header {
+	position: relative;
+}
+
+#kmt-mobile-header .nav-fallback-text {
+	float: left;
+}
+
+#kmt-mobile-header::before {
+	visibility: hidden;
+	overflow: hidden;
+	position: absolute;
+	opacity: 0;
+}
+
+.menu-toggle {
+	width: 2.2em;
+	height: 2.1em;
+	padding: 0;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border-radius: 2px;
+	font-size: 1.5em;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.85714285714286;
+	vertical-align: middle;
+}
+
+.menu-toggle .menu-toggle-icon {
+	display: inline-block;
+	font-style: normal;
+	line-height: 2.05;
+	vertical-align: middle;
+}
+
+.menu-toggle .menu-toggle-icon:before {
+	font-family: "Kemet-font";
+	font-weight: 600;
+	text-decoration: inherit;
+	content: "\e90c";
+}
+
+.menu-toggle.toggled .menu-toggle-icon:before {
+	content: "\e905";
+}
+
 /* 7 - Header Toggle Buttons */
 .kmt-header-break-point .kmt-mobile-menu-buttons {
 	display: -webkit-box;
