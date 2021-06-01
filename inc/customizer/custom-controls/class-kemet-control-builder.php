@@ -31,17 +31,9 @@ class Kemet_Control_Builder extends WP_Customize_Control {
 	 * Input attrs.
 	 *
 	 * @access public
-	 * @var string
+	 * @var array
 	 */
 	public $input_attrs = array();
-
-	/**
-	 * Responsive.
-	 *
-	 * @access public
-	 * @var string
-	 */
-	public $responsive = false;
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -54,7 +46,6 @@ class Kemet_Control_Builder extends WP_Customize_Control {
 		$this->json['default']     = $this->setting->default;
 		$this->json['input_attrs'] = $this->input_attrs;
 		$this->json['choices']     = $this->choices;
-		$this->json['responsive']  = $this->responsive;
 	}
 
 	/**

@@ -106,14 +106,6 @@ const DropComponent = (props) => {
       </Fragment>
     );
   };
-  if (props.mode === "footer") {
-    return (
-      <div
-        className={`kmt-builder-area kmt-builder-area-${location}`}
-        data-location={props.zone}
-      ></div>
-    );
-  }
 
   return (
     <div

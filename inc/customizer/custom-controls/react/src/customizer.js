@@ -261,6 +261,6 @@ import { func } from "prop-types";
       });
     };
     api.panel("panel-header-builder-group", initKmtBuilderPanel);
-    // api.panel("panel-footer-builder-group", initKmtBuilderPanel);
+    api.panel("panel-footer-builder-group", initKmtBuilderPanel);
   });
 })(jQuery, wp.customize);

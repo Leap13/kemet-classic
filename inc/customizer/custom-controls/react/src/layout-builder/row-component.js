@@ -4,7 +4,7 @@ const { __ } = wp.i18n;
 const { Dashicon, Button } = wp.components;
 
 const RowComponent = (props) => {
-  let centerClass = "no-center-items";
+  let centerClass = "";
   let mode =
     props.controlParams.group.indexOf("header") !== -1 ? "header" : "footer";
   let besideItems = [];
@@ -26,8 +26,8 @@ const RowComponent = (props) => {
     }
   }
   if ("footer" === mode) {
-    layout = `kmt-grid-row-layout-${props.layout[props.row].layout.desktop}`;
-    zone_count = props.layout[props.row].column - 1;
+    layout = `kmt-grid-row-layout-${props.columns}-equal`;
+    zone_count = props.columns - 1;
     Object.keys(props.controlParams.zones[props.row]).map((zone, index) => {
       if (zone_count < index) {
         props.items[zone] = [];
@@ -42,6 +42,10 @@ const RowComponent = (props) => {
     props.items[props.row + "_center"].length > 0
   ) {
     centerClass = "has-center-items";
+  } else {
+    if ("header-desktop-items" === props.controlParams.group) {
+      centerClass = "no-center-items";
+    }
   }
 
   if ("popup" === props.row) {

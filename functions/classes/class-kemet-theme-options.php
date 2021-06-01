@@ -112,6 +112,33 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'bottom_right'  => array(),
 						),
 					),
+					// Footer Builder
+					'footer-items'                         => array(
+						'top'    => array(
+							'top_1' => array(),
+							'top_2' => array(),
+							'top_3' => array(),
+							'top_4' => array(),
+							'top_5' => array(),
+						),
+						'main'   => array(
+							'main_1' => array(),
+							'main_2' => array(),
+							'main_3' => array(),
+							'main_4' => array(),
+							'main_5' => array(),
+						),
+						'bottom' => array(
+							'bottom_1' => array(),
+							'bottom_2' => array(),
+							'bottom_3' => array(),
+							'bottom_4' => array(),
+							'bottom_5' => array(),
+						),
+					),
+					'top-footer-columns'                   => 5,
+					'main-footer-columns'                  => 3,
+					'bottom-footer-columns'                => 2,
 					// Blog Single.
 					'blog-single-post-structure'           => array(
 						'single-image',

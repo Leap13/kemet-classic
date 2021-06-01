@@ -33,10 +33,11 @@ const BuilderComponent = (props) => {
     ? props.control.params.choices
     : [];
 
-  let responsive = props.control.params.responsive;
+  let columns = controlParams.columns ? controlParams.columns : [];
 
   const [state, setState] = useState({
     value: value,
+    columns: columns,
     isPopup: false,
   });
   let enablePopup = false;
@@ -255,6 +256,8 @@ const BuilderComponent = (props) => {
                 controlParams={controlParams}
                 choices={choices}
                 settings={state.value}
+                columns={state.columns[row]}
+                customizer={props.customizer}
               />
             );
           })}

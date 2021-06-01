@@ -12,7 +12,160 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$defaults = Kemet_Theme_Options::defaults();
+$defaults   = Kemet_Theme_Options::defaults();
+$customizer = Kemet_Customizer::get_instance();
+/**
+* Option: Footer Options
+*/
+$options = array(
+	// Footer Builder
+	'footer-builder-controls-tabs' => array(
+		'section'    => 'section-footer-builder',
+		'type'       => 'kmt-tabs',
+		'priority'   => 0,
+		'tabs_type'  => 'builder-controls',
+		'responsive' => true,
+	),
+	'footer-items'                 => array(
+		'section'               => 'section-footer-builder',
+		'priority'              => 1,
+		'label'                 => __( 'Footer Layout Builder', 'kemet' ),
+		'transport'             => 'postMessage',
+		'type'                  => 'kmt-builder',
+		'choices'               => apply_filters(
+			'footer_items',
+			array(
+				'footer-widget-1' => array(
+					'name'    => __( 'Widget 1', 'kemet' ),
+					'icon'    => 'wordpress-alt',
+					'section' => 'section-menu-header',
+				),
+				'footer-widget-2' => array(
+					'name'    => __( 'Widget 2', 'kemet' ),
+					'icon'    => 'wordpress-alt',
+					'section' => 'section-menu-header',
+				),
+			)
+		),
+		'partial'               => array(
+			'selector'            => '#colophon',
+			'container_inclusive' => true,
+			'render_callback'     => array( Kemet_Footer_Markup::get_instance(), 'footer_markup' ),
+		),
+		'input_attrs'           => array(
+			'group'   => 'footer-items',
+			'rows'    => array( 'top', 'main', 'bottom' ),
+			'columns' => array(
+				'top'    => kemet_get_option( 'top-footer-columns' ),
+				'main'   => kemet_get_option( 'main-footer-columns' ),
+				'bottom' => kemet_get_option( 'bottom-footer-columns' ),
+			),
+			'zones'   => array(
+				'top'    => array(
+					'top_1' => 'Top - 1',
+					'top_2' => 'Top - 2',
+					'top_3' => 'Top - 3',
+					'top_4' => 'Top - 4',
+					'top_5' => 'Top - 5',
+				),
+				'main'   => array(
+					'main_1' => 'Main - 1',
+					'main_2' => 'Main - 2',
+					'main_3' => 'Main - 3',
+					'main_4' => 'Main - 4',
+					'main_5' => 'Main - 5',
+				),
+				'bottom' => array(
+					'bottom_1' => 'Bottom - 1',
+					'bottom_2' => 'Bottom - 2',
+					'bottom_3' => 'Bottom - 3',
+					'bottom_4' => 'Bottom - 4',
+					'bottom_5' => 'Bottom - 5',
+				),
+			),
+		),
+		'context'               => array(
+			array(
+				'setting' => 'device',
+				'value'   => 'desktop',
+			),
+		),
+
+		'top-footer-columns'    => array(
+			'type'      => 'option',
+			'transport' => 'postMessage',
+			'type'      => 'kmt-select',
+			'label'     => __( 'Top Layout', 'kemet' ),
+			'section'   => 'section-kemet-footer',
+			'priority'  => 5,
+			'choices'   => array(
+				1 => __( '1', 'kemet' ),
+				2 => __( '2', 'kemet' ),
+				3 => __( '3', 'kemet' ),
+				4 => __( '4', 'kemet' ),
+				5 => __( '5', 'kemet' ),
+			),
+		),
+
+		'main-footer-columns'   => array(
+			'type'      => 'option',
+			'transport' => 'postMessage',
+			'type'      => 'kmt-select',
+			'label'     => __( 'Main Layout', 'kemet' ),
+			'section'   => 'section-kemet-footer',
+			'priority'  => 5,
+			'choices'   => array(
+				1 => __( '1', 'kemet' ),
+				2 => __( '2', 'kemet' ),
+				3 => __( '3', 'kemet' ),
+				4 => __( '4', 'kemet' ),
+				5 => __( '5', 'kemet' ),
+			),
+		),
+
+		'bottom-footer-columns' => array(
+			'type'      => 'option',
+			'transport' => 'postMessage',
+			'type'      => 'kmt-select',
+			'label'     => __( 'Bottom Layout', 'kemet' ),
+			'section'   => 'section-kemet-footer',
+			'priority'  => 5,
+			'choices'   => array(
+				1 => __( '1', 'kemet' ),
+				2 => __( '2', 'kemet' ),
+				3 => __( '3', 'kemet' ),
+				4 => __( '4', 'kemet' ),
+				5 => __( '5', 'kemet' ),
+			),
+		),
+	),
+);
+
+$customizer->add_customizer( $options, 'options' );
+
+$panels = array(
+	'panel-footer-builder-group' => array(
+		'priority' => 10,
+		'title'    => __( 'Footer Builder', 'kemet' ),
+	),
+);
+
+$customizer->add_customizer( $panels, 'panels' );
+
+$sections = array(
+	'section-footer-builder'        => array(
+		'priority' => 5,
+		'title'    => __( 'Footer Builder', 'kemet' ),
+		'panel'    => 'panel-footer-builder-group',
+	),
+	'section-footer-builder-layout' => array(
+		'priority' => 10,
+		'title'    => __( 'Footer Layout', 'kemet' ),
+		'panel'    => 'panel-footer-builder-group',
+	),
+);
+
+$customizer->add_customizer( $sections, 'sections' );
 /**
  * Option: Footer Widgets Layout Layout
  */

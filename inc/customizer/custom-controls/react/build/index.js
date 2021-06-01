@@ -5829,7 +5829,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     };
 
-    api.panel("panel-header-builder-group", initKmtBuilderPanel); // api.panel("panel-footer-builder-group", initKmtBuilderPanel);
+    api.panel("panel-header-builder-group", initKmtBuilderPanel);
+    api.panel("panel-footer-builder-group", initKmtBuilderPanel);
   });
 })(jQuery, wp.customize);
 
@@ -6022,10 +6023,11 @@ var BuilderComponent = function BuilderComponent(props) {
   var defaultParams = {};
   var controlParams = props.control.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.control.params.input_attrs) : defaultParams;
   var choices = props.control.params.choices ? props.control.params.choices : [];
-  var responsive = props.control.params.responsive;
+  var columns = controlParams.columns ? controlParams.columns : [];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
     value: value,
+    columns: columns,
     isPopup: false
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
@@ -6265,7 +6267,9 @@ var BuilderComponent = function BuilderComponent(props) {
       items: state.value[row],
       controlParams: controlParams,
       choices: choices,
-      settings: state.value
+      settings: state.value,
+      columns: state.columns[row],
+      customizer: props.customizer
     });
   }))));
 };
@@ -6412,13 +6416,6 @@ var DropComponent = function DropComponent(props) {
     }));
   };
 
-  if (props.mode === "footer") {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-      className: "kmt-builder-area kmt-builder-area-".concat(location),
-      "data-location": props.zone
-    });
-  }
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-builder-area kmt-builder-area-".concat(location),
     "data-location": props.zone
@@ -6505,7 +6502,7 @@ var _wp$components = wp.components,
     Button = _wp$components.Button;
 
 var RowComponent = function RowComponent(props) {
-  var centerClass = "no-center-items";
+  var centerClass = "";
   var mode = props.controlParams.group.indexOf("header") !== -1 ? "header" : "footer";
   var besideItems = [];
   var layout = "";
@@ -6530,8 +6527,8 @@ var RowComponent = function RowComponent(props) {
   }
 
   if ("footer" === mode) {
-    layout = "kmt-grid-row-layout-".concat(props.layout[props.row].layout.desktop);
-    zone_count = props.layout[props.row].column - 1;
+    layout = "kmt-grid-row-layout-".concat(props.columns, "-equal");
+    zone_count = props.columns - 1;
     Object.keys(props.controlParams.zones[props.row]).map(function (zone, index) {
       if (zone_count < index) {
         props.items[zone] = [];
@@ -6541,6 +6538,10 @@ var RowComponent = function RowComponent(props) {
 
   if ("header-desktop-items" === props.controlParams.group && typeof props.items[props.row + "_center"] != "undefined" && props.items[props.row + "_center"] != null && props.items[props.row + "_center"].length != null && props.items[props.row + "_center"].length > 0) {
     centerClass = "has-center-items";
+  } else {
+    if ("header-desktop-items" === props.controlParams.group) {
+      centerClass = "no-center-items";
+    }
   }
 
   if ("popup" === props.row) {
