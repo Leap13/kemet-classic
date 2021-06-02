@@ -139,7 +139,21 @@ import { func } from "prop-types";
                 case "in_array":
                   boolean = ruleValue.includes(settingValue);
                   break;
+                case ">":
+                  result = settingValue > ruleValue;
+                  break;
 
+                case "<":
+                  result = settingValue < ruleValue;
+                  break;
+
+                case ">=":
+                  result = settingValue >= ruleValue;
+                  break;
+
+                case "<=":
+                  result = settingValue <= ruleValue;
+                  break;
                 default:
                   boolean = settingValue == ruleValue;
                   break;

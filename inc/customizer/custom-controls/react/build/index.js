@@ -5718,6 +5718,22 @@ __webpack_require__.r(__webpack_exports__);
                   boolean = ruleValue.includes(settingValue);
                   break;
 
+                case ">":
+                  result = settingValue > ruleValue;
+                  break;
+
+                case "<":
+                  result = settingValue < ruleValue;
+                  break;
+
+                case ">=":
+                  result = settingValue >= ruleValue;
+                  break;
+
+                case "<=":
+                  result = settingValue <= ruleValue;
+                  break;
+
                 default:
                   boolean = settingValue == ruleValue;
                   break;
