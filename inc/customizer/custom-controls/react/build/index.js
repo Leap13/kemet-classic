@@ -5281,7 +5281,6 @@ var _wp$components = wp.components,
     Button = _wp$components.Button;
 
 var AvailableComponent = function AvailableComponent(props) {
-  var value = props.control.setting.get();
   var defaultParams = {};
   var controlParams = props.control.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.control.params.input_attrs) : defaultParams;
   var builderControlId = "kemet-settings[" + controlParams.group + "]";
@@ -5836,6 +5835,87 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/focus-button/button-component.js":
+/*!**********************************************!*\
+  !*** ./src/focus-button/button-component.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var __ = wp.i18n.__;
+var _wp$components = wp.components,
+    Dashicon = _wp$components.Dashicon,
+    Button = _wp$components.Button;
+
+var ButtonComponent = function ButtonComponent(props) {
+  var controlParams = props.control.params.button_params ? props.control.params.button_params : {};
+
+  var focusSection = function focusSection(section) {
+    if (undefined !== props.customizer.section(section)) {
+      props.customizer.section(section).focus();
+    }
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-control-field kmt-focus-button"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-builder-item-start"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+    className: "kmt-builder-item",
+    onClick: function onClick() {
+      return focusSection(controlParams.section);
+    },
+    "data-section": controlParams.section ? controlParams.section : ""
+  }, controlParams.title ? controlParams.title : "", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "kmt-builder-item-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
+    icon: "arrow-right-alt2"
+  })))));
+};
+
+ButtonComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
+  customizer: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(ButtonComponent));
+
+/***/ }),
+
+/***/ "./src/focus-button/control.js":
+/*!*************************************!*\
+  !*** ./src/focus-button/control.js ***!
+  \*************************************/
+/*! exports provided: FocusButtonControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FocusButtonControl", function() { return FocusButtonControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _button_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-component.js */ "./src/focus-button/button-component.js");
+
+
+var FocusButtonControl = wp.customize.kemetControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_button_component_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control,
+      customizer: wp.customize
+    }), control.container[0]);
+  }
+});
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -5849,7 +5929,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_builder_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./layout-builder/control */ "./src/layout-builder/control.js");
 /* harmony import */ var _available_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./available/control */ "./src/available/control.js");
 /* harmony import */ var _tabs_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs/control */ "./src/tabs/control.js");
-/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./focus-button/control.js */ "./src/focus-button/control.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+
 
 
 
@@ -5857,6 +5939,7 @@ __webpack_require__.r(__webpack_exports__);
 wp.customize.controlConstructor["kmt-builder"] = _layout_builder_control__WEBPACK_IMPORTED_MODULE_1__["BuilderControl"];
 wp.customize.controlConstructor["kmt-available"] = _available_control__WEBPACK_IMPORTED_MODULE_2__["AvailableControl"];
 wp.customize.controlConstructor["kmt-tabs"] = _tabs_control__WEBPACK_IMPORTED_MODULE_3__["TabsControl"];
+wp.customize.controlConstructor["kmt-focus-button"] = _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__["FocusButtonControl"];
 
 
 /***/ }),

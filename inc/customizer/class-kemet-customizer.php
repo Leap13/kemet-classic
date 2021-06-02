@@ -101,9 +101,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $custom_controls = array(
-			'kmt-available' => 'Kemet_Control_Available',
-			'kmt-builder'   => 'Kemet_Control_Builder',
-			'kmt-tabs'      => 'Kemet_Control_Tabs',
+			'kmt-available'    => 'Kemet_Control_Available',
+			'kmt-builder'      => 'Kemet_Control_Builder',
+			'kmt-tabs'         => 'Kemet_Control_Tabs',
+			'kmt-focus-button' => 'Kemet_Control_Focus_Button',
 		);
 
 		/**
@@ -515,6 +516,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Builder' );
 			$wp_customize->register_control_type( 'Kemet_Control_Available' );
 			$wp_customize->register_control_type( 'Kemet_Control_Tabs' );
+			$wp_customize->register_control_type( 'Kemet_Control_Focus_Button' );
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**

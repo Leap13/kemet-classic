@@ -4,7 +4,6 @@ import { ReactSortable, Sortable } from "react-sortablejs";
 const { __ } = wp.i18n;
 const { Dashicon, Button } = wp.components;
 const AvailableComponent = (props) => {
-  let value = props.control.setting.get();
   let defaultParams = {};
 
   let controlParams = props.control.params.input_attrs

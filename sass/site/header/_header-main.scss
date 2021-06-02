@@ -462,3 +462,27 @@ li.kmt-sitehead-custom-menu-items {
     }
   }
 }
+.kmt-top-header-wrap {
+  .top-header-bar {
+    transition: all 1s linear;
+    background-color: #fff;
+  }
+}
+.top-header-bar {
+  position: relative;
+}
+.kmt-main-header-wrap {
+  .main-header-bar {
+    transition: all 1s linear;
+    background-color: #fff;
+  }
+}
+.bottom-header-bar {
+  position: relative;
+}
+.kmt-bottom-header-wrap {
+  .bottom-header-bar {
+    transition: all 1s linear;
+    background-color: #fff;
+  }
+}
