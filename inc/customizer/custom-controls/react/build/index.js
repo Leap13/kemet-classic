@@ -5689,8 +5689,10 @@ __webpack_require__.r(__webpack_exports__);
         var setupControl = function setupControl(element) {
           var setting;
 
-          var getSetting = function getSetting(setting) {
-            switch (setting) {
+          var getSetting = function getSetting(settingName) {
+            var setting;
+
+            switch (settingName) {
               case "device":
                 setting = api.previewedDevice;
                 break;
@@ -5698,6 +5700,10 @@ __webpack_require__.r(__webpack_exports__);
               case "tab":
                 setting = api.state("kemetTab");
                 break;
+
+              default:
+                setting = KemetCustomizerData.setting.replace("setting_name", settingName);
+                setting = wp.customize(setting);
             }
 
             return setting;
@@ -5716,6 +5722,10 @@ __webpack_require__.r(__webpack_exports__);
               switch (operator) {
                 case "in_array":
                   boolean = ruleValue.includes(settingValue);
+                  break;
+
+                case "contain":
+                  boolean = settingValue.includes(ruleValue);
                   break;
 
                 case ">":

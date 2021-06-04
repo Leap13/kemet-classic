@@ -9,298 +9,177 @@
  * @since       Kemet 1.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-$defaults = Kemet_Theme_Options::defaults();
-/**
-* Option: Single Post Content Width
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[blog-single-width]',
-	array(
-		'default'           => $defaults['blog-single-width'],
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[blog-single-width]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-blog-single',
-		'priority' => 5,
-		'label'    => __( 'Single Post Content Width', 'kemet' ),
-		'choices'  => array(
-			'default' => __( 'Default', 'kemet' ),
-			'custom'  => __( 'Custom', 'kemet' ),
-		),
-	)
-);
-/**
-* Option: Enter Width
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[blog-single-max-width]',
-	array(
-		'default'           => $defaults['blog-single-max-width'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-		'dependency'        => array(
-			'controls'   => KEMET_THEME_SETTINGS . '[blog-single-width]',
-			'conditions' => '==',
-			'values'     => 'custom',
-		),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Slider(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[blog-single-max-width]',
-		array(
-			'type'        => 'kmt-slider',
-			'section'     => 'section-blog-single',
-			'priority'    => 10,
-			'label'       => __( 'Enter Width', 'kemet' ),
-			'suffix'      => '',
-			'input_attrs' => array(
-				'min'  => 768,
-				'step' => 1,
-				'max'  => 1920,
-			),
-		)
-	)
-);
-/**
-* Option: Display Post Structure
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[blog-single-post-structure]',
-	array(
-		'default'           => $defaults['blog-single-post-structure'],
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Sortable(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[blog-single-post-structure]',
-		array(
-			'type'     => 'kmt-sortable',
-			'section'  => 'section-blog-single',
-			'priority' => 15,
-			'label'    => __( 'Single Post Structure', 'kemet' ),
-			'choices'  => array(
-				'single-image'      => __( 'Featured Image', 'kemet' ),
-				'single-title-meta' => __( 'Title & Blog Meta', 'kemet' ),
-			),
-		)
-	)
-);
+class Kemet_Blog_Single_Options {
 
-/**
-* Option: Single Post Meta
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[blog-single-meta]',
-	array(
-		'default'           => $defaults['blog-single-meta'],
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_multi_choices' ),
-		'dependency'        => array(
-			'controls'   => KEMET_THEME_SETTINGS . '[blog-single-post-structure]',
-			'conditions' => 'inarray',
-			'values'     => 'single-title-meta',
-		),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Sortable(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[blog-single-meta]',
-		array(
-			'type'     => 'kmt-sortable',
-			'section'  => 'section-blog-single',
-			'priority' => 20,
-			'label'    => __( 'Single Post Meta', 'kemet' ),
-			'choices'  => array(
-				'author'   => __( 'Author', 'kemet' ),
-				'category' => __( 'Category', 'kemet' ),
-				'date'     => __( 'Publish Date', 'kemet' ),
-				'comments' => __( 'Comments', 'kemet' ),
-				'tag'      => __( 'Tags', 'kemet' ),
-			),
-		)
-	)
-);
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$customizer = Kemet_Customizer::get_instance();
+		$customizer->add_customizer( $this->register_options(), 'options' );
+		$customizer->add_customizer( $this->register_sections(), 'sections' );
+	}
 
-/**
-* Option: Title
-*/
-$wp_customize->add_control(
-	new Kemet_Control_Title(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[kmt-single-post-style]',
-		array(
-			'type'     => 'kmt-title',
-			'label'    => __( 'Title and Meta', 'kemet' ),
-			'section'  => 'section-blog-single',
-			'priority' => 30,
-			'settings' => array(),
-		)
-	)
-);
-/**
-* Option: Single Post / Page Title Font Size
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[font-size-entry-title]',
-	array(
-		'default'           => $defaults['font-size-entry-title'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Responsive_Slider(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[font-size-entry-title]',
-		array(
-			'type'         => 'kmt-responsive-slider',
-			'section'      => 'section-blog-single',
-			'priority'     => 35,
-			'label'        => __( 'Title Font Size', 'kemet' ),
-			'unit_choices' => array(
-				'px' => array(
-					'min'  => 1,
+	/**
+	 * Register Customizer Options
+	 *
+	 * @return array
+	 */
+	public function register_options() {
+		$options = array(
+			'blog-single-width'          => array(
+				'type'     => 'select',
+				'section'  => 'section-blog-single',
+				'priority' => 5,
+				'label'    => __( 'Single Post Content Width', 'kemet' ),
+				'choices'  => array(
+					'default' => __( 'Default', 'kemet' ),
+					'custom'  => __( 'Custom', 'kemet' ),
+				),
+			),
+			'blog-single-max-width'      => array(
+				'type'        => 'kmt-slider',
+				'transport'   => 'postMessage',
+				'section'     => 'section-blog-single',
+				'priority'    => 10,
+				'label'       => __( 'Enter Width', 'kemet' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 768,
 					'step' => 1,
-					'max'  => 200,
+					'max'  => 1920,
 				),
-				'em' => array(
-					'min'  => 0.1,
-					'step' => 0.1,
-					'max'  => 10,
-				),
-			),
-		)
-	)
-);
-/**
-* Option: Single Post / Page Title Letter Spacing
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[letter-spacing-entry-title]',
-	array(
-		'default'           => $defaults['letter-spacing-entry-title'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Responsive_Slider(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[letter-spacing-entry-title]',
-		array(
-			'type'         => 'kmt-responsive-slider',
-			'section'      => 'section-blog-single',
-			'priority'     => 38,
-			'label'        => __( 'Title Letter Spacing', 'kemet' ),
-			'unit_choices' => array(
-				'px' => array(
-					'min'  => 0.1,
-					'step' => 0.1,
-					'max'  => 10,
+				'context'     => array(
+					array(
+						'setting' => 'blog-single-width',
+						'value'   => 'custom',
+					),
 				),
 			),
-		)
-	)
-);
-/**
-* Option: Single Post / Page Title Font Color
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[font-color-entry-title]',
-	array(
-		'default'           => $defaults['font-color-entry-title'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Color(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[font-color-entry-title]',
-		array(
-			'type'     => 'kmt-color',
-			'priority' => 40,
-			'label'    => __( 'Post Title Font Color', 'kemet' ),
-			'section'  => 'section-blog-single',
-		)
-	)
-);
-/**
-* Option: Single Post / Page Title Meta Color
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[single-post-meta-color]',
-	array(
-		'default'           => $defaults['single-post-meta-color'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Color(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[single-post-meta-color]',
-		array(
-			'type'     => 'kmt-color',
-			'priority' => 41,
-			'label'    => __( 'Post Meta Color', 'kemet' ),
-			'section'  => 'section-blog-single',
-		)
-	)
-);
-/**
-* Option - Comment Button Spacing
-*/
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[comment-button-spacing]',
-	array(
-		'default'           => $defaults['comment-button-spacing'],
-		'type'              => 'option',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-	)
-);
-$wp_customize->add_control(
-	new Kemet_Control_Responsive_Spacing(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[comment-button-spacing]',
-		array(
-			'type'           => 'kmt-responsive-spacing',
-			'section'        => 'section-blog-single',
-			'priority'       => 70,
-			'label'          => __( 'Comment Button Spacing', 'kemet' ),
-			'linked_choices' => true,
-			'unit_choices'   => array( 'px', 'em', '%' ),
-			'choices'        => array(
-				'top'    => __( 'Top', 'kemet' ),
-				'right'  => __( 'Right', 'kemet' ),
-				'bottom' => __( 'Bottom', 'kemet' ),
-				'left'   => __( 'Left', 'kemet' ),
+			'blog-single-post-structure' => array(
+				'type'     => 'kmt-sortable',
+				'section'  => 'section-blog-single',
+				'priority' => 15,
+				'label'    => __( 'Single Post Structure', 'kemet' ),
+				'choices'  => array(
+					'single-image'      => __( 'Featured Image', 'kemet' ),
+					'single-title-meta' => __( 'Title & Blog Meta', 'kemet' ),
+				),
 			),
-		)
-	)
-);
+			'blog-single-meta'           => array(
+				'type'     => 'kmt-sortable',
+				'section'  => 'section-blog-single',
+				'priority' => 20,
+				'label'    => __( 'Single Post Meta', 'kemet' ),
+				'choices'  => array(
+					'author'   => __( 'Author', 'kemet' ),
+					'category' => __( 'Category', 'kemet' ),
+					'date'     => __( 'Publish Date', 'kemet' ),
+					'comments' => __( 'Comments', 'kemet' ),
+					'tag'      => __( 'Tags', 'kemet' ),
+				),
+				'context'  => array(
+					array(
+						'setting'  => 'blog-single-post-structure',
+						'operator' => 'contain',
+						'value'    => 'single-title-meta',
+					),
+				),
+			),
+			'kmt-single-post-style'      => array(
+				'type'     => 'kmt-title',
+				'label'    => __( 'Title and Meta', 'kemet' ),
+				'section'  => 'section-blog-single',
+				'priority' => 30,
+			),
+			'font-size-entry-title'      => array(
+				'type'         => 'kmt-responsive-slider',
+				'section'      => 'section-blog-single',
+				'transport'    => 'postMessage',
+				'priority'     => 35,
+				'label'        => __( 'Title Font Size', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 200,
+					),
+					'em' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 10,
+					),
+				),
+			),
+			'letter-spacing-entry-title' => array(
+				'type'         => 'kmt-responsive-slider',
+				'section'      => 'section-blog-single',
+				'transport'    => 'postMessage',
+				'priority'     => 38,
+				'label'        => __( 'Title Letter Spacing', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 10,
+					),
+				),
+			),
+			'font-color-entry-title'     => array(
+				'type'      => 'kmt-color',
+				'section'   => 'section-blog-single',
+				'transport' => 'postMessage',
+				'priority'  => 40,
+				'label'     => __( 'Post Title Font Color', 'kemet' ),
+			),
+			'single-post-meta-color'     => array(
+				'type'      => 'kmt-color',
+				'section'   => 'section-blog-single',
+				'transport' => 'postMessage',
+				'priority'  => 41,
+				'label'     => __( 'Post Meta Color', 'kemet' ),
+
+			),
+			'comment-button-spacing'     => array(
+				'type'           => 'kmt-responsive-spacing',
+				'section'        => 'section-blog-single',
+				'transport'      => 'postMessage',
+				'priority'       => 70,
+				'label'          => __( 'Comment Button Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			),
+		);
+
+		return $options;
+	}
+
+	/**
+	 * Register Customizer Sections
+	 *
+	 * @return array
+	 */
+	public function register_sections() {
+		$sections = array(
+			'section-blog-single' => array(
+				'priority' => 10,
+				'title'    => __( 'Single Post', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'section'  => 'section-blog-group',
+			),
+		);
+
+		return $sections;
+	}
+}
 
 
-
+new Kemet_Blog_Single_Options();
 
 

@@ -115,14 +115,21 @@ import { func } from "prop-types";
         // Control Display.
         var setupControl = function (element) {
           var setting;
-          var getSetting = function (setting) {
-            switch (setting) {
+          var getSetting = function (settingName) {
+            var setting;
+            switch (settingName) {
               case "device":
                 setting = api.previewedDevice;
                 break;
               case "tab":
                 setting = api.state("kemetTab");
                 break;
+              default:
+                setting = KemetCustomizerData.setting.replace(
+                  "setting_name",
+                  settingName
+                );
+                setting = wp.customize(setting);
             }
 
             return setting;
@@ -138,6 +145,10 @@ import { func } from "prop-types";
               switch (operator) {
                 case "in_array":
                   boolean = ruleValue.includes(settingValue);
+                  break;
+
+                case "contain":
+                  boolean = settingValue.includes(ruleValue);
                   break;
                 case ">":
                   result = settingValue > ruleValue;

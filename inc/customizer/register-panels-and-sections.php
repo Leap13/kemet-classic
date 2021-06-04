@@ -168,19 +168,6 @@ $wp_customize->add_section(
 		)
 	)
 );
-// Single Post.
-$wp_customize->add_section(
-	new Kemet_WP_Customize_Section(
-		$wp_customize,
-		'section-blog-single',
-		array(
-			'priority' => 10,
-			'title'    => __( 'Single Post', 'kemet' ),
-			'panel'    => 'panel-layout',
-			'section'  => 'section-blog-group',
-		)
-	)
-);
 
 // Base Colors Main Panel.
 $wp_customize->add_section(

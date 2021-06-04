@@ -101,10 +101,16 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $custom_controls = array(
-			'kmt-available'    => 'Kemet_Control_Available',
-			'kmt-builder'      => 'Kemet_Control_Builder',
-			'kmt-tabs'         => 'Kemet_Control_Tabs',
-			'kmt-focus-button' => 'Kemet_Control_Focus_Button',
+			'kmt-available'          => 'Kemet_Control_Available',
+			'kmt-builder'            => 'Kemet_Control_Builder',
+			'kmt-tabs'               => 'Kemet_Control_Tabs',
+			'kmt-focus-button'       => 'Kemet_Control_Focus_Button',
+			'kmt-slider'             => 'Kemet_Control_Slider',
+			'kmt-sortable'           => 'Kemet_Control_Sortable',
+			'kmt-title'              => 'Kemet_Control_Title',
+			'kmt-responsive-slider'  => 'Kemet_Control_Responsive_Slider',
+			'kmt-color'              => 'Kemet_Control_Color',
+			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
 		);
 
 		/**
@@ -297,6 +303,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				array(
 					'choices'  => self::get_choices_arr(),
 					'contexts' => self::get_contexts_arr(),
+					'setting'  => KEMET_THEME_SETTINGS . '[setting_name]',
 				)
 			);
 			wp_enqueue_style(
