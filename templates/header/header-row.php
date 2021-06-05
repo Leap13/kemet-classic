@@ -21,11 +21,13 @@ if ( $helper::column_has_items( 'center', $row ) ) {
 }
 
 $classes = array_map( 'sanitize_html_class', $classes );
+
+$inner_classes = apply_filters( 'kemet_header_' . $row . '_row_classes', array_map( 'sanitize_html_class', $classes ) );
 ?>
 
 <div class="kmt-<?php echo esc_attr( $row ); ?>-header-wrap">
 	<div class="<?php echo esc_attr( $row ); ?>-header-bar">
-		<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap kmt-builder-grid-row-container kmt-container section-header-<?php echo esc_attr( $row ); ?>">
+		<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap kmt-builder-grid-row-container kmt-container section-header-<?php echo esc_attr( $row ); ?> <?php echo esc_attr( join( ' ', $inner_classes ) ); ?>">
 			<div class="kmt-grid-row <?php echo esc_attr( join( ' ', $classes ) ); ?>">
 			<?php
 			if ( $has_sides || $helper::column_has_items( 'left_center', $row ) ) {

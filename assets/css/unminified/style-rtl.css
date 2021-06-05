@@ -4689,8 +4689,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-top-header-wrap .top-header-bar {
 	background-color: #fff;
-	-webkit-transition: all 1s linear;
-	transition: all 1s linear;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
 
 .top-header-bar {
@@ -4699,8 +4699,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-main-header-wrap .main-header-bar {
 	background-color: #fff;
-	-webkit-transition: all 1s linear;
-	transition: all 1s linear;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
 
 .bottom-header-bar {
@@ -4709,8 +4709,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-bottom-header-wrap .bottom-header-bar {
 	background-color: #fff;
-	-webkit-transition: all 1s linear;
-	transition: all 1s linear;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
 }
 
 /* 7 - Header Toggle Buttons */
@@ -5276,6 +5276,19 @@ textarea::-webkit-input-placeholder {
 	color: inherit;
 }
 
+input[type="text"]:-moz-placeholder,
+input[type="number"]:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="url"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+input[type="search"]:-moz-placeholder,
+input[type="tel"]:-moz-placeholder,
+select:-moz-placeholder,
+textarea:-moz-placeholder {
+	opacity: 0.5;
+	color: inherit;
+}
+
 input[type="text"]::-moz-placeholder,
 input[type="number"]::-moz-placeholder,
 input[type="email"]::-moz-placeholder,
@@ -5285,6 +5298,19 @@ input[type="search"]::-moz-placeholder,
 input[type="tel"]::-moz-placeholder,
 select::-moz-placeholder,
 textarea::-moz-placeholder {
+	opacity: 0.5;
+	color: inherit;
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="url"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type="tel"]:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
 	opacity: 0.5;
 	color: inherit;
 }

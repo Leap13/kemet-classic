@@ -1250,10 +1250,7 @@ var toggleClass = function (el, className) {
     window.addEventListener("click", function (e) {
       // var main_header_wrap = document.querySelector(".main-navigation");
       if (
-        !(
-          menu_toggle_all.contains(e.target) ||
-          main_header_wrap.contains(e.target)
-        ) &&
+        !menu_toggle_all.contains(e.target) &&
         menu_toggle_all.classList.contains("toggled")
       ) {
         menu_toggle_all.classList.remove("toggled");
