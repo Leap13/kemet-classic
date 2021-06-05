@@ -150,6 +150,7 @@ import { func } from "prop-types";
                 case "contain":
                   boolean = settingValue.includes(ruleValue);
                   break;
+
                 case ">":
                   result = settingValue > ruleValue;
                   break;
@@ -165,6 +166,7 @@ import { func } from "prop-types";
                 case "<=":
                   result = settingValue <= ruleValue;
                   break;
+
                 default:
                   boolean = settingValue == ruleValue;
                   break;

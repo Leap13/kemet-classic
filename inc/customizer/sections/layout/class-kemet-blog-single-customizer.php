@@ -9,24 +9,16 @@
  * @since       Kemet 1.0.0
  */
 
-class Kemet_Blog_Single_Options {
-
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$customizer = Kemet_Customizer::get_instance();
-		$customizer->add_customizer( $this->register_options(), 'options' );
-		$customizer->add_customizer( $this->register_sections(), 'sections' );
-	}
+class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 
 	/**
 	 * Register Customizer Options
 	 *
+	 * @param array $options options.
 	 * @return array
 	 */
-	public function register_options() {
-		$options = array(
+	public function register_options( $options ) {
+		$single_blog_options = array(
 			'blog-single-width'          => array(
 				'type'     => 'select',
 				'section'  => 'section-blog-single',
@@ -157,16 +149,17 @@ class Kemet_Blog_Single_Options {
 			),
 		);
 
-		return $options;
+		return array_merge( $options, $single_blog_options );
 	}
 
 	/**
 	 * Register Customizer Sections
 	 *
+	 * @param array $sections sections.
 	 * @return array
 	 */
-	public function register_sections() {
-		$sections = array(
+	public function register_sections( $sections ) {
+		$single_blog_sections = array(
 			'section-blog-single' => array(
 				'priority' => 10,
 				'title'    => __( 'Single Post', 'kemet' ),
@@ -175,11 +168,12 @@ class Kemet_Blog_Single_Options {
 			),
 		);
 
-		return $sections;
+		return array_merge( $sections, $single_blog_sections );
+
 	}
 }
 
 
-new Kemet_Blog_Single_Options();
+new Kemet_Blog_Single_Customizer();
 
 

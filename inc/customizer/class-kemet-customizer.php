@@ -128,6 +128,9 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 */
 		public function __construct() {
 
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			require KEMET_THEME_DIR . 'inc\customizer\class-kemet-custmoizer-register.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Customizer
 			 */
@@ -423,7 +426,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return Array Dependencies discovered when registering controls and settings.
 		 */
 		private function get_controls_arr() {
-			return self::$controls_arr;
+			return apply_filters( 'kemet_customizer_options', self::$controls_arr );
 		}
 
 		/**
@@ -437,14 +440,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * Get Panels & Sections Array.
 		 */
 		private function get_panels_arr() {
-			return self::$panels_arr;
+			return apply_filters( 'kemet_customizer_panels', self::$panels_arr );
 		}
 
 		/**
 		 * Get Panels & Sections Array.
 		 */
 		private function get_Sections_arr() {
-			return self::$sections_arr;
+			return apply_filters( 'kemet_customizer_sections', self::$sections_arr );
 		}
 
 		/**
