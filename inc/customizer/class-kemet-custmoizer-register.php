@@ -5,7 +5,7 @@
  * @package Kemet Theme
  */
 
-if ( ! class_exists( 'Kemet_Customizer_Callback' ) ) :
+if ( ! class_exists( 'Kemet_Customizer_Register' ) ) :
 
 	/**
 	 * Customizer Register
