@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		public function __construct() {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc\customizer\class-kemet-custmoizer-register.php';
+			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-custmoizer-register.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Customizer
