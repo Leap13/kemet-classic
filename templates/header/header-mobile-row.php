@@ -21,11 +21,12 @@ if ( $helper::column_has_items( 'center', $row, 'header', 'mobile' ) ) {
 	$classes[] = 'kmt-on-center-items';
 }
 
-$classes = array_map( 'sanitize_html_class', $classes );
+$classes     = array_map( 'sanitize_html_class', $classes );
+$bar_classes = apply_filters( 'kemet_mobile_header_' . $row . '_row_classes', array_map( 'sanitize_html_class', array() ) );
 ?>
 
 <div class="kmt-<?php echo esc_attr( $row ); ?>-header-wrap">
-	<div class="<?php echo esc_attr( $row ); ?>-header-bar">
+	<div class="<?php echo esc_attr( $row ); ?>-header-bar <?php echo esc_attr( join( ' ', $bar_classes ) ); ?>">
 		<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap kmt-builder-grid-row-container kmt-container section-header-<?php echo esc_attr( $row ); ?>">
 			<div class="kmt-grid-row <?php echo esc_attr( join( ' ', $classes ) ); ?>">
 			<?php
