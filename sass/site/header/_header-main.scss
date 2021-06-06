@@ -219,9 +219,8 @@ li.kmt-sitehead-custom-menu-items {
 
   .main-header-bar {
     display: block;
-    padding: 1.5em 0;
+    padding: 0;
     line-height: 3;
-
     .main-header-bar-navigation {
       line-height: 3;
       display: none;
@@ -346,7 +345,9 @@ li.kmt-sitehead-custom-menu-items {
   position: relative;
 }
 .site-main-header-wrap {
-  min-height: 70px;
+  .kmt-grid-row {
+    min-height: 70px;
+  }
 }
 .kmt-builder-grid-row-container {
   display: grid;

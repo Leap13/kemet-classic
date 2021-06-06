@@ -4378,7 +4378,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-header-break-point .main-header-bar {
 	display: block;
-	padding: 1.5em 0;
+	padding: 0;
 	line-height: 3;
 }
 
@@ -4517,7 +4517,7 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	position: relative;
 }
 
-.site-main-header-wrap {
+.site-main-header-wrap .kmt-grid-row {
 	min-height: 70px;
 }
 
