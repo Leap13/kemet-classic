@@ -559,6 +559,21 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
 }
 
 (function ($) {
+  // Global custom event which triggers when partial refresh occurs.
+  wp.customize.bind("preview-ready", function () {
+    wp.customize.selectiveRefresh.bind(
+      "partial-content-rendered",
+      function (response) {
+        if (response.partial.id.includes("header-mobile-items")) {
+          document.dispatchEvent(
+            new CustomEvent("kmtPartialContentRendered", {
+              detail: { response: response },
+            })
+          );
+        }
+      }
+    );
+  });
   kemet_responsive_slider(
     "kemet-settings[kmt-header-responsive-logo-width]",
     "#sitehead .site-logo-img .custom-logo-link img",

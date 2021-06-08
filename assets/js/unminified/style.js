@@ -1132,129 +1132,216 @@ var toggleClass = function (el, className) {
 })();
 
 (function () {
-  KemetNavigationMenu = function (parentList) {
-    for (var i = 0; i < parentList.length; i++) {
-      if (null != parentList[i].querySelector(".sub-menu, .children")) {
-        // Insert Toggle Button.
-        var toggleButton = document.createElement("BUTTON"); // Create a <button> element
-        toggleButton.setAttribute("role", "button");
-        toggleButton.setAttribute("class", "kmt-menu-toggle");
-        toggleButton.setAttribute("aria-expanded", "false");
-        toggleButton.innerHTML =
-          "<span class='screen-reader-text'>Menu Toggle</span>";
-        parentList[i].insertBefore(toggleButton, parentList[i].childNodes[1]);
+  var initMobileMenu = {
+    initPopup: function () {
+      var menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
+        mobilePopupClose = document.querySelector("#kmt-menu-toggle-close"),
+        popupOverlay = document.querySelector(".kmt-popup-overlay"),
+        __main_header_all = document.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
+      if (__main_header_all.length > 0) {
+        for (var i = 0; i < __main_header_all.length; i++) {
+          if ("undefined" !== typeof __main_header_all[i]) {
+            var parentList = __main_header_all[i].querySelectorAll(
+              "ul.main-header-menu li"
+            );
+            initMobileMenu.KemetNavigationMenu(parentList);
 
-        var menuLeft = parentList[i].getBoundingClientRect().left,
-          windowWidth = window.innerWidth,
-          menuFromLeft = parseInt(windowWidth) - parseInt(menuLeft),
-          menuGoingOutside = false;
-
-        if (menuFromLeft < 500) {
-          menuGoingOutside = true;
-        }
-
-        // Submenu items goes outside?
-        if (menuGoingOutside) {
-          parentList[i].classList.add("kmt-left-align-sub-menu");
-
-          var all_submenu_parents = parentList[i].querySelectorAll(
-            ".menu-item-has-children, .page_item_has_children"
-          );
-          for (var k = 0; k < all_submenu_parents.length; k++) {
-            all_submenu_parents[k].classList.add("kmt-left-align-sub-menu");
+            var kemet_menu_toggle = __main_header_all[i].querySelectorAll(
+              "ul.main-header-menu .kmt-menu-toggle"
+            );
+            initMobileMenu.KemetToggleMenu(kemet_menu_toggle);
+            initMobileMenu.KemetSetPosition(kemet_menu_toggle);
+            window.addEventListener("resize", function () {
+              initMobileMenu.KemetSetPosition(kemet_menu_toggle);
+            });
           }
-        }
-
-        // Submenu Container goes to outside?
-        if (menuFromLeft < 240) {
-          parentList[i].classList.add("kmt-sub-menu-goes-outside");
         }
       }
-    }
-  };
 
-  KemetToggleMenu = function (kemet_menu_toggle) {
-    /* Submenu button click */
-    for (var i = 0; i < kemet_menu_toggle.length; i++) {
-      kemet_menu_toggle[i].addEventListener(
-        "click",
-        function (event) {
+      if (menu_toggle_all !== null) {
+        window.addEventListener("click", function (e) {
+          if (
+            !menu_toggle_all.contains(e.target) &&
+            menu_toggle_all.classList.contains("toggled")
+          ) {
+            menu_toggle_all.classList.remove("toggled");
+          }
+        });
+
+        menu_toggle_all.addEventListener("click", function (event) {
           event.preventDefault();
+          initMobileMenu.menuToggle(menu_toggle_all);
+        });
 
-          var parent_li = this.parentNode;
+        mobilePopupClose.addEventListener("click", function (event) {
+          event.preventDefault();
+          initMobileMenu.closePopup();
+        });
 
-          var parent_li_child = parent_li.querySelectorAll(
-            ".menu-item-has-children, .page_item_has_children"
-          );
-          for (var j = 0; j < parent_li_child.length; j++) {
-            parent_li_child[j].classList.remove("kmt-submenu-expanded");
-            var parent_li_child_sub_menu = parent_li_child[j].querySelector(
-              ".sub-menu, .children"
-            );
-            parent_li_child_sub_menu.style.display = "none";
+        popupOverlay.addEventListener("click", function (event) {
+          event.preventDefault();
+          initMobileMenu.closePopup();
+        });
+      }
+    },
+    KemetNavigationMenu: function (parentList) {
+      for (var i = 0; i < parentList.length; i++) {
+        if (null != parentList[i].querySelector(".sub-menu, .children")) {
+          // Insert Toggle Button.
+          var toggleButton = document.createElement("BUTTON"); // Create a <button> element
+          toggleButton.setAttribute("role", "button");
+          toggleButton.setAttribute("class", "kmt-menu-toggle");
+          toggleButton.setAttribute("aria-expanded", "false");
+          toggleButton.innerHTML =
+            "<span class='screen-reader-text'>Menu Toggle</span>";
+          parentList[i].insertBefore(toggleButton, parentList[i].childNodes[1]);
+
+          var menuLeft = parentList[i].getBoundingClientRect().left,
+            windowWidth = window.innerWidth,
+            menuFromLeft = parseInt(windowWidth) - parseInt(menuLeft),
+            menuGoingOutside = false;
+
+          if (menuFromLeft < 500) {
+            menuGoingOutside = true;
           }
 
-          var parent_li_sibling = parent_li.parentNode.querySelectorAll(
-            ".menu-item-has-children, .page_item_has_children"
-          );
-          for (var j = 0; j < parent_li_sibling.length; j++) {
-            if (parent_li_sibling[j] != parent_li) {
-              parent_li_sibling[j].classList.remove("kmt-submenu-expanded");
-              var all_sub_menu = parent_li_sibling[j].querySelectorAll(
+          // Submenu items goes outside?
+          if (menuGoingOutside) {
+            parentList[i].classList.add("kmt-left-align-sub-menu");
+
+            var all_submenu_parents = parentList[i].querySelectorAll(
+              ".menu-item-has-children, .page_item_has_children"
+            );
+            for (var k = 0; k < all_submenu_parents.length; k++) {
+              all_submenu_parents[k].classList.add("kmt-left-align-sub-menu");
+            }
+          }
+
+          // Submenu Container goes to outside?
+          if (menuFromLeft < 240) {
+            parentList[i].classList.add("kmt-sub-menu-goes-outside");
+          }
+        }
+      }
+    },
+    KemetToggleMenu: function (kemet_menu_toggle) {
+      /* Submenu button click */
+      for (var i = 0; i < kemet_menu_toggle.length; i++) {
+        kemet_menu_toggle[i].addEventListener(
+          "click",
+          function (event) {
+            event.preventDefault();
+
+            var parent_li = this.parentNode;
+
+            var parent_li_child = parent_li.querySelectorAll(
+              ".menu-item-has-children, .page_item_has_children"
+            );
+            for (var j = 0; j < parent_li_child.length; j++) {
+              parent_li_child[j].classList.remove("kmt-submenu-expanded");
+              var parent_li_child_sub_menu = parent_li_child[j].querySelector(
                 ".sub-menu, .children"
               );
-              for (var k = 0; k < all_sub_menu.length; k++) {
-                all_sub_menu[k].style.display = "none";
+              parent_li_child_sub_menu.style.display = "none";
+            }
+
+            var parent_li_sibling = parent_li.parentNode.querySelectorAll(
+              ".menu-item-has-children, .page_item_has_children"
+            );
+            for (var j = 0; j < parent_li_sibling.length; j++) {
+              if (parent_li_sibling[j] != parent_li) {
+                parent_li_sibling[j].classList.remove("kmt-submenu-expanded");
+                var all_sub_menu = parent_li_sibling[j].querySelectorAll(
+                  ".sub-menu, .children"
+                );
+                for (var k = 0; k < all_sub_menu.length; k++) {
+                  all_sub_menu[k].style.display = "none";
+                }
               }
             }
+
+            if (
+              parent_li.classList.contains("menu-item-has-children") ||
+              parent_li.classList.contains("page_item_has_children")
+            ) {
+              toggleClass(parent_li, "kmt-submenu-expanded");
+              if (parent_li.classList.contains("kmt-submenu-expanded")) {
+                parent_li.querySelector(".sub-menu, .children").style.display =
+                  "block";
+              } else {
+                parent_li.querySelector(".sub-menu, .children").style.display =
+                  "none";
+              }
+            }
+          },
+          false
+        );
+      }
+    },
+    KemetSetPosition: function (kemet_menu_toggle) {
+      /* Submenu button click */
+      if (window.innerWidth <= kemet.break_point) {
+        for (var i = 0; i < kemet_menu_toggle.length; i++) {
+          var parent_li = kemet_menu_toggle[i].parentNode;
+          var link = parent_li.querySelector("a");
+          var top = window
+            .getComputedStyle(link, null)
+            .getPropertyValue("padding-top");
+          kemet_menu_toggle[i].style.top = top;
+        }
+      }
+    },
+    menuToggle: function (menu_toggle_all) {
+      var mobilePopup = document.querySelector("#kmt-mobile-popup"),
+        __main_header_all = document.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
+
+      mobilePopup.classList.add("active");
+
+      toggleClass(menu_toggle_all, "toggled");
+      if (__main_header_all.length > 0) {
+        for (var i = 0; i < __main_header_all.length; i++) {
+          if ("undefined" === typeof __main_header_all[i]) {
+            return false;
           }
 
-          if (
-            parent_li.classList.contains("menu-item-has-children") ||
-            parent_li.classList.contains("page_item_has_children")
-          ) {
-            toggleClass(parent_li, "kmt-submenu-expanded");
-            if (parent_li.classList.contains("kmt-submenu-expanded")) {
-              parent_li.querySelector(".sub-menu, .children").style.display =
-                "block";
-            } else {
-              parent_li.querySelector(".sub-menu, .children").style.display =
-                "none";
+          var menuHasChildren = __main_header_all[i].querySelectorAll(
+            ".menu-item-has-children, .page_item_has_children"
+          );
+          for (var x = 0; x < menuHasChildren.length; x++) {
+            menuHasChildren[x].classList.remove("kmt-submenu-expanded");
+            var menuHasChildrenSubMenu = menuHasChildren[x].querySelectorAll(
+              ".sub-menu, .children"
+            );
+            for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
+              menuHasChildrenSubMenu[j].style.display = "none";
             }
           }
-        },
-        false
-      );
-    }
-  };
 
-  KemetSetPosition = function (kemet_menu_toggle) {
-    /* Submenu button click */
-    if (window.innerWidth <= kemet.break_point) {
-      for (var i = 0; i < kemet_menu_toggle.length; i++) {
-        var parent_li = kemet_menu_toggle[i].parentNode;
-        var link = parent_li.querySelector("a");
-        var top = window
-          .getComputedStyle(link, null)
-          .getPropertyValue("padding-top");
-        kemet_menu_toggle[i].style.top = top;
+          var rel = menu_toggle_all.getAttribute("rel") || "";
+
+          switch (rel) {
+            case "mobile-menu":
+              toggleClass(__main_header_all[i], "toggle-on");
+              if (__main_header_all[i].classList.contains("toggle-on")) {
+                __main_header_all[i].style.display = "block";
+              } else {
+                __main_header_all[i].style.display = "";
+              }
+              break;
+          }
+        }
       }
-    }
-  };
+    },
+    closePopup: function () {
+      var mobilePopup = document.querySelector("#kmt-mobile-popup"),
+        __main_header_all = document.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
 
-  var mobilePopup = document.querySelector("#kmt-mobile-popup"),
-    popupOverlay = document.querySelector(".kmt-popup-overlay");
-  var mobilePopupToggle = document.querySelector("#kmt-menu-toggle-close");
-  var __main_header_all = document.querySelectorAll(
-    ".main-header-bar-navigation"
-  );
-
-  window.addEventListener("click", function (e) {
-    if (
-      (mobilePopupToggle.contains(e.target) ||
-        popupOverlay.contains(e.target)) &&
-      mobilePopup.classList.contains("active")
-    ) {
       mobilePopup.classList.remove("active");
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
@@ -1263,94 +1350,11 @@ var toggleClass = function (el, className) {
           __main_header_all[i].style.display = "none";
         }
       }
-    }
-  });
-
-  var menu_toggle_all = document.querySelector(".main-header-menu-toggle");
-
-  document.addEventListener("click", function (e) {
-    if (
-      e.target.classList.contains("main-header-menu-toggle") ||
-      e.target.classList.contains("menu-toggle-icon")
-    ) {
-      mobilePopup.classList.add("active");
-    }
-  });
-  if (menu_toggle_all !== null) {
-    window.addEventListener("click", function (e) {
-      if (
-        !menu_toggle_all.contains(e.target) &&
-        menu_toggle_all.classList.contains("toggled")
-      ) {
-        menu_toggle_all.classList.remove("toggled");
-      }
-    });
-
-    menu_toggle_all.addEventListener(
-      "click",
-      function (event) {
-        event.preventDefault();
-
-        toggleClass(menu_toggle_all, "toggled");
-        if (__main_header_all.length > 0) {
-          for (var i = 0; i < __main_header_all.length; i++) {
-            if ("undefined" === typeof __main_header_all[i]) {
-              return false;
-            }
-
-            var menuHasChildren = __main_header_all[i].querySelectorAll(
-              ".menu-item-has-children, .page_item_has_children"
-            );
-            for (var x = 0; x < menuHasChildren.length; x++) {
-              menuHasChildren[x].classList.remove("kmt-submenu-expanded");
-              var menuHasChildrenSubMenu = menuHasChildren[x].querySelectorAll(
-                ".sub-menu, .children"
-              );
-              for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
-                menuHasChildrenSubMenu[j].style.display = "none";
-              }
-            }
-
-            var rel = this.getAttribute("rel") || "";
-
-            switch (rel) {
-              case "mobile-menu":
-                toggleClass(__main_header_all[i], "toggle-on");
-                if (__main_header_all[i].classList.contains("toggle-on")) {
-                  __main_header_all[i].style.display = "block";
-                } else {
-                  __main_header_all[i].style.display = "";
-                }
-                break;
-            }
-          }
-        }
-      },
-      false
-    );
-    if (__main_header_all.length > 0) {
-      for (var i = 0; i < __main_header_all.length; i++) {
-        if ("undefined" !== typeof __main_header_all[i]) {
-          var parentList = __main_header_all[i].querySelectorAll(
-            "ul.main-header-menu li"
-          );
-          KemetNavigationMenu(parentList);
-
-          var kemet_menu_toggle = __main_header_all[i].querySelectorAll(
-            "ul.main-header-menu .kmt-menu-toggle"
-          );
-          KemetToggleMenu(kemet_menu_toggle);
-          KemetSetPosition(kemet_menu_toggle);
-          window.addEventListener("resize", function () {
-            KemetSetPosition(kemet_menu_toggle);
-          });
-        }
-      }
-    }
-  }
-  document.body.addEventListener(
-    "kemet-header-responsive-enabled",
-    function () {
+    },
+    enableResponsive: function () {
+      var __main_header_all = document.querySelectorAll(
+        ".main-header-bar-navigation"
+      );
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
           if (null != __main_header_all[i]) {
@@ -1379,12 +1383,25 @@ var toggleClass = function (el, className) {
         }
       }
     },
+  };
+
+  initMobileMenu.initPopup();
+
+  document.addEventListener(
+    "kmtPartialContentRendered",
+    initMobileMenu.initPopup
+  );
+
+  document.body.addEventListener(
+    "kemet-header-responsive-enabled",
+    initMobileMenu.enableResponsive,
     false
   );
 
   /* Add break point Class and related trigger */
   var updateHeaderBreakPoint = function () {
     var break_point = kemet.break_point,
+      menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
       headerWrap = document.querySelectorAll("#kmt-mobile-header");
 
     if (headerWrap.length > 0) {
