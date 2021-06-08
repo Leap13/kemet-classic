@@ -46,6 +46,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_bottom_mobile_header', array( $this, 'bottom_mobile_header' ) );
 			add_action( 'kemet_render_header_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
+			add_action( 'kemet_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
@@ -56,6 +57,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header_html', array( $this, 'render_html' ), 10, 1 );
 			add_action( 'init', array( $this, 'register_menu_locations' ) );
 			add_action( 'kemet_mobile_toggle', array( $this, 'mobile_toggle_buttons_markup' ) );
+			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
 		}
 
 		/**
@@ -450,7 +452,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				$screen_reader_title = $menu_title;
 			}
 			?>
-			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" aria-expanded='false'>
+			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); ?>" rel="mobile-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $menu_icon ); ?>"></i>
 				<?php if ( '' != $menu_title ) { ?>
@@ -461,8 +463,33 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			</button>
 			<?php
 		}
-	}
 
+		/**
+		 * Mobile Popup content
+		 */
+		public function mobile_popup() {
+			?>
+			<div id="kmt-mobile-popup" class="kmt-mobile-popup">
+				<div class="kmt-popup-overlay"></div>
+				<div class="kmt-popup-content">
+					<div class="kmt-popup-header">
+						<button id="kmt-menu-toggle-close" class="menu-toggle-close">
+							<span class="kmt-close-icon"></span>
+						</button>
+					</div>
+					<div class="kmt-popup-body-content">
+						<?php
+						/**
+						 * Kemet Render Header Column
+						 */
+						do_action( 'kemet_render_mobile_popup', 'content', 'popup' );
+						?>
+					</div>
+				</div>
+			</div>		
+			<?php
+		}
+	}
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */

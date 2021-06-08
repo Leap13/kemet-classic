@@ -111,6 +111,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-responsive-slider'  => 'Kemet_Control_Responsive_Slider',
 			'kmt-color'              => 'Kemet_Control_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
+			'kmt-hidden'             => 'Kemet_Control_Hidden',
 		);
 
 		/**

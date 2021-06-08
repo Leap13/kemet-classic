@@ -42,9 +42,16 @@ const BuilderComponent = (props) => {
   });
   let enablePopup = false;
 
-  const updateValues = (value) => {
-    let setting = props.control.setting;
-
+  const updateValues = (value, row) => {
+    let setting = props.control.setting,
+      rowSetting = KemetCustomizerData.setting.replace(
+        "setting_name",
+        "header-mobile-popup-items"
+      );
+    if ("popup" === row) {
+      let popup_control = props.customizer(rowSetting);
+      popup_control.set(!popup_control.get());
+    }
     setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
   };
   const onDragStart = () => {
@@ -104,7 +111,7 @@ const BuilderComponent = (props) => {
         value: controlValue,
       }));
 
-      updateValues(controlValue);
+      updateValues(controlValue, row);
     }
   };
 
@@ -167,7 +174,7 @@ const BuilderComponent = (props) => {
       value: updateState,
     }));
 
-    updateValues(updateState);
+    updateValues(updateState, row);
     let event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group,
     });

@@ -207,9 +207,7 @@ li.kmt-sitehead-custom-menu-items {
       justify-content: flex-end;
     }
   }
-  .kmt-site-identity {
-    padding: 0;
-  }
+
   .main-header-bar-navigation {
     .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
@@ -221,56 +219,57 @@ li.kmt-sitehead-custom-menu-items {
     display: block;
     padding: 0;
     line-height: 3;
-    .main-header-bar-navigation {
+  }
+
+  .main-header-bar-navigation {
+    line-height: 3;
+    display: none;
+
+    .children,
+    .sub-menu {
       line-height: 3;
-      display: none;
+    }
 
-      .children,
-      .sub-menu {
-        line-height: 3;
+    .page_item_has_children,
+    .menu-item-has-children {
+      .sub-menu,
+      ul.children {
+        display: none;
       }
 
-      .page_item_has_children,
-      .menu-item-has-children {
-        .sub-menu,
-        ul.children {
-          display: none;
-        }
-
-        > .kmt-menu-toggle {
+      > .kmt-menu-toggle {
+        display: inline-block;
+        position: absolute;
+        font-size: 0px;
+        top: -1px;
+        right: 20px;
+        cursor: pointer;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 0 0.907em;
+        font-weight: normal;
+        line-height: inherit;
+        transition: all 0.2s;
+        border-width: 0px;
+        &::before {
+          font-weight: bold;
+          content: "\e907";
+          font-family: "Kemet-font";
+          text-decoration: inherit;
           display: inline-block;
-          position: absolute;
-          font-size: 0px;
-          top: -1px;
-          right: 20px;
-          cursor: pointer;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          padding: 0 0.907em;
-          font-weight: normal;
-          line-height: inherit;
-          transition: all 0.2s;
+          font-size: medium;
+        }
+        &:hover {
           border-width: 0px;
-          &::before {
-            font-weight: bold;
-            content: "\e907";
-            font-family: "Kemet-font";
-            text-decoration: inherit;
-            display: inline-block;
-            font-size: medium;
-          }
-          &:hover {
-            border-width: 0px;
-          }
-          &:focus {
-            border-width: 0px;
-          }
+        }
+        &:focus {
+          border-width: 0px;
         }
       }
-      .kmt-submenu-expanded {
-        > .kmt-menu-toggle::before {
-          transform: rotateX(180deg);
-        }
+    }
+    .kmt-submenu-expanded {
+      > .kmt-menu-toggle::before {
+        transform: rotateX(180deg);
       }
     }
   }
@@ -486,4 +485,87 @@ li.kmt-sitehead-custom-menu-items {
     transition: all 0.3s linear;
     background-color: #fff;
   }
+}
+// Popup Content
+#kmt-mobile-popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -99999rem;
+  right: 99999rem;
+  transition: opacity 0.25s ease-in, left 0s 0.25s, right 0s 0.25s;
+  opacity: 0;
+  &.active {
+    left: 0;
+    opacity: 1;
+    right: 0;
+    z-index: 100000;
+    transition: opacity 0.25s ease-out;
+    .kmt-popup-overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+    .kmt-popup-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0%);
+    }
+  }
+  .menu-toggle-close {
+    background: transparent;
+    border: 0;
+    font-size: 24px;
+    line-height: 1;
+    padding: 0.6em;
+    color: #3a3a3a;
+    display: flex;
+    box-shadow: none;
+  }
+}
+.kmt-close-icon {
+  &:before {
+    content: "\e905";
+    font-family: Kemet-font;
+    font-weight: 600;
+    text-decoration: inherit;
+  }
+}
+.kmt-popup-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.kmt-popup-content {
+  width: 100%;
+  transform: translateX(100%);
+  max-width: 90%;
+  right: 0;
+  top: 0;
+  background: #fafafa;
+  color: #3a3a3a;
+  bottom: 0;
+  opacity: 0;
+  position: fixed;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+  -js-display: flex;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .kmt-header-item {
+    padding: 10px 15px;
+  }
+}
+.kmt-popup-header {
+  display: flex;
+  justify-content: flex-end;
+  min-height: calc(1.2em + 24px);
 }

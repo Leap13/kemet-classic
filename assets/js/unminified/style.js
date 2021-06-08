@@ -1242,25 +1242,47 @@ var toggleClass = function (el, className) {
     }
   };
 
+  var mobilePopup = document.querySelector("#kmt-mobile-popup"),
+    popupOverlay = document.querySelector(".kmt-popup-overlay");
+  var mobilePopupToggle = document.querySelector("#kmt-menu-toggle-close");
   var __main_header_all = document.querySelectorAll(
     ".main-header-bar-navigation"
   );
+
+  window.addEventListener("click", function (e) {
+    if (
+      (mobilePopupToggle.contains(e.target) ||
+        popupOverlay.contains(e.target)) &&
+      mobilePopup.classList.contains("active")
+    ) {
+      mobilePopup.classList.remove("active");
+      if (__main_header_all.length > 0) {
+        for (var i = 0; i < __main_header_all.length; i++) {
+          __main_header_all[i].classList.remove("toggle-on");
+
+          __main_header_all[i].style.display = "none";
+        }
+      }
+    }
+  });
+
   var menu_toggle_all = document.querySelector(".main-header-menu-toggle");
+
+  document.addEventListener("click", function (e) {
+    if (
+      e.target.classList.contains("main-header-menu-toggle") ||
+      e.target.classList.contains("menu-toggle-icon")
+    ) {
+      mobilePopup.classList.add("active");
+    }
+  });
   if (menu_toggle_all !== null) {
     window.addEventListener("click", function (e) {
-      // var main_header_wrap = document.querySelector(".main-navigation");
       if (
         !menu_toggle_all.contains(e.target) &&
         menu_toggle_all.classList.contains("toggled")
       ) {
         menu_toggle_all.classList.remove("toggled");
-        // if (__main_header_all.length > 0) {
-        //   for (var i = 0; i < __main_header_all.length; i++) {
-        //     __main_header_all[i].classList.remove("toggle-on");
-
-        //     __main_header_all[i].style.display = "none";
-        //   }
-        // }
       }
     });
 
@@ -1292,7 +1314,7 @@ var toggleClass = function (el, className) {
             var rel = this.getAttribute("rel") || "";
 
             switch (rel) {
-              case "main-menu":
+              case "mobile-menu":
                 toggleClass(__main_header_all[i], "toggle-on");
                 if (__main_header_all[i].classList.contains("toggle-on")) {
                   __main_header_all[i].style.display = "block";

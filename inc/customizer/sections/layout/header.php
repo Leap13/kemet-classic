@@ -239,6 +239,21 @@ $options = array(
 		),
 	),
 	// Header Layout
+	/**
+	 * Header Mobile popup items.
+	 */
+	'header-mobile-popup-items'     => array(
+		'section'   => 'section-header-builder-layout',
+		'default'   => false,
+		'type'      => 'kmt-hidden',
+		'priority'  => 0,
+		'transport' => 'postMessage',
+		'partial'   => array(
+			'selector'            => '#kmt-mobile-popup',
+			'container_inclusive' => true,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'mobile_popup' ),
+		),
+	),
 	'header-builder-tabs'           => array(
 		'section'  => 'section-header-builder-layout',
 		'type'     => 'kmt-tabs',

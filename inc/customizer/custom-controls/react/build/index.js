@@ -6145,8 +6145,15 @@ var BuilderComponent = function BuilderComponent(props) {
 
   var enablePopup = false;
 
-  var updateValues = function updateValues(value) {
-    var setting = props.control.setting;
+  var updateValues = function updateValues(value, row) {
+    var setting = props.control.setting,
+        rowSetting = KemetCustomizerData.setting.replace("setting_name", "header-mobile-popup-items");
+
+    if ("popup" === row) {
+      var popup_control = props.customizer(rowSetting);
+      popup_control.set(!popup_control.get());
+    }
+
     setting.set(_objectSpread(_objectSpread(_objectSpread({}, setting.get()), value), {}, {
       flag: !setting.get().flag
     }));
@@ -6208,7 +6215,7 @@ var BuilderComponent = function BuilderComponent(props) {
           value: controlValue
         });
       });
-      updateValues(controlValue);
+      updateValues(controlValue, row);
     }
   };
 
@@ -6268,7 +6275,7 @@ var BuilderComponent = function BuilderComponent(props) {
         value: updateState
       });
     });
-    updateValues(updateState);
+    updateValues(updateState, row);
     var event = new CustomEvent("KemetBuilderRemovedBuilderItem", {
       detail: controlParams.group
     });
