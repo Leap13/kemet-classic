@@ -578,6 +578,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/body.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/buttons-fields.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-mobile-popup-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-header-button-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 

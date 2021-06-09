@@ -117,6 +117,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-popup-content-align'           => 'left',
 					'mobile-popup-content-vertical-align'  => 'top',
 					'mobile-popup-slide-width'             => 90,
+					'header-button-label'                  => 'button',
+					'header-button-url'                    => '',
+					'header-button-open-new-tab'           => false,
 					// Footer Builder
 					'footer-items'                         => array(
 						'top'    => array(

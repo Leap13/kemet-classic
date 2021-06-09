@@ -1899,6 +1899,7 @@ input[type="submit"],
 .wp-block-button__link,
 a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
+	display: inline-block;
 	padding: 0.6em 1em;
 	border: 1px solid;
 }

@@ -366,8 +366,10 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Button
 		 */
 		public function button_markup() {
-			$text = esc_html__( 'Button', 'kemet' );
-			echo '<a href=' . esc_url( admin_url() ) . ' class="button" target="_blank">' . esc_html( $text ) . '</a>';
+			$text   = kemet_get_option( 'header-button-label' );
+			$url    = kemet_get_option( 'header-button-url' );
+			$target = kemet_get_option( 'header-button-open-new-tab' ) ? '_blank' : '_self';
+			echo '<a href="' . esc_url( $url ) . '" class="button header-button" target="' . esc_attr( $target ) . '">' . esc_html( $text ) . '</a>';
 		}
 
 		/**

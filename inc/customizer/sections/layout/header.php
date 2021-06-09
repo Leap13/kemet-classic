@@ -76,7 +76,7 @@ $options = array(
 				'button'          => array(
 					'name'    => __( 'Button', 'kemet' ),
 					'icon'    => 'button',
-					'section' => 'section-menu-header',
+					'section' => 'section-header-button',
 				),
 				'header-html-1'   => array(
 					'name'    => __( 'Html 1', 'kemet' ),

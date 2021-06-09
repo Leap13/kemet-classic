@@ -19,6 +19,11 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$single_blog_options = array(
+			'single-blog-controls-tabs'  => array(
+				'section'  => 'section-blog-single',
+				'type'     => 'kmt-tabs',
+				'priority' => 0,
+			),
 			'blog-single-width'          => array(
 				'type'     => 'select',
 				'section'  => 'section-blog-single',
