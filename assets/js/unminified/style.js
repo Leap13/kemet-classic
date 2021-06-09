@@ -1302,6 +1302,7 @@ var toggleClass = function (el, className) {
       mobilePopup.classList.add("active");
 
       toggleClass(menu_toggle_all, "toggled");
+      menu_toggle_all.style.display = "none";
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
           if ("undefined" === typeof __main_header_all[i]) {
@@ -1338,10 +1339,11 @@ var toggleClass = function (el, className) {
     },
     closePopup: function () {
       var mobilePopup = document.querySelector("#kmt-mobile-popup"),
+        menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
         __main_header_all = document.querySelectorAll(
           ".main-header-bar-navigation"
         );
-
+      menu_toggle_all.style.display = null;
       mobilePopup.classList.remove("active");
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
