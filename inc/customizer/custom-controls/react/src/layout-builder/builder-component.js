@@ -90,7 +90,6 @@ const BuilderComponent = (props) => {
         row + "_center" === zone &&
         updateItems.length === 0
       ) {
-        console.log("Center");
         if (rowValue[row + "_left_center"].length > 0) {
           rowValue[row + "_left_center"].map((move) => {
             controlValue[row][row + "_left"].push(move);

@@ -11,7 +11,7 @@ const RowComponent = (props) => {
   let layout = "";
   let zone_count = 0;
   let enableRow = true;
-  let section = "";
+  let section = "section-" + props.row + "-" + mode + "-builder";
   if ("header" === mode) {
     switch (props.row) {
       case "top":
@@ -52,30 +52,6 @@ const RowComponent = (props) => {
     centerClass = "popup-vertical-group";
   }
 
-  if (props.controlParams.hasOwnProperty("status")) {
-    switch (props.row) {
-      case "top":
-        if (!props.controlParams.status.top) {
-          enableRow = false;
-        }
-
-        break;
-
-      case "main":
-        if (!props.controlParams.status.main) {
-          enableRow = false;
-        }
-
-        break;
-
-      case "bottom":
-        if (!props.controlParams.status.bottom) {
-          enableRow = false;
-        }
-
-        break;
-    }
-  }
   return (
     <div
       className={`kmt-builder-areas kmt-builder-mode-${mode} ${centerClass}`}

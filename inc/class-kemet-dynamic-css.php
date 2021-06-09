@@ -1186,6 +1186,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$parse_css .= kemet_get_background_obj( '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.kmt-separate-container .comment-respond ,.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.kmt-separate-container .kmt-comment-list li ,.kmt-separate-container .comments-count-wrapper ,.kmt-separate-container.kmt-two-container #secondary div.widget', $box_bg_inner_boxed );
 			$parse_css .= kemet_get_background_obj( 'body, .kmt-separate-container , .entry-layout.blog-large-modern .entry-content', $box_bg_obj );
 
+			// Mobile Popup
+			$popup_width = kemet_get_option( 'mobile-popup-slide-width' );
+			$popup_css   = array(
+				'.kmt-popup-left .kmt-popup-content, .kmt-popup-right .kmt-popup-content' => array(
+					'max-width' => kemet_get_css_value( $popup_width, '%' ),
+				),
+			);
+			$parse_css  .= kemet_parse_css( $popup_css );
 			$tablet_typo = array();
 
 			if ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) {

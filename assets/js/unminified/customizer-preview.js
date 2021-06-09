@@ -564,7 +564,10 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
     wp.customize.selectiveRefresh.bind(
       "partial-content-rendered",
       function (response) {
-        if (response.partial.id.includes("header-mobile-items")) {
+        if (
+          response.partial.id.includes("header-desktop-items") ||
+          response.partial.id.includes("header-mobile-items")
+        ) {
           document.dispatchEvent(
             new CustomEvent("kmtPartialContentRendered", {
               detail: { response: response },

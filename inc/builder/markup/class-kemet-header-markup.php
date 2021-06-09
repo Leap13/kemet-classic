@@ -468,8 +468,22 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Mobile Popup content
 		 */
 		public function mobile_popup() {
+			$popup_layout         = kemet_get_option( 'mobile-popup-layout' );
+			$popup_side           = kemet_get_option( 'mobile-popup-slide-side' );
+			$popup_align          = kemet_get_option( 'mobile-popup-content-align' );
+			$popup_vertical_align = kemet_get_option( 'mobile-popup-content-vertical-align' );
+			$classes              = array();
+			if ( 'slide' === $popup_layout ) {
+				$classes[] = 'kmt-popup-' . $popup_side;
+			} else {
+				$classes[] = 'kmt-popup-full-width';
+			}
+			$classes[] = 'kmt-popup-align-' . $popup_align;
+			$classes[] = 'kmt-popup-valign-' . $popup_vertical_align;
+
+			$classes = array_map( 'sanitize_html_class', $classes );
 			?>
-			<div id="kmt-mobile-popup" class="kmt-mobile-popup">
+			<div id="kmt-mobile-popup" class="kmt-mobile-popup <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
 				<div class="kmt-popup-overlay"></div>
 				<div class="kmt-popup-content">
 					<div class="kmt-popup-header">

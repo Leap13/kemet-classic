@@ -4345,12 +4345,8 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: flex;
-	margin-left: auto;
 
 	-js-display: flex;
-	-webkit-align-self: center;
-	align-self: center;
-	-ms-flex-item-align: center;
 }
 
 .kmt-header-break-point ul li.kmt-sitehead-custom-menu-items a {
@@ -4441,10 +4437,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 .kmt-header-break-point .main-navigation {
 	display: block;
 	width: 100%;
-}
-
-.kmt-header-break-point .main-navigation .main-header-menu {
-	text-align: right;
 }
 
 .kmt-header-break-point .main-navigation .kmt-sitehead-custom-menu-items {
@@ -4712,21 +4704,35 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 #kmt-mobile-popup {
 	position: fixed;
 	top: 0;
-	right: -99999rem;
 	bottom: 0;
-	left: 99999rem;
 	opacity: 0;
 	-webkit-transition: opacity 0.25s ease-in, right 0s 0.25s, left 0s 0.25s;
 	transition: opacity 0.25s ease-in, right 0s 0.25s, left 0s 0.25s;
 }
 
+#kmt-mobile-popup.kmt-popup-left {
+	right: -99999rem;
+}
+
+#kmt-mobile-popup.kmt-popup-right {
+	left: 99999rem;
+}
+
 #kmt-mobile-popup.active {
 	z-index: 100000;
-	right: 0;
-	left: 0;
 	opacity: 1;
 	-webkit-transition: opacity 0.25s ease-out;
 	transition: opacity 0.25s ease-out;
+}
+
+#kmt-mobile-popup.active.kmt-popup-left .kmt-popup-content {
+	right: 0;
+	left: auto;
+}
+
+#kmt-mobile-popup.active.kmt-popup-right .kmt-popup-content {
+	right: auto;
+	left: 0;
 }
 
 #kmt-mobile-popup.active .kmt-popup-overlay {
@@ -4780,6 +4786,10 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	transition: opacity 0.2s ease-in-out;
 }
 
+.kmt-popup-full-width .kmt-popup-content {
+	max-width: 100%;
+}
+
 .kmt-popup-content {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -4804,9 +4814,6 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 	transition: opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
 	transition: transform 0.2s ease-in, opacity 0.2s ease-in;
 	transition: transform 0.2s ease-in, opacity 0.2s ease-in, -webkit-transform 0.2s ease-in;
-	-webkit-transform: translateX(-100%);
-	-ms-transform: translateX(-100%);
-	transform: translateX(-100%);
 
 	-js-display: flex;
 	-webkit-box-direction: normal;
@@ -4819,6 +4826,123 @@ li.kmt-sitehead-custom-menu-items .kmt-search-icon .kemet-search-icon {
 
 .kmt-popup-content .kmt-header-item {
 	padding: 10px 15px;
+}
+
+.kmt-popup-left .kmt-popup-content {
+	right: 0;
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+.kmt-popup-right .kmt-popup-content {
+	left: 0;
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+
+.kmt-popup-align-left .kmt-header-item {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-ms-flex-pack: start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+
+.kmt-popup-align-left .kmt-popup-body-content {
+	text-align: right;
+}
+
+.kmt-popup-align-right .kmt-header-item {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.kmt-popup-align-right .kmt-popup-body-content {
+	text-align: left;
+}
+
+.kmt-popup-align-center .kmt-header-item {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.kmt-popup-align-center .kmt-popup-body-content {
+	text-align: center;
+}
+
+.kmt-popup-valign-top .kmt-popup-body-content {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-ms-flex-pack: start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+
+.kmt-popup-valign-bottom .kmt-popup-body-content {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+}
+
+.kmt-popup-valign-center .kmt-popup-body-center {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.kmt-header-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	max-height: inherit;
+	margin-left: 10px;
+
+	-js-display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+}
+
+.kmt-popup-body-content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	min-height: -webkit-calc(100% - (1.2em + 24px));
+	min-height: calc(100% - (1.2em + 24px));
+	padding-bottom: -webkit-calc(1.2em + 24px);
+	padding-bottom: calc(1.2em + 24px);
+
+	-js-display: flex;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
 }
 
 .kmt-popup-header {

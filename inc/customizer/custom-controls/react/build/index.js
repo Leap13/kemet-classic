@@ -6192,8 +6192,6 @@ var BuilderComponent = function BuilderComponent(props) {
       controlValue[row][zone] = updateItems;
 
       if ("header-desktop-items" === controlParams.group && row + "_center" === zone && updateItems.length === 0) {
-        console.log("Center");
-
         if (rowValue[row + "_left_center"].length > 0) {
           rowValue[row + "_left_center"].map(function (move) {
             controlValue[row][row + "_left"].push(move);
@@ -6624,7 +6622,7 @@ var RowComponent = function RowComponent(props) {
   var layout = "";
   var zone_count = 0;
   var enableRow = true;
-  var section = "";
+  var section = "section-" + props.row + "-" + mode + "-builder";
 
   if ("header" === mode) {
     switch (props.row) {
@@ -6662,31 +6660,6 @@ var RowComponent = function RowComponent(props) {
 
   if ("popup" === props.row) {
     centerClass = "popup-vertical-group";
-  }
-
-  if (props.controlParams.hasOwnProperty("status")) {
-    switch (props.row) {
-      case "top":
-        if (!props.controlParams.status.top) {
-          enableRow = false;
-        }
-
-        break;
-
-      case "main":
-        if (!props.controlParams.status.main) {
-          enableRow = false;
-        }
-
-        break;
-
-      case "bottom":
-        if (!props.controlParams.status.bottom) {
-          enableRow = false;
-        }
-
-        break;
-    }
   }
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
