@@ -575,7 +575,35 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-group-horizontal:hover .components-button.kmt-row-actions {
   color: #007cba;
 }
+.kmt-builder-areas .components-button.kmt-fixed-row-actions {
+  background: #007cba;
+  color: #c8dbe4;
+  text-transform: uppercase;
+  font-size: 10px;
+  height: auto;
+  line-height: 20px;
+  border-radius: 0;
+  position: absolute;
+  top: -18px;
+  border: 0;
+  right: 1px;
+  height: 23px;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 10;
+}
+.components-button.kmt-fixed-row-actions .dashicons {
+  width: 10px;
+  font-size: 10px;
+  height: 10px;
+  margin-left: 8px;
+}
 
+.components-button.kmt-fixed-row-actions:hover {
+  background: #007cba !important;
+  color: white !important;
+  box-shadow: none !important;
+}
 .kmt-builder-row-items
   .kmt-builder-areas:nth-child(2)
   .kmt-builder-group-horizontal {
@@ -785,8 +813,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-areas .components-button.kmt-row-actions {
-  background: #ffffff;
-  color: #777777;
+  background: #007cba;
+  color: #c8dbe4;
   text-transform: uppercase;
   font-size: 8px;
   font-weight: 500;
@@ -831,12 +859,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   width: 14px;
   height: 14px;
 }
-.kmt-builder-mode-header[data-row="top"] .kmt-row-actions,
-.kmt-builder-mode-header[data-row="bottom"] .kmt-row-actions,
-.kmt-builder-mode-footer[data-row="top"] .kmt-row-actions,
-.kmt-builder-mode-footer[data-row="main"] .kmt-row-actions {
-  cursor: default;
-}
 
 .active-builder-row .components-button.kmt-row-actions {
   background: #007cba;
@@ -868,7 +890,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-areas .components-button.kmt-row-actions:focus {
   background: #007cba !important;
   color: white !important;
-  border-color: #007cba;
+  box-shadow: none !important;
 }
 
 .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {

@@ -145,7 +145,7 @@ $customizer->add_customizer( $options, 'options' );
 
 $panels = array(
 	'panel-footer-builder-group' => array(
-		'priority' => 10,
+		'priority' => 20,
 		'title'    => __( 'Footer Builder', 'kemet' ),
 	),
 );

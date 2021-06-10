@@ -14,13 +14,7 @@ const RowComponent = (props) => {
   let section = "section-" + props.row + "-" + mode + "-builder";
   if ("header" === mode) {
     switch (props.row) {
-      case "top":
-        section = "section-topbar-header";
-        break;
       case "main":
-        section = "section-header";
-        break;
-      case "bottom":
         section = "section-header";
         break;
     }
@@ -71,7 +65,21 @@ const RowComponent = (props) => {
         <Dashicon icon="admin-generic" />
         {props.row === "popup" && <>{__("Off Canvas", "kemet")}</>}
       </Button>
-
+      <Button
+        className="kmt-fixed-row-actions"
+        title={
+          props.row === "popup"
+            ? __("Off Canvas", "kemet")
+            : (props.row + " " + mode).charAt(0).toUpperCase() +
+              (props.row + " " + mode).slice(1).toLowerCase()
+        }
+        onClick={() => props.focusSection(section)}
+      >
+        {props.row === "popup"
+          ? __("Off Canvas", "kemet")
+          : (props.row + " " + mode).charAt(0).toUpperCase() +
+            (props.row + " " + mode).slice(1).toLowerCase()}
+      </Button>
       <div
         className={`kmt-builder-group kmt-builder-group-horizontal ${layout}`}
         data-setting={props.row}
