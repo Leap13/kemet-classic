@@ -12,6 +12,13 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
           : ""
       }
       key={item}
+      onClick={() => {
+        focusSection(
+          undefined !== choices[item] && undefined !== choices[item].section
+            ? choices[item].section
+            : ""
+        );
+      }}
     >
       <span className="kmt-builder-item-icon kmt-move-icon">
         <Dashicon icon="move" />
@@ -30,13 +37,6 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
             ? choices[item].name
             : "")
         }
-        onClick={() => {
-          focusSection(
-            undefined !== choices[item] && undefined !== choices[item].section
-              ? choices[item].section
-              : ""
-          );
-        }}
       >
         <Dashicon icon="admin-generic" />
       </Button>

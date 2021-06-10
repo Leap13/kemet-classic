@@ -6566,7 +6566,10 @@ var ItemComponent = function ItemComponent(_ref) {
     className: "kmt-builder-item",
     "data-id": item,
     "data-section": undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "",
-    key: item
+    key: item,
+    onClick: function onClick() {
+      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "kmt-builder-item-icon kmt-move-icon"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
@@ -6575,10 +6578,7 @@ var ItemComponent = function ItemComponent(_ref) {
     className: "kmt-builder-item-text"
   }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
-    "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
-    onClick: function onClick() {
-      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
-    }
+    "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : "")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
