@@ -44,7 +44,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'search'          => array(
 							'name'    => __( 'Search', 'kemet' ),
 							'icon'    => 'search',
-							'section' => 'section-header-search-menu',
+							'section' => 'section-header-search',
+						),
+						'search-box'          => array(
+							'name'    => __( 'Search Box', 'kemet' ),
+							'icon'    => 'search',
+							'section' => 'section-header-search-box',
 						),
 						'account'         => array(
 							'name'    => __( 'Account', 'kemet' ),

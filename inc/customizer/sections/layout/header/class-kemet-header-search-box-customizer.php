@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Search Options for Kemet Theme.
+ * Header Search Box Options for Kemet Theme.
  *
  * @package     Kemet
  * @author      Kemet
@@ -9,7 +9,7 @@
  * @since       Kemet 1.0.0
  */
 
-class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
+class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 
 	/**
 	 * Register Customizer Options
@@ -20,7 +20,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$search_options = array(
 			'header-search-controls-tabs' => array(
-				'section'  => 'section-header-search',
+				'section'  => 'section-header-search-box',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
@@ -37,9 +37,9 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$search_sections = array(
-			'section-header-search' => array(
+			'section-header-search-box' => array(
 				'priority' => 55,
-				'title'    => __( 'Search', 'kemet' ),
+				'title'    => __( 'Search Box', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);
@@ -50,6 +50,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 }
 
 
-new Kemet_Header_Search_Customizer();
+new Kemet_Header_Search_Box_Customizer();
 
 
