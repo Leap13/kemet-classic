@@ -169,6 +169,37 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/extends.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  module.exports["default"] = module.exports, module.exports.__esModule = true;
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
@@ -5956,7 +5987,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _available_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./available/control */ "./src/available/control.js");
 /* harmony import */ var _tabs_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs/control */ "./src/tabs/control.js");
 /* harmony import */ var _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./focus-button/control.js */ "./src/focus-button/control.js");
-/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _radio_image_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./radio-image/control */ "./src/radio-image/control.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+
 
 
 
@@ -5966,6 +5999,7 @@ wp.customize.controlConstructor["kmt-builder"] = _layout_builder_control__WEBPAC
 wp.customize.controlConstructor["kmt-available"] = _available_control__WEBPACK_IMPORTED_MODULE_2__["AvailableControl"];
 wp.customize.controlConstructor["kmt-tabs"] = _tabs_control__WEBPACK_IMPORTED_MODULE_3__["TabsControl"];
 wp.customize.controlConstructor["kmt-focus-button"] = _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__["FocusButtonControl"];
+wp.customize.controlConstructor["kmt-radio-image"] = _radio_image_control__WEBPACK_IMPORTED_MODULE_5__["radioImageControl"];
 
 
 /***/ }),
@@ -6721,6 +6755,152 @@ var RowComponent = function RowComponent(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(RowComponent));
+
+/***/ }),
+
+/***/ "./src/radio-image/control.js":
+/*!************************************!*\
+  !*** ./src/radio-image/control.js ***!
+  \************************************/
+/*! exports provided: radioImageControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "radioImageControl", function() { return radioImageControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _radio_image_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./radio-image-component.js */ "./src/radio-image/radio-image-component.js");
+
+
+var radioImageControl = wp.customize.kemetControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_radio_image_component_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control,
+      customizer: wp.customize
+    }), control.container[0]);
+  }
+});
+
+/***/ }),
+
+/***/ "./src/radio-image/radio-image-component.js":
+/*!**************************************************!*\
+  !*** ./src/radio-image/radio-image-component.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+var __ = wp.i18n.__;
+ // import "./radio-image.css"
+
+var RadioComponent = function RadioComponent(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.control.setting.get()),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      props_value = _useState2[0],
+      setPropsValue = _useState2[1];
+
+  var onLayoutChange = function onLayoutChange(value) {
+    setPropsValue(value);
+    props.control.setting.set(value);
+  };
+
+  var _props$control$params = props.control.params,
+      label = _props$control$params.label,
+      description = _props$control$params.description,
+      id = _props$control$params.id,
+      choices = _props$control$params.choices,
+      inputAttrs = _props$control$params.inputAttrs,
+      choices_titles = _props$control$params.choices_titles,
+      link = _props$control$params.link,
+      labelStyle = _props$control$params.labelStyle;
+  var inputContent = [];
+  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label) : null;
+  var descriptionContent = description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "description customize-control-description"
+  }, description) : null;
+
+  var HandleRepeat = function HandleRepeat(item) {
+    var splitedItems = item.split(" ").map(function (item, i) {
+      var item_values = item.split("=");
+
+      if (undefined !== item_values[1]) {
+        inputContent[item_values[0]] = item_values[1].replace(/"/g, "");
+      }
+    });
+    return splitedItems;
+  };
+
+  if (inputAttrs) {
+    HandleRepeat(inputAttrs);
+  }
+
+  if (link) {
+    HandleRepeat(link);
+  }
+
+  var radioContent = Object.entries(choices).map(function (_ref) {
+    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    var checked = props_value === key ? true : false;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], {
+      key: key
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, inputContent, {
+      className: "image-select",
+      type: "radio",
+      value: key,
+      name: "_customize-radio-".concat(id),
+      id: id + key,
+      checked: checked,
+      onChange: function onChange() {
+        return onLayoutChange(key);
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+      htmlFor: id + key
+    }, labelStyle, {
+      className: "image"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
+      className: "wp-ui-highlight",
+      src: choices[key]
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "image-clickable",
+      title: choices_titles[key]
+    })));
+  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+    className: "customizer-text"
+  }, labelContent, descriptionContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    id: "input_".concat(id),
+    className: "image"
+  }, radioContent));
+};
+
+RadioComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(RadioComponent));
 
 /***/ }),
 
