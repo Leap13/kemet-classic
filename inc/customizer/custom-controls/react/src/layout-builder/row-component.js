@@ -65,21 +65,20 @@ const RowComponent = (props) => {
         <Dashicon icon="admin-generic" />
         {props.row === "popup" && <>{__("Off Canvas", "kemet")}</>}
       </Button>
-      <Button
-        className="kmt-fixed-row-actions"
-        title={
-          props.row === "popup"
-            ? __("Off Canvas", "kemet")
-            : (props.row + " " + mode).charAt(0).toUpperCase() +
-              (props.row + " " + mode).slice(1).toLowerCase()
-        }
-        onClick={() => props.focusSection(section)}
-      >
-        {props.row === "popup"
-          ? __("Off Canvas", "kemet")
-          : (props.row + " " + mode).charAt(0).toUpperCase() +
+      {props.row !== "popup" && (
+        <Button
+          className="kmt-fixed-row-actions"
+          title={
+            (props.row + " " + mode).charAt(0).toUpperCase() +
+            (props.row + " " + mode).slice(1).toLowerCase()
+          }
+          onClick={() => props.focusSection(section)}
+        >
+          {(props.row + " " + mode).charAt(0).toUpperCase() +
             (props.row + " " + mode).slice(1).toLowerCase()}
-      </Button>
+        </Button>
+      )}
+
       <div
         className={`kmt-builder-group kmt-builder-group-horizontal ${layout}`}
         data-setting={props.row}

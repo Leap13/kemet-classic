@@ -44,7 +44,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'search'          => array(
 							'name'    => __( 'Search', 'kemet' ),
 							'icon'    => 'search',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-search-menu',
 						),
 						'account'         => array(
 							'name'    => __( 'Account', 'kemet' ),
@@ -54,12 +54,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'primary-menu'    => array(
 							'name'    => __( 'Primary Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-primay-menu',
 						),
 						'secondary-menu'  => array(
 							'name'    => __( 'Secondary Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-secondary-menu',
 						),
 						'button'          => array(
 							'name'    => __( 'Button', 'kemet' ),
@@ -79,12 +79,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'header-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-widget-1',
 						),
 						'header-widget-2' => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-widget-2',
 						),
 					)
 				),
@@ -145,12 +145,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'mobile-button'        => array(
 							'name'    => __( 'Button', 'kemet' ),
 							'icon'    => 'button',
-							'section' => 'section-menu-header',
+							'section' => 'section-mobile-header-button',
 						),
 						'search'               => array(
 							'name'    => __( 'Search', 'kemet' ),
 							'icon'    => 'search',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-search-menu',
 						),
 						'account'              => array(
 							'name'    => __( 'Account', 'kemet' ),
@@ -160,32 +160,32 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'mobile-menu'          => array(
 							'name'    => __( 'Mobile Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-mobile-menu',
 						),
 						'mobile-toggle'        => array(
 							'name'    => __( 'Toggle Button', 'kemet' ),
 							'icon'    => 'button',
-							'section' => 'section-menu-header',
+							'section' => 'section-mobile-header-toggle-button',
 						),
 						'header-html-mobile-1' => array(
 							'name'    => __( 'Html 1', 'kemet' ),
 							'icon'    => 'text',
-							'section' => 'section-header-html-mobile-1',
+							'section' => 'section-mobile-header-html-1',
 						),
 						'header-html-mobile-2' => array(
 							'name'    => __( 'Html 2', 'kemet' ),
 							'icon'    => 'text',
-							'section' => 'section-header-html-mobile-2',
+							'section' => 'section-mobile-header-html-2',
 						),
 						'header-widget-1'      => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-widget-1',
 						),
 						'header-widget-2'      => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-menu-header',
+							'section' => 'section-header-widget-2',
 						),
 					)
 				),
@@ -395,26 +395,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			'section-header-builder-layout' => array(
 				'priority' => 10,
 				'title'    => __( 'Header Layout', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-			'section-header-html-1'         => array(
-				'priority' => 15,
-				'title'    => __( 'Header Html 1', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-			'section-header-html-2'         => array(
-				'priority' => 20,
-				'title'    => __( 'Header Html 2', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-			'section-header-html-mobile-1'  => array(
-				'priority' => 25,
-				'title'    => __( 'Mobile Header Html 1', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-			'section-header-html-mobile-2'  => array(
-				'priority' => 30,
-				'title'    => __( 'Mobile Header Html 2', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);

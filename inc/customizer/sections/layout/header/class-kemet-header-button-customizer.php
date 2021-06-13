@@ -54,7 +54,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
-		$mobile_popup_sections = array(
+		$button_sections = array(
 			'section-header-button' => array(
 				'priority' => 40,
 				'title'    => __( 'Button', 'kemet' ),
@@ -62,7 +62,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 
-		return array_merge( $sections, $mobile_popup_sections );
+		return array_merge( $sections, $button_sections );
 
 	}
 }
