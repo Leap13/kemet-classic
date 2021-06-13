@@ -89,8 +89,6 @@ module.exports = function (grunt) {
               "inc/customizer/custom-controls/divider/divider.scss",
             "inc/customizer/custom-controls/description/description.css":
               "inc/customizer/custom-controls/description/description.scss",
-            "inc/customizer/custom-controls/radio-image/radio-image.css":
-              "inc/customizer/custom-controls/radio-image/radio-image.scss",
             "inc/customizer/custom-controls/slider/slider.css":
               "inc/customizer/custom-controls/slider/slider.scss",
             "inc/customizer/custom-controls/sortable/sortable.css":
@@ -392,7 +390,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/slider/slider.css",
           "inc/customizer/custom-controls/color/color.css",
           "inc/customizer/custom-controls/icon-select/icon-select.css",
-          "inc/customizer/custom-controls/radio-image/radio-image.css",
+          "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive/responsive.css",
           "inc/customizer/custom-controls/responsive-select/responsive-select.css",
           "inc/customizer/custom-controls/responsive-slider/responsive-slider.css",
@@ -413,7 +411,6 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/slider/slider.js",
           "inc/customizer/custom-controls/color/color.js",
           "inc/customizer/custom-controls/icon-select/icon-select.js",
-          "inc/customizer/custom-controls/radio-image/radio-image.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
           "inc/customizer/custom-controls/responsive-slider/responsive-slider.js",
