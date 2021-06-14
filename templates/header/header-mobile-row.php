@@ -6,7 +6,7 @@
  */
 
 $row = get_query_var( 'row' );
-error_log( $row );
+
 $helper    = new Kemet_Builder_Helper();
 $has_sides = $helper::column_has_items( 'left', $row, 'header', 'mobile' ) || $helper::column_has_items( 'right', $row, 'header', 'mobile' );
 $classes   = array();

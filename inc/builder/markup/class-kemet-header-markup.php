@@ -263,7 +263,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function get_html( $option ) {
 			$html = kemet_get_option( $option );
-			error_log( $html );
+
 			return do_shortcode( $html );
 		}
 		/**

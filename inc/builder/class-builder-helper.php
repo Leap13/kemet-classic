@@ -56,6 +56,50 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		}
 
 		/**
+		 * Check if builder item loaded
+		 *
+		 * @param string $item item type.
+		 * @param string $builder builder.
+		 * @param string $device device.
+		 * @return boolean
+		 */
+		public static function is_item_loaded( $item, $builder = 'header', $device = 'all' ) {
+			$items         = array();
+			$current_items = array();
+
+			if ( 'header' == $builder ) {
+				$items['desktop'] = kemet_get_option( 'header-desktop-items', array() );
+				$items['mobile']  = kemet_get_option( 'header-mobile-items', array() );
+				foreach ( $items as $d_items => $rows ) {
+					$loaded_items = array();
+					foreach ( $rows as $row => $columns ) {
+
+						if ( is_array( $columns ) && ! empty( $columns ) ) {
+							$loaded_items = array_merge( $loaded_items, array_values( $columns ) );
+						}
+					}
+
+					$current_items[ $d_items ] = call_user_func_array( 'array_merge', $loaded_items );
+				}
+			}
+			switch ( $device ) {
+				case 'all':
+					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $items;
+					break;
+
+				default:
+					$current_items = $current_items[ $device ];
+					break;
+			}
+
+			if ( in_array( $item, $current_items, true ) ) {
+				return true;
+			}
+
+			return false || is_customize_preview();
+		}
+
+		/**
 		 * Get Widget
 		 *
 		 * @param string $widget_id
