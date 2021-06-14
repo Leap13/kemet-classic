@@ -40,7 +40,7 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 		public function __construct() {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
 			if ( ! is_admin() ) {
-				require_once KEMET_HEADER_BUTTON_DIR . 'dynamic-css/dynamic.css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+				require_once KEMET_HEADER_BUTTON_DIR . 'dynamic-css/class-kemet-header-button-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
 		}
 

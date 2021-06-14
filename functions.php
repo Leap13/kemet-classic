@@ -39,6 +39,7 @@ require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-gutenberg-editor-s
 require_once KEMET_THEME_DIR . 'functions/helper-options-functions.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-enqueue-scripts.php';
 require_once KEMET_THEME_DIR . 'inc/class-kemet-dynamic-css.php';
+require_once KEMET_THEME_DIR . 'inc/class-kemet-add-dynamic-css.php';
 require_once KEMET_THEME_DIR . 'functions/template-tags.php';
 require_once KEMET_THEME_DIR . 'inc/widgets.php';
 require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
