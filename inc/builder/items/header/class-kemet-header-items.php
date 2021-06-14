@@ -42,6 +42,7 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 			require KEMET_HEADER_ITEMS_DIR . 'menu/kemet-header-menu-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'button/kemet-header-button-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'mobile-button/kemet-header-mobile-button-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'widget/kemet-header-widget-item.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
