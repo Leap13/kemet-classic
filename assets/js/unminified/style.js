@@ -1445,75 +1445,11 @@ var toggleClass = function (el, className) {
       }
     }
   };
-  //Responsive Search Style
-  var searchStyle = function () {
-    var hasOutSideMenu = document.querySelector(".kmt-outside-menu") != null,
-      hasInsideMenu =
-        document.querySelector(".kmt-sitehead-custom-menu-items") != null;
 
-    if (hasOutSideMenu) {
-      var outSideMenu = document.querySelector(".kmt-outside-menu");
-      var hasSearch = outSideMenu.querySelector(".search") != null;
-      var hasBreakPoint = document.querySelector(".kmt-header-break-point");
-      if (hasSearch) {
-        var searchType = outSideMenu
-          .querySelector(".kmt-search-menu-icon")
-          .getAttribute("data-type");
-
-        if (hasBreakPoint) {
-          if (searchType == "search-box") {
-            outSideMenu.querySelector(".search").classList.remove("search-box");
-            outSideMenu.querySelector(".search").classList.add("search-icon");
-          }
-        } else if (!hasBreakPoint) {
-          if (searchType == "search-box") {
-            outSideMenu.querySelector(".search").classList.add(searchType);
-            if (
-              outSideMenu
-                .querySelector(".search")
-                .classList.contains("search-icon")
-            ) {
-              outSideMenu
-                .querySelector(".search")
-                .classList.remove("search-icon");
-            }
-          }
-        }
-      }
-    } else if (hasInsideMenu && !hasOutSideMenu) {
-      var InsideMenu = document.querySelector(
-        ".kmt-sitehead-custom-menu-items"
-      );
-      var hasSearch = InsideMenu.classList.contains("search") != "";
-      var hasBreakPoint = document.querySelector(".kmt-header-break-point");
-
-      if (hasSearch) {
-        var searchType = InsideMenu.querySelector(
-          ".kmt-search-menu-icon"
-        ).getAttribute("data-type");
-
-        if (hasBreakPoint) {
-          if (searchType == "search-icon") {
-            InsideMenu.classList.remove("search-icon");
-            InsideMenu.classList.add("search-box");
-          }
-        } else if (!hasBreakPoint) {
-          if (searchType == "search-icon") {
-            InsideMenu.classList.add(searchType);
-            if (InsideMenu.classList.contains("search-box")) {
-              InsideMenu.classList.remove("search-box");
-            }
-          }
-        }
-      }
-    }
-  };
   window.addEventListener("resize", function () {
     updateHeaderBreakPoint();
-    searchStyle();
   });
   updateHeaderBreakPoint();
-  searchStyle();
 
   var get_browser = function () {
     var ua = navigator.userAgent,
@@ -1552,6 +1488,20 @@ var toggleClass = function (el, className) {
       var sibling = e.target.parentNode.parentNode.querySelector(
         ".kmt-search-menu-icon"
       );
+
+      var searchIcon =
+          e.target.parentNode.parentNode.querySelector(".kmt-search-icon"),
+        searchLeft = searchIcon.getBoundingClientRect().left,
+        windowWidth = window.innerWidth,
+        searchFromLeft = parseInt(windowWidth) / 2,
+        searchGoingOutside = false;
+
+      if (searchLeft < searchFromLeft) {
+        sibling.classList.add("kmt-search-left");
+      } else {
+        sibling.classList.add("kmt-search-right");
+      }
+
       if (!sibling.classList.contains("kmt-dropdown-active")) {
         sibling.classList.add("kmt-dropdown-active");
         sibling
@@ -1568,19 +1518,17 @@ var toggleClass = function (el, className) {
 
   /* Hide Dropdown on body click*/
   document.body.onclick = function (event) {
-    if (!this.classList.contains("kmt-header-break-point")) {
-      if (
-        !event.target.classList.contains("kmt-search-menu-icon") &&
-        getParents(event.target, ".kmt-search-menu-icon").length === 0 &&
-        getParents(event.target, ".kmt-search-icon").length === 0
-      ) {
-        var dropdownSearchWrap = document.getElementsByClassName(
-          "kmt-search-menu-icon"
-        );
+    if (
+      !event.target.classList.contains("kmt-search-menu-icon") &&
+      getParents(event.target, ".kmt-search-menu-icon").length === 0 &&
+      getParents(event.target, ".kmt-search-icon").length === 0
+    ) {
+      var dropdownSearchWrap = document.getElementsByClassName(
+        "kmt-search-menu-icon"
+      );
 
-        for (var i = 0; i < dropdownSearchWrap.length; i++) {
-          dropdownSearchWrap[i].classList.remove("kmt-dropdown-active");
-        }
+      for (var i = 0; i < dropdownSearchWrap.length; i++) {
+        dropdownSearchWrap[i].classList.remove("kmt-dropdown-active");
       }
     }
   };

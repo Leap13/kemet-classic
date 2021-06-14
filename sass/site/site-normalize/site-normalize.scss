@@ -104,38 +104,6 @@ input[type="submit"] {
   color: $color-site-tagline;
 }
 
-.kmt-header-break-point {
-  .main-header-bar {
-    .main-header-bar-navigation {
-      .kmt-search-icon {
-        display: none;
-      }
-    }
-  }
-
-  .kmt-search-menu-icon .search-field,
-  .kmt-search-menu-icon.kmt-inline-search .search-field {
-    padding-right: 5.5em;
-  }
-
-  .kmt-search-menu-icon {
-    &.search-box {
-      .search-submit {
-        display: block;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        right: 0;
-        padding: 0 1em;
-        border-radius: 0;
-      }
-    }
-  }
-  .kmt-search-menu-icon .search-form {
-    display: block;
-  }
-}
-
 /* must have higher specificity than alternative color schemes inline styles */
 .site .skip-link {
   background-color: #f1f1f1;

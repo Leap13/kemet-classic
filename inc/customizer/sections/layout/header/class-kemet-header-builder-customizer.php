@@ -46,7 +46,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'search',
 							'section' => 'section-header-search',
 						),
-						'search-box'          => array(
+						'search-box'      => array(
 							'name'    => __( 'Search Box', 'kemet' ),
 							'icon'    => 'search',
 							'section' => 'section-header-search-box',
@@ -156,6 +156,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Search', 'kemet' ),
 							'icon'    => 'search',
 							'section' => 'section-header-search-menu',
+						),
+						'search-box'           => array(
+							'name'    => __( 'Search Box', 'kemet' ),
+							'icon'    => 'search',
+							'section' => 'section-header-search-box',
 						),
 						'account'              => array(
 							'name'    => __( 'Account', 'kemet' ),

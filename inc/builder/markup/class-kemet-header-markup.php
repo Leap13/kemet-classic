@@ -50,6 +50,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
+			add_action( 'kemet_header_search_box', array( $this, 'search_box_markup' ) );
 			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
 			add_action( 'kemet_header_mobile_button', array( $this, 'mobile_button_markup' ) );
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
@@ -345,7 +346,6 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Search
 		 */
 		public function search_markup() {
-			$search_style      = kemet_get_option( 'search-style' );
 			$box_shadow        = '';
 			$search_box_shadow = kemet_get_option( 'search-box-shadow' );
 			if ( true == $search_box_shadow ) {
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 
 			$search_html  = '<div class="kmt-search-container">';
 			$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
-			$search_html .= '<div class="kmt-search-menu-icon ' . $box_shadow . '" id="kmt-search-form" data-type="' . $search_style . '">';
+			$search_html .= '<div class="kmt-search-menu-icon ' . $box_shadow . '" id="kmt-search-form">';
 			$search_html .= get_search_form( false );
 			$search_html .= '</div>';
 			$search_html .= '</div>';
@@ -362,6 +362,18 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			echo $search_html;
 		}
 
+		/**
+		 * Search
+		 */
+		public function search_box_markup() {
+			$search_html  = '<div class="kmt-search-box-container">';
+			$search_html .= '<div class="kmt-search-box-form" id="kmt-search-form">';
+			$search_html .= get_search_form( false );
+			$search_html .= '</div>';
+			$search_html .= '</div>';
+
+			echo $search_html;
+		}
 		/**
 		 * Button
 		 */

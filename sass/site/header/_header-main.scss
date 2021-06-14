@@ -87,15 +87,56 @@
     }
   }
 }
+.kmt-search-box-form {
+  position: relative;
+  .search-field {
+    border: none;
+    transition: width 0.2s;
+    border-radius: inherit;
+    width: 240px;
+    border-width: 1px;
+    border-style: solid;
+    &:focus {
+      outline: none;
+    }
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-family: Kemet-font;
+    font-size: 1.2em;
+    font-weight: 600;
+    content: "\e90d";
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  &:hover,
+  &:focus,
+  &.kmt-search-box-form {
+    .search-submit {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      max-width: 45px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 2px;
+      color: transparent;
+      background: 0 0;
+    }
+  }
+}
 .kmt-search-menu-icon {
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s;
   position: absolute;
   z-index: 3;
-  right: auto;
   top: auto;
-  right: 30px;
   .kemet-search-icon {
     line-height: normal;
   }
@@ -109,6 +150,7 @@
     position: relative;
     color: inherit;
     margin: auto;
+    box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
   }
 
   .search-field {
@@ -127,10 +169,21 @@
     display: none;
   }
 
+  &.kmt-search-left {
+    left: 30px;
+    &.kmt-dropdown-active {
+      left: 0;
+    }
+  }
+  &.kmt-search-right {
+    right: 30px;
+    &.kmt-dropdown-active {
+      right: 0;
+    }
+  }
   &.kmt-dropdown-active {
     visibility: visible;
     opacity: 1;
-    right: 0;
   }
 }
 li.kmt-sitehead-custom-menu-items {
@@ -142,9 +195,6 @@ li.kmt-sitehead-custom-menu-items {
   a:not(.button):hover,
   a:not(.button):focus {
     background: transparent;
-  }
-  .kmt-search-icon .kemet-search-icon {
-    line-height: 1;
   }
 }
 
@@ -166,14 +216,7 @@ li.kmt-sitehead-custom-menu-items {
     }
   }
 }
-.kmt-sitehead-custom-menu-items {
-  .kmt-search-icon .kemet-search-icon {
-    line-height: 1;
-  }
-  > * {
-    padding: 1em;
-  }
-}
+
 .main-header-menu {
   > .menu-item,
   > .page_item {
@@ -351,6 +394,7 @@ li.kmt-sitehead-custom-menu-items {
   &[class*="section-header-"] {
     position: relative;
     [class*="site-header-"] {
+      flex-wrap: nowrap;
       position: relative;
     }
   }

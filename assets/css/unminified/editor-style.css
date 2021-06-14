@@ -2300,30 +2300,6 @@ input[type="submit"]:focus {
 	color: #999;
 }
 
-.kmt-header-break-point .main-header-bar .main-header-bar-navigation .kmt-search-icon {
-	display: none;
-}
-
-.kmt-header-break-point .kmt-search-menu-icon .search-field,
-.kmt-header-break-point .kmt-search-menu-icon.kmt-inline-search .search-field {
-	padding-right: 5.5em;
-}
-
-.kmt-header-break-point .kmt-search-menu-icon.search-box .search-submit {
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	padding: 0 1em;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-}
-
-.kmt-header-break-point .kmt-search-menu-icon .search-form {
-	display: block;
-}
-
 /* must have higher specificity than alternative color schemes inline styles */
 .site .skip-link {
 	display: block;
