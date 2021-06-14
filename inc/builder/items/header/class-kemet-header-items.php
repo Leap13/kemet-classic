@@ -1,19 +1,21 @@
 <?php
 /**
- * Kemet Builder
+ * Kemet Header Items
  *
  * @package Kemet Theme
  */
 
+define( 'KEMET_HEADER_ITEMS_DIR', KEMET_THEME_DIR . 'inc/builder/items/header/' );
+define( 'KEMET_HEADER_ITEMS_URI', KEMET_THEME_URI . 'inc/builder/items/header/' );
 /**
- * Kemet Builder
+ * Kemet Header Items
  */
-if ( ! class_exists( 'Kemet_Builder' ) ) :
+if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 
 	/**
-	 * Kemet Builder
+	 * Kemet Header Items
 	 */
-	class Kemet_Builder {
+	class Kemet_Header_Items {
 		/**
 		 * Instance
 		 *
@@ -37,11 +39,9 @@ if ( ! class_exists( 'Kemet_Builder' ) ) :
 		 */
 		public function __construct() {
             // @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/builder/class-builder-helper.php';
-			require KEMET_THEME_DIR . 'inc/builder/class-kemet-dynamic-css-generator.php';
-			require KEMET_THEME_DIR . 'inc/builder/markup/class-kemet-header-markup.php';
-			require KEMET_THEME_DIR . 'inc/builder/markup/class-kemet-footer-markup.php';
-			require KEMET_THEME_DIR . 'inc/builder/items/header/class-kemet-header-items.php';
+			require KEMET_HEADER_ITEMS_DIR . 'menu/kemet-header-menu-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'button/kemet-header-button-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'mobile-button/kemet-header-mobile-button-item.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
@@ -49,5 +49,5 @@ if ( ! class_exists( 'Kemet_Builder' ) ) :
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Kemet_Builder::get_instance();
+	Kemet_Header_Items::get_instance();
 endif;

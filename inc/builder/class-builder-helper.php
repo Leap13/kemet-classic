@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 					break;
 
 				default:
-					$current_items = $current_items[ $device ];
+					$current_items = array_unique( $current_items[ $device ] );
 					break;
 			}
 

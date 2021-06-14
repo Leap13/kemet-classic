@@ -5,8 +5,8 @@
  * @package Kemet
  */
 
-define( 'KEMET_HEADER_MENU_DIR', KEMET_THEME_DIR . 'inc/builder/items/menu/' );
-define( 'KEMET_HEADER_MENU_URI', KEMET_THEME_URI . 'inc/builder/items/menu/' );
+define( 'KEMET_HEADER_MENU_DIR', KEMET_HEADER_ITEMS_DIR . 'menu/' );
+define( 'KEMET_HEADER_MENU_URI', KEMET_HEADER_ITEMS_URI . 'menu/' );
 
 if ( ! class_exists( 'Kemet_Header_Menu_Item' ) ) {
 
