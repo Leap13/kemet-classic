@@ -515,7 +515,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Spacing' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Select' );
-			$wp_customize->register_control_type( 'Kemet_Control_Title' );
 			$wp_customize->register_control_type( 'Kemet_Control_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Background' );
 			$wp_customize->register_control_type( 'Kemet_Control_Smart_Skin' );
@@ -523,7 +522,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Group' );
 			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
-			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Builder' );
 			$wp_customize->register_control_type( 'Kemet_Control_Available' );
 			$wp_customize->register_control_type( 'Kemet_Control_Tabs' );

@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 const { __ } = wp.i18n;
 import { useState } from 'react';
-
-// import "./radio-image.css"
 const RadioComponent = (props) => {
     const [props_value, setPropsValue] = useState(props.control.setting.get());
 
@@ -46,11 +44,10 @@ const RadioComponent = (props) => {
     }
 
     let radioContent = Object.entries(choices).map(([key, value]) => {
-        let checked = props_value === key ? true : false;
         return (
             <Fragment key={key}>
                 <input {...inputContent} className="image-select" type="radio" value={key} name={`_customize-radio-${id}`}
-                    id={id + key} checked={checked} onChange={() => onLayoutChange(key)} />
+                    id={id + key} checked={props_value === key ? true : false} onChange={() => onLayoutChange(key)} />
 
                 <label htmlFor={id + key} {...labelStyle} className="image">
                     <img className="wp-ui-highlight" src={choices[key]} />

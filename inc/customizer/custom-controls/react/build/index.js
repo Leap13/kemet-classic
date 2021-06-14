@@ -5988,7 +5988,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabs_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tabs/control */ "./src/tabs/control.js");
 /* harmony import */ var _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./focus-button/control.js */ "./src/focus-button/control.js");
 /* harmony import */ var _radio_image_control__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./radio-image/control */ "./src/radio-image/control.js");
-/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _title_control__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./title/control */ "./src/title/control.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+
 
 
 
@@ -6000,6 +6002,7 @@ wp.customize.controlConstructor["kmt-available"] = _available_control__WEBPACK_I
 wp.customize.controlConstructor["kmt-tabs"] = _tabs_control__WEBPACK_IMPORTED_MODULE_3__["TabsControl"];
 wp.customize.controlConstructor["kmt-focus-button"] = _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__["FocusButtonControl"];
 wp.customize.controlConstructor["kmt-radio-image"] = _radio_image_control__WEBPACK_IMPORTED_MODULE_5__["radioImageControl"];
+wp.customize.controlConstructor['kmt-title'] = _title_control__WEBPACK_IMPORTED_MODULE_6__["titleControl"];
 
 
 /***/ }),
@@ -6810,7 +6813,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var __ = wp.i18n.__;
- // import "./radio-image.css"
+
 
 var RadioComponent = function RadioComponent(props) {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.control.setting.get()),
@@ -6864,7 +6867,6 @@ var RadioComponent = function RadioComponent(props) {
         key = _ref2[0],
         value = _ref2[1];
 
-    var checked = props_value === key ? true : false;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], {
       key: key
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, inputContent, {
@@ -6873,7 +6875,7 @@ var RadioComponent = function RadioComponent(props) {
       value: key,
       name: "_customize-radio-".concat(id),
       id: id + key,
-      checked: checked,
+      checked: props_value === key ? true : false,
       onChange: function onChange() {
         return onLayoutChange(key);
       }
@@ -7014,6 +7016,69 @@ TabsComponent.propTypes = {
   customizer: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(TabsComponent));
+
+/***/ }),
+
+/***/ "./src/title/control.js":
+/*!******************************!*\
+  !*** ./src/title/control.js ***!
+  \******************************/
+/*! exports provided: titleControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "titleControl", function() { return titleControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _title_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./title-component.js */ "./src/title/title-component.js");
+
+
+var titleControl = wp.customize.kemetControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_title_component_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control
+    }), control.container[0]);
+  }
+});
+
+/***/ }),
+
+/***/ "./src/title/title-component.js":
+/*!**************************************!*\
+  !*** ./src/title/title-component.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+
+var TitleComponent = function TitleComponent(props) {
+  var captionContent = props.control.params.caption ? htmlCaption = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "customize-control-caption"
+  }, props.control.params.caption) : null;
+  var labelContent = props.control.params.label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "customize-control-title"
+  }, props.control.params.label) : null;
+  var descriptionContent = props.control.params.description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "description customize-control-description"
+  }, props.control.params.description) : null;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, captionContent, labelContent, descriptionContent);
+};
+
+TitleComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(TitleComponent));
 
 /***/ }),
 
