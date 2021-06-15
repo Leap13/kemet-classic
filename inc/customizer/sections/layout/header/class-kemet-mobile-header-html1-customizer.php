@@ -19,12 +19,30 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$html1_options = array(
-            'mobile-header-html-controls-tabs' => array(
+			'mobile-header-html-controls-tabs' => array(
 				'section'  => 'section-mobile-header-html-1',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-        );
+			'header-html-mobile-1'             => array(
+				'section'   => 'section-header-html-mobile-1',
+				'priority'  => 1,
+				'label'     => __( 'Html', 'kemet' ),
+				'transport' => 'postMessage',
+				'type'      => 'textarea',
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+				'partial'   => array(
+					'selector'            => '.kmt-header-html-mobile-1',
+					'container_inclusive' => false,
+					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_1' ),
+				),
+			),
+		);
 
 		return array_merge( $options, $html1_options );
 	}

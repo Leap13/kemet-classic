@@ -19,12 +19,30 @@ class Kemet_Header_Html2_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$html2_options = array(
-            'header-html2-controls-tabs' => array(
+			'header-html2-controls-tabs' => array(
 				'section'  => 'section-header-html-2',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-        );
+			'header-html-2'              => array(
+				'section'   => 'section-header-html-2',
+				'priority'  => 1,
+				'label'     => __( 'Html', 'kemet' ),
+				'transport' => 'postMessage',
+				'type'      => 'textarea',
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+				'partial'   => array(
+					'selector'            => '.kmt-header-html-2',
+					'container_inclusive' => false,
+					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_2' ),
+				),
+			),
+		);
 
 		return array_merge( $options, $html2_options );
 	}

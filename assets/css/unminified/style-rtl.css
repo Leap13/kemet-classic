@@ -4240,9 +4240,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 .kmt-search-menu-icon.kmt-dropdown-active {
 	visibility: visible;
 	opacity: 1;
-	-webkit-transform: translateX(0);
-	-ms-transform: translateX(0);
-	transform: translateX(0);
 }
 
 li.kmt-sitehead-custom-menu-items a {

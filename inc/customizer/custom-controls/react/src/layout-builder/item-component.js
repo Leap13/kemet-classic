@@ -12,34 +12,38 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
           : ""
       }
       key={item}
-      onClick={() => {
-        focusSection(
-          undefined !== choices[item] && undefined !== choices[item].section
-            ? choices[item].section
-            : ""
-        );
-      }}
     >
-      <span className="kmt-builder-item-icon kmt-move-icon">
-        <Dashicon icon="move" />
-      </span>
-      <span className="kmt-builder-item-text">
-        {undefined !== choices[item] && undefined !== choices[item].name
-          ? choices[item].name
-          : ""}
-      </span>
-      <Button
-        className="kmt-builder-item-focus-icon kmt-builder-item-icon"
-        aria-label={
-          __("Settings for", "kemet") +
-          " " +
-          (undefined !== choices[item] && undefined !== choices[item].name
-            ? choices[item].name
-            : "")
-        }
+      <div
+        className="kmt-builder-item-actions"
+        onClick={() => {
+          focusSection(
+            undefined !== choices[item] && undefined !== choices[item].section
+              ? choices[item].section
+              : ""
+          );
+        }}
       >
-        <Dashicon icon="admin-generic" />
-      </Button>
+        <span className="kmt-builder-item-icon kmt-move-icon">
+          <Dashicon icon="move" />
+        </span>
+        <span className="kmt-builder-item-text">
+          {undefined !== choices[item] && undefined !== choices[item].name
+            ? choices[item].name
+            : ""}
+        </span>
+        <Button
+          className="kmt-builder-item-focus-icon kmt-builder-item-icon"
+          aria-label={
+            __("Settings for", "kemet") +
+            " " +
+            (undefined !== choices[item] && undefined !== choices[item].name
+              ? choices[item].name
+              : "")
+          }
+        >
+          <Dashicon icon="admin-generic" />
+        </Button>
+      </div>
       <Button
         className="kmt-builder-item-icon"
         aria-label={

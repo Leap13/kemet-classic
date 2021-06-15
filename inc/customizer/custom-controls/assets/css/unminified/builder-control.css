@@ -333,8 +333,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   .kmt-builder-item {
   margin: 4px;
 }
-
-.kmt-builder-item > .kmt-builder-item-icon {
+.kmt-builder-item .kmt-builder-item-actions {
+  display: inline-flex;
+  align-items: center;
+}
+.kmt-builder-item .kmt-builder-item-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -852,9 +855,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin-left: 10px;
   margin-right: 5px;
 }
-.kmt-builder-item
-  > .kmt-builder-item-focus-icon.kmt-builder-item-icon
-  .dashicon {
+.kmt-builder-item .kmt-builder-item-focus-icon.kmt-builder-item-icon .dashicon {
   font-size: 14px;
   width: 14px;
   height: 14px;
@@ -1006,14 +1007,14 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   color: #007cba;
 }
 
-.kmt-builder-item > .kmt-builder-item-icon.kmt-move-icon {
+.kmt-builder-item .kmt-builder-item-icon.kmt-move-icon {
   margin-left: -10px;
   margin-right: 3px;
   cursor: grab;
   width: 18px;
   opacity: 0.7;
 }
-.kmt-builder-item > .kmt-builder-item-icon.kmt-move-icon .dashicons {
+.kmt-builder-item .kmt-builder-item-icon.kmt-move-icon .dashicons {
   font-size: 14px;
   width: 14px;
   height: 14px;
@@ -1038,7 +1039,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   color: #777;
 }
 
-.kmt-builder-item > .kmt-builder-item-icon.kmt-builder-item-focus-icon svg {
+.kmt-builder-item .kmt-builder-item-icon.kmt-builder-item-focus-icon svg {
   width: 14px;
 }
 

@@ -41,5 +41,18 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
 			}
 		}
+
+		/**
+		 * Generate Html Dynamic Css
+		 *
+		 * @param string $html html slug.
+		 * @param string $builder builder.
+		 * @param string $device device
+		 * @return string
+		 */
+		public static function html_css( $html, $builder = 'header', $device = 'all' ) {
+			if ( Kemet_Builder_Helper::is_item_loaded( $html, 'header', $device ) ) {
+			}
+		}
 	}
 endif;

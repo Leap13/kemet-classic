@@ -6600,7 +6600,9 @@ var ItemComponent = function ItemComponent(_ref) {
     className: "kmt-builder-item",
     "data-id": item,
     "data-section": undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "",
-    key: item,
+    key: item
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-builder-item-actions",
     onClick: function onClick() {
       focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
     }
@@ -6615,7 +6617,7 @@ var ItemComponent = function ItemComponent(_ref) {
     "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : "")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-icon",
     "aria-label": __("Remove", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
     onClick: function onClick() {
