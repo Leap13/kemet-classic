@@ -24,8 +24,8 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-			'header-html-mobile-1'             => array(
-				'section'   => 'section-header-html-mobile-1',
+			'header-mobile-html-1'             => array(
+				'section'   => 'section-header-mobile-html-1',
 				'priority'  => 1,
 				'label'     => __( 'Html', 'kemet' ),
 				'transport' => 'postMessage',
@@ -37,7 +37,7 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'partial'   => array(
-					'selector'            => '.kmt-header-html-mobile-1',
+					'selector'            => '.kmt-header-mobile-html-1',
 					'container_inclusive' => false,
 					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_1' ),
 				),

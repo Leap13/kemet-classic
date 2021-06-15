@@ -177,12 +177,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'button',
 							'section' => 'section-mobile-header-toggle-button',
 						),
-						'header-html-mobile-1' => array(
+						'header-mobile-html-1' => array(
 							'name'    => __( 'Html 1', 'kemet' ),
 							'icon'    => 'text',
 							'section' => 'section-mobile-header-html-1',
 						),
-						'header-html-mobile-2' => array(
+						'header-mobile-html-2' => array(
 							'name'    => __( 'Html 2', 'kemet' ),
 							'icon'    => 'text',
 							'section' => 'section-mobile-header-html-2',

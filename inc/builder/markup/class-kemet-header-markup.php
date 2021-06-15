@@ -210,7 +210,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$items = kemet_get_option( $builder . '-' . $device . '-items' );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
 				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
-					$type = explode( '-', $item )[1];
+					$type = false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
 					get_template_part( 'templates/' . $builder . '/components/' . $item );
@@ -245,14 +245,14 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Html 1
 		 */
 		public function render_html_mobile_1() {
-			return $this->get_html( 'header-html-mobile-1' );
+			return $this->get_html( 'header-mobile-html-1' );
 		}
 
 		/**
 		 * Html 2
 		 */
 		public function render_html_mobile_2() {
-			return $this->get_html( 'header-html-mobile-2' );
+			return $this->get_html( 'header-mobile-html-2' );
 		}
 
 		/**

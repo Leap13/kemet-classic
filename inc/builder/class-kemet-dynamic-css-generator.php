@@ -25,7 +25,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function button_css( $button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $button, 'header', $device ) ) {
-
+				error_log( $button );
 			}
 		}
 
@@ -39,6 +39,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function widget_css( $widget, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
+				error_log( $widget );
 			}
 		}
 
@@ -52,6 +53,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function html_css( $html, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $html, 'header', $device ) ) {
+				error_log( $html );
 			}
 		}
 	}

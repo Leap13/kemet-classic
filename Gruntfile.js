@@ -169,10 +169,28 @@ module.exports = function (grunt) {
             ext: ".min.js",
           },
           {
-            src:
-              "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
-            dest:
-              "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js",
+            src: "inc/builder/items/header/button/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/button/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/html/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/html/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/menu/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/menu/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/mobile-button/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/mobile-button/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/widget/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/widget/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
+            dest: "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js",
           },
         ],
       },
@@ -193,28 +211,20 @@ module.exports = function (grunt) {
             ext: ".min.css",
           },
           {
-            src:
-              "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
-            dest:
-              "inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css",
+            src: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
+            dest: "inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css",
           },
           {
-            src:
-              "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
-            dest:
-              "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css",
+            src: "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
+            dest: "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css",
           },
           {
-            src:
-              "inc/customizer/custom-controls/assets/css/unminified/builder-control.css",
-            dest:
-              "inc/customizer/custom-controls/assets/css/minified/builder-control.min.css",
+            src: "inc/customizer/custom-controls/assets/css/unminified/builder-control.css",
+            dest: "inc/customizer/custom-controls/assets/css/minified/builder-control.min.css",
           },
           {
-            src:
-              "inc/customizer/custom-controls/assets/css/unminified/builder-control-rtl.css",
-            dest:
-              "inc/customizer/custom-controls/assets/css/minified/builder-control-rtl.min.css",
+            src: "inc/customizer/custom-controls/assets/css/unminified/builder-control-rtl.css",
+            dest: "inc/customizer/custom-controls/assets/css/minified/builder-control-rtl.min.css",
           },
           // Generating RTL files from '/unminified/' into '/minified/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
@@ -238,30 +248,23 @@ module.exports = function (grunt) {
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
           {
             src: "assets/css/unminified/compatibility/contact-form-7-rtl.css",
-            dest:
-              "assets/css/minified/compatibility/contact-form-7.min-rtl.css",
+            dest: "assets/css/minified/compatibility/contact-form-7.min-rtl.css",
           },
           {
             src: "assets/css/unminified/compatibility/bbpress-rtl.css",
             dest: "assets/css/minified/compatibility/bbpress.min-rtl.css",
           },
           {
-            src:
-              "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
-            dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css",
+            src: "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css",
+            dest: "assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css",
           },
           {
-            src:
-              "assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css",
-            dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css",
+            src: "assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css",
+            dest: "assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css",
           },
           {
-            src:
-              "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css",
-            dest:
-              "assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css",
+            src: "assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css",
+            dest: "assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css",
           },
         ],
       },
@@ -401,8 +404,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/responsive-color/responsive-color.css",
           "inc/customizer/custom-controls/group/group.css",
         ],
-        dest:
-          "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
+        dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
       },
 
       js: {
@@ -420,8 +422,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
           "inc/customizer/custom-controls/group/group.js",
         ],
-        dest:
-          "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
+        dest: "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
       },
     },
     charset: {
