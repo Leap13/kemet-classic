@@ -1134,7 +1134,59 @@ var toggleClass = function (el, className) {
 (function () {
   var initKemetPopup = {
     header: "",
-    initPopup: function (headerType) {
+    init: function () {
+      window.addEventListener("load", function () {
+        initKemetPopup.initPopup();
+        initKemetPopup.initMenu();
+        initKemetPopup.enableDisplay();
+      });
+      window.addEventListener("resize", function () {
+        initKemetPopup.initPopup();
+        initKemetPopup.enableDisplay();
+        initKemetPopup.closePopup();
+      });
+      document.addEventListener("kmtPartialContentRendered", function () {
+        initKemetPopup.initPopup();
+        initKemetPopup.initMenu();
+        initKemetPopup.enableDisplay();
+      });
+    },
+    initMenu: function () {
+      var popupContainer = document.querySelectorAll(".kmt-popup-main");
+
+      if (popupContainer.length > 0) {
+        for (var i = 0; i < popupContainer.length; i++) {
+          if ("undefined" !== typeof popupContainer[i]) {
+            var popupMenu = popupContainer[i].querySelectorAll(
+              ".main-header-bar-navigation"
+            );
+
+            if (popupMenu.length > 0) {
+              for (var j = 0; j < popupMenu.length; j++) {
+                if ("undefined" !== typeof popupMenu[j]) {
+                  var parentList = popupMenu[j].querySelectorAll(
+                    "ul.main-header-menu li"
+                  );
+                  initKemetPopup.KemetNavigationMenu(parentList);
+
+                  var kemetMenuToggle = popupMenu[j].querySelectorAll(
+                    "ul.main-header-menu .kmt-menu-toggle"
+                  );
+                  initKemetPopup.KemetToggleMenu(kemetMenuToggle);
+                  window.addEventListener("resize", function () {
+                    initKemetPopup.KemetSetPosition(kemetMenuToggle);
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    initPopup: function () {
+      var headerType =
+        kemet.break_point <= window.innerWidth ? "desktop" : "mobile";
+
       initKemetPopup.header = headerType;
       var header = document.querySelector(
           "#kmt-" + initKemetPopup.header + "-header"
@@ -1144,29 +1196,7 @@ var toggleClass = function (el, className) {
         ),
         popupToggleOpen = header.querySelector(".header-toggle-button"),
         popupToggleClose = popupContainer.querySelector(".toggle-button-close"),
-        popupOverlay = popupContainer.querySelector(".kmt-popup-overlay"),
-        popupMenu = popupContainer.querySelectorAll(
-          ".main-header-bar-navigation"
-        );
-      if (popupMenu.length > 0) {
-        for (var i = 0; i < popupMenu.length; i++) {
-          if ("undefined" !== typeof popupMenu[i]) {
-            var parentList = popupMenu[i].querySelectorAll(
-              "ul#" + headerType + "-menu li"
-            );
-            initKemetPopup.KemetNavigationMenu(parentList);
-
-            var kemetMenuToggle = popupMenu[i].querySelectorAll(
-              "ul#" + headerType + "-menu .kmt-menu-toggle"
-            );
-            initKemetPopup.KemetToggleMenu(kemetMenuToggle);
-            initKemetPopup.KemetSetPosition(kemetMenuToggle);
-            window.addEventListener("resize", function () {
-              initKemetPopup.KemetSetPosition(kemetMenuToggle);
-            });
-          }
-        }
-      }
+        popupOverlay = popupContainer.querySelector(".kmt-popup-overlay");
 
       if (popupToggleOpen !== null) {
         window.addEventListener("click", function (e) {
@@ -1202,14 +1232,18 @@ var toggleClass = function (el, className) {
       for (var i = 0; i < parentList.length; i++) {
         if (null != parentList[i].querySelector(".sub-menu, .children")) {
           // Insert Toggle Button.
-          var toggleButton = document.createElement("BUTTON"); // Create a <button> element
-          toggleButton.setAttribute("role", "button");
-          toggleButton.setAttribute("class", "kmt-menu-toggle");
-          toggleButton.setAttribute("aria-expanded", "false");
-          toggleButton.innerHTML =
-            "<span class='screen-reader-text'>Menu Toggle</span>";
-          parentList[i].insertBefore(toggleButton, parentList[i].childNodes[1]);
-
+          if (parentList[i].querySelectorAll(".kmt-menu-toggle").length <= 0) {
+            var toggleButton = document.createElement("BUTTON"); // Create a <button> element
+            toggleButton.setAttribute("role", "button");
+            toggleButton.setAttribute("class", "kmt-menu-toggle");
+            toggleButton.setAttribute("aria-expanded", "false");
+            toggleButton.innerHTML =
+              "<span class='screen-reader-text'>Menu Toggle</span>";
+            parentList[i].insertBefore(
+              toggleButton,
+              parentList[i].childNodes[1]
+            );
+          }
           var menuLeft = parentList[i].getBoundingClientRect().left,
             windowWidth = window.innerWidth,
             menuFromLeft = parseInt(windowWidth) - parseInt(menuLeft),
@@ -1241,55 +1275,51 @@ var toggleClass = function (el, className) {
     KemetToggleMenu: function (kemetMenuToggle) {
       /* Submenu button click */
       for (var i = 0; i < kemetMenuToggle.length; i++) {
-        kemetMenuToggle[i].addEventListener(
-          "click",
-          function (event) {
-            event.preventDefault();
+        kemetMenuToggle[i].onclick = function (event) {
+          event.preventDefault();
 
-            var parentLi = this.parentNode;
+          var parentLi = this.parentNode;
 
-            var parentLiChild = parentLi.querySelectorAll(
-              ".menu-item-has-children, .page_item_has_children"
+          var parentLiChild = parentLi.querySelectorAll(
+            ".menu-item-has-children, .page_item_has_children"
+          );
+          for (var j = 0; j < parentLiChild.length; j++) {
+            parentLiChild[j].classList.remove("kmt-submenu-expanded");
+            var parentLiChildSubMenu = parentLiChild[j].querySelector(
+              ".sub-menu, .children"
             );
-            for (var j = 0; j < parentLiChild.length; j++) {
-              parentLiChild[j].classList.remove("kmt-submenu-expanded");
-              var parentLiChildSubMenu = parentLiChild[j].querySelector(
+            parentLiChildSubMenu.style.display = "none";
+          }
+
+          var parentLiSibling = parentLi.parentNode.querySelectorAll(
+            ".menu-item-has-children, .page_item_has_children"
+          );
+          for (var j = 0; j < parentLiSibling.length; j++) {
+            if (parentLiSibling[j] != parentLi) {
+              parentLiSibling[j].classList.remove("kmt-submenu-expanded");
+              var allSubMenu = parentLiSibling[j].querySelectorAll(
                 ".sub-menu, .children"
               );
-              parentLiChildSubMenu.style.display = "none";
-            }
-
-            var parentLiSibling = parentLi.parentNode.querySelectorAll(
-              ".menu-item-has-children, .page_item_has_children"
-            );
-            for (var j = 0; j < parentLiSibling.length; j++) {
-              if (parentLiSibling[j] != parentLi) {
-                parentLiSibling[j].classList.remove("kmt-submenu-expanded");
-                var allSubMenu = parentLiSibling[j].querySelectorAll(
-                  ".sub-menu, .children"
-                );
-                for (var k = 0; k < allSubMenu.length; k++) {
-                  allSubMenu[k].style.display = "none";
-                }
+              for (var k = 0; k < allSubMenu.length; k++) {
+                allSubMenu[k].style.display = "none";
               }
             }
+          }
 
-            if (
-              parentLi.classList.contains("menu-item-has-children") ||
-              parentLi.classList.contains("page_item_has_children")
-            ) {
-              toggleClass(parentLi, "kmt-submenu-expanded");
-              if (parentLi.classList.contains("kmt-submenu-expanded")) {
-                parentLi.querySelector(".sub-menu, .children").style.display =
-                  "block";
-              } else {
-                parentLi.querySelector(".sub-menu, .children").style.display =
-                  "none";
-              }
+          if (
+            parentLi.classList.contains("menu-item-has-children") ||
+            parentLi.classList.contains("page_item_has_children")
+          ) {
+            toggleClass(parentLi, "kmt-submenu-expanded");
+            if (parentLi.classList.contains("kmt-submenu-expanded")) {
+              parentLi.querySelector(".sub-menu, .children").style.display =
+                "block";
+            } else {
+              parentLi.querySelector(".sub-menu, .children").style.display =
+                "none";
             }
-          },
-          false
-        );
+          }
+        };
       }
     },
     KemetSetPosition: function (kemetMenuToggle) {
@@ -1315,7 +1345,6 @@ var toggleClass = function (el, className) {
 
       popupContainer.classList.add("active");
 
-      toggleClass(popupToggleOpen, "toggled");
       popupToggleOpen.style.display = "none";
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
@@ -1336,17 +1365,11 @@ var toggleClass = function (el, className) {
             }
           }
 
-          var rel = popupToggleOpen.getAttribute("rel") || "";
-
-          switch (rel) {
-            case "mobile-menu":
-              toggleClass(popupMenu[i], "toggle-on");
-              if (popupMenu[i].classList.contains("toggle-on")) {
-                popupMenu[i].style.display = "block";
-              } else {
-                popupMenu[i].style.display = "";
-              }
-              break;
+          popupMenu[i].classList.add("toggle-on");
+          if (popupMenu[i].classList.contains("toggle-on")) {
+            popupMenu[i].style.display = "block";
+          } else {
+            popupMenu[i].style.display = "";
           }
         }
       }
@@ -1363,9 +1386,13 @@ var toggleClass = function (el, className) {
           ".main-header-bar-navigation"
         );
 
-      popupToggleOpen.style.display = null;
+      if (popupToggleOpen !== null) {
+        popupToggleOpen.style.display = null;
+      }
 
-      popupContainer.classList.remove("active");
+      if (popupContainer !== null) {
+        popupContainer.classList.remove("active");
+      }
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
           popupMenu[i].classList.remove("toggle-on");
@@ -1374,9 +1401,13 @@ var toggleClass = function (el, className) {
         }
       }
     },
-    enableResponsive: function () {
-      var mobilePopup = document.querySelector("#kmt-mobile-popup"),
-        popupMenu = mobilePopup.querySelectorAll(".main-header-bar-navigation");
+    enableDisplay: function () {
+      var popupContainer = document.querySelector(
+          "#kmt-" + initKemetPopup.header + "-popup"
+        ),
+        popupMenu = popupContainer.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
           if (null != popupMenu[i]) {
@@ -1405,19 +1436,13 @@ var toggleClass = function (el, className) {
     },
   };
 
-  initKemetPopup.initPopup("mobile");
-  initKemetPopup.initPopup("desktop");
-
-  document.addEventListener("kmtPartialContentRendered", function () {
-    initKemetPopup.initPopup("mobile");
-    initKemetPopup.initPopup("desktop");
-  });
-
-  document.body.addEventListener(
-    "kemet-header-responsive-enabled",
-    initKemetPopup.enableResponsive,
-    false
-  );
+  if ("loading" === document.readyState) {
+    // The DOM has not yet been loaded.
+    document.addEventListener("DOMContentLoaded", initKemetPopup.init);
+  } else {
+    // The DOM has already been loaded.
+    initKemetPopup.init();
+  }
 
   /* Add break point Class and related trigger */
   var updateHeaderBreakPoint = function () {

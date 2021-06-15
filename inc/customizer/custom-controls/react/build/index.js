@@ -6180,11 +6180,12 @@ var BuilderComponent = function BuilderComponent(props) {
   var enablePopup = false;
 
   var updateValues = function updateValues(value, row) {
-    var setting = props.control.setting,
-        rowSetting = KemetCustomizerData.setting.replace("setting_name", "header-mobile-popup-items");
+    var setting = props.control.setting;
 
     if ("popup" === row) {
-      var popup_control = props.customizer(rowSetting);
+      var header = "header-desktop-items" === controlParams.group ? "desktop" : "mobile",
+          rowSetting = KemetCustomizerData.setting.replace("setting_name", "header-" + header + "-popup-items"),
+          popup_control = props.customizer(rowSetting);
       popup_control.set(!popup_control.get());
     }
 
@@ -6326,6 +6327,14 @@ var BuilderComponent = function BuilderComponent(props) {
     if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map(function (row) {
         if (inObject(state.value[row], "mobile-toggle")) {
+          hasPopup = true;
+        }
+      });
+    }
+
+    if ("header-desktop-items" === controlParams.group) {
+      controlParams.rows.map(function (row) {
+        if (inObject(state.value[row], "desktop-toggle")) {
           hasPopup = true;
         }
       });

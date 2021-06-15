@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_bottom_mobile_header', array( $this, 'bottom_mobile_header' ) );
 			add_action( 'kemet_render_header_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
-			add_action( 'kemet_render_desktop_header_column', array( $this, 'render_column' ), 10, 2 );
+			add_action( 'kemet_render_desktop_popup', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
@@ -469,7 +469,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				$screen_reader_title       = $mobile_toggle_title;
 			}
 			?>
-			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $mobile_toggle_label_class ); ?>" rel="mobile-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
+			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $mobile_toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $mobile_toggle_icon ); ?>"></i>
 				<?php if ( '' != $mobile_toggle_title ) { ?>
@@ -494,7 +494,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				$screen_reader_title        = $desktop_toggle_title;
 			}
 			?>
-			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $desktop_toggle_label_class ); ?>" rel="canvas-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
+			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $desktop_toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $desktop_toggle_icon ); ?>"></i>
 				<?php if ( '' != $desktop_toggle_title ) { ?>
@@ -546,7 +546,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
-		 * Mobile Popup content
+		 * Desktop Popup content
 		 */
 		public function desktop_popup() {
 			$popup_layout         = kemet_get_option( 'desktop-popup-layout' );

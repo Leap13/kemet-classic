@@ -43,13 +43,15 @@ const BuilderComponent = (props) => {
   let enablePopup = false;
 
   const updateValues = (value, row) => {
-    let setting = props.control.setting,
-      rowSetting = KemetCustomizerData.setting.replace(
-        "setting_name",
-        "header-mobile-popup-items"
-      );
+    let setting = props.control.setting;
     if ("popup" === row) {
-      let popup_control = props.customizer(rowSetting);
+      let header =
+          "header-desktop-items" === controlParams.group ? "desktop" : "mobile",
+        rowSetting = KemetCustomizerData.setting.replace(
+          "setting_name",
+          "header-" + header + "-popup-items"
+        ),
+        popup_control = props.customizer(rowSetting);
       popup_control.set(!popup_control.get());
     }
     setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
@@ -190,6 +192,13 @@ const BuilderComponent = (props) => {
     if ("header-mobile-items" === controlParams.group) {
       controlParams.rows.map((row) => {
         if (inObject(state.value[row], "mobile-toggle")) {
+          hasPopup = true;
+        }
+      });
+    }
+    if ("header-desktop-items" === controlParams.group) {
+      controlParams.rows.map((row) => {
+        if (inObject(state.value[row], "desktop-toggle")) {
           hasPopup = true;
         }
       });
