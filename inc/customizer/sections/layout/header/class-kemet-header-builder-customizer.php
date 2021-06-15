@@ -71,6 +71,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'button',
 							'section' => 'section-header-button',
 						),
+						'desktop-toggle'  => array(
+							'name'    => __( 'Toggle Button', 'kemet' ),
+							'icon'    => 'button',
+							'section' => 'section-desktop-header-toggle-button',
+						),
 						'header-html-1'   => array(
 							'name'    => __( 'Html 1', 'kemet' ),
 							'icon'    => 'text',
@@ -100,8 +105,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				),
 				'input_attrs' => array(
 					'group' => 'header-desktop-items',
-					'rows'  => array( 'top', 'main', 'bottom' ),
+					'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
 					'zones' => array(
+						'popup'  => array(
+							'popup_content' => 'Popup Content',
+						),
 						'top'    => array(
 							'top_left'         => 'Top - Left',
 							'top_left_center'  => 'Top - Left Center',
@@ -130,6 +138,18 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'device',
 						'value'   => 'desktop',
 					),
+				),
+			),
+			'header-desktop-popup-items'    => array(
+				'section'   => 'section-header-builder-layout',
+				'default'   => false,
+				'type'      => 'kmt-hidden',
+				'priority'  => 0,
+				'transport' => 'postMessage',
+				'partial'   => array(
+					'selector'            => '#kmt-desktop-popup',
+					'container_inclusive' => true,
+					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'desktop_popup' ),
 				),
 			),
 			'header-mobile-items'           => array(

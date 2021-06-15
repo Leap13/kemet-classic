@@ -91,7 +91,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'bottom_right'        => array(),
 						),
 					),
-					'header-mobile-items'                  => array(
+					'desktop-popup-layout'                 => 'slide',
+					'desktop-popup-slide-side'             => 'right',
+					'desktop-popup-content-align'          => 'left',
+					'desktop-popup-content-vertical-align' => 'top',
+					'desktop-popup-slide-width'            => 90,
+					'header-desktop-items'                 => array(
 						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
 						'top'    =>
 						array(

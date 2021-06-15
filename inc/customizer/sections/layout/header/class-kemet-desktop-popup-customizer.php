@@ -1,6 +1,6 @@
 <?php
 /**
- * Mobile Popup Options for Kemet Theme.
+ * Desktop Popup Options for Kemet Theme.
  *
  * @package     Kemet
  * @author      Kemet
@@ -9,7 +9,7 @@
  * @since       Kemet 1.0.0
  */
 
-class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
+class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 
 	/**
 	 * Register Customizer Options
@@ -18,13 +18,13 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$mobile_popup_options = array(
-			'header-popup-controls-tabs'          => array(
+		$desktop_popup_options = array(
+			'header-popup-controls-tabs'           => array(
 				'section'  => 'section-popup-header-builder',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-			'mobile-popup-layout'                 => array(
+			'desktop-popup-layout'                 => array(
 				'type'     => 'select',
 				'section'  => 'section-popup-header-builder',
 				'priority' => 5,
@@ -34,7 +34,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 					'full'  => __( 'Full', 'kemet' ),
 				),
 			),
-			'mobile-popup-slide-width'            => array(
+			'desktop-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-popup-header-builder',
 				'priority'    => 10,
@@ -47,12 +47,12 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 				),
 				'context'     => array(
 					array(
-						'setting' => 'mobile-popup-layout',
+						'setting' => 'desktop-popup-layout',
 						'value'   => 'slide',
 					),
 				),
 			),
-			'mobile-popup-slide-side'             => array(
+			'desktop-popup-slide-side'             => array(
 				'type'     => 'select',
 				'section'  => 'section-popup-header-builder',
 				'priority' => 15,
@@ -63,12 +63,12 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 				),
 				'context'  => array(
 					array(
-						'setting' => 'mobile-popup-layout',
+						'setting' => 'desktop-popup-layout',
 						'value'   => 'slide',
 					),
 				),
 			),
-			'mobile-popup-content-align'          => array(
+			'desktop-popup-content-align'          => array(
 				'type'     => 'select',
 				'section'  => 'section-popup-header-builder',
 				'priority' => 20,
@@ -79,7 +79,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 					'right'  => __( 'Right', 'kemet' ),
 				),
 			),
-			'mobile-popup-content-vertical-align' => array(
+			'desktop-popup-content-vertical-align' => array(
 				'type'     => 'select',
 				'section'  => 'section-popup-header-builder',
 				'priority' => 25,
@@ -92,7 +92,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 
-		return array_merge( $options, $mobile_popup_options );
+		return array_merge( $options, $desktop_popup_options );
 	}
 
 	/**
@@ -102,20 +102,20 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
-		$mobile_popup_sections = array(
+		$desktop_popup_sections = array(
 			'section-popup-header-builder' => array(
 				'priority' => 35,
-				'title'    => __( 'Mobile Popup', 'kemet' ),
+				'title'    => __( 'Desktop Popup', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);
 
-		return array_merge( $sections, $mobile_popup_sections );
+		return array_merge( $sections, $desktop_popup_sections );
 
 	}
 }
 
 
-new Kemet_Mobile_Popup_Customizer();
+new Kemet_Desktop_Popup_Customizer();
 
 

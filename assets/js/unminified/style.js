@@ -1134,22 +1134,21 @@ var toggleClass = function (el, className) {
 (function () {
   var initMobileMenu = {
     initPopup: function () {
-      var menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
-        mobilePopupClose = document.querySelector("#kmt-menu-toggle-close"),
-        popupOverlay = document.querySelector(".kmt-popup-overlay"),
+      var menu_toggle_all = document.querySelectorAll(".header-toggle-button"),
+        mobilePopupClose = document.querySelectorAll(".toggle-button-close"),
+        popupOverlay = document.querySelectorAll(".kmt-popup-overlay"),
         __main_header_all = document.querySelectorAll(
-          ".main-header-bar-navigation"
+          "#kmt-mobile-popup .main-header-bar-navigation"
         );
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
           if ("undefined" !== typeof __main_header_all[i]) {
-            var parentList = __main_header_all[i].querySelectorAll(
-              "ul.main-header-menu li"
-            );
+            var parentList =
+              __main_header_all[i].querySelectorAll("ul#mobile-menu li");
             initMobileMenu.KemetNavigationMenu(parentList);
 
             var kemet_menu_toggle = __main_header_all[i].querySelectorAll(
-              "ul.main-header-menu .kmt-menu-toggle"
+              "ul#mobile-menu .kmt-menu-toggle"
             );
             initMobileMenu.KemetToggleMenu(kemet_menu_toggle);
             initMobileMenu.KemetSetPosition(kemet_menu_toggle);
@@ -1160,30 +1159,50 @@ var toggleClass = function (el, className) {
         }
       }
 
-      if (menu_toggle_all !== null) {
+      if (menu_toggle_all.length > 0) {
         window.addEventListener("click", function (e) {
-          if (
-            !menu_toggle_all.contains(e.target) &&
-            menu_toggle_all.classList.contains("toggled")
-          ) {
-            menu_toggle_all.classList.remove("toggled");
+          for (var i = 0; i < menu_toggle_all.length; i++) {
+            if (
+              !menu_toggle_all[i].contains(e.target) &&
+              menu_toggle_all[i].classList.contains("toggled")
+            ) {
+              menu_toggle_all[i].classList.remove("toggled");
+            }
           }
         });
 
-        menu_toggle_all.addEventListener("click", function (event) {
-          event.preventDefault();
-          initMobileMenu.menuToggle(menu_toggle_all);
-        });
+        if (menu_toggle_all.length > 0) {
+          for (var i = 0; i < menu_toggle_all.length; i++) {
+            if ("undefined" !== typeof menu_toggle_all[i]) {
+              menu_toggle_all[i].addEventListener("click", function (event) {
+                event.preventDefault();
+                initMobileMenu.menuToggle(menu_toggle_all[i]);
+              });
+            }
+          }
+        }
 
-        mobilePopupClose.addEventListener("click", function (event) {
-          event.preventDefault();
-          initMobileMenu.closePopup();
-        });
+        if (mobilePopupClose.length > 0) {
+          for (var i = 0; i < mobilePopupClose.length; i++) {
+            if ("undefined" !== typeof mobilePopupClose[i]) {
+              mobilePopupClose[i].addEventListener("click", function (event) {
+                event.preventDefault();
+                initMobileMenu.closePopup();
+              });
+            }
+          }
+        }
 
-        popupOverlay.addEventListener("click", function (event) {
-          event.preventDefault();
-          initMobileMenu.closePopup();
-        });
+        if (popupOverlay.length > 0) {
+          for (var i = 0; i < popupOverlay.length; i++) {
+            if ("undefined" !== typeof popupOverlay[i]) {
+              popupOverlay[i].addEventListener("click", function (event) {
+                event.preventDefault();
+                initMobileMenu.closePopup();
+              });
+            }
+          }
+        }
       }
     },
     KemetNavigationMenu: function (parentList) {
@@ -1295,7 +1314,7 @@ var toggleClass = function (el, className) {
     },
     menuToggle: function (menu_toggle_all) {
       var mobilePopup = document.querySelector("#kmt-mobile-popup"),
-        __main_header_all = document.querySelectorAll(
+        __main_header_all = mobilePopup.querySelectorAll(
           ".main-header-bar-navigation"
         );
 
@@ -1339,11 +1358,19 @@ var toggleClass = function (el, className) {
     },
     closePopup: function () {
       var mobilePopup = document.querySelector("#kmt-mobile-popup"),
-        menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
-        __main_header_all = document.querySelectorAll(
+        menu_toggle_all = document.querySelectorAll(".header-toggle-button"),
+        __main_header_all = mobilePopup.querySelectorAll(
           ".main-header-bar-navigation"
         );
-      menu_toggle_all.style.display = null;
+
+      if (menu_toggle_all.length > 0) {
+        for (var i = 0; i < menu_toggle_all.length; i++) {
+          if ("undefined" !== typeof menu_toggle_all[i]) {
+            menu_toggle_all[i].style.display = null;
+          }
+        }
+      }
+
       mobilePopup.classList.remove("active");
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
@@ -1354,9 +1381,10 @@ var toggleClass = function (el, className) {
       }
     },
     enableResponsive: function () {
-      var __main_header_all = document.querySelectorAll(
-        ".main-header-bar-navigation"
-      );
+      var mobilePopup = document.querySelector("#kmt-mobile-popup"),
+        __main_header_all = mobilePopup.querySelectorAll(
+          ".main-header-bar-navigation"
+        );
       if (__main_header_all.length > 0) {
         for (var i = 0; i < __main_header_all.length; i++) {
           if (null != __main_header_all[i]) {
@@ -1403,7 +1431,7 @@ var toggleClass = function (el, className) {
   /* Add break point Class and related trigger */
   var updateHeaderBreakPoint = function () {
     var break_point = kemet.break_point,
-      menu_toggle_all = document.querySelector(".main-header-menu-toggle"),
+      menu_toggle_all = document.querySelector(".header-toggle-button"),
       headerWrap = document.querySelectorAll("#kmt-mobile-header");
 
     if (headerWrap.length > 0) {
