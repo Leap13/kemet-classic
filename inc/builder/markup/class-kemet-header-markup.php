@@ -46,6 +46,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_bottom_mobile_header', array( $this, 'bottom_mobile_header' ) );
 			add_action( 'kemet_render_header_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_render_mobile_header_column', array( $this, 'render_mobile_column' ), 10, 2 );
+			add_action( 'kemet_render_desktop_header_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'kemet_render_mobile_popup', array( $this, 'render_mobile_column' ), 10, 2 );
 			add_action( 'kemet_site_identity', array( $this, 'site_identity_markup' ) );
 			add_action( 'kemet_header_menu', array( $this, 'menu_markup' ), 10, 1 );
@@ -60,6 +61,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_mobile_toggle', array( $this, 'mobile_toggle_buttons_markup' ) );
 			add_action( 'kemet_desktop_toggle', array( $this, 'desktop_toggle_buttons_markup' ) );
 			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
+			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
 		}
 
 		/**
@@ -522,7 +524,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 
 			$classes = array_map( 'sanitize_html_class', $classes );
 			?>
-			<div id="kmt-mobile-popup" class="kmt-mobile-popup <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
+			<div id="kmt-mobile-popup" class="kmt-mobile-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
 				<div class="kmt-popup-overlay"></div>
 				<div class="kmt-popup-content">
 					<div class="kmt-popup-header">
@@ -536,6 +538,46 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 						 * Kemet Render Header Column
 						 */
 						do_action( 'kemet_render_mobile_popup', 'content', 'popup' );
+						?>
+					</div>
+				</div>
+			</div>		
+			<?php
+		}
+
+		/**
+		 * Mobile Popup content
+		 */
+		public function desktop_popup() {
+			$popup_layout         = kemet_get_option( 'desktop-popup-layout' );
+			$popup_side           = kemet_get_option( 'desktop-popup-slide-side' );
+			$popup_align          = kemet_get_option( 'desktop-popup-content-align' );
+			$popup_vertical_align = kemet_get_option( 'desktop-popup-content-vertical-align' );
+			$classes              = array();
+			if ( 'slide' === $popup_layout ) {
+				$classes[] = 'kmt-popup-' . $popup_side;
+			} else {
+				$classes[] = 'kmt-popup-full-width';
+			}
+			$classes[] = 'kmt-popup-align-' . $popup_align;
+			$classes[] = 'kmt-popup-valign-' . $popup_vertical_align;
+
+			$classes = array_map( 'sanitize_html_class', $classes );
+			?>
+			<div id="kmt-desktop-popup" class="kmt-desktop-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
+				<div class="kmt-popup-overlay"></div>
+				<div class="kmt-popup-content">
+					<div class="kmt-popup-header">
+						<button id="kmt-toggle-button-close" class="toggle-button-close">
+							<span class="kmt-close-icon"></span>
+						</button>
+					</div>
+					<div class="kmt-popup-body-content">
+						<?php
+						/**
+						 * Kemet Render Header Column
+						 */
+						do_action( 'kemet_render_desktop_popup', 'content', 'popup' );
 						?>
 					</div>
 				</div>

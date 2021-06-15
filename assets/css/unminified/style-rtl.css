@@ -4652,7 +4652,7 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	transition: all 0.3s linear;
 }
 
-#kmt-mobile-popup {
+.kmt-popup-main {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -4661,37 +4661,37 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	transition: opacity 0.25s ease-in, right 0s 0.25s, left 0s 0.25s;
 }
 
-#kmt-mobile-popup.kmt-popup-left {
+.kmt-popup-main.kmt-popup-left {
 	right: -99999rem;
 }
 
-#kmt-mobile-popup.kmt-popup-right {
+.kmt-popup-main.kmt-popup-right {
 	left: 99999rem;
 }
 
-#kmt-mobile-popup.active {
+.kmt-popup-main.active {
 	z-index: 100000;
 	opacity: 1;
 	-webkit-transition: opacity 0.25s ease-out;
 	transition: opacity 0.25s ease-out;
 }
 
-#kmt-mobile-popup.active.kmt-popup-left .kmt-popup-content {
+.kmt-popup-main.active.kmt-popup-left .kmt-popup-content {
 	right: 0;
 	left: auto;
 }
 
-#kmt-mobile-popup.active.kmt-popup-right .kmt-popup-content {
+.kmt-popup-main.active.kmt-popup-right .kmt-popup-content {
 	right: auto;
 	left: 0;
 }
 
-#kmt-mobile-popup.active .kmt-popup-overlay {
+.kmt-popup-main.active .kmt-popup-overlay {
 	visibility: visible;
 	opacity: 1;
 }
 
-#kmt-mobile-popup.active .kmt-popup-content {
+.kmt-popup-main.active .kmt-popup-content {
 	visibility: visible;
 	opacity: 1;
 	-webkit-transform: translateX(0%);
@@ -4699,7 +4699,7 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	transform: translateX(0%);
 }
 
-#kmt-mobile-popup .toggle-button-close {
+.kmt-popup-main .toggle-button-close {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -moz-box;

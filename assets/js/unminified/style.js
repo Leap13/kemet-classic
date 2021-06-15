@@ -1144,7 +1144,7 @@ var toggleClass = function (el, className) {
         ),
         popupToggleOpen = header.querySelector(".header-toggle-button"),
         popupToggleClose = popupContainer.querySelector(".toggle-button-close"),
-        popupOverlay = document.querySelector(".kmt-popup-overlay"),
+        popupOverlay = popupContainer.querySelector(".kmt-popup-overlay"),
         popupMenu = popupContainer.querySelectorAll(
           ".main-header-bar-navigation"
         );
@@ -1265,11 +1265,11 @@ var toggleClass = function (el, className) {
             for (var j = 0; j < parentLiSibling.length; j++) {
               if (parentLiSibling[j] != parentLi) {
                 parentLiSibling[j].classList.remove("kmt-submenu-expanded");
-                var all_sub_menu = parentLiSibling[j].querySelectorAll(
+                var allSubMenu = parentLiSibling[j].querySelectorAll(
                   ".sub-menu, .children"
                 );
-                for (var k = 0; k < all_sub_menu.length; k++) {
-                  all_sub_menu[k].style.display = "none";
+                for (var k = 0; k < allSubMenu.length; k++) {
+                  allSubMenu[k].style.display = "none";
                 }
               }
             }
@@ -1342,7 +1342,6 @@ var toggleClass = function (el, className) {
             case "mobile-menu":
               toggleClass(popupMenu[i], "toggle-on");
               if (popupMenu[i].classList.contains("toggle-on")) {
-                console.log("Toggled");
                 popupMenu[i].style.display = "block";
               } else {
                 popupMenu[i].style.display = "";
@@ -1369,7 +1368,6 @@ var toggleClass = function (el, className) {
       popupContainer.classList.remove("active");
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
-          console.log("With Close");
           popupMenu[i].classList.remove("toggle-on");
 
           popupMenu[i].style.display = "none";
@@ -1382,7 +1380,6 @@ var toggleClass = function (el, className) {
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
           if (null != popupMenu[i]) {
-            console.log("With Res");
             popupMenu[i].classList.remove("toggle-on");
             popupMenu[i].style.display = "";
           }
@@ -1409,11 +1406,12 @@ var toggleClass = function (el, className) {
   };
 
   initKemetPopup.initPopup("mobile");
+  initKemetPopup.initPopup("desktop");
 
-  document.addEventListener(
-    "kmtPartialContentRendered",
-    initKemetPopup.initPopup("mobile")
-  );
+  document.addEventListener("kmtPartialContentRendered", function () {
+    initKemetPopup.initPopup("mobile");
+    initKemetPopup.initPopup("desktop");
+  });
 
   document.body.addEventListener(
     "kemet-header-responsive-enabled",
