@@ -46,6 +46,7 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 			require KEMET_HEADER_ITEMS_DIR . 'html/kemet-header-html-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'mobile-html/kemet-header-mobile-html-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'search/kemet-header-search-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'search-box/kemet-header-search-box-item.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
