@@ -19,7 +19,7 @@ if ( ! class_exists( 'Kemet_Header_Widget_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		function dynamic_css( $dynamic_css ) {
-			$header_widgets = array( 'header-widget-1', 'header-widget-2' );
+			$header_widgets = apply_filters( 'kemet_header_widget_items', array( 'header-widget-1', 'header-widget-2' ) );
 
 			foreach ( $header_widgets as $widget ) {
 				if ( ! Kemet_Builder_Helper::is_item_loaded( $widget, 'header', 'desktop' ) ) {

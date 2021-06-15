@@ -19,7 +19,7 @@ if ( ! class_exists( 'Kemet_Header_Html_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			$header_html = array( 'header-html-1', 'header-html-2' );
+			$header_html = apply_filters( 'kemet_header_html_items', array( 'header-html-1', 'header-html-2' ) );
 
 			foreach ( $header_html as $html ) {
 				if ( ! Kemet_Builder_Helper::is_item_loaded( $html, 'header', 'desktop' ) ) {

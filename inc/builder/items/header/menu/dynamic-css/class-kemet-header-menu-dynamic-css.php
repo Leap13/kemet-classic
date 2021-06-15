@@ -19,7 +19,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			$header_menus = array( 'primary-menu', 'secondary-menu' );
+			$header_menus = apply_filters( 'kemet_header_menu_items', array( 'primary-menu', 'secondary-menu' ) );
 
 			foreach ( $header_menus as $menu ) {
 				if ( ! Kemet_Builder_Helper::is_item_loaded( $menu, 'header', 'desktop' ) ) {
