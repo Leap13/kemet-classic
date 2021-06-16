@@ -76,7 +76,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				array(
 					'primary-menu'   => __( 'Primary Menu', 'kemet' ),
 					'secondary-menu' => __( 'Secondary Menu', 'kemet' ),
-					'mobile-menu'    => __( 'Canvas Menu', 'kemet' ),
+					'offcanvas-menu' => __( 'Off-Canvas Menu', 'kemet' ),
 				)
 			);
 		}

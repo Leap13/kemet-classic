@@ -140,7 +140,7 @@ const BuilderComponent = (props) => {
     let controlValue = state.value;
     let rowValue = controlValue[row];
     let updateItems = [];
-    let dragged = false;
+    let dragged = true;
     let revertDrag = false;
     {
       items.length > 0 &&
@@ -151,16 +151,16 @@ const BuilderComponent = (props) => {
           if (
             ("popup" === row &&
               itemIncludesMenu &&
-              "mobile-menu" !== item.id) ||
+              "offcanvas-menu" !== item.id) ||
             ("popup" === row && itemIncludesToggle) ||
-            ("popup" !== row && "mobile-menu" === item.id)
+            ("popup" !== row && "offcanvas-menu" === item.id)
           ) {
-            setPreviousItems(item, row, zone);
-            revertDrag = true;
-          }
-
-          if (draggedItem(item.id)) {
-            dragged = true;
+            if (!draggedItem(item.id)) {
+              dragged = false;
+              revertDrag = true;
+            } else {
+              setPreviousItems(item, row, zone);
+            }
           }
 
           updateItems.push(item.id);

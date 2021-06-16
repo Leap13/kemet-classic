@@ -69,7 +69,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 				array(
 					// Header Builder
 					'header-desktop-items'                 => array(
-						'popup'  => array( 'popup_content' => array() ),
+						'popup'  => array( 'popup_content' => array( 'offcanvas-menu' ) ),
 						'top'    => array(
 							'top_left'         => array(),
 							'top_left_center'  => array(),
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'desktop-popup-content-vertical-align' => 'top',
 					'desktop-popup-slide-width'            => 35,
 					'header-mobile-items'                  => array(
-						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
+						'popup'  => array( 'popup_content' => array( 'offcanvas-menu' ) ),
 						'top'    =>
 						array(
 							'top_left'   => array(),
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						array(
 							'main_left'   => array( 'logo' ),
 							'main_center' => array(),
-							'main_right'  => array( 'mobile-toggle' ),
+							'main_right'  => array(),
 						),
 						'bottom' =>
 						array(

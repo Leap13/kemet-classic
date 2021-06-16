@@ -66,6 +66,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'menu',
 							'section' => 'section-header-secondary-menu',
 						),
+						'offcanvas-menu'  => array(
+							'name'    => __( 'Off Canvas Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-mobile-menu',
+						),
 						'button'          => array(
 							'name'    => __( 'Button', 'kemet' ),
 							'icon'    => 'button',
@@ -187,8 +192,8 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'admin-users',
 							'section' => 'section-header-account',
 						),
-						'mobile-menu'          => array(
-							'name'    => __( 'Mobile Menu', 'kemet' ),
+						'offcanvas-menu'       => array(
+							'name'    => __( 'Off Canvas Menu', 'kemet' ),
 							'icon'    => 'menu',
 							'section' => 'section-header-mobile-menu',
 						),
@@ -285,7 +290,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'type'        => 'kmt-available',
 				'input_attrs' => array(
 					'group' => 'header-desktop-items',
-					'zones' => array( 'top', 'main', 'bottom' ),
+					'zones' => array( 'popup', 'top', 'main', 'bottom' ),
 				),
 				'context'     => array(
 					array(

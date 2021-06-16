@@ -36,12 +36,12 @@ const AddComponent = (props) => {
     let itemIncludesToggle = item.includes("toggle");
     if (
       "popup" === row &&
-      ((itemIncludesMenu && "mobile-menu" !== item) || itemIncludesToggle)
+      ((itemIncludesMenu && "offcanvas-menu" !== item) || itemIncludesToggle)
     ) {
       available = false;
     }
 
-    if ("popup" !== row && "mobile-menu" === item) {
+    if ("popup" !== row && "offcanvas-menu" === item) {
       available = false;
     }
 

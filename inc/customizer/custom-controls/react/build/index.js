@@ -6103,11 +6103,11 @@ var AddComponent = function AddComponent(props) {
     var itemIncludesMenu = item.includes("menu");
     var itemIncludesToggle = item.includes("toggle");
 
-    if ("popup" === row && (itemIncludesMenu && "mobile-menu" !== item || itemIncludesToggle)) {
+    if ("popup" === row && (itemIncludesMenu && "offcanvas-menu" !== item || itemIncludesToggle)) {
       available = false;
     }
 
-    if ("popup" !== row && "mobile-menu" === item) {
+    if ("popup" !== row && "offcanvas-menu" === item) {
       available = false;
     }
 
@@ -6340,20 +6340,20 @@ var BuilderComponent = function BuilderComponent(props) {
     var controlValue = state.value;
     var rowValue = controlValue[row];
     var updateItems = [];
-    var dragged = false;
+    var dragged = true;
     var revertDrag = false;
     {
       items.length > 0 && items.map(function (item) {
         var itemIncludesMenu = item.id.includes("menu");
         var itemIncludesToggle = item.id.includes("toggle");
 
-        if ("popup" === row && itemIncludesMenu && "mobile-menu" !== item.id || "popup" === row && itemIncludesToggle || "popup" !== row && "mobile-menu" === item.id) {
-          setPreviousItems(item, row, zone);
-          revertDrag = true;
-        }
-
-        if (draggedItem(item.id)) {
-          dragged = true;
+        if ("popup" === row && itemIncludesMenu && "offcanvas-menu" !== item.id || "popup" === row && itemIncludesToggle || "popup" !== row && "offcanvas-menu" === item.id) {
+          if (!draggedItem(item.id)) {
+            dragged = false;
+            revertDrag = true;
+          } else {
+            setPreviousItems(item, row, zone);
+          }
         }
 
         updateItems.push(item.id);
