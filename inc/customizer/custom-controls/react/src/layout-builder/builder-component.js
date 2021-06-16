@@ -213,9 +213,11 @@ const BuilderComponent = (props) => {
     enablePopup = hasPopup;
   };
   const inObject = (object, search) => {
-    for (const [key, value] of Object.entries(object)) {
-      if (value.includes(search)) {
-        return true;
+    if ("object" === typeof object && null !== object) {
+      for (const [key, value] of Object.entries(object)) {
+        if (value.includes(search)) {
+          return true;
+        }
       }
     }
     return false;

@@ -69,6 +69,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 				array(
 					// Header Builder
 					'header-desktop-items'                 => array(
+						'popup'  => array( 'popup_content' => array() ),
 						'top'    => array(
 							'top_left'         => array(),
 							'top_left_center'  => array(),
@@ -96,7 +97,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'desktop-popup-content-align'          => 'left',
 					'desktop-popup-content-vertical-align' => 'top',
 					'desktop-popup-slide-width'            => 90,
-					'header-desktop-items'                 => array(
+					'header-mobile-items'                  => array(
 						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
 						'top'    =>
 						array(
