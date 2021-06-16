@@ -33,10 +33,10 @@ const AddComponent = (props) => {
     });
 
     let itemIncludesMenu = item.includes("menu");
-
+    let itemIncludesToggle = item.includes("toggle");
     if (
       "popup" === row &&
-      ((itemIncludesMenu && "mobile-menu" !== item) || "toggle-button" === item)
+      ((itemIncludesMenu && "mobile-menu" !== item) || itemIncludesToggle)
     ) {
       available = false;
     }

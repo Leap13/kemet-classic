@@ -121,32 +121,54 @@ const BuilderComponent = (props) => {
       }
     }
   };
+  const draggedItem = (item) => {
+    let dragged = false;
+    if (
+      "header-desktop-items" === controlParams.group ||
+      "header-mobile-items" === controlParams.group
+    ) {
+      controlParams.rows.map((row) => {
+        if (inObject(staleValue[row], item)) {
+          dragged = true;
+        }
+      });
+    }
 
+    return dragged;
+  };
   const onDragEnd = (row, zone, items) => {
     let controlValue = state.value;
     let rowValue = controlValue[row];
     let updateItems = [];
+    let dragged = false;
+    let revertDrag = false;
     {
       items.length > 0 &&
         items.map((item) => {
           const itemIncludesMenu = item.id.includes("menu");
+          const itemIncludesToggle = item.id.includes("toggle");
 
           if (
             ("popup" === row &&
-              (("header-desktop-items" === controlParams.group &&
-                itemIncludesMenu &&
-                "mobile-menu" !== item.id) ||
-                "mobile-toggle" === item.id ||
-                "desktop-toggle" === item.id)) ||
+              itemIncludesMenu &&
+              "mobile-menu" !== item.id) ||
+            ("popup" === row && itemIncludesToggle) ||
             ("popup" !== row && "mobile-menu" === item.id)
           ) {
             setPreviousItems(item, row, zone);
+            revertDrag = true;
+          }
+
+          if (draggedItem(item.id)) {
+            dragged = true;
           }
 
           updateItems.push(item.id);
         });
     }
-
+    if (!dragged && revertDrag) {
+      updateItems = rowValue[zone];
+    }
     if (!arraysEqual(rowValue[zone], updateItems)) {
       rowValue[zone] = updateItems;
       controlValue[row][zone] = updateItems;
@@ -295,10 +317,8 @@ const BuilderComponent = (props) => {
           <RowComponent
             key={"popup"}
             row={"popup"}
-            removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
-            controlParams={controlParams}
-            choices={choices}
             items={state.value["popup"]}
+            removeItem={(remove, row, zone) => removeItem(remove, row, zone)}
             showDrop={() => onDragStart()}
             onUpdate={(updateRow, updateZone, updateItems) =>
               onDragEnd(updateRow, updateZone, updateItems)
@@ -308,7 +328,11 @@ const BuilderComponent = (props) => {
             }
             focusSection={(item) => focusSection(item)}
             hideDrop={() => onDragStop()}
+            controlParams={controlParams}
+            choices={choices}
             settings={state.value}
+            columns={state.columns["popup"]}
+            customizer={props.customizer}
           />
         )}
         <div className="kmt-builder-row-items">
@@ -346,11 +370,6 @@ const BuilderComponent = (props) => {
       </div>
     </Fragment>
   );
-};
-
-BuilderComponent.propTypes = {
-  control: PropTypes.object.isRequired,
-  customizer: PropTypes.func.isRequired,
 };
 
 export default React.memo(BuilderComponent);

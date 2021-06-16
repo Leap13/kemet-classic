@@ -6101,8 +6101,9 @@ var AddComponent = function AddComponent(props) {
       });
     });
     var itemIncludesMenu = item.includes("menu");
+    var itemIncludesToggle = item.includes("toggle");
 
-    if ("popup" === row && (itemIncludesMenu && "mobile-menu" !== item || "toggle-button" === item)) {
+    if ("popup" === row && (itemIncludesMenu && "mobile-menu" !== item || itemIncludesToggle)) {
       available = false;
     }
 
@@ -6321,20 +6322,46 @@ var BuilderComponent = function BuilderComponent(props) {
     }
   };
 
+  var draggedItem = function draggedItem(item) {
+    var dragged = false;
+
+    if ("header-desktop-items" === controlParams.group || "header-mobile-items" === controlParams.group) {
+      controlParams.rows.map(function (row) {
+        if (inObject(staleValue[row], item)) {
+          dragged = true;
+        }
+      });
+    }
+
+    return dragged;
+  };
+
   var onDragEnd = function onDragEnd(row, zone, items) {
     var controlValue = state.value;
     var rowValue = controlValue[row];
     var updateItems = [];
+    var dragged = false;
+    var revertDrag = false;
     {
       items.length > 0 && items.map(function (item) {
         var itemIncludesMenu = item.id.includes("menu");
+        var itemIncludesToggle = item.id.includes("toggle");
 
-        if ("popup" === row && ("header-desktop-items" === controlParams.group && itemIncludesMenu && "mobile-menu" !== item.id || "mobile-toggle" === item.id || "desktop-toggle" === item.id) || "popup" !== row && "mobile-menu" === item.id) {
+        if ("popup" === row && itemIncludesMenu && "mobile-menu" !== item.id || "popup" === row && itemIncludesToggle || "popup" !== row && "mobile-menu" === item.id) {
           setPreviousItems(item, row, zone);
+          revertDrag = true;
+        }
+
+        if (draggedItem(item.id)) {
+          dragged = true;
         }
 
         updateItems.push(item.id);
       });
+    }
+
+    if (!dragged && revertDrag) {
+      updateItems = rowValue[zone];
     }
 
     if (!arraysEqual(rowValue[zone], updateItems)) {
@@ -6488,12 +6515,10 @@ var BuilderComponent = function BuilderComponent(props) {
   }, (true === state.isPopup || true === enablePopup) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_row_component__WEBPACK_IMPORTED_MODULE_5__["default"], {
     key: "popup",
     row: "popup",
+    items: state.value["popup"],
     removeItem: function removeItem(remove, row, zone) {
       return _removeItem(remove, row, zone);
     },
-    controlParams: controlParams,
-    choices: choices,
-    items: state.value["popup"],
     showDrop: function showDrop() {
       return onDragStart();
     },
@@ -6509,7 +6534,11 @@ var BuilderComponent = function BuilderComponent(props) {
     hideDrop: function hideDrop() {
       return onDragStop();
     },
-    settings: state.value
+    controlParams: controlParams,
+    choices: choices,
+    settings: state.value,
+    columns: state.columns["popup"],
+    customizer: props.customizer
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-builder-row-items"
   }, controlParams.rows.map(function (row) {
@@ -6548,10 +6577,6 @@ var BuilderComponent = function BuilderComponent(props) {
   }))));
 };
 
-BuilderComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object.isRequired,
-  customizer: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired
-};
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(BuilderComponent));
 
 /***/ }),
