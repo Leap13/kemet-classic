@@ -22,7 +22,8 @@ if ( ! class_exists( 'Kemet_Header_Mobile_Html_Dynamic_Css' ) ) {
 			$header_html = apply_filters( 'kemet_header_mobile_html_items', array( 'header-mobile-html-1', 'header-mobile-html-2' ) );
 
 			foreach ( $header_html as $html ) {
-				Kemet_Dynamic_Css_Generator::html_css( $html, 'header', 'mobile' );
+				$css_output   = Kemet_Dynamic_Css_Generator::html_css( $html, 'header', 'mobile' );
+				$dynamic_css .= $css_output;
 			}
 			return $dynamic_css;
 		}

@@ -205,12 +205,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'header-mobile-html-1' => array(
 							'name'    => __( 'Html 1', 'kemet' ),
 							'icon'    => 'text',
-							'section' => 'section-mobile-header-html-1',
+							'section' => 'section-header-mobile-html-1',
 						),
 						'header-mobile-html-2' => array(
 							'name'    => __( 'Html 2', 'kemet' ),
 							'icon'    => 'text',
-							'section' => 'section-mobile-header-html-2',
+							'section' => 'section-header-mobile-html-2',
 						),
 						'header-widget-1'      => array(
 							'name'    => __( 'Widget 1', 'kemet' ),

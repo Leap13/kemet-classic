@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Header_Html_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 99 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_HTML_DIR . 'dynamic-css/class-kemet-header-html-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
@@ -55,6 +55,15 @@ if ( ! class_exists( 'Kemet_Header_Html_Item' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_script( 'kemet-header-html-customize-preview-js', KEMET_HEADER_HTML_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kemet-customizer-preview-js' ), KEMET_THEME_VERSION, true );
+
+			// Localize variables for HTML JS.
+			wp_localize_script(
+				'kemet-header-html-customize-preview-js',
+				'kemetHTMLData',
+				array(
+					'htmlItems' => apply_filters( 'kemet_header_html_items', array( 'header-html-1', 'header-html-2' ) ),
+				)
+			);
 		}
 
 	}

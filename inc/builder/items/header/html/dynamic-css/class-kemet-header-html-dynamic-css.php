@@ -22,7 +22,8 @@ if ( ! class_exists( 'Kemet_Header_Html_Dynamic_Css' ) ) {
 			$header_html = apply_filters( 'kemet_header_html_items', array( 'header-html-1', 'header-html-2' ) );
 
 			foreach ( $header_html as $html ) {
-				Kemet_Dynamic_Css_Generator::html_css( $html, 'header', 'desktop' );
+				$css_output   = Kemet_Dynamic_Css_Generator::html_css( $html, 'header', 'desktop' );
+				$dynamic_css .= $css_output;
 			}
 			return $dynamic_css;
 		}

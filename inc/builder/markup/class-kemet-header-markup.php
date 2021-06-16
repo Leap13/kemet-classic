@@ -227,7 +227,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $html html name.
 		 */
 		public function render_html( $html ) {
-			echo Kemet_Builder_Helper::kemet_get_custom_html( $html, 'kmt-' . $html );
+			echo Kemet_Builder_Helper::kemet_get_custom_html( $html . '-text', 'kmt-' . $html );
 		}
 
 		/**
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @return string
 		 */
 		public function get_html( $option ) {
-			$html = kemet_get_option( $option );
+			$html = kemet_get_option( $option . '-text' );
 
 			return do_shortcode( $html );
 		}

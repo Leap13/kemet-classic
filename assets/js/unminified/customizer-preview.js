@@ -558,6 +558,24 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   }
 }
 
+function settingName(settingName) {
+  var setting = KemetCustomizerPrevData.setting.replace(
+    "setting_name",
+    settingName
+  );
+
+  return setting;
+}
+function kemet_html_css(prefix) {
+  var selector = ".kmt-" + prefix;
+  kemet_css(settingName(prefix + "-color"), "color", selector);
+  kemet_css(settingName(prefix + "-link-color"), "color", selector + " a");
+  kemet_css(
+    settingName(prefix + "-link-hover-color"),
+    "color",
+    selector + " a:hover"
+  );
+}
 (function ($) {
   // Global custom event which triggers when partial refresh occurs.
   wp.customize.bind("preview-ready", function () {

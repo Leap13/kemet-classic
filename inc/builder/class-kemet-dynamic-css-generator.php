@@ -53,7 +53,28 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function html_css( $html, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $html, 'header', $device ) ) {
-				error_log( $html );
+				$selector         = '.kmt-' . $html;
+				$color            = kemet_get_option( $html . '-color' );
+				$link_color       = kemet_get_option( $html . '-link-color' );
+				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
+
+				$css_output = array(
+					$selector              => array(
+						'color' => esc_attr( $color ),
+					),
+
+					$selector . ' a'       => array(
+						'color' => esc_attr( $link_color ),
+					),
+
+					$selector . ' a:hover' => array(
+						'color' => esc_attr( $link_hover_color ),
+					),
+				);
+
+				$parse_css = kemet_parse_css( $css_output );
+
+				return $parse_css;
 			}
 		}
 	}
