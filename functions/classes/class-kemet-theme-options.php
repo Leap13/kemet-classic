@@ -96,7 +96,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'desktop-popup-slide-side'             => 'right',
 					'desktop-popup-content-align'          => 'left',
 					'desktop-popup-content-vertical-align' => 'top',
-					'desktop-popup-slide-width'            => 90,
+					'desktop-popup-slide-width'            => 35,
 					'header-mobile-items'                  => array(
 						'popup'  => array( 'popup_content' => array( 'mobile-menu' ) ),
 						'top'    =>

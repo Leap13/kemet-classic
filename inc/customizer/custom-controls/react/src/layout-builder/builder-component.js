@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 
 const BuilderComponent = (props) => {
   let value = props.control.setting.get();
-
+  let staleValue = {};
   let baseDefault = {};
   let defaultValue = props.control.params.default
     ? {
@@ -34,14 +34,23 @@ const BuilderComponent = (props) => {
     : [];
 
   let columns = controlParams.columns ? controlParams.columns : [];
+  const prevItems = [];
 
   const [state, setState] = useState({
     value: value,
     columns: columns,
     isPopup: false,
+    revertDrag: false,
+    prevItems: prevItems,
   });
   let enablePopup = false;
 
+  if (
+    "header-desktop-items" === controlParams.group ||
+    "header-mobile-items" === controlParams.group
+  ) {
+    staleValue = JSON.parse(JSON.stringify(state.value));
+  }
   const updateValues = (value, row) => {
     let setting = props.control.setting;
     if ("popup" === row) {
@@ -64,6 +73,23 @@ const BuilderComponent = (props) => {
     }
   };
   const onDragStop = () => {
+    if (state.revertDrag) {
+      let controlValue = state.value;
+      let prevValue = state.prevItems.value;
+      let prevRestrictValue = state.prevItems.restrictValue;
+      controlValue[state.prevItems.row][state.prevItems.zone] = prevValue;
+      controlValue[state.prevItems.restrictRow][
+        state.prevItems.restrictZone
+      ] = prevRestrictValue;
+
+      setState((prevState) => ({
+        ...prevState,
+        value: controlValue,
+        revertDrag: false,
+      }));
+      checkPopupVisibilty(true);
+      updateValues(controlValue, state.prevItems.row);
+    }
     let dragZones = document.querySelectorAll(".kmt-builder-area");
 
     for (let i = 0; i < dragZones.length; i++) {
@@ -72,6 +98,30 @@ const BuilderComponent = (props) => {
 
     checkPopupVisibilty(true);
   };
+
+  const setPreviousItems = (item, restrictRow, restrictZone) => {
+    let prevITems = [];
+    for (const [rowKey, value] of Object.entries(staleValue)) {
+      for (const [zoneKey, zoneValue] of Object.entries(value)) {
+        for (let zoneItem of zoneValue) {
+          if (zoneItem === item.id) {
+            prevITems["zone"] = zoneKey;
+            prevITems["row"] = rowKey;
+            prevITems["value"] = staleValue[rowKey][zoneKey];
+            prevITems["restrictRow"] = restrictRow;
+            prevITems["restrictZone"] = restrictZone;
+            prevITems["restrictValue"] = staleValue[restrictRow][restrictZone];
+            setState((prevState) => ({
+              ...prevState,
+              revertDrag: true,
+              prevItems: prevITems,
+            }));
+          }
+        }
+      }
+    }
+  };
+
   const onDragEnd = (row, zone, items) => {
     let controlValue = state.value;
     let rowValue = controlValue[row];
@@ -79,6 +129,20 @@ const BuilderComponent = (props) => {
     {
       items.length > 0 &&
         items.map((item) => {
+          const itemIncludesMenu = item.id.includes("menu");
+
+          if (
+            ("popup" === row &&
+              (("header-desktop-items" === controlParams.group &&
+                itemIncludesMenu &&
+                "mobile-menu" !== item.id) ||
+                "mobile-toggle" === item.id ||
+                "desktop-toggle" === item.id)) ||
+            ("popup" !== row && "mobile-menu" === item.id)
+          ) {
+            setPreviousItems(item, row, zone);
+          }
+
           updateItems.push(item.id);
         });
     }

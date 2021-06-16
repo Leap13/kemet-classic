@@ -6185,6 +6185,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -6195,6 +6201,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var BuilderComponent = function BuilderComponent(props) {
   var value = props.control.setting.get();
+  var staleValue = {};
   var baseDefault = {};
   var defaultValue = props.control.params.default ? _objectSpread(_objectSpread({}, baseDefault), props.control.params.default) : baseDefault;
   value = value ? _objectSpread(_objectSpread({}, defaultValue), value) : defaultValue;
@@ -6202,17 +6209,24 @@ var BuilderComponent = function BuilderComponent(props) {
   var controlParams = props.control.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.control.params.input_attrs) : defaultParams;
   var choices = props.control.params.choices ? props.control.params.choices : [];
   var columns = controlParams.columns ? controlParams.columns : [];
+  var prevItems = [];
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])({
     value: value,
     columns: columns,
-    isPopup: false
+    isPopup: false,
+    revertDrag: false,
+    prevItems: prevItems
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
 
   var enablePopup = false;
+
+  if ("header-desktop-items" === controlParams.group || "header-mobile-items" === controlParams.group) {
+    staleValue = JSON.parse(JSON.stringify(state.value));
+  }
 
   var updateValues = function updateValues(value, row) {
     var setting = props.control.setting;
@@ -6238,6 +6252,22 @@ var BuilderComponent = function BuilderComponent(props) {
   };
 
   var onDragStop = function onDragStop() {
+    if (state.revertDrag) {
+      var controlValue = state.value;
+      var prevValue = state.prevItems.value;
+      var prevRestrictValue = state.prevItems.restrictValue;
+      controlValue[state.prevItems.row][state.prevItems.zone] = prevValue;
+      controlValue[state.prevItems.restrictRow][state.prevItems.restrictZone] = prevRestrictValue;
+      setState(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          value: controlValue,
+          revertDrag: false
+        });
+      });
+      checkPopupVisibilty(true);
+      updateValues(controlValue, state.prevItems.row);
+    }
+
     var dragZones = document.querySelectorAll(".kmt-builder-area");
 
     for (var i = 0; i < dragZones.length; i++) {
@@ -6247,12 +6277,62 @@ var BuilderComponent = function BuilderComponent(props) {
     checkPopupVisibilty(true);
   };
 
+  var setPreviousItems = function setPreviousItems(item, restrictRow, restrictZone) {
+    var prevITems = [];
+
+    for (var _i = 0, _Object$entries = Object.entries(staleValue); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_Object$entries[_i], 2),
+          rowKey = _Object$entries$_i[0],
+          _value = _Object$entries$_i[1];
+
+      for (var _i2 = 0, _Object$entries2 = Object.entries(_value); _i2 < _Object$entries2.length; _i2++) {
+        var _Object$entries2$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_Object$entries2[_i2], 2),
+            zoneKey = _Object$entries2$_i[0],
+            zoneValue = _Object$entries2$_i[1];
+
+        var _iterator = _createForOfIteratorHelper(zoneValue),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var zoneItem = _step.value;
+
+            if (zoneItem === item.id) {
+              prevITems["zone"] = zoneKey;
+              prevITems["row"] = rowKey;
+              prevITems["value"] = staleValue[rowKey][zoneKey];
+              prevITems["restrictRow"] = restrictRow;
+              prevITems["restrictZone"] = restrictZone;
+              prevITems["restrictValue"] = staleValue[restrictRow][restrictZone];
+              setState(function (prevState) {
+                return _objectSpread(_objectSpread({}, prevState), {}, {
+                  revertDrag: true,
+                  prevItems: prevITems
+                });
+              });
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      }
+    }
+  };
+
   var onDragEnd = function onDragEnd(row, zone, items) {
     var controlValue = state.value;
     var rowValue = controlValue[row];
     var updateItems = [];
     {
       items.length > 0 && items.map(function (item) {
+        var itemIncludesMenu = item.id.includes("menu");
+
+        if ("popup" === row && ("header-desktop-items" === controlParams.group && itemIncludesMenu && "mobile-menu" !== item.id || "mobile-toggle" === item.id || "desktop-toggle" === item.id) || "popup" !== row && "mobile-menu" === item.id) {
+          setPreviousItems(item, row, zone);
+        }
+
         updateItems.push(item.id);
       });
     }
@@ -6388,12 +6468,12 @@ var BuilderComponent = function BuilderComponent(props) {
 
   var inObject = function inObject(object, search) {
     if ("object" === _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(object) && null !== object) {
-      for (var _i = 0, _Object$entries = Object.entries(object); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_Object$entries[_i], 2),
-            key = _Object$entries$_i[0],
-            _value = _Object$entries$_i[1];
+      for (var _i3 = 0, _Object$entries3 = Object.entries(object); _i3 < _Object$entries3.length; _i3++) {
+        var _Object$entries3$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_Object$entries3[_i3], 2),
+            key = _Object$entries3$_i[0],
+            _value2 = _Object$entries3$_i[1];
 
-        if (_value.includes(search)) {
+        if (_value2.includes(search)) {
           return true;
         }
       }
