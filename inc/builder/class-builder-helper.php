@@ -79,7 +79,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 						}
 					}
 
-					$current_items[ $d_items ] = call_user_func_array( 'array_merge', $loaded_items );
+					$current_items[ $d_items ] = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
 				}
 			}
 			switch ( $device ) {
