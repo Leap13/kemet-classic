@@ -52,7 +52,7 @@ if ( ! class_exists( 'Kemet_Header_Html_Item' ) ) {
 			$header_html = apply_filters( 'kemet_header_html_items', array( 'header-html-1', 'header-html-2' ) );
 
 			foreach ( $header_html as $html ) {
-				if ( ! Kemet_Builder_Helper::is_item_loaded( $html, 'header', 'mobile' ) ) {
+				if ( ! Kemet_Builder_Helper::is_item_loaded( $html, 'header', 'desktop' ) ) {
 					continue;
 				}
 				$font_family = kemet_get_option( $html . '-font-family' );
