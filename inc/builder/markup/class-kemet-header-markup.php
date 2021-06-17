@@ -460,46 +460,37 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Toggle Button Markup
 		 */
 		function mobile_toggle_buttons_markup() {
-			$mobile_toggle_title       = trim( apply_filters( 'kemet_mobile_toggle_label', kemet_get_option( 'header-mobile-toggle-label' ) ) );
-			$mobile_toggle_icon        = apply_filters( 'kemet_mobile_toggle_icon', 'toggle-button-icon' );
-			$mobile_toggle_label_class = '';
-			$screen_reader_title       = __( 'Mobile Popup', 'kemet' );
-			if ( '' !== $mobile_toggle_title ) {
-				$mobile_toggle_label_class = 'kmt-popup-label';
-				$screen_reader_title       = $mobile_toggle_title;
-			}
-			?>
-			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $mobile_toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
-				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<i class="<?php echo esc_attr( $mobile_toggle_icon ); ?>"></i>
-				<?php if ( '' != $mobile_toggle_title ) { ?>
-					<span class="mobile-popup-wrap">
-						<span class="mobile-popup"><?php echo esc_html( $mobile_toggle_title ); ?></span>
-					</span>
-				<?php } ?>
-			</button>
-			<?php
+			$this->get_toggle_button( 'mobile' );
 		}
 
 		/**
 		 * Toggle Button Markup
 		 */
 		function desktop_toggle_buttons_markup() {
-			$desktop_toggle_title       = trim( apply_filters( 'kemet_desktop_toggle_label', kemet_get_option( 'header-desktop-toggle-label' ) ) );
-			$desktop_toggle_icon        = apply_filters( 'kemet_desktop_toggle_icon', 'toggle-button-icon' );
-			$desktop_toggle_label_class = '';
-			$screen_reader_title        = __( 'Desktop Popup', 'kemet' );
-			if ( '' !== $desktop_toggle_title ) {
-				$desktop_toggle_label_class = 'kmt-popup-label';
-				$screen_reader_title        = $desktop_toggle_title;
+			$this->get_toggle_button( 'desktop' );
+		}
+
+		/**
+		 * Popup Toggle Button Markup
+		 *
+		 * @param string $device device type.
+		 */
+		public function get_toggle_button( $device ) {
+			$toggle_title        = trim( apply_filters( 'kemet_' . $device . '_toggle_label', kemet_get_option( 'header-' . $device . '-toggle-label' ) ) );
+			$toggle_icon         = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
+			$toggle_label_class  = '';
+			$screen_reader_title = __( 'Desktop Popup', 'kemet' );
+			if ( '' !== $toggle_title ) {
+				$toggle_label_class  = 'kmt-popup-label';
+				$screen_reader_title = $toggle_title;
 			}
 			?>
-			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $desktop_toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
+			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<i class="<?php echo esc_attr( $desktop_toggle_icon ); ?>"></i>
-				<?php if ( '' != $desktop_toggle_title ) { ?>
-					<span class="desktop-popup-wrap">
-						<span class="desktop-popup"><?php echo esc_html( $desktop_toggle_title ); ?></span>
+				<i class="<?php echo esc_attr( $toggle_icon ); ?>"></i>
+				<?php if ( '' != $toggle_title ) { ?>
+					<span class="<?php echo esc_attr( $device ); ?>-popup-wrap">
+						<span class="<?php echo esc_attr( $device ); ?>-popup"><?php echo esc_html( $toggle_title ); ?></span>
 					</span>
 				<?php } ?>
 			</button>
@@ -509,50 +500,26 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Mobile Popup content
 		 */
 		public function mobile_popup() {
-			$popup_layout         = kemet_get_option( 'mobile-popup-layout' );
-			$popup_side           = kemet_get_option( 'mobile-popup-slide-side' );
-			$popup_align          = kemet_get_option( 'mobile-popup-content-align' );
-			$popup_vertical_align = kemet_get_option( 'mobile-popup-content-vertical-align' );
-			$classes              = array();
-			if ( 'slide' === $popup_layout ) {
-				$classes[] = 'kmt-popup-' . $popup_side;
-			} else {
-				$classes[] = 'kmt-popup-full-width';
-			}
-			$classes[] = 'kmt-popup-align-' . $popup_align;
-			$classes[] = 'kmt-popup-valign-' . $popup_vertical_align;
-
-			$classes = array_map( 'sanitize_html_class', $classes );
-			?>
-			<div id="kmt-mobile-popup" class="kmt-mobile-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
-				<div class="kmt-popup-overlay"></div>
-				<div class="kmt-popup-content">
-					<div class="kmt-popup-header">
-						<button id="kmt-toggle-button-close" class="toggle-button-close">
-							<span class="kmt-close-icon"></span>
-						</button>
-					</div>
-					<div class="kmt-popup-body-content">
-						<?php
-						/**
-						 * Kemet Render Header Column
-						 */
-						do_action( 'kemet_render_mobile_popup', 'content', 'popup' );
-						?>
-					</div>
-				</div>
-			</div>		
-			<?php
+			$this->get_popup_content( 'mobile' );
 		}
 
 		/**
 		 * Desktop Popup content
 		 */
 		public function desktop_popup() {
-			$popup_layout         = kemet_get_option( 'desktop-popup-layout' );
-			$popup_side           = kemet_get_option( 'desktop-popup-slide-side' );
-			$popup_align          = kemet_get_option( 'desktop-popup-content-align' );
-			$popup_vertical_align = kemet_get_option( 'desktop-popup-content-vertical-align' );
+			$this->get_popup_content( 'desktop' );
+		}
+
+		/**
+		 * Get Popup Markup
+		 *
+		 * @param string $device device type.
+		 */
+		public function get_popup_content( $device ) {
+			$popup_layout         = kemet_get_option( $device . '-popup-layout' );
+			$popup_side           = kemet_get_option( $device . '-popup-slide-side' );
+			$popup_align          = kemet_get_option( $device . '-popup-content-align' );
+			$popup_vertical_align = kemet_get_option( $device . '-popup-content-vertical-align' );
 			$classes              = array();
 			if ( 'slide' === $popup_layout ) {
 				$classes[] = 'kmt-popup-' . $popup_side;
@@ -564,7 +531,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 
 			$classes = array_map( 'sanitize_html_class', $classes );
 			?>
-			<div id="kmt-desktop-popup" class="kmt-desktop-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
+			<div id="kmt-<?php echo esc_attr( $device ); ?>-popup" class="kmt-<?php echo esc_attr( $device ); ?>-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
 				<div class="kmt-popup-overlay"></div>
 				<div class="kmt-popup-content">
 					<div class="kmt-popup-header">
@@ -577,7 +544,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 						/**
 						 * Kemet Render Header Column
 						 */
-						do_action( 'kemet_render_desktop_popup', 'content', 'popup' );
+						do_action( 'kemet_render_' . $device . '_popup', 'content', 'popup' );
 						?>
 					</div>
 				</div>
