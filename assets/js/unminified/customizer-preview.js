@@ -566,6 +566,33 @@ function settingName(settingName) {
 
   return setting;
 }
+
+function kemet_font_family_css(control, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      var fontName = value.split(",")[0],
+        link = "";
+      // Replace ' character with space, necessary to separate out font prop value.
+      fontName = fontName.replace(/'/g, "");
+      if (fontName in KemetCustomizerPrevData.googleFonts) {
+        jQuery("link#" + control).remove();
+
+        var fontName = fontName.split(" ").join("+");
+        link =
+          '<link id="' +
+          control +
+          '" href="https://fonts.googleapis.com/css?family=' +
+          fontName +
+          '"  rel="stylesheet">';
+      }
+
+      var dynamicStyle = selector + "{ font-family: " + value + "; }";
+      kemet_add_dynamic_css(control, dynamicStyle);
+      jQuery("head").append(link);
+    });
+  });
+}
+
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;
   kemet_css(settingName(prefix + "-color"), "color", selector);
@@ -575,6 +602,7 @@ function kemet_html_css(prefix) {
     "color",
     selector + " a:hover"
   );
+  kemet_font_family_css(settingName(prefix + "-font-family"), selector);
 }
 (function ($) {
   // Global custom event which triggers when partial refresh occurs.

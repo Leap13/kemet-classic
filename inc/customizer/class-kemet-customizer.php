@@ -112,6 +112,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-color'              => 'Kemet_Control_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
 			'kmt-hidden'             => 'Kemet_Control_Hidden',
+			'kmt-font-family'        => 'Kemet_Control_Typography',
 		);
 
 		/**
@@ -743,7 +744,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				'kemet-customizer-preview-js',
 				'KemetCustomizerPrevData',
 				array(
-					'setting' => KEMET_THEME_SETTINGS . '[setting_name]',
+					'setting'     => KEMET_THEME_SETTINGS . '[setting_name]',
+					'googleFonts' => Kemet_Font_Families::get_google_fonts(),
 				)
 			);
 		}

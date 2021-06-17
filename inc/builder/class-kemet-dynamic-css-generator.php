@@ -57,8 +57,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$color            = kemet_get_option( $html . '-color' );
 				$link_color       = kemet_get_option( $html . '-link-color' );
 				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
-
-				$css_output = array(
+				$font_family      = kemet_get_option( $html . '-font-family' );
+				$css_output       = array(
 					$selector              => array(
 						'color' => esc_attr( $color ),
 					),
@@ -69,6 +69,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 					$selector . ' a:hover' => array(
 						'color' => esc_attr( $link_hover_color ),
+					),
+					$selector              => array(
+						'font-family' => kemet_get_font_family( $font_family ),
 					),
 				);
 

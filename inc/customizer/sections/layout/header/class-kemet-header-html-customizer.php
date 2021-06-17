@@ -95,6 +95,19 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
+				$prefix . '-font-family'      => array(
+					'type'      => 'kmt-font-family',
+					'transport' => 'postMessage',
+					'label'     => __( 'Font Family', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 15,
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
 			);
 
 			$register_options = array_merge( $register_options, $html_options );
