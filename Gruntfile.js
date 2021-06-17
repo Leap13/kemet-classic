@@ -89,8 +89,8 @@ module.exports = function (grunt) {
               "inc/customizer/custom-controls/divider/divider.scss",
             "inc/customizer/custom-controls/description/description.css":
               "inc/customizer/custom-controls/description/description.scss",
-            "inc/customizer/custom-controls/slider/slider.css":
-              "inc/customizer/custom-controls/slider/slider.scss",
+            "inc/customizer/custom-controls/react/src/slider/slider.css":
+              "inc/customizer/custom-controls/react/src/slider/slider.scss",
             "inc/customizer/custom-controls/sortable/sortable.css":
               "inc/customizer/custom-controls/sortable/sortable.scss",
             "inc/customizer/custom-controls/spacing/spacing.css":
@@ -387,7 +387,7 @@ module.exports = function (grunt) {
         src: [
           "inc/customizer/custom-controls/background/background.css",
           "inc/customizer/custom-controls/sortable/sortable.css",
-          "inc/customizer/custom-controls/slider/slider.css",
+          "inc/customizer/custom-controls/react/src/slider/slider.css",
           "inc/customizer/custom-controls/color/color.css",
           "inc/customizer/custom-controls/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
@@ -408,12 +408,10 @@ module.exports = function (grunt) {
       js: {
         src: [
           "inc/customizer/custom-controls/sortable/sortable.js",
-          "inc/customizer/custom-controls/slider/slider.js",
           "inc/customizer/custom-controls/color/color.js",
           "inc/customizer/custom-controls/icon-select/icon-select.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
-          "inc/customizer/custom-controls/responsive-slider/responsive-slider.js",
           "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
