@@ -904,7 +904,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .dashicons-plus-alt2:before {
   content: "\f543";
   display: inline-block;
-  opacity: 0;
+  opacity: 1;
   transition: 0.2s;
   -webkit-font-smoothing: antialiased;
   font: normal 20px/1 "dashicons";
@@ -912,7 +912,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-item-add-icon:hover:before {
-  opacity: 1;
   color: #777777;
 }
 
