@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						array(
 							'main_left'   => array( 'logo' ),
 							'main_center' => array(),
-							'main_right'  => array(),
+							'main_right'  => array( 'mobile-toggle' ),
 						),
 						'bottom' =>
 						array(
