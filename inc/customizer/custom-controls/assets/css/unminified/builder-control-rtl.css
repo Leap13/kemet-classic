@@ -588,7 +588,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   line-height: 20px;
   border-radius: 0;
   position: absolute;
-  top: -25px;
+  top: -20px;
   border: 0;
   right: 0;
   height: 23px;
@@ -919,7 +919,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-areas {
   position: relative;
   z-index: 10;
-  margin-bottom: 23px;
 }
 
 .kmt-builder-group.kmt-builder-group-horizontal[data-setting="bottom"] {
