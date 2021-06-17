@@ -1345,7 +1345,7 @@ var toggleClass = function (el, className) {
 
       popupContainer.classList.add("active");
 
-      popupToggleOpen.style.display = "none";
+      popupToggleOpen.classList.add("toggled");
       if (popupMenu.length > 0) {
         for (var i = 0; i < popupMenu.length; i++) {
           if ("undefined" === typeof popupMenu[i]) {
@@ -1387,7 +1387,7 @@ var toggleClass = function (el, className) {
         );
 
       if (popupToggleOpen !== null) {
-        popupToggleOpen.style.display = null;
+        popupToggleOpen.classList.remove("toggled");
       }
 
       if (popupContainer !== null) {

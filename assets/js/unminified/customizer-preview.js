@@ -632,7 +632,7 @@ function kemet_font_weight_css(control, selector) {
 function popup_css(prefix) {
   var selector = "#kmt-" + prefix + "-popup",
     contentSelector = ".kmt-" + prefix + "-popup-content";
-  console.log(contentSelector);
+
   wp.customize(settingName(prefix + "-popup-slide-width"), function (value) {
     value.bind(function (width) {
       if (width == "") {
@@ -655,6 +655,63 @@ function popup_css(prefix) {
       }
     });
   });
+
+  wp.customize(settingName(prefix + "-popup-layout"), function (value) {
+    value.bind(function (layout) {
+      if (layout == "") {
+        wp.customize.preview.send("refresh");
+      }
+      if ("full" === layout) {
+        jQuery(selector).removeClass("kmt-popup-left");
+        jQuery(selector).removeClass("kmt-popup-right");
+        jQuery(selector).addClass("kmt-popup-full-width");
+      } else {
+        var popupSideControl = settingName(prefix + "-popup-slide-side"),
+          popupSide = wp.customize._value[popupSideControl]._value;
+        jQuery(selector).removeClass(
+          "kmt-popup-left kmt-popup-right kmt-popup-full-width"
+        );
+        jQuery(selector).addClass("kmt-popup-" + popupSide);
+      }
+    });
+  });
+
+  wp.customize(settingName(prefix + "-popup-slide-side"), function (value) {
+    value.bind(function (side) {
+      if (side == "") {
+        wp.customize.preview.send("refresh");
+      }
+      jQuery(selector).removeClass("kmt-popup-left kmt-popup-right");
+      jQuery(selector).addClass("kmt-popup-" + side);
+    });
+  });
+
+  wp.customize(settingName(prefix + "-popup-content-align"), function (value) {
+    value.bind(function (contentAlign) {
+      if (contentAlign == "") {
+        wp.customize.preview.send("refresh");
+      }
+      jQuery(selector).removeClass(
+        "kmt-popup-align-left kmt-popup-align-center kmt-popup-align-right"
+      );
+      jQuery(selector).addClass("kmt-popup-align-" + contentAlign);
+    });
+  });
+
+  wp.customize(
+    settingName(prefix + "-popup-content-vertical-align"),
+    function (value) {
+      value.bind(function (contentAlign) {
+        if (contentAlign == "") {
+          wp.customize.preview.send("refresh");
+        }
+        jQuery(selector).removeClass(
+          "kmt-popup-valign-top kmt-popup-valign-center kmt-popup-valign-bottom"
+        );
+        jQuery(selector).addClass("kmt-popup-valign-" + contentAlign);
+      });
+    }
+  );
 }
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;

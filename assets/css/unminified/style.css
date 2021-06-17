@@ -4777,14 +4777,6 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	-ms-flex-direction: column;
 }
 
-.kmt-popup-content.kmt-mobile-popup-content {
-	max-width: 90%;
-}
-
-.kmt-popup-content.kmt-desktop-popup-content {
-	max-width: 35%;
-}
-
 .kmt-popup-content .kmt-header-item {
 	padding: 10px 15px;
 }

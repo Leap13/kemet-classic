@@ -25,17 +25,19 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 				'priority' => 0,
 			),
 			'mobile-popup-layout'                 => array(
-				'type'     => 'select',
-				'section'  => 'section-mobile-popup-header-builder',
-				'priority' => 5,
-				'label'    => __( 'Layout', 'kemet' ),
-				'choices'  => array(
+				'type'      => 'select',
+				'transport' => 'postMessage',
+				'section'   => 'section-mobile-popup-header-builder',
+				'priority'  => 5,
+				'label'     => __( 'Layout', 'kemet' ),
+				'choices'   => array(
 					'slide' => __( 'Slide', 'kemet' ),
 					'full'  => __( 'Full', 'kemet' ),
 				),
 			),
 			'mobile-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
+				'transport'   => 'postMessage',
 				'section'     => 'section-mobile-popup-header-builder',
 				'transport'   => 'postMessage',
 				'priority'    => 10,
@@ -54,15 +56,16 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'mobile-popup-slide-side'             => array(
-				'type'     => 'select',
-				'section'  => 'section-mobile-popup-header-builder',
-				'priority' => 15,
-				'label'    => __( 'Slide-Out Side', 'kemet' ),
-				'choices'  => array(
+				'type'      => 'select',
+				'transport' => 'postMessage',
+				'section'   => 'section-mobile-popup-header-builder',
+				'priority'  => 15,
+				'label'     => __( 'Slide-Out Side', 'kemet' ),
+				'choices'   => array(
 					'left'  => __( 'Left', 'kemet' ),
 					'right' => __( 'Right', 'kemet' ),
 				),
-				'context'  => array(
+				'context'   => array(
 					array(
 						'setting' => 'mobile-popup-layout',
 						'value'   => 'slide',
@@ -70,22 +73,24 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'mobile-popup-content-align'          => array(
-				'type'     => 'select',
-				'section'  => 'section-mobile-popup-header-builder',
-				'priority' => 20,
-				'label'    => __( 'Content Align', 'kemet' ),
-				'choices'  => array(
+				'type'      => 'select',
+				'transport' => 'postMessage',
+				'section'   => 'section-mobile-popup-header-builder',
+				'priority'  => 20,
+				'label'     => __( 'Content Align', 'kemet' ),
+				'choices'   => array(
 					'left'   => __( 'Left', 'kemet' ),
 					'center' => __( 'Center', 'kemet' ),
 					'right'  => __( 'Right', 'kemet' ),
 				),
 			),
 			'mobile-popup-content-vertical-align' => array(
-				'type'     => 'select',
-				'section'  => 'section-mobile-popup-header-builder',
-				'priority' => 25,
-				'label'    => __( 'Content Vertical Align', 'kemet' ),
-				'choices'  => array(
+				'type'      => 'select',
+				'transport' => 'postMessage',
+				'section'   => 'section-mobile-popup-header-builder',
+				'priority'  => 25,
+				'label'     => __( 'Content Vertical Align', 'kemet' ),
+				'choices'   => array(
 					'top'    => __( 'Top', 'kemet' ),
 					'center' => __( 'Center', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
