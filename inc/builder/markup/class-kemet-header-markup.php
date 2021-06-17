@@ -68,16 +68,13 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Register menus
 		 */
 		function register_menu_locations() {
-
+			$menu_items                   = apply_filters( 'kemet_header_menu_items', array( 'primay-menu', 'secondary-menu' ) );
+			$menu_items['offcanvas-menu'] = __( 'Off-Canvas Menu', 'kemet' );
 			/**
 			 * Menus
 			 */
 			register_nav_menus(
-				array(
-					'primary-menu'   => __( 'Primary Menu', 'kemet' ),
-					'secondary-menu' => __( 'Secondary Menu', 'kemet' ),
-					'offcanvas-menu' => __( 'Off-Canvas Menu', 'kemet' ),
-				)
+				$menu_items
 			);
 		}
 		/**

@@ -69,7 +69,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'offcanvas-menu'  => array(
 							'name'    => __( 'Off Canvas Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-header-mobile-menu',
+							'section' => 'section-header-offcanvas-menu',
 						),
 						'button'          => array(
 							'name'    => __( 'Button', 'kemet' ),
@@ -195,7 +195,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'offcanvas-menu'       => array(
 							'name'    => __( 'Off Canvas Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-header-mobile-menu',
+							'section' => 'section-header-offcanvas-menu',
 						),
 						'mobile-toggle'        => array(
 							'name'    => __( 'Toggle Button', 'kemet' ),

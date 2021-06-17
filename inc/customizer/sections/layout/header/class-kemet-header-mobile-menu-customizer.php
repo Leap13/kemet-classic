@@ -18,15 +18,15 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$mobile_menu_options = array(
-            'header-mobile-menu-controls-tabs' => array(
-				'section'  => 'section-header-mobile-menu',
+		$offcanvas_menu_options = array(
+			'header-offcanvas-menu-controls-tabs' => array(
+				'section'  => 'section-header-offcanvas-menu',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-        );
+		);
 
-		return array_merge( $options, $mobile_menu_options );
+		return array_merge( $options, $offcanvas_menu_options );
 	}
 
 	/**
@@ -36,15 +36,15 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
-		$mobile_menu_sections = array(
-			'section-header-mobile-menu' => array(
+		$offcanvas_menu_sections = array(
+			'section-header-offcanvas-menu' => array(
 				'priority' => 70,
-				'title'    => __( 'Mobile Menu', 'kemet' ),
+				'title'    => __( 'Off-Canvas Menu', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);
 
-		return array_merge( $sections, $mobile_menu_sections );
+		return array_merge( $sections, $offcanvas_menu_sections );
 
 	}
 }
