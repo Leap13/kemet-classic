@@ -60,30 +60,19 @@ const ResponsiveSliderComponent = props => {
         tablet_attrs = '',
         mobile_attrs = '';
 
-    if (unit_choices) {
-
-        Object.entries(unit_choices).map(item => {
-
-        })
-
-        // unit_choices = props.control.params.unit_choices;
-        // unit_choices.map((data_attrs, unit_key) => {
-        //     desktop_attrs = data_attrs;
-        //     tablet_attrs = unit_key;
-        // if (unit_key == desktop_unit_val) {
-        //     desktop_attrs = "min = " + data_attrs.min + " " + "max = " + data_attrs.max + " step = " + data_attrs.step;
-        // }
-        // if (unit_key == tablet_unit_val) {
-        //     tablet_attrs = "min = " + data_attrs.min + " " + "max = " + data_attrs.max + " step = " + data_attrs.step;
-        // }
-        // if (unit_key == mobile_unit_val) {
-        //     mobile_attrs = "min = " + data_attrs.min + " " + "max = " + data_attrs.max + " step = " + data_attrs.step;
-        // }
-
+    let units = [];
+    for (const [key, value] of Object.entries(unit_choices)) {
+        units.push(key)
+        if (key == desktop_unit_val) {
+            desktop_attrs = { min: value.min, max: value.max, step: value.step };
+        }
+        if (key == tablet_unit_val) {
+            tablet_attrs = { min: value.min, max: value.max, step: value.step };
+        }
+        if (key == mobile_unit_val) {
+            mobile_attrs = { min: value.min, max: value.max, step: value.step };
+        }
     }
-
-
-
 
     let labelContent = label ? (
         <>
@@ -105,7 +94,8 @@ const ResponsiveSliderComponent = props => {
                     </button>
                 </li>
             </ul>
-        </>) : null;
+        </>
+    ) : null;
 
 
     return (
@@ -116,27 +106,63 @@ const ResponsiveSliderComponent = props => {
                 <div className={`input-field-wrapper desktop active`}>
                     <input type="range" value={value_desktop} />
                     <div className="kemet_range_value">
-                        <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={value_desktop} />
+                        <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={value_desktop} min={`${desktop_attrs.min}`} max={`${desktop_attrs.max}`} step={`${desktop_attrs.step}`} />
                         {suffixContent}
                     </div>
+                    <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+                        {units.map((unit) => {
+                            let unit_class = '';
+                            if (desktop_unit_val === unit) {
+                                unit_class = 'active';
+                            }
+                            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+                                <span className="unit-text">{`${unit}`}</span>
+                            </li>)
+
+                        })}
+                    </ul>
                 </div>
                 {/* Tablet */}
                 <div className={`input-field-wrapper tablet `}>
                     <input type="range" value={value_tablet} />
                     <div className="kemet_range_value">
-                        <input type="number" data-id='tablet' className="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value={value_tablet} />
+                        <input type="number" data-id='tablet' className="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value={value_tablet} min={`${tablet_attrs.min}`} max={`${tablet_attrs.max}`} step={`${tablet_attrs.step}`} />
                         {suffixContent}
                     </div>
+                    <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+                        {units.map((unit) => {
+                            let unit_class = '';
+                            if (tablet_unit_val === unit) {
+                                unit_class = 'active';
+                            }
+                            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+                                <span className="unit-text">{`${unit}`}</span>
+                            </li>)
+
+                        })}
+                    </ul>
                 </div>
                 {/* Mobile */}
                 <div className={`input-field-wrapper mobile `}>
                     <input type="range" value={value_mobile} />
                     <div className="kemet_range_value">
-                        <input type="number" data-id='mobile' className="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value={value_mobile} />
+                        <input type="number" data-id='mobile' className="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value={value_mobile} min={`${mobile_attrs.min}`} max={`${mobile_attrs.max}`} step={`${mobile_attrs.step}`} />
                         {suffixContent}
                     </div>
+                    <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+                        {units.map((unit) => {
+                            let unit_class = '';
+                            if (mobile_unit_val === unit) {
+                                unit_class = 'active';
+                            }
+                            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+                                <span className="unit-text">{`${unit}`}</span>
+                            </li>)
+
+                        })}
+                    </ul>
                 </div>
-                <button className="kmt-responsive-slider-reset" onClick>
+                <button className="kmt-responsive-slider-reset" >
                     <span className="dashicons dashicons-image-rotate"></span>
                 </button>
             </div>
