@@ -19,7 +19,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$desktop_popup_options = array(
-			'header-popup-controls-tabs'           => array(
+			'header-desktop-popup-controls-tabs'   => array(
 				'section'  => 'section-desktop-popup-header-builder',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
@@ -33,6 +33,12 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 				'choices'   => array(
 					'slide' => __( 'Slide', 'kemet' ),
 					'full'  => __( 'Full', 'kemet' ),
+				),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
 				),
 			),
 			'desktop-popup-slide-width'            => array(
@@ -52,6 +58,10 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'desktop-popup-layout',
 						'value'   => 'slide',
 					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
 				),
 			),
 			'desktop-popup-slide-side'             => array(
@@ -69,6 +79,10 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'desktop-popup-layout',
 						'value'   => 'slide',
 					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
 				),
 			),
 			'desktop-popup-content-align'          => array(
@@ -82,6 +96,12 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 					'center' => __( 'Center', 'kemet' ),
 					'right'  => __( 'Right', 'kemet' ),
 				),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
 			),
 			'desktop-popup-content-vertical-align' => array(
 				'type'      => 'select',
@@ -93,6 +113,38 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 					'top'    => __( 'Top', 'kemet' ),
 					'center' => __( 'Center', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
+				),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			'desktop-popup-bg-color'               => array(
+				'type'      => 'kmt-color',
+				'transport' => 'postMessage',
+				'section'   => 'section-desktop-popup-header-builder',
+				'priority'  => 30,
+				'label'     => __( 'Background Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
+			),
+			'desktop-popup-close-btn-color'        => array(
+				'type'      => 'kmt-color',
+				'transport' => 'postMessage',
+				'section'   => 'section-desktop-popup-header-builder',
+				'priority'  => 35,
+				'label'     => __( 'Close Icon Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
 				),
 			),
 		);

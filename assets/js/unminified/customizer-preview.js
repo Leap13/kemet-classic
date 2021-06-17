@@ -712,6 +712,17 @@ function popup_css(prefix) {
       });
     }
   );
+
+  kemet_css(
+    settingName(prefix + "-popup-bg-color"),
+    "background-color",
+    contentSelector
+  );
+  kemet_css(
+    settingName(prefix + "-popup-close-btn-color"),
+    "color",
+    selector + " .toggle-button-close"
+  );
 }
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;

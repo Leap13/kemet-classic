@@ -59,21 +59,18 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
 				$font_family      = kemet_get_option( $html . '-font-family' );
 				$font_weight      = kemet_get_option( $html . '-font-weight' );
-				$css_output       = array(
+
+				$css_output = array(
 					$selector              => array(
-						'color' => esc_attr( $color ),
+						'color'       => esc_attr( $color ),
+						'font-family' => kemet_get_font_family( $font_family ),
+						'font-weight' => esc_attr( $font_weight ),
 					),
 					$selector . ' a'       => array(
 						'color' => esc_attr( $link_color ),
 					),
 					$selector . ' a:hover' => array(
 						'color' => esc_attr( $link_hover_color ),
-					),
-					$selector              => array(
-						'font-family' => kemet_get_font_family( $font_family ),
-					),
-					$selector              => array(
-						'font-weight' => esc_attr( $font_weight ),
 					),
 				);
 
@@ -98,12 +95,20 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$btn_css_output = array();
 				$parse_css      = kemet_parse_css( $btn_css_output );
 				// Popup Css
-				$popup_selector   = ' #kmt-' . esc_attr( $device ) . '-popup';
-				$content_selector = '.kmt-' . esc_attr( $device ) . '-popup-content';
-				$popup_width      = kemet_get_option( $device . '-popup-slide-width' );
-				$popup_css_output = array(
+				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
+				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
+				$popup_width         = kemet_get_option( $device . '-popup-slide-width' );
+				$popup_bg_color      = kemet_get_option( $device . '-popup-bg-color' );
+				$popup_icon_bg_color = kemet_get_option( $device . '-popup-close-btn-color' );
+				$popup_css_output    = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
 						'max-width' => kemet_get_css_value( $popup_width, '%' ),
+					),
+					$content_selector => array(
+						'background-color' => esc_attr( $popup_bg_color ),
+					),
+					$popup_selector . ' .toggle-button-close' => array(
+						'color' => esc_attr( $popup_icon_bg_color ),
 					),
 				);
 
