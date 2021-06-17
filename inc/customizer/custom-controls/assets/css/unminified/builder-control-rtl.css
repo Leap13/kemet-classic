@@ -588,13 +588,14 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   line-height: 20px;
   border-radius: 0;
   position: absolute;
-  top: -18px;
+  top: -25px;
   border: 0;
-  right: 1px;
+  right: 0;
   height: 23px;
   padding-top: 0;
   padding-bottom: 0;
   z-index: 10;
+  font-weight: 500;
 }
 .components-button.kmt-fixed-row-actions .dashicons {
   width: 10px;
@@ -917,8 +918,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-areas {
   position: relative;
-  padding-right: 30px;
   z-index: 10;
+  margin-bottom: 23px;
 }
 
 .kmt-builder-group.kmt-builder-group-horizontal[data-setting="bottom"] {

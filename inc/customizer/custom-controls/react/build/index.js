@@ -6845,21 +6845,23 @@ var RowComponent = function RowComponent(props) {
     className: "kmt-builder-areas kmt-builder-mode-".concat(mode, " ").concat(centerClass),
     "data-row": props.row,
     "data-row-section": "section-" + props.row + "-" + mode + "-builder"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+  }, props.row === "popup" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-row-actions",
-    title: props.row === "popup" ? __("Off Canvas", "kemet") : (props.row + " " + mode).charAt(0).toUpperCase() + (props.row + " " + mode).slice(1).toLowerCase(),
+    title: __("Off Canvas", "kemet"),
     onClick: function onClick() {
       return props.focusSection(section);
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
-  }), props.row === "popup" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, __("Off Canvas", "kemet"))), props.row !== "popup" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+  }), __("Off Canvas", "kemet")), props.row !== "popup" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-fixed-row-actions",
     title: (props.row + " " + mode).charAt(0).toUpperCase() + (props.row + " " + mode).slice(1).toLowerCase(),
     onClick: function onClick() {
       return props.focusSection(section);
     }
-  }, (props.row + " " + mode).charAt(0).toUpperCase() + (props.row + " " + mode).slice(1).toLowerCase()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
+    icon: "admin-generic"
+  }), (props.row + " " + mode).charAt(0).toUpperCase() + (props.row + " " + mode).slice(1).toLowerCase()), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-builder-group kmt-builder-group-horizontal ".concat(layout),
     "data-setting": props.row
   }, Object.keys(props.controlParams.zones[props.row]).map(function (zone, index) {

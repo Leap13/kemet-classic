@@ -52,19 +52,16 @@ const RowComponent = (props) => {
       data-row={props.row}
       data-row-section={"section-" + props.row + "-" + mode + "-builder"}
     >
-      <Button
-        className="kmt-row-actions"
-        title={
-          props.row === "popup"
-            ? __("Off Canvas", "kemet")
-            : (props.row + " " + mode).charAt(0).toUpperCase() +
-              (props.row + " " + mode).slice(1).toLowerCase()
-        }
-        onClick={() => props.focusSection(section)}
-      >
-        <Dashicon icon="admin-generic" />
-        {props.row === "popup" && <>{__("Off Canvas", "kemet")}</>}
-      </Button>
+      {props.row === "popup" && (
+        <Button
+          className="kmt-row-actions"
+          title={__("Off Canvas", "kemet")}
+          onClick={() => props.focusSection(section)}
+        >
+          <Dashicon icon="admin-generic" />
+          {__("Off Canvas", "kemet")}
+        </Button>
+      )}
       {props.row !== "popup" && (
         <Button
           className="kmt-fixed-row-actions"
@@ -74,6 +71,7 @@ const RowComponent = (props) => {
           }
           onClick={() => props.focusSection(section)}
         >
+          <Dashicon icon="admin-generic" />
           {(props.row + " " + mode).charAt(0).toUpperCase() +
             (props.row + " " + mode).slice(1).toLowerCase()}
         </Button>
