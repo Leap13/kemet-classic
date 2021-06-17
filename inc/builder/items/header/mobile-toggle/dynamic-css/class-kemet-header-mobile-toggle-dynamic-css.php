@@ -19,9 +19,9 @@ if ( ! class_exists( 'Kemet_Header_Mobile_Toggle_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			if ( Kemet_Builder_Helper::is_item_loaded( 'mobile-toggle', 'header', 'mobile' ) ) {
-				error_log( 'mobile-toggle' );
-			}
+			$css_output   = Kemet_Dynamic_Css_Generator::toggle_button_css( 'mobile-toggle', 'header', 'mobile' );
+			$dynamic_css .= $css_output;
+
 			return $dynamic_css;
 		}
 	}

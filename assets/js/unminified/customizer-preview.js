@@ -628,6 +628,34 @@ function kemet_font_weight_css(control, selector) {
     });
   });
 }
+
+function popup_css(prefix) {
+  var selector = "#kmt-" + prefix + "-popup",
+    contentSelector = ".kmt-" + prefix + "-popup-content";
+  console.log(contentSelector);
+  wp.customize(settingName(prefix + "-popup-slide-width"), function (value) {
+    value.bind(function (width) {
+      if (width == "") {
+        wp.customize.preview.send("refresh");
+      }
+
+      if (width) {
+        var dynamicStyle =
+          ".kmt-popup-left " +
+          contentSelector +
+          ", .kmt-popup-right " +
+          contentSelector +
+          " { max-width: " +
+          width +
+          "%; } ";
+        kemet_add_dynamic_css(
+          settingName(prefix + "-popup-slide-width"),
+          dynamicStyle
+        );
+      }
+    });
+  });
+}
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;
   kemet_css(settingName(prefix + "-color"), "color", selector);

@@ -36,6 +36,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'desktop-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
+				'transport'   => 'postMessage',
 				'section'     => 'section-desktop-popup-header-builder',
 				'priority'    => 10,
 				'label'       => __( 'Enter Width', 'kemet' ),

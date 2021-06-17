@@ -19,9 +19,9 @@ if ( ! class_exists( 'Kemet_Header_Desktop_Toggle_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			if ( Kemet_Builder_Helper::is_item_loaded( 'desktop-toggle', 'header', 'desktop' ) ) {
-				error_log( 'desktop-toggle' );
-			}
+			$css_output   = Kemet_Dynamic_Css_Generator::toggle_button_css( 'desktop-toggle', 'header', 'desktop' );
+			$dynamic_css .= $css_output;
+
 			return $dynamic_css;
 		}
 	}

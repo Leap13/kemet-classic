@@ -1,1 +1,3 @@
-(function ($) {})(jQuery);
+(function ($) {
+  popup_css("desktop");
+})(jQuery);

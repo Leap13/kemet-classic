@@ -82,5 +82,35 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				return $parse_css;
 			}
 		}
+
+		/**
+		 * Generate Toggle Button Dynamic Css
+		 *
+		 * @param string $toggle_button toggle button slug.
+		 * @param string $builder builder.
+		 * @param string $device device
+		 * @return string
+		 */
+		public static function toggle_button_css( $toggle_button, $builder = 'header', $device = 'all' ) {
+			if ( Kemet_Builder_Helper::is_item_loaded( $toggle_button, 'header', $device ) ) {
+				// Toggle Button Css
+				$btn_selector   = '.' . $toggle_button . '-toggle-button';
+				$btn_css_output = array();
+				$parse_css      = kemet_parse_css( $btn_css_output );
+				// Popup Css
+				$popup_selector   = ' #kmt-' . esc_attr( $device ) . '-popup';
+				$content_selector = '.kmt-' . esc_attr( $device ) . '-popup-content';
+				$popup_width      = kemet_get_option( $device . '-popup-slide-width' );
+				$popup_css_output = array(
+					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
+						'max-width' => kemet_get_css_value( $popup_width, '%' ),
+					),
+				);
+
+				$parse_css .= kemet_parse_css( $popup_css_output );
+
+				return $parse_css;
+			}
+		}
 	}
 endif;

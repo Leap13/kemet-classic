@@ -37,6 +37,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			'mobile-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
 				'section'     => 'section-mobile-popup-header-builder',
+				'transport'   => 'postMessage',
 				'priority'    => 10,
 				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '%',

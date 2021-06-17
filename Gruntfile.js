@@ -173,6 +173,10 @@ module.exports = function (grunt) {
             dest: "inc/builder/items/header/button/assets/js/minified/customizer-preview.min.js",
           },
           {
+            src: "inc/builder/items/header/desktop-toggle/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/desktop-toggle/assets/js/minified/customizer-preview.min.js",
+          },
+          {
             src: "inc/builder/items/header/html/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/html/assets/js/minified/customizer-preview.min.js",
           },
@@ -187,6 +191,10 @@ module.exports = function (grunt) {
           {
             src: "inc/builder/items/header/mobile-html/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/mobile-html/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/mobile-toggle/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/mobile-toggle/assets/js/minified/customizer-preview.min.js",
           },
           {
             src: "inc/builder/items/header/widget/assets/js/unminified/customizer-preview.js",

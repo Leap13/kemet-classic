@@ -485,7 +485,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				$screen_reader_title = $toggle_title;
 			}
 			?>
-			<button type="button" class="toggle-button header-toggle-button <?php echo esc_attr( $toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
+			<button type="button" class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( $toggle_label_class ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<i class="<?php echo esc_attr( $toggle_icon ); ?>"></i>
 				<?php if ( '' != $toggle_title ) { ?>
