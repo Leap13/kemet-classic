@@ -593,6 +593,41 @@ function kemet_font_family_css(control, selector) {
   });
 }
 
+function kemet_font_weight_css(control, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      var fontControl = control.replace("weight", "family"),
+        fontName = wp.customize._value[fontControl]._value,
+        link = "";
+      fontName = fontName.split(",")[0];
+      fontName = fontName.replace(/'/g, "");
+
+      if (fontName in KemetCustomizerPrevData.googleFonts) {
+        jQuery("link#" + fontControl).remove();
+        if (value === "inherit") {
+          link =
+            '<link id="' +
+            fontControl +
+            '" href="https://fonts.googleapis.com/css?family=' +
+            fontName +
+            '"  rel="stylesheet">';
+        } else {
+          link =
+            '<link id="' +
+            fontControl +
+            '" href="https://fonts.googleapis.com/css?family=' +
+            fontName +
+            "%3A" +
+            value +
+            '"  rel="stylesheet">';
+        }
+      }
+      var dynamicStyle = selector + "{ font-weight: " + value + "; }";
+      kemet_add_dynamic_css(control, dynamicStyle);
+      jQuery("head").append(link);
+    });
+  });
+}
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;
   kemet_css(settingName(prefix + "-color"), "color", selector);
@@ -603,6 +638,7 @@ function kemet_html_css(prefix) {
     selector + " a:hover"
   );
   kemet_font_family_css(settingName(prefix + "-font-family"), selector);
+  kemet_font_weight_css(settingName(prefix + "-font-weight"), selector);
 }
 (function ($) {
   // Global custom event which triggers when partial refresh occurs.

@@ -113,6 +113,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
 			'kmt-hidden'             => 'Kemet_Control_Hidden',
 			'kmt-font-family'        => 'Kemet_Control_Typography',
+			'kmt-font-weight'        => 'Kemet_Control_Typography',
 		);
 
 		/**

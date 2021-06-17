@@ -107,6 +107,21 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
+				),
+				$prefix . '-font-weight'      => array(
+					'type'      => 'kmt-font-weight',
+					'transport' => 'postMessage',
+					'label'     => __( 'Font Weight', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 20,
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
 				),
 			);
 
