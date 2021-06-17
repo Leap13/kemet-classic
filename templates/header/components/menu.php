@@ -8,7 +8,7 @@
 $slug = wp_parse_args(
 	$args,
 	array(
-		'type' => 'header-menu-1',
+		'type' => 'primary-menu',
 	)
 );
 $slug = $slug['type'];
