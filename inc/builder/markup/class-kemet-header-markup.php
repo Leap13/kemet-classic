@@ -533,7 +533,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			?>
 			<div id="kmt-<?php echo esc_attr( $device ); ?>-popup" class="kmt-<?php echo esc_attr( $device ); ?>-popup kmt-popup-main <?php echo esc_attr( join( ' ', $classes ) ); ?> ">
 				<div class="kmt-popup-overlay"></div>
-				<div class="kmt-popup-content">
+				<div class="kmt-popup-content kmt-<?php echo esc_attr( $device ); ?>-popup-content">
 					<div class="kmt-popup-header">
 						<button id="kmt-toggle-button-close" class="toggle-button-close">
 							<span class="kmt-close-icon"></span>

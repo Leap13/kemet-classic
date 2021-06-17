@@ -4758,7 +4758,6 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	max-width: 90%;
 	opacity: 0;
 	color: #3a3a3a;
 	background: #fafafa;
@@ -4776,6 +4775,14 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	-moz-box-orient: vertical;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
+}
+
+.kmt-popup-content.kmt-mobile-popup-content {
+	max-width: 90%;
+}
+
+.kmt-popup-content.kmt-desktop-popup-content {
+	max-width: 35%;
 }
 
 .kmt-popup-content .kmt-header-item {

@@ -20,13 +20,13 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$desktop_popup_options = array(
 			'header-popup-controls-tabs'           => array(
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-desktop-popup-header-builder',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
 			'desktop-popup-layout'                 => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-desktop-popup-header-builder',
 				'priority' => 5,
 				'label'    => __( 'Layout', 'kemet' ),
 				'choices'  => array(
@@ -36,7 +36,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'desktop-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
-				'section'     => 'section-popup-header-builder',
+				'section'     => 'section-desktop-popup-header-builder',
 				'priority'    => 10,
 				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '%',
@@ -54,7 +54,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'desktop-popup-slide-side'             => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-desktop-popup-header-builder',
 				'priority' => 15,
 				'label'    => __( 'Slide-Out Side', 'kemet' ),
 				'choices'  => array(
@@ -70,7 +70,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'desktop-popup-content-align'          => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-desktop-popup-header-builder',
 				'priority' => 20,
 				'label'    => __( 'Content Align', 'kemet' ),
 				'choices'  => array(
@@ -81,7 +81,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'desktop-popup-content-vertical-align' => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-desktop-popup-header-builder',
 				'priority' => 25,
 				'label'    => __( 'Content Vertical Align', 'kemet' ),
 				'choices'  => array(
@@ -103,7 +103,7 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$desktop_popup_sections = array(
-			'section-popup-header-builder' => array(
+			'section-desktop-popup-header-builder' => array(
 				'priority' => 35,
 				'title'    => __( 'Desktop Popup', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',

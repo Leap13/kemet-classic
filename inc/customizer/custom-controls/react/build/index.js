@@ -6816,6 +6816,11 @@ var RowComponent = function RowComponent(props) {
       case "main":
         section = "section-header";
         break;
+
+      case "popup":
+        var device = "header-desktop-items" === props.controlParams.group ? "desktop" : "mobile";
+        section = "section-" + device + "-popup-header-builder";
+        break;
     }
   }
 

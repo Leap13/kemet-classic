@@ -20,13 +20,13 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$mobile_popup_options = array(
 			'header-popup-controls-tabs'          => array(
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-mobile-popup-header-builder',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
 			'mobile-popup-layout'                 => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-mobile-popup-header-builder',
 				'priority' => 5,
 				'label'    => __( 'Layout', 'kemet' ),
 				'choices'  => array(
@@ -36,7 +36,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'mobile-popup-slide-width'            => array(
 				'type'        => 'kmt-slider',
-				'section'     => 'section-popup-header-builder',
+				'section'     => 'section-mobile-popup-header-builder',
 				'priority'    => 10,
 				'label'       => __( 'Enter Width', 'kemet' ),
 				'suffix'      => '%',
@@ -54,7 +54,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'mobile-popup-slide-side'             => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-mobile-popup-header-builder',
 				'priority' => 15,
 				'label'    => __( 'Slide-Out Side', 'kemet' ),
 				'choices'  => array(
@@ -70,7 +70,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'mobile-popup-content-align'          => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-mobile-popup-header-builder',
 				'priority' => 20,
 				'label'    => __( 'Content Align', 'kemet' ),
 				'choices'  => array(
@@ -81,7 +81,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 			),
 			'mobile-popup-content-vertical-align' => array(
 				'type'     => 'select',
-				'section'  => 'section-popup-header-builder',
+				'section'  => 'section-mobile-popup-header-builder',
 				'priority' => 25,
 				'label'    => __( 'Content Vertical Align', 'kemet' ),
 				'choices'  => array(
@@ -103,7 +103,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$mobile_popup_sections = array(
-			'section-popup-header-builder' => array(
+			'section-mobile-popup-header-builder' => array(
 				'priority' => 35,
 				'title'    => __( 'Mobile Popup', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
