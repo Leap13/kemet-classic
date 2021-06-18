@@ -39,11 +39,22 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Item' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_SEARCH_BOX_DIR . 'dynamic-css/class-kemet-header-search-box-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
 		}
 
+		/**
+		 * Add Google Fonts
+		 */
+		public function add_fonts() {
+			if ( Kemet_Builder_Helper::is_item_loaded( 'search-box', 'header', 'all' ) ) {
+				$font_family = kemet_get_option( 'search-box-font-family' );
+				$font_weight = kemet_get_option( 'search-box-font-weight' );
+				Kemet_Fonts::add_font( $font_family, $font_weight );
+			}
+		}
 		/**
 		 * Add Preview Scripts
 		 *

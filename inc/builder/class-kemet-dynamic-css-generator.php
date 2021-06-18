@@ -117,5 +117,57 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				return $parse_css;
 			}
 		}
+
+		/**
+		 * Generate Typography Css
+		 *
+		 * @param string $item item name.
+		 * @param string $selector selector.
+		 * @return string
+		 */
+		public static function typography_css( $item, $selector ) {
+			$font_family    = kemet_get_option( $item . '-font-family' );
+			$font_weight    = kemet_get_option( $item . '-font-weight' );
+			$text_transform = kemet_get_option( $item . '-text-transform' );
+			$font_style     = kemet_get_option( $item . '-font-style' );
+			$line_height    = kemet_get_option( $item . '-line-height' );
+			$letter_spacing = kemet_get_option( $item . '-letter-spacing' );
+
+			$css_output = array(
+				$selector => array(
+					'font-family'    => kemet_get_font_family( $font_family ),
+					'font-weight'    => esc_attr( $font_weight ),
+					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'desktop' ),
+					'line-height'    => kemet_responsive_slider( $line_height, 'desktop' ),
+					'text-transform' => esc_attr( $text_transform ),
+					'font-style'     => esc_attr( $font_style ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css = kemet_parse_css( $css_output );
+
+			$tablet_typo = array(
+				$selector => array(
+					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'tablet' ),
+					'line-height'    => kemet_responsive_slider( $line_height, 'tablet' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $tablet_typo, '', '768' );
+
+			$mobile_typo = array(
+				$selector => array(
+					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'mobile' ),
+					'line-height'    => kemet_responsive_slider( $line_height, 'mobile' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $mobile_typo, '', '544' );
+
+			return $parse_css;
+		}
 	}
 endif;

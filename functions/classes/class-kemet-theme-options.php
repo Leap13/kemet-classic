@@ -627,6 +627,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'widget-title-letter-spacing'          => '',
 					'enable-widget-list-separator'         => false,
 					'widget-list-border-color'             => '',
+					// Search Box
+					'search-box-width'                     => array(
+						'desktop'      => 240,
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+					'search-box-font-style'                => 'inherit',
+					'search-box-font-family'               => 'inherit',
 				)
 			);
 		}

@@ -724,6 +724,27 @@ function popup_css(prefix) {
     selector + " .toggle-button-close"
   );
 }
+function typography_css(prefix, selector) {
+  kemet_font_family_css(settingName(prefix + "-font-family"), selector);
+  kemet_font_weight_css(settingName(prefix + "-font-weight"), selector);
+  kemet_responsive_slider(
+    settingName(prefix + "-line-height"),
+    selector,
+    "line-height"
+  );
+  kemet_responsive_slider(
+    settingName(prefix + "-letter-spacing"),
+    selector,
+    "letter-spacing"
+  );
+
+  kemet_css(
+    settingName(prefix + "-text-transform"),
+    "text-transform",
+    selector
+  );
+  kemet_css(settingName(prefix + "-font-style"), "font-style", selector);
+}
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;
   kemet_css(settingName(prefix + "-color"), "color", selector);
