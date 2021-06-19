@@ -762,6 +762,130 @@ function kemet_html_css(prefix) {
   kemet_font_family_css(settingName(prefix + "-font-family"), selector);
   kemet_font_weight_css(settingName(prefix + "-font-weight"), selector);
 }
+function kemet_menu_css(prefix) {
+  var selector = "#" + prefix;
+  kemet_css(settingName(prefix + "-bg-color"), "background-color", selector);
+  kemet_css(
+    settingName(prefix + "-link-color"),
+    "color",
+    selector + " > li > a"
+  );
+  kemet_css(
+    settingName(prefix + "-link-h-color"),
+    "color",
+    selector + " > li > a:hover"
+  );
+  kemet_css(
+    settingName(prefix + "-link-h-border-color"),
+    "border-bottom-color",
+    selector + " > li > a:hover"
+  );
+  kemet_css(
+    settingName(prefix + "-link-active-color"),
+    "color",
+    selector +
+      " > .current-menu-item > a, " +
+      selector +
+      " > .current-menu-ancestor > a, " +
+      selector +
+      " > .current_page_item > a"
+  );
+  kemet_css(
+    settingName(prefix + "-link-active-bg-color"),
+    "background-color",
+    selector +
+      " > .current-menu-item > a, " +
+      selector +
+      " > .current-menu-ancestor > a, " +
+      selector +
+      " > .current_page_item > a"
+  );
+  kemet_responsive_slider(
+    settingName(prefix + "-link-active-border-radius"),
+    selector +
+      " > .current-menu-item > a, " +
+      selector +
+      " > .current-menu-ancestor > a, " +
+      selector +
+      " > .current_page_item > a",
+    "border-radius"
+  );
+  kemet_responsive_slider(
+    settingName(prefix + "-link-bottom-border-width-hover"),
+    selector + " > li > a",
+    "border-bottom-width"
+  );
+  kemet_responsive_spacing(
+    settingName(prefix + "-spacing"),
+    selector,
+    "padding",
+    ["top", "bottom", "right", "left"]
+  );
+  kemet_responsive_spacing(
+    settingName(prefix + "-item-spacing"),
+    selector + " > li > a",
+    "padding",
+    ["top", "bottom", "right", "left"]
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-bg-color"),
+    "background-color",
+    selector + " > li ul > li > a"
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-link-color"),
+    "color",
+    selector + " > li ul > li > a"
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-h-bg-color"),
+    "background-color",
+    selector + " > li ul > li > a:hover"
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-link-h-color"),
+    "color",
+    selector + " > li ul > li > a:hover"
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-link-separator-color"),
+    "border-bottom-color",
+    selector + " > li ul > li > a:hover"
+  );
+  kemet_css(
+    settingName(prefix + "-submenu-border-top-color"),
+    "border-top-color",
+    selector + " > li ul"
+  );
+  wp.customize(
+    settingName(prefix + "-submenu-border-top-width"),
+    function (setting) {
+      setting.bind(function (border) {
+        var dynamicStyle =
+          selector + " > li ul { border-top-width: " + border + "px }";
+        dynamicStyle +=
+          selector +
+          " > li ul li.menu-item-has-children:hover > ul , " +
+          selector +
+          " li ul li.page_item_has_children:hover > ul { top: -" +
+          border +
+          "px }";
+        kemet_add_dynamic_css(
+          prefix + "-submenu-border-top-width",
+          dynamicStyle
+        );
+      });
+    }
+  );
+  wp.customize(settingName(prefix + "-submenu-width"), function (setting) {
+    setting.bind(function (width) {
+      var dynamicStyle = selector + " > li ul { width: " + width + "px }";
+      kemet_add_dynamic_css(prefix + "-submen-width", dynamicStyle);
+    });
+  });
+  typography_css(prefix + "-submenu", selector + " > li ul > li > a");
+  typography_css(prefix, selector + " > li > a");
+}
 (function ($) {
   // Global custom event which triggers when partial refresh occurs.
   wp.customize.bind("preview-ready", function () {

@@ -360,17 +360,17 @@ body:not(.kmt-header-break-point) {
 .kmt-header-break-point {
   .header-main-layout-3 {
     .main-header-container {
-      ul#primary-menu,
-      ul#left-menu,
-      #primary-menu > ul {
-        position: static;
-        width: 100%;
-        transform: translateY(0);
-      }
-      > .kmt-main-header-bar-alignment,
-      > .main-header-bar-navigation {
-        flex: auto;
-      }
+      // ul#primary-menu,
+      // ul#left-menu,
+      // #primary-menu > ul {
+      //   position: static;
+      //   width: 100%;
+      //   transform: translateY(0);
+      // }
+      // > .kmt-main-header-bar-alignment,
+      // > .main-header-bar-navigation {
+      //   flex: auto;
+      // }
     }
 
     &.main-header-bar {
@@ -406,18 +406,18 @@ body:not(.kmt-header-break-point) {
         &.right-menu {
           float: right;
         }
-        ul#primary-menu {
-          position: static;
-          transform: none;
-          right: auto;
-          width: auto;
-        }
-        ul#left-menu {
-          position: static;
-          transform: none;
-          left: auto;
-          width: auto;
-        }
+        // ul#primary-menu {
+        //   position: static;
+        //   transform: none;
+        //   right: auto;
+        //   width: auto;
+        // }
+        // ul#left-menu {
+        //   position: static;
+        //   transform: none;
+        //   left: auto;
+        //   width: auto;
+        // }
       }
     }
   }
@@ -442,17 +442,17 @@ body:not(.kmt-header-break-point) {
     }
   }
   .main-header-container {
-    ul#primary-menu,
-    #primary-menu > ul {
-      position: absolute;
-      right: 0;
-      transform: translateY(-55%);
-      width: 40%;
-    }
-    ul#primary-menu.kmt-justify-content-flex-end,
-    #primary-menu > ul.kmt-justify-content-flex-end {
-      justify-content: flex-start;
-    }
+    // ul#primary-menu,
+    // #primary-menu > ul {
+    //   position: absolute;
+    //   right: 0;
+    //   transform: translateY(-55%);
+    //   width: 40%;
+    // }
+    // ul#primary-menu.kmt-justify-content-flex-end,
+    // #primary-menu > ul.kmt-justify-content-flex-end {
+    //   justify-content: flex-start;
+    // }
     ul#left-menu {
       position: absolute;
       left: 0;

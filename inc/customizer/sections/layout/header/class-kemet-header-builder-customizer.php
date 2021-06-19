@@ -59,7 +59,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'primary-menu'    => array(
 							'name'    => __( 'Primary Menu', 'kemet' ),
 							'icon'    => 'menu',
-							'section' => 'section-header-primay-menu',
+							'section' => 'section-header-primary-menu',
 						),
 						'secondary-menu'  => array(
 							'name'    => __( 'Secondary Menu', 'kemet' ),

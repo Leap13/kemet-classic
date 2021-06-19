@@ -3705,25 +3705,6 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
 /**
  *  4 - Header Layout 3
 */
-.kmt-header-break-point .header-main-layout-3 .main-header-container ul#primary-menu,
-.kmt-header-break-point .header-main-layout-3 .main-header-container ul#left-menu,
-.kmt-header-break-point .header-main-layout-3 .main-header-container #primary-menu > ul {
-	position: static;
-	width: 100%;
-	-webkit-transform: translateY(0);
-	-ms-transform: translateY(0);
-	transform: translateY(0);
-}
-
-.kmt-header-break-point .header-main-layout-3 .main-header-container > .kmt-main-header-bar-alignment,
-.kmt-header-break-point .header-main-layout-3 .main-header-container > .main-header-bar-navigation {
-	-webkit-box-flex: 1;
-	-moz-box-flex: 1;
-	-webkit-flex: auto;
-	-ms-flex: auto;
-	flex: auto;
-}
-
 .kmt-header-break-point .header-main-layout-3.main-header-bar .main-header-bar-navigation {
 	display: block;
 }
@@ -3764,24 +3745,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 	float: left;
 }
 
-body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .main-header-bar-navigation ul#primary-menu {
-	position: static;
-	left: auto;
-	width: auto;
-	-webkit-transform: none;
-	-ms-transform: none;
-	transform: none;
-}
-
-body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .main-header-bar-navigation ul#left-menu {
-	position: static;
-	right: auto;
-	width: auto;
-	-webkit-transform: none;
-	-ms-transform: none;
-	transform: none;
-}
-
 .header-main-layout-3 .main-header-container {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -3815,25 +3778,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 
 .header-main-layout-3 .site-branding .site-title {
 	display: block;
-}
-
-.header-main-layout-3 .main-header-container ul#primary-menu,
-.header-main-layout-3 .main-header-container #primary-menu > ul {
-	position: absolute;
-	left: 0;
-	width: 40%;
-	-webkit-transform: translateY(-55%);
-	-ms-transform: translateY(-55%);
-	transform: translateY(-55%);
-}
-
-.header-main-layout-3 .main-header-container ul#primary-menu.kmt-justify-content-flex-end,
-.header-main-layout-3 .main-header-container #primary-menu > ul.kmt-justify-content-flex-end {
-	-webkit-box-pack: start;
-	-moz-box-pack: start;
-	-ms-flex-pack: start;
-	-webkit-justify-content: flex-start;
-	justify-content: flex-start;
 }
 
 .header-main-layout-3 .main-header-container ul#left-menu {

@@ -71,7 +71,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			$menu_items                   = apply_filters(
 				'kemet_header_register_menu_items',
 				array(
-					'primay-menu'    => 'Primary Menu',
+					'primary-menu'   => 'Primary Menu',
 					'secondary-menu' => 'Secondary Menu',
 				)
 			);

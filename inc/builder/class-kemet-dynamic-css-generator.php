@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$tablet_typo = array(
 				$selector => array(
-					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
+					'font-size'      => kemet_responsive_slider( $font_size, 'tablet' ),
 					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $line_height, 'tablet' ),
 				),
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$mobile_typo = array(
 				$selector => array(
-					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
+					'font-size'      => kemet_responsive_slider( $font_size, 'mobile' ),
 					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $line_height, 'mobile' ),
 				),
