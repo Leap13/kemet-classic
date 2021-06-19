@@ -126,6 +126,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 * @return string
 		 */
 		public static function typography_css( $item, $selector ) {
+			$font_size      = kemet_get_option( $item . '-font-size' );
 			$font_family    = kemet_get_option( $item . '-font-family' );
 			$font_weight    = kemet_get_option( $item . '-font-weight' );
 			$text_transform = kemet_get_option( $item . '-text-transform' );
@@ -135,6 +136,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$css_output = array(
 				$selector => array(
+					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
 					'font-family'    => kemet_get_font_family( $font_family ),
 					'font-weight'    => esc_attr( $font_weight ),
 					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'desktop' ),
@@ -149,6 +151,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$tablet_typo = array(
 				$selector => array(
+					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
 					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'tablet' ),
 					'line-height'    => kemet_responsive_slider( $line_height, 'tablet' ),
 				),
@@ -159,6 +162,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$mobile_typo = array(
 				$selector => array(
+					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
 					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'mobile' ),
 					'line-height'    => kemet_responsive_slider( $line_height, 'mobile' ),
 				),

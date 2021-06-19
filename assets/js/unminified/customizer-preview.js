@@ -725,6 +725,11 @@ function popup_css(prefix) {
   );
 }
 function typography_css(prefix, selector) {
+  kemet_responsive_slider(
+    settingName(prefix + "-font-size"),
+    selector,
+    "font-size"
+  );
   kemet_font_family_css(settingName(prefix + "-font-family"), selector);
   kemet_font_weight_css(settingName(prefix + "-font-weight"), selector);
   kemet_responsive_slider(

@@ -638,6 +638,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'search-box-font-style'                => 'inherit',
 					'search-box-font-family'               => 'inherit',
+					// Search Icons
+					'search-input-width'                   => array(
+						'desktop'      => 240,
+						'tablet'       => '',
+						'mobile'       => '',
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+					'search-font-style'                    => 'inherit',
+					'search-font-family'                   => 'inherit',
 				)
 			);
 		}
