@@ -189,6 +189,18 @@ module.exports = function (grunt) {
             dest: "inc/builder/items/header/search/assets/js/minified/customizer-preview.min.js",
           },
           {
+            src: "inc/builder/items/header/top-header/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/top-header/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/main-header/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/main-header/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/bottom-header/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/bottom-header/assets/js/minified/customizer-preview.min.js",
+          },
+          {
             src: "inc/builder/items/header/menu/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/menu/assets/js/minified/customizer-preview.min.js",
           },

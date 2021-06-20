@@ -6813,10 +6813,6 @@ var RowComponent = function RowComponent(props) {
 
   if ("header" === mode) {
     switch (props.row) {
-      case "main":
-        section = "section-header";
-        break;
-
       case "popup":
         var device = "header-desktop-items" === props.controlParams.group ? "desktop" : "mobile";
         section = "section-" + device + "-popup-header-builder";

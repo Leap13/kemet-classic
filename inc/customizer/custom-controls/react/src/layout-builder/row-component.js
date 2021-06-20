@@ -14,9 +14,6 @@ const RowComponent = (props) => {
   let section = "section-" + props.row + "-" + mode + "-builder";
   if ("header" === mode) {
     switch (props.row) {
-      case "main":
-        section = "section-header";
-        break;
       case "popup":
         let device =
           "header-desktop-items" === props.controlParams.group

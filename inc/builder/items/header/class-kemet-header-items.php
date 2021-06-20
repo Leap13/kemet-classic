@@ -50,6 +50,9 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 			require KEMET_HEADER_ITEMS_DIR . 'logo/kemet-header-logo-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'mobile-toggle/kemet-header-mobile-toggle-item.php';
 			require KEMET_HEADER_ITEMS_DIR . 'desktop-toggle/kemet-header-desktop-toggle-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'top-header/kemet-top-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'main-header/kemet-main-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'bottom-header/kemet-bottom-header.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

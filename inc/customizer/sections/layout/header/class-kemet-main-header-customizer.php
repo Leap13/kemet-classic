@@ -1,6 +1,6 @@
 <?php
 /**
- * Bottom Header Options for Kemet Theme.
+ * Main Header Options for Kemet Theme.
  *
  * @package     Kemet
  * @author      Kemet
@@ -9,7 +9,7 @@
  * @since       Kemet 1.0.0
  */
 
-class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
+class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 
 	/**
 	 * prefix
@@ -26,7 +26,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		self::$prefix     = 'bottom-header';
+		self::$prefix     = 'main-header';
 		$register_options = array(
 			self::$prefix . '-controls-tabs'           => array(
 				'section'  => 'section-' . self::$prefix . '-builder',
@@ -94,7 +94,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 				'choices'        => array(
 					'top'    => __( 'Top', 'kemet' ),
 					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
+					'bottom' => __( 'Main', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
 				'context'        => array(
@@ -166,20 +166,20 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
-		$bottom_header_sections = array(
+		$main_header_sections = array(
 			'section-' . self::$prefix . '-builder' => array(
 				'priority' => 50,
-				'title'    => __( 'Bottom Header', 'kemet' ),
+				'title'    => __( 'Main Header', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);
 
-		return array_merge( $sections, $bottom_header_sections );
+		return array_merge( $sections, $main_header_sections );
 
 	}
 }
 
 
-new Kemet_Bottom_Header_Customizer();
+new Kemet_Main_Header_Customizer();
 
 

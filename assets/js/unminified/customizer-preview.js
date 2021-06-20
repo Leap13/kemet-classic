@@ -144,10 +144,14 @@ function kemet_responsive_spacing(control, selector, type, side) {
 
         jQuery.each(paddingSide, function (index, sideValue) {
           if ("" != value["desktop"][sideValue]) {
+            var sideName = sideValue;
+            if ("border" === spacingType) {
+              sideName = sideName + "-width";
+            }
             desktopPadding +=
               spacingType +
               "-" +
-              sideValue +
+              sideName +
               ": " +
               value["desktop"][sideValue] +
               value["desktop-unit"] +
@@ -157,10 +161,14 @@ function kemet_responsive_spacing(control, selector, type, side) {
 
         jQuery.each(paddingSide, function (index, sideValue) {
           if ("" != value["tablet"][sideValue]) {
+            var sideName = sideValue;
+            if ("border" === spacingType) {
+              sideName = sideName + "-width";
+            }
             tabletPadding +=
               spacingType +
               "-" +
-              sideValue +
+              sideName +
               ": " +
               value["tablet"][sideValue] +
               value["tablet-unit"] +
@@ -170,10 +178,14 @@ function kemet_responsive_spacing(control, selector, type, side) {
 
         jQuery.each(paddingSide, function (index, sideValue) {
           if ("" != value["mobile"][sideValue]) {
+            var sideName = sideValue;
+            if ("border" === spacingType) {
+              sideName = sideName + "-width";
+            }
             mobilePadding +=
               spacingType +
               "-" +
-              sideValue +
+              sideName +
               ": " +
               value["mobile"][sideValue] +
               value["mobile-unit"] +

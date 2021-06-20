@@ -187,31 +187,6 @@ wp.customize.controlConstructor['kmt-icon-select'] = wp.customize.Control.extend
 
 });
 /**
- * File radio-image.js
- *
- * Handles toggling the radio images button
- *
- * @package Kemet
- */
-
-	wp.customize.controlConstructor['kmt-radio-image'] = wp.customize.Control.extend({
-
-		ready: function() {
-
-			'use strict';
-
-			var control = this;
-
-			// Change the value.
-			this.container.on( 'click', 'input', function() {
-				control.setting.set( jQuery( this ).val() );
-			});
-
-		}
-
-	});
-
-/**
  * File responsive.js
  *
  * Handles the responsive
@@ -1029,7 +1004,7 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
         html = "",
         fields = control.params.group;
 
-      if ("undefined" != typeof fields.tabs) {
+      if ("undefined" !== typeof fields.tabs) {
         var controlID = control.params.id.replace("[", "-"),
           controlID = controlID.replace("]", ""),
           count = 0;
@@ -1084,7 +1059,9 @@ jQuery(" .wp-full-overlay-footer .devices button ").on("click", function() {
 
         $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
       } else {
+        console.log(fields);
         var group = control.getGroupContent(fields);
+
         html += group.html;
         control.container.find(".model-list").append(html);
         _.each(group.controls, function (attrs, key) {

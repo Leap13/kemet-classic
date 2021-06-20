@@ -56,6 +56,30 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		}
 
 		/**
+		 * Row Empty
+		 *
+		 * @param string $row row.
+		 * @param string $builder builder type.
+		 * @param string $device device.
+		 * @return boolean
+		 */
+		public static function is_row_empty( $row, $builder, $device ) {
+			$items  = kemet_get_option( $builder . '-' . $device . '-items' );
+			$result = false;
+
+			if ( isset( $items ) && isset( $items[ $row ] ) ) {
+
+				foreach ( $items[ $row ] as $column => $c_items ) {
+					if ( isset( $items[ $row ][ $column ] ) && is_array( $items[ $row ][ $column ] ) && ! empty( $items[ $row ][ $column ] ) ) {
+						error_log( wp_json_encode( $items[ $row ][ $column ] ) );
+						$result = true;
+					}
+				}
+			}
+
+			return $result || is_customize_preview();
+		}
+		/**
 		 * Check if builder item loaded
 		 *
 		 * @param string $item item type.

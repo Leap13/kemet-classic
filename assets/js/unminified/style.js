@@ -1132,6 +1132,49 @@ var toggleClass = function (el, className) {
 })();
 
 (function () {
+  var setSubmenuPosition = function () {
+    var menus = document.querySelectorAll(".main-header-bar-navigation");
+
+    if (menus.length > 0) {
+      for (var j = 0; j < menus.length; j++) {
+        if ("undefined" !== typeof menus[j]) {
+          var parentList = menus[j].querySelectorAll("ul.main-header-menu li");
+          for (var i = 0; i < parentList.length; i++) {
+            if (null != parentList[i].querySelector(".sub-menu, .children")) {
+              var menuLeft = parentList[i].getBoundingClientRect().left,
+                windowWidth = window.innerWidth,
+                menuFromLeft = parseInt(windowWidth) - parseInt(menuLeft),
+                menuGoingOutside = false;
+
+              if (menuFromLeft < 500) {
+                menuGoingOutside = true;
+              }
+
+              // Submenu items goes outside?
+              if (menuGoingOutside) {
+                parentList[i].classList.add("kmt-left-align-sub-menu");
+
+                var all_submenu_parents = parentList[i].querySelectorAll(
+                  ".menu-item-has-children, .page_item_has_children"
+                );
+                for (var k = 0; k < all_submenu_parents.length; k++) {
+                  all_submenu_parents[k].classList.add(
+                    "kmt-left-align-sub-menu"
+                  );
+                }
+              }
+
+              // Submenu Container goes to outside?
+              if (menuFromLeft < 240) {
+                parentList[i].classList.add("kmt-sub-menu-goes-outside");
+              }
+            }
+          }
+        }
+      }
+    }
+  };
+  setSubmenuPosition();
   var initKemetPopup = {
     header: "",
     init: function () {
@@ -1243,31 +1286,6 @@ var toggleClass = function (el, className) {
               toggleButton,
               parentList[i].childNodes[1]
             );
-          }
-          var menuLeft = parentList[i].getBoundingClientRect().left,
-            windowWidth = window.innerWidth,
-            menuFromLeft = parseInt(windowWidth) - parseInt(menuLeft),
-            menuGoingOutside = false;
-
-          if (menuFromLeft < 500) {
-            menuGoingOutside = true;
-          }
-
-          // Submenu items goes outside?
-          if (menuGoingOutside) {
-            parentList[i].classList.add("kmt-left-align-sub-menu");
-
-            var all_submenu_parents = parentList[i].querySelectorAll(
-              ".menu-item-has-children, .page_item_has_children"
-            );
-            for (var k = 0; k < all_submenu_parents.length; k++) {
-              all_submenu_parents[k].classList.add("kmt-left-align-sub-menu");
-            }
-          }
-
-          // Submenu Container goes to outside?
-          if (menuFromLeft < 240) {
-            parentList[i].classList.add("kmt-sub-menu-goes-outside");
           }
         }
       }

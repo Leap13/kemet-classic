@@ -48,7 +48,7 @@
         html = "",
         fields = control.params.group;
 
-      if ("undefined" != typeof fields.tabs) {
+      if ("undefined" !== typeof fields.tabs) {
         var controlID = control.params.id.replace("[", "-"),
           controlID = controlID.replace("]", ""),
           count = 0;
@@ -103,7 +103,9 @@
 
         $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
       } else {
+        console.log(fields);
         var group = control.getGroupContent(fields);
+
         html += group.html;
         control.container.find(".model-list").append(html);
         _.each(group.controls, function (attrs, key) {
