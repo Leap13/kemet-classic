@@ -13,8 +13,7 @@
   transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
-  top: 0;
-  right: 0;
+  right: 8px;
   width: 80px;
   text-align: right;
 }

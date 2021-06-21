@@ -19,7 +19,7 @@ const SliderComponent = props => {
 
     let labelContent = label ? <label><span className="customize-control-title">{label}</span></label> : null;
 
-    let descriptionContent = description ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
 
     let suffixContent = suffix ? <span className="kmt-range-unit">{suffix}</span> : null;
 
@@ -58,13 +58,7 @@ const SliderComponent = props => {
     return (
         <div className="kemet-slider-wrap">
             {labelContent}
-            <button className="kmt-slider-reset" disabled={JSON.stringify(props_value) === JSON.stringify(defaultValue)} onClick={e => {
-                e.preventDefault();
-                let value = JSON.parse(JSON.stringify(defaultValue));
-                updateValues(value);
-            }}>
-                <span className="dashicons dashicons-image-rotate"></span>
-            </button>
+
             <div className="wrapper">
                 <input
                     type="range"
@@ -75,7 +69,7 @@ const SliderComponent = props => {
                     step={input_attrs.step}
 
                 />
-                <div class="kemet_range_valueeee">
+                <div class="kemet_range_value">
                     <input type="number" className="value kmt-range-value-input"
                         value={`${savedValue}`}
                         onChange={(value) => updateValues(event.target.value)}
@@ -84,6 +78,13 @@ const SliderComponent = props => {
                         step={input_attrs.step}
                     />
                     {suffixContent}
+                </div>
+                <div className="kmt-slider-reset" disabled={JSON.stringify(props_value) === JSON.stringify(defaultValue)} onClick={e => {
+                    e.preventDefault();
+                    let value = JSON.parse(JSON.stringify(defaultValue));
+                    updateValues(value);
+                }}>
+                    <span className="dashicons dashicons-image-rotate"></span>
                 </div>
 
             </div>

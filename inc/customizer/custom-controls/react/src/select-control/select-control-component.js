@@ -29,7 +29,7 @@ const SelectControlComponent = props => {
     });
 
     return <>
-        {htmlLabel}
+        {labelContent}
         <div className="customize-control-content">
             <select className="kmt-select-input" data-name={name} data-value={props_value} value={props_value}
                 onChange={() => {

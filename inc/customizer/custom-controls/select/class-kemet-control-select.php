@@ -52,31 +52,4 @@ class Kemet_Control_Select extends WP_Customize_Control {
 		$this->json['value'] = $this->value();
 		$this->json['label'] = esc_html( $this->label );
 	}
-
-	/**
-	 * An Underscore (JS) template for this control's content (but not its container).
-	 *
-	 * Class variables for this control class are available in the `data` JS object;
-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-	 *
-	 * @see WP_Customize_Control::print_template()
-	 *
-	 * @access protected
-	 */
-	protected function content_template() {
-		?>
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<div class="customize-control-content">
-				<select class="kmt-select-input" data-name="{{data.id}}" data-value="{{data.value}}" >
-					<# _.each( data.choices, function( label, key ){ #>
-						<option <# if ( data.value == key ){ #> selected="selected" <# } #> value="{{ key }}">{{ label }}</option>
-					<# } ); #>
-				</select>
-			</div>
-		</label>			
-		<?php
-	}
 }

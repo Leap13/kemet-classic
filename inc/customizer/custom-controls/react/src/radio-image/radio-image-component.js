@@ -24,7 +24,7 @@ const RadioComponent = (props) => {
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
 
-    let descriptionContent = description ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
 
     const HandleRepeat = (item) => {
         let splitedItems = item.split(" ").map((item, i) => {

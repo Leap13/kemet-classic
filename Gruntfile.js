@@ -424,12 +424,12 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/react/src/sortable/sortable.css",
           "inc/customizer/custom-controls/react/src/slider/slider.css",
           "inc/customizer/custom-controls/color/color.css",
-          "inc/customizer/custom-controls/icon-select/icon-select.css",
+          "inc/customizer/custom-controls/react/src/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive/responsive.css",
           "inc/customizer/custom-controls/responsive-select/responsive-select.css",
-          "inc/customizer/custom-controls/responsive-slider/responsive-slider.css",
-          "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css",
+          "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css",
+          "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css",,
           "inc/customizer/custom-controls/react/src/title/title.css",
           "inc/customizer/custom-controls/typography/typography.css",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.css",
@@ -442,7 +442,6 @@ module.exports = function (grunt) {
       js: {
         src: [
           "inc/customizer/custom-controls/color/color.js",
-          "inc/customizer/custom-controls/icon-select/icon-select.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",

@@ -8,6 +8,7 @@ const ResponsiveSpacingComponent = props => {
     let value = props.control.setting.get()
     value = (undefined === value || '' === value) ? props.control.params.value : value;
     const [state, setState] = useState(value);
+    const [device, setDevice] = useState('desktop');
 
     useEffect(() => {
         if (state !== value) {
@@ -95,7 +96,7 @@ const ResponsiveSpacingComponent = props => {
 
 
         let htmlChoices = null;
-        let responsiveUnit = null;
+
 
 
         if (choices) {
@@ -113,11 +114,11 @@ const ResponsiveSpacingComponent = props => {
         let linkHtml = linked_choices ? (
             <li key={'connect-disconnect' + device} className={`kmt-spacing-input-item-link ${disconnectedClass}`}>
                 <span title={title}
-                    className="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight"
+                    className="dashicons dashicons-admin-links kmt-spacing-connected "
                     onClick={() => {
                         onConnectedClick();
                     }} data-element-connect={id} ></span>
-                <span title={title} className="dashicons dashicons-editor-unlink kmt-spacing-disconnected"
+                <span title={title} className="dashicons dashicons-editor-unlink kmt-spacing-disconnected wp-ui-highlight"
                     onClick={() => {
                         onDisconnectedClick();
                     }} data-element-connect={id} ></span>
@@ -126,6 +127,19 @@ const ResponsiveSpacingComponent = props => {
 
 
 
+
+
+
+        return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
+            {htmlChoices}
+            {linkHtml}
+
+        </ul>;
+    };
+    let responsiveUnit = null;
+    const renderUnit = () => {
+        let responsiveUnit = null;
+        const { unit_choices } = props.control.params;
         if (unit_choices) {
             responsiveUnit = Object.values(unit_choices).map(unitKey => {
                 let unitClass = '';
@@ -141,17 +155,11 @@ const ResponsiveSpacingComponent = props => {
                 return html;
             });
         }
-
-
-        return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
-            {htmlChoices}
-            {linkHtml}
-            <ul key={'responsive-units'}
-                className={`kmt-spacing-responsive-units kmt-spacing-${device}-responsive-units`}>
-                {responsiveUnit}
-            </ul>
-        </ul>;
-    };
+        return (<ul key={'responsive-units'}
+            className={`kmt-spacing-responsive-units kmt-spacing-${device}-responsive-units`}>
+            {responsiveUnit}
+        </ul>)
+    }
 
     const {
         label,
@@ -164,7 +172,7 @@ const ResponsiveSpacingComponent = props => {
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
 
-    let descriptionContent = <span className="description customize-control-description">{description}</span>;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     inputHtml = <Fragment>
         {renderInputHtml('desktop', 'active')}
         {renderInputHtml('tablet')}
@@ -179,25 +187,26 @@ const ResponsiveSpacingComponent = props => {
 
     </Fragment>;
 
-    return <label key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' htmlFor="kmt-spacing">
+    return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
         {labelContent}
         <ul class="kmt-responsive-control-btns kmt-spacing-responsive-btns">
             <li class="desktop active">
-                <button type="button" class="preview-desktop active" data-device="desktop">
+                <button type="button" class="preview-desktop active" data-device="desktop" onClick={() => setDevice('tablet')}>
                     <i class="dashicons dashicons-desktop"></i>
                 </button>
             </li>
             <li class="tablet">
-                <button type="button" class="preview-tablet" data-device="tablet">
+                <button type="button" class="preview-tablet" data-device="tablet" onClick={() => setDevice('mobile')}>
                     <i class="dashicons dashicons-tablet"></i>
                 </button>
             </li>
             <li class="mobile">
-                <button type="button" class="preview-mobile" data-device="mobile">
+                <button type="button" class="preview-mobile" data-device="mobile" onClick={() => setDevice('desktop')}>
                     <i class="dashicons dashicons-smartphone"></i>
                 </button>
             </li>
         </ul>
+        {renderUnit()}
         {descriptionContent}
         <div className="kmt-spacing-responsive-outer-wrapper">
             <div className="input-wrapper kmt-spacing-responsive-wrapper">
@@ -207,7 +216,7 @@ const ResponsiveSpacingComponent = props => {
                 {responsiveHtml}
             </div>
         </div>
-    </label>;
+    </div>;
 
 };
 
