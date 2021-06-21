@@ -54,12 +54,12 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
-
-		$this->json['inputAttrs'] = '';
-		foreach ( $this->input_attrs as $attr => $value ) {
-			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-		}
+        $this->json['input_attrs'] = $this->input_attrs;
+	
 	}
+	
+
+	
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).
@@ -71,32 +71,7 @@ class Kemet_Control_Slider extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		?>
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<div class="wrapper">
-				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
-				<div class="kemet_range_value">
-					<input type="number" class="value kmt-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
-					if ( data.suffix ) {
-
-					#><span class="kmt-range-unit">{{ data.suffix }}</span><#
-					} #>
-				</div>
-				<div class="kmt-slider-reset">
-					<span class="dashicons dashicons-image-rotate"></span>
-				</div>
-			</div>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-		</label>
-		<?php
-	}
-
+	
 	/**
 	 * Render the control's content.
 	 *

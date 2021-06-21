@@ -72,38 +72,6 @@
 	line-height: 1.54545455;
 }
 
-.customize-control-kmt-sortable ul.ui-sortable {
-	cursor: default;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable .dashicons-visibility {
-	cursor: pointer;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable li {
-	padding: 5px 10px;
-	border: 1px solid #333;
-	background: #fff;
-	cursor: move;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable li .dashicons.dashicons-menu {
-	float: left;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable li .dashicons.visibility {
-	margin-left: 10px;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable li.invisible {
-	border: 1px dashed #aaa;
-	color: #aaa;
-}
-
-.customize-control-kmt-sortable ul.ui-sortable li.invisible .dashicons.visibility {
-	color: #aaa;
-}
-
 .customize-control-kmt-slider .wrapper {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -115,7 +83,7 @@
 	-ms-flex-align: center;
 }
 
-.customize-control-kmt-slider input[type=range] {
+.customize-control-kmt-slider input[type="range"] {
 	height: 5px;
 	padding: 0;
 	background-color: rgba(0, 0, 0, 0.1);
@@ -129,17 +97,17 @@
 	flex: 1;
 }
 
-.customize-control-kmt-slider input[type=range]:focus {
+.customize-control-kmt-slider input[type="range"]:focus {
 	outline: none;
 	box-shadow: none;
 }
 
-.customize-control-kmt-slider input[type=range]:hover,
-.customize-control-kmt-slider input[type=range]:focus {
+.customize-control-kmt-slider input[type="range"]:hover,
+.customize-control-kmt-slider input[type="range"]:focus {
 	background-color: rgba(0, 0, 0, 0.25);
 }
 
-.customize-control-kmt-slider input[type=range]::-webkit-slider-thumb {
+.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
 	width: 15px;
 	height: 15px;
 	-webkit-border-radius: 50%;
@@ -149,7 +117,7 @@
 	-webkit-appearance: none;
 }
 
-.customize-control-kmt-slider input[type=range]::-webkit-slider-thumb {
+.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
 	width: 15px;
 	height: 15px;
 	border: none;
@@ -159,7 +127,7 @@
 	-webkit-appearance: none;
 }
 
-.customize-control-kmt-slider input[type=range]::-moz-range-thumb {
+.customize-control-kmt-slider input[type="range"]::-moz-range-thumb {
 	width: 15px;
 	height: 15px;
 	border: none;
@@ -167,7 +135,7 @@
 	background-color: #3498d9;
 }
 
-.customize-control-kmt-slider input[type=range]::-ms-thumb {
+.customize-control-kmt-slider input[type="range"]::-ms-thumb {
 	width: 15px;
 	height: 15px;
 	border: 0;
@@ -175,23 +143,23 @@
 	background-color: #3498d9;
 }
 
-.customize-control-kmt-slider input[type=range]::-moz-range-track {
+.customize-control-kmt-slider input[type="range"]::-moz-range-track {
 	border: inherit;
 	background: transparent;
 }
 
-.customize-control-kmt-slider input[type=range]::-ms-track {
+.customize-control-kmt-slider input[type="range"]::-ms-track {
 	border: inherit;
 	color: transparent;
 	background: transparent;
 }
 
-.customize-control-kmt-slider input[type=range]::-ms-fill-lower,
-.customize-control-kmt-slider input[type=range]::-ms-fill-upper {
+.customize-control-kmt-slider input[type="range"]::-ms-fill-lower,
+.customize-control-kmt-slider input[type="range"]::-ms-fill-upper {
 	background: transparent;
 }
 
-.customize-control-kmt-slider input[type=range]::-ms-tooltip {
+.customize-control-kmt-slider input[type="range"]::-ms-tooltip {
 	display: none;
 }
 
@@ -357,9 +325,9 @@ textarea {
 .customize-control-kmt-radio-image input + label .image-clickable {
 	position: absolute;
 	top: 0;
-	right: 0;
-	bottom: 0;
 	left: 0;
+	bottom: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
 }
@@ -687,7 +655,8 @@ textarea {
 	display: inline-block;
 }
 
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-outer-wrapper {
+.customize-control-kmt-responsive-spacing
+  .kmt-spacing-responsive-outer-wrapper {
 	display: flex;
 	position: relative;
 }
@@ -703,7 +672,9 @@ textarea {
 	transform: translateY(-100%);
 }
 
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units li.single-unit {
+.customize-control-kmt-responsive-spacing
+  .kmt-spacing-responsive-units
+  li.single-unit {
 	display: inline-block;
 	width: 16px;
 	margin-right: 3px;
@@ -712,7 +683,9 @@ textarea {
 	user-select: none;
 }
 
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units li.single-unit.active {
+.customize-control-kmt-responsive-spacing
+  .kmt-spacing-responsive-units
+  li.single-unit.active {
 	opacity: 1;
 	font-weight: bold;
 	text-decoration: underline;
@@ -722,7 +695,10 @@ textarea {
 	display: none;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper li {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  li {
 	width: 20%;
 	text-align: center;
 
@@ -731,35 +707,61 @@ textarea {
 	flex: auto;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper li input.kmt-spacing-input {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  li
+  input.kmt-spacing-input {
 	padding: 0 3px;
 	text-align: center;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.active {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper.active {
 	display: flex;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper span.kmt-spacing-title {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  span.kmt-spacing-title {
 	opacity: 0.75;
 	font-size: 10px;
 	font-weight: bold;
 	text-transform: uppercase;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper .kmt-spacing-input-item-link .kmt-spacing-connected {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link
+  .kmt-spacing-connected {
+	display: none;
+	color: #444;
+}
+
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link.disconnected
+  .kmt-spacing-disconnected {
 	display: none;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper .kmt-spacing-input-item-link.disconnected .kmt-spacing-disconnected {
-	display: none;
-}
-
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper .kmt-spacing-input-item-link.disconnected .kmt-spacing-connected {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link.disconnected
+  .kmt-spacing-connected {
 	display: block;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper .kmt-spacing-input-item-link span {
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link
+  span {
 	width: 100%;
 	height: 28px;
 	border: 1px solid #ddd;
