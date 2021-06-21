@@ -212,6 +212,16 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'text',
 							'section' => 'section-header-mobile-html-2',
 						),
+						'primary-menu'         => array(
+							'name'    => __( 'Primary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-primary-menu',
+						),
+						'secondary-menu'       => array(
+							'name'    => __( 'Secondary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-secondary-menu',
+						),
 						'header-widget-1'      => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',

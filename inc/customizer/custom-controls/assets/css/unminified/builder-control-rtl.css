@@ -540,7 +540,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   transition: all 0.15s;
   transform: translate(0, -2px);
 }
-
+.kmt-builder-areas:not(:last-child) {
+  margin-bottom: 25px;
+}
 .kmt-builder-area .kmt-builder-drop-left,
 .kmt-builder-area
   .kmt-builder-drop-left
@@ -904,7 +906,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .dashicons-plus-alt2:before {
   content: "\f543";
   display: inline-block;
-  opacity: 1;
+  opacity: 0.5;
   transition: 0.2s;
   -webkit-font-smoothing: antialiased;
   font: normal 20px/1 "dashicons";
