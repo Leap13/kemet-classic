@@ -390,13 +390,9 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 * @param  number $input setting input.
 		 * @return number        setting input value.
 		 */
-		public static function sanitize_checkbox( $input ) {
-			if ( $input ) {
-				$output = '1';
-			} else {
-				$output = false;
-			}
-			return $output;
+		public static function sanitize_toggle_control( $val ) {
+			// returns true if checkbox is checked.
+			return ( isset( $val ) && is_bool( $val ) ? $val : '' );
 		}
 
 		/**
