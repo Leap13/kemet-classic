@@ -57,21 +57,5 @@ class Kemet_Control_Title extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		?>
 
-		<# if ( data.caption ) { #>
-			<span class="customize-control-caption">{{{ data.caption }}}</span>
-		<# } #>
-
-		<div class="customizer-text">
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-		</div>
-		<?php
-	}
 }

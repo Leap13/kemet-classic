@@ -63,27 +63,5 @@ class Kemet_Control_Icon_Select extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		$rtl_class = is_rtl() ? 'rtl' : '';
-		?>
-		<label class="customizer-text">
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-		</label>
-		<div id="input_{{ data.id }}" class="icon-select <?php echo esc_attr( $rtl_class ); ?>">  
-			<# for ( key in data.choices ) { #>	
-				<label>
-					<input class="icon-select-input" type="radio" value="{{ key }}" name="_customize-icon-select-{{ data.id }}" {{{ data.link }}}<# if ( data.value === key ) { #> checked<# } #> />
-					<span class="icon-select-label">
-						<div class="dashicons {{ data.choices_icon[ key ] }}"></div>
-					</span>
-				</label>
-			<# } #>
-		</div>
-		<?php
-	}
+
 }

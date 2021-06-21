@@ -63,20 +63,5 @@ class Kemet_Control_Select extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		?>
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<div class="customize-control-content">
-				<select class="kmt-select-input" data-name="{{data.id}}" data-value="{{data.value}}" >
-					<# _.each( data.choices, function( label, key ){ #>
-						<option <# if ( data.value == key ){ #> selected="selected" <# } #> value="{{ key }}">{{ label }}</option>
-					<# } ); #>
-				</select>
-			</div>
-		</label>			
-		<?php
-	}
+	
 }
