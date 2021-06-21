@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 const IconSelectComponent = props => {
-    console.log(props.control.params)
     const [value, setValue] = useState(props.control.params.value);
 
     const onLayoutChange = (value) => {
@@ -15,11 +14,10 @@ const IconSelectComponent = props => {
         choices,
     } = props.control.params;
     let ContentHTML = [];
-    let defaultVal = props.control.params
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
 
-    let descriptionContent = description ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     for (const [key, icon] of Object.entries(choices)) {
 
         ContentHTML.push(<label>

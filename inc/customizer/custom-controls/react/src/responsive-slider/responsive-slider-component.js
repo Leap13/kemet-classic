@@ -1,63 +1,77 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+
 const { Component, Fragment } = wp.element;
 class ResponsiveSliderComponent extends Component {
     constructor() {
         super(...arguments);
         this.unit_choices = this.props.control.params.unit_choices;
-        this.defaultValues = this.props.control.params.default;
-        this.state = {
-            currentDevice: 'desktop',
-            currentUnit: this.defaultValues['desktop_unit']
-        }
+        let defaultValues = this.props.control.params.default;
         this.values = this.props.control.params.value;
+        let value = this.props.control.setting.get()
+        let defaultParam = {
+            "desktop": '',
+            "desktop-unit": 'px',
+            'tablet': '',
+            'tablet-unit': 'px',
+            'mobile': '',
+            'mobile-unit': ''
+        }
+        value = (undefined === value || '' === value) ? this.props.control.params.value : value;
+        defaultValues = (undefined === defaultValues || '' === defaultValues) ? defaultParam : defaultValues;
+        this.state = {
+            initialState: value,
+            currentDevice: 'desktop',
+            defaultVal: defaultValues
+
+        }
+
         this.updateValues = this.updateValues.bind(this)
+
+        this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-    updateValues(value) {
-        this.values[this.state.currentDevice] = value
+
+    updateValues(device, value) {
+        let updateState = {
+            ...this.state.initialState
+        };
+        updateState[device] = value;
+        this.props.control.setting.set(updateState);
+        this.setState({ initialState: updateState });
+    }
+    handleUnitChange = (device, value) => {
+
+        let updateState = {
+            ...this.state.initialState
+        };
+        updateState[`${device}-unit`] = value;
+        this.props.control.setting.set(updateState);
+        this.setState({ initialState: updateState });
+    }
+    handleReset = (e) => {
+        e.preventDefault();
+
+        let defUnit = this.state.defaultVal[`${this.state.currentDevice}-unit`],
+            size = this.state.defaultVal[this.state.currentDevice];
+        let updateState = {
+            ...this.state.defaultVal
+        };
+        updateState[`${this.state.currentDevice}-unit`] = defUnit;
+        updateState[this.state.currentDevice] = size;
+        this.props.control.setting.set(updateState);
+        this.setState({ initialState: updateState });
     }
 
     render() {
-        console.log(this.props.control.params)
-
         let { label, value, suffix, description } = this.props.control.params;
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
-        let descriptionContent = description ? <span class="description customize-control-description">{description}</span> : null;
-
-        let desktop_unit_val,
-            tablet_unit_val,
-            mobile_unit_val = 'px';
-
-
-
-        if (value['desktop-unit']) {
-            desktop_unit_val = value['desktop-unit'];
-        }
-
-        if (value['tablet-unit']) {
-            tablet_unit_val = value['tablet-unit'];
-        }
-
-        if (value['mobile-unit']) {
-            mobile_unit_val = value['mobile-unit'];
-        }
-
-        let desktop_attrs = '',
-            tablet_attrs = '',
-            mobile_attrs = '';
-
+        let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
+        let dataAttributes = ''
         let units = [];
         for (const [key, value] of Object.entries(this.unit_choices)) {
             units.push(key)
-            if (key == desktop_unit_val) {
-                desktop_attrs = { min: value.min, max: value.max, step: value.step };
-            }
-            if (key == tablet_unit_val) {
-                tablet_attrs = { min: value.min, max: value.max, step: value.step };
-            }
-            if (key == mobile_unit_val) {
-                mobile_attrs = { min: value.min, max: value.max, step: value.step };
+            if (key == this.state.initialState[`${this.state.currentDevice}-unit`]) {
+                dataAttributes = { min: value.min, max: value.max, step: value.step };
             }
         }
         let labelContent = label ? (
@@ -82,78 +96,56 @@ class ResponsiveSliderComponent extends Component {
                 </ul>
             </>
         ) : null;
+        let unitHTML = units.map((unit) => {
+            let unit_class = '';
+            if (this.state.initialState[`${this.state.currentDevice}-unit`] === unit) {
+                unit_class = 'active';
+            }
+            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+                <span className="unit-text" onClick={value => this.handleUnitChange(this.state.currentDevice, unit)} >{`${unit}`}</span>
+            </li>)
 
+        })
         return (
             <label htmlFor="">
                 {labelContent}
                 <div className="wrapper">
                     {/* Desktop */}
                     <div className={`input-field-wrapper desktop active`}>
-                        <input type="range" value={this.values['desktop']} onChange={(value) => this.updateValues(event.target.value)} min={`${desktop_attrs.min}`} max={`${desktop_attrs.max}`} step={`${desktop_attrs.step}`} />
+                        <input type="range" value={this.state.initialState['desktop']} onChange={(event) => this.updateValues('desktop', event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
                         <div className="kemet_range_value">
-                            <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={this.values['desktop']} min={`${desktop_attrs.min}`} max={`${desktop_attrs.max}`} step={`${desktop_attrs.step}`} />
+                            <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={this.state.initialState['desktop']} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues('desktop', event.target.value)} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
-                            {units.map((unit) => {
-                                let unit_class = '';
-                                if (desktop_unit_val === unit) {
-                                    unit_class = 'active';
-                                }
-                                return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
-                                    <span className="unit-text">{`${unit}`}</span>
-                                </li>)
-
-                            })}
+                            {unitHTML}
                         </ul>
                     </div>
                     {/* Tablet */}
                     <div className={`input-field-wrapper tablet `}>
-                        <input type="range" value={this.values['tablet']} onChange={(value) => this.updateValues(event.target.value)} min={`${tablet_attrs.min}`} max={`${tablet_attrs.max}`} step={`${tablet_attrs.step}`} />
+                        <input type="range" value={this.state.initialState['tablet']} onChange={(value) => this.updateValues('tablet', event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
                         <div className="kemet_range_value">
-                            <input type="number" data-id='tablet' className="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value={this.values['tablet']} min={`${tablet_attrs.min}`} max={`${tablet_attrs.max}`} step={`${tablet_attrs.step}`} />
+                            <input type="number" data-id='tablet' className="kmt-responsive-range-value-input kmt-responsive-range-tablet-input" value={this.state.initialState['tablet']} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(value) => this.updateValues('tablet', event.target.value)} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
-                            {units.map((unit) => {
-                                let unit_class = '';
-                                if (tablet_unit_val === unit) {
-                                    unit_class = 'active';
-                                }
-                                return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
-                                    <span className="unit-text">{`${unit}`}</span>
-                                </li>)
-
-                            })}
+                            {unitHTML}
                         </ul>
                     </div>
                     {/* Mobile */}
                     <div className={`input-field-wrapper mobile `}>
-                        <input type="range" value={this.values['mobile']} onChange={(value) => this.updateValues(event.target.value)} min={`${mobile_attrs.min}`} max={`${mobile_attrs.max}`} step={`${mobile_attrs.step}`} />
+                        <input type="range" value={this.state.initialState['mobile']} onChange={(value) => this.updateValues('mobile', event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
                         <div className="kemet_range_value">
-                            <input type="number" data-id='mobile' className="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" value={this.values['mobile']} min={`${mobile_attrs.min}`} max={`${mobile_attrs.max}`} step={`${mobile_attrs.step}`} />
+                            <input type="number" data-id='mobile' className="kmt-responsive-range-value-input kmt-responsive-range-mobile-input" onChange={(value) => this.updateValues('mobile', event.target.value)} value={this.state.initialState['mobile']} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
-                            {units.map((unit) => {
-                                let unit_class = '';
-                                if (mobile_unit_val === unit) {
-                                    unit_class = 'active';
-                                }
-                                return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
-                                    <span className="unit-text">{`${unit}`}</span>
-                                </li>)
-
-                            })}
+                            {unitHTML}
                         </ul>
                     </div>
-                    <button className="kmt-responsive-slider-reset" onClick={e => {
-                        e.preventDefault();
-                        let value = this.defaultValues[this.state.currentDevice];
-                        this.updateValues(value);
-                    }}  >
+                    <div className="kmt-responsive-slider-reset" onClick={e => this.handleReset(e)}  >
                         <span className="dashicons dashicons-image-rotate"></span>
-                    </button>
+                    </div>
                 </div>
                 { descriptionContent}
             </label >
