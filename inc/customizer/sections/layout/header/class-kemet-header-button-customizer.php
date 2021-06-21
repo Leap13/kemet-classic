@@ -12,35 +12,96 @@
 class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 
 	/**
+	 * prefix
+	 *
+	 * @access private
+	 * @var string
+	 */
+	private static $prefix;
+
+	/**
 	 * Register Customizer Options
 	 *
 	 * @param array $options options.
 	 * @return array
 	 */
 	public function register_options( $options ) {
+		self::$prefix          = 'header-button';
 		$header_button_options = array(
-			'header-button-controls-tabs' => array(
-				'section'  => 'section-header-button',
+			self::$prefix . '-controls-tabs' => array(
+				'section'  => 'section-' . self::$prefix,
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-			'header-button-label'         => array(
+			self::$prefix . '-label'         => array(
 				'type'     => 'text',
-				'section'  => 'section-header-button',
+				'section'  => 'section-' . self::$prefix,
 				'priority' => 5,
 				'label'    => __( 'Label', 'kemet-addons' ),
 			),
-			'header-button-url'           => array(
+			self::$prefix . '-url'           => array(
 				'type'     => 'text',
-				'section'  => 'section-header-button',
+				'section'  => 'section-' . self::$prefix,
 				'priority' => 10,
 				'label'    => __( 'URL', 'kemet-addons' ),
 			),
-			'header-button-open-new-tab'  => array(
+			self::$prefix . '-open-new-tab'  => array(
 				'type'     => 'checkbox',
-				'section'  => 'section-header-button',
+				'section'  => 'section-' . self::$prefix,
 				'priority' => 15,
 				'label'    => __( 'Open in New Tab?', 'kemet-addons' ),
+			),
+			self::$prefix . '-color'         => array(
+				'section'   => 'section-' . self::$prefix,
+				'priority'  => 5,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-color',
+				'label'     => __( 'Text Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
+			),
+			self::$prefix . '-bg-color'      => array(
+				'section'   => 'section-' . self::$prefix,
+				'priority'  => 5,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-color',
+				'label'     => __( 'Text Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
+			),
+			self::$prefix . '-h-color'       => array(
+				'section'   => 'section-' . self::$prefix,
+				'priority'  => 5,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-color',
+				'label'     => __( 'Text Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
+			),
+			self::$prefix . '-h-bg-color'    => array(
+				'section'   => 'section-' . self::$prefix,
+				'priority'  => 5,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-color',
+				'label'     => __( 'Text Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
 			),
 		);
 
@@ -55,7 +116,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$button_sections = array(
-			'section-header-button' => array(
+			'section-' . self::$prefix => array(
 				'priority' => 40,
 				'title'    => __( 'Button', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
