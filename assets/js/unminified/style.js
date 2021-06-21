@@ -1282,10 +1282,13 @@ var toggleClass = function (el, className) {
             toggleButton.setAttribute("aria-expanded", "false");
             toggleButton.innerHTML =
               "<span class='screen-reader-text'>Menu Toggle</span>";
-            parentList[i].insertBefore(
-              toggleButton,
-              parentList[i].childNodes[1]
-            );
+
+            var link = parentList[i].querySelector("a");
+            var wrap = document.createElement("div");
+            wrap.setAttribute("class", "kmt-menu-item-wrap");
+            parentList[i].insertBefore(wrap, parentList[i].childNodes[0]);
+            wrap.appendChild(link);
+            wrap.appendChild(toggleButton);
           }
         }
       }
@@ -1296,7 +1299,7 @@ var toggleClass = function (el, className) {
         kemetMenuToggle[i].onclick = function (event) {
           event.preventDefault();
 
-          var parentLi = this.parentNode;
+          var parentLi = this.parentNode.parentNode;
 
           var parentLiChild = parentLi.querySelectorAll(
             ".menu-item-has-children, .page_item_has_children"

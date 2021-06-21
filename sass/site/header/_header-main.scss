@@ -302,8 +302,11 @@ li.kmt-sitehead-custom-menu-items {
       ul.children {
         display: none;
       }
-
-      > .kmt-menu-toggle {
+      > .kmt-menu-item-wrap > a {
+        color: inherit;
+        border: none;
+      }
+      > .kmt-menu-item-wrap > .kmt-menu-toggle {
         display: inline-block;
         position: absolute;
         font-size: 0px;
@@ -334,7 +337,7 @@ li.kmt-sitehead-custom-menu-items {
       }
     }
     .kmt-submenu-expanded {
-      > .kmt-menu-toggle::before {
+      > .kmt-menu-item-wrap > .kmt-menu-toggle::before {
         transform: rotateX(180deg);
       }
     }

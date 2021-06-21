@@ -118,6 +118,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-title'              => 'Kemet_Control_Title',
 			'kmt-responsive-slider'  => 'Kemet_Control_Responsive_Slider',
 			'kmt-color'              => 'Kemet_Control_Color',
+			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
 			'kmt-hidden'             => 'Kemet_Control_Hidden',
 			'kmt-font-family'        => 'Kemet_Control_Typography',
@@ -192,6 +193,33 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 		}
 
+		/**
+		 * Default Responsive value
+		 *
+		 * @param string $value value.
+		 * @return array
+		 */
+		public static function responsive_default_value( $value, $unit = '' ) {
+			if ( is_array( $value ) ) {
+				return $value;
+			}
+
+			$responsive = array(
+				'desktop' => $value,
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			if ( '' !== $unit ) {
+				$responsive_units = array(
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
+				$responsive       = array_merge( $responsive, $responsive_units );
+			}
+			return $responsive;
+		}
 		/**
 		 * Add Customizer Controls
 		 *
