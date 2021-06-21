@@ -181,6 +181,10 @@ module.exports = function (grunt) {
             dest: "inc/builder/items/header/html/assets/js/minified/customizer-preview.min.js",
           },
           {
+            src: "inc/builder/items/header/logo/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/logo/assets/js/minified/customizer-preview.min.js",
+          },
+          {
             src: "inc/builder/items/header/search-box/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/search-box/assets/js/minified/customizer-preview.min.js",
           },

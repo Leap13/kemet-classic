@@ -5765,7 +5765,8 @@ __webpack_require__.r(__webpack_exports__);
                 break;
 
               default:
-                setting = KemetCustomizerData.setting.replace("setting_name", settingName);
+                var wpOptions = ["custom_logo"];
+                setting = wpOptions.includes(settingName) ? settingName : KemetCustomizerData.setting.replace("setting_name", settingName);
                 setting = wp.customize(setting);
             }
 
@@ -5773,9 +5774,14 @@ __webpack_require__.r(__webpack_exports__);
           };
 
           var isDisplay = function isDisplay() {
-            var isVisible = true;
+            var relation = undefined != rules.relation ? rules.relation : "AND",
+                isVisible = "AND" === relation ? true : false;
 
             _.each(rules, function (rule, ruleKey) {
+              if ("relation" == ruleKey) {
+                return;
+              }
+
               var boolean = false,
                   operator = undefined != rule.operator ? rule.operator : "=",
                   ruleValue = rule.value;
@@ -5792,19 +5798,27 @@ __webpack_require__.r(__webpack_exports__);
                   break;
 
                 case ">":
-                  result = settingValue > ruleValue;
+                  boolean = settingValue > ruleValue;
                   break;
 
                 case "<":
-                  result = settingValue < ruleValue;
+                  boolean = settingValue < ruleValue;
                   break;
 
                 case ">=":
-                  result = settingValue >= ruleValue;
+                  boolean = settingValue >= ruleValue;
                   break;
 
                 case "<=":
-                  result = settingValue <= ruleValue;
+                  boolean = settingValue <= ruleValue;
+                  break;
+
+                case "not_empty":
+                  boolean = typeof settingValue !== "undefined" && undefined !== settingValue && null !== settingValue && "" !== settingValue;
+                  break;
+
+                case "!=":
+                  boolean = settingValue !== ruleValue;
                   break;
 
                 default:
@@ -5812,7 +5826,7 @@ __webpack_require__.r(__webpack_exports__);
                   break;
               }
 
-              isVisible = isVisible && boolean;
+              isVisible = "OR" === relation ? isVisible || boolean : isVisible && boolean;
             });
 
             return isVisible;

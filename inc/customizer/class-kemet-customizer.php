@@ -100,6 +100,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 			'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
+			'image'                  => 'esc_url_raw',
 		);
 
 		/**
@@ -124,6 +125,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-font-family'        => 'Kemet_Control_Typography',
 			'kmt-font-weight'        => 'Kemet_Control_Typography',
 			'kmt-background'         => 'Kemet_Control_Background',
+			'image'                  => 'WP_Customize_Image_Control',
 		);
 
 		/**
@@ -654,7 +656,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/**
 			 * Sections
 			 */
-			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/mainmenu.php';

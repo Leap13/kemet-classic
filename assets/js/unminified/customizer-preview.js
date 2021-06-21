@@ -1036,16 +1036,16 @@ function header_row_css(row) {
       }
     );
   });
-  kemet_responsive_slider(
-    "kemet-settings[kmt-header-responsive-logo-width]",
-    "#sitehead .site-logo-img .custom-logo-link img",
-    "max-width"
-  );
-  kemet_responsive_slider(
-    "kemet-settings[kmt-header-responsive-logo-width]",
-    ".kemet-logo-svg",
-    "width"
-  );
+  // kemet_responsive_slider(
+  //   "kemet-settings[kmt-header-responsive-logo-width]",
+  //   "#sitehead .site-logo-img .custom-logo-link img",
+  //   "max-width"
+  // );
+  // kemet_responsive_slider(
+  //   "kemet-settings[kmt-header-responsive-logo-width]",
+  //   ".kemet-logo-svg",
+  //   "width"
+  // );
   /*
    * Full width layout
    */
@@ -1792,12 +1792,12 @@ function header_row_css(row) {
   /**
    * Site Identity Spacing
    */
-  kemet_responsive_spacing(
-    "kemet-settings[site-identity-spacing]",
-    "#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity",
-    "padding",
-    ["top", "right", "bottom", "left"]
-  );
+  // kemet_responsive_spacing(
+  //   "kemet-settings[site-identity-spacing]",
+  //   "#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity",
+  //   "padding",
+  //   ["top", "right", "bottom", "left"]
+  // );
 
   /**
    * Footer Padding
@@ -1830,16 +1830,16 @@ function header_row_css(row) {
     ".main-header-menu .sub-menu li a",
     "font-size"
   );
-  kemet_responsive_slider(
-    "kemet-settings[font-size-site-tagline]",
-    ".site-header .site-description",
-    "font-size"
-  );
-  kemet_responsive_slider(
-    "kemet-settings[site-title-font-size]",
-    ".site-title",
-    "font-size"
-  );
+  // kemet_responsive_slider(
+  //   "kemet-settings[font-size-site-tagline]",
+  //   ".site-header .site-description",
+  //   "font-size"
+  // );
+  // kemet_responsive_slider(
+  //   "kemet-settings[site-title-font-size]",
+  //   ".site-title",
+  //   "font-size"
+  // );
   kemet_responsive_slider(
     "kemet-settings[font-size-entry-title]",
     ".kmt-single-post .entry-header .entry-title",
@@ -1958,17 +1958,17 @@ function header_row_css(row) {
     "color",
     "h6, .entry-content h6, .entry-content h6 a"
   );
-  kemet_css("kemet-settings[site-title-color]", "color", ".site-title a");
-  kemet_css(
-    "kemet-settings[site-title-h-color]",
-    "color",
-    ".site-title a:hover"
-  );
-  kemet_css(
-    "kemet-settings[tagline-color]",
-    "color",
-    ".site-header .site-description"
-  );
+  // kemet_css("kemet-settings[site-title-color]", "color", ".site-title a");
+  // kemet_css(
+  //   "kemet-settings[site-title-h-color]",
+  //   "color",
+  //   ".site-title a:hover"
+  // );
+  // kemet_css(
+  //   "kemet-settings[tagline-color]",
+  //   "color",
+  //   ".site-header .site-description"
+  // );
 
   kemet_responsive_slider(
     "kemet-settings[body-line-height]",
@@ -2568,16 +2568,16 @@ function header_row_css(row) {
     "font-size"
   );
   //Letter Spacing
-  kemet_responsive_slider(
-    "kemet-settings[site-title-letter-spacing]",
-    ".site-title a",
-    "letter-spacing"
-  );
-  kemet_responsive_slider(
-    "kemet-settings[tagline-letter-spacing]",
-    ".site-description",
-    "letter-spacing"
-  );
+  // kemet_responsive_slider(
+  //   "kemet-settings[site-title-letter-spacing]",
+  //   ".site-title a",
+  //   "letter-spacing"
+  // );
+  // kemet_responsive_slider(
+  //   "kemet-settings[tagline-letter-spacing]",
+  //   ".site-description",
+  //   "letter-spacing"
+  // );
   kemet_responsive_slider(
     "kemet-settings[menu-letter-spacing]",
     ".main-header-menu a",
