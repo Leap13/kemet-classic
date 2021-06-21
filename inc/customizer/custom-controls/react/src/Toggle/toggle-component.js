@@ -19,6 +19,7 @@ const ToggleControlComponent = props => {
 
     return <Fragment>
         <div className="toggleControl-wrapper">
+            {titleContent}
             <ToggleControl
                 label={titleContent}
                 checked={props_value}
