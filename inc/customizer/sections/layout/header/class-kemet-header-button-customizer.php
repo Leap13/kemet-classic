@@ -38,25 +38,57 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 				'section'  => 'section-' . self::$prefix,
 				'priority' => 5,
 				'label'    => __( 'Label', 'kemet-addons' ),
+				'context'  => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
 			),
 			self::$prefix . '-url'           => array(
 				'type'     => 'text',
 				'section'  => 'section-' . self::$prefix,
 				'priority' => 10,
 				'label'    => __( 'URL', 'kemet-addons' ),
+				'context'  => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
 			),
 			self::$prefix . '-open-new-tab'  => array(
 				'type'     => 'checkbox',
 				'section'  => 'section-' . self::$prefix,
 				'priority' => 15,
 				'label'    => __( 'Open in New Tab?', 'kemet-addons' ),
+				'context'  => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-colors-group'  => array(
+				'type'     => 'kmt-group',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 20,
+				'label'    => __( 'Colors', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
 			),
 			self::$prefix . '-color'         => array(
+				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 5,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Text Color', 'kemet' ),
+				'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -65,11 +97,13 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-bg-color'      => array(
+				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 5,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Text Color', 'kemet' ),
+				'label'     => __( 'Background Color', 'kemet' ),
+				'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -78,11 +112,13 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-h-color'       => array(
+				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 5,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Text Color', 'kemet' ),
+				'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -91,11 +127,13 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-h-bg-color'    => array(
+				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 5,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Text Color', 'kemet' ),
+				'label'     => __( 'Background Color', 'kemet' ),
+				'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',

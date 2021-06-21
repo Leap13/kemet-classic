@@ -103,7 +103,6 @@
 
         $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
       } else {
-        console.log(fields);
         var group = control.getGroupContent(fields);
 
         html += group.html;
@@ -454,6 +453,7 @@
         fieldsHtml = "";
 
       _.each(fields, function (attr, index) {
+        console.log("kemet-settings" + attr.id);
         var control_id = "kemet-settings" + attr.id;
         var values = api.get();
         var newValue = values[control_id] ? values[control_id] : "";
