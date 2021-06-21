@@ -39,7 +39,30 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function widget_css( $widget, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
-				error_log( $widget );
+				$selector      = '.kmt-' . $widget . '-area';
+				$title_color   = kemet_get_option( $widget . '-title-color' );
+				$link_color    = kemet_get_option( $widget . '-link-color' );
+				$content_color = kemet_get_option( $widget . '-content-color' );
+				$link_h_color  = kemet_get_option( $widget . '-link-h-color' );
+
+				$css_output = array(
+					$selector . ' .widget-title'           => array(
+						'color' => esc_attr( $title_color ),
+					),
+					$selector . ' .widget-content'         => array(
+						'color' => esc_attr( $content_color ),
+					),
+					$selector . ' .widget-content a'       => array(
+						'color' => esc_attr( $link_color ),
+					),
+					$selector . ' .widget-content a:hover' => array(
+						'color' => esc_attr( $link_h_color ),
+					),
+				);
+
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= self::typography_css( $widget, $selector );
+				return $parse_css;
 			}
 		}
 
@@ -57,8 +80,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$color            = kemet_get_option( $html . '-color' );
 				$link_color       = kemet_get_option( $html . '-link-color' );
 				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
-				$font_family      = kemet_get_option( $html . '-font-family' );
-				$font_weight      = kemet_get_option( $html . '-font-weight' );
 
 				$css_output = array(
 					$selector              => array(

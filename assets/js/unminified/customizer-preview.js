@@ -773,6 +773,31 @@ function kemet_html_css(prefix) {
   );
   typography_css(prefix, selector);
 }
+function kemet_widget_css(prefix) {
+  var selector = ".kmt-" + prefix + "-area";
+
+  kemet_css(
+    settingName(prefix + "-title-color"),
+    "color",
+    selector + " .widget-title"
+  );
+  kemet_css(
+    settingName(prefix + "-content-color"),
+    "color",
+    selector + " .widget-content"
+  );
+  kemet_css(
+    settingName(prefix + "-link-color"),
+    "color",
+    selector + " .widget-content a"
+  );
+  kemet_css(
+    settingName(prefix + "-link-h-color"),
+    "color",
+    selector + " .widget-content a:hover"
+  );
+  typography_css(prefix, selector);
+}
 function kemet_menu_css(prefix) {
   var selector = "#" + prefix;
   kemet_css(settingName(prefix + "-bg-color"), "background-color", selector);

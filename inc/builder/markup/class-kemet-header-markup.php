@@ -62,8 +62,22 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_desktop_toggle', array( $this, 'desktop_toggle_buttons_markup' ) );
 			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
 			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
+			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 		}
 
+		/**
+		 * Display sidebar as section.
+		 *
+		 * @param bool   $active ios active.
+		 * @param object $section section.
+		 * @return bool
+		 */
+		public function display_sidebar( $active, $section ) {
+			if ( strpos( $section->id, 'header-widget-' ) ) {
+				$active = true;
+			}
+			return $active;
+		}
 		/**
 		 * Register menus
 		 */

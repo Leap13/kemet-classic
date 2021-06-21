@@ -94,12 +94,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'header-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-1',
+							'section' => 'sidebar-widgets-header-widget-1',
 						),
 						'header-widget-2' => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-2',
+							'section' => 'sidebar-widgets-header-widget-2',
 						),
 					)
 				),
@@ -215,12 +215,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'header-widget-1'      => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-1',
+							'section' => 'sidebar-widgets-header-widget-1',
 						),
 						'header-widget-2'      => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-2',
+							'section' => 'sidebar-widgets-header-widget-2',
 						),
 					)
 				),

@@ -22,7 +22,7 @@ if ( ! class_exists( 'Kemet_Header_Widget_Dynamic_Css' ) ) {
 			$header_widgets = apply_filters( 'kemet_header_widget_items', array( 'header-widget-1', 'header-widget-2' ) );
 
 			foreach ( $header_widgets as $widget ) {
-				Kemet_Dynamic_Css_Generator::widget_css( $widget, 'header' );
+				$dynamic_css .= Kemet_Dynamic_Css_Generator::widget_css( $widget, 'header' );
 			}
 
 			return $dynamic_css;

@@ -453,7 +453,6 @@
         fieldsHtml = "";
 
       _.each(fields, function (attr, index) {
-        console.log("kemet-settings" + attr.id);
         var control_id = "kemet-settings" + attr.id;
         var values = api.get();
         var newValue = values[control_id] ? values[control_id] : "";
