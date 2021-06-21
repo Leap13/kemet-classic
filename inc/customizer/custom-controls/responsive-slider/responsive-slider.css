@@ -120,7 +120,31 @@
 }
 
 .kemet_range_value .kmt-range-unit {
-  margin-left: 5px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 28px;
+  background: #fff;
+  cursor: default;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  align-self: auto;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.1s ease, font-weight 0.1s ease;
+  padding: 0;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0;
 }
 
 .customize-control-kmt-responsive-slider .input-field-wrapper {
@@ -168,7 +192,7 @@
 }
 
 .description.customize-control-description {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
@@ -177,7 +201,7 @@
   margin-bottom: 7px;
   display: inline-block;
   vertical-align: top;
-  position: relative;
+  position: absolute;
   z-index: 8;
 }
 
@@ -198,7 +222,7 @@
   outline: none;
   padding: 4px;
   border-radius: 20px;
-  background-color: #bbbbbb;
+
   width: 24px;
   height: 24px;
 }
@@ -206,7 +230,7 @@
 .kmt-responsive-control-btns button[type="button"] > i {
   width: 15px;
   height: 13px;
-  font-size: 13px;
-  color: #fff;
+  font-size: 17px;
+  color: #bbbbbb;
   line-height: 17px;
 }
