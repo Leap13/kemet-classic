@@ -12,6 +12,7 @@
 $control_dir = KEMET_THEME_DIR . 'inc/customizer/custom-controls';
 // @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 require $control_dir . '/sortable/class-kemet-control-sortable.php';
+require $control_dir . '/toggle/class-kemet-control-toggle.php';
 require $control_dir . '/radio-image/class-kemet-control-radio-image.php';
 require $control_dir . '/slider/class-kemet-control-slider.php';
 require $control_dir . '/responsive-slider/class-kemet-control-responsive-slider.php';

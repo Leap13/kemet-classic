@@ -242,7 +242,6 @@ class KemetColorPickerControl extends Component {
                 this.setState({ isVisible: false });
             }
         }
-        console.log("ToggleClas")
     }
 
     onChangeState(color, palette) {

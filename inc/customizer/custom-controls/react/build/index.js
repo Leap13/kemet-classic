@@ -6277,13 +6277,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "iconSelect", function() { return iconSelect; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icon_slect_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-slect-component */ "./src/icon-select/icon-slect-component.js");
+/* harmony import */ var _icon_select_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon-select-component */ "./src/icon-select/icon-select-component.js");
 
 
 var iconSelect = wp.customize.kemetControl.extend({
   renderContent: function renderContent() {
     var control = this;
-    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_icon_slect_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_icon_select_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
       control: control
     }), control.container[0]);
   }
@@ -6291,10 +6291,10 @@ var iconSelect = wp.customize.kemetControl.extend({
 
 /***/ }),
 
-/***/ "./src/icon-select/icon-slect-component.js":
-/*!*************************************************!*\
-  !*** ./src/icon-select/icon-slect-component.js ***!
-  \*************************************************/
+/***/ "./src/icon-select/icon-select-component.js":
+/*!**************************************************!*\
+  !*** ./src/icon-select/icon-select-component.js ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6418,7 +6418,7 @@ wp.customize.controlConstructor["kmt-builder"] = _layout_builder_control__WEBPAC
 wp.customize.controlConstructor["kmt-available"] = _available_control__WEBPACK_IMPORTED_MODULE_2__["AvailableControl"];
 wp.customize.controlConstructor["kmt-tabs"] = _tabs_control__WEBPACK_IMPORTED_MODULE_3__["TabsControl"];
 wp.customize.controlConstructor["kmt-focus-button"] = _focus_button_control_js__WEBPACK_IMPORTED_MODULE_4__["FocusButtonControl"];
-wp.customize.controlConstructor["kmt-radio-image"] = _radio_image_control__WEBPACK_IMPORTED_MODULE_5__["radioImageControl"];
+wp.customize.controlConstructor["kmt-radio-image"] = _radio_image_control__WEBPACK_IMPORTED_MODULE_5__["RadioImageControl"];
 wp.customize.controlConstructor['kmt-title'] = _title_control__WEBPACK_IMPORTED_MODULE_6__["titleControl"];
 wp.customize.controlConstructor['kmt-slider'] = _slider_control__WEBPACK_IMPORTED_MODULE_7__["sliderControl"];
 wp.customize.controlConstructor['kmt-responsive-slider'] = _responsive_slider_control__WEBPACK_IMPORTED_MODULE_8__["responsiveSliderControl"];
@@ -7189,18 +7189,18 @@ var RowComponent = function RowComponent(props) {
 /*!************************************!*\
   !*** ./src/radio-image/control.js ***!
   \************************************/
-/*! exports provided: radioImageControl */
+/*! exports provided: RadioImageControl */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "radioImageControl", function() { return radioImageControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RadioImageControl", function() { return RadioImageControl; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _radio_image_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./radio-image-component.js */ "./src/radio-image/radio-image-component.js");
 
 
-var radioImageControl = wp.customize.kemetControl.extend({
+var RadioImageControl = wp.customize.kemetControl.extend({
   renderContent: function renderContent() {
     var control = this;
     ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_radio_image_component_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
