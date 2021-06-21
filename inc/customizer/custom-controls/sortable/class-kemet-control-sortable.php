@@ -45,12 +45,7 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 		$this->json['link']       = $this->get_link();
 		$this->json['value']      = maybe_unserialize( $this->value() );
 		$this->json['choices']    = $this->choices;
-		$this->json['inputAttrs'] = '';
-
-		foreach ( $this->input_attrs as $attr => $value ) {
-			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-		}
-		$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
+		$this->json['inputAttrs'] = $this->input_attrs;
 
 	}
 
@@ -64,38 +59,6 @@ class Kemet_Control_Sortable extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		?>
-		<label class='kmt-sortable'>
-			<span class="customize-control-title">
-				{{{ data.label }}}
-			</span>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-
-			<ul class="sortable">
-				<# _.each( data.value, function( choiceID ) { #>
-					<li {{{ data.inputAttrs }}} class='kmt-sortable-item' data-value='{{ choiceID }}'>
-						<i class='dashicons dashicons-menu'></i>
-						<i class="dashicons dashicons-visibility visibility"></i>
-						{{{ data.choices[ choiceID ] }}}
-					</li>
-				<# }); #>
-				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
-					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-						<li {{{ data.inputAttrs }}} class='kmt-sortable-item invisible' data-value='{{ choiceID }}'>
-							<i class='dashicons dashicons-menu'></i>
-							<i class="dashicons dashicons-visibility visibility"></i>
-							{{{ data.choices[ choiceID ] }}}
-						</li>
-					<# } #>
-				<# }); #>
-			</ul>
-		</label>
-
-		<?php
-	}
 
 	/**
 	 * Render the control's content.
