@@ -131,7 +131,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 */
 		public static function get_custom_widget( $widget_id = '' ) {
 			ob_start();
-			echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
+			echo '<div class="kmt-widget-area kmt-' . esc_attr( $widget_id ) . '-area">';
 			kemet_get_sidebar( $widget_id );
 			echo '</div>';
 			echo ob_get_clean();
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		public static function kemet_get_custom_html( $option_name = '', $class = 'kmt-custom-html' ) {
 			$custom_html         = '';
 			$custom_html_content = kemet_get_option( $option_name );
-			$custom_html         = '<div class="' . esc_attr( $class ) . '">';
+			$custom_html         = '<div class="kmt-custom-html ' . esc_attr( $class ) . '">';
 			if ( ! empty( $custom_html_content ) ) {
 				$custom_html .= do_shortcode( $custom_html_content );
 			} elseif ( current_user_can( 'edit_theme_options' ) ) {

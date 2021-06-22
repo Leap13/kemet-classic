@@ -415,16 +415,6 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
-		 * Html
-		 *
-		 * @param string $html html type.
-		 */
-		public function html_markup( $html ) {
-			$option = 'header-main-rt-section-html';
-			echo kemet_get_custom_html( $option );
-		}
-
-		/**
 		 * Widget
 		 *
 		 * @param string $widget widget type.

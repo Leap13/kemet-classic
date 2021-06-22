@@ -77,7 +77,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					),
 					$selector . ' > li ul'                => array(
 						'width'            => kemet_get_css_value( $submenu_width, 'px' ),
-						'background-color' => esc_attr( $submenu_bg_color ),
 						'border-top-width' => kemet_get_css_value( $submenu_border_top_width, 'px' ),
 						'border-top-color' => esc_attr( $submenu_top_border_color ),
 					),

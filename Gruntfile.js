@@ -201,6 +201,10 @@ module.exports = function (grunt) {
             dest: "inc/builder/items/header/main-header/assets/js/minified/customizer-preview.min.js",
           },
           {
+            src: "inc/builder/items/header/overlay-header/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/overlay-header/assets/js/minified/customizer-preview.min.js",
+          },
+          {
             src: "inc/builder/items/header/offcanvas-menu/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/offcanvas-menu/assets/js/minified/customizer-preview.min.js",
           },
