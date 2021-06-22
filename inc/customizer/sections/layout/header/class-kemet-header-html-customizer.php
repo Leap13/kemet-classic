@@ -113,20 +113,7 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-typography-group' => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-' . $prefix,
-					'priority' => 11,
-					'label'    => __( 'Typography', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
-					),
-				),
 				$prefix . '-font-size'        => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,
@@ -152,7 +139,6 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-family'      => array(
-					'parent-id' => $prefix . '-typography-group',
 					'type'      => 'kmt-font-family',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Family', 'kemet' ),
@@ -167,7 +153,6 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
 				),
 				$prefix . '-font-weight'      => array(
-					'parent-id' => $prefix . '-typography-group',
 					'type'      => 'kmt-font-weight',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Weight', 'kemet' ),
@@ -182,8 +167,7 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
 				),
 				$prefix . '-text-transform'   => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
 					'section'   => 'section-' . $prefix,
@@ -203,8 +187,7 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-style'       => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
 					'section'   => 'section-' . $prefix,
@@ -223,7 +206,6 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-line-height'      => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,
@@ -249,7 +231,6 @@ class Kemet_Header_Html1_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-letter-spacing'   => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,

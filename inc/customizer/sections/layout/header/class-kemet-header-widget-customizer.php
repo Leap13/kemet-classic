@@ -32,13 +32,13 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 			$prefix         = $widget;
 			$num            = explode( 'header-widget-', $prefix )[1];
 			$widget_options = array(
-				$prefix . '-colors-group'     => array(
+				$prefix . '-colors-group'   => array(
 					'type'     => 'kmt-group',
 					'section'  => 'sidebar-widgets-' . $prefix,
 					'priority' => 10,
 					'label'    => __( 'Colors', 'kemet' ),
 				),
-				$prefix . '-title-color'      => array(
+				$prefix . '-title-color'    => array(
 					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 1,
@@ -47,7 +47,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Title Color', 'kemet' ),
 					'tab'       => __( 'Normal', 'kemet' ),
 				),
-				$prefix . '-content-color'    => array(
+				$prefix . '-content-color'  => array(
 					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 2,
@@ -56,7 +56,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Content Color', 'kemet' ),
 					'tab'       => __( 'Normal', 'kemet' ),
 				),
-				$prefix . '-link-color'       => array(
+				$prefix . '-link-color'     => array(
 					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 3,
@@ -65,7 +65,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Link Color', 'kemet' ),
 					'tab'       => __( 'Normal', 'kemet' ),
 				),
-				$prefix . '-link-h-color'     => array(
+				$prefix . '-link-h-color'   => array(
 					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 4,
@@ -74,14 +74,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Link Color', 'kemet' ),
 					'tab'       => __( 'Hover', 'kemet' ),
 				),
-				$prefix . '-typography-group' => array(
-					'type'     => 'kmt-group',
-					'section'  => 'sidebar-widgets-' . $prefix,
-					'priority' => 15,
-					'label'    => __( 'Typography', 'kemet' ),
-				),
-				$prefix . '-font-size'        => array(
-					'parent-id'    => $prefix . '-typography-group',
+				$prefix . '-font-size'      => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'sidebar-widgets-' . $prefix,
@@ -100,8 +93,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-font-family'      => array(
-					'parent-id' => $prefix . '-typography-group',
+				$prefix . '-font-family'    => array(
 					'default'   => 'inherit',
 					'type'      => 'kmt-font-family',
 					'transport' => 'postMessage',
@@ -110,8 +102,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'priority'  => 10,
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
 				),
-				$prefix . '-font-weight'      => array(
-					'parent-id' => $prefix . '-typography-group',
+				$prefix . '-font-weight'    => array(
 					'default'   => 'inherit',
 					'type'      => 'kmt-font-weight',
 					'transport' => 'postMessage',
@@ -120,9 +111,8 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					'priority'  => 15,
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
 				),
-				$prefix . '-text-transform'   => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+				$prefix . '-text-transform' => array(
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
 					'section'   => 'sidebar-widgets-' . $prefix,
@@ -135,9 +125,8 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						'lowercase'  => __( 'Lowercase', 'kemet' ),
 					),
 				),
-				$prefix . '-font-style'       => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+				$prefix . '-font-style'     => array(
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
 					'section'   => 'sidebar-widgets-' . $prefix,
@@ -149,8 +138,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						'oblique' => __( 'Oblique', 'kemet' ),
 					),
 				),
-				$prefix . '-line-height'      => array(
-					'parent-id'    => $prefix . '-typography-group',
+				$prefix . '-line-height'    => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'sidebar-widgets-' . $prefix,
@@ -169,8 +157,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-letter-spacing'   => array(
-					'parent-id'    => $prefix . '-typography-group',
+				$prefix . '-letter-spacing' => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'sidebar-widgets-' . $prefix,

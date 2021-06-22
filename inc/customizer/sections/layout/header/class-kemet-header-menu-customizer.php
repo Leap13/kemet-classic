@@ -37,20 +37,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'type'     => 'kmt-tabs',
 					'priority' => 0,
 				),
-				$prefix . '-typography-group'             => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-header-' . $prefix,
-					'priority' => 1,
-					'label'    => __( 'Typography', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
-					),
-				),
 				$prefix . '-font-size'                    => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -76,7 +63,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-family'                  => array(
-					'parent-id' => $prefix . '-typography-group',
 					'default'   => 'inherit',
 					'type'      => 'kmt-font-family',
 					'transport' => 'postMessage',
@@ -92,7 +78,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
 				),
 				$prefix . '-font-weight'                  => array(
-					'parent-id' => $prefix . '-typography-group',
 					'default'   => 'inherit',
 					'type'      => 'kmt-font-weight',
 					'transport' => 'postMessage',
@@ -108,8 +93,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
 				),
 				$prefix . '-text-transform'               => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
 					'section'   => 'section-header-' . $prefix,
@@ -129,8 +113,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-style'                   => array(
-					'parent-id' => $prefix . '-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
 					'section'   => 'section-header-' . $prefix,
@@ -149,7 +132,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-line-height'                  => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -175,7 +157,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-letter-spacing'               => array(
-					'parent-id'    => $prefix . '-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -428,20 +409,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-submenu-typography-group'     => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-header-' . $prefix,
-					'priority' => 106,
-					'label'    => __( 'Typography', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
-					),
-				),
 				$prefix . '-submenu-font-size'            => array(
-					'parent-id'    => $prefix . '-submenu-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -467,7 +435,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-submenu-font-family'          => array(
-					'parent-id' => $prefix . '-submenu-typography-group',
 					'type'      => 'kmt-font-family',
 					'default'   => 'inherit',
 					'transport' => 'postMessage',
@@ -483,7 +450,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-submenu-font-weight]',
 				),
 				$prefix . '-submenu-font-weight'          => array(
-					'parent-id' => $prefix . '-submenu-typography-group',
 					'type'      => 'kmt-font-weight',
 					'default'   => 'inherit',
 					'transport' => 'postMessage',
@@ -499,8 +465,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-submenu-font-family]',
 				),
 				$prefix . '-submenu-text-transform'       => array(
-					'parent-id' => $prefix . '-submenu-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
 					'section'   => 'section-header-' . $prefix,
@@ -520,8 +485,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-submenu-font-style'           => array(
-					'parent-id' => $prefix . '-submenu-typography-group',
-					'type'      => 'kmt-select',
+					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
 					'section'   => 'section-header-' . $prefix,
@@ -540,7 +504,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-submenu-line-height'          => array(
-					'parent-id'    => $prefix . '-submenu-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -566,7 +529,6 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-submenu-letter-spacing'       => array(
-					'parent-id'    => $prefix . '-submenu-typography-group',
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-header-' . $prefix,
@@ -690,7 +652,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 				),
 			);
 
-			$register_options = array_merge( $register_options, $menu_options );
+					$register_options = array_merge( $register_options, $menu_options );
 		}
 
 		return array_merge( $options, $register_options );
