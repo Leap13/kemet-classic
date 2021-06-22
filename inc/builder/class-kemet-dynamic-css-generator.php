@@ -25,7 +25,11 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function button_css( $button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $button, 'header', $device ) ) {
-				error_log( $button );
+				$selector       = '.' . $button;
+				$color          = kemet_get_option( $button . '-color' );
+				$bg_color       = kemet_get_option( $button . '-link-color' );
+				$hover_color    = kemet_get_option( $button . '-link-hover-color' );
+				$hover_bg_color = kemet_get_option( $button . '-link-hover-color' );
 			}
 		}
 
@@ -39,7 +43,30 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function widget_css( $widget, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
-				error_log( $widget );
+				$selector      = '.kmt-' . $widget . '-area';
+				$title_color   = kemet_get_option( $widget . '-title-color' );
+				$link_color    = kemet_get_option( $widget . '-link-color' );
+				$content_color = kemet_get_option( $widget . '-content-color' );
+				$link_h_color  = kemet_get_option( $widget . '-link-h-color' );
+
+				$css_output = array(
+					$selector . ' .widget-title'           => array(
+						'color' => esc_attr( $title_color ),
+					),
+					$selector . ' .widget-content'         => array(
+						'color' => esc_attr( $content_color ),
+					),
+					$selector . ' .widget-content a'       => array(
+						'color' => esc_attr( $link_color ),
+					),
+					$selector . ' .widget-content a:hover' => array(
+						'color' => esc_attr( $link_h_color ),
+					),
+				);
+
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= self::typography_css( $widget, $selector );
+				return $parse_css;
 			}
 		}
 
@@ -57,14 +84,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$color            = kemet_get_option( $html . '-color' );
 				$link_color       = kemet_get_option( $html . '-link-color' );
 				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
-				$font_family      = kemet_get_option( $html . '-font-family' );
-				$font_weight      = kemet_get_option( $html . '-font-weight' );
 
 				$css_output = array(
 					$selector              => array(
-						'color'       => esc_attr( $color ),
-						'font-family' => kemet_get_font_family( $font_family ),
-						'font-weight' => esc_attr( $font_weight ),
+						'color' => esc_attr( $color ),
 					),
 					$selector . ' a'       => array(
 						'color' => esc_attr( $link_color ),
@@ -74,8 +97,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					),
 				);
 
-				$parse_css = kemet_parse_css( $css_output );
-
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= self::typography_css( $html, $selector );
 				return $parse_css;
 			}
 		}
@@ -172,6 +195,76 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 			$parse_css .= kemet_parse_css( $mobile_typo, '', '544' );
 
 			return $parse_css;
+		}
+
+		/**
+		 * Get Header Row Css
+		 *
+		 * @param string $row row.
+		 * @return string
+		 */
+		public static function header_row_css( $row ) {
+			if ( Kemet_Builder_Helper::is_row_empty( $row, 'header', 'desktop' ) || Kemet_Builder_Helper::is_row_empty( $row, 'header', 'mobile' ) ) {
+				$selector = '.kmt-' . $row . '-header-wrap .' . $row . '-header-bar';
+				$prefix   = $row . '-header';
+
+				$height           = kemet_get_option( $prefix . '-min-height' );
+				$background       = kemet_get_option( $prefix . '-background' );
+				$border           = kemet_get_option( $prefix . '-border-width' );
+				$border_color     = kemet_get_option( $prefix . '-border-color' );
+				$stick_background = kemet_get_option( $prefix . '-sticky-background' );
+
+				$css_output = array(
+					$selector . ' .kmt-grid-row' => array(
+						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+					),
+					$selector                    => array(
+						'border-style'        => esc_attr( 'solid' ),
+						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'desktop' ),
+						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'desktop' ),
+						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'desktop' ),
+						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'desktop' ),
+						'border-color'        => esc_attr( $border_color ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= kemet_get_background_obj( $selector, $background );
+				$parse_css .= kemet_get_background_obj( $selector . '.kmt-is-sticky', $stick_background );
+
+				$tablet = array(
+					$selector . ' .kmt-grid-row' => array(
+						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+					),
+					$selector                    => array(
+						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'tablet' ),
+						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'tablet' ),
+						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'tablet' ),
+						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'tablet' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $tablet, '', '768' );
+
+				$mobile = array(
+					$selector . ' .kmt-grid-row' => array(
+						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+					),
+					$selector                    => array(
+						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'mobile' ),
+						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'mobile' ),
+						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'mobile' ),
+						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'mobile' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
+				return $parse_css;
+			}
 		}
 	}
 endif;

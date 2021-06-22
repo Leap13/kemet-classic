@@ -62,8 +62,22 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_desktop_toggle', array( $this, 'desktop_toggle_buttons_markup' ) );
 			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
 			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
+			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 		}
 
+		/**
+		 * Display sidebar as section.
+		 *
+		 * @param bool   $active ios active.
+		 * @param object $section section.
+		 * @return bool
+		 */
+		public function display_sidebar( $active, $section ) {
+			if ( strpos( $section->id, 'header-widget-' ) ) {
+				$active = true;
+			}
+			return $active;
+		}
 		/**
 		 * Register menus
 		 */
@@ -215,8 +229,8 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		public static function render_column_content( $column, $row, $builder = 'header', $device = 'desktop' ) {
 			$items = kemet_get_option( $builder . '-' . $device . '-items' );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
-				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
-					$type = false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];
+				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) || false !== strpos( $item, 'button' ) ) {
+					$type = ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ) || ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'button' ) ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
 					get_template_part( 'templates/' . $builder . '/components/' . $item );
@@ -383,19 +397,19 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		/**
 		 * Button
 		 */
-		public function button_markup() {
+		public function button_markup( $button ) {
 			$text   = kemet_get_option( 'header-button-label' );
 			$url    = kemet_get_option( 'header-button-url' );
 			$target = kemet_get_option( 'header-button-open-new-tab' ) ? '_blank' : '_self';
-			echo '<a href="' . esc_url( $url ) . '" class="button header-button" target="' . esc_attr( $target ) . '">' . esc_html( $text ) . '</a>';
+			echo '<a href="' . esc_url( $url ) . '" class="button header-button ' . esc_attr( $button ) . '" target="' . esc_attr( $target ) . '">' . esc_html( $text ) . '</a>';
 		}
 
 		/**
 		 * Button
 		 */
-		public function mobile_button_markup() {
+		public function mobile_button_markup( $button ) {
 			$text = esc_html__( 'Mobile Button', 'kemet' );
-			echo '<a href=' . esc_url( admin_url() ) . ' class="button" target="_blank">' . esc_html( $text ) . '</a>';
+			echo '<a href=' . esc_url( admin_url() ) . ' class="button ' . esc_attr( $button ) . '" target="_blank">' . esc_html( $text ) . '</a>';
 		}
 
 		/**

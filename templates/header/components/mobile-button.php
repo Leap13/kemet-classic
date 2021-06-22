@@ -5,6 +5,13 @@
  * @package kemet
  */
 
+$button = wp_parse_args(
+	$args,
+	array(
+		'type' => 'header-mobile-button-1',
+	)
+);
+$button = $button['type'];
 ?>
 <div class="kmt-header-item kmt-mobile-button-item">
 	<?php
@@ -13,6 +20,6 @@
 	 *
 	 * Hooked kemet_header_mobile_button
 	 */
-	do_action( 'kemet_header_mobile_button' );
+	do_action( 'kemet_header_mobile_button', $button );
 	?>
 </div>

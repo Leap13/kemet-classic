@@ -12,39 +12,330 @@
 class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 
 	/**
+	 * Button Items
+	 *
+	 * @access private
+	 * @var array
+	 */
+	private static $button_items;
+
+	/**
 	 * Register Customizer Options
 	 *
 	 * @param array $options options.
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$header_button_options = array(
-			'header-button-controls-tabs' => array(
-				'section'  => 'section-header-button',
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
-			),
-			'header-button-label'         => array(
-				'type'     => 'text',
-				'section'  => 'section-header-button',
-				'priority' => 5,
-				'label'    => __( 'Label', 'kemet-addons' ),
-			),
-			'header-button-url'           => array(
-				'type'     => 'text',
-				'section'  => 'section-header-button',
-				'priority' => 10,
-				'label'    => __( 'URL', 'kemet-addons' ),
-			),
-			'header-button-open-new-tab'  => array(
-				'type'     => 'checkbox',
-				'section'  => 'section-header-button',
-				'priority' => 15,
-				'label'    => __( 'Open in New Tab?', 'kemet-addons' ),
-			),
-		);
+		self::$button_items = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
+		$register_options   = array();
+		foreach ( self::$button_items as $button ) {
+			$prefix           = $button;
+			$num              = explode( 'header-button-', $prefix )[1];
+			$button_options   = array(
+				$prefix . '-controls-tabs'    => array(
+					'section'  => 'section-' . $prefix,
+					'type'     => 'kmt-tabs',
+					'priority' => 0,
+				),
+				$prefix . '-label'            => array(
+					'type'     => 'text',
+					'section'  => 'section-' . $prefix,
+					'priority' => 5,
+					'label'    => __( 'Label', 'kemet-addons' ),
+					'context'  => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'general',
+						),
+					),
+				),
+				$prefix . '-url'              => array(
+					'type'     => 'text',
+					'section'  => 'section-' . $prefix,
+					'priority' => 10,
+					'label'    => __( 'URL', 'kemet-addons' ),
+					'context'  => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'general',
+						),
+					),
+				),
+				$prefix . '-open-new-tab'     => array(
+					'type'     => 'checkbox',
+					'section'  => 'section-' . $prefix,
+					'priority' => 15,
+					'label'    => __( 'Open in New Tab?', 'kemet-addons' ),
+					'context'  => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'general',
+						),
+					),
+				),
+				$prefix . '-colors-group'     => array(
+					'type'     => 'kmt-group',
+					'section'  => 'section-' . $prefix,
+					'priority' => 20,
+					'label'    => __( 'Colors', 'kemet' ),
+					'context'  => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-color'            => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Text Color', 'kemet' ),
+					'tab'       => __( 'Normal', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-bg-color'         => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Background Color', 'kemet' ),
+					'tab'       => __( 'Normal', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-border-color'     => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Border Color', 'kemet' ),
+					'tab'       => __( 'Normal', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-h-color'          => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Text Color', 'kemet' ),
+					'tab'       => __( 'Hover', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-h-bg-color'       => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Background Color', 'kemet' ),
+					'tab'       => __( 'Hover', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-border-h-color'   => array(
+					'parent-id' => $prefix . '-colors-group',
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'transport' => 'postMessage',
+					'type'      => 'kmt-color',
+					'label'     => __( 'Border Color', 'kemet' ),
+					'tab'       => __( 'Hover', 'kemet' ),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-typography-group' => array(
+					'type'     => 'kmt-group',
+					'section'  => 'section-' . $prefix,
+					'priority' => 25,
+					'label'    => __( 'Typography', 'kemet' ),
+					'context'  => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-font-size'        => array(
+					'parent-id'    => $prefix . '-typography-group',
+					'type'         => 'kmt-responsive-slider',
+					'transport'    => 'postMessage',
+					'section'      => 'section-' . $prefix,
+					'priority'     => 1,
+					'label'        => __( 'Font Size', 'kemet' ),
+					'unit_choices' => array(
+						'px' => array(
+							'min'  => 1,
+							'step' => 1,
+							'max'  => 200,
+						),
+						'em' => array(
+							'min'  => 0.1,
+							'step' => 0.1,
+							'max'  => 10,
+						),
+					),
+					'context'      => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-font-family'      => array(
+					'parent-id' => $prefix . '-typography-group',
+					'type'      => 'kmt-font-family',
+					'transport' => 'postMessage',
+					'label'     => __( 'Font Family', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 2,
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
+				),
+				$prefix . '-font-weight'      => array(
+					'parent-id' => $prefix . '-typography-group',
+					'type'      => 'kmt-font-weight',
+					'transport' => 'postMessage',
+					'label'     => __( 'Font Weight', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 3,
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
+				),
+				$prefix . '-text-transform'   => array(
+					'parent-id' => $prefix . '-typography-group',
+					'type'      => 'kmt-select',
+					'transport' => 'postMessage',
+					'label'     => __( 'Text Transform', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 4,
+					'choices'   => array(
+						''           => __( 'Default', 'kemet' ),
+						'none'       => __( 'None', 'kemet' ),
+						'capitalize' => __( 'Capitalize', 'kemet' ),
+						'uppercase'  => __( 'Uppercase', 'kemet' ),
+						'lowercase'  => __( 'Lowercase', 'kemet' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-font-style'       => array(
+					'parent-id' => $prefix . '-typography-group',
+					'type'      => 'kmt-select',
+					'transport' => 'postMessage',
+					'label'     => __( 'Font Style', 'kemet' ),
+					'section'   => 'section-' . $prefix,
+					'priority'  => 5,
+					'choices'   => array(
+						'inherit' => __( 'Inherit', 'kemet' ),
+						'normal'  => __( 'Normal', 'kemet' ),
+						'italic'  => __( 'Italic', 'kemet' ),
+						'oblique' => __( 'Oblique', 'kemet' ),
+					),
+					'context'   => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-line-height'      => array(
+					'parent-id'    => $prefix . '-typography-group',
+					'type'         => 'kmt-responsive-slider',
+					'transport'    => 'postMessage',
+					'section'      => 'section-' . $prefix,
+					'priority'     => 6,
+					'label'        => __( 'Line Height', 'kemet' ),
+					'unit_choices' => array(
+						'px' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 100,
+						),
+						'em' => array(
+							'min'  => 0,
+							'step' => 1,
+							'max'  => 10,
+						),
+					),
+					'context'      => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+				$prefix . '-letter-spacing'   => array(
+					'parent-id'    => $prefix . '-typography-group',
+					'type'         => 'kmt-responsive-slider',
+					'transport'    => 'postMessage',
+					'section'      => 'section-' . $prefix,
+					'priority'     => 7,
+					'label'        => __( 'Letter Spacing', 'kemet' ),
+					'unit_choices' => array(
+						'px' => array(
+							'min'  => 0.1,
+							'step' => 0.1,
+							'max'  => 10,
+						),
+					),
+					'context'      => array(
+						array(
+							'setting' => 'tab',
+							'value'   => 'design',
+						),
+					),
+				),
+			);
+			$register_options = array_merge( $register_options, $button_options );
+		}
 
-		return array_merge( $options, $header_button_options );
+		return array_merge( $options, $register_options );
 	}
 
 	/**
@@ -54,15 +345,22 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
-		$button_sections = array(
-			'section-header-button' => array(
-				'priority' => 40,
-				'title'    => __( 'Button', 'kemet' ),
-				'panel'    => 'panel-header-builder-group',
-			),
-		);
+		$register_sections = array();
+		foreach ( self::$button_items as $button ) {
+			$prefix         = $button;
+			$num            = explode( 'header-button-', $prefix )[1];
+			$button_section = array(
+				'section-' . $prefix => array(
+					'priority' => 60,
+					'title'    => sprintf( __( 'Header Button %s', 'kemet' ), $num ),
+					'panel'    => 'panel-header-builder-group',
+				),
+			);
 
-		return array_merge( $sections, $button_sections );
+			$register_sections = array_merge( $register_sections, $button_section );
+		}
+
+		return array_merge( $sections, $register_sections );
 
 	}
 }

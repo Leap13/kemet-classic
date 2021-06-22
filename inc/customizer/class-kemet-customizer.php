@@ -100,6 +100,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 			'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
+			'image'                  => 'esc_url_raw',
 		);
 
 		/**
@@ -118,11 +119,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-title'              => 'Kemet_Control_Title',
 			'kmt-responsive-slider'  => 'Kemet_Control_Responsive_Slider',
 			'kmt-color'              => 'Kemet_Control_Color',
+			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
 			'kmt-hidden'             => 'Kemet_Control_Hidden',
 			'kmt-font-family'        => 'Kemet_Control_Typography',
 			'kmt-font-weight'        => 'Kemet_Control_Typography',
 			'kmt-background'         => 'Kemet_Control_Background',
+			'image'                  => 'WP_Customize_Image_Control',
 		);
 
 		/**
@@ -192,6 +195,33 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 		}
 
+		/**
+		 * Default Responsive value
+		 *
+		 * @param string $value value.
+		 * @return array
+		 */
+		public static function responsive_default_value( $value, $unit = '' ) {
+			if ( is_array( $value ) ) {
+				return $value;
+			}
+
+			$responsive = array(
+				'desktop' => $value,
+				'tablet'  => '',
+				'mobile'  => '',
+			);
+
+			if ( '' !== $unit ) {
+				$responsive_units = array(
+					'desktop-unit' => 'px',
+					'tablet-unit'  => 'px',
+					'mobile-unit'  => 'px',
+				);
+				$responsive       = array_merge( $responsive, $responsive_units );
+			}
+			return $responsive;
+		}
 		/**
 		 * Add Customizer Controls
 		 *
@@ -570,10 +600,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Register controls
 			 */
 			$wp_customize->register_control_type( 'Kemet_Control_Sortable' );
-			//$wp_customize->register_control_type( 'Kemet_Control_Radio_Image' );
-			//$wp_customize->register_control_type( 'Kemet_Control_Slider' );
+			// $wp_customize->register_control_type( 'Kemet_Control_Radio_Image' );
+			// $wp_customize->register_control_type( 'Kemet_Control_Slider' );
 			$wp_customize->register_control_type( 'Kemet_Control_Icon_Select' );
-			//$wp_customize->register_control_type( 'Kemet_Control_Responsive_Slider' );
+			// $wp_customize->register_control_type( 'Kemet_Control_Responsive_Slider' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Spacing' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Select' );
@@ -626,7 +656,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/**
 			 * Sections
 			 */
-			require KEMET_THEME_DIR . 'inc/customizer/sections/site-identity/site-identity.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/mainmenu.php';

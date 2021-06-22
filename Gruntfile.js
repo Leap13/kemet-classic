@@ -89,10 +89,10 @@ module.exports = function (grunt) {
               "inc/customizer/custom-controls/divider/divider.scss",
             "inc/customizer/custom-controls/description/description.css":
               "inc/customizer/custom-controls/description/description.scss",
-            "inc/customizer/custom-controls/react/src/slider/slider.css":
-              "inc/customizer/custom-controls/react/src/slider/slider.scss",
-            "inc/customizer/custom-controls/react/src/sortable/sortable.css":
-              "inc/customizer/custom-controls/react/src/sortable/sortable.scss",
+            "inc/customizer/custom-controls/slider/slider.css":
+              "inc/customizer/custom-controls/slider/slider.scss",
+            "inc/customizer/custom-controls/sortable/sortable.css":
+              "inc/customizer/custom-controls/sortable/sortable.scss",
             "inc/customizer/custom-controls/spacing/spacing.css":
               "inc/customizer/custom-controls/spacing/spacing.scss",
             "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css":
@@ -181,6 +181,10 @@ module.exports = function (grunt) {
             dest: "inc/builder/items/header/html/assets/js/minified/customizer-preview.min.js",
           },
           {
+            src: "inc/builder/items/header/logo/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/logo/assets/js/minified/customizer-preview.min.js",
+          },
+          {
             src: "inc/builder/items/header/search-box/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/search-box/assets/js/minified/customizer-preview.min.js",
           },
@@ -195,6 +199,10 @@ module.exports = function (grunt) {
           {
             src: "inc/builder/items/header/main-header/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/main-header/assets/js/minified/customizer-preview.min.js",
+          },
+          {
+            src: "inc/builder/items/header/offcanvas-menu/assets/js/unminified/customizer-preview.js",
+            dest: "inc/builder/items/header/offcanvas-menu/assets/js/minified/customizer-preview.min.js",
           },
           {
             src: "inc/builder/items/header/bottom-header/assets/js/unminified/customizer-preview.js",
@@ -220,10 +228,10 @@ module.exports = function (grunt) {
             src: "inc/builder/items/header/widget/assets/js/unminified/customizer-preview.js",
             dest: "inc/builder/items/header/widget/assets/js/minified/customizer-preview.min.js",
           },
-         // {
-           // src: "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
-           // dest: "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js",
-         // },
+          {
+            src: "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
+            dest: "inc/customizer/custom-controls/assets/js/minified/custom-controls.min.js",
+          },
         ],
       },
     },
@@ -421,16 +429,16 @@ module.exports = function (grunt) {
       css: {
         src: [
           "inc/customizer/custom-controls/background/background.css",
-          "inc/customizer/custom-controls/react/src/sortable/sortable.css",
-          "inc/customizer/custom-controls/react/src/slider/slider.css",
+          "inc/customizer/custom-controls/sortable/sortable.css",
+          "inc/customizer/custom-controls/slider/slider.css",
           "inc/customizer/custom-controls/color/color.css",
-          "inc/customizer/custom-controls/react/src/icon-select/icon-select.css",
+          "inc/customizer/custom-controls/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive/responsive.css",
           "inc/customizer/custom-controls/responsive-select/responsive-select.css",
-          "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css",
-          "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css",,
-          "inc/customizer/custom-controls/react/src/title/title.css",
+          "inc/customizer/custom-controls/responsive-slider/responsive-slider.css",
+          "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css",
+          "inc/customizer/custom-controls/title/title.css",
           "inc/customizer/custom-controls/typography/typography.css",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.css",
           "inc/customizer/custom-controls/responsive-color/responsive-color.css",
@@ -441,9 +449,15 @@ module.exports = function (grunt) {
 
       js: {
         src: [
+          "inc/customizer/custom-controls/sortable/sortable.js",
+          "inc/customizer/custom-controls/slider/slider.js",
           "inc/customizer/custom-controls/color/color.js",
+          "inc/customizer/custom-controls/icon-select/icon-select.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
+          "inc/customizer/custom-controls/responsive-slider/responsive-slider.js",
+          "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js",
+          "inc/customizer/custom-controls/title/title.js",
           "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
           "inc/customizer/custom-controls/group/group.js",

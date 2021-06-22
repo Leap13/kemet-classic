@@ -71,10 +71,15 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'menu',
 							'section' => 'section-header-offcanvas-menu',
 						),
-						'button'          => array(
-							'name'    => __( 'Button', 'kemet' ),
+						'header-button-1' => array(
+							'name'    => __( 'Button 1', 'kemet' ),
 							'icon'    => 'button',
-							'section' => 'section-header-button',
+							'section' => 'section-header-button-1',
+						),
+						'header-button-2' => array(
+							'name'    => __( 'Button 2', 'kemet' ),
+							'icon'    => 'button',
+							'section' => 'section-header-button-2',
 						),
 						'desktop-toggle'  => array(
 							'name'    => __( 'Toggle Button', 'kemet' ),
@@ -94,12 +99,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'header-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-1',
+							'section' => 'sidebar-widgets-header-widget-1',
 						),
 						'header-widget-2' => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-2',
+							'section' => 'sidebar-widgets-header-widget-2',
 						),
 					)
 				),
@@ -167,60 +172,80 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'choices'     => apply_filters(
 					'header_mobile_items',
 					array(
-						'logo'                 => array(
+						'logo'                   => array(
 							'name'    => __( 'Logo', 'kemet' ),
 							'icon'    => 'admin-appearance',
 							'section' => 'title_tagline',
 						),
-						'mobile-button'        => array(
+						'mobile-button'          => array(
 							'name'    => __( 'Button', 'kemet' ),
 							'icon'    => 'button',
 							'section' => 'section-mobile-header-button',
 						),
-						'search'               => array(
+						'search'                 => array(
 							'name'    => __( 'Search', 'kemet' ),
 							'icon'    => 'search',
 							'section' => 'section-header-search',
 						),
-						'search-box'           => array(
+						'search-box'             => array(
 							'name'    => __( 'Search Box', 'kemet' ),
 							'icon'    => 'search',
 							'section' => 'section-header-search-box',
 						),
-						'account'              => array(
+						'account'                => array(
 							'name'    => __( 'Account', 'kemet' ),
 							'icon'    => 'admin-users',
 							'section' => 'section-header-account',
 						),
-						'offcanvas-menu'       => array(
+						'offcanvas-menu'         => array(
 							'name'    => __( 'Off Canvas Menu', 'kemet' ),
 							'icon'    => 'menu',
 							'section' => 'section-header-offcanvas-menu',
 						),
-						'mobile-toggle'        => array(
+						'mobile-toggle'          => array(
 							'name'    => __( 'Toggle Button', 'kemet' ),
 							'icon'    => 'button',
 							'section' => 'section-mobile-header-toggle-button',
 						),
-						'header-mobile-html-1' => array(
+						'header-mobile-html-1'   => array(
 							'name'    => __( 'Html 1', 'kemet' ),
 							'icon'    => 'text',
 							'section' => 'section-header-mobile-html-1',
 						),
-						'header-mobile-html-2' => array(
+						'header-mobile-html-2'   => array(
 							'name'    => __( 'Html 2', 'kemet' ),
 							'icon'    => 'text',
 							'section' => 'section-header-mobile-html-2',
 						),
-						'header-widget-1'      => array(
+						'header-mobile-button-1' => array(
+							'name'    => __( 'Button 1', 'kemet' ),
+							'icon'    => 'button',
+							'section' => 'section-header-mobile-button-1',
+						),
+						'header-mobile-button-2' => array(
+							'name'    => __( 'Button 2', 'kemet' ),
+							'icon'    => 'button',
+							'section' => 'section-header-mobile-button-2',
+						),
+						'primary-menu'           => array(
+							'name'    => __( 'Primary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-primary-menu',
+						),
+						'secondary-menu'         => array(
+							'name'    => __( 'Secondary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-secondary-menu',
+						),
+						'header-widget-1'        => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-1',
+							'section' => 'sidebar-widgets-header-widget-1',
 						),
-						'header-widget-2'      => array(
+						'header-widget-2'        => array(
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
-							'section' => 'section-header-widget-2',
+							'section' => 'sidebar-widgets-header-widget-2',
 						),
 					)
 				),

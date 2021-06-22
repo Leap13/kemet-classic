@@ -3028,8 +3028,6 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	display: inline-block;
 	width: 100%;
 	padding: 0 20px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 }
 
 .kmt-popup-main .main-navigation ul.children li a,
@@ -4318,8 +4316,14 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	display: none;
 }
 
-.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-toggle,
-.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle {
+.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > a,
+.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > a {
+	border: none;
+	color: inherit;
+}
+
+.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > .kmt-menu-toggle,
+.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > .kmt-menu-toggle {
 	display: inline-block;
 	position: absolute;
 	top: -1px;
@@ -4336,8 +4340,8 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	transition: all 0.2s;
 }
 
-.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-toggle::before,
-.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle::before {
+.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > .kmt-menu-toggle::before,
+.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > .kmt-menu-toggle::before {
 	display: inline-block;
 	font-family: "Kemet-font";
 	font-size: medium;
@@ -4346,17 +4350,17 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	content: "\e907";
 }
 
-.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-toggle:hover,
-.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle:hover {
+.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > .kmt-menu-toggle:hover,
+.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > .kmt-menu-toggle:hover {
 	border-width: 0;
 }
 
-.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-toggle:focus,
-.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-toggle:focus {
+.kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > .kmt-menu-toggle:focus,
+.kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > .kmt-menu-toggle:focus {
 	border-width: 0;
 }
 
-.kmt-popup-main .main-header-bar-navigation .kmt-submenu-expanded > .kmt-menu-toggle::before {
+.kmt-popup-main .main-header-bar-navigation .kmt-submenu-expanded > .kmt-menu-item-wrap > .kmt-menu-toggle::before {
 	-webkit-transform: rotateX(180deg);
 	transform: rotateX(180deg);
 }
@@ -5422,6 +5426,19 @@ textarea::-webkit-input-placeholder {
 	color: inherit;
 }
 
+input[type="text"]:-moz-placeholder,
+input[type="number"]:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="url"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+input[type="search"]:-moz-placeholder,
+input[type="tel"]:-moz-placeholder,
+select:-moz-placeholder,
+textarea:-moz-placeholder {
+	opacity: 0.5;
+	color: inherit;
+}
+
 input[type="text"]::-moz-placeholder,
 input[type="number"]::-moz-placeholder,
 input[type="email"]::-moz-placeholder,
@@ -5431,6 +5448,19 @@ input[type="search"]::-moz-placeholder,
 input[type="tel"]::-moz-placeholder,
 select::-moz-placeholder,
 textarea::-moz-placeholder {
+	opacity: 0.5;
+	color: inherit;
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="number"]:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="url"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+input[type="search"]:-ms-input-placeholder,
+input[type="tel"]:-ms-input-placeholder,
+select:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
 	opacity: 0.5;
 	color: inherit;
 }

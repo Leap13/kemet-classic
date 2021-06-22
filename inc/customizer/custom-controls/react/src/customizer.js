@@ -1,4 +1,4 @@
-import { func } from "prop-types";
+import { array, func } from "prop-types";
 
 (function ($, api) {
   var $window = $(window),
@@ -125,18 +125,25 @@ import { func } from "prop-types";
                 setting = api.state("kemetTab");
                 break;
               default:
-                setting = KemetCustomizerData.setting.replace(
-                  "setting_name",
-                  settingName
-                );
+                var wpOptions = ["custom_logo"];
+                setting = wpOptions.includes(settingName)
+                  ? settingName
+                  : KemetCustomizerData.setting.replace(
+                      "setting_name",
+                      settingName
+                    );
                 setting = wp.customize(setting);
             }
 
             return setting;
           };
           var isDisplay = function () {
-            var isVisible = true;
+            var relation = undefined != rules.relation ? rules.relation : "AND",
+              isVisible = "AND" === relation ? true : false;
             _.each(rules, function (rule, ruleKey) {
+              if ("relation" == ruleKey) {
+                return;
+              }
               var boolean = false,
                 operator = undefined != rule.operator ? rule.operator : "=",
                 ruleValue = rule.value;
@@ -152,26 +159,39 @@ import { func } from "prop-types";
                   break;
 
                 case ">":
-                  result = settingValue > ruleValue;
+                  boolean = settingValue > ruleValue;
                   break;
 
                 case "<":
-                  result = settingValue < ruleValue;
+                  boolean = settingValue < ruleValue;
                   break;
 
                 case ">=":
-                  result = settingValue >= ruleValue;
+                  boolean = settingValue >= ruleValue;
                   break;
 
                 case "<=":
-                  result = settingValue <= ruleValue;
+                  boolean = settingValue <= ruleValue;
+                  break;
+
+                case "not_empty":
+                  boolean =
+                    typeof settingValue !== "undefined" &&
+                    undefined !== settingValue &&
+                    null !== settingValue &&
+                    "" !== settingValue;
+                  break;
+
+                case "!=":
+                  boolean = settingValue !== ruleValue;
                   break;
 
                 default:
                   boolean = settingValue == ruleValue;
                   break;
               }
-              isVisible = isVisible && boolean;
+              isVisible =
+                "OR" === relation ? isVisible || boolean : isVisible && boolean;
             });
             return isVisible;
           };

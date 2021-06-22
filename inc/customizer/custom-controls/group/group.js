@@ -103,7 +103,6 @@
 
         $("#" + controlID + ".kmt-group-tabs").tabs({ active: 0 });
       } else {
-        console.log(fields);
         var group = control.getGroupContent(fields);
 
         html += group.html;

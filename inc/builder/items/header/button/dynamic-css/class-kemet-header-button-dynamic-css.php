@@ -19,7 +19,12 @@ if ( ! class_exists( 'Kemet_Header_Button_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			Kemet_Dynamic_Css_Generator::button_css( 'button', 'header', 'desktop' );
+			$button_items = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
+			foreach ( $button_items as $button ) {
+				$css_output   = Kemet_Dynamic_Css_Generator::button_css( $button, 'header', 'desktop' );
+				$dynamic_css .= $css_output;
+			}
+
 			return $dynamic_css;
 		}
 	}
