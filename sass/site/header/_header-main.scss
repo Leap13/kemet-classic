@@ -483,7 +483,7 @@ li.kmt-sitehead-custom-menu-items {
     font-style: normal;
     display: inline-block;
     vertical-align: middle;
-    line-height: 2.05;
+    line-height: inherit;
 
     &:before {
       content: "\e90c";

@@ -641,6 +641,54 @@ function kemet_font_weight_css(control, selector) {
   });
 }
 
+function toggle_button_css(prefix) {
+  var selector = "." + prefix;
+
+  kemet_css(settingName(prefix + "-icon-color"), "color", selector);
+  kemet_css(
+    settingName(prefix + "-icon-bg-color"),
+    "background-color",
+    selector
+  );
+  kemet_css(
+    settingName(prefix + "-icon-h-color"),
+    "color",
+    selector + ":hover"
+  );
+  kemet_css(
+    settingName(prefix + "-icon-bg-h-color"),
+    "background-color",
+    selector + ":hover"
+  );
+  wp.customize(settingName(prefix + "-icon-size"), function (value) {
+    value.bind(function (size) {
+      var dynamicStyle =
+        selector + " .toggle-button-icon { font-size: " + size + "px; } ";
+      kemet_add_dynamic_css(settingName(prefix + "-icon-size"), dynamicStyle);
+    });
+  });
+  wp.customize(settingName(prefix + "-width"), function (value) {
+    value.bind(function (width) {
+      var dynamicStyle = selector + " { width: " + width + "px; } ";
+      kemet_add_dynamic_css(settingName(prefix + "-width"), dynamicStyle);
+    });
+  });
+  wp.customize(settingName(prefix + "-height"), function (value) {
+    value.bind(function (height) {
+      var dynamicStyle = selector + " { height: " + height + "px; } ";
+      kemet_add_dynamic_css(settingName(prefix + "-height"), dynamicStyle);
+    });
+  });
+  wp.customize(settingName(prefix + "-border-radius"), function (value) {
+    value.bind(function (border) {
+      var dynamicStyle = selector + " { border-radius: " + border + "px; } ";
+      kemet_add_dynamic_css(
+        settingName(prefix + "-border-radius"),
+        dynamicStyle
+      );
+    });
+  });
+}
 function popup_css(prefix) {
   var selector = "#kmt-" + prefix + "-popup",
     contentSelector = ".kmt-" + prefix + "-popup-content";

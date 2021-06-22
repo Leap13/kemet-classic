@@ -181,9 +181,34 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function toggle_button_css( $toggle_button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $toggle_button, 'header', $device ) ) {
 				// Toggle Button Css
-				$btn_selector   = '.' . $toggle_button . '-toggle-button';
-				$btn_css_output = array();
-				$parse_css      = kemet_parse_css( $btn_css_output );
+				$btn_selector    = '.' . $toggle_button . '-button';
+				$icon_color      = kemet_get_option( $toggle_button . '-button-icon-color' );
+				$icon_bg_color   = kemet_get_option( $toggle_button . '-button-icon-bg-color' );
+				$icon_h_color    = kemet_get_option( $toggle_button . '-button-icon-h-color' );
+				$icon_bg_h_color = kemet_get_option( $toggle_button . '-button-icon-bg-h-color' );
+				$icon_size       = kemet_get_option( $toggle_button . '-button-icon-size' );
+				$btn_width       = kemet_get_option( $toggle_button . '-button-width' );
+				$btn_height      = kemet_get_option( $toggle_button . '-button-height' );
+				$btn_radius      = kemet_get_option( $toggle_button . '-button-border-radius' );
+				$btn_css_output  = array(
+					$btn_selector                          => array(
+						'color'            => esc_attr( $icon_color ),
+						'background-color' => esc_attr( $icon_bg_color ),
+						'width'            => kemet_get_css_value( $btn_width, 'px' ),
+						'height'           => kemet_get_css_value( $btn_height, 'px' ),
+						'border-radius'    => kemet_get_css_value( $btn_radius, 'px' ),
+					),
+					$btn_selector . ' .toggle-button-icon' => array(
+						'font-size' => kemet_get_css_value( $icon_size, 'px' ),
+					),
+					$btn_selector . ':hover, ' . $btn_selector . ':focus' => array(
+						'color'            => esc_attr( $icon_h_color ),
+						'background-color' => esc_attr( $icon_bg_h_color ),
+					),
+				);
+				/* Parse CSS from array()*/
+				$parse_css = kemet_parse_css( $btn_css_output );
+
 				// Popup Css
 				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
 				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
@@ -202,6 +227,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					),
 				);
 
+				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $popup_css_output );
 
 				return $parse_css;
