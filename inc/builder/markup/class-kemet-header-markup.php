@@ -53,7 +53,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header_search', array( $this, 'search_markup' ) );
 			add_action( 'kemet_header_search_box', array( $this, 'search_box_markup' ) );
 			add_action( 'kemet_header_button', array( $this, 'button_markup' ) );
-			add_action( 'kemet_header_mobile_button', array( $this, 'mobile_button_markup' ) );
+			add_action( 'kemet_header_mobile_button', array( $this, 'button_markup' ) );
 			add_action( 'kemet_header_widget', array( $this, 'widget_markup' ), 10, 1 );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'kemet_header_html', array( $this, 'render_html' ), 10, 1 );
@@ -398,18 +398,20 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Button
 		 */
 		public function button_markup( $button ) {
-			$text   = kemet_get_option( 'header-button-label' );
-			$url    = kemet_get_option( 'header-button-url' );
-			$target = kemet_get_option( 'header-button-open-new-tab' ) ? '_blank' : '_self';
-			echo '<a href="' . esc_url( $url ) . '" class="button header-button ' . esc_attr( $button ) . '" target="' . esc_attr( $target ) . '">' . esc_html( $text ) . '</a>';
-		}
-
-		/**
-		 * Button
-		 */
-		public function mobile_button_markup( $button ) {
-			$text = esc_html__( 'Mobile Button', 'kemet' );
-			echo '<a href=' . esc_url( admin_url() ) . ' class="button ' . esc_attr( $button ) . '" target="_blank">' . esc_html( $text ) . '</a>';
+			$text      = kemet_get_option( $button . '-label' );
+			$url       = kemet_get_option( $button . '-url' );
+			$rel       = array();
+			$target    = kemet_get_option( $button . '-open-new-tab' ) ? '_blank' : '_self';
+			$nofollow  = kemet_get_option( $button . '-link-nofollow' );
+			$sponsored = kemet_get_option( $button . '-link-sponsored' );
+			$download  = kemet_get_option( $button . '-link-download' );
+			if ( $nofollow ) {
+				$rel[] = 'nofollow';
+			}
+			if ( $sponsored ) {
+				$rel[] = 'sponsored';
+			}
+			echo '<a href="' . esc_url( $url ) . '" class="button header-button ' . esc_attr( $button ) . '" target="' . esc_attr( $target ) . '" ' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( $download ? ' download' : '' ) . '>' . esc_html( $text ) . '</a>';
 		}
 
 		/**

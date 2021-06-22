@@ -2868,6 +2868,10 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	position: relative;
 }
 
+#site-navigation {
+	line-height: normal;
+}
+
 .main-navigation {
 	display: inline-block;
 }

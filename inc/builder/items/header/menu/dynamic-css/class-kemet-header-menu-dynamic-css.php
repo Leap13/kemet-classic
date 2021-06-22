@@ -59,9 +59,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'padding-bottom'   => kemet_responsive_spacing( $menu_spacing, 'bottom', 'desktop' ),
 						'padding-left'     => kemet_responsive_spacing( $menu_spacing, 'left', 'desktop' ),
 					),
-					$selector . ' > li'                   => array(
-						'line-height' => kemet_responsive_slider( $line_height, 'desktop' ),
-					),
 					$selector . ' > li > a'               => array(
 						'color'               => esc_attr( $link_color ),
 						'border-bottom-width' => kemet_responsive_slider( $link_h_border_width, 'desktop' ),
@@ -117,9 +114,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					$selector . ' > .current-menu-item > a, ' . $selector . ' .current-menu-ancestor > a, ' . $selector . ' .current_page_item > a' => array(
 						'border-radius' => kemet_responsive_slider( $link_active_border_radius, 'tablet' ),
 					),
-					$selector . ' > li'     => array(
-						'line-height' => kemet_responsive_slider( $line_height, 'tablet' ),
-					),
 				);
 
 				/* Parse CSS from array()*/
@@ -141,9 +135,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					),
 					$selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
 						'border-radius' => kemet_responsive_slider( $link_active_border_radius, 'mobile' ),
-					),
-					$selector . ' > li'     => array(
-						'line-height' => kemet_responsive_slider( $line_height, 'mobile' ),
 					),
 				);
 

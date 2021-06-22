@@ -19,7 +19,12 @@ if ( ! class_exists( 'Kemet_Header_Mobile_Button_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		function dynamic_css( $dynamic_css ) {
-			Kemet_Dynamic_Css_Generator::button_css( 'mobile-button', 'header', 'mobile' );
+			$button_items = apply_filters( 'kemet_header_mobile_button_items', array( 'header-mobile-button-1', 'header-mobile-button-2' ) );
+			foreach ( $button_items as $button ) {
+				$css_output   = Kemet_Dynamic_Css_Generator::button_css( $button, 'header', 'mobile' );
+				$dynamic_css .= $css_output;
+			}
+
 			return $dynamic_css;
 		}
 	}

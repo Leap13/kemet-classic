@@ -762,6 +762,90 @@ function typography_css(prefix, selector) {
   );
   kemet_css(settingName(prefix + "-font-style"), "font-style", selector);
 }
+function kemet_button_css(prefix) {
+  var selector = "a.button." + prefix;
+  kemet_css(settingName(prefix + "-color"), "color", selector);
+  kemet_css(settingName(prefix + "-h-color"), "color", selector + ":hover");
+  kemet_css(settingName(prefix + "-bg-color"), "background-color", selector);
+  kemet_css(
+    settingName(prefix + "-h-bg-color"),
+    "background-color",
+    selector + ":hover"
+  );
+  kemet_css(settingName(prefix + "-border-color"), "border-color", selector);
+  kemet_css(
+    settingName(prefix + "-h-border-color"),
+    "border-color",
+    selector + ":hover"
+  );
+  wp.customize(settingName(prefix + "-border-width"), function (setting) {
+    setting.bind(function (border) {
+      var dynamicStyle = selector + " { border-width: " + border + "px }";
+      kemet_add_dynamic_css(prefix + "-border-width", dynamicStyle);
+    });
+  });
+  kemet_responsive_spacing(
+    settingName(prefix + "-padding"),
+    selector,
+    "padding",
+    ["top", "bottom", "right", "left"]
+  );
+  kemet_responsive_spacing(
+    settingName(prefix + "-margin"),
+    selector,
+    "margin",
+    ["top", "bottom", "right", "left"]
+  );
+  wp.customize(settingName(prefix + "-label"), function (setting) {
+    setting.bind(function (label) {
+      jQuery(selector).text(label);
+    });
+  });
+  wp.customize(settingName(prefix + "-url"), function (setting) {
+    setting.bind(function (url) {
+      jQuery(selector).attr("href", url);
+    });
+  });
+  wp.customize(settingName(prefix + "-open-new-tab"), function (setting) {
+    setting.bind(function (newTab) {
+      var target = newTab ? "_blank" : "_self";
+      jQuery(selector).attr("target", target);
+    });
+  });
+  wp.customize(settingName(prefix + "-link-nofollow"), function (setting) {
+    setting.bind(function (noFollow) {
+      var rel = jQuery(selector).attr("rel"),
+        rel = rel ? rel.replace("nofollow", "").replace(/ /g, "") : "";
+      if (noFollow) {
+        jQuery(selector).attr("rel", rel + " nofollow");
+      } else {
+        jQuery(selector).attr("rel", rel);
+      }
+    });
+  });
+  wp.customize(settingName(prefix + "-link-sponsored"), function (setting) {
+    setting.bind(function (sponsored) {
+      var rel = jQuery(selector).attr("rel"),
+        rel = rel ? rel.replace("sponsored", "").replace(/ /g, "") : "";
+      if (sponsored) {
+        jQuery(selector).attr("rel", rel + " sponsored");
+      } else {
+        jQuery(selector).attr("rel", rel);
+      }
+    });
+  });
+  wp.customize(settingName(prefix + "-link-download"), function (setting) {
+    setting.bind(function (download) {
+      if (download) {
+        jQuery(selector).attr("download", true);
+      } else {
+        jQuery(selector).attr("download", false);
+      }
+    });
+  });
+
+  typography_css(prefix, selector);
+}
 function kemet_html_css(prefix) {
   var selector = ".kmt-" + prefix;
   kemet_css(settingName(prefix + "-color"), "color", selector);
