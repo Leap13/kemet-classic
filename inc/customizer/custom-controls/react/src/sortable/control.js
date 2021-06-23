@@ -20,10 +20,10 @@ export const sortableControl = wp.customize.kemetControl.extend({
             stop: function () {
                 control.updateValue();
             }
-        }).disableSelection().find('div').each(function () {
+        }).disableSelection().find('li').each(function () {
 
             jQuery(this).find('i.visibility').click(function () {
-                jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
+                jQuery(this).toggleClass('dashicons-visibility-faint').parents('li:eq(0)').toggleClass('invisible');
             });
         }).click(function () {
             control.updateValue();
@@ -35,7 +35,7 @@ export const sortableControl = wp.customize.kemetControl.extend({
         let control = this,
             newValue = [];
 
-        this.sortableContainer.find('div').each(function () {
+        this.sortableContainer.find('li').each(function () {
             if (!jQuery(this).is('.invisible')) {
                 newValue.push(jQuery(this).data('value'));
             }

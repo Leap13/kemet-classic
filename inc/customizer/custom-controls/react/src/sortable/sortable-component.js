@@ -5,6 +5,8 @@ const SortableComponent = props => {
     let labelHtml = null,
         descriptionHtml = null;
 
+    console.log(props.control.params)
+
     const {
         label,
         description,
@@ -24,10 +26,12 @@ const SortableComponent = props => {
     let visibleMetaHtml = Object.values(value).map(choiceID => {
         let html = '';
         if (choices[choiceID]) {
-            html = <div {...inputAttrs} key={choiceID} className='kmt-sortable-item' data-value={choiceID}>
-                {choices[choiceID]}
+            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item' data-value={choiceID}>
+
                 <i className="dashicons dashicons-visibility visibility"></i>
-            </div>;
+                {choices[choiceID]}
+                <i class="dashicons dashicons-menu"></i>
+            </li>;
         }
         return html;
     });
@@ -35,10 +39,12 @@ const SortableComponent = props => {
     let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
         let html = '';
         if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
-            html = <div {...inputAttrs} key={choiceID} className='kmt-sortable-item invisible' data-value={choiceID}>
-                {choices[choiceID]}
+            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item invisible' data-value={choiceID}>
+
                 <i className="dashicons dashicons-visibility visibility"></i>
-            </div>;
+                {choices[choiceID]}
+                <i class="dashicons dashicons-menu"></i>
+            </li>;
         }
         return html;
     });
@@ -46,10 +52,10 @@ const SortableComponent = props => {
     return <label className='kmt-sortable'>
         {labelHtml}
         {descriptionHtml}
-        <div className="sortable">
+        <ul className="sortable">
             {visibleMetaHtml}
             {invisibleMetaHtml}
-        </div>
+        </ul>
     </label>;
 
 };
