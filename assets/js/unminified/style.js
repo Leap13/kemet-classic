@@ -1245,7 +1245,8 @@ var toggleClass = function (el, className) {
         window.addEventListener("click", function (e) {
           if (
             !popupToggleOpen.contains(e.target) &&
-            popupToggleOpen.classList.contains("toggled")
+            popupToggleOpen.classList.contains("toggled") &&
+            !e.target.classList.contains("kmt-menu-toggle")
           ) {
             popupToggleOpen.classList.remove("toggled");
           }

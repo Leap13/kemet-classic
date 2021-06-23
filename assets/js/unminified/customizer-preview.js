@@ -653,13 +653,95 @@ function toggle_button_css(prefix) {
   kemet_css(
     settingName(prefix + "-icon-h-color"),
     "color",
-    selector + ":hover"
+    selector + ":hover, " + selector + ":focus, " + selector + ".toggled"
   );
   kemet_css(
     settingName(prefix + "-icon-bg-h-color"),
     "background-color",
-    selector + ":hover"
+    selector + ":hover, " + selector + ":focus, " + selector + ".toggled"
   );
+  wp.customize(settingName(prefix + "-float"), function (value) {
+    value.bind(function (position) {
+      var floatPosition =
+        wp.customize._value[settingName(prefix + "-float-position")]._value;
+      jQuery(selector).removeClass(
+        "toggle-button-fixed float-top-left float-top-right float-bottom-left float-bottom-right"
+      );
+      jQuery(selector).addClass("toggle-button-fixed float-" + floatPosition);
+    });
+  });
+  wp.customize(settingName(prefix + "-float-position"), function (value) {
+    value.bind(function (floatPosition) {
+      var position = floatPosition.split("-"),
+        vOffset =
+          wp.customize._value[settingName(prefix + "-vertical-offset")]._value,
+        hOffset =
+          wp.customize._value[settingName(prefix + "-horizontal-offset")]
+            ._value;
+      jQuery(selector).removeClass(
+        "float-top-left float-top-right float-bottom-left float-bottom-right"
+      );
+      jQuery(selector).addClass("float-" + floatPosition);
+
+      dynamicStyle =
+        selector +
+        ".toggle-button-fixed.float-" +
+        floatPosition +
+        " { " +
+        position[0] +
+        ": " +
+        vOffset +
+        "px; " +
+        position[1] +
+        ": " +
+        hOffset +
+        "px; } ";
+      kemet_add_dynamic_css(
+        settingName(prefix + "-float-position"),
+        dynamicStyle
+      );
+    });
+  });
+  wp.customize(settingName(prefix + "-vertical-offset"), function (value) {
+    value.bind(function (offset) {
+      var floatPosition =
+          wp.customize._value[settingName(prefix + "-float-position")]._value,
+        position = floatPosition.split("-");
+      dynamicStyle =
+        selector +
+        ".toggle-button-fixed.float-" +
+        floatPosition +
+        " { " +
+        position[0] +
+        ": " +
+        offset +
+        "px; } ";
+      kemet_add_dynamic_css(
+        settingName(prefix + "-vertical-offset"),
+        dynamicStyle
+      );
+    });
+  });
+  wp.customize(settingName(prefix + "-horizontal-offset"), function (value) {
+    value.bind(function (offset) {
+      var floatPosition =
+          wp.customize._value[settingName(prefix + "-float-position")]._value,
+        position = floatPosition.split("-");
+      dynamicStyle =
+        selector +
+        ".toggle-button-fixed.float-" +
+        floatPosition +
+        " { " +
+        position[1] +
+        ": " +
+        offset +
+        "px; } ";
+      kemet_add_dynamic_css(
+        settingName(prefix + "-horizontal-offset"),
+        dynamicStyle
+      );
+    });
+  });
   wp.customize(settingName(prefix + "-icon-size"), function (value) {
     value.bind(function (size) {
       var dynamicStyle =
