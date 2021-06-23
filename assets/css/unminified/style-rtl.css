@@ -4867,6 +4867,14 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	justify-content: flex-end;
 }
 
+.header-bar-content {
+	padding: 0 15px;
+}
+
+.kmt-is-sticky .header-bar-content {
+	background-color: transparent !important;
+}
+
 /* 7 - Header Toggle Buttons */
 .kmt-popup-main .kmt-mobile-menu-buttons {
 	display: -webkit-box;

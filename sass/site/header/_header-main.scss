@@ -686,3 +686,11 @@ li.kmt-sitehead-custom-menu-items {
   justify-content: flex-end;
   min-height: calc(1.2em + 24px);
 }
+.header-bar-content {
+  padding: 0 15px;
+}
+.kmt-is-sticky {
+  .header-bar-content {
+    background-color: transparent !important;
+  }
+}

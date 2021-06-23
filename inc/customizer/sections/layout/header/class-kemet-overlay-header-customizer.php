@@ -32,14 +32,8 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				'priority'      => 10,
 				'type'          => 'kmt-focus-button',
 				'button_params' => array(
-					'title'   => __( 'Overlay Header', 'kemet-addons' ),
+					'title'   => __( 'Overlay Header', 'kemet' ),
 					'section' => 'section-' . self::$prefix,
-				),
-				'context'       => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
 				),
 			),
 			self::$prefix . '-controls-tabs'           => array(
@@ -51,7 +45,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				'type'     => 'checkbox',
 				'section'  => 'section-' . self::$prefix,
 				'priority' => 5,
-				'label'    => __( 'Enable Overlay Header', 'kemet-addons' ),
+				'label'    => __( 'Enable Overlay Header', 'kemet' ),
 				'context'  => array(
 					array(
 						'setting' => 'tab',

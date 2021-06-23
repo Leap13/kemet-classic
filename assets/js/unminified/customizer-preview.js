@@ -1140,6 +1140,45 @@ function header_row_css(row) {
   var prefix = row + "-header",
     selector = ".kmt-" + row + "-header-wrap ." + row + "-header-bar";
 
+  wp.customize(settingName(prefix + "-layout"), function (value) {
+    value.bind(function (layout) {
+      var dynamicStyle = "";
+      jQuery(selector + " ." + row + "-header-inner").removeClass(
+        "header-bar-content"
+      );
+      if ("full" === layout) {
+        dynamicStyle +=
+          "@media (min-width: 921px){ " +
+          selector +
+          " .kmt-container { max-width: 100%; padding-left: 35px; padding-right: 35px; } }";
+      } else if ("stretched" === layout) {
+        dynamicStyle +=
+          "@media (min-width: 921px){ " +
+          selector +
+          " .kmt-container { max-width: 100%; padding-left: 0; padding-right: 0; } }";
+      } else {
+        dynamicStyle +=
+          "@media (min-width: 769px){ " +
+          selector +
+          " .kmt-container { max-width: 1240px; padding-left: 20px; padding-right: 20px; } }";
+      }
+
+      if ("stretched" === layout || "boxed" === layout) {
+        jQuery(selector + " ." + row + "-header-inner").addClass(
+          "header-bar-content"
+        );
+      }
+
+      kemet_add_dynamic_css(prefix + "-layout", dynamicStyle);
+    });
+  });
+
+  kemet_css(
+    settingName(prefix + "-layout-color"),
+    "background-color",
+    selector + " .header-bar-content"
+  );
+
   wp.customize(settingName(prefix + "-min-height"), function (value) {
     value.bind(function (value) {
       var spacingType = "min-height";

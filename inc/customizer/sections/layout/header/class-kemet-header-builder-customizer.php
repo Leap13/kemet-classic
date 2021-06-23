@@ -302,11 +302,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'mobile_popup' ),
 				),
 			),
-			'header-builder-tabs'           => array(
-				'section'  => 'section-header-builder-layout',
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
-			),
 			'header-desktop-availble-items' => array(
 				'section'     => 'section-header-builder-layout',
 				'priority'    => 1,
@@ -318,10 +313,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					'zones' => array( 'popup', 'top', 'main', 'bottom' ),
 				),
 				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
 					array(
 						'setting' => 'device',
 						'value'   => 'desktop',
@@ -339,10 +330,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					'zones' => array( 'popup', 'top', 'main', 'bottom' ),
 				),
 				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
 					array(
 						'setting'  => 'device',
 						'operator' => 'in_array',

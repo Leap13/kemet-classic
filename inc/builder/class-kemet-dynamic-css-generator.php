@@ -319,6 +319,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$border           = kemet_get_option( $prefix . '-border-width' );
 				$border_color     = kemet_get_option( $prefix . '-border-color' );
 				$stick_background = kemet_get_option( $prefix . '-sticky-background' );
+				$layout           = kemet_get_option( $prefix . '-layout' );
+				$layout_color     = kemet_get_option( $prefix . '-layout-color' );
 
 				$css_output = array(
 					$selector . ' .kmt-grid-row' => array(
@@ -333,6 +335,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'border-color'        => esc_attr( $border_color ),
 					),
 				);
+
+				if ( 'boxed' === $layout || 'stretched' === $layout ) {
+					$css_output[ $selector . ' .header-bar-content' ] = array(
+						'background-color' => esc_attr( $layout_color ),
+					);
+				}
 
 				/* Parse CSS from array() */
 				$parse_css  = kemet_parse_css( $css_output );
@@ -368,6 +376,30 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
+				// Header Break Point.
+				$header_break_point = kemet_header_break_point();
+
+				$layout_css = array();
+
+				if ( 'full' === $layout ) {
+					$layout_css[ $selector . ' .kmt-container' ] = array(
+						'max-width'     => '100%',
+						'padding-left'  => '35px',
+						'padding-right' => '35px',
+					);
+				}
+
+				if ( 'stretched' === $layout ) {
+					$layout_css[ $selector . ' .kmt-container' ] = array(
+						'max-width'     => '100%',
+						'padding-left'  => '0',
+						'padding-right' => '0',
+					);
+				}
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $layout_css, $header_break_point );
 
 				return $parse_css;
 			}

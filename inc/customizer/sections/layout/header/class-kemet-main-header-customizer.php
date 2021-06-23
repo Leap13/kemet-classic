@@ -58,10 +58,47 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			self::$prefix . '-layout'                  => array(
+				'type'      => 'select',
+				'default'   => 'content',
+				'transport' => 'postMessage',
+				'priority'  => 6,
+				'section'   => 'section-' . self::$prefix . '-builder',
+				'choices'   => array(
+					'full'      => __( 'Full Width', 'kemet' ),
+					'content'   => __( 'Content Width', 'kemet' ),
+					'boxed'     => __( 'Boxed Content', 'kemet' ),
+					'stretched' => __( 'Stretched Content', 'kemet' ),
+				),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+				),
+			),
+			self::$prefix . '-layout-color'            => array(
+				'type'      => 'kmt-color',
+				'transport' => 'postMessage',
+				'priority'  => 7,
+				'section'   => 'section-' . self::$prefix . '-builder',
+				'label'     => __( 'Content Color', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'tab',
+						'value'   => 'design',
+					),
+					array(
+						'setting'  => self::$prefix . '-layout',
+						'operator' => 'in_array',
+						'value'    => array( 'boxed', 'stretched' ),
+					),
+				),
+			),
 			self::$prefix . '-background-group'        => array(
 				'type'     => 'kmt-group',
 				'section'  => 'section-' . self::$prefix . '-builder',
-				'priority' => 6,
+				'priority' => 8,
 				'label'    => __( 'Background', 'kemet' ),
 				'context'  => array(
 					array(

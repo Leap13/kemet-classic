@@ -42,7 +42,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 5,
-					'label'     => __( 'Label', 'kemet-addons' ),
+					'label'     => __( 'Label', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -55,7 +55,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 10,
-					'label'     => __( 'URL', 'kemet-addons' ),
+					'label'     => __( 'URL', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -68,7 +68,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
-					'label'     => __( 'Open in New Tab?', 'kemet-addons' ),
+					'label'     => __( 'Open in New Tab?', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -81,7 +81,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
-					'label'     => __( 'Set link to nofollow?', 'kemet-addons' ),
+					'label'     => __( 'Set link to nofollow?', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -94,7 +94,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
-					'label'     => __( 'Set link attribute Sponsored?', 'kemet-addons' ),
+					'label'     => __( 'Set link attribute Sponsored?', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -107,7 +107,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
-					'label'     => __( 'Set link to Download?', 'kemet-addons' ),
+					'label'     => __( 'Set link to Download?', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',

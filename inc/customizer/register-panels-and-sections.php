@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_Addons' ) ) {
 			array(
 				'title'       => esc_html__( 'Kemet Addons Available', 'kemet' ),
 				'description' => esc_html__( 'Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of extra customization options.', 'kemet' ),
-				'slug'        => 'kemet-addons',
+				'slug'        => 'kemet',
 				'priority'    => 0,
 			)
 		)
