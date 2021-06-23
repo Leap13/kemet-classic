@@ -1183,7 +1183,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// sidebar.
 			$parse_css .= kemet_get_background_obj( '.sidebar-main', $sidebar_bg_obj );
 			// layout header.
-			$parse_css  .= kemet_get_background_obj( '.site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header', $header_bg_obj );
+			// $parse_css  .= kemet_get_background_obj( '.site-header:not(.kmt-is-sticky) .main-header-bar ,.site-header:not(.kmt-is-sticky) .kemet-merged-top-bar-header', $header_bg_obj );
 			$parse_css  .= kemet_get_background_obj( '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.kmt-separate-container .comment-respond ,.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.kmt-separate-container .kmt-comment-list li ,.kmt-separate-container .comments-count-wrapper ,.kmt-separate-container.kmt-two-container #secondary div.widget', $box_bg_inner_boxed );
 			$parse_css  .= kemet_get_background_obj( 'body, .kmt-separate-container , .entry-layout.blog-large-modern .entry-content', $box_bg_obj );
 			$tablet_typo = array();
