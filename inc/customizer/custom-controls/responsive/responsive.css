@@ -23,7 +23,7 @@
   cursor: pointer;
   background: none;
   border: none;
-  opacity: .75;
+  opacity: 0.75;
   outline: none;
 }
 
@@ -47,10 +47,13 @@
   width: 50px;
   margin: 0;
   display: none;
-  padding: .1em;
+  padding: 0.1em;
   margin-left: 2px;
 }
 
-.customize-control-kmt-responsive .input-wrapper .kmt-responsive-input.active + .kmt-responsive-select {
+.customize-control-kmt-responsive
+  .input-wrapper
+  .kmt-responsive-input.active
+  + .kmt-responsive-select {
   display: inline-block;
 }

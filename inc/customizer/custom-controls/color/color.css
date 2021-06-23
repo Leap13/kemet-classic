@@ -1,36 +1,45 @@
-.customize-control-kmt-color .wp-color-result span {
-  background: #f7f7f7;
+.kemet-control-field.kemet-color-control {
+  display: flex;
 }
-.customize-control-kmt-color .wp-color-result.button {
-  min-height: 24px;
+.kemet-control-field.kemet-color-control .customize-control-title {
+  flex-grow: 2;
 }
-
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="datetime"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-select,
-textarea {
-  border: 1px solid #d0d0d0;
+.kemet-control-field button.components-button.kemet-reset {
+  height: 18px;
+  padding: 0 5px;
+  margin-right: 0;
+  margin-left: -20px;
+  opacity: 0.5;
 }
-
-.customize-control-kmt-color
-  .wp-picker-container
-  input[type="text"].wp-color-picker {
-  width: 65px !important;
+.kemet-color-picker-wrap {
+  margin-left: 5px;
 }
-
-.customize-control-kmt-color .description.customize-control-description {
-  cursor: auto;
-  display: inline-block;
+.components-button.kemet-color-icon-indicate {
+  height: auto;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.1s ease;
+  border-radius: 50%;
+  padding: 0;
+  background-image: linear-gradient(45deg, #ddd 25%, transparent 0),
+    linear-gradient(-45deg, #ddd 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, #ddd 0),
+    linear-gradient(-45deg, transparent 75%, #ddd 0);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button.kemet-color-icon-indicate
+  .component-color-indicator.kemet-advanced-color-indicate {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0;
+}
+.kemet-color-picker-wrap {
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #a29090;
+  border-radius: 4px;
+  padding: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
 }
