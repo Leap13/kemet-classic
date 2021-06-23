@@ -42,9 +42,9 @@ export function kemetGetResponsiveSpacingJs(control) {
 
     jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device).addClass('active');
 
-    jQuery('.customize-control .kmt-responsive-icon-select-btns li').removeClass('active');
+    jQuery('.customize-control .kmt-spacing-responsive-btns li').removeClass('active');
 
-    jQuery('.customize-control .kmt-responsive-icon-select-btns li.' + device).addClass('active');
+    jQuery('.customize-control .kmt-spacing-responsive-btns li.' + device).addClass('active');
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
 
@@ -89,7 +89,7 @@ export function kemetGetResponsiveIconJs(control) {
         jQuery('.customize-control-kmt-responsive-icon-select .responsive-icon-select.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device).addClass('active');
     });
 
-    control.container.find('.kmt-spacing-responsive-btns button').on('click', function (event) {
+    control.container.find('.kmt-responsive-icon-select-btns li button').on('click', function (event) {
         event.preventDefault();
         let device = jQuery(this).attr('data-device');
         if ('desktop' == device) {
