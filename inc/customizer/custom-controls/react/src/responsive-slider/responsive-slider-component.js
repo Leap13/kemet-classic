@@ -63,7 +63,7 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
-        let { label, value, suffix, description } = this.props.control.params;
+        let { label, suffix, description } = this.props.control.params;
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
         let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
@@ -147,7 +147,7 @@ class ResponsiveSliderComponent extends Component {
                         <span className="dashicons dashicons-image-rotate"></span>
                     </div>
                 </div>
-                { descriptionContent}
+                {descriptionContent}
             </label >
         )
     }

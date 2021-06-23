@@ -1,141 +1,106 @@
 import PropTypes from 'prop-types';
-import { __ } from '@wordpress/i18n';
-import { useEffect, useState } from 'react';
-import { Fragment } from 'react';
+import { Component } from '@wordpress/element';
 
-const ResponsiveIconSelectComponent = props => {
+class ResponsiveIconSelect extends Component {
 
+    constructor(props) {
 
-    let value = props.control.setting.get()
-    value = (undefined === value || '' === value) ? props.control.params.value : value;
-    const [state, setState] = useState(value);
+        super(...arguments);
 
-    useEffect(() => {
-        if (state !== value) {
-            setState(value);
+        this.choices = this.props.control.params.choices;
+        let defaultValues = this.props.control.params.default;
+        this.values = this.props.control.params.value;
+        let value = this.props.control.setting.get()
+        let defaultParam = {
+            "desktop": '',
+            'tablet': '',
+            'mobile': '',
         }
-    }, [props]);
+        value = (undefined === value || '' === value) ? this.props.control.params.value : value;
+        defaultValues = (undefined === defaultValues || '' === defaultValues) ? defaultParam : defaultValues;
+        this.state = {
+            initialState: value,
+            currentDevice: 'desktop',
+            defaultVal: defaultValues
 
-    const onLayoutChange = (device, value) => {
-        const {
-            choices
-        } = props.control.params;
+        }
+        this.onLayoutChange = this.onLayoutChange.bind(this)
+    }
+
+
+    onLayoutChange(device, key) {
         let updateState = {
-            ...state
+            ...this.state.initialState
         };
-        let deviceUpdateState = {
-            ...updateState[device]
-        };
-        deviceUpdateState = value;
-        updateState[device] = deviceUpdateState;
-        props.control.setting.set(updateState);
-        setState(updateState);
+        updateState[device] = key;
+        this.props.control.setting.set(updateState);
+        this.setState({ initialState: updateState });
+    }
 
-    };
-
-    const renderInputHtml = (device, active = '') => {
-        const {
-            id,
-            title,
-            choices,
-            inputAttrs,
-        } = props.control.params;
-
-        let ContentHTML = [];
-
-
-        if (choices) {
-            for (const [key, icon] of Object.entries(choices)) {
-
-                ContentHTML.push(<label>
-                    <input className="icon-select-input" type="radio" value={key} name={`_customize-icon-select-${id}`} checked={value === key} onChange={() => onLayoutChange(device, key)} />
-                    <span className="icon-select-label">
-                        <div className={`dashicons ${icon['icon']}`}></div>
-                    </span>
-                </label>)
-            }
+    render() {
+        let html = []
+        for (const [key, icon] of Object.entries(this.choices)) {
+            html.push(<label>
+                <input className={`icon-select-input kmt-responsive-${this.state.currentDevice}-input`} type="radio" checked={this.state.initialState[this.state.currentDevice] === key} value={key} name={`${id}-${this.state.currentDevice}`} onChange={() => this.onLayoutChange(this.state.currentDevice, key)} />
+                <span className="icon-select-label">
+                    <div className={`dashicons ${icon['icon']}`}></div>
+                </span>
+            </label>)
         }
 
+        console.log(this.props.control.params)
+        const { label, id, description } = this.props.control.params;
+        let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
+        let descriptionContent = (description || description !== '') ? <span className="customize-control-title">{label}</span> : null;
+        const responsiveHtml = (
 
+            <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
+                <li className="desktop active">
+                    <button type="button" className="preview-desktop active" data-device="desktop">
+                        <i i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
+                    </button>
+                </li>
+                <li class="tablet ">
+                    <button type="button" className="preview-tablet " data-device="tablet" >
+                        <i class="dashicons dashicons-tablet" onClick={() => this.setState({ currentDevice: 'mobile' })} ></i>
+                    </button>
+                </li>
+                <li class="mobile">
+                    <button type="button" className="preview-mobile" data-device="mobile" >
+                        <i className="dashicons dashicons-smartphone" onClick={() => this.setState({ currentDevice: 'desktop' })}></i>
+                    </button>
+                </li>
+            </ul>)
 
+        return (
+            <>
+                {labelContent}
+                {responsiveHtml}
+                {descriptionContent}
+                {/* Desktop */}
+                <div id={`input_${id}`} class="desktop active responsive-icon-select <?php echo esc_attr($rtl_class); ?>" data-device="desktop">
+                    {html.map(elem => elem)}
+                </div>
+                {/* Tablet */}
+                <div id="input_{{ data.id }}" class="tablet responsive-icon-select <?php echo esc_attr($rtl_class); ?>" data-device="tablet">
+                    {html.map(elem => elem)}
+                </div>
+                {/* Mobile */}
+                <div id="input_{{ data.id }}" class="mobile responsive-icon-select <?php echo esc_attr($rtl_class); ?>" data-device="mobile">
+                    {html.map(elem => elem)}
+                </div>
+            </>
+        );
+    }
 
+    updateValues(updateState) {
+        this.setState({ value: updateState })
+        this.props.control.setting.set(updateState);
+    }
+}
 
-
-        return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
-            {
-                ContentHTML.map((elem) => {
-                    return elem;
-                })
-            }
-            {linkHtml}
-
-        </ul>;
-    };
-
-    const {
-        label,
-        description
-    } = props.control.params;
-
-    let inputHtml = null;
-    let responsiveHtml = null;
-
-
-    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
-
-    let descriptionContent = <span className="description customize-control-description">{description}</span>;
-    inputHtml = <Fragment>
-        {renderInputHtml('desktop', 'active')}
-        {renderInputHtml('tablet')}
-        {renderInputHtml('mobile')}
-    </Fragment>;
-    responsiveHtml = <Fragment>
-
-        {renderResponsiveInput('desktop')}
-        {renderResponsiveInput('tablet')}
-        {renderResponsiveInput('mobile')}
-
-
-    </Fragment>;
-
-    return <label key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' htmlFor="kmt-spacing">
-        {labelContent}
-        <ul class="kmt-responsive-icon-select-btns kmt-responsive-control-btns">
-            <li class="desktop active">
-                <button type="button" class="preview-desktop active" data-device="desktop">
-                    <i class="dashicons dashicons-desktop"></i>
-                </button>
-            </li>
-            <li class="tablet">
-                <button type="button" class="preview-tablet" data-device="tablet">
-                    <i class="dashicons dashicons-tablet"></i>
-                </button>
-            </li>
-            <li class="mobile">
-                <button type="button" class="preview-mobile" data-device="mobile">
-                    <i class="dashicons dashicons-smartphone"></i>
-                </button>
-            </li>
-        </ul>
-
-
-        {descriptionContent}
-        <div className="kmt-spacing-responsive-outer-wrapper">
-            <div className="input-wrapper kmt-spacing-responsive-wrapper">
-                {inputHtml}
-            </div>
-
-
-            {responsiveHtml}
-
-
-        </div>
-    </label>;
-
-};
-
-ResponsiveIconSelectComponent.propTypes = {
+ResponsiveIconSelect.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default ResponsiveIconSelectComponent;
+export default ResponsiveIconSelect;

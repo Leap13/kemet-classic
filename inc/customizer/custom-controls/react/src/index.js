@@ -9,6 +9,7 @@ import { sliderControl } from './slider/control'
 import { responsiveSliderControl } from './responsive-slider/control'
 import { responsiveSpacingControl } from './responsive-spacing/control'
 //import { sortableControl } from './sortable/control'
+import { responsiveIcon } from './responsive-icon-select/control'
 import { iconSelect } from './icon-select/control'
 //import { colorComponent } from './color/control'
 //import { toggleControl } from './Toggle/control'
@@ -27,5 +28,6 @@ wp.customize.controlConstructor['kmt-responsive-spacing'] = responsiveSpacingCon
 wp.customize.controlConstructor['kmt-icon-select'] = iconSelect;
 //wp.customize.controlConstructor['kmt-color'] = colorComponent;
 //wp.customize.controlConstructor['kmt-toggle'] = toggleControl
+wp.customize.controlConstructor['kmt-responsive-icon-select'] = responsiveIcon;
 
 import { Base } from "./customizer";

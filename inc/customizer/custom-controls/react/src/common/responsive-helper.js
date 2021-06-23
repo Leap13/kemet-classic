@@ -42,9 +42,9 @@ export function kemetGetResponsiveSpacingJs(control) {
 
     jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device).addClass('active');
 
-    jQuery('.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns li').removeClass('active');
+    jQuery('.customize-control .kmt-responsive-icon-select-btns li').removeClass('active');
 
-    jQuery('.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns li.' + device).addClass('active');
+    jQuery('.customize-control .kmt-responsive-icon-select-btns li.' + device).addClass('active');
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
 
@@ -68,25 +68,25 @@ export function kemetGetResponsiveSpacingJs(control) {
         jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
     });
 }
-export function kemetGetResponsiveSelectJs(control) {
+export function kemetGetResponsiveIconJs(control) {
     'use strict';
 
     let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')
 
-    jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper').removeClass('active');
+    jQuery('.customize-control-kmt-responsive-icon-select .responsive-icon-select').removeClass('active');
 
-    jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device).addClass('active');
+    jQuery('.customize-control-kmt-responsive-icon-select .responsive-icon-select.' + device).addClass('active');
 
-    jQuery('.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns li').removeClass('active');
+    jQuery('.customize-control .kmt-responsive-icon-select-btns li').removeClass('active');
 
-    jQuery('.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-btns li.' + device).addClass('active');
+    jQuery('.customize-control .kmt-responsive-icon-select-btns li.' + device).addClass('active');
 
     jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
 
         let device = jQuery(this).attr('data-device');
 
-        jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper, .customize-control .kmt-spacing-responsive-btns > li').removeClass('active');
-        jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device).addClass('active');
+        jQuery('.customize-control-kmt-responsive-icon-select .responsive-icon-select, .customize-control .kmt-spacing-responsive-btns > li').removeClass('active');
+        jQuery('.customize-control-kmt-responsive-icon-select .responsive-icon-select.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device).addClass('active');
     });
 
     control.container.find('.kmt-spacing-responsive-btns button').on('click', function (event) {
