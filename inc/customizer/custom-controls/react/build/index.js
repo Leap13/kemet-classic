@@ -8334,34 +8334,47 @@ var SliderComponent = function SliderComponent(props) {
   var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "kmt-range-unit"
   }, suffix) : null;
+  var min = inputContent.min,
+      max = inputContent.max,
+      step = inputContent.step;
 
-  var updateValues = function updateValues(newVal) {
-    if (!isNaN(newVal)) {
-      var parsedValue = parseFloat(newVal);
-      newVal = parsedValue;
+  var onChangInput = function onChangInput(event) {
+    if (event.target.value === '') {
+      updateValues(undefined);
+      return;
+    }
+
+    var newValue = Number(event.target.value);
+
+    if (newValue === '') {
+      updateValues(undefined);
+      return;
     }
 
     if (min < -0.1) {
-      if (newVal > max) {
-        newVal = max;
-      } else if (newVal < min && newVal !== '-') {
-        newVal = min;
+      if (newValue > max) {
+        updateValues(max);
+      } else if (newValue < min && newValue !== '-') {
+        updateValues(min);
+      } else {
+        updateValues(newValue);
       }
     } else {
-      if (newVal > max) {
-        newVal = max;
-      } else if (newVal < -0.1) {
-        newVal = min;
+      if (newValue > max) {
+        updateValues(max);
+      } else if (newValue < -0.1) {
+        updateValues(min);
+      } else {
+        updateValues(newValue);
       }
     }
+  };
 
+  var updateValues = function updateValues(newVal) {
     setPropsValue(newVal);
     props.control.setting.set(newVal);
   };
 
-  var min = inputContent.min,
-      max = inputContent.max,
-      step = inputContent.step;
   var savedValue = props_value || 0 === props_value ? parseFloat(props_value) : '';
 
   if (1 === step) {
@@ -8388,7 +8401,7 @@ var SliderComponent = function SliderComponent(props) {
     className: "value kmt-range-value-input",
     value: "".concat(savedValue),
     onChange: function onChange(value) {
-      return updateValues(event.target.value);
+      return onChangInput(event);
     },
     min: input_attrs.min,
     max: input_attrs.max,

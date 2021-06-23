@@ -22,31 +22,40 @@ const SliderComponent = props => {
     let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
 
     let suffixContent = suffix ? <span className="kmt-range-unit">{suffix}</span> : null;
+    let { min, max, step } = inputContent;
 
-    const updateValues = (newVal) => {
-        if (!isNaN(newVal)) {
-            const parsedValue = parseFloat(newVal)
-            newVal = parsedValue;
+    const onChangInput = (event) => {
+        if (event.target.value === '') {
+            updateValues(undefined);
+            return;
+        }
+        const newValue = Number(event.target.value);
+        if (newValue === '') {
+            updateValues(undefined);
+            return;
         }
         if (min < -0.1) {
-            if (newVal > max) {
-                newVal = max;
-            } else if (newVal < min && newVal !== '-') {
-                newVal = min;
+            if (newValue > max) {
+                updateValues(max);
+            } else if (newValue < min && newValue !== '-') {
+                updateValues(min);
+            } else {
+                updateValues(newValue);
             }
         } else {
-            if (newVal > max) {
-                newVal = max
-            } else if (newVal < -0.1) {
-                newVal = min
+            if (newValue > max) {
+                updateValues(max);
+            } else if (newValue < -0.1) {
+                updateValues(min);
+            } else {
+                updateValues(newValue);
             }
         }
+    };
+    const updateValues = (newVal) => {
         setPropsValue(newVal);
         props.control.setting.set(newVal);
-
-
     };
-    let { min, max, step } = inputContent;
 
 
     let savedValue = (props_value || 0 === props_value) ? parseFloat(props_value) : '';
@@ -72,7 +81,7 @@ const SliderComponent = props => {
                 <div class="kemet_range_value">
                     <input type="number" className="value kmt-range-value-input"
                         value={`${savedValue}`}
-                        onChange={(value) => updateValues(event.target.value)}
+                        onChange={(value) => onChangInput(event)}
                         min={input_attrs.min}
                         max={input_attrs.max}
                         step={input_attrs.step}
