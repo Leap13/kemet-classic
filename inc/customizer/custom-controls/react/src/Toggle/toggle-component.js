@@ -7,9 +7,9 @@ const ToggleControlComponent = props => {
 
     const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-    const { title } = props.control.params;
+    const { label } = props.control.params;
 
-    let titleContent = title ? <span className="toggle-control-label">{title}</span> : null;
+    let labelContent = label ? <span className="toggle-control-label">{label}</span> : null;
 
 
     const updateValues = () => {
@@ -17,16 +17,17 @@ const ToggleControlComponent = props => {
         props.control.setting.set(!props_value);
     };
 
-    return <Fragment>
-        <div className="toggleControl-wrapper">
-            {titleContent}
-            <ToggleControl
-                label={titleContent}
-                checked={props_value}
-                onChange={() => updateValues()}
-            />
-        </div>
-    </Fragment>;
+    return (
+        <Fragment>
+            <div className="toggleControl-wrapper">
+                <ToggleControl
+                    label={labelContent}
+                    checked={props_value}
+                    onChange={() => updateValues()}
+                />
+            </div>
+        </Fragment>
+    )
 };
 
 ToggleControlComponent.propTypes = {
