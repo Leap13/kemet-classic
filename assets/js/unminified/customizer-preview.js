@@ -1220,7 +1220,12 @@ function header_row_css(row) {
   });
   wp.customize(settingName(prefix + "-sticky-background"), function (value) {
     value.bind(function (bg_obj) {
-      var dynamicStyle = selector + ".kmt-is-sticky { {{css}} }";
+      var dynamicStyle =
+        ".kmt-sticky-" +
+        row +
+        "-bar #sitehead " +
+        selector +
+        ".kmt-is-sticky { {{css}} }";
 
       kemet_background_obj_css(
         wp.customize,

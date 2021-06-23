@@ -39,25 +39,11 @@ if ( ! class_exists( 'Kemet_Overlay_Header' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
-			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			if ( ! is_admin() ) {
 				require_once KEMET_OVERLAY_HEADER_DIR . 'dynamic-css/class-kemet-overlay-header-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
 		}
 
-		/**
-		 * Header classes
-		 *
-		 * @param array $classes array of classes.
-		 * @return array
-		 */
-		public function body_classes( $classes ) {
-			$header_transparent = kemet_get_option( 'overlay-header-enable' );
-			if ( $header_transparent ) {
-				$classes[] = 'kmt-overlay-header';
-			}
-			return $classes;
-		}
 		/**
 		 * Add Preview Scripts
 		 *

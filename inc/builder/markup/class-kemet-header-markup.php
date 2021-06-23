@@ -63,8 +63,37 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'wp_footer', array( $this, 'mobile_popup' ) );
 			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
 			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
+			add_filter( 'body_class', array( $this, 'body_classes' ) );
 		}
 
+
+		/**
+		 * Header classes
+		 *
+		 * @param array $classes array of classes.
+		 * @return array
+		 */
+		public function body_classes( $classes ) {
+			// Overlay Header.
+			$header_transparent = kemet_get_option( 'overlay-header-enable' );
+			if ( $header_transparent ) {
+				$classes[] = 'kmt-overlay-header';
+			}
+			// Sticky Header.
+			$sticky_top = kemet_get_option( 'enable-sticky-top' );
+			if ( $sticky_top ) {
+				$classes[] = 'kmt-sticky-top-bar';
+			}
+			$sticky_main = kemet_get_option( 'enable-sticky-main' );
+			if ( $sticky_main ) {
+				$classes[] = 'kmt-sticky-main-bar';
+			}
+			$sticky_bottom = kemet_get_option( 'enable-sticky-bottom' );
+			if ( $sticky_bottom ) {
+				$classes[] = 'kmt-sticky-bottom-bar';
+			}
+			return $classes;
+		}
 		/**
 		 * Display sidebar as section.
 		 *
