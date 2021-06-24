@@ -78,19 +78,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			if ( self::enable_overlay_header() ) {
 				$classes[] = 'kmt-overlay-header';
 			}
-			// Sticky Header.
-			$sticky_top = kemet_get_option( 'enable-sticky-top' );
-			if ( $sticky_top ) {
-				$classes[] = 'kmt-sticky-top-bar';
-			}
-			$sticky_main = kemet_get_option( 'enable-sticky-main' );
-			if ( $sticky_main ) {
-				$classes[] = 'kmt-sticky-main-bar';
-			}
-			$sticky_bottom = kemet_get_option( 'enable-sticky-bottom' );
-			if ( $sticky_bottom ) {
-				$classes[] = 'kmt-sticky-bottom-bar';
-			}
+
 			return $classes;
 		}
 

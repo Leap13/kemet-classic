@@ -4871,10 +4871,6 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
 	padding: 0 15px;
 }
 
-.kmt-is-sticky .header-bar-content {
-	background-color: transparent !important;
-}
-
 /* 7 - Header Toggle Buttons */
 .kmt-popup-main .kmt-mobile-menu-buttons {
 	display: -webkit-box;
