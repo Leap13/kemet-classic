@@ -198,7 +198,6 @@
   outline: none;
   padding: 4px;
   border-radius: 20px;
-  background-color: #bbbbbb;
   width: 24px;
   height: 24px;
 }
@@ -209,4 +208,5 @@
   font-size: 13px;
   color: #fff;
   line-height: 17px;
+  color: #bbb;
 }
