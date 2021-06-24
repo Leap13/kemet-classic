@@ -42,7 +42,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				'priority' => 0,
 			),
 			self::$prefix . '-enable'                  => array(
-				'type'     => 'checkbox',
+				'type'     => 'kmt-switcher',
 				'section'  => 'section-' . self::$prefix,
 				'priority' => 5,
 				'label'    => __( 'Enable Overlay Header', 'kemet' ),

@@ -34,7 +34,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 				'priority' => 0,
 			),
 			self::$prefix . '-float'             => array(
-				'type'      => 'checkbox',
+				'type'      => 'kmt-switcher',
 				'transport' => 'postMessage',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,

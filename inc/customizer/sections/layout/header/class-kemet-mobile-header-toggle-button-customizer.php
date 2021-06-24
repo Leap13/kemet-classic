@@ -34,7 +34,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 				'priority' => 0,
 			),
 			self::$prefix . '-float'             => array(
-				'type'      => 'checkbox',
+				'type'      => 'kmt-switcher',
 				'transport' => 'postMessage',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,

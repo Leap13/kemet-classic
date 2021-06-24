@@ -33,4 +33,5 @@ require $control_dir . '/class-kemet-control-builder.php';
 require $control_dir . '/class-kemet-control-available.php';
 require $control_dir . '/class-kemet-control-tabs.php';
 require $control_dir . '/class-kemet-control-focus-button.php';
+require $control_dir . '/toggle/class-kemet-control-toggle.php';
 // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

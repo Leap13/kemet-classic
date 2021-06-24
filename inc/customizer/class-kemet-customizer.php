@@ -126,6 +126,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-font-weight'        => 'Kemet_Control_Typography',
 			'kmt-background'         => 'Kemet_Control_Background',
 			'image'                  => 'WP_Customize_Image_Control',
+			'kmt-switcher'           => 'Kemet_Control_Toggle',
 		);
 
 		/**

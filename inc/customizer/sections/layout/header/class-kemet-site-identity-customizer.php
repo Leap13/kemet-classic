@@ -26,13 +26,13 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'priority' => 0,
 			),
 			'display-site-title'               => array(
-				'type'     => 'checkbox',
+				'type'     => 'kmt-switcher',
 				'section'  => 'title_tagline',
 				'label'    => __( 'Display Site Title', 'kemet' ),
 				'priority' => 15,
 			),
 			'display-site-tagline'             => array(
-				'type'     => 'checkbox',
+				'type'     => 'kmt-switcher',
 				'section'  => 'title_tagline',
 				'label'    => __( 'Display Site Tagline', 'kemet' ),
 				'priority' => 20,

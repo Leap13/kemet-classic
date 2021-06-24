@@ -64,7 +64,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-open-new-tab'   => array(
-					'type'      => 'checkbox',
+					'type'      => 'kmt-switcher',
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
@@ -77,7 +77,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-link-nofollow'  => array(
-					'type'      => 'checkbox',
+					'type'      => 'kmt-switcher',
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
@@ -90,7 +90,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-link-sponsored' => array(
-					'type'      => 'checkbox',
+					'type'      => 'kmt-switcher',
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
@@ -103,7 +103,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-link-download'  => array(
-					'type'      => 'checkbox',
+					'type'      => 'kmt-switcher',
 					'transport' => 'postMessage',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 15,
