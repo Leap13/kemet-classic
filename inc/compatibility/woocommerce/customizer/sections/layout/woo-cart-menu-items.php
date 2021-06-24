@@ -66,7 +66,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[disable-cart-if-empty]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-woo-cart-menu-items',
 		'label'    => __( 'Disable Cart If Empty', 'kemet' ),
 		'priority' => 10,

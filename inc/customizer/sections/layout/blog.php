@@ -585,7 +585,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[readmore-as-button]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-blog',
 		'label'    => __( 'Enable Read More As Button', 'kemet' ),
 		'priority' => 71,

@@ -50,7 +50,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[disable-primary-nav]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-menu-header',
 		'label'    => __( 'Disable Main Menu', 'kemet' ),
 		'priority' => 5,
@@ -536,7 +536,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[header-display-outside-menu]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-menu-header',
 		'label'    => __( 'Make It a Standalone Menu', 'kemet' ),
 		'priority' => 75,
@@ -561,7 +561,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[disable-last-menu-items-on-mobile]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-menu-header',
 		'label'    => __( 'Disable The Last Custom Menu on Mobile', 'kemet' ),
 		'priority' => 80,
@@ -837,7 +837,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[search-box-shadow]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-menu-header',
 		'priority' => 100,
 		'label'    => __( 'Search Box Shadow', 'kemet' ),
@@ -1104,7 +1104,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[submenu-box-shadow]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-menu-header',
 		'label'    => __( 'Submenu Box Shadow', 'kemet' ),
 		'priority' => 143,
@@ -1411,7 +1411,7 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[display-submenu-border]',
 		array(
 			'section'  => 'section-menu-header',
-			'type'     => 'checkbox',
+			'type'     => 'kmt-switcher',
 			'priority' => 200,
 			'label'    => __( 'Submenu Separator', 'kemet' ),
 		)

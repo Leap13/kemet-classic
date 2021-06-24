@@ -30,6 +30,6 @@ $wp_customize->add_control(
 		'section'  => 'section-woo-shop-single',
 		'label'    => __( 'Disable Breadcrumb', 'kemet' ),
 		'priority' => 10,
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 	)
 );

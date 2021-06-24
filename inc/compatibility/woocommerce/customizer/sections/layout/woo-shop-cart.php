@@ -30,6 +30,6 @@ $wp_customize->add_control(
 		'section'  => 'section-woo-shop-cart',
 		'label'    => __( 'Enable Upsells', 'kemet' ),
 		'priority' => 10,
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 	)
 );

@@ -238,7 +238,7 @@ $wp_customize->add_control(
 		'section'  => 'section-kemet-footer',
 		'label'    => __( 'Enable Sticky Footer', 'kemet' ),
 		'priority' => 6,
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 	)
 );
 /**
@@ -260,7 +260,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[enable-footer-content-center]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'section-kemet-footer',
 		'label'    => __( 'Center Footer Content', 'kemet' ),
 		'priority' => 10,
@@ -283,7 +283,7 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[enable-footer-widget-list-separator]',
 		array(
 			'section'  => 'section-kemet-footer',
-			'type'     => 'checkbox',
+			'type'     => 'kmt-switcher',
 			'priority' => 11,
 			'label'    => __( 'Enable Widget List Separator', 'kemet' ),
 		)
@@ -460,7 +460,7 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[enable-footer-widget-title-separator]',
 		array(
 			'section'  => 'section-kemet-footer',
-			'type'     => 'checkbox',
+			'type'     => 'kmt-switcher',
 			'priority' => 32,
 			'label'    => __( 'Enable Widget Title Separator', 'kemet' ),
 		)

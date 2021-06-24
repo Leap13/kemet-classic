@@ -45,7 +45,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[disable-shop-breadcrumb]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'woocommerce_product_catalog',
 		'label'    => __( 'Disable Breadcrumb', 'kemet' ),
 		'priority' => 10,

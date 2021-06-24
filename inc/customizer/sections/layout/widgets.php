@@ -323,7 +323,7 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[enable-widget-list-separator]',
 		array(
 			'section'  => 'section-widgets',
-			'type'     => 'checkbox',
+			'type'     => 'kmt-switcher',
 			'priority' => 55,
 			'label'    => __( 'Enable Widget List Separator', 'kemet' ),
 		)
@@ -375,7 +375,7 @@ $wp_customize->add_control(
 		KEMET_THEME_SETTINGS . '[enable-widget-title-separator]',
 		array(
 			'section'  => 'section-widgets',
-			'type'     => 'checkbox',
+			'type'     => 'kmt-switcher',
 			'priority' => 55,
 			'label'    => __( 'Enable Widget Title Separator', 'kemet' ),
 		)

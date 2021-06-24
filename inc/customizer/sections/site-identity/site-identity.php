@@ -44,7 +44,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[display-site-title]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'title_tagline',
 		'label'    => __( 'Display Site Title', 'kemet' ),
 		'priority' => 15,
@@ -65,7 +65,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[display-site-tagline]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'title_tagline',
 		'label'    => __( 'Display Site Tagline', 'kemet' ),
 		'priority' => 20,
@@ -433,7 +433,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	KEMET_THEME_SETTINGS . '[logo-title-inline]',
 	array(
-		'type'     => 'checkbox',
+		'type'     => 'kmt-switcher',
 		'section'  => 'title_tagline',
 		'label'    => __( 'Inline Logo & Site Title', 'kemet' ),
 		'priority' => 85,
