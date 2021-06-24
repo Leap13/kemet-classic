@@ -39,22 +39,22 @@ if ( ! class_exists( 'Kemet_Header_Items' ) ) :
 		 */
 		public function __construct() {
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_HEADER_ITEMS_DIR . 'menu/kemet-header-menu-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'button/kemet-header-button-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'mobile-button/kemet-header-mobile-button-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'widget/kemet-header-widget-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'html/kemet-header-html-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'mobile-html/kemet-header-mobile-html-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'search/kemet-header-search-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'search-box/kemet-header-search-box-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'logo/kemet-header-logo-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'mobile-toggle/kemet-header-mobile-toggle-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'desktop-toggle/kemet-header-desktop-toggle-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'top-header/kemet-top-header.php';
-			require KEMET_HEADER_ITEMS_DIR . 'main-header/kemet-main-header.php';
-			require KEMET_HEADER_ITEMS_DIR . 'bottom-header/kemet-bottom-header.php';
-			require KEMET_HEADER_ITEMS_DIR . 'offcanvas-menu/kemet-header-off-canvas-menu-item.php';
-			require KEMET_HEADER_ITEMS_DIR . 'overlay-header/kemet-overlay-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'menu/class-kemet-header-menu-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'button/class-kemet-header-button-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'mobile-button/class-kemet-header-mobile-button-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'widget/class-kemet-header-widget-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'html/class-kemet-header-html-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'mobile-html/class-kemet-header-mobile-html-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'search/class-kemet-header-search-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'search-box/class-kemet-header-search-box-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'logo/class-kemet-header-logo-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'mobile-toggle/class-kemet-header-mobile-toggle-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'desktop-toggle/class-kemet-header-desktop-toggle-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'top-header/class-kemet-top-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'main-header/class-kemet-main-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'bottom-header/class-kemet-bottom-header.php';
+			require KEMET_HEADER_ITEMS_DIR . 'offcanvas-menu/class-kemet-header-off-canvas-menu-item.php';
+			require KEMET_HEADER_ITEMS_DIR . 'overlay-header/class-kemet-overlay-header.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}
