@@ -53,6 +53,108 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			self::$prefix . '-disable-404-archive'     => array(
+				'type'     => 'kmt-switcher',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Disable on 404, Search & Archives?', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-disable-blog'            => array(
+				'type'     => 'kmt-switcher',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Disable on Blog Page?', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-disable-latest-posts'    => array(
+				'type'     => 'kmt-switcher',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Disable on Latest Posts Page?', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-disable-posts'           => array(
+				'type'     => 'kmt-switcher',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Disable on Posts?', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-disable-pages'           => array(
+				'type'     => 'kmt-switcher',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Disable on Pages?', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
+			self::$prefix . '-enable-device'           => array(
+				'type'     => 'select',
+				'default'  => 'desktop_mobile',
+				'section'  => 'section-' . self::$prefix,
+				'priority' => 5,
+				'label'    => __( 'Enable For', 'kemet' ),
+				'choices'  => array(
+					'desktop'        => __( 'Desktop', 'kemet' ),
+					'mobile'         => __( 'Mobile', 'kemet' ),
+					'desktop_mobile' => __( 'Desktop & Mobile', 'kemet' ),
+				),
+				'context'  => array(
+					array(
+						'setting' => self::$prefix . '-enable',
+						'value'   => true,
+					),
+					array(
+						'setting' => 'tab',
+						'value'   => 'general',
+					),
+				),
+			),
 			self::$prefix . '-bg-color'                => array(
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 10,

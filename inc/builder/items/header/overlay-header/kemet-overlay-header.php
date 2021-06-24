@@ -55,8 +55,16 @@ if ( ! class_exists( 'Kemet_Overlay_Header' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_script( 'kemet-overlay-header-customize-preview-js', KEMET_OVERLAY_HEADER_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kemet-customizer-preview-js' ), KEMET_THEME_VERSION, true );
-		}
 
+			// Localize variables for HTML JS.
+			wp_localize_script(
+				'kemet-overlay-header-customize-preview-js',
+				'kemetOvelayHeaderData',
+				array(
+					'enableDevice' => kemet_get_option( 'overlay-header-enable-device' ),
+				)
+			);
+		}
 	}
 	Kemet_Overlay_Header::get_instance();
 }

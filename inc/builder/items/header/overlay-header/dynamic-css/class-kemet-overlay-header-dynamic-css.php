@@ -23,7 +23,14 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 			$overlay_header = kemet_get_option( $prefix . '-enable' );
 
 			if ( $overlay_header ) {
-				$selector   = '.kmt-' . $prefix . ' #sitehead';
+				$enable_device = kemet_get_option( $prefix . '-enable-device' );
+				$selector      = '.kmt-' . $prefix;
+				if ( 'desktop' === $enable_device ) {
+					$selector = $selector . ':not(.kmt-header-break-point)';
+				} elseif ( 'mobile' === $enable_device ) {
+					$selector = $selector . '.kmt-header-break-point';
+				}
+				$selector   = $selector . ' #sitehead';
 				$backgrourd = kemet_get_option( $prefix . '-bg-color' );
 				// Menu Colors
 				$menu_selector     = $selector . ' .main-header-menu';
