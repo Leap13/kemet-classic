@@ -199,11 +199,13 @@ $fields = array(
 	/**
 	* Option - Color
 	*/
-	array(
+
+		array(
 		'id'           => '[button-color]',
 		'default'      => $defaults ['button-color'],
 		'type'         => 'option',
-		'control_type' => 'kmt-color',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-reponsive-color',
 		'label'        => __( 'Text Color', 'kemet' ),
 		'priority'     => 1,
 		'section'      => 'section-buttons-fields',

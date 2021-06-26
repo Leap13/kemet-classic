@@ -95,8 +95,10 @@ module.exports = function (grunt) {
               "inc/customizer/custom-controls/react/src/sortable/sortable.scss",
             "inc/customizer/custom-controls/spacing/spacing.css":
               "inc/customizer/custom-controls/spacing/spacing.scss",
-            "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css":
-              "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss",
+            "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css":
+              "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.scss",
+            "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css":
+              "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.scss",
             "inc/customizer/custom-controls/background/background.css":
               "inc/customizer/custom-controls/background/background.scss",
           },
@@ -393,11 +395,12 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive/responsive.css",
           "inc/customizer/custom-controls/responsive-select/responsive-select.css",
-          "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css",
+          "inc/customizer/custom-controls/responsive-slider/responsive-slider.css",
           "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css",
+          "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css",
           "inc/customizer/custom-controls/react/src/title/title.css",
           "inc/customizer/custom-controls/typography/typography.css",
-          "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.css",
+          "inc/customizer/custom-controls/react/src/responsive-icon-select/responsive-icon-select.css",
           "inc/customizer/custom-controls/responsive-color/responsive-color.css",
           "inc/customizer/custom-controls/group/group.css",
         ],
@@ -410,7 +413,6 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/color/color.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
-          "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
           "inc/customizer/custom-controls/group/group.js",
         ],

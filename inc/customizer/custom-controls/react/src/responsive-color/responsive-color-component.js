@@ -45,8 +45,11 @@ const ResponsiveColorComponent = props => {
     const renderSettings = (key) => {
         return <kemetColorPickerControl
             color={undefined !== props_value[key] && props_value[key] ? props_value[key] : ''}
-            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, key)} backgroundType={'color'}
-            allowGradient={false} allowImage={false} />;
+            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, key)}
+            backgroundType={'color'}
+            allowGradient={false}
+            allowImage={false}
+        />;
     };
 
     const handleChangeComplete = (color, key) => {

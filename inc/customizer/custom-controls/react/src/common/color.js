@@ -52,12 +52,22 @@ class KemetColorPickerControl extends Component {
         } = this.props
 
         const toggleVisible = () => {
-            if (refresh === true) {
+            if (this.props.usePalette) {
+                const updateColors = JSON.parse(this.props.customizer.control('kadence_color_palette').setting.get());
+                const active = (updateColors && updateColors.active ? updateColors.active : 'palette');
+                this.setState({ palette: updateColors, activePalette: active });
+            }
+            if (this.state.refresh === true) {
                 this.setState({ refresh: false });
             } else {
                 this.setState({ refresh: true });
             }
             this.setState({ isVisible: true });
+        };
+        const toggleClose = () => {
+            if (this.state.isVisible === true) {
+                this.setState({ isVisible: false });
+            }
         };
 
 
@@ -118,7 +128,7 @@ class KemetColorPickerControl extends Component {
         return (
             <>
                 <div className="color-button-wrap">
-                    <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
+                    <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
                         }
@@ -133,8 +143,8 @@ class KemetColorPickerControl extends Component {
                 <div className="kemet-color-picker-wrap">
                     <>
                         {isVisible && (
-                            <div className="kemet-popover-color" onClose={this.toggleClose}>
-                                { 1 < tabs.length &&
+                            <div className="kemet-popover-color" onClose={() => { toggleVisible }}>
+                                {1 < tabs.length &&
                                     <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                         activeClass="active-tab"
                                         initialTabName={backgroundType}
@@ -197,10 +207,10 @@ class KemetColorPickerControl extends Component {
                                         }
                                     </TabPanel>
                                 }
-                                { 1 === tabs.length &&
+                                {1 === tabs.length &&
 
                                     <>
-                                        { refresh && (
+                                        {refresh && (
                                             <>
                                                 <KemetColorPicker
                                                     color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
@@ -209,7 +219,7 @@ class KemetColorPickerControl extends Component {
                                                 />
                                             </>
                                         )}
-                                        { !refresh && (
+                                        {!refresh && (
                                             <>
                                                 <KemetColorPicker
                                                     color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
@@ -242,6 +252,7 @@ class KemetColorPickerControl extends Component {
                 this.setState({ isVisible: false });
             }
         }
+        console.log(this.state.isVisible, this.state.refresh, this.state.modalCanClose, "Toggle")
     }
 
     onChangeState(color, palette) {
@@ -310,31 +321,7 @@ class KemetColorPickerControl extends Component {
         this.props.onChangeImageOptions(mainkey, value, 'image');
     }
 
-    toggleMoreSettings() {
 
-        let parent = event.target.parentElement.parentElement;
-        let trigger = parent.querySelector('.more-settings');
-        let wrapper = parent.querySelector('.media-position-setting');
-
-        let dataDirection = trigger.dataset.direction;
-        let dataId = trigger.dataset.id;
-
-        if ('down' === dataDirection) {
-            trigger.setAttribute('data-direction', 'up');
-            parent.querySelector('.message').innerHTML = __("Less Settings");
-            parent.querySelector('.icon').innerHTML = '↑';
-        } else {
-            trigger.setAttribute('data-direction', 'down');
-            parent.querySelector('.message').innerHTML = __("More Settings");
-            parent.querySelector('.icon').innerHTML = '↓';
-        }
-
-        if (wrapper.classList.contains('hide-settings')) {
-            wrapper.classList.remove('hide-settings');
-        } else {
-            wrapper.classList.add('hide-settings');
-        }
-    }
 
     renderImageSettings() {
 
@@ -358,14 +345,12 @@ class KemetColorPickerControl extends Component {
 
                 { (this.props.media || this.props.backgroundImage) &&
                     <>
+                        <BackgroundImage />
                         <Button className="kmt-bg-img-remove" onClick={this.onRemoveImage} isLink isDestructive>
                             {__("Remove Image", 'kemet')}
                         </Button>
 
-                        <a href="#" className="more-settings" onClick={this.toggleMoreSettings} data-direction="down" data-id="desktop">
-                            <span className="message"> {__("More Settings")} </span>
-                            <span className="icon"> ↓ </span>
-                        </a>
+
 
                         <div className="media-position-setting hide-settings">
                             <SelectControl
@@ -393,7 +378,7 @@ class KemetColorPickerControl extends Component {
                                     { value: "scroll", label: __("Scroll", 'kemet') }
                                 ]}
                             />
-                            <SelectControl
+                            {/* <SelectControl
                                 label={__("Repeat", 'kemet')}
                                 value={this.props.backgroundRepeat}
                                 onChange={(value) => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', value)}
@@ -403,8 +388,8 @@ class KemetColorPickerControl extends Component {
                                     { value: "repeat-x", label: __("Repeat Horizontally", 'kemet') },
                                     { value: "repeat-y", label: __("Repeat Vertically", 'kemet') }
                                 ]}
-                            />
-                            <SelectControl
+                            /> */}
+                            {/* <SelectControl
                                 label={__("Size", 'kemet')}
                                 value={this.props.backgroundSize}
                                 onChange={(value) => this.onChangeImageOptions('backgroundSize', 'background-size', value)}
@@ -413,7 +398,7 @@ class KemetColorPickerControl extends Component {
                                     { value: "cover", label: __("Cover", 'kemet') },
                                     { value: "contain", label: __("Contain", 'kemet') }
                                 ]}
-                            />
+                            /> */}
                         </div>
                     </>
                 }

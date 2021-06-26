@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-const { Fragment } = wp.element;
-const { Tooltip, Button, Dashicon } = wp.components;
 import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
 
@@ -28,13 +26,36 @@ const ColorComponent = props => {
         }));
         props.control.setting.set(value);
     };
-    let resetButton = true;
-    const tempValue = state.value.replace('unset', '');
 
-    if (JSON.stringify(tempValue) !== JSON.stringify(defaultValue)) {
-        resetButton = false;
-    }
+    const renderOperationButtons = () => {
 
+        let resetFlag = true;
+        const tempVal = state.value.replace('unset', '');
+
+        if (JSON.stringify(tempVal) !== JSON.stringify(defaultValue)) {
+            resetFlag = false;
+        }
+        return <span className="customize-control-title">
+            <>
+                <div className="kmt-color-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                        disabled={resetFlag} onClick={e => {
+                            e.preventDefault();
+                            let value = JSON.parse(JSON.stringify(defaultValue));
+
+                            if (undefined === value || '' === value) {
+                                value = 'unset';
+                            }
+
+                            updateValues(value);
+                        }}>
+                        <span className="dashicons dashicons-image-rotate"></span>
+                    </button>
+                </div>
+            </>
+        </span>;
+    };
 
     const handleChangeComplete = (color) => {
         let value;
@@ -50,50 +71,31 @@ const ColorComponent = props => {
         updateValues(value);
     };
 
-
+    let labelHtml = null;
     const {
         label
     } = props.control.params;
 
-    return <div className="kemet-control-field kemet-color-control">
-        <span className="customize-control-title">
-            <Fragment>
-                <Tooltip text={__('Reset Values')}>
-                    <Button
-                        className="reset kemet-reset"
-                        disabled={resetButton}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            let value = JSON.parse(JSON.stringify(defaultValue));
+    if (label) {
+        labelHtml = <span className="customize-control-title">{label}</span>;
+    }
 
-                            if (undefined === value || '' === value) {
-                                value = 'unset';
-                            }
-
-                            updateValues(value);
-                        }}
-                    >
-                        <Dashicon icon='image-rotate' />
-                    </Button>
-                </Tooltip>
-                {props.control.params.label && (
-                    props.control.params.label
-                )}
-            </Fragment>
-        </span>
+    return <div className="kmt-control-wrap">
+        <label>
+            {labelHtml}
+        </label>
         <div className="kmt-color-picker-alpha color-picker-hex">
-            <KemetColorPickerControl
-                color={undefined !== state.value && state.value ? state.value : ''}
+            {renderOperationButtons()}
+            <KemetColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
                 backgroundType={'color'}
                 allowGradient={false}
-                allowImage={false}
-            />
+                allowImage={false} />
+
         </div>
-    </div >;
+    </div>;
 
 };
-
 
 ColorComponent.propTypes = {
     control: PropTypes.object.isRequired

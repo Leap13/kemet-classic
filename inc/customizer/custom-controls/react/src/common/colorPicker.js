@@ -7,7 +7,7 @@ import PickerFields from './PickerFields'
 export const KemetColorPicker = ({ rgb, hex, hsv, hsl, onChange, renderers }) => {
     const styles = {
         picker: {
-            width: 300,
+            width: '100%',
             position: 'relative',
             marginBottom: 10,
         },
@@ -32,10 +32,11 @@ export const KemetColorPicker = ({ rgb, hex, hsv, hsl, onChange, renderers }) =>
             paddingLeft: 10,
         },
         body: {
-            padding: '10px 0',
+            padding: '10px 5px',
         },
         controls: {
             display: 'flex',
+            padding: `4px 8px`
         },
         color: {
             width: '30px',
