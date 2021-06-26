@@ -15,7 +15,7 @@ import { colorComponent } from './color/control'
 import { toggleControl } from './Toggle/control'
 import { responsiveColorControl } from './responsive-color/control'
 import { backgroundControl } from './Background/control'
-import { GroupControl } from './group/control'
+// import { GroupControl } from './group/control'
 
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
@@ -34,7 +34,7 @@ wp.customize.controlConstructor['kemet_switch_control'] = toggleControl
 wp.customize.controlConstructor['kmt-responsive-icon-select'] = responsiveIcon;
 wp.customize.controlConstructor['kmt-reponsive-color'] = responsiveColorControl;
 wp.customize.controlConstructor['kmt-background'] = backgroundControl;
-wp.customize.controlConstructor['kmt-group'] = GroupControl;
+// wp.customize.controlConstructor['kmt-group'] = GroupControl;
 
 import { Base } from "./customizer"; import responsiveColorComponent from "./responsive-color/responsive-color-component";
 
