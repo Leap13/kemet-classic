@@ -1,10 +1,7 @@
 .customize-control-kmt-background {
   position: relative;
 }
-
-.customize-control-kmt-background
-  .wp-picker-container
-  input[type="text"].wp-color-picker {
+.customize-control-kmt-background .wp-picker-container input[type="text"].wp-color-picker {
   max-width: 65px !important;
 }
 
@@ -17,8 +14,8 @@
 .customize-control-kmt-background .background-position h4,
 .customize-control-kmt-background .background-repeat h4,
 .customize-control-kmt-background .background-size h4 {
-  margin-top: 10px;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .customize-control-kmt-background .wp-picker-container .wp-color-result.button {
@@ -32,59 +29,41 @@
 .customize-control-kmt-background .background-attachment .buttonset,
 .customize-control-kmt-background .background-size .buttonset {
   display: flex;
-
   flex-wrap: wrap;
 }
 
-.customize-control-kmt-background
-  .background-attachment
-  .buttonset
-  .switch-label,
+.customize-control-kmt-background .background-attachment .buttonset .switch-label,
 .customize-control-kmt-background .background-size .buttonset .switch-label {
-  margin: 0;
-  padding: 4px;
+  background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #555;
-  background: rgba(0, 0, 0, 0.05);
+  padding: 4px;
+  margin: 0;
   text-align: center;
-
   flex-grow: 1;
 }
 
-.customize-control-kmt-background
-  .background-attachment
-  .buttonset
-  .switch-input:checked
-  + .switch-label,
-.customize-control-kmt-background
-  .background-size
-  .buttonset
-  .switch-input:checked
-  + .switch-label {
-  color: #fff;
+.customize-control-kmt-background .background-attachment .buttonset .switch-input:checked + .switch-label,
+.customize-control-kmt-background .background-size .buttonset .switch-input:checked + .switch-label {
   background-color: #298cbe;
+  color: #fff;
 }
 
 .customize-control-kmt-background .more-settings {
-  display: block;
-  float: left;
   margin-top: 12px;
+  display: block;
   padding: 5px 0 5px 0;
+  float: left;
 }
-
-.wp-core-ui .button-group.button-small .button,
-.wp-core-ui .button.button-small {
-  min-height: 29px;
-  margin-right: 6px;
-  line-height: 1.18181818;
+.wp-core-ui .button-group.button-small .button, .wp-core-ui .button.button-small{
+    margin-right: 6px;
+    min-height: 29px;
+    line-height: 1.18181818;
 }
-
-.wp-customizer .wp-picker-input-wrap .button.wp-picker-default,
-.wp-picker-input-wrap .button.wp-picker-default {
-  min-height: 29px;
-  line-height: 1.54545455;
+.wp-customizer .wp-picker-input-wrap .button.wp-picker-default, .wp-picker-input-wrap .button.wp-picker-default{
+    line-height: 1.54545455;
+    min-height: 29px;
 }
-
 .customize-control-kmt-sortable ul.ui-sortable {
   cursor: default;
 }
@@ -109,8 +88,8 @@
 }
 
 .customize-control-kmt-sortable ul.ui-sortable li.invisible {
-  border: 1px dashed #aaa;
   color: #aaa;
+  border: 1px dashed #aaa;
 }
 
 .customize-control-kmt-sortable
@@ -122,38 +101,35 @@
 
 .kemet-slider-wrap {
   position: relative;
-  margin-top: 25px;
   margin-bottom: 0;
+  margin-top: 25px;
 }
-
 .customize-control-kmt-slider .wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
-
-  align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  align-items: center;
 }
 
 .customize-control-kmt-slider input[type="range"] {
-  height: 5px;
-  padding: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   transition: background 0.3s;
-
-  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 5px;
+  padding: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
 .customize-control-kmt-slider input[type="range"]:focus {
-  outline: none;
   box-shadow: none;
+  outline: none;
 }
 
 .customize-control-kmt-slider input[type="range"]:hover,
@@ -162,23 +138,21 @@
 }
 
 .customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-border-radius: 50%;
   background-color: #3498d9;
-
-  -webkit-appearance: none;
 }
 
 .customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 15px;
   height: 15px;
   border: none;
   border-radius: 50%;
   background-color: #3498d9;
-
-  -webkit-appearance: none;
 }
 
 .customize-control-kmt-slider input[type="range"]::-moz-range-thumb {
@@ -192,8 +166,8 @@
 .customize-control-kmt-slider input[type="range"]::-ms-thumb {
   width: 15px;
   height: 15px;
-  border: 0;
   border-radius: 50%;
+  border: 0;
   background-color: #3498d9;
 }
 
@@ -219,10 +193,10 @@
 
 .customize-control-kmt-slider .kemet_range_value {
   display: flex;
-  position: relative;
-  padding: 0 5px 0 0;
   font-size: 14px;
+  padding: 0 5px 0 0;
   font-weight: 400;
+  position: relative;
 }
 
 .customize-control-kmt-slider .kmt-slider-reset {
@@ -245,152 +219,703 @@
 .kemet_range_value input.kmt-range-value-input {
   width: 50px;
   height: 22px;
-  padding: 3px;
   font-size: 12px;
+  padding: 3px;
 }
 
 .kemet_range_value .kmt-range-unit {
-  display: flex;
   position: absolute;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 35px;
   height: 28px;
-  padding: 0;
-  border-width: 1px 0 1px 1px;
-  border-style: solid;
-  border-color: #ddd;
-  border-radius: 0;
   background: #fff;
+  cursor: default;
   font-size: 10px;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 1px;
+  align-self: auto;
   text-transform: uppercase;
-  cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   transition: color 0.1s ease, font-weight 0.1s ease;
-
-  align-items: center;
-  align-self: auto;
-  justify-content: center;
+  padding: 0;
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0;
 }
 
+/* .kemet-control-field.kemet-color-control {
+  display: flex;
+}
+.kemet-control-field.kemet-color-control .customize-control-title {
+  flex-grow: 2;
+}
+.kemet-control-field button.components-button.kemet-reset {
+  height: 18px;
+  padding: 0 5px;
+  margin-right: 0;
+  margin-left: -20px;
+  opacity: 0.5;
+}
+.kemet-color-picker-wrap {
+  margin-left: 5px;
+}
+.components-button.kemet-color-icon-indicate {
+  height: auto;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.1s ease;
+  border-radius: 50%;
+  padding: 0;
+  background-image: linear-gradient(45deg, #ddd 25%, transparent 0),
+    linear-gradient(-45deg, #ddd 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, #ddd 0),
+    linear-gradient(-45deg, transparent 75%, #ddd 0);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button.kemet-color-icon-indicate
+  .component-color-indicator.kemet-advanced-color-indicate {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0;
+}
+.kemet-color-picker-wrap {
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #a29090;
+  border-radius: 4px;
+  padding: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
+} */
+.customize-control-kmt-color {
+  position: relative;
+}
 .kemet-control-field.kemet-color-control {
   display: flex;
+}
+
+.kemet-control-field {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
 }
-
-.kemet-control-field button.components-button.kemet-reset {
-  height: 18px;
-  margin-right: -20px;
-  margin-left: 0;
-  padding: 0 5px;
-  opacity: 0.5;
+.kemet-control-field .customize-control-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  line-height: 18px;
 }
-
-.kemet-color-picker-wrap {
-  margin-right: 5px;
-}
-
-.components-button.kemet-color-icon-indicate {
-  position: relative;
-  height: auto;
-  padding: 0;
-  border-radius: 50%;
-  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
-    linear-gradient(45deg, #ddd 25%, transparent 0),
-    linear-gradient(-45deg, transparent 75%, #ddd 0),
-    linear-gradient(45deg, transparent 75%, #ddd 0);
-  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
-  background-size: 10px 10px;
-  transition: transform 0.1s ease;
-  transform: scale(1);
+.customize-control-title {
+  display: block;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .components-button.kemet-color-icon-indicate
   .component-color-indicator.kemet-advanced-color-indicate {
   width: 28px;
   height: 28px;
-  margin: 0;
   border-radius: 50%;
+  margin: 0;
+}
+.component-color-indicator {
+  width: 25px;
+  height: 16px;
+  margin-right: 0.8rem;
+  display: inline-block;
+  border: none;
 }
 
-.kemet-color-picker-wrap {
-  margin-top: 10px;
-  padding: 1px;
-  border: 1px solid #a29090;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.15) 0 8px 16px;
+.kemet-color-icon-indicate.components-button {
+  height: auto;
+  position: relative;
+  transform: scale(1);
+  transition: none;
+  border-radius: 50%;
+  padding: 0;
+  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
+    linear-gradient(45deg, #ddd 25%, transparent 0),
+    linear-gradient(-45deg, transparent 75%, #ddd 0),
+    linear-gradient(45deg, transparent 75%, #ddd 0);
+  background-size: 10px 10px;
+  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
 }
 
-.customize-control-kmt-icon-select .icon-select {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-height: 216px;
-
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.customize-control-kmt-icon-select .icon-select label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+/** Color */
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker-wrapper {
   box-sizing: border-box;
-  width: 33.33%;
 }
-
-.customize-control-kmt-icon-select .icon-select .icon-select-input {
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker_position-display-container
+  input[type="number"].components-text-control__input {
+  min-height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  width: 50px;
+  font-weight: normal;
+}
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker_position-display-container
+  .components-base-control {
+  flex: 1;
+  margin-bottom: 0;
+}
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker_position-display-container
+  .components-base-control
+  .components-base-control__label {
+  margin-bottom: 0;
+  margin-left: 0.2em;
+}
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker_position-display-container
+  .components-base-control__field {
+  display: flex;
+  align-items: center;
+  font-size: 8px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.kemet-popover-color
+  .components-popover__content
+  .components-focal-point-picker_position-display-container
+  .components-base-control:lkmt-child
+  .components-base-control__field {
+  justify-content: flex-end;
+}
+.kemet-popover-color .components-popover__content .actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.kemet-popover-color .components-popover__content .actions .button {
+  flex: 1;
+  margin-top: 10px;
+}
+.kemet-background-picker-wrap
+  .kemet-popover-color
+  .components-popover__content {
+  min-width: 300px;
+  min-height: 340px;
+  max-height: 60vh;
+}
+.color-button-wrap {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -4.5px;
+  transform: scale(1);
+  transition: transform 0.1s ease;
+  height: 28px;
+  width: 28px;
+}
+.components-button.kemet-color-icon-indicate
+  .kemet-advanced-color-indicate:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+  border: 1px solid transparent;
+}
+.components-button.kemet-background-icon-indicate {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  transform: scale(1);
+  transition: transform 0.1s ease;
+  border-radius: 50%;
+  padding: 0;
+  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
+    linear-gradient(45deg, #ddd 25%, transparent 0),
+    linear-gradient(-45deg, transparent 75%, #ddd 0),
+    linear-gradient(45deg, transparent 75%, #ddd 0);
+  border: 1px solid #dadada;
+  background-size: 10px 10px;
+  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
+}
+.components-button.kemet-background-icon-indicate
+  .component-color-indicator.kemet-advanced-color-indicate {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  margin: 0;
+  display: block;
+  position: absolute;
+  border: 0;
+  top: 0;
+}
+.components-button.kemet-background-icon-indicate > svg.dashicon {
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 50%;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.components-button.kemet-background-icon-indicate > svg.dashicon path {
+  transform: translate(-1px, 1px);
+}
+.components-button.kemet-background-icon-indicate
+  img.kemet-background-image-preview {
+  display: flex;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+}
+.components-button.kemet-background-icon-indicate:hover {
+  box-shadow: none !important;
+}
+.kemet-control-field.kemet-color-control {
+  display: flex;
+}
+.kemet-control-field.kemet-color-control .customize-control-title {
+  flex-grow: 2;
+}
+.components-popover.kemet-popover-color .components-popover__content {
+  padding: 15px 15px 0px;
+  box-sizing: initial;
+  background: #fff;
+  border: unset;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+.customize-control-kmt-color.customize-control > * {
+  display: inline;
+}
+.components-popover.kemet-popover-color
+  .components-popover__content
+  .sketch-picker {
+  padding: 0 0 5px !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+.components-popover.kemet-popover-color
+  .components-popover__content
+  .attachment-media-view {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.kemet-swatches-wrap .kemet-swatche-item-wrap:hover {
+  transform: scale(1.2) !important;
+}
+.kemet-swatches-wrap .kemet-swatche-item-wrap .kemet-swatch-item {
+  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
+    linear-gradient(45deg, #ddd 25%, transparent 0),
+    linear-gradient(-45deg, transparent 75%, #ddd 0),
+    linear-gradient(45deg, transparent 75%, #ddd 0);
+  background-size: 10px 10px;
+  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.kemet-swatches-wrap .kemet-swatche-item-wrap .kemet-swatch-item .dashicon {
   display: none;
 }
-
-.customize-control-kmt-icon-select .icon-select .icon-select-label {
+.kemet-swatches-wrap .kemet-swatche-item-wrap .kemet-swatch-item.swatch-active {
+  box-shadow: 0 0 0 8px inset !important;
+}
+.kemet-swatches-wrap
+  .kemet-swatche-item-wrap
+  .kemet-swatch-item.swatch-active
+  .dashicon {
   display: block;
-  width: 100%;
-  margin: 0;
-  padding: 5px;
-  border: 1px solid #f1f1f1;
-  color: #ccc;
-  background-color: #fff;
-  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+}
+.kemet-swatches-wrap
+  .kemet-swatche-item-wrap
+  .kemet-swatch-item.swatch-active
+  .dashicon
+  path {
+  transform: translate(-1px, 1px);
+}
+.components-button.kemet-color-icon-indicate > .dashicon {
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 50%;
+  top: 50%;
+  color: white;
+  background: rgb(85 93 101);
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.kemet-popover-color {
+  margin-top: 10px;
+  background-color: #ffffff;
+  border: 1px solid #a29090;
+  border-radius: 4px;
 }
 
-.customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
-.customize-control-kmt-icon-select
-  .icon-select
-  .icon-select-input:checked
-  + .icon-select-label {
-  border-color: #f1f1f1;
-  color: #1e8cbe;
+.kmt-field-settings-modal .kemet-popover-color {
+  margin-right: 0px;
+  border: 1px solid #dedede;
 }
-
-.customize-control-kmt-icon-select .icon-select.rtl {
-  flex-direction: row-reverse;
+.kmt-field-settings-modal .kemet-popover-color .components-tab-panel__tabs {
+  padding: 8px;
 }
-
-.customize-control-kmt-radio-image label {
-  display: inline-block;
+.components-color-picker__saturation-black {
+  border-radius: 4px 4px 0 0;
+}
+.components-color-picker__saturation-color {
+  border-radius: 3px;
+}
+.components-color-picker__saturation-white {
+  border-radius: 3px;
+}
+.kemet-color-picker-wrap {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.kmt-color-palette {
+  margin: 0 10px !important;
+}
+.kmt-field-settings-modal .kemet-color-picker-wrap {
   position: relative;
+  top: 10px;
+}
+.components-circular-option-picker__option-wrapper
+  .components-circular-option-picker__option:focus::after {
+  width: 27px;
+  height: 27px;
+}
+.kmt-color-palette .components-circular-option-picker__option-wrapper {
+  margin-left: 6px;
+}
+/* Clear Button CSS */
+.kmt-color-btn-clear-wrap {
+  position: absolute;
+  top: 1.5px;
+  left: 65px;
+}
+.kmt-color-btn-clear-wrap .kemet-color-clear-button.components-button {
+  padding: 10px 3px;
+  width: 20px;
+  height: 20px;
+}
+.kmt-clear-btn-inside-picker.components-button,
+.kemet-popover-tabs .kmt-clear-btn-inside-picker.components-button {
+  margin: 5px 15px 20px 20px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+.kmt-clear-btn-inside-picker.components-button:hover,
+.kemet-popover-tabs .kmt-clear-btn-inside-picker.components-button:hover,
+.kmt-clear-btn-inside-picker.components-button:focus,
+.kemet-popover-tabs .kmt-clear-btn-inside-picker.components-button:focus,
+.kmt-clear-btn-inside-picker.components-button:active,
+.kemet-popover-tabs .kmt-clear-btn-inside-picker.components-button:active,
+.kemet-popover-tabs
+  [ID*="-gradient-view"]
+  .components-circular-option-picker__clear:active {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.kmt-clear-btn-inside-picker {
+  padding: 0 8px;
+}
+/* Reset Button CSS */
+.kmt-color-btn-reset-wrap {
+  position: absolute;
+  left: 36px;
+  top: 1.5px;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button {
+  color: #006ba1;
+  font-size: 20px;
+  padding: 4px;
+  background: transparent;
+  box-shadow: none;
+}
+.kemet-color-clear-button.components-button:focus:not(:disabled) {
+  outline: unset;
+  border: none;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button:hover,
+.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button:focus,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button:hover,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+.kemet-color-clear-button.components-button.is-secondary:hover:not(:disabled),
+.kemet-color-clear-button.components-button:focus:not(:disabled) {
+  box-shadow: 0 0 black;
+  padding: 1.5px;
+  border: none;
+}
+.kemet-color-clear-button.components-button.is-secondary:disabled,
+.kmt-reset-btn.components-button.is-secondary:disabled span {
+  color: #c5c5c5;
+  font-size: 16px;
+}
+/** Inside Setting group popup - Colors */
+.kmt-field-settings-modal .color-button-wrap {
+  left: 16px;
+}
+.kmt-field-settings-modal .kmt-color-btn-reset-wrap {
+  left: 59px;
+  top: 0;
+}
+.kmt-field-settings-modal .kmt-color-btn-clear-wrap {
+  left: 78px;
+}
+.kmt-field-settings-modal .customize-control-kmt-color.customize-control,
+.kmt-field-settings-modal
+  .customize-control-kmt-color.customize-control:first-child {
+  margin-top: 25px;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-wrapper {
+  min-width: unset;
+}
+
+@media (max-width: 1845px) {
+  /** Responsive Devices - Compatibility CSS */
+  .kmt-color-palette .components-circular-option-picker__option-wrapper {
+    height: 23px;
+    width: 23px;
+  }
+  .kmt-color-palette
+    .components-circular-option-picker__option-wrapper
+    .components-circular-option-picker__option {
+    padding: 6px 10px;
+  }
+  .kmt-color-palette
+    .components-circular-option-picker__option.is-pressed
+    + svg {
+    width: 18px;
+    right: 4px;
+    top: 1px;
+  }
+  .kmt-color-palette
+    .components-circular-option-picker__option-wrapper
+    .components-circular-option-picker__option:focus::after {
+    width: 24px;
+    height: 24px;
+  }
+  .kemet-popover-color .kmt-color-palette.components-circular-option-picker {
+    width: auto;
+    padding: 16px 8px 0px 0px;
+  }
+  .kemet-typography-control
+    .typography-button-wrap
+    > button.components-button.kemet-typography-preview-indicate {
+    padding: 0 2px;
+  }
+  .kemet-typography-control .typography-button-wrap > button.components-button {
+    padding: 0 4px;
+  }
+  /** Modal Popup */
+  .kmt-field-settings-modal
+    .components-circular-option-picker__option-wrapper
+    .components-circular-option-picker__option:focus::after {
+    width: 21px;
+    height: 21px;
+  }
+  .kmt-field-settings-modal
+    .kmt-color-palette
+    .components-circular-option-picker__option-wrapper {
+    height: 22px;
+    width: 22px;
+  }
+  .kmt-field-settings-modal
+    .kmt-color-palette
+    .components-circular-option-picker__option.is-pressed
+    + svg {
+    right: 2.5px;
+    top: -1px;
+    width: 18px;
+  }
+}
+@supports (-moz-appearance: none) {
+  @media (max-width: 1845px) {
+    .kmt-color-palette .components-circular-option-picker__option-wrapper {
+      margin-left: 5px;
+    }
+    .kmt-field-settings-modal
+      .components-circular-option-picker__option-wrapper
+      .components-circular-option-picker__option:focus::after {
+      width: 21px;
+      height: 21px;
+    }
+    .kmt-field-settings-modal
+      .kmt-color-palette
+      .components-circular-option-picker__option-wrapper {
+      height: 20px;
+      width: 20px;
+    }
+    .kmt-field-settings-modal
+      .kmt-color-palette
+      .components-circular-option-picker__option.is-pressed
+      + svg {
+      right: 3px;
+      top: -2px;
+      width: 15px;
+    }
+  }
+}
+
+.kemet-color-icon-indicate.components-button:focus:not(:disabled) {
+  box-shadow: unset;
+  outline: unset;
+}
+.kemet-color-icon-indicate.components-button:hover {
+  transform: scale(1.05);
+}
+
+.kmt-top-divider.customize-control-kmt-color
+  .kmt-divider-title
+  + .kmt-control-wrap,
+.kmt-top-divider.customize-control-kmt-color-group
+  .kmt-divider-title
+  + .kmt-control-wrap {
+  margin-top: 25px;
+  display: inline-flex;
+  width: 100%;
+}
+
+.kmt-top-divider.customize-control-kmt-toggle-control
+  .kmt-divider-title
+  + .kmt-togglecontrol-wrapper,
+.kmt-bottom-divider.customize-control-kmt-toggle-control
+  .kmt-divider-title
+  + .kmt-togglecontrol-wrapper,
+.kmt-top-divider.customize-control-kmt-responsive-toggle-control
+  .kmt-divider-title
+  + .kmt-responsive-toggle-control-wrapper,
+.kmt-top-divider.customize-control-kmt-responsive-color
+  .kmt-divider-title
+  + .kmt-control-wrap,
+.kmt-top-divider.customize-control-kmt-slider
+  .kmt-divider-title
+  + .kmt-slider-wrap,
+.customize-control-kmt-color-group .kmt-divider-title + .kmt-control-wrap {
+  margin-top: 25px;
+}
+
+.kmt-top-divider.customize-control-kmt-color-group .kmt-control-wrap {
+  display: inline-flex;
+  width: 100%;
+}
+
+.kmt-top-divider
+  .kmt-divider-title
+  + .kmt-control-wrap
+  .kmt-color-btn-reset-wrap {
+  top: 67px;
+}
+
+.kmt-top-divider .kmt-divider-title + .kmt-control-wrap .color-button-wrap {
+  top: 61px;
+}
+
+.kmt-top-divider.customize-control-kmt-responsive-color
+  .kmt-divider-title
+  + .kmt-control-wrap
+  .kmt-responsive-btns {
+  top: 70px;
+}
+
+.customize-control-kmt-icon-select .icon-select 
+{ 
+  display: -webkit-box; 
+  display: -ms-flexbox; 
+  display: flex; 
+  -webkit-flex-wrap: wrap; 
+  flex-wrap: wrap; 
+  max-height: 216px; 
+}
+.customize-control-kmt-icon-select .icon-select label { 
+  display: -webkit-box; 
+  display: -ms-flexbox; 
+  display: flex; 
+  width: 33.33%; 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+.customize-control-kmt-icon-select .icon-select .icon-select-input { 
+  display: none; 
+}
+.customize-control-kmt-icon-select .icon-select .icon-select-label { 
+  display: block; 
+  width: 100%; 
+  background-color: #fff; 
+  color: #cccccc; 
+  border: 1px solid #f1f1f1; 
+  margin: 0; 
+  padding: 5px; 
+  text-align: center; 
+  }
+.customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
+.customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
+  color: #1e8cbe; 
+  border-color: #f1f1f1; 
+}
+.customize-control-kmt-icon-select .icon-select.rtl{
+      flex-direction: row-reverse;
+}
+.customize-control-kmt-radio-image label {
+  position: relative;
+  display: inline-block;
   margin: 0 0 5px 5px;
 }
-
 .customize-control-kmt-radio-image .image {
   display: flex;
-
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 .customize-control-kmt-radio-image .image label {
   width: 48%;
   margin: 4px 0;
@@ -410,21 +935,21 @@
 
 .customize-control-kmt-radio-image input + label img {
   border: 1px solid #f1f1f1;
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 .customize-control-kmt-radio-image input:checked + label img {
-  border: 1px solid #0085ba;
-  background-color: #0085ba;
   -webkit-box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
   box-shadow: 0 0 3px 1px rgba(195, 195, 195, 0.5);
+  border: 1px solid #0085ba;
+  background-color: #0085ba;
 }
 
 .customize-control-kmt-radio-image input + label .image-clickable {
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
+  right: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -437,13 +962,13 @@
 
 .kmt-responsive-btns {
   float: left;
-  margin-top: 5px;
   line-height: 1;
+  margin-top: 5px;
 }
 
 .kmt-responsive-btns > li {
-  display: none;
   margin-bottom: 0;
+  display: none;
 }
 
 .kmt-responsive-btns > li.active {
@@ -452,11 +977,11 @@
 
 .kmt-responsive-btns button[type="button"] {
   padding: 0;
-  border: none;
-  outline: none;
-  opacity: 0.75;
-  background: none;
   cursor: pointer;
+  background: none;
+  border: none;
+  opacity: 0.75;
+  outline: none;
 }
 
 .kmt-responsive-btns button[type="button"] > i {
@@ -467,8 +992,8 @@
 
 .customize-control-kmt-responsive .input-wrapper input {
   display: none;
-  float: right;
   width: calc(100% - 52px);
+  float: right;
 }
 
 .customize-control-kmt-responsive .input-wrapper input.active {
@@ -476,11 +1001,11 @@
 }
 
 .customize-control-kmt-responsive .input-wrapper .kmt-responsive-select {
-  display: none;
   width: 50px;
   margin: 0;
-  margin-right: 2px;
+  display: none;
   padding: 0.1em;
+  margin-right: 2px;
 }
 
 .customize-control-kmt-responsive
@@ -497,13 +1022,13 @@
 
 .kmt-responsive-btns {
   float: left;
-  margin-top: 5px;
   line-height: 1;
+  margin-top: 5px;
 }
 
 .kmt-responsive-btns > li {
-  display: none;
   margin-bottom: 0;
+  display: none;
 }
 
 .kmt-responsive-btns > li.active {
@@ -512,11 +1037,11 @@
 
 .kmt-responsive-btns button[type="button"] {
   padding: 0;
-  border: none;
-  outline: none;
-  opacity: 0.75;
-  background: none;
   cursor: pointer;
+  background: none;
+  border: none;
+  opacity: .75;
+  outline: none;
 }
 
 .kmt-responsive-btns button[type="button"] > i {
@@ -524,15 +1049,11 @@
   height: 15px;
   font-size: 15px;
 }
-
 .customize-control-kmt-responsive-select .input-wrapper .kmt-responsive-select {
   display: none;
 }
-
-.customize-control-kmt-responsive-select
-  .input-wrapper
-  .kmt-responsive-select.active {
-  display: block;
+.customize-control-kmt-responsive-select .input-wrapper .kmt-responsive-select.active{
+	display: block;
 }
 
 .customize-control-kmt-responsive-spacing .customize-control-title {
@@ -547,31 +1068,31 @@
 
 .customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units {
   position: absolute;
+  transform: translateY(-100%);
+  font-size: 11px;
+  text-transform: uppercase;
   left: 8px;
   width: 80px;
-  font-size: 11px;
   text-align: left;
-  text-transform: uppercase;
-  transform: translateY(-100%);
 }
 
 .customize-control-kmt-responsive-spacing
   .kmt-spacing-responsive-units
   li.single-unit {
   display: inline-block;
-  width: 16px;
   margin-right: 3px;
-  opacity: 0.7;
+  width: 16px;
   text-align: center;
   user-select: none;
+  opacity: 0.7;
 }
 
 .customize-control-kmt-responsive-spacing
   .kmt-spacing-responsive-units
   li.single-unit.active {
-  opacity: 1;
   font-weight: bold;
   text-decoration: underline;
+  opacity: 1;
 }
 
 .customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper {
@@ -582,21 +1103,19 @@
   .input-wrapper
   .kmt-spacing-wrapper
   li {
-  width: 20%;
   text-align: center;
-
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
+  width: 20%;
 }
-
 .customize-control-kmt-responsive-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   li
   input.kmt-spacing-input {
-  padding: 0 3px;
   text-align: center;
+  padding: 0 3px;
 }
 
 .customize-control-kmt-responsive-spacing
@@ -609,10 +1128,10 @@
   .input-wrapper
   .kmt-spacing-wrapper
   span.kmt-spacing-title {
-  opacity: 0.75;
-  font-size: 10px;
-  font-weight: bold;
   text-transform: uppercase;
+  font-size: 10px;
+  opacity: 0.75;
+  font-weight: bold;
 }
 
 .customize-control-kmt-responsive-spacing
@@ -647,43 +1166,41 @@
   span {
   width: 100%;
   height: 28px;
-  border: 1px solid #ddd;
-  font-size: 14px;
   line-height: 26px;
+  font-size: 14px;
+  border: 1px solid #ddd;
 }
 
 .customize-control-kmt-responsive-slider .wrapper {
-  display: flex;
   position: relative;
+  display: flex;
 }
 
 .customize-control-kmt-responsive-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
-  align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
+  align-items: center;
 }
 
 .customize-control-kmt-responsive-slider input[type="range"] {
-  height: 5px;
-  padding: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   transition: background 0.3s;
-
-  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 5px;
+  padding: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
 }
 
 .customize-control-kmt-responsive-slider input[type="range"]:focus {
-  outline: none;
   box-shadow: none;
+  outline: none;
 }
 
 .customize-control-kmt-responsive-slider input[type="range"]:hover,
@@ -693,24 +1210,22 @@
 
 .customize-control-kmt-responsive-slider
   input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 15px;
   height: 15px;
-  -webkit-border-radius: 50%;
   border-radius: 50%;
+  -webkit-border-radius: 50%;
   background-color: #3498d9;
-
-  -webkit-appearance: none;
 }
 
 .customize-control-kmt-responsive-slider
   input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 15px;
   height: 15px;
   border: none;
   border-radius: 50%;
   background-color: #3498d9;
-
-  -webkit-appearance: none;
 }
 
 .customize-control-kmt-responsive-slider input[type="range"]::-moz-range-thumb {
@@ -724,8 +1239,8 @@
 .customize-control-kmt-responsive-slider input[type="range"]::-ms-thumb {
   width: 15px;
   height: 15px;
-  border: 0;
   border-radius: 50%;
+  border: 0;
   background-color: #3498d9;
 }
 
@@ -750,16 +1265,15 @@
 }
 
 .customize-control-kmt-responsive-slider .kemet_range_value {
-  position: relative;
-  padding: 0 5px 0 0;
   font-size: 14px;
+  padding: 0 5px 0 0;
   font-weight: 400;
+  position: relative;
 }
-
 .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset {
+  color: rgba(0, 0, 0, 0.2);
   display: block;
   margin-right: 5px;
-  color: rgba(0, 0, 0, 0.2);
 }
 
 .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset span {
@@ -771,12 +1285,11 @@
 .customize-control-kmt-responsive-slider .kmt-responsive-slider-reset:focus {
   color: red;
 }
-
 .kemet_range_value input.kmt-responsive-range-value-input {
   width: 50px;
   height: 22px;
-  padding: 3px;
   font-size: 12px;
+  padding: 3px;
 }
 
 .kemet_range_value .kmt-range-unit {
@@ -801,50 +1314,50 @@
 
 .customize-control-kmt-responsive-slider .kmt-slider-responsive-units {
   position: absolute;
-  top: -50px;
-  left: 1px;
+  transform: translateY(120%);
   font-size: 11px;
   text-transform: uppercase;
-  transform: translateY(120%);
+  top: -50px;
+  left: 1px;
 }
 
 .customize-control-kmt-responsive-slider
   .kmt-slider-responsive-units
   li.single-unit {
   display: inline-block;
-  width: 16px;
   margin-right: 6px;
-  opacity: 0.7;
+  width: 16px;
   text-align: center;
   user-select: none;
+  opacity: 0.7;
 }
 
 .customize-control-kmt-responsive-slider
   .kmt-slider-responsive-units
   li.single-unit.active {
-  opacity: 1;
   font-weight: bold;
   text-decoration: underline;
+  opacity: 1;
 }
 
 .description.customize-control-description {
-  margin-top: 10px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .kmt-responsive-control-btns {
+  line-height: 1;
+  margin-bottom: 7px;
   display: inline-block;
+  vertical-align: top;
   position: relative;
   z-index: 8;
-  margin-bottom: 7px;
-  line-height: 1;
-  vertical-align: top;
 }
 
 .kmt-responsive-control-btns > li {
+  margin-bottom: 0;
   display: none;
   overflow: hidden;
-  margin-bottom: 0;
 }
 
 .kmt-responsive-control-btns > li.active {
@@ -852,42 +1365,40 @@
 }
 
 .kmt-responsive-control-btns button[type="button"] {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 4px;
+  border-radius: 20px;
   width: 24px;
   height: 24px;
-  padding: 4px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  background: none;
-
-  cursor: pointer;
 }
 
 .kmt-responsive-control-btns button[type="button"] > i {
   width: 15px;
   height: 13px;
-  color: #fff;
   font-size: 13px;
+  color: #fff;
   line-height: 17px;
   color: #bbb;
 }
 
 .customize-control-kmt-title .customize-control-title {
-  display: block;
-  margin: 0 -12px;
-  color: #525252;
-  background-color: #fff;
-  font-size: 14px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #525252;
+    margin: 0px -12px;
+    display: block;
 }
 
-.customize-control-kmt-title .customize-control-title {
-  margin-bottom: 0;
-  padding: 7px 10px;
+.customize-control-kmt-title .customize-control-title{
+    padding: 7px 10px;
+    margin-bottom: 0px;
 }
-
-.customize-control-kmt-title .description.customize-control-description {
-  margin-bottom: 0;
-  padding: 7px 0;
+.customize-control-kmt-title .description.customize-control-description{
+    padding: 7px 0;
+    margin-bottom: 0px;
 }
 
 .select2-dropdown.increasedzindexclass {
@@ -897,46 +1408,40 @@
 .customize-control-kmt-responsive-icon-select .responsive-icon-select {
   display: none;
 }
-
 .customize-control-kmt-responsive-icon-select .responsive-icon-select.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: 216px;
-
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  max-height: 216px;
 }
-
 .customize-control-kmt-responsive-icon-select .responsive-icon-select label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 33.33%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 33.33%;
 }
-
 .customize-control-kmt-responsive-icon-select
   .responsive-icon-select
   .icon-select-input {
   display: none;
 }
-
 .customize-control-kmt-responsive-icon-select
   .responsive-icon-select
   .icon-select-label {
   display: block;
   width: 100%;
+  background-color: #fff;
+  color: #cccccc;
+  border: 1px solid #f1f1f1;
   margin: 0;
   padding: 5px;
-  border: 1px solid #f1f1f1;
-  color: #ccc;
-  background-color: #fff;
   text-align: center;
 }
-
 .customize-control-kmt-responsive-icon-select
   .responsive-icon-select
   .icon-select-label:hover,
@@ -944,10 +1449,9 @@
   .responsive-icon-select
   .icon-select-input:checked
   + .icon-select-label {
-  border-color: #f1f1f1;
   color: #1e8cbe;
+  border-color: #f1f1f1;
 }
-
 .customize-control-kmt-responsive-icon-select .responsive-icon-select.rtl {
   flex-direction: row-reverse;
 }
@@ -955,19 +1459,15 @@
 .customize-control-kmt-reponsive-color .wp-color-result span {
   background: #f7f7f7;
 }
-
 .customize-control-kmt-reponsive-color .wp-color-result.button {
   min-height: 24px;
 }
-
 .customize-control-kmt-reponsive-color .customize-control-content {
   display: none;
 }
-
 .customize-control-kmt-reponsive-color .customize-control-content.active {
   display: block;
 }
-
 input[type="color"],
 input[type="date"],
 input[type="datetime-local"],
@@ -992,27 +1492,24 @@ textarea {
   input[type="text"].wp-color-picker {
   width: 65px !important;
 }
-
 .kmt-responsive-color-btns a {
-  display: inline-block;
+  cursor: pointer;
+  background: 100% 0;
+  border: none;
+  outline: 0;
+  padding: 0px;
+  border-radius: 20px;
+  background-color: #bbb;
   width: 24px;
   height: 24px;
-  padding: 0;
-  border: none;
-  border-radius: 20px;
-  outline: 0;
-  background: 100% 0;
-  background-color: #bbb;
-  text-align: center;
+  display: inline-block;
   text-decoration: none;
-  cursor: pointer;
+  text-align: center;
 }
-
 .kmt-responsive-color-btns a:focus {
   outline: none;
   box-shadow: none;
 }
-
 .kmt-responsive-color-btns a > i {
   width: auto;
   height: auto;
@@ -1024,176 +1521,145 @@ textarea {
 .customize-control-kmt-group .kmt-group-model.open {
   display: block;
 }
-
 .customize-control-kmt-group .kmt-group-wrap {
   position: relative;
 }
-
 .customize-control-kmt-group .kmt-group-model ul.model-list {
   padding: 0 10px;
 }
-
 .customize-control-kmt-group .kmt-group-control {
   position: relative;
 }
-
 .customize-control-kmt-group .kmt-group-model {
-  display: none;
-  position: absolute;
-  z-index: 9999999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin-top: 9px;
-  margin-bottom: 20px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   background-color: #fff;
   -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-top: 9px;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  width: 100%;
+  margin-bottom: 20px;
 }
-
 .customize-control-kmt-group .kmt-group-model::before {
+  content: "";
   position: absolute;
   top: -17px;
   left: 8px;
   border: 9px solid transparent;
   border-bottom-color: #fff;
-  content: "";
   pointer-events: none;
 }
-
 .kmt-group-model ul.model-list li.customize-control {
   margin-top: 10px;
 }
-
 .kmt-group-model ul.model-list li.customize-control:first-child {
   margin-top: 0;
 }
-
 .kmt-group-model ul.model-list .customize-control.controls-inline {
+  width: 50%;
   display: inline-block;
-  clear: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 50%;
+  clear: none;
 }
-
 .customize-control-kmt-group .model-button {
-  position: absolute;
-  top: -2px;
   left: 2px;
+  top: -2px;
+  position: absolute;
   width: 18px;
   height: 18px;
-  padding: 4px;
+  font-size: 18px;
   border: 1px solid #ddd;
   border-radius: 2px;
+  padding: 4px;
   background: #fff;
-  font-size: 18px;
 }
-
 .customize-control-kmt-group .model-button.open {
   color: #0073aa;
 }
-
 .customize-control-kmt-group .model-button.open::before {
   content: "\f158";
 }
-
 .customize-control-kmt-group .customize-control {
+  width: 100%;
   float: right;
   clear: both;
-  width: 100%;
   margin-bottom: 12px;
 }
-
 .customize-control-kmt-group .customize-control select {
   width: 100%;
 }
-
 .kmt-group-model ul.model-list {
   overflow: hidden;
 }
-
 .kmt-group-model ul.model-list .customize-control:last-child {
   padding-bottom: 15px;
 }
-
 .kmt-group-model ul.model-list .customize-control:first-child {
   padding-top: 15px;
 }
-
 .kmt-group-model ul.model-list .customize-control {
   margin-bottom: 0;
 }
-
 .customize-control-kmt-hidden {
   display: none !important;
 }
-
 .kmt-group-model ul.model-list .customize-control .kmt-responsive-control-btns {
   padding-right: 0;
 }
-
 .kmt-group-model .kmt-tabs-list {
   display: flex;
   padding-top: 15px;
 }
-
 .kmt-group-model .kmt-tabs-list li {
+  text-align: center;
+  flex: 1 1 auto;
+  justify-content: center;
   margin: 0;
   padding: 0;
   border: 1px solid #ccc;
-  outline: none;
-  line-height: 30px;
-  text-align: center;
   transition: background-color 0.1s linear;
-
-  flex: 1 1 auto;
-  justify-content: center;
+  line-height: 30px;
+  outline: none;
 }
-
 .kmt-group-model .kmt-tabs-list li a {
-  display: inline-block;
   width: 100%;
+  display: inline-block;
   color: #555d66;
-  box-shadow: none;
   text-decoration: none;
   transition: none;
+  box-shadow: none;
 }
-
 .kmt-group-model .kmt-tabs-list li:not(:first-child) {
   border-right-width: 0;
 }
-
 .kmt-group-model .kmt-tabs-list li:first-child {
   border-radius: 0 3px 3px 0;
 }
-
 .kmt-group-model .kmt-tabs-list li:last-child {
   border-radius: 3px 0 0 3px;
 }
-
 .kmt-group-model .kmt-tabs-list li.ui-state-active {
+  background-color: #0073aa;
   border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   color: #fff;
-  background-color: #0073aa;
 }
-
 .kmt-group-model .kmt-tabs-list li.ui-state-active a {
   color: #fff;
 }
-
 .kmt-group-model .customize-control-title {
   font-size: 13px;
 }
-
 #customize-theme-controls .control-section.open {
   height: 100%;
 }
-
 .select2-container {
   z-index: 999999;
 }
