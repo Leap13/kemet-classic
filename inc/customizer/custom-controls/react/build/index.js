@@ -24134,7 +24134,7 @@ __webpack_require__.r(__webpack_exports__);
      */
 
     var resizePreviewer = function resizePreviewer() {
-      var section = $(".control-section.kmt-header-builder-active");
+      var section = $(".control-section.kmt-header-builder-active .customize-control-kmt-builder");
       var footer = $(".control-section.kmt-footer-builder-active");
 
       if ($body.hasClass("kmt-header-builder-is-active") || $body.hasClass("kmt-footer-builder-is-active")) {
@@ -24254,7 +24254,9 @@ __webpack_require__.r(__webpack_exports__);
           };
 
           var setActiveState = function setActiveState() {
-            element.active.set(isDisplay());
+            element._toggleActive(isDisplay(), {
+              duration: 0
+            });
           };
 
           _.each(rules, function (rule, ruleKey) {

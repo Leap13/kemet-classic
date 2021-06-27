@@ -165,7 +165,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			'header-mobile-items'           => array(
 				'section'     => 'section-header-builder',
 				'priority'    => 1,
-				'responsive'  => true,
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-builder',

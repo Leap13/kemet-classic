@@ -68,7 +68,9 @@ import { array, func } from "prop-types";
      * Resize Preview Frame when show / hide Builder.
      */
     const resizePreviewer = function () {
-      var section = $(".control-section.kmt-header-builder-active");
+      var section = $(
+        ".control-section.kmt-header-builder-active .customize-control-kmt-builder"
+      );
       var footer = $(".control-section.kmt-footer-builder-active");
 
       if (
@@ -197,7 +199,7 @@ import { array, func } from "prop-types";
           };
 
           var setActiveState = function () {
-            element.active.set(isDisplay());
+            element._toggleActive(isDisplay(), { duration: 0 });
           };
 
           _.each(rules, function (rule, ruleKey) {
