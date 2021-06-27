@@ -205,8 +205,6 @@
 .kmt-responsive-control-btns button[type="button"] > i {
   width: 15px;
   height: 13px;
-  font-size: 13px;
-  color: #fff;
-  line-height: 17px;
+  font-size: 17px;
   color: #bbb;
 }

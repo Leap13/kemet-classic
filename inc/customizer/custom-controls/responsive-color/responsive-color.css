@@ -1,3 +1,6 @@
+.customize-control-kmt-responsive-color {
+  position: relative;
+}
 .customize-control-kmt-reponsive-color .wp-color-result span {
   background: #f7f7f7;
 }
@@ -9,24 +12,6 @@
 }
 .customize-control-kmt-reponsive-color .customize-control-content.active {
   display: block;
-}
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="datetime"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-select,
-textarea {
-  border: 1px solid #d0d0d0;
 }
 
 .customize-control-kmt-reponsive-color
