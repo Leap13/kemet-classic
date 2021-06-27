@@ -74,8 +74,7 @@ class Kemet_Control_Smart_Skin extends WP_Customize_Control {
 		$uri = KEMET_THEME_URI . 'inc/customizer/custom-controls/smart-skin/';
 
 		wp_enqueue_style( 'kemet-smart-skin-css', $uri . 'smart-skin.css', null, KEMET_THEME_VERSION );
-		wp_enqueue_script( 'kemet-smart-skin-js', $uri . 'smart-skin.js', array(), KEMET_THEME_VERSION, true );
-
+		// wp_enqueue_script( 'kemet-smart-skin-js', $uri . 'smart-skin.js', array(), KEMET_THEME_VERSION, true );
 	}
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).

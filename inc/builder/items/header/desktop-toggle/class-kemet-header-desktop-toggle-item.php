@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Header_Desktop_Toggle_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_DESKTOP_TOGGLE_DIR . 'dynamic-css/class-kemet-header-desktop-toggle-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}

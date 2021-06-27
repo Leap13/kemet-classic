@@ -8,9 +8,10 @@ import { TitleControl } from "./title/control";
 import { SliderControl } from "./slider/control";
 import { responsiveSliderControl } from "./responsive-slider/control";
 import { responsiveSpacingControl } from "./responsive-spacing/control";
-//import { sortableControl } from './sortable/control'
+import { responsiveColorControl } from "./responsive-color/control";
+import { sortableControl } from "./sortable/control";
 import { iconSelect } from "./icon-select/control";
-//import { colorComponent } from './color/control'
+import { colorComponent } from "./color/control";
 import { toggleControl } from "./Toggle/control";
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
@@ -19,14 +20,16 @@ wp.customize.controlConstructor["kmt-tabs"] = TabsControl;
 wp.customize.controlConstructor["kmt-focus-button"] = FocusButtonControl;
 wp.customize.controlConstructor["kmt-radio-image"] = RadioImageControl;
 wp.customize.controlConstructor["kmt-title"] = TitleControl;
+wp.customize.controlConstructor["kmt-sortable"] = sortableControl;
 wp.customize.controlConstructor["kmt-slider"] = SliderControl;
 wp.customize.controlConstructor["kmt-responsive-slider"] =
   responsiveSliderControl;
 wp.customize.controlConstructor["kmt-responsive-spacing"] =
   responsiveSpacingControl;
-//wp.customize.controlConstructor['kmt-sortable'] = sortableControl;
 wp.customize.controlConstructor["kmt-icon-select"] = iconSelect;
-//wp.customize.controlConstructor['kmt-color'] = colorComponent;
+wp.customize.controlConstructor["kmt-color"] = colorComponent;
+wp.customize.controlConstructor["kmt-reponsive-color"] = responsiveColorControl;
 wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
 
 import { Base } from "./customizer";
+import responsiveColorComponent from "./responsive-color/responsive-color-component";

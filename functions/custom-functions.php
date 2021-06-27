@@ -804,34 +804,6 @@ function kemet_header_breakpoint_style() {
 	}
 	<?php
 
-	$kemet_header_width = apply_filters( 'kemet_header_width', kemet_get_option( 'header-main-layout-width' ) );
-
-	/* Width for Header */
-	if ( 'full' == $kemet_header_width ) {
-		$genral_global_responsive = array(
-			'#sitehead .kmt-container' => array(
-				'max-width'     => '100%',
-				'padding-left'  => '35px',
-				'padding-right' => '35px',
-			),
-		);
-
-		/* Parse CSS from array()*/
-		echo esc_html( kemet_parse_css( $genral_global_responsive, $header_break_point ) );
-
-	} elseif ( 'stretched' == $kemet_header_width ) {
-		$genral_global_responsive = array(
-			'#sitehead .kmt-container' => array(
-				'max-width'     => '100%',
-				'padding-left'  => '0',
-				'padding-right' => '0',
-			),
-		);
-
-		/* Parse CSS from array()*/
-		echo esc_html( kemet_parse_css( $genral_global_responsive, $header_break_point ) );
-	}
-
 	$dynamic_css = ob_get_clean();
 
 	// trim white space for faster page loading.

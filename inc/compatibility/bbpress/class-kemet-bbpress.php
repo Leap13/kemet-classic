@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kemet_bbPress' ) ) :
 			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 			// Sidebar Layout.
 			add_filter( 'kemet_layout', array( $this, 'sidebar_layout' ) );
-			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'kemet_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_filter( 'kemet_theme_assets', array( $this, 'add_styles' ) );
 			add_filter( 'bbp_get_breadcrumb', '__return_false' );

@@ -16,7 +16,7 @@ if ( ! class_exists( 'Kemet_Add_Dynamic_Css' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'kemet_theme_dynamic_css', array( $this, 'dynamic_css' ) );
 		}
 
 		/**

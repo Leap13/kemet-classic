@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kemet_Customizer_Notification' ) ) {
 
 			$uri = KEMET_THEME_URI . 'inc/customizer/notification/';
 
-			wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
+			// wp_enqueue_script( 'kemet-customizer-notification', $uri . 'notification-helper.js', array(), KEMET_THEME_VERSION, true );
 		}
 	}
 

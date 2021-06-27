@@ -219,7 +219,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			/**
 			 * Inline styles
 			 */
-			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_output() );
+			wp_add_inline_style( 'kemet-theme-css', apply_filters( 'kemet_theme_dynamic_css', Kemet_Dynamic_CSS::return_output() ) );
 			wp_add_inline_style( 'kemet-theme-css', Kemet_Dynamic_CSS::return_meta_output( true ) );
 
 			$kemet_localize = array(

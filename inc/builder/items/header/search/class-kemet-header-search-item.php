@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Header_Search_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 99 );
+			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 99 );
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_SEARCH_DIR . 'dynamic-css/class-kemet-header-search-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

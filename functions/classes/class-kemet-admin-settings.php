@@ -89,8 +89,8 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		public static function init_admin_settings() {
-			add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
-			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
+			// add_action( 'admin_enqueue_scripts', __CLASS__ . '::admin_scripts' );
+			// add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 		}
 
 		/**

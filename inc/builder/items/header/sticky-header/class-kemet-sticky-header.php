@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
 			require_once KEMET_STICKY_HEADER_DIR . '/class-kemet-sticky-header-partials.php';
 			if ( ! is_admin() ) {
 				require_once KEMET_STICKY_HEADER_DIR . 'dynamic-css/class-kemet-sticky-header-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
