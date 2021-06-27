@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Dashicon } from '@wordpress/components';
-import kemetColorPickerControl from '../common/color';
+import KemetColorPickerControl from '../common/color';
 
 const ResponsiveColorComponent = props => {
 
     const [props_value, setPropsValue] = useState(props.control.setting.get());
 
+    const [device, setDevice] = useState('desktop');
 
     const updateValues = (value, key) => {
         const obj = {
@@ -37,20 +37,13 @@ const ResponsiveColorComponent = props => {
                     props.control.setting.set(value);
                     setPropsValue(value);
                 }}>
-                <Dashicon icon='image-rotate' />
+                <span className="dashicons dashicons-image-rotate"></span>
+
             </button>
         </div>;
     };
 
-    const renderSettings = (key) => {
-        return <kemetColorPickerControl
-            color={undefined !== props_value[key] && props_value[key] ? props_value[key] : ''}
-            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, key)}
-            backgroundType={'color'}
-            allowGradient={false}
-            allowImage={false}
-        />;
-    };
+
 
     const handleChangeComplete = (color, key) => {
         let value;
@@ -72,50 +65,35 @@ const ResponsiveColorComponent = props => {
         responsive,
     } = props.control.params;
 
-    let labelHtml = null;
-    let descriptionHtml = null;
     let responsiveHtml = null;
-    let inputHtml = null;
 
-    if (label) {
-        labelHtml = <span className="customize-control-title">{label}</span>;
-    }
 
-    if (description) {
-        descriptionHtml = <span className="description customize-control-description">{description}</span>;
-    }
 
-    if (responsive) {
-        responsiveHtml = <ul className="kmt-responsive-btns">
-            <li className="desktop active">
-                <button type="button" className="preview-desktop" data-device="desktop">
-                    <i className="dashicons dashicons-desktop"></i>
-                </button>
-            </li>
-            <li className="tablet">
-                <button type="button" className="preview-tablet" data-device="tablet">
-                    <i className="dashicons dashicons-tablet"></i>
-                </button>
-            </li>
-            <li className="mobile">
-                <button type="button" className="preview-mobile" data-device="mobile">
-                    <i className="dashicons dashicons-smartphone"></i>
-                </button>
-            </li>
-        </ul>;
-        inputHtml = <>
+    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
 
-            <div className="kmt-color-picker-alpha color-picker-hex kmt-responsive-color desktop active">
-                {renderSettings('desktop')}
-            </div>
-            <div className="kmt-color-picker-alpha color-picker-hex kmt-responsive-color tablet">
-                {renderSettings('tablet')}
-            </div>
-            <div className="kmt-color-picker-alpha color-picker-hex kmt-responsive-color mobile">
-                {renderSettings('mobile')}
-            </div>
-        </>;
-    }
+    let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
+
+
+    responsiveHtml = <ul class="kmt-responsive-control-btns kmt-color-responsive-btns">
+        <li class="desktop active">
+            <button type="button" class="preview-desktop active" data-device="desktop" onClick={() => setDevice('tablet')} >
+                <i class="dashicons dashicons-desktop"></i>
+            </button>
+        </li>
+        <li class="tablet">
+            <button type="button" class="preview-tablet" data-device="tablet" onClick={() => setDevice('mobile')}  >
+                <i class="dashicons dashicons-tablet"></i>
+            </button>
+        </li>
+        <li class="mobile">
+            <button type="button" class="preview-mobile" data-device="mobile" onClick={() => setDevice('desktop')} >
+                <i class="dashicons dashicons-smartphone"></i>
+            </button>
+        </li>
+    </ul>;
+
+
+
 
     return <div className="kmt-control-wrap">
         <label>
@@ -124,10 +102,16 @@ const ResponsiveColorComponent = props => {
         </label>
         {renderReset()}
         {responsiveHtml}
+        <KemetColorPickerControl
+            color={undefined !== props_value[device] && props_value[device] ? props_value[device] : ''}
+            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, device)}
+            backgroundType={'color'}
+            allowGradient={false}
+            allowImage={false}
+        />
 
-        <div className="customize-control-content">
-            {inputHtml}
-        </div>
+
+
     </div>;
 
 };

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
-import { Component } from '@wordpress/element';
+import { Component, useRef } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import KemetColorPicker from './colorPicker';
 import { MediaUpload } from '@wordpress/media-utils';
@@ -19,8 +19,11 @@ class KemetColorPickerControl extends Component {
         this.open = this.open.bind(this);
         this.toggleClose = this.toggleClose.bind(this)
 
+
         this.state = {
             isVisible: false,
+            isPicking: null,
+            isTransitioning: null,
             refresh: false,
             color: this.props.color,
             modalCanClose: true,
@@ -50,6 +53,7 @@ class KemetColorPickerControl extends Component {
             allowGradient,
             allowImage
         } = this.props
+
 
         const toggleVisible = () => {
             if (this.props.usePalette) {
@@ -108,7 +112,8 @@ class KemetColorPickerControl extends Component {
         let finalpaletteColors = [];
         let count = 0;
 
-        const defaultColorPalette = ['#000000',
+        const defaultColorPalette = [
+            '#000000',
             '#ffffff',
             '#dd3333',
             '#dd9933',
@@ -125,8 +130,9 @@ class KemetColorPickerControl extends Component {
             count++;
         });
 
+
         return (
-            <>
+            < >
                 <div className="color-button-wrap">
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
@@ -140,6 +146,7 @@ class KemetColorPickerControl extends Component {
                         }
                     </Button>
                 </div>
+
                 <div className="kemet-color-picker-wrap">
                     <>
                         {isVisible && (
@@ -244,6 +251,7 @@ class KemetColorPickerControl extends Component {
                     </>
                 </div>
             </>
+
         );
     }
     toggleClose() {

@@ -19,7 +19,7 @@ export const responsiveColorControl = wp.customize.kemetControl.extend({
 
             // If the target of the click isn't the container nor a descendant of the container.
             if (!resColorWrap.is(e.target) && !resetBtnWrap.is(e.target) && resColorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
-                container.find('.components-button.kmtra-color-icon-indicate.open').click();
+                container.find('.components-button.kemet-color-icon-indicate.open').click();
             }
         });
     },

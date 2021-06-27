@@ -86,11 +86,13 @@ const ColorComponent = props => {
         </label>
         <div className="kmt-color-picker-alpha color-picker-hex">
             {renderOperationButtons()}
-            <KemetColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
+            <KemetColorPickerControl
+                color={undefined !== state.value && state.value ? state.value : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
                 backgroundType={'color'}
                 allowGradient={false}
-                allowImage={false} />
+                allowImage={false}
+            />
 
         </div>
     </div>;
