@@ -570,15 +570,6 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
   }
 }
 
-function settingName(settingName) {
-  var setting = KemetCustomizerPrevData.setting.replace(
-    "setting_name",
-    settingName
-  );
-
-  return setting;
-}
-
 function kemet_font_family_css(control, selector) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
@@ -586,7 +577,7 @@ function kemet_font_family_css(control, selector) {
         link = "";
       // Replace ' character with space, necessary to separate out font prop value.
       fontName = fontName.replace(/'/g, "");
-      if (fontName in KemetCustomizerPrevData.googleFonts) {
+      if (fontName in previewData.googleFonts) {
         jQuery("link#" + control).remove();
 
         var fontName = fontName.split(" ").join("+");
@@ -614,7 +605,7 @@ function kemet_font_weight_css(control, selector) {
       fontName = fontName.split(",")[0];
       fontName = fontName.replace(/'/g, "");
 
-      if (fontName in KemetCustomizerPrevData.googleFonts) {
+      if (fontName in previewData.googleFonts) {
         jQuery("link#" + fontControl).remove();
         if (value === "inherit") {
           link =
@@ -640,3 +631,5 @@ function kemet_font_weight_css(control, selector) {
     });
   });
 }
+
+console.log(previewData.preview);

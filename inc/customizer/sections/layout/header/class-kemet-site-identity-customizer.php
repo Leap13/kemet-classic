@@ -61,6 +61,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'value'   => true,
 					),
 				),
+				'preview'      => array(
+					'selector' => '.site-title',
+					'property' => 'font-size',
+				),
 			),
 			'font-size-site-tagline'           => array(
 				'type'         => 'kmt-responsive-slider',

@@ -1,5 +1,3 @@
-import { array, func } from "prop-types";
-
 (function ($, api) {
   var $window = $(window),
     $body = $("body");
@@ -68,9 +66,7 @@ import { array, func } from "prop-types";
      * Resize Preview Frame when show / hide Builder.
      */
     const resizePreviewer = function () {
-      var section = $(
-        ".control-section.kmt-header-builder-active .customize-control-kmt-builder"
-      );
+      var section = $(".control-section.kmt-header-builder-active");
       var footer = $(".control-section.kmt-footer-builder-active");
 
       if (
@@ -89,7 +85,9 @@ import { array, func } from "prop-types";
           !section.hasClass("kmt-builder-hide")
         ) {
           api.previewer.container.css({
-            bottom: section.outerHeight() + "px",
+            bottom:
+              section.find(".customize-control-kmt-builder").outerHeight() +
+              "px",
           });
         } else {
           api.previewer.container.css("bottom", "");

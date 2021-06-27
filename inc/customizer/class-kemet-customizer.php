@@ -76,6 +76,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $contexts_arr = array();
 
 		/**
+		 * Customizer Preview Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $preview_arr = array();
+
+		/**
 		 * Customizer Group Array.
 		 *
 		 * @access private
@@ -158,7 +166,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			add_action( 'customize_register', array( $this, 'register_customizer_options' ) );
 			add_action( 'customize_register', array( $this, 'create_group_controls' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_dashicons_front_end' ) );
-			add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
+			// add_filter( 'customize_dynamic_setting_args', array( $this, 'filter_dynamic_setting_args' ), 10, 2 );
 			add_filter( 'customize_controls_enqueue_scripts', array( $this, 'customize_controls_enqueue_scripts' ), 999 );
 		}
 
@@ -262,6 +270,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 				if ( isset( $args['choices'] ) ) {
 					self::$choices_arr[ $option_id ] = $args['choices'];
+				}
+
+				if ( isset( $args['preview'] ) ) {
+					$preview                         = $args['preview'];
+					$preview['type']                 = $args['type'];
+					self::$preview_arr[ $option_id ] = $preview;
 				}
 
 				$default = isset( $args['default'] ) ? $args['default'] : '';
@@ -535,6 +549,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 */
 		private function get_choices_arr() {
 			return self::$choices_arr;
+		}
+
+		/**
+		 * Get Preview Array.
+		 */
+		private function get_preview_arr() {
+			return self::$preview_arr;
 		}
 
 		/**
@@ -825,10 +846,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			wp_localize_script(
 				'kemet-customizer-preview-js',
-				'KemetCustomizerPrevData',
+				'previewData',
 				array(
-					'setting'     => KEMET_THEME_SETTINGS . '[setting_name]',
 					'googleFonts' => Kemet_Font_Families::get_google_fonts(),
+					'preview'     => self::get_preview_arr(),
 				)
 			);
 		}

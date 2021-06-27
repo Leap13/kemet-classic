@@ -24077,14 +24077,8 @@ var coreControl = wp.customize.kemetControl = wp.customize.Control.extend({
 /*!***************************!*\
   !*** ./src/customizer.js ***!
   \***************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
-
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 (function ($, api) {
   var $window = $(window),
@@ -24134,7 +24128,7 @@ __webpack_require__.r(__webpack_exports__);
      */
 
     var resizePreviewer = function resizePreviewer() {
-      var section = $(".control-section.kmt-header-builder-active .customize-control-kmt-builder");
+      var section = $(".control-section.kmt-header-builder-active");
       var footer = $(".control-section.kmt-footer-builder-active");
 
       if ($body.hasClass("kmt-header-builder-is-active") || $body.hasClass("kmt-footer-builder-is-active")) {
@@ -24142,7 +24136,7 @@ __webpack_require__.r(__webpack_exports__);
           api.previewer.container.css("bottom", footer.outerHeight() + "px");
         } else if ($body.hasClass("kmt-header-builder-is-active") && 0 < section.length && !section.hasClass("kmt-builder-hide")) {
           api.previewer.container.css({
-            bottom: section.outerHeight() + "px"
+            bottom: section.find(".customize-control-kmt-builder").outerHeight() + "px"
           });
         } else {
           api.previewer.container.css("bottom", "");
@@ -24581,6 +24575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _color_control__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./color/control */ "./src/color/control.js");
 /* harmony import */ var _Toggle_control__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Toggle/control */ "./src/Toggle/control.js");
 /* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_customizer__WEBPACK_IMPORTED_MODULE_15__);
 /* harmony import */ var _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./responsive-color/responsive-color-component */ "./src/responsive-color/responsive-color-component.js");
 
 
