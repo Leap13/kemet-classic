@@ -45,6 +45,44 @@ $wp_customize->add_control(
 	)
 );
 
+
+/**
+* start Background 
+*/
+
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[site-content-width]',
+	array(
+		'default'           => $defaults['site-content-width'],
+		'type'              => 'option',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'validate_site_width' ),
+	)
+);
+$wp_customize->add_control(
+	new Kemet_Control_Slider(
+		$wp_customize,
+		KEMET_THEME_SETTINGS . '[site-content-width]',
+		array(
+			'type'        => 'kmt-slider',
+			'section'     => 'section-container-layout',
+			'priority'    => 5,
+			'label'       => __( 'Container Width', 'kemet' ),
+			'suffix'      => '',
+			'input_attrs' => array(
+				'min'  => 768,
+				'step' => 1,
+				'max'  => 1920,
+			),
+		)
+	)
+);
+
+
+/**
+* End Background 
+*/
+    
 /**
 * Option: Site Content Layout
 */
@@ -176,13 +214,13 @@ $fields = array(
 );
 $group_settings = array(
 	'parent_id' => KEMET_THEME_SETTINGS . '[kmt-body-bg-obj]',
-	'type'      => 'kmt-group',
+	'type'      => 'kmt-background',
 	'label'     => __( 'Body Background', 'kemet' ),
 	'section'   => 'section-container-layout',
 	'priority'  => 30,
-	'settings'  => array(),
+	'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 );
-new Kemet_Generate_Control_Group( $wp_customize, $group_settings, $fields );
+new Kemet_Control_Background( $wp_customize, $group_settings, $fields );
 /**
  * Option: Title
  */
@@ -291,27 +329,53 @@ $wp_customize->add_control(
 	)
 );
 
-/**
-* Option: Content separator Color
-*/
+//  BackGround Color
 $wp_customize->add_setting(
 	KEMET_THEME_SETTINGS . '[content-separator-color]',
 	array(
 		'default'           => $defaults['content-separator-color'],
 		'type'              => 'option',
 		'transport'         => 'postMessage',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 	)
 );
 $wp_customize->add_control(
-	new Kemet_Control_Color(
+	new Kemet_Control_Background(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[content-separator-color]',
 		array(
-			'type'     => 'kmt-color',
+			'type'     => 'kmt-background',
 			'priority' => 55,
-			'label'    => __( 'Content Separator Color', 'kemet' ),
+			'label'    => __( 'background Color Test', 'kemet' ),
 			'section'  => 'section-container-layout',
 		)
 	)
 );
+
+
+
+// end of background Color
+/**
+* Option: Content separator Color
+*/
+// $wp_customize->add_setting(
+// 	KEMET_THEME_SETTINGS . '[content-separator-color]',
+// 	array(
+// 		'default'           => $defaults['content-separator-color'],
+// 		'type'              => 'option',
+// 		'transport'         => 'postMessage',
+// 		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+// 	)
+// );
+// $wp_customize->add_control(
+// 	new Kemet_Control_Color(
+// 		$wp_customize,
+// 		KEMET_THEME_SETTINGS . '[content-separator-color]',
+// 		array(
+// 			'type'     => 'kmt-color',
+// 			'priority' => 55,
+// 			'label'    => __( 'Content Separator Color', 'kemet' ),
+// 			'section'  => 'section-container-layout',
+// 		)
+// 	)
+// );
