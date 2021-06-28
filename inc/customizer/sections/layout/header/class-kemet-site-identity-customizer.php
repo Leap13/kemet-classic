@@ -63,7 +63,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				),
 				'preview'      => array(
 					'selector' => '.site-title',
-					'property' => 'font-size',
+					'property' => '--fontSize',
 				),
 			),
 			'font-size-site-tagline'           => array(
@@ -90,30 +90,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'value'   => true,
 					),
 				),
-			),
-			'site-title-letter-spacing'        => array(
-				'type'         => 'kmt-responsive-slider',
-				'transport'    => 'postMessage',
-				'section'      => 'title_tagline',
-				'priority'     => 30,
-				'label'        => __( 'Tagline Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'context'      => array(
-					array(
-						'setting' => 'display-site-title',
-						'value'   => true,
-					),
+				'preview'      => array(
+					'selector' => '.site-header .site-description',
+					'property' => '--fontSize',
 				),
 			),
 			'site-title-letter-spacing'        => array(
@@ -135,6 +114,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'value'   => true,
 					),
 				),
+				'preview'      => array(
+					'selector' => '.site-title',
+					'property' => '--letterSpacing',
+				),
 			),
 			'tagline-letter-spacing'           => array(
 				'type'         => 'kmt-responsive-slider',
@@ -155,6 +138,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'value'   => true,
 					),
 				),
+				'preview'      => array(
+					'selector' => '.site-header .site-description',
+					'property' => '--letterSpacing',
+				),
 			),
 			'site-title-color'                 => array(
 				'transport' => 'postMessage',
@@ -162,6 +149,16 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Site Title Color', 'kemet' ),
 				'priority'  => 37,
 				'section'   => 'title_tagline',
+				'preview'   => array(
+					'selector' => '.site-title',
+					'property' => '--headingLinksColor',
+				),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-title',
+						'value'   => true,
+					),
+				),
 			),
 			'site-title-h-color'               => array(
 				'transport' => 'postMessage',
@@ -169,6 +166,16 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Site Title Hover Color', 'kemet' ),
 				'priority'  => 38,
 				'section'   => 'title_tagline',
+				'preview'   => array(
+					'selector' => '.site-title',
+					'property' => '--linksHoverColor',
+				),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-title',
+						'value'   => true,
+					),
+				),
 			),
 			'tagline-color'                    => array(
 				'type'      => 'kmt-color',
@@ -176,6 +183,16 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Tagline Color', 'kemet' ),
 				'priority'  => 40,
 				'section'   => 'title_tagline',
+				'preview'   => array(
+					'selector' => '.site-header .site-description',
+					'property' => '--textColor',
+				),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-tagline',
+						'value'   => true,
+					),
+				),
 			),
 			'site-identity-spacing'            => array(
 				'type'           => 'kmt-responsive-spacing',
@@ -190,6 +207,11 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'right'  => __( 'Right', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'        => array(
+					'selector' => '.kmt-site-identity',
+					'property' => '--padding',
+					'sides'    => false,
 				),
 			),
 			'kmt-site-logo-settings'           => array(
@@ -238,6 +260,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'operator' => 'not_empty',
 					),
 					'relation' => 'OR',
+				),
+				'preview'      => array(
+					'selector' => '#sitehead .site-logo-img .custom-logo-link img',
+					'property' => '--logoWidth',
 				),
 			),
 		);

@@ -56,13 +56,17 @@ tr,
 th,
 td {
   border: 0;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
+  font-size: var(--fontSize);
+  font-style: var(--fontStyle);
+  font-weight: var(--fontWeight);
   margin: 0;
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  letter-spacing: var(--letterSpacing);
+  line-height: var(--lineHeight);
+  text-transform: var(--textTransform);
+  text-decoration: var(--textDecoration);
 }
 
 html {
@@ -71,7 +75,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: var(--margin, 0);
 }
 
 article,

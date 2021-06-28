@@ -117,9 +117,9 @@
 }
 
 .comment-reply-title {
+  font-weight: --fontWeight;
   padding-top: 1em;
-  font-weight: normal;
-  line-height: 1.65;
+  --lineHeight: 1.65;
 }
 
 .kmt-comment-meta {

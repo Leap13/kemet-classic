@@ -32,32 +32,27 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					'.site-title'                    => array(
-						'font-size' => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
-					),
-					'.site-title a'                  => array(
-						'color'          => esc_attr( $site_title_color ),
-						'letter-spacing' => kemet_responsive_slider( $site_title_letter_spacing, 'desktop' ),
-					),
-					'.site-title a:hover'            => array(
-						'color' => esc_attr( $site_title_h_color ),
+						'--fontSize'          => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
+						'--headingLinksColor' => esc_attr( $site_title_color ),
+						'--linksHoverColor'   => esc_attr( $site_title_h_color ),
+						'--letterSpacing'     => kemet_responsive_slider( $site_title_letter_spacing, 'desktop' ),
 					),
 					'#sitehead .site-logo-img .custom-logo-link img' => array(
-						'max-width' => kemet_responsive_slider( $header_logo_width, 'desktop' ),
+						'--logoWidth' => kemet_responsive_slider( $header_logo_width, 'desktop' ),
+						'max-width'   => 'var(--logoWidth)',
 					),
 					'.kemet-logo-svg'                => array(
-						'width' => kemet_responsive_slider( $header_logo_width, 'desktop' ),
+						'width' => 'var(--logoWidth)',
 					),
 					/* Site Identity Spacing */
-					'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity' => array(
-						'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'desktop' ),
-						'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'desktop' ),
-						'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'desktop' ),
-						'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'desktop' ),
+					'.kmt-site-identity'             => array(
+						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'desktop' ),
 					),
 					'.site-header .site-description' => array(
-						'color'          => esc_attr( $tagline_color ),
-						'font-size'      => kemet_responsive_slider( $site_tagline_font_size, 'desktop' ),
-						'letter-spacing' => kemet_responsive_slider( $tagline_letter_spacing, 'desktop' ),
+						'--textColor'     => esc_attr( $tagline_color ),
+						'color'           => 'var(--textColor)',
+						'--fontSize'      => kemet_responsive_slider( $site_tagline_font_size, 'desktop' ),
+						'--letterSpacing' => kemet_responsive_slider( $tagline_letter_spacing, 'desktop' ),
 					),
 				);
 
@@ -78,11 +73,8 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 						'width' => kemet_responsive_slider( $header_logo_width, 'tablet' ),
 					),
 					/* Site Identity Spacing */
-					'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity' => array(
-						'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'tablet' ),
-						'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'tablet' ),
-						'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'tablet' ),
-						'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'tablet' ),
+					'.kmt-site-identity'             => array(
+						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'tablet' ),
 					),
 					'.site-header .site-description' => array(
 						'color'          => esc_attr( $tagline_color ),
@@ -108,11 +100,8 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 						'width' => kemet_responsive_slider( $header_logo_width, 'mobile' ),
 					),
 					/* Site Identity Spacing */
-					'#sitehead.site-header:not(.kmt-is-sticky) .kmt-site-identity' => array(
-						'padding-top'    => kemet_responsive_spacing( $site_identity_spacing, 'top', 'mobile' ),
-						'padding-right'  => kemet_responsive_spacing( $site_identity_spacing, 'right', 'mobile' ),
-						'padding-bottom' => kemet_responsive_spacing( $site_identity_spacing, 'bottom', 'mobile' ),
-						'padding-left'   => kemet_responsive_spacing( $site_identity_spacing, 'left', 'mobile' ),
+					'.kmt-site-identity'             => array(
+						'--padding' => kemet_responsive_spacing( $site_identity_spacing, 'all', 'mobile' ),
 					),
 					'.site-header .site-description' => array(
 						'color'          => esc_attr( $tagline_color ),

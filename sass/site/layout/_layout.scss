@@ -2,7 +2,12 @@
 .hidden {
   display: none !important;
 }
-
+// Custom Html
+.kmt-custom-html {
+  color: var(--textColor);
+  padding: var(--padding);
+  margin: var(--margin);
+}
 // Page alignment
 #page {
   display: block;

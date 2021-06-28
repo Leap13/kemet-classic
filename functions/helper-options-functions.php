@@ -130,13 +130,28 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 	 * @return mixed
 	 */
 	function kemet_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '' ) {
-
-		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
-			$spacing = kemet_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
-		} elseif ( is_numeric( $option ) ) {
-			$spacing = kemet_get_css_value( $option );
+		$spacing = '';
+		if ( 'all' === $side && isset( $option[ $device ] ) && is_array( $option[ $device ] ) ) {
+			$device_spacing = $option[ $device ];
+			$device_unit    = $option[ $device . '-unit' ];
+			if ( array_filter( $device_spacing ) ) {
+				array_walk(
+					$device_spacing,
+					function( &$value, $key, $device_unit ) {
+						$value = '' === $value ? 0 : $value . $device_unit;
+					},
+					$device_unit
+				);
+				$spacing = implode( ' ', array_values( $device_spacing ) );
+			}
 		} else {
-			$spacing = ( ! is_array( $option ) ) ? $option : '';
+			if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
+				$spacing = kemet_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+			} elseif ( is_numeric( $option ) ) {
+				$spacing = kemet_get_css_value( $option );
+			} else {
+				$spacing = ( ! is_array( $option ) ) ? $option : '';
+			}
 		}
 
 		return $spacing;

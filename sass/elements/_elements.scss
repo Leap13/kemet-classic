@@ -102,7 +102,7 @@ kbd,
 tt,
 var {
   font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 img {

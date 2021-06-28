@@ -3,30 +3,27 @@ button,
 input[type="button"],
 input[type="submit"],
 textarea {
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 select,
 input {
-  line-height: 1;
-}
-body {
-  line-height: 1.85714285714286;
+  --lineHeight: 1;
 }
 
 .site-title a {
-  line-height: 1;
+  --lineHeight: 1;
 }
 
 .site-header .site-description {
-  line-height: 1.5;
+  --lineHeight: 1.5;
 }
 
 .kmt-single-post .entry-title,
 .kmt-single-post .entry-title a {
-  line-height: 1.2;
+  --lineHeight: 1.2;
 }
 
 .entry-title,
 .entry-title a {
-  font-weight: normal;
+  --fontWeight: normal;
 }

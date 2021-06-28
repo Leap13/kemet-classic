@@ -232,7 +232,7 @@ body:not(.kmt-header-break-point) {
   }
   .kmt-header-custom-item {
     justify-content: center;
-    line-height: 1.85714285714286;
+    line-height: var(--lineHeight);
   }
   .kmt-sitehead-custom-menu-items {
     position: relative;

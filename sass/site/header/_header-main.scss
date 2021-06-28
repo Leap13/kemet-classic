@@ -26,7 +26,7 @@
 }
 
 .kmt-site-identity {
-  padding: 27px 0px;
+  padding: var(--padding, 27px 0px);
 }
 
 .kmt-menu-toggle {
@@ -478,7 +478,7 @@ li.kmt-sitehead-custom-menu-items {
   -moz-osx-font-smoothing: grayscale;
   border-radius: 2px;
   vertical-align: middle;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
   .toggle-button-icon {
     font-style: normal;
     display: inline-block;

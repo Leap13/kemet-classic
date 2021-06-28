@@ -102,7 +102,7 @@ function kemet_responsive_font_size(control, selector) {
 /**
  * Responsive Spacing CSS
  */
-function kemet_responsive_spacing(control, selector, type, side) {
+function kemet_responsive_spacing_sides(control, selector, type, side) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
       var sidesString = "";
@@ -224,6 +224,74 @@ function kemet_responsive_spacing(control, selector, type, side) {
           "style#" + control + "-" + spacingType + "-" + sidesString
         ).remove();
       }
+    });
+  });
+}
+
+/**
+ * Responsive Spacing CSS
+ */
+function kemet_responsive_spacing(control, selector, type) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      var spacing = {
+        desktopSpacing: "",
+        tabletSpacing: "",
+        mobileSpacing: "",
+      };
+      var deviceValue = function (device) {
+        var hasValues = false;
+        value[device] = jQuery.map(value[device], function (deviceVal, index) {
+          if ("" !== deviceVal && undefined !== deviceVal) {
+            hasValues = true;
+            deviceVal = deviceVal + value[device + "-unit"];
+          } else {
+            deviceVal = 0;
+          }
+          return deviceVal;
+        });
+        if (hasValues) {
+          spacing[device + "Spacing"] = type + ": " + value[device].join(" ");
+        }
+      };
+      if ("" != value["desktop"]) {
+        deviceValue("desktop");
+      }
+
+      if ("" != value["tablet"]) {
+        deviceValue("tablet");
+      }
+
+      if ("" != value["mobile"]) {
+        deviceValue("mobile");
+      }
+      // Remove <style> first!
+      control = control.replace("[", "-");
+      control = control.replace("]", "");
+      jQuery("style#" + control + "-" + type).remove();
+      // Concat and append new <style>.
+      jQuery("head").append(
+        '<style id="' +
+          control +
+          "-" +
+          type +
+          '">' +
+          selector +
+          "	{ " +
+          spacing.desktopSpacing +
+          " }" +
+          "@media (max-width: 768px) {" +
+          selector +
+          "	{ " +
+          spacing.tabletSpacing +
+          " } }" +
+          "@media (max-width: 544px) {" +
+          selector +
+          "	{ " +
+          spacing.mobileSpacing +
+          " } }" +
+          "</style>"
+      );
     });
   });
 }
@@ -632,4 +700,28 @@ function kemet_font_weight_css(control, selector) {
   });
 }
 
-console.log(previewData.preview);
+(function ($) {
+  $.each(previewData.preview, function (control, data) {
+    switch (data.type) {
+      case "kmt-responsive-slider":
+        kemet_responsive_slider(control, data.selector, data.property);
+        break;
+      case "kmt-color":
+        kemet_css(control, data.property, data.selector);
+        break;
+      case "kmt-responsive-spacing":
+        if (false === data.sides) {
+          kemet_responsive_spacing(control, data.selector, data.property);
+        } else {
+          kemet_responsive_spacing_sides(
+            control,
+            data.selector,
+            data.property,
+            Object.keys(data.choices)
+          );
+        }
+
+        break;
+    }
+  });
+})(jQuery);

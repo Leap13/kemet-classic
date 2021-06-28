@@ -90,8 +90,10 @@ if ( ! class_exists( 'Kemet_Admin_Notices' ) ) :
 		 * Admin scripts
 		 */
 		public function enqueue_scripts() {
-			wp_enqueue_style( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/css/style.css', array(), KEMET_THEME_VERSION );
-			wp_enqueue_script( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/js/main.js', array(), KEMET_THEME_VERSION );
+			if ( ! is_customize_preview() ) {
+				wp_enqueue_style( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/css/style.css', array(), KEMET_THEME_VERSION );
+				wp_enqueue_script( 'kmt-admin-notice', KEMET_THEME_URI . 'functions/admin/assets/js/main.js', array(), KEMET_THEME_VERSION );
+			}
 		}
 	}
 

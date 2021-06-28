@@ -83,13 +83,19 @@ tr,
 th,
 td {
   border: 0;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
+  font-size: var(--fontSize);
+  font-style: var(--fontStyle);
+  font-weight: var(--fontWeight);
   margin: 0;
   outline: 0;
   padding: 0;
   vertical-align: baseline;
+  letter-spacing: var(--letterSpacing);
+  line-height: var(--lineHeight);
+  text-transform: var(--textTransform);
+  -webkit-text-decoration: var(--textDecoration);
+  -moz-text-decoration: var(--textDecoration);
+  text-decoration: var(--textDecoration);
 }
 
 html {
@@ -98,7 +104,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: var(--margin, 0);
 }
 
 article,
@@ -1275,50 +1281,43 @@ th {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
 }
 
 h1,
 .entry-content h1 {
-  color: #808285;
-  font-size: 2em;
-  line-height: 1.2;
+  --lineHeight: 1.2;
 }
 
 h2,
 .entry-content h2 {
-  color: #808285;
-  font-size: 1.7em;
-  line-height: 1.3;
+  --lineHeight: 1.3;
 }
 
 h3,
 .entry-content h3 {
-  color: #808285;
-  font-size: 1.5em;
-  line-height: 1.4;
+  --lineHeight: 1.4;
 }
 
 h4,
 .entry-content h4 {
-  color: #808285;
-  line-height: 1.5;
-  font-size: 1.3em;
+  --lineHeight: 1.5;
 }
 
 h5,
 .entry-content h5 {
-  color: #808285;
-  line-height: 1.6;
-  font-size: 1.2em;
+  --lineHeight: 1.6;
 }
 
 h6,
 .entry-content h6 {
-  color: #808285;
-  line-height: 1.7;
-  font-size: 1.1em;
+  --lineHeight: 1.7;
 }
 
 /*--------------------------------------------------------------
@@ -1438,7 +1437,7 @@ kbd,
 tt,
 var {
   font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 img {
@@ -1992,34 +1991,30 @@ button,
 input[type="button"],
 input[type="submit"],
 textarea {
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 select,
 input {
-  line-height: 1;
-}
-
-body {
-  line-height: 1.85714285714286;
+  --lineHeight: 1;
 }
 
 .site-title a {
-  line-height: 1;
+  --lineHeight: 1;
 }
 
 .site-header .site-description {
-  line-height: 1.5;
+  --lineHeight: 1.5;
 }
 
 .kmt-single-post .entry-title,
 .kmt-single-post .entry-title a {
-  line-height: 1.2;
+  --lineHeight: 1.2;
 }
 
 .entry-title,
 .entry-title a {
-  font-weight: normal;
+  --fontWeight: normal;
 }
 
 /*----------  Media ----------*/
@@ -2092,6 +2087,12 @@ body {
 /*----------  Basic Layout  ----------*/
 .hidden {
   display: none !important;
+}
+
+.kmt-custom-html {
+  color: var(--textColor);
+  padding: var(--padding);
+  margin: var(--margin);
 }
 
 #page {
@@ -2763,7 +2764,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   -moz-osx-font-smoothing: grayscale;
   border-radius: 2px;
   vertical-align: middle;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 .kmt-button-wrap .toggle-button.header-toggle-button {
@@ -3149,7 +3150,7 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
   -moz-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 .header-main-layout-2 .kmt-sitehead-custom-menu-items {
@@ -3580,7 +3581,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 }
 
 .kmt-site-identity {
-  padding: 27px 0px;
+  padding: var(--padding, 27px 0px);
 }
 
 .kmt-menu-toggle {
@@ -4132,7 +4133,7 @@ li.kmt-sitehead-custom-menu-items a:not(.button):focus {
   -moz-osx-font-smoothing: grayscale;
   border-radius: 2px;
   vertical-align: middle;
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
 }
 
 .toggle-button .toggle-button-icon {
@@ -4789,7 +4790,7 @@ h4.widget-title {
 }
 
 .kmt-footer-copyright {
-  line-height: 1.85714285714286;
+  line-height: var(--lineHeight);
   position: relative;
   /* Footer Widget sections */
 }
@@ -5819,9 +5820,9 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comment-reply-title {
+  font-weight: --fontWeight;
   padding-top: 1em;
-  font-weight: normal;
-  line-height: 1.65;
+  --lineHeight: 1.65;
 }
 
 .kmt-comment-meta {

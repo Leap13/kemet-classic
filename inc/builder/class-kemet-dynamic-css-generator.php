@@ -25,7 +25,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 */
 		public static function button_css( $button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $button, 'header', $device ) ) {
-				$selector           = 'a.button.' . $button;
+				$selector           = '.' . $button;
 				$color              = kemet_get_option( $button . '-color' );
 				$bg_color           = kemet_get_option( $button . '-bg-color' );
 				$border_color       = kemet_get_option( $button . '-border-color' );
@@ -43,14 +43,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'border-style'     => esc_attr( 'solid' ),
 						'border-width'     => kemet_get_css_value( $border_width, 'px' ),
 						'border-color'     => esc_attr( $border_color ),
-						'padding-top'      => kemet_responsive_spacing( $padding, 'top', 'desktop' ),
-						'padding-right'    => kemet_responsive_spacing( $padding, 'right', 'desktop' ),
-						'padding-bottom'   => kemet_responsive_spacing( $padding, 'bottom', 'desktop' ),
-						'padding-left'     => kemet_responsive_spacing( $padding, 'left', 'desktop' ),
-						'margin-top'       => kemet_responsive_spacing( $margin, 'top', 'desktop' ),
-						'margin-right'     => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
-						'margin-bottom'    => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
-						'margin-left'      => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
+						// 'padding-top'      => kemet_responsive_spacing( $padding, 'top', 'desktop' ),
+						// 'padding-right'    => kemet_responsive_spacing( $padding, 'right', 'desktop' ),
+						// 'padding-bottom'   => kemet_responsive_spacing( $padding, 'bottom', 'desktop' ),
+						// 'padding-left'     => kemet_responsive_spacing( $padding, 'left', 'desktop' ),
+						// 'margin-top'       => kemet_responsive_spacing( $margin, 'top', 'desktop' ),
+						// 'margin-right'     => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
+						// 'margin-bottom'    => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
+						// 'margin-left'      => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
 					),
 					$selector . ':hover' => array(
 						'color'            => esc_attr( $hover_color ),
@@ -64,14 +64,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$tablet = array(
 					$selector => array(
-						'padding-top'    => kemet_responsive_spacing( $padding, 'top', 'tablet' ),
-						'padding-right'  => kemet_responsive_spacing( $padding, 'right', 'tablet' ),
-						'padding-bottom' => kemet_responsive_spacing( $padding, 'bottom', 'tablet' ),
-						'padding-left'   => kemet_responsive_spacing( $padding, 'left', 'tablet' ),
-						'margin-top'     => kemet_responsive_spacing( $margin, 'top', 'tablet' ),
-						'margin-right'   => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
-						'margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'tablet' ),
-						'margin-left'    => kemet_responsive_spacing( $margin, 'left', 'tablet' ),
+						// 'padding-top'    => kemet_responsive_spacing( $padding, 'top', 'tablet' ),
+						// 'padding-right'  => kemet_responsive_spacing( $padding, 'right', 'tablet' ),
+						// 'padding-bottom' => kemet_responsive_spacing( $padding, 'bottom', 'tablet' ),
+						// 'padding-left'   => kemet_responsive_spacing( $padding, 'left', 'tablet' ),
+						// 'margin-top'     => kemet_responsive_spacing( $margin, 'top', 'tablet' ),
+						// 'margin-right'   => kemet_responsive_spacing( $margin, 'right', 'tablet' ),
+						// 'margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'tablet' ),
+						// 'margin-left'    => kemet_responsive_spacing( $margin, 'left', 'tablet' ),
 					),
 				);
 
@@ -80,14 +80,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$mobile = array(
 					$selector => array(
-						'padding-top'    => kemet_responsive_spacing( $padding, 'top', 'mobile' ),
-						'padding-right'  => kemet_responsive_spacing( $padding, 'right', 'mobile' ),
-						'padding-bottom' => kemet_responsive_spacing( $padding, 'bottom', 'mobile' ),
-						'padding-left'   => kemet_responsive_spacing( $padding, 'left', 'mobile' ),
-						'margin-top'     => kemet_responsive_spacing( $margin, 'top', 'mobile' ),
-						'margin-right'   => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
-						'margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'mobile' ),
-						'margin-left'    => kemet_responsive_spacing( $margin, 'left', 'mobile' ),
+						// 'padding-top'    => kemet_responsive_spacing( $padding, 'top', 'mobile' ),
+						// 'padding-right'  => kemet_responsive_spacing( $padding, 'right', 'mobile' ),
+						// 'padding-bottom' => kemet_responsive_spacing( $padding, 'bottom', 'mobile' ),
+						// 'padding-left'   => kemet_responsive_spacing( $padding, 'left', 'mobile' ),
+						// 'margin-top'     => kemet_responsive_spacing( $margin, 'top', 'mobile' ),
+						// 'margin-right'   => kemet_responsive_spacing( $margin, 'right', 'mobile' ),
+						// 'margin-bottom'  => kemet_responsive_spacing( $margin, 'bottom', 'mobile' ),
+						// 'margin-left'    => kemet_responsive_spacing( $margin, 'left', 'mobile' ),
 					),
 				);
 
