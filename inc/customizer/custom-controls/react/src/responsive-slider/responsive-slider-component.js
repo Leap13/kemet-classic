@@ -80,7 +80,7 @@ class ResponsiveSliderComponent extends Component {
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
                     <li className="desktop active">
                         <button type="button" className="preview-desktop active" data-device="desktop">
-                            <i i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
+                            <i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
                         </button>
                     </li>
                     <li class="tablet ">

@@ -18,8 +18,9 @@ const ColorGroupComponent = props => {
         id,
         responsive
     } = props.control.params;
+    console.log(props.control.params)
 
-    const linkedSubColors = AstraBuilderCustomizerData.js_configs.sub_controls[id];
+    const linkedSubColors = KemetBuilderCustomizerData.js_configs.sub_controls[id];
     const colorGroup = [],
         colorGroupDefaults = [],
         tooltips = [],
@@ -182,7 +183,7 @@ const ColorGroupComponent = props => {
     }
 
     Object.entries(colorGroupState).map(([key, value]) => {
-        if (colorGroupType[key] === "ast-responsive-background") {
+        if (colorGroupType[key] === "kmt-responsive-background") {
             useEffect(() => {
 
                 let devices = ['desktop', 'mobile', 'tablet'];
@@ -196,10 +197,10 @@ const ColorGroupComponent = props => {
 
     if (label) {
         htmlLabel = <span className="customize-control-title">{label}</span>;
-        let multipleGroup = Object.entries(colorGroupState).length > 2 ? 'ast-multiple-colors-group' : '';
+        let multipleGroup = Object.entries(colorGroupState).length > 2 ? 'kmt-multiple-colors-group' : '';
 
         if (responsive) {
-            responsiveHtml = <ul key={'ast-resp-ul'} className={`ast-responsive-btns ${multipleGroup} `}>
+            responsiveHtml = <ul key={'kmt-resp-ul'} className={`kmt-responsive-btns ${multipleGroup} `}>
                 <li key={'desktop'} className="desktop active">
                     <button type="button" className="preview-desktop" data-device="desktop">
                         <i className="dashicons dashicons-desktop"></i>
@@ -220,14 +221,14 @@ const ColorGroupComponent = props => {
     }
 
     if (help) {
-        htmlHelp = <span className="ast-description">{help}</span>;
+        htmlHelp = <span className="kmt-description">{help}</span>;
     }
 
     const renderInputHtml = (device) => {
         if (responsive) {
             innerOptionsHtml = Object.entries(colorGroupState).map(([key, value]) => {
-                let tooltip = tooltips[key] || __('Color', 'astra');
-                if (colorGroupType[key] === "ast-responsive-background") {
+                let tooltip = tooltips[key] || __('Color', 'kemet');
+                if (colorGroupType[key] === "kmt-responsive-background") {
                     return (
                         <Tooltip key={key} text={tooltip} position="top center">
                             <div className="color-group-item" id={key}>
@@ -264,8 +265,8 @@ const ColorGroupComponent = props => {
             return innerOptionsHtml
         } else {
             innerOptionsHtml = Object.entries(colorGroupState).map(([key, value]) => {
-                let tooltip = tooltips[key] || __('Color', 'astra');
-                if (colorGroupType[key] === "ast-background") {
+                let tooltip = tooltips[key] || __('Color', 'kemet');
+                if (colorGroupType[key] === "kmt-background") {
                     return (
                         <Tooltip key={key} text={tooltip} position="top center">
                             <div className="color-group-item" id={key}>
@@ -305,13 +306,13 @@ const ColorGroupComponent = props => {
 
     if (responsive) {
         optionsHtml = <>
-            <div className="ast-color-group-responsive-wrap desktop active">
+            <div className="kmt-color-group-responsive-wrap desktop active">
                 {renderInputHtml('desktop', 'active')}
             </div>
-            <div className="ast-color-group-responsive-wrap tablet">
+            <div className="kmt-color-group-responsive-wrap tablet">
                 {renderInputHtml('tablet')}
             </div>
-            <div className="ast-color-group-responsive-wrap mobile">
+            <div className="kmt-color-group-responsive-wrap mobile">
                 {renderInputHtml('mobile')}
             </div>
         </>;
@@ -329,11 +330,11 @@ const ColorGroupComponent = props => {
                 resetFlag = false;
             }
         }
-        const multipleGroup = Object.entries(colorGroupState).length > 2 ? 'ast-color-multiple-group-reset' : '';
+        const multipleGroup = Object.entries(colorGroupState).length > 2 ? 'kmt-color-multiple-group-reset' : '';
 
-        return <div className={`ast-color-btn-reset-wrap ${multipleGroup} ast-color-group-reset `}>
+        return <div className={`kmt-color-btn-reset-wrap ${multipleGroup} kmt-color-group-reset `}>
             <button
-                className="ast-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
                 disabled={resetFlag} onClick={e => {
                     e.preventDefault();
                     let resetState = {
@@ -350,8 +351,8 @@ const ColorGroupComponent = props => {
         </div>;
     };
 
-    return <div className="ast-control-wrap">
-        <div className="ast-toggle-desc-wrap">
+    return <div className="kmt-control-wrap">
+        <div className="kmt-toggle-desc-wrap">
             <label className="customizer-text">
                 {htmlLabel}
                 {htmlHelp}
@@ -359,7 +360,7 @@ const ColorGroupComponent = props => {
         </div>
         {responsiveHtml}
         {renderResetButton()}
-        <div className="ast-field-color-group-wrap">
+        <div className="kmt-field-color-group-wrap">
             {optionsHtml}
         </div>
     </div>;

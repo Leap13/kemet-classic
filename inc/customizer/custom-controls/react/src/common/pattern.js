@@ -3,8 +3,9 @@ import {
 
 } from '@wordpress/element'
 import classnames from 'classnames'
-import { __ } from 'ct-i18n'
-import GenericOptionType from '../../GenericOptionType'
+import { __ } from '@wordpress/i18n';
+
+// import GenericOptionType from '../../GenericOptionType'
 
 export const patternsList = [
     {
@@ -150,7 +151,7 @@ const PatternPicker = ({ option, value, onChange }) => {
                     </li>
                 ))}
             </ul>
-            <GenericOptionType
+            {/* <GenericOptionType
                 value={value['patternColor']}
                 values={value}
                 option={{
@@ -176,7 +177,7 @@ const PatternPicker = ({ option, value, onChange }) => {
                         patternColor: newValue,
                     })
                 }
-            />
+            /> */}
         </Fragment>
     )
 }

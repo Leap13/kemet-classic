@@ -1,159 +1,64 @@
-import {
-    Fragment,
-    createElement,
-    Component,
-    useRef,
-    useEffect,
-    useMemo,
-    useCallback,
-    useState,
-} from '@wordpress/element'
+
 import classnames from 'classnames'
-import { __ } from 'ct-i18n'
-import GenericOptionType from '../../GenericOptionType'
+import { __ } from '@wordpress/i18n';
 
-const ImagePicker = ({ option, value, onChange, setOutsideClickFreezed }) => {
+const ImagePicker = ({ media, backgroundAttachment, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption }) => {
+    const onChangeImageOptions = (tempKey, mainkey, value) => {
+        this.setState({ backgroundType: 'image' });
+        onChangeImageOption(mainkey, value, 'image');
+    }
     return (
-        <Fragment>
-            <GenericOptionType
-                value={value['background_image']}
-                values={value}
-                option={{
-                    id: 'background_image',
-                    label: false,
-                    type: 'ct-image-uploader',
-                    value: option.value['background_image'],
-                    has_position_picker: true,
-                    emptyLabel: __('Select Image', 'blocksy'),
-                    filledLabel: __('Change Image', 'blocksy'),
-                    onFrameOpen: () => {
-                        setOutsideClickFreezed(true)
-                    },
-
-                    onFrameClose: () => {
-                        setOutsideClickFreezed(false)
-                    },
-                }}
-                hasRevertButton={false}
-                onChange={(newValue) =>
-                    onChange({
-                        ...value,
-                        background_image: newValue,
-                    })
-                }
+        <>
+            <MediaUpload
+                title={__("Select Background Image", 'kemet')}
+                onSelect={(media) => this.onSelectImage('https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png')}
+                allowedTypes={["image"]}
+                value={(media && media ? media : '')}
+                render={({ open }) => (
+                    <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
+                        { (!media && !backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
+                    </Button>
+                )}
             />
+            <OptionContainer
+                label={__("Background Repeat", 'kemet')}
+                value={backgroundRepeat}
 
-            <GenericOptionType
-                value={value['background_repeat']}
-                values={value}
-                option={{
-                    id: 'background_repeat',
-                    label: __('Background Repeat', 'blocksy'),
-                    attr: { 'data-type': 'repeat' },
-                    type: 'ct-radio',
-                    view: 'text',
-                    design: 'block',
-                    value: option.value['background_repeat'],
-                    choices: {
-                        'no-repeat':
-                            '<svg viewBox="0 0 16 16"><rect x="6" y="6" width="4" height="4"/></svg>',
-                        'repeat-x':
-                            '<svg viewBox="0 0 16 16"><rect y="6" width="4" height="4"/><rect x="6" y="6" width="4" height="4"/><rect x="12" y="6" width="4" height="4"/></svg>',
-                        'repeat-y':
-                            '<svg viewBox="0 0 16 16"><rect x="6" width="4" height="4"/><rect x="6" y="6" width="4" height="4"/><rect x="6" y="12" width="4" height="4"/></svg>',
+                options={{
+                    'no-repeat':
+                        <svg viewBox="0 0 16 16"><rect x="6" y="6" width="4" height="4" /></svg>,
+                    'repeat-x':
+                        <svg viewBox="0 0 16 16"><rect y="6" width="4" height="4" /><rect x="6" y="6" width="4" height="4" /><rect x="12" y="6" width="4" height="4" /></svg>,
+                    'repeat-y':
+                        <svg viewBox="0 0 16 16"><rect x="6" width="4" height="4" /><rect x="6" y="6" width="4" height="4" /><rect x="6" y="12" width="4" height="4" /></svg>,
 
-                        repeat:
-                            '<svg viewBox="0 0 16 16"><path d="M0,0h4v4H0V0z M6,0h4v4H6V0z M12,0h4v4h-4V0z M0,6h4v4H0V6z M6,6h4v4H6V6z M12,6h4v4h-4V6z M0,12h4v4H0V12z M6,12h4v4H6V12zM12,12h4v4h-4V12z"/></svg>',
-                    },
+                    repeat:
+                        <svg viewBox="0 0 16 16"><path d="M0,0h4v4H0V0z M6,0h4v4H6V0z M12,0h4v4h-4V0z M0,6h4v4H0V6z M6,6h4v4H6V6z M12,6h4v4h-4V6z M0,12h4v4H0V12z M6,12h4v4H6V12zM12,12h4v4h-4V12z" /></svg>,
                 }}
-                hasRevertButton={false}
-                onChange={(newValue) =>
-                    onChange({
-                        ...value,
-                        background_repeat: newValue,
-                    })
-                }
+                onChange={(value) => onChangeImageOptions('backgroundRepeat', 'background-repeat', value)}
             />
-
-            <GenericOptionType
-                value={value['background_size']}
-                values={value}
-                option={{
-                    id: 'background_size',
-                    label: __('Background Size', 'blocksy'),
-                    type: 'ct-radio',
-                    view: 'text',
-                    design: 'block',
-                    value: option.value['background_size'],
-                    choices: {
-                        auto: __('Auto', 'blocksy'),
-                        cover: __('Cover', 'blocksy'),
-                        contain: __('Contain', 'blocksy'),
-                    },
+            <OptionContainer
+                label={__("Background Size", 'kemet')}
+                value={backgroundSize}
+                options={{
+                    auto: __('Auto', 'kemet'),
+                    cover: __('Cover', 'kemet'),
+                    contain: __('Contain', 'kemet'),
                 }}
-                hasRevertButton={false}
-                onChange={(newValue) =>
-                    onChange({
-                        ...value,
-                        background_size: newValue,
-                    })
-                }
-            />
 
-            <GenericOptionType
-                value={value['background_attachment']}
-                values={value}
-                option={{
-                    id: 'background_size',
-                    label: __('Background Attachment', 'blocksy'),
-                    type: 'ct-radio',
-                    view: 'text',
-                    design: 'block',
-                    value: option.value['background_attachment'],
-                    choices: {
-                        scroll: __('Scroll', 'blocksy'),
-                        fixed: __('Fixed', 'blocksy'),
-                        inherit: __('Inherit', 'blocksy'),
-                    },
+                onChange={(value) => onChangeImageOptions('backgroundSize', 'background-size', value)}
+            />
+            <OptionContainer
+                label={__("Background Attachment", 'kemet')}
+                value={backgroundAttachment}
+
+                options={{
+                    fixed: "fixed",
+                    scroll: "scroll"
                 }}
-                hasRevertButton={false}
-                onChange={(newValue) =>
-                    onChange({
-                        ...value,
-                        background_attachment: newValue,
-                    })
-                }
+                onChange={(value) => onChangeImageOptions('backgroundAttachment', 'background-attachment', value)}
             />
-
-            {value.background_image.url && (
-                <GenericOptionType
-                    value={value['overlayColor']}
-                    values={value}
-                    option={{
-                        id: 'overlayColor',
-                        label: __('Image Overlay Color', 'blocksy'),
-                        type: 'ct-color-picker',
-                        design: 'inline',
-                        value: option.value['overlayColor'],
-                        pickers: [
-                            {
-                                title: __('Initial', 'blocksy'),
-                                id: 'default',
-                            },
-                        ],
-                        skipArrow: true,
-                        appendToBody: false,
-                    }}
-                    hasRevertButton={false}
-                    onChange={(newValue) =>
-                        onChange({
-                            ...value,
-                            overlayColor: newValue,
-                        })
-                    }
-                />
-            )}
-        </Fragment>
+        </>
     )
 }
 

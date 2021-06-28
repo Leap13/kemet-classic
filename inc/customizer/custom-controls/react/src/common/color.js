@@ -4,6 +4,10 @@ import { Component, useRef } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import KemetColorPicker from './colorPicker';
 import { MediaUpload } from '@wordpress/media-utils';
+import GradientPicker from '../common/gradientPicker';
+import OptionContainer from './optioncontainer'
+import ImagePicker from './ImagePicker';
+import BackgroundImage from './BackgroundImage';
 
 class KemetColorPickerControl extends Component {
 
@@ -164,8 +168,8 @@ class KemetColorPickerControl extends Component {
                                                     if ('gradient' === tab.name) {
                                                         tabout = (
                                                             <>
-                                                                <__experimentalGradientPicker
-                                                                    className="kmt-gradient-color-picker"
+                                                                <GradientPicker
+
                                                                     value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
                                                                     onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                 />
@@ -309,7 +313,7 @@ class KemetColorPickerControl extends Component {
 
     onSelectImage(media) {
 
-        this.setState({ modalCanClose: true });
+        console.log("Color.js") // this.setState({ modalCanClose: true });
         this.setState({ backgroundType: 'image' });
         this.props.onSelectImage(media, 'image');
     }
@@ -324,92 +328,31 @@ class KemetColorPickerControl extends Component {
         open()
     }
 
-    onChangeImageOptions(tempKey, mainkey, value) {
-        this.setState({ backgroundType: 'image' });
-        this.props.onChangeImageOptions(mainkey, value, 'image');
-    }
+
 
 
 
     renderImageSettings() {
 
+        console.log(this.props.media, this.props.backgroundImage)
+
         return (
             <>
-                { (this.props.media.url || this.props.backgroundImage) &&
+                { (this.props.media || this.props.backgroundImage) &&
 
-                    <img src={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage} />
+                    <img src={(this.props.media) ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : this.props.backgroundImage} />
                 }
-                <MediaUpload
-                    title={__("Select Background Image", 'kemet')}
-                    onSelect={(media) => this.onSelectImage(media)}
-                    allowedTypes={["image"]}
-                    value={(this.props.media && this.props.media ? this.props.media : '')}
-                    render={({ open }) => (
-                        <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
-                            { (!this.props.media && !this.props.backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
-                        </Button>
-                    )}
+                <BackgroundImage
+                    onChange
+                    media={this.props.media}
+                    backgroundAttachment={this.props.backgroundAttachment}
+                    backgroundRepeat={this.props.backgroundRepeat}
+                    backgroundSize={this.props.backgroundSize}
+                    backgroundImage={this.props.backgroundImage}
+                    onChangeImageOption={this.props.onChangeImageOptions}
                 />
 
-                { (this.props.media || this.props.backgroundImage) &&
-                    <>
-                        <BackgroundImage />
-                        <Button className="kmt-bg-img-remove" onClick={this.onRemoveImage} isLink isDestructive>
-                            {__("Remove Image", 'kemet')}
-                        </Button>
 
-
-
-                        <div className="media-position-setting hide-settings">
-                            <SelectControl
-                                label={__("Image Position")}
-                                value={this.props.backgroundPosition}
-                                onChange={(value) => this.onChangeImageOptions('backgroundPosition', 'background-position', value)}
-                                options={[
-                                    { value: "left top", label: __("Left Top", 'kemet') },
-                                    { value: "left center", label: __("Left Center", 'kemet') },
-                                    { value: "left bottom", label: __("Left Bottom", 'kemet') },
-                                    { value: "right top", label: __("Right Top", 'kemet') },
-                                    { value: "right center", label: __("Right Center", 'kemet') },
-                                    { value: "right bottom", label: __("Right Bottom", 'kemet') },
-                                    { value: "center top", label: __("Center Top", 'kemet') },
-                                    { value: "center center", label: __("Center Center", 'kemet') },
-                                    { value: "center bottom", label: __("Center Bottom", 'kemet') },
-                                ]}
-                            />
-                            <SelectControl
-                                label={__("Attachment", 'kemet')}
-                                value={this.props.backgroundAttachment}
-                                onChange={(value) => this.onChangeImageOptions('backgroundAttachment', 'background-attachment', value)}
-                                options={[
-                                    { value: "fixed", label: __("Fixed", 'kemet') },
-                                    { value: "scroll", label: __("Scroll", 'kemet') }
-                                ]}
-                            />
-                            {/* <SelectControl
-                                label={__("Repeat", 'kemet')}
-                                value={this.props.backgroundRepeat}
-                                onChange={(value) => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', value)}
-                                options={[
-                                    { value: "no-repeat", label: __("No Repeat", 'kemet') },
-                                    { value: "repeat", label: __("Repeat All", 'kemet') },
-                                    { value: "repeat-x", label: __("Repeat Horizontally", 'kemet') },
-                                    { value: "repeat-y", label: __("Repeat Vertically", 'kemet') }
-                                ]}
-                            /> */}
-                            {/* <SelectControl
-                                label={__("Size", 'kemet')}
-                                value={this.props.backgroundSize}
-                                onChange={(value) => this.onChangeImageOptions('backgroundSize', 'background-size', value)}
-                                options={[
-                                    { value: "auto", label: __("Auto", 'kemet') },
-                                    { value: "cover", label: __("Cover", 'kemet') },
-                                    { value: "contain", label: __("Contain", 'kemet') }
-                                ]}
-                            /> */}
-                        </div>
-                    </>
-                }
             </>
         )
     }

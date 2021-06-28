@@ -7,9 +7,6 @@ import ColorComponent from '../color/color-component';
 import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 
 import {
-
-
-
     kemetGetResponsiveColorJs,
     kemetGetResponsiveSliderJs,
     kemetGetResponsiveSpacingJs

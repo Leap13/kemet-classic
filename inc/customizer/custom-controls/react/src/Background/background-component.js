@@ -5,8 +5,7 @@ import KemetColorPickerControl from '../common/color';
 import { __ } from '@wordpress/i18n';
 
 const BackgroundComponent = props => {
-
-    const [props_value, setPropsValue] = useState(props.control.setting.get());
+    const [props_value, setPropsValue] = useState(props.control.params.value);
 
     const updateBackgroundType = () => {
         let obj = {
@@ -68,6 +67,7 @@ const BackgroundComponent = props => {
     };
 
     const onSelectImage = (media, backgroundType) => {
+        console.log(media, backgroundType)
         let obj = {
             ...props_value
         };
