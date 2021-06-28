@@ -390,7 +390,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/background/background.css",
           "inc/customizer/custom-controls/react/src/sortable/sortable.css",
           "inc/customizer/custom-controls/react/src/slider/slider.css",
-          "inc/customizer/custom-controls/color/color.css",
+          "inc/customizer/custom-controls/react/src/color/color.css",
           "inc/customizer/custom-controls/react/src/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive/responsive.css",
@@ -410,7 +410,6 @@ module.exports = function (grunt) {
 
       js: {
         src: [
-          "inc/customizer/custom-controls/color/color.js",
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
