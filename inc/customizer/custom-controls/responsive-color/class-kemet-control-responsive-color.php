@@ -27,7 +27,7 @@ class Kemet_Control_Responsive_Color extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-reponsive-color';
+	public $type = 'kmt-responsive-color';
 
 	/**
 	 * The control type.
