@@ -287,6 +287,23 @@ import { func } from "prop-types";
         }, 120);
       });
     };
+
+    const AstCustomizerAPI = {
+      addSubControl: function (parent_control_id) {
+        if ('undefined' != typeof KemetCustomizerData) {
+          let sub_controls = Object.assign({}, KemetCustomizerData.sub_controls[parent_control_id]);
+          for (const [section_id, config] of Object.entries(sub_controls)) {
+            AstCustomizerAPI.addControl(config.id, config);
+          }
+        }
+      },
+      addControl: function (id, data) {
+        if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
+          this.addSubControl(id);
+        }
+      }
+    }
+
     api.panel("panel-header-builder-group", initKmtBuilderPanel);
     api.panel("panel-footer-builder-group", initKmtBuilderPanel);
   });
