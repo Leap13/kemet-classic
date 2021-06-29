@@ -26,16 +26,18 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'priority' => 0,
 			),
 			'display-site-title'               => array(
-				'type'     => 'kmt-switcher',
-				'section'  => 'title_tagline',
-				'label'    => __( 'Display Site Title', 'kemet' ),
-				'priority' => 15,
+				'type'      => 'kmt-switcher',
+				'section'   => 'title_tagline',
+				'transport' => 'postMessage',
+				'label'     => __( 'Display Site Title', 'kemet' ),
+				'priority'  => 15,
 			),
 			'display-site-tagline'             => array(
-				'type'     => 'kmt-switcher',
-				'section'  => 'title_tagline',
-				'label'    => __( 'Display Site Tagline', 'kemet' ),
-				'priority' => 20,
+				'type'      => 'kmt-switcher',
+				'section'   => 'title_tagline',
+				'transport' => 'postMessage',
+				'label'     => __( 'Display Site Tagline', 'kemet' ),
+				'priority'  => 20,
 			),
 			'site-title-font-size'             => array(
 				'type'         => 'kmt-responsive-slider',
@@ -269,6 +271,24 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 		);
 
 		return array_merge( $options, $register_options );
+	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials = array_fill_keys(
+			array( 'display-site-title', 'display-site-tagline', 'custom_logo', 'blogname', 'blogdescription' ),
+			array(
+				'selector'            => '.kmt-header-item-logo',
+				'container_inclusive' => false,
+				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'site_identity_markup' ),
+			)
+		);
+		return array_merge( $partials, $new_partials );
 	}
 }
 

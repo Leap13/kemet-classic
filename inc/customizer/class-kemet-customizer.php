@@ -84,6 +84,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private static $preview_arr = array();
 
 		/**
+		 * Customizer partials Array.
+		 *
+		 * @access private
+		 * @var array
+		 */
+		private static $partials_arr = array();
+
+		/**
 		 * Customizer Group Array.
 		 *
 		 * @access private
@@ -238,10 +246,12 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return object
 		 */
 		public function register_customizer_options( $wp_customize ) {
-			$options  = $this->get_controls_arr();
-			$panels   = $this->get_panels_arr();
-			$sections = $this->get_sections_arr();
-			$defaults = Kemet_Theme_Options::defaults();
+			$options          = $this->get_controls_arr();
+			$panels           = $this->get_panels_arr();
+			$sections         = $this->get_sections_arr();
+			$partials         = $this->get_partials_arr();
+			$defautls_options = array( 'blogname', 'custom_logo', 'blogdescription' );
+			$defaults         = Kemet_Theme_Options::defaults();
 
 			foreach ( $panels as $panel_id => $args ) {
 				$wp_customize->add_panel(
@@ -325,19 +335,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 						$args
 					);
 				}
+			}
 
-				if ( '' != $this->get_control_prop( 'partial', $args ) ) {
-					$partials = array(
-						'selector'            => $this->get_control_prop( 'selector', $args['partial'] ),
-						'render_callback'     => $this->get_control_prop( 'render_callback', $args['partial'] ),
-						'container_inclusive' => $this->get_control_prop( 'container_inclusive', $args['partial'] ),
-						'fallback_refresh'    => $this->get_control_prop( 'fallback_refresh', $args['partial'], true ),
-					);
-					$wp_customize->selective_refresh->add_partial(
-						$option_id,
-						$partials
-					);
-				}
+			foreach ( $partials as $key => $settings ) {
+				$option_id = ! in_array( $key, $defautls_options ) ? KEMET_THEME_SETTINGS . '[' . $key . ']' : $key;
+				$wp_customize->selective_refresh->add_partial(
+					$option_id,
+					$settings
+				);
 			}
 		}
 
@@ -581,6 +586,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		}
 
 		/**
+		 * Get Partials Array.
+		 */
+		private function get_partials_arr() {
+			return apply_filters( 'kemet_customizer_partials', self::$partials_arr );
+		}
+
+		/**
 		 * Get Contexts Array.
 		 */
 		private function get_contexts_arr() {
@@ -593,23 +605,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		private function get_group_arr() {
 			return self::$group_arr;
 		}
-		/**
-		 * Update Partials in the Partials array.
-		 *
-		 * @param String $key name of the Setting/Control for which the Partials is added.
-		 * @param Array  $Controls Partials of the $name Setting/Control.
-		 * @return void
-		 */
-		private function update_partials_arr( $key, $controls ) {
-			self::$partials_arr[ $key ] = $controls;
-		}
 
-		/**
-		 * Get Partials Array.
-		 */
-		private function get_partials_arr() {
-			return self::$partials_arr;
-		}
 		/**
 		 * Register custom section and panel.
 		 *
@@ -675,6 +671,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		public function customize_register( $wp_customize ) {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+
 			/**
 			 * Override Defaults
 			 */

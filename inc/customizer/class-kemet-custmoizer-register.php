@@ -19,6 +19,7 @@ if ( ! class_exists( 'Kemet_Customizer_Register' ) ) :
 			add_filter( 'kemet_customizer_options', array( $this, 'register_options' ), 10, 1 );
 			add_filter( 'kemet_customizer_sections', array( $this, 'register_sections' ), 10, 1 );
 			add_filter( 'kemet_customizer_panels', array( $this, 'register_panels' ), 10, 1 );
+			add_filter( 'kemet_customizer_partials', array( $this, 'add_partials' ), 10, 1 );
 		}
 
 		/**
@@ -49,6 +50,16 @@ if ( ! class_exists( 'Kemet_Customizer_Register' ) ) :
 		 */
 		public function register_panels( $panels ) {
 			return $panels;
+		}
+
+		/**
+		 * Add Partials
+		 *
+		 * @param array $partials partials.
+		 * @return array
+		 */
+		public function add_partials( $partials ) {
+			return $partials;
 		}
 	}
 endif;

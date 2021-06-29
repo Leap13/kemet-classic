@@ -20,7 +20,8 @@ $wp_customize->get_section( 'title_tagline' )->panel    = 'panel-header-builder-
 $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-$wp_customize->get_setting( 'custom_logo' )->transport      = 'refresh';
+$wp_customize->get_setting( 'custom_logo' )->transport      = 'postMessage';
+
 if ( class_exists( 'WooCommerce' ) ) {
 	$wp_customize->get_setting( 'woocommerce_demo_store_notice' )->default = esc_html__( '“Free Shipping on All Orders Until February 28. Hurry Up!”.', 'kemet' );
 }
@@ -34,24 +35,3 @@ $wp_customize->get_control( 'blogname' )->priority         = 5;
 $wp_customize->get_control( 'blogdescription' )->priority  = 10;
 $wp_customize->get_control( 'header_textcolor' )->priority = 8;
 
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial(
-		'blogname',
-		array(
-			'selector'            => '.main-header-bar .site-title a,  .kmt-footer-copyright-wrap .kmt-footer-site-title',
-			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_partial_site_title' ),
-		)
-	);
-}
-
-if ( isset( $wp_customize->selective_refresh ) ) {
-	$wp_customize->selective_refresh->add_partial(
-		'blogdescription',
-		array(
-			'selector'            => '.main-header-bar .site-description',
-			'container_inclusive' => false,
-			'render_callback'     => array( 'Kemet_Customizer_Partials', 'render_partial_site_tagline' ),
-		)
-	);
-}

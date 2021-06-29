@@ -108,11 +108,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						),
 					)
 				),
-				'partial'     => array(
-					'selector'            => '#sitehead',
-					'container_inclusive' => true,
-					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
-				),
 				'input_attrs' => array(
 					'group' => 'header-desktop-items',
 					'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
@@ -156,11 +151,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'type'      => 'kmt-hidden',
 				'priority'  => 0,
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '#kmt-desktop-popup',
-					'container_inclusive' => true,
-					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'desktop_popup' ),
-				),
 			),
 			'header-mobile-items'           => array(
 				'section'     => 'section-header-builder',
@@ -248,11 +238,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						),
 					)
 				),
-				'partial'     => array(
-					'selector'            => '#sitehead',
-					'container_inclusive' => true,
-					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
-				),
 				'input_attrs' => array(
 					'group' => 'header-mobile-items',
 					'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
@@ -295,11 +280,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'type'      => 'kmt-hidden',
 				'priority'  => 0,
 				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '#kmt-mobile-popup',
-					'container_inclusive' => true,
-					'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'mobile_popup' ),
-				),
 			),
 			'header-desktop-availble-items' => array(
 				'section'     => 'section-header-builder-layout',
@@ -379,6 +359,37 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 		);
 		return array_merge( $panels, $header_builder_panels );
 
+	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials                               = array_fill_keys(
+			array( 'header-desktop-items', 'header-mobile-items' ),
+			array(
+				'selector'            => '#sitehead',
+				'container_inclusive' => true,
+				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
+				'fallback_refresh'    => true,
+			)
+		);
+		$new_partials['header-desktop-popup-items'] = array(
+			'selector'            => '#kmt-desktop-popup',
+			'container_inclusive' => true,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'desktop_popup' ),
+			'fallback_refresh'    => true,
+		);
+		$new_partials['header-mobile-popup-items']  = array(
+			'selector'            => '#kmt-mobile-popup',
+			'container_inclusive' => true,
+			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'mobile_popup' ),
+			'fallback_refresh'    => true,
+		);
+		return array_merge( $partials, $new_partials );
 	}
 }
 
