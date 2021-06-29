@@ -32,6 +32,7 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 		foreach ( self::$html_items as $html ) {
 			$prefix       = $html;
 			$num          = explode( 'header-mobile-html-', $prefix )[1];
+			$selector     = '.kmt-' . $prefix;
 			$html_options = array(
 				$prefix . '-controls-tabs'    => array(
 					'section'  => 'section-' . $prefix,
@@ -50,26 +51,8 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'general',
 						),
 					),
-					'partial'   => array(
-						'selector'            => '.kmt-' . $prefix,
-						'container_inclusive' => false,
-						'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_' . $num ),
-					),
-				),
-				$prefix . '-colors-group'     => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-' . $prefix,
-					'priority' => 2,
-					'label'    => __( 'Colors', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
-					),
 				),
 				$prefix . '-color'            => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 5,
 					'transport' => 'postMessage',
@@ -82,9 +65,12 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textColor',
+					),
 				),
 				$prefix . '-link-color'       => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 5,
 					'transport' => 'postMessage',
@@ -97,9 +83,12 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--headingLinksColor',
+					),
 				),
 				$prefix . '-link-hover-color' => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
 					'priority'  => 10,
 					'transport' => 'postMessage',
@@ -111,6 +100,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--linksHoverColor',
 					),
 				),
 				$prefix . '-font-size'        => array(
@@ -136,6 +129,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--fontSize',
 					),
 				),
 				$prefix . '-font-family'      => array(
@@ -185,6 +182,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textTransform',
+					),
 				),
 				$prefix . '-font-style'       => array(
 					'type'      => 'select',
@@ -203,6 +204,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--fontStyle',
 					),
 				),
 				$prefix . '-line-height'      => array(
@@ -229,6 +234,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--lineHeight',
+					),
 				),
 				$prefix . '-letter-spacing'   => array(
 					'type'         => 'kmt-responsive-slider',
@@ -248,6 +257,10 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--letterSpacing',
 					),
 				),
 			);
@@ -281,6 +294,26 @@ class Kemet_Mobile_Header_Html1_Customizer extends Kemet_Customizer_Register {
 		}
 
 		return array_merge( $sections, $register_sections );
+	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		foreach ( self::$html_items as $html ) {
+			$prefix                        = $html;
+			$num                           = explode( 'header-mobile-html-', $prefix )[1];
+			$partials[ $prefix . '-text' ] = array(
+				'selector'            => '.kmt-' . $prefix,
+				'container_inclusive' => false,
+				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'render_html_mobile_' . $num ),
+			);
+		}
+
+		return $partials;
 	}
 }
 

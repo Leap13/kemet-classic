@@ -95,9 +95,6 @@
       } else {
         api.previewer.container.css("bottom", "");
       }
-
-      section.css("overflow", "visible");
-      footer.css("overflow", "visible");
     };
 
     $window.on("resize", resizePreviewer);
@@ -197,7 +194,11 @@
           };
 
           var setActiveState = function () {
-            element._toggleActive(isDisplay(), { duration: 0 });
+            if (isDisplay()) {
+              element.container.show();
+            } else {
+              element.container.hide();
+            }
           };
 
           _.each(rules, function (rule, ruleKey) {
@@ -267,31 +268,10 @@
             expandedPanel = panel.id;
             $body.addClass("kmt-" + builderType + "-builder-is-active");
             $section.addClass("kmt-" + builderType + "-builder-active");
-            $(
-              "#sub-accordion-panel-" + expandedPanel + " li.control-section"
-            ).hide();
-
-            if ("header" === builderType) {
-              $("#sub-accordion-section-section-footer-builder").css(
-                "overflow",
-                "hidden"
-              );
-            } else {
-              $("#sub-accordion-section-section-header-builder").css(
-                "overflow",
-                "hidden"
-              );
-            }
+            // $(
+            //   "#sub-accordion-panel-" + expandedPanel + " li.control-section"
+            // ).hide();
           } else {
-            $("#sub-accordion-section-section-footer-builder").css(
-              "overflow",
-              "hidden"
-            );
-            $("#sub-accordion-section-section-header-builder").css(
-              "overflow",
-              "hidden"
-            );
-
             api.state("kemetTab").set("general");
             $body.removeClass("kmt-" + builderType + "-builder-is-active");
             $section.removeClass("kmt-" + builderType + "-builder-active");

@@ -1886,8 +1886,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   position: fixed !important;
   top: auto;
   right: 300px;
-  background: #eee;
   left: 0;
+  background: #eee;
   bottom: 0;
   visibility: visible;
   height: auto;
@@ -1895,8 +1895,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   padding: 0;
   max-height: 60%;
   overflow: auto;
-  transition: all 0.2s;
   transform: translateY(100%);
+  transition: transform 0.1s ease;
   backface-visibility: hidden;
 }
 @media (min-width: 1660px) {
@@ -1914,7 +1914,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   #sub-accordion-section-section-footer-builder.kmt-footer-builder-active {
   transform: translateY(0%);
   visibility: visible;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .kmt-header-builder-active > li.customize-section-description-container,
@@ -2518,12 +2518,12 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   #sub-accordion-section-section-footer-builder.kmt-footer-builder-active.kmt-builder-hide {
   transform: translateY(100%);
   overflow: visible;
+  overflow: visible;
 }
 
 li#customize-control-kemet-settings-header-desktop-items,
 li#customize-control-kemet-settings-header-mobile-items,
 li#customize-control-kemet-settings-footer-desktop-items {
-  transition: all 0.3s;
   background: #eeeeee;
   border-top: 1px solid #dddddd;
 }
@@ -6907,4 +6907,7 @@ i.fipicon-angle-left:before {
 }
 #customize-preview iframe {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.025);
+}
+#customize-controls .customize-control-kmt-hidden {
+  display: none;
 }

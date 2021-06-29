@@ -657,7 +657,7 @@ function kemet_font_family_css(control, selector) {
           '"  rel="stylesheet">';
       }
 
-      var dynamicStyle = selector + "{ font-family: " + value + "; }";
+      var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
       kemet_add_dynamic_css(control, dynamicStyle);
       jQuery("head").append(link);
     });
@@ -693,7 +693,7 @@ function kemet_font_weight_css(control, selector) {
             '"  rel="stylesheet">';
         }
       }
-      var dynamicStyle = selector + "{ font-weight: " + value + "; }";
+      var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
       kemet_add_dynamic_css(control, dynamicStyle);
       jQuery("head").append(link);
     });
@@ -707,6 +707,7 @@ function kemet_font_weight_css(control, selector) {
         kemet_responsive_slider(control, data.selector, data.property);
         break;
       case "kmt-color":
+      case "select":
         kemet_css(control, data.property, data.selector);
         break;
       case "kmt-responsive-spacing":
@@ -720,7 +721,6 @@ function kemet_font_weight_css(control, selector) {
             Object.keys(data.choices)
           );
         }
-
         break;
     }
   });

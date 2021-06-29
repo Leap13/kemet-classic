@@ -153,14 +153,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
 
 				$css_output = array(
-					$selector              => array(
-						'color' => esc_attr( $color ),
-					),
-					$selector . ' a'       => array(
-						'color' => esc_attr( $link_color ),
-					),
-					$selector . ' a:hover' => array(
-						'color' => esc_attr( $link_hover_color ),
+					$selector => array(
+						'--textColor'         => esc_attr( $color ),
+						'--headingLinksColor' => esc_attr( $link_color ),
+						'--linksHoverColor'   => esc_attr( $link_hover_color ),
 					),
 				);
 
@@ -265,13 +261,13 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$css_output = array(
 				$selector => array(
-					'font-size'      => kemet_responsive_slider( $font_size, 'desktop' ),
-					'font-family'    => kemet_get_font_family( $font_family ),
-					'font-weight'    => esc_attr( $font_weight ),
-					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'desktop' ),
-					'line-height'    => kemet_responsive_slider( $line_height, 'desktop' ),
-					'text-transform' => esc_attr( $text_transform ),
-					'font-style'     => esc_attr( $font_style ),
+					'--fontSize'      => kemet_responsive_slider( $font_size, 'desktop' ),
+					'--fontFamily'    => kemet_get_font_family( $font_family ),
+					'--fontWeight'    => esc_attr( $font_weight ),
+					'--letterSpacing' => kemet_responsive_slider( $letter_spacing, 'desktop' ),
+					'--lineHeight'    => kemet_responsive_slider( $line_height, 'desktop' ),
+					'--textTransform' => esc_attr( $text_transform ),
+					'--fontStyle'     => esc_attr( $font_style ),
 				),
 			);
 
@@ -280,9 +276,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$tablet_typo = array(
 				$selector => array(
-					'font-size'      => kemet_responsive_slider( $font_size, 'tablet' ),
-					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'tablet' ),
-					'line-height'    => kemet_responsive_slider( $line_height, 'tablet' ),
+					'--fontSize'      => kemet_responsive_slider( $font_size, 'tablet' ),
+					'--letterSpacing' => kemet_responsive_slider( $letter_spacing, 'tablet' ),
+					'--lineHeight'    => kemet_responsive_slider( $line_height, 'tablet' ),
 				),
 			);
 
@@ -291,9 +287,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			$mobile_typo = array(
 				$selector => array(
-					'font-size'      => kemet_responsive_slider( $font_size, 'mobile' ),
-					'letter-spacing' => kemet_responsive_slider( $letter_spacing, 'mobile' ),
-					'line-height'    => kemet_responsive_slider( $line_height, 'mobile' ),
+					'--fontSize'      => kemet_responsive_slider( $font_size, 'mobile' ),
+					'--letterSpacing' => kemet_responsive_slider( $letter_spacing, 'mobile' ),
+					'--lineHeight'    => kemet_responsive_slider( $line_height, 'mobile' ),
 				),
 			);
 
