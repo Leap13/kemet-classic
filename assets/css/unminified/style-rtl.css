@@ -1465,10 +1465,7 @@ button,
 input,
 select,
 textarea {
-  font-weight: normal;
-  font-size: 100%;
-  /* Corrects font size not being inherited in all browsers */
-  margin: 0;
+  margin: var(--margin, 0);
   /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
   vertical-align: baseline;
   /* Improves appearance and consistency in all browsers */
@@ -1551,9 +1548,28 @@ input[type="submit"],
 .wp-block-button__link,
 a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
-  border: 1px solid;
-  padding: 0.6em 1em;
+  border-width: var(--borderWidth, 1px);
+  border-style: var(--borderStyle, solid);
+  -webkit-border-radius: var(--borderRadius, 0);
+  border-radius: var(--borderRadius, 0);
+  padding: var(--padding, 0.6em 1em);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
   display: inline-block;
+}
+
+button:hover,
+.kmt-button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+.wp-block-button__link:hover,
+a.wp-block-button__link:hover,
+.wp-block-search button.wp-block-search__button:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 button:active, button:focus,
@@ -1574,6 +1590,8 @@ a.wp-block-button__link:focus,
 .wp-block-search button.wp-block-search__button:active,
 .wp-block-search button.wp-block-search__button:focus {
   outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .wp-block-button__link {
@@ -1585,8 +1603,8 @@ a.wp-block-button__link:focus,
 }
 
 .wp-block-button.is-style-outline > a.wp-block-button__link {
-  border-width: 2px;
-  border-style: solid;
+  --borderWidth: 2px;
+  --borderStyle: solid;
 }
 
 .wp-block-button.is-style-outline > a.wp-block-button__link:hover {
@@ -1888,37 +1906,6 @@ blockquote.wp-block-quote {
   font-size: 1.1em;
   line-height: inherit;
   position: relative;
-}
-
-.kmt-button,
-.button,
-input[type="button"],
-input[type="submit"] {
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-.kmt-button:hover,
-.button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.kmt-button:active, .kmt-button:focus,
-.button:active,
-.button:focus,
-input[type="button"]:active,
-input[type="button"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 
 .site-title {
@@ -3771,9 +3758,9 @@ li.kmt-sitehead-custom-menu-items a {
   padding-left: 0;
 }
 
-li.kmt-sitehead-custom-menu-items a:not(.button),
-li.kmt-sitehead-custom-menu-items a:not(.button):hover,
-li.kmt-sitehead-custom-menu-items a:not(.button):focus {
+li.kmt-sitehead-custom-menu-items a,
+li.kmt-sitehead-custom-menu-items a:hover,
+li.kmt-sitehead-custom-menu-items a:focus {
   background: transparent;
 }
 

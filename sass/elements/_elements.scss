@@ -8,11 +8,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  color: $color-text-main;
-  font-style: normal;
-}
-
 ul,
 ol {
   margin: 0 0 1.5em 3em;
@@ -127,9 +122,10 @@ button,
 input,
 select,
 textarea {
-  font-weight: normal;
-  font-size: 100%; /* Corrects font size not being inherited in all browsers */
-  margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+  margin: var(
+    --margin,
+    0
+  ); /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
   vertical-align: baseline; /* Improves appearance and consistency in all browsers */
 }
 

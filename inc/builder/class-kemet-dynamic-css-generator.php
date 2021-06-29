@@ -37,12 +37,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$margin             = kemet_get_option( $button . '-margin' );
 
 				$css_output = array(
-					$selector            => array(
-						'color'            => esc_attr( $color ),
-						'background-color' => esc_attr( $bg_color ),
-						'border-style'     => esc_attr( 'solid' ),
-						'border-width'     => kemet_get_css_value( $border_width, 'px' ),
-						'border-color'     => esc_attr( $border_color ),
+					$selector => array(
+						'--buttonColor'                => esc_attr( $color ),
+						'--buttonBackgroundColor'      => esc_attr( $bg_color ),
+						'--borderWidth'                => kemet_get_css_value( $border_width, 'px' ),
+						'--borderColor'                => esc_attr( $border_color ),
+						'--buttonHoverColor'           => esc_attr( $hover_color ),
+						'--buttonBackgroundHoverColor' => esc_attr( $hover_bg_color ),
+						'--borderHoverColor'           => esc_attr( $hover_border_color ),
 						// 'padding-top'      => kemet_responsive_spacing( $padding, 'top', 'desktop' ),
 						// 'padding-right'    => kemet_responsive_spacing( $padding, 'right', 'desktop' ),
 						// 'padding-bottom'   => kemet_responsive_spacing( $padding, 'bottom', 'desktop' ),
@@ -51,11 +53,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						// 'margin-right'     => kemet_responsive_spacing( $margin, 'right', 'desktop' ),
 						// 'margin-bottom'    => kemet_responsive_spacing( $margin, 'bottom', 'desktop' ),
 						// 'margin-left'      => kemet_responsive_spacing( $margin, 'left', 'desktop' ),
-					),
-					$selector . ':hover' => array(
-						'color'            => esc_attr( $hover_color ),
-						'background-color' => esc_attr( $hover_bg_color ),
-						'border-color'     => esc_attr( $hover_border_color ),
 					),
 				);
 

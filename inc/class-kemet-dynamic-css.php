@@ -402,9 +402,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--footerTextColor'            => esc_attr( $global_footer_text_color ),
 					'--footerBackgroundColor'      => esc_attr( $global_footer_bg_color ),
 					'--buttonColor'                => esc_attr( $btn_text_color ),
-					'--buttonHoverColor'           => esc_attr( $btn_bg_hover_color ),
+					'--buttonHoverColor'           => esc_attr( $btn_text_hover_color ),
 					'--buttonBackgroundColor'      => esc_attr( $btn_bg_color ),
-					'--buttonBackgroundHoverColor' => esc_attr( $btn_text_hover_color ),
+					'--buttonBackgroundHoverColor' => esc_attr( $btn_bg_hover_color ),
 					'--buttonBorderRaduis'         => esc_attr( $btn_border_radius ),
 				),
 				// Gutenberg Support.
@@ -906,34 +906,31 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				// Button Typography.
-				'button, a.button:hover, .button, .kmt-button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
-					'color'            => esc_attr( $btn_text_color ),
-					'background-color' => esc_attr( $btn_bg_color ),
-					'border'           => 'solid',
-					'border-color'     => esc_attr( $btn_border_color ),
-					'border-width'     => kemet_get_css_value( $btn_border_size, 'px' ),
-					'padding-top'      => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
-					'padding-bottom'   => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
-					'padding-right'    => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
-					'padding-left'     => kemet_responsive_spacing( $btn_padding, 'left', 'desktop' ),
-					'font-size'        => kemet_responsive_slider( $btn_font_size, 'desktop' ),
-					'font-family'      => kemet_get_font_family( $btn_font_family ),
-					'font-weight'      => esc_attr( $btn_font_weight ),
-					'text-transform'   => esc_attr( $btn_text_tranform ),
-					'font-style'       => esc_attr( $btn_font_style ),
-					'line-height'      => kemet_responsive_slider( $btn_line_height, 'desktop' ),
-					'letter-spacing'   => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
+				'button, .button, .kmt-button, input[type=button], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
+					'color'            => 'var(--buttonColor)',
+					'background-color' => 'var(--buttonBackgroundColor)',
+					'--borderRadius'   => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
+					'--borderStyle'    => 'solid',
+					'--borderColor'    => esc_attr( $btn_border_color ),
+					'--borderWidth'    => kemet_get_css_value( $btn_border_size, 'px' ),
+					'--padding'        => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
+					'--fontSize'       => kemet_responsive_slider( $btn_font_size, 'desktop' ),
+					'--fontFamily'     => kemet_get_font_family( $btn_font_family ),
+					'--font-weight'    => esc_attr( $btn_font_weight ),
+					'--textTransform'  => esc_attr( $btn_text_tranform ),
+					'--fontStyle'      => esc_attr( $btn_font_style ),
+					'--lineHeight'     => kemet_responsive_slider( $btn_line_height, 'desktop' ),
+					'--letterSpacing'  => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
 				),
 
-				'button:focus, a.button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, a.button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
-					'color'            => esc_attr( $btn_text_hover_color ),
-					'border-color'     => esc_attr( $btn_border_h_color ),
-					'background-color' => esc_attr( $btn_bg_hover_color ),
+				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
+					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
+					'color'              => 'var(--buttonHoverColor, var(--buttonColor))',
+					'background-color'   => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',
 				),
 				'.search-submit, .search-submit:hover, .search-submit:focus' => array(
-					'color'            => kemet_get_foreground_color( $theme_color ),
-					'background-color' => esc_attr( $headings_links_color ),
+					'--buttonColor'           => kemet_get_foreground_color( $theme_color ),
+					'--buttonBackgroundColor' => esc_attr( $headings_links_color ),
 				),
 				// Content.
 				'.entry-content'                        => array(
@@ -1401,7 +1398,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'padding-left'   => kemet_responsive_spacing( $readmore_padding, 'left', 'tablet' ),
 				),
 				// Button Typography.
-				'button, a.button, .kmt-button, .button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover, a.button:focus' => array(
+				'button, .button, .kmt-button, .button, input[type=button], input[type=button]:focus, input[type=button]:hover, input[type=reset], input[type=reset]:focus, input[type=reset]:hover, input[type=submit], input[type=submit]:focus, input[type=submit]:hover' => array(
 					'padding-top'    => kemet_responsive_spacing( $btn_padding, 'top', 'tablet' ),
 					'padding-bottom' => kemet_responsive_spacing( $btn_padding, 'bottom', 'tablet' ),
 					'padding-right'  => kemet_responsive_spacing( $btn_padding, 'right', 'tablet' ),

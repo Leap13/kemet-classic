@@ -7,12 +7,21 @@ input[type="submit"],
 .wp-block-button__link,
 a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
-  border: 1px solid;
-  padding: 0.6em 1em;
+  border-width: var(--borderWidth, 1px);
+  border-style: var(--borderStyle, solid);
+  border-color: var(--borderColor);
+  border-radius: var(--borderRadius, 0);
+  padding: var(--padding, 0.6em 1em);
+  box-shadow: none;
+  text-shadow: none;
   display: inline-block;
+  &:hover {
+    box-shadow: none;
+  }
   &:active,
   &:focus {
     outline: none;
+    box-shadow: none;
   }
 }
 
@@ -25,8 +34,8 @@ a.wp-block-button__link,
   }
   &.is-style-outline {
     > a.wp-block-button__link {
-      border-width: 2px;
-      border-style: solid;
+      --borderWidth: 2px;
+      --borderStyle: solid;
       &:hover {
         background-color: transparent;
       }
