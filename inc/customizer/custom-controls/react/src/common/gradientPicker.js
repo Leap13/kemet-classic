@@ -72,7 +72,7 @@ const GradientPicker = ({ value, onChange }) => {
     ]
 
     return (
-        <Fragment>
+        <div className={`kemet-gradient-wrapper`}>
             <ExperimentalGradientPicker
                 value={value.gradient || ''}
                 onChange={(val) => {
@@ -97,7 +97,7 @@ const GradientPicker = ({ value, onChange }) => {
                         key={slug}></li>
                 ))}
             </ul>
-        </Fragment>
+        </div>
     )
 }
 

@@ -9,7 +9,7 @@ export default function OptionContainer({ label, options, value, onChange }) {
         </li>)
     }
     return (
-        <div classNane='kmt-control'>
+        <div className='kmt-control'>
             <header><label>{label}</label></header>
             <section>
                 <ul className='kmt-radio-option kmt-buttons-group'>

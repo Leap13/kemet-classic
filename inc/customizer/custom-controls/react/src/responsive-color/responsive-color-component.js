@@ -92,9 +92,6 @@ const ResponsiveColorComponent = props => {
         </li>
     </ul>;
 
-
-
-
     return <div className="kmt-control-wrap">
         <label>
             {labelHtml}
@@ -109,9 +106,6 @@ const ResponsiveColorComponent = props => {
             allowGradient={false}
             allowImage={false}
         />
-
-
-
     </div>;
 
 };

@@ -79,6 +79,7 @@ const BackgroundComponent = props => {
     };
 
     const onChangeImageOptions = (mainKey, value, backgroundType) => {
+        console.log(mainKey, "mainkey", backgroundType, value)
         let obj = {
             ...props_value
         };

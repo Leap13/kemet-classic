@@ -1,13 +1,13 @@
 import React from 'react'
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
 
-import { PatternPicker } from './pattern';
-import { ImagePicker } from './ImagePicker';
+import PatternPicker from './pattern';
+import ImagePicker from './ImagePicker';
 import classnames from 'classnames'
 
 export default function BackgroundImage(props) {
     return (
-        <>
+        <div className={`kmt-image-background-wrap`}>
             <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                 activeClass="active-tab"
                 initialTabName={'image'}
@@ -30,12 +30,14 @@ export default function BackgroundImage(props) {
                                 tabout = (
 
                                     <ImagePicker
+                                        open={props.open}
                                         media={props.media}
                                         backgroundAttachment={props.backgroundAttachment}
                                         backgroundRepeat={props.backgroundRepeat}
                                         backgroundSize={props.backgroundSize}
                                         backgroundImage={props.backgroundImage}
                                         onChangeImageOption={props.onChangeImageOptions}
+                                        onSelectImage={props.onSelectImage}
                                     />
 
                                 )
@@ -43,7 +45,7 @@ export default function BackgroundImage(props) {
                             else {
                                 tabout = (
                                     <>
-                                        <span>Salma</span>
+                                        <PatternPicker />
                                     </>
                                 )
                             }
@@ -54,6 +56,6 @@ export default function BackgroundImage(props) {
 
             </TabPanel>
 
-        </>
+        </div>
     )
 }

@@ -22,6 +22,7 @@ class KemetColorPickerControl extends Component {
         this.onSelectImage = this.onSelectImage.bind(this);
         this.open = this.open.bind(this);
         this.toggleClose = this.toggleClose.bind(this)
+        this.onChangeImageOptions = this.onChangeImageOptions(this)
 
 
         this.state = {
@@ -264,7 +265,6 @@ class KemetColorPickerControl extends Component {
                 this.setState({ isVisible: false });
             }
         }
-        console.log(this.state.isVisible, this.state.refresh, this.state.modalCanClose, "Toggle")
     }
 
     onChangeState(color, palette) {
@@ -300,6 +300,11 @@ class KemetColorPickerControl extends Component {
         this.setState({ backgroundType: 'color' });
         this.props.onChangeComplete(color, 'color');
     }
+    onChangeImageOptions(tempKey, mainkey, value) {
+
+        this.setState({ backgroundType: 'image' });
+        // this.props.onChangeImageOptions(mainkey, value, 'image');
+    }
 
     onPaletteChangeComplete(color) {
         this.setState({ color: color });
@@ -313,7 +318,6 @@ class KemetColorPickerControl extends Component {
 
     onSelectImage(media) {
 
-        console.log("Color.js") // this.setState({ modalCanClose: true });
         this.setState({ backgroundType: 'image' });
         this.props.onSelectImage(media, 'image');
     }
@@ -334,7 +338,6 @@ class KemetColorPickerControl extends Component {
 
     renderImageSettings() {
 
-        console.log(this.props.media, this.props.backgroundImage)
 
         return (
             <>
@@ -343,13 +346,15 @@ class KemetColorPickerControl extends Component {
                     <img src={(this.props.media) ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : this.props.backgroundImage} />
                 }
                 <BackgroundImage
+                    open={this.open}
                     onChange
                     media={this.props.media}
                     backgroundAttachment={this.props.backgroundAttachment}
                     backgroundRepeat={this.props.backgroundRepeat}
                     backgroundSize={this.props.backgroundSize}
                     backgroundImage={this.props.backgroundImage}
-                    onChangeImageOption={this.props.onChangeImageOptions}
+                    onChangeImageOption={this.onChangeImageOptions}
+                    onSelectImage={this.onSelectImage}
                 />
 
 

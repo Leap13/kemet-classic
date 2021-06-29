@@ -410,17 +410,17 @@ $fields = array(
 	/**
 	 * Option - Color
 	 */
-	array(
-		'id'           => '[footer-color]',
-		'default'      => $defaults['footer-color'],
-		'type'         => 'option',
-		'control_type' => 'kmt-color',
-		'transport'    => 'postMessage',
-		'label'        => __( 'Text Color', 'kemet' ),
-		'priority'     => 1,
-		'section'      => 'section-footer-copyright',
-		'tab'          => __( 'Normal', 'kemet' ),
-	),
+	// array(
+	// 	'id'           => '[footer-color]',
+	// 	'default'      => $defaults['footer-color'],
+	// 	'type'         => 'option',
+	// 	'control_type' => 'kmt-color',
+	// 	'transport'    => 'postMessage',
+	// 	'label'        => __( 'Text Color', 'kemet' ),
+	// 	'priority'     => 1,
+	// 	'section'      => 'section-footer-copyright',
+	// 	'tab'          => __( 'Normal', 'kemet' ),
+	// ),
 	array(
 		'id'           => '[copyright-link-color]',
 		'default'      => $defaults['copyright-link-color'],

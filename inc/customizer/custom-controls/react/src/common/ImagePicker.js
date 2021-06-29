@@ -1,25 +1,32 @@
 
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';
+import { MediaUpload } from '@wordpress/media-utils';
+import OptionContainer from './optioncontainer'
+import { Button, SelectControl } from '@wordpress/components';
 
-const ImagePicker = ({ media, backgroundAttachment, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption }) => {
+
+const ImagePicker = ({ media, onSelectImage, backgroundAttachment, backgroundPosition, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption, open }) => {
+    console.log(onChangeImageOption)
     const onChangeImageOptions = (tempKey, mainkey, value) => {
-        this.setState({ backgroundType: 'image' });
+        console.log("mainKey", mainkey)
         onChangeImageOption(mainkey, value, 'image');
     }
     return (
         <>
-            <MediaUpload
-                title={__("Select Background Image", 'kemet')}
-                onSelect={(media) => this.onSelectImage('https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png')}
-                allowedTypes={["image"]}
-                value={(media && media ? media : '')}
-                render={({ open }) => (
-                    <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
-                        { (!media && !backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
-                    </Button>
-                )}
-            />
+            <div className={`kmt-background-btns-wrap`}>
+                <MediaUpload
+                    title={__("Select Background Image", 'kemet')}
+                    onSelect={(media) => onSelectImage('https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png')}
+                    allowedTypes={["image"]}
+                    value={(media && media ? media : '')}
+                    render={({ open }) => (
+                        <Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
+                            { (!media && !backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
+                        </Button>
+                    )}
+                />
+            </div>
             <OptionContainer
                 label={__("Background Repeat", 'kemet')}
                 value={backgroundRepeat}
@@ -57,6 +64,22 @@ const ImagePicker = ({ media, backgroundAttachment, backgroundImage, backgroundR
                     scroll: "scroll"
                 }}
                 onChange={(value) => onChangeImageOptions('backgroundAttachment', 'background-attachment', value)}
+            />
+            <SelectControl
+                label={__("Image Position")}
+                value={backgroundPosition}
+                onChange={(value) => onChangeImageOptions('backgroundPosition', 'background-position', value)}
+                options={[
+                    { value: "left top", label: __("Left Top", 'astra') },
+                    { value: "left center", label: __("Left Center", 'astra') },
+                    { value: "left bottom", label: __("Left Bottom", 'astra') },
+                    { value: "right top", label: __("Right Top", 'astra') },
+                    { value: "right center", label: __("Right Center", 'astra') },
+                    { value: "right bottom", label: __("Right Bottom", 'astra') },
+                    { value: "center top", label: __("Center Top", 'astra') },
+                    { value: "center center", label: __("Center Center", 'astra') },
+                    { value: "center bottom", label: __("Center Bottom", 'astra') },
+                ]}
             />
         </>
     )

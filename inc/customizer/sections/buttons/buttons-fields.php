@@ -281,7 +281,7 @@ $fields = array(
 );
 $group_settings = array(
 	'parent_id' => KEMET_THEME_SETTINGS . '[kmt-buttons-colors]',
-	'type'      => 'kmt-group',
+	'type'      => 'kmt-color-group',
 	'label'     => __( 'Buttons Colors', 'kemet' ),
 	'section'   => 'section-buttons-fields',
 	'priority'  => 5,
@@ -601,7 +601,7 @@ $fields         = array(
 );
 $group_settings = array(
 	'parent_id' => KEMET_THEME_SETTINGS . '[kmt-site-input-colors]',
-	'type'      => 'kmt-group',
+	'type'      => 'kmt-color-group',
 	'label'     => __( 'Input Colors', 'kemet' ),
 	'section'   => 'section-buttons-fields',
 	'priority'  => 55,
@@ -675,6 +675,34 @@ $wp_customize->add_control(
 		)
 	)
 );
+// Responsive Color
+$wp_customize->add_setting(
+	KEMET_THEME_SETTINGS . '[main-entry-content-color]',
+	array(
+		'id'           => '[main-entry-content-color]',
+		'default'      => $defaults ['main-entry-content-color'],
+		'type'         => 'option',
+		'transport'    => 'postMessage',
+		'control_type' => 'kmt-color',
+		'label'        => __( 'Text Color', 'kemet' ),
+		'priority'     => 1,
+		'section'      => 'section-buttons-fields',
+	)
+);
+$wp_customize->add_control(
+	new Kemet_Control_Responsive_Color(
+		$wp_customize,
+		KEMET_THEME_SETTINGS . '[main-entry-content-color]',
+		array(
+			'type'         => 'kmt-responsive-color',
+			'section'      => 'section-buttons-fields',
+			'priority'     => 70,
+			'label'        => __( 'Input Color Test', 'kemet' ),
+			
+		)
+	)
+);
+// End of Responsive Color
 
 /**
 * Option - Button Spacing
