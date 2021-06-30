@@ -71,19 +71,21 @@ const ColorComponent = props => {
         updateValues(value);
     };
 
-    let labelHtml = null;
     const {
-        label
+        label,
+        description
     } = props.control.params;
 
-    if (label) {
-        labelHtml = <span className="customize-control-title">{label}</span>;
-    }
 
-    return <div className="kmt-control-wrap">
+    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
+    let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
+
+    return <div className="kmt-control-wrap kmt-color-control-wrap">
         <label>
             {labelHtml}
+            {descriptionHtml}
         </label>
+
         <div className="kmt-color-picker-alpha color-picker-hex">
             {renderOperationButtons()}
             <KemetColorPickerControl
