@@ -1,8 +1,11 @@
-import ToggleControlComponent from './toggle-component.js';
+import ToggleControlComponent from "./toggle-component.js";
 
 export const toggleControl = wp.customize.kemetControl.extend({
-    renderContent: function renderContent() {
-        let control = this;
-        ReactDOM.render(<ToggleControlComponent control={control} />, control.container[0]);
-    }
+  renderContent: function renderContent() {
+    let control = this;
+    ReactDOM.render(
+      <ToggleControlComponent control={control} />,
+      control.container[0]
+    );
+  },
 });

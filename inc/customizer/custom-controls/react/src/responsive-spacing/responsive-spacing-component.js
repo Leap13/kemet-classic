@@ -188,6 +188,7 @@ const ResponsiveSpacingComponent = props => {
     </Fragment>;
 
     return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
+
         {labelContent}
         <ul class="kmt-responsive-control-btns kmt-spacing-responsive-btns">
             <li class="desktop active">
@@ -207,6 +208,7 @@ const ResponsiveSpacingComponent = props => {
             </li>
         </ul>
         {renderUnit()}
+
         {descriptionContent}
         <div className="kmt-spacing-responsive-outer-wrapper">
             <div className="input-wrapper kmt-spacing-responsive-wrapper">

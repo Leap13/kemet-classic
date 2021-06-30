@@ -8,7 +8,7 @@ const ToggleControlComponent = (props) => {
 
   const { label } = props.control.params;
 
-  let titleContent = label ? (
+  let labelContent = label ? (
     <span className="toggle-control-label">{label}</span>
   ) : null;
 
@@ -21,7 +21,7 @@ const ToggleControlComponent = (props) => {
     <Fragment>
       <div className="toggleControl-wrapper">
         <ToggleControl
-          label={titleContent}
+          label={labelContent}
           checked={props_value}
           onChange={() => updateValues()}
         />

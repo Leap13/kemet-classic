@@ -1,5 +1,3 @@
-
-
 import PropTypes from 'prop-types';
 
 const { Component, Fragment } = wp.element;
@@ -65,7 +63,7 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
-        let { label, value, suffix, description } = this.props.control.params;
+        let { label, suffix, description } = this.props.control.params;
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
         let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
@@ -82,7 +80,7 @@ class ResponsiveSliderComponent extends Component {
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
                     <li className="desktop active">
                         <button type="button" className="preview-desktop active" data-device="desktop">
-                            <i i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
+                            <i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
                         </button>
                     </li>
                     <li class="tablet ">
