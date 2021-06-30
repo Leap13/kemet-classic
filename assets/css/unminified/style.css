@@ -1337,11 +1337,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  color: #808285;
-  font-style: normal;
-}
-
 ul,
 ol {
   margin: 0 0 1.5em 3em;
@@ -1550,6 +1545,7 @@ a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
   border-width: var(--borderWidth, 1px);
   border-style: var(--borderStyle, solid);
+  border-color: var(--borderColor);
   -webkit-border-radius: var(--borderRadius, 0);
   border-radius: var(--borderRadius, 0);
   padding: var(--padding, 0.6em 1em);

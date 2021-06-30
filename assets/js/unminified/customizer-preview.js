@@ -710,6 +710,10 @@ function kemet_font_weight_css(control, selector) {
       case "select":
         kemet_css(control, data.property, data.selector);
         break;
+        case "kmt-slider":
+        var unit = null !== data.unit && undefined !== data.unit ? data.unit : 'px'; 
+        kemet_css(control, data.property, data.selector, unit);
+        break;
       case "kmt-responsive-spacing":
         if (false === data.sides) {
           kemet_responsive_spacing(control, data.selector, data.property);

@@ -18,6 +18,8 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
+		$btn_selector = 'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button';
+		$btn_hover_selector = 'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover';
 		$register_options = array(
 			'kmt-buttons'            => array(
 				'type'     => 'kmt-title',
@@ -44,6 +46,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'max'  => 10,
 					),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--fontSize'
+				)
 			),
 			'buttons-font-family'    => array(
 				'type'     => 'kmt-font-family',
@@ -61,7 +67,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			),
 			'buttons-text-transform' => array(
 				'transport' => 'postMessage',
-				'type'      => 'kmt-select',
+				'type'      => 'select',
 				'label'     => __( 'Text Transform', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 20,
@@ -72,10 +78,14 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'uppercase'  => __( 'Uppercase', 'kemet' ),
 					'lowercase'  => __( 'Lowercase', 'kemet' ),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--textTransform'
+				)
 			),
 			'buttons-font-style'     => array(
 				'transport' => 'postMessage',
-				'type'      => 'kmt-select',
+				'type'      => 'select',
 				'label'     => __( 'Font Style', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 25,
@@ -85,6 +95,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'italic'  => __( 'Italic', 'kemet' ),
 					'oblique' => __( 'Oblique', 'kemet' ),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--fontStyle'
+				)
 			),
 			'buttons-line-height'    => array(
 				'type'         => 'kmt-responsive-slider',
@@ -104,6 +118,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'max'  => 10,
 					),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--lineHeight'
+				)
 			),
 			'buttons-letter-spacing' => array(
 				'transport'    => 'postMessage',
@@ -118,18 +136,32 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'max'  => 10,
 					),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--letterSpacing'
+				)
 			),
 			'button-color'           => array(
 				'type'     => 'kmt-color',
+				'transport' => 'postMessage',
 				'label'    => __( 'Text Color', 'kemet' ),
 				'priority' => 40,
 				'section'  => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--buttonColor'
+				)
 			),
 			'button-bg-color'        => array(
 				'type'     => 'kmt-color',
+				'transport' => 'postMessage',
 				'label'    => __( 'Background Color', 'kemet' ),
 				'priority' => 45,
 				'section'  => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--buttonBackgroundColor'
+				)
 			),
 			'btn-border-color'       => array(
 				'transport' => 'postMessage',
@@ -137,18 +169,32 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Border Color', 'kemet' ),
 				'priority'  => 50,
 				'section'   => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--borderColor'
+				)
 			),
 			'button-h-color'         => array(
 				'type'     => 'kmt-color',
+				'transport' => 'postMessage',
 				'label'    => __( 'Text Color', 'kemet' ),
 				'priority' => 55,
 				'section'  => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_hover_selector,
+					'property' => '--buttonHoverColor'
+				)
 			),
 			'button-bg-h-color'      => array(
 				'type'     => 'kmt-color',
+				'transport' => 'postMessage',
 				'label'    => __( 'Background Color', 'kemet' ),
 				'priority' => 60,
 				'section'  => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_hover_selector,
+					'property' => '--buttonBackgroundHoverColor'
+				)
 			),
 			'btn-border-h-color'     => array(
 				'transport' => 'postMessage',
@@ -156,9 +202,14 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Border Color', 'kemet' ),
 				'priority'  => 65,
 				'section'   => 'section-buttons-fields',
+				'preview' => array(
+					'selector' => $btn_hover_selector,
+					'property' => '--borderHoverColor'
+				)
 			),
 			'button-radius'          => array(
 				'type'         => 'kmt-responsive-slider',
+				'transport' => 'postMessage',
 				'section'      => 'section-buttons-fields',
 				'priority'     => 70,
 				'label'        => __( 'Border Radius', 'kemet' ),
@@ -174,9 +225,14 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'max'  => 100,
 					),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--borderRadius'
+				)
 			),
 			'btn-border-size'        => array(
 				'type'        => 'kmt-slider',
+				'transport' => 'postMessage',
 				'section'     => 'section-buttons-fields',
 				'priority'    => 75,
 				'label'       => __( 'Border Size', 'kemet' ),
@@ -185,9 +241,15 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'step' => 1,
 					'max'  => 10,
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--borderWidth',
+					'unit' => 'px',
+				)
 			),
 			'button-spacing'         => array(
 				'type'           => 'kmt-responsive-spacing',
+				'transport' => 'postMessage',
 				'section'        => 'section-buttons-fields',
 				'priority'       => 80,
 				'label'          => __( 'Padding', 'kemet' ),
@@ -199,6 +261,11 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
+				'preview' => array(
+					'selector' => $btn_selector,
+					'property' => '--padding',
+					'sides' => false
+				)
 			),
 			'kmt-input-color'        => array(
 				'type'     => 'kmt-title',
