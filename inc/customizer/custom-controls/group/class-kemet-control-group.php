@@ -25,7 +25,7 @@ class Kemet_Control_Group extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-color-group';
+	public $type = 'kmt-group';
 
 	/**
 	 * The control childern.
