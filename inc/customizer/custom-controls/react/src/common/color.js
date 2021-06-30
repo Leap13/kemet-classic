@@ -8,7 +8,6 @@ import { MediaUpload } from '@wordpress/media-utils';
 class KemetColorPickerControl extends Component {
 
     constructor(props) {
-
         super(...arguments);
         this.onChangeComplete = this.onChangeComplete.bind(this);
         this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind(this);
@@ -242,7 +241,6 @@ class KemetColorPickerControl extends Component {
                 this.setState({ isVisible: false });
             }
         }
-        console.log("ToggleClas")
     }
 
     onChangeState(color, palette) {

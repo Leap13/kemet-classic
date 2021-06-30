@@ -23357,8 +23357,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           });
         }
       }
-
-      console.log("ToggleClas");
     }
   }, {
     key: "onChangeState",
