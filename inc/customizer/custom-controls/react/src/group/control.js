@@ -1,16 +1,7 @@
 import GroupComponent from './group-component';
-import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
-import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
-import SliderComponent from '../slider/slider-component';
-import Background from '../Background/background-component';
 import ColorComponent from '../color/color-component';
-import ResponsiveColorComponent from '../responsive-color/responsive-color-component';
 
-import {
-    kemetGetResponsiveColorJs,
-    kemetGetResponsiveSliderJs,
-    kemetGetResponsiveSpacingJs
-} from '../common/responsive-helper';
+
 
 export const GroupControl = wp.customize.kemetControl.extend({
     renderContent: function renderContent() {
@@ -131,195 +122,8 @@ export const GroupControl = wp.customize.kemetControl.extend({
             jQuery(this).find('.kmt-adv-toggle-icon').trigger('click');
         });
     },
-    kmt_render_field: function (wrap, fields, control_elem) {
-        var control = this;
-        var kmt_field_wrap = wrap.find('.kmt-fields-wrap');
-        var fields_html = '';
-        var control_types = [];
-        var field_values = control.isJsonString(control_elem.params.value) ? JSON.parse(control_elem.params.value) : {};
 
-        if ('undefined' != typeof fields) {
-            var clean_param_name = control_elem.params.id.replace('[', '-'),
-                clean_param_name = clean_param_name.replace(']', '');
 
-            fields_html += '<div id="' + clean_param_name + '-tabs" class="kmt-group-tabs">';
-            fields_html += '<ul class="kmt-group-list">';
-            var counter = 0,
-                tabs_counter = 0,
-                tab_key = '',
-                li_class = '';
-
-            _.each(fields, function (value, key) {
-
-                switch (counter) {
-                    case 0:
-                        li_class = 'active';
-                        tab_key = 'normal';
-                        break;
-                    case 1:
-                        tab_key = 'hover';
-                        break;
-                    default:
-                        tab_key = 'active';
-                }
-
-                fields_html += '<li class="' + li_class + '"><a href="#tab-' + tab_key + '"><span>' + key + '</span></a></li>';
-                counter++;
-            });
-
-            fields_html += '</ul>';
-
-            fields_html += '<div class="kmt-tab-content" >';
-
-            _.each(fields, function (fields_data, key) {
-
-                switch (tabs_counter) {
-                    case 0:
-                        li_class = 'active';
-                        tab_key = 'normal';
-                        break;
-                    case 1:
-                        tab_key = 'hover';
-                        break;
-                    default:
-                        tab_key = 'active';
-                }
-
-                fields_html += '<div id="tab-' + tab_key + '" class="tab">';
-
-                var result = control.generateFieldHtml(fields_data, field_values);
-
-                fields_html += result.html;
-
-                _.each(result.controls, function (control_value, control_key) {
-                    control_types.push({
-                        key: control_value.key,
-                        value: control_value.value,
-                        name: control_value.name
-                    });
-                });
-
-                fields_html += '</div>';
-                tabs_counter++;
-            });
-
-            fields_html += '</div></div>';
-
-            kmt_field_wrap.html(fields_html);
-
-            control.renderReactControl(fields, control);
-
-            jQuery("#" + clean_param_name + "-tabs").tabs();
-
-        } else {
-
-            var result = control.generateFieldHtml(fields, field_values);
-
-            fields_html += result.html;
-
-            _.each(result.controls, function (control_value, control_key) {
-                control_types.push({
-                    key: control_value.key,
-                    value: control_value.value,
-                    name: control_value.name
-                });
-            });
-
-            kmt_field_wrap.html(fields_html);
-
-            control.renderReactControl(fields, control);
-        }
-
-        _.each(control_types, function (control_type, index) {
-
-            switch (control_type.key) {
-
-                case "kmt-color":
-                    kemetGetColor("#customize-control-" + control_type.name)
-                    break;
-                case "kmt-background":
-                    kemetGetBackground("#customize-control-" + control_type.name)
-                    break;
-                case "kmt-responsive-background":
-                    kemetGetResponsiveBgJs(control, "#customize-control-" + control_type.name)
-                    break;
-                case "kmt-responsive-color":
-                    kemetGetResponsiveColorJs(control, "#customize-control-" + control_type.name)
-                    break;
-                case "kmt-responsive":
-                    kemetGetResponsiveJs(control)
-                    break;
-                case "kmt-responsive-slider":
-                    kemetGetResponsiveSliderJs(control)
-                    break;
-                case "kmt-responsive-spacing":
-                    kemetGetResponsiveSpacingJs(control)
-                    break;
-                case "kmt-font":
-
-                    var googleFontsString = kemet.customizer.settings.google_fonts;
-                    control.container.find('.kmt-font-family').html(googleFontsString);
-
-                    control.container.find('.kmt-font-family').each(function () {
-                        var selectedValue = jQuery(this).data('value');
-                        jQuery(this).val(selectedValue);
-
-                        var optionName = jQuery(this).data('name');
-
-                        // Set inherit option text defined in control parameters.
-                        jQuery("select[data-name='" + optionName + "'] option[value='inherit']").text(jQuery(this).data('inherit'));
-
-                        var fontWeightContainer = jQuery(".kmt-font-weight[data-connected-control='" + optionName + "']");
-                        var weightObject = AstTypography._getWeightObject(AstTypography._cleanGoogleFonts(selectedValue));
-
-                        control.generateDropdownHtml(weightObject, fontWeightContainer);
-                        fontWeightContainer.val(fontWeightContainer.data('value'));
-
-                    });
-
-                    control.container.find('.kmt-font-family').selectWoo();
-                    control.container.find('.kmt-font-family').on('select2:select', function () {
-
-                        var value = jQuery(this).val();
-                        var weightObject = AstTypography._getWeightObject(AstTypography._cleanGoogleFonts(value));
-                        var optionName = jQuery(this).data('name');
-                        var fontWeightContainer = jQuery(".kmt-font-weight[data-connected-control='" + optionName + "']");
-
-                        control.generateDropdownHtml(weightObject, fontWeightContainer);
-
-                        var font_control = jQuery(this).parents('.customize-control').attr('id');
-                        font_control = font_control.replace('customize-control-', '');
-
-                        control.container.trigger('kmt_settings_changed', [control, jQuery(this), value, font_control]);
-
-                        var font_weight_control = fontWeightContainer.parents('.customize-control').attr('id');
-                        font_weight_control = font_weight_control.replace('customize-control-', '');
-
-                        control.container.trigger('kmt_settings_changed', [control, fontWeightContainer, fontWeightContainer.val(), font_weight_control]);
-
-                    });
-
-                    control.container.find('.kmt-font-weight').on('change', function () {
-
-                        var value = jQuery(this).val();
-
-                        name = jQuery(this).parents('.customize-control').attr('id');
-                        name = name.replace('customize-control-', '');
-
-                        control.container.trigger('kmt_settings_changed', [control, jQuery(this), value, name]);
-                    });
-
-                    break;
-            }
-
-        });
-
-        wrap.find('.kmt-field-settings-modal').data('loaded', true);
-
-    },
-    getJS: function (control) {
-
-    },
     generateFieldHtml: function (fields_data, field_values) {
 
         var fields_html = '';
@@ -458,58 +262,10 @@ export const GroupControl = wp.customize.kemetControl.extend({
     },
     renderReactControl: function (fields, control) {
 
-        const reactControls = {
-            'kmt-background': Background,
-            'kmt-responsive-color': ResponsiveColorComponent,
-            'kmt-color': ColorComponent,
-            'kmt-responsive-slider': ResponsiveSliderComponent,
-            'kmt-responsive-spacing': ResponsiveSpacingComponent,
-
-        };
 
 
 
-        if ('undefined' != typeof fields) {
-
-            _.each(fields, function (fields_data, key) {
-                console.log(fields, fields_data, 'fieeeeeeeelds')
-
-                if ('kmt-font' !== fields_data.control_type) {
-                    var control_clean_name = fields_data.id.replace('[', '-');
-                    control_clean_name = control_clean_name.replace(']', '');
-                    console.log(control_clean_name)
-                    var selector = '.customize-control-kmt-group' + control_clean_name;
-                    console.log(selector, "selectooooooooor")
-                    var controlObject = wp.customize.control('kemet-settings' + fields_data.id + '');
-                    controlObject = control.getFinalControlObject(fields_data, controlObject);
-                    const ComponentName = reactControls[fields_data.control_type];
-                    ReactDOM.render(
-
-                        <ComponentName control={controlObject} customizer={wp.customize} />,
 
 
-                    );
-                }
-
-
-            });
-        } else {
-
-            _.each(fields, function (attr, index) {
-
-                if ('kmt-font' !== attr.control_type) {
-
-                    var control_clean_name = attr.id.replace('[', '-');
-                    control_clean_name = control_clean_name.replace(']', '');
-                    var selector = '#customize-control-' + control_clean_name;
-                    var controlObject = wp.customize.control('kemet-settings' + attr.id + '');
-                    controlObject = control.getFinalControlObject(attr, controlObject);
-                    const ComponentName = reactControls[attr.control_type];
-                    ReactDOM.render(
-                        <ComponentName control={controlObject} customizer={wp.customize} />
-                    );
-                }
-            });
-        }
     }
 });

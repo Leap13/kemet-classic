@@ -302,7 +302,6 @@ class KemetColorPickerControl extends Component {
     }
 
     onChangeImageOptions(tempKey, mainkey, value) {
-
         this.setState({ backgroundType: 'image' });
         this.props.onChangeImageOptions(mainkey, value, 'image');
     }
@@ -344,8 +343,7 @@ class KemetColorPickerControl extends Component {
         return (
             <>
                 {(this.props.media || this.props.backgroundImage) &&
-
-                    <img src={(this.props.media) ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png'} />
+                    <img src={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage} />
                 }
                 <BackgroundImage
                     open={this.open}
@@ -359,8 +357,6 @@ class KemetColorPickerControl extends Component {
                     onSelectImage={this.onSelectImage}
                     onRemoveImage={this.onRemoveImage}
                 />
-
-
             </>
         )
     }

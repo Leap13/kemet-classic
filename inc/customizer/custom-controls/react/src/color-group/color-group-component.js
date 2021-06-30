@@ -4,6 +4,7 @@ import KemetColorPickerControl from '../common/color';
 import { Dashicon, Tooltip } from '@wordpress/components';
 import { useState, useEffect } from 'react';
 
+
 const ColorGroupComponent = props => {
 
     let htmlLabel = null;
@@ -16,23 +17,24 @@ const ColorGroupComponent = props => {
         label,
         help,
         id,
-        responsive
+        responsive,
+        fields
     } = props.control.params;
     console.log(props.control.params)
 
-    const linkedSubColors = KemetBuilderCustomizerData.js_configs.sub_controls[id];
     const colorGroup = [],
         colorGroupDefaults = [],
         tooltips = [],
         colorGroupType = [];
 
-    Object.entries(linkedSubColors).map(([key, value]) => {
-        colorGroup[value.id] = wp.customize.control(value.id).setting.get();
+    Object.entries(fields).map(([key, value]) => {
+
+        colorGroup[value.id] = wp.customize.control("kemet-settings" + value.id + "").setting.get();
         colorGroupDefaults[value.id] = value.default;
         tooltips[value.id] = value.title;
         colorGroupType[value.id] = value.control_type;
     });
-
+    console.log(colorGroup)
     const [colorGroupState, setState] = useState(colorGroup);
 
     const handleChangeComplete = (key, color = '', device = '', backgroundType = '') => {
@@ -62,11 +64,11 @@ const ColorGroupComponent = props => {
                 deviceType['background-type'] = backgroundType;
                 newState[device] = deviceType;
                 updateState[key] = newState;
-                wp.customize.control(key).setting.set(newState);
+                wp.customize.control("kemet-settings" + key + '').setting.set(newState);
             } else {
                 newState[device] = value;
                 updateState[key] = newState;
-                wp.customize.control(key).setting.set(newState);
+                wp.customize.control("kemet-settings" + key + '').setting.set(newState);
             }
         } else {
             if ('' !== backgroundType) {
@@ -77,17 +79,17 @@ const ColorGroupComponent = props => {
                 newState['background-color'] = value;
                 newState['background-type'] = backgroundType;
                 updateState[key] = newState;
-                wp.customize.control(key).setting.set(newState);
+                wp.customize.control("kemet-settings" + key + '').setting.set(newState);
             } else {
                 updateState[key] = value;
-                wp.customize.control(key).setting.set(value);
+                wp.customize.control("kemet-settings" + key + '').setting.set(value);
             }
         }
         setState(updateState);
     };
 
     const updateValues = (stateValue, dbValue, key) => {
-        wp.customize.control(key).setting.set(stateValue);
+        wp.customize.control("kemet-settings" + key + '').setting.set(stateValue);
         setState(dbValue);
     }
 
@@ -160,14 +162,14 @@ const ColorGroupComponent = props => {
                 deviceType['background-type'] = 'color';
                 newState[device] = deviceType;
                 updateState[key] = newState;
-                wp.customize.control(key).setting.set(newState);
+                wp.customize.control("kemet-settings" + key + '').setting.set(newState);
                 setState(updateState);
 
                 if (updateState[key][device]['background-color'].includes('gradient')) {
                     deviceType['background-type'] = 'gradient';
                     newState[device] = deviceType;
                     updateState[key] = newState;
-                    wp.customize.control(key).setting.set(newState);
+                    wp.customize.control("kemet-settings" + key + '').setting.set(newState);
                     setState(updateState);
                 }
             }
@@ -176,7 +178,7 @@ const ColorGroupComponent = props => {
                 deviceType['background-type'] = 'image';
                 newState[device] = deviceType;
                 updateState[key] = newState;
-                wp.customize.control(key).setting.set(newState);
+                wp.customize.control("kemet-settings" + key + '').setting.set(newState);
                 setState(updateState);
             }
         }
@@ -244,7 +246,8 @@ const ColorGroupComponent = props => {
                                     onSelectImage={(media, backgroundType) => onSelectImage(key, media, device, backgroundType)}
                                     onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, device, backgroundType, key)}
                                     backgroundType={undefined !== value[device]['background-type'] && value[device]['background-type'] ? value[device]['background-type'] : 'color'}
-                                    allowGradient={true} allowImage={true} />
+                                    allowGradient={false}
+                                    allowImage={false} />
                             </div>
                         </Tooltip>
                     );
@@ -252,7 +255,8 @@ const ColorGroupComponent = props => {
                     return (
                         <Tooltip key={key} text={tooltip} position="top center">
                             <div className="color-group-item" id={key}>
-                                <KemetColorPickerControl color={value ? value[device] : ''}
+                                <KemetColorPickerControl
+                                    color={value ? value[device] : ''}
                                     onChangeComplete={(color, backgroundType) => handleChangeComplete(key, color, device)}
                                     backgroundType={'color'}
                                     allowGradient={false}
@@ -342,7 +346,7 @@ const ColorGroupComponent = props => {
                     };
                     for (let index in colorGroupState) {
                         resetState[index] = colorGroupDefaults[index];
-                        wp.customize.control(index).setting.set(colorGroupDefaults[index]);
+                        wp.customize.control("kemet-settings" + index + '').setting.set(colorGroupDefaults[index]);
                         setState(resetState);
                     }
                 }}>
@@ -352,6 +356,7 @@ const ColorGroupComponent = props => {
     };
 
     return <div className="kmt-control-wrap">
+        {renderResetButton()}
         <div className="kmt-toggle-desc-wrap">
             <label className="customizer-text">
                 {htmlLabel}
@@ -359,7 +364,6 @@ const ColorGroupComponent = props => {
             </label>
         </div>
         {responsiveHtml}
-        {renderResetButton()}
         <div className="kmt-field-color-group-wrap">
             {optionsHtml}
         </div>
