@@ -366,7 +366,7 @@
   padding: 0 8px;
 }
 /* Reset Button CSS */
-.kmt-color-btn-reset-wrap {
+.customize-control-kmt-color .kmt-color-btn-reset-wrap {
   position: absolute;
   right: 36px;
   top: 1.5px;
@@ -379,7 +379,11 @@
   background: transparent;
   box-shadow: none;
 }
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button span,
+.customize-control-kmt-color
+  .kmt-color-btn-reset-wrap
+  .customize-control-kmt-color
+  .kmt-reset-btn.components-button
+  span,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button span {
   font-size: 16px !important;
 }
