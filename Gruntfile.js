@@ -402,7 +402,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/typography/typography.css",
           "inc/customizer/custom-controls/react/src/responsive-icon-select/responsive-icon-select.css",
           "inc/customizer/custom-controls/responsive-color/responsive-color.css",
-          "inc/customizer/custom-controls/group/group.css",
+          "inc/customizer/custom-controls/react/src/color-group/color-group.css",
         ],
         dest:
           "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
@@ -413,7 +413,6 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/responsive/responsive.js",
           "inc/customizer/custom-controls/responsive-select/responsive-select.js",
           "inc/customizer/custom-controls/responsive-color/responsive-color.js",
-          "inc/customizer/custom-controls/group/group.js",
         ],
         dest:
           "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
