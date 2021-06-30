@@ -9,7 +9,7 @@ export const colorComponent = wp.customize.kemetControl.extend({
         let control = this;
         jQuery(document).mouseup(function (e) {
             var container = jQuery(control.container);
-            var colorWrap = container.find('.kemet-color-picker-wrap');
+            var colorWrap = container.find('.kmt-color-control-wrap');
             var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
 
             // If the target of the click isn't the container nor a descendant of the container.
