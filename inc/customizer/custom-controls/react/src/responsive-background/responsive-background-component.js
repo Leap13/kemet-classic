@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Dashicon } from '@wordpress/components';
 import AstraColorPickerControl from '../common/kmtra-color-picker-control';
 import { __ } from '@wordpress/i18n';
 import { useEffect, useState } from 'react';
@@ -92,7 +91,7 @@ const ResponsiveBackground = props => {
                     updateValues(value);
 
                 }}>
-                <Dashicon icon='image-rotate' />
+                <span className="dashicons dashicons-image-rotate"></span>
             </button>
         </div>;
     };
@@ -181,34 +180,27 @@ const ResponsiveBackground = props => {
         label,
         description
     } = props.control.params;
-    let labelHtml = null;
-    let descriptionHtml = null;
     let responsiveHtml = null;
     let inputHtml = null;
 
-    if (label && '' !== label && undefined !== label) {
-        labelHtml = <span className="customize-control-title">{label}</span>;
-    } else {
-        labelHtml = <span className="customize-control-title">{__('Background')}</span>;
-    }
+    let labelHtml = (label && '' !== label && undefined !== label) ? labelHtml = <span className="customize-control-title">{label}</span> : labelHtml = <span className="customize-control-title">{__('Background')}</span>;
 
-    if (description) {
-        descriptionHtml = <span className="description customize-control-description">{description}</span>;
-    }
+    let descriptionHtml = (description && '' !== description && undefined !== description) ? <span className="description customize-control-description">{description}</span> : null;
+
 
     responsiveHtml = <ul className="kmt-responsive-btns">
         <li className="desktop active">
-            <button type="button" className="preview-desktop" data-device="desktop">
+            <button type="button" className="preview-desktop" data-device="desktop" onClick={() => setDevice('tablet')}>
                 <i className="dashicons dashicons-desktop"></i>
             </button>
         </li>
         <li className="tablet">
-            <button type="button" className="preview-tablet" data-device="tablet">
+            <button type="button" className="preview-tablet" data-device="tablet" onClick={() => setDevice('mobile')}>
                 <i className="dashicons dashicons-tablet"></i>
             </button>
         </li>
         <li className="mobile">
-            <button type="button" className="preview-mobile" data-device="mobile">
+            <button type="button" className="preview-mobile" data-device="mobile" onClick={() => setDevice('desktop')}>
                 <i className="dashicons dashicons-smartphone"></i>
             </button>
         </li>
@@ -216,13 +208,7 @@ const ResponsiveBackground = props => {
 
     inputHtml = <div className="background-wrapper">
         <div className="background-container desktop active">
-            {renderSettings('desktop')}
-        </div>
-        <div className="background-container tablet">
-            {renderSettings('tablet')}
-        </div>
-        <div className="background-container mobile">
-            {renderSettings('mobile')}
+            {renderSettings(device)}
         </div>
     </div>;
 

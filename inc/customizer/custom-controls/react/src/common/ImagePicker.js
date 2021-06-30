@@ -1,31 +1,41 @@
 
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';
-import { MediaUpload } from '@wordpress/media-utils';
+// import { MediaUpload } from 'wp-media-utils';
 import OptionContainer from './optioncontainer'
 import { Button, SelectControl } from '@wordpress/components';
 
 
-const ImagePicker = ({ media, onSelectImage, backgroundAttachment, backgroundPosition, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption, open }) => {
+const ImagePicker = ({ media, onSelectImage, onRemoveImage, backgroundAttachment, backgroundPosition, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption, open }) => {
     console.log(onChangeImageOption)
     const onChangeImageOptions = (tempKey, mainkey, value) => {
-        console.log("mainKey", mainkey)
         onChangeImageOption(mainkey, value, 'image');
     }
     return (
         <>
+            {(media.url || backgroundImage) &&
+
+                <img src={(media.url) ? media.url : backgroundImage} />
+            }
             <div className={`kmt-background-btns-wrap`}>
-                <MediaUpload
+                <wp.mediaUtils.MediaUpload
                     title={__("Select Background Image", 'kemet')}
-                    onSelect={(media) => onSelectImage('https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png')}
+                    onSelect={(media) => onSelectImage(media)}
                     allowedTypes={["image"]}
-                    value={(media && media ? media : '')}
+                    value={(media && media ? media : 'salma')}
                     render={({ open }) => (
-                        <Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
-                            { (!media && !backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
+                        <Button className="upload-button button-add-media" isDefault onClick={open}>
+                            {(!media && !backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
                         </Button>
                     )}
                 />
+                {(media || backgroundImage) &&
+
+                    <Button className="kmt-bg-img-remove" onClick={onRemoveImage} isLink isDestructive>
+                        {__("Remove Image", 'kemet')}
+                    </Button>
+
+                }
             </div>
             <OptionContainer
                 label={__("Background Repeat", 'kemet')}

@@ -58,7 +58,6 @@ const BackgroundComponent = props => {
 
                         props.control.setting.set(value);
                         setPropsValue(value);
-                        // refs.ChildAstraColorPickerControl.onResetRefresh();
                     }}>
                     <Dashicon icon='image-rotate' />
                 </button>
@@ -79,7 +78,6 @@ const BackgroundComponent = props => {
     };
 
     const onChangeImageOptions = (mainKey, value, backgroundType) => {
-        console.log(mainKey, "mainkey", backgroundType, value)
         let obj = {
             ...props_value
         };

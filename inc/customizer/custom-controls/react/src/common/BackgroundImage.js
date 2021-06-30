@@ -3,7 +3,6 @@ import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicke
 
 import PatternPicker from './pattern';
 import ImagePicker from './ImagePicker';
-import classnames from 'classnames'
 
 export default function BackgroundImage(props) {
     return (
@@ -36,8 +35,9 @@ export default function BackgroundImage(props) {
                                         backgroundRepeat={props.backgroundRepeat}
                                         backgroundSize={props.backgroundSize}
                                         backgroundImage={props.backgroundImage}
-                                        onChangeImageOption={props.onChangeImageOptions}
+                                        onChangeImageOption={props.onChangeImageOption}
                                         onSelectImage={props.onSelectImage}
+                                        onRemoveImage={props.onRemoveImage}
                                     />
 
                                 )
@@ -45,7 +45,9 @@ export default function BackgroundImage(props) {
                             else {
                                 tabout = (
                                     <>
-                                        <PatternPicker />
+                                        <PatternPicker
+                                            onSelectImage={props.onSelectImage}
+                                        />
                                     </>
                                 )
                             }

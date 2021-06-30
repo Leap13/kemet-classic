@@ -300,10 +300,11 @@ class KemetColorPickerControl extends Component {
         this.setState({ backgroundType: 'color' });
         this.props.onChangeComplete(color, 'color');
     }
+
     onChangeImageOptions(tempKey, mainkey, value) {
 
         this.setState({ backgroundType: 'image' });
-        // this.props.onChangeImageOptions(mainkey, value, 'image');
+        this.props.onChangeImageOptions(mainkey, value, 'image');
     }
 
     onPaletteChangeComplete(color) {
@@ -321,6 +322,7 @@ class KemetColorPickerControl extends Component {
         this.setState({ backgroundType: 'image' });
         this.props.onSelectImage(media, 'image');
     }
+
     onRemoveImage() {
 
         this.setState({ modalCanClose: true });
@@ -341,9 +343,9 @@ class KemetColorPickerControl extends Component {
 
         return (
             <>
-                { (this.props.media || this.props.backgroundImage) &&
+                {(this.props.media || this.props.backgroundImage) &&
 
-                    <img src={(this.props.media) ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : this.props.backgroundImage} />
+                    <img src={(this.props.media) ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png'} />
                 }
                 <BackgroundImage
                     open={this.open}
@@ -353,8 +355,9 @@ class KemetColorPickerControl extends Component {
                     backgroundRepeat={this.props.backgroundRepeat}
                     backgroundSize={this.props.backgroundSize}
                     backgroundImage={this.props.backgroundImage}
-                    onChangeImageOption={this.onChangeImageOptions}
+                    onChangeImageOption={() => this.onChangeImageOptions}
                     onSelectImage={this.onSelectImage}
+                    onRemoveImage={this.onRemoveImage}
                 />
 
 

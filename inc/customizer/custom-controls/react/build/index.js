@@ -162,54 +162,6 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-module.exports = _asyncToGenerator;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
@@ -22471,7 +22423,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
         }
 
         props.control.setting.set(value);
-        setPropsValue(value); // refs.ChildAstraColorPickerControl.onResetRefresh();
+        setPropsValue(value);
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "image-rotate"
@@ -22491,8 +22443,6 @@ var BackgroundComponent = function BackgroundComponent(props) {
   };
 
   var _onChangeImageOptions = function onChangeImageOptions(mainKey, value, backgroundType) {
-    console.log(mainKey, "mainkey", backgroundType, value);
-
     var obj = _objectSpread({}, props_value);
 
     obj[mainKey] = value;
@@ -22899,1089 +22849,6 @@ var AvailableControl = wp.customize.kemetControl.extend({
 
 /***/ }),
 
-/***/ "./src/color-group/control.js":
-/*!************************************!*\
-  !*** ./src/color-group/control.js ***!
-  \************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
-/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-
-(function ($, api) {
-  var $window = $(window),
-      $body = $('body');
-  var expandedSection = [];
-  var expandedPanel = '';
-  var defaultContextSet = '';
-  var is_cloning_index = false;
-  /**
-   * Resize Preview Frame when show / hide Builder.
-   */
-
-  var resizePreviewer = function resizePreviewer() {
-    var $section = $('.control-section.ahfb-header-builder-active');
-    var $footer = $('.control-section.ahfb-footer-builder-active');
-    var sidebar_widgets = $('#available-widgets');
-    sidebar_widgets.css('bottom', '289px');
-
-    if ($body.hasClass('ahfb-header-builder-is-active') || $body.hasClass('ahfb-footer-builder-is-active')) {
-      if ($body.hasClass('ahfb-footer-builder-is-active') && 0 < $footer.length && !$footer.hasClass('ahfb-builder-hide')) {
-        api.previewer.container.css('bottom', $footer.outerHeight() + 'px');
-      } else if ($body.hasClass('ahfb-header-builder-is-active') && 0 < $section.length && !$section.hasClass('ahfb-builder-hide')) {
-        sidebar_widgets.css('bottom', '289px');
-        api.previewer.container.css({
-          "bottom": $section.outerHeight() + 'px'
-        });
-      } else {
-        sidebar_widgets.css('bottom', '46px');
-        api.previewer.container.css('bottom', '');
-      }
-    } else {
-      api.previewer.container.css('bottom', '');
-    }
-
-    $section.css('overflow', 'visible');
-    $footer.css('overflow', 'visible');
-  };
-  /**
-   * Init Astra Header & Footer Builder
-   */
-
-
-  var initAstraBuilderPanel = function initAstraBuilderPanel(panel) {
-    var builder = panel.id.includes("-header-") ? 'header' : 'footer';
-    var section = api.section('section-' + builder + '-builder');
-
-    if (section) {
-      var $section = section.contentContainer,
-          section_layout = api.section('section-' + builder + '-builder-layout');
-      panel.expanded.bind(function (isExpanded) {
-        // Lazy load section on panel expand.
-        AstCustomizerAPI.setControlContextBySection(section);
-        AstCustomizerAPI.setControlContextBySection(section_layout);
-        Promise.all([_.each(section.controls(), function (control) {
-          if ('resolved' === control.deferred.embedded.state()) {
-            return;
-          }
-
-          control.renderContent();
-          control.deferred.embedded.resolve(); // This triggers control.ready().
-          // Fire event after control is initialized.
-
-          control.container.trigger('init');
-        }), _.each(section_layout.controls(), function (control) {
-          if ('resolved' === control.deferred.embedded.state()) {
-            return;
-          }
-
-          control.renderContent();
-          control.deferred.embedded.resolve(); // This triggers control.ready().
-          // Fire event after control is initialized.
-
-          control.container.trigger('init');
-        })]).then(function () {
-          resizePreviewer();
-        });
-
-        if (isExpanded) {
-          expandedPanel = panel.id;
-          $body.addClass('ahfb-' + builder + '-builder-is-active');
-          $section.addClass('ahfb-' + builder + '-builder-active');
-          $('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
-
-          if ('header' === builder) {
-            $('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
-          } else {
-            $('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
-          }
-        } else {
-          $('#sub-accordion-section-section-footer-builder').css('overflow', 'hidden');
-          $('#sub-accordion-section-section-header-builder').css('overflow', 'hidden');
-          api.state('astra-customizer-tab').set('general');
-          $body.removeClass('ahfb-' + builder + '-builder-is-active');
-          $section.removeClass('ahfb-' + builder + '-builder-active');
-        }
-      });
-      $section.on('click', '.ahfb-builder-tab-toggle', function (e) {
-        e.preventDefault();
-        api.previewer.container.css({
-          "bottom": '0px'
-        });
-        setTimeout(function () {
-          $section.toggleClass('ahfb-builder-hide');
-          resizePreviewer();
-        }, 120);
-      });
-    }
-  };
-  /**
-   * API for control/section/panel registrations.
-   */
-
-
-  var AstCustomizerAPI = {
-    addPanel: function addPanel(id, data) {
-      // Return if panel already exists.
-      if (api.panel(id)) {
-        return;
-      }
-
-      var Constructor = api.panelConstructor[data.type] || api.Panel,
-          options;
-      options = _.extend({
-        params: data
-      }, data);
-      api.panel.add(new Constructor(id, options)); // Scroll to footer.
-
-      if ('panel-footer-builder-group' === id) {
-        $('#accordion-panel-' + id).on('click', function () {
-          var $iframeBody = $body.find('iframe').contents().find('body');
-          $body.find('iframe').contents().find('body, html').animate({
-            scrollTop: $iframeBody[0].scrollHeight
-          }, 500);
-        });
-      } // Scroll to header.
-
-
-      if ('panel-header-builder-group' === id) {
-        $('#accordion-panel-' + id).on('click', function () {
-          $body.find('iframe').contents().find('body, html').animate({
-            scrollTop: 0
-          }, 500);
-        });
-      }
-    },
-    addSection: function addSection(id, data) {
-      // Return if section already exists.
-      if (api.section(id)) {
-        if (id.startsWith("sidebar-widgets-")) {
-          api.section(id).panel(data['panel']); // Change panel.
-
-          return;
-        }
-
-        api.section.remove(id);
-      }
-
-      var Constructor = api.sectionConstructor[data.type] || api.Section,
-          options;
-      options = _.extend({
-        params: data
-      }, data);
-      api.section.add(new Constructor(id, options));
-    },
-    addSubControl: function addSubControl(parent_control_id) {
-      if ('undefined' != typeof AstraBuilderCustomizerData) {
-        var sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[parent_control_id]);
-
-        for (var _i = 0, _Object$entries = Object.entries(sub_controls); _i < _Object$entries.length; _i++) {
-          var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries[_i], 2),
-              section_id = _Object$entries$_i[0],
-              config = _Object$entries$_i[1];
-
-          AstCustomizerAPI.addControl(config.id, config);
-        }
-      }
-    },
-    addControl: function addControl(id, data) {
-      // Return if control already exists.
-      if (!api.control(id)) {
-        var Constructor = api.controlConstructor[data.type] || api.Control,
-            options;
-        options = _.extend({
-          params: data
-        }, data);
-        api.control.add(new Constructor(id, options));
-      }
-
-      if (false !== is_cloning_index) {
-        var cloneFromId = id;
-        cloneFromId = cloneFromId.replace(/[0-9]+/g, is_cloning_index); // Replace random numeric with valid clone index.
-
-        if (api.control(cloneFromId)) {
-          var val = api(cloneFromId).get();
-
-          if (val) {
-            api(id).set(val);
-          }
-        }
-      } // Change description to tooltip.
-
-
-      change_description_as_tooltip(api.control(id));
-
-      if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
-        this.addSubControl(id);
-      }
-    },
-    addControlContext: function addControlContext(section_id, control_id) {
-      set_context(control_id);
-    },
-    registerControlsBySection: function () {
-      var _registerControlsBySection = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(section) {
-        var controls, _i2, _Object$entries2, _Object$entries2$_i, section_id, config;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (section) {
-                  _context.next = 2;
-                  break;
-                }
-
-                return _context.abrupt("return");
-
-              case 2:
-                if (!('undefined' != typeof AstraBuilderCustomizerData)) {
-                  _context.next = 13;
-                  break;
-                }
-
-                controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
-                _i2 = 0, _Object$entries2 = Object.entries(controls);
-
-              case 5:
-                if (!(_i2 < _Object$entries2.length)) {
-                  _context.next = 13;
-                  break;
-                }
-
-                _Object$entries2$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries2[_i2], 2), section_id = _Object$entries2$_i[0], config = _Object$entries2$_i[1];
-                this.addControl(config.id, config);
-                _context.next = 10;
-                return null;
-
-              case 10:
-                _i2++;
-                _context.next = 5;
-                break;
-
-              case 13:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function registerControlsBySection(_x) {
-        return _registerControlsBySection.apply(this, arguments);
-      }
-
-      return registerControlsBySection;
-    }(),
-    deleteControlsBySection: function deleteControlsBySection(section) {
-      if (!section) {
-        return false;
-      }
-
-      var controls = section.controls();
-
-      _.each(controls, function (control) {
-        control.container.remove();
-        api.control.remove(control.id);
-      });
-    },
-    resetControlsBySection: function resetControlsBySection(section_id) {
-      if (!AstraBuilderCustomizerData.js_configs.controls.hasOwnProperty(section_id)) {
-        return false;
-      }
-
-      var control_defaults = JSON.parse(JSON.stringify(AstraBuilderCustomizerData.defaults));
-      var controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section_id]);
-
-      for (var _i3 = 0, _Object$entries3 = Object.entries(controls); _i3 < _Object$entries3.length; _i3++) {
-        var _Object$entries3$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries3[_i3], 2),
-            control_id = _Object$entries3$_i[0],
-            config = _Object$entries3$_i[1];
-
-        if (control_defaults.hasOwnProperty(config.id)) {
-          api(config.id).set(control_defaults[config.id]);
-          api.control(config.id).renderContent();
-        }
-
-        if ('ast-settings-group' === config['type']) {
-          var sub_controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.sub_controls[config.id] || []);
-
-          for (var _i4 = 0, _Object$entries4 = Object.entries(sub_controls); _i4 < _Object$entries4.length; _i4++) {
-            var _Object$entries4$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries4[_i4], 2),
-                sub_control_id = _Object$entries4$_i[0],
-                sub_config = _Object$entries4$_i[1];
-
-            if (control_defaults.hasOwnProperty(sub_config.id)) {
-              api(sub_config.id).set(control_defaults[sub_config.id]);
-            }
-          }
-        }
-      }
-    },
-    setControlContextBySection: function () {
-      var _setControlContextBySection = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2(section) {
-        var controls, _i5, _Object$entries5, _Object$entries5$_i, control_id, config;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                if (!expandedSection.includes(section.id)) {
-                  _context2.next = 2;
-                  break;
-                }
-
-                return _context2.abrupt("return");
-
-              case 2:
-                if (!('undefined' != typeof AstraBuilderCustomizerData)) {
-                  _context2.next = 14;
-                  break;
-                }
-
-                controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
-                _i5 = 0, _Object$entries5 = Object.entries(controls);
-
-              case 5:
-                if (!(_i5 < _Object$entries5.length)) {
-                  _context2.next = 13;
-                  break;
-                }
-
-                _Object$entries5$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries5[_i5], 2), control_id = _Object$entries5$_i[0], config = _Object$entries5$_i[1];
-                this.addControlContext(section.id, config.id);
-                _context2.next = 10;
-                return null;
-
-              case 10:
-                _i5++;
-                _context2.next = 5;
-                break;
-
-              case 13:
-                expandedSection.push(section.id);
-
-              case 14:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function setControlContextBySection(_x2) {
-        return _setControlContextBySection.apply(this, arguments);
-      }
-
-      return setControlContextBySection;
-    }(),
-    setDefaultControlContext: function setDefaultControlContext() {
-      if ('undefined' === typeof AstraBuilderCustomizerData || defaultContextSet) {
-        return;
-      }
-
-      var skip_context = AstraBuilderCustomizerData.js_configs.skip_context || []; // Set tab status as general for all wp default controls.
-
-      $.each(api.settings.controls, /*#__PURE__*/function () {
-        var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3(id, data) {
-          var rules;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
-            while (1) {
-              switch (_context3.prev = _context3.next) {
-                case 0:
-                  if (!(-1 != skip_context.indexOf(id))) {
-                    _context3.next = 2;
-                    break;
-                  }
-
-                  return _context3.abrupt("return");
-
-                case 2:
-                  if (!(-1 == AstraBuilderCustomizerData.tabbed_sections.indexOf(api.control(id).section()))) {
-                    _context3.next = 4;
-                    break;
-                  }
-
-                  return _context3.abrupt("return");
-
-                case 4:
-                  rules = AstraBuilderCustomizerData.contexts[id];
-
-                  if (rules) {
-                    set_context(id, rules);
-                  } else {
-                    set_context(id, [{
-                      "setting": "ast_selected_tab",
-                      "value": "general"
-                    }]);
-                  }
-
-                  _context3.next = 8;
-                  return null;
-
-                case 8:
-                case "end":
-                  return _context3.stop();
-              }
-            }
-          }, _callee3);
-        }));
-
-        return function (_x3, _x4) {
-          return _ref.apply(this, arguments);
-        };
-      }());
-      defaultContextSet = true;
-    },
-    initializeDynamicSettings: function () {
-      var _initializeDynamicSettings = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee4() {
-        var settings, _i6, _Object$entries6, _Object$entries6$_i, setting_id, setting;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                settings = Object.assign({}, AstraBuilderCustomizerData.dynamic_setting_options);
-                _i6 = 0, _Object$entries6 = Object.entries(settings);
-
-              case 2:
-                if (!(_i6 < _Object$entries6.length)) {
-                  _context4.next = 10;
-                  break;
-                }
-
-                _Object$entries6$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries6[_i6], 2), setting_id = _Object$entries6$_i[0], setting = _Object$entries6$_i[1];
-                api.add(new api.Setting(setting_id, setting.default, setting));
-                _context4.next = 7;
-                return null;
-
-              case 7:
-                _i6++;
-                _context4.next = 2;
-                break;
-
-              case 10:
-              case "end":
-                return _context4.stop();
-            }
-          }
-        }, _callee4);
-      }));
-
-      function initializeDynamicSettings() {
-        return _initializeDynamicSettings.apply(this, arguments);
-      }
-
-      return initializeDynamicSettings;
-    }(),
-    initializeConfigs: function initializeConfigs() {
-      if ('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs) {
-        var panels = AstraBuilderCustomizerData.js_configs.panels || [];
-        var sections = AstraBuilderCustomizerData.js_configs.sections || [];
-        var controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls || []);
-
-        var prepare_panels = /*#__PURE__*/function () {
-          var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee5() {
-            var _i7, _Object$entries7, _Object$entries7$_i, panel_id, config;
-
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee5$(_context5) {
-              while (1) {
-                switch (_context5.prev = _context5.next) {
-                  case 0:
-                    _i7 = 0, _Object$entries7 = Object.entries(panels);
-
-                  case 1:
-                    if (!(_i7 < _Object$entries7.length)) {
-                      _context5.next = 9;
-                      break;
-                    }
-
-                    _Object$entries7$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries7[_i7], 2), panel_id = _Object$entries7$_i[0], config = _Object$entries7$_i[1];
-                    AstCustomizerAPI.addPanel(panel_id, config);
-                    _context5.next = 6;
-                    return null;
-
-                  case 6:
-                    _i7++;
-                    _context5.next = 1;
-                    break;
-
-                  case 9:
-                  case "end":
-                    return _context5.stop();
-                }
-              }
-            }, _callee5);
-          }));
-
-          return function prepare_panels() {
-            return _ref2.apply(this, arguments);
-          };
-        }();
-
-        var prepare_section_controls = /*#__PURE__*/function () {
-          var _ref3 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee6() {
-            var _i8, _Object$entries8, _Object$entries8$_i, section_id, config;
-
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee6$(_context6) {
-              while (1) {
-                switch (_context6.prev = _context6.next) {
-                  case 0:
-                    _i8 = 0, _Object$entries8 = Object.entries(sections);
-
-                  case 1:
-                    if (!(_i8 < _Object$entries8.length)) {
-                      _context6.next = 11;
-                      break;
-                    }
-
-                    _Object$entries8$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries8[_i8], 2), section_id = _Object$entries8$_i[0], config = _Object$entries8$_i[1];
-                    AstCustomizerAPI.addSection(section_id, config);
-                    AstCustomizerAPI.registerControlsBySection(api.section(section_id));
-                    delete controls[section_id];
-                    _context6.next = 8;
-                    return null;
-
-                  case 8:
-                    _i8++;
-                    _context6.next = 1;
-                    break;
-
-                  case 11:
-                  case "end":
-                    return _context6.stop();
-                }
-              }
-            }, _callee6);
-          }));
-
-          return function prepare_section_controls() {
-            return _ref3.apply(this, arguments);
-          };
-        }();
-
-        var prepare_third_party_sections = /*#__PURE__*/function () {
-          var _ref4 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee7() {
-            var _i9, _Object$entries9, _Object$entries9$_i, section_id, config;
-
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee7$(_context7) {
-              while (1) {
-                switch (_context7.prev = _context7.next) {
-                  case 0:
-                    _i9 = 0, _Object$entries9 = Object.entries(controls);
-
-                  case 1:
-                    if (!(_i9 < _Object$entries9.length)) {
-                      _context7.next = 11;
-                      break;
-                    }
-
-                    _Object$entries9$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries9[_i9], 2), section_id = _Object$entries9$_i[0], config = _Object$entries9$_i[1];
-
-                    if (!("undefined" === typeof api.section(section_id))) {
-                      _context7.next = 5;
-                      break;
-                    }
-
-                    return _context7.abrupt("continue", 8);
-
-                  case 5:
-                    AstCustomizerAPI.registerControlsBySection(api.section(section_id));
-                    _context7.next = 8;
-                    return null;
-
-                  case 8:
-                    _i9++;
-                    _context7.next = 1;
-                    break;
-
-                  case 11:
-                  case "end":
-                    return _context7.stop();
-                }
-              }
-            }, _callee7);
-          }));
-
-          return function prepare_third_party_sections() {
-            return _ref4.apply(this, arguments);
-          };
-        }();
-
-        Promise.all([prepare_panels(), prepare_section_controls()]).then(function () {
-          prepare_third_party_sections();
-        });
-        api.panel('panel-header-builder-group', initAstraBuilderPanel);
-        api.panel('panel-footer-builder-group', initAstraBuilderPanel);
-      }
-    },
-    moveDefaultSection: function () {
-      var _moveDefaultSection = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee8() {
-        var _i10, _Object$entries10, _Object$entries10$_i, control, section;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                if (!('undefined' != typeof AstraBuilderCustomizerData && AstraBuilderCustomizerData.js_configs.wp_defaults)) {
-                  _context8.next = 10;
-                  break;
-                }
-
-                _i10 = 0, _Object$entries10 = Object.entries(AstraBuilderCustomizerData.js_configs.wp_defaults);
-
-              case 2:
-                if (!(_i10 < _Object$entries10.length)) {
-                  _context8.next = 10;
-                  break;
-                }
-
-                _Object$entries10$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_Object$entries10[_i10], 2), control = _Object$entries10$_i[0], section = _Object$entries10$_i[1];
-                api.control(control).section(section);
-                _context8.next = 7;
-                return null;
-
-              case 7:
-                _i10++;
-                _context8.next = 2;
-                break;
-
-              case 10:
-              case "end":
-                return _context8.stop();
-            }
-          }
-        }, _callee8);
-      }));
-
-      function moveDefaultSection() {
-        return _moveDefaultSection.apply(this, arguments);
-      }
-
-      return moveDefaultSection;
-    }()
-  };
-  /**
-   * Change description to tooltip.
-   * @param ctrl
-   */
-
-  var change_description_as_tooltip = function change_description_as_tooltip(ctrl) {
-    var desc = ctrl.container.find(".customize-control-description");
-
-    if (desc.length) {
-      var li_wrapper = desc.closest("li"); // Replace unicode range with string characters.
-
-      var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
-        return '&#' + i.charCodeAt(0) + ';';
-      });
-      desc.remove();
-      li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip + "\'></i>");
-    }
-  };
-  /**
-   * Set context for all controls.
-   * @param control_id
-   * @param control_rules
-   */
-
-
-  var set_context = function set_context(control_id) {
-    var control_rules = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-    if ('undefined' != typeof AstraBuilderCustomizerData) {
-      var rules = control_rules ? control_rules : AstraBuilderCustomizerData.contexts[control_id];
-
-      if (rules) {
-        var getSetting = function getSetting(settingName) {
-          switch (settingName) {
-            case 'ast_selected_device':
-              return api.previewedDevice;
-
-            case 'ast_selected_tab':
-              return api.state('astra-customizer-tab');
-
-            default:
-              return api(settingName);
-          }
-        };
-
-        var initContext = function initContext(element) {
-          var compareByOperator = function compareByOperator(rule) {
-            var result = false,
-                setting = getSetting(rule['setting']);
-
-            if ('undefined' == typeof setting) {
-              return false;
-            }
-
-            var operator = rule['operator'],
-                comparedValue = rule['value'],
-                currentValue = setting.get();
-
-            if (undefined == operator || '=' == operator) {
-              operator = '==';
-            }
-
-            if (_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(currentValue) === 'object' && undefined !== currentValue[rule['setting-key']]) {
-              currentValue = currentValue[rule['setting-key']];
-            }
-
-            switch (operator) {
-              case '>':
-                result = currentValue > comparedValue;
-                break;
-
-              case '<':
-                result = currentValue < comparedValue;
-                break;
-
-              case '>=':
-                result = currentValue >= comparedValue;
-                break;
-
-              case '<=':
-                result = currentValue <= comparedValue;
-                break;
-
-              case 'in':
-                result = 0 <= comparedValue.indexOf(currentValue);
-                break;
-
-              case 'contains':
-                result = 0 <= currentValue.indexOf(comparedValue);
-                break;
-
-              case '!=':
-                result = comparedValue != currentValue;
-                break;
-
-              default:
-                result = comparedValue == currentValue;
-                break;
-            }
-
-            return result;
-          };
-
-          var compareByRelation = function compareByRelation(relation, displayed, result) {
-            switch (relation) {
-              case 'OR':
-                displayed = displayed || result;
-                break;
-
-              default:
-                displayed = displayed && result;
-                break;
-            }
-
-            return displayed;
-          };
-
-          var getResultByRules = function getResultByRules(rules, relation, displayed) {
-            _.each(rules, function (rule, key) {
-              if ('relation' == key) return;
-              if ('AND' == relation && false == displayed) return;
-
-              if (undefined === rule['setting']) {
-                var contextRelation = rule['relation'];
-
-                if (!contextRelation) {
-                  return;
-                }
-
-                displayed = getResultByRules(rule, contextRelation, false);
-              } else {
-                var result = compareByOperator(rule);
-                displayed = compareByRelation(relation, displayed, result);
-              }
-            });
-
-            return displayed;
-          };
-
-          var bindSettings = function bindSettings(rules) {
-            _.each(rules, function (rule, index) {
-              var setting = getSetting(rule['setting']);
-
-              if (undefined !== setting) {
-                setting.bind(setActiveState);
-              } else {
-                if (rule['relation']) {
-                  bindSettings(rule);
-                }
-              }
-            });
-          };
-
-          var isDisplayed = function isDisplayed() {
-            var displayed = false,
-                relation = rules['relation'];
-
-            if ('OR' !== relation) {
-              relation = 'AND';
-              displayed = true;
-            }
-
-            return getResultByRules(rules, relation, displayed);
-          };
-
-          var setActiveState = function setActiveState() {
-            element._toggleActive(isDisplayed(), {
-              duration: 0
-            });
-          };
-
-          bindSettings(rules);
-          element.active.validate = isDisplayed;
-          setActiveState();
-        };
-
-        api.control(control_id, initContext);
-      }
-    }
-  };
-  /**
-   * Highliting the active componenet.
-   * @param customizer_section
-   */
-
-
-  var highlight_active_component = function highlight_active_component(customizer_section) {
-    var builder_items = $('.ahfb-builder-drop .ahfb-builder-item');
-    $.each(builder_items, /*#__PURE__*/function () {
-      var _ref5 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee9(i, val) {
-        var component_section;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee9$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-                component_section = $(val).attr('data-section');
-
-                if (component_section === customizer_section.id && $('#sub-accordion-section-' + component_section).hasClass('open')) {
-                  $(val).addClass('active-builder-item');
-                } else {
-                  $(val).removeClass('active-builder-item');
-                }
-
-                _context9.next = 4;
-                return null;
-
-              case 4:
-              case "end":
-                return _context9.stop();
-            }
-          }
-        }, _callee9);
-      }));
-
-      return function (_x5, _x6) {
-        return _ref5.apply(this, arguments);
-      };
-    }());
-  };
-  /**
-   * Highliting the active row.
-   * @param customizer_section
-   */
-
-
-  var highlight_active_row = function highlight_active_row(customizer_section) {
-    // Highlight builder rows.
-    var builder_rows = $('.ahfb-builder-items .ahfb-builder-areas');
-    $.each(builder_rows, /*#__PURE__*/function () {
-      var _ref6 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee10(i, val) {
-        var builder_row;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee10$(_context10) {
-          while (1) {
-            switch (_context10.prev = _context10.next) {
-              case 0:
-                builder_row = $(val).attr('data-row-section');
-
-                if (builder_row === customizer_section.id && $('#sub-accordion-section-' + builder_row).hasClass('open')) {
-                  $(val).addClass('active-builder-row');
-                } else {
-                  $(val).removeClass('active-builder-row');
-                }
-
-                _context10.next = 4;
-                return null;
-
-              case 4:
-              case "end":
-                return _context10.stop();
-            }
-          }
-        }, _callee10);
-      }));
-
-      return function (_x7, _x8) {
-        return _ref6.apply(this, arguments);
-      };
-    }());
-  };
-  /**
-   * Set context using URL query params.
-   */
-
-
-  var set_context_by_url_params = function set_context_by_url_params() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var tab = urlParams.get("context");
-
-    if (tab) {
-      api.state('astra-customizer-tab').set(tab);
-    }
-  };
-
-  var astra_builder_clear_operation_session = function astra_builder_clear_operation_session() {
-    sessionStorage.removeItem('astra-builder-clone-in-progress');
-    sessionStorage.removeItem('astra-builder-eradicate-in-progress');
-    sessionStorage.removeItem('astra-builder-reset-in-progress');
-  };
-
-  api.bind('ready', function () {
-    astra_builder_clear_operation_session();
-    api.state.create('astra-customizer-tab');
-    api.state('astra-customizer-tab').set('general'); // Set handler when custom responsive toggle is clicked.
-
-    $('#customize-theme-controls').on('click', '.ahfb-build-tabs-button:not(.ahfb-nav-tabs-button)', function (e) {
-      e.preventDefault();
-      api.previewedDevice.set($(this).attr('data-device'));
-    }); // Set handler when custom responsive toggle is clicked.
-
-    $('#customize-theme-controls').on('click', '.ahfb-compontent-tabs-button:not(.ahfb-nav-tabs-button)', function (e) {
-      e.preventDefault();
-      api.state('astra-customizer-tab').set($(this).attr('data-tab'));
-    });
-
-    var setCustomTabElementsDisplay = function setCustomTabElementsDisplay() {
-      var tabState = api.state('astra-customizer-tab').get(),
-          $tabs = $('.ahfb-compontent-tabs-button:not(.ahfb-nav-tabs-button)');
-      $tabs.removeClass('nav-tab-active').filter('.ahfb-' + tabState + '-tab').addClass('nav-tab-active');
-    }; // Refresh all responsive elements when previewedDevice is changed.
-
-
-    api.state('astra-customizer-tab').bind(setCustomTabElementsDisplay);
-    $window.on('resize', resizePreviewer);
-    setTimeout(function () {
-      Promise.all([AstCustomizerAPI.initializeDynamicSettings(), AstCustomizerAPI.initializeConfigs()]).then(function () {
-        api.section.each(function (section) {
-          section.expanded.bind(function (isExpanded) {
-            // Lazy Loaded Context.
-            AstCustomizerAPI.setControlContextBySection(api.section(section.id));
-
-            if (!isExpanded) {
-              // Setting general context when collapsed.
-              api.state('astra-customizer-tab').set('general');
-            }
-
-            $('#sub-accordion-panel-' + expandedPanel + ' li.control-section').hide();
-            var customizer_section = api.section(section.id);
-            set_context_by_url_params();
-
-            _.each(section.controls(), function (control) {
-              highlight_active_component(customizer_section);
-              highlight_active_row(customizer_section);
-            });
-          });
-        });
-        AstCustomizerAPI.moveDefaultSection();
-      });
-    }, 200);
-    api.previewer.bind('ready', function () {
-      AstCustomizerAPI.setDefaultControlContext();
-      astra_builder_clear_operation_session(); // Local font files regeneration logic.
-
-      $('input.ast-flush-font-files').on('click', function (e) {
-        var data = {
-          action: 'astra_regenerate_fonts_folder',
-          nonce: AstraBuilderCustomizerData.astraRegenerateFonts
-        };
-        $('input.ast-flush-font-files').attr('disabled', 'disabled');
-        $.post(ajaxurl, data, function (response) {
-          if (response && response.success) {
-            $('input.ast-flush-font-files').val(AstraBuilderCustomizerData.successFlushed);
-            setTimeout(function () {
-              $('input.ast-flush-font-files').prop('disabled', false);
-              $('input.ast-flush-font-files').val(AstraBuilderCustomizerData.initialFlushText);
-            }, 1000);
-          } else {
-            $('input.ast-flush-font-files').val(AstraBuilderCustomizerData.failedFlushed);
-            setTimeout(function () {
-              $('input.ast-flush-font-files').prop('disabled', false);
-              $('input.ast-flush-font-files').val(AstraBuilderCustomizerData.initialFlushText);
-            }, 1000);
-          }
-        });
-      });
-      api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
-        // Clear clone process if partially refreshed.
-        astra_builder_clear_operation_session();
-      });
-      document.addEventListener('AstraBuilderCloneSectionControls', function (e) {
-        var cloneData = e.detail;
-
-        if (!cloneData) {
-          return;
-        }
-
-        var clone_to_section = cloneData.clone_to_section,
-            clone_from_section = cloneData.clone_from_section; // Return if cloning section already presents.
-
-        if (api.section(clone_to_section)) {
-          return;
-        }
-
-        var section_config = AstraBuilderCustomizerData.js_configs.clone_sections[clone_to_section];
-
-        if (!section_config) {
-          section_config = AstraBuilderCustomizerData.js_configs.sections[clone_to_section];
-        }
-
-        AstCustomizerAPI.addSection(clone_to_section, section_config);
-        is_cloning_index = clone_from_section.match(/\d+$/)[0];
-        Promise.all([AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section))]).then(function () {
-          is_cloning_index = false;
-        });
-        api.section(clone_to_section).expanded.bind(function (isExpanded) {
-          AstCustomizerAPI.setControlContextBySection(api.section(clone_to_section));
-        });
-      });
-      document.addEventListener('AstraBuilderDeleteSectionControls', function (e) {
-        var forceRemoveSection = e.detail;
-
-        if (!forceRemoveSection) {
-          return;
-        }
-
-        var section = api.section(forceRemoveSection.section);
-
-        if (section && section.expanded) {
-          section.collapse();
-        }
-
-        AstCustomizerAPI.deleteControlsBySection(section);
-        api.section.remove(forceRemoveSection.section);
-      });
-    });
-  });
-})(jQuery, wp.customize);
-
-/***/ }),
-
 /***/ "./src/color/color-component.js":
 /*!**************************************!*\
   !*** ./src/color/color-component.js ***!
@@ -24174,9 +23041,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _pattern__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pattern */ "./src/common/pattern.js");
 /* harmony import */ var _ImagePicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ImagePicker */ "./src/common/ImagePicker.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
-
 
 
 
@@ -24210,11 +23074,14 @@ function BackgroundImage(props) {
           backgroundRepeat: props.backgroundRepeat,
           backgroundSize: props.backgroundSize,
           backgroundImage: props.backgroundImage,
-          onChangeImageOption: props.onChangeImageOptions,
-          onSelectImage: props.onSelectImage
+          onChangeImageOption: props.onChangeImageOption,
+          onSelectImage: props.onSelectImage,
+          onRemoveImage: props.onRemoveImage
         });
       } else {
-        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_pattern__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+        tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_pattern__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          onSelectImage: props.onSelectImage
+        }));
       }
     }
 
@@ -24239,14 +23106,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/media-utils */ "@wordpress/media-utils");
-/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _optioncontainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./optioncontainer */ "./src/common/optioncontainer.js");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _optioncontainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./optioncontainer */ "./src/common/optioncontainer.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 
 
-
+ // import { MediaUpload } from 'wp-media-utils';
 
 
 
@@ -24254,6 +23119,7 @@ __webpack_require__.r(__webpack_exports__);
 var ImagePicker = function ImagePicker(_ref) {
   var media = _ref.media,
       onSelectImage = _ref.onSelectImage,
+      onRemoveImage = _ref.onRemoveImage,
       backgroundAttachment = _ref.backgroundAttachment,
       backgroundPosition = _ref.backgroundPosition,
       backgroundImage = _ref.backgroundImage,
@@ -24264,30 +23130,34 @@ var ImagePicker = function ImagePicker(_ref) {
   console.log(onChangeImageOption);
 
   var onChangeImageOptions = function onChangeImageOptions(tempKey, mainkey, value) {
-    console.log("mainKey", mainkey);
     onChangeImageOption(mainkey, value, 'image');
   };
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, (media.url || backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+    src: media.url ? media.url : backgroundImage
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-background-btns-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_3__["MediaUpload"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(wp.mediaUtils.MediaUpload, {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Select Background Image", 'kemet'),
     onSelect: function onSelect(media) {
-      return onSelectImage('https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png');
+      return onSelectImage(media);
     },
     allowedTypes: ["image"],
-    value: media && media ? media : '',
+    value: media && media ? media : 'salma',
     render: function render(_ref2) {
       var open = _ref2.open;
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Button"], {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
         className: "upload-button button-add-media",
         isDefault: true,
-        onClick: function onClick() {
-          return open(open);
-        }
+        onClick: open
       }, !media && !backgroundImage ? Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Select Background Image", 'kemet') : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Replace image", 'kemet'));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), (media || backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+    className: "kmt-bg-img-remove",
+    onClick: onRemoveImage,
+    isLink: true,
+    isDestructive: true
+  }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Remove Image", 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Background Repeat", 'kemet'),
     value: backgroundRepeat,
     options: {
@@ -24342,7 +23212,7 @@ var ImagePicker = function ImagePicker(_ref) {
     onChange: function onChange(value) {
       return onChangeImageOptions('backgroundRepeat', 'background-repeat', value);
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Background Size", 'kemet'),
     value: backgroundSize,
     options: {
@@ -24353,7 +23223,7 @@ var ImagePicker = function ImagePicker(_ref) {
     onChange: function onChange(value) {
       return onChangeImageOptions('backgroundSize', 'background-size', value);
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_optioncontainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Background Attachment", 'kemet'),
     value: backgroundAttachment,
     options: {
@@ -24363,7 +23233,7 @@ var ImagePicker = function ImagePicker(_ref) {
     onChange: function onChange(value) {
       return onChangeImageOptions('backgroundAttachment', 'background-attachment', value);
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["SelectControl"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["SelectControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])("Image Position"),
     value: backgroundPosition,
     onChange: function onChange(value) {
@@ -25056,7 +23926,8 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
     value: function onChangeImageOptions(tempKey, mainkey, value) {
       this.setState({
         backgroundType: 'image'
-      }); // this.props.onChangeImageOptions(mainkey, value, 'image');
+      });
+      this.props.onChangeImageOptions(mainkey, value, 'image');
     }
   }, {
     key: "onPaletteChangeComplete",
@@ -25105,8 +23976,10 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderImageSettings",
     value: function renderImageSettings() {
+      var _this3 = this;
+
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, (this.props.media || this.props.backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("img", {
-        src: this.props.media ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : this.props.backgroundImage
+        src: this.props.media ? 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png' : 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673-960x960.png'
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_BackgroundImage__WEBPACK_IMPORTED_MODULE_15__["default"], {
         open: this.open,
         onChange: true,
@@ -25115,8 +23988,11 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         backgroundRepeat: this.props.backgroundRepeat,
         backgroundSize: this.props.backgroundSize,
         backgroundImage: this.props.backgroundImage,
-        onChangeImageOption: this.onChangeImageOptions,
-        onSelectImage: this.onSelectImage
+        onChangeImageOption: function onChangeImageOption() {
+          return _this3.onChangeImageOptions;
+        },
+        onSelectImage: this.onSelectImage,
+        onRemoveImage: this.onRemoveImage
       }));
     }
   }]);
@@ -25409,86 +24285,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patternsList", function() { return patternsList; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
-
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 var patternsList = [{
   id: 'type-1',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Hideout', 'blocksy'),
-  src: '../../../patterns/hideout.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Hideout'),
+  url: '../../../patterns/hideout.svg'
 }, {
   id: 'type-2',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Triangles', 'blocksy'),
-  src: '../../../patterns/triangles.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Triangles'),
+  url: '../../../patterns/triangles.svg'
 }, {
   id: 'type-3',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Bubbles', 'blocksy'),
-  src: '../../../patterns/bubbles.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Bubbles'),
+  url: '../../../patterns/bubbles.svg'
 }, {
   id: 'type-4',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Wiggle', 'blocksy'),
-  src: '../../../patterns/wiggle.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Wiggle'),
+  url: '../../../patterns/wiggle.svg'
 }, {
   id: 'type-5',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Polka Dots', 'blocksy'),
-  src: '../../../patterns/polka-dots.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Polka Dots'),
+  url: '../../../patterns/polka-dots.svg'
 }, {
   id: 'type-6',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Overlaping Circles', 'blocksy'),
-  src: '../../../patterns/overlaping-circles.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Overlaping Circles'),
+  url: '../../../patterns/overlaping-circles.svg'
 }, {
   id: 'type-7',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Texture', 'blocksy'),
-  src: '../../../patterns/texture.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Texture'),
+  url: '../../../patterns/texture.svg'
 }, {
   id: 'type-8',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Diagonal Lines', 'blocksy'),
-  src: '../../../patterns/diagonal-lines.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Diagonal Lines'),
+  url: '../../../patterns/diagonal-lines.svg'
 }, {
   id: 'type-9',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Rain', 'blocksy'),
-  src: '../../../patterns/rain.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Rain'),
+  url: '../../../patterns/rain.svg'
 }, {
   id: 'type-10',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Stripes', 'blocksy'),
-  src: '../../../patterns/stripes.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Stripes'),
+  url: '../../../patterns/stripes.svg'
 }, {
   id: 'type-11',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Diagonal Stripes', 'blocksy'),
-  src: '../../../patterns/diagonal-stripes.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Diagonal Stripes'),
+  url: '../../../patterns/diagonal-stripes.svg'
 }, {
   id: 'type-12',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Intersecting Circles', 'blocksy'),
-  src: '../../../patterns/intersecting-circles.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Intersecting Circles'),
+  url: '../../../patterns/intersecting-circles.svg'
 }, {
   id: 'type-13',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Bank Note', 'blocksy'),
-  src: '../../../patterns/bank-note.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Bank Note'),
+  url: '../../../patterns/bank-note.svg'
 }, {
   id: 'type-14',
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Zig Zag', 'blocksy'),
-  src: '../../../patterns/zig-zag.svg'
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Zig Zag'),
+  url: '../../../patterns/zig-zag.svg'
 }];
 
-var PatternPicker = function PatternPicker() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
-    src: "../s"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+var PatternPicker = function PatternPicker(_ref) {
+  var onSelectImage = _ref.onSelectImage;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
     className: "ct-patterns-list"
   }, patternsList.map(function (singlePattern) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("li", {
-      onClick: function onClick() {
-        return console.log('pattern');
+      onClick: function onClick(singlePattern) {
+        return onSelectImage(singlePattern);
       },
       key: singlePattern.id,
       title: singlePattern.title
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
-      src: singlePattern.src
+      src: singlePattern.url
     }));
   })));
 };
@@ -26387,9 +25259,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Toggle_control__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Toggle/control */ "./src/Toggle/control.js");
 /* harmony import */ var _responsive_color_control__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./responsive-color/control */ "./src/responsive-color/control.js");
 /* harmony import */ var _Background_control__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Background/control */ "./src/Background/control.js");
-/* harmony import */ var _color_group_control__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./color-group/control */ "./src/color-group/control.js");
-/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
-/* harmony import */ var _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./responsive-color/responsive-color-component */ "./src/responsive-color/responsive-color-component.js");
+/* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
+/* harmony import */ var _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./responsive-color/responsive-color-component */ "./src/responsive-color/responsive-color-component.js");
 
 
 
@@ -26406,7 +25277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+ // import { colorGroupControl } from './color-group/control'
 
 wp.customize.controlConstructor["kmt-builder"] = _layout_builder_control__WEBPACK_IMPORTED_MODULE_1__["BuilderControl"];
 wp.customize.controlConstructor["kmt-available"] = _available_control__WEBPACK_IMPORTED_MODULE_2__["AvailableControl"];
@@ -26423,8 +25294,8 @@ wp.customize.controlConstructor['kmt-color'] = _color_control__WEBPACK_IMPORTED_
 wp.customize.controlConstructor['kemet_switch_control'] = _Toggle_control__WEBPACK_IMPORTED_MODULE_14__["toggleControl"];
 wp.customize.controlConstructor['kmt-responsive-icon-select'] = _responsive_icon_select_control__WEBPACK_IMPORTED_MODULE_11__["responsiveIcon"];
 wp.customize.controlConstructor['kmt-responsive-color'] = _responsive_color_control__WEBPACK_IMPORTED_MODULE_15__["responsiveColorControl"];
-wp.customize.controlConstructor['kmt-background'] = _Background_control__WEBPACK_IMPORTED_MODULE_16__["backgroundControl"];
-wp.customize.controlConstructor['kmt-color-group'] = _color_group_control__WEBPACK_IMPORTED_MODULE_17__["colorGroupControl"];
+wp.customize.controlConstructor['kmt-background'] = _Background_control__WEBPACK_IMPORTED_MODULE_16__["backgroundControl"]; // wp.customize.controlConstructor['kmt-color-group'] = colorGroupControl;
+
 
 
 
@@ -28930,17 +27801,6 @@ TitleComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(TitleComponent));
-
-/***/ }),
-
-/***/ "@babel/runtime/regenerator":
-/*!*************************************!*\
-  !*** external "regeneratorRuntime" ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["regeneratorRuntime"]; }());
 
 /***/ }),
 
