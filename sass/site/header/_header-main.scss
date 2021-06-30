@@ -227,13 +227,6 @@ li.kmt-sitehead-custom-menu-items {
   }
 }
 .kmt-header-break-point {
-  &.kmt-header-custom-item-outside {
-    .kmt-primary-menu-disabled {
-      .kmt-mobile-menu-buttons {
-        display: none;
-      }
-    }
-  }
   .site-branding {
     display: flex;
   }
@@ -260,26 +253,6 @@ li.kmt-sitehead-custom-menu-items {
     ul.sub-menu ul.sub-menu,
     ul.children ul.children {
       top: 0;
-    }
-  }
-
-  &.kmt-header-custom-item-outside {
-    .kmt-mobile-menu-buttons {
-      order: 2;
-    }
-
-    .main-header-bar-navigation {
-      order: 3;
-    }
-
-    .kmt-sitehead-custom-menu-items {
-      order: 1;
-    }
-
-    .header-main-layout-2 {
-      .kmt-sitehead-custom-menu-items {
-        text-align: center;
-      }
     }
   }
 }

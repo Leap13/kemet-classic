@@ -61,7 +61,7 @@ td {
   font-weight: var(--fontWeight);
   margin: 0;
   outline: 0;
-  padding: 0;
+  padding: var(--padding, 0);
   vertical-align: baseline;
   letter-spacing: var(--letterSpacing);
   line-height: var(--lineHeight);
@@ -214,15 +214,6 @@ samp {
 code {
   padding: 2px;
 }
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
 
 button {
   overflow: visible;
@@ -298,7 +289,7 @@ textarea {
 }
 
 optgroup {
-  font-weight: bold;
+  --fontWeight: bold;
 }
 
 table {

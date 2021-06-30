@@ -35,7 +35,6 @@ a.wp-block-button__link,
   &.is-style-outline {
     > a.wp-block-button__link {
       --borderWidth: 2px;
-      --borderStyle: solid;
       &:hover {
         background-color: transparent;
       }

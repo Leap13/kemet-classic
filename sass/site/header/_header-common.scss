@@ -50,27 +50,6 @@
 }
 
 /**
- * 6 - all and (max-width: $mx-break-point)
- */
-.kmt-header-break-point {
-  .nav-fallback-text {
-    float: none;
-  }
-  .kmt-header-custom-item {
-    border-top: 1px solid #eaeaea;
-    .kmt-sitehead-custom-menu-items {
-      padding-left: 20px;
-      padding-right: 20px;
-      margin-bottom: 1em;
-      margin-top: 1em;
-    }
-    .widget:last-child {
-      margin-bottom: 1em;
-    }
-  }
-}
-
-/**
  * 7 - Auto Margin
  */
 .main-header-bar {
@@ -109,10 +88,10 @@
     }
     &.widget_search .search-field,
     &.widget_search .search-field:focus {
-      padding: 10px 45px 10px 15px;
+      --padding: 10px 45px 10px 15px;
     }
     &:last-child {
-      margin: 0;
+      --margin: 0;
     }
   }
 }
@@ -135,25 +114,6 @@
     .widget {
       margin: 0.5em 0;
       display: block;
-    }
-  }
-}
-
-/**
- * 9 - Header Widget Area
- */
-.kmt-header-custom-item {
-  .kmt-header-widget-area {
-    .widget {
-      margin: 0.5em;
-      display: inline-block;
-      vertical-align: middle;
-      p {
-        margin-bottom: 0;
-      }
-      li {
-        width: auto;
-      }
     }
   }
 }
