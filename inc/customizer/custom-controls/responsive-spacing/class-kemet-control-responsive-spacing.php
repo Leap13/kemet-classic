@@ -105,7 +105,6 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 		$this->json['label']          = esc_html( $this->label );
 		$this->json['linked_choices'] = $this->linked_choices;
 		$this->json['unit_choices']   = $this->unit_choices;
-		$this->json['input_attrs']      =  $this->input_attrs;
 
 	}
 

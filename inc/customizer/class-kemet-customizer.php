@@ -709,7 +709,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header//class-kemet-mobile-header-html-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-account-customizer.php';
@@ -848,14 +848,18 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			wp_enqueue_script( 'kemet-customizer-preview-js', KEMET_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), KEMET_THEME_VERSION, null );
-
-			wp_localize_script(
-				'kemet-customizer-preview-js',
-				'previewData',
+			$localize_data = apply_filters(
+				'kemet_customizer_locatize',
 				array(
 					'googleFonts' => Kemet_Font_Families::get_google_fonts(),
 					'preview'     => self::get_preview_arr(),
+					'setting'     => KEMET_THEME_SETTINGS . '[setting_name]',
 				)
+			);
+			wp_localize_script(
+				'kemet-customizer-preview-js',
+				'previewData',
+				$localize_data
 			);
 		}
 

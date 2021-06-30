@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Header_Mobile_Button_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			add_filter( 'kemet_customizer_locatize', array( $this, 'preview_localize' ) );
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_MOBILE_BUTTON_DIR . 'dynamic-css/class-kemet-header-mobile-button-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -60,26 +60,16 @@ if ( ! class_exists( 'Kemet_Header_Mobile_Button_Item' ) ) {
 				Kemet_Fonts::add_font( $font_family, $font_weight );
 			}
 		}
+
 		/**
-		 * Add Preview Scripts
+		 * Add Preview Localize
 		 *
-		 * @return void
+		 * @return array
 		 */
-		public function preview_scripts() {
+		public function preview_localize( $localize_js ) {
+			$localize_js['mobileButtonItems'] = apply_filters( 'kemet_header_mobile_button_items', array( 'header-mobile-button-1', 'header-mobile-button-2' ) );
 
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_script( 'kemet-header-mobile-button-customize-preview-js', KEMET_HEADER_MOBILE_BUTTON_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kemet-customizer-preview-js' ), KEMET_THEME_VERSION, true );
-
-			// Localize variables for button JS.
-			wp_localize_script(
-				'kemet-header-mobile-button-customize-preview-js',
-				'kemetMobileButtonData',
-				array(
-					'mobileButtonItems' => apply_filters( 'kemet_header_mobile_button_items', array( 'header-mobile-button-1', 'header-mobile-button-2' ) ),
-				)
-			);
+			return $localize_js;
 		}
 
 	}

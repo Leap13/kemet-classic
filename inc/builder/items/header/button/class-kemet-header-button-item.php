@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
+			add_filter( 'kemet_customizer_locatize', array( $this, 'preview_localize' ) );
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_BUTTON_DIR . 'dynamic-css/class-kemet-header-button-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -61,25 +61,14 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 			}
 		}
 		/**
-		 * Add Preview Scripts
+		 * Add Preview Localize
 		 *
-		 * @return void
+		 * @return array
 		 */
-		public function preview_scripts() {
+		public function preview_localize( $localize_js ) {
+			$localize_js['buttonItems'] = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
 
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_script( 'kemet-header-button-customize-preview-js', KEMET_HEADER_BUTTON_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kemet-customizer-preview-js' ), KEMET_THEME_VERSION, true );
-
-			// Localize variables for button JS.
-			wp_localize_script(
-				'kemet-header-button-customize-preview-js',
-				'kemetButtonData',
-				array(
-					'buttonItems' => apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) ),
-				)
-			);
+			return $localize_js;
 		}
 
 	}

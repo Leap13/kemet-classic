@@ -699,8 +699,68 @@ function kemet_font_weight_css(control, selector) {
     });
   });
 }
+function settingName(settingName) {
+  var setting = previewData.setting.replace("setting_name", settingName);
 
+  return setting;
+}
+function kemet_button_css(buttonItems) {
+  jQuery.each(buttonItems, function (index, prefix) {
+    var selector = "." + prefix;
+    wp.customize(settingName(prefix + "-label"), function (setting) {
+      setting.bind(function (label) {
+        jQuery(selector).text(label);
+      });
+    });
+    wp.customize(settingName(prefix + "-url"), function (setting) {
+      setting.bind(function (url) {
+        jQuery(selector).attr("href", url);
+      });
+    });
+    wp.customize(settingName(prefix + "-open-new-tab"), function (setting) {
+      setting.bind(function (newTab) {
+        var target = newTab ? "_blank" : "_self";
+        jQuery(selector).attr("target", target);
+      });
+    });
+    wp.customize(settingName(prefix + "-link-nofollow"), function (setting) {
+      setting.bind(function (noFollow) {
+        var rel = jQuery(selector).attr("rel"),
+          rel = rel ? rel.replace("nofollow", "").replace(/ /g, "") : "";
+        if (noFollow) {
+          jQuery(selector).attr("rel", rel + " nofollow");
+        } else {
+          jQuery(selector).attr("rel", rel);
+        }
+      });
+    });
+    wp.customize(settingName(prefix + "-link-sponsored"), function (setting) {
+      setting.bind(function (sponsored) {
+        var rel = jQuery(selector).attr("rel"),
+          rel = rel ? rel.replace("sponsored", "").replace(/ /g, "") : "";
+        if (sponsored) {
+          jQuery(selector).attr("rel", rel + " sponsored");
+        } else {
+          jQuery(selector).attr("rel", rel);
+        }
+      });
+    });
+    wp.customize(settingName(prefix + "-link-download"), function (setting) {
+      setting.bind(function (download) {
+        if (download) {
+          jQuery(selector).attr("download", true);
+        } else {
+          jQuery(selector).attr("download", false);
+        }
+      });
+    });
+  });
+}
 (function ($) {
+  // Button Preview.
+  kemet_button_css(
+    $.merge(previewData.buttonItems, previewData.mobileButtonItems)
+  );
   $.each(previewData.preview, function (control, data) {
     switch (data.type) {
       case "kmt-responsive-slider":
@@ -710,8 +770,9 @@ function kemet_font_weight_css(control, selector) {
       case "select":
         kemet_css(control, data.property, data.selector);
         break;
-        case "kmt-slider":
-        var unit = null !== data.unit && undefined !== data.unit ? data.unit : 'px'; 
+      case "kmt-slider":
+        var unit =
+          null !== data.unit && undefined !== data.unit ? data.unit : "px";
         kemet_css(control, data.property, data.selector, unit);
         break;
       case "kmt-responsive-spacing":

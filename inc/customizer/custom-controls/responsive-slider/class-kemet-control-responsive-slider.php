@@ -71,32 +71,32 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 			);
 		}
 
-		$this->json['value']  = $val;
-		$this->json['link']   = $this->get_link();
-		$this->json['id']     = $this->id;
-		$this->json['label']  = esc_html( $this->label );
-		$this->json['suffix'] = $this->suffix;
-
+		$this->json['value']        = $val;
+		$this->json['link']         = $this->get_link();
+		$this->json['id']           = $this->id;
+		$this->json['label']        = esc_html( $this->label );
+		$this->json['suffix']       = $this->suffix;
 		$this->json['unit_choices'] = $this->unit_choices;
+
 		$responsive = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
-			);
-			if ( is_array( $val ) ) {
-				$responsive['desktop'] = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
-				$responsive['tablet']  = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
-				$responsive['mobile']  = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
-			} else {
-				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
-			}
+			'desktop' => '',
+			'tablet'  => '',
+			'mobile'  => '',
+		);
+		if ( is_array( $val ) ) {
+			$responsive['desktop'] = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
+			$responsive['tablet']  = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
+			$responsive['mobile']  = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
+		} else {
+			$responsive['desktop'] = is_numeric( $val ) ? $val : '';
+		}
 
-			foreach ( $responsive as $key => $value ) {
-					$value              = isset( $input_attrs['min'] ) && ( ! empty( $value ) ) && ( $input_attrs['min'] > $value ) ? $input_attrs['min'] : $value;
-					$value              = isset( $input_attrs['max'] ) && ( ! empty( $value ) ) && ( $input_attrs['max'] < $value ) ? $input_attrs['max'] : $value;
-					$responsive[ $key ] = $value;
-			}
+		foreach ( $responsive as $key => $value ) {
+				$value              = isset( $input_attrs['min'] ) && ( ! empty( $value ) ) && ( $input_attrs['min'] > $value ) ? $input_attrs['min'] : $value;
+				$value              = isset( $input_attrs['max'] ) && ( ! empty( $value ) ) && ( $input_attrs['max'] < $value ) ? $input_attrs['max'] : $value;
+				$responsive[ $key ] = $value;
+		}
 
-			return $responsive;
+		return $responsive;
 	}
-	}
+}

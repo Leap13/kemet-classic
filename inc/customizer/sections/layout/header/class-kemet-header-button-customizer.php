@@ -31,6 +31,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 		foreach ( self::$button_items as $button ) {
 			$prefix           = $button;
 			$num              = explode( 'header-button-', $prefix )[1];
+			$selector         = '.' . $button;
 			$button_options   = array(
 				$prefix . '-controls-tabs'  => array(
 					'section'  => 'section-' . $prefix,
@@ -116,22 +117,9 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-colors-group'   => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-' . $prefix,
-					'priority' => 20,
-					'label'    => __( 'Colors', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
-					),
-				),
 				$prefix . '-color'          => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 20,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Text Color', 'kemet' ),
@@ -141,12 +129,15 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--buttonColor',
 					),
 				),
 				$prefix . '-bg-color'       => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 25,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Background Color', 'kemet' ),
@@ -157,11 +148,14 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--buttonBackgroundColor',
+					),
 				),
 				$prefix . '-border-color'   => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 30,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Border Color', 'kemet' ),
@@ -172,11 +166,14 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--borderColor',
+					),
 				),
 				$prefix . '-h-color'        => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 35,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Text Color', 'kemet' ),
@@ -187,11 +184,14 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--buttonHoverColor',
+					),
 				),
 				$prefix . '-h-bg-color'     => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 40,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Background Color', 'kemet' ),
@@ -202,11 +202,14 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--buttonBackgroundHoverColor',
+					),
 				),
 				$prefix . '-h-border-color' => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-' . $prefix,
-					'priority'  => 5,
+					'priority'  => 45,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Border Color', 'kemet' ),
@@ -216,13 +219,17 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--borderHoverColor',
 					),
 				),
 				$prefix . '-font-size'      => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,
-					'priority'     => 25,
+					'priority'     => 50,
 					'label'        => __( 'Font Size', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -242,13 +249,17 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--fontSize',
+					),
 				),
 				$prefix . '-font-family'    => array(
 					'type'      => 'kmt-font-family',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Family', 'kemet' ),
 					'section'   => 'section-' . $prefix,
-					'priority'  => 30,
+					'priority'  => 55,
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -262,7 +273,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Weight', 'kemet' ),
 					'section'   => 'section-' . $prefix,
-					'priority'  => 35,
+					'priority'  => 60,
 					'context'   => array(
 						array(
 							'setting' => 'tab',
@@ -276,7 +287,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
 					'section'   => 'section-' . $prefix,
-					'priority'  => 40,
+					'priority'  => 70,
 					'choices'   => array(
 						''           => __( 'Default', 'kemet' ),
 						'none'       => __( 'None', 'kemet' ),
@@ -290,13 +301,17 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textTransform',
+					),
 				),
 				$prefix . '-font-style'     => array(
 					'type'      => 'select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
 					'section'   => 'section-' . $prefix,
-					'priority'  => 45,
+					'priority'  => 75,
 					'choices'   => array(
 						'inherit' => __( 'Inherit', 'kemet' ),
 						'normal'  => __( 'Normal', 'kemet' ),
@@ -309,12 +324,16 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--fontStyle',
+					),
 				),
 				$prefix . '-line-height'    => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,
-					'priority'     => 50,
+					'priority'     => 80,
 					'label'        => __( 'Line Height', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -334,12 +353,16 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--lineHeight',
+					),
 				),
 				$prefix . '-letter-spacing' => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
 					'section'      => 'section-' . $prefix,
-					'priority'     => 55,
+					'priority'     => 85,
 					'label'        => __( 'Letter Spacing', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -354,13 +377,17 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--letterSpacing',
+					),
 				),
 				$prefix . '-border-width'   => array(
 					'type'        => 'kmt-slider',
 					'default'     => 1,
 					'transport'   => 'postMessage',
 					'section'     => 'section-' . $prefix,
-					'priority'    => 60,
+					'priority'    => 90,
 					'label'       => __( 'Border Size', 'kemet' ),
 					'suffix'      => 'px',
 					'input_attrs' => array(
@@ -374,12 +401,16 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'     => array(
+						'selector' => $selector,
+						'property' => '--borderWidth',
+					),
 				),
 				$prefix . '-padding'        => array(
 					'type'           => 'kmt-responsive-spacing',
 					'transport'      => 'postMessage',
 					'section'        => 'section-' . $prefix,
-					'priority'       => 65,
+					'priority'       => 95,
 					'label'          => __( 'Padding', 'kemet' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
@@ -395,12 +426,17 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'general',
 						),
 					),
+					'preview'        => array(
+						'selector' => $selector,
+						'property' => '--padding',
+						'sides'    => false,
+					),
 				),
 				$prefix . '-margin'         => array(
 					'type'           => 'kmt-responsive-spacing',
 					'transport'      => 'postMessage',
 					'section'        => 'section-' . $prefix,
-					'priority'       => 65,
+					'priority'       => 100,
 					'label'          => __( 'Margin', 'kemet' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
@@ -415,6 +451,11 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'general',
 						),
+					),
+					'preview'        => array(
+						'selector' => $selector,
+						'property' => '--margin',
+						'sides'    => false,
 					),
 				),
 			);

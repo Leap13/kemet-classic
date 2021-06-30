@@ -374,20 +374,17 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'selector'            => '#sitehead',
 				'container_inclusive' => true,
 				'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'header_markup' ),
-				'fallback_refresh'    => true,
 			)
 		);
 		$new_partials['header-desktop-popup-items'] = array(
 			'selector'            => '#kmt-desktop-popup',
 			'container_inclusive' => true,
 			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'desktop_popup' ),
-			'fallback_refresh'    => true,
 		);
 		$new_partials['header-mobile-popup-items']  = array(
 			'selector'            => '#kmt-mobile-popup',
 			'container_inclusive' => true,
 			'render_callback'     => array( Kemet_Header_Markup::get_instance(), 'mobile_popup' ),
-			'fallback_refresh'    => true,
 		);
 		return array_merge( $partials, $new_partials );
 	}
