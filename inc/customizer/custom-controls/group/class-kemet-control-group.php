@@ -79,26 +79,5 @@ class Kemet_Control_Group extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-
-		?>
-		<div class="kmt-group-control">
-			<label class="customizer-text">
-				<# if ( data.label ) { #>
-					<span class="customize-control-title">{{{ data.label }}}</span>
-					<# } #>
-					<# if ( data.description ) { #>
-						<span class="description customize-control-description">{{{ data.description }}}</span>
-					<# } #>
-					<span class="dashicons dashicons-edit model-button"></span>
-			</label>
-		</div>
-		<div class="kmt-group-wrap">
-			<div class="kmt-group-model">
-				<ul class="model-list">
-				</ul>
-			</div>
-		</div>
-		<?php
-	}
+	
 }

@@ -49,7 +49,7 @@ class Kemet_Generate_Control_Group {
 	public function __construct( $wp_customize, $group_settings, $fields ) {
 
 		$this->create_group( $wp_customize, $group_settings, $fields );
-		$this->create_hidden_controls( $wp_customize, $fields );
+		// $this->create_hidden_controls( $wp_customize, $fields );
 	}
 
 	/**
@@ -59,33 +59,33 @@ class Kemet_Generate_Control_Group {
 	 * @param array  $fields group fields.
 	 * @return void
 	 */
-	public function create_hidden_controls( $wp_customize, $fields ) {
+	// public function create_hidden_controls( $wp_customize, $fields ) {
 
-		$options = $fields;
+	// 	$options = $fields;
 
-		foreach ( $options as $option ) {
-			$wp_customize->add_setting(
-				KEMET_THEME_SETTINGS . $option['id'],
-				array(
-					'default'           => $option['default'],
-					'type'              => $option['type'],
-					'sanitize_callback' => $this->sanitize[ $option['control_type'] ],
-					'transport'         => isset( $option['transport'] ) ? $option['transport'] : 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Kemet_Control_Hidden(
-					$wp_customize,
-					KEMET_THEME_SETTINGS . $option['id'],
-					array(
-						'type'     => 'kmt-hidden',
-						'section'  => $option['section'],
-						'priority' => $option['priority'],
-					)
-				)
-			);
-		}
-	}
+	// 	foreach ( $options as $option ) {
+	// 		$wp_customize->add_setting(
+	// 			KEMET_THEME_SETTINGS . $option['id'],
+	// 			array(
+	// 				'default'           => $option['default'],
+	// 				'type'              => $option['type'],
+	// 				'sanitize_callback' => $this->sanitize[ $option['control_type'] ],
+	// 				'transport'         => isset( $option['transport'] ) ? $option['transport'] : 'refresh',
+	// 			)
+	// 		);
+	// 		$wp_customize->add_control(
+	// 			new Kemet_Control_Hidden(
+	// 				$wp_customize,
+	// 				KEMET_THEME_SETTINGS . $option['id'],
+	// 				array(
+	// 					'type'     => 'kmt-hidden',
+	// 					'section'  => $option['section'],
+	// 					'priority' => $option['priority'],
+	// 				)
+	// 			)
+	// 		);
+	// 	}
+	// }
 
 	/**
 	 * Generate group control
