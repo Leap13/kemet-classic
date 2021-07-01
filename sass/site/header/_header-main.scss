@@ -90,12 +90,6 @@
 .kmt-search-box-form {
   position: relative;
   .search-field {
-    border: none;
-    transition: width 0.2s;
-    border-radius: inherit;
-    width: 240px;
-    border-width: 1px;
-    border-style: solid;
     &:focus {
       outline: none;
     }
@@ -137,10 +131,6 @@
   position: absolute;
   z-index: 99;
   top: auto;
-  .kemet-search-icon {
-    line-height: normal;
-  }
-
   form {
     padding: 15px;
     line-height: 1;
@@ -156,10 +146,9 @@
   .search-field {
     border: none;
     transition: width 0.2s;
-    border-radius: inherit;
+    --inputBorderRadius: inherit;
     width: 240px;
-    border-width: 1px;
-    border-style: solid;
+    --inputBorderWidth: 1px;
     &:focus {
       outline: none;
     }
@@ -186,37 +175,6 @@
     opacity: 1;
   }
 }
-li.kmt-sitehead-custom-menu-items {
-  a {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  a,
-  a:hover,
-  a:focus {
-    background: transparent;
-  }
-}
-
-.kmt-primary-menu-disabled {
-  .kmt-sitehead-custom-menu-items {
-    flex: 1;
-    text-align: right;
-  }
-
-  &.header-main-layout-2 {
-    .kmt-sitehead-custom-menu-items {
-      text-align: center;
-    }
-  }
-
-  &.header-main-layout-1.reverse {
-    .kmt-sitehead-custom-menu-items {
-      text-align: left;
-    }
-  }
-}
-
 .main-header-menu {
   > .menu-item,
   > .page_item {

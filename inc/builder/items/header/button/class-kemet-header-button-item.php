@@ -43,6 +43,7 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_BUTTON_DIR . 'dynamic-css/class-kemet-header-button-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
+			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
 		}
 
 		/**
@@ -69,6 +70,21 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 			$localize_js['buttonItems'] = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
 
 			return $localize_js;
+		}
+
+		/**
+		 * Default Values
+		 *
+		 * @param array $defaults default value.
+		 * @return array
+		 */
+		public function theme_defaults( $defaults ) {
+			$header_button = apply_filters( 'kemet_header_button_items', array( 'header-button-1', 'header-button-2' ) );
+
+			foreach ( $header_button as $button ) {
+				$defaults[ $button . '-label' ] = __( 'Button', 'kemet' );
+			}
+			return $defaults;
 		}
 
 	}

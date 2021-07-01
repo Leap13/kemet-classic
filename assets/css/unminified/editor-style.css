@@ -1602,11 +1602,8 @@ input[type="password"],
 input[type="search"],
 input[type="tel"],
 textarea {
-  padding: var(--padding, 0.75em);
   height: auto;
-  --inputBorderWidth: 1px;
   border-style: var(--borderStyle, solid);
-  --inputBorderRadius: 2px;
   -webkit-box-shadow: none;
   box-shadow: none;
   -webkit-box-sizing: border-box;
@@ -1621,7 +1618,7 @@ input[type="password"]::-webkit-input-placeholder,
 input[type="search"]::-webkit-input-placeholder,
 input[type="tel"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  --inputColor: inherit;
+  color: var(--inputColor);
   opacity: 0.5;
 }
 
@@ -1632,7 +1629,7 @@ input[type="password"]::-moz-placeholder,
 input[type="search"]::-moz-placeholder,
 input[type="tel"]::-moz-placeholder,
 textarea::-moz-placeholder {
-  --inputColor: inherit;
+  color: var(--inputColor);
   opacity: 0.5;
 }
 
@@ -1643,7 +1640,7 @@ input[type="password"]::-ms-input-placeholder,
 input[type="search"]::-ms-input-placeholder,
 input[type="tel"]::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
-  --inputColor: inherit;
+  color: var(--inputColor);
   opacity: 0.5;
 }
 
@@ -1654,7 +1651,7 @@ input[type="password"]::placeholder,
 input[type="search"]::placeholder,
 input[type="tel"]::placeholder,
 textarea::placeholder {
-  --inputColor: inherit;
+  color: var(--inputColor);
   opacity: 0.5;
 }
 
@@ -1674,6 +1671,50 @@ textarea:focus {
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+input[type="text"]:focus::-webkit-input-placeholder,
+input[type="email"]:focus::-webkit-input-placeholder,
+input[type="url"]:focus::-webkit-input-placeholder,
+input[type="password"]:focus::-webkit-input-placeholder,
+input[type="search"]:focus::-webkit-input-placeholder,
+input[type="tel"]:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  color: var(--inputFocusColor);
+  opacity: 0.5;
+}
+
+input[type="text"]:focus::-moz-placeholder,
+input[type="email"]:focus::-moz-placeholder,
+input[type="url"]:focus::-moz-placeholder,
+input[type="password"]:focus::-moz-placeholder,
+input[type="search"]:focus::-moz-placeholder,
+input[type="tel"]:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  color: var(--inputFocusColor);
+  opacity: 0.5;
+}
+
+input[type="text"]:focus::-ms-input-placeholder,
+input[type="email"]:focus::-ms-input-placeholder,
+input[type="url"]:focus::-ms-input-placeholder,
+input[type="password"]:focus::-ms-input-placeholder,
+input[type="search"]:focus::-ms-input-placeholder,
+input[type="tel"]:focus::-ms-input-placeholder,
+textarea:focus::-ms-input-placeholder {
+  color: var(--inputFocusColor);
+  opacity: 0.5;
+}
+
+input[type="text"]:focus::placeholder,
+input[type="email"]:focus::placeholder,
+input[type="url"]:focus::placeholder,
+input[type="password"]:focus::placeholder,
+input[type="search"]:focus::placeholder,
+input[type="tel"]:focus::placeholder,
+textarea:focus::placeholder {
+  color: var(--inputFocusColor);
+  opacity: 0.5;
 }
 
 textarea {

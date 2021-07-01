@@ -85,9 +85,7 @@
           !section.hasClass("kmt-builder-hide")
         ) {
           api.previewer.container.css({
-            bottom:
-              section.find(".customize-control-kmt-builder").outerHeight() +
-              "px",
+            bottom: section.outerHeight() + "px",
           });
         } else {
           api.previewer.container.css("bottom", "");
