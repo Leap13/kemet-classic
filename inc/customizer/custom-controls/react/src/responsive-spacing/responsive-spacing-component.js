@@ -138,7 +138,6 @@ const ResponsiveSpacingComponent = props => {
     };
     let responsiveUnit = null;
     const renderUnit = () => {
-        let responsiveUnit = null;
         const { unit_choices } = props.control.params;
         if (unit_choices) {
             responsiveUnit = Object.values(unit_choices).map(unitKey => {
