@@ -18,6 +18,8 @@ const ImagePicker = ({ media, onSelectImage, onRemoveImage, backgroundAttachment
                 <img src={(media.url) ? media.url : backgroundImage} />
             }
             <div className={`kmt-background-btns-wrap`}>
+
+
                 <wp.mediaUtils.MediaUpload
                     title={__("Select Background Image", 'kemet')}
                     onSelect={(media) => onSelectImage(media)}

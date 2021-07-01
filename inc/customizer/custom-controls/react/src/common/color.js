@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
-import { Component, useRef } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
+import { Component } from '@wordpress/element';
+import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import KemetColorPicker from './colorPicker';
-import { MediaUpload } from '@wordpress/media-utils';
 import GradientPicker from '../common/gradientPicker';
-import OptionContainer from './optioncontainer'
-import ImagePicker from './ImagePicker';
 import BackgroundImage from './BackgroundImage';
 
 class KemetColorPickerControl extends Component {
@@ -21,14 +18,9 @@ class KemetColorPickerControl extends Component {
         this.onRemoveImage = this.onRemoveImage.bind(this);
         this.onSelectImage = this.onSelectImage.bind(this);
         this.open = this.open.bind(this);
-        this.toggleClose = this.toggleClose.bind(this)
-        this.onChangeImageOptions = this.onChangeImageOptions(this)
-
 
         this.state = {
             isVisible: false,
-            isPicking: null,
-            isTransitioning: null,
             refresh: false,
             color: this.props.color,
             modalCanClose: true,
@@ -49,6 +41,7 @@ class KemetColorPickerControl extends Component {
 
         const {
             refresh,
+            modalCanClose,
             isVisible,
             supportGradient,
             backgroundType,
@@ -59,34 +52,29 @@ class KemetColorPickerControl extends Component {
             allowImage
         } = this.props
 
-
         const toggleVisible = () => {
-            if (this.props.usePalette) {
-                const updateColors = JSON.parse(this.props.customizer.control('kadence_color_palette').setting.get());
-                const active = (updateColors && updateColors.active ? updateColors.active : 'palette');
-                this.setState({ palette: updateColors, activePalette: active });
-            }
-            if (this.state.refresh === true) {
+            if (refresh === true) {
                 this.setState({ refresh: false });
             } else {
                 this.setState({ refresh: true });
             }
             this.setState({ isVisible: true });
         };
+
         const toggleClose = () => {
-            if (this.state.isVisible === true) {
-                this.setState({ isVisible: false });
+            if (modalCanClose) {
+                if (isVisible === true) {
+                    this.setState({ isVisible: false });
+                }
             }
         };
-
-
 
         const showingGradient = (allowGradient && supportGradient ? true : false);
 
         let tabs = [
             {
                 name: 'color',
-                title: __('Color'),
+                title: __('Color', 'kemet'),
                 className: 'kemet-color-background',
             },
 
@@ -135,9 +123,8 @@ class KemetColorPickerControl extends Component {
             count++;
         });
 
-
         return (
-            < >
+            <>
                 <div className="color-button-wrap">
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
@@ -151,12 +138,11 @@ class KemetColorPickerControl extends Component {
                         }
                     </Button>
                 </div>
-
                 <div className="kemet-color-picker-wrap">
                     <>
                         {isVisible && (
-                            <div className="kemet-popover-color" onClose={() => { toggleVisible }}>
-                                {1 < tabs.length &&
+                            <div className="kemet-popover-color" onClose={toggleClose}>
+                                { 1 < tabs.length &&
                                     <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                         activeClass="active-tab"
                                         initialTabName={backgroundType}
@@ -170,7 +156,6 @@ class KemetColorPickerControl extends Component {
                                                         tabout = (
                                                             <>
                                                                 <GradientPicker
-
                                                                     value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
                                                                     onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                 />
@@ -199,7 +184,6 @@ class KemetColorPickerControl extends Component {
                                                                             onChange={(color) => this.onChangeState(color, '')}
                                                                             onChangeComplete={(color) => this.onChangeComplete(color, '')}
                                                                         />
-
                                                                     </>
                                                                 )}
                                                                 <ColorPalette
@@ -219,7 +203,7 @@ class KemetColorPickerControl extends Component {
                                         }
                                     </TabPanel>
                                 }
-                                {1 === tabs.length &&
+                                { 1 === tabs.length &&
 
                                     <>
                                         {refresh && (
@@ -256,15 +240,7 @@ class KemetColorPickerControl extends Component {
                     </>
                 </div>
             </>
-
         );
-    }
-    toggleClose() {
-        if (this.state.modalCanClose) {
-            if (this.state.isVisible === true) {
-                this.setState({ isVisible: false });
-            }
-        }
     }
 
     onChangeState(color, palette) {
@@ -281,7 +257,6 @@ class KemetColorPickerControl extends Component {
             this.props.onChange(color, palette);
         }
     }
-
 
     onChangeGradientComplete(gradient) {
 
@@ -301,11 +276,6 @@ class KemetColorPickerControl extends Component {
         this.props.onChangeComplete(color, 'color');
     }
 
-    onChangeImageOptions(tempKey, mainkey, value) {
-        this.setState({ backgroundType: 'image' });
-        this.props.onChangeImageOptions(mainkey, value, 'image');
-    }
-
     onPaletteChangeComplete(color) {
         this.setState({ color: color });
         if (this.state.refresh === true) {
@@ -317,11 +287,10 @@ class KemetColorPickerControl extends Component {
     }
 
     onSelectImage(media) {
-
+        this.setState({ modalCanClose: true });
         this.setState({ backgroundType: 'image' });
         this.props.onSelectImage(media, 'image');
     }
-
     onRemoveImage() {
 
         this.setState({ modalCanClose: true });
@@ -333,12 +302,12 @@ class KemetColorPickerControl extends Component {
         open()
     }
 
-
-
-
+    onChangeImageOptions(tempKey, mainkey, value) {
+        this.setState({ backgroundType: 'image' });
+        this.props.onChangeImageOptions(mainkey, value, 'image');
+    }
 
     renderImageSettings() {
-
 
         return (
             <>
@@ -370,7 +339,6 @@ KemetColorPickerControl.propTypes = {
     onChangeComplete: PropTypes.func,
     onPaletteChangeComplete: PropTypes.func,
     onChange: PropTypes.func,
-    customizer: PropTypes.object
 };
 
 export default KemetColorPickerControl;

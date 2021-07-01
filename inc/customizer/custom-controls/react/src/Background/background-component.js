@@ -6,32 +6,9 @@ import { __ } from '@wordpress/i18n';
 
 const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(props.control.params.value);
+    console.log(props.control.params)
 
-    const updateBackgroundType = () => {
-        let obj = {
-            ...props_value
-        };
 
-        if (props_value['background-type']) {
-            if (props_value['background-color']) {
-                obj['background-type'] = 'color';
-                props.control.setting.set(obj);
-                setPropsValue(obj);
-
-                if (props_value['background-color'].includes('gradient')) {
-                    obj['background-type'] = 'gradient';
-                    props.control.setting.set(obj);
-                    setPropsValue(obj);
-                }
-            }
-
-            if (props_value['background-image']) {
-                obj['background-type'] = 'image';
-                props.control.setting.set(obj);
-                setPropsValue(obj);
-            }
-        }
-    };
 
     const renderReset = () => {
         return <span className="customize-control-title">
@@ -66,6 +43,7 @@ const BackgroundComponent = props => {
     };
 
     const onSelectImage = (media, backgroundType) => {
+        console.log(media, "media from  Background")
         console.log(media, backgroundType)
         let obj = {
             ...props_value
@@ -73,6 +51,7 @@ const BackgroundComponent = props => {
         obj['background-media'] = media.id;
         obj['background-image'] = media.url;
         obj['background-type'] = backgroundType;
+        console.log(obj, "Object")
         props.control.setting.set(obj);
         setPropsValue(obj);
     };
@@ -101,7 +80,8 @@ const BackgroundComponent = props => {
                 onSelectImage={(media, backgroundType) => onSelectImage(media, backgroundType)}
                 onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
                 backgroundType={undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color'}
-                allowGradient={true} allowImage={true} />
+                allowGradient={true}
+                allowImage={true} />
         </>;
     };
 

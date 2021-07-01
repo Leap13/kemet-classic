@@ -20,7 +20,6 @@ const ColorGroupComponent = props => {
         responsive,
         fields
     } = props.control.params;
-    console.log(props.control.params)
 
     const colorGroup = [],
         colorGroupDefaults = [],
@@ -34,7 +33,6 @@ const ColorGroupComponent = props => {
         tooltips[value.id] = value.title;
         colorGroupType[value.id] = value.control_type;
     });
-    console.log(colorGroup)
     const [colorGroupState, setState] = useState(colorGroup);
 
     const handleChangeComplete = (key, color = '', device = '', backgroundType = '') => {
