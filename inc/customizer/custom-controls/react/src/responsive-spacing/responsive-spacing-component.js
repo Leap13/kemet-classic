@@ -70,6 +70,7 @@ const ResponsiveSpacingComponent = props => {
             ...state
         };
         updateState[`${device}-unit`] = unitKey;
+        console.log(updateState)
         props.control.setting.set(updateState);
         setState(updateState);
     };
@@ -136,6 +137,7 @@ const ResponsiveSpacingComponent = props => {
 
         </ul>;
     };
+
     let responsiveUnit = null;
     const renderUnit = () => {
         const { unit_choices } = props.control.params;
@@ -177,6 +179,7 @@ const ResponsiveSpacingComponent = props => {
         {renderInputHtml('tablet')}
         {renderInputHtml('mobile')}
     </Fragment>;
+
     responsiveHtml = <Fragment>
         <div className="unit-input-wrapper kmt-spacing-unit-wrapper">
             {renderResponsiveInput('desktop')}

@@ -27120,6 +27120,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
     var updateState = _objectSpread({}, state);
 
     updateState["".concat(device, "-unit")] = unitKey;
+    console.log(updateState);
     props.control.setting.set(updateState);
     setState(updateState);
   };
