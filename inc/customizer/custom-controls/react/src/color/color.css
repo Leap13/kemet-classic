@@ -119,9 +119,7 @@
   flex: 1;
   margin-top: 10px;
 }
-.kemet-background-picker-wrap
-  .kemet-popover-color
-  .components-popover__content {
+.components-popover__content {
   min-width: 300px;
   min-height: 340px;
   max-height: 60vh;
@@ -209,7 +207,7 @@
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
 }
-.components-popover.kemet-popover-color .components-popover__content {
+.kemet-popover-color .components-popover__content {
   padding: 15px 15px 0px;
   box-sizing: initial;
   background: #fff;
