@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Responsive from '../common/responsive';
 
 const { Component, Fragment } = wp.element;
 class ResponsiveSliderComponent extends Component {
@@ -75,26 +76,10 @@ class ResponsiveSliderComponent extends Component {
             }
         }
         let labelContent = label ? (
-            <>
-                <span className="customize-control-title">{label}</span>
-                <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
-                    <li className="desktop active">
-                        <button type="button" className="preview-desktop active" data-device="desktop">
-                            <i class="dashicons dashicons-desktop" onClick={() => this.setState({ currentDevice: 'tablet' })} ></i>
-                        </button>
-                    </li>
-                    <li class="tablet ">
-                        <button type="button" className="preview-tablet " data-device="tablet" >
-                            <i class="dashicons dashicons-tablet" onClick={() => this.setState({ currentDevice: 'mobile' })} ></i>
-                        </button>
-                    </li>
-                    <li class="mobile">
-                        <button type="button" className="preview-mobile" data-device="mobile" >
-                            <i className="dashicons dashicons-smartphone" onClick={() => this.setState({ currentDevice: 'desktop' })}></i>
-                        </button>
-                    </li>
-                </ul>
-            </>
+            <Responsive
+                onChange={(currentDevice) => this.setState({ currentDevice })}
+                label={label}
+            />
         ) : null;
         let unitHTML = units.map((unit) => {
             let unit_class = '';

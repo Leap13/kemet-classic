@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { useEffect, useState } from 'react';
 import { Fragment } from 'react';
+import Responsive from '../common/responsive';
 
 const ResponsiveSpacingComponent = props => {
 
@@ -125,12 +126,6 @@ const ResponsiveSpacingComponent = props => {
                     }} data-element-connect={id} ></span>
             </li>
         ) : null;
-
-
-
-
-
-
         return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
             {htmlChoices}
             {linkHtml}
@@ -175,40 +170,24 @@ const ResponsiveSpacingComponent = props => {
 
     let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     inputHtml = <Fragment>
-        {renderInputHtml('desktop', 'active')}
-        {renderInputHtml('tablet')}
-        {renderInputHtml('mobile')}
+        {renderInputHtml(device, 'active')}
+
     </Fragment>;
 
     responsiveHtml = <Fragment>
         <div className="unit-input-wrapper kmt-spacing-unit-wrapper">
-            {renderResponsiveInput('desktop')}
-            {renderResponsiveInput('tablet')}
-            {renderResponsiveInput('mobile')}
+            {renderResponsiveInput(device)}
+
         </div>
 
     </Fragment>;
 
     return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
 
-        {labelContent}
-        <ul class="kmt-responsive-control-btns kmt-spacing-responsive-btns">
-            <li class="desktop active">
-                <button type="button" class="preview-desktop active" data-device="desktop" onClick={() => setDevice('tablet')}>
-                    <i class="dashicons dashicons-desktop"></i>
-                </button>
-            </li>
-            <li class="tablet">
-                <button type="button" class="preview-tablet" data-device="tablet" onClick={() => setDevice('mobile')}>
-                    <i class="dashicons dashicons-tablet"></i>
-                </button>
-            </li>
-            <li class="mobile">
-                <button type="button" class="preview-mobile" data-device="mobile" onClick={() => setDevice('desktop')}>
-                    <i class="dashicons dashicons-smartphone"></i>
-                </button>
-            </li>
-        </ul>
+        <Responsive
+            onChange={(currentDevice) => setDevice(currentDevice)}
+            label={label}
+        />
         {renderUnit()}
 
         {descriptionContent}
