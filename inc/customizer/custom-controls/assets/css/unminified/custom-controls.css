@@ -6924,3 +6924,7 @@ i.fipicon-angle-left:before {
 #customize-controls .customize-control-kmt-hidden {
   display: none !important;
 }
+
+.customize-control-kmt-reponsive-color {
+  position: relative;
+}
