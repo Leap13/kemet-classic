@@ -124,9 +124,9 @@
                 setting = wpOptions.includes(settingName)
                   ? settingName
                   : KemetCustomizerData.setting.replace(
-                      "setting_name",
-                      settingName
-                    );
+                    "setting_name",
+                    settingName
+                  );
                 setting = wp.customize(setting);
             }
 
@@ -266,9 +266,9 @@
             expandedPanel = panel.id;
             $body.addClass("kmt-" + builderType + "-builder-is-active");
             $section.addClass("kmt-" + builderType + "-builder-active");
-            // $(
-            //   "#sub-accordion-panel-" + expandedPanel + " li.control-section"
-            // ).hide();
+            $(
+              "#sub-accordion-panel-" + expandedPanel + " li.control-section"
+            ).hide();
           } else {
             api.state("kemetTab").set("general");
             $body.removeClass("kmt-" + builderType + "-builder-is-active");

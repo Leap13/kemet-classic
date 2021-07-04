@@ -724,6 +724,7 @@
   border-color: #ddd;
   border-radius: 0;
 }
+
 .customize-control-kmt-icon-select .icon-select 
 { 
   display: -webkit-box; 
@@ -1375,20 +1376,74 @@
 }
 
 .customize-control-kmt-title .customize-control-title {
-    font-size: 14px;
-    background-color: #ffffff;
-    color: #525252;
-    margin: 0px -12px;
-    display: block;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #525252;
+  margin: 0px -12px;
+  display: block;
+}
+.customize-control-kmt-title .customize-control-title:hover {
+  cursor: pointer;
 }
 
-.customize-control-kmt-title .customize-control-title{
-    padding: 7px 10px;
-    margin-bottom: 0px;
+.customize-control-kmt-title .customize-control-title {
+  padding: 7px 10px;
+  margin-bottom: 0px;
 }
-.customize-control-kmt-title .description.customize-control-description{
-    padding: 7px 0;
-    margin-bottom: 0px;
+.customize-control-kmt-title .description.customize-control-description {
+  padding: 7px 0;
+  margin-bottom: 0px;
+}
+
+.customize-control-kmt-responsive-icon-select .responsive-icon-select {
+  display: none;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-height: 216px;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33.33%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-input {
+  display: none;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-label {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  color: #cccccc;
+  border: 1px solid #f1f1f1;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-label:hover,
+.customize-control-kmt-responsive-icon-select
+  .responsive-icon-select
+  .icon-select-input:checked
+  + .icon-select-label {
+  color: #1e8cbe;
+  border-color: #f1f1f1;
+}
+.customize-control-kmt-responsive-icon-select .responsive-icon-select.rtl {
+  flex-direction: row-reverse;
 }
 
 .kmt-builder-is-active .preview-desktop #customize-preview,
@@ -1870,7 +1925,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   background: #f9f9f9;
   color: #000;
 }
-
+.nav-tab-active,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active {
+  border-bottom: 4px solid #007cba;
+}
 .kmt-build-tabs .nav-tab:hover,
 .kmt-build-tabs .nav-tab:focus {
   background: #ffffff;
@@ -1933,7 +1992,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   transition: all 0.15s;
   transform: translate(0, -2px);
 }
-.kmt-builder-areas:not(:last-child) {
+.kmt-builder-areas:not(:last-child):not(.popup-vertical-group) {
   margin-bottom: 25px;
 }
 .kmt-builder-area .kmt-builder-drop-left,
