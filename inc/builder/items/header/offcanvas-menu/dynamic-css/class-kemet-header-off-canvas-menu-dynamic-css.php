@@ -51,6 +51,16 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'border-bottom-style' => 'var(----borderBottomStyle, solid)',
 						'border-bottom-color' => 'var(--borderBottomColor)',
 					),
+					$selector . ' li > .kmt-menu-item-wrap' => array(
+						'--textColor' => 'var(--headingLinksColor)',
+					),
+					$selector . ' li > .kmt-menu-item-wrap:hover' => array(
+						'--textColor' => 'var(--linksHoverColor)',
+					),
+					$selector . ' li > .kmt-menu-item-wrap a' => array(
+						'--headingLinksColor' => 'inherit !important',
+						'--linksHoverColor'   => 'inherit !important',
+					),
 					$selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap' => array(
 						'--padding'           => kemet_responsive_spacing( $link_spacing, 'all', 'desktop' ),
 						'--backgroundColor'   => kemet_responsive_color( $link_bg_color, 'desktop' ),
