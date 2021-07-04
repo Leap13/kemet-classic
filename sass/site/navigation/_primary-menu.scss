@@ -162,8 +162,9 @@
     padding-left: 0;
 
     ul {
-      li a {
-        padding: 0 20px;
+      li a,
+      li .kmt-menu-item-wrap {
+        --padding: 5px 20px;
         display: inline-block;
         width: 100%;
       }
@@ -229,15 +230,6 @@
     ul.children {
       -webkit-box-shadow: none;
       box-shadow: none;
-    }
-  }
-  .submenu-with-border {
-    ul {
-      border: 0;
-
-      a {
-        border: 0;
-      }
     }
   }
 }

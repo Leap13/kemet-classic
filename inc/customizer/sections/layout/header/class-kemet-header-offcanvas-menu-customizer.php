@@ -27,6 +27,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix           = 'offcanvas-menu';
+		$selector               = '#' . self::$prefix;
 		$offcanvas_menu_options = array(
 			self::$prefix . '-controls-tabs'               => array(
 				'section'  => 'section-header-' . self::$prefix,
@@ -45,6 +46,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap',
+					'property' => '--backgroundColor',
+				),
 			),
 			self::$prefix . '-link-color'                  => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -57,6 +62,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--headingLinksColor',
 				),
 			),
 			self::$prefix . '-link-border-color'           => array(
@@ -71,6 +80,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--borderBottomColor',
+				),
 			),
 			self::$prefix . '-link-h-bg-color'             => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -83,6 +96,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' li > a:hover, ' . $selector . ' li > .kmt-menu-item-wrap:hover',
+					'property' => '--backgroundColor',
 				),
 			),
 			self::$prefix . '-link-h-color'                => array(
@@ -97,6 +114,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--linksHoverColor',
+				),
 			),
 			self::$prefix . '-link-h-border-color'         => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -109,6 +130,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' li > a:hover, ' . $selector . ' li > .kmt-menu-item-wrap:hover',
+					'property' => '--borderBottomColor',
 				),
 			),
 			self::$prefix . '-font-size'                   => array(
@@ -134,6 +159,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'      => array(
+					'selector' => $selector,
+					'property' => '--fontSize',
 				),
 			),
 			self::$prefix . '-font-family'                 => array(
@@ -185,6 +214,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--textTransform',
+				),
 			),
 			self::$prefix . '-font-style'                  => array(
 				'type'      => 'select',
@@ -203,6 +236,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--fontStyle',
 				),
 			),
 			self::$prefix . '-line-height'                 => array(
@@ -229,6 +266,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'      => array(
+					'selector' => $selector,
+					'property' => '--lineHeight',
+				),
 			),
 			self::$prefix . '-letter-spacing'              => array(
 				'type'         => 'kmt-responsive-slider',
@@ -248,6 +289,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'      => array(
+					'selector' => $selector,
+					'property' => '--letterSpacing',
 				),
 			),
 			self::$prefix . '-border-bottom-width'         => array(
@@ -269,6 +314,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'      => array(
+					'selector' => $selector,
+					'property' => '--borderBottomWidth',
 				),
 			),
 			self::$prefix . '-submenu-title'               => array(
@@ -295,6 +344,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--backgroundColor',
+				),
 			),
 			self::$prefix . '-submenu-link-color'          => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -307,6 +360,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--headingLinksColor',
 				),
 			),
 			self::$prefix . '-submenu-link-border-color'   => array(
@@ -321,6 +378,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--borderBottomColor',
+				),
 			),
 			self::$prefix . '-submenu-link-h-bg-color'     => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -333,6 +394,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a:hover, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap:hover',
+					'property' => '--backgroundColor',
 				),
 			),
 			self::$prefix . '-submenu-link-h-color'        => array(
@@ -347,6 +412,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--linksHoverColor',
+				),
 			),
 			self::$prefix . '-submenu-link-h-border-color' => array(
 				'section'   => 'section-header-' . self::$prefix,
@@ -359,6 +428,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a:hover, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap:hover',
+					'property' => '--borderBottomColor',
 				),
 			),
 			self::$prefix . '-submenu-font-size'           => array(
@@ -384,6 +457,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'      => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--fontSize',
 				),
 			),
 			self::$prefix . '-submenu-font-family'         => array(
@@ -433,6 +510,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--textTransform',
+				),
 			),
 			self::$prefix . '-submenu-font-style'          => array(
 				'type'      => 'select',
@@ -451,6 +532,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--fontStyle',
 				),
 			),
 			self::$prefix . '-submenu-line-height'         => array(
@@ -477,6 +562,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'      => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--lineHeight',
+				),
 			),
 			self::$prefix . '-submenu-letter-spacing'      => array(
 				'type'         => 'kmt-responsive-slider',
@@ -496,6 +585,10 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'      => array(
+					'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
+					'property' => '--letterSpacing',
 				),
 			),
 			self::$prefix . '-item-spacing'                => array(
@@ -517,6 +610,11 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 						'setting' => 'tab',
 						'value'   => 'general',
 					),
+				),
+				'preview'        => array(
+					'selector' => $selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap',
+					'property' => '--padding',
+					'sides'    => false,
 				),
 			),
 		);
