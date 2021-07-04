@@ -58,8 +58,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'--textColor' => 'var(--linksHoverColor)',
 					),
 					$selector . ' li > .kmt-menu-item-wrap a' => array(
-						'--headingLinksColor' => 'inherit !important',
-						'--linksHoverColor'   => 'inherit !important',
+						'color' => 'inherit !important',
 					),
 					$selector . ' li > a, ' . $selector . ' li > .kmt-menu-item-wrap' => array(
 						'--padding'           => kemet_responsive_spacing( $link_spacing, 'all', 'desktop' ),
