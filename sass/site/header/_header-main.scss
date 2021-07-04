@@ -63,11 +63,6 @@
       padding: 0;
     }
 
-    .children,
-    .sub-menu {
-      line-height: 1.45;
-    }
-
     .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
       @include kmt-has-child-menu-item();
@@ -179,8 +174,15 @@
   > .menu-item,
   > .page_item {
     > a {
-      border-bottom-style: solid;
-      border-bottom-color: transparent;
+      padding: var(--padding);
+    }
+  }
+  .menu-item,
+  .page_item {
+    > a {
+      border-bottom-style: var(--borderBottomStyle, solid);
+      border-bottom-color: var(--borderBottomColor, transparent);
+      border-bottom-width: var(--borderBottomWidth, 1px);
     }
   }
 }

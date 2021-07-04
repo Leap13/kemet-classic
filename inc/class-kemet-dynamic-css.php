@@ -398,7 +398,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--headingLinksColor'          => esc_attr( $headings_links_color ),
 					'--linksHoverColor'            => 'var(--themeColor)',
 					'--borderColor'                => esc_attr( $global_border_color ),
-					'--backgroundColor'            => esc_attr( $global_bg_color ),
+					'--globalBackgroundColor'      => esc_attr( $global_bg_color ),
 					'--footerTextColor'            => esc_attr( $global_footer_text_color ),
 					'--footerBackgroundColor'      => esc_attr( $global_footer_bg_color ),
 					'--buttonColor'                => esc_attr( $btn_text_color ),

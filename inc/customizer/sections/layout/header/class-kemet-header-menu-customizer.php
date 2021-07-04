@@ -31,6 +31,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 		foreach ( self::$menu_items as $menu ) {
 			$prefix       = $menu;
 			$title        = ucfirst( explode( '-', $prefix )[0] );
+			$selector     = '#' . $prefix;
 			$menu_options = array(
 				$prefix . '-controls-tabs'                => array(
 					'section'  => 'section-header-' . $prefix,
@@ -60,6 +61,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--fontSize',
 					),
 				),
 				$prefix . '-font-family'                  => array(
@@ -111,6 +116,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textTransform',
+					),
 				),
 				$prefix . '-font-style'                   => array(
 					'type'      => 'select',
@@ -129,6 +138,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--fontStyle',
 					),
 				),
 				$prefix . '-line-height'                  => array(
@@ -155,6 +168,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--lineHeight',
+					),
 				),
 				$prefix . '-letter-spacing'               => array(
 					'type'         => 'kmt-responsive-slider',
@@ -175,107 +192,111 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
-				),
-				$prefix . '-colors-group'                 => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-header-' . $prefix,
-					'priority' => 36,
-					'label'    => __( 'Colors', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--letterSpacing',
 					),
 				),
 				$prefix . '-bg-color'                     => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 40,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Background Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--backgroundColor',
+					),
 				),
 				$prefix . '-link-color'                   => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 45,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--headingLinksColor',
+					),
 				),
 				$prefix . '-link-h-color'                 => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 55,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Hover', 'kemet' ),
+					'label'     => __( 'Link Hover Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--linksHoverColor',
+					),
 				),
 				$prefix . '-link-h-border-color'          => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 60,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Border Color', 'kemet' ),
-					'tab'       => __( 'Hover', 'kemet' ),
+					'label'     => __( 'Link Hover Border Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li > a:hover',
+						'property' => '--borderBottomColor',
+					),
 				),
 				$prefix . '-link-active-bg-color'         => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 65,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Background Color', 'kemet' ),
-					'tab'       => __( 'Active', 'kemet' ),
+					'label'     => __( 'Active Link Background Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a',
+						'property' => '--backgroundColor',
+					),
 				),
 				$prefix . '-link-active-color'            => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 70,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Active', 'kemet' ),
+					'label'     => __( 'Active Link Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a',
+						'property' => '--headingLinksColor',
 					),
 				),
 				$prefix . '-link-active-border-radius'    => array(
@@ -302,6 +323,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a',
+						'property' => 'border-radius',
+					),
 				),
 				$prefix . '-link-bottom-border-width-hover' => array(
 					'type'         => 'kmt-responsive-slider',
@@ -321,6 +346,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector . ' > li > a',
+						'property' => '--borderBottomWidth',
 					),
 				),
 				$prefix . '-spacing'                      => array(
@@ -343,6 +372,11 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'general',
 						),
 					),
+					'preview'        => array(
+						'selector' => $selector,
+						'property' => '--padding',
+						'sides'    => false,
+					),
 				),
 				$prefix . '-item-spacing'                 => array(
 					'type'           => 'kmt-responsive-spacing',
@@ -363,6 +397,11 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'general',
 						),
+					),
+					'preview'        => array(
+						'selector' => $selector . ' li > a',
+						'property' => '--padding',
+						'sides'    => false,
 					),
 				),
 				$prefix . '-submenu-title'                => array(
@@ -389,6 +428,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'general',
 						),
 					),
+					'preview'     => array(
+						'selector' => $selector . ' > li ul',
+						'property' => 'width',
+					),
 				),
 				$prefix . '-submenu-border-top-width'     => array(
 					'type'        => 'kmt-slider',
@@ -407,6 +450,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'     => array(
+						'selector' => $selector . ' > li ul',
+						'property' => 'border-top-width',
 					),
 				),
 				$prefix . '-submenu-font-size'            => array(
@@ -432,6 +479,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--fontSize',
 					),
 				),
 				$prefix . '-submenu-font-family'          => array(
@@ -483,6 +534,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--textTransform',
+					),
 				),
 				$prefix . '-submenu-font-style'           => array(
 					'type'      => 'select',
@@ -501,6 +556,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
+					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--fontStyle',
 					),
 				),
 				$prefix . '-submenu-line-height'          => array(
@@ -527,6 +586,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--lineHeight',
+					),
 				),
 				$prefix . '-submenu-letter-spacing'       => array(
 					'type'         => 'kmt-responsive-slider',
@@ -547,21 +610,12 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
-				),
-				$prefix . '-submenu-colors-group'         => array(
-					'type'     => 'kmt-group',
-					'section'  => 'section-header-' . $prefix,
-					'priority' => 141,
-					'label'    => __( 'Colors', 'kemet' ),
-					'context'  => array(
-						array(
-							'setting' => 'tab',
-							'value'   => 'design',
-						),
+					'preview'      => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--letterSpacing',
 					),
 				),
 				$prefix . '-submenu-border-top-color'     => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 145,
 					'transport' => 'postMessage',
@@ -574,85 +628,99 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul',
+						'property' => '--borderTopColor',
+					),
 				),
 				$prefix . '-submenu-bg-color'             => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 150,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Background Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--backgroundColor',
+					),
 				),
 				$prefix . '-submenu-link-color'           => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 155,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--headingLinksColor',
+					),
 				),
 				$prefix . '-submenu-link-separator-color' => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 160,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Separator Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a',
+						'property' => '--borderBottomColor',
+					),
 				),
 				$prefix . '-submenu-h-bg-color'           => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 165,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Background Color', 'kemet' ),
-					'tab'       => __( 'Hover', 'kemet' ),
+					'label'     => __( 'Background Hover Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a:hover',
+						'property' => '--backgroundColor',
+					),
 				),
 				$prefix . '-submenu-link-h-color'         => array(
-					'parent-id' => $prefix . '-submenu-colors-group',
 					'section'   => 'section-header-' . $prefix,
 					'priority'  => 170,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Hover', 'kemet' ),
+					'label'     => __( 'Link Hover Color', 'kemet' ),
 					'context'   => array(
 						array(
 							'setting' => 'tab',
 							'value'   => 'design',
 						),
 					),
+					'preview'   => array(
+						'selector' => $selector . ' > li ul > li > a:hover',
+						'property' => '--linksHoverColor',
+					),
 				),
 			);
 
-					$register_options = array_merge( $register_options, $menu_options );
+			$register_options = array_merge( $register_options, $menu_options );
 		}
 
 		return array_merge( $options, $register_options );

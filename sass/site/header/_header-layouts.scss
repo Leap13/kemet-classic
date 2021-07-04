@@ -187,24 +187,6 @@ body:not(.kmt-header-break-point) {
       width: unset;
     }
   }
-  &.menu-right {
-    .kmt-main-header-bar-alignment {
-      margin-right: 0;
-      margin-left: auto;
-    }
-  }
-  &.menu-left {
-    .kmt-main-header-bar-alignment {
-      margin-right: auto;
-      margin-left: 0;
-    }
-  }
-  &.menu-center {
-    .kmt-main-header-bar-alignment {
-      margin-right: auto;
-      margin-left: auto;
-    }
-  }
   .kmt-main-header-bar-alignment {
     margin-right: auto;
     margin-left: 0;
