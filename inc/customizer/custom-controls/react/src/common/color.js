@@ -4,6 +4,14 @@ import { Component } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import KemetColorPicker from './colorPicker';
 import { MediaUpload } from '@wordpress/media-utils';
+const {
+
+    Popover,
+
+
+
+
+} = wp.components;
 
 class KemetColorPickerControl extends Component {
 
@@ -132,7 +140,8 @@ class KemetColorPickerControl extends Component {
                 <div className="kemet-color-picker-wrap">
                     <>
                         {isVisible && (
-                            <div className="kemet-popover-color" onClose={this.toggleClose}>
+
+                            <Popover className="kemet-popover-color" onClose={this.toggleClose}>
                                 { 1 < tabs.length &&
                                     <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                         activeClass="active-tab"
@@ -228,7 +237,7 @@ class KemetColorPickerControl extends Component {
                                         />
                                     </>
                                 }
-                            </div>
+                            </Popover>
                         )}
                     </>
                 </div>

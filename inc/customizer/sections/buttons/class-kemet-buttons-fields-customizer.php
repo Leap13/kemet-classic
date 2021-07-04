@@ -148,8 +148,17 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'priority'  => 40,
 				'section'   => 'section-buttons-fields',
 				'preview'   => array(
-					'selector' => $btn_selector,
-					'property' => '--buttonColor',
+					array(
+						'selector' => $btn_selector,
+						'property' => '--buttonColor',
+					),
+					array(
+						'selector' => $btn_hover_selector,
+						'property' => '--buttonHoverColor',
+					),
+			    ),
+				'input_attrs'  => array(
+				
 				),
 			),
 			'button-bg-color'          => array(
@@ -174,17 +183,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'property' => '--borderColor',
 				),
 			),
-			'button-h-color'           => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __( 'Text Color', 'kemet' ),
-				'priority'  => 55,
-				'section'   => 'section-buttons-fields',
-				'preview'   => array(
-					'selector' => $btn_hover_selector,
-					'property' => '--buttonHoverColor',
-				),
-			),
+		
 			'button-bg-h-color'        => array(
 				'type'      => 'kmt-color',
 				'transport' => 'postMessage',

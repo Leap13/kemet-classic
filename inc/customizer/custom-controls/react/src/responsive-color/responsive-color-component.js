@@ -43,8 +43,6 @@ const ResponsiveColorComponent = props => {
         </div>;
     };
 
-
-
     const handleChangeComplete = (color, key) => {
         let value;
 
@@ -65,34 +63,9 @@ const ResponsiveColorComponent = props => {
         responsive,
     } = props.control.params;
 
-    let responsiveHtml = null;
-
-
-
     let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
 
     let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
-
-
-    responsiveHtml = <ul class="kmt-responsive-control-btns kmt-color-responsive-btns">
-        <li class="desktop active">
-            <button type="button" class="preview-desktop active" data-device="desktop" onClick={() => setDevice('tablet')} >
-                <i class="dashicons dashicons-desktop"></i>
-            </button>
-        </li>
-        <li class="tablet">
-            <button type="button" class="preview-tablet" data-device="tablet" onClick={() => setDevice('mobile')}  >
-                <i class="dashicons dashicons-tablet"></i>
-            </button>
-        </li>
-        <li class="mobile">
-            <button type="button" class="preview-mobile" data-device="mobile" onClick={() => setDevice('desktop')} >
-                <i class="dashicons dashicons-smartphone"></i>
-            </button>
-        </li>
-    </ul>;
-
-
 
 
     return <div className="kmt-control-wrap">
@@ -101,7 +74,9 @@ const ResponsiveColorComponent = props => {
             {descriptionHtml}
         </label>
         {renderReset()}
-        {responsiveHtml}
+        <Responsive
+            onChange={(currentDevice) => setDevice(currentDevice)}
+        />
         <KemetColorPickerControl
             color={undefined !== props_value[device] && props_value[device] ? props_value[device] : ''}
             onChangeComplete={(color, backgroundType) => handleChangeComplete(color, device)}
