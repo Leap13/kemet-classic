@@ -23319,6 +23319,502 @@ var colorGroupControl = wp.customize.kemetControl.extend({
 
 /***/ }),
 
+/***/ "./src/color-group/color-group-component.js":
+/*!**************************************************!*\
+  !*** ./src/color-group/color-group-component.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _common_color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/color */ "./src/common/color.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+var ColorGroupComponent = function ColorGroupComponent(props) {
+  var htmlLabel = null;
+  var htmlHelp = null;
+  var responsiveHtml = null;
+  var optionsHtml = null;
+  var innerOptionsHtml = null;
+  var _props$control$params = props.control.params,
+      label = _props$control$params.label,
+      help = _props$control$params.help,
+      id = _props$control$params.id,
+      responsive = _props$control$params.responsive,
+      fields = _props$control$params.fields;
+  var colorGroup = [],
+      colorGroupDefaults = [],
+      tooltips = [],
+      colorGroupType = [];
+  Object.entries(fields).map(function (_ref) {
+    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
+        key = _ref2[0],
+        value = _ref2[1];
+
+    colorGroup[value.id] = wp.customize.control("kemet-settings" + value.id + "").setting.get();
+    colorGroupDefaults[value.id] = value.default;
+    tooltips[value.id] = value.title;
+    colorGroupType[value.id] = value.control_type;
+  });
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_7__["useState"])(colorGroup),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      colorGroupState = _useState2[0],
+      setState = _useState2[1];
+
+  var handleChangeComplete = function handleChangeComplete(key) {
+    var color = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var device = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var backgroundType = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '';
+
+    var updateState = _objectSpread({}, colorGroupState);
+
+    var value;
+
+    if (typeof color === 'string') {
+      value = color;
+    } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+      value = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")");
+    } else {
+      value = color.hex;
+    }
+
+    if ('' !== device) {
+      var newState = _objectSpread({}, updateState[key]);
+
+      if ('' !== backgroundType) {
+        var deviceType = _objectSpread({}, newState[device]);
+
+        deviceType['background-color'] = value;
+        deviceType['background-type'] = backgroundType;
+        newState[device] = deviceType;
+        updateState[key] = newState;
+        wp.customize.control("kemet-settings" + key + '').setting.set(newState);
+      } else {
+        newState[device] = value;
+        updateState[key] = newState;
+        wp.customize.control("kemet-settings" + key + '').setting.set(newState);
+      }
+    } else {
+      if ('' !== backgroundType) {
+        var _newState = _objectSpread({}, updateState[key]);
+
+        _newState['background-color'] = value;
+        _newState['background-type'] = backgroundType;
+        updateState[key] = _newState;
+        wp.customize.control("kemet-settings" + key + '').setting.set(_newState);
+      } else {
+        updateState[key] = value;
+        wp.customize.control("kemet-settings" + key + '').setting.set(value);
+      }
+    }
+
+    setState(updateState);
+  };
+
+  var updateValues = function updateValues(stateValue, dbValue, key) {
+    wp.customize.control("kemet-settings" + key + '').setting.set(stateValue);
+    setState(dbValue);
+  };
+
+  var _onSelectImage = function onSelectImage(key, media) {
+    var device = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var backgroundType = arguments.length > 3 ? arguments[3] : undefined;
+
+    var updateState = _objectSpread({}, colorGroupState);
+
+    var newState = _objectSpread({}, updateState[key]);
+
+    if ('' !== device) {
+      var deviceType = _objectSpread({}, newState[device]);
+
+      deviceType['background-image'] = media.url;
+      deviceType['background-media'] = media.id;
+      deviceType['background-type'] = backgroundType;
+      newState[device] = deviceType;
+      updateState[key] = newState;
+      updateValues(newState, updateState, key);
+    } else {
+      newState['background-image'] = media.url;
+      newState['background-media'] = media.id;
+      newState['background-type'] = backgroundType;
+      updateState[key] = newState;
+      updateValues(newState, updateState, key);
+    }
+  };
+
+  var _onChangeImageOptions = function onChangeImageOptions(mainKey, value) {
+    var device = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var backgroundType = arguments.length > 3 ? arguments[3] : undefined;
+    var key = arguments.length > 4 ? arguments[4] : undefined;
+
+    var updateState = _objectSpread({}, colorGroupState);
+
+    var newState = _objectSpread({}, updateState[key]);
+
+    if ('' !== device) {
+      var deviceType = _objectSpread({}, newState[device]);
+
+      deviceType[mainKey] = value;
+      deviceType['background-type'] = backgroundType;
+      newState[device] = deviceType;
+      updateState[key] = newState;
+      updateValues(newState, updateState, key);
+    } else {
+      newState[mainKey] = value;
+      newState['background-type'] = backgroundType;
+      updateState[key] = newState;
+      updateValues(newState, updateState, key);
+    }
+  };
+
+  var updateBackgroundType = function updateBackgroundType(device, key) {
+    var updateState = _objectSpread({}, colorGroupState);
+
+    if (!updateState[key][device]['background-type']) {
+      var newState = _objectSpread({}, updateState[key]);
+
+      var deviceType = _objectSpread({}, newState[device]);
+
+      if (updateState[key][device]['background-color']) {
+        deviceType['background-type'] = 'color';
+        newState[device] = deviceType;
+        updateState[key] = newState;
+        wp.customize.control("kemet-settings" + key + '').setting.set(newState);
+        setState(updateState);
+
+        if (updateState[key][device]['background-color'].includes('gradient')) {
+          deviceType['background-type'] = 'gradient';
+          newState[device] = deviceType;
+          updateState[key] = newState;
+          wp.customize.control("kemet-settings" + key + '').setting.set(newState);
+          setState(updateState);
+        }
+      }
+
+      if (updateState[key][device]['background-image']) {
+        deviceType['background-type'] = 'image';
+        newState[device] = deviceType;
+        updateState[key] = newState;
+        wp.customize.control("kemet-settings" + key + '').setting.set(newState);
+        setState(updateState);
+      }
+    }
+  };
+
+  Object.entries(colorGroupState).map(function (_ref3) {
+    var _ref4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref3, 2),
+        key = _ref4[0],
+        value = _ref4[1];
+
+    if (colorGroupType[key] === "kmt-responsive-background") {
+      Object(react__WEBPACK_IMPORTED_MODULE_7__["useEffect"])(function () {
+        var devices = ['desktop', 'mobile', 'tablet'];
+
+        for (var _i = 0, _devices = devices; _i < _devices.length; _i++) {
+          var device = _devices[_i];
+          updateBackgroundType(device, key);
+        }
+      }, []);
+    }
+  });
+
+  if (label) {
+    htmlLabel = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "customize-control-title"
+    }, label);
+    var multipleGroup = Object.entries(colorGroupState).length > 2 ? 'kmt-multiple-colors-group' : '';
+
+    if (responsive) {
+      responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", {
+        key: 'kmt-resp-ul',
+        className: "kmt-responsive-btns ".concat(multipleGroup, " ")
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
+        key: 'desktop',
+        className: "desktop active"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+        type: "button",
+        className: "preview-desktop",
+        "data-device": "desktop"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
+        className: "dashicons dashicons-desktop"
+      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
+        key: 'tablet',
+        className: "tablet"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+        type: "button",
+        className: "preview-tablet",
+        "data-device": "tablet"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
+        className: "dashicons dashicons-tablet"
+      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
+        key: 'mobile',
+        className: "mobile"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+        type: "button",
+        className: "preview-mobile",
+        "data-device": "mobile"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
+        className: "dashicons dashicons-smartphone"
+      }))));
+    }
+  }
+
+  if (help) {
+    htmlHelp = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "kmt-description"
+    }, help);
+  }
+
+  var renderInputHtml = function renderInputHtml(device) {
+    if (responsive) {
+      innerOptionsHtml = Object.entries(colorGroupState).map(function (_ref5) {
+        var _ref6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref5, 2),
+            key = _ref6[0],
+            value = _ref6[1];
+
+        var tooltip = tooltips[key] || Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Color', 'kemet');
+
+        if (colorGroupType[key] === "kmt-responsive-background") {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip,
+            position: "top center"
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: undefined !== value[device]['background-color'] && value[device]['background-color'] ? value[device]['background-color'] : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color, device, backgroundType);
+            },
+            media: undefined !== value[device]['background-media'] && value[device]['background-media'] ? value[device]['background-media'] : '',
+            backgroundImage: undefined !== value[device]['background-image'] && value[device]['background-image'] ? value[device]['background-image'] : '',
+            backgroundAttachment: undefined !== value[device]['background-attachment'] && value[device]['background-attachment'] ? value[device]['background-attachment'] : '',
+            backgroundPosition: undefined !== value[device]['background-position'] && value[device]['background-position'] ? value[device]['background-position'] : '',
+            backgroundRepeat: undefined !== value[device]['background-repeat'] && value[device]['background-repeat'] ? value[device]['background-repeat'] : '',
+            backgroundSize: undefined !== value[device]['background-size'] && value[device]['background-size'] ? value[device]['background-size'] : '',
+            onSelectImage: function onSelectImage(media, backgroundType) {
+              return _onSelectImage(key, media, device, backgroundType);
+            },
+            onChangeImageOptions: function onChangeImageOptions(mainKey, value, backgroundType) {
+              return _onChangeImageOptions(mainKey, value, device, backgroundType, key);
+            },
+            backgroundType: undefined !== value[device]['background-type'] && value[device]['background-type'] ? value[device]['background-type'] : 'color',
+            allowGradient: false,
+            allowImage: false
+          })));
+        } else {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip,
+            position: "top center"
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: value ? value[device] : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color, device);
+            },
+            backgroundType: 'color',
+            allowGradient: false,
+            allowImage: false
+          })));
+        }
+      });
+      return innerOptionsHtml;
+    } else {
+      innerOptionsHtml = Object.entries(colorGroupState).map(function (_ref7) {
+        var _ref8 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref7, 2),
+            key = _ref8[0],
+            value = _ref8[1];
+
+        var tooltip = tooltips[key] || Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Color', 'kemet');
+
+        if (colorGroupType[key] === "kmt-background") {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip,
+            position: "top center"
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: undefined !== value['background-color'] && value['background-color'] ? value['background-color'] : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color, backgroundType);
+            },
+            media: undefined !== value['background-media'] && value['background-media'] ? value['background-media'] : '',
+            backgroundImage: undefined !== value['background-image'] && value['background-image'] ? value['background-image'] : '',
+            backgroundAttachment: undefined !== value['background-attachment'] && value['background-attachment'] ? value['background-attachment'] : '',
+            backgroundPosition: undefined !== value['background-position'] && value['background-position'] ? value['background-position'] : '',
+            backgroundRepeat: undefined !== value['background-repeat'] && value['background-repeat'] ? value['background-repeat'] : '',
+            backgroundSize: undefined !== value['background-size'] && value['background-size'] ? value['background-size'] : '',
+            onSelectImage: function onSelectImage(media, backgroundType) {
+              return _onSelectImage(key, media, backgroundType);
+            },
+            onChangeImageOptions: function onChangeImageOptions(mainKey, value, backgroundType) {
+              return _onChangeImageOptions(mainKey, value, backgroundType, key);
+            },
+            backgroundType: undefined !== value['background-type'] && value['background-type'] ? value['background-type'] : 'color',
+            allowGradient: true,
+            allowImage: true
+          })));
+        } else {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Tooltip"], {
+            key: key,
+            text: tooltip,
+            position: "top center"
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+            className: "color-group-item",
+            id: key
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            color: value ? value : '',
+            onChangeComplete: function onChangeComplete(color, backgroundType) {
+              return handleChangeComplete(key, color);
+            },
+            backgroundType: 'color',
+            allowGradient: false,
+            allowImage: false
+          })));
+        }
+      });
+      return innerOptionsHtml;
+    }
+  };
+
+  if (responsive) {
+    optionsHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-color-group-responsive-wrap desktop active"
+    }, renderInputHtml('desktop', 'active')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-color-group-responsive-wrap tablet"
+    }, renderInputHtml('tablet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-color-group-responsive-wrap mobile"
+    }, renderInputHtml('mobile')));
+  } else {
+    optionsHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml());
+  }
+
+  var renderResetButton = function renderResetButton() {
+    var resetFlag = true;
+
+    for (var index in colorGroupState) {
+      if (JSON.stringify(colorGroupState[index]) !== JSON.stringify(colorGroupDefaults[index])) {
+        resetFlag = false;
+      }
+    }
+
+    var multipleGroup = Object.entries(colorGroupState).length > 2 ? 'kmt-color-multiple-group-reset' : '';
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-color-btn-reset-wrap ".concat(multipleGroup, " kmt-color-group-reset ")
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
+      disabled: resetFlag,
+      onClick: function onClick(e) {
+        e.preventDefault();
+
+        var resetState = _objectSpread({}, colorGroupState);
+
+        for (var _index in colorGroupState) {
+          resetState[_index] = colorGroupDefaults[_index];
+          wp.customize.control("kemet-settings" + _index + '').setting.set(colorGroupDefaults[_index]);
+          setState(resetState);
+        }
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__["Dashicon"], {
+      icon: "image-rotate"
+    })));
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-control-wrap"
+  }, renderResetButton(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-toggle-desc-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
+    className: "customizer-text"
+  }, htmlLabel, htmlHelp)), responsiveHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-field-color-group-wrap"
+  }, optionsHtml));
+};
+
+ColorGroupComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(ColorGroupComponent));
+
+/***/ }),
+
+/***/ "./src/color-group/control.js":
+/*!************************************!*\
+  !*** ./src/color-group/control.js ***!
+  \************************************/
+/*! exports provided: colorGroupControl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colorGroupControl", function() { return colorGroupControl; });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _color_group_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./color-group-component */ "./src/color-group/color-group-component.js");
+/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
+
+
+
+var colorGroupControl = wp.customize.kemetControl.extend({
+  renderContent: function renderContent() {
+    var control = this;
+    ReactDOM.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_group_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      control: control
+    }), control.container[0]);
+  },
+  ready: function ready() {
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["KemetGetResponsiveColorGroupJs"])(this);
+    'use strict';
+
+    var control = this;
+    jQuery(document).mouseup(function (e) {
+      var container = jQuery(control.container),
+          colorWrap = container.find('.color-group-item'),
+          resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+        container.find('.components-button.kemet-color-icon-indicate.open').click();
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./src/color/color-component.js":
 /*!**************************************!*\
   !*** ./src/color/color-component.js ***!
