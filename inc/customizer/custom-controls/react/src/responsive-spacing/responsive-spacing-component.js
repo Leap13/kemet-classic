@@ -71,6 +71,7 @@ const ResponsiveSpacingComponent = props => {
             ...state
         };
         updateState[`${device}-unit`] = unitKey;
+        console.log(updateState)
         props.control.setting.set(updateState);
         setState(updateState);
     };
