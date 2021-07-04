@@ -33,3 +33,13 @@ wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
 
 import { Base } from "./customizer";
 import responsiveColorComponent from "./responsive-color/responsive-color-component";
+
+window.addEventListener('load', () => {
+  let deviceButtons = document.querySelector('#customize-footer-actions .devices');
+  deviceButtons.addEventListener('click', function (e) {
+    let event = new CustomEvent('KemetChangedRepsonsivePreview', {
+      'detail': e.target.dataset.device
+    });
+    document.dispatchEvent(event);
+  });
+});

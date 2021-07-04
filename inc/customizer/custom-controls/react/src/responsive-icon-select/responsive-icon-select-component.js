@@ -19,7 +19,6 @@ class ResponsiveIconSelect extends Component {
 
 
         }
-        console.log(this.state.initialState)
         this.onLayoutChange = this.onLayoutChange.bind(this)
     }
 
@@ -30,7 +29,6 @@ class ResponsiveIconSelect extends Component {
             ...this.state.initialState
         };
         updateState[device] = key;
-        console.log(updateState, this.state.initialState)
         this.props.control.setting.set(updateState);
         this.setState({ initialState: updateState });
     }
