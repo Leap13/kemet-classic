@@ -1,5 +1,5 @@
 import ResponsiveSpacingComponent from './responsive-spacing-component.js';
-import { kemetGetResponsiveSliderJs } from '../common/responsive-helper';
+import { kemetGetResponsiveJs } from '../common/responsive-helper';
 
 export const responsiveSpacingControl = wp.customize.kemetControl.extend({
     renderContent: function renderContent() {
@@ -7,6 +7,6 @@ export const responsiveSpacingControl = wp.customize.kemetControl.extend({
         ReactDOM.render(<ResponsiveSpacingComponent control={control} />, control.container[0]);
     },
     ready: function () {
-        kemetGetResponsiveSliderJs(this);
+        kemetGetResponsiveJs(this);
     },
 });
