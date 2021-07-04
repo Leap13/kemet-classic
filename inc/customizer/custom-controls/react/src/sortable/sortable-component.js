@@ -5,7 +5,6 @@ const SortableComponent = props => {
     let labelHtml = null,
         descriptionHtml = null;
 
-    console.log(props.control.params)
 
     const {
         label,

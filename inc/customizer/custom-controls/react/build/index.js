@@ -24492,18 +24492,17 @@ var KemetColorPicker = function KemetColorPicker(_ref) {
 /*!*****************************************!*\
   !*** ./src/common/responsive-helper.js ***!
   \*****************************************/
-/*! exports provided: kemetGetResponsiveSliderJs, kemetGetResponsiveSpacingJs, kemetGetResponsiveIconJs, kemetGetResponsiveColorJs, kemetGetResponsiveBgJs, KemetGetResponsiveColorGroupJs */
+/*! exports provided: kemetGetResponsiveJs, kemetGetResponsiveIconJs, kemetGetResponsiveColorJs, kemetGetResponsiveBgJs, KemetGetResponsiveColorGroupJs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveSliderJs", function() { return kemetGetResponsiveSliderJs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveSpacingJs", function() { return kemetGetResponsiveSpacingJs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveJs", function() { return kemetGetResponsiveJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveIconJs", function() { return kemetGetResponsiveIconJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveColorJs", function() { return kemetGetResponsiveColorJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveBgJs", function() { return kemetGetResponsiveBgJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KemetGetResponsiveColorGroupJs", function() { return KemetGetResponsiveColorGroupJs; });
-function kemetGetResponsiveSliderJs(control) {
+function kemetGetResponsiveJs(control) {
   'use strict';
 
   var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
@@ -24519,34 +24518,6 @@ function kemetGetResponsiveSliderJs(control) {
   control.container.find('.kmt-responsive-control-btns button i').on('click', function (event) {
     event.preventDefault();
     var device = jQuery(this).parent('button').attr('data-device');
-
-    if ('desktop' == device) {
-      device = 'tablet';
-    } else if ('tablet' == device) {
-      device = 'mobile';
-    } else {
-      device = 'desktop';
-    }
-
-    jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
-  });
-}
-function kemetGetResponsiveSpacingJs(control) {
-  'use strict';
-
-  var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
-  jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper').removeClass('active');
-  jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device).addClass('active');
-  jQuery('.customize-control .kmt-spacing-responsive-btns li').removeClass('active');
-  jQuery('.customize-control .kmt-spacing-responsive-btns li.' + device).addClass('active');
-  jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
-    var device = jQuery(this).attr('data-device');
-    jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper, .customize-control .kmt-spacing-responsive-btns > li').removeClass('active');
-    jQuery('.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper.' + device + ', .customize-control .kmt-spacing-responsive-btns > li.' + device).addClass('active');
-  });
-  control.container.find('.kmt-spacing-responsive-btns button').on('click', function (event) {
-    event.preventDefault();
-    var device = jQuery(this).attr('data-device');
 
     if ('desktop' == device) {
       device = 'tablet';
@@ -26799,7 +26770,7 @@ var responsiveSliderControl = wp.customize.kemetControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveSliderJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(this);
   }
 });
 
@@ -27125,7 +27096,7 @@ var responsiveSpacingControl = wp.customize.kemetControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveSliderJs"])(this);
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(this);
   }
 });
 
@@ -27241,7 +27212,6 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
     var updateState = _objectSpread({}, state);
 
     updateState["".concat(device, "-unit")] = unitKey;
-    console.log(updateState);
     props.control.setting.set(updateState);
     setState(updateState);
   };
@@ -27630,7 +27600,6 @@ __webpack_require__.r(__webpack_exports__);
 var SortableComponent = function SortableComponent(props) {
   var labelHtml = null,
       descriptionHtml = null;
-  console.log(props.control.params);
   var _props$control$params = props.control.params,
       label = _props$control$params.label,
       description = _props$control$params.description,

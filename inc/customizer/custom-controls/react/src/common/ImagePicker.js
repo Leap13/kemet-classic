@@ -7,7 +7,6 @@ import { Button, SelectControl } from '@wordpress/components';
 
 
 const ImagePicker = ({ media, onSelectImage, onRemoveImage, backgroundAttachment, backgroundPosition, backgroundImage, backgroundRepeat, backgroundSize, onChangeImageOption, open }) => {
-    console.log(onChangeImageOption)
     const onChangeImageOptions = (tempKey, mainkey, value) => {
         onChangeImageOption(mainkey, value, 'image');
     }
