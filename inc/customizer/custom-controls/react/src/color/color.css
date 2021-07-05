@@ -119,11 +119,7 @@
   flex: 1;
   margin-top: 10px;
 }
-.components-popover__content {
-  min-width: 300px;
-  min-height: 340px;
-  max-height: 60vh;
-}
+
 .color-button-wrap {
   display: inline-block;
   position: absolute;
@@ -215,6 +211,9 @@
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+   min-width: 300px;
+  min-height: 340px;
+  max-height: 60vh;
 }
 .customize-control-kmt-color.customize-control > * {
   display: inline;

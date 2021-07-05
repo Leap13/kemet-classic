@@ -1464,6 +1464,9 @@ li#customize-control-kemet-settings-footer-desktop-items {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
+   min-width: 300px;
+  min-height: 340px;
+  max-height: 60vh;
 }
 
 .kmt-popover-tabs.kmt-background-tabs .components-tab-panel__tabs {
