@@ -13,9 +13,10 @@ class Responsive extends Component {
     }
 
     render() {
+        const { label } = this.props;
         return (
             <>
-                <span className="customize-control-title">{this.props.label}</span>
+                { label ? <span className="customize-control-title">{label}</span> : null}
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
                     <li className="desktop active">
                         <button type="button" className="preview-desktop active" data-device="desktop">

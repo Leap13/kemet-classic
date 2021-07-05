@@ -119,13 +119,7 @@
   flex: 1;
   margin-top: 10px;
 }
-.kemet-background-picker-wrap
-  .kemet-popover-color
-  .components-popover__content {
-  min-width: 300px;
-  min-height: 340px;
-  max-height: 60vh;
-}
+
 .color-button-wrap {
   display: inline-block;
   position: absolute;
@@ -209,7 +203,7 @@
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
 }
-.components-popover.kemet-popover-color .components-popover__content {
+.kemet-popover-color .components-popover__content {
   padding: 15px 15px 0px;
   box-sizing: initial;
   background: #fff;
@@ -217,6 +211,9 @@
   border-radius: 4px;
   -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  min-height: 340px;
+  max-height: 60vh;
 }
 .customize-control-kmt-color.customize-control > * {
   display: inline;
@@ -695,6 +692,34 @@
   height: 22px;
   font-size: 12px;
   padding: 3px;
+}
+
+.kemet_range_value .kmt-range-unit {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 28px;
+  background: #fff;
+  cursor: default;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  align-self: auto;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color 0.1s ease, font-weight 0.1s ease;
+  padding: 0;
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+  border-color: #ddd;
+  border-radius: 0;
 }
 
 .customize-control-kmt-icon-select .icon-select 
@@ -6923,8 +6948,4 @@ i.fipicon-angle-left:before {
 }
 #customize-controls .customize-control-kmt-hidden {
   display: none !important;
-}
-
-.customize-control-kmt-reponsive-color {
-  position: relative;
 }
