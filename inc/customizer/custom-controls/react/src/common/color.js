@@ -143,7 +143,7 @@ class KemetColorPickerControl extends Component {
                             <>
                                 {
                                     1 < tabs.length &&
-                                    <Popover position="top right" className="kemet-popover-color" onClose={this.toggleClose}>
+                                    <Popover className="kemet-popover-color" onClose={this.toggleClose}>
 
                                         <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                             activeClass="active-tab"
@@ -212,7 +212,7 @@ class KemetColorPickerControl extends Component {
 
                                     <>
                                         {refresh && (
-                                            <Popover position="top left" className="kemet-popover-color" onClose={this.toggleClose}>
+                                            <Popover className="kemet-popover-color" onClose={this.toggleClose}>
                                                 <KemetColorPicker
                                                     color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
                                                     onChange={(color) => this.onChangeState(color, '')}
@@ -229,7 +229,7 @@ class KemetColorPickerControl extends Component {
                                             </Popover>
                                         )}
                                         {!refresh && (
-                                            <Popover position="top left" className="kemet-popover-color" onClose={this.toggleClose}>
+                                            <Popover className="kemet-popover-color" onClose={this.toggleClose}>
                                                 <KemetColorPicker
                                                     color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
                                                     onChange={(color) => this.onChangeState(color, '')}
