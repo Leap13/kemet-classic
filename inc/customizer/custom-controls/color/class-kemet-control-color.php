@@ -35,7 +35,7 @@ class Kemet_Control_Color extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $suffix = '';
+	public $pickers = '';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -50,26 +50,14 @@ class Kemet_Control_Color extends WP_Customize_Control {
 			$this->json['default'] = $this->default;
 		}
 		$this->json['value']  = $this->value();
-		$this->json['link']   = $this->get_link();
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
-		$this->json['suffix'] = $this->suffix;
-
-		$this->json['inputAttrs'] = '';
-		foreach ( $this->input_attrs as $attr => $value ) {
-			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
-		}
+		$this->json['pickers'] = $this->pickers;
 	}
 
 	/**
-	 * An Underscore (JS) template for this control's content (but not its container).
-	 *
-	 * Class variables for this control class are available in the `data` JS object;
-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-	 *
-	 * @see WP_Customize_Control::print_template()
-	 *
-	 * @access protected
+	 * Empty Render Function to prevent errors.
 	 */
-	
+	public function render_content() {
+	}
 }
