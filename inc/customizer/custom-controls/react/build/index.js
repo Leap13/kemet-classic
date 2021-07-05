@@ -23354,6 +23354,7 @@ var __ = wp.i18n.__;
 
 var ColorComponent = function ColorComponent(props) {
   var value = props.control.setting.get();
+  console.log(props.control.params);
   var defaultValue = props.control.params.default;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
@@ -23974,7 +23975,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
       })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kemet-color-picker-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, 1 < tabs.length && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(Popover, {
-        position: "top right",
         className: "kemet-popover-color",
         onClose: this.toggleClose
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
@@ -24030,7 +24030,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", null, tabout);
       })), 1 === tabs.length && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(Popover, {
-        position: "top left",
         className: "kemet-popover-color",
         onClose: this.toggleClose
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_colorPicker__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -24051,7 +24050,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           return _this2.onPaletteChangeComplete(color);
         }
       })), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(Popover, {
-        position: "top left",
         className: "kemet-popover-color",
         onClose: this.toggleClose
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_colorPicker__WEBPACK_IMPORTED_MODULE_10__["default"], {
