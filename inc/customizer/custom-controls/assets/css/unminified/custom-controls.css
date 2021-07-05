@@ -2316,10 +2316,15 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin: 0 auto;
 }
 
-.kmt-row-actions svg {
+.kmt-row-actions svg,
+.kmt-fixed-row-actions svg {
   width: 12px;
   height: 12px;
   margin: 0 auto;
+}
+
+.kmt-fixed-row-actions .dashicon {
+  margin-right: 5px;
 }
 
 .kmt-builder-areas .components-button.kmt-row-actions:hover,
