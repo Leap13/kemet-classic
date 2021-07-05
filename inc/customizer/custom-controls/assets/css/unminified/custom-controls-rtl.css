@@ -694,34 +694,6 @@
   padding: 3px;
 }
 
-.kemet_range_value .kmt-range-unit {
-  position: absolute;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 35px;
-  height: 28px;
-  background: #fff;
-  cursor: default;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 1px;
-  align-self: auto;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  transition: color 0.1s ease, font-weight 0.1s ease;
-  padding: 0;
-  border-width: 1px 0 1px 1px;
-  border-style: solid;
-  border-color: #ddd;
-  border-radius: 0;
-}
-
 .customize-control-kmt-icon-select .icon-select 
 { 
   display: -webkit-box; 
@@ -2316,10 +2288,15 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin: 0 auto;
 }
 
-.kmt-row-actions svg {
+.kmt-row-actions svg,
+.kmt-fixed-row-actions svg {
   width: 12px;
   height: 12px;
   margin: 0 auto;
+}
+
+.kmt-fixed-row-actions .dashicon {
+  margin-left: 5px;
 }
 
 .kmt-builder-areas .components-button.kmt-row-actions:hover,
@@ -6948,4 +6925,8 @@ i.fipicon-angle-left:before {
 }
 #customize-controls .customize-control-kmt-hidden {
   display: none !important;
+}
+
+.customize-control-kmt-reponsive-color {
+  position: relative;
 }
