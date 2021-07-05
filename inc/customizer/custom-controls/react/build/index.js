@@ -23354,7 +23354,6 @@ var __ = wp.i18n.__;
 
 var ColorComponent = function ColorComponent(props) {
   var value = props.control.setting.get();
-  console.log(props.control.params);
   var defaultValue = props.control.params.default;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_5__["useState"])({
