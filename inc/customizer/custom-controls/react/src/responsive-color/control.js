@@ -1,5 +1,5 @@
 import ResponsiveColorComponent from './responsive-color-component';
-import { kemetGetResponsiveColorJs } from '../common/responsive-helper';
+import { kemetGetResponsiveJs } from '../common/responsive-helper';
 
 export const responsiveColorControl = wp.customize.kemetControl.extend({
     renderContent: function renderContent() {

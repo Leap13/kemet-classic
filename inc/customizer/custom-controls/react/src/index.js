@@ -13,6 +13,7 @@ import { sortableControl } from "./sortable/control";
 import { iconSelect } from "./icon-select/control";
 import { colorComponent } from "./color/control";
 import { toggleControl } from "./Toggle/control";
+import { colorGroupControl } from './color-group/control'
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
 wp.customize.controlConstructor["kmt-available"] = AvailableControl;
@@ -30,6 +31,8 @@ wp.customize.controlConstructor["kmt-icon-select"] = iconSelect;
 wp.customize.controlConstructor["kmt-color"] = colorComponent;
 wp.customize.controlConstructor["kmt-reponsive-color"] = responsiveColorControl;
 wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
+wp.customize.controlConstructor['kmt-background'] = backgroundControl;
+wp.customize.controlConstructor['kmt-group'] = colorGroupControl;
 
 import { Base } from "./customizer";
 import responsiveColorComponent from "./responsive-color/responsive-color-component";
