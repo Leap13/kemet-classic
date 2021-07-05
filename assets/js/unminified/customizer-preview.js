@@ -8,98 +8,6 @@
  */
 
 /**
- * Generate font size in PX & REM
- */
-function kemet_font_size_rem(size, with_rem, device) {
-  var css = "";
-
-  if (size != "") {
-    var device = typeof device != undefined ? device : "desktop";
-
-    // font size with 'px'.
-    css = "font-size: " + size + "px;";
-
-    // font size with 'rem'.
-    if (with_rem) {
-      var body_font_size = wp.customize("kemet-settings[font-size-body]").get();
-
-      body_font_size["desktop"] =
-        body_font_size["desktop"] != "" ? body_font_size["desktop"] : 15;
-      body_font_size["tablet"] =
-        body_font_size["tablet"] != ""
-          ? body_font_size["tablet"]
-          : body_font_size["desktop"];
-      body_font_size["mobile"] =
-        body_font_size["mobile"] != ""
-          ? body_font_size["mobile"]
-          : body_font_size["tablet"];
-
-      css += "font-size: " + size / body_font_size[device] + "rem;";
-    }
-  }
-
-  return css;
-}
-
-/**
- * Responsive Font Size CSS
- */
-function kemet_responsive_font_size(control, selector) {
-  wp.customize(control, function (value) {
-    value.bind(function (value) {
-      if (value.desktop || value.mobile || value.tablet) {
-        // Remove <style> first!
-        control = control.replace("[", "-");
-        control = control.replace("]", "");
-        jQuery("style#" + control).remove();
-
-        var fontSize = "",
-          TabletFontSize = "",
-          MobileFontSize = "";
-
-        if ("" != value.desktop) {
-          fontSize = "font-size: " + value.desktop + value["desktop-unit"];
-        }
-        if ("" != value.tablet) {
-          TabletFontSize = "font-size: " + value.tablet + value["tablet-unit"];
-        }
-        if ("" != value.mobile) {
-          MobileFontSize = "font-size: " + value.mobile + value["mobile-unit"];
-        }
-
-        if (value["desktop-unit"] == "px") {
-          fontSize = kemet_font_size_rem(value.desktop, true, "desktop");
-        }
-
-        // Concat and append new <style>.
-        jQuery("head").append(
-          '<style id="' +
-          control +
-          '">' +
-          selector +
-          "	{ " +
-          fontSize +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          TabletFontSize +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          MobileFontSize +
-          " } }" +
-          "</style>"
-        );
-      } else {
-        jQuery("style#" + control).remove();
-      }
-    });
-  });
-}
-
-/**
  * Responsive Spacing CSS
  */
 function kemet_responsive_spacing_sides(control, selector, type, side) {
@@ -469,49 +377,6 @@ function kemet_responsive_css(control, selector, type) {
     });
   });
 }
-/**
- * CSS
- */
-function kemet_css_font_size(control, selector) {
-  wp.customize(control, function (value) {
-    value.bind(function (size) {
-      if (size) {
-        // Remove <style> first!
-        control = control.replace("[", "-");
-        control = control.replace("]", "");
-        jQuery("style#" + control).remove();
-
-        var fontSize = "font-size: " + size;
-        if (!isNaN(size) || size.indexOf("px") >= 0) {
-          size = size.replace("px", "");
-          fontSize = kemet_font_size_rem(size, true);
-        }
-
-        // Concat and append new <style>.
-        jQuery("head").append(
-          '<style id="' +
-          control +
-          '">' +
-          selector +
-          "	{ " +
-          fontSize +
-          " }" +
-          "</style>"
-        );
-      } else {
-        jQuery("style#" + control).remove();
-      }
-    });
-  });
-}
-
-/**
- * Return get_hexdec()
- */
-function get_hexdec(hex) {
-  var hexString = hex.toString(16);
-  return parseInt(hexString, 16);
-}
 
 /**
  * Apply CSS for the element
@@ -843,6 +708,50 @@ function toggle_button_css(buttons) {
     });
   });
 }
+function header_rows_css(rows) {
+  jQuery.each(rows, function (index, row) {
+    var prefix = row + "-header",
+      selector = ".kmt-" + row + "-header-wrap ." + row + "-header-bar";
+
+    wp.customize(settingName(prefix + "-layout"), function (value) {
+      value.bind(function (layout) {
+        var dynamicStyle = "";
+        jQuery(selector + " ." + row + "-header-inner").removeClass(
+          "header-bar-content"
+        );
+        if ("full" === layout) {
+          dynamicStyle +=
+            "@media (min-width: 921px){ " +
+            selector +
+            " .kmt-container { max-width: 100%; padding-left: 35px; padding-right: 35px; } }";
+        } else if ("stretched" === layout) {
+          dynamicStyle +=
+            "@media (min-width: 921px){ " +
+            selector +
+            " .kmt-container { max-width: 100%; padding-left: 0; padding-right: 0; } }";
+        } else {
+          dynamicStyle +=
+            "@media (min-width: 769px){ " +
+            selector +
+            " .kmt-container { max-width: 1240px; padding-left: 20px; padding-right: 20px; } }";
+        }
+
+        if ("stretched" === layout || "boxed" === layout) {
+          jQuery(selector + " ." + row + "-header-inner").addClass(
+            "header-bar-content"
+          );
+        }
+
+        kemet_add_dynamic_css(prefix + "-layout", dynamicStyle);
+      });
+    });
+    wp.customize(settingName(prefix + "-min-height"), function (value) {
+      value.bind(function (value) {
+        document.dispatchEvent(new CustomEvent("kmtHeaderBarHeightChanged"));
+      });
+    });
+  })
+}
 function popup_css(popups) {
   jQuery.each(popups, function (index, prefix) {
     var selector = "#kmt-" + prefix + "-popup",
@@ -936,6 +845,7 @@ function popup_css(popups) {
   );
   popup_css(["desktop", "mobile"]);
   toggle_button_css(["desktop-toggle-button", "mobile-toggle-button"]);
+  header_rows_css(['top', 'main', 'bottom']);
   $.each(previewData.preview, function (control, data) {
     switch (data.type) {
       case "kmt-responsive-slider":
