@@ -5,7 +5,6 @@ const { __ } = wp.i18n;
 
 const ColorComponent = props => {
     let value = props.control.setting.get();
-    console.log(props.control.params)
 
     let defaultValue = props.control.params.default;
 

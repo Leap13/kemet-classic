@@ -433,6 +433,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/react/src/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",
           "inc/customizer/custom-controls/responsive-slider/responsive-slider.css",
+          "inc/customizer/custom-controls/color-group/color-group.css",
           "inc/customizer/custom-controls/react/src/responsive-spacing/responsive-spacing.css",
           "inc/customizer/custom-controls/react/src/responsive-slider/responsive-slider.css",
           "inc/customizer/custom-controls/react/src/title/title.css",

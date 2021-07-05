@@ -143,6 +143,25 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'property' => '--letterSpacing',
 				),
 			),
+			// 'button-color-group'       => array(
+			// 'type'     => 'kmt-color-group',
+			// 'default'  => array(
+			// 'initial' => '#fff',
+			// 'hover'   => '#000',
+			// ),
+			// 'section'  => 'section-buttons-fields',
+			// 'priority' => 36,
+			// 'pickers'  => array(
+			// array(
+			// 'title' => __( 'Text', 'kemet' ),
+			// 'id'    => 'initial',
+			// ),
+			// array(
+			// 'title' => __( 'Hover', 'kemet' ),
+			// 'id'    => 'hover',
+			// ),
+			// ),
+			// ),
 			'button-color'             => array(
 				'type'      => 'kmt-color',
 				'transport' => 'postMessage',

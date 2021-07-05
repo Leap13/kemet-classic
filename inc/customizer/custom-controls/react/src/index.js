@@ -31,7 +31,6 @@ wp.customize.controlConstructor["kmt-icon-select"] = iconSelect;
 wp.customize.controlConstructor["kmt-color"] = colorComponent;
 wp.customize.controlConstructor["kmt-reponsive-color"] = responsiveColorControl;
 wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
-wp.customize.controlConstructor['kmt-background'] = backgroundControl;
 wp.customize.controlConstructor['kmt-group'] = colorGroupControl;
 
 import { Base } from "./customizer";
