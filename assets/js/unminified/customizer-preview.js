@@ -839,19 +839,6 @@ function popup_css(popups) {
   })
 }
 
-function sticky_header() {
-  wp.customize(settingName("enable-sticky-top"), function (value) {
-    value.bind(function (value) {
-      console.log(value);
-      document.dispatchEvent(new CustomEvent("kmtStickyHeaderRowChanged", {
-        row: 'top',
-        device: 'enable',
-        value: value
-      }));
-    })
-  });
-}
-
 (function ($) {
   // Trigger.
   wp.customize.bind("preview-ready", function () {
@@ -878,7 +865,6 @@ function sticky_header() {
   popup_css(["desktop", "mobile"]);
   toggle_button_css(["desktop-toggle-button", "mobile-toggle-button"]);
   header_rows_css(['top', 'main', 'bottom']);
-  sticky_header();
   $.each(previewData.preview, function (control, data) {
     switch (data.type) {
       case "kmt-responsive-slider":

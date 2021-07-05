@@ -324,6 +324,7 @@
   [class*="-header-bar"] {
     border-color: var(--borderColor);
     border-width: var(--borderWidth, 0 0 1px 0);
+    background-color: var(--backgroundColor, var(--globalBackgroundColor));
     .header-bar-content {
       background-color: var(--backgroundColor);
     }
@@ -445,7 +446,6 @@
 .kmt-top-header-wrap {
   .top-header-bar {
     transition: all 0.3s linear;
-    background-color: #fff;
   }
 }
 .top-header-bar {
@@ -454,7 +454,6 @@
 .kmt-main-header-wrap {
   .main-header-bar {
     transition: all 0.3s linear;
-    background-color: #fff;
   }
 }
 .bottom-header-bar {
@@ -463,7 +462,6 @@
 .kmt-bottom-header-wrap {
   .bottom-header-bar {
     transition: all 0.3s linear;
-    background-color: #fff;
   }
 }
 // Popup Content

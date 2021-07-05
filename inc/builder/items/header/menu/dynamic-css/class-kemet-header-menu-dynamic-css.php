@@ -77,14 +77,14 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					$selector . ' > li ul > li > a'       => array(
 						'background-color'    => 'var(--backgroundColor)',
 						'--backgroundColor'   => esc_attr( $submenu_bg_color ),
-						'color'               => esc_attr( $submenu_link_color ),
+						'--headingLinksColor' => esc_attr( $submenu_link_color ),
 						'--borderBottomWidth' => esc_attr( '1px' ),
 						'padding'             => '0.75em 0.6em',
 						'--borderBottomColor' => esc_attr( $submenu_link_separator_color ),
 						'--linksHoverColor'   => esc_attr( $submenu_link_h_color ),
 					),
 					$selector . ' > li ul > li > a:hover' => array(
-						'color' => 'var(--linksHoverColor)',
+						'color'             => 'var(--linksHoverColor)',
 						'--backgroundColor' => esc_attr( $submenu_bg_h_color ),
 					),
 				);
