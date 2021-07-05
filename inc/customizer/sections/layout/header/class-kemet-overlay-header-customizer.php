@@ -26,6 +26,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'overlay-header';
+		$selector         = '.kmt-' . self::$prefix;
 		$register_options = array(
 			'focus-' . self::$prefix . '-section'      => array(
 				'section'       => 'section-header-builder-layout',
@@ -157,7 +158,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-bg-color'                => array(
 				'section'   => 'section-' . self::$prefix,
-				'priority'  => 10,
+				'priority'  => 0,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
 				'label'     => __( 'Background Overlay', 'kemet' ),
@@ -167,27 +168,28 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+
 			),
-			self::$prefix . '-menu-colors-group'       => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 15,
-				'label'    => __( 'Menu Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-menu-colors-group'       => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 15,
+			// 'label'    => __( 'Menu Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-menu-link-color'         => array(
-				'parent-id' => self::$prefix . '-menu-colors-group',
+				// 'parent-id' => self::$prefix . '-menu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Menu Link Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -196,13 +198,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-menu-bg-color'           => array(
-				'parent-id' => self::$prefix . '-menu-colors-group',
+				// 'parent-id' => self::$prefix . '-menu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Menu Background Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -211,13 +213,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-menu-link-h-color'       => array(
-				'parent-id' => self::$prefix . '-menu-colors-group',
+				// 'parent-id' => self::$prefix . '-menu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Menu Link Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -225,26 +227,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-submenu-colors-group'    => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 20,
-				'label'    => __( 'Submenu Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-submenu-colors-group'    => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 20,
+			// 'label'    => __( 'Submenu Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-submenu-link-color'      => array(
-				'parent-id' => self::$prefix . '-submenu-colors-group',
+				// 'parent-id' => self::$prefix . '-submenu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Submenu Link Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -253,13 +255,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-bg-color'        => array(
-				'parent-id' => self::$prefix . '-submenu-colors-group',
+				// 'parent-id' => self::$prefix . '-submenu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Submenu Background Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -268,13 +270,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-link-h-color'    => array(
-				'parent-id' => self::$prefix . '-submenu-colors-group',
+				// 'parent-id' => self::$prefix . '-submenu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Submenu Link Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -283,13 +285,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-bg-h-color'      => array(
-				'parent-id' => self::$prefix . '-submenu-colors-group',
+				// 'parent-id' => self::$prefix . '-submenu-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Submenu Background Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -297,26 +299,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-search-colors-group'     => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 20,
-				'label'    => __( 'Search Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-search-colors-group'     => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 20,
+			// 'label'    => __( 'Search Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-search-icon-color'       => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Icon Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -325,13 +327,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-bg-color'         => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Background Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -340,13 +342,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-input-bg-color'   => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Input Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Input Background Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -355,13 +357,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-text-color'       => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Text Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Text Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -370,13 +372,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-border-color'     => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Border Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Border Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -385,13 +387,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-icon-h-color'     => array(
-				'parent-id' => self::$prefix . '-search-colors-group',
+				// 'parent-id' => self::$prefix . '-search-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Search Icon Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -399,26 +401,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-search-box-colors-group' => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 20,
-				'label'    => __( 'Search Box Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-search-box-colors-group' => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 20,
+			// 'label'    => __( 'Search Box Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-search-box-icon-color'   => array(
-				'parent-id' => self::$prefix . '-search-box-colors-group',
+				// 'parent-id' => self::$prefix . '-search-box-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Box Icon Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -427,13 +429,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-box-bg-color'     => array(
-				'parent-id' => self::$prefix . '-search-box-colors-group',
+				// 'parent-id' => self::$prefix . '-search-box-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Box Background Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -442,13 +444,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-box-text-color'   => array(
-				'parent-id' => self::$prefix . '-search-box-colors-group',
+				// 'parent-id' => self::$prefix . '-search-box-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Text Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Box Text Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -457,13 +459,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-box-border-color' => array(
-				'parent-id' => self::$prefix . '-search-box-colors-group',
+				// 'parent-id' => self::$prefix . '-search-box-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Border Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Search Box Border Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -472,13 +474,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-box-icon-h-color' => array(
-				'parent-id' => self::$prefix . '-search-box-colors-group',
+				// 'parent-id' => self::$prefix . '-search-box-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Search Box Icon Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -486,26 +488,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-widget-colors-group'     => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 30,
-				'label'    => __( 'Widget Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-widget-colors-group'     => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 30,
+			// 'label'    => __( 'Widget Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-widget-title-color'      => array(
-				'parent-id' => self::$prefix . '-widget-colors-group',
+				// 'parent-id' => self::$prefix . '-widget-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Title Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Widget Title Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -514,13 +516,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-widget-content-color'    => array(
-				'parent-id' => self::$prefix . '-widget-colors-group',
+				// 'parent-id' => self::$prefix . '-widget-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Content Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Widget Content Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -529,13 +531,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-widget-link-color'       => array(
-				'parent-id' => self::$prefix . '-widget-colors-group',
+				// 'parent-id' => self::$prefix . '-widget-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Widget Link Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -544,13 +546,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-widget-link-h-color'     => array(
-				'parent-id' => self::$prefix . '-widget-colors-group',
+				// 'parent-id' => self::$prefix . '-widget-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 3,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Widget Link Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -558,26 +560,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-html-colors-group'       => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 35,
-				'label'    => __( 'Html Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-html-colors-group'       => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix,
+			// 'priority' => 35,
+			// 'label'    => __( 'Html Colors', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-html-text-color'         => array(
-				'parent-id' => self::$prefix . '-html-colors-group',
+				// 'parent-id' => self::$prefix . '-html-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Text', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Html Text', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -586,13 +588,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-html-link-color'         => array(
-				'parent-id' => self::$prefix . '-html-colors-group',
+				// 'parent-id' => self::$prefix . '-html-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
+				'label'     => __( 'Html Link Color', 'kemet' ),
+				// 'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -601,13 +603,13 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-html-link-h-color'       => array(
-				'parent-id' => self::$prefix . '-html-colors-group',
+				// 'parent-id' => self::$prefix . '-html-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Link Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
+				'label'     => __( 'Html Link Hover Color', 'kemet' ),
+				// 'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -615,26 +617,26 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-toggle-colors-group'     => array(
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 40,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-responsive-color',
-				'label'     => __( 'Toggle Colors', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-toggle-colors-group'     => array(
+			// 'section'   => 'section-' . self::$prefix,
+			// 'priority'  => 40,
+			// 'transport' => 'postMessage',
+			// 'type'      => 'kmt-responsive-color',
+			// 'label'     => __( 'Toggle Colors', 'kemet' ),
+			// 'context'   => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 			self::$prefix . '-toggle-icon-color'       => array(
-				'parent-id' => self::$prefix . '-toggle-colors-group',
+				// 'parent-id' => self::$prefix . '-toggle-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 1,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
+				'label'     => __( 'Toggle Icon Color', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -643,12 +645,12 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-toggle-bg-color'         => array(
-				'parent-id' => self::$prefix . '-toggle-colors-group',
+				// 'parent-id' => self::$prefix . '-toggle-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 2,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Background Color', 'kemet' ),
+				'label'     => __( 'Toggle Background Color', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
@@ -657,12 +659,12 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-toggle-border-color'     => array(
-				'parent-id' => self::$prefix . '-toggle-colors-group',
+				// 'parent-id' => self::$prefix . '-toggle-colors-group',
 				'section'   => 'section-' . self::$prefix,
 				'priority'  => 4,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-reponsive-color',
-				'label'     => __( 'Border Color', 'kemet' ),
+				'label'     => __( 'Toggle Border Color', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',

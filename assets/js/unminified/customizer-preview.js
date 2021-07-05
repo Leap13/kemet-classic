@@ -838,7 +838,39 @@ function popup_css(popups) {
     );
   })
 }
+
+function sticky_header() {
+  wp.customize(settingName("enable-sticky-top"), function (value) {
+    value.bind(function (value) {
+      console.log(value);
+      document.dispatchEvent(new CustomEvent("kmtStickyHeaderRowChanged", {
+        row: 'top',
+        device: 'enable',
+        value: value
+      }));
+    })
+  });
+}
+
 (function ($) {
+  // Trigger.
+  wp.customize.bind("preview-ready", function () {
+    wp.customize.selectiveRefresh.bind(
+      "partial-content-rendered",
+      function (response) {
+        if (
+          response.partial.id.includes("header-desktop-items") ||
+          response.partial.id.includes("header-mobile-items")
+        ) {
+          document.dispatchEvent(
+            new CustomEvent("kmtPartialContentRendered", {
+              detail: { response: response },
+            })
+          );
+        }
+      }
+    );
+  });
   // Button Preview.
   kemet_button_css(
     $.merge(previewData.buttonItems, previewData.mobileButtonItems)
@@ -846,6 +878,7 @@ function popup_css(popups) {
   popup_css(["desktop", "mobile"]);
   toggle_button_css(["desktop-toggle-button", "mobile-toggle-button"]);
   header_rows_css(['top', 'main', 'bottom']);
+  sticky_header();
   $.each(previewData.preview, function (control, data) {
     switch (data.type) {
       case "kmt-responsive-slider":
