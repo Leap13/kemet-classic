@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import KemetColorPickerControl from '../common/color';
+import Responsive from '../common/responsive';
 
 const ResponsiveColorComponent = props => {
 

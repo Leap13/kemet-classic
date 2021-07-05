@@ -10,11 +10,11 @@ export const responsiveColorControl = wp.customize.kemetControl.extend({
         );
     },
     ready: function () {
-        kemetGetResponsiveColorJs(this);
+        kemetGetResponsiveJs(this);
         let control = this;
         jQuery(document).mouseup(function (e) {
             var container = jQuery(control.container);
-            var resColorWrap = container.find('.customize-control-content');
+            var resColorWrap = container.find('.kmt-color-control-wrap');
             var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
 
             // If the target of the click isn't the container nor a descendant of the container.
