@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
+const { __ } = wp.i18n;
 
 const ColorComponent = props => {
-
     let value = props.control.setting.get();
+    console.log(props.control.params)
 
     let defaultValue = props.control.params.default;
 
@@ -80,6 +81,7 @@ const ColorComponent = props => {
     let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
     let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
 
+
     return <div className="kmt-control-wrap kmt-color-control-wrap">
         <label>
             {labelHtml}
@@ -88,6 +90,7 @@ const ColorComponent = props => {
 
         <div className="kmt-color-picker-alpha color-picker-hex">
             {renderOperationButtons()}
+
             <KemetColorPickerControl
                 color={undefined !== state.value && state.value ? state.value : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
@@ -95,6 +98,8 @@ const ColorComponent = props => {
                 allowGradient={false}
                 allowImage={false}
             />
+
+
 
         </div>
     </div>;
