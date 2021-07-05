@@ -71,31 +71,5 @@ class Kemet_Control_Color extends WP_Customize_Control {
 	 *
 	 * @access protected
 	 */
-	protected function content_template() {
-		?>
-
-		<# var defaultValue = '#RRGGBB', defaultValueAttr = '';
-
-		if ( data.defaultValue ) {
-			if ( '#' !== data.defaultValue.substring( 0, 1 ) ) {
-				defaultValue = '#' + data.defaultValue;
-			} else {
-				defaultValue = data.defaultValue;
-			}
-			defaultValueAttr = ' data-default-color=' + defaultValue; // Quotes added automatically.
-		} #>
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-			<div class="customize-control-content">
-				<input class="kmt-color-picker-alpha color-picker-hex" type="text" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultValueAttr }} value="{{data.value}}" />
-			</div>
-		</label>
-
-		<?php
-	}
+	
 }
