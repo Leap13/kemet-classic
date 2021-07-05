@@ -1420,6 +1420,10 @@
   display: flex;
   align-items: center;
 }
+.kmt-control-tabs  .kmt-builder-tab-toggle{
+  display: inline-flex;
+
+}
 .kmt-builder-show-button.kmt-builder-tab-toggle {
   visibility: hidden;
   margin-bottom: 20px;

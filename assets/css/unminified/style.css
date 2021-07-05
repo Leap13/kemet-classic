@@ -3915,8 +3915,21 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
   position: relative;
 }
 
+.kmt-grid-row {
+  min-height: var(--minHeight);
+}
+
 .kmt-main-header-wrap .kmt-grid-row {
-  min-height: 70px;
+  --minHeight: 70px;
+}
+
+[class*="-header-wrap"] [class*="-header-bar"] {
+  border-color: var(--borderColor);
+  border-width: var(--borderWidth, 0 0 1px 0);
+}
+
+[class*="-header-wrap"] [class*="-header-bar"] .header-bar-content {
+  background-color: var(--backgroundColor);
 }
 
 .kmt-builder-grid-row-container {

@@ -290,21 +290,18 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$css_output = array(
 					$selector . ' .kmt-grid-row' => array(
-						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
 					),
 					$selector                    => array(
-						'border-style'        => esc_attr( 'solid' ),
-						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'desktop' ),
-						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'desktop' ),
-						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'desktop' ),
-						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'desktop' ),
-						'border-color'        => esc_attr( $border_color ),
+						'border-style'  => esc_attr( 'solid' ),
+						'--borderWidth' => kemet_responsive_spacing( $border, 'all', 'desktop' ),
+						'--borderColor' => esc_attr( $border_color ),
 					),
 				);
 
 				if ( 'boxed' === $layout || 'stretched' === $layout ) {
 					$css_output[ $selector . ' .header-bar-content' ] = array(
-						'background-color' => esc_attr( $layout_color ),
+						'--backgroundColor' => esc_attr( $layout_color ),
 					);
 				}
 
@@ -315,13 +312,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$tablet = array(
 					$selector . ' .kmt-grid-row' => array(
-						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+						'--minHeight' => kemet_responsive_slider( $height, 'tablet' ),
 					),
 					$selector                    => array(
-						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'tablet' ),
-						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'tablet' ),
-						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'tablet' ),
-						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'tablet' ),
+						'--borderWidth' => kemet_responsive_spacing( $border, 'all', 'tablet' ),
 					),
 				);
 
@@ -330,13 +324,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$mobile = array(
 					$selector . ' .kmt-grid-row' => array(
-						'min-height' => kemet_responsive_slider( $height, 'desktop' ),
+						'--minHeight' => kemet_responsive_slider( $height, 'mobile' ),
 					),
 					$selector                    => array(
-						'border-top-width'    => kemet_responsive_spacing( $border, 'top', 'mobile' ),
-						'border-right-width'  => kemet_responsive_spacing( $border, 'right', 'mobile' ),
-						'border-bottom-width' => kemet_responsive_spacing( $border, 'bottom', 'mobile' ),
-						'border-left-width'   => kemet_responsive_spacing( $border, 'left', 'mobile' ),
+						'--borderWidth' => kemet_responsive_spacing( $border, 'all', 'mobile' ),
 					),
 				);
 

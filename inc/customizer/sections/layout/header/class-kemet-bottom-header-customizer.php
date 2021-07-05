@@ -27,13 +27,14 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'bottom-header';
+		$selector         = '.kmt-bottom-header-wrap .bottom-header-bar';
 		$register_options = array(
-			self::$prefix . '-controls-tabs'           => array(
+			self::$prefix . '-controls-tabs' => array(
 				'section'  => 'section-' . self::$prefix . '-builder',
 				'type'     => 'kmt-tabs',
 				'priority' => 0,
 			),
-			self::$prefix . '-min-height'              => array(
+			self::$prefix . '-min-height'    => array(
 				'type'         => 'kmt-responsive-slider',
 				'transport'    => 'postMessage',
 				'section'      => 'section-' . self::$prefix . '-builder',
@@ -57,8 +58,12 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'general',
 					),
 				),
+				'preview'      => array(
+					'selector' => $selector . ' .kmt-grid-row',
+					'property' => '--minHeight',
+				),
 			),
-			self::$prefix . '-layout'                  => array(
+			self::$prefix . '-layout'        => array(
 				'type'      => 'select',
 				'default'   => 'content',
 				'transport' => 'postMessage',
@@ -77,7 +82,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-layout-color'            => array(
+			self::$prefix . '-layout-color'  => array(
 				'type'      => 'kmt-color',
 				'transport' => 'postMessage',
 				'priority'  => 7,
@@ -94,33 +99,37 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 						'value'    => array( 'boxed', 'stretched' ),
 					),
 				),
-			),
-			self::$prefix . '-background-group'        => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix . '-builder',
-				'priority' => 8,
-				'label'    => __( 'Background', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
+				'preview'   => array(
+					'selector' => $selector . ' .header-bar-content',
+					'property' => '--backgroundColor',
 				),
 			),
-			self::$prefix . '-background'              => array(
-				'parent-id' => self::$prefix . '-background-group',
-				'type'      => 'kmt-background',
-				'transport' => 'postMessage',
-				'section'   => 'section-' . self::$prefix . '-builder',
-				'priority'  => 10,
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
-			self::$prefix . '-border-width'            => array(
+			// self::$prefix . '-background-group'        => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix . '-builder',
+			// 'priority' => 8,
+			// 'label'    => __( 'Background', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
+			// self::$prefix . '-background'              => array(
+			// 'parent-id' => self::$prefix . '-background-group',
+			// 'type'      => 'kmt-background',
+			// 'transport' => 'postMessage',
+			// 'section'   => 'section-' . self::$prefix . '-builder',
+			// 'priority'  => 10,
+			// 'context'   => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
+			self::$prefix . '-border-width'  => array(
 				'type'           => 'kmt-responsive-spacing',
 				'transport'      => 'postMessage',
 				'section'        => 'section-' . self::$prefix . '-builder',
@@ -140,8 +149,13 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'        => array(
+					'selector' => $selector,
+					'property' => '--borderWidth',
+					'sides'    => false,
+				),
 			),
-			self::$prefix . '-border-color'            => array(
+			self::$prefix . '-border-color'  => array(
 				'type'      => 'kmt-color',
 				'transport' => 'postMessage',
 				'priority'  => 20,
@@ -153,8 +167,12 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--borderColor',
+				),
 			),
-			self::$prefix . '-sticky-title'            => array(
+			self::$prefix . '-sticky-title'  => array(
 				'type'     => 'kmt-title',
 				'section'  => 'section-' . self::$prefix . '-builder',
 				'priority' => 25,
@@ -166,31 +184,31 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-sticky-background-group' => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix . '-builder',
-				'priority' => 30,
-				'label'    => __( 'Background', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
-			self::$prefix . '-sticky-background'       => array(
-				'parent-id' => self::$prefix . '-sticky-background-group',
-				'type'      => 'kmt-background',
-				'transport' => 'postMessage',
-				'section'   => 'section-' . self::$prefix . '-builder',
-				'priority'  => 1,
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
+			// self::$prefix . '-sticky-background-group' => array(
+			// 'type'     => 'kmt-group',
+			// 'section'  => 'section-' . self::$prefix . '-builder',
+			// 'priority' => 30,
+			// 'label'    => __( 'Background', 'kemet' ),
+			// 'context'  => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
+			// self::$prefix . '-sticky-background'       => array(
+			// 'parent-id' => self::$prefix . '-sticky-background-group',
+			// 'type'      => 'kmt-background',
+			// 'transport' => 'postMessage',
+			// 'section'   => 'section-' . self::$prefix . '-builder',
+			// 'priority'  => 1,
+			// 'context'   => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
 		);
 
 		return array_merge( $options, $register_options );

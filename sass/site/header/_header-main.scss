@@ -312,9 +312,21 @@
 .kmt-main-header-wrap {
   position: relative;
 }
+.kmt-grid-row {
+  min-height: var(--minHeight);
+}
 .kmt-main-header-wrap {
   .kmt-grid-row {
-    min-height: 70px;
+    --minHeight: 70px;
+  }
+}
+[class*="-header-wrap"] {
+  [class*="-header-bar"] {
+    border-color: var(--borderColor);
+    border-width: var(--borderWidth, 0 0 1px 0);
+    .header-bar-content {
+      background-color: var(--backgroundColor);
+    }
   }
 }
 .kmt-builder-grid-row-container {
