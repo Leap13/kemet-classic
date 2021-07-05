@@ -30,49 +30,52 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 		$register_options   = array();
 		foreach ( self::$widget_items as $widget ) {
 			$prefix         = $widget;
+			$selector       = '.kmt-' . $prefix . '-area';
 			$num            = explode( 'header-widget-', $prefix )[1];
 			$widget_options = array(
-				$prefix . '-colors-group'   => array(
-					'type'     => 'kmt-group',
-					'section'  => 'sidebar-widgets-' . $prefix,
-					'priority' => 10,
-					'label'    => __( 'Colors', 'kemet' ),
-				),
 				$prefix . '-title-color'    => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 1,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Title Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
+					'preview'   => array(
+						'selector' => $selector . ' .widget-title',
+						'property' => '--headingLinksColor',
+					),
 				),
 				$prefix . '-content-color'  => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 2,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Content Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textColor',
+					),
 				),
 				$prefix . '-link-color'     => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 3,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Normal', 'kemet' ),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--headingLinksColor',
+					),
 				),
 				$prefix . '-link-h-color'   => array(
-					'parent-id' => $prefix . '-colors-group',
 					'section'   => 'sidebar-widgets-' . $prefix,
 					'priority'  => 4,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Link Color', 'kemet' ),
-					'tab'       => __( 'Hover', 'kemet' ),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--linksHoverColor',
+					),
 				),
 				$prefix . '-font-size'      => array(
 					'type'         => 'kmt-responsive-slider',
@@ -91,6 +94,10 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 							'step' => 0.1,
 							'max'  => 10,
 						),
+					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--fontSize',
 					),
 				),
 				$prefix . '-font-family'    => array(
@@ -124,6 +131,10 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						'uppercase'  => __( 'Uppercase', 'kemet' ),
 						'lowercase'  => __( 'Lowercase', 'kemet' ),
 					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--textTransform',
+					),
 				),
 				$prefix . '-font-style'     => array(
 					'type'      => 'select',
@@ -136,6 +147,10 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						'normal'  => __( 'Normal', 'kemet' ),
 						'italic'  => __( 'Italic', 'kemet' ),
 						'oblique' => __( 'Oblique', 'kemet' ),
+					),
+					'preview'   => array(
+						'selector' => $selector,
+						'property' => '--fontStyle',
 					),
 				),
 				$prefix . '-line-height'    => array(
@@ -156,6 +171,10 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 							'max'  => 10,
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--lineHeight',
+					),
 				),
 				$prefix . '-letter-spacing' => array(
 					'type'         => 'kmt-responsive-slider',
@@ -170,7 +189,12 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 							'max'  => 10,
 						),
 					),
+					'preview'      => array(
+						'selector' => $selector,
+						'property' => '--letterSpacing',
+					),
 				),
+
 			);
 
 			$register_options = array_merge( $register_options, $widget_options );

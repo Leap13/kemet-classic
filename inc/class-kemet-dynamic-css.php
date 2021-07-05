@@ -727,7 +727,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 					'--fontSize'         => kemet_responsive_slider( $btn_font_size, 'desktop' ),
 					'--fontFamily'       => kemet_get_font_family( $btn_font_family ),
-					'--font-weight'      => esc_attr( $btn_font_weight ),
+					'--fontWeight'       => esc_attr( $btn_font_weight ),
 					'--textTransform'    => esc_attr( $btn_text_tranform ),
 					'--fontStyle'        => esc_attr( $btn_font_style ),
 					'--lineHeight'       => kemet_responsive_slider( $btn_line_height, 'desktop' ),

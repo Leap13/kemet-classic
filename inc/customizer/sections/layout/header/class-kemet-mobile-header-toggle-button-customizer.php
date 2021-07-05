@@ -27,6 +27,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 	 */
 	public function register_options( $options ) {
 		self::$prefix   = 'mobile-toggle-button';
+		$selector       = '.' . self::$prefix;
 		$button_options = array(
 			self::$prefix . '-controls-tabs'     => array(
 				'section'  => 'section-' . self::$prefix,
@@ -136,77 +137,77 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 						'value'   => 'design',
 					),
 				),
-			),
-			self::$prefix . '-colors-group'      => array(
-				'type'     => 'kmt-group',
-				'section'  => 'section-' . self::$prefix,
-				'priority' => 10,
-				'label'    => __( 'Colors', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
+				'preview'     => array(
+					'selector' => $selector,
+					'property' => '--fontSize',
 				),
 			),
 			self::$prefix . '-icon-color'        => array(
-				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
-				'priority'  => 1,
+				'priority'  => 15,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--buttonColor',
 				),
 			),
 			self::$prefix . '-icon-bg-color'     => array(
-				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
-				'priority'  => 2,
+				'priority'  => 15,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Normal', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--buttonBackgroundColor',
 				),
 			),
 			self::$prefix . '-icon-h-color'      => array(
-				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
-				'priority'  => 3,
+				'priority'  => 20,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Icon Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
 				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--buttonHoverColor',
+				),
 			),
 			self::$prefix . '-icon-bg-h-color'   => array(
-				'parent-id' => self::$prefix . '-colors-group',
 				'section'   => 'section-' . self::$prefix,
-				'priority'  => 4,
+				'priority'  => 15,
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Background Color', 'kemet' ),
-				'tab'       => __( 'Hover', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'tab',
 						'value'   => 'design',
 					),
+				),
+				'preview'   => array(
+					'selector' => $selector,
+					'property' => '--buttonBackgroundHoverColor',
 				),
 			),
 			self::$prefix . '-border-radius'     => array(
@@ -227,6 +228,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 						'value'   => 'design',
 					),
 				),
+				'preview'     => array(
+					'selector' => $selector,
+					'property' => '--borderRadius',
+				),
 			),
 			self::$prefix . '-width'             => array(
 				'type'        => 'kmt-slider',
@@ -246,6 +251,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 						'value'   => 'general',
 					),
 				),
+				'preview'     => array(
+					'selector' => $selector,
+					'property' => 'width',
+				),
 			),
 			self::$prefix . '-height'            => array(
 				'type'        => 'kmt-slider',
@@ -264,6 +273,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 						'setting' => 'tab',
 						'value'   => 'general',
 					),
+				),
+				'preview'     => array(
+					'selector' => $selector,
+					'property' => 'height',
 				),
 			),
 		);

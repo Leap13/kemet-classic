@@ -756,11 +756,186 @@ function kemet_button_css(buttonItems) {
     });
   });
 }
+function toggle_button_css(buttons) {
+  jQuery.each(buttons, function (index, prefix) {
+    var selector = "." + prefix;
+    wp.customize(settingName(prefix + "-float"), function (value) {
+      value.bind(function (position) {
+        var floatPosition =
+          wp.customize._value[settingName(prefix + "-float-position")]._value;
+        jQuery(selector).removeClass(
+          "toggle-button-fixed float-top-left float-top-right float-bottom-left float-bottom-right"
+        );
+        jQuery(selector).addClass("toggle-button-fixed float-" + floatPosition);
+      });
+    });
+    wp.customize(settingName(prefix + "-float-position"), function (value) {
+      value.bind(function (floatPosition) {
+        var position = floatPosition.split("-"),
+          vOffset =
+            wp.customize._value[settingName(prefix + "-vertical-offset")]._value,
+          hOffset =
+            wp.customize._value[settingName(prefix + "-horizontal-offset")]
+              ._value;
+        jQuery(selector).removeClass(
+          "float-top-left float-top-right float-bottom-left float-bottom-right"
+        );
+        jQuery(selector).addClass("float-" + floatPosition);
+
+        dynamicStyle =
+          selector +
+          ".toggle-button-fixed.float-" +
+          floatPosition +
+          " { " +
+          position[0] +
+          ": " +
+          vOffset +
+          "px; " +
+          position[1] +
+          ": " +
+          hOffset +
+          "px; } ";
+        kemet_add_dynamic_css(
+          settingName(prefix + "-float-position"),
+          dynamicStyle
+        );
+      });
+    });
+    wp.customize(settingName(prefix + "-vertical-offset"), function (value) {
+      value.bind(function (offset) {
+        var floatPosition =
+          wp.customize._value[settingName(prefix + "-float-position")]._value,
+          position = floatPosition.split("-");
+        dynamicStyle =
+          selector +
+          ".toggle-button-fixed.float-" +
+          floatPosition +
+          " { " +
+          position[0] +
+          ": " +
+          offset +
+          "px; } ";
+        kemet_add_dynamic_css(
+          settingName(prefix + "-vertical-offset"),
+          dynamicStyle
+        );
+      });
+    });
+    wp.customize(settingName(prefix + "-horizontal-offset"), function (value) {
+      value.bind(function (offset) {
+        var floatPosition =
+          wp.customize._value[settingName(prefix + "-float-position")]._value,
+          position = floatPosition.split("-");
+        dynamicStyle =
+          selector +
+          ".toggle-button-fixed.float-" +
+          floatPosition +
+          " { " +
+          position[1] +
+          ": " +
+          offset +
+          "px; } ";
+        kemet_add_dynamic_css(
+          settingName(prefix + "-horizontal-offset"),
+          dynamicStyle
+        );
+      });
+    });
+  });
+}
+function popup_css(popups) {
+  jQuery.each(popups, function (index, prefix) {
+    var selector = "#kmt-" + prefix + "-popup",
+      contentSelector = ".kmt-" + prefix + "-popup-content";
+
+    wp.customize(settingName(prefix + "-popup-slide-width"), function (value) {
+      value.bind(function (width) {
+        if (width == "") {
+          wp.customize.preview.send("refresh");
+        }
+
+        if (width) {
+          var dynamicStyle =
+            ".kmt-popup-left " +
+            contentSelector +
+            ", .kmt-popup-right " +
+            contentSelector +
+            " { max-width: " +
+            width +
+            "%; } ";
+          kemet_add_dynamic_css(
+            settingName(prefix + "-popup-slide-width"),
+            dynamicStyle
+          );
+        }
+      });
+    });
+
+    wp.customize(settingName(prefix + "-popup-layout"), function (value) {
+      value.bind(function (layout) {
+        if (layout == "") {
+          wp.customize.preview.send("refresh");
+        }
+        if ("full" === layout) {
+          jQuery(selector).removeClass("kmt-popup-left");
+          jQuery(selector).removeClass("kmt-popup-right");
+          jQuery(selector).addClass("kmt-popup-full-width");
+        } else {
+          var popupSideControl = settingName(prefix + "-popup-slide-side"),
+            popupSide = wp.customize._value[popupSideControl]._value;
+          jQuery(selector).removeClass(
+            "kmt-popup-left kmt-popup-right kmt-popup-full-width"
+          );
+          jQuery(selector).addClass("kmt-popup-" + popupSide);
+        }
+      });
+    });
+
+    wp.customize(settingName(prefix + "-popup-slide-side"), function (value) {
+      value.bind(function (side) {
+        if (side == "") {
+          wp.customize.preview.send("refresh");
+        }
+        jQuery(selector).removeClass("kmt-popup-left kmt-popup-right");
+        jQuery(selector).addClass("kmt-popup-" + side);
+      });
+    });
+
+    wp.customize(settingName(prefix + "-popup-content-align"), function (value) {
+      value.bind(function (contentAlign) {
+        if (contentAlign == "") {
+          wp.customize.preview.send("refresh");
+        }
+        jQuery(selector).removeClass(
+          "kmt-popup-align-left kmt-popup-align-center kmt-popup-align-right"
+        );
+        jQuery(selector).addClass("kmt-popup-align-" + contentAlign);
+      });
+    });
+
+    wp.customize(
+      settingName(prefix + "-popup-content-vertical-align"),
+      function (value) {
+        value.bind(function (contentAlign) {
+          if (contentAlign == "") {
+            wp.customize.preview.send("refresh");
+          }
+          jQuery(selector).removeClass(
+            "kmt-popup-valign-top kmt-popup-valign-center kmt-popup-valign-bottom"
+          );
+          jQuery(selector).addClass("kmt-popup-valign-" + contentAlign);
+        });
+      }
+    );
+  })
+}
 (function ($) {
   // Button Preview.
   kemet_button_css(
     $.merge(previewData.buttonItems, previewData.mobileButtonItems)
   );
+  popup_css(["desktop", "mobile"]);
+  toggle_button_css(["desktop-toggle-button", "mobile-toggle-button"]);
   $.each(previewData.preview, function (control, data) {
     switch (data.type) {
       case "kmt-responsive-slider":

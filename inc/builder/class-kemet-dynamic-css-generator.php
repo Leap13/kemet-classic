@@ -96,17 +96,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$link_h_color  = kemet_get_option( $widget . '-link-h-color' );
 
 				$css_output = array(
-					$selector . ' .widget-title'           => array(
-						'color' => esc_attr( $title_color ),
+					$selector                    => array(
+						'--textColor'         => esc_attr( $content_color ),
+						'--headingLinksColor' => esc_attr( $link_color ),
+						'--linksHoverColor'   => esc_attr( $link_h_color ),
+						'color'               => 'var(--textColor)',
 					),
-					$selector . ' .widget-content'         => array(
-						'color' => esc_attr( $content_color ),
-					),
-					$selector . ' .widget-content a'       => array(
-						'color' => esc_attr( $link_color ),
-					),
-					$selector . ' .widget-content a:hover' => array(
-						'color' => esc_attr( $link_h_color ),
+					$selector . ' .widget-title' => array(
+						'--headingLinksColor' => esc_attr( $title_color ),
 					),
 				);
 
@@ -180,18 +177,14 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						$float_hposition => kemet_get_css_value( $horizontal_offset, 'px' ),
 					),
 					$btn_selector                          => array(
-						'color'            => esc_attr( $icon_color ),
-						'background-color' => esc_attr( $icon_bg_color ),
-						'width'            => kemet_get_css_value( $btn_width, 'px' ),
-						'height'           => kemet_get_css_value( $btn_height, 'px' ),
-						'border-radius'    => kemet_get_css_value( $btn_radius, 'px' ),
-					),
-					$btn_selector . ' .toggle-button-icon' => array(
-						'font-size' => kemet_get_css_value( $icon_size, 'px' ),
-					),
-					$btn_selector . ':hover, ' . $btn_selector . ':focus, ' . $btn_selector . '.toggled' => array(
-						'color'            => esc_attr( $icon_h_color ),
-						'background-color' => esc_attr( $icon_bg_h_color ),
+						'--buttonColor'                => esc_attr( $icon_color ),
+						'--buttonBackgroundColor'      => esc_attr( $icon_bg_color ),
+						'width'                        => kemet_get_css_value( $btn_width, 'px' ),
+						'height'                       => kemet_get_css_value( $btn_height, 'px' ),
+						'--borderRadius'               => kemet_get_css_value( $btn_radius, 'px' ),
+						'--fontSize'                   => kemet_get_css_value( $icon_size, 'px' ),
+						'--buttonHoverColor'           => esc_attr( $icon_h_color ),
+						'--buttonBackgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 					),
 				);
 				/* Parse CSS from array()*/
@@ -201,22 +194,20 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
 				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
 				$popup_width         = kemet_get_option( $device . '-popup-slide-width' );
-				$popup_bg_color      = kemet_get_option( $device . '-popup-bg-color' );
+				$popup_bg            = kemet_get_option( $device . '-popup-background' );
 				$popup_icon_bg_color = kemet_get_option( $device . '-popup-close-btn-color' );
 				$popup_css_output    = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
 						'max-width' => kemet_get_css_value( $popup_width, '%' ),
 					),
-					$content_selector => array(
-						'background-color' => esc_attr( $popup_bg_color ),
-					),
 					$popup_selector . ' .toggle-button-close' => array(
-						'color' => esc_attr( $popup_icon_bg_color ),
+						'--buttonColor' => esc_attr( $popup_icon_bg_color ),
 					),
 				);
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $popup_css_output );
+				$parse_css .= kemet_get_background_obj( $content_selector, $popup_bg );
 
 				return $parse_css;
 			}

@@ -699,7 +699,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-top-header-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-main-header-customizer.php';
@@ -708,14 +708,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-offcanvas-menu-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header//class-kemet-mobile-header-html-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-toggle-button-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-account-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-popup-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-popup-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
