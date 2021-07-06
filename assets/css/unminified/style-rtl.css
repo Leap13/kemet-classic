@@ -1989,7 +1989,7 @@ img {
 }
 
 p {
-  margin-bottom: 1.75em;
+  margin-bottom: var(--marginBottom, 1.75em);
 }
 
 blockquote,
@@ -3523,7 +3523,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 }
 
 .kmt-header-widget-area .widget p {
-  margin-bottom: 0;
+  --marginBottom: 0;
 }
 
 .kmt-header-widget-area .widget ul {
@@ -4836,7 +4836,7 @@ h4.widget-title {
 }
 
 .kemet-footer p:last-child {
-  margin-bottom: 0;
+  --marginBottom: 0;
 }
 
 .kemet-footer .widget_calendar table {
@@ -5100,11 +5100,12 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .entry-content {
+  color: var(--textColor);
   word-wrap: break-word;
 }
 
 .entry-content p {
-  margin-bottom: 1.6em;
+  --marginBottom: 1.6em;
 }
 
 .read-more {
@@ -5142,12 +5143,12 @@ input[type="color"]::-webkit-color-swatch {
 .blog .entry-title,
 .archive .entry-title,
 .search .entry-title {
-  line-height: 1.3;
+  --lineHeight: 1.3;
 }
 
 .page-title {
   margin-bottom: 1em;
-  font-weight: normal;
+  --fontWeight: normal;
 }
 
 .entry-title {
@@ -5245,7 +5246,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .kmt-archive-description p {
-  margin-bottom: 0;
+  --marginBottom: 0;
   font-size: 20px;
   font-size: 1.42857rem;
   line-height: 1.65;
@@ -5542,7 +5543,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .kmt-comment-list .comment-respond p {
-  margin-bottom: 0.5em;
+  --marginBottom: 0.5em;
 }
 
 .kmt-comment-list #cancel-comment-reply-link {
@@ -5692,7 +5693,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area .kmt-comment-formwrap p {
-  margin-bottom: 0;
+  --marginBottom: 0;
 }
 
 .comments-area .no-comments {
@@ -5701,7 +5702,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .comments-area p.logged-in-as {
-  margin-bottom: 1em;
+  --marginBottom: 1em;
 }
 
 .comments-area #wp-comment-cookies-consent {
@@ -5773,7 +5774,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .kmt-separate-container .kmt-comment-list .pingback p {
-  margin-bottom: 0;
+  --marginBottom: 0;
 }
 
 .kmt-separate-container .kmt-comment-list .bypostauthor {

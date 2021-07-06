@@ -1975,7 +1975,7 @@ img {
 }
 
 p {
-  margin-bottom: 1.75em;
+  margin-bottom: var(--marginBottom, 1.75em);
 }
 
 blockquote,
@@ -2176,7 +2176,7 @@ h6,
 }
 
 p {
-  margin-bottom: 1em;
+  margin-bottom: var(--marginBottom, 1em);
 }
 
 /**

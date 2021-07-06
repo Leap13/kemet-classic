@@ -12,8 +12,9 @@
   }
   form {
     position: relative;
-
-    > p,
+    > p {
+      --marginBottom: 1.2em;
+    }
     > div {
       margin-bottom: 1.2em;
     }

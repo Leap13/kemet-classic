@@ -44,7 +44,7 @@
       padding-top: 0;
     }
     p {
-      margin-bottom: 0.5em;
+      --marginBottom: 0.5em;
     }
   }
   #cancel-comment-reply-link {
@@ -168,7 +168,7 @@
   }
   .kmt-comment-formwrap {
     p {
-      margin-bottom: 0;
+      --marginBottom: 0;
     }
   }
   /*  4 - Comment List Styles  */
@@ -179,7 +179,7 @@
   }
 
   p.logged-in-as {
-    margin-bottom: 1em;
+    --marginBottom: 1em;
   }
 
   /* Comment Cookie concent field aignment */
@@ -237,7 +237,7 @@
     }
 
     .pingback p {
-      margin-bottom: 0;
+      --marginBottom: 0;
     }
     .bypostauthor {
       padding: 2em;

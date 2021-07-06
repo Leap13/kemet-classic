@@ -76,7 +76,7 @@
     display: inline-block;
     vertical-align: middle;
     p {
-      margin-bottom: 0;
+      --marginBottom: 0;
     }
     ul {
       position: static;

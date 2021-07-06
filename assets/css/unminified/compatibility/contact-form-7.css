@@ -14,7 +14,10 @@
   position: relative;
 }
 
-.wpcf7 form > p,
+.wpcf7 form > p {
+  --marginBottom: 1.2em;
+}
+
 .wpcf7 form > div {
   margin-bottom: 1.2em;
 }

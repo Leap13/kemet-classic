@@ -50,7 +50,7 @@ img {
 }
 
 p {
-  margin-bottom: 1.75em;
+  margin-bottom: var(--marginBottom, 1.75em);
 }
 
 blockquote,

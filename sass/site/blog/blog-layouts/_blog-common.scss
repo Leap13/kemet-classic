@@ -60,9 +60,10 @@
 }
 
 .entry-content {
+  color: var(--textColor);
   word-wrap: break-word;
   p {
-    margin-bottom: 1.6em;
+    --marginBottom: 1.6em;
   }
 }
 
@@ -103,13 +104,13 @@
 .archive,
 .search {
   .entry-title {
-    line-height: 1.3;
+    --lineHeight: 1.3;
   }
 }
 
 .page-title {
   margin-bottom: 1em;
-  font-weight: normal;
+  --fontWeight: normal;
 }
 
 .entry-title {
