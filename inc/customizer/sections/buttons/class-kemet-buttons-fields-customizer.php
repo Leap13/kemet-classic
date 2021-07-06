@@ -147,6 +147,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'initial' => '#fff',
 					'hover'   => '#000',
 				),
+				'label' => 'Button Color',
 				'section'  => 'section-buttons-fields',
 				'priority' => 36,
 				'pickers'  => array(

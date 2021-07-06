@@ -1,6 +1,5 @@
 import { createElement, Component, createRef } from '@wordpress/element'
 import { ColorPicker } from '@wordpress/components'
-import _ from '_'
 import $ from 'jquery'
 import { __ } from '@wordpress/i18n'
 

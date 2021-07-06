@@ -23,6 +23,9 @@ export const KemetColorPicker = ({
       width: "100%",
       position: "relative",
       marginBottom: 10,
+      padding: '20px 10px',
+      overflow: 'hidden',
+      boxSizing: 'border-box'
     },
     hue: {
       height: 10,

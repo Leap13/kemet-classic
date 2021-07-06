@@ -5,12 +5,12 @@ const { __ } = wp.i18n;
 
 const ColorComponent = props => {
     let value = props.control.setting.get();
-
     let defaultValue = props.control.params.default;
+    let pickers = props.control.params.pickers;
 
-    const [state, setState] = useState({
-        value: value,
-    });
+    let colorComponent = [];
+
+    const [state, setState] = useState(value);
 
     useEffect(() => {
         // If settings are changed externally.
@@ -22,42 +22,43 @@ const ColorComponent = props => {
     const updateValues = (value) => {
         setState(prevState => ({
             ...prevState,
-            value: value
+            value
         }));
         props.control.setting.set(value);
+        console.log("value from update", value, state)
     };
 
     const renderOperationButtons = () => {
 
         let resetFlag = true;
-        const tempVal = state.value.replace('unset', '');
+        const tempVal = '';
 
         if (JSON.stringify(tempVal) !== JSON.stringify(defaultValue)) {
             resetFlag = false;
         }
-        return <span className="customize-control-title">
-            <>
-                <div className="kmt-color-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-                        disabled={resetFlag} onClick={e => {
-                            e.preventDefault();
-                            let value = JSON.parse(JSON.stringify(defaultValue));
+        return <>
+            <div className="kmt-color-btn-reset-wrap">
+                <button
+                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                    disabled={resetFlag} onClick={e => {
+                        e.preventDefault();
+                        let value = JSON.parse(JSON.stringify(defaultValue));
 
-                            if (undefined === value || '' === value) {
-                                value = 'unset';
-                            }
+                        if (undefined === value || '' === value) {
+                            value = 'unset';
+                        }
 
-                            updateValues(value);
-                        }}>
-                        <span className="dashicons dashicons-image-rotate"></span>
-                    </button>
-                </div>
-            </>
-        </span>;
+                        updateValues(value);
+                    }}>
+                    <span className="dashicons dashicons-image-rotate"></span>
+                </button>
+            </div>
+        </>;
     };
 
     const handleChangeComplete = (color) => {
+
+        console.log('handleChangeComplete', color)
         let value;
 
         if (typeof color === 'string') {
@@ -67,9 +68,23 @@ const ColorComponent = props => {
         } else {
             value = color.hex;
         }
-
+        console.log("value from function ", value)
         updateValues(value);
     };
+
+    for (const [key, value] of Object.entries(pickers)) {
+        let colorValue = pickers[key][`id`]
+        colorComponent.push(<KemetColorPickerControl
+            text={value}
+            color={state[colorValue]}
+            onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
+            backgroundType={'color'}
+            allowGradient={false}
+            allowImage={false}
+        />
+        )
+    }
+
 
     const {
         label,
@@ -77,29 +92,21 @@ const ColorComponent = props => {
     } = props.control.params;
 
 
-    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
+    let labelHtml = label ? <span className="customize-control-title">{label}</span> : "color";
     let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
 
 
     return <div className="kmt-control-wrap kmt-color-control-wrap">
-        <label>
-            {labelHtml}
-            {descriptionHtml}
-        </label>
+        {renderOperationButtons()}
+        <div className={`kmt-color-container`}>
+            <label>
+                {labelHtml}
+                {descriptionHtml}
+            </label>
 
-        <div className="kmt-color-picker-alpha color-picker-hex">
-            {renderOperationButtons()}
-
-            <KemetColorPickerControl
-                color={undefined !== state.value && state.value ? state.value : ''}
-                onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
-                backgroundType={'color'}
-                allowGradient={false}
-                allowImage={false}
-            />
-
-
-
+            <div className={`kmt-color-picker-container`}>
+                {colorComponent.map(elem => elem)}
+            </div>
         </div>
     </div>;
 
