@@ -686,7 +686,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Sections
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/container.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-container-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/mainmenu.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/content.php';
