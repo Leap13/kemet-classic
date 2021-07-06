@@ -12,6 +12,7 @@ import { responsiveSpacingControl } from './responsive-spacing/control'
 import { iconSelect } from './icon-select/control'
 //import { colorComponent } from './color/control'
 //import { toggleControl } from './Toggle/control'
+//import { RowLayoutControl } from './row-layout/control';
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
 wp.customize.controlConstructor["kmt-available"] = AvailableControl;
@@ -26,5 +27,6 @@ wp.customize.controlConstructor['kmt-responsive-spacing'] = responsiveSpacingCon
 wp.customize.controlConstructor['kmt-icon-select'] = iconSelect;
 //wp.customize.controlConstructor['kmt-color'] = colorComponent;
 //wp.customize.controlConstructor['kmt-toggle'] = toggleControl
+//wp.customize.controlConstructor['kmt-row-layout'] = RowLayoutControl;
 
 import { Base } from "./customizer";

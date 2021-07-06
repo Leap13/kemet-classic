@@ -106,7 +106,11 @@ const DropComponent = (props) => {
       </Fragment>
     );
   };
-
+  if ('footer' === props.mode) {
+    return <div className={`kmt-builder-area kmt-builder-area-${location}`} data-location={props.zone}>
+      {addSortable(theItems, currentList, '')}
+    </div>;
+  }
   return (
     <div
       className={`kmt-builder-area kmt-builder-area-${location}`}

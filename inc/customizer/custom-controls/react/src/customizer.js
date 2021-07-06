@@ -310,4 +310,66 @@ import { array, func } from "prop-types";
     api.panel("panel-header-builder-group", initKmtBuilderPanel);
     api.panel("panel-footer-builder-group", initKmtBuilderPanel);
   });
+  
+  api.bind('ready', function () {
+
+    sessionStorage.removeItem('kmtPartialContentRendered')
+
+    /**
+     * Trigger on Above header column or layout change.
+     */
+    api('kemet-settings[fbt-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let event = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[fbt-footer-layout]').get(),
+            'type': 'above'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
+    /**
+     * Trigger on Primary header column or layout change.
+     */
+    api('kemet-settings[fb-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let Kemetvent = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[fb-footer-layout]').get(),
+            'type': 'primary'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
+    /**
+     * Trigger on Below header column or layout change.
+     */
+    api('kemet-settings[fbb-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let event = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[fbb-footer-layout]').get(),
+            'type': 'below'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
+
+
+  });
 })(jQuery, wp.customize);

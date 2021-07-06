@@ -127,13 +127,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
 					// Footer Builder
-					'footer-items'                         => array(
+					'footer-desktop-items'                         => array(
 						'top'    => array(
 							'top_1' => array(),
 							'top_2' => array(),
 							'top_3' => array(),
 							'top_4' => array(),
 							'top_5' => array(),
+							'top_6' => array(),
 						),
 						'main'   => array(
 							'main_1' => array(),
@@ -141,6 +142,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'main_3' => array(),
 							'main_4' => array(),
 							'main_5' => array(),
+							'main_6' => array(),
 						),
 						'bottom' => array(
 							'bottom_1' => array(),
@@ -148,17 +150,39 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'bottom_3' => array(),
 							'bottom_4' => array(),
 							'bottom_5' => array(),
+							'bottom_6' => array(),
 						),
 					),
-					'top-footer-columns'                   => 5,
-					'main-footer-columns'                  => 3,
-					'bottom-footer-columns'                => 2,
+					'top-footer-column'                   => 6,
+					'main-footer-column'                  => 6,
+					'bottom-footer-column'                => 6,
+					// 'fbt-footer-height' 			=> 60,
+					// 'fbt-footer-column' 			=> '2',
+					'fbt-footer-layout' 			=> array(
+						'desktop' => '4',
+						'tablet'  => '2',
+						'mobile'  => '3',
+					),
+					// /**
+					//  * Bottom Footer 
+					//  */
+					// 'fbb-footer-height' =>  80,
+					// 'fbb-footer-column' =>  '1',
+					'fbb-footer-layout' =>  array(
+						'desktop' => '6',
+						'tablet'  => '6',
+						'mobile'  => '6',
+					),
+					'fb-footer-layout' =>  array(
+						'desktop' => '6',
+						'tablet'  => '6',
+						'mobile'  => '6',
+					),
 					// Blog Single.
 					'blog-single-post-structure'           => array(
 						'single-image',
 						'single-title-meta',
 					),
-
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
 					'blog-single-meta'                     => array(

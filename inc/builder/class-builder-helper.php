@@ -23,6 +23,13 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		private static $instance;
 
 		/**
+		 * Member Variable
+		 *
+		 * @var instance
+		 */
+		public static $loaded_grid = null;
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -90,6 +97,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		public static function is_item_loaded( $item, $builder = 'header', $device = 'all' ) {
 			$items         = array();
 			$current_items = array();
+			$loaded_items = array();
 
 			if ( 'header' == $builder ) {
 				$items['desktop'] = kemet_get_option( 'header-desktop-items', array() );
@@ -106,6 +114,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 					$current_items[ $d_items ] = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
 				}
 			}
+			
 			switch ( $device ) {
 				case 'all':
 					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $items;
@@ -124,6 +133,74 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		}
 
 		/**
+		 * Check if component placed on the builder.
+		 *
+		 * @param integer $component_id component id.
+		 * @param string  $builder_type builder type.
+		 * @param string  $device Device type (mobile, desktop and both).
+		 * @return bool
+		 */
+		public static function is_component_loaded( $component_id, $builder_type = 'footer', $device = 'both' ) {
+
+			$loaded_components = array();
+
+			if ( is_null( self::$loaded_grid ) ) {
+
+				$grids['footer_both']    = kemet_get_option( 'footer-desktop-items', array() );
+
+				if ( ! empty( $grids ) ) {
+
+					foreach ( $grids as $grid_row => $row_grids ) {
+
+						$components = array();
+						if ( ! empty( $row_grids ) ) {
+
+							foreach ( $row_grids as $row => $grid ) {
+
+								if ( ! in_array( $row, array( 'top', 'bottom', 'main' ) ) ) {
+									continue;
+								}
+
+								if ( ! is_array( $grid ) ) {
+									continue;
+								}
+
+								$result = array_values( $grid );
+
+								if ( is_array( $result ) ) {
+									$loaded_component = call_user_func_array( 'array_merge', $result );
+									$components[]     = is_array( $loaded_component ) ? $loaded_component : array();
+								}
+							}
+						}
+
+						$loaded_components[ $grid_row ] = call_user_func_array( 'array_merge', $components );
+					}
+				}
+
+				if ( ! empty( $loaded_components ) ) {
+
+					// For All device and builder type.
+					$all_components           = call_user_func_array( 'array_merge', array_values( $loaded_components ) );
+					$loaded_components['all'] = array_unique( $all_components );
+				}
+
+				self::$loaded_grid = $loaded_components;
+			}
+
+			$loaded_components = self::$loaded_grid;
+
+			if ( 'all' === $builder_type && ! empty( $loaded_components['all'] ) ) {
+				$is_loaded = in_array( $component_id, $loaded_components['all'], true );
+			} else {
+				$is_loaded = in_array( $component_id, $loaded_components[ $builder_type . '_' . $device ], true );
+			}
+
+			return $is_loaded || is_customize_preview();
+		}
+
+
+		/**
 		 * Get Widget
 		 *
 		 * @param string $widget_id
@@ -136,6 +213,31 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			echo '</div>';
 			echo ob_get_clean();
 		}
+
+	/**
+	 * Check if Footer Zone is empty.
+	 *
+	 * @param string $row row.
+	 * @return bool
+	 */
+	public static function is_footer_row_empty( $row = 'main' ) {
+		$sides    = false;
+		$elements = kemet_get_option( 'footer-desktop-items' );
+
+		if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
+			for ( $i = 1; $i <= 5; $i++ ) {
+				if (
+					isset( $elements[ $row ][ $row . '_' . $i ] ) &&
+					is_array( $elements[ $row ][ $row . '_' . $i ] ) &&
+					! empty( $elements[ $row ][ $row . '_' . $i ] )
+				) {
+					$sides = true;
+					break;
+				}
+			}
+		}
+		return $sides;
+	}
 
 		/**
 		 * Get custom HTML added by user.

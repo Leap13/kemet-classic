@@ -88,22 +88,22 @@ const AddComponent = (props) => {
       className={classnames(
         "kmt-builder-add-item",
         ("header-desktop-items" === controlParams.group ||
-          "kemet-settings[footer-desktop-items]" === controlParams.group) &&
+          "footer-desktop-items" === controlParams.group) &&
           "right" === location
           ? "center-on-left"
           : null,
         ("header-desktop-items" === controlParams.group ||
-          "kemet-settings[footer-desktop-items]" === controlParams.group) &&
+          "footer-desktop-items" === controlParams.group) &&
           "left" === location
           ? "center-on-right"
           : null,
         ("header-desktop-items" === controlParams.group ||
-          "kemet-settings[footer-desktop-items]" === controlParams.group) &&
+          "footer-desktop-items" === controlParams.group) &&
           "left_center" === location
           ? "right-center-on-right"
           : null,
         ("header-desktop-items" === controlParams.group ||
-          "kemet-settings[footer-desktop-items]" === controlParams.group) &&
+          "footer-desktop-items" === controlParams.group) &&
           "right_center" === location
           ? "left-center-on-left"
           : null

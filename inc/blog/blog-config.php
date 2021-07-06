@@ -191,12 +191,17 @@ if ( ! function_exists( 'kemet_post_comments' ) ) {
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			?>
 			<span class="comments-link">
+			<svg viewBox="0 0 512 512" aria-hidden="true" role="img" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px">
+                                <path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z" />
+                            </svg>
+			<i><?php Kemet_Font_Icons::get_icons( 'menu-bars', true ); ?></i>
 				<?php
 				/**
 				 * Get Comment Link
 				 *
 				 * @see kemet_theme_strings()
 				 */
+				
 				comments_popup_link( kemet_theme_strings( 'string-blog-meta-leave-a-comment', false ), kemet_theme_strings( 'string-blog-meta-one-comment', false ), kemet_theme_strings( 'string-blog-meta-multiple-comment', false ) );
 				?>
 

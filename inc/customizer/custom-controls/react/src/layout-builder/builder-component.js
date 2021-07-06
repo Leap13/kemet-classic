@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import RowComponent from "./row-component";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 const BuilderComponent = (props) => {
   let value = props.control.setting.get();
@@ -39,6 +39,7 @@ const BuilderComponent = (props) => {
   const [state, setState] = useState({
     value: value,
     columns: columns,
+    layout: controlParams.layouts,
     isPopup: false,
     revertDrag: false,
     prevItems: prevItems,
@@ -65,6 +66,55 @@ const BuilderComponent = (props) => {
     }
     setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
   };
+
+  // const updateRowLayout = () => {
+
+  //   document.addEventListener('KemetBuilderChangeRowLayout', function (e) {
+
+  //     if ("kemet-settings[footer-desktop-items]" !== controlParams.group) {
+  //       return;
+  //     }
+
+  //     if ('' === e.detail.type) {
+  //       return;
+  //     }
+
+  //     let newParams = controlParams;
+
+  //     if (newParams.layouts[e.detail.type]) {
+  //       newParams.layouts[e.detail.type] = {
+  //         'column': e.detail.columns,
+  //         'layout': e.detail.layout
+  //       };
+
+  //       setState(prevState => ({
+  //         ...prevState,
+  //         layout: newParams.layouts
+  //       }));
+
+  //       updateValues(newParams);
+  //     }
+  //   });
+  // };
+
+  const updatePresetSettings = () => {
+    document.addEventListener('KemetBuilderPresetSettingsUpdate', function (event) {
+      // Load Only Context Area.
+      if (controlParams.group === event.detail.id) {
+        setState(prevState => ({
+          ...prevState,
+          value: event.detail.grid_layout
+        }));
+        updateValues(event.detail.grid_layout);
+      }
+    });
+  };
+
+  useEffect(() => {
+    updatePresetSettings();
+    //updateRowLayout();
+  }, []);
+
   const onDragStart = () => {
     let dragZones = document.querySelectorAll(".kmt-builder-area");
 
@@ -333,6 +383,8 @@ const BuilderComponent = (props) => {
             settings={state.value}
             columns={state.columns["popup"]}
             customizer={props.customizer}
+            settings={state.value} 
+            layout={state.layout}
           />
         )}
         <div className="kmt-builder-row-items">
@@ -363,6 +415,7 @@ const BuilderComponent = (props) => {
                 settings={state.value}
                 columns={state.columns[row]}
                 customizer={props.customizer}
+                layout={props.layout}
               />
             );
           })}
@@ -370,6 +423,10 @@ const BuilderComponent = (props) => {
       </div>
     </Fragment>
   );
+};
+BuilderComponent.propTypes = {
+  control: PropTypes.object.isRequired,
+  customizer: PropTypes.func.isRequired
 };
 
 export default React.memo(BuilderComponent);
