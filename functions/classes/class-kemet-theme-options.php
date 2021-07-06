@@ -127,13 +127,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
 					// Footer Builder
-					'footer-items'                         => array(
+					'footer-desktop-items'                         => array(
 						'top'    => array(
 							'top_1' => array(),
 							'top_2' => array(),
 							'top_3' => array(),
 							'top_4' => array(),
 							'top_5' => array(),
+							'top_6' => array(),
 						),
 						'main'   => array(
 							'main_1' => array(),
@@ -141,6 +142,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'main_3' => array(),
 							'main_4' => array(),
 							'main_5' => array(),
+							'main_6' => array(),
 						),
 						'bottom' => array(
 							'bottom_1' => array(),
@@ -148,11 +150,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'bottom_3' => array(),
 							'bottom_4' => array(),
 							'bottom_5' => array(),
+							'bottom_6' => array(),
 						),
 					),
-					'top-footer-columns'                   => 5,
-					'main-footer-columns'                  => 3,
-					'bottom-footer-columns'                => 2,
+					'top-footer-columns'                   => 6,
+					'main-footer-columns'                  => 6,
+					'bottom-footer-columns'                => 6,
 					// Blog Single.
 					'blog-single-post-structure'           => array(
 						'single-image',

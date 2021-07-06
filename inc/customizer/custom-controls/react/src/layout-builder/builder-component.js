@@ -125,7 +125,8 @@ const BuilderComponent = (props) => {
     let dragged = false;
     if (
       "header-desktop-items" === controlParams.group ||
-      "header-mobile-items" === controlParams.group
+      "header-mobile-items" === controlParams.group ||
+      "footer-desktop-items" === controlParams.group
     ) {
       controlParams.rows.map((row) => {
         if (inObject(staleValue[row], item)) {

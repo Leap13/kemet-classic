@@ -12,6 +12,7 @@ const RowComponent = (props) => {
   let zone_count = 0;
   let enableRow = true;
   let section = "section-" + props.row + "-" + mode + "-builder";
+
   if ("header" === mode) {
     switch (props.row) {
       case "main":
@@ -90,9 +91,13 @@ const RowComponent = (props) => {
       >
         {Object.keys(props.controlParams.zones[props.row]).map(
           (zone, index) => {
+            if ('footer' === mode && zone_count < index) {
+					  return;
+				    }
             if (
               props.row + "_left_center" === zone ||
-              props.row + "_right_center" === zone
+              props.row + "_right_center" === zone //&&
+              //'footer' !== mode
             ) {
               return;
             }

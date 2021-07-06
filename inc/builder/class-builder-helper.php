@@ -22,6 +22,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 */
 		private static $instance;
 
+		public static $num_of_footer_columns;
 		/**
 		 * Initiator
 		 */
@@ -35,7 +36,9 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		/**
 		 * Constructor
 		 */
-		public function __construct() {}
+		public function __construct() {
+			$num_of_footer_columns = defined( 'Kemet_EXT_VER' ) ? apply_filters( 'kemet_footer_column_count', 6 ) : 6;
+		}
 
 		/**
 		 * Check if column has items
@@ -98,7 +101,25 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 
 			return false || is_customize_preview();
 		}
-
+		/**
+		 * Get Column Content
+		 *
+		 * @param string $column column.
+		 * @param string $row row.
+		 * @param string $builder builder type.
+		 * @param string $device device.
+		 */
+		public static function render_column_content( $column, $row, $builder = 'header', $device = 'desktop' ) {
+			$items = kemet_get_option( $builder . '-' . $device . '-items' );
+			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
+				if ( false !== strpos( $item, 'html' ) || false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
+					$type = false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];
+					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
+				} else {
+					get_template_part( 'templates/' . $builder . '/components/' . $item );
+				}
+			}
+		}
 		/**
 		 * Get Widget
 		 *
