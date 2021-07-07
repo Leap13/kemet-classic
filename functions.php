@@ -34,6 +34,11 @@ require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-fonts.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-gutenberg-editor-style.php';
 
 /**
+ * Kemet SVG Icons
+ */
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-svg-icons.php';
+
+/**
  * Functions.
  */
 require_once KEMET_THEME_DIR . 'functions/helper-options-functions.php';

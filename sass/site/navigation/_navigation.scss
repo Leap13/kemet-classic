@@ -134,3 +134,42 @@
     text-align: right;
   }
 }
+.kmt-svg-icon {
+	svg {
+		fill: currentColor;
+	}
+}
+.kmt-svg-icon {
+	&.icon-dropdown-menu {
+		svg {
+			height: .6em;
+			width: .6em;
+			position: relative;
+			margin-left: 10px;
+		}
+	}
+	&.icon-search {
+		svg {
+			height: 1em;
+			width: 0.9em;
+			margin-top: 3px;
+			margin-right: 2px;
+		}
+	}
+}
+#kmt-desktop-header {
+		.sub-menu {
+			.menu-item.menu-item-has-children {
+        .kmt-svg-icon {
+          &.icon-dropdown-menu {
+            svg {
+						position: absolute;
+						right: .60em;
+						top: 50%;
+						transform: translate(0, -50%) rotate(270deg);
+					}
+				}
+			}
+    }
+	}
+}

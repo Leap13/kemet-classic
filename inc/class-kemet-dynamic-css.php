@@ -1341,20 +1341,21 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( $site_width, '769' );
 
-			/**
-			 * Kemet Fonts
-			 */
-			if ( apply_filters( 'kemet_enable_default_fonts', true ) ) {
-				$kemet_fonts  = '@font-face {';
-				$kemet_fonts .= 'font-family: "Kemet-font";';
-				$kemet_fonts .= 'src: url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.woff) format("woff"),';
-				$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.ttf) format("truetype"),';
-				$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.svg#kemet) format("svg");';
-				$kemet_fonts .= 'font-weight: normal;';
-				$kemet_fonts .= 'font-style: normal;';
-				$kemet_fonts .= '}';
-				$parse_css   .= $kemet_fonts;
-			}
+			// /**
+			//  * Kemet Fonts
+			//  */
+			//  */ old code will remove
+			// if ( apply_filters( 'kemet_enable_default_fonts', true ) ) {
+			// 	$kemet_fonts  = '@font-face {';
+			// 	$kemet_fonts .= 'font-family: "Kemet-font";';
+			// 	$kemet_fonts .= 'src: url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.woff) format("woff"),';
+			// 	$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.ttf) format("truetype"),';
+			// 	$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.svg#kemet) format("svg");';
+			// 	$kemet_fonts .= 'font-weight: normal;';
+			// 	$kemet_fonts .= 'font-style: normal;';
+			// 	$kemet_fonts .= '}';
+			// 	$parse_css   .= $kemet_fonts;
+			// }
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :

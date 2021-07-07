@@ -742,6 +742,31 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 add_action( 'kemet_sitehead_content', 'kemet_primary_navigation_markup', 10 );
 
 /**
+ * Add svg icon if menu item has children.
+ *
+ * @since 1.2
+ *
+ */
+function kemet_dropdown_icon_to_menu_link( $title, $item, $args ) {
+
+	$icon     = '';
+
+	if ( isset( $args->container_class ) ) {
+		$icon = Kemet_Svg_Icons::get_icons( 'dropdown-menu' );
+	} 
+
+	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) )  {
+		$title = $title . $icon;
+	}
+
+
+	return $title;
+
+}
+
+add_filter( 'nav_menu_item_title', 'kemet_dropdown_icon_to_menu_link', 10, 4 );
+
+/**
  * Function to get site Footer
  */
 if ( ! function_exists( 'kemet_footer_markup' ) ) {
