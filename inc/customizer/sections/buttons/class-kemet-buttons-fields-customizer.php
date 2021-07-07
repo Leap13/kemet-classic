@@ -125,47 +125,42 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'property' => '--lineHeight',
 				),
 			),
-			// 'buttons-letter-spacing'   => array(
-			// 	'transport'    => 'postMessage',
-			// 	'type'         => 'kmt-responsive-slider',
-			// 	'section'      => 'section-buttons-fields',
-			// 	'priority'     => 35,
-			// 	'label'        => __( 'Letter Spacing', 'kemet' ),
-			// 	'unit_choices' => array(
-			// 		'px' => array(
-			// 			'min'  => 0.1,
-			// 			'step' => 0.1,
-			// 			'max'  => 10,
-			// 		),
-			// 	),
-			// 	'preview'      => array(
-			// 		'selector' => $btn_selector,
-			// 		'property' => '--letterSpacing',
-			// 	),
-			// ),
+			'buttons-letter-spacing'   => array(
+				'transport'    => 'postMessage',
+				'type'         => 'kmt-responsive-slider',
+				'section'      => 'section-buttons-fields',
+				'priority'     => 35,
+				'label'        => __( 'Letter Spacing', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 10,
+					),
+				),
+				'preview'      => array(
+					'selector' => $btn_selector,
+					'property' => '--letterSpacing',
+				),
+			),
 			// 'button-color-group'       => array(
-			// 'type'     => 'kmt-color',
-			// 'responsive' => true,
+			// 'type'     => 'kmt-color-group',
 			// 'default'  => array(
-			// 	'desktop' => array(
-			// 		'initial' => '#fff',
-			// 		'hover'   => '#000',
-			// 	),
-			// 	'tablet' => ''
-			// 	'mobile' => ''
+			// 'initial' => '#fff',
+			// 'hover'   => '#000',
 			// ),
 			// 'section'  => 'section-buttons-fields',
 			// 'priority' => 36,
 			// 'pickers'  => array(
-			// 		array(
-			// 		'title' => __( 'Text', 'kemet' ),
-			// 		'id'    => 'initial',
-			// 		),
-			// 		array(
-			// 		'title' => __( 'Hover', 'kemet' ),
-			// 		'id'    => 'hover',
-			// 		),
-			// 	),
+			// array(
+			// 'title' => __( 'Text', 'kemet' ),
+			// 'id'    => 'initial',
+			// ),
+			// array(
+			// 'title' => __( 'Hover', 'kemet' ),
+			// 'id'    => 'hover',
+			// ),
+			// ),
 			// ),
 			'button-color'             => array(
 				'type'      => 'kmt-color',

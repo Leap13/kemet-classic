@@ -789,12 +789,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--lineHeight'        => kemet_responsive_slider( $widget_title_line_height, 'desktop' ),
 					'--textTransform'     => esc_attr( $widget_title_text_transform ),
 					'--headingLinksColor' => esc_attr( $widget_title_color ),
+					'--fontStyle'         => esc_attr( $widget_title_font_style ),
 				),
 
 				// Widget Spacing.
 				'.sidebar-main .widget'                 => array(
 					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom ),
-					'--padding'     => kemet_responsive_spacing( $space_widget, 'all', 'desktop' ),
+					'padding'       => kemet_responsive_spacing( $space_widget, 'all', 'desktop' ),
 				),
 				// Blockquote Text Color.
 				'blockquote p , blockquote em'          => array(
@@ -862,6 +863,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-content #primary'                => array(
 					'padding-top'    => kemet_responsive_spacing( $content_padding, 'top', 'desktop' ),
 					'padding-bottom' => kemet_responsive_spacing( $content_padding, 'bottom', 'desktop' ),
+				),
+				// Widgets
+				'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
+					'border-bottom-style' => 'var(--borderBottomStyle)',
+					'border-bottom-width' => 'var(--borderBottomWidth)',
+					'border-bottom-color' => 'var(--borderBottomColor)',
+				),
+				'.widget .widget-head'                  => array(
+					'border-bottom-style' => 'var(--borderBottomStyle)',
+					'border-bottom-width' => 'var(--borderBottomWidth)',
+					'border-bottom-color' => 'var(--borderBottomColor)',
 				),
 			);
 
@@ -1035,7 +1047,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Widget Spacing.
 				'.sidebar-main .widget'                => array(
-					'--padding' => kemet_responsive_spacing( $space_widget, 'all', 'tablet' ),
+					'padding' => kemet_responsive_spacing( $space_widget, 'all', 'tablet' ),
 				),
 				// post readmore spacing.
 				'.content-area p.read-more a'          => array(
@@ -1179,7 +1191,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Widget Spacing.
 				'.sidebar-main .widget'                => array(
-					'--padding' => kemet_responsive_spacing( $space_widget, 'all', 'mobile' ),
+					'padding' => kemet_responsive_spacing( $space_widget, 'all', 'mobile' ),
 				),
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
@@ -1400,6 +1412,94 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'920'
 			);
 
+			// Widget Title Border.
+			$widget_title_border_size      = kemet_get_option( 'widget-title-border-size' );
+			$widget_title_border_color     = kemet_get_option( 'widget-title-border-color', $global_border_color );
+			$enable_widget_title_separator = kemet_get_option( 'enable-widget-title-separator' );
+
+			if ( $enable_widget_title_separator ) {
+				$widget_separator_style = array(
+					'.widget .widget-head' => array(
+						'--borderBottomStyle' => 'solid',
+						'--borderBottomWidth' => kemet_get_css_value( $widget_title_border_size, 'px' ),
+						'--borderBottomColor' => esc_attr( $widget_title_border_color ),
+					),
+				);
+				$parse_css             .= kemet_parse_css( $widget_separator_style );
+			}
+
+			// Widget list Border.
+			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
+			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+			if ( $widget_list_border ) {
+				$widget_list_style = array(
+					'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
+						'--borderBottomStyle' => esc_attr( 'solid' ),
+						'--borderBottomWidth' => esc_attr( '1px' ),
+						'--borderBottomColor' => esc_attr( $widget_list_border_color ),
+					),
+					'.widget_shopping_cart .total' => array(
+						'border-color' => esc_attr( $widget_list_border_color ),
+					),
+				);
+				$parse_css        .= kemet_parse_css( $widget_list_style );
+			} else {
+				$widget_list_style = array(
+					'#secondary .widget_shopping_cart .total' => array(
+						'border' => esc_attr( 'none' ),
+					),
+				);
+				$parse_css        .= kemet_parse_css( $widget_list_style );
+			}
+
+			// Footer Widget List Border.
+			$global_footer_text_color        = kemet_get_option( 'global-footer-text-color' );
+			$footer_widget_list_border       = kemet_get_option( 'enable-footer-widget-list-separator' );
+			$global_footer_bg_color          = kemet_get_option( 'global-footer-bg-color' );
+			$footer_widget_list_border_color = kemet_get_option( 'footer-widget-list-border-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) );
+			if ( $footer_widget_list_border ) {
+				$widget_list_style = array(
+					'.kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li' => array(
+						'--borderBottomStyle' => esc_attr( 'solid' ),
+						'--borderBottomWidth' => esc_attr( '1px' ),
+						'--borderBottomColor' => esc_attr( $footer_widget_list_border_color ),
+					),
+					'.kemet-footer .widget_shopping_cart .total, .kmt-footer-copyright .widget_shopping_cart .total' => array(
+						'border-color' => esc_attr( $footer_widget_list_border_color ),
+					),
+				);
+				$parse_css        .= kemet_parse_css( $widget_list_style );
+			} elseif ( ! $footer_widget_list_border && $widget_list_border_color ) {
+				$footer_widget_separator_style = array(
+					'.kemet-footer .widget ul > li ,.kmt-footer-copyright .widget ul > li, .kemet-footer .widget_shopping_cart .total, .kmt-footer-copyright .widget_shopping_cart .total' => array(
+						'border' => 'none',
+					),
+				);
+				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
+			}
+
+			// Footer Widget Title Border.
+			$footer_widget_title_border_size      = kemet_get_option( 'footer-widget-title-border-size' );
+			$footer_widget_title_border_color     = kemet_get_option( 'footer-wgt-title-separator-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
+			$footer_enable_widget_title_separator = kemet_get_option( 'enable-footer-widget-title-separator' );
+			if ( $footer_enable_widget_title_separator ) {
+				$footer_widget_separator_style = array(
+					'.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head' => array(
+						'--borderBottomStyle' => 'solid',
+						'--borderBottomWidth' => kemet_get_css_value( $footer_widget_title_border_size, 'px' ),
+						'--borderBottomColor' => esc_attr( $footer_widget_title_border_color ),
+					),
+				);
+				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
+			} elseif ( ! $footer_enable_widget_title_separator && $enable_widget_title_separator ) {
+				$footer_widget_separator_style = array(
+					'.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head' => array(
+						'border' => 'none',
+					),
+				);
+				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
+			}
+
 			$dynamic_css = $parse_css;
 			$custom_css  = kemet_get_option( 'custom-css' );
 
@@ -1420,107 +1520,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 		 * @return mixed              Return on print the CSS.
 		 */
 		public static function return_meta_output( $return_css = false ) {
-
+			$parse_css = '';
 			/**
 			 * - Page Layout
 			 *
 			 *   - Sidebar Positions CSS
 			 */
-			$global_border_color = kemet_get_option( 'global-border-color' );
-			$secondary_width     = kemet_get_option( 'site-sidebar-width' );
-			$primary_width       = absint( 100 - $secondary_width );
-			$meta_style          = '';
-
-			// Header Separator.
-			$header_separator_color = kemet_get_option( 'header-main-sep-color', $global_border_color );
-
-			// Widget Title Border.
-			$widget_title_border_size      = kemet_get_option( 'widget-title-border-size' );
-			$widget_title_border_color     = kemet_get_option( 'widget-title-border-color', $global_border_color );
-			$enable_widget_title_separator = kemet_get_option( 'enable-widget-title-separator' );
-
-			if ( $enable_widget_title_separator ) {
-				$widget_separator_style = array(
-					'.widget .widget-head' => array(
-						'border-bottom-style' => 'solid',
-						'border-bottom-width' => kemet_get_css_value( $widget_title_border_size, 'px' ),
-						'border-bottom-color' => esc_attr( $widget_title_border_color ),
-					),
-				);
-				$parse_css             .= kemet_parse_css( $widget_separator_style );
-			}
-
-			// Widget list Border.
-			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
-			if ( $widget_list_border ) {
-				$widget_list_style = array(
-					'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(
-						'border-bottom-style' => esc_attr( 'solid' ),
-						'border-bottom-width' => esc_attr( '1px' ),
-						'border-bottom-color' => esc_attr( $widget_list_border_color ),
-					),
-					'.widget_shopping_cart .total' => array(
-						'border-color' => esc_attr( $widget_list_border_color ),
-					),
-				);
-				$parse_css        .= kemet_parse_css( $widget_list_style );
-			} else {
-				$widget_list_style = array(
-					'#secondary .widget_shopping_cart .total' => array(
-						'border' => esc_attr( 'none' ),
-					),
-				);
-				$parse_css         = kemet_parse_css( $widget_list_style );
-			}
-
-			// Footer Widget List Border.
-			$global_footer_text_color        = kemet_get_option( 'global-footer-text-color' );
-			$footer_widget_list_border       = kemet_get_option( 'enable-footer-widget-list-separator' );
-			$global_footer_bg_color          = kemet_get_option( 'global-footer-bg-color' );
-			$footer_widget_list_border_color = kemet_get_option( 'footer-widget-list-border-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) );
-			if ( $footer_widget_list_border ) {
-				$widget_list_style = array(
-					'.kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li' => array(
-						'border-bottom-style' => esc_attr( 'solid' ),
-						'border-bottom-width' => esc_attr( '1px' ),
-						'border-bottom-color' => esc_attr( $footer_widget_list_border_color ),
-					),
-					'.kemet-footer .widget_shopping_cart .total, .kmt-footer-copyright .widget_shopping_cart .total' => array(
-						'border-color' => esc_attr( $footer_widget_list_border_color ),
-					),
-				);
-				$parse_css        .= kemet_parse_css( $widget_list_style );
-			} elseif ( ! $footer_widget_list_border && $widget_list_border_color ) {
-				$footer_widget_separator_style = array(
-					'.kemet-footer .widget ul > li , .kmt-footer-copyright .widget ul > li, .kemet-footer .widget_shopping_cart .total, .kmt-footer-copyright .widget_shopping_cart .total' => array(
-						'border' => 'none',
-					),
-				);
-				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
-			}
-
-			// Footer Widget Title Border.
-			$footer_widget_title_border_size      = kemet_get_option( 'footer-widget-title-border-size' );
-			$footer_widget_title_border_color     = kemet_get_option( 'footer-wgt-title-separator-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_enable_widget_title_separator = kemet_get_option( 'enable-footer-widget-title-separator' );
-			if ( $footer_enable_widget_title_separator ) {
-				$footer_widget_separator_style = array(
-					'.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head' => array(
-						'border-bottom-style' => 'solid',
-						'border-bottom-width' => kemet_get_css_value( $footer_widget_title_border_size, 'px' ),
-						'border-bottom-color' => esc_attr( $footer_widget_title_border_color ),
-					),
-				);
-				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
-			} elseif ( ! $footer_enable_widget_title_separator && $enable_widget_title_separator ) {
-				$footer_widget_separator_style = array(
-					'.kemet-footer .widget .widget-head , .kmt-footer-copyright .widget .widget-head' => array(
-						'border' => 'none',
-					),
-				);
-				$parse_css                    .= kemet_parse_css( $footer_widget_separator_style );
-			}
+			$secondary_width = kemet_get_option( 'site-sidebar-width' );
+			$primary_width   = absint( 100 - $secondary_width );
+			$meta_style      = '';
 
 			if ( 'no-sidebar' !== kemet_layout() ) :
 
