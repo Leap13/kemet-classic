@@ -143,13 +143,18 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			),
 			'button-color-group'       => array(
 				'type'     => 'kmt-color',
+				'responsive' => true,
 				'default'  => array(
-					'initial' => '#fff',
-					'hover'   => '#000',
+					'desktop' => array(
+						'initial' => '#fff',
+						'hover'   => '#000',
+					),
+					'tablet' => '',
+					'mobile' => ''
 				),
 				'label' => 'Button Color',
 				'section'  => 'section-buttons-fields',
-				'priority' => 36,
+				'priority' => 36,	
 				'pickers'  => array(
 					array(
 					'title' => __( 'Text', 'kemet' ),
@@ -159,7 +164,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'title' => __( 'Hover', 'kemet' ),
 					'id'    => 'hover',
 					),
+					
 				),
+				
 			),
 			'button-color'             => array(
 				'type'      => 'kmt-color',
