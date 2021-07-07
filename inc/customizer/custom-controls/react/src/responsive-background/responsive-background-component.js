@@ -146,7 +146,8 @@ const ResponsiveBackground = props => {
                 onSelectImage={(media, backgroundType) => onSelectImage(media, key, backgroundType)}
                 onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, key, backgroundType)}
                 backgroundType={undefined !== state.value[key]['background-type'] && state.value[key]['background-type'] ? state.value[key]['background-type'] : 'color'}
-                allowGradient={true} allowImage={true}
+                allowGradient={true}
+                allowImage={true}
             />
         </>;
     };

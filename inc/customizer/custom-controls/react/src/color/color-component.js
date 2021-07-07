@@ -2,15 +2,14 @@ import PropTypes from 'prop-types';
 import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
 const { __ } = wp.i18n;
+import { Tooltip } from '@wordpress/components';
 
 const ColorComponent = props => {
     let value = props.control.setting.get();
     let defaultValue = props.control.params.default;
-    let pickers = props.control.params.pickers;
-
-    let colorComponent = [];
-
+    let { pickers, responsive } = props.control.params;
     const [state, setState] = useState(value);
+    const [device, setDevice] = useState('desktop');
 
     useEffect(() => {
         // If settings are changed externally.
@@ -20,27 +19,18 @@ const ColorComponent = props => {
     }, [props]);
 
     const updateValues = (value) => {
-        setState(prevState => ({
-            ...prevState,
-            value
-        }));
+        setState(value)
         props.control.setting.set(value);
-        console.log("value from update", value, state)
     };
 
-    const renderOperationButtons = () => {
 
-        let resetFlag = true;
-        const tempVal = '';
-
-        if (JSON.stringify(tempVal) !== JSON.stringify(defaultValue)) {
-            resetFlag = false;
-        }
+    const renderOperationButtons = (device) => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-                    disabled={resetFlag} onClick={e => {
+                    disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
+                    onClick={e => {
                         e.preventDefault();
                         let value = JSON.parse(JSON.stringify(defaultValue));
 
@@ -56,43 +46,53 @@ const ColorComponent = props => {
         </>;
     };
 
-    const handleChangeComplete = (color) => {
+    const handleChangeComplete = (color, id) => {
 
-        console.log('handleChangeComplete', color)
-        let value;
+        let value = state;
 
         if (typeof color === 'string') {
-            value = color;
+            value[`${id}`] = color;
         } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-            value = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+            value[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
         } else {
-            value = color.hex;
+            value[`${id}`] = color.hex;
         }
-        console.log("value from function ", value)
         updateValues(value);
     };
 
-    for (const [key, value] of Object.entries(pickers)) {
-        let colorValue = pickers[key][`id`]
-        colorComponent.push(<KemetColorPickerControl
-            text={value}
-            color={state[colorValue]}
-            onChangeComplete={(color, backgroundType) => handleChangeComplete(color)}
-            backgroundType={'color'}
-            allowGradient={false}
-            allowImage={false}
-        />
-        )
-    }
 
+    const HandleColorComponent = () => {
+        let colorComponent = []
+        pickers.map((i) => {
+
+            colorComponent.push(<KemetColorPickerControl
+                text={i[`title`]}
+                color={state[i[`id`]]}
+                onChangeComplete={(color, backgroundType) => handleChangeComplete(color, i[`id`])}
+                backgroundType={'color'}
+                allowGradient={false}
+                allowImage={false}
+            />
+            )
+        })
+        return (
+            colorComponent.map((item) => {
+                return <Tooltip text={"Color"} position="top center">
+                    {item}
+                </Tooltip>
+            })
+        )
+        // return <Tooltip  text={"Color"} position="top center">
+        //     {colorComponent.map(elem => elem)}
+        // </Tooltip>
+    }
 
     const {
         label,
         description
     } = props.control.params;
 
-
-    let labelHtml = label ? <span className="customize-control-title">{label}</span> : "color";
+    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
     let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
 
 
@@ -105,7 +105,7 @@ const ColorComponent = props => {
             </label>
 
             <div className={`kmt-color-picker-container`}>
-                {colorComponent.map(elem => elem)}
+                {HandleColorComponent()}
             </div>
         </div>
     </div>;

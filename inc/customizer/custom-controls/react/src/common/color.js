@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
-import KemetColorPicker from './colorPicker';
+import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
-const {
 
-    Popover,
-
-
-
-
-} = wp.components;
 
 class KemetColorPickerControl extends Component {
 
@@ -185,10 +177,10 @@ class KemetColorPickerControl extends Component {
                                                                                     onChange={(color) => this.onPaletteChangeComplete(color)}
                                                                                 />
                                                                             </div>
-                                                                            <KemetColorPicker
-                                                                                color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                                                onChange={(color) => this.onChangeState(color, '')}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color, '')}
+
+                                                                            <ColorPicker
+                                                                                color={this.props.color}
+                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                             />
                                                                         </>
                                                                     )}
@@ -204,12 +196,10 @@ class KemetColorPickerControl extends Component {
                                                                                     onChange={(color) => this.onPaletteChangeComplete(color)}
                                                                                 />
                                                                             </div>
-                                                                            <KemetColorPicker
-                                                                                color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                                                onChange={(color) => this.onChangeState(color, '')}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                                                            <ColorPicker
+                                                                                color={this.props.color}
+                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                             />
-
                                                                         </>
                                                                     )}
 
@@ -238,10 +228,9 @@ class KemetColorPickerControl extends Component {
                                                         onChange={(color) => this.onPaletteChangeComplete(color)}
                                                     />
                                                 </div>
-                                                <KemetColorPicker
-                                                    color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                    onChange={(color) => this.onChangeState(color, '')}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                                <ColorPicker
+                                                    color={this.props.color}
+                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                 />
 
                                             </>
@@ -258,10 +247,9 @@ class KemetColorPickerControl extends Component {
                                                         onChange={(color) => this.onPaletteChangeComplete(color)}
                                                     />
                                                 </div>
-                                                <KemetColorPicker
-                                                    color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                    onChange={(color) => this.onChangeState(color, '')}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                                <ColorPicker
+                                                    color={this.props.color}
+                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                 />
 
                                             </>
