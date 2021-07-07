@@ -339,10 +339,19 @@
 .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99;
-  top: 17px;
+  top: 23px;
   left: 0;
   right: 0;
   bottom: 0;
+}
+.kemet-popover-color::before {
+  position: absolute;
+  content: "";
+  left: calc(100% - 55px);
+  border-style: solid;
+  top: -7px;
+  border-width: 0 6px 7px 6px;
+  border-color: transparent transparent #ffffff transparent;
 }
 .kmt-color-palette {
   margin: 0 10px !important;
