@@ -11,8 +11,11 @@ const ColorComponent = props => {
     let { pickers, responsive } = props.control.params;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
+    let responsiveHtml = null;
+    let optionsHtml = null;
+    let innerOptionsHtml = null;
 
-    console.log(props.control.params)
+
 
     useEffect(() => {
         // If settings are changed externally.
@@ -22,12 +25,13 @@ const ColorComponent = props => {
     }, [props]);
 
     const updateValues = (value) => {
-        setState(value)
-        props.control.setting.set(value);
+        let UpdatedState = { ...state };
+        UpdatedState[device] = value
+        setState(UpdatedState)
+        props.control.setting.set(UpdatedState);
     };
 
-
-    const renderOperationButtons = (device) => {
+    const renderOperationButtons = () => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
@@ -35,7 +39,7 @@ const ColorComponent = props => {
                     disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
                     onClick={e => {
                         e.preventDefault();
-                        let value = JSON.parse(JSON.stringify(defaultValue));
+                        let value = JSON.parse(JSON.stringify(defaultValue[device]));
 
                         if (undefined === value || '' === value) {
                             value = 'unset';
@@ -51,7 +55,7 @@ const ColorComponent = props => {
 
     const handleChangeComplete = (color, id) => {
 
-        let value = state;
+        let value = state[device];
 
         if (typeof color === 'string') {
             value[`${id}`] = color;
@@ -70,60 +74,31 @@ const ColorComponent = props => {
         />
     }
 
-    const HandleColorComponent = () => {
-        let colorComponent = []
-        Object.entries(pickers).map(([key, value]) => {
-            console.log(value)
-
-            colorComponent.push(<KemetColorPickerControl
-                text={value[`title`]}
-                color={state[value[`id`]]}
-                onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
-                backgroundType={'color'}
-                allowGradient={false}
-                allowImage={false}
-            />
-            )
-        })
-        return (
-            colorComponent.map((item) => {
-                return <Tooltip text={"Color"} position="top center">
-                    {item}
-                </Tooltip>
-            })
-        )
-    }
-
-
-
     const renderInputHtml = (device) => {
-        if (responsive) {
-            innerOptionsHtml = Object.entries(pickers).map(([key, value]) => {
-                let tooltip = tooltips[key] || __('Color', 'astra');
-                return (
-                    <Tooltip key={key} text={tooltip} position="top center">
-                        <KemetColorPickerControl
-                            text={value[`title`]}
-                            color={state[value[`id`]]}
-                            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
-                            backgroundType={'color'}
-                            allowGradient={false}
-                            allowImage={false}
-                        />
-                    </Tooltip>)
+
+        innerOptionsHtml = Object.entries(pickers).map(([key, value]) => {
+            let tooltip = value[`title`] || __('Color');
+            return (
+                <Tooltip text={tooltip} >
+                    <KemetColorPickerControl
+                        text={value[`title`]}
+                        color={state[device][value[`id`]]}
+                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                        backgroundType={'color'}
+                        allowGradient={false}
+                        allowImage={false}
+                    />
+                </Tooltip>)
 
 
-            })
-            return innerOptionsHtml
-        }
+        })
+        return innerOptionsHtml
+
     }
 
     if (responsive) {
         optionsHtml = <>
-            < >
-                {renderInputHtml(device, 'active')}
-            </>
-
+            {renderInputHtml(device, 'active')}
         </>;
     } else {
         optionsHtml = <>
@@ -146,10 +121,11 @@ const ColorComponent = props => {
             <label>
                 {labelHtml}
                 {descriptionHtml}
+                {responsiveHtml}
             </label>
 
             <div className={`kmt-color-picker-container`}>
-                {renderInputHtml()}
+                {optionsHtml}
             </div>
         </div>
     </div>;

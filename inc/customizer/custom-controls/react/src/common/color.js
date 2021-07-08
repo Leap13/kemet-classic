@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
+import { Tooltip, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 
@@ -22,6 +22,7 @@ class KemetColorPickerControl extends Component {
             isVisible: false,
             refresh: false,
             color: this.props.color,
+            text: this.props.text,
             modalCanClose: true,
             backgroundType: this.props.backgroundType,
             supportGradient: (undefined === __experimentalGradientPicker ? false : true),
@@ -38,8 +39,7 @@ class KemetColorPickerControl extends Component {
     }
 
     render() {
-
-        console.log("Props", this.props.color)
+        console.log(this.state.text)
         const {
             refresh,
             isVisible,
@@ -121,7 +121,9 @@ class KemetColorPickerControl extends Component {
                 <div className="color-button-wrap">
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
-                            <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                            <Tooltip text={this.state.text} position='top center' >
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                            </Tooltip>
                         }
                         {'image' === backgroundType &&
                             <>
@@ -130,136 +132,137 @@ class KemetColorPickerControl extends Component {
                             </>
                         }
                     </Button>
-                </div>
-                <div className="kemet-color-picker-wrap">
-                    <>
-                        {isVisible && (
-                            <div className="kemet-popover-color" onClose={this.toggleClose}>
-                                {
-                                    1 < tabs.length &&
-                                    <>
+                    <div className="kemet-color-picker-wrap">
+                        <>
+                            {isVisible && (
+                                <div className="kemet-popover-color" onClose={this.toggleClose}>
+                                    {
+                                        1 < tabs.length &&
+                                        <>
 
-                                        <TabPanel className="kemet-popover-tabs kemet-background-tabs"
-                                            activeClass="active-tab"
-                                            initialTabName={backgroundType}
-                                            tabs={tabs}>
-                                            {
-                                                (tab) => {
-                                                    let tabout;
+                                            <TabPanel className="kemet-popover-tabs kemet-background-tabs"
+                                                activeClass="active-tab"
+                                                initialTabName={backgroundType}
+                                                tabs={tabs}>
+                                                {
+                                                    (tab) => {
+                                                        let tabout;
 
-                                                    if (tab.name) {
-                                                        if ('gradient' === tab.name) {
-                                                            tabout = (
-                                                                <>
-                                                                    <__experimentalGradientPicker
-                                                                        className="kmt-gradient-color-picker"
-                                                                        value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
-                                                                        onChange={(gradient) => this.onChangeGradientComplete(gradient)}
-                                                                    />
-                                                                </>
-                                                            );
-                                                        } if ('image' === tab.name) {
-                                                            tabout = (
-                                                                this.renderImageSettings()
-                                                            );
-                                                        } else if ('color' === tab.name) {
-                                                            tabout = (
-                                                                <>
-                                                                    {refresh && (
-                                                                        <>
-                                                                            <div className={`kmt-color-picker-top`}>
-                                                                                <ColorPalette
-                                                                                    colors={finalpaletteColors}
-                                                                                    value={this.props.color}
-                                                                                    clearable={false}
-                                                                                    disableCustomColors={true}
-                                                                                    className="kmt-color-palette"
-                                                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                        if (tab.name) {
+                                                            if ('gradient' === tab.name) {
+                                                                tabout = (
+                                                                    <>
+                                                                        <__experimentalGradientPicker
+                                                                            className="kmt-gradient-color-picker"
+                                                                            value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
+                                                                            onChange={(gradient) => this.onChangeGradientComplete(gradient)}
+                                                                        />
+                                                                    </>
+                                                                );
+                                                            } if ('image' === tab.name) {
+                                                                tabout = (
+                                                                    this.renderImageSettings()
+                                                                );
+                                                            } else if ('color' === tab.name) {
+                                                                tabout = (
+                                                                    <>
+                                                                        {refresh && (
+                                                                            <>
+                                                                                <div className={`kmt-color-picker-top`}>
+                                                                                    <ColorPalette
+                                                                                        colors={finalpaletteColors}
+                                                                                        value={this.props.color}
+                                                                                        clearable={false}
+                                                                                        disableCustomColors={true}
+                                                                                        className="kmt-color-palette"
+                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                                                    />
+                                                                                </div>
+
+                                                                                <ColorPicker
+                                                                                    color={this.props.color}
+                                                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
-                                                                            </div>
-
-                                                                            <ColorPicker
-                                                                                color={this.props.color}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
-                                                                            />
-                                                                        </>
-                                                                    )}
-                                                                    {!refresh && (
-                                                                        <>
-                                                                            <div className={`kmt-color-picker-top`}>
-                                                                                <ColorPalette
-                                                                                    colors={finalpaletteColors}
-                                                                                    value={this.props.color}
-                                                                                    clearable={false}
-                                                                                    disableCustomColors={true}
-                                                                                    className="kmt-color-palette"
-                                                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                                            </>
+                                                                        )}
+                                                                        {!refresh && (
+                                                                            <>
+                                                                                <div className={`kmt-color-picker-top`}>
+                                                                                    <ColorPalette
+                                                                                        colors={finalpaletteColors}
+                                                                                        value={this.props.color}
+                                                                                        clearable={false}
+                                                                                        disableCustomColors={true}
+                                                                                        className="kmt-color-palette"
+                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                                                    />
+                                                                                </div>
+                                                                                <ColorPicker
+                                                                                    color={this.props.color}
+                                                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
-                                                                            </div>
-                                                                            <ColorPicker
-                                                                                color={this.props.color}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
-                                                                            />
-                                                                        </>
-                                                                    )}
+                                                                            </>
+                                                                        )}
 
-                                                                </>
-                                                            );
+                                                                    </>
+                                                                );
+                                                            }
                                                         }
+                                                        return <div>{tabout}</div>;
                                                     }
-                                                    return <div>{tabout}</div>;
                                                 }
-                                            }
-                                        </TabPanel>
-                                    </>
-                                }
-                                {1 === tabs.length &&
+                                            </TabPanel>
+                                        </>
+                                    }
+                                    {1 === tabs.length &&
 
-                                    <>
-                                        {refresh && (
-                                            <>
-                                                <div className={`kmt-color-picker-top`}>
-                                                    <ColorPalette
-                                                        colors={finalpaletteColors}
-                                                        value={this.props.color}
-                                                        clearable={false}
-                                                        disableCustomColors={true}
-                                                        className="kmt-color-palette"
-                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                        <>
+                                            {refresh && (
+                                                <>
+                                                    <div className={`kmt-color-picker-top`}>
+                                                        <ColorPalette
+                                                            colors={finalpaletteColors}
+                                                            value={this.props.color}
+                                                            clearable={false}
+                                                            disableCustomColors={true}
+                                                            className="kmt-color-palette"
+                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                        />
+                                                    </div>
+                                                    <ColorPicker
+                                                        color={this.props.color}
+                                                        onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
-                                                </div>
-                                                <ColorPicker
-                                                    color={this.props.color}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
-                                                />
 
-                                            </>
-                                        )}
-                                        {!refresh && (
-                                            <>
-                                                <div className={`kmt-color-picker-top`}>
-                                                    <ColorPalette
-                                                        colors={finalpaletteColors}
-                                                        value={this.props.color}
-                                                        clearable={false}
-                                                        disableCustomColors={true}
-                                                        className="kmt-color-palette"
-                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                </>
+                                            )}
+                                            {!refresh && (
+                                                <>
+                                                    <div className={`kmt-color-picker-top`}>
+                                                        <ColorPalette
+                                                            colors={finalpaletteColors}
+                                                            value={this.props.color}
+                                                            clearable={false}
+                                                            disableCustomColors={true}
+                                                            className="kmt-color-palette"
+                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                        />
+                                                    </div>
+                                                    <ColorPicker
+                                                        color={this.props.color}
+                                                        onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
-                                                </div>
-                                                <ColorPicker
-                                                    color={this.props.color}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
-                                                />
 
-                                            </>
-                                        )}
-                                    </>
-                                }
-                            </div>
-                        )}
-                    </>
+                                                </>
+                                            )}
+                                        </>
+                                    }
+                                </div>
+                            )}
+                        </>
+                    </div>
                 </div>
+
             </>
         );
     }
