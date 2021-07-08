@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
+import Responsive from '../common/responsive'
 const { __ } = wp.i18n;
 import { Tooltip } from '@wordpress/components';
 
@@ -10,6 +11,8 @@ const ColorComponent = props => {
     let { pickers, responsive } = props.control.params;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
+
+    console.log(props.control.params)
 
     useEffect(() => {
         // If settings are changed externally.
@@ -61,14 +64,21 @@ const ColorComponent = props => {
     };
 
 
+    if (responsive) {
+        responsiveHtml = <Responsive
+            onChange={(currentDevice) => setDevice(currentDevice)}
+        />
+    }
+
     const HandleColorComponent = () => {
         let colorComponent = []
-        pickers.map((i) => {
+        Object.entries(pickers).map(([key, value]) => {
+            console.log(value)
 
             colorComponent.push(<KemetColorPickerControl
-                text={i[`title`]}
-                color={state[i[`id`]]}
-                onChangeComplete={(color, backgroundType) => handleChangeComplete(color, i[`id`])}
+                text={value[`title`]}
+                color={state[value[`id`]]}
+                onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
                 backgroundType={'color'}
                 allowGradient={false}
                 allowImage={false}
@@ -82,9 +92,43 @@ const ColorComponent = props => {
                 </Tooltip>
             })
         )
-        // return <Tooltip  text={"Color"} position="top center">
-        //     {colorComponent.map(elem => elem)}
-        // </Tooltip>
+    }
+
+
+
+    const renderInputHtml = (device) => {
+        if (responsive) {
+            innerOptionsHtml = Object.entries(pickers).map(([key, value]) => {
+                let tooltip = tooltips[key] || __('Color', 'astra');
+                return (
+                    <Tooltip key={key} text={tooltip} position="top center">
+                        <KemetColorPickerControl
+                            text={value[`title`]}
+                            color={state[value[`id`]]}
+                            onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                            backgroundType={'color'}
+                            allowGradient={false}
+                            allowImage={false}
+                        />
+                    </Tooltip>)
+
+
+            })
+            return innerOptionsHtml
+        }
+    }
+
+    if (responsive) {
+        optionsHtml = <>
+            < >
+                {renderInputHtml(device, 'active')}
+            </>
+
+        </>;
+    } else {
+        optionsHtml = <>
+            {renderInputHtml(device)}
+        </>;
     }
 
     const {
@@ -105,12 +149,13 @@ const ColorComponent = props => {
             </label>
 
             <div className={`kmt-color-picker-container`}>
-                {HandleColorComponent()}
+                {renderInputHtml()}
             </div>
         </div>
     </div>;
 
-};
+}
+
 
 ColorComponent.propTypes = {
     control: PropTypes.object.isRequired
