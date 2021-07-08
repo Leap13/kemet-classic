@@ -143,14 +143,20 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			),
 			'button-color-group'       => array(
 				'type'     => 'kmt-color',
-				'responsive' => true,
+				'responsive' => false,
 				'default'  => array(
 					'desktop' => array(
 						'initial' => '#fff',
 						'hover'   => '#000',
 					),
-					'tablet' => '',
-					'mobile' => ''
+					'tablet' => array(
+						'initial' => '',
+						'hover'   => '',
+					),
+					'mobile' => array(
+						'initial' => '',
+						'hover'   => '',
+					)
 				),
 				'label' => 'Button Color',
 				'section'  => 'section-buttons-fields',
