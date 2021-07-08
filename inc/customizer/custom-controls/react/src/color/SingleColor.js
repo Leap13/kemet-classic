@@ -6,11 +6,11 @@ import {
     createRef,
 } from '@wordpress/element'
 import PickerModal, { getNoColorPropFor } from '../common/Model'
-import { Transition } from 'react-spring/renderprops'
-import bezierEasing from 'bezier-easing'
+// import { Transition } from 'react-spring/renderprops'
+// import bezierEasing from 'bezier-easing'
 import classnames from 'classnames'
-import { __ } from 'ct-i18n'
-import { normalizeCondition, matchValuesWithCondition } from 'match-conditions'
+import { __ } from '@wordpress/i18n';
+// import { normalizeCondition, matchValuesWithCondition } from 'match-conditions'
 
 import usePopoverMaker from '../common/PopoverMarker'
 

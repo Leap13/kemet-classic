@@ -36,6 +36,8 @@ class Kemet_Control_Color extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $pickers = '';
+	public $responsive = '';
+
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -53,6 +55,8 @@ class Kemet_Control_Color extends WP_Customize_Control {
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['pickers'] = $this->pickers;
+		$this->json['responsive']=$this->responsive;
+	
 	}
 
 	/**
