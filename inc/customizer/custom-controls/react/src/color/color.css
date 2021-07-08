@@ -339,20 +339,20 @@
 .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99;
-  top: 23px;
-  left: 0;
+  top: 19px;
+  left: 15px;
   right: 0;
   bottom: 0;
 }
-.kemet-popover-color::before {
+/* .kemet-popover-color::before {
   position: absolute;
   content: "";
   left: calc(100% - 55px);
   border-style: solid;
-  top: -7px;
+  top: 3px;
   border-width: 0 6px 7px 6px;
   border-color: transparent transparent #ffffff transparent;
-}
+} */
 .kmt-color-palette {
   margin: 0 10px !important;
 }
@@ -454,6 +454,11 @@
 .kmt-field-settings-modal
   .customize-control-kmt-color.customize-control:first-child {
   margin-top: 25px;
+}
+.components-color-picker {
+  padding: 15px 12px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-wrapper {
   min-width: unset;

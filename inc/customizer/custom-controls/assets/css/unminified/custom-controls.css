@@ -339,20 +339,20 @@
 .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99;
-  top: 23px;
-  left: 0;
+  top: 19px;
+  left: 15px;
   right: 0;
   bottom: 0;
 }
-.kemet-popover-color::before {
+/* .kemet-popover-color::before {
   position: absolute;
   content: "";
   left: calc(100% - 55px);
   border-style: solid;
-  top: -7px;
+  top: 3px;
   border-width: 0 6px 7px 6px;
   border-color: transparent transparent #ffffff transparent;
-}
+} */
 .kmt-color-palette {
   margin: 0 10px !important;
 }
@@ -454,6 +454,11 @@
 .kmt-field-settings-modal
   .customize-control-kmt-color.customize-control:first-child {
   margin-top: 25px;
+}
+.components-color-picker {
+  padding: 15px 12px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-wrapper {
   min-width: unset;
@@ -758,44 +763,46 @@
   border-radius: 0;
 }
 
-.customize-control-kmt-icon-select .icon-select 
-{ 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-flex-wrap: wrap; 
-  flex-wrap: wrap; 
-  max-height: 216px; 
+.customize-control-kmt-icon-select .icon-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-height: 216px;
 }
-.customize-control-kmt-icon-select .icon-select label { 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  width: 33.33%; 
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing: border-box; 
-  box-sizing: border-box; 
+.customize-control-kmt-icon-select .icon-select label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33.33%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-.customize-control-kmt-icon-select .icon-select .icon-select-input { 
-  display: none; 
+.customize-control-kmt-icon-select .icon-select .icon-select-input {
+  display: none;
 }
-.customize-control-kmt-icon-select .icon-select .icon-select-label { 
-  display: block; 
-  width: 100%; 
-  background-color: #fff; 
-  color: #cccccc; 
-  border: 1px solid #f1f1f1; 
-  margin: 0; 
-  padding: 5px; 
-  text-align: center; 
-  }
+.customize-control-kmt-icon-select .icon-select .icon-select-label {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  color: #cccccc;
+  border: 1px solid #f1f1f1;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
 .customize-control-kmt-icon-select .icon-select .icon-select-label:hover,
-.customize-control-kmt-icon-select .icon-select .icon-select-input:checked + .icon-select-label { 
-  color: #1e8cbe; 
-  border-color: #f1f1f1; 
+.customize-control-kmt-icon-select
+  .icon-select
+  .icon-select-input:checked
+  + .icon-select-label {
+  color: #1e8cbe;
+  border-color: #f1f1f1;
 }
-.customize-control-kmt-icon-select .icon-select.rtl{
-      flex-direction: row-reverse;
+.customize-control-kmt-icon-select .icon-select.rtl {
+  flex-direction: row-reverse;
 }
 .customize-control-kmt-radio-image label {
   position: relative;
@@ -2945,7 +2952,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px;
-   min-width: 300px;
+  min-width: 300px;
   min-height: 340px;
   max-height: 60vh;
 }
