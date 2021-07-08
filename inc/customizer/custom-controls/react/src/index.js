@@ -37,9 +37,6 @@ wp.customize.controlConstructor['kmt-group'] = colorGroupControl;
 wp.customize.controlConstructor['kmt-test'] = TestTabsControl;
 wp.customize.controlConstructor['kmt-hidden'] = HiddenControl;
 
-// import { defineCustomizerControl } from './test.js'
-// defineCustomizerControl()
-
 import { Base } from "./customizer";
 import responsiveColorComponent from "./responsive-color/responsive-color-component";
 

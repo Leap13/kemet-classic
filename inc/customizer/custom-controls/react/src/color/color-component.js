@@ -7,7 +7,7 @@ const ColorComponent = props => {
     let value = props.control.setting.get();
 
     let defaultValue = props.control.params.default;
-
+    defaultValue = defaultValue ? defaultValue : '';
     const [state, setState] = useState({
         value: value,
     });
