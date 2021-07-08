@@ -144,14 +144,15 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			// 'button-color-group'       => array(
-			// 'type'     => 'kmt-color-group',
-			// 'default'  => array(
+			// 'type'       => 'kmt-color-group',
+			// 'responsive' => false,
+			// 'default'    => array(
 			// 'initial' => '#fff',
 			// 'hover'   => '#000',
 			// ),
-			// 'section'  => 'section-buttons-fields',
-			// 'priority' => 36,
-			// 'pickers'  => array(
+			// 'section'    => 'section-buttons-fields',
+			// 'priority'   => 36,
+			// 'pickers'    => array(
 			// array(
 			// 'title' => __( 'Text', 'kemet' ),
 			// 'id'    => 'initial',

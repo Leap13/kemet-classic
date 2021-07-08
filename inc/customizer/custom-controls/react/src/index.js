@@ -14,6 +14,8 @@ import { iconSelect } from "./icon-select/control";
 import { colorComponent } from "./color/control";
 import { toggleControl } from "./Toggle/control";
 import { colorGroupControl } from './color-group/control'
+import { TestTabsControl } from './test/control'
+import { HiddenControl } from './hidden/control'
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
 wp.customize.controlConstructor["kmt-available"] = AvailableControl;
@@ -32,6 +34,11 @@ wp.customize.controlConstructor["kmt-color"] = colorComponent;
 wp.customize.controlConstructor["kmt-reponsive-color"] = responsiveColorControl;
 wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
 wp.customize.controlConstructor['kmt-group'] = colorGroupControl;
+wp.customize.controlConstructor['kmt-test'] = TestTabsControl;
+wp.customize.controlConstructor['kmt-hidden'] = HiddenControl;
+
+// import { defineCustomizerControl } from './test.js'
+// defineCustomizerControl()
 
 import { Base } from "./customizer";
 import responsiveColorComponent from "./responsive-color/responsive-color-component";

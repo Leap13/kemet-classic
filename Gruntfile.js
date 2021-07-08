@@ -429,6 +429,7 @@ module.exports = function (grunt) {
       css: {
         src: [
           "inc/customizer/custom-controls/react/src/color/color.css",
+          "inc/customizer/custom-controls/react/src/test/test.css",
           "inc/customizer/custom-controls/react/src/slider/slider.css",
           "inc/customizer/custom-controls/react/src/icon-select/icon-select.css",
           "inc/customizer/custom-controls/react/src/radio-image/radio-image.css",

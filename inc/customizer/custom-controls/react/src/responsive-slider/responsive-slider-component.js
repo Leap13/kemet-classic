@@ -6,7 +6,6 @@ class ResponsiveSliderComponent extends Component {
     constructor() {
         super(...arguments);
         this.unit_choices = this.props.control.params.unit_choices;
-        let defaultValues = this.props.control.params.default;
         this.values = this.props.control.params.value;
         let value = this.props.control.setting.get()
         let defaultParam = {
@@ -17,8 +16,18 @@ class ResponsiveSliderComponent extends Component {
             'mobile': '',
             'mobile-unit': ''
         }
-        value = (undefined === value || '' === value) ? this.props.control.params.value : value;
-        defaultValues = (undefined === defaultValues || '' === defaultValues) ? defaultParam : defaultValues;
+        let defaultValues = this.props.control.params.default
+            ? {
+                ...defaultParam,
+                ...this.props.control.params.default,
+            }
+            : defaultParam;
+        value = value
+            ? {
+                ...defaultValues,
+                ...value,
+            }
+            : defaultValues;
         this.state = {
             initialState: value,
             currentDevice: 'desktop',

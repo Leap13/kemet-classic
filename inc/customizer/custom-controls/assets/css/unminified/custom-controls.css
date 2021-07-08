@@ -570,6 +570,54 @@
   top: 70px;
 }
 
+.customize-control-kmt-test > ul.tabs {
+  display: flex;
+  margin: 0 14px;
+}
+.customize-control-kmt-test > ul > li:not(.active):hover {
+  background: #fff;
+  color: #444;
+}
+.customize-control-kmt-test > ul > li:not(:first-child) {
+  margin-left: 7px;
+}
+.customize-control-kmt-test > ul > li.active {
+  position: relative;
+  color: #3c4248;
+  background: transparent !important;
+}
+.customize-control-kmt-test > ul > li {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  height: 42px;
+  margin: 0;
+  padding: 0px 10px 0 10px;
+  cursor: pointer;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  color: #555;
+  background: #eaeaec;
+}
+.customize-control-kmt-test > .current-tab-options {
+  margin-top: -1px;
+  padding: 0 12px;
+  padding-top: 15px;
+  border-top: 1px solid #d6d6d6;
+}
+.customize-control-kmt-test > ul > li.active:before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -1px;
+  right: -1px;
+  height: 2px;
+  background: #2271b1;
+}
+
 .kemet-slider-wrap {
   position: relative;
   margin-bottom: 0;
@@ -1419,10 +1467,6 @@
   z-index: 1000;
   display: flex;
   align-items: center;
-}
-.kmt-control-tabs  .kmt-builder-tab-toggle{
-  display: inline-flex;
-
 }
 .kmt-builder-show-button.kmt-builder-tab-toggle {
   visibility: hidden;

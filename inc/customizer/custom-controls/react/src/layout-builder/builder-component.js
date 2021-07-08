@@ -8,25 +8,25 @@ const BuilderComponent = (props) => {
   let baseDefault = {};
   let defaultValue = props.control.params.default
     ? {
-        ...baseDefault,
-        ...props.control.params.default,
-      }
+      ...baseDefault,
+      ...props.control.params.default,
+    }
     : baseDefault;
 
   value = value
     ? {
-        ...defaultValue,
-        ...value,
-      }
+      ...defaultValue,
+      ...value,
+    }
     : defaultValue;
 
   let defaultParams = {};
 
   let controlParams = props.control.params.input_attrs
     ? {
-        ...defaultParams,
-        ...props.control.params.input_attrs,
-      }
+      ...defaultParams,
+      ...props.control.params.input_attrs,
+    }
     : defaultParams;
 
   let choices = props.control.params.choices
@@ -55,7 +55,7 @@ const BuilderComponent = (props) => {
     let setting = props.control.setting;
     if ("popup" === row) {
       let header =
-          "header-desktop-items" === controlParams.group ? "desktop" : "mobile",
+        "header-desktop-items" === controlParams.group ? "desktop" : "mobile",
         rowSetting = KemetCustomizerData.setting.replace(
           "setting_name",
           "header-" + header + "-popup-items"

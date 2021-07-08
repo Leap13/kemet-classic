@@ -137,12 +137,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-color'              => 'Kemet_Control_Color',
 			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
-			'kmt-hidden'             => 'Kemet_Control_Hidden',
+			// 'kmt-hidden'             => 'Kemet_Control_Hidden',
 			'kmt-font-family'        => 'Kemet_Control_Typography',
 			'kmt-font-weight'        => 'Kemet_Control_Typography',
 			'kmt-background'         => 'Kemet_Control_Background',
 			'image'                  => 'WP_Customize_Image_Control',
 			'kmt-switcher'           => 'Kemet_Control_Toggle',
+			'kmt-test'               => 'Kemet_Control_Test',
 		);
 
 		/**
@@ -274,75 +275,127 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			foreach ( $options as $option_id => $args ) {
-				$id        = $option_id;
-				$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
 
-				if ( isset( $args['context'] ) ) {
-					self::$contexts_arr[ $option_id ] = $args['context'];
+				if ( 'kmt-test' === $args['type'] ) {
+					$this->add_tabs_settings( $args['tabs'], $wp_customize );
 				}
 
-				if ( isset( $args['choices'] ) ) {
-					self::$choices_arr[ $option_id ] = $args['choices'];
-				}
-
-				if ( isset( $args['preview'] ) ) {
-					$preview         = $args['preview'];
-					$preview['type'] = $args['type'];
-					switch ( $args['type'] ) {
-						case 'kmt-responsive-spacing':
-							$preview['choices'] = $args['choices'];
-							break;
-					}
-					self::$preview_arr[ $option_id ] = $preview;
-				}
-
-				$default = isset( $args['default'] ) ? $args['default'] : '';
-				if ( '' === $default && isset( $defaults[ $id ] ) ) {
-					$default = $defaults[ $id ];
-				}
-				$settings = array(
-					'default'           => $default,
-					'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
-					'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
-					'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
-				);
-
-				if ( isset( $args['parent-id'] ) ) {
-					$group_field                                    = $args;
-					$group_field['id']                              = '[' . $id . ']';
-					$group_field['control_type']                    = $args['type'];
-					$group_field['default']                         = $settings['default'];
-					$group_field['type']                            = $this->get_control_prop( 'setting_type', $group_field, 'option' );
-					self::$group_arr[ $group_field['parent-id'] ][] = $group_field;
-					$args['type']                                   = 'kmt-hidden';
-				}
-
-				$wp_customize->add_setting(
-					$option_id,
-					$settings
-				);
-				if ( isset( $this->custom_controls[ $args['type'] ] ) ) {
-					$wp_customize->add_control(
-						new $this->custom_controls[ $args['type'] ](
-							$wp_customize,
-							$option_id,
-							$args
-						)
-					);
-				} else {
-					$wp_customize->add_control(
-						$option_id,
-						$args
-					);
-				}
+				$this->add_customizer_option( $option_id, $args, $wp_customize );
 			}
 
+			$this->add_customizer_partials( $partials, $wp_customize );
+		}
+
+
+		/**
+		 * add_customizer_partials
+		 *
+		 * @param  mixed $partials
+		 * @param  mixed $wp_customize
+		 * @return void
+		 */
+		public function add_customizer_partials( $partials, $wp_customize ) {
+			$defautls_options = array( 'blogname', 'custom_logo', 'blogdescription' );
 			foreach ( $partials as $key => $settings ) {
 				$option_id = ! in_array( $key, $defautls_options ) ? KEMET_THEME_SETTINGS . '[' . $key . ']' : $key;
 				$wp_customize->selective_refresh->add_partial(
 					$option_id,
 					$settings
 				);
+			}
+		}
+
+		/**
+		 * add_customizer_option
+		 *
+		 * @param  mixed $option_id
+		 * @param  mixed $args
+		 * @param  mixed $wp_customize
+		 * @return void
+		 */
+		public function add_customizer_option( $option_id, $args, $wp_customize ) {
+			$defaults  = Kemet_Theme_Options::defaults();
+			$id        = $option_id;
+			$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
+
+			if ( isset( $args['context'] ) ) {
+				self::$contexts_arr[ $option_id ] = $args['context'];
+				unset( $args['context'] );
+			}
+
+			if ( isset( $args['choices'] ) ) {
+				self::$choices_arr[ $option_id ] = $args['choices'];
+			}
+
+			if ( isset( $args['preview'] ) ) {
+				if ( 'kmt-responsive-spacing' === $args['type'] ) {
+					$args['preview']['choices'] = $args['choices'];
+				}
+				$args['preview']['type']         = 'kmt-hidden' === $args['type'] ? $args['control_type'] : $args['type'];
+				self::$preview_arr[ $option_id ] = $args['preview'];
+				unset( $args['preview'] );
+			}
+
+			$default = isset( $args['default'] ) ? $args['default'] : '';
+			if ( '' === $default && isset( $defaults[ $id ] ) ) {
+				$default = $defaults[ $id ];
+			}
+
+			$settings = array(
+				'default'           => $default,
+				'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
+				'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
+				'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
+			);
+
+			$wp_customize->add_setting(
+				$option_id,
+				$settings
+			);
+
+			if ( isset( $this->custom_controls[ $args['type'] ] ) ) {
+				$wp_customize->add_control(
+					new $this->custom_controls[ $args['type'] ](
+						$wp_customize,
+						$option_id,
+						$args
+					)
+				);
+			} else {
+				$wp_customize->add_control(
+					$option_id,
+					$args
+				);
+			}
+		}
+
+
+		/**
+		 * add_tabs_settings
+		 *
+		 * @param  mixed $tabs
+		 * @param  mixed $wp_customize
+		 * @return void
+		 */
+		public function add_tabs_settings( $tabs, $wp_customize ) {
+			foreach ( $tabs as $tab ) {
+				$options = $tab['options'];
+				$this->add_tab_options( $options, $wp_customize );
+			}
+		}
+
+		/**
+		 * add_tab_options
+		 *
+		 * @param  mixed $options
+		 * @param  mixed $wp_customize
+		 * @return void
+		 */
+		public function add_tab_options( $options, $wp_customize ) {
+			foreach ( $options as $option_id => $args ) {
+				$args['control_type'] = $args['type'];
+				$args['type']         = 'kmt-hidden';
+				$this->add_customizer_option( $option_id, $args, $wp_customize );
 			}
 		}
 
@@ -627,6 +680,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/**
 			 * Register controls
 			 */
+			 $wp_customize->register_control_type( 'Kemet_Control_Test' );
 			$wp_customize->register_control_type( 'Kemet_Control_Sortable' );
 			$wp_customize->register_control_type( 'Kemet_Control_Radio_Image' );
 			$wp_customize->register_control_type( 'Kemet_Control_Slider' );
@@ -642,7 +696,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Icon_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Responsive_Color' );
 			$wp_customize->register_control_type( 'Kemet_Control_Group' );
-			$wp_customize->register_control_type( 'Kemet_Control_Hidden' );
+			// $wp_customize->register_control_type( 'Kemet_Control_Hidden' );
 			$wp_customize->register_control_type( 'Kemet_Control_Select' );
 			$wp_customize->register_control_type( 'Kemet_Control_Builder' );
 			$wp_customize->register_control_type( 'Kemet_Control_Available' );

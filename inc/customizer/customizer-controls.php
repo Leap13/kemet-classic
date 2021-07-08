@@ -27,11 +27,12 @@ require $control_dir . '/smart-skin/class-kemet-control-smart-skin.php';
 require $control_dir . '/responsive-icon-select/class-kemet-control-responsive-icon-select.php';
 require $control_dir . '/responsive-color/class-kemet-control-responsive-color.php';
 require $control_dir . '/group/class-kemet-control-group.php';
-require $control_dir . '/hidden/class-kemet-control-hidden.php';
+// require $control_dir . '/hidden/class-kemet-control-hidden.php';
 require $control_dir . '/select/class-kemet-control-select.php';
 require $control_dir . '/class-kemet-control-builder.php';
 require $control_dir . '/class-kemet-control-available.php';
 require $control_dir . '/class-kemet-control-tabs.php';
 require $control_dir . '/class-kemet-control-focus-button.php';
 require $control_dir . '/toggle/class-kemet-control-toggle.php';
+require $control_dir . '/class-kemet-control-test.php';
 // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

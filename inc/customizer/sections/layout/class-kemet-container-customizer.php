@@ -20,23 +20,65 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 
 		$register_options = array(
-			'site-content-width'          => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-container-layout',
-				'priority'    => 5,
-				'label'       => __( 'Container Width', 'kemet' ),
-				'suffix'      => '',
-				'input_attrs' => array(
-					'min'  => 768,
-					'step' => 1,
-					'max'  => 1920,
-				),
-				'preview'     => array(
-					'selector' => ':root',
-					'property' => '--contentWidth',
-				),
-			),
+			// 'test-tabs-control'           => array(
+			// 'type'    => 'kmt-test',
+			// 'section' => 'section-container-layout',
+			// 'tabs'    => array(
+			// 'general' => array(
+			// 'title'   => __( 'General', 'kemet' ),
+			// 'options' => array(
+			// 'test-slider' => array(
+			// 'type'      => 'kmt-color',
+			// 'default'   => 1,
+			// 'section'   => 'section-container-layout',
+			// 'transport' => 'postMessage',
+			// 'priority'  => 5,
+			// 'label'     => __( 'Container Width', 'kemet' ),
+			// 'suffix'      => '',
+			// 'input_attrs' => array(
+			// 'min'  => 768,
+			// 'step' => 1,
+			// 'max'  => 1920,
+			// ),
+			// 'preview'   => array(
+			// 'selector' => ':root',
+			// 'property' => '--contentWidth',
+			// ),
+			// ),
+			// ),
+			// ),
+			// 'design'  => array(
+			// 'title'   => __( 'Design', 'kemet' ),
+			// 'options' => array(
+			// 'test-color' => array(
+			// 'type'      => 'kmt-color',
+			// 'default'   => '#fff',
+			// 'section'   => 'section-container-layout',
+			// 'transport' => 'postMessage',
+			// 'priority'  => 55,
+			// 'label'     => __( 'Content Separator Color', 'kemet' ),
+			// ),
+			// ),
+			// ),
+			// ),
+			// ),
+			// 'site-content-width'          => array(
+			// 'type'        => 'kmt-slider',
+			// 'transport'   => 'postMessage',
+			// 'section'     => 'section-container-layout',
+			// 'priority'    => 5,
+			// 'label'       => __( 'Container Width', 'kemet' ),
+			// 'suffix'      => '',
+			// 'input_attrs' => array(
+			// 'min'  => 768,
+			// 'step' => 1,
+			// 'max'  => 1920,
+			// ),
+			// 'preview'     => array(
+			// 'selector' => ':root',
+			// 'property' => '--contentWidth',
+			// ),
+			// ),
 			'site-content-layout'         => array(
 				'type'     => 'select',
 				'section'  => 'section-container-layout',
