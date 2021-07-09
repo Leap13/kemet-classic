@@ -39,7 +39,6 @@ class KemetColorPickerControl extends Component {
     }
 
     render() {
-        console.log(this.state.text)
         const {
             refresh,
             isVisible,

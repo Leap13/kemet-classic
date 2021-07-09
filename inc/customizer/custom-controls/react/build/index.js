@@ -6526,8 +6526,14 @@ var ColorComponent = function ColorComponent(props) {
   var updateValues = function updateValues(value) {
     var UpdatedState = _objectSpread({}, state);
 
-    UpdatedState[device] = value;
+    if (responsive) {
+      UpdatedState[device] = value;
+    } else {
+      UpdatedState = value;
+    }
+
     setState(UpdatedState);
+    console.log(value, "value from update values", UpdatedState);
     props.control.setting.set(UpdatedState);
   };
 
@@ -6539,7 +6545,7 @@ var ColorComponent = function ColorComponent(props) {
       disabled: JSON.stringify(state) === JSON.stringify(defaultValue),
       onClick: function onClick(e) {
         e.preventDefault();
-        var value = JSON.parse(JSON.stringify(defaultValue[device]));
+        var value = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
 
         if (undefined === value || '' === value) {
           value = 'unset';
@@ -6553,7 +6559,8 @@ var ColorComponent = function ColorComponent(props) {
   };
 
   var handleChangeComplete = function handleChangeComplete(color, id) {
-    var value = state[device];
+    var value = responsive ? state[device] : state;
+    ;
 
     if (typeof color === 'string') {
       value["".concat(id)] = color;
@@ -6563,6 +6570,7 @@ var ColorComponent = function ColorComponent(props) {
       value["".concat(id)] = color.hex;
     }
 
+    console.log(value, "value from handle Change", responsive);
     updateValues(value);
   };
 
@@ -6580,20 +6588,31 @@ var ColorComponent = function ColorComponent(props) {
           key = _ref2[0],
           value = _ref2[1];
 
-      var tooltip = value["title"] || __('Color');
+      console.log(state[value["id"]]);
 
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__["Tooltip"], {
-        text: tooltip
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        text: value["title"],
-        color: state[device][value["id"]],
-        onChangeComplete: function onChangeComplete(color, backgroundType) {
-          return handleChangeComplete(color, value["id"]);
-        },
-        backgroundType: 'color',
-        allowGradient: false,
-        allowImage: false
-      }));
+      if (responsive) {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          text: value["title"],
+          color: state[device][value["id"]],
+          onChangeComplete: function onChangeComplete(color, backgroundType) {
+            return handleChangeComplete(color, value["id"]);
+          },
+          backgroundType: 'color',
+          allowGradient: false,
+          allowImage: false
+        });
+      } else {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          text: value["title"],
+          color: state[value["id"]],
+          onChangeComplete: function onChangeComplete(color, backgroundType) {
+            return handleChangeComplete(color, value["id"]);
+          },
+          backgroundType: 'color',
+          allowGradient: false,
+          allowImage: false
+        });
+      }
     });
     return innerOptionsHtml;
   };
@@ -6601,7 +6620,7 @@ var ColorComponent = function ColorComponent(props) {
   if (responsive) {
     optionsHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml(device, 'active'));
   } else {
-    optionsHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml(device));
+    optionsHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml(''));
   }
 
   var _props$control$params2 = props.control.params,
@@ -6770,7 +6789,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.state.text);
       var _this$state = this.state,
           refresh = _this$state.refresh,
           isVisible = _this$state.isVisible,
