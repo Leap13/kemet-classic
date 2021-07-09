@@ -1,15 +1,33 @@
 .kemet-search-icon {
   vertical-align: middle;
 }
-.kemet-search-icon::before {
-  content: "\e90d";
-  font-family: "Kemet-font";
-  font-style: normal;
-  font-weight: 600;
-  text-decoration: inherit;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+// .kemet-search-icon::before {
+//   content: "\e90d";
+//   font-family: "Kemet-font";
+//   font-style: normal;
+//   font-weight: 600;
+//   text-decoration: inherit;
+//   text-align: center;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+.kemet-search-svg-icon-wrap {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 50px;
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kmt-svg-icon {
+&.icon-search {
+  pointer-events: none;
+}
 }
 .kmt-search-container {
   position: relative;

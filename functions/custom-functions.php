@@ -275,6 +275,7 @@ if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
 
 /**
  * Adding Wrapper for Search Form.
+ * old code will remove
  */
 if ( ! function_exists( 'kemet_get_search' ) ) {
 

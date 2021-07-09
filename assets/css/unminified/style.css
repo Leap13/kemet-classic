@@ -2515,6 +2515,29 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   }
 }
 
+body.search .page-content .search-form {
+  position: relative;
+}
+
+body.search .page-content .search-form label {
+  width: 100%;
+  display: inline-block;
+}
+
+body.search .page-content .search-form .search-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+body.search .page-content .search-form .search-submit {
+  float: right;
+}
+
+body.search .page-content .search-form .kemet-search-svg-icon-wrap {
+  position: absolute;
+  top: -5px;
+}
+
 /*----------  Navigation  ----------*/
 /**
  * 	Navigations
@@ -2536,15 +2559,35 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   vertical-align: middle;
 }
 
-.kemet-search-icon::before {
-  content: "\e90d";
-  font-family: "Kemet-font";
-  font-style: normal;
-  font-weight: 600;
-  text-decoration: inherit;
+.kemet-search-svg-icon-wrap {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 50px;
+  padding: 0px;
   text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.kmt-svg-icon.icon-search {
+  pointer-events: none;
 }
 
 .kmt-search-container {
@@ -2948,13 +2991,17 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
   text-align: right;
 }
 
+.kmt-svg-icon {
+  pointer-events: none;
+}
+
 .kmt-svg-icon svg {
   fill: currentColor;
+  width: .6em;
+  height: .6em;
 }
 
 .kmt-svg-icon.icon-dropdown-menu svg {
-  height: .6em;
-  width: .6em;
   position: relative;
   margin-left: 10px;
 }
@@ -3172,21 +3219,6 @@ body:not(.kmt-header-break-point) .header-main-layout-2 .kmt-sitehead-custom-men
   display: block;
   white-space: nowrap;
   padding: 0 1em;
-}
-
-.header-main-layout-2 .kmt-header-logo-right-section .header-right-section .header-right-section-navigation .nav-menu .menu-item-has-children > a::after {
-  content: "\e907";
-  display: inline-block;
-  font-family: Kemet-font;
-  font-size: 9px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-left: 10px;
-  vertical-align: middle;
-  line-height: normal;
 }
 
 .header-main-layout-2 .kmt-header-logo-right-section .site-branding {
@@ -3656,16 +3688,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 
 .main-header-bar .main-header-bar-navigation .page_item_has_children > a:after,
 .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after {
-  content: "\e907";
-  display: inline-block;
-  font-family: 'Kemet-font';
-  font-size: 1rem;
-  font-weight: bold;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-left: 10px;
-  vertical-align: middle;
   line-height: normal;
 }
 
@@ -3685,19 +3707,6 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 
 .kmt-search-box-form .search-field:focus {
   outline: none;
-}
-
-.kmt-search-box-form::after {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  font-family: Kemet-font;
-  font-size: 1.2em;
-  font-weight: 600;
-  content: "\e90d";
-  -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%);
 }
 
 .kmt-search-box-form:hover .search-submit, .kmt-search-box-form:focus .search-submit, .kmt-search-box-form.kmt-search-box-form .search-submit {
@@ -5093,18 +5102,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-right: 5px;
 }
 
-.entry-meta .cat-links:before {
-  content: "\e904";
-  font-family: Kemet-font;
-  margin-right: 5px;
-}
-
-.entry-meta .posted-by:before {
-  content: "\e901";
-  font-family: Kemet-font;
-  margin-right: 5px;
-}
-
 .entry-meta .posted-on:before {
   content: "\e902";
   font-family: Kemet-font;
@@ -5340,6 +5337,15 @@ input[type="color"]::-webkit-color-swatch {
     margin: 0;
     padding: 3.33333em 6.67em;
   }
+}
+
+.entry-meta .kmt-svg-icon {
+  margin-right: 5px;
+}
+
+.entry-meta .kmt-svg-icon.icon-author svg {
+  width: 0.8em;
+  height: 0.8em;
 }
 
 /*--------------------------------------------------------------

@@ -65,7 +65,6 @@
 
     .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
-      @include kmt-has-child-menu-item();
       line-height: normal;
     }
 
@@ -89,18 +88,18 @@
       outline: none;
     }
   }
-  &::after {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    font-family: Kemet-font;
-    font-size: 1.2em;
-    font-weight: 600;
-    content: "\e90d";
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-  }
+  // &::after {
+  //   position: absolute;
+  //   top: 50%;
+  //   right: 15px;
+  //   font-family: Kemet-font;
+  //   font-size: 1.2em;
+  //   font-weight: 600;
+  //   content: "\e90d";
+  //   -webkit-transform: translate(0, -50%);
+  //   -ms-transform: translate(0, -50%);
+  //   transform: translate(0, -50%);
+  // }
   &:hover,
   &:focus,
   &.kmt-search-box-form {

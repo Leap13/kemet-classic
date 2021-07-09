@@ -64,6 +64,8 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
 			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
+			add_filter( 'get_search_form', array( $this, 'add_search_icon' ), 99 );
+			add_filter( 'get_product_search_form', array( $this, 'add_search_icon' ), 99 );
 		}
 
 
@@ -346,6 +348,18 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Add
+		 *
+		 * @param string $markup search form markup.
+		 *
+		 * @return mixed
+		 */
+		public function add_search_icon( $markup ) {
+			$markup = str_replace( '</form>', '<div class="kemet-search-svg-icon-wrap">' . Kemet_Svg_Icons::get_icons( 'search' ) . '</div></form>', $markup );
+			return $markup;
+		}
+
+		/**
 		 * Header Menu Markup
 		 *
 		 * @param string $menu menu slug.
@@ -417,9 +431,12 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			if ( true == $search_box_shadow ) {
 				$box_shadow = 'search-box-shadow';
 			}
+			$iconn = Kemet_Svg_Icons::get_icons( 'search' );
 
 			$search_html  = '<div class="kmt-search-container">';
-			$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
+			$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span>' . $iconn . '</a></div>';
+
+			//$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#">' . $iconn . '</a></div>';
 			$search_html .= '<div class="kmt-search-menu-icon ' . $box_shadow . '" id="kmt-search-form">';
 			$search_html .= get_search_form( false );
 			$search_html .= '</div>';
