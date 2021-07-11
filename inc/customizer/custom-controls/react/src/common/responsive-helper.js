@@ -9,7 +9,7 @@ export function kemetGetResponsiveJs(control) {
 
   jQuery('.wrapper .kmt-responsive-control-btns li').removeClass('active');
 
-  jQuery('.wrapper   .kmt-responsive-control-btns li.' + device).addClass('active');
+  jQuery('.wrapper .kmt-responsive-control-btns li.' + device).addClass('active');
 
   jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
 

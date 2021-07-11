@@ -18,7 +18,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$btn_selector         = 'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button';
+		$btn_selector         = 'button, .button, .kmt-button, input[type=button], input[type=reset], input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button';
 		$btn_hover_selector   = 'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover';
 		$input_selector       = 'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit])';
 		$input_focus_selector = 'input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus, select:focus, .wpcf7 form input:not([type=submit]):focus';
@@ -53,23 +53,23 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'property' => '--fontSize',
 				),
 			),
-			'buttons-font-family'      => array(
-				'type'     => 'kmt-font-family',
-				'label'    => __( 'Font Family', 'kemet' ),
-				'section'  => 'section-buttons-fields',
-				'priority' => 10,
-				'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-weight]',
-			),
-			'buttons-font-weight'      => array(
-				'type'     => 'kmt-font-weight',
-				'label'    => __( 'Font Weight', 'kemet' ),
-				'section'  => 'section-buttons-fields',
-				'priority' => 15,
-				'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-family]',
-			),
+			// 'buttons-font-family'      => array(
+			// 'type'     => 'kmt-font-family',
+			// 'label'    => __( 'Font Family', 'kemet' ),
+			// 'section'  => 'section-buttons-fields',
+			// 'priority' => 10,
+			// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-weight]',
+			// ),
+			// 'buttons-font-weight'      => array(
+			// 'type'     => 'kmt-font-weight',
+			// 'label'    => __( 'Font Weight', 'kemet' ),
+			// 'section'  => 'section-buttons-fields',
+			// 'priority' => 15,
+			// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-family]',
+			// ),
 			'buttons-text-transform'   => array(
 				'transport' => 'postMessage',
-				'type'      => 'select',
+				'type'      => 'kmt-select',
 				'label'     => __( 'Text Transform', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 20,
@@ -87,7 +87,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			),
 			'buttons-font-style'       => array(
 				'transport' => 'postMessage',
-				'type'      => 'select',
+				'type'      => 'kmt-select',
 				'label'     => __( 'Font Style', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 25,
@@ -318,23 +318,23 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'property' => '--fontSize',
 				),
 			),
-			'inputs-font-family'       => array(
-				'type'     => 'kmt-font-family',
-				'label'    => __( 'Font Family', 'kemet' ),
-				'section'  => 'section-buttons-fields',
-				'priority' => 95,
-				'connect'  => KEMET_THEME_SETTINGS . '[inputs-font-weight]',
-			),
-			'inputs-font-weight'       => array(
-				'type'     => 'kmt-font-weight',
-				'label'    => __( 'Font Weight', 'kemet' ),
-				'section'  => 'section-buttons-fields',
-				'priority' => 100,
-				'connect'  => KEMET_THEME_SETTINGS . '[inputs-font-family]',
-			),
+			// 'inputs-font-family'       => array(
+			// 'type'     => 'kmt-font-family',
+			// 'label'    => __( 'Font Family', 'kemet' ),
+			// 'section'  => 'section-buttons-fields',
+			// 'priority' => 95,
+			// 'connect'  => KEMET_THEME_SETTINGS . '[inputs-font-weight]',
+			// ),
+			// 'inputs-font-weight'       => array(
+			// 'type'     => 'kmt-font-weight',
+			// 'label'    => __( 'Font Weight', 'kemet' ),
+			// 'section'  => 'section-buttons-fields',
+			// 'priority' => 100,
+			// 'connect'  => KEMET_THEME_SETTINGS . '[inputs-font-family]',
+			// ),
 			'inputs-text-transform'    => array(
 				'transport' => 'postMessage',
-				'type'      => 'select',
+				'type'      => 'kmt-select',
 				'label'     => __( 'Text Transform', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 105,
@@ -352,7 +352,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 			),
 			'inputs-font-style'        => array(
 				'transport' => 'postMessage',
-				'type'      => 'select',
+				'type'      => 'kmt-select',
 				'label'     => __( 'Font Style', 'kemet' ),
 				'section'   => 'section-buttons-fields',
 				'priority'  => 115,
@@ -544,6 +544,15 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'selector' => $input_selector,
 					'property' => '--padding',
 					'sides'    => false,
+				),
+			),
+		);
+		$register_options = array(
+			'buttons-options' => array(
+				'section' => 'section-buttons-fields',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $register_options,
 				),
 			),
 		);

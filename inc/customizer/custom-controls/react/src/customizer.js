@@ -101,137 +101,157 @@
       api.previewer.container.css({ bottom: "0px" });
       resizePreviewer();
     });
-    if (KemetCustomizerData && KemetCustomizerData.contexts) {
-      /**
-       * Active callback script (JS version)
-       * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
-       */
-      _.each(KemetCustomizerData.contexts, function (rules, key) {
-        // Control Display.
-        var setupControl = function (element) {
-          var setting;
-          var getSetting = function (settingName) {
-            var setting;
-            switch (settingName) {
-              case "device":
-                setting = api.previewedDevice;
-                break;
-              case "tab":
-                setting = api.state("kemetTab");
-                break;
-              default:
-                var wpOptions = ["custom_logo"];
-                setting = wpOptions.includes(settingName)
-                  ? settingName
-                  : KemetCustomizerData.setting.replace(
-                    "setting_name",
-                    settingName
-                  );
-                setting = wp.customize(setting);
-            }
+    // if (KemetCustomizerData && KemetCustomizerData.contexts) {
+    //   /**
+    //    * Active callback script (JS version)
+    //    * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
+    //    */
+    //   _.each(KemetCustomizerData.contexts, function (rules, key) {
+    //     // Control Display.
+    //     var setupControl = function (element) {
+    //       var setting;
+    //       var getSetting = function (settingName) {
+    //         var setting;
+    //         switch (settingName) {
+    //           case "device":
+    //             setting = api.previewedDevice;
+    //             break;
+    //           case "tab":
+    //             setting = api.state("kemetTab");
+    //             break;
+    //           default:
+    //             var wpOptions = ["custom_logo"];
+    //             setting = wpOptions.includes(settingName)
+    //               ? settingName
+    //               : KemetCustomizerData.setting.replace(
+    //                 "setting_name",
+    //                 settingName
+    //               );
+    //             setting = wp.customize(setting);
+    //         }
 
-            return setting;
-          };
-          var isDisplay = function () {
-            var relation = undefined != rules.relation ? rules.relation : "AND",
-              isVisible = "AND" === relation ? true : false;
-            _.each(rules, function (rule, ruleKey) {
-              if ("relation" == ruleKey) {
-                return;
-              }
-              var boolean = false,
-                operator = undefined != rule.operator ? rule.operator : "=",
-                ruleValue = rule.value;
-              setting = getSetting(rule.setting);
-              var settingValue = setting.get();
-              switch (operator) {
-                case "in_array":
-                  boolean = ruleValue.includes(settingValue);
-                  break;
+    //         return setting;
+    //       };
+    //       var isDisplay = function () {
+    //         var relation = undefined != rules.relation ? rules.relation : "AND",
+    //           isVisible = "AND" === relation ? true : false;
+    //         _.each(rules, function (rule, ruleKey) {
+    //           if ("relation" == ruleKey) {
+    //             return;
+    //           }
+    //           var boolean = false,
+    //             operator = undefined != rule.operator ? rule.operator : "=",
+    //             ruleValue = rule.value;
+    //           setting = getSetting(rule.setting);
+    //           var settingValue = setting.get();
+    //           switch (operator) {
+    //             case "in_array":
+    //               boolean = ruleValue.includes(settingValue);
+    //               break;
 
-                case "contain":
-                  boolean = settingValue.includes(ruleValue);
-                  break;
+    //             case "contain":
+    //               boolean = settingValue.includes(ruleValue);
+    //               break;
 
-                case ">":
-                  boolean = settingValue > ruleValue;
-                  break;
+    //             case ">":
+    //               boolean = settingValue > ruleValue;
+    //               break;
 
-                case "<":
-                  boolean = settingValue < ruleValue;
-                  break;
+    //             case "<":
+    //               boolean = settingValue < ruleValue;
+    //               break;
 
-                case ">=":
-                  boolean = settingValue >= ruleValue;
-                  break;
+    //             case ">=":
+    //               boolean = settingValue >= ruleValue;
+    //               break;
 
-                case "<=":
-                  boolean = settingValue <= ruleValue;
-                  break;
+    //             case "<=":
+    //               boolean = settingValue <= ruleValue;
+    //               break;
 
-                case "not_empty":
-                  boolean =
-                    typeof settingValue !== "undefined" &&
-                    undefined !== settingValue &&
-                    null !== settingValue &&
-                    "" !== settingValue;
-                  break;
+    //             case "not_empty":
+    //               boolean =
+    //                 typeof settingValue !== "undefined" &&
+    //                 undefined !== settingValue &&
+    //                 null !== settingValue &&
+    //                 "" !== settingValue;
+    //               break;
 
-                case "!=":
-                  boolean = settingValue !== ruleValue;
-                  break;
+    //             case "!=":
+    //               boolean = settingValue !== ruleValue;
+    //               break;
 
-                default:
-                  boolean = settingValue == ruleValue;
-                  break;
-              }
-              isVisible =
-                "OR" === relation ? isVisible || boolean : isVisible && boolean;
-            });
-            return isVisible;
-          };
+    //             default:
+    //               boolean = settingValue == ruleValue;
+    //               break;
+    //           }
+    //           isVisible =
+    //             "OR" === relation ? isVisible || boolean : isVisible && boolean;
+    //         });
+    //         return isVisible;
+    //       };
+    //       const replace = {
+    //         cat: KemetCustomizerData.setting,
+    //         dog: "[",
+    //         goat: "]"
+    //       }
 
-          var setActiveState = function () {
-            if (isDisplay()) {
-              element.container.show();
-            } else {
-              element.container.hide();
-            }
-          };
+    //       const containerID = key.replace(/kemet-settings|\[|]$/gi, '');
+    //       console.log($('#' + containerID));
+    //       var setActiveState = function () {
+    //         // if (isDisplay()) {
+    //         //   element.container.show();
+    //         // } else {
+    //         //   element.container.hide();
+    //         // }
+    //       };
 
-          _.each(rules, function (rule, ruleKey) {
-            setting = getSetting(rule.setting);
-            if (undefined != setting) {
-              setting.bind(setActiveState);
-            }
-          });
+    //       _.each(rules, function (rule, ruleKey) {
+    //         setting = getSetting(rule.setting);
+    //         if (undefined != setting) {
+    //           setting.bind(setActiveState);
+    //         }
+    //       });
 
-          element.active.validate = isDisplay;
-          setActiveState();
-        };
-        api.control(key, setupControl);
-      });
-    }
+    //       // element.active.validate = isDisplay;
+    //       setActiveState();
+    //     };
+
+    //     api(key, setupControl);
+    //   });
+    // }
     /**
      * Init Kemet Header & Footer Builder
      */
     const initKmtBuilderPanel = function (panel) {
       let builderType = panel.id.includes("-header-") ? "header" : "footer";
-      var section = api.section("section-" + builderType + "-builder");
+      let section = api.section("section-" + builderType + "-builder");
 
       if (undefined !== section) {
         var $section = section.contentContainer,
           section_layout = api.section(
             "section-" + builderType + "-builder-layout"
           );
-
         panel.expanded.bind(function (isExpanded) {
+          let options = $.merge(section.controls(), section_layout.controls());
+          if (isExpanded) {
+            _.each(options, function (control) {
+              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
+                detail: { control, isExpanded: true }
+              }));
+            })
+          } else {
+            _.each(options, function (control) {
+              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
+                detail: { control, isExpanded: false }
+              }));
+            })
+          }
           Promise.all([
             _.each(section.controls(), function (control) {
               if ("resolved" === control.deferred.embedded.state()) {
                 return;
               }
-
               if (isExpanded) {
                 $body.addClass("kmt-" + builderType + "-builder-is-active");
                 $section.addClass("kmt-" + builderType + "-builder-active");

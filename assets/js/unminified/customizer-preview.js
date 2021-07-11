@@ -102,7 +102,7 @@ function kemet_responsive_spacing_sides(control, selector, type, side) {
         });
 
         // Concat and append new <style>.
-        jQuery("head").append(
+        jQuery("footer").append(
           '<style id="' +
           control +
           "-" +
@@ -178,7 +178,7 @@ function kemet_responsive_spacing(control, selector, type) {
       control = control.replace("]", "");
       jQuery("style#" + control + "-" + type).remove();
       // Concat and append new <style>.
-      jQuery("head").append(
+      jQuery("footer").append(
         '<style id="' +
         control +
         "-" +
@@ -234,7 +234,7 @@ function kemet_responsive_slider(control, selector, type) {
           spacingType + ": " + value["mobile"] + value["mobile-unit"] + " ;";
 
         // Concat and append new <style>.
-        jQuery("head").append(
+        jQuery("footer").append(
           '<style id="' +
           control +
           "-" +
@@ -291,7 +291,7 @@ function kemet_responsive_icon_select(control, selector, type) {
         mobileSelect += selectType + ": " + value["mobile"] + " ;";
 
         // Concat and append new <style>.
-        jQuery("head").append(
+        jQuery("footer").append(
           '<style id="' +
           control +
           "-" +
@@ -348,7 +348,7 @@ function kemet_responsive_css(control, selector, type) {
         mobileSelect += selectType + ": " + value["mobile"] + " ;";
 
         // Concat and append new <style>.
-        jQuery("head").append(
+        jQuery("footer").append(
           '<style id="' +
           control +
           "-" +
@@ -407,7 +407,7 @@ function kemet_css(control, css_property, selector, unit) {
         jQuery("style#" + control).remove();
 
         // Concat and append new <style>.
-        jQuery("head").append(
+        jQuery("footer").append(
           '<style id="' +
           control +
           '">' +
@@ -437,7 +437,7 @@ function kemet_add_dynamic_css(control, style) {
   control = control.replace("]", "");
   jQuery("style#" + control).remove();
 
-  jQuery("head").append('<style id="' + control + '">' + style + "</style>");
+  jQuery("footer").append('<style id="' + control + '">' + style + "</style>");
 }
 
 /**
@@ -524,7 +524,7 @@ function kemet_font_family_css(control, selector) {
 
       var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
       kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("head").append(link);
+      jQuery("footer").append(link);
     });
   });
 }
@@ -560,7 +560,7 @@ function kemet_font_weight_css(control, selector) {
       }
       var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
       kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("head").append(link);
+      jQuery("footer").append(link);
     });
   });
 }
