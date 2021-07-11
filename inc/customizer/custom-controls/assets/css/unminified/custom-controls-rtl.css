@@ -316,7 +316,6 @@
 .kemet-popover-color {
   margin-top: 10px;
   background-color: #ffffff;
-  border: 1px solid #a29090;
   border-radius: 4px;
 }
 
@@ -340,11 +339,20 @@
   position: absolute;
   z-index: 99;
   top: 23px;
-  right: 15px;
+  right: 2px;
   left: 0;
   bottom: 0;
 }
-/* .kemet-popover-color::before {
+.color-button-wrap:nth-child(2) .kemet-color-picker-wrap .kemet-popover-color::before {
+  position: absolute;
+  content: "";
+  right: calc(100% - 22px);
+  border-style: solid;
+  top: 3px;
+  border-width: 0 6px 7px 6px;
+  border-color: transparent transparent #ffffff transparent;
+}
+.color-button-wrap:nth-child(1) .kemet-color-picker-wrap .kemet-popover-color::before {
   position: absolute;
   content: "";
   right: calc(100% - 55px);
@@ -352,7 +360,7 @@
   top: 3px;
   border-width: 0 6px 7px 6px;
   border-color: transparent transparent #ffffff transparent;
-} */
+}
 .kmt-color-palette {
   margin: 0 10px !important;
 }
