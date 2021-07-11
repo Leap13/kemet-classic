@@ -148,11 +148,8 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register
 				'type'     => 'kmt-color',
 				'responsive' => false,
 				'default'  => array(
-
 					'initial' => '#fff',
 					'hover'   => '#000',
-
-
 				),
 				'label' => 'Button Color',
 				'section'  => 'section-buttons-fields',

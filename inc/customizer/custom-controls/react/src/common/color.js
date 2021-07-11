@@ -39,6 +39,7 @@ class KemetColorPickerControl extends Component {
     }
 
     render() {
+        console.log(this.state.color, this.props.color)
         const {
             refresh,
             isVisible,
@@ -179,7 +180,7 @@ class KemetColorPickerControl extends Component {
                                                                                 </div>
 
                                                                                 <ColorPicker
-                                                                                    color={this.props.color}
+                                                                                    color={this.state.color}
                                                                                     onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
                                                                             </>

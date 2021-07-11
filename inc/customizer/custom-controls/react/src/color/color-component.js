@@ -30,10 +30,10 @@ const ColorComponent = props => {
             UpdatedState[device] = value
         }
         else {
+
             UpdatedState = value
         }
         setState(UpdatedState)
-        console.log(value, "value from update values", UpdatedState)
         props.control.setting.set(UpdatedState);
     };
 
@@ -61,7 +61,7 @@ const ColorComponent = props => {
 
     const handleChangeComplete = (color, id) => {
 
-        let value = responsive ? state[device] : state;;
+        let value = responsive ? state[device] : state;
 
         if (typeof color === 'string') {
             value[`${id}`] = color;
@@ -70,7 +70,6 @@ const ColorComponent = props => {
         } else {
             value[`${id}`] = color.hex;
         }
-        console.log(value, "value from handle Change", responsive)
         updateValues(value);
     };
 
@@ -97,6 +96,7 @@ const ColorComponent = props => {
                     />
                 )
             } else {
+                console.log("Not responsive")
                 return (
                     <KemetColorPickerControl
                         text={value[`title`]}

@@ -6533,7 +6533,6 @@ var ColorComponent = function ColorComponent(props) {
     }
 
     setState(UpdatedState);
-    console.log(value, "value from update values", UpdatedState);
     props.control.setting.set(UpdatedState);
   };
 
@@ -6560,7 +6559,6 @@ var ColorComponent = function ColorComponent(props) {
 
   var handleChangeComplete = function handleChangeComplete(color, id) {
     var value = responsive ? state[device] : state;
-    ;
 
     if (typeof color === 'string') {
       value["".concat(id)] = color;
@@ -6570,7 +6568,6 @@ var ColorComponent = function ColorComponent(props) {
       value["".concat(id)] = color.hex;
     }
 
-    console.log(value, "value from handle Change", responsive);
     updateValues(value);
   };
 
@@ -6602,6 +6599,7 @@ var ColorComponent = function ColorComponent(props) {
           allowImage: false
         });
       } else {
+        console.log("Not responsive");
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
           text: value["title"],
           color: state[value["id"]],
@@ -6789,6 +6787,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.state.color, this.props.color);
       var _this$state = this.state,
           refresh = _this$state.refresh,
           isVisible = _this$state.isVisible,
@@ -6910,7 +6909,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
                 return _this2.onPaletteChangeComplete(color);
               }
             })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorPicker"], {
-              color: _this2.props.color,
+              color: _this2.state.color,
               onChangeComplete: function onChangeComplete(color) {
                 return _this2.onChangeComplete(color);
               }
