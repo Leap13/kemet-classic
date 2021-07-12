@@ -2997,8 +2997,6 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 
 .kmt-svg-icon svg {
   fill: currentColor;
-  width: .6em;
-  height: .6em;
 }
 
 .kmt-svg-icon.icon-dropdown-menu svg {
@@ -5335,11 +5333,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .entry-meta .kmt-svg-icon {
   margin-right: 5px;
-}
-
-.entry-meta .kmt-svg-icon.icon-author svg {
-  width: 0.8em;
-  height: 0.8em;
 }
 
 /*--------------------------------------------------------------
