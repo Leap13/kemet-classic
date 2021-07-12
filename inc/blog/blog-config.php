@@ -30,11 +30,13 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
+					$output_str .= Kemet_Svg_Icons::get_icons( 'author' );
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 					$output_str .= kemet_post_author();
 					break;
 
 				case 'date':
+					$output_str .= Kemet_Svg_Icons::get_icons( 'date' );
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 					$output_str .= kemet_post_date();
 					break;
@@ -42,6 +44,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'category':
 					$category = kemet_post_categories();
 					if ( '' != $category ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'category' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $category;
 					}
@@ -50,6 +53,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'tag':
 					$tags = kemet_post_tags();
 					if ( '' != $tags ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'tags' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $tags;
 					}
@@ -58,6 +62,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'comments':
 					$comment = kemet_post_comments();
 					if ( '' != $comment ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'comment' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $comment;
 					}
@@ -123,9 +128,7 @@ if ( ! function_exists( 'kemet_post_author' ) ) {
 	 */
 	function kemet_post_author( $output_filter = '' ) {
 		$output = '';
-
-		$byline = Kemet_Svg_Icons::get_icons( 'author' );
-		$byline .= sprintf(
+		$byline = sprintf(
 			esc_html( '%s' ),
 			'<a class="url fn n" title="View all posts by ' . esc_attr( get_the_author() ) . '" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" rel="author" itemprop="url"> <span class="author-name" itemprop="name">' . esc_html( get_the_author() ) . '</span> </a>'
 		);
@@ -264,8 +267,7 @@ if ( ! function_exists( 'kemet_post_categories' ) ) {
 
 		/* translators: used between list items, there is a space after the comma */
 		
-		$categories_list = Kemet_Svg_Icons::get_icons( 'category' );
-		$categories_list .= get_the_category_list( __( ', ', 'kemet' ) );
+		$categories_list = get_the_category_list( __( ', ', 'kemet' ) );
 
 		if ( $categories_list ) {
 			$output .= '<span class="cat-links">' . $categories_list . '</span>';

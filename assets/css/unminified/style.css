@@ -5096,12 +5096,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-left: 0px;
 }
 
-.entry-meta .comments-link:before {
-  content: "\e906";
-  font-family: Kemet-font;
-  margin-right: 5px;
-}
-
 .entry-meta .posted-on:before {
   content: "\e902";
   font-family: Kemet-font;
@@ -5618,12 +5612,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .kmt-comment-list .comment-edit-link:before {
   content: "\e908";
-  font-family: "Kemet-font";
-  margin: 0px 5px;
-}
-
-.kmt-comment-list .comment-reply-link:after {
-  content: "\e906";
   font-family: "Kemet-font";
   margin: 0px 5px;
 }
