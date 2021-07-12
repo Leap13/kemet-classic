@@ -18,17 +18,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$header_builder_options = array(
+		$builder_options = array(
 			// Header Builder
-			'header-builder-controls-tabs'  => array(
-				'section'    => 'section-header-builder',
-				'type'       => 'kmt-tabs',
-				'priority'   => 0,
-				'tabs_type'  => 'builder-controls',
-				'responsive' => true,
+			'header-builder-controls-tabs' => array(
+				'type' => 'kmt-builder-tabs',
 			),
-			'header-desktop-items'          => array(
-				'section'     => 'section-header-builder',
+			'header-desktop-items'         => array(
 				'priority'    => 1,
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
@@ -145,15 +140,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'header-desktop-popup-items'    => array(
-				'section'   => 'section-header-builder-layout',
-				'default'   => false,
-				'type'      => 'kmt-hidden',
-				'priority'  => 0,
-				'transport' => 'postMessage',
-			),
-			'header-mobile-items'           => array(
-				'section'     => 'section-header-builder',
+			'header-mobile-items'          => array(
 				'priority'    => 1,
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
@@ -270,14 +257,31 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			// Header Layout
+		);
+		$builder_options = array(
+			'builder-options' => array(
+				'section' => 'section-header-builder',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $builder_options,
+				),
+			),
+		);
+		$layout_options  = array(
+			'header-desktop-popup-items'    => array(
+				'section'   => 'section-header-builder-layout',
+				'default'   => false,
+				'type'      => '',
+				'priority'  => 0,
+				'transport' => 'postMessage',
+			),
 			/**
 			 * Header Mobile popup items.
 			 */
 			'header-mobile-popup-items'     => array(
 				'section'   => 'section-header-builder-layout',
 				'default'   => false,
-				'type'      => 'kmt-hidden',
+				'type'      => '',
 				'priority'  => 0,
 				'transport' => 'postMessage',
 			),
@@ -318,6 +322,16 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 
+		$layout_options         = array(
+			'builder-layout-options' => array(
+				'section' => 'section-header-builder-layout',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $layout_options,
+				),
+			),
+		);
+		$header_builder_options = array_merge( $builder_options, $layout_options );
 		return array_merge( $options, $header_builder_options );
 	}
 

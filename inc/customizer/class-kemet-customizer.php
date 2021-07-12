@@ -308,7 +308,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$this->add_customizer_option( $option_id, $args, $wp_customize );
 			}
 		}
-
 		/**
 		 * add_customizer_option
 		 *
@@ -657,7 +656,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-button-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-top-header-customizer.php';
@@ -666,7 +665,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-html-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-offcanvas-menu-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-menu-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-widget-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-header-button-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header//class-kemet-mobile-header-html-customizer.php';
