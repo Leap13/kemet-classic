@@ -34,47 +34,62 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 			$num            = explode( 'header-widget-', $prefix )[1];
 			$widget_options = array(
 				$prefix . '-title-color'    => array(
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 1,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Title Color', 'kemet' ),
+					'pickers'   => array(
+						array(
+							'title' => __( 'Text', 'kemet' ),
+							'id'    => 'initial',
+						),
+					),
 					'preview'   => array(
-						'selector' => $selector . ' .widget-title',
-						'property' => '--headingLinksColor',
+						'initial' => array(
+							'selector' => $selector . ' .widget-title',
+							'property' => '--headingLinksColor',
+						),
 					),
 				),
 				$prefix . '-content-color'  => array(
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 2,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Content Color', 'kemet' ),
+					'pickers'   => array(
+						array(
+							'title' => __( 'Text', 'kemet' ),
+							'id'    => 'initial',
+						),
+					),
 					'preview'   => array(
-						'selector' => $selector,
-						'property' => '--textColor',
+						'initial' => array(
+							'selector' => $selector,
+							'property' => '--textColor',
+						),
 					),
 				),
 				$prefix . '-link-color'     => array(
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 3,
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
 					'label'     => __( 'Link Color', 'kemet' ),
-					'preview'   => array(
-						'selector' => $selector,
-						'property' => '--headingLinksColor',
+					'pickers'   => array(
+						array(
+							'title' => __( 'Text', 'kemet' ),
+							'id'    => 'initial',
+						),
+						array(
+							'title' => __( 'Hover', 'kemet' ),
+							'id'    => 'hover',
+						),
 					),
-				),
-				$prefix . '-link-h-color'   => array(
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 4,
-					'transport' => 'postMessage',
-					'type'      => 'kmt-color',
-					'label'     => __( 'Link Color', 'kemet' ),
 					'preview'   => array(
-						'selector' => $selector,
-						'property' => '--linksHoverColor',
+						'initial' => array(
+							'selector' => $selector,
+							'property' => '--headingLinksColor',
+						),
+						'hover'   => array(
+							'selector' => $selector,
+							'property' => '--linksHoverColor',
+						),
 					),
 				),
 				$prefix . '-font-size'      => array(
@@ -100,30 +115,24 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						'property' => '--fontSize',
 					),
 				),
-				$prefix . '-font-family'    => array(
-					'default'   => 'inherit',
-					'type'      => 'kmt-font-family',
-					'transport' => 'postMessage',
-					'label'     => __( 'Font Family', 'kemet' ),
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 10,
-					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
-				),
-				$prefix . '-font-weight'    => array(
-					'default'   => 'inherit',
-					'type'      => 'kmt-font-weight',
-					'transport' => 'postMessage',
-					'label'     => __( 'Font Weight', 'kemet' ),
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 15,
-					'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
-				),
+				// $prefix . '-font-family'    => array(
+				// 'default'   => 'inherit',
+				// 'type'      => 'kmt-font-family',
+				// 'transport' => 'postMessage',
+				// 'label'     => __( 'Font Family', 'kemet' ),
+				// 'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-weight]',
+				// ),
+				// $prefix . '-font-weight'    => array(
+				// 'default'   => 'inherit',
+				// 'type'      => 'kmt-font-weight',
+				// 'transport' => 'postMessage',
+				// 'label'     => __( 'Font Weight', 'kemet' ),
+				// 'connect'   => KEMET_THEME_SETTINGS . '[' . $prefix . '-font-family]',
+				// ),
 				$prefix . '-text-transform' => array(
-					'type'      => 'select',
+					'type'      => 'kmt-select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Text Transform', 'kemet' ),
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 20,
 					'choices'   => array(
 						''           => __( 'Default', 'kemet' ),
 						'none'       => __( 'None', 'kemet' ),
@@ -137,11 +146,9 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-style'     => array(
-					'type'      => 'select',
+					'type'      => 'kmt-select',
 					'transport' => 'postMessage',
 					'label'     => __( 'Font Style', 'kemet' ),
-					'section'   => 'sidebar-widgets-' . $prefix,
-					'priority'  => 25,
 					'choices'   => array(
 						'inherit' => __( 'Inherit', 'kemet' ),
 						'normal'  => __( 'Normal', 'kemet' ),
@@ -156,8 +163,6 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 				$prefix . '-line-height'    => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
-					'section'      => 'sidebar-widgets-' . $prefix,
-					'priority'     => 30,
 					'label'        => __( 'Line Height', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -179,8 +184,6 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 				$prefix . '-letter-spacing' => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
-					'section'      => 'sidebar-widgets-' . $prefix,
-					'priority'     => 35,
 					'label'        => __( 'Letter Spacing', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -195,6 +198,16 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 
+			);
+
+			$widget_options = array(
+				$prefix . '-options' => array(
+					'section' => 'sidebar-widgets-' . $prefix,
+					'type'    => 'kmt-options',
+					'data'    => array(
+						'options' => $widget_options,
+					),
+				),
 			);
 
 			$register_options = array_merge( $register_options, $widget_options );

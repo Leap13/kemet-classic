@@ -90,10 +90,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function widget_css( $widget, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
 				$selector      = '.kmt-' . $widget . '-area';
-				$title_color   = kemet_get_option( $widget . '-title-color' );
-				$link_color    = kemet_get_option( $widget . '-link-color' );
-				$content_color = kemet_get_option( $widget . '-content-color' );
-				$link_h_color  = kemet_get_option( $widget . '-link-h-color' );
+				$title_color   = kemet_get_sub_option( $widget . '-title-color', 'initial' );
+				$link_color    = kemet_get_sub_option( $widget . '-link-color', 'initial' );
+				$content_color = kemet_get_sub_option( $widget . '-content-color', 'initial' );
+				$link_h_color  = kemet_get_sub_option( $widget . '-link-color', 'hover' );
 
 				$css_output = array(
 					$selector                    => array(
