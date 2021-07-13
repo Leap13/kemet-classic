@@ -56,7 +56,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-icon-colors' => array(
+							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Icon Colors', 'kemet' ),
@@ -71,20 +71,16 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'   => array(
-									'selector' => $parent_selector . ' .kemet-search-icon',
-									'property' => '--headingLinksColor',
+									'initial' => array(
+										'selector' => $parent_selector . ' .kemet-search-icon',
+										'property' => '--headingLinksColor',
+									),
+									'hover'   => array(
+										'selector' => $parent_selector . ' .kemet-search-icon',
+										'property' => '--linksHoverColor',
+									),
 								),
 							),
-							// self::$prefix . '-icon-h-color' => array(
-							// 'priority'  => 20,
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Icon Hover Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $parent_selector . ' .kemet-search-icon',
-							// 'property' => '--linksHoverColor',
-							// ),
-							// ),
 						),
 					),
 				),

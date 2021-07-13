@@ -839,6 +839,48 @@ function popup_css(popups) {
   })
 }
 
+function kemet_color_css(control, data) {
+  wp.customize(control, function (value) {
+    value.bind(function (new_value) {
+
+      // Remove <style> first!
+      control = control.replace("[", "-");
+      control = control.replace("]", "");
+
+      // Remove old.
+      jQuery("style#" + control).remove();
+
+      if (new_value == '') {
+        wp.customize.preview.send("refresh");
+        // Remove old.
+        jQuery("style#" + control).remove();
+        return;
+      }
+
+      var dynamicStyle = '';
+      jQuery.each(new_value, function (id, val) {
+        if (val) {
+          var previewData = data[id];
+          dynamicStyle += previewData.selector +
+            "	{ " +
+            previewData.property +
+            ": " +
+            val +
+            " }";
+        }
+      })
+
+      // Concat and append new <style>.
+      jQuery("footer").append(
+        '<style id="' +
+        control +
+        '">' +
+        dynamicStyle +
+        "</style>"
+      );
+    })
+  })
+}
 (function ($) {
   // Trigger.
   wp.customize.bind("preview-ready", function () {
@@ -870,7 +912,12 @@ function popup_css(popups) {
       case "kmt-responsive-slider":
         kemet_responsive_slider(control, data.selector, data.property);
         break;
+      case "select":
+        kemet_css(control, data.property, data.selector);
+        break;
       case "kmt-color":
+        kemet_color_css(control, data);
+        break;
       case "select":
         kemet_css(control, data.property, data.selector);
         break;

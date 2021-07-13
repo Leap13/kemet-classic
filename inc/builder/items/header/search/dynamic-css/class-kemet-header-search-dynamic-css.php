@@ -24,8 +24,8 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 				$parent_selector      = '.kmt-header-item-search';
 				$input_width          = kemet_get_option( 'search-input-width' );
 				$icon_size            = kemet_get_option( 'search-icon-size' );
-				$icon_color           = kemet_get_option( 'search-icon-color' );
-				$icon_h_color         = kemet_get_option( 'search-icon-h-color' );
+				$icon_color           = kemet_get_sub_option( 'search-icon-color', 'initial' );
+				$icon_h_color         = kemet_get_sub_option( 'search-icon-color', 'hover' );
 				$text_color           = kemet_get_option( 'search-input-text-color' );
 				$bg_color             = kemet_get_option( 'search-form-bg-color' );
 				$input_bg_color       = kemet_get_option( 'search-input-bg-color' );

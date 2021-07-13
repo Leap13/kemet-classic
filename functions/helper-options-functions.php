@@ -579,6 +579,26 @@ if ( ! function_exists( 'kemet_get_option' ) ) {
 }
 
 /**
+ * Return Theme options.
+ */
+if ( ! function_exists( 'kemet_get_sub_option' ) ) {
+
+	/**
+	 * Return Theme options.
+	 *
+	 * @param  string $option       Option key.
+	 * @param  string $default      Option default value.
+	 * @return Mixed               Return option value.
+	 */
+	function kemet_get_sub_option( $option, $sub, $default = '' ) {
+		$option = kemet_get_option( $option );
+		$value  = is_array( $option ) && ( isset( $option[ $sub ] ) && '' !== $option[ $sub ] ) ? $option[ $sub ] : $default;
+
+		return $value;
+	}
+}
+
+/**
  * Helper function to get the current post id.
  */
 if ( ! function_exists( 'kemet_get_post_id' ) ) {
