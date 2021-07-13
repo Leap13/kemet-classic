@@ -38,7 +38,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-icon-size' => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',
-								'priority'     => 10,
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -57,25 +56,35 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-icon-color' => array(
+							self::$prefix . '-icon-colors' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
-								'label'     => __( 'Icon Color', 'kemet' ),
+								'label'     => __( 'Icon Colors', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
 								'preview'   => array(
 									'selector' => $parent_selector . ' .kemet-search-icon',
 									'property' => '--headingLinksColor',
 								),
 							),
-							self::$prefix . '-icon-h-color' => array(
-								'priority'  => 20,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Icon Hover Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $parent_selector . ' .kemet-search-icon',
-									'property' => '--linksHoverColor',
-								),
-							),
+							// self::$prefix . '-icon-h-color' => array(
+							// 'priority'  => 20,
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Icon Hover Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $parent_selector . ' .kemet-search-icon',
+							// 'property' => '--linksHoverColor',
+							// ),
+							// ),
 						),
 					),
 				),
@@ -111,52 +120,52 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-input-text-color' => array(
-								'priority'  => 30,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Text Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputColor',
-								),
-							),
-							self::$prefix . '-form-bg-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Background Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $parent_selector . ' form',
-									'property' => 'background-color',
-								),
-							),
-							self::$prefix . '-input-bg-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Input Background Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputBackgroundColor',
-								),
-							),
-							self::$prefix . '-input-focus-text-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Focus Text Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputFocusColor',
-								),
-							),
-							self::$prefix . '-input-focus-bg-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Input Focus Background Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputFocusBackgroundColor',
-								),
-							),
+							// self::$prefix . '-input-text-color' => array(
+							// 'priority'  => 30,
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Text Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $selector,
+							// 'property' => '--inputColor',
+							// ),
+							// ),
+							// self::$prefix . '-form-bg-color' => array(
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Background Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $parent_selector . ' form',
+							// 'property' => 'background-color',
+							// ),
+							// ),
+							// self::$prefix . '-input-bg-color' => array(
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Input Background Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $selector,
+							// 'property' => '--inputBackgroundColor',
+							// ),
+							// ),
+							// self::$prefix . '-input-focus-text-color' => array(
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Focus Text Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $selector,
+							// 'property' => '--inputFocusColor',
+							// ),
+							// ),
+							// self::$prefix . '-input-focus-bg-color' => array(
+							// 'transport' => 'postMessage',
+							// 'type'      => 'kmt-color',
+							// 'label'     => __( 'Input Focus Background Color', 'kemet' ),
+							// 'preview'   => array(
+							// 'selector' => $selector,
+							// 'property' => '--inputFocusBackgroundColor',
+							// ),
+							// ),
 							self::$prefix . '-font-size'   => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',

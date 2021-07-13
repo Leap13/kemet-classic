@@ -102,7 +102,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-font-family'        => 'sanitize_text_field',
 			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 			'kmt-select'             => 'sanitize_text_field',
-			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			// 'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
 			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),

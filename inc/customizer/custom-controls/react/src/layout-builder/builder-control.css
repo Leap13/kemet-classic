@@ -631,10 +631,12 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-row-items
   .kmt-builder-areas:nth-child(2)
   .kmt-builder-group-horizontal {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
-
+.kmt-builder-row-items .kmt-builder-areas:nth-child(2) .kmt-fixed-row-actions {
+  top: 27px;
+}
 .customize-control-kmt-builder .kmt-builder-items {
   padding-left: 30px;
 }

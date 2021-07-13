@@ -149,7 +149,6 @@ const toggleVisible = (rules, onChange) => {
 
 const SingleOptionComponent = ({ optionId, option, control }) => {
     let context = option.context ? isDisplay(option.context) : true;
-    console.log(option);
     const [isVisible, setVisible] = useState(context);
 
     const onChange = (value) => {

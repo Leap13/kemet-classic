@@ -1,17 +1,9 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette } from '@wordpress/components';
-import KemetColorPicker from './colorPicker';
+import { Tooltip, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
-const {
 
-    Popover,
-
-
-
-
-} = wp.components;
 
 class KemetColorPickerControl extends Component {
 
@@ -30,11 +22,13 @@ class KemetColorPickerControl extends Component {
             isVisible: false,
             refresh: false,
             color: this.props.color,
+            text: this.props.text,
             modalCanClose: true,
             backgroundType: this.props.backgroundType,
             supportGradient: (undefined === __experimentalGradientPicker ? false : true),
         };
     }
+
 
     onResetRefresh() {
         if (this.state.refresh === true) {
@@ -45,7 +39,6 @@ class KemetColorPickerControl extends Component {
     }
 
     render() {
-
         const {
             refresh,
             isVisible,
@@ -123,11 +116,13 @@ class KemetColorPickerControl extends Component {
         });
 
         return (
-            <>
+            <div className="kmt-color-picker">
                 <div className="color-button-wrap">
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
-                            <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                            <Tooltip text={this.state.text} position='top center' >
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                            </Tooltip>
                         }
                         {'image' === backgroundType &&
                             <>
@@ -140,10 +135,10 @@ class KemetColorPickerControl extends Component {
                 <div className="kemet-color-picker-wrap">
                     <>
                         {isVisible && (
-                            <>
+                            <div className="kemet-popover-color" onClose={this.toggleClose}>
                                 {
                                     1 < tabs.length &&
-                                    <Popover className="kemet-popover-color" onClose={this.toggleClose}>
+                                    <>
 
                                         <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                             activeClass="active-tab"
@@ -173,31 +168,42 @@ class KemetColorPickerControl extends Component {
                                                                 <>
                                                                     {refresh && (
                                                                         <>
-                                                                            <KemetColorPicker
-                                                                                color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                                                onChange={(color) => this.onChangeState(color, '')}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                                                            <div className={`kmt-color-picker-top`}>
+                                                                                <ColorPalette
+                                                                                    colors={finalpaletteColors}
+                                                                                    value={this.props.color}
+                                                                                    clearable={false}
+                                                                                    disableCustomColors={true}
+                                                                                    className="kmt-color-palette"
+                                                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                                                />
+                                                                            </div>
+
+                                                                            <ColorPicker
+                                                                                color={this.state.color}
+                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                             />
                                                                         </>
                                                                     )}
                                                                     {!refresh && (
                                                                         <>
-                                                                            <KemetColorPicker
-                                                                                color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                                                onChange={(color) => this.onChangeState(color, '')}
-                                                                                onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                                                            <div className={`kmt-color-picker-top`}>
+                                                                                <ColorPalette
+                                                                                    colors={finalpaletteColors}
+                                                                                    value={this.props.color}
+                                                                                    clearable={false}
+                                                                                    disableCustomColors={true}
+                                                                                    className="kmt-color-palette"
+                                                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                                                />
+                                                                            </div>
+                                                                            <ColorPicker
+                                                                                color={this.props.color}
+                                                                                onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                             />
-
                                                                         </>
                                                                     )}
-                                                                    <ColorPalette
-                                                                        colors={finalpaletteColors}
-                                                                        value={this.props.color}
-                                                                        clearable={false}
-                                                                        disableCustomColors={true}
-                                                                        className="kmt-color-palette"
-                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                                    />
+
                                                                 </>
                                                             );
                                                         }
@@ -206,53 +212,56 @@ class KemetColorPickerControl extends Component {
                                                 }
                                             }
                                         </TabPanel>
-                                    </Popover>
+                                    </>
                                 }
                                 {1 === tabs.length &&
 
                                     <>
                                         {refresh && (
-                                            <Popover className="kemet-popover-color" onClose={this.toggleClose}>
-                                                <KemetColorPicker
-                                                    color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                    onChange={(color) => this.onChangeState(color, '')}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                            <>
+                                                <div className={`kmt-color-picker-top`}>
+                                                    <ColorPalette
+                                                        colors={finalpaletteColors}
+                                                        value={this.props.color}
+                                                        clearable={false}
+                                                        disableCustomColors={true}
+                                                        className="kmt-color-palette"
+                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                    />
+                                                </div>
+                                                <ColorPicker
+                                                    color={this.props.color}
+                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                 />
-                                                <ColorPalette
-                                                    colors={finalpaletteColors}
-                                                    value={this.props.color}
-                                                    clearable={false}
-                                                    disableCustomColors={true}
-                                                    className="kmt-color-palette"
-                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                />
-                                            </Popover>
+
+                                            </>
                                         )}
                                         {!refresh && (
-                                            <Popover className="kemet-popover-color" onClose={this.toggleClose}>
-                                                <KemetColorPicker
-                                                    color={(this.state.isPalette && this.state.palette.palette && this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1] ? this.state.palette.palette[parseInt(this.state.color.slice(-1), 10) - 1].color : this.state.color)}
-                                                    onChange={(color) => this.onChangeState(color, '')}
-                                                    onChangeComplete={(color) => this.onChangeComplete(color, '')}
+                                            <>
+                                                <div className={`kmt-color-picker-top`}>
+                                                    <ColorPalette
+                                                        colors={finalpaletteColors}
+                                                        value={this.props.color}
+                                                        clearable={false}
+                                                        disableCustomColors={true}
+                                                        className="kmt-color-palette"
+                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
+                                                    />
+                                                </div>
+                                                <ColorPicker
+                                                    color={this.props.color}
+                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                 />
-                                                <ColorPalette
-                                                    colors={finalpaletteColors}
-                                                    value={this.props.color}
-                                                    clearable={false}
-                                                    disableCustomColors={true}
-                                                    className="kmt-color-palette"
-                                                    onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                />
-                                            </Popover>
-                                        )}
 
+                                            </>
+                                        )}
                                     </>
                                 }
-                            </>
+                            </div>
                         )}
                     </>
                 </div>
-            </>
+            </div>
         );
     }
     toggleClose() {
@@ -286,7 +295,7 @@ class KemetColorPickerControl extends Component {
     }
 
     onChangeComplete(color) {
-
+        console.log(color);
         let newColor;
         if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
             newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
@@ -304,6 +313,7 @@ class KemetColorPickerControl extends Component {
         } else {
             this.setState({ refresh: true });
         }
+
         this.props.onChangeComplete(color, 'color');
     }
 
