@@ -912,14 +912,11 @@ function kemet_color_css(control, data) {
       case "kmt-responsive-slider":
         kemet_responsive_slider(control, data.selector, data.property);
         break;
-      case "select":
+      case "kmt-select":
         kemet_css(control, data.property, data.selector);
         break;
       case "kmt-color":
         kemet_color_css(control, data);
-        break;
-      case "select":
-        kemet_css(control, data.property, data.selector);
         break;
       case "kmt-reponsive-color":
         kemet_responsive_css(control, data.selector, data.property);

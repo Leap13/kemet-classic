@@ -24,14 +24,14 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 				$parent_selector    = '.kmt-header-item-search-box';
 				$width              = kemet_get_option( 'search-box-width' );
 				$icon_size          = kemet_get_option( 'search-box-icon-size' );
-				$text_color         = kemet_get_option( 'search-box-text-color' );
-				$text_focus_color   = kemet_get_option( 'search-box-text-focus-color' );
-				$icon_color         = kemet_get_option( 'search-box-icon-color', $text_color );
-				$border_color       = kemet_get_option( 'search-box-border-color' );
-				$border_focus_color = kemet_get_option( 'search-box-border-focus-color' );
-				$icon_h_color       = kemet_get_option( 'search-box-icon-h-color' );
-				$bg_color           = kemet_get_option( 'search-box-bg-color' );
-				$bg_focus_color     = kemet_get_option( 'search-box-bg-focus-color' );
+				$text_color         = kemet_get_sub_option( 'search-box-text-color', 'initial' );
+				$text_focus_color   = kemet_get_sub_option( 'search-box-text-color', 'focus' );
+				$icon_color         = kemet_get_sub_option( 'search-box-icon-color', 'initial', $text_color );
+				$border_color       = kemet_get_sub_option( 'search-box-border-color', 'initial' );
+				$border_focus_color = kemet_get_sub_option( 'search-box-border-color', 'focus' );
+				$icon_h_color       = kemet_get_sub_option( 'search-box-icon-color', 'hover' );
+				$bg_color           = kemet_get_sub_option( 'search-box-bg-color', 'initial' );
+				$bg_focus_color     = kemet_get_sub_option( 'search-box-bg-color', 'focus' );
 				$border_width       = kemet_get_option( 'search-box-border-width' );
 
 				$css_output = array(

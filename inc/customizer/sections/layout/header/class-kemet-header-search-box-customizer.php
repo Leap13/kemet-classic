@@ -31,17 +31,14 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 		$parent_selector = '.kmt-header-item-search-box';
 		$search_options  = array(
 			self::$prefix . '-icon-tabs'   => array(
-				'type'     => 'kmt-test',
-				'priority' => 10,
-				'section'  => 'section-header-' . self::$prefix,
-				'tabs'     => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-icon-size' => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',
-								'section'      => 'section-header-' . self::$prefix,
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -61,23 +58,28 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-icon-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Icon Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $parent_selector . ' .kmt-search-box-form::after',
-									'property' => '--inputColor',
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
 								),
-							),
-							self::$prefix . '-icon-h-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Icon Hover Color', 'kemet' ),
 								'preview'   => array(
-									'selector' => $parent_selector . ' .kmt-search-box-form:hover::after',
-									'property' => '--inputColor',
+									'initial' => array(
+										'selector' => $parent_selector . ' .kmt-search-box-form::after',
+										'property' => '--inputColor',
+									),
+									'hover'   => array(
+										'selector' => $parent_selector . ' .kmt-search-box-form:hover::after',
+										'property' => '--inputColor',
+									),
 								),
 							),
 						),
@@ -85,18 +87,14 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-search-tabs' => array(
-				'type'     => 'kmt-test',
-				'priority' => 10,
-				'section'  => 'section-header-' . self::$prefix,
-				'tabs'     => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
 					'general' => array(
-						'title'                           => __( 'General', 'kemet' ),
-						'options'                         => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
 							self::$prefix . '-width' => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',
-								'section'      => 'section-header-' . self::$prefix,
-								'priority'     => 5,
 								'label'        => __( 'Enter Width', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -111,215 +109,216 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 						),
-						self::$prefix . '-font-size'      => array(
-							'type'         => 'kmt-responsive-slider',
-							'transport'    => 'postMessage',
-							'section'      => 'section-header-' . self::$prefix,
-							'priority'     => 75,
-							'label'        => __( 'Font Size', 'kemet' ),
-							'unit_choices' => array(
-								'px' => array(
-									'min'  => 1,
-									'step' => 1,
-									'max'  => 200,
-								),
-								'em' => array(
-									'min'  => 0.1,
-									'step' => 0.1,
-									'max'  => 10,
-								),
-							),
-							'preview'      => array(
-								'selector' => $selector,
-								'property' => '--fontSize',
-							),
-						),
-						self::$prefix . '-font-family'    => array(
-							'type'      => 'kmt-font-family',
-							'transport' => 'postMessage',
-							'label'     => __( 'Font Family', 'kemet' ),
-							'section'   => 'section-header-' . self::$prefix,
-							'priority'  => 70,
-							'connect'   => KEMET_THEME_SETTINGS . '[' . self::$prefix . '-font-weight]',
-						),
-						self::$prefix . '-font-weight'    => array(
-							'type'      => 'kmt-font-weight',
-							'transport' => 'postMessage',
-							'label'     => __( 'Font Weight', 'kemet' ),
-							'section'   => 'section-header-' . self::$prefix,
-							'priority'  => 75,
-							'connect'   => KEMET_THEME_SETTINGS . '[' . self::$prefix . '-font-family]',
-						),
-						self::$prefix . '-text-transform' => array(
-							'type'      => 'select',
-							'transport' => 'postMessage',
-							'label'     => __( 'Text Transform', 'kemet' ),
-							'section'   => 'section-header-' . self::$prefix,
-							'priority'  => 80,
-							'choices'   => array(
-								''           => __( 'Default', 'kemet' ),
-								'none'       => __( 'None', 'kemet' ),
-								'capitalize' => __( 'Capitalize', 'kemet' ),
-								'uppercase'  => __( 'Uppercase', 'kemet' ),
-								'lowercase'  => __( 'Lowercase', 'kemet' ),
-							),
-							'preview'   => array(
-								'selector' => $selector,
-								'property' => '--textTransform',
-							),
-						),
-						self::$prefix . '-font-style'     => array(
-							'type'      => 'select',
-							'transport' => 'postMessage',
-							'label'     => __( 'Font Style', 'kemet' ),
-							'section'   => 'section-header-' . self::$prefix,
-							'priority'  => 85,
-							'choices'   => array(
-								'inherit' => __( 'Inherit', 'kemet' ),
-								'normal'  => __( 'Normal', 'kemet' ),
-								'italic'  => __( 'Italic', 'kemet' ),
-								'oblique' => __( 'Oblique', 'kemet' ),
-							),
-							'preview'   => array(
-								'selector' => $selector,
-								'property' => '--fontStyle',
-							),
-						),
-						self::$prefix . '-line-height'    => array(
-							'type'         => 'kmt-responsive-slider',
-							'transport'    => 'postMessage',
-							'section'      => 'section-header-' . self::$prefix,
-							'priority'     => 90,
-							'label'        => __( 'Line Height', 'kemet' ),
-							'unit_choices' => array(
-								'px' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 100,
-								),
-								'em' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 10,
-								),
-							),
-							'preview'      => array(
-								'selector' => $selector,
-								'property' => '--lineHeight',
-							),
-						),
-						self::$prefix . '-letter-spacing' => array(
-							'type'         => 'kmt-responsive-slider',
-							'transport'    => 'postMessage',
-							'section'      => 'section-header-' . self::$prefix,
-							'priority'     => 95,
-							'label'        => __( 'Letter Spacing', 'kemet' ),
-							'unit_choices' => array(
-								'px' => array(
-									'min'  => 0.1,
-									'step' => 0.1,
-									'max'  => 10,
-								),
-							),
-							'preview'      => array(
-								'selector' => $selector,
-								'property' => '--letterSpacing',
-							),
-						),
-						self::$prefix . '-border-width'   => array(
-							'type'         => 'kmt-responsive-slider',
-							'transport'    => 'postMessage',
-							'section'      => 'section-header-' . self::$prefix,
-							'priority'     => 55,
-							'label'        => __( 'Border Size', 'kemet' ),
-							'unit_choices' => array(
-								'px' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 100,
-								),
-							),
-							'preview'      => array(
-								'selector' => $selector,
-								'property' => '--inputBorderWidth',
-							),
-						),
 					),
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-text-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 25,
+							self::$prefix . '-font-size'   => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Font Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 1,
+										'step' => 1,
+										'max'  => 200,
+									),
+									'em' => array(
+										'min'  => 0.1,
+										'step' => 0.1,
+										'max'  => 10,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector,
+									'property' => '--fontSize',
+								),
+							),
+							// self::$prefix . '-font-family' => array(
+							// 'type'      => 'kmt-font-family',
+							// 'transport' => 'postMessage',
+							// 'label'     => __( 'Font Family', 'kemet' ),
+							// 'connect'   => KEMET_THEME_SETTINGS . '[' . self::$prefix . '-font-weight]',
+							// ),
+							// self::$prefix . '-font-weight' => array(
+							// 'type'      => 'kmt-font-weight',
+							// 'transport' => 'postMessage',
+							// 'label'     => __( 'Font Weight', 'kemet' ),
+							// 'connect'   => KEMET_THEME_SETTINGS . '[' . self::$prefix . '-font-family]',
+							// ),
+							self::$prefix . '-text-transform' => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Text Transform', 'kemet' ),
+								'choices'   => array(
+									''           => __( 'Default', 'kemet' ),
+									'none'       => __( 'None', 'kemet' ),
+									'capitalize' => __( 'Capitalize', 'kemet' ),
+									'uppercase'  => __( 'Uppercase', 'kemet' ),
+									'lowercase'  => __( 'Lowercase', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'property' => '--textTransform',
+								),
+							),
+							self::$prefix . '-font-style'  => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Font Style', 'kemet' ),
+								'choices'   => array(
+									'inherit' => __( 'Inherit', 'kemet' ),
+									'normal'  => __( 'Normal', 'kemet' ),
+									'italic'  => __( 'Italic', 'kemet' ),
+									'oblique' => __( 'Oblique', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'property' => '--fontStyle',
+								),
+							),
+							self::$prefix . '-line-height' => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Line Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+									'em' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 10,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector,
+									'property' => '--lineHeight',
+								),
+							),
+							self::$prefix . '-letter-spacing' => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Letter Spacing', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0.1,
+										'step' => 0.1,
+										'max'  => 10,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector,
+									'property' => '--letterSpacing',
+								),
+							),
+							self::$prefix . '-border-width' => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Border Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector,
+									'property' => '--inputBorderWidth',
+								),
+							),
+							self::$prefix . '-text-color'  => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Text Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Focus', 'kemet' ),
+										'id'    => 'focus',
+									),
+								),
 								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputColor',
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--inputColor',
+									),
+									'focus'   => array(
+										'selector' => $selector,
+										'property' => '--inputFocusColor',
+									),
 								),
 							),
-							self::$prefix . '-bg-color'   => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 30,
+							self::$prefix . '-bg-color'    => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Focus', 'kemet' ),
+										'id'    => 'focus',
+									),
+								),
 								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputBackgroundColor',
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--inputBackgroundColor',
+									),
+									'focus'   => array(
+										'selector' => $selector,
+										'property' => '--inputFocusBackgroundColor',
+									),
 								),
 							),
 							self::$prefix . '-border-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 35,
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Focus', 'kemet' ),
+										'id'    => 'focus',
+									),
+								),
 								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputBorderColor',
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--inputBorderColor',
+									),
+									'focus'   => array(
+										'selector' => $selector,
+										'property' => '--inputFocusBorderColor',
+									),
 								),
 							),
-							self::$prefix . '-text-focus-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 40,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Focus Text Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputFocusColor',
-								),
-							),
-							self::$prefix . '-bg-focus-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 45,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Focus Background Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputFocusBackgroundColor',
-								),
-							),
-							self::$prefix . '-border-focus-color' => array(
-								'section'   => 'section-header-' . self::$prefix,
-								'priority'  => 50,
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Focus Border Color', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--inputFocusBorderColor',
-								),
-							),
-
 						),
 					),
 				),
 			),
+		);
 
+		$search_options = array(
+			self::$prefix . '-options' => array(
+				'section' => 'section-header-' . self::$prefix,
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $search_options,
+				),
+			),
 		);
 
 		return array_merge( $options, $search_options );
