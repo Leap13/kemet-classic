@@ -425,21 +425,25 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 * @param  string $color setting input.
 		 * @return string        setting input value.
 		 */
-		public static function sanitize_alpha_color( $color ) {
+		public static function sanitize_alpha_color( $colors ) {
 
-			if ( '' === $color ) {
-				return '';
+			if ( empty( $colors ) || ! is_array( $colors ) ) {
+				return array();
 			}
 
-			if ( false === strpos( $color, 'rgba' ) ) {
-				/* Hex sanitize */
-				return self::sanitize_hex_color( $color );
+			foreach ( $colors as $id => $color ) {
+				if ( false === strpos( $color, 'rgba' ) ) {
+					/* Hex sanitize */
+					$colors[ $id ] = self::sanitize_hex_color( $color );
+				} else {
+					/* rgba sanitize */
+					$color = str_replace( ' ', '', $color );
+					sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+					$colors[ $id ] = 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+				}
 			}
 
-			/* rgba sanitize */
-			$color = str_replace( ' ', '', $color );
-			sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-			return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+			return $colors;
 		}
 
 		/**
