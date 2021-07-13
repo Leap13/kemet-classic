@@ -294,7 +294,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'buttons-line-height'                  => '',
 					'buttons-letter-spacing'               => '',
 					'buttons-font-style'                   => 'inherit',
-					'button-color'                         => '',
+					'button-text-color'                    => '',
 					'button-h-color'                       => '',
 					'button-bg-color'                      => '',
 					'button-bg-h-color'                    => '',

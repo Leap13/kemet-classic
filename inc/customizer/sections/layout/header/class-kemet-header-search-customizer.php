@@ -116,52 +116,73 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							// self::$prefix . '-input-text-color' => array(
-							// 'priority'  => 30,
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Text Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $selector,
-							// 'property' => '--inputColor',
-							// ),
-							// ),
-							// self::$prefix . '-form-bg-color' => array(
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Background Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $parent_selector . ' form',
-							// 'property' => 'background-color',
-							// ),
-							// ),
-							// self::$prefix . '-input-bg-color' => array(
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Input Background Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $selector,
-							// 'property' => '--inputBackgroundColor',
-							// ),
-							// ),
-							// self::$prefix . '-input-focus-text-color' => array(
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Focus Text Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $selector,
-							// 'property' => '--inputFocusColor',
-							// ),
-							// ),
-							// self::$prefix . '-input-focus-bg-color' => array(
-							// 'transport' => 'postMessage',
-							// 'type'      => 'kmt-color',
-							// 'label'     => __( 'Input Focus Background Color', 'kemet' ),
-							// 'preview'   => array(
-							// 'selector' => $selector,
-							// 'property' => '--inputFocusBackgroundColor',
-							// ),
-							// ),
+							self::$prefix . '-form-bg-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $parent_selector . ' form',
+										'property' => 'background-color',
+									),
+								),
+							),
+							self::$prefix . '-input-text-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Text Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Focus', 'kemet' ),
+										'id'    => 'focus',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--inputColor',
+									),
+									'focus'   => array(
+										'selector' => $selector,
+										'property' => '--inputFocusColor',
+									),
+								),
+							),
+							self::$prefix . '-input-bg-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Input Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Focus', 'kemet' ),
+										'id'    => 'focus',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--inputBackgroundColor',
+									),
+									'focus'   => array(
+										'selector' => $selector,
+										'property' => '--inputFocusBackgroundColor',
+									),
+								),
+							),
 							self::$prefix . '-font-size'   => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',

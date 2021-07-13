@@ -682,7 +682,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$kemet_footer_link_h_color    = kemet_get_option( 'footer-link-h-color', $theme_color );
 			$kemet_footer_widget_bg_color = kemet_get_option( 'footer-wgt-bg-color' );
 
-			$btn_color          = kemet_get_option( 'button-color', '#ffffff' );
+			$btn_color          = kemet_get_option( 'button-text-color', '#ffffff' );
 			$btn_h_color        = kemet_get_option( 'button-h-color', $btn_color );
 			$btn_bg_color       = kemet_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_h_color     = kemet_get_option( 'button-bg-h-color', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );

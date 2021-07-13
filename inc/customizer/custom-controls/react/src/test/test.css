@@ -45,3 +45,10 @@
   height: 2px;
   background: #2271b1;
 }
+.customize-control-kmt-tabs .current-tab-options > div:first-child {
+  margin-top: 0;
+}
+.customize-control-kmt-tabs .current-tab-options > div {
+  position: relative;
+  margin-top: 25px;
+}

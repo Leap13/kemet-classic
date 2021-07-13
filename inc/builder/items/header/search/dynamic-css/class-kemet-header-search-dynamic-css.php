@@ -26,11 +26,11 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 				$icon_size            = kemet_get_option( 'search-icon-size' );
 				$icon_color           = kemet_get_sub_option( 'search-icon-color', 'initial' );
 				$icon_h_color         = kemet_get_sub_option( 'search-icon-color', 'hover' );
-				$text_color           = kemet_get_option( 'search-input-text-color' );
-				$bg_color             = kemet_get_option( 'search-form-bg-color' );
-				$input_bg_color       = kemet_get_option( 'search-input-bg-color' );
-				$text_focus_color     = kemet_get_option( 'search-input-focus-text-color' );
-				$input_bg_focus_color = kemet_get_option( 'search-input-focus-bg-color' );
+				$text_color           = kemet_get_sub_option( 'search-input-text-color', 'initial' );
+				$bg_color             = kemet_get_sub_option( 'search-form-bg-color', 'initial' );
+				$input_bg_color       = kemet_get_sub_option( 'search-input-bg-color', 'initial' );
+				$text_focus_color     = kemet_get_sub_option( 'search-input-text-color', 'focus' );
+				$input_bg_focus_color = kemet_get_sub_option( 'search-input-bg-color', 'focus' );
 
 				$css_output = array(
 					$parent_selector . ' form' => array(

@@ -84,15 +84,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$input_font_style         = kemet_get_option( 'inputs-font-style' );
 			$input_line_height        = kemet_get_option( 'inputs-line-height' );
 			$input_letter_spacing     = kemet_get_option( 'inputs-letter-spacing' );
-			$input_bg_color           = kemet_get_option( 'input-bg-color', kemet_color_brightness( $global_bg_color, 0.99, 'dark' ) );
-			$input_text_color         = kemet_get_option( 'input-text-color' );
-			$input_focus_bg_color     = kemet_get_option( 'input-focus-bg-color' );
-			$input_focus_text_color   = kemet_get_option( 'input-focus-text-color' );
+			$input_bg_color           = kemet_get_sub_option( 'input-bg-color', 'initial', kemet_color_brightness( $global_bg_color, 0.99, 'dark' ) );
+			$input_text_color         = kemet_get_sub_option( 'input-text-color', 'initial' );
+			$input_focus_bg_color     = kemet_get_sub_option( 'input-bg-color', 'focus' );
+			$input_focus_text_color   = kemet_get_sub_option( 'input-text-color', 'focus' );
 			$input_border_radius      = kemet_get_option( 'input-radius' );
 			$input_border_size        = kemet_get_option( 'input-border-size' );
-			$input_border_color       = kemet_get_option( 'input-border-color', $global_border_color );
-			$input_focus_border_color = kemet_get_option( 'input-focus-border-color' );
-			$input_label_color        = kemet_get_option( 'input-label-color' );
+			$input_border_color       = kemet_get_sub_option( 'input-border-color', 'initial', $global_border_color );
+			$input_focus_border_color = kemet_get_sub_option( 'input-border-color', 'focus' );
+			$input_label_color        = kemet_get_sub_option( 'input-label-color', 'initial' );
 			$input_spacing            = kemet_get_option( 'input-spacing' );
 
 			// Boxed inner Options.
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text color depends on link color
 			 */
-			$btn_text_color = kemet_get_option( 'button-color', '#ffffff' );
+			$btn_text_color = kemet_get_sub_option( 'button-text-color', 'initial', '#ffffff' );
 
 			// sidebar.
 			$sidebar_bg_obj            = kemet_get_option( 'sidebar-bg-obj' );
@@ -334,12 +334,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/**
 			 * Apply text hover color depends on link hover color
 			 */
-			$btn_text_hover_color = kemet_get_option( 'button-h-color' );
-			$btn_bg_color         = kemet_get_option( 'button-bg-color', $theme_color );
+			$btn_text_hover_color = kemet_get_sub_option( 'button-text-color', 'hover' );
+			$btn_bg_color         = kemet_get_sub_option( 'button-bg-color', 'initial', $theme_color );
 			$btn_border_size      = kemet_get_option( 'btn-border-size' );
-			$btn_border_color     = kemet_get_option( 'btn-border-color' );
-			$btn_border_h_color   = kemet_get_option( 'btn-border-h-color' );
-			$btn_bg_hover_color   = kemet_get_option( 'button-bg-h-color', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
+			$btn_border_color     = kemet_get_sub_option( 'btn-border-color', 'initial' );
+			$btn_border_h_color   = kemet_get_sub_option( 'btn-border-color', 'hover' );
+			$btn_bg_hover_color   = kemet_get_sub_option( 'button-bg-color', 'hover', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
 
 			// Spacing of Big Footer.
 			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $global_footer_text_color, 0.22, 'dark' ) );
