@@ -251,7 +251,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'button-radius'          => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
-								'label'          => __( 'Padding', 'kemet' ),
+								'label'          => __( 'Border Radius', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(

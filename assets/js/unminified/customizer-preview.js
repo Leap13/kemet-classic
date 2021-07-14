@@ -571,10 +571,13 @@ function toggle_button_css(buttons) {
       value.bind(function (position) {
         var floatPosition =
           wp.customize._value[settingName(prefix + "-float-position")]._value;
+
         jQuery(selector).removeClass(
           "toggle-button-fixed float-top-left float-top-right float-bottom-left float-bottom-right"
         );
-        jQuery(selector).addClass("toggle-button-fixed float-" + floatPosition);
+        if (position) {
+          jQuery(selector).addClass("toggle-button-fixed float-" + floatPosition);
+        }
       });
     });
     wp.customize(settingName(prefix + "-float-position"), function (value) {

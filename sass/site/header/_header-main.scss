@@ -35,6 +35,7 @@
   color: inherit;
   border-style: dotted;
   border-color: transparent;
+  --buttonShadow: none !important;
 
   &:focus,
   &:hover {

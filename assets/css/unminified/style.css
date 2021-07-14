@@ -3597,6 +3597,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
   color: inherit;
   border-style: dotted;
   border-color: transparent;
+  --buttonShadow: none !important;
 }
 
 .kmt-menu-toggle:focus, .kmt-menu-toggle:hover {

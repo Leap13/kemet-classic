@@ -29,254 +29,198 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 		self::$prefix   = 'desktop-toggle-button';
 		$selector       = '.' . self::$prefix;
 		$button_options = array(
-			self::$prefix . '-controls-tabs'     => array(
-				'section'  => 'section-' . self::$prefix,
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
-			),
-			self::$prefix . '-float'             => array(
-				'type'      => 'kmt-switcher',
-				'transport' => 'postMessage',
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 1,
-				'label'     => __( 'Float', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
+			self::$prefix . '-tabs' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-width'  => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Width', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 200,
+								),
+								'preview'     => array(
+									'selector' => $selector,
+									'property' => 'width',
+								),
+							),
+							self::$prefix . '-height' => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Height', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 200,
+								),
+								'preview'     => array(
+									'selector' => $selector,
+									'property' => 'height',
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-float'      => array(
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+								'label'     => __( 'Float', 'kemet' ),
+							),
+							self::$prefix . '-float-position' => array(
+								'type'      => 'kmt-select',
+								'default'   => 'top-right',
+								'transport' => 'postMessage',
+								'label'     => __( 'Position', 'kemet' ),
+								'choices'   => array(
+									'top-right'    => __( 'Top Right', 'kemet' ),
+									'top-left'     => __( 'Top Left', 'kemet' ),
+									'bottom-right' => __( 'Bottom Right', 'kemet' ),
+									'bottom-left'  => __( 'Bottom Left', 'kemet' ),
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-float',
+										'value'   => true,
+									),
+								),
+							),
+							self::$prefix . '-vertical-offset' => array(
+								'type'        => 'kmt-slider',
+								'default'     => 10,
+								'transport'   => 'postMessage',
+								'label'       => __( 'Vertical Offset', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 300,
+								),
+								'context'     => array(
+									array(
+										'setting' => self::$prefix . '-float',
+										'value'   => true,
+									),
+								),
+							),
+							self::$prefix . '-horizontal-offset' => array(
+								'type'        => 'kmt-slider',
+								'default'     => 10,
+								'transport'   => 'postMessage',
+								'label'       => __( 'Horizontal Offset', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 300,
+								),
+								'context'     => array(
+									array(
+										'setting' => self::$prefix . '-float',
+										'value'   => true,
+									),
+								),
+							),
+							self::$prefix . '-icon-size'  => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Icon Size', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 50,
+								),
+								'preview'     => array(
+									'selector' => $selector,
+									'property' => '--fontSize',
+								),
+							),
+							self::$prefix . '-icon-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Icon Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--buttonColor',
+									),
+									'hover'   => array(
+										'selector' => $selector,
+										'property' => '--buttonHoverColor',
+									),
+								),
+							),
+							self::$prefix . '-icon-bg-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Background Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--buttonBackgroundColor',
+									),
+									'hover'   => array(
+										'selector' => $selector,
+										'property' => '--buttonBackgroundHoverColor',
+									),
+								),
+							),
+							self::$prefix . '-border-radius' => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Border Radius', 'kemet' ),
+								'suffix'      => 'px',
+								'input_attrs' => array(
+									'min'  => 0,
+									'step' => 1,
+									'max'  => 200,
+								),
+								'preview'     => array(
+									'selector' => $selector,
+									'property' => '--borderRadius',
+								),
+							),
+						),
 					),
 				),
 			),
-			self::$prefix . '-float-position'    => array(
-				'type'      => 'select',
-				'default'   => 'top-right',
-				'transport' => 'postMessage',
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 2,
-				'label'     => __( 'Position', 'kemet' ),
-				'choices'   => array(
-					'top-right'    => __( 'Top Right', 'kemet' ),
-					'top-left'     => __( 'Top Left', 'kemet' ),
-					'bottom-right' => __( 'Bottom Right', 'kemet' ),
-					'bottom-left'  => __( 'Bottom Left', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting' => self::$prefix . '-float',
-						'value'   => true,
-					),
-				),
-			),
-			self::$prefix . '-vertical-offset'   => array(
-				'type'        => 'kmt-slider',
-				'default'     => 10,
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 3,
-				'label'       => __( 'Vertical Offset', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 300,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting' => self::$prefix . '-float',
-						'value'   => true,
-					),
-				),
-			),
-			self::$prefix . '-horizontal-offset' => array(
-				'type'        => 'kmt-slider',
-				'default'     => 10,
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 4,
-				'label'       => __( 'Horizontal Offset', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 300,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting' => self::$prefix . '-float',
-						'value'   => true,
-					),
-				),
-			),
-			self::$prefix . '-icon-size'         => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 5,
-				'label'       => __( 'Icon Size', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 50,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'     => array(
-					'selector' => $selector,
-					'property' => '--fontSize',
-				),
-			),
-			self::$prefix . '-icon-color'        => array(
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 15,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector,
-					'property' => '--buttonColor',
-				),
-			),
-			self::$prefix . '-icon-bg-color'     => array(
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 15,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector,
-					'property' => '--buttonBackgroundColor',
-				),
-			),
-			self::$prefix . '-icon-h-color'      => array(
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 20,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Icon Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector,
-					'property' => '--buttonHoverColor',
-				),
-			),
-			self::$prefix . '-icon-bg-h-color'   => array(
-				'section'   => 'section-' . self::$prefix,
-				'priority'  => 15,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Background Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector,
-					'property' => '--buttonBackgroundHoverColor',
-				),
-			),
-			self::$prefix . '-border-radius'     => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 5,
-				'label'       => __( 'Border Radius', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 200,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'     => array(
-					'selector' => $selector,
-					'property' => '--borderRadius',
-				),
-			),
-			self::$prefix . '-width'             => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 5,
-				'label'       => __( 'Width', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 200,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-				'preview'     => array(
-					'selector' => $selector,
-					'property' => 'width',
-				),
-			),
-			self::$prefix . '-height'            => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-' . self::$prefix,
-				'priority'    => 5,
-				'label'       => __( 'Height', 'kemet' ),
-				'suffix'      => 'px',
-				'input_attrs' => array(
-					'min'  => 0,
-					'step' => 1,
-					'max'  => 200,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-				'preview'     => array(
-					'selector' => $selector,
-					'property' => 'height',
+		);
+
+		$button_options = array(
+			self::$prefix . '-options' => array(
+				'section' => 'section-' . self::$prefix,
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $button_options,
 				),
 			),
 		);

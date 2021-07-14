@@ -19,135 +19,120 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$desktop_popup_options = array(
-			'header-desktop-popup-controls-tabs'   => array(
-				'section'  => 'section-desktop-popup-header-builder',
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
-			),
-			'desktop-popup-layout'                 => array(
-				'type'      => 'select',
-				'section'   => 'section-desktop-popup-header-builder',
-				'transport' => 'postMessage',
-				'priority'  => 5,
-				'label'     => __( 'Layout', 'kemet' ),
-				'choices'   => array(
-					'slide' => __( 'Slide', 'kemet' ),
-					'full'  => __( 'Full', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
+			'header-desktop-popup-controls-tabs' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							'desktop-popup-layout'        => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Layout', 'kemet' ),
+								'choices'   => array(
+									'slide' => __( 'Slide', 'kemet' ),
+									'full'  => __( 'Full', 'kemet' ),
+								),
+							),
+							'desktop-popup-slide-width'   => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Enter Width', 'kemet' ),
+								'suffix'      => '%',
+								'input_attrs' => array(
+									'min'  => 10,
+									'step' => 1,
+									'max'  => 100,
+								),
+								'context'     => array(
+									array(
+										'setting' => 'desktop-popup-layout',
+										'value'   => 'slide',
+									),
+								),
+							),
+							'desktop-popup-slide-side'    => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Slide-Out Side', 'kemet' ),
+								'choices'   => array(
+									'left'  => __( 'Left', 'kemet' ),
+									'right' => __( 'Right', 'kemet' ),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'desktop-popup-layout',
+										'value'   => 'slide',
+									),
+								),
+							),
+							'desktop-popup-content-align' => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Content Align', 'kemet' ),
+								'choices'   => array(
+									'left'   => __( 'Left', 'kemet' ),
+									'center' => __( 'Center', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+								),
+							),
+							'desktop-popup-content-vertical-align' => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Content Vertical Align', 'kemet' ),
+								'choices'   => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'center' => __( 'Center', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							'desktop-popup-close-btn-color'      => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Close Icon Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => ' #kmt-desktop-popup .toggle-button-close',
+										'property' => '--buttonColor',
+									),
+								),
+							),
+						),
 					),
 				),
 			),
-			'desktop-popup-slide-width'            => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-desktop-popup-header-builder',
-				'priority'    => 10,
-				'label'       => __( 'Enter Width', 'kemet' ),
-				'suffix'      => '%',
-				'input_attrs' => array(
-					'min'  => 10,
-					'step' => 1,
-					'max'  => 100,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'desktop-popup-layout',
-						'value'   => 'slide',
-					),
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-			),
-			'desktop-popup-slide-side'             => array(
-				'type'      => 'select',
-				'transport' => 'postMessage',
-				'section'   => 'section-desktop-popup-header-builder',
-				'priority'  => 15,
-				'label'     => __( 'Slide-Out Side', 'kemet' ),
-				'choices'   => array(
-					'left'  => __( 'Left', 'kemet' ),
-					'right' => __( 'Right', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'desktop-popup-layout',
-						'value'   => 'slide',
-					),
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-			),
-			'desktop-popup-content-align'          => array(
-				'type'      => 'select',
-				'transport' => 'postMessage',
-				'section'   => 'section-desktop-popup-header-builder',
-				'priority'  => 20,
-				'label'     => __( 'Content Align', 'kemet' ),
-				'choices'   => array(
-					'left'   => __( 'Left', 'kemet' ),
-					'center' => __( 'Center', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-			),
-			'desktop-popup-content-vertical-align' => array(
-				'type'      => 'select',
-				'transport' => 'postMessage',
-				'section'   => 'section-desktop-popup-header-builder',
-				'priority'  => 25,
-				'label'     => __( 'Content Vertical Align', 'kemet' ),
-				'choices'   => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'center' => __( 'Center', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-			),
-			'desktop-popup-background'             => array(
-				'type'      => 'kmt-background',
-				'transport' => 'postMessage',
-				'section'   => 'section-mobile-popup-header-builder',
-				'priority'  => 10,
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
-			'desktop-popup-close-btn-color'        => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'section'   => 'section-desktop-popup-header-builder',
-				'priority'  => 35,
-				'label'     => __( 'Close Icon Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => ' #kmt-desktop-popup .toggle-button-close',
-					'property' => '--buttonColor',
+			// 'desktop-popup-background'           => array(
+			// 'type'      => 'kmt-background',
+			// 'transport' => 'postMessage',
+			// 'section'   => 'section-mobile-popup-header-builder',
+			// 'priority'  => 10,
+			// 'context'   => array(
+			// array(
+			// 'setting' => 'tab',
+			// 'value'   => 'design',
+			// ),
+			// ),
+			// ),
+
+		);
+
+		$desktop_popup_options = array(
+			'desktop-popup-options' => array(
+				'section' => 'section-desktop-popup-header-builder',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $desktop_popup_options,
 				),
 			),
 		);
