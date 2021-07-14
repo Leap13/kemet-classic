@@ -264,17 +264,6 @@ p.demo_store a,
   position: relative;
 }
 
-.kmt-cart-menu-wrap .count.icon-bag:before {
-  content: "\e90f";
-  display: inline-block;
-  font-family: "Kemet-font";
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-rendering: auto;
-  vertical-align: middle;
-  position: relative;
-}
-
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
@@ -4755,16 +4744,6 @@ ul.product_list_widget li:last-child {
 
 ul.product-categories > li {
   padding: 2px 0px;
-}
-
-ul.product-categories > li ul li:before {
-  content: "\e907";
-  padding: 0 5px 0 5px;
-  display: inline-block;
-  font-family: Kemet-font;
-  transform: rotate(-90deg);
-  font-size: 11px;
-  font-size: 0.7rem;
 }
 
 .widget_rating_filter ul li a {

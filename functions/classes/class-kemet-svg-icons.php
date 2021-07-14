@@ -94,18 +94,6 @@ class Kemet_Svg_Icons {
 					break;
 			}
 
-			// if ( $replace ) {
-			// 	$output .= '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="18px" height="18px" viewBox="-63 -63 140 140" enable-background="new -63 -63 140 140" xml:space="preserve">
-            //     <path id="Shape" d="M75.133-47.507L61.502-61.133L7-6.625l-54.507-54.507l-13.625,13.625L-6.625,7l-54.507,54.503l13.625,13.63     L7,20.631l54.502,54.502l13.631-13.63L20.63,7L75.133-47.507z"/></svg>';
-			// }
-			if ( 'menu-bars' === $icon ) {
-				$menu_icon = apply_filters( 'kemet_' . $menu_location . '_menu_toggle_icon', 'menu-toggle-icon' );
-				$output    = '<span class="' . esc_attr( $menu_icon ) . '"></span>';
-                $output   .= '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="20px" height="20px" viewBox="57 41.229 26 18.806" enable-background="new 57 41.229 26 18.806" xml:space="preserve">
-                <path d="M82.5,41.724h-25v3.448h25V41.724z M57.5,48.907h25v3.448h-25V48.907z M82.5,56.092h-25v3.448h25V56.092z"/>
-                </svg>';
-			}
-
 		$output = apply_filters( 'kemet_svg_icon_element', $output, $icon );
 
 		$classes = array(

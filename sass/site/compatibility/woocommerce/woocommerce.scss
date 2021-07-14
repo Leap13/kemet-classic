@@ -234,18 +234,18 @@ p.demo_store,
         position: relative;
       }
     }
-    &.icon-bag {
-      &:before {
-        content: "\e90f";
-        display: inline-block;
-        font-family: "Kemet-font";
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-rendering: auto;
-        vertical-align: middle;
-        position: relative;
-      }
-    }
+    // &.icon-bag {
+    //   &:before {
+    //     content: "\e90f";
+    //     display: inline-block;
+    //     font-family: "Kemet-font";
+    //     font-size: 1.6rem;
+    //     font-weight: 500;
+    //     text-rendering: auto;
+    //     vertical-align: middle;
+    //     position: relative;
+    //   }
+    // }
   }
 }
 
@@ -3567,17 +3567,17 @@ ul.product-categories {
   > li {
     padding: 2px 0px;
 
-    ul {
-      li:before {
-        content: "\e907";
-        padding: 0 5px 0 5px;
-        display: inline-block;
-        font-family: Kemet-font;
-        transform: rotate(-90deg);
-        font-size: 11px;
-        font-size: 0.7rem;
-      }
-    }
+    // ul {
+    //   li:before {
+    //     content: "\e907";
+    //     padding: 0 5px 0 5px;
+    //     display: inline-block;
+    //     font-family: Kemet-font;
+    //     transform: rotate(-90deg);
+    //     font-size: 11px;
+    //     font-size: 0.7rem;
+    //   }
+    // }
   }
 }
 .widget_rating_filter {

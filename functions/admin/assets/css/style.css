@@ -34,14 +34,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#adminmenu #toplevel_page_kemet_panel .dashicons-admin-generic:before {
+/* #adminmenu #toplevel_page_kemet_panel .dashicons-admin-generic:before {
   font-family: "KMTAncientOwl";
   content: "\e900";
 }
 .kmticon-AncientOwl:before {
   content: "\e900";
   color: #fab522;
-}
+} */
 
 .kemet-notice-text {
   padding-left: 20px;
