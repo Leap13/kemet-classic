@@ -29,186 +29,180 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'top-header';
 		$selector         = '.kmt-top-header-wrap .top-header-bar';
 		$register_options = array(
-			self::$prefix . '-controls-tabs' => array(
-				'section'  => 'section-' . self::$prefix . '-builder',
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
+			self::$prefix . '-tabs' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-min-height' => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'section'      => 'section-' . self::$prefix . '-builder',
+								'priority'     => 5,
+								'label'        => __( 'Min Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 500,
+									),
+									'em' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector . ' .kmt-grid-row',
+									'property' => '--minHeight',
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							self::$prefix . '-layout' => array(
+								'type'      => 'kmt-select',
+								'default'   => 'content',
+								'transport' => 'postMessage',
+								'choices'   => array(
+									'full'      => __( 'Full Width', 'kemet' ),
+									'content'   => __( 'Content Width', 'kemet' ),
+									'boxed'     => __( 'Boxed Content', 'kemet' ),
+									'stretched' => __( 'Stretched Content', 'kemet' ),
+								),
+							),
+							self::$prefix . '-layout-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Content Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector . ' .header-bar-content',
+										'property' => '--backgroundColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting'  => self::$prefix . '-layout',
+										'operator' => 'in_array',
+										'value'    => array( 'boxed', 'stretched' ),
+									),
+								),
+							),
+							// self::$prefix . '-background-group'        => array(
+							// 'type'     => 'kmt-group',
+							// 'section'  => 'section-' . self::$prefix . '-builder',
+							// 'priority' => 8,
+							// 'label'    => __( 'Background', 'kemet' ),
+							// 'context'  => array(
+							// array(
+							// 'setting' => 'tab',
+							// 'value'   => 'design',
+							// ),
+							// ),
+							// ),
+							// self::$prefix . '-background'              => array(
+							// 'parent-id' => self::$prefix . '-background-group',
+							// 'type'      => 'kmt-background',
+							// 'transport' => 'postMessage',
+							// 'section'   => 'section-' . self::$prefix . '-builder',
+							// 'priority'  => 10,
+							// 'context'   => array(
+							// array(
+							// 'setting' => 'tab',
+							// 'value'   => 'design',
+							// ),
+							// ),
+							// ),
+							self::$prefix . '-border-width' => array(
+								'type'           => 'kmt-responsive-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Border', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector' => $selector,
+									'property' => '--borderWidth',
+									'sides'    => false,
+								),
+							),
+							self::$prefix . '-border-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--borderColor',
+									),
+								),
+							),
+							self::$prefix . '-sticky-title' => array(
+								'type'     => 'kmt-title',
+								'section'  => 'section-' . self::$prefix . '-builder',
+								'priority' => 25,
+								'label'    => __( 'Sticky Header Option', 'kemet' ),
+							),
+						// self::$prefix . '-sticky-background-group' => array(
+						// 'type'     => 'kmt-group',
+						// 'section'  => 'section-' . self::$prefix . '-builder',
+						// 'priority' => 30,
+						// 'label'    => __( 'Background', 'kemet' ),
+						// 'context'  => array(
+						// array(
+						// 'setting' => 'tab',
+						// 'value'   => 'design',
+						// ),
+						// ),
+						// ),
+						// self::$prefix . '-sticky-background'       => array(
+						// 'parent-id' => self::$prefix . '-sticky-background-group',
+						// 'type'      => 'kmt-background',
+						// 'transport' => 'postMessage',
+						// 'section'   => 'section-' . self::$prefix . '-builder',
+						// 'priority'  => 1,
+						// 'context'   => array(
+						// array(
+						// 'setting' => 'tab',
+						// 'value'   => 'design',
+						// ),
+						// ),
+						// ),
+						),
+					),
+				),
 			),
-			self::$prefix . '-min-height'    => array(
-				'type'         => 'kmt-responsive-slider',
-				'transport'    => 'postMessage',
-				'section'      => 'section-' . self::$prefix . '-builder',
-				'priority'     => 5,
-				'label'        => __( 'Min Height', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 500,
-					),
-					'em' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'context'      => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'general',
-					),
-				),
-				'preview'      => array(
-					'selector' => $selector . ' .kmt-grid-row',
-					'property' => '--minHeight',
+		);
+
+		$register_options = array(
+			self::$prefix . '-options' => array(
+				'section' => 'section-' . self::$prefix . '-builder',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $register_options,
 				),
 			),
-			self::$prefix . '-layout'        => array(
-				'type'      => 'select',
-				'default'   => 'content',
-				'transport' => 'postMessage',
-				'priority'  => 6,
-				'section'   => 'section-' . self::$prefix . '-builder',
-				'choices'   => array(
-					'full'      => __( 'Full Width', 'kemet' ),
-					'content'   => __( 'Content Width', 'kemet' ),
-					'boxed'     => __( 'Boxed Content', 'kemet' ),
-					'stretched' => __( 'Stretched Content', 'kemet' ),
-				),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
-			self::$prefix . '-layout-color'  => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'priority'  => 7,
-				'section'   => 'section-' . self::$prefix . '-builder',
-				'label'     => __( 'Content Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-					array(
-						'setting'  => self::$prefix . '-layout',
-						'operator' => 'in_array',
-						'value'    => array( 'boxed', 'stretched' ),
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector . ' .header-bar-content',
-					'property' => '--backgroundColor',
-				),
-			),
-			// self::$prefix . '-background-group'        => array(
-			// 'type'     => 'kmt-group',
-			// 'section'  => 'section-' . self::$prefix . '-builder',
-			// 'priority' => 8,
-			// 'label'    => __( 'Background', 'kemet' ),
-			// 'context'  => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
-			// self::$prefix . '-background'              => array(
-			// 'parent-id' => self::$prefix . '-background-group',
-			// 'type'      => 'kmt-background',
-			// 'transport' => 'postMessage',
-			// 'section'   => 'section-' . self::$prefix . '-builder',
-			// 'priority'  => 10,
-			// 'context'   => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
-			self::$prefix . '-border-width'  => array(
-				'type'           => 'kmt-responsive-spacing',
-				'transport'      => 'postMessage',
-				'section'        => 'section-' . self::$prefix . '-builder',
-				'priority'       => 15,
-				'label'          => __( 'Border', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
-				),
-				'context'        => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'        => array(
-					'selector' => $selector,
-					'property' => '--borderWidth',
-					'sides'    => false,
-				),
-			),
-			self::$prefix . '-border-color'  => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'priority'  => 20,
-				'section'   => 'section-' . self::$prefix . '-builder',
-				'label'     => __( 'Border Color', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-				'preview'   => array(
-					'selector' => $selector,
-					'property' => '--borderColor',
-				),
-			),
-			self::$prefix . '-sticky-title'  => array(
-				'type'     => 'kmt-title',
-				'section'  => 'section-' . self::$prefix . '-builder',
-				'priority' => 25,
-				'label'    => __( 'Sticky Header Option', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting' => 'tab',
-						'value'   => 'design',
-					),
-				),
-			),
-			// self::$prefix . '-sticky-background-group' => array(
-			// 'type'     => 'kmt-group',
-			// 'section'  => 'section-' . self::$prefix . '-builder',
-			// 'priority' => 30,
-			// 'label'    => __( 'Background', 'kemet' ),
-			// 'context'  => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
-			// self::$prefix . '-sticky-background'       => array(
-			// 'parent-id' => self::$prefix . '-sticky-background-group',
-			// 'type'      => 'kmt-background',
-			// 'transport' => 'postMessage',
-			// 'section'   => 'section-' . self::$prefix . '-builder',
-			// 'priority'  => 1,
-			// 'context'   => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
 		);
 
 		return array_merge( $options, $register_options );

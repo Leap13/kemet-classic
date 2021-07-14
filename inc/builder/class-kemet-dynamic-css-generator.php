@@ -280,13 +280,13 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$selector = '.kmt-' . $row . '-header-wrap .' . $row . '-header-bar';
 				$prefix   = $row . '-header';
 
-				$height           = kemet_get_option( $prefix . '-min-height' );
-				$background       = kemet_get_option( $prefix . '-background' );
-				$border           = kemet_get_option( $prefix . '-border-width' );
-				$border_color     = kemet_get_option( $prefix . '-border-color' );
-				$stick_background = kemet_get_option( $prefix . '-sticky-background' );
-				$layout           = kemet_get_option( $prefix . '-layout' );
-				$layout_color     = kemet_get_option( $prefix . '-layout-color' );
+				$height = kemet_get_option( $prefix . '-min-height' );
+				// $background   = kemet_get_option( $prefix . '-background' );
+				$border       = kemet_get_option( $prefix . '-border-width' );
+				$border_color = kemet_get_sub_option( $prefix . '-border-color', 'initial' );
+				// $stick_background = kemet_get_option( $prefix . '-sticky-background' );
+				$layout       = kemet_get_option( $prefix . '-layout' );
+				$layout_color = kemet_get_sub_option( $prefix . '-layout-color', 'initial' );
 
 				$css_output = array(
 					$selector . ' .kmt-grid-row' => array(
@@ -306,9 +306,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				}
 
 				/* Parse CSS from array() */
-				$parse_css  = kemet_parse_css( $css_output );
-				$parse_css .= kemet_get_background_obj( $selector, $background );
-				$parse_css .= kemet_get_background_obj( '.kmt-sticky-' . $row . '-bar #sitehead ' . $selector . '.kmt-is-sticky', $stick_background );
+				$parse_css = kemet_parse_css( $css_output );
+				// $parse_css .= kemet_get_background_obj( $selector, $background );
+				// $parse_css .= kemet_get_background_obj( '.kmt-sticky-' . $row . '-bar #sitehead ' . $selector . '.kmt-is-sticky', $stick_background );
 
 				$tablet = array(
 					$selector . ' .kmt-grid-row' => array(
