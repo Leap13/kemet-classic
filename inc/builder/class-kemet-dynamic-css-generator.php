@@ -26,12 +26,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function button_css( $button, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $button, 'header', $device ) ) {
 				$selector           = '.' . $button;
-				$color              = kemet_get_option( $button . '-color' );
-				$bg_color           = kemet_get_option( $button . '-bg-color' );
-				$border_color       = kemet_get_option( $button . '-border-color' );
-				$hover_color        = kemet_get_option( $button . '-h-color' );
-				$hover_bg_color     = kemet_get_option( $button . '-h-bg-color' );
-				$hover_border_color = kemet_get_option( $button . '-h-border-color' );
+				$color              = kemet_get_sub_option( $button . '-color', 'initial' );
+				$bg_color           = kemet_get_sub_option( $button . '-bg-color', 'initial' );
+				$border_color       = kemet_get_sub_option( $button . '-border-color', 'initial' );
+				$hover_color        = kemet_get_sub_option( $button . '-color', 'hover' );
+				$hover_bg_color     = kemet_get_sub_option( $button . '-bg-color', 'hover' );
+				$hover_border_color = kemet_get_sub_option( $button . '-border-color', 'hover' );
 				$border_width       = kemet_get_option( $button . '-border-width' );
 				$padding            = kemet_get_option( $button . '-padding' );
 				$margin             = kemet_get_option( $button . '-margin' );
@@ -124,9 +124,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function html_css( $html, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $html, 'header', $device ) ) {
 				$selector         = '.kmt-' . $html;
-				$color            = kemet_get_option( $html . '-color' );
-				$link_color       = kemet_get_option( $html . '-link-color' );
-				$link_hover_color = kemet_get_option( $html . '-link-hover-color' );
+				$color            = kemet_get_sub_option( $html . '-color', 'initial' );
+				$link_color       = kemet_get_sub_option( $html . '-link-color', 'initial' );
+				$link_hover_color = kemet_get_sub_option( $html . '-link-color', 'hover' );
 
 				$css_output = array(
 					$selector => array(

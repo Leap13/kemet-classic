@@ -340,6 +340,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_border_color     = kemet_get_sub_option( 'btn-border-color', 'initial' );
 			$btn_border_h_color   = kemet_get_sub_option( 'btn-border-color', 'hover' );
 			$btn_bg_hover_color   = kemet_get_sub_option( 'button-bg-color', 'hover', kemet_color_brightness( $theme_color, 0.8, 'dark' ) );
+			$btn_effect           = kemet_get_option( 'button-effect' );
+			$btn_hover_effect     = kemet_get_option( 'button-hover-effect' );
 
 			// Spacing of Big Footer.
 			$copyright_footer_divider_color = kemet_get_option( 'footer-copyright-divider-color', kemet_color_brightness( $global_footer_text_color, 0.22, 'dark' ) );
@@ -400,6 +402,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--inputBorderRadius'          => kemet_responsive_slider( $input_border_radius, 'desktop' ),
 					'--inputBorderWidth'           => kemet_responsive_slider( $input_border_size, 'desktop' ),
 					'--contentWidth'               => kemet_get_css_value( $site_content_width, 'px' ),
+					'--buttonShadow'               => 'none',
 				),
 				// Gutenberg Support.
 				'.kmt-single-post .has-global-color'    => array(
@@ -711,8 +714,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
 					'color'              => 'var(--buttonColor)',
 					'background-color'   => 'var(--buttonBackgroundColor)',
+					'box-shadow'         => 'var(--buttonShadow)',
 					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
-					'--borderRadius'     => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
+					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
 					'--borderColor'      => esc_attr( $btn_border_color ),
 					'--borderWidth'      => kemet_get_css_value( $btn_border_size, 'px' ),
@@ -724,12 +728,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--fontStyle'        => esc_attr( $btn_font_style ),
 					'--lineHeight'       => kemet_responsive_slider( $btn_line_height, 'desktop' ),
 					'--letterSpacing'    => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
+					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px' : 'none',
 				),
-
 				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',
 					'background-color' => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',
 					'border-color'     => 'var(--borderHoverColor)',
+					'box-shadow'       => 'var(--buttonShadow)',
+					'--buttonShadow'   => $btn_hover_effect ? '2px 2px 10px -3px' : 'none',
 				),
 				// Content.
 				'.entry-content'                        => array(

@@ -188,7 +188,7 @@ const ResponsiveSpacingComponent = props => {
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
 
-    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description && description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     inputHtml = <Fragment>
         {renderInputHtml(device, 'active')}
 

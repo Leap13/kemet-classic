@@ -1759,7 +1759,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-items {
-  padding: 25px;
+  padding: 35px 30px;
 }
 
 .kmt-builder-sortable-panel {
@@ -2061,10 +2061,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   box-shadow: 0px 0px 0px 2px rgb(0 0 0 / 0%);
   transition: border-color 0.1s ease, box-shadow 0.1s ease;
 }
-.kmt-builder-areas:hover .kmt-builder-group-horizontal {
-  border-color: transparent;
+/* .kmt-builder-areas:hover .kmt-builder-group-horizontal {
+  border-style: solid;
   box-shadow: 0px 0px 0px 2px #2271b1;
-}
+} */
 .kmt-builder-item-add-icon {
   position: relative;
 }
@@ -2103,8 +2103,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-areas .kmt-builder-group-horizontal:hover,
 .active-builder-row .kmt-builder-group-horizontal,
 .kmt-builder-areas:hover .kmt-row-actions {
-  border-color: transparent;
-  box-shadow: 0px 0px 0px 2px #2271b1;
+  border-style: solid;
+  /* box-shadow: 0px 0px 0px 2px #2271b1; */
 }
 
 .kmt-builder-group-horizontal:hover .components-button.kmt-row-actions {
@@ -2118,7 +2118,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   position: absolute;
   z-index: 1;
   top: 3px;
-  left: -2px;
+  left: 0;
   height: 28px;
   font-size: 10px;
   font-weight: 600;
@@ -2131,14 +2131,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   background: #2271b1;
   border-radius: 4px 4px 0 0;
   transform: translateY(-100%);
-  opacity: 0;
-  visibility: hidden;
   transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
 }
 
 .kmt-builder-areas:hover .kmt-fixed-row-actions {
-  visibility: visible;
-  opacity: 1;
   color: white !important;
 }
 .components-button.kmt-fixed-row-actions .dashicons {
@@ -2155,14 +2151,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-row-items
   .kmt-builder-areas:nth-child(2)
   .kmt-builder-group-horizontal {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .kmt-builder-row-items .kmt-builder-areas:nth-child(2) .kmt-fixed-row-actions {
-  top: 27px;
-}
-.customize-control-kmt-builder .kmt-builder-items {
-  padding-left: 30px;
+  top: 33px;
 }
 
 .kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-area {

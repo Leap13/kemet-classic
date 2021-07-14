@@ -70,7 +70,7 @@ class ResponsiveSliderComponent extends Component {
     render() {
         let { label, suffix, description } = this.props.params;
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
-        let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
+        let descriptionContent = (description && description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
         let units = [];
         for (const [key, value] of Object.entries(this.unit_choices)) {

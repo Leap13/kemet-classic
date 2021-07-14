@@ -11,6 +11,8 @@ import BuilderComponent from '../kmt-controls/layout-builder/builder-component'
 import AvailableComponent from '../kmt-controls/available'
 import ToggleControlComponent from '../kmt-controls/toggle'
 import BuilderTabs from '../kmt-controls/builder-tabs'
+import TextComponent from '../kmt-controls/text'
+import EditorComponent from '../kmt-controls/editor'
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -47,6 +49,12 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-builder-tabs':
             OptionComponent = BuilderTabs;
+            break;
+        case 'kmt-text':
+            OptionComponent = TextComponent;
+            break;
+        case 'kmt-editor':
+            OptionComponent = EditorComponent;
             break;
     }
 

@@ -320,63 +320,6 @@ function kemet_responsive_icon_select(control, selector, type) {
     });
   });
 }
-/**
- * Responsive Icons Select CSS
- */
-function kemet_responsive_css(control, selector, type) {
-  wp.customize(control, function (value) {
-    value.bind(function (value) {
-      var selectType = "color";
-
-      if (value.desktop || value.tablet || value.mobile) {
-        if (typeof type != undefined) {
-          selectType = type + "";
-        }
-        // Remove <style> first!
-        control = control.replace("[", "-");
-        control = control.replace("]", "");
-        jQuery("style#" + control + "-" + selectType).remove();
-
-        var desktopSelect = "",
-          tabletSelect = "",
-          mobileSelect = "";
-
-        desktopSelect += selectType + ": " + value["desktop"] + " ;";
-
-        tabletSelect += selectType + ": " + value["tablet"] + " ;";
-
-        mobileSelect += selectType + ": " + value["mobile"] + " ;";
-
-        // Concat and append new <style>.
-        jQuery("footer").append(
-          '<style id="' +
-          control +
-          "-" +
-          selectType +
-          '">' +
-          selector +
-          "	{ " +
-          desktopSelect +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletSelect +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileSelect +
-          " } }" +
-          "</style>"
-        );
-      } else {
-        wp.customize.preview.send("refresh");
-        jQuery("style#" + control + "-" + selectType).remove();
-      }
-    });
-  });
-}
 
 /**
  * Apply CSS for the element
@@ -881,6 +824,7 @@ function kemet_color_css(control, data) {
     })
   })
 }
+
 (function ($) {
   // Trigger.
   wp.customize.bind("preview-ready", function () {
@@ -940,4 +884,45 @@ function kemet_color_css(control, data) {
         break;
     }
   });
+  // Other preview
+  var btnSelector = 'button, .button, .kmt-button, input[type=button], input[type=reset], input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button';
+  var btnHoverSelector = 'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover';
+  wp.customize(settingName('button-effect'), function (value) {
+    value.bind(function (new_value) {
+      var hoverEffect = wp.customize(settingName('button-hover-effect')).get();
+      var dynamicStyle = '';
+      if (new_value) {
+        dynamicStyle = btnSelector + "{"
+          + "--buttonShadow: 2px 2px 10px -3px;"
+          + "}"
+      } else {
+        dynamicStyle = btnSelector + "{"
+          + "--buttonShadow: none;"
+          + "}"
+      }
+      kemet_add_dynamic_css(
+        settingName('button-effect'),
+        dynamicStyle
+      );
+    })
+  })
+
+  wp.customize(settingName('button-hover-effect'), function (value) {
+    value.bind(function (new_value) {
+      var dynamicStyle = '';
+      if (new_value) {
+        dynamicStyle = btnHoverSelector + "{"
+          + "--buttonShadow: 2px 2px 10px -3px;"
+          + "}"
+      } else {
+        dynamicStyle = btnHoverSelector + "{"
+          + "--buttonShadow: none;"
+          + "}"
+      }
+      kemet_add_dynamic_css(
+        settingName('button-hover-effect'),
+        dynamicStyle
+      );
+    })
+  })
 })(jQuery);
