@@ -33,7 +33,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 			$num            = explode( 'header-mobile-button-', $prefix )[1];
 			$selector       = '.' . $button;
 			$button_options = array(
-				$prefix . '-controls-tabs' => array(
+				$prefix . '-tabs' => array(
 					'type' => 'kmt-tabs',
 					'tabs' => array(
 						'general' => array(

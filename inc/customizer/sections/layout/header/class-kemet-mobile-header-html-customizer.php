@@ -33,7 +33,7 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 			$prefix       = $html;
 			$selector     = '.kmt-' . $prefix;
 			$html_options = array(
-				$prefix . '-controls-tabs' => array(
+				$prefix . '-tabs' => array(
 					'type' => 'kmt-tabs',
 					'tabs' => array(
 						'general' => array(
