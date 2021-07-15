@@ -102,12 +102,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-font-family'        => 'sanitize_text_field',
 			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 			'kmt-select'             => 'sanitize_text_field',
-			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_color' ),
 			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
 			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-			'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 			'image'                  => 'esc_url_raw',
 		);
 
@@ -129,7 +128,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-color'              => 'Kemet_Control_Color',
 			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
-			// 'kmt-hidden'             => 'Kemet_Control_Hidden',
 			'kmt-font-family'        => 'Kemet_Control_Typography',
 			'kmt-font-weight'        => 'Kemet_Control_Typography',
 			'kmt-background'         => 'Kemet_Control_Background',
@@ -360,6 +358,15 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				$settings
 			);
 
+			if ( 'image' === $args['type'] ) {
+				$wp_customize->add_control(
+					new WP_Customize_Image_Control(
+						$wp_customize,
+						$option_id,
+						$args
+					),
+				);
+			}
 			if ( 'kmt-options' === $args['type'] ) {
 				$control               = $wp_customize->add_control(
 					$option_id,
@@ -645,7 +652,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			/**
 			 * Sections
 			 */
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-container-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-content-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
@@ -674,8 +681,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-search-box-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-header-toggle-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-popup-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 

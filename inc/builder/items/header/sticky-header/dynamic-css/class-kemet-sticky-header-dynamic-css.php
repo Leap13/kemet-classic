@@ -24,10 +24,13 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 				$sticky_logo_width = kemet_get_option( 'sticky-logo-width' );
 
 				$css_output = array(
-					$selector                          => array(
+					$selector                              => array(
 						'position' => esc_attr( 'fixed' ),
 						'width'    => esc_attr( '100%' ),
 						'z-index'  => esc_attr( '999' ),
+					),
+					'.custom-logo-link.sticky-custom-logo' => array(
+						'display' => esc_attr( 'none' ),
 					),
 					'.kmt-sticky-logo ' . $selector . ' .custom-logo-link' => array(
 						'display' => esc_attr( 'none' ),
@@ -35,14 +38,14 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 					'.kmt-sticky-logo ' . $selector . ' .sticky-custom-logo' => array(
 						'display' => esc_attr( 'block' ),
 					),
-					$selector . ' .header-bar-content' => array(
+					$selector . ' .header-bar-content'     => array(
 						'display' => esc_attr( 'transparent !important' ),
 					),
-					'.kmt-shrink-effect .kmt-grid-row' => array(
-						'display' => esc_attr( 'all 0.3s linear' ),
+					'.kmt-shrink-effect .kmt-grid-row'     => array(
+						'transition' => esc_attr( 'all 0.3s linear' ),
 					),
-					$selector . ' .custom-logo-link.sticky-custom-logo img , ' . $selector . ' .kemet-logo-svg' => array(
-						'max-width' => kemet_responsive_slider( $sticky_logo_width, 'desktop' ),
+					$selector . ' .custom-logo-link img , ' . $selector . ' .kemet-logo-svg' => array(
+						'--logoWidth' => kemet_responsive_slider( $sticky_logo_width, 'desktop' ),
 					),
 				);
 
@@ -50,8 +53,8 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 				$parse_css = kemet_parse_css( $css_output );
 
 				$tablet = array(
-					$selector . ' .custom-logo-link.sticky-custom-logo img , ' . $selector . ' .kemet-logo-svg' => array(
-						'max-width' => kemet_responsive_slider( $sticky_logo_width, 'tablet' ),
+					$selector . ' .custom-logo-link img , ' . $selector . ' .kemet-logo-svg' => array(
+						'--logoWidth' => kemet_responsive_slider( $sticky_logo_width, 'tablet' ),
 					),
 				);
 
@@ -59,8 +62,8 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 				$parse_css .= kemet_parse_css( $tablet, '', '768' );
 
 				$mobile = array(
-					$selector . ' .custom-logo-link.sticky-custom-logo img , ' . $selector . ' .kemet-logo-svg' => array(
-						'max-width' => kemet_responsive_slider( $sticky_logo_width, 'mobile' ),
+					$selector . ' .custom-logo-link img , ' . $selector . ' .kemet-logo-svg' => array(
+						'--logoWidth' => kemet_responsive_slider( $sticky_logo_width, 'mobile' ),
 					),
 				);
 

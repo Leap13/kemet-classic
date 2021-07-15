@@ -13,6 +13,7 @@ import ToggleControlComponent from '../kmt-controls/toggle'
 import BuilderTabs from '../kmt-controls/builder-tabs'
 import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
+import FocusComponent from '../kmt-controls/focus'
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -55,6 +56,9 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-editor':
             OptionComponent = EditorComponent;
+            break;
+        case 'kmt-focus-button':
+            OptionComponent = FocusComponent;
             break;
     }
 

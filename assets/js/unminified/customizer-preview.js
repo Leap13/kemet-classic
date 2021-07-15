@@ -828,6 +828,74 @@ function kemet_color_css(control, data) {
   })
 }
 
+function kemet_responsive_color_css(control, data) {
+  wp.customize(control, function (value) {
+    value.bind(function (new_value) {
+
+      // Remove <style> first!
+      control = control.replace("[", "-");
+      control = control.replace("]", "");
+
+      // Remove old.
+      jQuery("style#" + control).remove();
+
+      if (Object.keys(new_value).length === 0) {
+        // Remove old.
+        jQuery("style#" + control).remove();
+        return;
+      }
+
+      var desktopStyle = '';
+      var tabletStyle = '';
+      var mobileStyle = '';
+      jQuery.each(data, function (index, colorData) {
+        var desktopVal = new_value.desktop[index],
+          tabletVal = new_value.tablet[index],
+          mobileVal = new_value.mobile[index];
+        if (desktopVal) {
+          desktopStyle += colorData.selector +
+            "	{ " +
+            colorData.property +
+            ": " +
+            desktopVal +
+            " }";
+        }
+        if (tabletVal) {
+          tabletStyle += colorData.selector +
+            "	{ " +
+            colorData.property +
+            ": " +
+            tabletVal +
+            " }";
+        }
+        if (mobileVal) {
+          mobileStyle += colorData.selector +
+            "	{ " +
+            colorData.property +
+            ": " +
+            mobileVal +
+            " }";
+        }
+      })
+
+      // Concat and append new <style>.
+      jQuery("footer").append(
+        '<style id="' +
+        control +
+        '">' +
+        desktopStyle +
+        "@media (max-width: 768px) {" +
+        tabletStyle +
+        " }" +
+        "@media (max-width: 544px) {" +
+        mobileStyle +
+        " }" +
+        "</style>"
+      );
+    })
+  })
+}
+
 (function ($) {
   // Trigger.
   wp.customize.bind("preview-ready", function () {
@@ -855,7 +923,9 @@ function kemet_color_css(control, data) {
   toggle_button_css(["desktop-toggle-button", "mobile-toggle-button"]);
   header_rows_css(['top', 'main', 'bottom']);
   $.each(previewData.preview, function (control, data) {
-    switch (data.type) {
+    var type = data.type;
+    delete data.type;
+    switch (type) {
       case "kmt-responsive-slider":
         kemet_responsive_slider(control, data.selector, data.property);
         break;
@@ -863,7 +933,12 @@ function kemet_color_css(control, data) {
         kemet_css(control, data.property, data.selector);
         break;
       case "kmt-color":
-        kemet_color_css(control, data);
+        if (data.responsive) {
+          delete data.responsive;
+          kemet_responsive_color_css(control, data);
+        } else {
+          kemet_color_css(control, data);
+        }
         break;
       case "kmt-reponsive-color":
         kemet_responsive_css(control, data.selector, data.property);

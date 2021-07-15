@@ -420,27 +420,15 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		}
 
 		/**
-		 * Sanitize Alpha color
+		 * Sanitize color
 		 *
 		 * @param  string $color setting input.
 		 * @return string        setting input value.
 		 */
-		public static function sanitize_alpha_color( $colors ) {
+		public static function sanitize_color( $colors ) {
 
 			if ( empty( $colors ) || ! is_array( $colors ) ) {
 				return array();
-			}
-
-			foreach ( $colors as $id => $color ) {
-				if ( false === strpos( $color, 'rgba' ) ) {
-					/* Hex sanitize */
-					$colors[ $id ] = self::sanitize_hex_color( $color );
-				} else {
-					/* rgba sanitize */
-					$color = str_replace( ' ', '', $color );
-					sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-					$colors[ $id ] = 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
-				}
 			}
 
 			return $colors;

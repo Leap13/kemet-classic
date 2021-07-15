@@ -19,29 +19,11 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 		 * @return array
 		 */
 		public function register_options( $options ) {
-
+			$selector       = '.kmt-is-sticky';
 			$sticky_options = array(
-				'foucs-sticky-section'          => array(
-					'section'       => 'section-header-builder-layout',
-					'priority'      => 5,
-					'type'          => 'kmt-focus-button',
-					'button_params' => array(
-						'title'   => __( 'Sticky Header', 'kemet-addons' ),
-						'section' => 'section-sticky-header-options',
-					),
-				),
-				'sticky-logo'                   => array(
-					'type'           => 'image',
-					'section'        => 'section-sticky-header-options',
-					'priority'       => 5,
-					'label'          => __( 'Logo Image', 'kemet-addons' ),
-					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
-				),
 				'sticky-logo-width'             => array(
 					'type'         => 'kmt-responsive-slider',
 					'transport'    => 'postMessage',
-					'section'      => 'section-sticky-header-options',
-					'priority'     => 5,
 					'label'        => __( 'Logo Width', 'kemet-addons' ),
 					'unit_choices' => array(
 						'px' => array(
@@ -60,31 +42,33 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 							'max'  => 100,
 						),
 					),
+					'context'      => array(
+						array(
+							'setting'  => 'sticky-logo',
+							'operator' => 'not_empty',
+						),
+					),
+					'preview'      => array(
+						'selector' => $selector . ' .custom-logo-link.sticky-custom-logo img',
+						'property' => 'max-width',
+					),
 				),
 				'enable-sticky-top'             => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 5,
-					'label'    => __( 'Sticky Top Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Top Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-sticky-main'            => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 10,
-					'label'    => __( 'Sticky Main Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Main Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-sticky-bottom'          => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 15,
-					'label'    => __( 'Sticky Bottom Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Bottom Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-shrink-main'            => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 20,
-					'label'    => __( 'Enable Main Row Shrinking', 'kemet' ),
-					'type'     => 'kmt-switcher',
-					'context'  => array(
+					'label'   => __( 'Enable Main Row Shrinking', 'kemet' ),
+					'type'    => 'kmt-switcher',
+					'context' => array(
 						array(
 							'setting' => 'enable-sticky-main',
 							'value'   => true,
@@ -93,8 +77,6 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 				),
 				'main-row-shrink-height'        => array(
 					'type'        => 'kmt-slider',
-					'section'     => 'section-sticky-header-options',
-					'priority'    => 25,
 					'label'       => __( 'Main Row Shrink Height', 'kemet' ),
 					'suffix'      => '',
 					'input_attrs' => array(
@@ -114,35 +96,25 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					),
 				),
 				'sticky-mobile-settings'        => array(
-					'type'     => 'kmt-title',
-					'label'    => __( 'Mobile Sticky', 'kemet' ),
-					'section'  => 'section-sticky-header-options',
-					'priority' => 30,
+					'type'  => 'kmt-title',
+					'label' => __( 'Mobile Sticky', 'kemet' ),
 				),
 				'enable-sticky-mobile-top'      => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 35,
-					'label'    => __( 'Sticky Mobile Top Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Mobile Top Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-sticky-mobile-main'     => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 40,
-					'label'    => __( 'Sticky Mobile Main Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Mobile Main Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-sticky-mobile-bottom'   => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 45,
-					'label'    => __( 'Sticky Mobile Bottom Header', 'kemet' ),
-					'type'     => 'kmt-switcher',
+					'label' => __( 'Sticky Mobile Bottom Header', 'kemet' ),
+					'type'  => 'kmt-switcher',
 				),
 				'enable-shrink-main-mobile'     => array(
-					'section'  => 'section-sticky-header-options',
-					'priority' => 50,
-					'label'    => __( 'Enable Main Row Shrinking', 'kemet' ),
-					'type'     => 'kmt-switcher',
-					'context'  => array(
+					'label'   => __( 'Enable Main Row Shrinking', 'kemet' ),
+					'type'    => 'kmt-switcher',
+					'context' => array(
 						array(
 							'setting' => 'enable-sticky-mobile-main',
 							'value'   => true,
@@ -151,8 +123,6 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 				),
 				'mobile-main-row-shrink-height' => array(
 					'type'        => 'kmt-slider',
-					'section'     => 'section-sticky-header-options',
-					'priority'    => 55,
 					'label'       => __( 'Main Row Shrink Height', 'kemet' ),
 					'suffix'      => '',
 					'input_attrs' => array(
@@ -172,6 +142,24 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					),
 				),
 			);
+
+			$sticky_options = array(
+				'sticky-logo'           => array(
+					'type'           => 'image',
+					'section'        => 'section-sticky-header-options',
+					'priority'       => 5,
+					'label'          => __( 'Logo Image', 'kemet-addons' ),
+					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+				),
+				'sticky-header-options' => array(
+					'section' => 'section-sticky-header-options',
+					'type'    => 'kmt-options',
+					'data'    => array(
+						'options' => $sticky_options,
+					),
+				),
+			);
+
 			return array_merge( $options, $sticky_options );
 		}
 

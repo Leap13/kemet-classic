@@ -6947,13 +6947,25 @@ var __ = wp.i18n.__;
 
 var ColorComponent = function ColorComponent(props) {
   var value = props.control.get();
-  var baseDefault = {};
+  var responsiveBaseDefault = {
+    'desktop': {},
+    'tablet': {},
+    'mobile': {}
+  };
   var _props$params = props.params,
       pickers = _props$params.pickers,
       responsive = _props$params.responsive;
+  var baseDefault = responsive ? responsiveBaseDefault : {};
   pickers.map(function (_ref) {
     var id = _ref.id;
-    baseDefault[id] = '';
+
+    if (responsive) {
+      baseDefault['desktop'][id] = '';
+      baseDefault['tablet'][id] = '';
+      baseDefault['mobile'][id] = '';
+    } else {
+      baseDefault[id] = '';
+    }
   });
   var defaultValue = props.params.default ? props.params.default : baseDefault;
   value = value ? value : defaultValue;
@@ -6976,7 +6988,7 @@ var ColorComponent = function ColorComponent(props) {
     if (state.value !== value) {
       setState(value);
     }
-  }, [value]);
+  }, []);
 
   var updateValues = function updateValues(value) {
     var UpdatedState = _objectSpread({}, state);
@@ -7224,6 +7236,60 @@ EditorComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(EditorComponent));
+
+/***/ }),
+
+/***/ "./src/kmt-controls/focus.js":
+/*!***********************************!*\
+  !*** ./src/kmt-controls/focus.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var __ = wp.i18n.__;
+var _wp$components = wp.components,
+    Dashicon = _wp$components.Dashicon,
+    Button = _wp$components.Button;
+
+var FocusComponent = function FocusComponent(props) {
+  var controlParams = props.params.button_params ? props.params.button_params : {};
+
+  var focusSection = function focusSection(section) {
+    if (undefined !== wp.customize.section(section)) {
+      wp.customize.section(section).focus();
+    }
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-control-field kmt-focus-button"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "kmt-builder-item-start"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
+    className: "kmt-builder-item",
+    onClick: function onClick() {
+      return focusSection(controlParams.section);
+    },
+    "data-section": controlParams.section ? controlParams.section : ""
+  }, controlParams.title ? controlParams.title : "", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
+    className: "kmt-builder-item-icon"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
+    icon: "arrow-right-alt2"
+  })))));
+};
+
+FocusComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
+  customizer: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(FocusComponent));
 
 /***/ }),
 
@@ -8451,7 +8517,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
     if (state !== value) {
       setState(value);
     }
-  }, [value]);
+  }, []);
 
   var onConnectedClick = function onConnectedClick() {
     var parent = event.target.parentElement.parentElement;
@@ -9193,6 +9259,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _kmt_controls_builder_tabs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../kmt-controls/builder-tabs */ "./src/kmt-controls/builder-tabs.js");
 /* harmony import */ var _kmt_controls_text__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../kmt-controls/text */ "./src/kmt-controls/text.js");
 /* harmony import */ var _kmt_controls_editor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../kmt-controls/editor */ "./src/kmt-controls/editor.js");
+/* harmony import */ var _kmt_controls_focus__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../kmt-controls/focus */ "./src/kmt-controls/focus.js");
+
 
 
 
@@ -9265,6 +9333,10 @@ var OptionComponent = function OptionComponent(type) {
 
     case 'kmt-editor':
       OptionComponent = _kmt_controls_editor__WEBPACK_IMPORTED_MODULE_16__["default"];
+      break;
+
+    case 'kmt-focus-button':
+      OptionComponent = _kmt_controls_focus__WEBPACK_IMPORTED_MODULE_17__["default"];
       break;
   }
 

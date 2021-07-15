@@ -6,11 +6,23 @@ const { __ } = wp.i18n;
 
 const ColorComponent = props => {
     let value = props.control.get();
-    let baseDefault = {};
+    let responsiveBaseDefault = {
+        'desktop': {},
+        'tablet': {},
+        'mobile': {}
+    }
     let { pickers, responsive } = props.params;
+    let baseDefault = responsive ? responsiveBaseDefault : {};
     pickers.map(({ id }) => {
-        baseDefault[id] = '';
+        if (responsive) {
+            baseDefault['desktop'][id] = '';
+            baseDefault['tablet'][id] = '';
+            baseDefault['mobile'][id] = '';
+        } else {
+            baseDefault[id] = '';
+        }
     })
+
     let defaultValue = props.params.default ? props.params.default : baseDefault;
     value = value ? value : defaultValue;
     const [state, setState] = useState(value);
@@ -24,7 +36,7 @@ const ColorComponent = props => {
         if (state.value !== value) {
             setState(value);
         }
-    }, [value]);
+    }, []);
 
     const updateValues = (value) => {
         let UpdatedState = { ...state };

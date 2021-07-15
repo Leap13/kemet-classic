@@ -24,7 +24,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				'type' => 'kmt-builder-tabs',
 			),
 			'header-desktop-items'         => array(
-				'priority'    => 1,
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-builder',
@@ -141,7 +140,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'header-mobile-items'          => array(
-				'priority'    => 1,
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-builder',
@@ -269,25 +267,19 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 		);
 		$layout_options  = array(
 			'header-desktop-popup-items'    => array(
-				'section'   => 'section-header-builder-layout',
 				'default'   => false,
 				'type'      => '',
-				'priority'  => 0,
 				'transport' => 'postMessage',
 			),
 			/**
 			 * Header Mobile popup items.
 			 */
 			'header-mobile-popup-items'     => array(
-				'section'   => 'section-header-builder-layout',
 				'default'   => false,
 				'type'      => '',
-				'priority'  => 0,
 				'transport' => 'postMessage',
 			),
 			'header-desktop-availble-items' => array(
-				'section'     => 'section-header-builder-layout',
-				'priority'    => 1,
 				'label'       => __( 'Available Items', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-available',
@@ -303,8 +295,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'header-mobile-availble-items'  => array(
-				'section'     => 'section-header-builder-layout',
-				'priority'    => 1,
 				'label'       => __( 'Available Items', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-available',
@@ -318,6 +308,20 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						'operator' => 'in_array',
 						'value'    => array( 'tablet', 'mobile' ),
 					),
+				),
+			),
+			'focus-overlay-header-section'  => array(
+				'type'          => 'kmt-focus-button',
+				'button_params' => array(
+					'title'   => __( 'Overlay Header', 'kemet' ),
+					'section' => 'section-overlay-header',
+				),
+			),
+			'foucs-sticky-section'          => array(
+				'type'          => 'kmt-focus-button',
+				'button_params' => array(
+					'title'   => __( 'Sticky Header', 'kemet-addons' ),
+					'section' => 'section-sticky-header-options',
 				),
 			),
 		);

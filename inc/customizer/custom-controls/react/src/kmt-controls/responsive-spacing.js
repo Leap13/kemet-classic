@@ -38,7 +38,7 @@ const ResponsiveSpacingComponent = props => {
         if (state !== value) {
             setState(value);
         }
-    }, [value]);
+    }, []);
 
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
