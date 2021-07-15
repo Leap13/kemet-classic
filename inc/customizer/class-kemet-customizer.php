@@ -364,7 +364,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 						$wp_customize,
 						$option_id,
 						$args
-					),
+					)
 				);
 			}
 			if ( 'kmt-options' === $args['type'] ) {
