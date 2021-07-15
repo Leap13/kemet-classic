@@ -27,24 +27,24 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				}
 				$prefix                       = $menu;
 				$selector                     = '#' . $prefix;
-				$bg_color                     = kemet_get_option( $prefix . '-bg-color' );
-				$link_color                   = kemet_get_option( $prefix . '-link-color' );
-				$link_h_color                 = kemet_get_option( $prefix . '-link-h-color' );
-				$link_h_border_color          = kemet_get_option( $prefix . '-link-h-border-color' );
-				$link_active_bg_color         = kemet_get_option( $prefix . '-link-active-bg-color' );
-				$link_active_color            = kemet_get_option( $prefix . '-link-active-color' );
+				$bg_color                     = kemet_get_sub_option( $prefix . '-bg-color', 'initial' );
+				$link_color                   = kemet_get_sub_option( $prefix . '-link-color', 'initial' );
+				$link_h_color                 = kemet_get_sub_option( $prefix . '-link-color', 'hover' );
+				$link_h_border_color          = kemet_get_sub_option( $prefix . '-link-h-border-color', 'initial' );
+				$link_active_bg_color         = kemet_get_sub_option( $prefix . '-link-active-bg-color', 'initial' );
+				$link_active_color            = kemet_get_sub_option( $prefix . '-link-color', 'active' );
 				$link_active_border_radius    = kemet_get_option( $prefix . '-link-active-border-radius' );
 				$link_h_border_width          = kemet_get_option( $prefix . '-link-bottom-border-width-hover' );
 				$menu_spacing                 = kemet_get_option( $prefix . '-spacing' );
 				$menu_link_spacing            = kemet_get_option( $prefix . '-item-spacing' );
 				$line_height                  = kemet_get_option( $prefix . '-line-height' );
 				$submenu_width                = kemet_get_option( $prefix . '-submenu-width' );
-				$submenu_bg_color             = kemet_get_option( $prefix . '-submenu-bg-color' );
-				$submenu_link_color           = kemet_get_option( $prefix . '-submenu-link-color' );
-				$submenu_top_border_color     = kemet_get_option( $prefix . '-submenu-border-top-color' );
-				$submenu_link_h_color         = kemet_get_option( $prefix . '-submenu-link-h-color' );
-				$submenu_bg_h_color           = kemet_get_option( $prefix . '-submenu-h-bg-color' );
-				$submenu_link_separator_color = kemet_get_option( $prefix . '-submenu-link-separator-color' );
+				$submenu_bg_color             = kemet_get_sub_option( $prefix . '-submenu-bg-color', 'initial' );
+				$submenu_link_color           = kemet_get_sub_option( $prefix . '-submenu-link-color', 'initial' );
+				$submenu_top_border_color     = kemet_get_sub_option( $prefix . '-submenu-border-top-color', 'initial' );
+				$submenu_link_h_color         = kemet_get_sub_option( $prefix . '-submenu-link-color', 'hover' );
+				$submenu_bg_h_color           = kemet_get_sub_option( $prefix . '-submenu-bg-color', 'hover' );
+				$submenu_link_separator_color = kemet_get_sub_option( $prefix . '-submenu-link-separator-color', 'initial' );
 				$submenu_border_top_width     = kemet_get_option( $prefix . '-submenu-border-top-width' );
 
 				$css_output = array(
