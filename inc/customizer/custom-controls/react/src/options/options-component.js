@@ -11,6 +11,7 @@ import BuilderComponent from '../kmt-controls/layout-builder/builder-component'
 import AvailableComponent from '../kmt-controls/available'
 import ToggleControlComponent from '../kmt-controls/toggle'
 import BuilderTabs from '../kmt-controls/builder-tabs'
+import RowComponent from '../kmt-controls/row-layout'
 import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
 import FocusComponent from '../kmt-controls/focus'
@@ -59,6 +60,9 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-focus-button':
             OptionComponent = FocusComponent;
+            break;
+        case 'kmt-row-layout':
+            OptionComponent = RowComponent;
             break;
     }
 

@@ -14,6 +14,46 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 	 * Customizer Callback
 	 */
 	class Kemet_Builder_Helper {
+
+		/**
+		 *  No. Of. Footer Columns.
+		 *
+		 * @var int
+		 */
+		public static $num_of_footer_columns;
+
+		/**
+		 * Footer Row layout
+		 *
+		 * @var array
+		 */
+		public static $footer_row_layouts;
+
+		/**
+		 * Member Variable
+		 *
+		 * @var grid_size_mapping
+		 */
+		public static $grid_size_mapping = array(
+			'6-equal'    => 'repeat( 6, 1fr )',
+			'5-equal'    => 'repeat( 5, 1fr )',
+			'4-equal'    => 'repeat( 4, 1fr )',
+			'4-lheavy'   => '2fr 1fr 1fr 1fr',
+			'4-rheavy'   => '1fr 1fr 1fr 2fr',
+			'3-equal'    => 'repeat( 3, 1fr )',
+			'3-lheavy'   => '2fr 1fr 1fr',
+			'3-rheavy'   => '1fr 1fr 2fr',
+			'3-cheavy'   => '1fr 2fr 1fr',
+			'3-cwide'    => '1fr 3fr 1fr',
+			'3-firstrow' => '1fr 1fr',
+			'3-lastrow'  => '1fr 1fr',
+			'2-equal'    => 'repeat( 2, 1fr )',
+			'2-lheavy'   => '2fr 1fr',
+			'2-rheavy'   => '1fr 2fr',
+			'2-full'     => '2fr',
+			'full'       => '1fr',
+		);
+
 		/**
 		 * Instance
 		 *
@@ -35,7 +75,247 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		/**
 		 * Constructor
 		 */
-		public function __construct() {}
+		public function __construct() {
+			self::$num_of_footer_columns = apply_filters( 'kemet_footer_column_count', 6 );
+
+			self::$footer_row_layouts = apply_filters(
+			'kemet_footer_row_layout',
+			array(
+				'desktop'    => array(
+					'6' => array(
+						'6-equal' => array(
+							'icon' => 'sixcol',
+						),
+					),
+					'5' => array(
+						'5-equal' => array(
+							'icon' => 'fivecol',
+						),
+					),
+					'4' => array(
+						'4-equal'  => array(
+							'icon' => 'fourcol',
+						),
+						'4-lheavy' => array(
+							'icon' => 'lfourforty',
+						),
+						'4-rheavy' => array(
+							'icon' => 'rfourforty',
+						),
+					),
+					'3' => array(
+						'3-equal'  => array(
+							'icon' => 'threecol',
+						),
+						'3-lheavy' => array(
+							'icon' => 'lefthalf',
+						),
+						'3-rheavy' => array(
+							'icon' => 'righthalf',
+						),
+						'3-cheavy' => array(
+							'icon' => 'centerhalf',
+						),
+						'3-cwide'  => array(
+							'icon' => 'widecenter',
+						),
+					),
+					'2' => array(
+						'2-equal'  => array(
+							'icon' => 'twocol',
+						),
+						'2-lheavy' => array(
+							'icon' => 'twoleftgolden',
+						),
+						'2-rheavy' => array(
+							'icon' => 'tworightgolden',
+						),
+					),
+					'1' => array(
+						'full' => array(
+							'icon' => 'row',
+						),
+					),
+				),
+				'tablet'     => array(
+					'6' => array(
+						'6-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'sixcol',
+						),
+						'full'    => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowsix',
+						),
+					),
+					'5' => array(
+						'5-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'fivecol',
+						),
+						'full'    => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowfive',
+						),
+					),
+					'4' => array(
+						'4-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'fourcol',
+						),
+						'2-equal' => array(
+							'tooltip' => __( 'Two Column Grid', 'kemet' ),
+							'icon'    => 'grid',
+						),
+						'full'    => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowfour',
+						),
+					),
+					'3' => array(
+						'3-equal'    => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'threecol',
+						),
+						'3-lheavy'   => array(
+							'tooltip' => __( 'Left Heavy 50/25/25', 'kemet' ),
+							'icon'    => 'lefthalf',
+						),
+						'3-rheavy'   => array(
+							'tooltip' => __( 'Right Heavy 25/25/50', 'kemet' ),
+							'icon'    => 'righthalf',
+						),
+						'3-cheavy'   => array(
+							'tooltip' => __( 'Center Heavy 25/50/25', 'kemet' ),
+							'icon'    => 'centerhalf',
+						),
+						'3-cwide'    => array(
+							'tooltip' => __( 'Wide Center 20/60/20', 'kemet' ),
+							'icon'    => 'widecenter',
+						),
+						'3-firstrow' => array(
+							'tooltip' => __( 'First Row, Next Columns 100 - 50/50', 'kemet' ),
+							'icon'    => 'firstrow',
+						),
+						'3-lastrow'  => array(
+							'tooltip' => __( 'Last Row, Previous Columns 50/50 - 100', 'kemet' ),
+							'icon'    => 'lastrow',
+						),
+						'full'       => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowthree',
+						),
+					),
+					'2' => array(
+						'2-equal'  => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'twocol',
+						),
+						'2-lheavy' => array(
+							'tooltip' => __( 'Left Heavy 66/33', 'kemet' ),
+							'icon'    => 'twoleftgolden',
+						),
+						'2-rheavy' => array(
+							'tooltip' => __( 'Right Heavy 33/66', 'kemet' ),
+							'icon'    => 'tworightgolden',
+						),
+						'full'     => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserow',
+						),
+					),
+					'1' => array(
+						'full' => array(
+							'tooltip' => __( 'Single Row', 'kemet' ),
+							'icon'    => 'row',
+						),
+					),
+				),
+				'mobile'     => array(
+					'6' => array(
+						'6-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'sixcol',
+						),
+						'full'    => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowsix',
+						),
+					),
+					'5' => array(
+						'5-equal' => array(
+							'tooltip' => __( 'Equal Width Columns', 'kemet' ),
+							'icon'    => 'fivecol',
+						),
+						'full'    => array(
+							'tooltip' => __( 'Collapse to Rows', 'kemet' ),
+							'icon'    => 'collapserowfive',
+						),
+					),
+					'4' => array(
+						'4-equal' => array(
+							'icon' => 'fourcol',
+						),
+						'2-equal' => array(
+							'icon' => 'grid',
+						),
+						'full'    => array(
+							'icon' => 'collapserowfour',
+						),
+					),
+					'3' => array(
+						'3-equal'    => array(
+							'icon' => 'threecol',
+						),
+						'3-lheavy'   => array(
+							'icon' => 'lefthalf',
+						),
+						'3-rheavy'   => array(
+							'icon' => 'righthalf',
+						),
+						'3-cheavy'   => array(
+							'icon' => 'centerhalf',
+						),
+						'3-cwide'    => array(
+							'icon' => 'widecenter',
+						),
+						'3-firstrow' => array(
+							'icon' => 'firstrow',
+						),
+						'3-lastrow'  => array(
+							'icon' => 'lastrow',
+						),
+						'full'       => array(
+							'icon' => 'collapserowthree',
+						),
+					),
+					'2' => array(
+						'2-equal'  => array(
+							'icon' => 'twocol',
+						),
+						'2-lheavy' => array(
+							'icon' => 'twoleftgolden',
+						),
+						'2-rheavy' => array(
+							'icon' => 'tworightgolden',
+						),
+						'full'     => array(
+							'icon' => 'collapserow',
+						),
+					),
+					'1' => array(
+						'full' => array(
+							'icon' => 'row',
+						),
+					),
+				),
+				'responsive' => true,
+			)
+		);
+
+
+
+		}
 
 		/**
 		 * Check if column has items

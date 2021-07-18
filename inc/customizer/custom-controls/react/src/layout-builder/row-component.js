@@ -23,14 +23,15 @@ const RowComponent = (props) => {
         break;
     }
   }
-  if ("footer" === mode) {
-    layout = `kmt-grid-row-layout-${props.columns}-equal`;
-    zone_count = props.columns - 1;
-    Object.keys(props.controlParams.zones[props.row]).map((zone, index) => {
-      if (zone_count < index) {
-        props.items[zone] = [];
-      }
-    });
+  if ('footer' === mode) {
+    // layout = `kmt-grid-row-layout-${props.layout[props.row].layout.desktop}`;
+    // zone_count = props.layout[props.row].column - 1;
+    // Object.keys(props.controlParams.zones[props.row]).map((zone, index) => {
+    //   if (zone_count < index) {
+    //     props.items[zone] = [];
+    //   }
+    // });
+    return 'kmt-grid-row-layout-3-equal';
   }
   if (
     "header-desktop-items" === props.controlParams.group &&
@@ -42,6 +43,8 @@ const RowComponent = (props) => {
     centerClass = "has-center-items";
   } else {
     if ("header-desktop-items" === props.controlParams.group) {
+      centerClass = "no-center-items";
+    } else if ("footer-desktop-items" === props.controlParams.group) {
       centerClass = "no-center-items";
     }
   }

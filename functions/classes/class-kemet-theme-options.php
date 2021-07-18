@@ -127,7 +127,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
 					// Footer Builder
-					'footer-items'                         => array(
+					'footer-desktop-items'                         => array(
 						'top'    => array(
 							'top_1' => array(),
 							'top_2' => array(),

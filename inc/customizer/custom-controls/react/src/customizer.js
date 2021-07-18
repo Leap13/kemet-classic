@@ -101,6 +101,61 @@
       api.previewer.container.css({ bottom: "0px" });
       resizePreviewer();
     });
+
+    /**
+     * Trigger on Above header column or layout change.
+     */
+    api('kemet-settings[hba-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let event = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[hba-footer-layout]').get(),
+            'type': 'above'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
+    /**
+     * Trigger on Primary header column or layout change.
+     */
+    api('kemet-settings[hb-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let event = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[hb-footer-layout]').get(),
+            'type': 'primary'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
+    /**
+     * Trigger on Below header column or layout change.
+     */
+    api('kemet-settings[hbb-footer-column]', function (value) {
+      value.bind(function (columns) {
+
+        let event = new CustomEvent(
+          'KemetBuilderChangeRowLayout', {
+          'detail': {
+            'columns': columns,
+            'layout': api.value('kemet-settings[hbb-footer-layout]').get(),
+            'type': 'below'
+          }
+        });
+        document.dispatchEvent(event);
+      });
+    });
+
     // if (KemetCustomizerData && KemetCustomizerData.contexts) {
     //   /**
     //    * Active callback script (JS version)

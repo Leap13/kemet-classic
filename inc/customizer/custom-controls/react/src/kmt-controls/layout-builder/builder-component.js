@@ -65,6 +65,57 @@ const BuilderComponent = (props) => {
     }
     setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
   };
+
+  const updateRowLayout = () => {
+
+    document.addEventListener('KemetBuilderChangeRowLayout', function (e) {
+
+      if ("kemet-settings[footer-desktop-items]" !== controlParams.group) {
+        return;
+      }
+
+      if ('' === e.detail.type) {
+        return;
+      }
+
+      let newParams = controlParams;
+
+      if (newParams.layouts[e.detail.type]) {
+        newParams.layouts[e.detail.type] = {
+          'column': e.detail.columns,
+          'layout': e.detail.layout
+        };
+
+        setState(prevState => ({
+          ...prevState,
+          layout: newParams.layouts
+        }));
+
+        updateValues(newParams);
+      }
+    });
+  };
+
+  const updatePresetSettings = () => {
+    document.addEventListener('KemetBuilderPresetSettingsUpdate', function (event) {
+      // Load Only Context Area.
+      if (controlParams.group === event.detail.id) {
+        setState(prevState => ({
+          ...prevState,
+          value: event.detail.grid_layout
+        }));
+        updateValues(event.detail.grid_layout);
+      }
+    });
+  };
+
+  // useEffect(() => {
+  //   updatePresetSettings();
+  //   updateRowLayout();
+  // }, []);
+
+
+
   const onDragStart = () => {
     let dragZones = document.querySelectorAll(".kmt-builder-area");
 
