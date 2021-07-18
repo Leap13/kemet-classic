@@ -1676,11 +1676,11 @@ function gutenberg_support() {
 	add_editor_style( 'style-editor.css' );
 
 	// Global Color.
-	$theme_color          = kemet_get_option( 'theme-color' );
-	$headings_links_color = kemet_get_option( 'headings-links-color' );
-	$text_meta_color      = kemet_get_option( 'text-meta-color' );
-	$global_border_color  = kemet_get_option( 'global-border-color' );
-	$global_bg_color      = kemet_get_option( 'global-background-color' );
+	$theme_color          = kemet_get_sub_option( 'theme-color', 'initial' );
+	$headings_links_color = kemet_get_sub_option( 'headings-links-color', 'initial' );
+	$text_meta_color      = kemet_get_sub_option( 'text-meta-color', 'initial' );
+	$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
+	$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
 
 	add_theme_support(
 		'editor-color-palette',

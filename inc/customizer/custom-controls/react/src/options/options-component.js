@@ -15,6 +15,8 @@ import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
 import FocusComponent from '../kmt-controls/focus'
 
+let wpOptions = ["custom_logo", "blogname", "blogdescription"];
+
 const OptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
@@ -65,20 +67,25 @@ const OptionComponent = (type) => {
     return OptionComponent;
 }
 
+const getSettingId = (id) => {
+    const setting = wpOptions.includes(id)
+        ? id
+        : KemetCustomizerData.setting.replace(
+            "setting_name",
+            id
+        );
+
+    return setting;
+}
+
 export const getSetting = (settingName) => {
-    var setting;
+    let setting;
     switch (settingName) {
         case "device":
             setting = wp.customize.previewedDevice;
             break;
         default:
-            var wpOptions = ["custom_logo"];
-            setting = wpOptions.includes(settingName)
-                ? settingName
-                : KemetCustomizerData.setting.replace(
-                    "setting_name",
-                    settingName
-                );
+            setting = getSettingId(settingName);
 
             setting = wp.customize(setting);
             break;
@@ -173,10 +180,8 @@ const SingleOptionComponent = ({ optionId, option, control }) => {
 
     const Option = OptionComponent(option.type);
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
-        <Option id={optionId} params={option} control={control} onChange={(key, value) => {
-            key = KemetCustomizerData.setting.replace(
-                "setting_name",
-                key);
+        <Option id={optionId} params={option} control={control} customizer={wp.customize} onChange={(key, value) => {
+            key = getSettingId(key);
             wp.customize(key).set(value);
         }} />
     </div>;
@@ -184,9 +189,7 @@ const SingleOptionComponent = ({ optionId, option, control }) => {
 
 export const renderOptions = (options) => {
     return Object.keys(options).map((optionId) => {
-        const controlName = KemetCustomizerData.setting.replace(
-            "setting_name",
-            optionId);
+        const controlName = getSettingId(optionId);
         let control = wp.customize(controlName);
         let option = options[optionId];
 

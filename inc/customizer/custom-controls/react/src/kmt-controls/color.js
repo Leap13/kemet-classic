@@ -6,6 +6,7 @@ const { __ } = wp.i18n;
 
 const ColorComponent = props => {
     let value = props.control.get();
+
     let responsiveBaseDefault = {
         'desktop': {},
         'tablet': {},
@@ -22,6 +23,7 @@ const ColorComponent = props => {
             baseDefault[id] = '';
         }
     })
+    baseDefault = props.params.default ? props.params.default : baseDefault;
 
     let defaultValue = props.params.default ? props.params.default : baseDefault;
     value = value ? value : defaultValue;

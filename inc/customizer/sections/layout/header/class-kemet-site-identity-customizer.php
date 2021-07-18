@@ -19,6 +19,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
+			'kmt-site-logo-title'       => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Site Identity', 'kemet' ),
+			),
 			'display-site-title'        => array(
 				'type'      => 'kmt-switcher',
 				'transport' => 'postMessage',
@@ -28,6 +32,30 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'type'      => 'kmt-switcher',
 				'transport' => 'postMessage',
 				'label'     => __( 'Display Site Tagline', 'kemet' ),
+			),
+			'blogname'                  => array(
+				'override'  => true,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-text',
+				'label'     => __( 'Site Title', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-title',
+						'value'   => true,
+					),
+				),
+			),
+			'blogdescription'           => array(
+				'override'  => true,
+				'transport' => 'postMessage',
+				'type'      => 'kmt-text',
+				'label'     => __( 'Tagline', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-tagline',
+						'value'   => true,
+					),
+				),
 			),
 			'site-title-font-size'      => array(
 				'type'         => 'kmt-responsive-slider',
@@ -199,49 +227,27 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'sides'    => false,
 				),
 			),
+			'kmt-site-logo-settings'    => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Logo Settings', 'kemet' ),
+			),
 		);
 
 		$register_options = array(
-			'site-identity-settins-title' => array(
-				'section'  => 'title_tagline',
-				'type'     => 'kmt-options',
-				'priority' => 0,
-				'data'     => array(
-					'options' => array(
-						'kmt-site-logo-title' => array(
-							'type'  => 'kmt-title',
-							'label' => __( 'Site Identity', 'kemet' ),
-						),
-					),
-				),
-			),
-			'site-identity-options'       => array(
+			'site-identity-options'    => array(
 				'section' => 'title_tagline',
 				'type'    => 'kmt-options',
 				'data'    => array(
 					'options' => $register_options,
 				),
 			),
-			'site-identity-logo-title'    => array(
-				'section'  => 'title_tagline',
-				'type'     => 'kmt-options',
-				'priority' => 55,
-				'data'     => array(
-					'options' => array(
-						'kmt-site-logo-settings' => array(
-							'type'  => 'kmt-title',
-							'label' => __( 'Logo Settings', 'kemet' ),
-						),
-					),
-				),
-			),
-			'kmt-header-retina-logo'      => array(
+			'kmt-header-retina-logo'   => array(
 				'type'     => 'image',
 				'section'  => 'title_tagline',
 				'priority' => 65,
 				'label'    => __( 'Retina Logo', 'kemet' ),
 			),
-			'site-identity-logo-width'    => array(
+			'site-identity-logo-width' => array(
 				'section'  => 'title_tagline',
 				'type'     => 'kmt-options',
 				'priority' => 70,

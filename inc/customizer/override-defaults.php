@@ -31,7 +31,7 @@ if ( class_exists( 'WooCommerce' ) ) {
  */
 $wp_customize->get_control( 'custom_logo' )->priority      = 60;
 $wp_customize->get_control( 'site_icon' )->priority        = 95;
-$wp_customize->get_control( 'blogname' )->priority         = 5;
-$wp_customize->get_control( 'blogdescription' )->priority  = 10;
 $wp_customize->get_control( 'header_textcolor' )->priority = 8;
 
+$wp_customize->remove_control( 'blogname' );
+$wp_customize->remove_control( 'blogdescription' );

@@ -237,13 +237,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'page-title-font-family'               => 'inherit',
 					// Kemet Colors.
 					'smart-skin'                           => '',
-					'theme-color'                          => '#0085ba',
-					'headings-links-color'                 => '#333333',
-					'text-meta-color'                      => '#444140',
-					'global-border-color'                  => '#eaeaea',
-					'global-background-color'              => '#ffffff',
-					'global-footer-text-color'             => '#fbfbfb',
-					'global-footer-bg-color'               => '#222222',
+					'theme-color'                          => array( 'initial' => '#0085ba' ),
+					'headings-links-color'                 => array( 'initial' => '#333333' ),
+					'text-meta-color'                      => array( 'initial' => '#444140' ),
+					'global-border-color'                  => array( 'initial' => '#eaeaea' ),
+					'global-background-color'              => array( 'initial' => '#ffffff' ),
+					'global-footer-text-color'             => array( 'initial' => '#fbfbfb' ),
+					'global-footer-bg-color'               => array( 'initial' => '#222222' ),
 
 					// Footer Colors.
 					'footer-bar-bg-obj'                    => '',

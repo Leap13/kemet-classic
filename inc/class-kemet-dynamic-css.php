@@ -63,13 +63,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 * - Variable Declaration
 			 */
 			// Color Options.
-			$theme_color              = kemet_get_option( 'theme-color' );
-			$headings_links_color     = kemet_get_option( 'headings-links-color' );
-			$text_meta_color          = kemet_get_option( 'text-meta-color' );
-			$global_border_color      = kemet_get_option( 'global-border-color' );
-			$global_bg_color          = kemet_get_option( 'global-background-color' );
-			$global_footer_text_color = kemet_get_option( 'global-footer-text-color' );
-			$global_footer_bg_color   = kemet_get_option( 'global-footer-bg-color' );
+			$theme_color              = kemet_get_sub_option( 'theme-color', 'initial' );
+			$headings_links_color     = kemet_get_sub_option( 'headings-links-color', 'initial' );
+			$text_meta_color          = kemet_get_sub_option( 'text-meta-color', 'initial' );
+			$global_border_color      = kemet_get_sub_option( 'global-border-color', 'initial' );
+			$global_bg_color          = kemet_get_sub_option( 'global-background-color', 'initial' );
+			$global_footer_text_color = kemet_get_sub_option( 'global-footer-text-color', 'initial' );
+			$global_footer_bg_color   = kemet_get_sub_option( 'global-footer-bg-color', 'initial' );
 
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 
@@ -1459,9 +1459,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			}
 
 			// Footer Widget List Border.
-			$global_footer_text_color        = kemet_get_option( 'global-footer-text-color' );
+			$global_footer_text_color        = kemet_get_sub_option( 'global-footer-text-color', 'initial' );
 			$footer_widget_list_border       = kemet_get_option( 'enable-footer-widget-list-separator' );
-			$global_footer_bg_color          = kemet_get_option( 'global-footer-bg-color' );
+			$global_footer_bg_color          = kemet_get_sub_option( 'global-footer-bg-color', 'initial' );
 			$footer_widget_list_border_color = kemet_get_option( 'footer-widget-list-border-color', kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) );
 			if ( $footer_widget_list_border ) {
 				$widget_list_style = array(

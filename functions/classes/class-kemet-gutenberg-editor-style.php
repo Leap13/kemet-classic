@@ -25,11 +25,11 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$post_id = kemet_get_post_id();
 
 			// Global colors.
-			$theme_color          = kemet_get_option( 'theme-color' );
-			$global_bg_color      = kemet_get_option( 'global-background-color' );
-			$headings_links_color = kemet_get_option( 'headings-links-color' );
-			$text_meta_color      = kemet_get_option( 'text-meta-color' );
-			$global_border_color  = kemet_get_option( 'global-border-color' );
+			$theme_color          = kemet_get_sub_option( 'theme-color', 'initial' );
+			$headings_links_color = kemet_get_sub_option( 'headings-links-color', 'initial' );
+			$text_meta_color      = kemet_get_sub_option( 'text-meta-color', 'initial' );
+			$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
+			$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
 			// container width.
 			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
 			// Body.

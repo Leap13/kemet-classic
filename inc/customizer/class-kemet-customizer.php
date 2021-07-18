@@ -301,7 +301,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return void
 		 */
 		public function add_options_settings( $options, $wp_customize ) {
-			$defaults = Kemet_Theme_Options::defaults();
 			foreach ( $options as $option_id => $args ) {
 				$this->add_customizer_option( $option_id, $args, $wp_customize );
 			}
@@ -317,7 +316,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		public function add_customizer_option( $option_id, $args, $wp_customize ) {
 			$defaults  = Kemet_Theme_Options::defaults();
 			$id        = $option_id;
-			$option_id = KEMET_THEME_SETTINGS . '[' . $option_id . ']';
+			$option_id = ! isset( $args['override'] ) ? KEMET_THEME_SETTINGS . '[' . $option_id . ']' : $id;
 
 			if ( isset( $args['context'] ) ) {
 				self::$contexts_arr[ $option_id ] = $args['context'];
@@ -368,15 +367,33 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				);
 			}
 			if ( 'kmt-options' === $args['type'] ) {
-				$control               = $wp_customize->add_control(
+				$control                 = $wp_customize->add_control(
 					$option_id,
 					$args
 				);
-				$control->json['data'] = $args['data'];
+				$args['data']['options'] = $this->prepare_options( $args['data']['options'] );
+				$control->json['data']   = $args['data'];
 			}
 		}
 
 
+		/**
+		 * prepare_options
+		 *
+		 * @param  mixed $options
+		 * @return array
+		 */
+		function prepare_options( $options ) {
+			$defaults = Kemet_Theme_Options::defaults();
+			foreach ( $options as $id => $args ) {
+				$default = isset( $args['default'] ) ? $args['default'] : '';
+				if ( '' === $default && isset( $defaults[ $id ] ) ) {
+					$default = $defaults[ $id ];
+				}
+				$options[ $id ]['default'] = $default;
+			}
+			return $options;
+		}
 		/**
 		 * add_tabs_settings
 		 *
@@ -661,7 +678,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-sidebar-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-widgets-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-header-builder-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-mobile-popup-customizer.php';
