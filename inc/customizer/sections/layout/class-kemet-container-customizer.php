@@ -20,71 +20,25 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 
 		$register_options = array(
-			// 'test-tabs-control'           => array(
-			// 'type'    => 'kmt-test',
-			// 'section' => 'section-container-layout',
-			// 'tabs'    => array(
-			// 'general' => array(
-			// 'title'   => __( 'General', 'kemet' ),
-			// 'options' => array(
-			// 'test-slider' => array(
-			// 'type'      => 'kmt-color',
-			// 'default'   => 1,
-			// 'section'   => 'section-container-layout',
-			// 'transport' => 'postMessage',
-			// 'priority'  => 5,
-			// 'label'     => __( 'Container Width', 'kemet' ),
-			// 'suffix'      => '',
-			// 'input_attrs' => array(
-			// 'min'  => 768,
-			// 'step' => 1,
-			// 'max'  => 1920,
-			// ),
-			// 'preview'   => array(
-			// 'selector' => ':root',
-			// 'property' => '--contentWidth',
-			// ),
-			// ),
-			// ),
-			// ),
-			// 'design'  => array(
-			// 'title'   => __( 'Design', 'kemet' ),
-			// 'options' => array(
-			// 'test-color' => array(
-			// 'type'      => 'kmt-color',
-			// 'default'   => '#fff',
-			// 'section'   => 'section-container-layout',
-			// 'transport' => 'postMessage',
-			// 'priority'  => 55,
-			// 'label'     => __( 'Content Separator Color', 'kemet' ),
-			// ),
-			// ),
-			// ),
-			// ),
-			// ),
-			// 'site-content-width'          => array(
-			// 'type'        => 'kmt-slider',
-			// 'transport'   => 'postMessage',
-			// 'section'     => 'section-container-layout',
-			// 'priority'    => 5,
-			// 'label'       => __( 'Container Width', 'kemet' ),
-			// 'suffix'      => '',
-			// 'input_attrs' => array(
-			// 'min'  => 768,
-			// 'step' => 1,
-			// 'max'  => 1920,
-			// ),
-			// 'preview'     => array(
-			// 'selector' => ':root',
-			// 'property' => '--contentWidth',
-			// ),
-			// ),
+			'site-content-width'          => array(
+				'type'        => 'kmt-slider',
+				'transport'   => 'postMessage',
+				'label'       => __( 'Container Width', 'kemet' ),
+				'suffix'      => '',
+				'input_attrs' => array(
+					'min'  => 768,
+					'step' => 1,
+					'max'  => 1920,
+				),
+				'preview'     => array(
+					'selector' => ':root',
+					'property' => '--contentWidth',
+				),
+			),
 			'site-content-layout'         => array(
-				'type'     => 'select',
-				'section'  => 'section-container-layout',
-				'priority' => 10,
-				'label'    => __( 'Default Container', 'kemet' ),
-				'choices'  => array(
+				'type'    => 'kmt-select',
+				'label'   => __( 'Default Container', 'kemet' ),
+				'choices' => array(
 					'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 					'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
 					'plain-container'         => __( 'Full Width Content', 'kemet' ),
@@ -92,11 +46,9 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'single-page-content-layout'  => array(
-				'type'     => 'select',
-				'section'  => 'section-container-layout',
-				'label'    => __( 'Pages Container', 'kemet' ),
-				'priority' => 15,
-				'choices'  => array(
+				'type'    => 'kmt-select',
+				'label'   => __( 'Pages Container', 'kemet' ),
+				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
 					'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 					'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
@@ -105,11 +57,9 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'single-post-content-layout'  => array(
-				'type'     => 'select',
-				'section'  => 'section-container-layout',
-				'priority' => 20,
-				'label'    => __( 'Blog Posts Container', 'kemet' ),
-				'choices'  => array(
+				'type'    => 'kmt-select',
+				'label'   => __( 'Blog Posts Container', 'kemet' ),
+				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
 					'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 					'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
@@ -118,11 +68,9 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'archive-post-content-layout' => array(
-				'type'     => 'select',
-				'section'  => 'section-container-layout',
-				'priority' => 25,
-				'label'    => __( 'Blog Archives Container', 'kemet' ),
-				'choices'  => array(
+				'type'    => 'kmt-select',
+				'label'   => __( 'Blog Archives Container', 'kemet' ),
+				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
 					'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
 					'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
@@ -131,56 +79,87 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'kmt-site-boxed-title'        => array(
-				'type'     => 'kmt-title',
-				'label'    => __( 'Boxed Layout Content Settings', 'kemet' ),
-				'section'  => 'section-container-layout',
-				'priority' => 36,
+				'type'  => 'kmt-title',
+				'label' => __( 'Boxed Layout Content Settings', 'kemet' ),
 			),
-			'content-padding'             => array(
-				'type'           => 'kmt-responsive-spacing',
-				'transport'      => 'postMessage',
-				'section'        => 'section-container-layout',
-				'priority'       => 50,
-				'label'          => __( 'Content Padding', 'kemet' ),
-				'description'    => __( 'This value will be changed to 0px in the pages built with a page builder', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
+			'site-content-tabs'           => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							'content-padding'         => array(
+								'type'           => 'kmt-responsive-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Content Padding', 'kemet' ),
+								'description'    => __( 'This value will be changed to 0px in the pages built with a page builder', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector' => '.site-content #primary',
+									'property' => 'padding',
+								),
+							),
+							'container-inner-spacing' => array(
+								'type'           => 'kmt-responsive-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Boxed Container Spacing', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector' => '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li',
+									'property' => 'padding',
+									'sides'    => false,
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							'content-separator-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Content Separator Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => 'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary',
+										'property' => 'border-color',
+									),
+								),
+							),
+						),
+					),
 				),
-				'preview'        => array(
-					'selector' => '.site-content #primary',
-					'property' => 'padding',
-				),
-			),
-			'container-inner-spacing'     => array(
-				'type'           => 'kmt-responsive-spacing',
-				'transport'      => 'postMessage',
-				'section'        => 'section-container-layout',
-				'priority'       => 50,
-				'label'          => __( 'Boxed Container Spacing', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
-				),
-				'preview'        => array(
-					'selector' => '.kmt-separate-container .kmt-article-post, .kmt-separate-container .kmt-article-single, .kmt-separate-container .comment-respond, .single.kmt-separate-container .kmt-author-details, .kmt-separate-container .kmt-related-posts-wrap, .kmt-separate-container .kmt-woocommerce-container ,.single-post.kmt-separate-container .kmt-comment-list li',
-					'property' => 'padding',
-					'sides'    => false,
-				),
-			),
-			'content-separator-color'     => array(
-				'type'     => 'kmt-color',
-				'priority' => 55,
-				'label'    => __( 'Content Separator Color', 'kemet' ),
-				'section'  => 'section-container-layout',
 			),
 		);
+
+		$register_options = array(
+			'site-content-options' => array(
+				'section' => 'section-container-layout',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $register_options,
+				),
+			),
+		);
+
 		return array_merge( $options, $register_options );
 	}
 

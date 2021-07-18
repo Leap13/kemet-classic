@@ -340,10 +340,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 					return $this->add_tabs_settings( $args['tabs'], $wp_customize );
 			}
 
-			$default = isset( $args['default'] ) ? $args['default'] : '';
-			if ( '' === $default && isset( $defaults[ $id ] ) ) {
-				$default = $defaults[ $id ];
-			}
+			$default = $this->get_default( $id, $args );
 
 			$settings = array(
 				'default'           => $default,
@@ -378,21 +375,45 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 
 		/**
+		 * get_default
+		 *
+		 * @param  string $option_id
+		 * @param  array  $args
+		 * @return mixed
+		 */
+		public function get_default( $option_id, $args ) {
+			$defaults = Kemet_Theme_Options::defaults();
+			$default  = isset( $args['default'] ) ? $args['default'] : '';
+			if ( '' === $default && isset( $defaults[ $option_id ] ) ) {
+				$default = $defaults[ $option_id ];
+			}
+			return $default;
+		}
+
+		/**
 		 * prepare_options
 		 *
 		 * @param  mixed $options
 		 * @return array
 		 */
 		function prepare_options( $options ) {
-			$defaults = Kemet_Theme_Options::defaults();
+
 			foreach ( $options as $id => $args ) {
-				$default = isset( $args['default'] ) ? $args['default'] : '';
-				if ( '' === $default && isset( $defaults[ $id ] ) ) {
-					$default = $defaults[ $id ];
+				if ( isset( $args['type'] ) && 'kmt-tabs' === $args['type'] ) {
+					$options[ $id ]['tabs'] = $this->prepare_tabs_options( $args['tabs'] );
+					return $options;
 				}
-				$options[ $id ]['default'] = $default;
+				$options[ $id ]['default'] = $this->get_default( $id, $args );
 			}
 			return $options;
+		}
+
+		public function prepare_tabs_options( $tabs ) {
+			foreach ( $tabs as $tab_id => $tab ) {
+				$tabs[ $tab_id ]['options'] = $this->prepare_options( $tab['options'] );
+			}
+
+			return $tabs;
 		}
 		/**
 		 * add_tabs_settings
@@ -670,13 +691,13 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			 * Sections
 			 */
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-site-identity-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-container-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-container-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-content-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-blog-single-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-sidebar-customizer.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-widgets-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-widgets-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/colors-background/class-kemet-body-colors-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/buttons/class-kemet-buttons-fields-customizer.php';

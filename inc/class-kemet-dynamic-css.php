@@ -99,7 +99,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$box_bg_inner_boxed             = kemet_get_option( 'site-boxed-inner-bg', array( 'background-color' => kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ) );
 			$container_inner_spacing        = kemet_get_option( 'container-inner-spacing' );
 			$content_padding                = apply_filters( 'kemet_content_padding', kemet_get_option( 'content-padding' ) );
-			$single_content_separator_color = kemet_get_option( 'content-separator-color', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
+			$single_content_separator_color = kemet_get_sub_option( 'content-separator-color', 'initial', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
 
 			// Typography.
 			$body_font_size                    = kemet_get_option( 'font-size-body' );
@@ -316,7 +316,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$sidebar_text_color        = kemet_get_option( 'sidebar-text-color' );
 			$sidebar_link_color        = kemet_get_option( 'sidebar-link-color' );
 			$sidebar_link_h_color      = kemet_get_option( 'sidebar-link-h-color' );
-			$widget_bg_color           = kemet_get_option( 'widget-bg-color' );
+			$widget_bg_color           = kemet_get_sub_option( 'widget-bg-color', 'initial' );
 			$space_widget              = kemet_get_option( 'widget-padding' );
 			$widget_margin_bottom      = kemet_get_option( 'widget-margin-bottom' );
 			$sidebar_content_font_size = kemet_get_option( 'sidebar-content-font-size' );
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$widget_title_line_height    = kemet_get_option( 'widget-title-line-height' );
 			$widget_title_font_size      = kemet_get_option( 'widget-title-font-size' );
 			$widget_title_letter_spacing = kemet_get_option( 'widget-title-letter-spacing' );
-			$widget_title_color          = kemet_get_option( 'widget-title-color' );
+			$widget_title_color          = kemet_get_sub_option( 'widget-title-color', 'initial' );
 
 			/**
 			 * Apply text hover color depends on link hover color
@@ -1420,7 +1420,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// Widget Title Border.
 			$widget_title_border_size      = kemet_get_option( 'widget-title-border-size' );
-			$widget_title_border_color     = kemet_get_option( 'widget-title-border-color', $global_border_color );
+			$widget_title_border_color     = kemet_get_sub_option( 'widget-title-border-color', 'initial', $global_border_color );
 			$enable_widget_title_separator = kemet_get_option( 'enable-widget-title-separator' );
 
 			if ( $enable_widget_title_separator ) {
@@ -1436,7 +1436,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// Widget list Border.
 			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+			$widget_list_border_color = kemet_get_sub_option( 'widget-list-border-color', 'initial', $global_border_color );
 			if ( $widget_list_border ) {
 				$widget_list_style = array(
 					'.widget ul > li,.widget.yith-woocompare-widget ul.products-list li:not( .list_empty )' => array(

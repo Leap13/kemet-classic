@@ -216,7 +216,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'section'   => 'section-contents',
 				'transport' => 'postMessage',
 				'label'     => __( 'Text Transform', 'kemet' ),
-				'type'      => 'select',
+				'type'      => 'kmt-select',
 				'priority'  => 70,
 				'choices'   => array(
 					''           => __( 'Inherit', 'kemet' ),

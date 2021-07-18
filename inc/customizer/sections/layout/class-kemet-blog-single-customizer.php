@@ -25,7 +25,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 				'priority' => 0,
 			),
 			'blog-single-width'          => array(
-				'type'     => 'select',
+				'type'     => 'kmt-select',
 				'section'  => 'section-blog-single',
 				'priority' => 5,
 				'label'    => __( 'Single Post Content Width', 'kemet' ),

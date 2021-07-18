@@ -40,7 +40,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'site-sidebar-layout'         => array(
-				'type'     => 'select',
+				'type'     => 'kmt-select',
 				'section'  => 'sidebar-widgets-sidebar-1',
 				'priority' => 15,
 				'label'    => __( 'Default Layout', 'kemet' ),
@@ -51,7 +51,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'single-page-sidebar-layout'  => array(
-				'type'     => 'select',
+				'type'     => 'kmt-select',
 				'section'  => 'sidebar-widgets-sidebar-1',
 				'priority' => 20,
 				'label'    => __( 'Pages', 'kemet' ),
@@ -63,7 +63,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'single-post-sidebar-layout'  => array(
-				'type'     => 'select',
+				'type'     => 'kmt-select',
 				'section'  => 'sidebar-widgets-sidebar-1',
 				'priority' => 25,
 				'label'    => __( 'Blog Posts', 'kemet' ),
@@ -75,7 +75,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'archive-post-sidebar-layout' => array(
-				'type'     => 'select',
+				'type'     => 'kmt-select',
 				'section'  => 'sidebar-widgets-sidebar-1',
 				'priority' => 30,
 				'label'    => __( 'Blog Post Archives', 'kemet' ),
