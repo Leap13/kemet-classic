@@ -107,6 +107,26 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 add_filter( 'body_class', 'kemet_body_classes' );
 
 /**
+ * Display sidebar as section
+ */
+if ( ! function_exists( 'kemet_activate_sidebar_section' ) ) {
+	/**
+	 * Display sidebar as section.
+	 *
+	 * @param bool   $active ios active.
+	 * @param object $section section.
+	 * @return bool
+	 */
+	function kemet_activate_sidebar_section( $active, $section ) {
+		if ( 'sidebar-widgets-sidebar-1' === $section->id ) {
+				$active = true;
+		}
+		return $active;
+	}
+}
+add_filter( 'customize_section_active', 'kemet_activate_sidebar_section', 99, 2 );
+
+/**
  * Kemet Pagination
  */
 if ( ! function_exists( 'kemet_number_pagination' ) ) {

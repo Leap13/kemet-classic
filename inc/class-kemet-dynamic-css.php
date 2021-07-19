@@ -200,12 +200,12 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$submenu_border_color   = kemet_get_option( 'submenu-border-color', $global_border_color );
 
 			// Content Heading Color.
-			$heading_h1_font_color = kemet_get_option( 'font-color-h1' );
-			$heading_h2_font_color = kemet_get_option( 'font-color-h2' );
-			$heading_h3_font_color = kemet_get_option( 'font-color-h3' );
-			$heading_h4_font_color = kemet_get_option( 'font-color-h4' );
-			$heading_h5_font_color = kemet_get_option( 'font-color-h5' );
-			$heading_h6_font_color = kemet_get_option( 'font-color-h6' );
+			$heading_h1_font_color = kemet_get_sub_option( 'font-color-h1', 'initial' );
+			$heading_h2_font_color = kemet_get_sub_option( 'font-color-h2', 'initial' );
+			$heading_h3_font_color = kemet_get_sub_option( 'font-color-h3', 'initial' );
+			$heading_h4_font_color = kemet_get_sub_option( 'font-color-h4', 'initial' );
+			$heading_h5_font_color = kemet_get_sub_option( 'font-color-h5', 'initial' );
+			$heading_h6_font_color = kemet_get_sub_option( 'font-color-h6', 'initial' );
 
 			// Button Styling.
 			$btn_font_size         = kemet_get_option( 'buttons-font-size' );
@@ -221,9 +221,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$highlight_theme_color = kemet_get_foreground_color( $theme_color );
 
 			// Content.
-			$content_text_color   = kemet_get_option( 'content-text-color' );
-			$content_link_color   = kemet_get_option( 'content-link-color' );
-			$content_link_h_color = kemet_get_option( 'content-link-h-color' );
+			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial' );
+			$content_link_color   = kemet_get_option( 'content-link-color', 'initial' );
+			$content_link_h_color = kemet_get_option( 'content-link-color', 'hover' );
 
 			// Listing Post Page.
 			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
@@ -299,9 +299,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$kemet_footer_widget_bg_color    = kemet_get_option( 'footer-wgt-bg-color' );
 
 			// sidebar input color.
-			$sidebar_input_color         = kemet_get_option( 'sidebar-input-color' );
-			$sidebar_input_bg_color      = kemet_get_option( 'sidebar-input-bg-color' );
-			$sidebar_input_border_color  = kemet_get_option( 'sidebar-input-border-color' );
+			$sidebar_input_color         = kemet_get_sub_option( 'sidebar-input-color', 'initial' );
+			$sidebar_input_bg_color      = kemet_get_option( 'sidebar-input-bg-color', 'initial' );
+			$sidebar_input_border_color  = kemet_get_sub_option( 'sidebar-input-border-color', 'initial' );
 			$sidebar_input_border_radius = kemet_get_option( 'sidebar-input-border-radius' );
 			$sidebar_input_border_size   = kemet_get_option( 'sidebar-input-border-size' );
 
@@ -313,9 +313,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			// sidebar.
 			$sidebar_bg_obj            = kemet_get_option( 'sidebar-bg-obj' );
 			$sidebar_padding           = kemet_get_option( 'sidebar-padding' );
-			$sidebar_text_color        = kemet_get_option( 'sidebar-text-color' );
-			$sidebar_link_color        = kemet_get_option( 'sidebar-link-color' );
-			$sidebar_link_h_color      = kemet_get_option( 'sidebar-link-h-color' );
+			$sidebar_text_color        = kemet_get_sub_option( 'sidebar-text-color', 'initial' );
+			$sidebar_link_color        = kemet_get_sub_option( 'sidebar-link-color', 'initial' );
+			$sidebar_link_h_color      = kemet_get_sub_option( 'sidebar-link-color', 'hover' );
 			$widget_bg_color           = kemet_get_sub_option( 'widget-bg-color', 'initial' );
 			$space_widget              = kemet_get_option( 'widget-padding' );
 			$widget_margin_bottom      = kemet_get_option( 'widget-margin-bottom' );
