@@ -14,7 +14,6 @@ export function kemetGetResponsiveJs(control) {
   jQuery('.wp-full-overlay-footer .devices button').on('click', function () {
 
     let device = jQuery(this).attr('data-device');
-
     jQuery('.customize-control-kmt-responsive-slider .input-field-wrapper, .customize-control .kmt-responsive-slider-btns > li').removeClass('active');
     jQuery('.customize-control-kmt-responsive-slider .input-field-wrapper.' + device + ', .customize-control .kmt-responsive-slider-btns > li.' + device).addClass('active');
   });

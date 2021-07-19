@@ -695,7 +695,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-content-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/blog.php';
-			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-blog-single-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-blog-single-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-sidebar-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/class-kemet-widgets-customizer.php';
 			// require KEMET_THEME_DIR . 'inc/customizer/sections/layout/main-footer.php';

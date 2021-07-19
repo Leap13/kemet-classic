@@ -6384,29 +6384,12 @@ Responsive.defaultProps = {
       $body = $("body");
   var expandedPanel = "";
   api.bind("ready", function () {
-    api.state.create("kemetTab");
-    api.state("kemetTab").set("general"); // Set handler when custom responsive toggle is clicked.
-
+    // Set handler when custom responsive toggle is clicked.
     $("#customize-theme-controls").on("click", ".kmt-build-tabs-button", function (e) {
       e.preventDefault();
-      api.previewedDevice.set($(this).data("device"));
-    }); // Set handler when custom responsive toggle is clicked.
-
-    $("#customize-theme-controls").on("click", ".kmt-compontent-tabs-button:not(.kmt-nav-tabs-button)", function (e) {
-      e.preventDefault();
-      api.state("kemetTab").set($(this).data("tab"));
-    });
-
-    var setTabDisplay = function setTabDisplay() {
-      var tabState = api.state("kemetTab").get(),
-          $tabs = $(".kmt-compontent-tabs-button:not(.kmt-nav-tabs-button)");
-      $tabs.removeClass("nav-tab-active").filter(".kmt-" + tabState + "-tab").addClass("nav-tab-active");
-    }; // Refresh all responsive elements when previewedDevice is changed.
-
-
-    api.state("kemetTab").bind(setTabDisplay);
-    $("#customize-theme-controls").on("click", "customize-section-back", function (e) {
-      api.state("kemetTab").set("general");
+      var device = $(this).data("device");
+      api.previewedDevice.set(device);
+      jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
     }); // Set all custom responsive toggles and fieldsets.
 
     var setBuilderResponsiveDisplay = function setBuilderResponsiveDisplay() {
@@ -6451,113 +6434,7 @@ Responsive.defaultProps = {
         bottom: "0px"
       });
       resizePreviewer();
-    }); // if (KemetCustomizerData && KemetCustomizerData.contexts) {
-    //   /**
-    //    * Active callback script (JS version)
-    //    * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
-    //    */
-    //   _.each(KemetCustomizerData.contexts, function (rules, key) {
-    //     // Control Display.
-    //     var setupControl = function (element) {
-    //       var setting;
-    //       var getSetting = function (settingName) {
-    //         var setting;
-    //         switch (settingName) {
-    //           case "device":
-    //             setting = api.previewedDevice;
-    //             break;
-    //           case "tab":
-    //             setting = api.state("kemetTab");
-    //             break;
-    //           default:
-    //             var wpOptions = ["custom_logo"];
-    //             setting = wpOptions.includes(settingName)
-    //               ? settingName
-    //               : KemetCustomizerData.setting.replace(
-    //                 "setting_name",
-    //                 settingName
-    //               );
-    //             setting = wp.customize(setting);
-    //         }
-    //         return setting;
-    //       };
-    //       var isDisplay = function () {
-    //         var relation = undefined != rules.relation ? rules.relation : "AND",
-    //           isVisible = "AND" === relation ? true : false;
-    //         _.each(rules, function (rule, ruleKey) {
-    //           if ("relation" == ruleKey) {
-    //             return;
-    //           }
-    //           var boolean = false,
-    //             operator = undefined != rule.operator ? rule.operator : "=",
-    //             ruleValue = rule.value;
-    //           setting = getSetting(rule.setting);
-    //           var settingValue = setting.get();
-    //           switch (operator) {
-    //             case "in_array":
-    //               boolean = ruleValue.includes(settingValue);
-    //               break;
-    //             case "contain":
-    //               boolean = settingValue.includes(ruleValue);
-    //               break;
-    //             case ">":
-    //               boolean = settingValue > ruleValue;
-    //               break;
-    //             case "<":
-    //               boolean = settingValue < ruleValue;
-    //               break;
-    //             case ">=":
-    //               boolean = settingValue >= ruleValue;
-    //               break;
-    //             case "<=":
-    //               boolean = settingValue <= ruleValue;
-    //               break;
-    //             case "not_empty":
-    //               boolean =
-    //                 typeof settingValue !== "undefined" &&
-    //                 undefined !== settingValue &&
-    //                 null !== settingValue &&
-    //                 "" !== settingValue;
-    //               break;
-    //             case "!=":
-    //               boolean = settingValue !== ruleValue;
-    //               break;
-    //             default:
-    //               boolean = settingValue == ruleValue;
-    //               break;
-    //           }
-    //           isVisible =
-    //             "OR" === relation ? isVisible || boolean : isVisible && boolean;
-    //         });
-    //         return isVisible;
-    //       };
-    //       const replace = {
-    //         cat: KemetCustomizerData.setting,
-    //         dog: "[",
-    //         goat: "]"
-    //       }
-    //       const containerID = key.replace(/kemet-settings|\[|]$/gi, '');
-    //       console.log($('#' + containerID));
-    //       var setActiveState = function () {
-    //         // if (isDisplay()) {
-    //         //   element.container.show();
-    //         // } else {
-    //         //   element.container.hide();
-    //         // }
-    //       };
-    //       _.each(rules, function (rule, ruleKey) {
-    //         setting = getSetting(rule.setting);
-    //         if (undefined != setting) {
-    //           setting.bind(setActiveState);
-    //         }
-    //       });
-    //       // element.active.validate = isDisplay;
-    //       setActiveState();
-    //     };
-    //     api(key, setupControl);
-    //   });
-    // }
-
+    });
     /**
      * Init Kemet Header & Footer Builder
      */
@@ -6632,7 +6509,6 @@ Responsive.defaultProps = {
             $section.addClass("kmt-" + builderType + "-builder-active");
             $("#sub-accordion-panel-" + expandedPanel + " li.control-section").hide();
           } else {
-            api.state("kemetTab").set("general");
             $body.removeClass("kmt-" + builderType + "-builder-is-active");
             $section.removeClass("kmt-" + builderType + "-builder-active");
           }
@@ -7227,7 +7103,6 @@ var EditorComponent = function EditorComponent(props) {
     value: state.value,
     onChange: function onChange(_ref) {
       var value = _ref.target.value;
-      console.log(value);
       HandleChange(value);
     }
   })));
@@ -8923,6 +8798,132 @@ SliderComponent.propTypes = {
 
 /***/ }),
 
+/***/ "./src/kmt-controls/sortable.js":
+/*!**************************************!*\
+  !*** ./src/kmt-controls/sortable.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+var SortableComponent = function SortableComponent(props) {
+  var labelHtml = null,
+      descriptionHtml = null;
+  var _props$params = props.params,
+      label = _props$params.label,
+      description = _props$params.description,
+      choices = _props$params.choices,
+      inputAttrs = _props$params.inputAttrs;
+  var value = props.control.get();
+  var list = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
+  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    var updateValue = function updateValue() {
+      var newValue = [];
+      jQuery(list.current).find('li').each(function () {
+        if (!jQuery(this).is('.invisible')) {
+          newValue.push(jQuery(this).data('value'));
+        }
+      });
+      props.control.set(newValue);
+    };
+
+    jQuery(list.current).sortable({
+      stop: function stop() {
+        updateValue();
+      }
+    }).disableSelection().find('li').each(function () {
+      jQuery(this).find('i.visibility').click(function () {
+        jQuery(this).toggleClass('dashicons-visibility-faint').parents('li:eq(0)').toggleClass('invisible');
+      });
+    }).click(function () {
+      updateValue();
+    });
+  }, []); // const updateValue = function () {
+  //     'use strict';
+  //     let newValue = [];
+  //     this.sortableContainer.find('li').each(function () {
+  //         if (!jQuery(this).is('.invisible')) {
+  //             newValue.push(jQuery(this).data('value'));
+  //         }
+  //     });
+  //     control.set(newValue);
+  // }
+
+  if (label) {
+    labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      className: "customize-control-title"
+    }, label);
+  }
+
+  if (description) {
+    descriptionHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      className: "description customize-control-description"
+    }, description);
+  }
+
+  var visibleMetaHtml = Object.values(value).map(function (choiceID) {
+    var html = '';
+
+    if (choices[choiceID]) {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, inputAttrs, {
+        key: choiceID,
+        className: "kmt-sortable-item",
+        "data-value": choiceID
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+        className: "dashicons dashicons-visibility visibility"
+      }), choices[choiceID], Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+        class: "dashicons dashicons-menu"
+      }));
+    }
+
+    return html;
+  });
+  var invisibleMetaHtml = Object.keys(choices).map(function (choiceID) {
+    var html = '';
+
+    if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, inputAttrs, {
+        key: choiceID,
+        className: "kmt-sortable-item invisible",
+        "data-value": choiceID
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+        className: "dashicons dashicons-visibility visibility"
+      }), choices[choiceID], Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+        class: "dashicons dashicons-menu"
+      }));
+    }
+
+    return html;
+  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
+    className: "kmt-sortable"
+  }, labelHtml, descriptionHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
+    className: "sortable",
+    ref: list
+  }, visibleMetaHtml, invisibleMetaHtml));
+};
+
+SortableComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(SortableComponent));
+
+/***/ }),
+
 /***/ "./src/kmt-controls/tabs.js":
 /*!**********************************!*\
   !*** ./src/kmt-controls/tabs.js ***!
@@ -9261,6 +9262,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _kmt_controls_text__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../kmt-controls/text */ "./src/kmt-controls/text.js");
 /* harmony import */ var _kmt_controls_editor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../kmt-controls/editor */ "./src/kmt-controls/editor.js");
 /* harmony import */ var _kmt_controls_focus__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../kmt-controls/focus */ "./src/kmt-controls/focus.js");
+/* harmony import */ var _kmt_controls_sortable__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../kmt-controls/sortable */ "./src/kmt-controls/sortable.js");
+
 
 
 
@@ -9339,6 +9342,10 @@ var OptionComponent = function OptionComponent(type) {
 
     case 'kmt-focus-button':
       OptionComponent = _kmt_controls_focus__WEBPACK_IMPORTED_MODULE_17__["default"];
+      break;
+
+    case 'kmt-sortable':
+      OptionComponent = _kmt_controls_sortable__WEBPACK_IMPORTED_MODULE_18__["default"];
       break;
   }
 

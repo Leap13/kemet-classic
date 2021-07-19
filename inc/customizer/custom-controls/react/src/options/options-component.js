@@ -14,6 +14,7 @@ import BuilderTabs from '../kmt-controls/builder-tabs'
 import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
 import FocusComponent from '../kmt-controls/focus'
+import SortableComponent from '../kmt-controls/sortable'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -61,6 +62,9 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-focus-button':
             OptionComponent = FocusComponent;
+            break;
+        case 'kmt-sortable':
+            OptionComponent = SortableComponent;
             break;
     }
 

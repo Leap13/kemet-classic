@@ -3,44 +3,15 @@
     $body = $("body");
   var expandedPanel = "";
   api.bind("ready", function () {
-    api.state.create("kemetTab");
-    api.state("kemetTab").set("general");
-
     // Set handler when custom responsive toggle is clicked.
     $("#customize-theme-controls").on(
       "click",
       ".kmt-build-tabs-button",
       function (e) {
         e.preventDefault();
-        api.previewedDevice.set($(this).data("device"));
-      }
-    );
-    // Set handler when custom responsive toggle is clicked.
-    $("#customize-theme-controls").on(
-      "click",
-      ".kmt-compontent-tabs-button:not(.kmt-nav-tabs-button)",
-      function (e) {
-        e.preventDefault();
-
-        api.state("kemetTab").set($(this).data("tab"));
-      }
-    );
-    var setTabDisplay = function () {
-      var tabState = api.state("kemetTab").get(),
-        $tabs = $(".kmt-compontent-tabs-button:not(.kmt-nav-tabs-button)");
-      $tabs
-        .removeClass("nav-tab-active")
-        .filter(".kmt-" + tabState + "-tab")
-        .addClass("nav-tab-active");
-    };
-    // Refresh all responsive elements when previewedDevice is changed.
-    api.state("kemetTab").bind(setTabDisplay);
-
-    $("#customize-theme-controls").on(
-      "click",
-      "customize-section-back",
-      function (e) {
-        api.state("kemetTab").set("general");
+        var device = $(this).data("device");
+        api.previewedDevice.set(device);
+        jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
       }
     );
 
@@ -101,125 +72,7 @@
       api.previewer.container.css({ bottom: "0px" });
       resizePreviewer();
     });
-    // if (KemetCustomizerData && KemetCustomizerData.contexts) {
-    //   /**
-    //    * Active callback script (JS version)
-    //    * ref: https://make.xwp.co/2016/07/24/dependently-contextual-customizer-controls/
-    //    */
-    //   _.each(KemetCustomizerData.contexts, function (rules, key) {
-    //     // Control Display.
-    //     var setupControl = function (element) {
-    //       var setting;
-    //       var getSetting = function (settingName) {
-    //         var setting;
-    //         switch (settingName) {
-    //           case "device":
-    //             setting = api.previewedDevice;
-    //             break;
-    //           case "tab":
-    //             setting = api.state("kemetTab");
-    //             break;
-    //           default:
-    //             var wpOptions = ["custom_logo"];
-    //             setting = wpOptions.includes(settingName)
-    //               ? settingName
-    //               : KemetCustomizerData.setting.replace(
-    //                 "setting_name",
-    //                 settingName
-    //               );
-    //             setting = wp.customize(setting);
-    //         }
 
-    //         return setting;
-    //       };
-    //       var isDisplay = function () {
-    //         var relation = undefined != rules.relation ? rules.relation : "AND",
-    //           isVisible = "AND" === relation ? true : false;
-    //         _.each(rules, function (rule, ruleKey) {
-    //           if ("relation" == ruleKey) {
-    //             return;
-    //           }
-    //           var boolean = false,
-    //             operator = undefined != rule.operator ? rule.operator : "=",
-    //             ruleValue = rule.value;
-    //           setting = getSetting(rule.setting);
-    //           var settingValue = setting.get();
-    //           switch (operator) {
-    //             case "in_array":
-    //               boolean = ruleValue.includes(settingValue);
-    //               break;
-
-    //             case "contain":
-    //               boolean = settingValue.includes(ruleValue);
-    //               break;
-
-    //             case ">":
-    //               boolean = settingValue > ruleValue;
-    //               break;
-
-    //             case "<":
-    //               boolean = settingValue < ruleValue;
-    //               break;
-
-    //             case ">=":
-    //               boolean = settingValue >= ruleValue;
-    //               break;
-
-    //             case "<=":
-    //               boolean = settingValue <= ruleValue;
-    //               break;
-
-    //             case "not_empty":
-    //               boolean =
-    //                 typeof settingValue !== "undefined" &&
-    //                 undefined !== settingValue &&
-    //                 null !== settingValue &&
-    //                 "" !== settingValue;
-    //               break;
-
-    //             case "!=":
-    //               boolean = settingValue !== ruleValue;
-    //               break;
-
-    //             default:
-    //               boolean = settingValue == ruleValue;
-    //               break;
-    //           }
-    //           isVisible =
-    //             "OR" === relation ? isVisible || boolean : isVisible && boolean;
-    //         });
-    //         return isVisible;
-    //       };
-    //       const replace = {
-    //         cat: KemetCustomizerData.setting,
-    //         dog: "[",
-    //         goat: "]"
-    //       }
-
-    //       const containerID = key.replace(/kemet-settings|\[|]$/gi, '');
-    //       console.log($('#' + containerID));
-    //       var setActiveState = function () {
-    //         // if (isDisplay()) {
-    //         //   element.container.show();
-    //         // } else {
-    //         //   element.container.hide();
-    //         // }
-    //       };
-
-    //       _.each(rules, function (rule, ruleKey) {
-    //         setting = getSetting(rule.setting);
-    //         if (undefined != setting) {
-    //           setting.bind(setActiveState);
-    //         }
-    //       });
-
-    //       // element.active.validate = isDisplay;
-    //       setActiveState();
-    //     };
-
-    //     api(key, setupControl);
-    //   });
-    // }
     /**
      * Init Kemet Header & Footer Builder
      */
@@ -290,7 +143,6 @@
               "#sub-accordion-panel-" + expandedPanel + " li.control-section"
             ).hide();
           } else {
-            api.state("kemetTab").set("general");
             $body.removeClass("kmt-" + builderType + "-builder-is-active");
             $section.removeClass("kmt-" + builderType + "-builder-active");
           }

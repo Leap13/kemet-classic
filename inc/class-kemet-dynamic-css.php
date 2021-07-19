@@ -113,8 +113,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$headings_text_transform           = kemet_get_option( 'headings-text-transform' );
 			$single_post_title_font_size       = kemet_get_option( 'font-size-entry-title' );
 			$single_post_title_letter_spacing  = kemet_get_option( 'letter-spacing-entry-title' );
-			$single_post_title_font_color      = kemet_get_option( 'font-color-entry-title', $headings_links_color );
-			$single_post_meta_color            = kemet_get_option( 'single-post-meta-color', kemet_color_brightness( $text_meta_color, 0.7, 'light' ) );
+			$single_post_title_font_color      = kemet_get_sub_option( 'font-color-entry-title', 'initial', $headings_links_color );
+			$single_post_meta_color            = kemet_get_sub_option( 'single-post-meta-color', 'initial', kemet_color_brightness( $text_meta_color, 0.7, 'light' ) );
 			$comment_button_spacing            = kemet_get_option( 'comment-button-spacing' );
 			$archive_post_title_font_size      = kemet_get_option( 'font-size-page-title' );
 			$archive_post_title_font_weight    = kemet_get_option( 'post-title-font-weight' );
@@ -553,9 +553,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--letterSpacing'     => kemet_responsive_slider( $single_post_title_letter_spacing, 'desktop' ),
 					'--headingLinksColor' => esc_attr( $single_post_title_font_color ),
 				),
-				'.kmt-single-post .entry-meta,.kmt-single-post .entry-meta *' => array(
+				'.kmt-single-post .entry-meta'          => array(
+					'color'               => 'var(--textColor)',
 					'--headingLinksColor' => esc_attr( $single_post_meta_color ),
-					'--textColor'         => esc_attr( $single_post_meta_color ),
+					'--textColor'         => 'var(--headingLinksColor)',
 				),
 				'.comments-area .form-submit input[type="submit"]' => array(
 					'--margin' => kemet_responsive_spacing( $comment_button_spacing, 'all', 'desktop' ),
