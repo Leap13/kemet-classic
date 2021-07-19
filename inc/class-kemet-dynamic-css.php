@@ -222,14 +222,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// Content.
 			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial' );
-			$content_link_color   = kemet_get_option( 'content-link-color', 'initial' );
-			$content_link_h_color = kemet_get_option( 'content-link-color', 'hover' );
+			$content_link_color   = kemet_get_sub_option( 'content-link-color', 'initial' );
+			$content_link_h_color = kemet_get_sub_option( 'content-link-color', 'hover' );
 
 			// Listing Post Page.
-			$listing_post_title_color         = kemet_get_option( 'listing-post-title-color' );
-			$listing_post_title_hover_color   = kemet_get_option( 'listing-post-title-hover-color' );
+			$listing_post_title_color         = kemet_get_sub_option( 'listing-post-title-color', 'initial' );
+			$listing_post_title_hover_color   = kemet_get_sub_option( 'listing-post-title-color', 'hover' );
 			$listing_post_content_color       = kemet_get_option( 'post-content-color' );
-			$main_entry_content_color         = kemet_get_option( 'main-entry-content-color' );
+			$main_entry_content_color         = kemet_get_sub_option( 'main-entry-content-color', 'initial' );
 			$archive_post_meta_font_size      = kemet_get_option( 'font-size-post-meta' );
 			$archive_post_meta_font_family    = kemet_get_option( 'post-meta-font-family' );
 			$archive_post_meta_font_weight    = kemet_get_option( 'post-meta-font-weight' );
@@ -237,7 +237,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$archive_post_meta_font_style     = kemet_get_option( 'post-meta-font-style' );
 			$archive_post_meta_line_height    = kemet_get_option( 'post-meta-line-height' );
 			$archive_post_meta_letter_spacing = kemet_get_option( 'letter-spacing-post-meta' );
-			$meta_color                       = kemet_get_option( 'listing-post-meta-color' );
+			$meta_color                       = kemet_get_sub_option( 'listing-post-meta-color', 'initial' );
 			$pagination_padding               = kemet_get_option( 'pagination-padding' );
 			// Footer Font.
 			$footer_font_family    = kemet_get_option( 'footer-font-family' );
@@ -500,7 +500,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--fontStyle'     => esc_attr( $archive_post_title_font_style ),
 					'--letterSpacing' => kemet_responsive_slider( $archive_post_title_letter_spacing, 'desktop' ),
 				),
-				'.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *' => array(
+				'.blog-posts-container .entry-meta'     => array(
 					'--fontSize'          => kemet_responsive_slider( $archive_post_meta_font_size, 'desktop' ),
 					'--fontFamily'        => kemet_get_font_family( $archive_post_meta_font_family ),
 					'--fontWeight'        => kemet_get_css_value( $archive_post_meta_font_weight, 'font' ),
@@ -508,8 +508,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--textTransform'     => esc_attr( $archive_post_meta_text_transform ),
 					'--fontStyle'         => esc_attr( $archive_post_meta_font_style ),
 					'--letterSpacing'     => kemet_responsive_slider( $archive_post_meta_letter_spacing, 'desktop' ),
-					'--headingLinksColor' => esc_attr( $meta_color ),
+					'color'               => 'var(--textColor)',
 					'--textColor'         => esc_attr( $meta_color ),
+					'--headingLinksColor' => 'var(--textColor)',
 				),
 				'.comment-reply-title'                  => array(
 					'--fontSize' => kemet_get_font_css_value( (int) $body_font_size_desktop * 1.66666 ),
@@ -888,39 +889,30 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$parse_css = kemet_parse_css( $css_output );
 
 			// Read More.
-			$enable_read_more_button = kemet_get_option( 'readmore-as-button' );
-			$readmore_text_color     = kemet_get_option( 'readmore-text-color', $btn_text_color );
-			$readmore_text_h_color   = kemet_get_option( 'readmore-text-h-color', $btn_text_hover_color );
+			$readmore_text_color     = kemet_get_sub_option( 'readmore-text-color', 'initial' );
+			$readmore_text_h_color   = kemet_get_sub_option( 'readmore-text-color', 'hover' );
 			$readmore_padding        = kemet_get_option( 'readmore-padding' );
-			$readmore_bg_color       = kemet_get_option( 'readmore-bg-color', $btn_bg_color );
-			$readmore_bg_h_color     = kemet_get_option( 'readmore-bg-h-color', $btn_bg_hover_color );
+			$readmore_bg_color       = kemet_get_sub_option( 'readmore-bg-color', 'initial' );
+			$readmore_bg_h_color     = kemet_get_sub_option( 'readmore-bg-color', 'hover' );
 			$readmore_border_radius  = kemet_get_option( 'read-more-border-radius' );
 			$readmore_border_size    = kemet_get_option( 'read-more-border-size' );
-			$readmore_border_color   = kemet_get_option( 'readmore-border-color', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
-			$readmore_border_h_color = kemet_get_option( 'readmore-border-h-color' );
-			if ( $enable_read_more_button ) {
-				$readmore_style = array(
-					'.content-area .read-more a:hover' => array(
-						'color'            => esc_attr( $readmore_text_h_color ),
-						'background-color' => esc_attr( $readmore_bg_h_color ),
-						'border-color'     => esc_attr( $readmore_border_h_color ),
-					),
-					'.content-area .read-more a'       => array(
-						'color'            => esc_attr( $readmore_text_color ),
-						'padding-top'      => kemet_responsive_spacing( $readmore_padding, 'top', 'desktop' ),
-						'padding-bottom'   => kemet_responsive_spacing( $readmore_padding, 'bottom', 'desktop' ),
-						'padding-right'    => kemet_responsive_spacing( $readmore_padding, 'right', 'desktop' ),
-						'padding-left'     => kemet_responsive_spacing( $readmore_padding, 'left', 'desktop' ),
-						'background-color' => esc_attr( $readmore_bg_color ),
-						'border-radius'    => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
-						'border-style'     => 'solid',
-						'border-color'     => esc_attr( $readmore_border_color ),
-						'border-width'     => kemet_responsive_slider( $readmore_border_size, 'desktop' ),
-					),
-				);
+			$readmore_border_color   = kemet_get_sub_option( 'readmore-border-color', 'initial' );
+			$readmore_border_h_color = kemet_get_sub_option( 'readmore-border-color', 'hover' );
+			$readmore_style          = array(
+				'.content-area .read-more .button' => array(
+					'--buttonColor'                => esc_attr( $readmore_text_color ),
+					'--buttonBackgroundColor'      => esc_attr( $readmore_bg_color ),
+					'--borderColor'                => esc_attr( $readmore_border_color ),
+					'--borderRadius'               => kemet_responsive_slider( $readmore_border_radius, 'desktop' ),
+					'--borderWidth'                => kemet_responsive_slider( $readmore_border_size, 'desktop' ),
+					'--buttonHoverColor'           => esc_attr( $readmore_text_h_color ),
+					'--buttonBackgroundHoverColor' => esc_attr( $readmore_bg_h_color ),
+					'--borderHoverColor'           => esc_attr( $readmore_border_h_color ),
+					'--padding'                    => kemet_responsive_spacing( $readmore_padding, 'all', 'desktop' ),
+				),
+			);
 
 				$parse_css .= kemet_parse_css( $readmore_style );
-			}
 
 			// Foreground color.
 			if ( ! empty( $kemet_footer_link_color ) ) {

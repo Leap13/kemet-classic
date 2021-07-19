@@ -5044,11 +5044,6 @@ input[type="color"]::-webkit-color-swatch {
 /**
  *  Blog Common
  */
-.entry-meta,
-.entry-meta * {
-  line-height: 1.7;
-}
-
 .page .entry-header {
   margin-bottom: 1.5em;
 }
@@ -5875,8 +5870,7 @@ input[type="color"]::-webkit-color-swatch {
 .kmt-pagination {
   display: inline-block;
   width: 100%;
-  padding-top: 2em;
-  padding-bottom: 40px;
+  padding: var(--padding, 2em 0 2em 0);
 }
 
 @media (max-width: 768px) {
@@ -5983,10 +5977,10 @@ input[type="color"]::-webkit-color-swatch {
     text-align: center;
   }
   .kmt-pagination .prev.page-numbers {
-    padding-right: .5em;
+    padding-right: 0.5em;
   }
   .kmt-pagination .next.page-numbers {
-    padding-left: .5em;
+    padding-left: 0.5em;
   }
 }
 

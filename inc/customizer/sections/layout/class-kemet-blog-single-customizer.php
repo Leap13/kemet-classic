@@ -43,6 +43,10 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									'step' => 1,
 									'max'  => 1920,
 								),
+								'preview'     => array(
+									'selector' => '.single-post .site-content > .kmt-container',
+									'property' => 'max-width',
+								),
 								'context'     => array(
 									array(
 										'setting' => 'blog-single-width',
@@ -201,7 +205,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 				'priority' => 10,
 				'title'    => __( 'Single Post', 'kemet' ),
 				'panel'    => 'panel-layout',
-				// 'section'  => 'section-blog-group',
+				'section'  => 'section-blog-group',
 			),
 		);
 
