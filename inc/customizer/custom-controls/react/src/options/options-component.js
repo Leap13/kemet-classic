@@ -71,7 +71,7 @@ const OptionComponent = (type) => {
     return OptionComponent;
 }
 
-const getSettingId = (id) => {
+export const getSettingId = (id) => {
     const setting = wpOptions.includes(id)
         ? id
         : KemetCustomizerData.setting.replace(
@@ -98,7 +98,7 @@ export const getSetting = (settingName) => {
     return setting;
 };
 
-const isDisplay = (rules) => {
+export const isDisplay = (rules) => {
     let setting = '';
     var relation = undefined != rules.relation ? rules.relation : "AND",
         isVisible = "AND" === relation ? true : false;

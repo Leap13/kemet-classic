@@ -1,3 +1,4 @@
+import { isDisplay, getSetting, getSettingId } from './options/options-component'
 (function ($, api) {
   var $window = $(window),
     $body = $("body");
@@ -160,4 +161,32 @@
     api.panel("panel-header-builder-group", initKmtBuilderPanel);
     api.panel("panel-footer-builder-group", initKmtBuilderPanel);
   });
+
+  // Default contexts
+  if (KemetCustomizerData && KemetCustomizerData.contexts) {
+    const context = KemetCustomizerData.contexts;
+    let mobileLogo = getSettingId('kmt-header-mobile-logo');
+    const setupControl = (element) => {
+      const rules = context[element.id];
+      var setActiveState = function () {
+        if (isDisplay(rules)) {
+          element.container.show();
+        } else {
+          element.container.hide();
+        }
+      };
+
+      _.each(rules, function (rule, ruleKey) {
+        let setting = getSetting(rule.setting);
+        if (undefined != setting) {
+          setting.bind(setActiveState);
+        }
+      });
+
+      element.active.validate = isDisplay(rules);
+      setActiveState();
+    }
+    api.control(mobileLogo, setupControl);
+  }
+
 })(jQuery, wp.customize);

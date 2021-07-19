@@ -64,8 +64,92 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'wp_footer', array( $this, 'desktop_popup' ) );
 			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
+			add_action( 'kemet_header', array( $this, 'mobile_header_logo' ), 9 );
+			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
 		}
 
+
+		/**
+		 * different_mobile_logo
+		 *
+		 * @return boolean
+		 */
+		public static function different_mobile_logo() {
+			return kemet_get_option( 'different-logo-for-mobile' );
+		}
+		/**
+		 * mobile_header_logo
+		 *
+		 * @return void
+		 */
+		public function mobile_header_logo() {
+			if ( self::different_mobile_logo() ) {
+				// Logo For None Effect.
+				add_filter( 'kemet_has_custom_logo', '__return_true' );
+				add_filter( 'get_custom_logo', array( $this, 'kemet_mobile_header_logo' ), 10, 2 );
+			}
+		}
+
+		/**
+		 * mobile header markup
+		 *
+		 * @param string $html logo html.
+		 * @return string
+		 */
+		public function kemet_mobile_header_logo( $html ) {
+			if ( self::different_mobile_logo() ) {
+				$mobile_logo = kemet_get_option( 'kmt-header-mobile-logo' );
+				add_filter( 'wp_get_attachment_image_attributes', array( $this, 'replace_mobile_header_attr' ), 10, 3 );
+				$custom_logo_id = attachment_url_to_postid( $mobile_logo );
+				$size           = 'full';
+				$html          .= sprintf(
+					'<a href="%1$s" class="custom-logo-link custom-mobile-logo" rel="home" itemprop="url">%2$s</a>',
+					esc_url( home_url( '/' ) ),
+					wp_get_attachment_image(
+						apply_filters( 'kemet_custom_mobile_logo_id', $custom_logo_id ), // Attachment id.
+						'kmt-logo-size', // Attachment size.
+						false, // Attachment icon.
+						array(
+							'class' => 'custom-logo',
+						)
+					)
+				);
+			}
+			return $html;
+		}
+
+		/**
+		 * Replace mobile header attributes
+		 *
+		 * @param object $attr
+		 * @param object $attachment
+		 * @param mixed  $size
+		 * @return object
+		 */
+		public function replace_mobile_header_attr( $attr, $attachment, $size ) {
+			if ( self::different_mobile_logo() ) {
+				$mobile_logo    = kemet_get_option( 'kmt-header-mobile-logo' );
+				$custom_logo_id = attachment_url_to_postid( $mobile_logo );
+				if ( $custom_logo_id == $attachment->ID ) {
+					$attach_data = array();
+					if ( ! is_customize_preview() ) {
+						$attach_data = wp_get_attachment_image_src( $attachment->ID, 'full' );
+						if ( isset( $attach_data[0] ) ) {
+							$attr['src'] = $attach_data[0];
+						}
+					}
+					$attr['srcset'] = '';
+
+					if ( '' !== $mobile_logo ) {
+						$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+						$cutom_logo_url = $cutom_logo[0];
+						$attr['srcset'] = $cutom_logo_url;
+					}
+					$attr['srcset'] = $cutom_logo_url;
+				}
+			}
+			return $attr;
+		}
 
 		/**
 		 * Header classes
@@ -79,6 +163,22 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				$classes[] = 'kmt-overlay-header';
 			}
 
+			return $classes;
+		}
+
+		/**
+		 * Add sticky header classes to header
+		 *
+		 * @param array $classes header classes.
+		 * @return array
+		 */
+		public function header_classes( $classes ) {
+			if ( self::different_mobile_logo() ) {
+				$mobile_logo = kemet_get_option( 'kmt-header-mobile-logo' );
+				if ( '' !== $mobile_logo ) {
+					$classes[] = 'kmt-mobile-logo';
+				}
+			}
 			return $classes;
 		}
 

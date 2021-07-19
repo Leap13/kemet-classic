@@ -49,8 +49,8 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 						),
 					),
 					'preview'      => array(
-						'selector' => $selector . ' .custom-logo-link.sticky-custom-logo img',
-						'property' => 'max-width',
+						'selector' => '#sitehead ' . $selector . ' .custom-logo-link.sticky-custom-logo img',
+						'property' => '--logoWidth',
 					),
 				),
 				'enable-sticky-top'             => array(

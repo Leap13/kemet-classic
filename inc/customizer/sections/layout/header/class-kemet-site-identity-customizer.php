@@ -234,20 +234,20 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 		);
 
 		$register_options = array(
-			'site-identity-options'    => array(
+			'site-identity-options'       => array(
 				'section' => 'title_tagline',
 				'type'    => 'kmt-options',
 				'data'    => array(
 					'options' => $register_options,
 				),
 			),
-			'kmt-header-retina-logo'   => array(
+			'kmt-header-retina-logo'      => array(
 				'type'     => 'image',
 				'section'  => 'title_tagline',
 				'priority' => 65,
 				'label'    => __( 'Retina Logo', 'kemet' ),
 			),
-			'site-identity-logo-width' => array(
+			'site-identity-logo-settings' => array(
 				'section'  => 'title_tagline',
 				'type'     => 'kmt-options',
 				'priority' => 70,
@@ -291,6 +291,35 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 								'property' => '--logoWidth',
 							),
 						),
+						'different-logo-for-mobile'        => array(
+							'type'      => 'kmt-switcher',
+							'transport' => 'postMessage',
+							'label'     => __( 'Different Logo for Mobile?', 'kemet' ),
+							'context'   => array(
+								array(
+									'setting'  => 'device',
+									'operator' => 'in_array',
+									'value'    => array( 'tablet', 'mobile' ),
+								),
+							),
+						),
+					),
+				),
+			),
+			'kmt-header-mobile-logo'      => array(
+				'type'     => 'image',
+				'section'  => 'title_tagline',
+				'priority' => 75,
+				'label'    => __( 'Mobile Logo', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting'  => 'device',
+						'operator' => 'in_array',
+						'value'    => array( 'tablet', 'mobile' ),
+					),
+					array(
+						'setting' => 'different-logo-for-mobile',
+						'value'   => true,
 					),
 				),
 			),
@@ -307,7 +336,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function add_partials( $partials ) {
 		$new_partials = array_fill_keys(
-			array( 'display-site-title', 'display-site-tagline', 'custom_logo', 'blogname', 'blogdescription' ),
+			array( 'kmt-header-mobile-logo', 'different-logo-for-mobile', 'display-site-title', 'display-site-tagline', 'custom_logo', 'blogname', 'blogdescription' ),
 			array(
 				'selector'            => '.kmt-header-item-logo',
 				'container_inclusive' => false,
