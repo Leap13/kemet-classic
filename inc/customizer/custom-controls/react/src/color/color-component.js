@@ -3,7 +3,6 @@ import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
 import Responsive from '../common/responsive'
 const { __ } = wp.i18n;
-import { Tooltip } from '@wordpress/components';
 
 const ColorComponent = props => {
     let value = props.control.setting.get();
@@ -19,7 +18,7 @@ const ColorComponent = props => {
 
     useEffect(() => {
         // If settings are changed externally.
-        if (state.value !== value) {
+        if (state !== value) {
             setState(value);
         }
     }, [props]);
@@ -32,6 +31,7 @@ const ColorComponent = props => {
         else {
 
             UpdatedState = value
+
         }
         setState(UpdatedState)
         props.control.setting.set(UpdatedState);
@@ -70,6 +70,8 @@ const ColorComponent = props => {
         } else {
             value[`${id}`] = color.hex;
         }
+
+
         updateValues(value);
     };
 
@@ -80,28 +82,29 @@ const ColorComponent = props => {
         />
     }
 
+
     const renderInputHtml = (device) => {
 
-        innerOptionsHtml = Object.entries(pickers).map(([key, value]) => {
-            console.log(state[value[`id`]])
+        innerOptionsHtml = Object.entries(pickers).map(([key, val]) => {
+            console.log(state, "State from color Component", val, key)
+
             if (responsive) {
                 return (
                     <KemetColorPickerControl
-                        text={value[`title`]}
-                        color={state[device][value[`id`]]}
-                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                        text={val[`title`]}
+                        color={state[device][val[`id`]]}
+                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, val[`id`])}
                         backgroundType={'color'}
                         allowGradient={false}
                         allowImage={false}
                     />
                 )
             } else {
-                console.log("Not responsive")
                 return (
                     <KemetColorPickerControl
-                        text={value[`title`]}
-                        color={state[value[`id`]]}
-                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                        text={val[`title`]}
+                        color={state[val[`id`]]}
+                        onChangeComplete={(color) => handleChangeComplete(color, val[`id`])}
                         backgroundType={'color'}
                         allowGradient={false}
                         allowImage={false}

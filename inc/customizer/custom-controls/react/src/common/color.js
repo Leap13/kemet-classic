@@ -39,7 +39,7 @@ class KemetColorPickerControl extends Component {
     }
 
     render() {
-        console.log(this.state.color, this.props.color)
+        console.log(this.props)
         const {
             refresh,
             isVisible,
@@ -121,9 +121,10 @@ class KemetColorPickerControl extends Component {
                 <div className="color-button-wrap">
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
-                            <Tooltip text={this.state.text} position='top center' >
+                            <>
                                 <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
-                            </Tooltip>
+                                <i class="ct-tooltip-top">Initial</i>
+                            </>
                         }
                         {'image' === backgroundType &&
                             <>
@@ -181,7 +182,7 @@ class KemetColorPickerControl extends Component {
 
                                                                                 <ColorPicker
                                                                                     color={this.state.color}
-                                                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
+                                                                                    onChangeComplete={(color) => this(color)}
                                                                                 />
                                                                             </>
                                                                         )}
@@ -297,7 +298,7 @@ class KemetColorPickerControl extends Component {
     }
 
     onChangeComplete(color) {
-
+        console.log("ColorJS", color)
         let newColor;
         if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
             newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
@@ -305,7 +306,8 @@ class KemetColorPickerControl extends Component {
             newColor = color.hex;
         }
         this.setState({ backgroundType: 'color' });
-        this.props.onChangeComplete(color, 'color');
+        this.setState({ color: newColor })
+        this.props.onChangeComplete(color);
     }
 
     onPaletteChangeComplete(color) {
@@ -315,7 +317,7 @@ class KemetColorPickerControl extends Component {
         } else {
             this.setState({ refresh: true });
         }
-        this.props.onChangeComplete(color, 'color');
+        this.props.onChangeComplete(color);
     }
 
     onSelectImage(media) {
