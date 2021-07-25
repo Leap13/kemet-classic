@@ -338,12 +338,14 @@
 .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99;
-  top: 23px;
+  top: 27px;
   right: 2px;
   left: 0;
   bottom: 0;
 }
-.color-button-wrap:nth-child(2) .kemet-color-picker-wrap .kemet-popover-color::before {
+.color-button-wrap:nth-child(2)
+  .kemet-color-picker-wrap
+  .kemet-popover-color::before {
   position: absolute;
   content: "";
   right: calc(100% - 22px);
@@ -352,7 +354,9 @@
   border-width: 0 6px 7px 6px;
   border-color: transparent transparent #ffffff transparent;
 }
-.color-button-wrap:nth-child(1) .kemet-color-picker-wrap .kemet-popover-color::before {
+.color-button-wrap:nth-child(1)
+  .kemet-color-picker-wrap
+  .kemet-popover-color::before {
   position: absolute;
   content: "";
   right: calc(100% - 55px);
@@ -446,6 +450,7 @@
 .kmt-reset-btn.components-button.is-secondary:disabled span {
   color: #c5c5c5;
   font-size: 16px;
+  display: none;
 }
 /** Inside Setting group popup - Colors */
 .kmt-field-settings-modal .color-button-wrap {
@@ -617,6 +622,123 @@
   + .kmt-control-wrap
   .kmt-responsive-btns {
   top: 70px;
+}
+.kemet-color-picker-wrap .components-color-picker__swatch {
+  display: none;
+}
+.kemet-color-picker-wrap .is-alpha-enabled .components-color-picker__hue {
+  margin-bottom: 10px;
+}
+.kemet-color-picker-wrap .components-color-picker__hue,
+.kemet-color-picker-wrap .components-color-picker__alpha {
+  height: 18px;
+  position: relative;
+  border-radius: 10px;
+}
+.kemet-color-picker-wrap .components-color-picker__hue-gradient,
+.kemet-color-picker-wrap .components-color-picker__alpha-gradient {
+  border-radius: 10px;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  .components-base-control__field {
+  position: relative;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  .components-base-control__field
+  label {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  min-width: 18px;
+  margin: 0;
+  background: rgba(238, 238, 238, 0.65);
+  border-radius: 0 2px 2px 0;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  .components-base-control__field
+  input[type="number"] {
+  text-align: center;
+  padding-right: 20px !important;
+  padding-left: 2px !important;
+  font-size: 12px;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  input[type="number"] {
+  -moz-appearance: textfield;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  input[type="number"]::-webkit-inner-spin-button,
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle-wrapper {
+  display: flex;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  padding: 0;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+  background: rgba(238, 238, 238, 0.65);
+  border: 1px solid var(--borderColor, #ddd);
+  transition: border-color 0.1s linear;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle:focus {
+  outline: none;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle:hover {
+  border-color: var(--accentColor);
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle svg {
+  width: 14px;
+  height: 14px;
+}
+.kemet-color-picker-wrap .components-color-picker__inputs-toggle span {
+  display: none;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  > .components-color-picker__inputs-fields
+  .components-base-control__label:before {
+  content: "HEX";
+  font-size: 9px;
+  padding: 0 6px;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  > .components-color-picker__inputs-fields
+  .components-text-control__input {
+  padding-right: 38px !important;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  .components-base-control:not(:last-child) {
+  margin-left: 5px;
+}
+.kemet-color-picker-wrap
+  .components-color-picker__inputs-wrapper
+  > .components-color-picker__inputs-fields
+  .components-base-control__label {
+  font-size: 0;
 }
 
 .kemet-slider-wrap {
@@ -1208,6 +1330,7 @@
   line-height: 26px;
   font-size: 14px;
   border: 1px solid #ddd;
+  cursor: pointer;
 }
 
 .customize-control-kmt-responsive-slider .wrapper {
