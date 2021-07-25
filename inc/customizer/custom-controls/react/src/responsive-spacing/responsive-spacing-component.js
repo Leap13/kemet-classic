@@ -115,14 +115,15 @@ const ResponsiveSpacingComponent = props => {
         let linkHtml = linked_choices ? (
             <li key={'connect-disconnect' + device} className={`kmt-spacing-input-item-link ${disconnectedClass}`}>
                 <span title={title}
-                    className="dashicons dashicons-admin-links kmt-spacing-connected "
-                    onClick={() => {
-                        onConnectedClick();
-                    }} data-element-connect={id} ></span>
-                <span title={title} className="dashicons dashicons-editor-unlink kmt-spacing-disconnected wp-ui-highlight"
+                    className="dashicons  dashicons-editor-unlink  kmt-spacing-disconnected "
                     onClick={() => {
                         onDisconnectedClick();
-                    }} data-element-connect={id} ></span>
+                    }} data-element-connect={id} >
+                </span>
+                <span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight"
+                    onClick={() => {
+                        onConnectedClick();
+                    }} data-element-connect={id} > </span>
             </li>
         ) : null;
         return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
