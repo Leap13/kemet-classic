@@ -146,10 +146,20 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register
 			),
 			'button-color-group'       => array(
 				'type'     => 'kmt-color',
-				'responsive' => false,
+				'responsive' => true,
 				'default'  => array(
-					'initial' => '#fff',
-					'hover'   => '#000',
+					'desktop' => array(
+						'initial' => '#fff',
+						'hover'   => '#000',
+					),
+					'tablet' => array(
+						'initial' => '',
+						'hover'   => '',
+					),
+					'mobile' => array(
+						'initial' => '',
+						'hover'   => '',
+					)
 				),
 				'label' => 'Button Color',
 				'section'  => 'section-buttons-fields',
@@ -185,17 +195,24 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register
 				),
 				'input_attrs'  => array(),
 			),
-			'button-bg-color'          => array(
-				'type'      => 'kmt-color',
-				'transport' => 'postMessage',
-				'label'     => __('Background Color', 'kemet'),
-				'priority'  => 45,
-				'section'   => 'section-buttons-fields',
-				'preview'   => array(
-					'selector' => $btn_selector,
-					'property' => '--buttonBackgroundColor',
-				),
-			),
+			// 'body-bg-obj'     => array(
+            //     'transport' => 'postMessage',
+            //     'type'      => 'kmt-background',
+            //     'label'     => __( 'Background', 'kemet' ),
+            //     'priority'  => 142,
+            //     'section'   => 'section-buttons-fields',
+            // ),
+			// 'button-bg-color'          => array(
+			// 	'type'      => 'kmt-color',
+			// 	'transport' => 'postMessage',
+			// 	'label'     => __('Background Color', 'kemet'),
+			// 	'priority'  => 45,
+			// 	'section'   => 'section-buttons-fields',
+			// 	'preview'   => array(
+			// 		'selector' => $btn_selector,
+			// 		'property' => '--buttonBackgroundColor',
+			// 	),
+			// ),
 			'btn-border-color'         => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
