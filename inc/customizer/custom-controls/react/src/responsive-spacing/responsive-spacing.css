@@ -58,6 +58,8 @@
   input.kmt-spacing-input {
   text-align: center;
   padding: 0 3px;
+  width: 90% !important;
+  border: 1px solid #dcdddf;
 }
 
 .customize-control-kmt-responsive-spacing
@@ -92,6 +94,10 @@
   .kmt-spacing-disconnected {
   display: none;
 }
+.kmt-spacing-connected {
+  background-color: #a4afb7;
+  border-color: #a4afb7;
+}
 
 .customize-control-kmt-responsive-spacing
   .input-wrapper
@@ -107,9 +113,10 @@
   .kmt-spacing-input-item-link
   span {
   width: 100%;
-  height: 28px;
+  height: 30px;
   line-height: 26px;
   font-size: 14px;
   border: 1px solid #ddd;
   cursor: pointer;
+  border-radius: 0px 4px 4px 0px;
 }

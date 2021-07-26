@@ -120,7 +120,7 @@ const ResponsiveSpacingComponent = props => {
                         onDisconnectedClick();
                     }} data-element-connect={id} >
                 </span>
-                <span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight"
+                <span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected "
                     onClick={() => {
                         onConnectedClick();
                     }} data-element-connect={id} > </span>
