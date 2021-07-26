@@ -86,7 +86,6 @@ const ColorComponent = props => {
     const renderInputHtml = (device) => {
 
         innerOptionsHtml = Object.entries(pickers).map(([key, val]) => {
-            console.log(state, "State from color Component", val, key)
 
             if (responsive) {
                 return (

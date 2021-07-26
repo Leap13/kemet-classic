@@ -6582,8 +6582,6 @@ var ColorComponent = function ColorComponent(props) {
           key = _ref2[0],
           val = _ref2[1];
 
-      console.log(state, "State from color Component", val, key);
-
       if (responsive) {
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
           text: val["title"],
@@ -6672,13 +6670,14 @@ var colorComponent = wp.customize.kemetControl.extend({
 
     var control = this;
     jQuery(document).mouseup(function (e) {
-      var container = jQuery(control.container);
-      var colorWrap = container.find('.kemet-color-picker-wrap');
-      var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
-      var colorContainer = container.find('.color-button-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+      var container = jQuery(control.container),
+          colorWrap = container.find('.kemet-color-picker-wrap'),
+          resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+      var colorContainer = container.find(' .kemet-color-icon-indicate'); // If the target of the click isn't the container nor a descendant of the container.
 
-      if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorContainer.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
+      if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+        colorWrap.css("display", "none");
+        colorContainer.removeClass('open');
       }
     });
   }
@@ -6778,13 +6777,15 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           refresh: true
         });
       }
-    }
+    } // componentDidUpdate() {
+    //     document.addEventListener('mouseup', this.toggleClose());
+    // }
+
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props);
       var _this$state = this.state,
           refresh = _this$state.refresh,
           isVisible = _this$state.isVisible,
@@ -6861,14 +6862,14 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         colorValue: this.props.color
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
         class: "kmt-tooltip-top"
-      }, "Initial")), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
+      }, this.state.text)), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
         className: "kemet-advanced-color-indicate",
         colorValue: "#ffffff"
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Dashicon"], {
         icon: "format-image"
-      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      }))), isVisible ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kemet-color-picker-wrap"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kemet-popover-color",
         onClose: this.toggleClose
       }, 1 < tabs.length && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["TabPanel"], {
@@ -6962,7 +6963,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         onChangeComplete: function onChangeComplete(color) {
           return _this2.onChangeComplete(color);
         }
-      }))))))));
+      })))))) : null));
     }
   }, {
     key: "toggleClose",
@@ -7008,7 +7009,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
   }, {
     key: "onChangeComplete",
     value: function onChangeComplete(color) {
-      console.log("ColorJS", color);
       var newColor;
 
       if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
@@ -10008,7 +10008,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       "data-element-connect": id
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
       title: title,
-      className: "dashicons dashicons-admin-links kmt-spacing-connected wp-ui-highlight",
+      className: "dashicons dashicons-admin-links kmt-spacing-connected ",
       onClick: function onClick() {
         onConnectedClick();
       },

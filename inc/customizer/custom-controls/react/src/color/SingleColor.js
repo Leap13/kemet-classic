@@ -6,7 +6,7 @@ import {
     createRef,
 } from '@wordpress/element'
 import PickerModal, { getNoColorPropFor } from '../common/Model'
-// import { Transition } from 'react-spring/renderprops'
+import { Transition } from 'react-spring/renderprops'
 // import bezierEasing from 'bezier-easing'
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';

@@ -78,7 +78,6 @@ export default class OutsideClickHandler extends Component {
     // touch devices.
     onMouseDown = (e) => {
         const { useCapture } = this.props
-
         if (!this.checkIsInside(e)) {
             if (this.removeMouseUp) {
                 this.removeMouseUp()

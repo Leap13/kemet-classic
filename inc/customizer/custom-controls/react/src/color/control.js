@@ -11,16 +11,17 @@ export const colorComponent = wp.customize.kemetControl.extend({
         'use strict';
         let control = this;
         jQuery(document).mouseup(function (e) {
-            var container = jQuery(control.container);
-            var colorWrap = container.find('.kemet-color-picker-wrap');
-            var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
-            var colorContainer = container.find('.color-button-wrap')
+            let container = jQuery(control.container),
+                colorWrap = container.find('.kemet-color-picker-wrap'),
+                resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+            var colorContainer = container.find(' .kemet-color-icon-indicate')
+
 
             // If the target of the click isn't the container nor a descendant of the container.
-            if ((!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorContainer.is(e.target)) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+            if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
 
-                container.find('.components-button.kemet-color-icon-indicate.open').click();
-
+                colorWrap.css("display", "none")
+                colorContainer.removeClass('open')
             }
         });
     }

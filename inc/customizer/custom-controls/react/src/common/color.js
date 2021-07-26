@@ -37,9 +37,12 @@ class KemetColorPickerControl extends Component {
             this.setState({ refresh: true });
         }
     }
+    // componentDidUpdate() {
+    //     document.addEventListener('mouseup', this.toggleClose());
+    // }
+
 
     render() {
-        console.log(this.props)
         const {
             refresh,
             isVisible,
@@ -134,9 +137,10 @@ class KemetColorPickerControl extends Component {
                             </>
                         }
                     </Button>
-                    <div className="kemet-color-picker-wrap">
-                        <>
-                            {isVisible && (
+                    {isVisible ? (
+                        <div className="kemet-color-picker-wrap">
+                            <>
+
                                 <div className="kemet-popover-color" onClose={this.toggleClose}>
                                     {
                                         1 < tabs.length &&
@@ -260,9 +264,10 @@ class KemetColorPickerControl extends Component {
                                         </>
                                     }
                                 </div>
-                            )}
-                        </>
-                    </div>
+
+                            </>
+                        </div>
+                    ) : null}
                 </div>
 
             </>
@@ -299,7 +304,6 @@ class KemetColorPickerControl extends Component {
     }
 
     onChangeComplete(color) {
-        console.log("ColorJS", color)
         let newColor;
         if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
             newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
