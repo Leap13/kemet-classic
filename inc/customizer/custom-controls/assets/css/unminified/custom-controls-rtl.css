@@ -62,10 +62,14 @@
 }
 .kmt-color-picker-top {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 17px;
+  padding: 17px 5px;
   border-bottom: 1px solid #eee;
+}
+.kmt-color-picker-top
+  .components-circular-option-picker
+  .components-circular-option-picker__swatches {
+  display: flex;
+  justify-content: space-between;
 }
 .kemet-color-icon-indicate.components-button {
   height: auto;
