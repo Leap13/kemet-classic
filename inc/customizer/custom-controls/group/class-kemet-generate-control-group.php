@@ -73,17 +73,17 @@ class Kemet_Generate_Control_Group {
 					'transport'         => isset( $option['transport'] ) ? $option['transport'] : 'refresh',
 				)
 			);
-			$wp_customize->add_control(
-				new Kemet_Control_Hidden(
-					$wp_customize,
-					KEMET_THEME_SETTINGS . $option['id'],
-					array(
-						'type'     => 'kmt-hidden',
-						'section'  => $option['section'],
-						'priority' => $option['priority'],
-					)
-				)
-			);
+			// $wp_customize->add_control(
+			// 	new Kemet_Control_Hidden(
+			// 		$wp_customize,
+			// 		KEMET_THEME_SETTINGS . $option['id'],
+			// 		array(
+			// 			'type'     => 'kmt-hidden',
+			// 			'section'  => $option['section'],
+			// 			'priority' => $option['priority'],
+			// 		)
+			// 	)
+			// );
 		}
 	}
 
