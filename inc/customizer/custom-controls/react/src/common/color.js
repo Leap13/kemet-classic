@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Tooltip, Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
+import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 
@@ -99,7 +99,8 @@ class KemetColorPickerControl extends Component {
         let finalpaletteColors = [];
         let count = 0;
 
-        const defaultColorPalette = ['#000000',
+        const defaultColorPalette = [
+            '#000000',
             '#ffffff',
             '#dd3333',
             '#dd9933',
@@ -123,7 +124,7 @@ class KemetColorPickerControl extends Component {
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
                                 <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
-                                <i class="ct-tooltip-top">Initial</i>
+                                <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
                         {'image' === backgroundType &&

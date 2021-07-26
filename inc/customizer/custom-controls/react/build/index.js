@@ -6860,7 +6860,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         className: "kemet-advanced-color-indicate",
         colorValue: this.props.color
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
-        class: "ct-tooltip-top"
+        class: "kmt-tooltip-top"
       }, "Initial")), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
         className: "kemet-advanced-color-indicate",
         colorValue: "#ffffff"
