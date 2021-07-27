@@ -62,13 +62,15 @@ document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
         'use strict';
         jQuery(document).mouseup(function (e) {
             var container = jQuery(control.container);
-            var colorWrap = container.find('.kmt-color-control-wrap');
+            var colorWrap = container.find('.color-button-wrap');
             var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+            var colorContainer = container.find('.kemet-color-picker-wrap')
 
             // If the target of the click isn't the container nor a descendant of the container.
-            if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+            if (!colorWrap.is(e.target) && colorContainer.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
                 container.find('.components-button.kemet-color-icon-indicate.open').click();
             }
+
         });
         // Responsive
         kemetGetResponsiveJs(control);

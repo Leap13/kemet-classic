@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
+import classnames from 'classnames'
+
 import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
@@ -29,9 +31,6 @@ class KemetColorPickerControl extends Component {
         };
     }
 
-    componentDidUpdate() {
-        this.state.isVisible ? document.addEventListener("click", this.autoCloseModal(), true) : document.removeEventListener("click", this.autoCloseModal(), true)
-    }
 
 
 
@@ -41,27 +40,6 @@ class KemetColorPickerControl extends Component {
         } else {
             this.setState({ refresh: true });
         }
-    }
-
-    autoCloseModal(e) {
-        if (!document.querySelector('.kemet-color-icon-indicate').contains(e.target) && !document.querySelector('.kemet-color-picker-wrap').contains(e.target)) {
-            this.toggleClose()
-            console.log("autoClose222")
-        }
-        console.log("autoClose")
-
-
-
-
-        var colorWrap = document.querySelector('.astra-color-picker-wrap');
-        var resetBtnWrap = document.querySelector('.ast-color-btn-reset-wrap');
-
-        // If the target of the click isn't the container nor a descendant of the container.
-        if (!colorWrap.contains(e.target) && !resetBtnWrap.contains(e.target) && colorWrap.contains(e.target).length === 0 && resetBtnWrap.con(e.target).length === 0) {
-            document.querySelector('.components-button.astra-color-icon-indicate.open').click();
-        }
-
-
     }
 
     render() {
@@ -124,8 +102,7 @@ class KemetColorPickerControl extends Component {
             tabs.push(imageTab)
         }
 
-        let finalpaletteColors = [];
-        let count = 0;
+
 
         const defaultColorPalette = [
             '#000000',
@@ -137,13 +114,32 @@ class KemetColorPickerControl extends Component {
             '#1e73be',
         ];
 
-        defaultColorPalette.forEach(singleColor => {
-            let paletteColors = {};
-            Object.assign(paletteColors, { name: count + '_' + singleColor });
-            Object.assign(paletteColors, { color: singleColor });
-            finalpaletteColors.push(paletteColors);
-            count++;
-        });
+        const RenderTopSection = () => {
+            return (
+                <div className={`kmt-color-picker-top`}>
+                    <ul className="kmt-color-picker-skins">
+                        {defaultColorPalette.map((color, index) => (
+                            <li
+                                key={`color-${index}`}
+                                style={{
+                                    background: color,
+                                }}
+                                className={classnames({
+                                    active:
+                                        this.state.color === color,
+                                })}
+                                onClick={() => this.onPaletteChangeComplete(color)}>
+                                <div className="kmt-tooltip-top">
+                                    {`Color ${index + 1}`}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        }
+
+
 
         return (
             <>
@@ -199,17 +195,8 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         {refresh && (
                                                                             <>
-                                                                                <div className={`kmt-color-picker-top`}>
-                                                                                    <ColorPalette
-                                                                                        colors={finalpaletteColors}
-                                                                                        value={this.state.color}
-                                                                                        clearable={false}
-                                                                                        disableCustomColors={true}
-                                                                                        className="kmt-color-palette"
-                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                                                    />
-                                                                                </div>
 
+                                                                                {RenderTopSection()}
                                                                                 <ColorPicker
                                                                                     color={this.state.color}
                                                                                     onChangeComplete={(color) => this(color)}
@@ -218,16 +205,7 @@ class KemetColorPickerControl extends Component {
                                                                         )}
                                                                         {!refresh && (
                                                                             <>
-                                                                                <div className={`kmt-color-picker-top`}>
-                                                                                    <ColorPalette
-                                                                                        colors={finalpaletteColors}
-                                                                                        value={this.state.color}
-                                                                                        clearable={false}
-                                                                                        disableCustomColors={true}
-                                                                                        className="kmt-color-palette"
-                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                                                    />
-                                                                                </div>
+                                                                                {RenderTopSection()}
                                                                                 <ColorPicker
                                                                                     color={this.state.color}
                                                                                     onChangeComplete={(color) => this.onChangeComplete(color)}
@@ -250,16 +228,8 @@ class KemetColorPickerControl extends Component {
                                         <>
                                             {refresh && (
                                                 <>
-                                                    <div className={`kmt-color-picker-top`}>
-                                                        <ColorPalette
-                                                            colors={finalpaletteColors}
-                                                            value={this.state.color}
-                                                            clearable={false}
-                                                            disableCustomColors={true}
-                                                            className="kmt-color-palette"
-                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                        />
-                                                    </div>
+                                                    {RenderTopSection()}
+
                                                     <ColorPicker
                                                         color={this.state.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
@@ -269,16 +239,7 @@ class KemetColorPickerControl extends Component {
                                             )}
                                             {!refresh && (
                                                 <>
-                                                    <div className={`kmt-color-picker-top`}>
-                                                        <ColorPalette
-                                                            colors={finalpaletteColors}
-                                                            value={this.state.color}
-                                                            clearable={false}
-                                                            disableCustomColors={true}
-                                                            className="kmt-color-palette"
-                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                        />
-                                                    </div>
+                                                    {RenderTopSection()}
                                                     <ColorPicker
                                                         color={this.state.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
