@@ -5548,6 +5548,11 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(KemetColorPickerControl, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.state.isVisible ? document.addEventListener("click", this.autoCloseModal(), true) : document.removeEventListener("click", this.autoCloseModal(), true);
+    }
+  }, {
     key: "onResetRefresh",
     value: function onResetRefresh() {
       if (this.state.refresh === true) {
@@ -5559,10 +5564,23 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           refresh: true
         });
       }
-    } // componentDidUpdate() {
-    //     document.addEventListener('mouseup', this.toggleClose());
-    // }
+    }
+  }, {
+    key: "autoCloseModal",
+    value: function autoCloseModal(e) {
+      if (!document.querySelector('.kemet-color-icon-indicate').contains(e.target) && !document.querySelector('.kemet-color-picker-wrap').contains(e.target)) {
+        this.toggleClose();
+        console.log("autoClose222");
+      }
 
+      console.log("autoClose");
+      var colorWrap = document.querySelector('.astra-color-picker-wrap');
+      var resetBtnWrap = document.querySelector('.ast-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+
+      if (!colorWrap.contains(e.target) && !resetBtnWrap.contains(e.target) && colorWrap.contains(e.target).length === 0 && resetBtnWrap.con(e.target).length === 0) {
+        document.querySelector('.components-button.astra-color-icon-indicate.open').click();
+      }
+    }
   }, {
     key: "render",
     value: function render() {
