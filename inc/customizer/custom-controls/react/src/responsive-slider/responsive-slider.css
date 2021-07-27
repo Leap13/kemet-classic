@@ -141,7 +141,7 @@
 
 .customize-control-kmt-responsive-slider .kmt-slider-responsive-units {
   position: absolute;
-  transform: translateY(120%);
+  transform: translateY(50%);
   font-size: 11px;
   text-transform: uppercase;
   top: -50px;
