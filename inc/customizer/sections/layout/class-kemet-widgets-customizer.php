@@ -25,6 +25,16 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
+							'widgets-style'		=> array(
+								'type'     => 'kmt-select',
+								'label'    => __( 'Widgets Style', 'kemet' ),
+								'choices'  => array(
+									'style1' => __( 'Style 1', 'kemet' ),
+									'style2' => __( 'Style 2', 'kemet' ),
+									'style3' => __( 'Style 3', 'kemet' ),
+									'style4' => __( 'Style 4', 'kemet' ),
+								),
+							),
 							'widget-padding'       => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',

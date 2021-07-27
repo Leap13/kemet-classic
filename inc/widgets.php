@@ -215,3 +215,54 @@ if ( ! function_exists( 'kemet_widgets_init' ) ) :
 	add_action( 'widgets_init', 'kemet_widgets_init' );
 
 endif;
+/**
+ * Insert Widget attributes
+ */
+if ( ! function_exists( 'insert_attributes' ) ) :
+
+	/**
+	 * Insert Widget attributes
+	 *
+	 */
+	function insert_attributes( $params ) {
+			global $wp_registered_widgets;
+
+			$settings_getter = $wp_registered_widgets[ $params[0]['widget_id'] ]['callback'][0];
+			$settings_get    = $settings_getter->get_settings();
+			$settings        = $settings_get[ $params[1]['number'] ];
+
+			if ( empty( $settings['title'] ) ) {
+				$params[0]['before_widget'] .= '<div class="widget-content">';
+				$params[0]['after_widget']   = '</div>' . $params[0]['after_widget'];
+			} elseif ( isset( $settings['title'] ) ) {
+				$params[0]['after_title'] .= '<div class="widget-content">';
+				$params[0]['after_widget'] = '</div>' . $params[0]['after_widget'];
+			} else {
+				$params[0]['before_widget'] .= '<div class="widget-content">';
+				$params[0]['after_widget']   = '</div>' . $params[0]['after_widget'];
+			}
+
+			$widget_id = $params[0]['widget_id'];
+
+			$widget_style = kemet_get_option( 'widgets-style' );
+
+			$kmt_widget_class = '';
+			if ( ! empty( $widget_style ) ) {
+				$kmt_widget_class = 'kmt-widget-' . $widget_style;
+			}
+
+			// Footer Custom Style.
+			$kmt_footet_widget_class = '';
+			$footer_widget_style     = kemet_get_option( 'footer-widgets-style' );
+
+			if ( ( ! empty( $footer_widget_style ) ) && ( strpos( $params[0]['id'], 'main-footer-widget' ) !== false || strpos( $params[0]['id'], 'copyright-widget' ) !== false ) ) {
+				$kmt_widget_class = 'kmt-widget-' . $footer_widget_style;
+			}
+			if ( ! empty( $kmt_widget_class ) && ( strpos( $params[0]['id'], 'header-widget' ) !== 0 ) ) {
+				$params[0] = array_replace( $params[0], array( 'before_widget' => str_replace( 'widget ', 'widget ' . $kmt_widget_class . ' ', $params[0]['before_widget'] ) ) );
+			}
+
+			return $params;
+	}
+add_filter( 'dynamic_sidebar_params', 'insert_attributes' );
+endif;
