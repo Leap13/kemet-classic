@@ -86,6 +86,7 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
           section_layout = api.section(
             "section-" + builderType + "-builder-layout"
           );
+
         panel.expanded.bind(function (isExpanded) {
           let options = $.merge(section.controls(), section_layout.controls());
           if (isExpanded) {

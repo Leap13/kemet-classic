@@ -15,6 +15,8 @@ import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
 import FocusComponent from '../kmt-controls/focus'
 import SortableComponent from '../kmt-controls/sortable'
+import RadioComponent from '../kmt-controls/radio'
+import RowLayoutComponent from '../kmt-controls/row-layout'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -65,6 +67,12 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-sortable':
             OptionComponent = SortableComponent;
+            break;
+        case 'kmt-radio':
+            OptionComponent = RadioComponent;
+            break;
+        case 'kmt-row-layout':
+            OptionComponent = RowLayoutComponent;
             break;
     }
 

@@ -2195,6 +2195,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-area {
   display: flex;
+  flex: 1;
 }
 
 .kmt-builder-areas .kmt-builder-group-horizontal .kmt-builder-area-left,
@@ -2293,10 +2294,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin-top: 4px;
   margin-bottom: 4px;
   box-sizing: border-box;
-}
-
-.kmt-builder-mode-footer .kmt-builder-group.kmt-builder-group-horizontal {
-  display: grid;
 }
 
 .kmt-builder-mode-footer .kmt-builder-area:not(:first-child) {
@@ -2737,6 +2734,35 @@ li#customize-control-kemet-settings-footer-desktop-items {
   right: 0px !important;
 }
 
+.kmt-radio-container-control {
+  display: flex;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 0;
+}
+
+.kmt-radio-container-control button.components-button.is-tertiary {
+  flex: 1 1 0;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  height: 40px;
+  line-height: normal;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #cbd5e0;
+  border-radius: 2px;
+  background: transparent;
+  color: #4a5568;
+  white-space: normal;
+  box-shadow: none;
+}
+
 .components-popover__content
   .kmt-popover-builder-list
   .kmt-radio-container-control {
@@ -2963,24 +2989,9 @@ li#customize-control-kemet-settings-footer-desktop-items {
   padding-bottom: 12px;
 }
 
-.kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):hover,
-.kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):active {
-  color: #191e23;
-  box-shadow: inset 0 0 0 1px #555d66, inset 0 0 0 2px #ffffff;
-  background: transparent;
-}
-
 .kmt-radio-container-control .components-button.is-tertiary.active-radio {
   background: #007cba;
   color: #ffffff;
-}
-
-.kmt-radio-container-control
-  .components-button.is-tertiary.active-radio:not(:disabled):not([aria-disabled="true"]):hover {
-  color: #32373c;
-  border-color: #007cba;
 }
 
 .kmt-social-type .kmt-radio-container-control button:not(:first-child) {
@@ -3561,33 +3572,12 @@ button.components-button.kmt-sorter-item-expand {
 }
 
 .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary.active-radio {
-  background: unset;
-}
-
-.components-button-group.kmt-radio-container-control
   .components-button.is-tertiary.active-radio
   svg,
 .active-radio .kmt-icon-set svg {
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
-}
-
-#customize-control-kemet-settings-header-trigger-icon
-  .kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):hover,
-#customize-control-kemet-settings-header-trigger-icon
-  .kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):active,
-.kmt-radio-icon-control
-  .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):hover,
-.kmt-radio-icon-control
-  .kmt-radio-container-control
-  .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):active {
-  border: none;
-  box-shadow: unset;
 }
 
 .kmt-radio-icon-control

@@ -41,17 +41,7 @@ const SortableComponent = props => {
             updateValue();
         });
     }, [])
-    // const updateValue = function () {
-    //     'use strict';
-    //     let newValue = [];
 
-    //     this.sortableContainer.find('li').each(function () {
-    //         if (!jQuery(this).is('.invisible')) {
-    //             newValue.push(jQuery(this).data('value'));
-    //         }
-    //     });
-    //     control.set(newValue);
-    // }
     if (label) {
         labelHtml = <span className="customize-control-title">{label}</span>;
     }

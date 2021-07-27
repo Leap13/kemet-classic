@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import RowComponent from "./row-component";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
+import { getSettingId } from '../../options/options-component'
 
 const BuilderComponent = (props) => {
   let value = props.control.get();
@@ -34,6 +35,8 @@ const BuilderComponent = (props) => {
     : [];
 
   let columns = controlParams.columns ? controlParams.columns : [];
+  let layouts = controlParams.layouts ? controlParams.layouts : [];
+
   const prevItems = [];
 
   const [state, setState] = useState({
@@ -42,6 +45,7 @@ const BuilderComponent = (props) => {
     isPopup: false,
     revertDrag: false,
     prevItems: prevItems,
+    layout: layouts
   });
   let enablePopup = false;
 
@@ -309,6 +313,34 @@ const BuilderComponent = (props) => {
     return false;
   };
 
+  const updateRowLayout = () => {
+    document.addEventListener('KemetUpdateFooterColumns', function (e) {
+      if ("footer-items" !== controlParams.group) {
+        return;
+      }
+
+      if ('' === e.detail) {
+        return;
+      }
+
+      let newParams = controlParams;
+
+      if (newParams.layouts[e.detail]) {
+        newParams.layouts[e.detail] = wp.customize(getSettingId(e.detail + '-footer-layout')).get()
+        newParams.columns[e.detail] = wp.customize(getSettingId(e.detail + '-footer-columns')).get()
+        setState(prevState => ({
+          ...prevState,
+          layout: newParams.layouts,
+          columns: newParams.columns
+        }));
+
+        updateValues(newParams);
+      }
+    });
+  };
+  useEffect(() => {
+    updateRowLayout();
+  }, [])
   checkPopupVisibilty(false);
 
   return (
@@ -333,6 +365,7 @@ const BuilderComponent = (props) => {
             choices={choices}
             settings={state.value}
             columns={state.columns["popup"]}
+            layout={state.layout["popup"]}
             customizer={props.customizer}
           />
         )}
@@ -341,7 +374,6 @@ const BuilderComponent = (props) => {
             if ("popup" === row) {
               return;
             }
-
             return (
               <RowComponent
                 removeItem={(remove, row, zone) =>
@@ -364,6 +396,7 @@ const BuilderComponent = (props) => {
                 settings={state.value}
                 columns={state.columns[row]}
                 customizer={props.customizer}
+                layout={state.layout[row]}
               />
             );
           })}

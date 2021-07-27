@@ -24,7 +24,7 @@ const RowComponent = (props) => {
     }
   }
   if ("footer" === mode) {
-    layout = `kmt-grid-row-layout-${props.columns}-equal`;
+    layout = `footer-row-columns-${props.columns} footer-row-layout-${props.layout.desktop}`;
     zone_count = props.columns - 1;
     Object.keys(props.controlParams.zones[props.row]).map((zone, index) => {
       if (zone_count < index) {
@@ -87,6 +87,9 @@ const RowComponent = (props) => {
       >
         {Object.keys(props.controlParams.zones[props.row]).map(
           (zone, index) => {
+            if ('footer' === mode && zone_count < index) {
+              return;
+            }
             if (
               props.row + "_left_center" === zone ||
               props.row + "_right_center" === zone

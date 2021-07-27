@@ -4488,6 +4488,11 @@ h4.widget-title {
   margin-bottom: 15px;
 }
 
+/********************** widget style 2 **********************/
+.kmt-widget-style1 .widget-title {
+  padding: 3px 10px;
+}
+
 .sidebar-main {
   color: var(--textColor);
 }

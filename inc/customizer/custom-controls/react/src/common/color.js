@@ -295,7 +295,6 @@ class KemetColorPickerControl extends Component {
     }
 
     onChangeComplete(color) {
-        console.log(color);
         let newColor;
         if (color.rgb && color.rgb.a && 1 !== color.rgb.a) {
             newColor = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';

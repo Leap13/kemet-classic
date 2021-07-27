@@ -721,6 +721,11 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-desktop-popup-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-overlay-header-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/header/class-kemet-sticky-header-customizer.php';
+			// Footer.
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-footer-builder-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-top-footer-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-main-footer-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
