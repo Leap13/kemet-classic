@@ -32,7 +32,7 @@ const TabsComponent = (props) => {
                     </li>
                 })}
             </ul>
-            <div className="current-tab-options">
+            <div className="kmt-options">
                 {renderOptions(currentTab.options)}
             </div>
         </Fragment >
