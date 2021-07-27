@@ -5542,7 +5542,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "image-rotate"
-    }))));
+    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml));
   };
 
   var _onSelectImage = function onSelectImage(media, backgroundType) {
@@ -5624,7 +5624,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "background-container"
   }, renderReset(), renderSettings()));
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, inputHtml));
 };
@@ -5665,7 +5665,7 @@ var backgroundControl = wp.customize.kemetControl.extend({
     var control = this;
     jQuery(document).mouseup(function (e) {
       var container = jQuery(control.container);
-      var bgWrap = container.find('.background-wrapper');
+      var bgWrap = container.find('.color-button-wrap');
       var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
 
       if (!bgWrap.is(e.target) && !resetBtnWrap.is(e.target) && bgWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {

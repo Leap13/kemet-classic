@@ -9,6 +9,7 @@ const BackgroundComponent = props => {
 
     const renderReset = () => {
         return <span className="customize-control-title">
+
             <div className="kmt-color-btn-reset-wrap">
                 <button
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
@@ -36,6 +37,10 @@ const BackgroundComponent = props => {
                     <Dashicon icon='image-rotate' />
                 </button>
             </div>
+            <label>
+                {labelHtml}
+                {descriptionHtml}
+            </label>
         </span>;
     };
 
@@ -118,10 +123,7 @@ const BackgroundComponent = props => {
     </div>;
 
     return <>
-        <label>
-            {labelHtml}
-            {descriptionHtml}
-        </label>
+
 
         <div className="customize-control-content">
             {inputHtml}

@@ -195,13 +195,13 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register
 				),
 				'input_attrs'  => array(),
 			),
-			// 'body-bg-obj'     => array(
-            //     'transport' => 'postMessage',
-            //     'type'      => 'kmt-background',
-            //     'label'     => __( 'Background', 'kemet' ),
-            //     'priority'  => 142,
-            //     'section'   => 'section-buttons-fields',
-            // ),
+			'body-bg-obj'     => array(
+                'transport' => 'postMessage',
+                'type'      => 'kmt-background',
+                'label'     => __( 'Background', 'kemet' ),
+                'priority'  => 142,
+                'section'   => 'section-buttons-fields',
+            ),
 			// 'button-bg-color'          => array(
 			// 	'type'      => 'kmt-color',
 			// 	'transport' => 'postMessage',
