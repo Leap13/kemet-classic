@@ -19,137 +19,173 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$single_blog_options = array(
-			'single-blog-controls-tabs'  => array(
-				'section'  => 'section-blog-single',
-				'type'     => 'kmt-tabs',
-				'priority' => 0,
-			),
-			'blog-single-width'          => array(
-				'type'     => 'kmt-select',
-				'section'  => 'section-blog-single',
-				'priority' => 5,
-				'label'    => __( 'Single Post Content Width', 'kemet' ),
-				'choices'  => array(
-					'default' => __( 'Default', 'kemet' ),
-					'custom'  => __( 'Custom', 'kemet' ),
-				),
-			),
-			'blog-single-max-width'      => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'section'     => 'section-blog-single',
-				'priority'    => 10,
-				'label'       => __( 'Enter Width', 'kemet' ),
-				'suffix'      => '',
-				'input_attrs' => array(
-					'min'  => 768,
-					'step' => 1,
-					'max'  => 1920,
-				),
-				'context'     => array(
-					array(
-						'setting' => 'blog-single-width',
-						'value'   => 'custom',
+			'single-blog-controls-tabs' => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							'blog-single-width'          => array(
+								'type'    => 'kmt-select',
+								'label'   => __( 'Single Post Content Width', 'kemet' ),
+								'choices' => array(
+									'default' => __( 'Default', 'kemet' ),
+									'custom'  => __( 'Custom', 'kemet' ),
+								),
+							),
+							'blog-single-max-width'      => array(
+								'type'        => 'kmt-slider',
+								'transport'   => 'postMessage',
+								'label'       => __( 'Enter Width', 'kemet' ),
+								'suffix'      => '',
+								'input_attrs' => array(
+									'min'  => 768,
+									'step' => 1,
+									'max'  => 1920,
+								),
+								'preview'     => array(
+									'selector' => '.single-post .site-content > .kmt-container',
+									'property' => 'max-width',
+								),
+								'context'     => array(
+									array(
+										'setting' => 'blog-single-width',
+										'value'   => 'custom',
+									),
+								),
+							),
+							'blog-single-post-structure' => array(
+								'type'    => 'kmt-sortable',
+								'label'   => __( 'Single Post Structure', 'kemet' ),
+								'choices' => array(
+									'single-image'      => __( 'Featured Image', 'kemet' ),
+									'single-title-meta' => __( 'Title & Blog Meta', 'kemet' ),
+								),
+							),
+							'blog-single-meta'           => array(
+								'type'    => 'kmt-sortable',
+								'label'   => __( 'Single Post Meta', 'kemet' ),
+								'choices' => array(
+									'author'   => __( 'Author', 'kemet' ),
+									'category' => __( 'Category', 'kemet' ),
+									'date'     => __( 'Publish Date', 'kemet' ),
+									'comments' => __( 'Comments', 'kemet' ),
+									'tag'      => __( 'Tags', 'kemet' ),
+								),
+								'context' => array(
+									array(
+										'setting'  => 'blog-single-post-structure',
+										'operator' => 'contain',
+										'value'    => 'single-title-meta',
+									),
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							'font-size-entry-title'      => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Title Font Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 1,
+										'step' => 1,
+										'max'  => 200,
+									),
+									'em' => array(
+										'min'  => 0.1,
+										'step' => 0.1,
+										'max'  => 10,
+									),
+								),
+								'preview'      => array(
+									'selector' => '.kmt-single-post .entry-header .entry-title',
+									'property' => '--fontSize',
+								),
+							),
+							'letter-spacing-entry-title' => array(
+								'type'         => 'kmt-responsive-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Title Letter Spacing', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0.1,
+										'step' => 0.1,
+										'max'  => 10,
+									),
+								),
+								'preview'      => array(
+									'selector' => '.kmt-single-post .entry-header .entry-title',
+									'property' => '--letterSpacing',
+								),
+							),
+							'font-color-entry-title'     => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Post Title Font Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-single-post .entry-header .entry-title',
+										'property' => '--headingLinksColor',
+									),
+								),
+							),
+							'single-post-meta-color'     => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Post Meta Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-single-post .entry-meta,.kmt-single-post .entry-meta *',
+										'property' => '--headingLinksColor',
+									),
+								),
+							),
+							'comment-button-spacing'     => array(
+								'type'           => 'kmt-responsive-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Comment Button Spacing', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector' => '.comments-area .form-submit input[type="submit"]',
+									'property' => '--margin',
+									'sides'    => false,
+								),
+							),
+						),
 					),
 				),
 			),
-			'blog-single-post-structure' => array(
-				'type'     => 'kmt-sortable',
-				'section'  => 'section-blog-single',
-				'priority' => 15,
-				'label'    => __( 'Single Post Structure', 'kemet' ),
-				'choices'  => array(
-					'single-image'      => __( 'Featured Image', 'kemet' ),
-					'single-title-meta' => __( 'Title & Blog Meta', 'kemet' ),
-				),
-			),
-			'blog-single-meta'           => array(
-				'type'     => 'kmt-sortable',
-				'section'  => 'section-blog-single',
-				'priority' => 20,
-				'label'    => __( 'Single Post Meta', 'kemet' ),
-				'choices'  => array(
-					'author'   => __( 'Author', 'kemet' ),
-					'category' => __( 'Category', 'kemet' ),
-					'date'     => __( 'Publish Date', 'kemet' ),
-					'comments' => __( 'Comments', 'kemet' ),
-					'tag'      => __( 'Tags', 'kemet' ),
-				),
-				'context'  => array(
-					array(
-						'setting'  => 'blog-single-post-structure',
-						'operator' => 'contain',
-						'value'    => 'single-title-meta',
-					),
-				),
-			),
-			'kmt-single-post-style'      => array(
-				'type'     => 'kmt-title',
-				'label'    => __( 'Title and Meta', 'kemet' ),
-				'section'  => 'section-blog-single',
-				'priority' => 30,
-			),
-			'font-size-entry-title'      => array(
-				'type'         => 'kmt-responsive-slider',
-				'section'      => 'section-blog-single',
-				'transport'    => 'postMessage',
-				'priority'     => 35,
-				'label'        => __( 'Title Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-			),
-			'letter-spacing-entry-title' => array(
-				'type'         => 'kmt-responsive-slider',
-				'section'      => 'section-blog-single',
-				'transport'    => 'postMessage',
-				'priority'     => 38,
-				'label'        => __( 'Title Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-			),
-			'font-color-entry-title'     => array(
-				'type'      => 'kmt-color',
-				'section'   => 'section-blog-single',
-				'transport' => 'postMessage',
-				'priority'  => 40,
-				'label'     => __( 'Post Title Font Color', 'kemet' ),
-			),
-			'single-post-meta-color'     => array(
-				'type'      => 'kmt-color',
-				'section'   => 'section-blog-single',
-				'transport' => 'postMessage',
-				'priority'  => 41,
-				'label'     => __( 'Post Meta Color', 'kemet' ),
+		);
 
-			),
-			'comment-button-spacing'     => array(
-				'type'           => 'kmt-responsive-spacing',
-				'section'        => 'section-blog-single',
-				'transport'      => 'postMessage',
-				'priority'       => 70,
-				'label'          => __( 'Comment Button Spacing', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
-					'top'    => __( 'Top', 'kemet' ),
-					'right'  => __( 'Right', 'kemet' ),
-					'bottom' => __( 'Bottom', 'kemet' ),
-					'left'   => __( 'Left', 'kemet' ),
+		$single_blog_options = array(
+			'blog-single-options' => array(
+				'section' => 'section-blog-single',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $single_blog_options,
 				),
 			),
 		);

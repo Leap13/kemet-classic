@@ -1003,4 +1003,13 @@ function kemet_responsive_color_css(control, data) {
       );
     })
   })
+
+  wp.customize(settingName('readmore-as-button'), function (value) {
+    value.bind(function (new_value) {
+      $('.kmt-read-more').removeClass('button');
+      if (new_value) {
+        $('.kmt-read-more').addClass('button');
+      }
+    })
+  });
 })(jQuery);

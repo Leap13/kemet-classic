@@ -44,7 +44,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Dynamic_Css' ) ) {
 					'.kmt-shrink-effect .kmt-grid-row'     => array(
 						'transition' => esc_attr( 'all 0.3s linear' ),
 					),
-					$selector . ' .custom-logo-link img , ' . $selector . ' .kemet-logo-svg' => array(
+					'#sitehead ' . $selector . ' .custom-logo-link img , ' . $selector . ' .kemet-logo-svg' => array(
 						'--logoWidth' => kemet_responsive_slider( $sticky_logo_width, 'desktop' ),
 					),
 				);

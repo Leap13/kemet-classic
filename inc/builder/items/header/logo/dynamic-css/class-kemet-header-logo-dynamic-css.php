@@ -31,6 +31,15 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 				$header_logo_width         = kemet_get_option( 'kmt-header-responsive-logo-width' );
 
 				$css_output = array(
+					'.custom-mobile-logo'            => array(
+						'display' => 'none',
+					),
+					'.kmt-header-break-point .kmt-mobile-logo .custom-logo-link' => array(
+						'display' => 'none',
+					),
+					'.kmt-header-break-point .kmt-mobile-logo .custom-mobile-logo' => array(
+						'display' => 'block',
+					),
 					'.site-title'                    => array(
 						'--fontSize'          => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
 						'--headingLinksColor' => esc_attr( $site_title_color ),

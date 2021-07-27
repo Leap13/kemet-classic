@@ -14,6 +14,7 @@ import BuilderTabs from '../kmt-controls/builder-tabs'
 import TextComponent from '../kmt-controls/text'
 import EditorComponent from '../kmt-controls/editor'
 import FocusComponent from '../kmt-controls/focus'
+import SortableComponent from '../kmt-controls/sortable'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -62,12 +63,15 @@ const OptionComponent = (type) => {
         case 'kmt-focus-button':
             OptionComponent = FocusComponent;
             break;
+        case 'kmt-sortable':
+            OptionComponent = SortableComponent;
+            break;
     }
 
     return OptionComponent;
 }
 
-const getSettingId = (id) => {
+export const getSettingId = (id) => {
     const setting = wpOptions.includes(id)
         ? id
         : KemetCustomizerData.setting.replace(
@@ -94,7 +98,7 @@ export const getSetting = (settingName) => {
     return setting;
 };
 
-const isDisplay = (rules) => {
+export const isDisplay = (rules) => {
     let setting = '';
     var relation = undefined != rules.relation ? rules.relation : "AND",
         isVisible = "AND" === relation ? true : false;

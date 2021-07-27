@@ -77,7 +77,6 @@ const EditorComponent = props => {
                 id={editorId}
                 value={state.value}
                 onChange={({ target: { value } }) => {
-                    console.log(value);
                     HandleChange(value);
                 }}
             />
