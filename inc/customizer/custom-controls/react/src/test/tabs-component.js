@@ -47,7 +47,7 @@ const TabsComponent = (props) => {
           </li>
         })}
       </ul>
-      <div className="current-tab-options">
+      <div className="kmt-options">
         {Object.keys(currentTab.options).map((optionId) => {
           let control = props.customizer.control('kemet-settings[' + optionId + ']');
           let option = currentTab.options[optionId];
