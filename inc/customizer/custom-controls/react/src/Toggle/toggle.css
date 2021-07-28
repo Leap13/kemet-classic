@@ -1,0 +1,9 @@
+.components-toggle-control .components-base-control__field {
+  display: flex;
+  margin-bottom: 12px;
+  line-height: normal;
+  align-items: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
