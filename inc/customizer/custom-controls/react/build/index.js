@@ -8835,6 +8835,18 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
         'equal': {
           tooltip: __('Equal Width Columns', 'kemet'),
           icon: 'fivecol'
+        },
+        'left-forty': {
+          tooltip: __('Left Heavy 40/15/15/15/15', 'kemet'),
+          icon: 'lfiveforty'
+        },
+        'center-forty': {
+          tooltip: __('Center Heavy 15/15/40/15/15', 'kemet'),
+          icon: 'cfiveforty'
+        },
+        'right-forty': {
+          tooltip: __('Right Heavy 15/15/15/15/40', 'kemet'),
+          icon: 'rfiveforty'
         }
       },
       '4': {
@@ -8845,6 +8857,10 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
         'left-forty': {
           tooltip: __('Left Heavy 40/20/20/20', 'kemet'),
           icon: 'lfourforty'
+        },
+        'center-forty': {
+          tooltip: __('Center Heavy 10/40/40/10', 'kemet'),
+          icon: 'cfourforty'
         },
         'right-forty': {
           tooltip: __('Right Heavy 20/20/20/40', 'kemet'),
@@ -9005,11 +9021,11 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
       setDevice = _useState4[1];
 
   var HandleChange = function HandleChange(value) {
+    props.onChange(props.id, value);
     var event = new CustomEvent("KemetUpdateFooterColumns", {
       detail: row
     });
     document.dispatchEvent(event);
-    props.onChange(props.id, value);
     setState(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         value: value

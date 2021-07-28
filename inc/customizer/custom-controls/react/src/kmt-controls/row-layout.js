@@ -14,6 +14,18 @@ const RowLayoutComponent = (props) => {
                     tooltip: __('Equal Width Columns', 'kemet'),
                     icon: 'fivecol',
                 },
+                'left-forty': {
+                    tooltip: __('Left Heavy 40/15/15/15/15', 'kemet'),
+                    icon: 'lfiveforty',
+                },
+                'center-forty': {
+                    tooltip: __('Center Heavy 15/15/40/15/15', 'kemet'),
+                    icon: 'cfiveforty',
+                },
+                'right-forty': {
+                    tooltip: __('Right Heavy 15/15/15/15/40', 'kemet'),
+                    icon: 'rfiveforty',
+                },
             },
             '4': {
                 'equal': {
@@ -23,6 +35,10 @@ const RowLayoutComponent = (props) => {
                 'left-forty': {
                     tooltip: __('Left Heavy 40/20/20/20', 'kemet'),
                     icon: 'lfourforty',
+                },
+                'center-forty': {
+                    tooltip: __('Center Heavy 10/40/40/10', 'kemet'),
+                    icon: 'cfourforty',
                 },
                 'right-forty': {
                     tooltip: __('Right Heavy 20/20/20/40', 'kemet'),
@@ -176,12 +192,13 @@ const RowLayoutComponent = (props) => {
     });
     const [device, setDevice] = useState('desktop');
     const HandleChange = (value) => {
+
+        props.onChange(props.id, value);
+
         let event = new CustomEvent("KemetUpdateFooterColumns", {
             detail: row,
         });
         document.dispatchEvent(event);
-
-        props.onChange(props.id, value);
 
         setState((prevState) => ({
             ...prevState,
