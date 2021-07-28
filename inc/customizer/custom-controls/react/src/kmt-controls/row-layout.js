@@ -14,15 +14,15 @@ const RowLayoutComponent = (props) => {
                     tooltip: __('Equal Width Columns', 'kemet'),
                     icon: 'fivecol',
                 },
-                'left-forty': {
+                'left-five-forty': {
                     tooltip: __('Left Heavy 40/15/15/15/15', 'kemet'),
                     icon: 'lfiveforty',
                 },
-                'center-forty': {
+                'center-five-forty': {
                     tooltip: __('Center Heavy 15/15/40/15/15', 'kemet'),
                     icon: 'cfiveforty',
                 },
-                'right-forty': {
+                'right-five-forty': {
                     tooltip: __('Right Heavy 15/15/15/15/40', 'kemet'),
                     icon: 'rfiveforty',
                 },

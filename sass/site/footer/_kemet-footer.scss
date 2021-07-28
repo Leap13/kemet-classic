@@ -56,3 +56,22 @@
     }
   }
 }
+// Footer Builder
+[class*="-footer-wrap"] {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #eeeeee;
+  border-top: 1px solid #959494;
+}
+
+.kmt-grid-row {
+  grid-row-gap: 20px;
+  > .site-footer-section {
+    min-height: 60px;
+    background-color: #999;
+    &:first-child {
+      border-left: 0;
+    }
+  }
+  grid-template-columns: var(--gridTemplateColummns);
+}

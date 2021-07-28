@@ -361,5 +361,268 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				return $parse_css;
 			}
 		}
+		/**
+		 * Get Footer Row Css
+		 *
+		 * @param string $row row.
+		 * @return string
+		 */
+		public static function footer_row_css( $row ) {
+			$selector = '.site-' . $row . '-footer-wrap';
+			$columns  = kemet_get_option( $row . '-footer-columns' );
+
+			$css_output = array(
+				$selector . ' .row-columns-1'              => array(
+					'--gridTemplateColummns' => esc_attr( 'minmax(0, 1fr)' ),
+				),
+				$selector . ' .row-columns-2'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(2, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-3'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(3, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-4'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(4, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-5'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(5, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-layout-right-golden'    => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-golden' ) ),
+				),
+				$selector . ' .row-layout-left-golden'     => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-golden' ) ),
+				),
+				$selector . ' .row-layout-center-wide'     => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-wide' ) ),
+				),
+				$selector . ' .row-layout-center-half'     => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-half' ) ),
+				),
+				$selector . ' .row-layout-right-half'      => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-half' ) ),
+				),
+				$selector . ' .row-layout-left-half'       => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-half' ) ),
+				),
+				$selector . ' .row-layout-right-forty'     => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-forty' ) ),
+				),
+				$selector . ' .row-layout-center-forty'    => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-forty' ) ),
+				),
+				$selector . ' .row-layout-left-forty'      => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-forty' ) ),
+				),
+				$selector . ' .row-layout-right-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-five-forty' ) ),
+				),
+				$selector . ' .row-layout-center-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-five-forty' ) ),
+				),
+				$selector . ' .row-layout-left-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-five-forty' ) ),
+				),
+			);
+
+			/* Parse CSS from array() */
+			$parse_css = kemet_parse_css( $css_output );
+
+			$tablet = array(
+				$selector . ' .row-columns-1'              => array(
+					'--gridTemplateColummns' => esc_attr( 'minmax(0, 1fr)' ),
+				),
+				$selector . ' .row-columns-2'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(2, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-3'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(3, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-4'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(4, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-5'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(5, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-layout-tablet-right-golden' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-golden' ) ),
+				),
+				$selector . ' .row-layout-tablet-left-golden' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-golden' ) ),
+				),
+				$selector . ' .row-layout-tablet-center-wide' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-wide' ) ),
+				),
+				$selector . ' .row-layout-tablet-center-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-half' ) ),
+				),
+				$selector . ' .row-layout-tablet-right-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-half' ) ),
+				),
+				$selector . ' .row-layout-tablet-left-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-half' ) ),
+				),
+				$selector . ' .row-layout-tablet-right-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-center-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-left-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-right-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-five-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-center-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-five-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-left-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-five-forty' ) ),
+				),
+				$selector . ' .row-layout-tablet-last-row' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'last-row' ) ),
+				),
+				$selector . ' .row-layout-tablet-first-row' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'first-row' ) ),
+				),
+				$selector . ' .row-layout-tablet-row'      => array(
+					'--gridTemplateColummns' => esc_attr( 'minmax(0, 1fr)' ),
+				),
+				$selector . ' .row-layout-tablet-last-row>.site-footer-section:last-child' => array(
+					'grid-column' => esc_attr( '1 / -1' ),
+				),
+				$selector . ' .row-layout-tablet-first-row>.site-footer-section:first-child' => array(
+					'grid-column' => esc_attr( '1 / -1' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $tablet, '', '768' );
+
+			$mobile = array(
+				$selector . ' .row-columns-1'              => array(
+					'--gridTemplateColummns' => esc_attr( 'minmax(0, 1fr)' ),
+				),
+				$selector . ' .row-columns-2'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(2, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-3'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(3, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-4'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(4, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-columns-5'              => array(
+					'--gridTemplateColummns' => esc_attr( 'repeat(5, minmax(0, 1fr))' ),
+				),
+				$selector . ' .row-layout-mobile-right-golden' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-golden' ) ),
+				),
+				$selector . ' .row-layout-mobile-left-golden' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-golden' ) ),
+				),
+				$selector . ' .row-layout-mobile-center-wide' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-wide' ) ),
+				),
+				$selector . ' .row-layout-mobile-center-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-half' ) ),
+				),
+				$selector . ' .row-layout-mobile-right-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-half' ) ),
+				),
+				$selector . ' .row-layout-mobile-left-half' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-half' ) ),
+				),
+				$selector . ' .row-layout-mobile-right-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-center-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-left-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-right-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'right-five-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-center-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'center-five-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-left-five-forty' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'left-five-forty' ) ),
+				),
+				$selector . ' .row-layout-mobile-last-row' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'last-row' ) ),
+				),
+				$selector . ' .row-layout-mobile-first-row' => array(
+					'--gridTemplateColummns' => esc_attr( self::get_grid_template_columns( 'first-row' ) ),
+				),
+				$selector . ' .row-layout-mobile-row'      => array(
+					'--gridTemplateColummns' => esc_attr( 'minmax(0, 1fr)' ),
+				),
+				$selector . ' .row-layout-mobile-first-row>.site-footer-section:first-child' => array(
+					'grid-column' => esc_attr( '1 / -1' ),
+				),
+				$selector . ' .row-layout-mobile-last-row>.site-footer-section:last-child' => array(
+					'grid-column' => esc_attr( '1 / -1' ),
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
+			return $parse_css;
+		}
+
+		public static function get_grid_template_columns( $layout = '' ) {
+			$grid_template_columns = '';
+			switch ( $layout ) {
+				case 'right-golden':
+					$grid_template_columns = '1fr 2fr';
+					break;
+				case 'left-golden':
+					$grid_template_columns = '2fr 1fr';
+					break;
+				case 'left-half':
+					$grid_template_columns = '2fr 1fr 1fr';
+					break;
+				case 'right-half':
+					$grid_template_columns = '1fr 2fr 1fr';
+					break;
+				case 'center-half':
+					$grid_template_columns = '1fr 2fr 1fr';
+					break;
+				case 'center-wide':
+					$grid_template_columns = '2fr 6fr 2fr';
+					break;
+				case 'center-forty':
+					$grid_template_columns = '1fr 2fr 2fr 1fr';
+					break;
+				case 'right-forty':
+					$grid_template_columns = '1fr 1fr 1fr 2fr';
+					break;
+				case 'left-forty':
+					$grid_template_columns = '2fr 1fr 1fr 1fr';
+					break;
+				case 'center-five-forty':
+					$grid_template_columns = '1fr 1fr 3fr 1fr 1fr';
+					break;
+				case 'right-five-forty':
+					$grid_template_columns = '1fr 1fr 1fr 1fr 3fr';
+					break;
+				case 'left-five-forty':
+					$grid_template_columns = '3fr 1fr 1fr 1fr 1fr';
+					break;
+				case 'row':
+					$grid_template_columns = 'minmax(0, 1fr)';
+					break;
+				case 'first-row':
+				case 'last-row':
+					$grid_template_columns = '1fr 1fr';
+					break;
+			}
+			return $grid_template_columns;
+		}
 	}
 endif;

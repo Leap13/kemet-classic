@@ -13,11 +13,9 @@ add_action( 'kemet_sitehead_toggle_buttons', 'kemet_sitehead_toggle_buttons_prim
 // add_action( 'kemet_sitehead', 'kemet_sitehead_primary_template' );
 add_filter( 'wp_page_menu_args', 'kemet_sitehead_custom_page_menu_items', 10, 2 );
 add_filter( 'wp_nav_menu_items', 'kemet_sitehead_custom_nav_menu_items', 10, 2 );
-add_action( 'kemet_footer_content', 'kemet_footer_copyright_footer_template', 5 );
 add_action( 'kemet_entry_content_single', 'kemet_entry_content_single_template' );
 add_action( 'kemet_entry_content_blog', 'kemet_entry_content_blog_template' );
 add_action( 'kemet_404_page', 'kemet_404_page_template' );
-add_action( 'kemet_footer_content', 'kemet_main_footer_markup', 1 );
 add_action( 'kemet_sitehead_content', 'kemet_header_custom_item_outside_menu', 10 );
 
 /**
@@ -195,33 +193,6 @@ if ( ! function_exists( 'kemet_sitehead_toggle_buttons_primary' ) ) {
 }
 
 /**
- * Small Footer
- */
-if ( ! function_exists( 'kemet_footer_copyright_footer_template' ) ) {
-
-	/**
-	 * Small Footer
-	 *
-	 * => Used in files:
-	 *
-	 * /footer.php
-	 */
-	function kemet_footer_copyright_footer_template() {
-
-		$copyright_footer_layout = kemet_get_option( 'copyright-footer-layout' );
-		$copyright_footer_layout = apply_filters( 'kmt_footer_copyright_layout_disable', $copyright_footer_layout );
-
-		if ( ! apply_filters( 'kmt_footer_copyright_layout_disable', true ) ) {
-			return;
-		} elseif ( 'copyright-footer-layout-1' == $copyright_footer_layout ) {
-			get_template_part( 'templates/footer/copyright-footer-layout' );
-		} elseif ( 'copyright-footer-layout-2' == $copyright_footer_layout ) {
-			get_template_part( 'templates/footer/copyright-footer-layout-2' );
-		}
-	}
-}
-
-/**
  * Header
  */
 if ( ! function_exists( 'kemet_sitehead_primary_template' ) ) {
@@ -290,40 +261,6 @@ if ( ! function_exists( 'kemet_404_page_template' ) ) {
 	 */
 	function kemet_404_page_template() {
 		get_template_part( 'templates/404/404-layout' );
-	}
-}
-
-/**
- * Footer widgets markup
- */
-if ( ! function_exists( 'kemet_main_footer_markup' ) ) {
-
-	/**
-	 * Footer widgets markup
-	 *
-	 * Loads appropriate template file based on the style option selected in options panel.
-	 */
-	function kemet_main_footer_markup() {
-
-		$main_footer_layout = kemet_get_option( 'footer-layout' );
-		$main_footer_layout = apply_filters( 'kemet_main_footer_disable', $main_footer_layout );
-
-		if ( ! apply_filters( 'kemet_main_footer_disable', true ) ) {
-			return;
-		} elseif ( 'layout-1' == $main_footer_layout ) { // Add markup.
-			get_template_part( 'templates/main-footer/layout-1' );
-		} elseif ( 'layout-2' == $main_footer_layout ) {
-			get_template_part( 'templates/main-footer/layout-2' );
-		} elseif ( 'layout-3' == $main_footer_layout ) {
-			get_template_part( 'templates/main-footer/layout-3' );
-		} elseif ( 'layout-4' == $main_footer_layout ) {
-			get_template_part( 'templates/main-footer/layout-4' );
-		} elseif ( 'layout-5' == $main_footer_layout ) {
-			get_template_part( 'templates/main-footer/layout-5' );
-		} elseif ( 'layout-6' == $main_footer_layout ) {
-			get_template_part( 'templates/main-footer/layout-6' );
-		}
-
 	}
 }
 

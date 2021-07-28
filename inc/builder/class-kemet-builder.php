@@ -42,6 +42,7 @@ if ( ! class_exists( 'Kemet_Builder' ) ) :
 			require KEMET_THEME_DIR . 'inc/builder/markup/class-kemet-header-markup.php';
 			require KEMET_THEME_DIR . 'inc/builder/markup/class-kemet-footer-markup.php';
 			require KEMET_THEME_DIR . 'inc/builder/items/header/class-kemet-header-items.php';
+			require KEMET_THEME_DIR . 'inc/builder/items/footer/class-kemet-footer-items.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

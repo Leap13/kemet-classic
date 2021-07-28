@@ -29,8 +29,8 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 		$register_options = array(
 			'main-footer-columns' => array(
 				'transport' => 'postMessage',
-				'type'      => 'kmt-select',
-				'label'     => __( 'Main Layout', 'kemet' ),
+				'type'      => 'kmt-radio',
+				'label'     => __( 'Columns', 'kemet' ),
 				'choices'   => array(
 					'1' => __( '1', 'kemet' ),
 					'2' => __( '2', 'kemet' ),
@@ -38,6 +38,12 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 					'4' => __( '4', 'kemet' ),
 					'5' => __( '5', 'kemet' ),
 				),
+			),
+			'main-footer-layout'  => array(
+				'type'      => 'kmt-row-layout',
+				'label'     => __( 'Layout', 'kemet' ),
+				'transport' => 'postMessage',
+				'row'       => 'main',
 			),
 		);
 
@@ -72,6 +78,25 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 		return array_merge( $sections, $main_footer_sections );
 
 	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials = array_fill_keys(
+			array( 'main-footer-columns', 'main-footer-layout' ),
+			array(
+				'selector'            => '#colophon',
+				'container_inclusive' => true,
+				'render_callback'     => array( Kemet_Footer_Markup::get_instance(), 'footer_markup' ),
+			)
+		);
+		return array_merge( $partials, $new_partials );
+	}
+
 }
 
 new Kemet_Main_Footer_Customizer();

@@ -762,32 +762,6 @@ if ( ! function_exists( 'kemet_primary_navigation_markup' ) ) {
 add_action( 'kemet_sitehead_content', 'kemet_primary_navigation_markup', 10 );
 
 /**
- * Function to get site Footer
- */
-if ( ! function_exists( 'kemet_footer_markup' ) ) {
-
-	/**
-	 * Site Footer - <footer>
-	 */
-	function kemet_footer_markup() {
-		?>
-
-		<footer itemtype="https://schema.org/WPFooter" itemscope="itemscope" id="colophon" <?php kemet_footer_classes(); ?> role="contentinfo">
-
-			<?php kemet_footer_content_top(); ?>
-
-			<?php kemet_footer_content(); ?>
-
-			<?php kemet_footer_content_bottom(); ?>
-
-		</footer><!-- #colophon -->
-		<?php
-	}
-}
-
-add_action( 'kemet_footer', 'kemet_footer_markup' );
-
-/**
  * Function to get Header Breakpoint
  */
 if ( ! function_exists( 'kemet_header_break_point' ) ) {
@@ -1842,3 +1816,12 @@ if ( ! function_exists( 'kemet_excerpt_more' ) ) {
 }
 
 add_filter( 'excerpt_more', 'kemet_excerpt_more' );
+
+if ( ! function_exists( 'kemet_has_widget_editor' ) ) {
+	/**
+	 * kemet_has_widget_editor
+	 */
+	function kemet_has_widget_editor() {
+		return ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) ) || version_compare( substr( get_bloginfo( 'version' ), 0, 3 ), '5.8', '>=' );
+	}
+}

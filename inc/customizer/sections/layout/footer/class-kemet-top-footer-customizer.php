@@ -78,6 +78,24 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 		return array_merge( $sections, $top_footer_sections );
 
 	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials = array_fill_keys(
+			array( 'top-footer-columns', 'top-footer-layout' ),
+			array(
+				'selector'            => '#colophon',
+				'container_inclusive' => true,
+				'render_callback'     => array( Kemet_Footer_Markup::get_instance(), 'footer_markup' ),
+			)
+		);
+		return array_merge( $partials, $new_partials );
+	}
 }
 
 new Kemet_Top_Footer_Customizer();

@@ -66,8 +66,22 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_filter( 'body_class', array( $this, 'body_classes' ) );
 			add_action( 'kemet_header', array( $this, 'mobile_header_logo' ), 9 );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
+			add_filter( 'customizer_widgets_section_args', array( $this, 'customizer_custom_widget_areas' ), 10, 3 );
 		}
 
+		/**
+		 * Filter footer widget areas.
+		 *
+		 * @param array  $section_args the widget sections args.
+		 * @param string $section_id the widget sections id.
+		 * @param string $sidebar_id the widget area id.
+		 */
+		public function customizer_custom_widget_areas( $section_args, $section_id, $sidebar_id ) {
+			if ( strpos( $section_id, 'header-widget-' ) ) {
+				$section_args['panel'] = 'panel-header-builder-group';
+			}
+			return $section_args;
+		}
 
 		/**
 		 * different_mobile_logo

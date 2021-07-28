@@ -117,6 +117,21 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		return array_merge( $panels, $footer_builder_panels );
 
 	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$partials['footer-items'] = array(
+			'selector'            => '#colophon',
+			'container_inclusive' => true,
+			'render_callback'     => array( Kemet_Footer_Markup::get_instance(), 'footer_markup' ),
+		);
+		return $partials;
+	}
 }
 
 new Kemet_Footer_Builder_Customizer();
