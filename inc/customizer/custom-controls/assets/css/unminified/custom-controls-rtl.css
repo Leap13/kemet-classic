@@ -678,6 +678,7 @@
   padding-right: 20px !important;
   padding-left: 2px !important;
   font-size: 12px;
+  border: 1px solid #d0d0d0 !important;
 }
 .kemet-color-picker-wrap
   .components-color-picker__inputs-wrapper

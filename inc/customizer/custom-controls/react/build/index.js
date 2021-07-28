@@ -6350,7 +6350,7 @@ Responsive.defaultProps = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options/options-component */ "./src/options/options-component.js");
+/* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./options/options-component */ "./src/options/options-component.js");
 
 
 (function ($, api) {
@@ -6507,13 +6507,13 @@ __webpack_require__.r(__webpack_exports__);
 
   if (KemetCustomizerData && KemetCustomizerData.contexts) {
     var context = KemetCustomizerData.contexts;
-    var mobileLogo = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_0__["getSettingId"])('kmt-header-mobile-logo');
+    var mobileLogo = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_1__["getSettingId"])('kmt-header-mobile-logo');
 
     var setupControl = function setupControl(element) {
       var rules = context[element.id];
 
       var setActiveState = function setActiveState() {
-        if (Object(_options_options_component__WEBPACK_IMPORTED_MODULE_0__["isDisplay"])(rules)) {
+        if (Object(_options_options_component__WEBPACK_IMPORTED_MODULE_1__["isDisplay"])(rules)) {
           element.container.show();
         } else {
           element.container.hide();
@@ -6521,14 +6521,14 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       _.each(rules, function (rule, ruleKey) {
-        var setting = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_0__["getSetting"])(rule.setting);
+        var setting = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_1__["getSetting"])(rule.setting);
 
         if (undefined != setting) {
           setting.bind(setActiveState);
         }
       });
 
-      element.active.validate = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_0__["isDisplay"])(rules);
+      element.active.validate = Object(_options_options_component__WEBPACK_IMPORTED_MODULE_1__["isDisplay"])(rules);
       setActiveState();
     };
 
@@ -6548,7 +6548,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customizer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./customizer */ "./src/customizer.js");
-/* harmony import */ var _options_control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./options/control */ "./src/options/control.js");
+/* harmony import */ var _options_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./options/control */ "./src/options/control.js");
 
 
 window.addEventListener('load', function () {
