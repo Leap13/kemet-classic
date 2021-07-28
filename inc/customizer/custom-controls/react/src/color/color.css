@@ -699,21 +699,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
+  height: 30px;
   width: 28px;
   padding: 0;
   border-radius: 3px;
   margin-left: 5px;
   cursor: pointer;
   background: rgba(238, 238, 238, 0.65);
-  border: 1px solid var(--borderColor, #ddd);
+  border: 1px solid #ddd;
   transition: border-color 0.1s linear;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle:focus {
   outline: none;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle:hover {
-  border-color: var(--accentColor);
+  border-color: #2271b1;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle svg {
   width: 14px;
@@ -739,7 +739,7 @@
 .kemet-color-picker-wrap
   .components-color-picker__inputs-wrapper
   .components-base-control:not(:last-child) {
-  margin-right: 5px;
+  margin-right: 2px;
 }
 .kemet-color-picker-wrap
   .components-color-picker__inputs-wrapper
