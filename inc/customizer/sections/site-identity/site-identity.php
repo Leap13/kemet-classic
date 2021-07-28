@@ -95,6 +95,7 @@ $wp_customize->add_control(
 		array(
 			'type'         => 'kmt-responsive-slider',
 			'section'      => 'title_tagline',
+			'responsive' =>true,
 			'priority'     => 25,
 			'label'        => __( 'Title Font Size', 'kemet' ),
 			'unit_choices' => array(
@@ -179,12 +180,12 @@ $wp_customize->add_control(
 			'section'      => 'title_tagline',
 			'priority'     => 32,
 			'label'        => __( 'Title Letter Spacing', 'kemet' ),
-			'unit_choices' => array(
-				'px' => array(
-					'min'  => 0.1,
-					'step' => 0.1,
-					'max'  => 10,
-				),
+			'suffix'      => '',
+			'responsive' =>false,
+			'input_attrs' => array(
+				'min'  => 768,
+				'step' => 1,
+				'max'  => 1920,
 			),
 		)
 	)

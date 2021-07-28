@@ -36,6 +36,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @var string
 	 */
 	public $suffix = '';
+	public $responsiveValue = '';
 	/**
 	 * The unit type.
 	 *
@@ -77,6 +78,9 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 		$this->json['label']        = esc_html( $this->label );
 		$this->json['suffix']       = $this->suffix;
 		$this->json['unit_choices'] = $this->unit_choices;
+		$this->json['responsive'] = $this->responsiveValue;
+		$this->json['input_attrs'] = $this->input_attrs;
+
 
 		$responsive = array(
 			'desktop' => '',

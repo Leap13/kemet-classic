@@ -31,11 +31,12 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[site-content-width]',
 		array(
-			'type'        => 'kmt-slider',
+			'type'        => 'kmt-responsive-slider',
 			'section'     => 'section-container-layout',
 			'priority'    => 5,
 			'label'       => __( 'Container Width', 'kemet' ),
 			'suffix'      => '',
+			'responsive' =>false,
 			'input_attrs' => array(
 				'min'  => 768,
 				'step' => 1,
