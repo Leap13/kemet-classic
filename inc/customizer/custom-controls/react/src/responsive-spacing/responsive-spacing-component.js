@@ -10,12 +10,15 @@ const ResponsiveSpacingComponent = props => {
     value = (undefined === value || '' === value) ? props.control.params.value : value;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
+    let responsive = props.control.params.reponsive;
 
     useEffect(() => {
         if (state !== value) {
             setState(value);
         }
     }, [props]);
+
+    console.log(props.control.params);
 
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
@@ -49,8 +52,11 @@ const ResponsiveSpacingComponent = props => {
         let updateState = {
             ...state
         };
-        let deviceUpdateState = {
+
+        let deviceUpdateState = responsive ? {
             ...updateState[device]
+        } : {
+            ...updateState
         };
 
         if (!event.target.classList.contains('connected')) {
@@ -60,7 +66,12 @@ const ResponsiveSpacingComponent = props => {
                 deviceUpdateState[choiceID] = event.target.value;
             }
         }
+        if (responsive) {
+            updateState[device] = deviceUpdateState;
 
+        } else {
+            updateState = deviceUpdateState
+        }
         updateState[device] = deviceUpdateState;
         props.control.setting.set(updateState);
         setState(updateState);
@@ -70,7 +81,11 @@ const ResponsiveSpacingComponent = props => {
         let updateState = {
             ...state
         };
-        updateState[`${device}-unit`] = unitKey;
+        if (responsive) {
+            updateState[`${device}-unit`] = unitKey;
+        } else {
+            updateState[`active-unit`] = unitKey;
+        }
         props.control.setting.set(updateState);
         setState(updateState);
     };
@@ -99,12 +114,13 @@ const ResponsiveSpacingComponent = props => {
         let htmlChoices = null;
 
 
-
         if (choices) {
             htmlChoices = Object.keys(choices).map(choiceID => {
+                let inputValue = responsive ? state[device][choiceID] : state[choiceID];
+
                 let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
-                        value={state[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
+                        value={inputValue} onChange={() => onSpacingChange(device, choiceID)}
                         data-element-connect={id} />
                     <span className="kmt-spacing-title">{choices[choiceID]}</span>
                 </li>;
@@ -139,9 +155,14 @@ const ResponsiveSpacingComponent = props => {
         if (unit_choices) {
             responsiveUnit = Object.values(unit_choices).map(unitKey => {
                 let unitClass = '';
-
-                if (state[`${device}-unit`] === unitKey) {
-                    unitClass = 'active';
+                if (responsive) {
+                    if (state[`${device}-unit`] === unitKey) {
+                        unitClass = 'active';
+                    }
+                } else {
+                    if (state[`active-unit`] === unitKey) {
+                        unitClass = 'active';
+                    }
                 }
 
                 let html = <li key={unitKey} className={`single-unit ${unitClass}`}
@@ -165,9 +186,6 @@ const ResponsiveSpacingComponent = props => {
     let inputHtml = null;
     let responsiveHtml = null;
 
-
-    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
-
     let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     inputHtml = <Fragment>
         {renderInputHtml(device, 'active')}
@@ -184,10 +202,10 @@ const ResponsiveSpacingComponent = props => {
 
     return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
 
-        <Responsive
+        {responsive ? <Responsive
             onChange={(currentDevice) => setDevice(currentDevice)}
             label={label}
-        />
+        /> : <span className="customize-control-title">{label}</span>}
         {renderUnit()}
 
         {descriptionContent}

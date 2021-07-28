@@ -9577,6 +9577,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
       updateState["".concat(device, "-unit")] = value;
+      updateState["".concat(device, "-unit")] = value;
 
       _this.props.control.setting.set(updateState);
 
@@ -9588,28 +9589,37 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleReset", function (e) {
       e.preventDefault();
 
-      var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
-          size = _this.state.defaultVal[_this.state.currentDevice];
+      if (_this.responsive) {
+        var defUnit = _this.state.ResponsiveDefaultVal["".concat(_this.state.currentDevice, "-unit")],
+            size = _this.state.ResponsiveDefaultVal[_this.state.currentDevice];
 
-      var updateState = _objectSpread({}, _this.state.defaultVal);
+        var updateState = _objectSpread({}, _this.state.ResponsiveDefaultVal);
 
-      updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
-      updateState[_this.state.currentDevice] = size;
+        updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
+        updateState[_this.state.currentDevice] = size;
 
-      _this.props.control.setting.set(updateState);
+        _this.props.control.setting.set(updateState);
 
-      _this.setState({
-        initialState: updateState
-      });
+        _this.setState({
+          initialState: updateState
+        });
+      } else {
+        var value = JSON.parse(JSON.stringify(_this.defaultValue));
+
+        _this.setState({
+          initialState: value
+        });
+      }
     });
 
     _this.unit_choices = _this.props.control.params.unit_choices;
-    var defaultValues = _this.props.control.params.default;
     _this.values = _this.props.control.params.value;
+    _this.responsive = _this.props.control.params.responsive;
 
     var _value = _this.props.control.setting.get();
 
-    var defaultParam = {
+    _this.defaultValue = _this.props.control.params.default;
+    var ResDefaultParam = {
       "desktop": '',
       "desktop-unit": 'px',
       'tablet': '',
@@ -9617,12 +9627,12 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       'mobile': '',
       'mobile-unit': ''
     };
-    _value = undefined === _value || '' === _value ? _this.props.control.params.value : _value;
-    defaultValues = undefined === defaultValues || '' === defaultValues ? defaultParam : defaultValues;
+    var responsiveDefaultValues = _this.props.control.params.default ? _objectSpread(_objectSpread({}, ResDefaultParam), _this.props.control.params.default) : ResDefaultParam;
+    _value = _value ? _objectSpread(_objectSpread({}, responsiveDefaultValues), _value) : responsiveDefaultValues;
     _this.state = {
       initialState: _value,
       currentDevice: 'desktop',
-      defaultVal: defaultValues
+      ResponsiveDefaultVal: responsiveDefaultValues
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.handleUnitChange = _this.handleUnitChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
@@ -9634,7 +9644,12 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function updateValues(device, value) {
       var updateState = _objectSpread({}, this.state.initialState);
 
-      updateState[device] = value;
+      if (this.responsive) {
+        updateState[device] = value;
+      } else {
+        updateState = value;
+      }
+
       this.props.control.setting.set(updateState);
       this.setState({
         initialState: updateState
@@ -9645,10 +9660,17 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.props.control.params);
+      var input_attrs = '';
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,
           suffix = _this$props$control$p.suffix,
           description = _this$props$control$p.description;
+
+      if (!this.responsive) {
+        input_attrs = this.props.control.params.input_attrs;
+      }
+
       var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
         class: "kmt-range-unit"
       }, suffix) : null;
@@ -9658,30 +9680,48 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       var dataAttributes = '';
       var units = [];
 
-      for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
-            key = _Object$entries$_i[0],
-            value = _Object$entries$_i[1];
+      if (this.unit_choices) {
+        for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
 
-        units.push(key);
+          units.push(key);
 
-        if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
-          dataAttributes = {
-            min: value.min,
-            max: value.max,
-            step: value.step
-          };
+          if (this.responsive) {
+            if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
+              dataAttributes = {
+                min: value.min,
+                max: value.max,
+                step: value.step
+              };
+            }
+          } else {
+            dataAttributes = {
+              min: input_attrs.min,
+              max: input_attrs.max,
+              step: input_attrs.step
+            };
+          }
         }
+      } else {
+        dataAttributes = {
+          min: input_attrs.min,
+          max: input_attrs.max,
+          step: input_attrs.step
+        };
       }
 
-      var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      var labelContent = this.responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
         onChange: function onChange(currentDevice) {
           return _this2.setState({
             currentDevice: currentDevice
           });
         },
         label: label
-      }) : null;
+      }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        className: "customize-control-title"
+      }, label);
       var unitHTML = units.map(function (unit) {
         var unit_class = '';
 
@@ -9699,17 +9739,18 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
+      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
         htmlFor: ""
       }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper desktop active"
+        className: "input-field-wrapper ".concat(this.state.currentDevice, " active")
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
         type: "range",
-        value: this.state.initialState['desktop'],
+        value: sliderValue,
         onChange: function onChange(event) {
-          return _this2.updateValues('desktop', event.target.value);
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
         },
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
@@ -9720,65 +9761,13 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         type: "number",
         "data-id": "desktop",
         className: "kmt-responsive-range-value-input kmt-responsive-range-desktop-input",
-        value: this.state.initialState['desktop'],
+        value: sliderValue,
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
         step: "".concat(dataAttributes.step),
         onChange: function onChange(event) {
-          return _this2.updateValues('desktop', event.target.value);
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
         }
-      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper tablet "
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "range",
-        value: this.state.initialState['tablet'],
-        onChange: function onChange(value) {
-          return _this2.updateValues('tablet', event.target.value);
-        },
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "number",
-        "data-id": "tablet",
-        className: "kmt-responsive-range-value-input kmt-responsive-range-tablet-input",
-        value: this.state.initialState['tablet'],
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step),
-        onChange: function onChange(value) {
-          return _this2.updateValues('tablet', event.target.value);
-        }
-      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper mobile "
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "range",
-        value: this.state.initialState['mobile'],
-        onChange: function onChange(value) {
-          return _this2.updateValues('mobile', event.target.value);
-        },
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "number",
-        "data-id": "mobile",
-        className: "kmt-responsive-range-value-input kmt-responsive-range-mobile-input",
-        onChange: function onChange(value) {
-          return _this2.updateValues('mobile', event.target.value);
-        },
-        value: this.state.initialState['mobile'],
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
         className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
       }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
@@ -9886,11 +9875,13 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       device = _useState4[0],
       setDevice = _useState4[1];
 
+  var responsive = props.control.params.reponsive;
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (state !== value) {
       setState(value);
     }
   }, [props]);
+  console.log(props.control.params);
 
   var onConnectedClick = function onConnectedClick() {
     var parent = event.target.parentElement.parentElement;
@@ -9922,7 +9913,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
 
     var updateState = _objectSpread({}, state);
 
-    var deviceUpdateState = _objectSpread({}, updateState[device]);
+    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState);
 
     if (!event.target.classList.contains('connected')) {
       deviceUpdateState[choiceID] = event.target.value;
@@ -9930,6 +9921,12 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       for (var _choiceID in choices) {
         deviceUpdateState[_choiceID] = event.target.value;
       }
+    }
+
+    if (responsive) {
+      updateState[device] = deviceUpdateState;
+    } else {
+      updateState = deviceUpdateState;
     }
 
     updateState[device] = deviceUpdateState;
@@ -9942,7 +9939,12 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
 
     var updateState = _objectSpread({}, state);
 
-    updateState["".concat(device, "-unit")] = unitKey;
+    if (responsive) {
+      updateState["".concat(device, "-unit")] = unitKey;
+    } else {
+      updateState["active-unit"] = unitKey;
+    }
+
     props.control.setting.set(updateState);
     setState(updateState);
   };
@@ -9976,6 +9978,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
 
     if (choices) {
       htmlChoices = Object.keys(choices).map(function (choiceID) {
+        var inputValue = responsive ? state[device][choiceID] : state[choiceID];
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
           key: choiceID
         }, inputAttrs, {
@@ -9984,7 +9987,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
           type: "number",
           className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
           "data-id": choiceID,
-          value: state[device][choiceID],
+          value: inputValue,
           onChange: function onChange() {
             return onSpacingChange(device, choiceID);
           },
@@ -10029,8 +10032,14 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       responsiveUnit = Object.values(unit_choices).map(function (unitKey) {
         var unitClass = '';
 
-        if (state["".concat(device, "-unit")] === unitKey) {
-          unitClass = 'active';
+        if (responsive) {
+          if (state["".concat(device, "-unit")] === unitKey) {
+            unitClass = 'active';
+          }
+        } else {
+          if (state["active-unit"] === unitKey) {
+            unitClass = 'active';
+          }
         }
 
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
@@ -10058,9 +10067,6 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       description = _props$control$params2.description;
   var inputHtml = null;
   var responsiveHtml = null;
-  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title"
-  }, label) : null;
   var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
@@ -10071,12 +10077,14 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     key: 'kmt-spacing-responsive',
     className: "kmt-spacing-responsive"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onChange: function onChange(currentDevice) {
       return setDevice(currentDevice);
     },
     label: label
-  }), renderUnit(), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label), renderUnit(), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-spacing-responsive-outer-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "input-wrapper kmt-spacing-responsive-wrapper"
@@ -10129,128 +10137,276 @@ var sliderControl = wp.customize.kemetControl.extend({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
 
 
 
 
 
-var SliderComponent = function SliderComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.control.setting.get()),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
-      props_value = _useState2[0],
-      setPropsValue = _useState2[1];
 
-  var _props$control$params = props.control.params,
-      label = _props$control$params.label,
-      description = _props$control$params.description,
-      suffix = _props$control$params.suffix,
-      input_attrs = _props$control$params.input_attrs;
-  var inputContent = {};
-  var defaultValue = props.control.params.default;
-  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "customize-control-title"
-  }, label)) : null;
-  var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "description customize-control-description"
-  }, description) : null;
-  var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "kmt-range-unit"
-  }, suffix) : null;
-  var min = inputContent.min,
-      max = inputContent.max,
-      step = inputContent.step;
 
-  var onChangInput = function onChangInput(event) {
-    if (event.target.value === '') {
-      updateValues(undefined);
-      return;
-    }
 
-    var newValue = Number(event.target.value);
 
-    if (newValue === '') {
-      updateValues(undefined);
-      return;
-    }
 
-    if (min < -0.1) {
-      if (newValue > max) {
-        updateValues(max);
-      } else if (newValue < min && newValue !== '-') {
-        updateValues(min);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+var _wp$element = wp.element,
+    Component = _wp$element.Component,
+    Fragment = _wp$element.Fragment;
+
+var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(ResponsiveSliderComponent, _Component);
+
+  var _super = _createSuper(ResponsiveSliderComponent);
+
+  function ResponsiveSliderComponent() {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, ResponsiveSliderComponent);
+
+    _this = _super.apply(this, arguments);
+
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
+      var updateState = _objectSpread({}, _this.state.initialState);
+
+      updateState["".concat(device, "-unit")] = value;
+      updateState["".concat(device, "-unit")] = value;
+
+      _this.props.control.setting.set(updateState);
+
+      _this.setState({
+        initialState: updateState
+      });
+    });
+
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleReset", function (e) {
+      e.preventDefault();
+
+      if (_this.responsive) {
+        var defUnit = _this.state.ResponsiveDefaultVal["".concat(_this.state.currentDevice, "-unit")],
+            size = _this.state.ResponsiveDefaultVal[_this.state.currentDevice];
+
+        var updateState = _objectSpread({}, _this.state.ResponsiveDefaultVal);
+
+        updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
+        updateState[_this.state.currentDevice] = size;
+
+        _this.props.control.setting.set(updateState);
+
+        _this.setState({
+          initialState: updateState
+        });
       } else {
-        updateValues(newValue);
+        var value = JSON.parse(JSON.stringify(_this.defaultValue));
+
+        _this.setState({
+          initialState: value
+        });
       }
-    } else {
-      if (newValue > max) {
-        updateValues(max);
-      } else if (newValue < -0.1) {
-        updateValues(min);
-      } else {
-        updateValues(newValue);
-      }
-    }
-  };
+    });
 
-  var updateValues = function updateValues(newVal) {
-    setPropsValue(newVal);
-    props.control.setting.set(newVal);
-  };
+    _this.unit_choices = _this.props.control.params.unit_choices;
+    _this.values = _this.props.control.params.value;
+    _this.responsive = _this.props.control.params.responsive;
 
-  var savedValue = props_value || 0 === props_value ? parseFloat(props_value) : '';
+    var _value = _this.props.control.setting.get();
 
-  if (1 === step) {
-    savedValue = props_value || 0 === props_value ? parseInt(props_value) : '';
+    _this.defaultValue = _this.props.control.params.default;
+    var ResDefaultParam = {
+      "desktop": '',
+      "desktop-unit": 'px',
+      'tablet': '',
+      'tablet-unit': 'px',
+      'mobile': '',
+      'mobile-unit': ''
+    };
+    var responsiveDefaultValues = _this.props.control.params.default ? _objectSpread(_objectSpread({}, ResDefaultParam), _this.props.control.params.default) : ResDefaultParam;
+    _value = _value ? _objectSpread(_objectSpread({}, responsiveDefaultValues), _value) : responsiveDefaultValues;
+    _this.state = {
+      initialState: _value,
+      currentDevice: 'desktop',
+      ResponsiveDefaultVal: responsiveDefaultValues
+    };
+    _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.handleUnitChange = _this.handleUnitChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    return _this;
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "kemet-slider-wrap"
-  }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
-    type: "range",
-    value: savedValue,
-    onChange: function onChange(value) {
-      return updateValues(event.target.value);
-    },
-    min: input_attrs.min,
-    max: input_attrs.max,
-    step: input_attrs.step
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    class: "kemet_range_value"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
-    type: "number",
-    className: "value kmt-range-value-input",
-    value: "".concat(savedValue),
-    onChange: function onChange(value) {
-      return onChangInput(event);
-    },
-    min: input_attrs.min,
-    max: input_attrs.max,
-    step: input_attrs.step
-  }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "kmt-slider-reset",
-    disabled: JSON.stringify(props_value) === JSON.stringify(defaultValue),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      var value = JSON.parse(JSON.stringify(defaultValue));
-      updateValues(value);
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-    className: "dashicons dashicons-image-rotate"
-  }))), descriptionContent);
-};
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(ResponsiveSliderComponent, [{
+    key: "updateValues",
+    value: function updateValues(device, value) {
+      var updateState = _objectSpread({}, this.state.initialState);
 
-SliderComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+      if (this.responsive) {
+        updateState[device] = value;
+      } else {
+        updateState = value;
+      }
+
+      this.props.control.setting.set(updateState);
+      this.setState({
+        initialState: updateState
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      console.log(this.props.control.params);
+      var input_attrs = '';
+      var _this$props$control$p = this.props.control.params,
+          label = _this$props$control$p.label,
+          suffix = _this$props$control$p.suffix,
+          description = _this$props$control$p.description;
+
+      if (!this.responsive) {
+        input_attrs = this.props.control.params.input_attrs;
+      }
+
+      var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        class: "kmt-range-unit"
+      }, suffix) : null;
+      var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        class: "description customize-control-description"
+      }, description) : null;
+      var dataAttributes = '';
+      var units = [];
+
+      if (this.unit_choices) {
+        for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
+
+          units.push(key);
+
+          if (this.responsive) {
+            if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
+              dataAttributes = {
+                min: value.min,
+                max: value.max,
+                step: value.step
+              };
+            }
+          } else {
+            dataAttributes = {
+              min: input_attrs.min,
+              max: input_attrs.max,
+              step: input_attrs.step
+            };
+          }
+        }
+      } else {
+        dataAttributes = {
+          min: input_attrs.min,
+          max: input_attrs.max,
+          step: input_attrs.step
+        };
+      }
+
+      var labelContent = this.responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        onChange: function onChange(currentDevice) {
+          return _this2.setState({
+            currentDevice: currentDevice
+          });
+        },
+        label: label
+      }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        className: "customize-control-title"
+      }, label);
+      var unitHTML = units.map(function (unit) {
+        var unit_class = '';
+
+        if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
+          unit_class = 'active';
+        }
+
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
+          className: "single-unit  ".concat(unit_class),
+          "data-unit": unit
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+          className: "unit-text",
+          onClick: function onClick(value) {
+            return _this2.handleUnitChange(_this2.state.currentDevice, unit);
+          }
+        }, "".concat(unit)));
+      });
+      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState;
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
+        htmlFor: ""
+      }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "wrapper"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "input-field-wrapper ".concat(this.state.currentDevice, " active")
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
+        type: "range",
+        value: sliderValue,
+        onChange: function onChange(event) {
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
+        },
+        min: "".concat(dataAttributes.min),
+        max: "".concat(dataAttributes.max),
+        step: "".concat(dataAttributes.step)
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "kemet_range_value"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
+        type: "number",
+        "data-id": "desktop",
+        className: "kmt-responsive-range-value-input kmt-responsive-range-desktop-input",
+        value: sliderValue,
+        min: "".concat(dataAttributes.min),
+        max: "".concat(dataAttributes.max),
+        step: "".concat(dataAttributes.step),
+        onChange: function onChange(event) {
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
+        }
+      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
+        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
+      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "kmt-responsive-slider-reset",
+        onClick: function onClick(e) {
+          return _this2.handleReset(e);
+        }
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        className: "dashicons dashicons-image-rotate"
+      }))), descriptionContent);
+    }
+  }]);
+
+  return ResponsiveSliderComponent;
+}(Component);
+
+ResponsiveSliderComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_9___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(SliderComponent));
+/* harmony default export */ __webpack_exports__["default"] = (ResponsiveSliderComponent);
 
 /***/ }),
 
