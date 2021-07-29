@@ -11,6 +11,55 @@ const ResponsiveSpacingComponent = props => {
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
     let responsive = props.control.params.reponsive;
+    let ResDefaultParam = {
+        "desktop": {
+            'top': '',
+            'right': '',
+            'bottom': '',
+            'left': ''
+        },
+        "tablet": {
+            'top': '',
+            'right': '',
+            'bottom': '',
+            'left': ''
+        },
+        "mobile": {
+            'top': '',
+            'right': '',
+            'bottom': '',
+            'left': ''
+        },
+        "desktop-unit": 'px',
+        'tablet-unit': 'px',
+        'mobile-unit': ''
+    }
+    let defaultValue = {
+        value: {
+            'top': '',
+            'right': '',
+            'bottom': '',
+            'left': ''
+        },
+        unit: 'px'
+    }
+    let defaultValues;
+    defaultValues = responsive ? ResDefaultParam : defaultValue;
+
+    let defaultVals = props.control.params.default
+        ? {
+            ...defaultValues,
+            ...props.control.params.default,
+        }
+        : defaultValues;
+
+    value = value
+        ? {
+            ...defaultVals,
+            ...value,
+        }
+        : defaultValues
+        ;
 
     useEffect(() => {
         if (state !== value) {
@@ -18,7 +67,6 @@ const ResponsiveSpacingComponent = props => {
         }
     }, [props]);
 
-    console.log(props.control.params);
 
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
@@ -56,7 +104,7 @@ const ResponsiveSpacingComponent = props => {
         let deviceUpdateState = responsive ? {
             ...updateState[device]
         } : {
-            ...updateState
+            ...updateState[`value`]
         };
 
         if (!event.target.classList.contains('connected')) {
@@ -70,9 +118,8 @@ const ResponsiveSpacingComponent = props => {
             updateState[device] = deviceUpdateState;
 
         } else {
-            updateState = deviceUpdateState
+            updateState[`value`] = deviceUpdateState
         }
-        updateState[device] = deviceUpdateState;
         props.control.setting.set(updateState);
         setState(updateState);
     };
@@ -84,7 +131,7 @@ const ResponsiveSpacingComponent = props => {
         if (responsive) {
             updateState[`${device}-unit`] = unitKey;
         } else {
-            updateState[`active-unit`] = unitKey;
+            updateState[`unit`] = unitKey;
         }
         props.control.setting.set(updateState);
         setState(updateState);
@@ -160,7 +207,7 @@ const ResponsiveSpacingComponent = props => {
                         unitClass = 'active';
                     }
                 } else {
-                    if (state[`active-unit`] === unitKey) {
+                    if (state[`unit`] === unitKey) {
                         unitClass = 'active';
                     }
                 }
