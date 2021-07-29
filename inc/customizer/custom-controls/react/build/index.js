@@ -9576,8 +9576,11 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
-      updateState["".concat(device, "-unit")] = value;
-      updateState["".concat(device, "-unit")] = value;
+      if (_this.responsive) {
+        updateState["".concat(device, "-unit")] = value;
+      } else {
+        updateState["unit"] = value;
+      }
 
       _this.props.control.setting.set(updateState);
 
@@ -9590,10 +9593,10 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       e.preventDefault();
 
       if (_this.responsive) {
-        var defUnit = _this.state.ResponsiveDefaultVal["".concat(_this.state.currentDevice, "-unit")],
-            size = _this.state.ResponsiveDefaultVal[_this.state.currentDevice];
+        var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
+            size = _this.state.defaultVal[_this.state.currentDevice];
 
-        var updateState = _objectSpread({}, _this.state.ResponsiveDefaultVal);
+        var updateState = _objectSpread({}, _this.state.defaultVal);
 
         updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
         updateState[_this.state.currentDevice] = size;
@@ -9604,10 +9607,18 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           initialState: updateState
         });
       } else {
-        var value = JSON.parse(JSON.stringify(_this.defaultValue));
+        var _defUnit = _this.state.defaultVal["unit"],
+            _size = _this.state.defaultVal["value"];
+
+        var _updateState = _objectSpread({}, _this.state.defaultVal);
+
+        _updateState["unit"] = _defUnit;
+        _updateState["value"] = _size;
+
+        _this.props.control.setting.set(_updateState);
 
         _this.setState({
-          initialState: value
+          initialState: _updateState
         });
       }
     });
@@ -9627,12 +9638,18 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       'mobile': '',
       'mobile-unit': ''
     };
-    var responsiveDefaultValues = _this.props.control.params.default ? _objectSpread(_objectSpread({}, ResDefaultParam), _this.props.control.params.default) : ResDefaultParam;
-    _value = _value ? _objectSpread(_objectSpread({}, responsiveDefaultValues), _value) : responsiveDefaultValues;
+    var defaultValue = {
+      value: '',
+      unit: 'px'
+    };
+    var defaultValues;
+    defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
+    var defaultVals = _this.props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), _this.props.control.params.default) : defaultValues;
+    _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultValues;
     _this.state = {
       initialState: _value,
       currentDevice: 'desktop',
-      ResponsiveDefaultVal: responsiveDefaultValues
+      defaultVal: defaultVals
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.handleUnitChange = _this.handleUnitChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
@@ -9647,9 +9664,10 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       if (this.responsive) {
         updateState[device] = value;
       } else {
-        updateState = value;
+        updateState["value"] = value;
       }
 
+      console.log(updateState);
       this.props.control.setting.set(updateState);
       this.setState({
         initialState: updateState
@@ -9660,17 +9678,10 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props.control.params);
-      var input_attrs = '';
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,
           suffix = _this$props$control$p.suffix,
           description = _this$props$control$p.description;
-
-      if (!this.responsive) {
-        input_attrs = this.props.control.params.input_attrs;
-      }
-
       var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
         class: "kmt-range-unit"
       }, suffix) : null;
@@ -9697,19 +9708,15 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
               };
             }
           } else {
-            dataAttributes = {
-              min: input_attrs.min,
-              max: input_attrs.max,
-              step: input_attrs.step
-            };
+            if (key == this.state.initialState["unit"]) {
+              dataAttributes = {
+                min: value.min,
+                max: value.max,
+                step: value.step
+              };
+            }
           }
         }
-      } else {
-        dataAttributes = {
-          min: input_attrs.min,
-          max: input_attrs.max,
-          step: input_attrs.step
-        };
       }
 
       var labelContent = this.responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -9725,8 +9732,14 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       var unitHTML = units.map(function (unit) {
         var unit_class = '';
 
-        if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
-          unit_class = 'active';
+        if (_this2.responsive) {
+          if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
+            unit_class = 'active';
+          }
+        } else {
+          if (_this2.state.initialState["unit"] === unit) {
+            unit_class = 'active';
+          }
         }
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
@@ -9739,7 +9752,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
-      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState;
+      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
         htmlFor: ""
       }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
@@ -9876,12 +9889,47 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       setDevice = _useState4[1];
 
   var responsive = props.control.params.reponsive;
+  var ResDefaultParam = {
+    "desktop": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "tablet": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "mobile": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "desktop-unit": 'px',
+    'tablet-unit': 'px',
+    'mobile-unit': ''
+  };
+  var defaultValue = {
+    value: {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    unit: 'px'
+  };
+  var defaultValues;
+  defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
+  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultValues;
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (state !== value) {
       setState(value);
     }
   }, [props]);
-  console.log(props.control.params);
 
   var onConnectedClick = function onConnectedClick() {
     var parent = event.target.parentElement.parentElement;
@@ -9913,7 +9961,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
 
     var updateState = _objectSpread({}, state);
 
-    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState);
+    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
 
     if (!event.target.classList.contains('connected')) {
       deviceUpdateState[choiceID] = event.target.value;
@@ -9926,10 +9974,9 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
     if (responsive) {
       updateState[device] = deviceUpdateState;
     } else {
-      updateState = deviceUpdateState;
+      updateState["value"] = deviceUpdateState;
     }
 
-    updateState[device] = deviceUpdateState;
     props.control.setting.set(updateState);
     setState(updateState);
   };
@@ -9942,7 +9989,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
     if (responsive) {
       updateState["".concat(device, "-unit")] = unitKey;
     } else {
-      updateState["active-unit"] = unitKey;
+      updateState["unit"] = unitKey;
     }
 
     props.control.setting.set(updateState);
@@ -10037,7 +10084,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
             unitClass = 'active';
           }
         } else {
-          if (state["active-unit"] === unitKey) {
+          if (state["unit"] === unitKey) {
             unitClass = 'active';
           }
         }

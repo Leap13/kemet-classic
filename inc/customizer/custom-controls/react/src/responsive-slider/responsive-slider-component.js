@@ -63,6 +63,7 @@ class ResponsiveSliderComponent extends Component {
         } else {
             updateState[`value`] = value;
         }
+        console.log(updateState);
         this.props.control.setting.set(updateState);
         this.setState({ initialState: updateState });
     }
@@ -77,6 +78,7 @@ class ResponsiveSliderComponent extends Component {
         } else {
             updateState[`unit`] = value;
         }
+
         this.props.control.setting.set(updateState);
         this.setState({ initialState: updateState });
     }

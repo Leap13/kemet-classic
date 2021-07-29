@@ -106,7 +106,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $sanitize = array(
-			'kmt-responsive-slider'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			// 'kmt-responsive-slider'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 			'kmt-font-family'        => 'sanitize_text_field',
 			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 			'kmt-select'             => 'sanitize_text_field',
