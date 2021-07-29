@@ -28,16 +28,18 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							'site-sidebar-width'          => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Sidebar Width(%)', 'kemet' ),
-								'input_attrs' => array(
-									'min'  => 15,
-									'step' => 1,
-									'max'  => 50,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Sidebar Width(%)', 'kemet' ),
+								'unit_choices' => array(
+									'%' => array(
+										'min'  => 15,
+										'step' => 1,
+										'max'  => 50,
+									),
 								),
-								'description' => __( 'Sidebar width will apply only when one of the following sidebar is set.', 'kemet' ),
-								'preview'     => array(
+								'description'  => __( 'Sidebar width will apply only when one of the following sidebar is set.', 'kemet' ),
+								'preview'      => array(
 									'selector' => '#secondary',
 									'property' => 'width',
 									'unit'     => '%',
@@ -106,6 +108,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 						'options' => array(
 							'sidebar-content-font-size' => array(
 								'type'         => 'kmt-responsive-slider',
+								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Font Size', 'kemet' ),
 								'unit_choices' => array(
@@ -228,6 +231,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 			),
 			'sidebar-input-border-radius' => array(
 				'type'         => 'kmt-responsive-slider',
+				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Input Field Border Radius', 'kemet' ),
 				'unit_choices' => array(

@@ -26,9 +26,10 @@ const OptionComponent = (type) => {
         case 'kmt-color':
             OptionComponent = ColorComponent;
             break;
+        // case 'kmt-slider':
+        //     OptionComponent = SliderComponent;
+        //     break;
         case 'kmt-slider':
-            OptionComponent = SliderComponent;
-            break;
         case 'kmt-responsive-slider':
             OptionComponent = ResponsiveSliderComponent;
             break;

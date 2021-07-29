@@ -21,16 +21,17 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 
 		$register_options = array(
 			'site-content-width'          => array(
-				'type'        => 'kmt-slider',
-				'transport'   => 'postMessage',
-				'label'       => __( 'Container Width', 'kemet' ),
-				'suffix'      => '',
-				'input_attrs' => array(
-					'min'  => 768,
-					'step' => 1,
-					'max'  => 1920,
+				'type'         => 'kmt-slider',
+				'transport'    => 'postMessage',
+				'label'        => __( 'Container Width', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 768,
+						'step' => 1,
+						'max'  => 1920,
+					),
 				),
-				'preview'     => array(
+				'preview'      => array(
 					'selector' => ':root',
 					'property' => '--contentWidth',
 				),

@@ -23,6 +23,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 			$sticky_options = array(
 				'sticky-logo-width'             => array(
 					'type'         => 'kmt-responsive-slider',
+					'responsive'   => true,
 					'transport'    => 'postMessage',
 					'label'        => __( 'Logo Width', 'kemet-addons' ),
 					'unit_choices' => array(
@@ -76,15 +77,17 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					),
 				),
 				'main-row-shrink-height'        => array(
-					'type'        => 'kmt-slider',
-					'label'       => __( 'Main Row Shrink Height', 'kemet' ),
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 5,
-						'step' => 1,
-						'max'  => 400,
+					'type'         => 'kmt-slider',
+					'label'        => __( 'Main Row Shrink Height', 'kemet' ),
+					'suffix'       => '',
+					'unit_choices' => array(
+						'px' => array(
+							'min'  => 5,
+							'step' => 1,
+							'max'  => 400,
+						),
 					),
-					'context'     => array(
+					'context'      => array(
 						array(
 							'setting' => 'enable-sticky-main',
 							'value'   => true,
@@ -122,15 +125,16 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					),
 				),
 				'mobile-main-row-shrink-height' => array(
-					'type'        => 'kmt-slider',
-					'label'       => __( 'Main Row Shrink Height', 'kemet' ),
-					'suffix'      => '',
-					'input_attrs' => array(
-						'min'  => 5,
-						'step' => 1,
-						'max'  => 400,
+					'type'         => 'kmt-slider',
+					'label'        => __( 'Main Row Shrink Height', 'kemet' ),
+					'unit_choices' => array(
+						'px' => array(
+							'min'  => 5,
+							'step' => 1,
+							'max'  => 400,
+						),
 					),
-					'context'     => array(
+					'context'      => array(
 						array(
 							'setting' => 'enable-sticky-mobile-main',
 							'value'   => true,

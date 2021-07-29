@@ -35,16 +35,17 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'mobile-popup-slide-width'   => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Enter Width', 'kemet' ),
-								'suffix'      => '%',
-								'input_attrs' => array(
-									'min'  => 10,
-									'step' => 1,
-									'max'  => 100,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Enter Width', 'kemet' ),
+								'unit_choices' => array(
+									'%' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
 								),
-								'context'     => array(
+								'context'      => array(
 									array(
 										'setting' => 'mobile-popup-layout',
 										'value'   => 'slide',

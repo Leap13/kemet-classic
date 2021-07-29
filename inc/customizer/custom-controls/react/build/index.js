@@ -8260,7 +8260,11 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
-      updateState["".concat(device, "-unit")] = value;
+      if (_this.responsive) {
+        updateState["".concat(device, "-unit")] = value;
+      } else {
+        updateState["unit"] = value;
+      }
 
       _this.props.onChange(_this.props.id, updateState);
 
@@ -8272,39 +8276,64 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleReset", function (e) {
       e.preventDefault();
 
-      var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
-          size = _this.state.defaultVal[_this.state.currentDevice];
+      if (_this.responsive) {
+        var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
+            size = _this.state.defaultVal[_this.state.currentDevice];
 
-      var updateState = _objectSpread({}, _this.state.defaultVal);
+        var updateState = _objectSpread({}, _this.state.defaultVal);
 
-      updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
-      updateState[_this.state.currentDevice] = size;
+        updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
+        updateState[_this.state.currentDevice] = size;
 
-      _this.props.onChange(_this.props.id, updateState);
+        _this.props.onChange(_this.props.id, updateState);
 
-      _this.setState({
-        initialState: updateState
-      });
+        _this.setState({
+          initialState: updateState
+        });
+      } else {
+        var _defUnit = _this.state.defaultVal["unit"],
+            _size = _this.state.defaultVal["value"];
+
+        var _updateState = _objectSpread({}, _this.state.defaultVal);
+
+        _updateState["unit"] = _defUnit;
+        _updateState["value"] = _size;
+
+        _this.props.onChange(_this.props.id, _updateState);
+
+        _this.setState({
+          initialState: _updateState
+        });
+      }
     });
 
     _this.unit_choices = _this.props.params.unit_choices;
     _this.values = _this.props.params.value;
+    _this.responsive = _this.props.params.responsive;
 
     var _value = _this.props.control.get();
 
-    var defaultValues = {
+    _this.defaultValue = _this.props.params.default;
+    var ResDefaultParam = {
       "desktop": '',
       "desktop-unit": 'px',
       'tablet': '',
       'tablet-unit': 'px',
       'mobile': '',
-      'mobile-unit': 'px'
+      'mobile-unit': ''
     };
-    _value = _value ? _objectSpread(_objectSpread({}, defaultValues), _value) : defaultValues;
+    var defaultValue = {
+      value: '',
+      unit: 'px'
+    };
+    var defaultValues;
+    defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
+    var defaultVals = _this.props.params.default ? _objectSpread(_objectSpread({}, defaultValues), _this.props.params.default) : defaultValues;
+    _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultVals;
     _this.state = {
       initialState: _value,
       currentDevice: 'desktop',
-      defaultVal: defaultValues
+      defaultVal: defaultVals
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.handleUnitChange = _this.handleUnitChange.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
@@ -8316,7 +8345,12 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function updateValues(device, value) {
       var updateState = _objectSpread({}, this.state.initialState);
 
-      updateState[device] = value;
+      if (this.responsive) {
+        updateState[device] = value;
+      } else {
+        updateState["value"] = value;
+      }
+
       this.props.onChange(this.props.id, updateState);
       this.setState({
         initialState: updateState
@@ -8334,41 +8368,61 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       var suffixContent = suffix ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
         class: "kmt-range-unit"
       }, suffix) : null;
-      var descriptionContent = description && description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+      var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
         class: "description customize-control-description"
       }, description) : null;
       var dataAttributes = '';
       var units = [];
 
-      for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
-            key = _Object$entries$_i[0],
-            value = _Object$entries$_i[1];
+      if (this.unit_choices) {
+        for (var _i = 0, _Object$entries = Object.entries(this.unit_choices); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
 
-        units.push(key);
+          units.push(key);
 
-        if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
-          dataAttributes = {
-            min: value.min,
-            max: value.max,
-            step: value.step
-          };
+          if (this.responsive) {
+            if (key == this.state.initialState["".concat(this.state.currentDevice, "-unit")]) {
+              dataAttributes = {
+                min: value.min,
+                max: value.max,
+                step: value.step
+              };
+            }
+          } else {
+            if (key == this.state.initialState["unit"]) {
+              dataAttributes = {
+                min: value.min,
+                max: value.max,
+                step: value.step
+              };
+            }
+          }
         }
       }
 
-      var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      var labelContent = this.responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_10__["default"], {
         onChange: function onChange(currentDevice) {
           return _this2.setState({
             currentDevice: currentDevice
           });
         },
         label: label
-      }) : null;
+      }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        className: "customize-control-title"
+      }, label);
       var unitHTML = units.map(function (unit) {
         var unit_class = '';
 
-        if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
-          unit_class = 'active';
+        if (_this2.responsive) {
+          if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
+            unit_class = 'active';
+          }
+        } else {
+          if (_this2.state.initialState["unit"] === unit) {
+            unit_class = 'active';
+          }
         }
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
@@ -8381,17 +8435,18 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
+      var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
         htmlFor: ""
       }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper desktop active"
+        className: "input-field-wrapper ".concat(this.state.currentDevice, " active")
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
         type: "range",
-        value: this.state.initialState['desktop'],
+        value: sliderValue,
         onChange: function onChange(event) {
-          return _this2.updateValues('desktop', event.target.value);
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
         },
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
@@ -8402,65 +8457,13 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         type: "number",
         "data-id": "desktop",
         className: "kmt-responsive-range-value-input kmt-responsive-range-desktop-input",
-        value: this.state.initialState['desktop'],
+        value: sliderValue,
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
         step: "".concat(dataAttributes.step),
         onChange: function onChange(event) {
-          return _this2.updateValues('desktop', event.target.value);
+          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
         }
-      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper tablet "
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "range",
-        value: this.state.initialState['tablet'],
-        onChange: function onChange(value) {
-          return _this2.updateValues('tablet', event.target.value);
-        },
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "number",
-        "data-id": "tablet",
-        className: "kmt-responsive-range-value-input kmt-responsive-range-tablet-input",
-        value: this.state.initialState['tablet'],
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step),
-        onChange: function onChange(value) {
-          return _this2.updateValues('tablet', event.target.value);
-        }
-      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "input-field-wrapper mobile "
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "range",
-        value: this.state.initialState['mobile'],
-        onChange: function onChange(value) {
-          return _this2.updateValues('mobile', event.target.value);
-        },
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "number",
-        "data-id": "mobile",
-        className: "kmt-responsive-range-value-input kmt-responsive-range-mobile-input",
-        onChange: function onChange(value) {
-          return _this2.updateValues('mobile', event.target.value);
-        },
-        value: this.state.initialState['mobile'],
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
         className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
       }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
@@ -9783,11 +9786,11 @@ var OptionComponent = function OptionComponent(type) {
     case 'kmt-color':
       OptionComponent = _kmt_controls_color__WEBPACK_IMPORTED_MODULE_4__["default"];
       break;
+    // case 'kmt-slider':
+    //     OptionComponent = SliderComponent;
+    //     break;
 
     case 'kmt-slider':
-      OptionComponent = _kmt_controls_slider__WEBPACK_IMPORTED_MODULE_6__["default"];
-      break;
-
     case 'kmt-responsive-slider':
       OptionComponent = _kmt_controls_responsive_slider__WEBPACK_IMPORTED_MODULE_5__["default"];
       break;

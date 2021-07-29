@@ -36,31 +36,33 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-width'  => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Width', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 200,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Width', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 200,
+									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => $selector,
 									'property' => 'width',
 								),
 							),
 							self::$prefix . '-height' => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Height', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 200,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 200,
+									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => $selector,
 									'property' => 'height',
 								),
@@ -94,17 +96,18 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 							),
 							self::$prefix . '-vertical-offset' => array(
-								'type'        => 'kmt-slider',
-								'default'     => 10,
-								'transport'   => 'postMessage',
-								'label'       => __( 'Vertical Offset', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 300,
+								'type'         => 'kmt-slider',
+								'default'      => 10,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Vertical Offset', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 300,
+									),
 								),
-								'context'     => array(
+								'context'      => array(
 									array(
 										'setting' => self::$prefix . '-float',
 										'value'   => true,
@@ -112,17 +115,18 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 							),
 							self::$prefix . '-horizontal-offset' => array(
-								'type'        => 'kmt-slider',
-								'default'     => 10,
-								'transport'   => 'postMessage',
-								'label'       => __( 'Horizontal Offset', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 300,
+								'type'         => 'kmt-slider',
+								'default'      => 10,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Horizontal Offset', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 300,
+									),
 								),
-								'context'     => array(
+								'context'      => array(
 									array(
 										'setting' => self::$prefix . '-float',
 										'value'   => true,
@@ -130,16 +134,17 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 							),
 							self::$prefix . '-icon-size'  => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Icon Size', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 50,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Icon Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 50,
+									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => $selector,
 									'property' => '--fontSize',
 								),
@@ -195,16 +200,17 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 							),
 							self::$prefix . '-border-radius' => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Border Radius', 'kemet' ),
-								'suffix'      => 'px',
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 200,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Border Radius', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 200,
+									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => $selector,
 									'property' => '--borderRadius',
 								),

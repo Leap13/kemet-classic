@@ -25,10 +25,10 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							'widgets-style'		=> array(
-								'type'     => 'kmt-select',
-								'label'    => __( 'Widgets Style', 'kemet' ),
-								'choices'  => array(
+							'widgets-style'        => array(
+								'type'    => 'kmt-select',
+								'label'   => __( 'Widgets Style', 'kemet' ),
+								'choices' => array(
 									'style1' => __( 'Style 1', 'kemet' ),
 									'style2' => __( 'Style 2', 'kemet' ),
 									'style3' => __( 'Style 3', 'kemet' ),
@@ -54,16 +54,17 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'widget-margin-bottom' => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Margin Bottom (PX)', 'kemet' ),
-								'suffix'      => '',
-								'input_attrs' => array(
-									'min'  => 10,
-									'step' => 1,
-									'max'  => 100,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Margin Bottom (PX)', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 10,
+										'step' => 1,
+										'max'  => 100,
+									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => '.sidebar-main .widget',
 									'property' => 'margin-bottom',
 									'unit'     => 'px',
@@ -117,6 +118,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							'widget-title-font-size'      => array(
 								'transport'    => 'postMessage',
 								'type'         => 'kmt-responsive-slider',
+								'responsive'   => true,
 								'label'        => __( 'Font Size', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
@@ -179,6 +181,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							'widget-title-line-height'    => array(
 								'transport'    => 'postMessage',
 								'type'         => 'kmt-responsive-slider',
+								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
 								'unit_choices' => array(
@@ -201,6 +204,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							'widget-title-letter-spacing' => array(
 								'transport'    => 'postMessage',
 								'type'         => 'kmt-responsive-slider',
+								'responsive'   => true,
 								'section'      => 'section-widgets',
 								'transport'    => 'postMessage',
 								'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -257,21 +261,23 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'widget-title-border-size'    => array(
-								'type'        => 'kmt-slider',
-								'transport'   => 'postMessage',
-								'label'       => __( 'Separator Width', 'kemet' ),
-								'input_attrs' => array(
-									'min'  => 0,
-									'step' => 1,
-									'max'  => 600,
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Separator Width', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 600,
+									),
 								),
-								'context'     => array(
+								'context'      => array(
 									array(
 										'setting' => 'enable-widget-list-separator',
 										'value'   => true,
 									),
 								),
-								'preview'     => array(
+								'preview'      => array(
 									'selector' => '.widget .widget-head',
 									'property' => '--borderBottomWidth',
 								),
