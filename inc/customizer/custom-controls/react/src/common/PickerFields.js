@@ -115,7 +115,7 @@ class PickerFields extends Component {
                         onChange={this.handleChange}
                     />
                 </div>
-                { this.state.view === 'rgb' && (
+                {this.state.view === 'rgb' && (
                     <Fragment>
                         <div style={styles.single}>
                             <EditableInput
@@ -158,7 +158,7 @@ class PickerFields extends Component {
                         </div>
                     </Fragment>
                 )}
-                { this.state.view === 'hsl' && (
+                {this.state.view === 'hsl' && (
                     <Fragment>
                         <div style={styles.single}>
                             <EditableInput

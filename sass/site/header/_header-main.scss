@@ -346,12 +346,12 @@
 }
 .kmt-grid-row {
   display: grid;
-  grid-template-columns: auto auto;
+  --gridTemplateColummns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
   overflow-wrap: anywhere;
   &.kmt-has-center-items {
-    grid-template-columns: 1fr auto 1fr;
+    --gridTemplateColummns: 1fr auto 1fr;
   }
   &.kmt-has-center-items-only {
     -js-display: flex;
