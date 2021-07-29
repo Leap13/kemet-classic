@@ -9645,7 +9645,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     var defaultValues;
     defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
     var defaultVals = _this.props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), _this.props.control.params.default) : defaultValues;
-    _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultValues;
+    _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultVals;
     _this.state = {
       initialState: _value,
       currentDevice: 'desktop',
@@ -9667,7 +9667,6 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         updateState["value"] = value;
       }
 
-      console.log(updateState);
       this.props.control.setting.set(updateState);
       this.setState({
         initialState: updateState
@@ -9678,6 +9677,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      console.log(this.props.control.params);
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,
           suffix = _this$props$control$p.suffix,
@@ -9924,7 +9924,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
   var defaultValues;
   defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
-  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultValues;
+  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (state !== value) {
       setState(value);

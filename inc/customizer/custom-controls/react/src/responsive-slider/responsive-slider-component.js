@@ -37,7 +37,7 @@ class ResponsiveSliderComponent extends Component {
                 ...defaultVals,
                 ...value,
             }
-            : defaultValues
+            : defaultVals
             ;
 
         this.state = {
@@ -63,7 +63,6 @@ class ResponsiveSliderComponent extends Component {
         } else {
             updateState[`value`] = value;
         }
-        console.log(updateState);
         this.props.control.setting.set(updateState);
         this.setState({ initialState: updateState });
     }
@@ -78,7 +77,6 @@ class ResponsiveSliderComponent extends Component {
         } else {
             updateState[`unit`] = value;
         }
-
         this.props.control.setting.set(updateState);
         this.setState({ initialState: updateState });
     }
@@ -108,6 +106,7 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
+        console.log(this.props.control.params);
         let { label, suffix, description } = this.props.control.params;
 
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;

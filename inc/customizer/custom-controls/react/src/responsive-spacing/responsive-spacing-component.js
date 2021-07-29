@@ -58,7 +58,7 @@ const ResponsiveSpacingComponent = props => {
             ...defaultVals,
             ...value,
         }
-        : defaultValues
+        : defaultVals
         ;
 
     useEffect(() => {
