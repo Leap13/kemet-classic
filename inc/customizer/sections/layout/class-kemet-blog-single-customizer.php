@@ -87,7 +87,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
 							'font-size-entry-title'      => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Title Font Size', 'kemet' ),
@@ -109,7 +109,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'letter-spacing-entry-title' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Title Letter Spacing', 'kemet' ),

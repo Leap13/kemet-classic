@@ -139,7 +139,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 			),
 			'font-size-page-title'      => array(
 				'transport'    => 'postMessage',
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'priority'     => 1,
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -204,7 +204,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'post-title-line-height'    => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Line Height', 'kemet' ),
@@ -227,7 +227,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 			),
 			'letter-spacing-page-title' => array(
 				'transport'    => 'postMessage',
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'label'        => __( 'Letter Spacing', 'kemet' ),
 				'unit_choices' => array(
@@ -244,7 +244,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 			),
 			'font-size-post-meta'       => array(
 				'transport'    => 'postMessage',
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'label'        => __( 'Font Size', 'kemet' ),
 				'unit_choices' => array(
@@ -306,7 +306,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'post-meta-line-height'     => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Line Height', 'kemet' ),
@@ -329,7 +329,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 			),
 			'letter-spacing-post-meta'  => array(
 				'transport'    => 'postMessage',
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'label'        => __( 'Letter Spacing', 'kemet' ),
 				'unit_choices' => array(
@@ -489,7 +489,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'read-more-border-radius'   => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Read More Border Radius', 'kemet' ),
@@ -517,7 +517,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'read-more-border-size'     => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Read More Border Size', 'kemet' ),

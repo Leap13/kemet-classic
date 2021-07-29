@@ -98,7 +98,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $sanitize = array(
-			'kmt-responsive-slider'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 			'kmt-font-family'        => 'sanitize_text_field',
 			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 			'kmt-select'             => 'sanitize_text_field',
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-slider'             => 'Kemet_Control_Slider',
 			'kmt-sortable'           => 'Kemet_Control_Sortable',
 			'kmt-title'              => 'Kemet_Control_Title',
-			'kmt-responsive-slider'  => 'Kemet_Control_Responsive_Slider',
+			'kmt-slider'             => 'Kemet_Control_Responsive_Slider',
 			'kmt-color'              => 'Kemet_Control_Color',
 			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
 			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',

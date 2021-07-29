@@ -71,7 +71,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'buttons-font-size'      => array(
 								'type'         => 'option',
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'label'        => __( 'Font Size', 'kemet' ),
 								'unit_choices' => array(
@@ -137,7 +137,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'buttons-line-height'    => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
@@ -160,7 +160,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							),
 							'buttons-letter-spacing' => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'label'        => __( 'Letter Spacing', 'kemet' ),
 								'unit_choices' => array(
@@ -327,7 +327,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'options' => array(
 							'inputs-font-size'      => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'label'        => __( 'Font Size', 'kemet' ),
 								'unit_choices' => array(
@@ -393,7 +393,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'inputs-line-height'    => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
@@ -416,7 +416,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							),
 							'inputs-letter-spacing' => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'label'        => __( 'Letter Spacing', 'kemet' ),
 								'unit_choices' => array(
@@ -524,7 +524,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'input-radius'          => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'section'      => 'section-buttons-fields',
@@ -548,7 +548,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'input-border-size'     => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'section'      => 'section-buttons-fields',

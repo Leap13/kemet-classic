@@ -117,7 +117,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 						'options' => array(
 							'widget-title-font-size'      => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'label'        => __( 'Font Size', 'kemet' ),
 								'unit_choices' => array(
@@ -180,7 +180,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							),
 							'widget-title-line-height'    => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
@@ -203,7 +203,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							),
 							'widget-title-letter-spacing' => array(
 								'transport'    => 'postMessage',
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'section'      => 'section-widgets',
 								'transport'    => 'postMessage',

@@ -37,7 +37,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-icon-size' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
@@ -94,7 +94,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-width' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
@@ -116,7 +116,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-font-size'   => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Font Size', 'kemet' ),
@@ -181,7 +181,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-line-height' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
@@ -203,7 +203,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-letter-spacing' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -220,7 +220,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-border-width' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Border Size', 'kemet' ),

@@ -43,7 +43,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-body'            => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -106,7 +106,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'body-line-height'          => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Line Height', 'kemet' ),
@@ -128,7 +128,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-body'       => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -239,7 +239,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h1'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -261,7 +261,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h1'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -299,7 +299,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h2'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -321,7 +321,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h2'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -359,7 +359,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h3'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -381,7 +381,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h3'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -419,7 +419,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h4'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -441,7 +441,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h4'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -479,7 +479,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h5'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -501,7 +501,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h5'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -539,7 +539,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'font-size-h6'              => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -561,7 +561,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'letter-spacing-h6'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),

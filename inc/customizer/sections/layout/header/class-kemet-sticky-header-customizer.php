@@ -22,7 +22,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 			$selector       = '.kmt-is-sticky';
 			$sticky_options = array(
 				'sticky-logo-width'             => array(
-					'type'         => 'kmt-responsive-slider',
+					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
 					'label'        => __( 'Logo Width', 'kemet-addons' ),

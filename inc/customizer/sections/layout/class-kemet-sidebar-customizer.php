@@ -107,7 +107,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
 							'sidebar-content-font-size' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Font Size', 'kemet' ),
@@ -230,7 +230,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'sidebar-input-border-radius' => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Input Field Border Radius', 'kemet' ),

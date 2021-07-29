@@ -58,7 +58,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[sidebar-content-font-size]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'section-sidebars',
 			'priority'     => 41,
 			'label'        => __( 'Font Size', 'kemet' ),
@@ -239,7 +239,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[sidebar-input-border-radius]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'section-sidebars',
 			'priority'     => 85,
 			'label'        => __( 'Input Field Border Radius', 'kemet' ),
@@ -275,7 +275,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[sidebar-input-border-size]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'section-sidebars',
 			'priority'     => 90,
 			'label'        => __( 'Input Field Border Size', 'kemet' ),

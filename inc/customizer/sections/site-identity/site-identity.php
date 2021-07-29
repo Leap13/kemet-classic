@@ -93,7 +93,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[site-title-font-size]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'title_tagline',
 			'priority'     => 25,
 			'label'        => __( 'Title Font Size', 'kemet' ),
@@ -134,7 +134,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[font-size-site-tagline]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'title_tagline',
 			'priority'     => 30,
 			'label'        => __( 'Tagline Font Size', 'kemet' ),
@@ -175,7 +175,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[site-title-letter-spacing]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'title_tagline',
 			'priority'     => 32,
 			'label'        => __( 'Title Letter Spacing', 'kemet' ),
@@ -211,7 +211,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[tagline-letter-spacing]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'title_tagline',
 			'priority'     => 33,
 			'label'        => __( 'Tagline Letter Spacing', 'kemet' ),
@@ -387,7 +387,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[kmt-header-responsive-logo-width]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'title_tagline',
 			'priority'     => 70,
 			'label'        => __( 'Logo Width', 'kemet' ),

@@ -144,7 +144,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-font-size'   => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Font Size', 'kemet' ),
@@ -211,7 +211,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-line-height' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Line Height', 'kemet' ),
@@ -233,7 +233,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-letter-spacing' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Letter Spacing', 'kemet' ),
@@ -250,7 +250,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-border-bottom-width' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'default'      => Kemet_Customizer::responsive_default_value( 1, 'px' ),
 								'transport'    => 'postMessage',
@@ -357,7 +357,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-font-size'         => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Font Size', 'kemet' ),
@@ -422,7 +422,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-line-height'       => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Line Height', 'kemet' ),
@@ -444,7 +444,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-submenu-letter-spacing'    => array(
-				'type'         => 'kmt-responsive-slider',
+				'type'         => 'kmt-slider',
 				'responsive'   => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Letter Spacing', 'kemet' ),

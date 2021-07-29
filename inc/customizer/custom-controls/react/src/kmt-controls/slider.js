@@ -1,111 +1,187 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import Responsive from '../common/responsive';
 
-const SliderComponent = props => {
-
-    const [props_value, setPropsValue] = useState(props.control.get());
-
-    const {
-        label,
-        description,
-        suffix,
-        input_attrs,
-    } = props.params;
-
-    let inputContent = {};
-
-
-    let defaultValue = '';
-
-    let labelContent = label ? <label><span className="customize-control-title">{label}</span></label> : null;
-
-    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
-
-    let suffixContent = suffix ? <span className="kmt-range-unit">{suffix}</span> : null;
-    let { min, max, step } = inputContent;
-
-    const onChangInput = (event) => {
-        if (event.target.value === '') {
-            updateValues(undefined);
-            return;
+const { Component, Fragment } = wp.element;
+class ResponsiveSliderComponent extends Component {
+    constructor() {
+        super(...arguments);
+        this.unit_choices = this.props.params.unit_choices;
+        this.values = this.props.params.value;
+        this.responsive = this.props.params.responsive;
+        let value = this.props.control.get()
+        this.defaultValue = this.props.params.default
+        let ResDefaultParam = {
+            "desktop": '',
+            "desktop-unit": 'px',
+            'tablet': '',
+            'tablet-unit': 'px',
+            'mobile': '',
+            'mobile-unit': ''
         }
-        const newValue = Number(event.target.value);
-        if (newValue === '') {
-            updateValues(undefined);
-            return;
+        let defaultValue = {
+            value: '',
+            unit: 'px'
         }
-        if (min < -0.1) {
-            if (newValue > max) {
-                updateValues(max);
-            } else if (newValue < min && newValue !== '-') {
-                updateValues(min);
-            } else {
-                updateValues(newValue);
+        let defaultValues;
+        defaultValues = this.responsive ? ResDefaultParam : defaultValue;
+
+        let defaultVals = this.props.params.default
+            ? {
+                ...defaultValues,
+                ...this.props.params.default,
             }
-        } else {
-            if (newValue > max) {
-                updateValues(max);
-            } else if (newValue < -0.1) {
-                updateValues(min);
-            } else {
-                updateValues(newValue);
+            : defaultValues;
+
+        value = value
+            ? {
+                ...defaultVals,
+                ...value,
             }
+            : defaultVals
+            ;
+
+        this.state = {
+            initialState: value,
+            currentDevice: 'desktop',
+            defaultVal: defaultVals,
+
+
         }
-    };
-    const updateValues = (newVal) => {
-        setPropsValue(newVal);
-        props.onChange(props.id, newVal);
-    };
 
+        this.updateValues = this.updateValues.bind(this)
 
-    let savedValue = (props_value || 0 === props_value) ? parseFloat(props_value) : '';
-
-    if (1 === step) {
-        savedValue = (props_value || 0 === props_value) ? parseInt(props_value) : '';
+        this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-    return (
-        <div className="kemet-slider-wrap">
-            {labelContent}
 
-            <div className="wrapper">
-                <input
-                    type="range"
-                    value={savedValue}
-                    onChange={(value) => updateValues(event.target.value)}
-                    min={input_attrs.min}
-                    max={input_attrs.max}
-                    step={input_attrs.step}
+    updateValues(device, value) {
+        let updateState = {
+            ...this.state.initialState
+        };
+        if (this.responsive) {
+            updateState[device] = value;
+        } else {
+            updateState[`value`] = value;
+        }
 
-                />
-                <div class="kemet_range_value">
-                    <input type="number" className="value kmt-range-value-input"
-                        value={`${savedValue}`}
-                        onChange={(value) => onChangInput(event)}
-                        min={input_attrs.min}
-                        max={input_attrs.max}
-                        step={input_attrs.step}
-                    />
-                    {suffixContent}
+        this.props.onChange(this.props.id, updateState);
+        this.setState({ initialState: updateState });
+    }
+    handleUnitChange = (device, value) => {
+
+        let updateState = {
+            ...this.state.initialState
+        };
+        if (this.responsive) {
+            updateState[`${device}-unit`] = value;
+
+        } else {
+            updateState[`unit`] = value;
+        }
+        this.props.onChange(this.props.id, updateState);
+        this.setState({ initialState: updateState });
+    }
+    handleReset = (e) => {
+        e.preventDefault();
+        if (this.responsive) {
+            let defUnit = this.state.defaultVal[`${this.state.currentDevice}-unit`],
+                size = this.state.defaultVal[this.state.currentDevice];
+            let updateState = {
+                ...this.state.defaultVal
+            };
+            updateState[`${this.state.currentDevice}-unit`] = defUnit;
+            updateState[this.state.currentDevice] = size;
+            this.props.onChange(this.props.id, updateState);
+            this.setState({ initialState: updateState });
+        } else {
+            let defUnit = this.state.defaultVal[`unit`],
+                size = this.state.defaultVal[`value`];
+            let updateState = {
+                ...this.state.defaultVal
+            };
+            updateState[`unit`] = defUnit;
+            updateState[`value`] = size;
+            this.props.onChange(this.props.id, updateState);
+            this.setState({ initialState: updateState });
+        }
+    }
+
+    render() {
+        let { label, suffix, description } = this.props.params;
+
+        let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
+        let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
+        let dataAttributes = ''
+        let units = [];
+        if (this.unit_choices) {
+            for (const [key, value] of Object.entries(this.unit_choices)) {
+                units.push(key)
+                if (this.responsive) {
+                    if (key == this.state.initialState[`${this.state.currentDevice}-unit`]) {
+                        dataAttributes = { min: value.min, max: value.max, step: value.step };
+                    }
+                } else {
+                    if (key == this.state.initialState[`unit`]) {
+                        dataAttributes = { min: value.min, max: value.max, step: value.step };
+                    }
+                }
+            }
+        }
+        let labelContent = this.responsive ? (
+            <Responsive
+                onChange={(currentDevice) => this.setState({ currentDevice })}
+                label={label}
+            />
+        ) : <span className="customize-control-title">{label}</span>;
+        let unitHTML = units.map((unit) => {
+            let unit_class = '';
+            if (this.responsive) {
+                if (this.state.initialState[`${this.state.currentDevice}-unit`] === unit) {
+                    unit_class = 'active';
+                }
+            } else {
+                if (this.state.initialState[`unit`] === unit) {
+                    unit_class = 'active';
+                }
+            }
+
+            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+                <span className="unit-text" onClick={value => this.handleUnitChange(this.state.currentDevice, unit)} >{`${unit}`}</span>
+            </li>)
+
+        })
+
+        let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
+
+        return (
+            <label htmlFor="">
+                {labelContent}
+
+                <div className="wrapper">
+
+                    <div className={`input-field-wrapper ${this.state.currentDevice} active`}>
+                        <input type="range" value={sliderValue} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
+                        <div className="kemet_range_value">
+                            <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} />
+                            {suffixContent}
+                        </div>
+                        <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+                            {unitHTML}
+                        </ul>
+                    </div>
+
+                    <div className="kmt-responsive-slider-reset" onClick={e => this.handleReset(e)}  >
+                        <span className="dashicons dashicons-image-rotate"></span>
+                    </div>
                 </div>
-                <div className="kmt-slider-reset" disabled={JSON.stringify(props_value) === JSON.stringify(defaultValue)} onClick={e => {
-                    e.preventDefault();
-                    let value = JSON.parse(JSON.stringify(defaultValue));
-                    updateValues(value);
-                }}>
-                    <span className="dashicons dashicons-image-rotate"></span>
-                </div>
+                {descriptionContent}
+            </label >
+        )
+    }
 
-            </div>
-
-
-            {descriptionContent}
-        </div>
-    )
-};
-
-SliderComponent.propTypes = {
+}
+ResponsiveSliderComponent.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default React.memo(SliderComponent);
+export default ResponsiveSliderComponent;

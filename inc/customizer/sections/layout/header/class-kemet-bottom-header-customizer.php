@@ -36,7 +36,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							self::$prefix . '-min-height' => array(
-								'type'         => 'kmt-responsive-slider',
+								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'section'      => 'section-' . self::$prefix . '-builder',

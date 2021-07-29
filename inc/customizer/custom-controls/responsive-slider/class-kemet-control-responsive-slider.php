@@ -27,7 +27,7 @@ class Kemet_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive-slider';
+	public $type = 'kmt-slider';
 
 	/**
 	 * The control type.

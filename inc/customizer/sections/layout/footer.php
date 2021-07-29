@@ -484,7 +484,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-copyright-font-size]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'section-footer-copyright',
 			'priority'     => 65,
 			'label'        => __( 'Font Size', 'kemet' ),
@@ -525,7 +525,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-copyright-letter-spacing]',
 		array(
-			'type'         => 'kmt-responsive-slider',
+			'type'         => 'kmt-slider',
 			'section'      => 'section-footer-copyright',
 			'priority'     => 68,
 			'label'        => __( 'Letter Spacing', 'kemet' ),

@@ -26,7 +26,7 @@ class Kemet_Generate_Control_Group {
 	 * @var array
 	 */
 	public $sanitize = array(
-		'kmt-responsive-slider'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 		'kmt-font-family'        => 'sanitize_text_field',
 		'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
 		'kmt-select'             => 'sanitize_text_field',

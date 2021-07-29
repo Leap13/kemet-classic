@@ -93,7 +93,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-font-size'      => array(
-					'type'         => 'kmt-responsive-slider',
+					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
 					'section'      => 'sidebar-widgets-' . $prefix,
@@ -162,7 +162,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-line-height'    => array(
-					'type'         => 'kmt-responsive-slider',
+					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
 					'label'        => __( 'Line Height', 'kemet' ),
@@ -184,7 +184,7 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				$prefix . '-letter-spacing' => array(
-					'type'         => 'kmt-responsive-slider',
+					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
 					'label'        => __( 'Letter Spacing', 'kemet' ),
