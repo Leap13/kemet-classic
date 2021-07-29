@@ -238,6 +238,38 @@ if ( ! function_exists( 'kemet_responsive_slider' ) ) {
 	}
 }
 
+/**
+ * Get Slider
+ */
+if ( ! function_exists( 'kemet_slider' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_slider( $option, $default = '' ) {
+		if ( ! is_array( $option ) && '' == $option ) {
+			return;
+		}
+
+		$default_value = array(
+			'value' => '',
+			'unit'  => 'px',
+		);
+		if ( ! is_array( $option ) && '' !== $option ) {
+			$default_value['value'] = $option;
+			$option                 = $default_value;
+		}
+
+		$value = kemet_get_css_value( $option['value'], $option['unit'] );
+
+		return $value;
+	}
+}
 
 /**
  * Get Font Size value

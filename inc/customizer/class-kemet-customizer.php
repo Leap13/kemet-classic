@@ -106,7 +106,6 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
 			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 			'image'                  => 'esc_url_raw',
 		);
 

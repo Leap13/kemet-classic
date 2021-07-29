@@ -49,8 +49,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $parent_selector . ' .kmt-search-box-form::after',
-									'property' => '--fontSize',
+									'selector'   => $parent_selector . ' .kmt-search-box-form::after',
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 						),
@@ -106,8 +107,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => 'width',
+									'selector'   => $selector,
+									'property'   => 'width',
+									'responsive' => true,
 								),
 							),
 						),
@@ -133,8 +135,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--fontSize',
+									'selector'   => $selector,
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 							// self::$prefix . '-font-family' => array(
@@ -198,8 +201,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--lineHeight',
+									'selector'   => $selector,
+									'property'   => '--lineHeight',
+									'responsive' => true,
 								),
 							),
 							self::$prefix . '-letter-spacing' => array(
@@ -215,8 +219,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--letterSpacing',
+									'selector'   => $selector,
+									'property'   => '--letterSpacing',
+									'responsive' => true,
 								),
 							),
 							self::$prefix . '-border-width' => array(
@@ -232,8 +237,9 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--inputBorderWidth',
+									'selector'   => $selector,
+									'property'   => '--inputBorderWidth',
+									'responsive' => true,
 								),
 							),
 							self::$prefix . '-text-color'  => array(

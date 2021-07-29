@@ -87,8 +87,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $btn_selector,
-									'property' => '--fontSize',
+									'selector'   => $btn_selector,
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 							// 'buttons-font-family'      => array(
@@ -154,8 +155,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $btn_selector,
-									'property' => '--lineHeight',
+									'selector'   => $btn_selector,
+									'property'   => '--lineHeight',
+									'responsive' => true,
 								),
 							),
 							'buttons-letter-spacing' => array(
@@ -171,8 +173,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $btn_selector,
-									'property' => '--letterSpacing',
+									'selector'   => $btn_selector,
+									'property'   => '--letterSpacing',
+									'responsive' => true,
 								),
 							),
 							'button-text-color'      => array(
@@ -283,7 +286,6 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'preview'      => array(
 									'selector' => $btn_selector,
 									'property' => '--borderWidth',
-									'unit'     => 'px',
 								),
 							),
 						),
@@ -343,8 +345,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $input_selector,
-									'property' => '--fontSize',
+									'selector'   => $input_selector,
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 							// 'inputs-font-family'       => array(
@@ -410,8 +413,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $input_selector,
-									'property' => '--lineHeight',
+									'selector'   => $input_selector,
+									'property'   => '--lineHeight',
+									'responsive' => true,
 								),
 							),
 							'inputs-letter-spacing' => array(
@@ -427,8 +431,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $input_selector,
-									'property' => '--letterSpacing',
+									'selector'   => $input_selector,
+									'property'   => '--letterSpacing',
+									'responsive' => true,
 								),
 							),
 							'input-text-color'      => array(
@@ -543,8 +548,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $input_selector,
-									'property' => '--inputBorderRadius',
+									'selector'   => $input_selector,
+									'property'   => '--inputBorderRadius',
+									'responsive' => true,
 								),
 							),
 							'input-border-size'     => array(
@@ -562,8 +568,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $input_selector,
-									'property' => '--inputBorderWidth',
+									'selector'   => $input_selector,
+									'property'   => '--inputBorderWidth',
+									'responsive' => true,
 								),
 							),
 						),

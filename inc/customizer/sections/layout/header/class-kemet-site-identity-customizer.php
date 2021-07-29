@@ -81,8 +81,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.site-title',
-					'property' => '--fontSize',
+					'selector'   => '.site-title',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'font-size-site-tagline'    => array(
@@ -109,8 +110,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.site-header .site-description',
-					'property' => '--fontSize',
+					'selector'   => '.site-header .site-description',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'site-title-letter-spacing' => array(
@@ -132,8 +134,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.site-title',
-					'property' => '--letterSpacing',
+					'selector'   => '.site-title',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'tagline-letter-spacing'    => array(
@@ -155,8 +158,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.site-header .site-description',
-					'property' => '--letterSpacing',
+					'selector'   => '.site-header .site-description',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'site-title-color'          => array(
@@ -292,8 +296,9 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 								'relation' => 'OR',
 							),
 							'preview'      => array(
-								'selector' => '#sitehead .site-logo-img .custom-logo-link img',
-								'property' => '--logoWidth',
+								'selector'   => '#sitehead .site-logo-img .custom-logo-link img',
+								'property'   => '--logoWidth',
+								'responsive' => true,
 							),
 						),
 						'different-logo-for-mobile'        => array(

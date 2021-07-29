@@ -145,7 +145,7 @@ class ResponsiveSliderComponent extends Component {
                 }
             }
 
-            return (<li className={`single-unit  ${unit_class}`} data-unit={unit}  >
+            return (<li className={`single-unit ${unit_class}`} data-unit={unit}  >
                 <span className="unit-text" onClick={value => this.handleUnitChange(this.state.currentDevice, unit)} >{`${unit}`}</span>
             </li>)
 
@@ -158,19 +158,18 @@ class ResponsiveSliderComponent extends Component {
                 {labelContent}
 
                 <div className="wrapper">
-
                     <div className={`input-field-wrapper ${this.state.currentDevice} active`}>
                         <input type="range" value={sliderValue} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
                         <div className="kemet_range_value">
-                            <input type="number" data-id='desktop' className="kmt-responsive-range-value-input kmt-responsive-range-desktop-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} />
+                            <input type="number" className="kmt-range-value-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} />
                             {suffixContent}
                         </div>
-                        <ul className="kmt-slider-responsive-units kmt-slider-desktop-responsive-units">
+                        <ul className="kmt-slider-units">
                             {unitHTML}
                         </ul>
                     </div>
 
-                    <div className="kmt-responsive-slider-reset" onClick={e => this.handleReset(e)}  >
+                    <div className="kmt-slider-reset" onClick={e => this.handleReset(e)}  >
                         <span className="dashicons dashicons-image-rotate"></span>
                     </div>
                 </div>

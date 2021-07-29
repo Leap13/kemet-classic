@@ -40,7 +40,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector => array(
 						'--buttonColor'                => esc_attr( $color ),
 						'--buttonBackgroundColor'      => esc_attr( $bg_color ),
-						'--borderWidth'                => kemet_get_css_value( $border_width, 'px' ),
+						'--borderWidth'                => kemet_slider( $border_width ),
 						'--borderColor'                => esc_attr( $border_color ),
 						'--buttonHoverColor'           => esc_attr( $hover_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $hover_bg_color ),
@@ -173,16 +173,16 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'position' => esc_attr( 'fixed' ),
 					),
 					$btn_selector . '.toggle-button-fixed.float-' . $float_position => array(
-						$float_vposition => kemet_get_css_value( $vertical_offset, 'px' ),
-						$float_hposition => kemet_get_css_value( $horizontal_offset, 'px' ),
+						$float_vposition => kemet_slider( $vertical_offset ),
+						$float_hposition => kemet_slider( $horizontal_offset ),
 					),
 					$btn_selector                          => array(
 						'--buttonColor'                => esc_attr( $icon_color ),
 						'--buttonBackgroundColor'      => esc_attr( $icon_bg_color ),
-						'width'                        => kemet_get_css_value( $btn_width, 'px' ),
-						'height'                       => kemet_get_css_value( $btn_height, 'px' ),
-						'--borderRadius'               => kemet_get_css_value( $btn_radius, 'px' ),
-						'--fontSize'                   => kemet_get_css_value( $icon_size, 'px' ),
+						'width'                        => kemet_slider( $btn_width ),
+						'height'                       => kemet_slider( $btn_height ),
+						'--borderRadius'               => kemet_slider( $btn_radius ),
+						'--fontSize'                   => kemet_slider( $icon_size ),
 						'--buttonHoverColor'           => esc_attr( $icon_h_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 					),
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$popup_icon_bg_color = kemet_get_sub_option( $device . '-popup-close-btn-color', 'initial' );
 				$popup_css_output    = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
-						'max-width' => kemet_get_css_value( $popup_width, '%' ),
+						'max-width' => kemet_slider( $popup_width ),
 					),
 					$popup_selector . ' .toggle-button-close' => array(
 						'--buttonColor' => esc_attr( $popup_icon_bg_color ),

@@ -3,7 +3,7 @@
     parentSelector = ".kmt-header-item-search",
     selector = ".kmt-search-menu-icon form .search-field";
 
-  kemet_responsive_slider(
+  kemet_slider(
     settingName(prefix + "-icon-size"),
     parentSelector + " .kemet-search-icon",
     "font-size"
@@ -34,7 +34,7 @@
     "border-color",
     selector
   );
-  kemet_responsive_slider(
+  kemet_slider(
     settingName(prefix + "-input-width"),
     selector,
     "width"

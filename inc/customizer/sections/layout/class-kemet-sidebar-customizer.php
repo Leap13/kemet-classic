@@ -124,8 +124,9 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--fontSize',
+									'selector'   => $selector,
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 							'sidebar-text-color'        => array(
@@ -247,8 +248,9 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => $input_selector,
-					'property' => '--inputBorderRadius',
+					'selector'   => $input_selector,
+					'property'   => '--inputBorderRadius',
+					'responsive' => true,
 				),
 			),
 		);

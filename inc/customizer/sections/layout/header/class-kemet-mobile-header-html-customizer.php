@@ -109,8 +109,9 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector' => $selector,
-										'property' => '--fontSize',
+										'selector'   => $selector,
+										'property'   => '--fontSize',
+										'responsive' => true,
 									),
 								),
 								// $prefix . '-font-family'      => array(
@@ -174,8 +175,9 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector' => $selector,
-										'property' => '--lineHeight',
+										'selector'   => $selector,
+										'property'   => '--lineHeight',
+										'responsive' => true,
 									),
 								),
 								$prefix . '-letter-spacing' => array(
@@ -191,8 +193,9 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector' => $selector,
-										'property' => '--letterSpacing',
+										'selector'   => $selector,
+										'property'   => '--letterSpacing',
+										'responsive' => true,
 									),
 								),
 							),

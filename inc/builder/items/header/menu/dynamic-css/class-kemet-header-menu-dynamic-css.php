@@ -69,8 +69,8 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'border-radius'       => kemet_responsive_slider( $link_active_border_radius, 'desktop' ),
 					),
 					$selector . ' > li ul'                => array(
-						'width'            => kemet_get_css_value( $submenu_width, 'px' ),
-						'--borderTopWidth' => kemet_get_css_value( $submenu_border_top_width, 'px' ),
+						'width'            => kemet_slider( $submenu_width ),
+						'--borderTopWidth' => kemet_slider( $submenu_border_top_width ),
 						'--borderTopColor' => esc_attr( $submenu_top_border_color ),
 						'--padding'        => '0',
 					),

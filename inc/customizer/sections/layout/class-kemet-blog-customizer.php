@@ -156,8 +156,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-					'property' => '--fontSize',
+					'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			// 'post-title-font-family'    => array(
@@ -221,8 +222,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-					'property' => '--lineHeight',
+					'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
+					'property'   => '--lineHeight',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-page-title' => array(
@@ -238,8 +240,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-					'property' => '--letterSpacing',
+					'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'font-size-post-meta'       => array(
@@ -260,8 +263,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-					'property' => '--fontSize',
+					'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			// 'post-meta-font-family'     => array(
@@ -323,8 +327,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-					'property' => '--lineHeight',
+					'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
+					'property'   => '--lineHeight',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-post-meta'  => array(
@@ -340,8 +345,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-					'property' => '--letterSpacing',
+					'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'listing-post-title-color'  => array(
@@ -506,8 +512,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.content-area .read-more a',
-					'property' => '--borderRadius',
+					'selector'   => '.content-area .read-more a',
+					'property'   => '--borderRadius',
+					'responsive' => true,
 				),
 				'context'      => array(
 					array(
@@ -529,8 +536,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => '.content-area .read-more a',
-					'property' => '--borderWidth',
+					'selector'   => '.content-area .read-more a',
+					'property'   => '--borderWidth',
+					'responsive' => true,
 				),
 				'context'      => array(
 					array(

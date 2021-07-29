@@ -60,8 +60,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => $global_selectors,
-					'property' => '--fontSize',
+					'selector'   => $global_selectors,
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			// 'body-font-family'          => array(
@@ -123,8 +124,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => $global_selectors,
-					'property' => '--lineHeight',
+					'selector'   => $global_selectors,
+					'property'   => '--lineHeight',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-body'       => array(
@@ -140,8 +142,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => $global_selectors,
-					'property' => '--letterSpacing',
+					'selector'   => $global_selectors,
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'para-margin-bottom'        => array(
@@ -256,8 +259,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h1, .entry-content h1, .entry-content h1 a',
-					'property' => '--fontSize',
+					'selector'   => 'h1, .entry-content h1, .entry-content h1 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h1'         => array(
@@ -273,8 +277,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h1, .entry-content h1, .entry-content h1 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h1, .entry-content h1, .entry-content h1 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'kmt-heading-2'             => array(
@@ -316,8 +321,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h2, .entry-content h2, .entry-content h2 a',
-					'property' => '--fontSize',
+					'selector'   => 'h2, .entry-content h2, .entry-content h2 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h2'         => array(
@@ -333,8 +339,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h2, .entry-content h2, .entry-content h2 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h2, .entry-content h2, .entry-content h2 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'kmt-heading-3'             => array(
@@ -376,8 +383,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h3, .entry-content h3, .entry-content h3 a',
-					'property' => '--fontSize',
+					'selector'   => 'h3, .entry-content h3, .entry-content h3 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h3'         => array(
@@ -393,8 +401,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h3, .entry-content h3, .entry-content h3 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h3, .entry-content h3, .entry-content h3 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'kmt-heading-4'             => array(
@@ -436,8 +445,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h4, .entry-content h4, .entry-content h4 a',
-					'property' => '--fontSize',
+					'selector'   => 'h4, .entry-content h4, .entry-content h4 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h4'         => array(
@@ -453,8 +463,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h4, .entry-content h4, .entry-content h4 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h4, .entry-content h4, .entry-content h4 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'kmt-heading-5'             => array(
@@ -496,8 +507,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h5, .entry-content h5, .entry-content h5 a',
-					'property' => '--fontSize',
+					'selector'   => 'h5, .entry-content h5, .entry-content h5 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h5'         => array(
@@ -513,8 +525,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h5, .entry-content h5, .entry-content h5 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h5, .entry-content h5, .entry-content h5 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 			'kmt-heading-6'             => array(
@@ -556,8 +569,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h6, .entry-content h6, .entry-content h6 a',
-					'property' => '--fontSize',
+					'selector'   => 'h6, .entry-content h6, .entry-content h6 a',
+					'property'   => '--fontSize',
+					'responsive' => true,
 				),
 			),
 			'letter-spacing-h6'         => array(
@@ -573,8 +587,9 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 				'preview'      => array(
-					'selector' => 'h6, .entry-content h6, .entry-content h6 a',
-					'property' => '--letterSpacing',
+					'selector'   => 'h6, .entry-content h6, .entry-content h6 a',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
 				),
 			),
 		);

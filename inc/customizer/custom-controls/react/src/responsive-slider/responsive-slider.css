@@ -104,22 +104,22 @@
   font-weight: 400;
   position: relative;
 }
-.customize-control-kmt-slider .kmt-responsive-slider-reset {
+.customize-control-kmt-slider .kmt-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   display: block;
   margin-left: 5px;
 }
 
-.customize-control-kmt-slider .kmt-responsive-slider-reset span {
+.customize-control-kmt-slider .kmt-slider-reset span {
   font-size: 15px;
   line-height: 30px;
 }
 
-.customize-control-kmt-slider .kmt-responsive-slider-reset:hover,
-.customize-control-kmt-slider .kmt-responsive-slider-reset:focus {
+.customize-control-kmt-slider .kmt-slider-reset:hover,
+.customize-control-kmt-slider .kmt-slider-reset:focus {
   color: red;
 }
-.kemet_range_value input.kmt-responsive-range-value-input {
+.kemet_range_value input.kmt-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
@@ -146,7 +146,7 @@
   display: inline-block;
 }
 
-.customize-control-kmt-slider .kmt-slider-responsive-units {
+.customize-control-kmt-slider .kmt-slider-units {
   position: absolute;
   transform: translateY(-100%);
   font-size: 11px;
@@ -154,7 +154,7 @@
   right: 1px;
 }
 
-.customize-control-kmt-slider .kmt-slider-responsive-units li.single-unit {
+.customize-control-kmt-slider .kmt-slider-units li.single-unit {
   display: inline-block;
   margin-left: 6px;
   width: 16px;
@@ -163,9 +163,7 @@
   opacity: 0.7;
 }
 
-.customize-control-kmt-slider
-  .kmt-slider-responsive-units
-  li.single-unit.active {
+.customize-control-kmt-slider .kmt-slider-units li.single-unit.active {
   font-weight: bold;
   text-decoration: underline;
   opacity: 1;

@@ -234,10 +234,10 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'color' => esc_attr( $selection_text_color ),
 				),
 				'.editor-post-title__block,.editor-default-block-appender,.block-editor-block-list__block' => array(
-					'max-width' => kemet_get_css_value( $site_content_width, 'px' ),
+					'max-width' => kemet_slider( $site_content_width ),
 				),
 				'.block-editor-block-list__block[data-align=wide]' => array(
-					'max-width' => kemet_get_css_value( $site_content_width + 200, 'px' ),
+					'max-width' => kemet_slider( $site_content_width + 200, 'px' ),
 				),
 				'.editor-post-title__block .editor-post-title__input, .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6, .edit-post-visual-editor .block-editor-block-list__layout h1, .edit-post-visual-editor .block-editor-block-list__layout h2, .edit-post-visual-editor .block-editor-block-list__layout h3, .edit-post-visual-editor .block-editor-block-list__layout h4, .edit-post-visual-editor .block-editor-block-list__layout h5, .edit-post-visual-editor .block-editor-block-list__layout h6' => array(
 					'font-family'    => kemet_get_css_value( $headings_font_family, 'font' ),
@@ -505,7 +505,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'background-color' => esc_attr( $btn_bg_color ),
 					'border'           => 'solid',
 					'border-color'     => esc_attr( $btn_border_color ),
-					'border-width'     => kemet_get_css_value( $btn_border_size, 'px' ),
+					'border-width'     => kemet_slider( $btn_border_size ),
 					'padding-top'      => kemet_responsive_spacing( $btn_padding, 'top', 'desktop' ),
 					'padding-bottom'   => kemet_responsive_spacing( $btn_padding, 'bottom', 'desktop' ),
 					'padding-right'    => kemet_responsive_spacing( $btn_padding, 'right', 'desktop' ),
@@ -735,7 +735,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$woo_global_button_css = array(
 				'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'border-color' => esc_attr( $btn_border_color ),
-					'border-width' => kemet_get_css_value( $btn_border_size, 'px' ),
+					'border-width' => kemet_slider( $btn_border_size ),
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover' => array(
 					'border-color' => $btn_bg_hover_color,
@@ -807,7 +807,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			$boxed_container = array(
 				'.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow'       => array(
-					'max-width'        => kemet_get_css_value( $site_content_width, 'px' ),
+					'max-width'        => kemet_slider( $site_content_width ),
 					'margin'           => '0 auto',
 					'background-color' => '#fff',
 				),
@@ -842,7 +842,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'padding-bottom' => '0',
 				),
 				'.kmt-separate-container .editor-block-list__block, .kmt-two-container .editor-block-list__block'  => array(
-					'max-width' => 'calc(' . kemet_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
+					'max-width' => 'calc(' . kemet_slider( $site_content_width ) . ' - 6.67em)',
 				),
 				'.kmt-separate-container .editor-block-list__block[data-align=full], .kmt-two-container .editor-block-list__block[data-align=full]' => array(
 					'margin-left'  => '-6.67em',
@@ -966,10 +966,10 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 						'width'        => 'unset',
 					),
 					'.kmt-plain-container [class="wp-block"], .kmt-plain-container .wp-block[data-align="left"], .kmt-plain-container .wp-block[data-align="right"], .kmt-plain-container .wp-block[data-align="center"], .kmt-plain-container .wp-block[data-align="full"]' => array(
-						'max-width' => kemet_get_css_value( $site_content_width, 'px' ),
+						'max-width' => kemet_slider( $site_content_width ),
 					),
 					'.kmt-plain-container .wp-block[data-align="wide"]' => array(
-						'max-width' => kemet_get_css_value( $site_content_width, 'px' ),
+						'max-width' => kemet_slider( $site_content_width ),
 					),
 				);
 			} else {
@@ -1003,7 +1003,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 				$boxed_container = array(
 					'.block-editor-writing-flow'       => array(
-						'max-width'        => kemet_get_css_value( $site_content_width, 'px' ),
+						'max-width'        => kemet_slider( $site_content_width ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
 					),
@@ -1023,7 +1023,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 						'padding-bottom' => '0',
 					),
 					'.block-editor-block-list__block'  => array(
-						'max-width' => 'calc(' . kemet_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
+						'max-width' => 'calc(' . kemet_slider( $site_content_width ) . ' - 6.67em)',
 					),
 					'.block-editor-block-list__block[data-align=full]' => array(
 						'margin-left'  => '-6.67em',

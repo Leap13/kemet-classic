@@ -401,7 +401,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--inputFocusBorderColor'      => esc_attr( $input_focus_border_color ),
 					'--inputBorderRadius'          => kemet_responsive_slider( $input_border_radius, 'desktop' ),
 					'--inputBorderWidth'           => kemet_responsive_slider( $input_border_size, 'desktop' ),
-					'--contentWidth'               => kemet_get_css_value( $site_content_width, 'px' ),
+					'--contentWidth'               => kemet_slider( $site_content_width ),
 					'--buttonShadow'               => 'none',
 				),
 				// Gutenberg Support.
@@ -481,7 +481,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'font-style'     => 'var(--fontStyle)',
 				),
 				'p, .entry-content p'                   => array(
-					'--marginBottom' => kemet_get_css_value( $para_margin_bottom, 'em' ),
+					'--marginBottom' => kemet_slider( $para_margin_bottom ),
 				),
 				'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a' => array(
 					'--fontFamily'     => kemet_get_css_value( $headings_font_family, 'font' ),
@@ -721,7 +721,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
 					'--borderColor'      => esc_attr( $btn_border_color ),
-					'--borderWidth'      => kemet_get_css_value( $btn_border_size, 'px' ),
+					'--borderWidth'      => kemet_slider( $btn_border_size ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 					'--fontSize'         => kemet_responsive_slider( $btn_font_size, 'desktop' ),
 					'--fontFamily'       => kemet_get_font_family( $btn_font_family ),
@@ -802,7 +802,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 				// Widget Spacing.
 				'.sidebar-main .widget'                 => array(
-					'margin-bottom' => kemet_get_css_value( $widget_margin_bottom ),
+					'margin-bottom' => kemet_slider( $widget_margin_bottom ),
 					'padding'       => kemet_responsive_spacing( $space_widget, 'all', 'desktop' ),
 				),
 				// Blockquote Text Color.
@@ -1361,7 +1361,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				/* Site width Responsive */
 				$blog_css   = array(
 					'.blog .site-content > .kmt-container, .archive .site-content > .kmt-container, .search .site-content > .kmt-container' => array(
-						'max-width' => kemet_get_css_value( $blog_max_width, 'px' ),
+						'max-width' => kemet_slider( $blog_max_width ),
 					),
 				);
 				$parse_css .= kemet_parse_css( $blog_css, '769' );
@@ -1373,7 +1373,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				/* Site width Responsive */
 				$single_blog_css = array(
 					'.single-post .site-content > .kmt-container' => array(
-						'max-width' => kemet_get_css_value( $single_post_max_width, 'px' ),
+						'max-width' => kemet_slider( $single_post_max_width ),
 					),
 				);
 				$parse_css      .= kemet_parse_css( $single_blog_css, '769' );
@@ -1420,7 +1420,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				$widget_separator_style = array(
 					'.widget .widget-head' => array(
 						'--borderBottomStyle' => 'solid',
-						'--borderBottomWidth' => kemet_get_css_value( $widget_title_border_size, 'px' ),
+						'--borderBottomWidth' => kemet_slider( $widget_title_border_size ),
 						'--borderBottomColor' => esc_attr( $widget_title_border_color ),
 					),
 				);
@@ -1526,7 +1526,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			 *   - Sidebar Positions CSS
 			 */
 			$secondary_width = kemet_get_option( 'site-sidebar-width' );
-			$primary_width   = absint( 100 - $secondary_width );
+			$primary_width   = absint( 100 - intval( $secondary_width['value'] ) );
 			$meta_style      = '';
 
 			if ( 'no-sidebar' !== kemet_layout() ) :
@@ -1536,7 +1536,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 						'width' => kemet_get_css_value( $primary_width, '%' ),
 					),
 					'#secondary' => array(
-						'width' => kemet_get_css_value( $secondary_width, '%' ),
+						'width' => kemet_slider( $secondary_width ),
 					),
 				);
 

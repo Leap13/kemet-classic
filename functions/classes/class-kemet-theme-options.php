@@ -566,7 +566,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'content-link-h-color'                 => '',
 					// Sidebar.
 					'site-sidebar-layout'                  => 'right-sidebar',
-					'site-sidebar-width'                   => 30,
+					'site-sidebar-width'                   => array(
+						'value' => 30,
+						'unit'  => '%',
+					),
 					'single-page-sidebar-layout'           => 'default',
 					'single-post-sidebar-layout'           => 'default',
 					'archive-post-sidebar-layout'          => 'default',

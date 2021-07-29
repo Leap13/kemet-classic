@@ -55,8 +55,9 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector . ' .kmt-grid-row',
-									'property' => '--minHeight',
+									'selector'   => $selector . ' .kmt-grid-row',
+									'property'   => '--minHeight',
+									'responsive' => true,
 								),
 							),
 						),

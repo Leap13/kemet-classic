@@ -1,5 +1,5 @@
 (function ($) {
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[site-title-font-size]",
     ".site-title",
     "font-size"
@@ -15,17 +15,17 @@
     "color",
     ".site-header .site-description"
   );
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[font-size-site-tagline]",
     ".site-header .site-description",
     "font-size"
   );
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[site-title-letter-spacing]",
     ".site-title a",
     "letter-spacing"
   );
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[tagline-letter-spacing]",
     ".site-description",
     "letter-spacing"
@@ -36,12 +36,12 @@
     "padding",
     ["top", "right", "bottom", "left"]
   );
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[kmt-header-responsive-logo-width]",
     "#sitehead .site-logo-img .custom-logo-link img",
     "max-width"
   );
-  kemet_responsive_slider(
+  kemet_slider(
     "kemet-settings[kmt-header-responsive-logo-width]",
     ".kemet-logo-svg",
     "width"

@@ -206,32 +206,11 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 */
 		public static function sanitize_responsive_slider( $val, $setting ) {
 
-			$input_attrs = array();
-			if ( isset( $setting->manager->get_control( $setting->id )->input_attrs ) ) {
-				$input_attrs = $setting->manager->get_control( $setting->id )->input_attrs;
+			if ( ! is_array( $val ) ) {
+				return;
 			}
 
-			$responsive = array(
-				'desktop'      => '',
-				'tablet'       => '',
-				'mobile'       => '',
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
-			if ( is_array( $val ) ) {
-				$responsive['desktop']      = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
-				$responsive['tablet']       = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
-				$responsive['mobile']       = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
-				$responsive['desktop-unit'] = in_array( $val['desktop-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['desktop-unit'] : 'px';
-				$responsive['tablet-unit']  = in_array( $val['tablet-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['tablet-unit'] : 'px';
-				$responsive['mobile-unit']  = in_array( $val['mobile-unit'], array( '', 'px', 'em', 'rem', '%' ) ) ? $val['mobile-unit'] : 'px';
-
-			} else {
-				$responsive['desktop'] = is_numeric( $val ) ? $val : '';
-			}
-
-			return $responsive;
+			return $val;
 		}
 
 		/**

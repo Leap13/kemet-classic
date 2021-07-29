@@ -9099,7 +9099,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         }
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
-          className: "single-unit  ".concat(unit_class),
+          className: "single-unit ".concat(unit_class),
           "data-unit": unit
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
           className: "unit-text",
@@ -9128,8 +9128,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         className: "kemet_range_value"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
         type: "number",
-        "data-id": "desktop",
-        className: "kmt-responsive-range-value-input kmt-responsive-range-desktop-input",
+        className: "kmt-range-value-input",
         value: sliderValue,
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
@@ -9138,9 +9137,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           return _this2.updateValues(_this2.state.currentDevice, event.target.value);
         }
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-responsive-units kmt-slider-desktop-responsive-units"
+        className: "kmt-slider-units"
       }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
-        className: "kmt-responsive-slider-reset",
+        className: "kmt-slider-reset",
         onClick: function onClick(e) {
           return _this2.handleReset(e);
         }

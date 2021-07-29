@@ -203,6 +203,40 @@ function kemet_responsive_spacing(control, selector, type) {
     });
   });
 }
+
+/**
+ * Slider
+ */
+function kemet_slider(control, selector, type) {
+  wp.customize(control, function (value) {
+    value.bind(function (new_value) {
+      // Remove old.
+      control = control.replace("[", "-");
+      control = control.replace("]", "");
+      jQuery("style#" + control).remove();
+
+      if (!new_value || new_value == "") {
+        return;
+      }
+
+      new_value = new_value.value + new_value.unit;
+      // Concat and append new <style>.
+      jQuery("footer").append(
+        '<style id="' +
+        control +
+        '">' +
+        selector +
+        "	{ " +
+        type +
+        ": " +
+        new_value +
+        " }" +
+        "</style>"
+      );
+    })
+  })
+}
+
 /**
  * Responsive Spacing CSS
  */
@@ -926,8 +960,13 @@ function kemet_responsive_color_css(control, data) {
     var type = data.type;
     delete data.type;
     switch (type) {
-      case "kmt-responsive-slider":
-        kemet_responsive_slider(control, data.selector, data.property);
+      case "kmt-slider":
+        if (data.responsive) {
+          delete data.responsive;
+          kemet_responsive_slider(control, data.selector, data.property);
+        } else {
+          kemet_slider(control, data.selector, data.property);
+        }
         break;
       case "kmt-select":
         kemet_css(control, data.property, data.selector);
@@ -942,11 +981,6 @@ function kemet_responsive_color_css(control, data) {
         break;
       case "kmt-reponsive-color":
         kemet_responsive_css(control, data.selector, data.property);
-        break;
-      case "kmt-slider":
-        var unit =
-          null !== data.unit && undefined !== data.unit ? data.unit : "px";
-        kemet_css(control, data.property, data.selector, unit);
         break;
       case "kmt-responsive-spacing":
         if (false === data.sides) {

@@ -56,7 +56,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							'widget-margin-bottom' => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
-								'label'        => __( 'Margin Bottom (PX)', 'kemet' ),
+								'label'        => __( 'Margin Bottom', 'kemet' ),
 								'unit_choices' => array(
 									'px' => array(
 										'min'  => 10,
@@ -133,8 +133,9 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => '.widget-head .widget-title , .widget-title',
-									'property' => '--fontSize',
+									'selector'   => '.widget-head .widget-title , .widget-title',
+									'property'   => '--fontSize',
+									'responsive' => true,
 								),
 							),
 							// 'widget-title-font-family'      => array(
@@ -197,8 +198,9 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => '.widget-head .widget-title , .widget-title',
-									'property' => '--lineHeight',
+									'selector'   => '.widget-head .widget-title , .widget-title',
+									'property'   => '--lineHeight',
+									'responsive' => true,
 								),
 							),
 							'widget-title-letter-spacing' => array(
@@ -216,8 +218,9 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => '.widget-head .widget-title , .widget-title',
-									'property' => '--letterSpacing',
+									'selector'   => '.widget-head .widget-title , .widget-title',
+									'property'   => '--letterSpacing',
+									'responsive' => true,
 								),
 							),
 							'widget-title-color'          => array(
@@ -278,8 +281,9 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => '.widget .widget-head',
-									'property' => '--borderBottomWidth',
+									'selector'   => '.widget .widget-head',
+									'property'   => '--borderBottomWidth',
+									'responsive' => true,
 								),
 							),
 						),

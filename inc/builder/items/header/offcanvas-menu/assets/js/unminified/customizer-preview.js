@@ -36,53 +36,53 @@
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-bg-color"),
     selector +
-      " > li ul > li > a, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap",
+    " > li ul > li > a, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap",
     "background-color"
   );
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-color"),
     selector +
-      " > li ul > li > a, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap",
+    " > li ul > li > a, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap",
     "color"
   );
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-border-color"),
     selector +
-      " > li ul > li > a, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap",
+    " > li ul > li > a, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap",
     "border-bottom-color"
   );
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-h-bg-color"),
     selector +
-      " > li ul > li > a:hover, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap:hover",
+    " > li ul > li > a:hover, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap:hover",
     "background-color"
   );
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-h-color"),
     selector +
-      " > li ul > li > a:hover, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap:hover",
+    " > li ul > li > a:hover, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap:hover",
     "color"
   );
   kemet_responsive_css(
     settingName(prefix + "-submenu-link-h-border-color"),
     selector +
-      " > li ul > li > a:hover, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap:hover",
+    " > li ul > li > a:hover, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap:hover",
     "border-bottom-color"
   );
 
-  kemet_responsive_slider(
+  kemet_slider(
     settingName(prefix + "-border-bottom-width"),
     selector + " li > a, " + selector + " li > .kmt-menu-item-wrap",
     "border-bottom-width"
@@ -100,8 +100,8 @@
   typography_css(
     prefix + "-submenu",
     selector +
-      " > li ul > li > a, " +
-      selector +
-      " > li ul > li > .kmt-menu-item-wrap"
+    " > li ul > li > a, " +
+    selector +
+    " > li ul > li > .kmt-menu-item-wrap"
   );
 })(jQuery);
