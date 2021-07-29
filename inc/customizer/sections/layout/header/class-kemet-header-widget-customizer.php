@@ -200,9 +200,10 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 
 			);
 
+			$section_name   = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-' . $prefix : 'sidebar-widgets-' . $prefix;
 			$widget_options = array(
 				$prefix . '-options' => array(
-					'section' => 'sidebar-widgets-' . $prefix,
+					'section' => $section_name,
 					'type'    => 'kmt-options',
 					'data'    => array(
 						'options' => $widget_options,
@@ -228,8 +229,9 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 		foreach ( self::$widget_items as $widget ) {
 			$prefix         = $widget;
 			$num            = explode( 'header-widget-', $prefix )[1];
+			$section_name   = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-' . $prefix : 'sidebar-widgets-' . $prefix;
 			$widget_section = array(
-				'sidebar-widgets-' . $prefix => array(
+				$section_name => array(
 					'priority' => 65,
 					'title'    => sprintf( __( 'Widget %s', 'kemet' ), $num ),
 					'panel'    => 'panel-header-builder-group',

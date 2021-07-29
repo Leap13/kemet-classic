@@ -44,6 +44,25 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
           <Dashicon icon="admin-generic" />
         </Button>
       </div>
+      {KemetCustomizerData.has_widget_editor && item.includes('widget') && <Button
+        className="kmt-builder-item-focus-icon kmt-builder-item-icon"
+        aria-label={
+          __("Design for", "kemet") +
+          " " +
+          (undefined !== choices[item] && undefined !== choices[item].name
+            ? choices[item].name
+            : "")
+        }
+        onClick={() => {
+          focusSection(
+            undefined !== choices[item] && undefined !== choices[item].section
+              ? 'kemet-' + choices[item].section
+              : ""
+          );
+        }}
+      >
+        <Dashicon icon="admin-appearance" />
+      </Button>}
       <Button
         className="kmt-builder-item-icon"
         aria-label={

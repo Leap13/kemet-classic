@@ -498,9 +498,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 				'kemet-react-custom-control-script',
 				'KemetCustomizerData',
 				array(
-					'choices'  => self::get_choices_arr(),
-					'contexts' => self::get_contexts_arr(),
-					'setting'  => KEMET_THEME_SETTINGS . '[setting_name]',
+					'choices'           => self::get_choices_arr(),
+					'contexts'          => self::get_contexts_arr(),
+					'setting'           => KEMET_THEME_SETTINGS . '[setting_name]',
+					'has_widget_editor' => kemet_has_widget_editor(),
 				)
 			);
 

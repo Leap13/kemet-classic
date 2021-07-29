@@ -249,9 +249,10 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 
+		$section_name     = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-sidebar-1' : 'sidebar-widgets-sidebar-1';
 		$register_options = array(
 			'site-sidebar-options' => array(
-				'section' => 'sidebar-widgets-sidebar-1',
+				'section' => $section_name,
 				'type'    => 'kmt-options',
 				'data'    => array(
 					'options' => $register_options,
@@ -269,8 +270,9 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_sections( $sections ) {
+		$section_name     = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-sidebar-1' : 'sidebar-widgets-sidebar-1';
 		$register_section = array(
-			'sidebar-widgets-sidebar-1' => array(
+			$section_name => array(
 				'title'    => __( 'Sidebar', 'kemet' ),
 				'panel'    => 'panel-layout',
 				'priority' => 30,
