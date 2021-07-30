@@ -231,12 +231,16 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Partials' ) ) {
 			$localize['stickyBottom']       = kemet_get_option( 'enable-sticky-bottom' ) ? 'on' : 'off';
 			$localize['enableShrink']       = kemet_get_option( 'enable-shrink-main' ) ? 'on' : 'off';
 			$localize['enableStickyMobile'] = kemet_get_option( 'enable-sticky-mobile' ) ? 'on' : 'off';
-			$localize['shrinkHeight']       = kemet_get_option( 'main-row-shrink-height' );
+			$shrink_height                  = kemet_get_option( 'main-row-shrink-height' );
+			$shrink_height                  = '' !== $shrink_height ? $shrink_height['value'] : '';
+			$localize['shrinkHeight']       = $shrink_height;
 			$localize['stickyMobileTop']    = kemet_get_option( 'enable-sticky-mobile-top' ) ? 'on' : 'off';
 			$localize['stickyMobileMain']   = kemet_get_option( 'enable-sticky-mobile-main' ) ? 'on' : 'off';
 			$localize['stickyMobileBottom'] = kemet_get_option( 'enable-sticky-mobile-bottom' ) ? 'on' : 'off';
 			$localize['enableMobileShrink'] = kemet_get_option( 'enable-shrink-main-mobile' ) ? 'on' : 'off';
-			$localize['shrinkMobileHeight'] = kemet_get_option( 'mobile-main-row-shrink-height' );
+			$mobile_shrink_height           = kemet_get_option( 'mobile-main-row-shrink-height' );
+			$mobile_shrink_height           = '' !== $mobile_shrink_height ? $mobile_shrink_height['value'] : '';
+			$localize['shrinkMobileHeight'] = $mobile_shrink_height;
 			return $localize;
 		}
 
