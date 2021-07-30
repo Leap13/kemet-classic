@@ -1427,21 +1427,9 @@ li#customize-control-kemet-settings-footer-desktop-items {
   margin-bottom: 4px;
 }
 
-.kmt-radio-container-control .components-button.is-tertiary {
-  align-items: stretch;
-  font-size: 13px;
-  font-weight: 400;
-  font-style: normal;
-  text-transform: uppercase;
+.kmt-radio-container-control
+  button.components-button.is-tertiary.builder-add-btn {
   height: auto;
-  line-height: normal;
-  margin: 0;
-  padding: 13px 20px;
-  border-radius: 4px;
-  background: transparent;
-  color: #32373c;
-  white-space: normal;
-  box-shadow: none;
 }
 
 .components-button.builder-add-btn svg {
