@@ -24,7 +24,38 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 				'type'        => 'kmt-builder',
 				'choices'     => apply_filters(
 					'footer_items',
-					array()
+					array(
+						'footer-widget-1' => array(
+							'name'    => __( 'Widget 1', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-1',
+						),
+						'footer-widget-2' => array(
+							'name'    => __( 'Widget 2', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-2',
+						),
+						'footer-widget-3' => array(
+							'name'    => __( 'Widget 3', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-3',
+						),
+						'footer-widget-4' => array(
+							'name'    => __( 'Widget 4', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-4',
+						),
+						'footer-widget-5' => array(
+							'name'    => __( 'Widget 5', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-5',
+						),
+						'footer-widget-6' => array(
+							'name'    => __( 'Widget 6', 'kemet' ),
+							'icon'    => 'wordpress-alt',
+							'section' => 'sidebar-widgets-footer-widget-6',
+						),
+					)
 				),
 				'input_attrs' => array(
 					'group'   => 'footer-items',
@@ -66,6 +97,33 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 			),
 		);
 
+		$layout_options = array(
+			'footer-popup-items'    => array(
+				'default'   => false,
+				'type'      => '',
+				'transport' => 'postMessage',
+			),
+			'footer-availble-items' => array(
+				'label'       => __( 'Available Items', 'kemet' ),
+				'transport'   => 'postMessage',
+				'type'        => 'kmt-available',
+				'input_attrs' => array(
+					'group' => 'footer-items',
+					'zones' => array( 'top', 'main', 'bottom' ),
+				),
+			),
+		);
+
+		$layout_options = array(
+			'builder-layout-options' => array(
+				'section' => 'section-footer-builder-layout',
+				'type'    => 'kmt-options',
+				'data'    => array(
+					'options' => $layout_options,
+				),
+			),
+		);
+
 		$builder_options = array(
 			'footer-builder-options' => array(
 				'section' => 'section-footer-builder',
@@ -75,6 +133,9 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 		);
+
+		$builder_options = array_merge( $builder_options, $layout_options );
+
 		return array_merge( $options, $builder_options );
 	}
 

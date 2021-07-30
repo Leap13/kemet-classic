@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 * @return boolean
 		 */
 		public static function column_has_items( $column, $row, $builder = 'header', $device = 'desktop' ) {
-			$items = kemet_get_option( $builder . '-' . $device . '-items' );
+			$items = 'header' === $builder ? kemet_get_option( $builder . '-' . $device . '-items' ) : kemet_get_option( $builder . '-items' );
 
 			if ( isset( $items ) && isset( $items[ $row ] ) && isset( $items[ $row ][ $row . '_' . $column ] ) && is_array( $items[ $row ][ $row . '_' . $column ] ) && ! empty( $items[ $row ][ $row . '_' . $column ] ) ) {
 				return true;

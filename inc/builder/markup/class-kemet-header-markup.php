@@ -225,6 +225,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 
 			return apply_filters( 'kemet_enable_overlay_header', $header_transparent );
 		}
+
 		/**
 		 * Display sidebar as section.
 		 *
@@ -238,6 +239,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			}
 			return $active;
 		}
+
 		/**
 		 * Register menus
 		 */

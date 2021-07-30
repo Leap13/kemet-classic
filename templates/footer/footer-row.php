@@ -35,7 +35,7 @@ $zone        = 0;
 				 *
 				 * Hooked kemet_render_footer_column
 				 */
-				do_action( 'kemet_render_footer_column', $row, $zone );
+				do_action( 'kemet_render_footer_column', $zone, $row );
 				?>
 				</div>
 			<?php } ?>
