@@ -253,7 +253,7 @@ if ( ! function_exists( 'kemet_slider' ) ) {
 	 */
 	function kemet_slider( $option, $default = '' ) {
 		if ( ! is_array( $option ) && '' == $option ) {
-			return;
+			return '';
 		}
 
 		$default_value = array(

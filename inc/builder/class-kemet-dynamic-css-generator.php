@@ -35,6 +35,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$border_width       = kemet_get_option( $button . '-border-width' );
 				$padding            = kemet_get_option( $button . '-padding' );
 				$margin             = kemet_get_option( $button . '-margin' );
+				$font_size          = kemet_get_option( $button . '-font-size' );
+				$line_height        = kemet_get_option( $button . '-line-height' );
+				$letter_spacing     = kemet_get_option( $button . '-letter-spacing' );
 
 				$css_output = array(
 					$selector => array(
@@ -47,6 +50,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--borderHoverColor'           => esc_attr( $hover_border_color ),
 						'--padding'                    => kemet_responsive_spacing( $padding, 'all', 'desktop' ),
 						'--margin'                     => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'--fontSize'                   => kemet_slider( $font_size ),
+						'--letterSpacing'              => kemet_slider( $letter_spacing ),
+						'--lineHeight'                 => kemet_slider( $line_height ),
 					),
 				);
 
@@ -73,7 +79,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $mobile, '', '544' );
 
-				$parse_css .= self::typography_css( $button, $selector );
+				// $parse_css .= self::typography_css( $button, $selector );
 
 				return $parse_css;
 			}
@@ -127,17 +133,23 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$color            = kemet_get_sub_option( $html . '-color', 'initial' );
 				$link_color       = kemet_get_sub_option( $html . '-link-color', 'initial' );
 				$link_hover_color = kemet_get_sub_option( $html . '-link-color', 'hover' );
+				$font_size        = kemet_get_option( $html . '-font-size' );
+				$line_height      = kemet_get_option( $html . '-line-height' );
+				$letter_spacing   = kemet_get_option( $html . '-letter-spacing' );
 
 				$css_output = array(
 					$selector => array(
 						'--textColor'         => esc_attr( $color ),
 						'--headingLinksColor' => esc_attr( $link_color ),
 						'--linksHoverColor'   => esc_attr( $link_hover_color ),
+						'--fontSize'          => kemet_slider( $font_size ),
+						'--letterSpacing'     => kemet_slider( $letter_spacing ),
+						'--lineHeight'        => kemet_slider( $line_height ),
 					),
 				);
 
-				$parse_css  = kemet_parse_css( $css_output );
-				$parse_css .= self::typography_css( $html, $selector );
+				$parse_css = kemet_parse_css( $css_output );
+				// $parse_css .= self::typography_css( $html, $selector );
 				return $parse_css;
 			}
 		}

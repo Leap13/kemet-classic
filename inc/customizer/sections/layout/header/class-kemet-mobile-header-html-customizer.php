@@ -93,7 +93,6 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 								),
 								$prefix . '-font-size'   => array(
 									'type'         => 'kmt-slider',
-									'responsive'   => true,
 									'transport'    => 'postMessage',
 									'label'        => __( 'Font Size', 'kemet' ),
 									'unit_choices' => array(
@@ -109,9 +108,8 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector'   => $selector,
-										'property'   => '--fontSize',
-										'responsive' => true,
+										'selector' => $selector,
+										'property' => '--fontSize',
 									),
 								),
 								// $prefix . '-font-family'      => array(
@@ -159,7 +157,6 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 								),
 								$prefix . '-line-height' => array(
 									'type'         => 'kmt-slider',
-									'responsive'   => true,
 									'transport'    => 'postMessage',
 									'label'        => __( 'Line Height', 'kemet' ),
 									'unit_choices' => array(
@@ -175,14 +172,12 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector'   => $selector,
-										'property'   => '--lineHeight',
-										'responsive' => true,
+										'selector' => $selector,
+										'property' => '--lineHeight',
 									),
 								),
 								$prefix . '-letter-spacing' => array(
 									'type'         => 'kmt-slider',
-									'responsive'   => true,
 									'transport'    => 'postMessage',
 									'label'        => __( 'Letter Spacing', 'kemet' ),
 									'unit_choices' => array(
@@ -193,9 +188,8 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 									'preview'      => array(
-										'selector'   => $selector,
-										'property'   => '--letterSpacing',
-										'responsive' => true,
+										'selector' => $selector,
+										'property' => '--letterSpacing',
 									),
 								),
 							),
