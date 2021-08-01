@@ -58,6 +58,8 @@
   input.kmt-spacing-input {
   text-align: center;
   padding: 0 3px;
+  width: 90% !important;
+  border: 1px solid #dcdddf;
 }
 
 .customize-control-kmt-responsive-spacing
@@ -98,7 +100,8 @@
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link.disconnected
   .kmt-spacing-connected {
-  display: block;
+  display: inline-block;
+  color: #1e8cbe;
 }
 
 .customize-control-kmt-responsive-spacing
@@ -106,9 +109,20 @@
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link
   span {
-  width: 100%;
-  height: 28px;
+  width: 35px;
+  height: 26px;
   line-height: 26px;
   font-size: 14px;
   border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 2px 0;
+  font-size: 12px;
+}
+.customize-control-kmt-responsive-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link
+  .kmt-spacing-disconnected {
+  color: #2d3748;
 }
