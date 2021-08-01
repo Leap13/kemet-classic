@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(props.control.params.value);
 
+    console.log(props_value)
     const renderReset = () => {
         return <span className="customize-control-title">
 

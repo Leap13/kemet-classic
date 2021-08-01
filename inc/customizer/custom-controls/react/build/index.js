@@ -5511,6 +5511,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
+  console.log(props_value);
+
   var renderReset = function renderReset() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
@@ -6809,7 +6811,21 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         _this2.setState({
           isVisible: true
         });
-      };
+      }; // const dimensions = {
+      //     desktop: {
+      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.width ? this.controlParams.attachments.desktop.width : 400),
+      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.height ? this.controlParams.attachments.desktop.height : 400),
+      //     },
+      //     tablet: {
+      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.width ? this.controlParams.attachments.tablet.width : 400),
+      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.height ? this.controlParams.attachments.tablet.height : 400),
+      //     },
+      //     mobile: {
+      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.width ? this.controlParams.attachments.mobile.width : 400),
+      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.height ? this.controlParams.attachments.mobile.height : 400),
+      //     },
+      // }
+
 
       var showingGradient = allowGradient && supportGradient ? true : false;
       var tabs = [{
@@ -7110,10 +7126,61 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
     value: function renderImageSettings() {
       var _this3 = this;
 
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, (this.props.media.url || this.props.backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("img", {
-        src: this.props.media.url ? this.props.media.url : this.props.backgroundImage
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_10__["MediaUpload"], {
-        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'kemet'),
+      var dimensions = {
+        width: 400,
+        height: 100
+      };
+      var repeat = {
+        'no-repeat': Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("svg", {
+          viewBox: "0 0 16 16"
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "6",
+          y: "6",
+          width: "4",
+          height: "4"
+        })),
+        'repeat-x': Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("svg", {
+          viewBox: "0 0 16 16"
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          y: "6",
+          width: "4",
+          height: "4"
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "6",
+          y: "6",
+          width: "4",
+          height: "4"
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "12",
+          y: "6",
+          width: "4",
+          height: "4"
+        })),
+        'repeat-y': Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("svg", {
+          viewBox: "0 0 16 16"
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "6",
+          width: "4",
+          height: "4"
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "6",
+          y: "6",
+          width: "4",
+          height: "4"
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("rect", {
+          x: "6",
+          y: "12",
+          width: "4",
+          height: "4"
+        })),
+        repeat: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("svg", {
+          viewBox: "0 0 16 16"
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("path", {
+          d: "M0,0h4v4H0V0z M6,0h4v4H6V0z M12,0h4v4h-4V0z M0,6h4v4H0V6z M6,6h4v4H6V6z M12,6h4v4h-4V6z M0,12h4v4H0V12z M6,12h4v4H6V12zM12,12h4v4h-4V12z"
+        }))
+      };
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_10__["MediaUpload"], {
+        title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'astra'),
         onSelect: function onSelect(media) {
           return _this3.onSelectImage(media);
         },
@@ -7121,113 +7188,54 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         value: this.props.media && this.props.media ? this.props.media : '',
         render: function render(_ref) {
           var open = _ref.open;
-          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
             className: "upload-button button-add-media",
             isDefault: true,
             onClick: function onClick() {
               return _this3.open(open);
             }
-          }, !_this3.props.media && !_this3.props.backgroundImage ? Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'kemet') : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Replace image", 'kemet'));
+          }, !_this3.props.media && !_this3.props.backgroundImage ? Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'astra') : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Replace image", 'astra')));
         }
-      }), (this.props.media || this.props.backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
-        className: "kmt-bg-img-remove",
-        onClick: this.onRemoveImage,
-        isLink: true,
-        isDestructive: true
-      }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Remove Image", 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("a", {
-        href: "#",
-        className: "more-settings",
-        onClick: this.toggleMoreSettings,
-        "data-direction": "down",
-        "data-id": "desktop"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
-        className: "message"
-      }, " ", Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("More Settings"), " "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
-        className: "icon"
-      }, " \u2193 ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
-        className: "media-position-setting hide-settings"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Image Position"),
-        value: this.props.backgroundPosition,
-        onChange: function onChange(value) {
-          return _this3.onChangeImageOptions('backgroundPosition', 'background-position', value);
+      }), (this.props.media || this.props.backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["FocalPointPicker"], {
+        url: this.props.media.url ? this.props.media.url : this.props.backgroundImage,
+        dimensions: dimensions,
+        value: {
+          x: 0.5,
+          y: 0.5
         },
-        options: [{
-          value: "left top",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Left Top", 'kemet')
-        }, {
-          value: "left center",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Left Center", 'kemet')
-        }, {
-          value: "left bottom",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Left Bottom", 'kemet')
-        }, {
-          value: "right top",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Right Top", 'kemet')
-        }, {
-          value: "right center",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Right Center", 'kemet')
-        }, {
-          value: "right bottom",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Right Bottom", 'kemet')
-        }, {
-          value: "center top",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Center Top", 'kemet')
-        }, {
-          value: "center center",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Center Center", 'kemet')
-        }, {
-          value: "center bottom",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Center Bottom", 'kemet')
-        }]
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Attachment", 'kemet'),
-        value: this.props.backgroundAttachment,
-        onChange: function onChange(value) {
-          return _this3.onChangeImageOptions('backgroundAttachment', 'background-attachment', value);
-        },
-        options: [{
-          value: "fixed",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Fixed", 'kemet')
-        }, {
-          value: "scroll",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Scroll", 'kemet')
-        }]
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Repeat", 'kemet'),
-        value: this.props.backgroundRepeat,
-        onChange: function onChange(value) {
-          return _this3.onChangeImageOptions('backgroundRepeat', 'background-repeat', value);
-        },
-        options: [{
-          value: "no-repeat",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("No Repeat", 'kemet')
-        }, {
-          value: "repeat",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Repeat All", 'kemet')
-        }, {
-          value: "repeat-x",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Repeat Horizontally", 'kemet')
-        }, {
-          value: "repeat-y",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Repeat Vertically", 'kemet')
-        }]
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["SelectControl"], {
-        label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Size", 'kemet'),
-        value: this.props.backgroundSize,
-        onChange: function onChange(value) {
-          return _this3.onChangeImageOptions('backgroundSize', 'background-size', value);
-        },
-        options: [{
-          value: "auto",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Auto", 'kemet')
-        }, {
-          value: "cover",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Cover", 'kemet')
-        }, {
-          value: "contain",
-          label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Contain", 'kemet')
-        }]
+        onChange: function onChange(focalPoint) {
+          return _this3.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint);
+        }
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
+        className: "kmt-radio-option kmt-buttons-group"
+      }, ["Fixed", "Scroll"].map(function (item) {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("li", {
+          isTertiary: true,
+          className: "Size",
+          onClick: function onClick() {
+            return _this3.onChangeImageOptions('backgroundAttachment', 'background-attachment', item);
+          }
+        }, item);
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
+        className: "kmt-radio-option kmt-buttons-group"
+      }, Object.keys(repeat).map(function (item) {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("li", {
+          isTertiary: true,
+          className: "Reart",
+          onClick: function onClick() {
+            return _this3.onChangeImageOptions('backgroundRepeat', 'background-repeat', item);
+          }
+        }, "\"Salma\"");
+      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
+        className: "kmt-radio-option kmt-buttons-group"
+      }, ["auto", "cover", "contain"].map(function (item) {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("li", {
+          isTertiary: true,
+          className: "Size",
+          onClick: function onClick() {
+            return _this3.onChangeImageOptions('backgroundSize', 'background-size', item);
+          }
+        }, item);
       }))));
     }
   }]);
@@ -9677,7 +9685,6 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props.control.params);
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,
           suffix = _this$props$control$p.suffix,
@@ -10326,7 +10333,6 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log(this.props.control.params);
       var input_attrs = '';
       var _this$props$control$p = this.props.control.params,
           label = _this$props$control$p.label,

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker } from '@wordpress/components';
+import { Dashicon, Button, Tooltip, ColorIndicator, FocalPointPicker, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker, ButtonGroup } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
 
@@ -64,7 +64,20 @@ class KemetColorPickerControl extends Component {
             this.setState({ isVisible: true });
         };
 
-
+        // const dimensions = {
+        //     desktop: {
+        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.width ? this.controlParams.attachments.desktop.width : 400),
+        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.height ? this.controlParams.attachments.desktop.height : 400),
+        //     },
+        //     tablet: {
+        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.width ? this.controlParams.attachments.tablet.width : 400),
+        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.height ? this.controlParams.attachments.tablet.height : 400),
+        //     },
+        //     mobile: {
+        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.width ? this.controlParams.attachments.mobile.width : 400),
+        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.height ? this.controlParams.attachments.mobile.height : 400),
+        //     },
+        // }
 
         const showingGradient = (allowGradient && supportGradient ? true : false);
 
@@ -373,85 +386,126 @@ class KemetColorPickerControl extends Component {
         }
     }
 
+
     renderImageSettings() {
+        const dimensions = {
+            width: 400,
+            height: 100,
+        };
+        const repeat = {
+            'no-repeat':
+                <svg viewBox="0 0 16 16"><rect x="6" y="6" width="4" height="4" /></svg>,
+            'repeat-x':
+                <svg viewBox="0 0 16 16"><rect y="6" width="4" height="4" /><rect x="6" y="6" width="4" height="4" /><rect x="12" y="6" width="4" height="4" /></svg>,
+            'repeat-y':
+                <svg viewBox="0 0 16 16"><rect x="6" width="4" height="4" /><rect x="6" y="6" width="4" height="4" /><rect x="6" y="12" width="4" height="4" /></svg>,
+
+            repeat:
+                <svg viewBox="0 0 16 16"><path d="M0,0h4v4H0V0z M6,0h4v4H6V0z M12,0h4v4h-4V0z M0,6h4v4H0V6z M6,6h4v4H6V6z M12,6h4v4h-4V6z M0,12h4v4H0V12z M6,12h4v4H6V12zM12,12h4v4h-4V12z" /></svg>,
+        }
 
         return (
             <>
-                {(this.props.media.url || this.props.backgroundImage) &&
 
-                    <img src={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage} />
-                }
                 <MediaUpload
-                    title={__("Select Background Image", 'kemet')}
+                    title={__("Select Background Image", 'astra')}
                     onSelect={(media) => this.onSelectImage(media)}
                     allowedTypes={["image"]}
                     value={(this.props.media && this.props.media ? this.props.media : '')}
                     render={({ open }) => (
-                        <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
-                            {(!this.props.media && !this.props.backgroundImage) ? __("Select Background Image", 'kemet') : __("Replace image", 'kemet')}
-                        </Button>
+                        <>
+                            <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
+                                {(!this.props.media && !this.props.backgroundImage) ? __("Select Background Image", 'astra') : __("Replace image", 'astra')}
+                            </Button>
+
+
+                        </>
                     )}
                 />
 
                 {(this.props.media || this.props.backgroundImage) &&
                     <>
-                        <Button className="kmt-bg-img-remove" onClick={this.onRemoveImage} isLink isDestructive>
-                            {__("Remove Image", 'kemet')}
-                        </Button>
+                        {/* <div className="premium-image-actions">
+                            <Tooltip text={__("Edit")}>
+                                <button
+                                    className="premium-image-button"
+                                    aria-label={__("Edit")}
+                                    onClick={open}
+                                    role="button"
+                                >
+                                    <span
+                                        aria-label={__("Edit")}
+                                        className="fa fa-pencil"
+                                    />
+                                </button>
+                            </Tooltip>
+                            <Tooltip text={__("Remove")}>
+                                <button
+                                    className="premium-image-button"
+                                    aria-label={__("Remove")}
+                                    onClick={this.onRemoveImage}
+                                    role="button"
+                                >
+                                    <span
+                                        aria-label={__("Close")}
+                                        className="fa fa-trash-o"
+                                    />
+                                </button>
+                            </Tooltip>
+                        </div> */}
+                        <FocalPointPicker
+                            url={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage}
+                            dimensions={dimensions}
+                            value={({ x: 0.5, y: 0.5 })}
+                            onChange={(focalPoint) => this.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
+                        />
 
-                        <a href="#" className="more-settings" onClick={this.toggleMoreSettings} data-direction="down" data-id="desktop">
-                            <span className="message"> {__("More Settings")} </span>
-                            <span className="icon"> ↓ </span>
-                        </a>
 
-                        <div className="media-position-setting hide-settings">
-                            <SelectControl
-                                label={__("Image Position")}
-                                value={this.props.backgroundPosition}
-                                onChange={(value) => this.onChangeImageOptions('backgroundPosition', 'background-position', value)}
-                                options={[
-                                    { value: "left top", label: __("Left Top", 'kemet') },
-                                    { value: "left center", label: __("Left Center", 'kemet') },
-                                    { value: "left bottom", label: __("Left Bottom", 'kemet') },
-                                    { value: "right top", label: __("Right Top", 'kemet') },
-                                    { value: "right center", label: __("Right Center", 'kemet') },
-                                    { value: "right bottom", label: __("Right Bottom", 'kemet') },
-                                    { value: "center top", label: __("Center Top", 'kemet') },
-                                    { value: "center center", label: __("Center Center", 'kemet') },
-                                    { value: "center bottom", label: __("Center Bottom", 'kemet') },
-                                ]}
-                            />
-                            <SelectControl
-                                label={__("Attachment", 'kemet')}
-                                value={this.props.backgroundAttachment}
-                                onChange={(value) => this.onChangeImageOptions('backgroundAttachment', 'background-attachment', value)}
-                                options={[
-                                    { value: "fixed", label: __("Fixed", 'kemet') },
-                                    { value: "scroll", label: __("Scroll", 'kemet') }
-                                ]}
-                            />
-                            <SelectControl
-                                label={__("Repeat", 'kemet')}
-                                value={this.props.backgroundRepeat}
-                                onChange={(value) => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', value)}
-                                options={[
-                                    { value: "no-repeat", label: __("No Repeat", 'kemet') },
-                                    { value: "repeat", label: __("Repeat All", 'kemet') },
-                                    { value: "repeat-x", label: __("Repeat Horizontally", 'kemet') },
-                                    { value: "repeat-y", label: __("Repeat Vertically", 'kemet') }
-                                ]}
-                            />
-                            <SelectControl
-                                label={__("Size", 'kemet')}
-                                value={this.props.backgroundSize}
-                                onChange={(value) => this.onChangeImageOptions('backgroundSize', 'background-size', value)}
-                                options={[
-                                    { value: "auto", label: __("Auto", 'kemet') },
-                                    { value: "cover", label: __("Cover", 'kemet') },
-                                    { value: "contain", label: __("Contain", 'kemet') }
-                                ]}
-                            />
-                        </div>
+
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {["Fixed", "Scroll"].map((item) => {
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={"Size"}
+                                        onClick={() => this.onChangeImageOptions('backgroundAttachment', 'background-attachment', item)}
+                                    >
+                                        {item}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {Object.keys(repeat).map((item) => {
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={"Reart"}
+                                        onClick={() => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', item)}
+                                    >
+                                        {/* {repeat[item] &&
+                                                repeat[item]
+                                            } */}
+                                        "Salma"
+                                    </li>
+                                );
+                            })}
+                        </ul>
+
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {["auto", "cover", "contain"].map((item) => {
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={"Size"}
+                                        onClick={() => this.onChangeImageOptions('backgroundSize', 'background-size', item)}
+                                    >
+                                        {item}
+                                    </li>
+                                );
+                            })}
+                        </ul>
                     </>
                 }
             </>

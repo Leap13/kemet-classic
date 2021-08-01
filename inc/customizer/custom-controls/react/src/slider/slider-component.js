@@ -87,7 +87,6 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
-        console.log(this.props.control.params)
         let input_attrs = ''
         let { label, suffix, description } = this.props.control.params;
         if (!this.responsive) {

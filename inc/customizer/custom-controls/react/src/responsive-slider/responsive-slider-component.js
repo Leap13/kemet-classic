@@ -106,7 +106,6 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
-        console.log(this.props.control.params);
         let { label, suffix, description } = this.props.control.params;
 
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
