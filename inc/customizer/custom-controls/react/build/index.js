@@ -8231,7 +8231,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
-  var responsive = props.params.reponsive;
+  var responsive = props.params.responsive;
   var ResDefaultParam = {
     "desktop": {
       'top': '',

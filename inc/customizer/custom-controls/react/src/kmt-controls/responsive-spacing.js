@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import Responsive from '../common/responsive';
 
 const ResponsiveSpacingComponent = props => {
-    let responsive = props.params.reponsive;
+    let responsive = props.params.responsive;
     let ResDefaultParam = {
         "desktop": {
             'top': '',
