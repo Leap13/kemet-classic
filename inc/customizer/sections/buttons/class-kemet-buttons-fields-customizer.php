@@ -498,23 +498,13 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'input-label-color'     => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Label Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Text', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => 'form label',
-										'property' => '--textColor',
-									),
-								),
-							),
+							'input-label-color'     =>  array(
+                'transport' => 'postMessage',
+                'type'      => 'kmt-background',
+                'label'     => __( 'Background', 'kemet' ),
+                'priority'  => 142,
+                'section'   => 'section-buttons-fields',
+            ),
 							'input-radius'          => array(
 								'type'         => 'kmt-responsive-slider',
 								'transport'    => 'postMessage',

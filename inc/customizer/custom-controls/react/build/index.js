@@ -5476,10 +5476,10 @@ function invariant(condition, message) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -5497,7 +5497,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -5506,8 +5506,55 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var BackgroundComponent = function BackgroundComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.control.params.value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+  var value = props.control.setting.get();
+  var defaultValue = {
+    "background-attachment": '',
+    "background-color": '',
+    "background-image": '',
+    "background-media": '',
+    "background-position": '',
+    "background-repeat": '',
+    "background-size": '',
+    "background-type": ""
+  };
+  var ResDefaultParam = {
+    desktop: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    },
+    tablet: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    },
+    mobile: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    }
+  };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
+  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
@@ -6974,41 +7021,54 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var BackgroundComponent = function BackgroundComponent(props) {
-  var ResDefaultParam = {
-    backgroundImage: "",
-    backgroundPosition: "",
-    backgroundRepeat: "",
-    backgroundSize: "",
-    backgroundAttachment: ""
-  };
+  var value = props.control.get();
   var defaultValue = {
+    "background-attachment": '',
+    "background-color": '',
+    "background-image": '',
+    "background-media": '',
+    "background-position": '',
+    "background-repeat": '',
+    "background-size": '',
+    "background-type": ""
+  };
+  var ResDefaultParam = {
     desktop: {
-      backgroundImage: "",
-      backgroundPosition: "",
-      backgroundRepeat: "",
-      backgroundSize: "",
-      backgroundAttachment: ""
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
     },
     tablet: {
-      backgroundImage: "",
-      backgroundPosition: "",
-      backgroundRepeat: "",
-      backgroundSize: "",
-      backgroundAttachment: ""
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
     },
     mobile: {
-      backgroundImage: "",
-      backgroundPosition: "",
-      backgroundRepeat: "",
-      backgroundSize: "",
-      backgroundAttachment: ""
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
     }
   };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
   value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
-  var defaultValues = responsive ? responsiveDefault : defaultValue;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(defaultValues),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];

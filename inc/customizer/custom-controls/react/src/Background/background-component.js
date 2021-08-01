@@ -5,7 +5,69 @@ import KemetColorPickerControl from '../common/color';
 import { __ } from '@wordpress/i18n';
 
 const BackgroundComponent = props => {
-    const [props_value, setPropsValue] = useState(props.control.params.value);
+    let value = props.control.setting.get()
+
+    let defaultValue = {
+        "background-attachment": '',
+        "background-color": '',
+        "background-image": '',
+        "background-media": '',
+        "background-position": '',
+        "background-repeat": '',
+        "background-size": '',
+        "background-type": ""
+    }
+    let ResDefaultParam = {
+        desktop: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        },
+        tablet: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        },
+        mobile: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        }
+    }
+
+    let defaultValues = responsive ? ResDefaultParam : defaultValue;
+
+    let defaultVals = props.control.params.default
+        ? {
+            ...defaultValues,
+            ...props.control.params.default,
+        }
+        : defaultValues;
+
+    value = value
+        ? {
+            ...defaultVals,
+            ...value,
+        }
+        : defaultVals
+        ;
+
+    const [props_value, setPropsValue] = useState(value);
 
     console.log(props_value)
     const renderReset = () => {
