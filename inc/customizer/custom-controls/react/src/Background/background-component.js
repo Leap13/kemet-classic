@@ -116,12 +116,12 @@ const BackgroundComponent = props => {
     let descriptionHtml = description ?
         <span className="description customize-control-description">{description}</span> : null;
     let inputHtml = null;
-    inputHtml = <div className="background-wrapper">
+    inputHtml =
         <div className="background-container">
             {renderReset()}
             {renderSettings()}
         </div>
-    </div>;
+        ;
 
     return <>
 

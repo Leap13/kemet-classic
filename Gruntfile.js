@@ -428,6 +428,7 @@ module.exports = function (grunt) {
     concat: {
       css: {
         src: [
+          "inc/customizer/custom-controls/background/background.css",
           "inc/customizer/custom-controls/react/src/Toggle/toggle.css",
           "inc/customizer/custom-controls/react/src/color/color.css",
           "inc/customizer/custom-controls/react/src/slider/slider.css",
