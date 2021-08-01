@@ -102,6 +102,7 @@ class KemetColorPickerControl extends Component {
             '#eeee22',
             '#81d742',
             '#1e73be',
+            "#e2e7ed"
         ];
 
         const RenderTopSection = () => {
