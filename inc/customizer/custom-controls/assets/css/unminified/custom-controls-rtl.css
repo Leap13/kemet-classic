@@ -345,7 +345,7 @@
 }
 .kemet-color-picker-wrap {
   position: absolute;
-  z-index: 99;
+  z-index: 3000;
   top: 27px;
   right: 2px;
   left: 0;
