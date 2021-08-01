@@ -723,6 +723,24 @@
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle span {
   display: none;
 }
+.kemet-color-picker-wrap .components-color-picker__body {
+  padding: 19px 0px 1px 0px;
+}
+.components-color-picker__saturation-pointer {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3),
+    0 0 1px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  background-color: transparent;
+  transform: translate(4px, -4px) !important;
+}
+.kemet-color-picker-wrap .components-color-picker__saturation-color {
+  overflow: hidden;
+  border-radius: 5px;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
 .kemet-color-picker-wrap
   .components-color-picker__inputs-wrapper
   > .components-color-picker__inputs-fields
@@ -814,7 +832,7 @@
 .components-color-picker__alpha-pointer {
   border: 3px solid #fff;
   background: transparent !important;
-  transform: translate(7px, 2px) !important;
+  transform: translate(7px, 2px);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.37), inset 0 0 3px rgba(0, 0, 0, 0.2) !important;
 }
 .components-color-picker__hue-pointer:hover,

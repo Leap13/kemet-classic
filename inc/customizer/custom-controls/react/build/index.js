@@ -5618,7 +5618,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         tabs.push(imageTab);
       }
 
-      var defaultColorPalette = ['#000000', '#ffffff', '#dd3333', '#dd9933', '#eeee22', '#81d742', '#1e73be'];
+      var defaultColorPalette = ['#000000', '#ffffff', '#dd3333', '#dd9933', '#eeee22', '#81d742', '#1e73be', "#e2e7ed"];
 
       var RenderTopSection = function RenderTopSection() {
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
@@ -9596,10 +9596,10 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
 
     jQuery(document).mouseup(function (e) {
       var container = jQuery(control.container);
-      var colorWrap = container.find('.kmt-color-control-wrap');
+      var colorWrap = container.find('.kemet-color-picker-wrap');
       var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
 
-      if (!colorWrap.is(e.target) && !resetBtnWrap.is(e.target) && colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+      if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
         container.find('.components-button.kemet-color-icon-indicate.open').click();
       }
     }); // Responsive
