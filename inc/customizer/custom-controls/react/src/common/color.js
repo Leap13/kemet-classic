@@ -3,6 +3,7 @@ import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
 import { Dashicon, Button, Tooltip, ColorIndicator, FocalPointPicker, TabPanel, __experimentalGradientPicker, SelectControl, ColorPalette, ColorPicker, ButtonGroup } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
+import classnames from 'classnames'
 
 
 class KemetColorPickerControl extends Component {
@@ -177,15 +178,32 @@ class KemetColorPickerControl extends Component {
             '#eeee22',
             '#81d742',
             '#1e73be',
+            "#e2e7ed"
         ];
-
-        defaultColorPalette.forEach(singleColor => {
-            let paletteColors = {};
-            Object.assign(paletteColors, { name: count + '_' + singleColor });
-            Object.assign(paletteColors, { color: singleColor });
-            finalpaletteColors.push(paletteColors);
-            count++;
-        });
+        const RenderTopSection = () => {
+            return (
+                <div className={`kmt-color-picker-top`}>
+                    <ul className="kmt-color-picker-skins">
+                        {defaultColorPalette.map((color, index) => (
+                            <li
+                                key={`color-${index}`}
+                                style={{
+                                    background: color,
+                                }}
+                                className={classnames({
+                                    active:
+                                        this.state.color === color,
+                                })}
+                                onClick={() => this.onPaletteChangeComplete(color)}>
+                                <div className="kmt-tooltip-top">
+                                    {`Color ${index + 1}`}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )
+        }
 
         return (
             <>
@@ -193,7 +211,7 @@ class KemetColorPickerControl extends Component {
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.state.color} />
                                 <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
@@ -227,7 +245,7 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         <__experimentalGradientPicker
                                                                             className="kmt-gradient-color-picker"
-                                                                            value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
+                                                                            value={this.state.color && this.state.color.includes('gradient') ? this.state.color : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
                                                                         <ul className={'ct-gradient-swatches'}>
@@ -253,17 +271,8 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         {refresh && (
                                                                             <>
-                                                                                <div className={`kmt-color-picker-top`}>
-                                                                                    <ColorPalette
-                                                                                        colors={finalpaletteColors}
-                                                                                        value={this.props.color}
-                                                                                        clearable={false}
-                                                                                        disableCustomColors={true}
-                                                                                        className="kmt-color-palette"
-                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                                                    />
-                                                                                </div>
 
+                                                                                {RenderTopSection()}
                                                                                 <ColorPicker
                                                                                     color={this.state.color}
                                                                                     onChangeComplete={(color) => this(color)}
@@ -272,18 +281,9 @@ class KemetColorPickerControl extends Component {
                                                                         )}
                                                                         {!refresh && (
                                                                             <>
-                                                                                <div className={`kmt-color-picker-top`}>
-                                                                                    <ColorPalette
-                                                                                        colors={finalpaletteColors}
-                                                                                        value={this.props.color}
-                                                                                        clearable={false}
-                                                                                        disableCustomColors={true}
-                                                                                        className="kmt-color-palette"
-                                                                                        onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                                                    />
-                                                                                </div>
+                                                                                {RenderTopSection()}
                                                                                 <ColorPicker
-                                                                                    color={this.props.color}
+                                                                                    color={this.state.color}
                                                                                     onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
                                                                             </>
@@ -304,18 +304,10 @@ class KemetColorPickerControl extends Component {
                                         <>
                                             {refresh && (
                                                 <>
-                                                    <div className={`kmt-color-picker-top`}>
-                                                        <ColorPalette
-                                                            colors={finalpaletteColors}
-                                                            value={this.props.color}
-                                                            clearable={false}
-                                                            disableCustomColors={true}
-                                                            className="kmt-color-palette"
-                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                        />
-                                                    </div>
+                                                    {RenderTopSection()}
+
                                                     <ColorPicker
-                                                        color={this.props.color}
+                                                        color={this.state.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
 
@@ -323,21 +315,11 @@ class KemetColorPickerControl extends Component {
                                             )}
                                             {!refresh && (
                                                 <>
-                                                    <div className={`kmt-color-picker-top`}>
-                                                        <ColorPalette
-                                                            colors={finalpaletteColors}
-                                                            value={this.props.color}
-                                                            clearable={false}
-                                                            disableCustomColors={true}
-                                                            className="kmt-color-palette"
-                                                            onChange={(color) => this.onPaletteChangeComplete(color)}
-                                                        />
-                                                    </div>
+                                                    {RenderTopSection()}
                                                     <ColorPicker
-                                                        color={this.props.color}
+                                                        color={this.state.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
-
                                                 </>
                                             )}
                                         </>
@@ -352,6 +334,7 @@ class KemetColorPickerControl extends Component {
             </>
         );
     }
+
 
     toggleClose() {
         if (this.state.modalCanClose) {
@@ -476,123 +459,111 @@ class KemetColorPickerControl extends Component {
 
         return (
             <>
+                <div className="kmt-control">
+                    <MediaUpload
+                        title={__("Select Background Image", 'astra')}
+                        onSelect={(media) => this.onSelectImage(media)}
+                        allowedTypes={["image"]}
+                        value={(this.props.media && this.props.media ? this.props.media : '')}
+                        render={({ open }) => (
+                            <>
 
-                <MediaUpload
-                    title={__("Select Background Image", 'astra')}
-                    onSelect={(media) => this.onSelectImage(media)}
-                    allowedTypes={["image"]}
-                    value={(this.props.media && this.props.media ? this.props.media : '')}
-                    render={({ open }) => (
-                        <>
-
-                            { (!this.props.media && !this.props.backgroundImage) ?
-                                <Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
-                                    {__("Select Background Image", 'Kemet')}
-                                </Button> :
-                                <div className="premium-image-actions">
-
-                                    <button
-                                        className="premium-image-button"
-                                        aria-label={__("Edit")}
-                                        onClick={(e) => this.open(open)}
-                                        role="button"
-                                    >
-                                        <span
-                                            aria-label={__("Edit")}
-                                            className="dashicons dashicons-edit-large"
-                                        />
-                                    </button>
-
-
-                                    <button
-                                        className="premium-image-button"
-                                        aria-label={__("Remove")}
-                                        onClick={this.onRemoveImage}
-                                        role="button"
-                                    >
-                                        <span
-                                            aria-label={__("Close")}
-                                            className="dashicons dashicons-trash"
-                                        />
-                                    </button>
-
-                                </div>
-                            }
-                        </>
-                    )}
-                />
+                                {(!this.props.media && !this.props.backgroundImage) &&
+                                    < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
+                                        {__("Select Background Image", 'Kemet')}
+                                    </Button>
+                                }
+                            </>
+                        )}
+                    />
+                </div>
                 {(this.props.media || this.props.backgroundImage) &&
-                    <>
-                        <FocalPointPicker
-                            url={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage}
-                            dimensions={dimensions}
-                            value={(undefined !== this.props.backgroundPosition ? this.props.backgroundPosition : { x: 0.5, y: 0.5 })}
-                            onChange={(focalPoint) => this.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
-                        />
-                        <div className='kmt-control'>
-                            <header><label>{__('Background Repeat')}</label></header>
-                            <section>
-                                <ul className="kmt-radio-option kmt-buttons-group">
-                                    {Object.keys(repeat).map((item) => {
-                                        return (
-                                            <li
-                                                isTertiary
-                                                className={"Reart"}
-                                                onClick={() => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', item)}
-                                            >
-                                                {repeat[item] &&
-                                                    repeat[item]
-                                                }
-
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </section>
+                    <div className='kmt-control'>
+                        <div className={`thumbnail thumbnail-image`}>
+                            <FocalPointPicker
+                                url={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage}
+                                dimensions={dimensions}
+                                value={(undefined !== this.props.backgroundPosition ? this.props.backgroundPosition : { x: 0.5, y: 0.5 })}
+                                onChange={(focalPoint) => this.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
+                            />
                         </div>
-                        <div className='kmt-control'>
-                            <header><label>{__('Background Size')}</label></header>
-                            <section>
-                                <ul className="kmt-radio-option kmt-buttons-group">
-                                    {["auto", "cover", "contain"].map((item) => {
-                                        return (
-                                            <li
-                                                isTertiary
-                                                className={"Size"}
-                                                onClick={() => this.onChangeImageOptions('backgroundSize', 'background-size', item)}
-                                            >
-                                                {item}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </section>
-                        </div>
-
-                        <div className='kmt-control'>
-                            <header><label>{__('Background Attachment')}</label></header>
-                            <section>
-                                <ul className="kmt-radio-option kmt-buttons-group">
-                                    {["Fixed", "Scroll"].map((item) => {
-                                        return (
-                                            <li
-                                                isTertiary
-                                                className={"Size"}
-                                                onClick={() => this.onChangeImageOptions('backgroundAttachment', 'background-attachment', item)}
-                                            >
-                                                {item}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </section>
-                        </div>
-
-
-
-                    </>
+                    </div>
                 }
+                <div className='kmt-control'>
+                    <header><label>{__('Background Repeat')}</label></header>
+                    <section>
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {Object.keys(repeat).map((item) => {
+                                let classActive = '';
+                                if (item === this.props.backgroundRepeat) {
+                                    classActive = "active"
+                                }
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={`${classActive}`}
+                                        onClick={() => this.onChangeImageOptions('backgroundRepeat', 'background-repeat', item)}
+                                    >
+                                        {repeat[item] &&
+                                            repeat[item]
+                                        }
+
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </section>
+                </div>
+                <div className='kmt-control'>
+                    <header><label>{__('Background Size')}</label></header>
+                    <section>
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {["auto", "cover", "contain"].map((item) => {
+                                let classActive = '';
+                                if (item === this.props.backgroundSize) {
+                                    classActive = "active"
+                                }
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={`${classActive}`}
+                                        onClick={() => this.onChangeImageOptions('backgroundSize', 'background-size', item)}
+                                    >
+                                        {item}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </section>
+                </div>
+
+                <div className='kmt-control'>
+                    <header><label>{__('Background Attachment')}</label></header>
+                    <section>
+                        <ul className="kmt-radio-option kmt-buttons-group">
+                            {["fixed", "scroll", "inherit"].map((item) => {
+                                let classActive = '';
+                                if (item === this.props.backgroundAttachment) {
+                                    classActive = "active"
+                                }
+                                return (
+                                    <li
+                                        isTertiary
+                                        className={`${classActive}`}
+                                        onClick={() => this.onChangeImageOptions('backgroundAttachment', 'background-attachment', item)}
+                                    >
+                                        {item}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </section>
+                </div>
+
+
+
             </>
+
         )
     }
 }
