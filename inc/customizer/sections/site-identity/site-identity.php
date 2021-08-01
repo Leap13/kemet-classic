@@ -310,7 +310,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[site-identity-spacing]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'title_tagline',
 			'priority'       => 50,
 			'label'          => __( 'Padding', 'kemet' ),

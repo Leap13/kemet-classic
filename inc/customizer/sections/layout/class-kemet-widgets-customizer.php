@@ -36,7 +36,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'widget-padding'       => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Spacing', 'kemet' ),

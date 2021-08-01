@@ -146,7 +146,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[sidebar-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-sidebars',
 			'priority'       => 60,
 			'label'          => __( 'Sidebar Padding', 'kemet' ),

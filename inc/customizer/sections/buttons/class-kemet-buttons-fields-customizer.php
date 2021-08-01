@@ -45,7 +45,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Button Hover Effect', 'kemet' ),
 							),
 							'button-spacing'      => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'priority'       => 80,
@@ -257,7 +257,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'button-radius'          => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Border Radius', 'kemet' ),
@@ -307,7 +307,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							'input-spacing' => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'section'        => 'section-buttons-fields',

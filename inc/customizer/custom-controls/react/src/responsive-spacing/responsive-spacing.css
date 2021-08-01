@@ -1,14 +1,13 @@
-.customize-control-kmt-responsive-spacing .customize-control-title {
+.customize-control-kmt-spacing .customize-control-title {
   display: inline-block;
 }
 
-.customize-control-kmt-responsive-spacing
-  .kmt-spacing-responsive-outer-wrapper {
+.customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
   display: flex;
   position: relative;
 }
 
-.customize-control-kmt-responsive-spacing .kmt-spacing-responsive-units {
+.customize-control-kmt-spacing .kmt-spacing-responsive-units {
   position: absolute;
   transform: translateY(-100%);
   font-size: 11px;
@@ -18,9 +17,7 @@
   text-align: right;
 }
 
-.customize-control-kmt-responsive-spacing
-  .kmt-spacing-responsive-units
-  li.single-unit {
+.customize-control-kmt-spacing .kmt-spacing-responsive-units li.single-unit {
   display: inline-block;
   margin-left: 3px;
   width: 16px;
@@ -29,7 +26,7 @@
   opacity: 0.7;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .kmt-spacing-responsive-units
   li.single-unit.active {
   font-weight: bold;
@@ -37,21 +34,18 @@
   opacity: 1;
 }
 
-.customize-control-kmt-responsive-spacing .input-wrapper .kmt-spacing-wrapper {
+.customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper {
   display: none;
 }
 
-.customize-control-kmt-responsive-spacing
-  .input-wrapper
-  .kmt-spacing-wrapper
-  li {
+.customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper li {
   text-align: center;
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
   width: 20%;
 }
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   li
@@ -62,13 +56,11 @@
   border: 1px solid #dcdddf;
 }
 
-.customize-control-kmt-responsive-spacing
-  .input-wrapper
-  .kmt-spacing-wrapper.active {
+.customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
   display: flex;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   span.kmt-spacing-title {
@@ -78,7 +70,7 @@
   font-weight: bold;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link
@@ -87,7 +79,7 @@
   color: #444;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link.disconnected
@@ -95,7 +87,7 @@
   display: none;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link.disconnected
@@ -104,7 +96,7 @@
   color: #1e8cbe;
 }
 
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link
@@ -119,7 +111,7 @@
   padding: 2px 0;
   font-size: 12px;
 }
-.customize-control-kmt-responsive-spacing
+.customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
   .kmt-spacing-input-item-link

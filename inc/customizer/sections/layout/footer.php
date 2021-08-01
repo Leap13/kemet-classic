@@ -214,7 +214,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-bar-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-footer-copyright',
 			'priority'       => 28,
 			'label'          => __( 'Footer Bar Spacing', 'kemet' ),

@@ -8191,317 +8191,6 @@ RadioComponent.propTypes = {
 
 /***/ }),
 
-/***/ "./src/kmt-controls/responsive-spacing.js":
-/*!************************************************!*\
-  !*** ./src/kmt-controls/responsive-spacing.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
-
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-
-
-
-var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
-  var responsive = props.params.responsive;
-  var ResDefaultParam = {
-    "desktop": {
-      'top': '',
-      'right': '',
-      'bottom': '',
-      'left': ''
-    },
-    "tablet": {
-      'top': '',
-      'right': '',
-      'bottom': '',
-      'left': ''
-    },
-    "mobile": {
-      'top': '',
-      'right': '',
-      'bottom': '',
-      'left': ''
-    },
-    "desktop-unit": 'px',
-    'tablet-unit': 'px',
-    'mobile-unit': ''
-  };
-  var defaultValue = {
-    value: {
-      'top': '',
-      'right': '',
-      'bottom': '',
-      'left': ''
-    },
-    unit: 'px'
-  };
-  var defaultValues;
-  defaultValues = responsive ? ResDefaultParam : defaultValue;
-  var defaultVals = props.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.params.default) : defaultValues;
-  var value = props.control.get();
-  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])(value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('desktop'),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
-      device = _useState4[0],
-      setDevice = _useState4[1];
-
-  Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
-    if (state !== value) {
-      setState(value);
-    }
-  }, [props]);
-
-  var onConnectedClick = function onConnectedClick() {
-    var parent = event.target.parentElement.parentElement;
-    var inputs = parent.querySelectorAll('.kmt-spacing-input');
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].classList.remove('connected');
-      inputs[i].setAttribute('data-element-connect', '');
-    }
-
-    event.target.parentElement.classList.remove('disconnected');
-  };
-
-  var onDisconnectedClick = function onDisconnectedClick() {
-    var elements = event.target.dataset.elementConnect;
-    var parent = event.target.parentElement.parentElement;
-    var inputs = parent.querySelectorAll('.kmt-spacing-input');
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].classList.add('connected');
-      inputs[i].setAttribute('data-element-connect', elements);
-    }
-
-    event.target.parentElement.classList.add('disconnected');
-  };
-
-  var onSpacingChange = function onSpacingChange(device, choiceID) {
-    var choices = props.params.choices;
-
-    var updateState = _objectSpread({}, state);
-
-    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
-
-    if (!event.target.classList.contains('connected')) {
-      deviceUpdateState[choiceID] = event.target.value;
-    } else {
-      for (var _choiceID in choices) {
-        deviceUpdateState[_choiceID] = event.target.value;
-      }
-    }
-
-    if (responsive) {
-      updateState[device] = deviceUpdateState;
-    } else {
-      updateState["value"] = deviceUpdateState;
-    }
-
-    props.onChange(props.id, updateState);
-    setState(updateState);
-  };
-
-  var onUnitChange = function onUnitChange(device) {
-    var unitKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-    var updateState = _objectSpread({}, state);
-
-    if (responsive) {
-      updateState["".concat(device, "-unit")] = unitKey;
-    } else {
-      updateState["unit"] = unitKey;
-    }
-
-    props.onChange(props.id, updateState);
-    setState(updateState);
-  };
-
-  var renderResponsiveInput = function renderResponsiveInput(device) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
-      key: device,
-      type: "hidden",
-      onChange: function onChange() {
-        return onUnitChange(device, '');
-      },
-      className: "kmt-spacing-unit-input kmt-spacing-".concat(device, "-unit"),
-      "data-device": "".concat(device),
-      value: state["".concat(device, "-unit")]
-    });
-  };
-
-  var renderInputHtml = function renderInputHtml(device) {
-    var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-    var _props$params = props.params,
-        linked_choices = _props$params.linked_choices,
-        id = _props$params.id,
-        title = _props$params.title,
-        choices = _props$params.choices,
-        inputAttrs = _props$params.inputAttrs,
-        unit_choices = _props$params.unit_choices,
-        connected = _props$params.connected;
-    var connectedClass = false === connected ? '' : 'connected';
-    var disconnectedClass = false === connected ? '' : 'disconnected';
-    var htmlChoices = null;
-
-    if (choices) {
-      htmlChoices = Object.keys(choices).map(function (choiceID) {
-        var inputValue = responsive ? state[device][choiceID] : state[choiceID];
-        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-          key: choiceID
-        }, inputAttrs, {
-          className: "kmt-spacing-input-item"
-        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
-          type: "number",
-          className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
-          "data-id": choiceID,
-          value: inputValue,
-          onChange: function onChange() {
-            return onSpacingChange(device, choiceID);
-          },
-          "data-element-connect": id
-        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-          className: "kmt-spacing-title"
-        }, choices[choiceID]));
-        return html;
-      });
-    }
-
-    var linkHtml = linked_choices ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
-      key: 'connect-disconnect' + device,
-      className: "kmt-spacing-input-item-link ".concat(disconnectedClass)
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-      title: title,
-      className: "dashicons  dashicons-editor-unlink  kmt-spacing-disconnected ",
-      onClick: function onClick() {
-        onDisconnectedClick();
-      },
-      "data-element-connect": id
-    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-      title: title,
-      className: "dashicons dashicons-admin-links kmt-spacing-connected ",
-      onClick: function onClick() {
-        onConnectedClick();
-      },
-      "data-element-connect": id
-    }, " ")) : null;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
-      key: device,
-      className: "kmt-spacing-wrapper ".concat(device, " ").concat(active)
-    }, htmlChoices, linkHtml);
-  };
-
-  var responsiveUnit = null;
-
-  var renderUnit = function renderUnit() {
-    var unit_choices = props.params.unit_choices;
-
-    if (unit_choices) {
-      responsiveUnit = Object.values(unit_choices).map(function (unitKey) {
-        var unitClass = '';
-
-        if (responsive) {
-          if (state["".concat(device, "-unit")] === unitKey) {
-            unitClass = 'active';
-          }
-        } else {
-          if (state["unit"] === unitKey) {
-            unitClass = 'active';
-          }
-        }
-
-        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
-          key: unitKey,
-          className: "single-unit ".concat(unitClass),
-          onClick: function onClick() {
-            return onUnitChange(device, unitKey);
-          },
-          "data-unit": unitKey
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-          className: "unit-text"
-        }, unitKey));
-        return html;
-      });
-    }
-
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
-      key: 'responsive-units',
-      className: "kmt-spacing-responsive-units kmt-spacing-".concat(device, "-responsive-units")
-    }, responsiveUnit);
-  };
-
-  var _props$params2 = props.params,
-      label = _props$params2.label,
-      description = _props$params2.description;
-  var inputHtml = null;
-  var responsiveHtml = null;
-  var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "description customize-control-description"
-  }, description) : null;
-  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml(device, 'active'));
-  responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "unit-input-wrapper kmt-spacing-unit-wrapper"
-  }, renderResponsiveInput(device)));
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    key: 'kmt-spacing-responsive',
-    className: "kmt-spacing-responsive"
-  }, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    onChange: function onChange(currentDevice) {
-      return setDevice(currentDevice);
-    },
-    label: label
-  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title"
-  }, label), renderUnit(), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-spacing-responsive-outer-wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "input-wrapper kmt-spacing-responsive-wrapper"
-  }, inputHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-spacing-responsive-units-screen-wrap"
-  }, responsiveHtml)));
-};
-
-ResponsiveSpacingComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (ResponsiveSpacingComponent);
-
-/***/ }),
-
 /***/ "./src/kmt-controls/row-layout.js":
 /*!****************************************!*\
   !*** ./src/kmt-controls/row-layout.js ***!
@@ -9305,6 +8994,317 @@ SortableComponent.propTypes = {
 
 /***/ }),
 
+/***/ "./src/kmt-controls/spacing.js":
+/*!*************************************!*\
+  !*** ./src/kmt-controls/spacing.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+var SpacingComponent = function SpacingComponent(props) {
+  var responsive = props.params.responsive;
+  var ResDefaultParam = {
+    "desktop": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "tablet": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "mobile": {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    "desktop-unit": 'px',
+    'tablet-unit': 'px',
+    'mobile-unit': ''
+  };
+  var defaultValue = {
+    value: {
+      'top': '',
+      'right': '',
+      'bottom': '',
+      'left': ''
+    },
+    unit: 'px'
+  };
+  var defaultValues;
+  defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = props.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.params.default) : defaultValues;
+  var value = props.control.get();
+  value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])(value),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('desktop'),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      device = _useState4[0],
+      setDevice = _useState4[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
+    if (state !== value) {
+      setState(value);
+    }
+  }, [props]);
+
+  var onConnectedClick = function onConnectedClick() {
+    var parent = event.target.parentElement.parentElement;
+    var inputs = parent.querySelectorAll('.kmt-spacing-input');
+
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].classList.remove('connected');
+      inputs[i].setAttribute('data-element-connect', '');
+    }
+
+    event.target.parentElement.classList.remove('disconnected');
+  };
+
+  var onDisconnectedClick = function onDisconnectedClick() {
+    var elements = event.target.dataset.elementConnect;
+    var parent = event.target.parentElement.parentElement;
+    var inputs = parent.querySelectorAll('.kmt-spacing-input');
+
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].classList.add('connected');
+      inputs[i].setAttribute('data-element-connect', elements);
+    }
+
+    event.target.parentElement.classList.add('disconnected');
+  };
+
+  var onSpacingChange = function onSpacingChange(device, choiceID) {
+    var choices = props.params.choices;
+
+    var updateState = _objectSpread({}, state);
+
+    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
+
+    if (!event.target.classList.contains('connected')) {
+      deviceUpdateState[choiceID] = event.target.value;
+    } else {
+      for (var _choiceID in choices) {
+        deviceUpdateState[_choiceID] = event.target.value;
+      }
+    }
+
+    if (responsive) {
+      updateState[device] = deviceUpdateState;
+    } else {
+      updateState["value"] = deviceUpdateState;
+    }
+
+    props.onChange(props.id, updateState);
+    setState(updateState);
+  };
+
+  var onUnitChange = function onUnitChange(device) {
+    var unitKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+    var updateState = _objectSpread({}, state);
+
+    if (responsive) {
+      updateState["".concat(device, "-unit")] = unitKey;
+    } else {
+      updateState["unit"] = unitKey;
+    }
+
+    props.onChange(props.id, updateState);
+    setState(updateState);
+  };
+
+  var renderResponsiveInput = function renderResponsiveInput(device) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+      key: device,
+      type: "hidden",
+      onChange: function onChange() {
+        return onUnitChange(device, '');
+      },
+      className: "kmt-spacing-unit-input kmt-spacing-".concat(device, "-unit"),
+      "data-device": "".concat(device),
+      value: state["".concat(device, "-unit")]
+    });
+  };
+
+  var renderInputHtml = function renderInputHtml(device) {
+    var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var _props$params = props.params,
+        linked_choices = _props$params.linked_choices,
+        id = _props$params.id,
+        title = _props$params.title,
+        choices = _props$params.choices,
+        inputAttrs = _props$params.inputAttrs,
+        unit_choices = _props$params.unit_choices,
+        connected = _props$params.connected;
+    var connectedClass = false === connected ? '' : 'connected';
+    var disconnectedClass = false === connected ? '' : 'disconnected';
+    var htmlChoices = null;
+
+    if (choices) {
+      htmlChoices = Object.keys(choices).map(function (choiceID) {
+        var inputValue = responsive ? state[device][choiceID] : state[choiceID];
+        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+          key: choiceID
+        }, inputAttrs, {
+          className: "kmt-spacing-input-item"
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+          type: "number",
+          className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
+          "data-id": choiceID,
+          value: inputValue,
+          onChange: function onChange() {
+            return onSpacingChange(device, choiceID);
+          },
+          "data-element-connect": id
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+          className: "kmt-spacing-title"
+        }, choices[choiceID]));
+        return html;
+      });
+    }
+
+    var linkHtml = linked_choices ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
+      key: 'connect-disconnect' + device,
+      className: "kmt-spacing-input-item-link ".concat(disconnectedClass)
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+      title: title,
+      className: "dashicons  dashicons-editor-unlink  kmt-spacing-disconnected ",
+      onClick: function onClick() {
+        onDisconnectedClick();
+      },
+      "data-element-connect": id
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+      title: title,
+      className: "dashicons dashicons-admin-links kmt-spacing-connected ",
+      onClick: function onClick() {
+        onConnectedClick();
+      },
+      "data-element-connect": id
+    }, " ")) : null;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
+      key: device,
+      className: "kmt-spacing-wrapper ".concat(device, " ").concat(active)
+    }, htmlChoices, linkHtml);
+  };
+
+  var responsiveUnit = null;
+
+  var renderUnit = function renderUnit() {
+    var unit_choices = props.params.unit_choices;
+
+    if (unit_choices) {
+      responsiveUnit = Object.values(unit_choices).map(function (unitKey) {
+        var unitClass = '';
+
+        if (responsive) {
+          if (state["".concat(device, "-unit")] === unitKey) {
+            unitClass = 'active';
+          }
+        } else {
+          if (state["unit"] === unitKey) {
+            unitClass = 'active';
+          }
+        }
+
+        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
+          key: unitKey,
+          className: "single-unit ".concat(unitClass),
+          onClick: function onClick() {
+            return onUnitChange(device, unitKey);
+          },
+          "data-unit": unitKey
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+          className: "unit-text"
+        }, unitKey));
+        return html;
+      });
+    }
+
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
+      key: 'responsive-units',
+      className: "kmt-spacing-responsive-units kmt-spacing-".concat(device, "-responsive-units")
+    }, responsiveUnit);
+  };
+
+  var _props$params2 = props.params,
+      label = _props$params2.label,
+      description = _props$params2.description;
+  var inputHtml = null;
+  var responsiveHtml = null;
+  var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "description customize-control-description"
+  }, description) : null;
+  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml(device, 'active'));
+  responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "unit-input-wrapper kmt-spacing-unit-wrapper"
+  }, renderResponsiveInput(device)));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    key: 'kmt-spacing-responsive',
+    className: "kmt-spacing-responsive"
+  }, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    onChange: function onChange(currentDevice) {
+      return setDevice(currentDevice);
+    },
+    label: label
+  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label), renderUnit(), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-spacing-responsive-outer-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "input-wrapper kmt-spacing-responsive-wrapper"
+  }, inputHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-spacing-responsive-units-screen-wrap"
+  }, responsiveHtml)));
+};
+
+SpacingComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (SpacingComponent);
+
+/***/ }),
+
 /***/ "./src/kmt-controls/tabs.js":
 /*!**********************************!*\
   !*** ./src/kmt-controls/tabs.js ***!
@@ -9633,7 +9633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _kmt_controls_color__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../kmt-controls/color */ "./src/kmt-controls/color.js");
 /* harmony import */ var _kmt_controls_slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../kmt-controls/slider */ "./src/kmt-controls/slider.js");
-/* harmony import */ var _kmt_controls_responsive_spacing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../kmt-controls/responsive-spacing */ "./src/kmt-controls/responsive-spacing.js");
+/* harmony import */ var _kmt_controls_spacing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../kmt-controls/spacing */ "./src/kmt-controls/spacing.js");
 /* harmony import */ var _kmt_controls_tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../kmt-controls/tabs */ "./src/kmt-controls/tabs.js");
 /* harmony import */ var _kmt_controls_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../kmt-controls/select */ "./src/kmt-controls/select.js");
 /* harmony import */ var _kmt_controls_title__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../kmt-controls/title */ "./src/kmt-controls/title.js");
@@ -9681,8 +9681,8 @@ var OptionComponent = function OptionComponent(type) {
       OptionComponent = _kmt_controls_slider__WEBPACK_IMPORTED_MODULE_5__["default"];
       break;
 
-    case 'kmt-responsive-spacing':
-      OptionComponent = _kmt_controls_responsive_spacing__WEBPACK_IMPORTED_MODULE_6__["default"];
+    case 'kmt-spacing':
+      OptionComponent = _kmt_controls_spacing__WEBPACK_IMPORTED_MODULE_6__["default"];
       break;
 
     case 'kmt-tabs':

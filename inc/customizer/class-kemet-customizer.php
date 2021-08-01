@@ -98,15 +98,15 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $sanitize = array(
-			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-			'kmt-font-family'        => 'sanitize_text_field',
-			'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-			'kmt-select'             => 'sanitize_text_field',
-			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_color' ),
-			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
-			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-			'image'                  => 'esc_url_raw',
+			'kmt-slider'            => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+			'kmt-font-family'       => 'sanitize_text_field',
+			'kmt-font-weight'       => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
+			'kmt-select'            => 'sanitize_text_field',
+			'kmt-color'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_color' ),
+			'kmt-background'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+			'kmt-responsive-select' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
+			'kmt-spacing'           => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+			'image'                 => 'esc_url_raw',
 		);
 
 		/**
@@ -116,23 +116,23 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @var array
 		 */
 		public $custom_controls = array(
-			'kmt-available'          => 'Kemet_Control_Available',
-			'kmt-builder'            => 'Kemet_Control_Builder',
-			'kmt-tabs'               => 'Kemet_Control_Tabs',
-			'kmt-focus-button'       => 'Kemet_Control_Focus_Button',
-			'kmt-slider'             => 'Kemet_Control_Slider',
-			'kmt-sortable'           => 'Kemet_Control_Sortable',
-			'kmt-title'              => 'Kemet_Control_Title',
-			'kmt-slider'             => 'Kemet_Control_Responsive_Slider',
-			'kmt-color'              => 'Kemet_Control_Color',
-			'kmt-reponsive-color'    => 'Kemet_Control_Responsive_Color',
-			'kmt-responsive-spacing' => 'Kemet_Control_Responsive_Spacing',
-			'kmt-font-family'        => 'Kemet_Control_Typography',
-			'kmt-font-weight'        => 'Kemet_Control_Typography',
-			'kmt-background'         => 'Kemet_Control_Background',
-			'image'                  => 'WP_Customize_Image_Control',
-			'kmt-switcher'           => 'Kemet_Control_Toggle',
-			'kmt-test'               => 'Kemet_Control_Test',
+			'kmt-available'       => 'Kemet_Control_Available',
+			'kmt-builder'         => 'Kemet_Control_Builder',
+			'kmt-tabs'            => 'Kemet_Control_Tabs',
+			'kmt-focus-button'    => 'Kemet_Control_Focus_Button',
+			'kmt-slider'          => 'Kemet_Control_Slider',
+			'kmt-sortable'        => 'Kemet_Control_Sortable',
+			'kmt-title'           => 'Kemet_Control_Title',
+			'kmt-slider'          => 'Kemet_Control_Responsive_Slider',
+			'kmt-color'           => 'Kemet_Control_Color',
+			'kmt-reponsive-color' => 'Kemet_Control_Responsive_Color',
+			'kmt-spacing'         => 'Kemet_Control_Responsive_Spacing',
+			'kmt-font-family'     => 'Kemet_Control_Typography',
+			'kmt-font-weight'     => 'Kemet_Control_Typography',
+			'kmt-background'      => 'Kemet_Control_Background',
+			'image'               => 'WP_Customize_Image_Control',
+			'kmt-switcher'        => 'Kemet_Control_Toggle',
+			'kmt-test'            => 'Kemet_Control_Test',
 		);
 
 		/**
@@ -327,7 +327,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			}
 
 			if ( isset( $args['preview'] ) ) {
-				if ( 'kmt-responsive-spacing' === $args['type'] ) {
+				if ( 'kmt-spacing' === $args['type'] ) {
 					$args['preview']['choices'] = $args['choices'];
 				}
 				$args['preview']['type']         = $args['type'];

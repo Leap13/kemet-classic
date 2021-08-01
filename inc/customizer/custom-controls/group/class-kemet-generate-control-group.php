@@ -26,16 +26,16 @@ class Kemet_Generate_Control_Group {
 	 * @var array
 	 */
 	public $sanitize = array(
-		'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-		'kmt-font-family'        => 'sanitize_text_field',
-		'kmt-font-weight'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
-		'kmt-select'             => 'sanitize_text_field',
-		'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-		'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
-		'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
-		'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
-		'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-		'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
+		'kmt-slider'            => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+		'kmt-font-family'       => 'sanitize_text_field',
+		'kmt-font-weight'       => array( 'Kemet_Customizer_Sanitizes', 'sanitize_font_weight' ),
+		'kmt-select'            => 'sanitize_text_field',
+		'kmt-color'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+		'kmt-background'        => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
+		'kmt-responsive-select' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
+		'kmt-spacing'           => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+		'kmt-slider'            => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
+		'kmt-reponsive-color'   => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 	);
 
 	/**
@@ -74,15 +74,15 @@ class Kemet_Generate_Control_Group {
 				)
 			);
 			// $wp_customize->add_control(
-			// 	new Kemet_Control_Hidden(
-			// 		$wp_customize,
-			// 		KEMET_THEME_SETTINGS . $option['id'],
-			// 		array(
-			// 			'type'     => 'kmt-hidden',
-			// 			'section'  => $option['section'],
-			// 			'priority' => $option['priority'],
-			// 		)
-			// 	)
+			// new Kemet_Control_Hidden(
+			// $wp_customize,
+			// KEMET_THEME_SETTINGS . $option['id'],
+			// array(
+			// 'type'     => 'kmt-hidden',
+			// 'section'  => $option['section'],
+			// 'priority' => $option['priority'],
+			// )
+			// )
 			// );
 		}
 	}

@@ -126,7 +126,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							// ),
 							// ),
 							self::$prefix . '-border-width' => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Border', 'kemet' ),

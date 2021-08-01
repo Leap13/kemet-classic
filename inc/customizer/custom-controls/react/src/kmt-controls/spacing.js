@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Fragment } from 'react';
 import Responsive from '../common/responsive';
 
-const ResponsiveSpacingComponent = props => {
+const SpacingComponent = props => {
     let responsive = props.params.responsive;
     let ResDefaultParam = {
         "desktop": {
@@ -265,8 +265,8 @@ const ResponsiveSpacingComponent = props => {
 
 };
 
-ResponsiveSpacingComponent.propTypes = {
+SpacingComponent.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default ResponsiveSpacingComponent;
+export default SpacingComponent;

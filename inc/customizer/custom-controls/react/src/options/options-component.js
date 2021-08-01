@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import ColorComponent from '../kmt-controls/color'
 import SliderComponent from '../kmt-controls/slider'
-import ResponsiveSpacingComponent from '../kmt-controls/responsive-spacing'
+import SpacingComponent from '../kmt-controls/spacing'
 import TabsComponent from '../kmt-controls/tabs'
 import SelectComponent from '../kmt-controls/select'
 import TitleComponent from '../kmt-controls/title'
@@ -28,8 +28,8 @@ const OptionComponent = (type) => {
         case 'kmt-slider':
             OptionComponent = SliderComponent;
             break;
-        case 'kmt-responsive-spacing':
-            OptionComponent = ResponsiveSpacingComponent;
+        case 'kmt-spacing':
+            OptionComponent = SpacingComponent;
             break;
         case 'kmt-tabs':
             OptionComponent = TabsComponent;

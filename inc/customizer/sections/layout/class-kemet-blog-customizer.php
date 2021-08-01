@@ -113,7 +113,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 							),
 							'pagination-padding'       => array(
 								'transport'      => 'postMessage',
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'responsive'     => true,
 								'label'          => __( 'Pagination Spacing', 'kemet' ),
 								'linked_choices' => true,
@@ -550,7 +550,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'readmore-padding'          => array(
-				'type'           => 'kmt-responsive-spacing',
+				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
 				'responsive'     => true,
 				'label'          => __( 'Read More Padding', 'kemet' ),

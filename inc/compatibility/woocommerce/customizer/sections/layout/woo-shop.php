@@ -435,7 +435,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[product-title-spacing]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'woocommerce_product_catalog',
 			'priority'       => 37,
 			'label'          => __( 'Spacing', 'kemet' ),
@@ -851,7 +851,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[product-price-spacing]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'woocommerce_product_catalog',
 			'priority'       => 39,
 			'label'          => __( 'Spacing', 'kemet' ),
@@ -936,7 +936,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[product-rating-spacing]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'woocommerce_product_catalog',
 			'priority'       => 39,
 			'label'          => __( 'Spacing', 'kemet' ),

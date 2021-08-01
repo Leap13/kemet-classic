@@ -25,7 +25,7 @@ class Kemet_Control_Responsive_Spacing extends WP_Customize_Control {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kmt-responsive-spacing';
+	public $type = 'kmt-spacing';
 
 	/**
 	 * The control type.

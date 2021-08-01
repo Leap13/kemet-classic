@@ -216,7 +216,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-kemet-footer',
 			'priority'       => 20,
 			'label'          => __( 'Footer Padding', 'kemet' ),
@@ -918,7 +918,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-widget-input-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-kemet-footer',
 			'priority'       => 131,
 			'label'          => __( 'Padding', 'kemet' ),
@@ -982,7 +982,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-widget-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-kemet-footer',
 			'priority'       => 140,
 			'label'          => __( 'Widget Spacing', 'kemet' ),
@@ -1019,7 +1019,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[footer-inner-widget-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-kemet-footer',
 			'priority'       => 143,
 			'label'          => __( 'Widget Padding', 'kemet' ),

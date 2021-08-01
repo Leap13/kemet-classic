@@ -269,7 +269,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								$prefix . '-padding'      => array(
-									'type'           => 'kmt-responsive-spacing',
+									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
 									'label'          => __( 'Padding', 'kemet' ),
 									'linked_choices' => true,
@@ -287,7 +287,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								$prefix . '-margin'       => array(
-									'type'           => 'kmt-responsive-spacing',
+									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
 									'label'          => __( 'Margin', 'kemet' ),
 									'linked_choices' => true,

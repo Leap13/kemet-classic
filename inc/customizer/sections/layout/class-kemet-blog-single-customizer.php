@@ -162,7 +162,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'comment-button-spacing'     => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Comment Button Spacing', 'kemet' ),

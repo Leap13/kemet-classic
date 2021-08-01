@@ -218,7 +218,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'site-identity-spacing'     => array(
-				'type'           => 'kmt-responsive-spacing',
+				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
 				'responsive'     => true,
 				'label'          => __( 'Padding', 'kemet' ),

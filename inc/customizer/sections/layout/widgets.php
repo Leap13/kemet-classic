@@ -47,7 +47,7 @@ $wp_customize->add_control(
 		$wp_customize,
 		KEMET_THEME_SETTINGS . '[widget-padding]',
 		array(
-			'type'           => 'kmt-responsive-spacing',
+			'type'           => 'kmt-spacing',
 			'section'        => 'section-widgets',
 			'priority'       => 5,
 			'label'          => __( 'Spacing', 'kemet' ),

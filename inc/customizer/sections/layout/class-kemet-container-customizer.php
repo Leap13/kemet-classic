@@ -90,7 +90,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							'content-padding'         => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Content Padding', 'kemet' ),
@@ -108,7 +108,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'container-inner-spacing' => array(
-								'type'           => 'kmt-responsive-spacing',
+								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Boxed Container Spacing', 'kemet' ),
