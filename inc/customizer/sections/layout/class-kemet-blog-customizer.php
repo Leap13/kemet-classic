@@ -114,6 +114,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 							'pagination-padding'       => array(
 								'transport'      => 'postMessage',
 								'type'           => 'kmt-responsive-spacing',
+								'responsive'     => true,
 								'label'          => __( 'Pagination Spacing', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
@@ -124,9 +125,10 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => '.site-content .kmt-pagination',
-									'property' => '--padding',
-									'sides'    => false,
+									'selector'   => '.site-content .kmt-pagination',
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 						),
@@ -550,6 +552,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 			'readmore-padding'          => array(
 				'type'           => 'kmt-responsive-spacing',
 				'transport'      => 'postMessage',
+				'responsive'     => true,
 				'label'          => __( 'Read More Padding', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -560,9 +563,10 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					'left'   => __( 'Left', 'kemet' ),
 				),
 				'preview'        => array(
-					'selector' => '.content-area .read-more a',
-					'property' => '--padding',
-					'sides'    => false,
+					'selector'   => '.content-area .read-more a',
+					'property'   => '--padding',
+					'sides'      => false,
+					'responsive' => true,
 				),
 				'context'        => array(
 					array(

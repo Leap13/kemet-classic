@@ -128,73 +128,11 @@ if ( ! class_exists( 'Kemet_Customizer_Sanitizes' ) ) {
 		 */
 		public static function sanitize_responsive_spacing( $val ) {
 
-			$spacing = array(
-				'desktop'      => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'tablet'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'mobile'       => array(
-					'top'    => '',
-					'right'  => '',
-					'bottom' => '',
-					'left'   => '',
-				),
-				'desktop-unit' => 'px',
-				'tablet-unit'  => 'px',
-				'mobile-unit'  => 'px',
-			);
-
-			if ( isset( $val['desktop'] ) ) {
-				$spacing['desktop'] = array_map(
-					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
-					},
-					$val['desktop']
-				);
-
-				$spacing['tablet'] = array_map(
-					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
-					},
-					$val['tablet']
-				);
-
-				$spacing['mobile'] = array_map(
-					function ( $value ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-						return ( is_numeric( $value ) && $value >= 0 ) ? $value : '';
-					},
-					$val['mobile']
-				);
-
-				if ( isset( $val['desktop-unit'] ) ) {
-					$spacing['desktop-unit'] = $val['desktop-unit'];
-				}
-
-				if ( isset( $val['tablet-unit'] ) ) {
-					$spacing['tablet-unit'] = $val['tablet-unit'];
-				}
-
-				if ( isset( $val['mobile-unit'] ) ) {
-					$spacing['mobile-unit'] = $val['mobile-unit'];
-				}
-
-				return $spacing;
-
-			} else {
-				foreach ( $val as $key => $value ) {
-					$val[ $key ] = is_numeric( $val[ $key ] ) ? $val[ $key ] : '';
-				}
-				return $val;
+			if ( ! is_array( $val ) ) {
+				return;
 			}
 
+			return $val;
 		}
 
 		/**

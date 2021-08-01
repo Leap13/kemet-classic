@@ -5,32 +5,56 @@ import { Fragment } from 'react';
 import Responsive from '../common/responsive';
 
 const ResponsiveSpacingComponent = props => {
-
-    let value = props.control.get()
-    let defaultValue = {
-        desktop: {
+    let responsive = props.params.reponsive;
+    let ResDefaultParam = {
+        "desktop": {
             'top': '',
             'right': '',
             'bottom': '',
-            'left': '',
+            'left': ''
         },
-        tablet: {
+        "tablet": {
             'top': '',
             'right': '',
             'bottom': '',
-            'left': '',
+            'left': ''
         },
-        mobile: {
+        "mobile": {
             'top': '',
             'right': '',
             'bottom': '',
-            'left': '',
+            'left': ''
         },
-        'desktop-unit': 'px',
+        "desktop-unit": 'px',
         'tablet-unit': 'px',
-        'mobile-unit': 'px'
+        'mobile-unit': ''
     }
-    value = value ? value : defaultValue;
+    let defaultValue = {
+        value: {
+            'top': '',
+            'right': '',
+            'bottom': '',
+            'left': ''
+        },
+        unit: 'px'
+    }
+    let defaultValues;
+    defaultValues = responsive ? ResDefaultParam : defaultValue;
+
+    let defaultVals = props.params.default
+        ? {
+            ...defaultValues,
+            ...props.params.default,
+        }
+        : defaultValues;
+    let value = props.control.get()
+    value = value
+        ? {
+            ...defaultVals,
+            ...value,
+        }
+        : defaultVals
+        ;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
 
@@ -38,7 +62,8 @@ const ResponsiveSpacingComponent = props => {
         if (state !== value) {
             setState(value);
         }
-    }, []);
+    }, [props]);
+
 
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
@@ -72,8 +97,11 @@ const ResponsiveSpacingComponent = props => {
         let updateState = {
             ...state
         };
-        let deviceUpdateState = {
+
+        let deviceUpdateState = responsive ? {
             ...updateState[device]
+        } : {
+            ...updateState[`value`]
         };
 
         if (!event.target.classList.contains('connected')) {
@@ -83,8 +111,12 @@ const ResponsiveSpacingComponent = props => {
                 deviceUpdateState[choiceID] = event.target.value;
             }
         }
+        if (responsive) {
+            updateState[device] = deviceUpdateState;
 
-        updateState[device] = deviceUpdateState;
+        } else {
+            updateState[`value`] = deviceUpdateState
+        }
         props.onChange(props.id, updateState);
         setState(updateState);
     };
@@ -93,7 +125,11 @@ const ResponsiveSpacingComponent = props => {
         let updateState = {
             ...state
         };
-        updateState[`${device}-unit`] = unitKey;
+        if (responsive) {
+            updateState[`${device}-unit`] = unitKey;
+        } else {
+            updateState[`unit`] = unitKey;
+        }
         props.onChange(props.id, updateState);
         setState(updateState);
     };
@@ -121,11 +157,14 @@ const ResponsiveSpacingComponent = props => {
 
         let htmlChoices = null;
 
+
         if (choices) {
             htmlChoices = Object.keys(choices).map(choiceID => {
+                let inputValue = responsive ? state[device][choiceID] : state[choiceID];
+
                 let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
-                        value={state[device][choiceID]} onChange={() => onSpacingChange(device, choiceID)}
+                        value={inputValue} onChange={() => onSpacingChange(device, choiceID)}
                         data-element-connect={id} />
                     <span className="kmt-spacing-title">{choices[choiceID]}</span>
                 </li>;
@@ -136,14 +175,15 @@ const ResponsiveSpacingComponent = props => {
         let linkHtml = linked_choices ? (
             <li key={'connect-disconnect' + device} className={`kmt-spacing-input-item-link ${disconnectedClass}`}>
                 <span title={title}
-                    className="dashicons dashicons-admin-links kmt-spacing-connected "
-                    onClick={() => {
-                        onConnectedClick();
-                    }} data-element-connect={id} ></span>
-                <span title={title} className="dashicons dashicons-editor-unlink kmt-spacing-disconnected wp-ui-highlight"
+                    className="dashicons  dashicons-editor-unlink  kmt-spacing-disconnected "
                     onClick={() => {
                         onDisconnectedClick();
-                    }} data-element-connect={id} ></span>
+                    }} data-element-connect={id} >
+                </span>
+                <span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected "
+                    onClick={() => {
+                        onConnectedClick();
+                    }} data-element-connect={id} > </span>
             </li>
         ) : null;
         return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
@@ -159,9 +199,14 @@ const ResponsiveSpacingComponent = props => {
         if (unit_choices) {
             responsiveUnit = Object.values(unit_choices).map(unitKey => {
                 let unitClass = '';
-
-                if (state[`${device}-unit`] === unitKey) {
-                    unitClass = 'active';
+                if (responsive) {
+                    if (state[`${device}-unit`] === unitKey) {
+                        unitClass = 'active';
+                    }
+                } else {
+                    if (state[`unit`] === unitKey) {
+                        unitClass = 'active';
+                    }
                 }
 
                 let html = <li key={unitKey} className={`single-unit ${unitClass}`}
@@ -185,10 +230,7 @@ const ResponsiveSpacingComponent = props => {
     let inputHtml = null;
     let responsiveHtml = null;
 
-
-    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
-
-    let descriptionContent = (description && description !== '') ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     inputHtml = <Fragment>
         {renderInputHtml(device, 'active')}
 
@@ -204,10 +246,10 @@ const ResponsiveSpacingComponent = props => {
 
     return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
 
-        <Responsive
+        {responsive ? <Responsive
             onChange={(currentDevice) => setDevice(currentDevice)}
             label={label}
-        />
+        /> : <span className="customize-control-title">{label}</span>}
         {renderUnit()}
 
         {descriptionContent}

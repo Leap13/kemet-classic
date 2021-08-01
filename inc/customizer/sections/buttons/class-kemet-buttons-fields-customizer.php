@@ -47,6 +47,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'button-spacing'      => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'priority'       => 80,
 								'label'          => __( 'Padding', 'kemet' ),
 								'linked_choices' => true,
@@ -58,9 +59,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => $btn_selector,
-									'property' => '--padding',
-									'sides'    => false,
+									'selector'   => $btn_selector,
+									'property'   => '--padding',
+									'responsive' => true,
+									'sides'      => false,
 								),
 							),
 						),
@@ -257,6 +259,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'button-radius'          => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'label'          => __( 'Border Radius', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
@@ -267,9 +270,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => $btn_selector,
-									'property' => '--borderRadius',
-									'sides'    => false,
+									'selector'   => $btn_selector,
+									'property'   => '--borderRadius',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 							'btn-border-size'        => array(
@@ -305,6 +309,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'input-spacing' => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'section'        => 'section-buttons-fields',
 								'priority'       => 160,
 								'label'          => __( 'Padding', 'kemet' ),
@@ -317,9 +322,10 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => $input_selector,
-									'property' => '--padding',
-									'sides'    => false,
+									'selector'   => $input_selector,
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 						),

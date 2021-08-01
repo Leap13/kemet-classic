@@ -48,8 +48,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--buttonHoverColor'           => esc_attr( $hover_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $hover_bg_color ),
 						'--borderHoverColor'           => esc_attr( $hover_border_color ),
-						'--padding'                    => kemet_responsive_spacing( $padding, 'all', 'desktop' ),
-						'--margin'                     => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'--padding'                    => kemet_spacing( $padding, 'all' ),
+						'--margin'                     => kemet_spacing( $margin, 'all' ),
 						'--fontSize'                   => kemet_slider( $font_size ),
 						'--letterSpacing'              => kemet_slider( $letter_spacing ),
 						'--lineHeight'                 => kemet_slider( $line_height ),
@@ -58,26 +58,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				/* Parse CSS from array()*/
 				$parse_css = kemet_parse_css( $css_output );
-
-				$tablet = array(
-					$selector => array(
-						'--padding' => kemet_responsive_spacing( $padding, 'all', 'tablet' ),
-						'--margin'  => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
-					),
-				);
-
-				/* Parse CSS from array()*/
-				$parse_css .= kemet_parse_css( $tablet, '', '768' );
-
-				$mobile = array(
-					$selector => array(
-						'--padding' => kemet_responsive_spacing( $padding, 'all', 'mobile' ),
-						'--margin'  => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
-					),
-				);
-
-				/* Parse CSS from array()*/
-				$parse_css .= kemet_parse_css( $mobile, '', '544' );
 
 				// $parse_css .= self::typography_css( $button, $selector );
 

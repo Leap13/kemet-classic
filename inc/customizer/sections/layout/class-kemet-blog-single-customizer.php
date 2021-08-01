@@ -164,6 +164,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 							'comment-button-spacing'     => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'label'          => __( 'Comment Button Spacing', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
@@ -174,9 +175,10 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => '.comments-area .form-submit input[type="submit"]',
-									'property' => '--margin',
-									'sides'    => false,
+									'selector'   => '.comments-area .form-submit input[type="submit"]',
+									'property'   => '--margin',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 						),

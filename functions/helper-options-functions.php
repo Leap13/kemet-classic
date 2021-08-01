@@ -159,6 +159,51 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 }
 
 /**
+ * Get Responsive Spacing
+ */
+if ( ! function_exists( 'kemet_spacing' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $side  top | bottom | left | right.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_spacing( $option, $side = '', $default = '' ) {
+		$spacing = '';
+		if ( 'all' === $side && isset( $option['value'] ) ) {
+			$side_spacing = $option['value'];
+			$unit         = $option['unit'];
+			if ( array_filter( $side_spacing ) ) {
+				array_walk(
+					$side_spacing,
+					function( &$value, $key, $unit ) {
+						$value = '' === $value ? 0 : $value . $unit;
+					},
+					$unit
+				);
+				$spacing = implode( ' ', array_values( $side_spacing ) );
+			}
+
+			return $spacing;
+		} else {
+			if ( isset( $option['value'][ $side ] ) && isset( $option['unit'] ) ) {
+				$spacing = kemet_get_css_value( $option['value'][ $side ], $option['unit'], $default );
+			} elseif ( is_numeric( $option ) ) {
+				$spacing = kemet_get_css_value( $option );
+			} else {
+				$spacing = ( ! is_array( $option ) ) ? $option : '';
+			}
+		}
+
+		return $spacing;
+	}
+}
+
+/**
  * Get Responsive Icons Select
  */
 if ( ! function_exists( 'kemet_responsive_icon_select' ) ) {

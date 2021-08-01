@@ -38,6 +38,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							'widget-padding'       => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'label'          => __( 'Spacing', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
@@ -48,9 +49,10 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => '.sidebar-main .widget',
-									'property' => 'padding',
-									'sides'    => false,
+									'selector'   => '.sidebar-main .widget',
+									'property'   => 'padding',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 							'widget-margin-bottom' => array(

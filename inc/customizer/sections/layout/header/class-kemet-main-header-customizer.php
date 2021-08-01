@@ -128,6 +128,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'label'          => __( 'Border', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em' ),
@@ -138,9 +139,10 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => $selector,
-									'property' => '--borderWidth',
-									'sides'    => false,
+									'selector'   => $selector,
+									'property'   => '--borderWidth',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 							self::$prefix . '-border-color' => array(

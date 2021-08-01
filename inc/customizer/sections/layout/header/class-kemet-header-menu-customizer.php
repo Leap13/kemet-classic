@@ -46,6 +46,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-spacing'      => array(
 									'type'           => 'kmt-responsive-spacing',
 									'transport'      => 'postMessage',
+									'responsive'     => true,
 									'label'          => __( 'Menu Spacing', 'kemet' ),
 									'linked_choices' => true,
 									'unit_choices'   => array( 'px', 'em', '%' ),
@@ -56,9 +57,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 										'left'   => __( 'Left', 'kemet' ),
 									),
 									'preview'        => array(
-										'selector' => $selector,
-										'property' => '--padding',
-										'sides'    => false,
+										'selector'   => $selector,
+										'property'   => '--padding',
+										'sides'      => false,
+										'responsive' => true,
 									),
 								),
 								$prefix . '-item-spacing' => array(

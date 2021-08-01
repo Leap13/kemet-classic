@@ -87,6 +87,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							'sidebar-padding'             => array(
 								'type'           => 'kmt-responsive-spacing',
 								'transport'      => 'postMessage',
+								'responsive'     => true,
 								'label'          => __( 'Sidebar Padding', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
@@ -97,8 +98,9 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => 'div.sidebar-main',
-									'property' => 'padding',
+									'selector'   => 'div.sidebar-main',
+									'property'   => 'padding',
+									'responsive' => true,
 								),
 							),
 						),

@@ -98,11 +98,6 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		);
 
 		$layout_options = array(
-			'footer-popup-items'    => array(
-				'default'   => false,
-				'type'      => '',
-				'transport' => 'postMessage',
-			),
 			'footer-availble-items' => array(
 				'label'       => __( 'Available Items', 'kemet' ),
 				'transport'   => 'postMessage',
@@ -115,7 +110,7 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		);
 
 		$layout_options = array(
-			'builder-layout-options' => array(
+			'footer-builder-layout-options' => array(
 				'section' => 'section-footer-builder-layout',
 				'type'    => 'kmt-options',
 				'data'    => array(

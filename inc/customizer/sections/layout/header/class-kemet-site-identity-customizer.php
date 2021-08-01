@@ -220,6 +220,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 			'site-identity-spacing'     => array(
 				'type'           => 'kmt-responsive-spacing',
 				'transport'      => 'postMessage',
+				'responsive'     => true,
 				'label'          => __( 'Padding', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -230,9 +231,10 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'left'   => __( 'Left', 'kemet' ),
 				),
 				'preview'        => array(
-					'selector' => '.kmt-site-identity',
-					'property' => '--padding',
-					'sides'    => false,
+					'selector'   => '.kmt-site-identity',
+					'property'   => '--padding',
+					'sides'      => false,
+					'responsive' => true,
 				),
 			),
 			'kmt-site-logo-settings'    => array(
