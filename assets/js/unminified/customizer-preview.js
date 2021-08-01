@@ -205,6 +205,123 @@ function kemet_responsive_spacing(control, selector, type) {
 }
 
 /**
+ * Spacing CSS
+ */
+function kemet_spacing_sides(control, selector, type, side) {
+  wp.customize(control, function (value) {
+    value.bind(function (newValue) {
+      var sidesString = "";
+      var spacingType = "padding";
+      if (
+        newValue.value.top ||
+        newValue.value.right ||
+        newValue.value.bottom ||
+        newValue.value.left
+      ) {
+        if (typeof side != undefined) {
+          sidesString = side + "";
+          sidesString = sidesString.replace(/,/g, "-");
+        }
+        if (typeof type != undefined) {
+          spacingType = type + "";
+        }
+        // Remove <style> first!
+        control = control.replace("[", "-");
+        control = control.replace("]", "");
+        jQuery(
+          "style#" + control + "-" + spacingType + "-" + sidesString
+        ).remove();
+
+        var spacing = "";
+
+        var paddingSide =
+          typeof side != undefined ? side : ["top", "bottom", "right", "left"];
+
+        jQuery.each(paddingSide, function (index, sideValue) {
+          if ("" != newValue["value"][sideValue]) {
+            var sideName = sideValue;
+            if ("border" === spacingType) {
+              sideName = sideName + "-width";
+            }
+            spacing +=
+              spacingType +
+              "-" +
+              sideName +
+              ": " +
+              newValue["value"][sideValue] +
+              newValue["unit"] +
+              ";";
+          }
+        });
+
+        // Concat and append new <style>.
+        jQuery("footer").append(
+          '<style id="' +
+          control +
+          "-" +
+          spacingType +
+          "-" +
+          sidesString +
+          '">' +
+          selector +
+          "	{ " +
+          spacing +
+          " }" +
+          "</style>"
+        );
+      } else {
+        wp.customize.preview.send("refresh");
+        jQuery(
+          "style#" + control + "-" + spacingType + "-" + sidesString
+        ).remove();
+      }
+    });
+  });
+}
+
+/**
+ * Spacing CSS
+ */
+function kemet_spacing(control, selector, type) {
+  wp.customize(control, function (value) {
+    value.bind(function (newValue) {
+      var spacing = '';
+      var hasValues = false;
+      newValue['value'] = jQuery.map(newValue['value'], function (val, index) {
+        if ("" !== val && undefined !== val) {
+          hasValues = true;
+          val = val + newValue['unit'];
+        } else {
+          val = 0;
+        }
+        return val;
+      });
+      if (hasValues) {
+        spacing = type + ": " + newValue['value'].join(" ");
+      }
+
+      // Remove <style> first!
+      control = control.replace("[", "-");
+      control = control.replace("]", "");
+      jQuery("style#" + control + "-" + type).remove();
+      // Concat and append new <style>.
+      jQuery("footer").append(
+        '<style id="' +
+        control +
+        "-" +
+        type +
+        '">' +
+        selector +
+        "	{ " +
+        spacing +
+        " }" +
+        "</style>"
+      );
+    });
+  });
+}
+
+/**
  * Slider
  */
 function kemet_slider(control, selector, type) {
@@ -949,6 +1066,33 @@ function kemet_responsive_color_css(control, data) {
       }
     );
   });
+
+  function responsive_spacing(control, data) {
+    if (false === data.sides) {
+      kemet_responsive_spacing(control, data.selector, data.property);
+    } else {
+      kemet_responsive_spacing_sides(
+        control,
+        data.selector,
+        data.property,
+        Object.keys(data.choices)
+      );
+    }
+  }
+
+  function spacing(control, data) {
+    if (false === data.sides) {
+      kemet_spacing(control, data.selector, data.property);
+    } else {
+      kemet_spacing_sides(
+        control,
+        data.selector,
+        data.property,
+        Object.keys(data.choices)
+      );
+    }
+  }
+
   // Button Preview.
   kemet_button_css(
     $.merge(previewData.buttonItems, previewData.mobileButtonItems)
@@ -983,15 +1127,11 @@ function kemet_responsive_color_css(control, data) {
         kemet_responsive_css(control, data.selector, data.property);
         break;
       case "kmt-responsive-spacing":
-        if (false === data.sides) {
-          kemet_responsive_spacing(control, data.selector, data.property);
+        if (data.responsive) {
+          delete data.responsive;
+          responsive_spacing(control, data);
         } else {
-          kemet_responsive_spacing_sides(
-            control,
-            data.selector,
-            data.property,
-            Object.keys(data.choices)
-          );
+          spacing(control, data);
         }
         break;
     }
