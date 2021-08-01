@@ -1,6 +1,29 @@
 .customize-control-kmt-background {
   position: relative;
 }
+.customize-control-kmt-background .background-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.components-circular-option-picker {
+  display: inline-block;
+  width: 100%;
+  min-width: 188px;
+  margin: 0;
+  padding: 20px 14px 20px 14px;
+  box-sizing: border-box;
+}
+.background-container .customize-control-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  line-height: 18px;
+}
 .customize-control-kmt-background
   .wp-picker-container
   input[type="text"].wp-color-picker {
@@ -108,7 +131,7 @@
 .kmt-buttons-group li.active {
   z-index: 1;
   color: #fff;
-  background: var(--accentColor);
+  background: #298cbe;
   box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .kmt-buttons-group li:first-child {
@@ -165,6 +188,8 @@
   flex: 0 0 43px;
   margin-bottom: 16px;
   border: 1px solid #eee;
+  height: 47px;
+  border-radius: 0%;
 }
 
 .components-tab-panel__tabs button {
@@ -181,13 +206,35 @@
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
   border-radius: 5px;
+  border-radius: 0%;
+}
+.components-tab-panel__tabs button:hover {
+  color: inherit !important;
 }
 
+.kemet-popover-tabs.kemet-background-tabs button:not(.active-tab) {
+  color: rgba(68, 68, 68, 0.7);
+}
+.kemet-popover-tabs.kemet-background-tabs button:not(:last-child) {
+  border-right: 1px solid #eee;
+}
 .kemet-popover-tabs.kemet-background-tabs button.active-tab {
   z-index: 1;
-  color: #fff;
-  background: #2271b1;
+  color: #000;
   box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
+  position: relative;
+  box-shadow: none;
+  outline: none;
+  border-bottom: 2px solid #298cbe;
+}
+.kemet-popover-tabs.kemet-background-tabs button.active-tab::after {
+  position: absolute;
+  content: "";
+  left: -1px;
+  bottom: -1px;
+  width: calc(100% + 2px);
+  height: 2px;
+  background: #298cbe;
 }
 .components-custom-gradient-picker__gradient-bar:not(.has-gradient) {
   opacity: 1 !important;
@@ -248,14 +295,56 @@
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
 }
-.kemet-control-field .customize-control-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 0;
+.kmt-color-picker-skins {
+  display: flex;
+  margin: 0;
+}
+.kmt-color-picker-skins li {
   display: flex;
   align-items: center;
-  letter-spacing: 0.1px;
-  line-height: 18px;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0;
+  cursor: pointer;
+  border-radius: 100%;
+  box-shadow: inset 0 0 3px rgb(0 0 0 / 9%);
+}
+.kmt-color-picker-skins li:not(:last-child) {
+  margin-right: 10px;
+}
+.kmt-color-picker-skins li.active {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.9), 0px 0px 0px 3px #fff;
+}
+.kmt-color-picker-skins li.active::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 100%;
+}
+.kmt-color-picker-skins li.active::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: -1px;
+  right: 0;
+  bottom: 0;
+  content: "\f147";
+  font-family: "dashicons";
+  font-size: 15px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.kmt-color-picker-skins li:hover .kmt-tooltip-top {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0px, -38px, 0px);
 }
 .customize-control-title {
   display: block;
@@ -586,6 +675,52 @@
   border-width: 0 6px 7px 6px;
   border-color: transparent transparent #ffffff transparent;
 }
+.kmt-control,
+.kmt-controls-group {
+  position: relative;
+  padding: 0 14px;
+  margin-top: 25px;
+}
+.kmt-control button.components-button.upload-button {
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 3px;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px dashed #c1c4ca;
+  border-top-style: dashed;
+  border-top-width: 1px;
+  border-right-style: dashed;
+  border-right-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+  border-left-style: dashed;
+  border-left-width: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 2.15384615;
+  min-height: 30px;
+  margin: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.kmt-control .thumbnail.thumbnail-image {
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px dashed #c1c4ca;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
 .color-button-wrap:nth-child(1)
   .kemet-color-picker-wrap
   .kemet-popover-color::before {
@@ -617,6 +752,10 @@
   position: absolute;
   top: 1.5px;
   right: 65px;
+}
+#tab-panel-0-image-view > .kmt-control + * {
+  padding-top: 20px;
+  border-top: 1px dashed #eee;
 }
 .kmt-color-btn-clear-wrap .kemet-color-clear-button.components-button {
   padding: 10px 3px;
@@ -767,6 +906,7 @@
     width: 18px;
   }
 }
+
 @supports (-moz-appearance: none) {
   @media (max-width: 1845px) {
     .kmt-color-palette .components-circular-option-picker__option-wrapper {
@@ -973,61 +1113,65 @@
   font-size: 0;
 }
 [class*="kmt-tooltip"] {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    z-index: 200;
-    width: auto;
-    height: 26px;
-    padding: 0 8px;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: normal;
-    letter-spacing: initial;
-    text-transform: initial;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    border-radius: 3px;
-    pointer-events: none;
-    background: #363f42;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 200;
+  width: auto;
+  height: 26px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+  letter-spacing: initial;
+  text-transform: initial;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  pointer-events: none;
+  background: #363f42;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .kmt-tooltip-top {
-    transform: translate3d(-5px, -35px, 0px);
+  transform: translate3d(-5px, -35px, 0px);
 }
 [class*="kmt-tooltip"][class*="-top"]::before {
-    left: 0;
-    bottom: -10px;
-    width: 100%;
-    height: 10px;
-  }
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 10px;
+}
 [class*="kmt-tooltip"][class*="-top"]::after {
-    width: 10px;
-    height: 5px;
-    bottom: -5px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #363f42;
-  }
+  width: 10px;
+  height: 5px;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #363f42;
+}
 
-    [class*="kmt-tooltip"]::before, [class*="kmt-tooltip"]::after {
-    content: '';
-    position: absolute;
-    box-sizing: border-box;
-  }
-  .kemet-color-icon-indicate.components-button:hover [class*="kmt-tooltip"] {
-    opacity: 1;
-    visibility:visible;
-  }
+[class*="kmt-tooltip"]::before,
+[class*="kmt-tooltip"]::after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+}
+.kemet-color-icon-indicate.components-button:hover [class*="kmt-tooltip"] {
+  opacity: 1;
+  visibility: visible;
+}
+
 .kemet-slider-wrap {
   position: relative;
   margin-bottom: 0;

@@ -1,6 +1,29 @@
 .customize-control-kmt-background {
   position: relative;
 }
+.customize-control-kmt-background .background-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.components-circular-option-picker {
+  display: inline-block;
+  width: 100%;
+  min-width: 188px;
+  margin: 0;
+  padding: 20px 14px 20px 14px;
+  box-sizing: border-box;
+}
+.background-container .customize-control-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  line-height: 18px;
+}
 .customize-control-kmt-background
   .wp-picker-container
   input[type="text"].wp-color-picker {
@@ -108,7 +131,7 @@
 .kmt-buttons-group li.active {
   z-index: 1;
   color: #fff;
-  background: var(--accentColor);
+  background: #298cbe;
   box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .kmt-buttons-group li:first-child {
@@ -165,6 +188,8 @@
   flex: 0 0 43px;
   margin-bottom: 16px;
   border: 1px solid #eee;
+  height: 47px;
+  border-radius: 0%;
 }
 
 .components-tab-panel__tabs button {
@@ -181,13 +206,35 @@
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
   border-radius: 5px;
+  border-radius: 0%;
+}
+.components-tab-panel__tabs button:hover {
+  color: inherit !important;
 }
 
+.kemet-popover-tabs.kemet-background-tabs button:not(.active-tab) {
+  color: rgba(68, 68, 68, 0.7);
+}
+.kemet-popover-tabs.kemet-background-tabs button:not(:last-child) {
+  border-right: 1px solid #eee;
+}
 .kemet-popover-tabs.kemet-background-tabs button.active-tab {
   z-index: 1;
-  color: #fff;
-  background: #2271b1;
+  color: #000;
   box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
+  position: relative;
+  box-shadow: none;
+  outline: none;
+  border-bottom: 2px solid #298cbe;
+}
+.kemet-popover-tabs.kemet-background-tabs button.active-tab::after {
+  position: absolute;
+  content: "";
+  left: -1px;
+  bottom: -1px;
+  width: calc(100% + 2px);
+  height: 2px;
+  background: #298cbe;
 }
 .components-custom-gradient-picker__gradient-bar:not(.has-gradient) {
   opacity: 1 !important;
