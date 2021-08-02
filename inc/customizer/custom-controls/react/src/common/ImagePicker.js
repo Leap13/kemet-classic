@@ -1,7 +1,7 @@
 
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';
-import { MediaUpload } from 'wp-media-utils';
+import { MediaUpload } from '@wordpress/media-utils';
 import OptionContainer from './optioncontainer'
 import { Button, SelectControl } from '@wordpress/components';
 
