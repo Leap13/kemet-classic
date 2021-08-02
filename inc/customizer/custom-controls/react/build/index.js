@@ -7663,7 +7663,7 @@ var BuilderComponent = function BuilderComponent(props) {
 
       var newParams = controlParams;
 
-      if (newParams.layouts[e.detail]) {
+      if (newParams.layouts[e.detail] !== undefined) {
         newParams.layouts[e.detail] = wp.customize(Object(_options_options_component__WEBPACK_IMPORTED_MODULE_7__["getSettingId"])(e.detail + '-footer-layout')).get();
         newParams.columns[e.detail] = wp.customize(Object(_options_options_component__WEBPACK_IMPORTED_MODULE_7__["getSettingId"])(e.detail + '-footer-columns')).get();
         setState(function (prevState) {

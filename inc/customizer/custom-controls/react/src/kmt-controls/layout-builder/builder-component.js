@@ -315,6 +315,7 @@ const BuilderComponent = (props) => {
 
   const updateRowLayout = () => {
     document.addEventListener('KemetUpdateFooterColumns', function (e) {
+
       if ("footer-items" !== controlParams.group) {
         return;
       }
@@ -325,9 +326,10 @@ const BuilderComponent = (props) => {
 
       let newParams = controlParams;
 
-      if (newParams.layouts[e.detail]) {
+      if (newParams.layouts[e.detail] !== undefined) {
         newParams.layouts[e.detail] = wp.customize(getSettingId(e.detail + '-footer-layout')).get()
         newParams.columns[e.detail] = wp.customize(getSettingId(e.detail + '-footer-columns')).get()
+
         setState(prevState => ({
           ...prevState,
           layout: newParams.layouts,

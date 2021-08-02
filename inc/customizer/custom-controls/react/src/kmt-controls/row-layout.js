@@ -192,7 +192,6 @@ const RowLayoutComponent = (props) => {
     });
     const [device, setDevice] = useState('desktop');
     const HandleChange = (value) => {
-
         props.onChange(props.id, value);
 
         let event = new CustomEvent("KemetUpdateFooterColumns", {
