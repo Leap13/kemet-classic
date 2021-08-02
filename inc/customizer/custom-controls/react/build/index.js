@@ -9960,7 +9960,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       device = _useState4[0],
       setDevice = _useState4[1];
 
-  var responsive = props.control.params.reponsive;
+  var responsive = props.control.params.responsive;
   var ResDefaultParam = {
     "desktop": {
       'top': '',
@@ -10002,6 +10002,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       setState(value);
     }
   }, [props]);
+  console.log(props.control.params);
 
   var onConnectedClick = function onConnectedClick() {
     var parent = event.target.parentElement.parentElement;

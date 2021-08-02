@@ -10,7 +10,7 @@ const ResponsiveSpacingComponent = props => {
     value = (undefined === value || '' === value) ? props.control.params.value : value;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
-    let responsive = props.control.params.reponsive;
+    let responsive = props.control.params.responsive;
     let ResDefaultParam = {
         "desktop": {
             'top': '',
@@ -67,6 +67,7 @@ const ResponsiveSpacingComponent = props => {
         }
     }, [props]);
 
+    console.log(props.control.params)
 
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
