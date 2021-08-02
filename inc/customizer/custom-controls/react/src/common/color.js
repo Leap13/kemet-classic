@@ -199,7 +199,7 @@ class KemetColorPickerControl extends Component {
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.state.color} />
                                 <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
@@ -233,7 +233,7 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         <__experimentalGradientPicker
                                                                             className="kmt-gradient-color-picker"
-                                                                            value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
+                                                                            value={this.state.color && backgroundType === "gradient" ? this.state.color : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
                                                                         <ul className={'ct-gradient-swatches'}>
@@ -349,7 +349,11 @@ class KemetColorPickerControl extends Component {
     onChangeGradientComplete(gradient) {
 
         this.setState({ backgroundType: 'gradient' });
-        this.props.onChangeComplete(gradient, 'gradient');
+        this.setState({ color: gradient })
+        this.props.onChangeImageOptions('background-image', gradient, 'gradient');
+        this.props.onChangeImageOptions('background-media', "", 'gradient');
+
+
     }
 
     onChangeComplete(color) {
@@ -454,7 +458,7 @@ class KemetColorPickerControl extends Component {
                         render={({ open }) => (
                             <>
 
-                                {(!this.props.media && !this.props.backgroundImage) &&
+                                {!this.props.media &&
                                     < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
                                         {__("Select Background Image", 'Kemet')}
                                     </Button>
@@ -463,7 +467,7 @@ class KemetColorPickerControl extends Component {
                         )}
                     />
                 </div>
-                {(this.props.media || this.props.backgroundImage) &&
+                {(this.props.media && this.state.backgroundType === "image") &&
                     <div className='kmt-control'>
                         <div className={`thumbnail thumbnail-image`}>
                             <FocalPointPicker

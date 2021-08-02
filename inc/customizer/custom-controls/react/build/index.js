@@ -5565,6 +5565,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       setDevice = _useState4[1];
 
   var responsiveHtml;
+  console.log(props_value);
 
   if (responsive) {
     responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -6941,7 +6942,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         }
       }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
         className: "kemet-advanced-color-indicate",
-        colorValue: this.props.color
+        colorValue: this.state.color
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
         class: "kmt-tooltip-top"
       }, this.state.text)), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
@@ -6966,7 +6967,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           if ('gradient' === tab.name) {
             tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["__experimentalGradientPicker"], {
               className: "kmt-gradient-color-picker",
-              value: _this2.props.color && _this2.props.color.includes('gradient') ? _this2.props.color : '',
+              value: _this2.state.color && backgroundType === "gradient" ? _this2.state.color : '',
               onChange: function onChange(gradient) {
                 return _this2.onChangeGradientComplete(gradient);
               }
@@ -7054,7 +7055,11 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
       this.setState({
         backgroundType: 'gradient'
       });
-      this.props.onChangeComplete(gradient, 'gradient');
+      this.setState({
+        color: gradient
+      });
+      this.props.onChangeImageOptions('background-image', gradient, 'gradient');
+      this.props.onChangeImageOptions('background-media', "", 'gradient');
     }
   }, {
     key: "onChangeComplete",
@@ -7225,7 +7230,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         value: this.props.media && this.props.media ? this.props.media : '',
         render: function render(_ref) {
           var open = _ref.open;
-          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, !_this3.props.media && !_this3.props.backgroundImage && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+          return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, !_this3.props.media && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
             className: "upload-button button-add-media",
             isDefault: true,
             onClick: function onClick() {
@@ -7233,7 +7238,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
             }
           }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'Kemet')));
         }
-      })), (this.props.media || this.props.backgroundImage) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      })), this.props.media && this.state.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kmt-control"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "thumbnail thumbnail-image"
@@ -10002,7 +10007,6 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
       setState(value);
     }
   }, [props]);
-  console.log(props.control.params);
 
   var onConnectedClick = function onConnectedClick() {
     var parent = event.target.parentElement.parentElement;

@@ -67,6 +67,8 @@ const BackgroundComponent = props => {
     const [device, setDevice] = useState('desktop');
     let responsiveHtml;
 
+    console.log(props_value)
+
 
     if (responsive) {
         responsiveHtml = <Responsive
