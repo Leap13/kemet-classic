@@ -556,7 +556,7 @@ function get_background_css(bg_obj) {
   var bg_color = bg_obj["background-color"];
 
   if ("" === bg_color && "" === bg_img) {
-    wp.customize.preview.send("refresh");
+    return '';
   } else {
     if (
       "undefined" != typeof bg_img &&
@@ -619,19 +619,19 @@ function kemet_responsive_background(control, selector) {
         tablet: "",
         mobile: "",
       };
-      console.log(value);
+
       if ("" != value["desktop"]) {
         background.desktop = get_background_css(value["desktop"]);
       }
 
       if ("" != value["tablet"]) {
-        background.desktop = get_background_css(value["tablet"]);
+        background.tablet = get_background_css(value["tablet"]);
       }
 
       if ("" != value["mobile"]) {
-        background.desktop = get_background_css(value["mobile"]);
+        background.mobile = get_background_css(value["mobile"]);
       }
-      var dynamicStyle = control +
+      var dynamicStyle =
         selector +
         "	{ " +
         background.desktop +
@@ -646,6 +646,7 @@ function kemet_responsive_background(control, selector) {
         "	{ " +
         background.mobile +
         " } }";
+      console.log(dynamicStyle);
       kemet_add_dynamic_css(control, dynamicStyle);
     });
   });
