@@ -98,22 +98,11 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							// self::$prefix . '-background-group'        => array(
-							// 'type'     => 'kmt-group',
-							// 'section'  => 'section-' . self::$prefix . '-builder',
-							// 'priority' => 8,
-							// 'label'    => __( 'Background', 'kemet' ),
-							// 'context'  => array(
-							// array(
-							// 'setting' => 'tab',
-							// 'value'   => 'design',
-							// ),
-							// ),
-							// ),
 							self::$prefix . '-background' => array(
-								'type'      => 'kmt-background',
-								'transport' => 'postMessage',
-								'label'     => __( 'Background', 'kemet' ),
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'label'      => __( 'Background', 'kemet' ),
+								'responsive' => true,
 							),
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-spacing',
@@ -158,31 +147,12 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 								'priority' => 25,
 								'label'    => __( 'Sticky Header Option', 'kemet' ),
 							),
-						// self::$prefix . '-sticky-background-group' => array(
-						// 'type'     => 'kmt-group',
-						// 'section'  => 'section-' . self::$prefix . '-builder',
-						// 'priority' => 30,
-						// 'label'    => __( 'Background', 'kemet' ),
-						// 'context'  => array(
-						// array(
-						// 'setting' => 'tab',
-						// 'value'   => 'design',
-						// ),
-						// ),
-						// ),
-						// self::$prefix . '-sticky-background'       => array(
-						// 'parent-id' => self::$prefix . '-sticky-background-group',
-						// 'type'      => 'kmt-background',
-						// 'transport' => 'postMessage',
-						// 'section'   => 'section-' . self::$prefix . '-builder',
-						// 'priority'  => 1,
-						// 'context'   => array(
-						// array(
-						// 'setting' => 'tab',
-						// 'value'   => 'design',
-						// ),
-						// ),
-						// ),
+							self::$prefix . '-sticky-background' => array(
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'label'      => __( 'Sticky Background', 'kemet' ),
+								'responsive' => true,
+							),
 						),
 					),
 				),
