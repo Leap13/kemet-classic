@@ -113,7 +113,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			'kmt-color'              => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 			'kmt-background'         => array( 'Kemet_Customizer_Sanitizes', 'sanitize_background_obj' ),
 			'kmt-responsive-select'  => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_select' ),
-			'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+			// 'kmt-responsive-spacing' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 			'kmt-slider'             => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
 			'kmt-reponsive-color'    => array( 'Kemet_Customizer_Sanitizes', 'sanitize_alpha_reponsive_color' ),
 			'image'                  => 'esc_url_raw',
