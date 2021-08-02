@@ -63,7 +63,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-layout' => array(
+							self::$prefix . '-layout'     => array(
 								'type'      => 'kmt-select',
 								'default'   => 'content',
 								'transport' => 'postMessage',
@@ -110,19 +110,11 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 							// ),
 							// ),
 							// ),
-							// self::$prefix . '-background'              => array(
-							// 'parent-id' => self::$prefix . '-background-group',
-							// 'type'      => 'kmt-background',
-							// 'transport' => 'postMessage',
-							// 'section'   => 'section-' . self::$prefix . '-builder',
-							// 'priority'  => 10,
-							// 'context'   => array(
-							// array(
-							// 'setting' => 'tab',
-							// 'value'   => 'design',
-							// ),
-							// ),
-							// ),
+							self::$prefix . '-background' => array(
+								'type'      => 'kmt-background',
+								'transport' => 'postMessage',
+								'label'     => __( 'Background', 'kemet' ),
+							),
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
