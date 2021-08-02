@@ -18,7 +18,11 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$builder_options = array(
-			'footer-items' => array(
+			'footer-builder-controls-tabs' => array(
+				'type'       => 'kmt-builder-tabs',
+				'responsive' => false,
+			),
+			'footer-items'                 => array(
 				'label'       => __( 'Footer Layout Builder', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-builder',

@@ -6757,10 +6757,12 @@ var Dashicon = wp.components.Dashicon;
 var __ = wp.i18n.__;
 
 var BuilderTabs = function BuilderTabs(_ref) {
-  var control = _ref.control;
+  var control = _ref.control,
+      params = _ref.params;
+  var responsive = params.responsive;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-control-tabs kmt-control-tabs-responsive"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, responsive && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-build-tabs"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("a", {
     href: "#",

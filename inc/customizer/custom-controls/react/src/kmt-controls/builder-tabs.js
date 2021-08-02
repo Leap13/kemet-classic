@@ -3,14 +3,15 @@ import { Fragment } from "react";
 const { Dashicon } = wp.components;
 const { __ } = wp.i18n;
 
-const BuilderTabs = ({ control }) => {
+const BuilderTabs = ({ control, params }) => {
+  const responsive = params.responsive;
   return (
     <Fragment>
       {(
         <div
           className="kmt-control-tabs kmt-control-tabs-responsive"
         >
-          {(
+          {responsive && (
             <div className="kmt-build-tabs">
               <a
                 href="#"

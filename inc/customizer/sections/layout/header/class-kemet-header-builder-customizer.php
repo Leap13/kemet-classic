@@ -21,7 +21,8 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 		$builder_options = array(
 			// Header Builder
 			'header-builder-controls-tabs' => array(
-				'type' => 'kmt-builder-tabs',
+				'type'       => 'kmt-builder-tabs',
+				'responsive' => true,
 			),
 			'header-desktop-items'         => array(
 				'label'       => __( 'Header Layout Builder', 'kemet' ),
