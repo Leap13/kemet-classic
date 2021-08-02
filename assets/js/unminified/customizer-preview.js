@@ -537,13 +537,26 @@ function kemet_add_dynamic_css(control, style) {
 /**
  * Generate background_obj CSS
  */
-function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
+function kemet_background(control, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (bg_obj) {
+      var dynamicStyle = get_background_css(bg_obj);
+      dynamicStyle = selector + '{' + dynamicStyle + '}';
+      kemet_add_dynamic_css(control, dynamicStyle);
+    })
+  })
+}
+
+/**
+ * Background Css
+ */
+function get_background_css(bg_obj) {
   var gen_bg_css = "";
   var bg_img = bg_obj["background-image"];
   var bg_color = bg_obj["background-color"];
 
   if ("" === bg_color && "" === bg_img) {
-    wp_customize.preview.send("refresh");
+    wp.customize.preview.send("refresh");
   } else {
     if (
       "undefined" != typeof bg_img &&
@@ -591,10 +604,51 @@ function kemet_background_obj_css(wp_customize, bg_obj, ctrl_name, style) {
       gen_bg_css += "background-size: " + backgroundSize + ";";
       gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
     }
-    var dynamicStyle = style.replace("{{css}}", gen_bg_css);
 
-    kemet_add_dynamic_css(ctrl_name, dynamicStyle);
+    return gen_bg_css;
   }
+}
+/**
+ * Responsive Spacing CSS
+ */
+function kemet_responsive_background(control, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      var background = {
+        desktop: "",
+        tablet: "",
+        mobile: "",
+      };
+      console.log(value);
+      if ("" != value["desktop"]) {
+        background.desktop = get_background_css(value["desktop"]);
+      }
+
+      if ("" != value["tablet"]) {
+        background.desktop = get_background_css(value["tablet"]);
+      }
+
+      if ("" != value["mobile"]) {
+        background.desktop = get_background_css(value["mobile"]);
+      }
+      var dynamicStyle = control +
+        selector +
+        "	{ " +
+        background.desktop +
+        " }" +
+        "@media (max-width: 768px) {" +
+        selector +
+        "	{ " +
+        background.tablet +
+        " } }" +
+        "@media (max-width: 544px) {" +
+        selector +
+        "	{ " +
+        background.mobile +
+        " } }";
+      kemet_add_dynamic_css(control, dynamicStyle);
+    });
+  });
 }
 
 function kemet_font_family_css(control, selector) {
@@ -1132,6 +1186,14 @@ function kemet_responsive_color_css(control, data) {
           responsive_spacing(control, data);
         } else {
           spacing(control, data);
+        }
+        break;
+      case "kmt-background":
+        if (data.responsive) {
+          delete data.responsive;
+          kemet_responsive_background(control, data.selector);
+        } else {
+          kemet_background(control, data.selector);
         }
         break;
     }
