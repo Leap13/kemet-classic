@@ -63,8 +63,8 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 * @param string $device device.
 		 * @return boolean
 		 */
-		public static function is_row_empty( $row, $builder, $device ) {
-			$items  = kemet_get_option( $builder . '-' . $device . '-items' );
+		public static function is_row_empty( $row, $builder, $device = 'desktop' ) {
+			$items  = 'header' === $builder ? kemet_get_option( $builder . '-' . $device . '-items' ) : kemet_get_option( $builder . '-items' );
 			$result = false;
 
 			if ( isset( $items ) && isset( $items[ $row ] ) ) {

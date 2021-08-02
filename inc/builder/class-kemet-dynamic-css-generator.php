@@ -353,13 +353,83 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				return $parse_css;
 			}
 		}
+
+		/**
+		 * Get Header Row Css
+		 *
+		 * @param string $row row.
+		 * @return string
+		 */
+		public static function footer_row_css( $row ) {
+			if ( Kemet_Builder_Helper::is_row_empty( $row, 'footer' ) ) {
+				$selector = '.site-' . $row . '-footer-wrap';
+				$prefix   = $row . '-footer';
+
+				$columns_padding      = kemet_get_option( $prefix . '-columns-padding' );
+				$row_top_border       = kemet_get_option( $prefix . '-top-border-width' );
+				$row_bottom_border    = kemet_get_option( $prefix . '-bottom-border-width' );
+				$top_border_color     = kemet_get_sub_option( $prefix . '-row-border-color', 'top' );
+				$bottom_border_color  = kemet_get_sub_option( $prefix . '-row-border-color', 'bottom' );
+				$columns_border       = kemet_get_option( $prefix . '-columns-border-width' );
+				$columns_border_color = kemet_get_sub_option( $prefix . '-columns-border-color', 'inital' );
+
+				$css_output = array(
+					$selector => array(
+						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'desktop' ),
+						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'desktop' ),
+						'--borderTopColor'    => esc_attr( $top_border_color ),
+						'--borderBottomColor' => esc_attr( $bottom_border_color ),
+					),
+					$selector . '.site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
+						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
+						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'desktop' ),
+						'--borderLeftColor' => esc_attr( $bottom_border_color ),
+					),
+				);
+
+				/* Parse CSS from array() */
+				$parse_css = kemet_parse_css( $css_output );
+
+				$tablet = array(
+					$selector                             => array(
+						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'tablet' ),
+						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'tablet' ),
+					),
+					$selector . ' > .site-footer-section' => array(
+						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'tablet' ),
+						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'tablet' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $tablet, '', '768' );
+
+				$mobile = array(
+					$selector                             => array(
+						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'mobile' ),
+						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'mobile' ),
+					),
+					$selector . ' > .site-footer-section' => array(
+						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'mobile' ),
+						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'mobile' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $mobile, '', '544' );
+				$parse_css .= self::footer_columns_row_css( $row );
+
+				return $parse_css;
+			}
+		}
+
 		/**
 		 * Get Footer Row Css
 		 *
 		 * @param string $row row.
 		 * @return string
 		 */
-		public static function footer_row_css( $row ) {
+		public static function footer_columns_row_css( $row ) {
 			$selector = '.site-' . $row . '-footer-wrap';
 			$columns  = kemet_get_option( $row . '-footer-columns' );
 

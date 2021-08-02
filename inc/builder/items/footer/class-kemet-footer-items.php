@@ -40,6 +40,8 @@ if ( ! class_exists( 'Kemet_Footer_Items' ) ) :
 		public function __construct() {
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			require KEMET_FOOTER_ITEMS_DIR . 'top-footer/class-kemet-top-footer.php';
+			require KEMET_FOOTER_ITEMS_DIR . 'main-footer/class-kemet-main-footer.php';
+			require KEMET_FOOTER_ITEMS_DIR . 'bottom-footer/class-kemet-bottom-footer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

@@ -61,7 +61,12 @@
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #eeeeee;
-  border-top: 1px solid #959494;
+  border-top-width: var(--borderTopWidth, 1px);
+  border-top-style: var(--borderTopStyle, solid);
+  border-top-color: var(--borderTopColor);
+  border-bottom-width: var(--borderBottomWidth, 1px);
+  border-bottom-style: var(--borderBottomStyle, solid);
+  border-bottom-color: var(--borderBottomColor);
 }
 
 .kmt-grid-row {
@@ -69,6 +74,9 @@
   > .site-footer-section {
     min-height: 60px;
     background-color: #999;
+    border-left-width: var(--borderLeftWidth, 1px);
+    border-left-style: var(--borderLeftStyle, solid);
+    border-left-color: var(--borderLeftColor);
     &:first-child {
       border-left: 0;
     }

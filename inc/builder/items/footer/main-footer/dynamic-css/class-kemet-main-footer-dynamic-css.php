@@ -5,12 +5,12 @@
  * @package Kemet Theme
  */
 
-if ( ! class_exists( 'Kemet_Top_Footer_Dynamic_Css' ) ) {
+if ( ! class_exists( 'Kemet_Main_Footer_Dynamic_Css' ) ) {
 
 	/**
 	 * Customizer Register
 	 */
-	class Kemet_Top_Footer_Dynamic_Css extends Kemet_Add_Dynamic_Css {
+	class Kemet_Main_Footer_Dynamic_Css extends Kemet_Add_Dynamic_Css {
 
 		/**
 		 * Dynamic CSS
@@ -19,11 +19,11 @@ if ( ! class_exists( 'Kemet_Top_Footer_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			$dynamic_css .= Kemet_Dynamic_Css_Generator::footer_row_css( 'top' );
+			$dynamic_css .= Kemet_Dynamic_Css_Generator::footer_row_css( 'main' );
 			return $dynamic_css;
 		}
 	}
 }
 
-new Kemet_Top_Footer_Dynamic_Css();
+new Kemet_Main_Footer_Dynamic_Css();
 

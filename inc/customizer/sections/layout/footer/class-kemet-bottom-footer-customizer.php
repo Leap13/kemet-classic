@@ -26,6 +26,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'bottom-footer';
+		$selector         = '.site-bottom-footer-wrap';
 		$register_options = array(
 			self::$prefix . '-tabs' => array(
 				'type' => 'kmt-tabs',
@@ -64,6 +65,12 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									'bottom' => __( 'Bottom', 'kemet' ),
 									'left'   => __( 'Left', 'kemet' ),
 								),
+								'preview'        => array(
+									'selector'   => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
+								),
 							),
 						),
 					),
@@ -74,7 +81,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Row Settings', 'kemet' ),
 							),
-							self::$prefix . 'top-border-width' => array(
+							self::$prefix . '-top-border-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
@@ -91,8 +98,13 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => '--borderTopWidth',
+									'responsive' => true,
+								),
 							),
-							self::$prefix . 'bottom-border-width' => array(
+							self::$prefix . '-bottom-border-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
@@ -109,6 +121,11 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => '--borderBottomWidth',
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-row-border-color' => array(
 								'type'      => 'kmt-color',
@@ -122,6 +139,16 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									array(
 										'title' => __( 'Bottom', 'kemet' ),
 										'id'    => 'bottom',
+									),
+								),
+								'preview'   => array(
+									'top'    => array(
+										'selector' => $selector,
+										'property' => '--borderTopColor',
+									),
+									'bottom' => array(
+										'selector' => $selector,
+										'property' => '--borderBottomColor',
 									),
 								),
 							),
@@ -146,6 +173,11 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+									'property'   => '--borderLeftWidth',
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-columns-border-color' => array(
 								'type'      => 'kmt-color',
@@ -155,6 +187,14 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									array(
 										'title' => __( 'Color', 'kemet' ),
 										'id'    => 'inital',
+									),
+								),
+								'preview'   => array(
+									'preview' => array(
+										'initial' => array(
+											'selector' => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+											'property' => '--borderLeftColor',
+										),
 									),
 								),
 							),
