@@ -28,6 +28,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 		 * @var string
 		 */
 		public $type = 'kmt-background';
+		public $responsive=true;
 
 		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
@@ -53,8 +54,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 					'background-position'   => 'center center',
 					'background-size'       => 'auto',
 					'background-attachment' => 'scroll',
-					'background-pattern' => '',
-					'patternColor' =>''
+				
 				);
 			}
 
@@ -62,6 +62,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 			$this->json['link']  = $this->get_link();
 			$this->json['id']    = $this->id;
 			$this->json['label'] = esc_html( $this->label );
+			$this->json['responsive']    = $this->responsive;
 
 		
 		}

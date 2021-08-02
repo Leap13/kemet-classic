@@ -5476,10 +5476,10 @@ function invariant(condition, message) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -5491,13 +5491,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/color */ "./src/common/color.js");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
 
 
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -5506,12 +5508,71 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var BackgroundComponent = function BackgroundComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.control.params.value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+  var responsive = props.control.params.responsive;
+  var defaultValue = {
+    "background-attachment": '',
+    "background-color": '',
+    "background-image": '',
+    "background-media": '',
+    "background-position": '',
+    "background-repeat": '',
+    "background-size": '',
+    "background-type": ""
+  };
+  var ResDefaultParam = {
+    desktop: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    },
+    tablet: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    },
+    mobile: {
+      "background-attachment": '',
+      "background-color": '',
+      "background-image": '',
+      "background-media": '',
+      "background-position": '',
+      "background-repeat": '',
+      "background-size": '',
+      "background-type": ""
+    }
+  };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(defaultVals),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
-  console.log(props_value);
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('desktop'),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      device = _useState4[0],
+      setDevice = _useState4[1];
+
+  var responsiveHtml;
+
+  if (responsive) {
+    responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      onChange: function onChange(device) {
+        return setDevice(device);
+      }
+    });
+  }
 
   var renderReset = function renderReset() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -5520,39 +5581,30 @@ var BackgroundComponent = function BackgroundComponent(props) {
       className: "kmt-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
       className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
-      disabled: JSON.stringify(props_value) === JSON.stringify(props.control.params.default),
+      disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
       onClick: function onClick(e) {
         e.preventDefault();
-        var value = JSON.parse(JSON.stringify(props.control.params.default));
-
-        if (undefined !== value && '' !== value) {
-          if (undefined === value['background-color'] || '' === value['background-color']) {
-            value['background-color'] = '';
-          }
-
-          if (undefined === value['background-image'] || '' === value['background-image']) {
-            value['background-image'] = '';
-          }
-
-          if (undefined === value['background-media'] || '' === value['background-media']) {
-            value['background-media'] = '';
-          }
-        }
-
-        props.control.setting.set(value);
-        setPropsValue(value);
+        props.control.setting.set(defaultVals);
+        setPropsValue(defaultVals);
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "image-rotate"
-    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml));
+    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml);
   };
 
   var _onSelectImage = function onSelectImage(media, backgroundType) {
     var obj = _objectSpread({}, props_value);
 
-    obj['background-media'] = media.id;
-    obj['background-image'] = media.url;
-    obj['background-type'] = backgroundType;
+    if (responsive) {
+      obj[device]['background-media'] = media.id;
+      obj[device]['background-image'] = media.url;
+      obj[device]['background-type'] = backgroundType;
+    } else {
+      obj['background-media'] = media.id;
+      obj['background-image'] = media.url;
+      obj['background-type'] = backgroundType;
+    }
+
     props.control.setting.set(obj);
     setPropsValue(obj);
   };
@@ -5560,31 +5612,38 @@ var BackgroundComponent = function BackgroundComponent(props) {
   var _onChangeImageOptions = function onChangeImageOptions(mainKey, value, backgroundType) {
     var obj = _objectSpread({}, props_value);
 
-    obj[mainKey] = value;
-    obj['background-type'] = backgroundType;
+    if (responsive) {
+      obj[device][mainKey] = value;
+      obj[device]['background-type'] = backgroundType;
+    } else {
+      obj[mainKey] = value;
+      obj['background-type'] = backgroundType;
+    }
+
     props.control.setting.set(obj);
     setPropsValue(obj);
   };
 
   var renderSettings = function renderSettings() {
+    var renderBackground = responsive ? props_value[device] : props_value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      color: undefined !== props_value['background-color'] && props_value['background-color'] ? props_value['background-color'] : '',
+      color: undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
         return handleChangeComplete(color, backgroundType);
       },
-      media: undefined !== props_value['background-media'] && props_value['background-media'] ? props_value['background-media'] : '',
-      backgroundImage: undefined !== props_value['background-image'] && props_value['background-image'] ? props_value['background-image'] : '',
-      backgroundAttachment: undefined !== props_value['background-attachment'] && props_value['background-attachment'] ? props_value['background-attachment'] : '',
-      backgroundPosition: undefined !== props_value['background-position'] && props_value['background-position'] ? props_value['background-position'] : '',
-      backgroundRepeat: undefined !== props_value['background-repeat'] && props_value['background-repeat'] ? props_value['background-repeat'] : '',
-      backgroundSize: undefined !== props_value['background-size'] && props_value['background-size'] ? props_value['background-size'] : '',
+      media: undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : '',
+      backgroundImage: undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : '',
+      backgroundAttachment: undefined !== renderBackground['background-attachment'] && renderBackground['background-attachment'] ? renderBackground['background-attachment'] : '',
+      backgroundPosition: undefined !== renderBackground['background-position'] && renderBackground['background-position'] ? renderBackground['background-position'] : '',
+      backgroundRepeat: undefined !== renderBackground['background-repeat'] && renderBackground['background-repeat'] ? renderBackground['background-repeat'] : '',
+      backgroundSize: undefined !== renderBackground['background-size'] && renderBackground['background-size'] ? renderBackground['background-size'] : '',
       onSelectImage: function onSelectImage(media, backgroundType) {
         return _onSelectImage(media, backgroundType);
       },
       onChangeImageOptions: function onChangeImageOptions(mainKey, value, backgroundType) {
         return _onChangeImageOptions(mainKey, value, backgroundType);
       },
-      backgroundType: undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color',
+      backgroundType: undefined !== renderBackground['background-type'] && renderBackground['background-type'] ? renderBackground['background-type'] : 'color',
       allowGradient: true,
       allowImage: true
     }));
@@ -5605,8 +5664,14 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     var obj = _objectSpread({}, props_value);
 
-    obj['background-color'] = value;
-    obj['background-type'] = backgroundType;
+    if (responsive) {
+      obj[device]['background-color'] = value;
+      obj[device]['background-type'] = backgroundType;
+    } else {
+      obj['background-color'] = value;
+      obj['background-type'] = backgroundType;
+    }
+
     props.control.setting.set(obj);
     setPropsValue(obj);
   };
@@ -5649,6 +5714,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _background_component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./background-component.js */ "./src/Background/background-component.js");
+/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
+
 
 
 var backgroundControl = wp.customize.kemetControl.extend({
@@ -5659,6 +5726,7 @@ var backgroundControl = wp.customize.kemetControl.extend({
     }), control.container[0]);
   },
   ready: function ready() {
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(this);
     'use strict';
 
     jQuery('html').addClass('background-colorpicker-ready');
@@ -6810,21 +6878,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         _this2.setState({
           isVisible: true
         });
-      }; // const dimensions = {
-      //     desktop: {
-      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.width ? this.controlParams.attachments.desktop.width : 400),
-      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.height ? this.controlParams.attachments.desktop.height : 400),
-      //     },
-      //     tablet: {
-      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.width ? this.controlParams.attachments.tablet.width : 400),
-      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.height ? this.controlParams.attachments.tablet.height : 400),
-      //     },
-      //     mobile: {
-      //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.width ? this.controlParams.attachments.mobile.width : 400),
-      //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.height ? this.controlParams.attachments.mobile.height : 400),
-      //     },
-      // }
-
+      };
 
       var showingGradient = allowGradient && supportGradient ? true : false;
       var tabs = [{
@@ -6887,7 +6941,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         }
       }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
         className: "kemet-advanced-color-indicate",
-        colorValue: this.state.color
+        colorValue: this.props.color
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
         class: "kmt-tooltip-top"
       }, this.state.text)), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
@@ -6912,7 +6966,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           if ('gradient' === tab.name) {
             tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["__experimentalGradientPicker"], {
               className: "kmt-gradient-color-picker",
-              value: _this2.state.color && _this2.state.color.includes('gradient') ? _this2.state.color : '',
+              value: _this2.props.color && _this2.props.color.includes('gradient') ? _this2.props.color : '',
               onChange: function onChange(gradient) {
                 return _this2.onChangeGradientComplete(gradient);
               }
@@ -6937,7 +6991,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
             tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorPicker"], {
               color: _this2.state.color,
               onChangeComplete: function onChangeComplete(color) {
-                return _this2(color);
+                return _this2.onChangeComplete(color);
               }
             })), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorPicker"], {
               color: _this2.state.color,

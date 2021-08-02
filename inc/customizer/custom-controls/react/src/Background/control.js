@@ -1,5 +1,6 @@
 
 import BackgroundComponent from './background-component.js';
+import { kemetGetResponsiveJs } from '../common/responsive-helper';
 
 export const backgroundControl = wp.customize.kemetControl.extend({
     renderContent: function renderContent() {
@@ -7,6 +8,7 @@ export const backgroundControl = wp.customize.kemetControl.extend({
         ReactDOM.render(<BackgroundComponent control={control} />, control.container[0]);
     },
     ready: function () {
+        kemetGetResponsiveJs(this);
         'use strict';
         jQuery('html').addClass('background-colorpicker-ready');
         let control = this;

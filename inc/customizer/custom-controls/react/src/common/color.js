@@ -42,6 +42,7 @@ class KemetColorPickerControl extends Component {
 
 
     render() {
+
         const {
             refresh,
             isVisible,
@@ -119,20 +120,7 @@ class KemetColorPickerControl extends Component {
             this.setState({ isVisible: true });
         };
 
-        // const dimensions = {
-        //     desktop: {
-        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.width ? this.controlParams.attachments.desktop.width : 400),
-        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.desktop && 'object' === typeof this.controlParams.attachments.desktop && this.controlParams.attachments.desktop && undefined !== this.controlParams.attachments.desktop.height ? this.controlParams.attachments.desktop.height : 400),
-        //     },
-        //     tablet: {
-        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.width ? this.controlParams.attachments.tablet.width : 400),
-        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.tablet && 'object' === typeof this.controlParams.attachments.tablet && this.controlParams.attachments.tablet && undefined !== this.controlParams.attachments.tablet.height ? this.controlParams.attachments.tablet.height : 400),
-        //     },
-        //     mobile: {
-        //         width: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.width ? this.controlParams.attachments.mobile.width : 400),
-        //         height: (undefined !== this.controlParams.attachments && 'object' === typeof this.controlParams.attachments && undefined !== this.controlParams.attachments.mobile && 'object' === typeof this.controlParams.attachments.mobile && this.controlParams.attachments.mobile && undefined !== this.controlParams.attachments.mobile.height ? this.controlParams.attachments.mobile.height : 400),
-        //     },
-        // }
+
 
         const showingGradient = (allowGradient && supportGradient ? true : false);
 
@@ -211,7 +199,7 @@ class KemetColorPickerControl extends Component {
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.state.color} />
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
                                 <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
@@ -245,15 +233,13 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         <__experimentalGradientPicker
                                                                             className="kmt-gradient-color-picker"
-                                                                            value={this.state.color && this.state.color.includes('gradient') ? this.state.color : ''}
+                                                                            value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
                                                                         <ul className={'ct-gradient-swatches'}>
-
                                                                             {allGradients.map((gradient, slug) => (
                                                                                 <li
                                                                                     onClick={() => this.onChangeGradientComplete(gradient)}
-
                                                                                     style={{
                                                                                         '--background-image': gradient,
                                                                                     }}
@@ -275,7 +261,7 @@ class KemetColorPickerControl extends Component {
                                                                                 {RenderTopSection()}
                                                                                 <ColorPicker
                                                                                     color={this.state.color}
-                                                                                    onChangeComplete={(color) => this(color)}
+                                                                                    onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
                                                                             </>
                                                                         )}

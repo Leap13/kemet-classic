@@ -3,37 +3,86 @@ import { useState } from 'react';
 import { Dashicon } from '@wordpress/components';
 import KemetColorPickerControl from '../common/color';
 import { __ } from '@wordpress/i18n';
+import Responsive from '../common/responsive'
+
 
 const BackgroundComponent = props => {
-    const [props_value, setPropsValue] = useState(props.control.params.value);
 
-    console.log(props_value)
+    let responsive = props.control.params.responsive;
+    let defaultValue = {
+        "background-attachment": '',
+        "background-color": '',
+        "background-image": '',
+        "background-media": '',
+        "background-position": '',
+        "background-repeat": '',
+        "background-size": '',
+        "background-type": ""
+    }
+
+    let ResDefaultParam = {
+        desktop: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        },
+        tablet: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        },
+        mobile: {
+            "background-attachment": '',
+            "background-color": '',
+            "background-image": '',
+            "background-media": '',
+            "background-position": '',
+            "background-repeat": '',
+            "background-size": '',
+            "background-type": ""
+        }
+    }
+
+    let defaultValues = responsive ? ResDefaultParam : defaultValue;
+
+    let defaultVals = props.control.params.default
+        ? {
+            ...defaultValues,
+            ...props.control.params.default,
+        }
+        : defaultValues;
+
+
+    const [props_value, setPropsValue] = useState(defaultVals);
+    const [device, setDevice] = useState('desktop');
+    let responsiveHtml;
+
+
+    if (responsive) {
+        responsiveHtml = <Responsive
+            onChange={(device) => setDevice(device)}
+        />
+    }
     const renderReset = () => {
         return <span className="customize-control-title">
 
             <div className="kmt-color-btn-reset-wrap">
                 <button
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-                    disabled={JSON.stringify(props_value) === JSON.stringify(props.control.params.default)} onClick={e => {
+                    disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
-                        let value = JSON.parse(JSON.stringify(props.control.params.default));
-
-                        if (undefined !== value && '' !== value) {
-                            if (undefined === value['background-color'] || '' === value['background-color']) {
-                                value['background-color'] = '';
-                            }
-
-                            if (undefined === value['background-image'] || '' === value['background-image']) {
-                                value['background-image'] = '';
-                            }
-
-                            if (undefined === value['background-media'] || '' === value['background-media']) {
-                                value['background-media'] = '';
-                            }
-                        }
-
-                        props.control.setting.set(value);
-                        setPropsValue(value);
+                        props.control.setting.set(defaultVals);
+                        setPropsValue(defaultVals);
                     }}>
                     <Dashicon icon='image-rotate' />
                 </button>
@@ -42,16 +91,24 @@ const BackgroundComponent = props => {
                 {labelHtml}
                 {descriptionHtml}
             </label>
-        </span>;
+            {responsiveHtml}
+        </span >;
     };
 
     const onSelectImage = (media, backgroundType) => {
         let obj = {
             ...props_value
         };
-        obj['background-media'] = media.id;
-        obj['background-image'] = media.url;
-        obj['background-type'] = backgroundType;
+        if (responsive) {
+            obj[device]['background-media'] = media.id;
+            obj[device]['background-image'] = media.url;
+            obj[device]['background-type'] = backgroundType;
+        } else {
+            obj['background-media'] = media.id;
+            obj['background-image'] = media.url;
+            obj['background-type'] = backgroundType;
+        }
+
         props.control.setting.set(obj);
         setPropsValue(obj);
     };
@@ -60,29 +117,40 @@ const BackgroundComponent = props => {
         let obj = {
             ...props_value
         };
-        obj[mainKey] = value;
-        obj['background-type'] = backgroundType;
+        if (responsive) {
+            obj[device][mainKey] = value;
+            obj[device]['background-type'] = backgroundType;
+        } else {
+            obj[mainKey] = value;
+            obj['background-type'] = backgroundType;
+        }
+
         props.control.setting.set(obj);
         setPropsValue(obj);
     };
 
     const renderSettings = () => {
+        let renderBackground = responsive ? props_value[device] : props_value;
+
         return <>
             <KemetColorPickerControl
-                color={undefined !== props_value['background-color'] && props_value['background-color'] ? props_value['background-color'] : ''}
+
+                color={undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
-                media={undefined !== props_value['background-media'] && props_value['background-media'] ? props_value['background-media'] : ''}
-                backgroundImage={undefined !== props_value['background-image'] && props_value['background-image'] ? props_value['background-image'] : ''}
-                backgroundAttachment={undefined !== props_value['background-attachment'] && props_value['background-attachment'] ? props_value['background-attachment'] : ''}
-                backgroundPosition={undefined !== props_value['background-position'] && props_value['background-position'] ? props_value['background-position'] : ''}
-                backgroundRepeat={undefined !== props_value['background-repeat'] && props_value['background-repeat'] ? props_value['background-repeat'] : ''}
-                backgroundSize={undefined !== props_value['background-size'] && props_value['background-size'] ? props_value['background-size'] : ''}
+                media={undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : ''}
+                backgroundImage={undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : ''}
+                backgroundAttachment={undefined !== renderBackground['background-attachment'] && renderBackground['background-attachment'] ? renderBackground['background-attachment'] : ''}
+                backgroundPosition={undefined !== renderBackground['background-position'] && renderBackground['background-position'] ? renderBackground['background-position'] : ''}
+                backgroundRepeat={undefined !== renderBackground['background-repeat'] && renderBackground['background-repeat'] ? renderBackground['background-repeat'] : ''}
+                backgroundSize={undefined !== renderBackground['background-size'] && renderBackground['background-size'] ? renderBackground['background-size'] : ''}
                 onSelectImage={(media, backgroundType) => onSelectImage(media, backgroundType)}
                 onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
-                backgroundType={undefined !== props_value['background-type'] && props_value['background-type'] ? props_value['background-type'] : 'color'}
+                backgroundType={undefined !== renderBackground['background-type'] && renderBackground['background-type'] ? renderBackground['background-type'] : 'color'}
                 allowGradient={true}
                 allowImage={true} />
         </>;
+
+
     };
 
     const handleChangeComplete = (color, backgroundType) => {
@@ -101,8 +169,14 @@ const BackgroundComponent = props => {
         let obj = {
             ...props_value
         };
-        obj['background-color'] = value;
-        obj['background-type'] = backgroundType;
+        if (responsive) {
+            obj[device]['background-color'] = value;
+            obj[device]['background-type'] = backgroundType;
+        } else {
+            obj['background-color'] = value;
+            obj['background-type'] = backgroundType;
+        }
+
         props.control.setting.set(obj);
         setPropsValue(obj);
     };
