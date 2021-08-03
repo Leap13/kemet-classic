@@ -47,7 +47,7 @@ const SpacingComponent = props => {
             ...props.params.default,
         }
         : defaultValues;
-    let value = props.control.get()
+    let value = props.value
     value = value
         ? {
             ...defaultVals,

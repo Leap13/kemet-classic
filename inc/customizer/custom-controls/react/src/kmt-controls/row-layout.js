@@ -184,7 +184,7 @@ const RowLayoutComponent = (props) => {
         'tablet': '',
         'mobile': '',
     }
-    let value = props.control.get() ? props.control.get() : defaultValue;
+    let value = props.value ? props.value : defaultValue;
 
     const [state, setState] = useState({
         value,

@@ -6,7 +6,7 @@ const { __ } = wp.i18n;
 const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
 
 const RadioComponent = (props) => {
-    let value = props.control.get();
+    let value = props.value;
 
     const [state, setState] = useState({
         value

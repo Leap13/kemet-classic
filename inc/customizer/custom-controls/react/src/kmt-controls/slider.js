@@ -8,7 +8,7 @@ class ResponsiveSliderComponent extends Component {
         this.unit_choices = this.props.params.unit_choices;
         this.values = this.props.params.value;
         this.responsive = this.props.params.responsive;
-        let value = this.props.control.get()
+        let value = this.props.value
         this.defaultValue = this.props.params.default
         let ResDefaultParam = {
             "desktop": '',

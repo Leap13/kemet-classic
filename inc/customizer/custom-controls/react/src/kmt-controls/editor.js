@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const EditorComponent = props => {
     const editorId = props.id + 'editor';
     const [state, setState] = useState({
-        value: props.control.get(),
+        value: props.value,
         restoreTextMode: false,
     });
 

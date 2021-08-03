@@ -7099,7 +7099,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var __ = wp.i18n.__;
 
 var ColorComponent = function ColorComponent(props) {
-  var value = props.control.get();
+  var value = props.value;
   var responsiveBaseDefault = {
     'desktop': {},
     'tablet': {},
@@ -7299,7 +7299,7 @@ var EditorComponent = function EditorComponent(props) {
   var editorId = props.id + 'editor';
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
-    value: props.control.get(),
+    value: props.value,
     restoreTextMode: false
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
@@ -7613,7 +7613,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var BuilderComponent = function BuilderComponent(props) {
-  var value = props.control.get();
+  var value = props.value;
   var staleValue = {};
   var baseDefault = {};
   var defaultValue = props.params.default ? _objectSpread(_objectSpread({}, baseDefault), props.params.default) : baseDefault;
@@ -8383,7 +8383,7 @@ var _wp$components = wp.components,
     Button = _wp$components.Button;
 
 var RadioComponent = function RadioComponent(props) {
-  var value = props.control.get();
+  var value = props.value;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
     value: value
@@ -8682,7 +8682,7 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
     'tablet': '',
     'mobile': ''
   };
-  var value = props.control.get() ? props.control.get() : defaultValue;
+  var value = props.value ? props.value : defaultValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
     value: value,
@@ -8812,7 +8812,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var SelectComponent = function SelectComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.control.get()),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
@@ -8975,9 +8975,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _this.unit_choices = _this.props.params.unit_choices;
     _this.values = _this.props.params.value;
     _this.responsive = _this.props.params.responsive;
-
-    var _value = _this.props.control.get();
-
+    var _value = _this.props.value;
     _this.defaultValue = _this.props.params.default;
     var ResDefaultParam = {
       "desktop": '',
@@ -9181,7 +9179,7 @@ var SortableComponent = function SortableComponent(props) {
       description = _props$params.description,
       choices = _props$params.choices,
       inputAttrs = _props$params.inputAttrs;
-  var value = props.control.get();
+  var value = props.value;
   var list = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     var updateValue = function updateValue() {
@@ -9344,7 +9342,7 @@ var SpacingComponent = function SpacingComponent(props) {
   var defaultValues;
   defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.params.default) : defaultValues;
-  var value = props.control.get();
+  var value = props.value;
   value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])(value),
@@ -9666,7 +9664,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var TextComponent = function TextComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.control.get()),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
@@ -9762,7 +9760,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ToggleControlComponent = function ToggleControlComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.control.get()),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];

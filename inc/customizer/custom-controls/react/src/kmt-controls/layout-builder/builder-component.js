@@ -4,7 +4,7 @@ import { Fragment, useState, useEffect } from "react";
 import { getSettingId } from '../../options/options-component'
 
 const BuilderComponent = (props) => {
-  let value = props.control.get();
+  let value = props.value;
   let staleValue = {};
   let baseDefault = {};
   let defaultValue = props.params.default

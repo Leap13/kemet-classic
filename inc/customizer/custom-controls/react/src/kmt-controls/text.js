@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const TextComponent = props => {
 
-    const [props_value, setPropsValue] = useState(props.control.get());
+    const [props_value, setPropsValue] = useState(props.value);
 
     const HandleChange = (value) => {
         setPropsValue(value);

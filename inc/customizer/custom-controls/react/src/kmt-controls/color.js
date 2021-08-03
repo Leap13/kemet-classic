@@ -5,7 +5,7 @@ import Responsive from '../common/responsive'
 const { __ } = wp.i18n;
 
 const ColorComponent = props => {
-    let value = props.control.get();
+    let value = props.value;
 
     let responsiveBaseDefault = {
         'desktop': {},

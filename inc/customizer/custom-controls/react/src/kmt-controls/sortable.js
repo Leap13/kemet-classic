@@ -14,7 +14,7 @@ const SortableComponent = props => {
         inputAttrs
     } = props.params;
 
-    const value = props.control.get();
+    const value = props.value;
     const list = useRef(null);
 
     useEffect(() => {
