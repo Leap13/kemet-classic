@@ -9955,15 +9955,10 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
   var value = props.control.setting.get();
   value = undefined === value || '' === value ? props.control.params.value : value;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])(value),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('desktop'),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('desktop'),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState3, 2),
-      device = _useState4[0],
-      setDevice = _useState4[1];
+      device = _useState2[0],
+      setDevice = _useState2[1];
 
   var responsive = props.control.params.responsive;
   var ResDefaultParam = {
@@ -10002,6 +9997,12 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
   defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
   value = value ? _objectSpread(_objectSpread({}, defaultVals), value) : defaultVals;
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])(value),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState3, 2),
+      state = _useState4[0],
+      setState = _useState4[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_6__["useEffect"])(function () {
     if (state !== value) {
       setState(value);
@@ -10102,7 +10103,7 @@ var ResponsiveSpacingComponent = function ResponsiveSpacingComponent(props) {
 
     if (choices) {
       htmlChoices = Object.keys(choices).map(function (choiceID) {
-        var inputValue = responsive ? state[device][choiceID] : state[choiceID];
+        var inputValue = responsive ? state[device][choiceID] : state["value"][choiceID];
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
           key: choiceID
         }, inputAttrs, {

@@ -8,7 +8,6 @@ const ResponsiveSpacingComponent = props => {
 
     let value = props.control.setting.get()
     value = (undefined === value || '' === value) ? props.control.params.value : value;
-    const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
     let responsive = props.control.params.responsive;
     let ResDefaultParam = {
@@ -60,13 +59,14 @@ const ResponsiveSpacingComponent = props => {
         }
         : defaultVals
         ;
+    const [state, setState] = useState(value);
+
 
     useEffect(() => {
         if (state !== value) {
             setState(value);
         }
     }, [props]);
-
 
 
     const onConnectedClick = () => {
@@ -164,7 +164,7 @@ const ResponsiveSpacingComponent = props => {
 
         if (choices) {
             htmlChoices = Object.keys(choices).map(choiceID => {
-                let inputValue = responsive ? state[device][choiceID] : state[choiceID];
+                let inputValue = responsive ? state[device][choiceID] : state[`value`][choiceID];
 
                 let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
