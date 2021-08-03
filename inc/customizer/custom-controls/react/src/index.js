@@ -15,6 +15,7 @@ import { colorComponent } from "./color/control";
 import { toggleControl } from "./Toggle/control";
 import { backgroundControl } from './Background/control'
 import { colorGroupControl } from './color-group/control'
+import { TypographyControl } from '../typography2/control';
 
 wp.customize.controlConstructor["kmt-builder"] = BuilderControl;
 wp.customize.controlConstructor["kmt-available"] = AvailableControl;
@@ -34,6 +35,7 @@ wp.customize.controlConstructor["kmt-reponsive-color"] = responsiveColorControl;
 wp.customize.controlConstructor["kmt-switcher"] = toggleControl;
 wp.customize.controlConstructor['kmt-background'] = backgroundControl;
 wp.customize.controlConstructor['kmt-group'] = colorGroupControl;
+wp.customize.controlConstructor['kmt-typo'] = TypographyControl;
 
 
 import { Base } from "./customizer";
