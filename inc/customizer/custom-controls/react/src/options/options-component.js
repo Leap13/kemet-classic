@@ -203,7 +203,8 @@ export const renderOptions = (options) => {
     return Object.keys(options).map((optionId) => {
         const controlName = getSettingId(optionId);
         let control = wp.customize(controlName);
-        let value = wp.customize(controlName).get();
+        let value = control && control.get();
+
         let option = options[optionId];
 
         return <SingleOptionComponent value={value} optionId={optionId} option={option} control={control} key={optionId} />;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dashicon } from '@wordpress/components';
 import KemetColorPickerControl from '../common/color';
 import { __ } from '@wordpress/i18n';
@@ -7,6 +7,7 @@ import Responsive from '../common/responsive'
 
 
 const BackgroundComponent = props => {
+    let value = props.value;
 
     let responsive = props.params.responsive;
     let defaultValue = {
@@ -53,6 +54,7 @@ const BackgroundComponent = props => {
         }
     }
 
+
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
     let defaultVals = props.params.default
@@ -62,11 +64,13 @@ const BackgroundComponent = props => {
         }
         : defaultValues;
 
-
-    const [props_value, setPropsValue] = useState(defaultVals);
+    value = value ? value : defaultVals;
+    const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
-    let responsiveHtml;
 
+    console.log(props_value);
+
+    let responsiveHtml;
 
     if (responsive) {
         responsiveHtml = <Responsive
@@ -81,6 +85,7 @@ const BackgroundComponent = props => {
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
                     disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
+
                         props.onChange(props.id, defaultVals);
                         setPropsValue(defaultVals);
                     }}>
@@ -134,7 +139,7 @@ const BackgroundComponent = props => {
 
         return <>
             <KemetColorPickerControl
-
+                text={__('Background', 'Kemet')}
                 color={undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
                 media={undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : ''}
@@ -147,7 +152,8 @@ const BackgroundComponent = props => {
                 onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
                 backgroundType={undefined !== renderBackground['background-type'] && renderBackground['background-type'] ? renderBackground['background-type'] : 'color'}
                 allowGradient={true}
-                allowImage={true} />
+                allowImage={true}
+            />
         </>;
 
 
@@ -198,11 +204,7 @@ const BackgroundComponent = props => {
         ;
 
     return <>
-
-
-        <div className="customize-control-content">
-            {inputHtml}
-        </div>
+        {inputHtml}
     </>;
 
 };

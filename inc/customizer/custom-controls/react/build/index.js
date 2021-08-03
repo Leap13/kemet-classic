@@ -6814,6 +6814,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var BackgroundComponent = function BackgroundComponent(props) {
+  var value = props.value;
   var responsive = props.params.responsive;
   var defaultValue = {
     "background-attachment": '',
@@ -6859,8 +6860,9 @@ var BackgroundComponent = function BackgroundComponent(props) {
   };
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.params.default) : defaultValues;
+  value = value ? value : defaultVals;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(defaultVals),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
@@ -6870,6 +6872,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       device = _useState4[0],
       setDevice = _useState4[1];
 
+  console.log(props_value);
   var responsiveHtml;
 
   if (responsive) {
@@ -6933,6 +6936,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Background', 'Kemet'),
       color: undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
         return handleChangeComplete(color, backgroundType);
@@ -6995,9 +6999,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "background-container"
   }, renderReset(), renderSettings());
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "customize-control-content"
-  }, inputHtml));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, inputHtml);
 };
 
 BackgroundComponent.propTypes = {
@@ -10152,7 +10154,7 @@ var renderOptions = function renderOptions(options) {
   return Object.keys(options).map(function (optionId) {
     var controlName = getSettingId(optionId);
     var control = wp.customize(controlName);
-    var value = wp.customize(controlName).get();
+    var value = control && control.get();
     var option = options[optionId];
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SingleOptionComponent, {
       value: value,
