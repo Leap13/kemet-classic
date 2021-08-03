@@ -17,6 +17,7 @@ import FocusComponent from '../kmt-controls/focus'
 import SortableComponent from '../kmt-controls/sortable'
 import BackgroundComponent from '../kmt-controls/background'
 import backgroundComponent from "../Background/background-component";
+import TypographyComponent from '../kmt-controls/typo-component';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -70,6 +71,11 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-background':
             OptionComponent = backgroundComponent;
+            break;
+
+        case 'kmt-typography':
+            OptionComponent = TypographyComponent;
+            ;
             break;
     }
 

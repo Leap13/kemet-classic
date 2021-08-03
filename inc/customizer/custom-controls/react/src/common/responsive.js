@@ -56,6 +56,7 @@ class Responsive extends Component {
             </>
         )
     }
+
     changeViewType(device) {
         this.setState({ view: device });
         wp.customize.previewedDevice(device);
@@ -74,6 +75,7 @@ Responsive.propTypes = {
     onChange: PropTypes.func,
     controlLabel: PropTypes.string
 };
+
 Responsive.defaultProps = {
     tooltip: true,
 };
