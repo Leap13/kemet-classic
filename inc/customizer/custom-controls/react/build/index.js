@@ -10112,7 +10112,8 @@ var toggleVisible = function toggleVisible(rules, onChange) {
 };
 
 var SingleOptionComponent = function SingleOptionComponent(_ref) {
-  var optionId = _ref.optionId,
+  var value = _ref.value,
+      optionId = _ref.optionId,
       option = _ref.option,
       control = _ref.control;
   var context = option.context ? isDisplay(option.context) : true;
@@ -10136,6 +10137,7 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
     className: "customize-control-".concat(option.type)
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Option, {
     id: optionId,
+    value: value,
     params: option,
     control: control,
     customizer: wp.customize,
@@ -10150,8 +10152,10 @@ var renderOptions = function renderOptions(options) {
   return Object.keys(options).map(function (optionId) {
     var controlName = getSettingId(optionId);
     var control = wp.customize(controlName);
+    var value = wp.customize(controlName).get();
     var option = options[optionId];
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SingleOptionComponent, {
+      value: value,
       optionId: optionId,
       option: option,
       control: control,

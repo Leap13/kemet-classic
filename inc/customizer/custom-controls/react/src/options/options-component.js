@@ -178,7 +178,7 @@ const toggleVisible = (rules, onChange) => {
     });
 }
 
-const SingleOptionComponent = ({ optionId, option, control }) => {
+const SingleOptionComponent = ({ value, optionId, option, control }) => {
     let context = option.context ? isDisplay(option.context) : true;
     const [isVisible, setVisible] = useState(context);
 
@@ -192,7 +192,7 @@ const SingleOptionComponent = ({ optionId, option, control }) => {
 
     const Option = OptionComponent(option.type);
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
-        <Option id={optionId} params={option} control={control} customizer={wp.customize} onChange={(key, value) => {
+        <Option id={optionId} value={value} params={option} control={control} customizer={wp.customize} onChange={(key, value) => {
             key = getSettingId(key);
             wp.customize(key).set(value);
         }} />
@@ -203,9 +203,10 @@ export const renderOptions = (options) => {
     return Object.keys(options).map((optionId) => {
         const controlName = getSettingId(optionId);
         let control = wp.customize(controlName);
+        let value = wp.customize(controlName).get();
         let option = options[optionId];
 
-        return <SingleOptionComponent optionId={optionId} option={option} control={control} key={optionId} />;
+        return <SingleOptionComponent value={value} optionId={optionId} option={option} control={control} key={optionId} />;
     })
 }
 
