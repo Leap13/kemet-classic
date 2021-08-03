@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dashicon } from '@wordpress/components';
 import KemetColorPickerControl from '../common/color';
 import { __ } from '@wordpress/i18n';
@@ -7,8 +7,10 @@ import Responsive from '../common/responsive'
 
 
 const BackgroundComponent = props => {
+    let value = props.control.setting.get();
 
-    let responsive = props.control.params.responsive;
+
+    let responsive = false;
     let defaultValue = {
         "background-attachment": '',
         "background-color": '',
@@ -53,6 +55,7 @@ const BackgroundComponent = props => {
         }
     }
 
+
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
     let defaultVals = props.control.params.default
@@ -62,13 +65,13 @@ const BackgroundComponent = props => {
         }
         : defaultValues;
 
-
-    const [props_value, setPropsValue] = useState(defaultVals);
+    value = value ? value : defaultVals;
+    const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
+
     let responsiveHtml;
 
     console.log(props_value)
-
 
     if (responsive) {
         responsiveHtml = <Responsive

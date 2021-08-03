@@ -45,18 +45,7 @@ if ( ! class_exists( 'Kemet_Control_Background' ) && class_exists( 'WP_Customize
 
 			$val = maybe_unserialize( $this->value() );
 
-			if ( ! is_array( $val ) || is_numeric( $val ) || empty( $val ) ) {
-
-				$val = array(
-					'background-color'      => '',
-					'background-image'      => '',
-					'background-repeat'     => 'repeat',
-					'background-position'   => 'center center',
-					'background-size'       => 'auto',
-					'background-attachment' => 'scroll',
-				
-				);
-			}
+		
 
 			$this->json['value'] = $val;
 			$this->json['link']  = $this->get_link();
