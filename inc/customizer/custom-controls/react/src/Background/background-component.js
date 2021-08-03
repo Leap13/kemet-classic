@@ -136,7 +136,7 @@ const BackgroundComponent = props => {
 
         return <>
             <KemetColorPickerControl
-
+                text={__('Background', 'Kemet')}
                 color={undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
                 media={undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : ''}
@@ -149,7 +149,8 @@ const BackgroundComponent = props => {
                 onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
                 backgroundType={undefined !== renderBackground['background-type'] && renderBackground['background-type'] ? renderBackground['background-type'] : 'color'}
                 allowGradient={true}
-                allowImage={true} />
+                allowImage={true}
+            />
         </>;
 
 
@@ -200,11 +201,7 @@ const BackgroundComponent = props => {
         ;
 
     return <>
-
-
-        <div className="customize-control-content">
-            {inputHtml}
-        </div>
+        {inputHtml}
     </>;
 
 };
