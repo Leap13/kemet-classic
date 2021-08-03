@@ -34,7 +34,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-columns' => array(
+							self::$prefix . '-columns'     => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-radio',
 								'label'     => __( 'Columns', 'kemet' ),
@@ -46,11 +46,52 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									'5' => __( '5', 'kemet' ),
 								),
 							),
-							self::$prefix . '-layout'  => array(
+							self::$prefix . '-layout'      => array(
 								'type'      => 'kmt-row-layout',
 								'label'     => __( 'Layout', 'kemet' ),
 								'transport' => 'postMessage',
 								'row'       => 'bottom',
+							),
+							self::$prefix . '-min-height'  => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Min Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 500,
+									),
+									'em' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $selector . ' .kmt-grid-row',
+									'property'   => '--minHeight',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-row-padding' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Row Spacing', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector,
+									'property'   => '--padding',
+									'sides'      => true,
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-columns-padding' => array(
 								'type'           => 'kmt-spacing',
@@ -70,6 +111,16 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									'property'   => '--padding',
 									'sides'      => false,
 									'responsive' => true,
+								),
+							),
+							self::$prefix . '-columns-direction' => array(
+								'default'   => 'row',
+								'transport' => 'postMessage',
+								'type'      => 'kmt-radio',
+								'label'     => __( 'Column Direction', 'kemet' ),
+								'choices'   => array(
+									'row'    => __( 'Row', 'kemet' ),
+									'column' => __( 'Column', 'kemet' ),
 								),
 							),
 						),
@@ -186,15 +237,13 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'inital',
+										'id'    => 'initial',
 									),
 								),
 								'preview'   => array(
-									'preview' => array(
-										'initial' => array(
-											'selector' => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
-											'property' => '--borderLeftColor',
-										),
+									'initial' => array(
+										'selector' => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+										'property' => '--borderLeftColor',
 									),
 								),
 							),
@@ -245,7 +294,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function add_partials( $partials ) {
 		$new_partials = array_fill_keys(
-			array( 'bottom-footer-columns', 'bottom-footer-layout' ),
+			array( self::$prefix . '-columns-direction', self::$prefix . '-columns', self::$prefix . '-layout' ),
 			array(
 				'selector'            => '#colophon',
 				'container_inclusive' => true,

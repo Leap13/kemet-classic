@@ -365,25 +365,35 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$selector = '.site-' . $row . '-footer-wrap';
 				$prefix   = $row . '-footer';
 
+				$height               = kemet_get_option( $prefix . '-min-height' );
 				$columns_padding      = kemet_get_option( $prefix . '-columns-padding' );
+				$row_padding          = kemet_get_option( $prefix . '-row-padding' );
 				$row_top_border       = kemet_get_option( $prefix . '-top-border-width' );
 				$row_bottom_border    = kemet_get_option( $prefix . '-bottom-border-width' );
 				$top_border_color     = kemet_get_sub_option( $prefix . '-row-border-color', 'top' );
 				$bottom_border_color  = kemet_get_sub_option( $prefix . '-row-border-color', 'bottom' );
 				$columns_border       = kemet_get_option( $prefix . '-columns-border-width' );
-				$columns_border_color = kemet_get_sub_option( $prefix . '-columns-border-color', 'inital' );
+				$columns_border_color = kemet_get_sub_option( $prefix . '-columns-border-color', 'initial' );
 
 				$css_output = array(
-					$selector => array(
+					$selector                    => array(
 						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'desktop' ),
 						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'desktop' ),
 						'--borderTopColor'    => esc_attr( $top_border_color ),
 						'--borderBottomColor' => esc_attr( $bottom_border_color ),
+						'--padding-top'       => kemet_responsive_spacing( $row_padding, 'top', 'desktop' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $row_padding, 'bottom', 'desktop' ),
 					),
-					$selector . '.site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
+					$selector . ' .kmt-grid-row' => array(
+						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
+					),
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
 						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'desktop' ),
 						'--borderLeftColor' => esc_attr( $bottom_border_color ),
+					),
+					$selector . ' .site-footer-section.direction-column' => array(
+						'--flexDirection' => 'column',
 					),
 				);
 
@@ -394,6 +404,11 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector                             => array(
 						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'tablet' ),
 						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'tablet' ),
+						'--padding-top'       => kemet_responsive_spacing( $row_padding, 'top', 'tablet' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $row_padding, 'bottom', 'tablet' ),
+					),
+					$selector . ' .kmt-grid-row'          => array(
+						'--minHeight' => kemet_responsive_slider( $height, 'tablet' ),
 					),
 					$selector . ' > .site-footer-section' => array(
 						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'tablet' ),
@@ -408,6 +423,11 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector                             => array(
 						'--borderTopWidth'    => kemet_responsive_slider( $row_top_border, 'mobile' ),
 						'--borderBottomWidth' => kemet_responsive_slider( $row_bottom_border, 'mobile' ),
+						'--padding-top'       => kemet_responsive_spacing( $row_padding, 'top', 'mobile' ),
+						'--padding-bottom'    => kemet_responsive_spacing( $row_padding, 'bottom', 'mobile' ),
+					),
+					$selector . ' .kmt-grid-row'          => array(
+						'--minHeight' => kemet_responsive_slider( $height, 'mobile' ),
 					),
 					$selector . ' > .site-footer-section' => array(
 						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'mobile' ),

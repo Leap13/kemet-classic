@@ -1167,6 +1167,7 @@ function kemet_responsive_color_css(control, data) {
           kemet_slider(control, data.selector, data.property);
         }
         break;
+      case "kmt-radio":
       case "kmt-select":
         kemet_css(control, data.property, data.selector);
         break;

@@ -3954,7 +3954,7 @@ body:not(.kmt-header-break-point) .header-main-layout-3.header-stretched-width .
 
 .kmt-grid-row {
   display: grid;
-  --gridTemplateColummns: auto auto;
+  grid-template-columns: var(--gridTemplateColummns, auto auto);
   -webkit-box-align: center;
   -webkit-align-items: center;
   -moz-box-align: center;
@@ -4884,32 +4884,38 @@ h4.widget-title {
 }
 
 [class*="-footer-wrap"] {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
   background-color: #eeeeee;
-  border-top-width: var(--borderTopWidth, 1px);
-  border-top-style: var(--borderTopStyle, solid);
-  border-top-color: var(--borderTopColor);
-  border-bottom-width: var(--borderBottomWidth, 1px);
-  border-bottom-style: var(--borderBottomStyle, solid);
-  border-bottom-color: var(--borderBottomColor);
+  border-top: var(--borderTopWidth) var(--borderTopStyle, solid) var(--borderTopColor);
+  border-bottom: var(--borderBottomWidth) var(--borderBottomStyle, solid) var(--borderBottomColor);
 }
 
-.kmt-grid-row {
-  grid-row-gap: 20px;
-  grid-template-columns: var(--gridTemplateColummns);
+[class*="-footer-wrap"] .site-footer-section {
+  border-left: var(--borderLeftWidth) var(--borderLeftStyle, solid) var(--borderLeftColor);
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: var(--flexDirection);
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: var(--flexDirection);
+  flex-direction: var(--flexDirection);
 }
 
-.kmt-grid-row > .site-footer-section {
-  min-height: 60px;
-  background-color: #999;
-  border-left-width: var(--borderLeftWidth, 1px);
-  border-left-style: var(--borderLeftStyle, solid);
-  border-left-color: var(--borderLeftColor);
-}
-
-.kmt-grid-row > .site-footer-section:first-child {
+[class*="-footer-wrap"] .site-footer-section:first-child {
   border-left: 0;
+}
+
+[class*="-footer-wrap"] .kmt-grid-row {
+  grid-row-gap: 20px;
+  --minHeight: 60px;
+  grid-template-columns: var(--gridTemplateColummns);
 }
 
 @media all and (max-width: 768px) {

@@ -346,7 +346,7 @@
 }
 .kmt-grid-row {
   display: grid;
-  --gridTemplateColummns: auto auto;
+  grid-template-columns: var(--gridTemplateColummns, auto auto);
   align-items: center;
   grid-column-gap: 20px;
   overflow-wrap: anywhere;

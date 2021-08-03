@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		 * @return boolean
 		 */
 		public static function is_item_loaded( $item, $builder = 'header', $device = 'all' ) {
-			$items         = array();
+			$items         = 'footer' === $builder ? kemet_get_option( 'footer-items', array() ) : array();
 			$current_items = array();
 
 			if ( 'header' == $builder ) {
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 					break;
 
 				default:
-					$current_items = array_unique( $current_items[ $device ] );
+					$current_items = 'header' == $builder ? array_unique( $current_items[ $device ] ) : $current_items;
 					break;
 			}
 
