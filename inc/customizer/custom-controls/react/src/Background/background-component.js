@@ -60,7 +60,7 @@ const BackgroundComponent = props => {
 
     let defaultVals = props.control.params.default
         ? {
-            ...defaultValues,
+
             ...props.control.params.default,
         }
         : defaultValues;
@@ -71,7 +71,47 @@ const BackgroundComponent = props => {
 
     let responsiveHtml;
 
-    console.log(value)
+    const updateValues = (obj) => {
+        setPropsValue(prevState => ({
+            ...prevState,
+            obj
+        }));
+        props.control.setting.set(obj);
+    };
+    const updateBackgroundType = (device) => {
+        let value = props.control.setting.get();
+        let obj = {
+            ...value
+        };
+
+        if (!props_value[device]['background-type']) {
+            let deviceObj = {
+                ...obj[device]
+            };
+
+            if (props_value[device]['background-color']) {
+                deviceObj['background-type'] = 'color';
+                obj[device] = deviceObj;
+                updateValues(obj);
+
+                if (props_value[device]['background-color'].includes('gradient')) {
+                    deviceObj['background-type'] = 'gradient';
+                    obj[device] = deviceObj;
+                    updateValues(obj);
+                }
+            }
+
+            if (props_value[device]['background-image']) {
+                deviceObj['background-type'] = 'image';
+                obj[device] = deviceObj;
+                updateValues(obj);
+            }
+        }
+    };
+    useEffect(() => {
+        updateBackgroundType(device);
+
+    }, []);
 
     if (responsive) {
         responsiveHtml = <Responsive
@@ -160,6 +200,7 @@ const BackgroundComponent = props => {
     };
 
     const handleChangeComplete = (color, backgroundType) => {
+        let backgroundT = backgroundType ? backgroundType : 'color';
         let value = '';
 
         if (color) {
@@ -177,10 +218,10 @@ const BackgroundComponent = props => {
         };
         if (responsive) {
             obj[device]['background-color'] = value;
-            obj[device]['background-type'] = backgroundType;
+            obj[device]['background-type'] = backgroundT;
         } else {
             obj['background-color'] = value;
-            obj['background-type'] = backgroundType;
+            obj['background-type'] = backgroundT;
         }
 
         props.control.setting.set(obj);

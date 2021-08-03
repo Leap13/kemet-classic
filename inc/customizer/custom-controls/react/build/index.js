@@ -5553,7 +5553,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
     }
   };
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
-  var defaultVals = props.control.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.control.params.default) : defaultValues;
+  var defaultVals = props.control.params.default ? _objectSpread({}, props.control.params.default) : defaultValues;
   value = value ? value : defaultVals;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
@@ -5567,7 +5567,47 @@ var BackgroundComponent = function BackgroundComponent(props) {
       setDevice = _useState4[1];
 
   var responsiveHtml;
-  console.log(value);
+
+  var updateValues = function updateValues(obj) {
+    setState(function (prevState) {
+      return _objectSpread(_objectSpread({}, prevState), {}, {
+        obj: obj
+      });
+    });
+    props.control.setting.set(obj);
+  };
+
+  var updateBackgroundType = function updateBackgroundType(device) {
+    var value = props.control.setting.get();
+
+    var obj = _objectSpread({}, value);
+
+    if (!state.value[device]['background-type']) {
+      var deviceObj = _objectSpread({}, obj[device]);
+
+      if (state.value[device]['background-color']) {
+        deviceObj['background-type'] = 'color';
+        obj[device] = deviceObj;
+        updateValues(obj);
+
+        if (state.value[device]['background-color'].includes('gradient')) {
+          deviceObj['background-type'] = 'gradient';
+          obj[device] = deviceObj;
+          updateValues(obj);
+        }
+      }
+
+      if (state.value[device]['background-image']) {
+        deviceObj['background-type'] = 'image';
+        obj[device] = deviceObj;
+        updateValues(obj);
+      }
+    }
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    updateBackgroundType(device);
+  }, []);
 
   if (responsive) {
     responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -5654,6 +5694,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   };
 
   var handleChangeComplete = function handleChangeComplete(color, backgroundType) {
+    var backgroundT = backgroundType ? backgroundType : 'color';
     var value = '';
 
     if (color) {
@@ -5670,10 +5711,10 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     if (responsive) {
       obj[device]['background-color'] = value;
-      obj[device]['background-type'] = backgroundType;
+      obj[device]['background-type'] = backgroundT;
     } else {
       obj['background-color'] = value;
-      obj['background-type'] = backgroundType;
+      obj['background-type'] = backgroundT;
     }
 
     props.control.setting.set(obj);
