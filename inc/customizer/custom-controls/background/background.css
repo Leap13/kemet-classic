@@ -110,6 +110,9 @@
   display: flex;
   margin: 0;
 }
+.kmt-control:last-child {
+  padding: 0 14px 7px 14px;
+}
 .kmt-buttons-group li {
   flex: 1 1 auto;
   display: flex;
@@ -326,4 +329,19 @@
 #tab-panel-0-image-view > .kmt-control + * {
   padding-top: 20px;
   border-top: 1px dashed #eee;
+}
+.background-container .color-button-wrap {
+  display: inline-block;
+  margin-left: 10px;
+  height: 38px;
+  width: 38px;
+}
+.background-container
+  .color-button-wrap
+  .components-button.kemet-color-icon-indicate
+  .component-color-indicator.kemet-advanced-color-indicate {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  margin: 0;
 }

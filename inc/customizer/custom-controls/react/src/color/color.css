@@ -147,7 +147,7 @@
   margin-top: 10px;
 }
 
-.color-button-wrap {
+.kmt-color-picker-container .color-button-wrap {
   display: inline-block;
   margin-left: 10px;
   height: 28px;
