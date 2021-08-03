@@ -10,7 +10,7 @@ const BackgroundComponent = props => {
     let value = props.control.setting.get();
 
 
-    let responsive = false;
+    let responsive = props.control.params.responsive;
     let defaultValue = {
         "background-attachment": '',
         "background-color": '',
@@ -71,7 +71,7 @@ const BackgroundComponent = props => {
 
     let responsiveHtml;
 
-    console.log(props_value)
+    console.log(value)
 
     if (responsive) {
         responsiveHtml = <Responsive

@@ -200,6 +200,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register
                 'type'      => 'kmt-background',
                 'label'     => __( 'Background', 'kemet' ),
                 'priority'  => 142,
+				'responsive' => true,
                 'section'   => 'section-buttons-fields',
             ),
 			// 'button-bg-color'          => array(

@@ -5509,7 +5509,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var BackgroundComponent = function BackgroundComponent(props) {
   var value = props.control.setting.get();
-  var responsive = false;
+  var responsive = props.control.params.responsive;
   var defaultValue = {
     "background-attachment": '',
     "background-color": '',
@@ -5567,7 +5567,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       setDevice = _useState4[1];
 
   var responsiveHtml;
-  console.log(props_value);
+  console.log(value);
 
   if (responsive) {
     responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
