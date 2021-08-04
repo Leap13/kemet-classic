@@ -181,7 +181,7 @@ const toggleVisible = (rules, onChange) => {
 const SingleOptionComponent = ({ value, optionId, option, control }) => {
     let context = option.context ? isDisplay(option.context) : true;
     const [isVisible, setVisible] = useState(context);
-
+    let [settingVal, setValue] = useState(value);
     const onChange = (value) => {
         setVisible(value)
     }
@@ -192,9 +192,10 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
 
     const Option = OptionComponent(option.type);
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
-        <Option id={optionId} value={value} params={option} control={control} customizer={wp.customize} onChange={(value) => {
+        <Option id={optionId} value={settingVal} params={option} control={control} customizer={wp.customize} onChange={(value) => {
             const key = getSettingId(optionId);
             wp.customize(key).set(value);
+            setValue(value);
         }} />
     </div>;
 }

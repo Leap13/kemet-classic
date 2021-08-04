@@ -6877,17 +6877,10 @@ var BackgroundComponent = function BackgroundComponent(props) {
       setDevice = _useState4[1];
 
   var updateValue = function updateValue(obj) {
-    if (responsive) {
-      setPropsValue(function (prevState) {
-        return _objectSpread(_objectSpread({}, prevState), {}, {
-          value: obj
-        });
-      });
-    } else {
-      setPropsValue(obj);
-    }
-
-    props.onChange(obj);
+    setPropsValue(obj);
+    props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
+      flag: !value.flag
+    }));
   };
 
   var updateBackgroundType = function updateBackgroundType(device) {
@@ -10196,6 +10189,11 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
       isVisible = _useState2[0],
       setVisible = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      settingVal = _useState4[0],
+      setValue = _useState4[1];
+
   var onChange = function onChange(value) {
     setVisible(value);
   };
@@ -10210,13 +10208,14 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
     className: "customize-control-".concat(option.type)
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Option, {
     id: optionId,
-    value: value,
+    value: settingVal,
     params: option,
     control: control,
     customizer: wp.customize,
     onChange: function onChange(value) {
       var key = getSettingId(optionId);
       wp.customize(key).set(value);
+      setValue(value);
     }
   }));
 };
