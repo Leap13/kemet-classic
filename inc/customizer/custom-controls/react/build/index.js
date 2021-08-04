@@ -5509,7 +5509,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var BackgroundComponent = function BackgroundComponent(props) {
   var value = props.control.setting.get();
-  var responsive = props.control.params.responsive;
+  var responsive = false;
   var defaultValue = {
     "background-attachment": '',
     "background-color": '',
@@ -5569,7 +5569,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
   var responsiveHtml;
 
   var updateValues = function updateValues(obj) {
-    setState(function (prevState) {
+    setPropsValue(function (prevState) {
       return _objectSpread(_objectSpread({}, prevState), {}, {
         obj: obj
       });
@@ -5582,22 +5582,22 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     var obj = _objectSpread({}, value);
 
-    if (!state.value[device]['background-type']) {
+    if (obj !== props_value) {
       var deviceObj = _objectSpread({}, obj[device]);
 
-      if (state.value[device]['background-color']) {
+      if (props_value[device]['background-color']) {
         deviceObj['background-type'] = 'color';
         obj[device] = deviceObj;
         updateValues(obj);
 
-        if (state.value[device]['background-color'].includes('gradient')) {
+        if (props_value[device]['background-color'].includes('gradient')) {
           deviceObj['background-type'] = 'gradient';
           obj[device] = deviceObj;
           updateValues(obj);
         }
       }
 
-      if (state.value[device]['background-image']) {
+      if (props_value[device]['background-image']) {
         deviceObj['background-type'] = 'image';
         obj[device] = deviceObj;
         updateValues(obj);

@@ -10,7 +10,7 @@ const BackgroundComponent = props => {
     let value = props.control.setting.get();
 
 
-    let responsive = props.control.params.responsive;
+    let responsive = false;
     let defaultValue = {
         "background-attachment": '',
         "background-color": '',
@@ -84,7 +84,7 @@ const BackgroundComponent = props => {
             ...value
         };
 
-        if (!props_value[device]['background-type']) {
+        if (obj !== props_value) {
             let deviceObj = {
                 ...obj[device]
             };
@@ -112,6 +112,8 @@ const BackgroundComponent = props => {
         updateBackgroundType(device);
 
     }, []);
+
+
 
     if (responsive) {
         responsiveHtml = <Responsive
