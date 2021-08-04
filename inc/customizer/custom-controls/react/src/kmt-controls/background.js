@@ -59,7 +59,7 @@ const BackgroundComponent = props => {
 
     let defaultVals = props.params.default
         ? {
-            ...defaultValues,
+
             ...props.params.default,
         }
         : defaultValues;
@@ -68,9 +68,51 @@ const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
 
-    console.log(props_value);
-
     let responsiveHtml;
+
+    const updateValues = (obj) => {
+        setPropsValue(prevState => ({
+            ...prevState,
+            obj
+        }));
+        props.onChange(props.id, obj);
+    };
+    const updateBackgroundType = (device) => {
+        let value = props.value;
+        let obj = {
+            ...value
+        };
+
+        if (obj !== props_value) {
+            let deviceObj = {
+                ...obj[device]
+            };
+
+            if (props_value[device]['background-color']) {
+                deviceObj['background-type'] = 'color';
+                obj[device] = deviceObj;
+                updateValues(obj);
+
+                if (props_value[device]['background-color'].includes('gradient')) {
+                    deviceObj['background-type'] = 'gradient';
+                    obj[device] = deviceObj;
+                    updateValues(obj);
+                }
+            }
+
+            if (props_value[device]['background-image']) {
+                deviceObj['background-type'] = 'image';
+                obj[device] = deviceObj;
+                updateValues(obj);
+            }
+        }
+    };
+    useEffect(() => {
+        updateBackgroundType(device);
+
+    }, []);
+
+
 
     if (responsive) {
         responsiveHtml = <Responsive
@@ -85,7 +127,6 @@ const BackgroundComponent = props => {
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
                     disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
-
                         props.onChange(props.id, defaultVals);
                         setPropsValue(defaultVals);
                     }}>
@@ -160,6 +201,7 @@ const BackgroundComponent = props => {
     };
 
     const handleChangeComplete = (color, backgroundType) => {
+        let backgroundT = backgroundType ? backgroundType : 'color';
         let value = '';
 
         if (color) {
@@ -177,10 +219,10 @@ const BackgroundComponent = props => {
         };
         if (responsive) {
             obj[device]['background-color'] = value;
-            obj[device]['background-type'] = backgroundType;
+            obj[device]['background-type'] = backgroundT;
         } else {
             obj['background-color'] = value;
-            obj['background-type'] = backgroundType;
+            obj['background-type'] = backgroundT;
         }
 
         props.onChange(props.id, obj);
