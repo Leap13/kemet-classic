@@ -6782,10 +6782,10 @@ AvailableComponent.propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -6804,7 +6804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -6824,7 +6824,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
     "background-position": '',
     "background-repeat": '',
     "background-size": '',
-    "background-type": ""
+    "background-type": "",
+    "background-gradient": ''
   };
   var ResDefaultParam = {
     desktop: {
@@ -6835,7 +6836,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     },
     tablet: {
       "background-attachment": '',
@@ -6845,7 +6847,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     },
     mobile: {
       "background-attachment": '',
@@ -6855,32 +6858,36 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     }
   };
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
-  var defaultVals = props.params.default ? _objectSpread({}, props.params.default) : defaultValues;
+  var defaultVals = props.params.default ? props.params.default : defaultValues;
   value = value ? value : defaultVals;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('desktop'),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       device = _useState4[0],
       setDevice = _useState4[1];
 
-  var responsiveHtml;
-
-  var updateValues = function updateValues(obj) {
-    setPropsValue(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        obj: obj
+  var updateValue = function updateValue(obj) {
+    if (responsive) {
+      setPropsValue(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          value: obj
+        });
       });
-    });
-    props.onChange(props.id, obj);
+    } else {
+      setPropsValue(obj);
+    }
+
+    props.onChange(obj);
   };
 
   var updateBackgroundType = function updateBackgroundType(device) {
@@ -6888,32 +6895,30 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     var obj = _objectSpread({}, value);
 
-    if (obj !== props_value) {
+    if (!props_value[device]['background-type']) {
       var deviceObj = _objectSpread({}, obj[device]);
 
       if (props_value[device]['background-color']) {
         deviceObj['background-type'] = 'color';
         obj[device] = deviceObj;
-        updateValues(obj);
+        updateValue(obj);
+      }
 
-        if (props_value[device]['background-color'].includes('gradient')) {
-          deviceObj['background-type'] = 'gradient';
-          obj[device] = deviceObj;
-          updateValues(obj);
-        }
+      if (props_value[device]['background-gradient']) {
+        deviceObj['background-type'] = 'gradient';
+        obj[device] = deviceObj;
+        updateValue(obj);
       }
 
       if (props_value[device]['background-image']) {
         deviceObj['background-type'] = 'image';
         obj[device] = deviceObj;
-        updateValues(obj);
+        updateValue(obj);
       }
     }
   };
 
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
-    updateBackgroundType(device);
-  }, []);
+  var responsiveHtml;
 
   if (responsive) {
     responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -6933,8 +6938,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
       onClick: function onClick(e) {
         e.preventDefault();
-        props.onChange(props.id, defaultVals);
-        setPropsValue(defaultVals);
+        updateValue(defaultVals);
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "image-rotate"
@@ -6954,8 +6958,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       obj['background-type'] = backgroundType;
     }
 
-    props.onChange(props.id, obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
 
   var _onChangeImageOptions = function onChangeImageOptions(mainKey, value, backgroundType) {
@@ -6969,17 +6972,31 @@ var BackgroundComponent = function BackgroundComponent(props) {
       obj['background-type'] = backgroundType;
     }
 
-    props.onChange(props.id, obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    if (responsive) {
+      var devices = ['desktop', 'mobile', 'tablet'];
+
+      for (var _i = 0, _devices = devices; _i < _devices.length; _i++) {
+        var _device = _devices[_i];
+        updateBackgroundType(_device);
+      }
+    }
+  }, []);
 
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
       text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Background', 'Kemet'),
       color: undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : '',
+      gradient: undefined !== renderBackground['background-gradient'] && renderBackground['background-gradient'] ? renderBackground['background-gradient'] : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
         return handleChangeComplete(color, backgroundType);
+      },
+      onChangeGradient: function onChangeGradient(gradient, backgroundType) {
+        return handleChangeGradient(gradient, backgroundType);
       },
       media: undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : '',
       backgroundImage: undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : '',
@@ -6999,8 +7016,21 @@ var BackgroundComponent = function BackgroundComponent(props) {
     }));
   };
 
+  var handleChangeGradient = function handleChangeGradient(gradient, backgroundType) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]['background-gradient'] = gradient;
+      obj[device]['background-type'] = 'gradient';
+    } else {
+      obj['background-gradient'] = gradient;
+      obj['background-type'] = 'gradient';
+    }
+
+    updateValue(obj);
+  };
+
   var handleChangeComplete = function handleChangeComplete(color, backgroundType) {
-    var backgroundT = backgroundType ? backgroundType : 'color';
     var value = '';
 
     if (color) {
@@ -7017,14 +7047,13 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     if (responsive) {
       obj[device]['background-color'] = value;
-      obj[device]['background-type'] = backgroundT;
+      obj[device]['background-type'] = 'color';
     } else {
       obj['background-color'] = value;
-      obj['background-type'] = backgroundT;
+      obj['background-type'] = 'color';
     }
 
-    props.onChange(props.id, obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
 
   var _props$params = props.params,
@@ -7197,7 +7226,7 @@ var ColorComponent = function ColorComponent(props) {
     }
 
     props.onChange(props.id, {});
-    props.onChange(props.id, UpdatedState);
+    props.onChange(UpdatedState);
     setState(UpdatedState);
   };
 
@@ -7355,7 +7384,7 @@ var EditorComponent = function EditorComponent(props) {
         value: value
       });
     });
-    props.onChange(props.id, value);
+    props.onChange(value);
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
@@ -7696,7 +7725,7 @@ var BuilderComponent = function BuilderComponent(props) {
       popup_control.set(!popup_control.get());
     }
 
-    setting.set(_objectSpread(_objectSpread(_objectSpread({}, setting.get()), value), {}, {
+    props.onChange(_objectSpread(_objectSpread(_objectSpread({}, setting.get()), value), {}, {
       flag: !setting.get().flag
     }));
   };
@@ -8441,7 +8470,7 @@ var RadioComponent = function RadioComponent(props) {
       setDevice = _useState4[1];
 
   var HandleChange = function HandleChange(value) {
-    props.onChange(props.id, value);
+    props.onChange(value);
 
     if (props.id.includes('footer-columns')) {
       var row = props.id.replace('-footer-columns', '');
@@ -8741,7 +8770,7 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
       setDevice = _useState4[1];
 
   var HandleChange = function HandleChange(value) {
-    props.onChange(props.id, value);
+    props.onChange(value);
     var event = new CustomEvent("KemetUpdateFooterColumns", {
       detail: row
     });
@@ -8862,7 +8891,7 @@ var SelectComponent = function SelectComponent(props) {
 
   var HandleChange = function HandleChange(value) {
     setPropsValue(value);
-    props.onChange(props.id, value);
+    props.onChange(value);
   };
 
   var _props$params = props.params,
@@ -8974,7 +9003,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         updateState["unit"] = value;
       }
 
-      _this.props.onChange(_this.props.id, updateState);
+      _this.props.onChange(updateState);
 
       _this.setState({
         initialState: updateState
@@ -8993,7 +9022,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
         updateState[_this.state.currentDevice] = size;
 
-        _this.props.onChange(_this.props.id, updateState);
+        _this.props.onChange(updateState);
 
         _this.setState({
           initialState: updateState
@@ -9007,7 +9036,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         _updateState["unit"] = _defUnit;
         _updateState["value"] = _size;
 
-        _this.props.onChange(_this.props.id, _updateState);
+        _this.props.onChange(_updateState);
 
         _this.setState({
           initialState: _updateState
@@ -9057,7 +9086,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         updateState["value"] = value;
       }
 
-      this.props.onChange(this.props.id, updateState);
+      this.props.onChange(updateState);
       this.setState({
         initialState: updateState
       });
@@ -9232,7 +9261,7 @@ var SortableComponent = function SortableComponent(props) {
           newValue.push(jQuery(this).data('value'));
         }
       });
-      props.control.set(newValue);
+      props.onChange(newValue);
     };
 
     jQuery(list.current).sortable({
@@ -9451,7 +9480,7 @@ var SpacingComponent = function SpacingComponent(props) {
       updateState["value"] = deviceUpdateState;
     }
 
-    props.onChange(props.id, updateState);
+    props.onChange(updateState);
     setState(updateState);
   };
 
@@ -9466,7 +9495,7 @@ var SpacingComponent = function SpacingComponent(props) {
       updateState["unit"] = unitKey;
     }
 
-    props.onChange(props.id, updateState);
+    props.onChange(updateState);
     setState(updateState);
   };
 
@@ -9715,7 +9744,7 @@ var TextComponent = function TextComponent(props) {
 
   var HandleChange = function HandleChange(value) {
     setPropsValue(value);
-    props.onChange(props.id, value);
+    props.onChange(value);
   };
 
   var label = props.params.label;
@@ -9816,7 +9845,7 @@ var ToggleControlComponent = function ToggleControlComponent(props) {
 
   var updateValues = function updateValues() {
     setPropsValue(!props_value);
-    props.control.set(!props_value);
+    props.onChange(!props_value);
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -10185,8 +10214,8 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
     params: option,
     control: control,
     customizer: wp.customize,
-    onChange: function onChange(key, value) {
-      key = getSettingId(key);
+    onChange: function onChange(value) {
+      var key = getSettingId(optionId);
       wp.customize(key).set(value);
     }
   }));

@@ -67,7 +67,7 @@ const BuilderComponent = (props) => {
         popup_control = props.customizer(rowSetting);
       popup_control.set(!popup_control.get());
     }
-    setting.set({ ...setting.get(), ...value, flag: !setting.get().flag });
+    props.onChange({ ...setting.get(), ...value, flag: !setting.get().flag });
   };
   const onDragStart = () => {
     let dragZones = document.querySelectorAll(".kmt-builder-area");

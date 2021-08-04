@@ -64,7 +64,7 @@ class ResponsiveSliderComponent extends Component {
             updateState[`value`] = value;
         }
 
-        this.props.onChange(this.props.id, updateState);
+        this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
     handleUnitChange = (device, value) => {
@@ -78,7 +78,7 @@ class ResponsiveSliderComponent extends Component {
         } else {
             updateState[`unit`] = value;
         }
-        this.props.onChange(this.props.id, updateState);
+        this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
     handleReset = (e) => {
@@ -91,7 +91,7 @@ class ResponsiveSliderComponent extends Component {
             };
             updateState[`${this.state.currentDevice}-unit`] = defUnit;
             updateState[this.state.currentDevice] = size;
-            this.props.onChange(this.props.id, updateState);
+            this.props.onChange(updateState);
             this.setState({ initialState: updateState });
         } else {
             let defUnit = this.state.defaultVal[`unit`],
@@ -101,7 +101,7 @@ class ResponsiveSliderComponent extends Component {
             };
             updateState[`unit`] = defUnit;
             updateState[`value`] = size;
-            this.props.onChange(this.props.id, updateState);
+            this.props.onChange(updateState);
             this.setState({ initialState: updateState });
         }
     }

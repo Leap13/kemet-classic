@@ -14,7 +14,7 @@ const ToggleControlComponent = (props) => {
 
   const updateValues = () => {
     setPropsValue(!props_value);
-    props.control.set(!props_value);
+    props.onChange(!props_value);
   };
 
   return (

@@ -118,7 +118,7 @@ const SpacingComponent = props => {
         } else {
             updateState[`value`] = deviceUpdateState
         }
-        props.onChange(props.id, updateState);
+        props.onChange(updateState);
         setState(updateState);
     };
 
@@ -131,7 +131,7 @@ const SpacingComponent = props => {
         } else {
             updateState[`unit`] = unitKey;
         }
-        props.onChange(props.id, updateState);
+        props.onChange(updateState);
         setState(updateState);
     };
 

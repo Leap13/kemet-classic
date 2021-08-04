@@ -192,8 +192,8 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
 
     const Option = OptionComponent(option.type);
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
-        <Option id={optionId} value={value} params={option} control={control} customizer={wp.customize} onChange={(key, value) => {
-            key = getSettingId(key);
+        <Option id={optionId} value={value} params={option} control={control} customizer={wp.customize} onChange={(value) => {
+            const key = getSettingId(optionId);
             wp.customize(key).set(value);
         }} />
     </div>;

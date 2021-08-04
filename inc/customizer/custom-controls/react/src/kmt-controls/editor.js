@@ -14,7 +14,7 @@ const EditorComponent = props => {
             ...prevState,
             value: value
         }));
-        props.onChange(props.id, value);
+        props.onChange(value);
     };
 
     useEffect(() => {

@@ -26,7 +26,7 @@ const SortableComponent = props => {
                     newValue.push(jQuery(this).data('value'));
                 }
             });
-            props.control.set(newValue);
+            props.onChange(newValue);
         }
         jQuery(list.current).sortable({
             stop: function () {

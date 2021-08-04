@@ -8,7 +8,7 @@ const TextComponent = props => {
 
     const HandleChange = (value) => {
         setPropsValue(value);
-        props.onChange(props.id, value);
+        props.onChange(value);
     };
 
     const {

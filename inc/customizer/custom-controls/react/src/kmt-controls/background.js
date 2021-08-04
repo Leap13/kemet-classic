@@ -18,7 +18,8 @@ const BackgroundComponent = props => {
         "background-position": '',
         "background-repeat": '',
         "background-size": '',
-        "background-type": ""
+        "background-type": "",
+        "background-gradient": ''
     }
 
     let ResDefaultParam = {
@@ -30,7 +31,9 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": ""
+            "background-type": "",
+            "background-gradient": ''
+
         },
         tablet: {
             "background-attachment": '',
@@ -40,7 +43,9 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": ""
+            "background-type": "",
+            "background-gradient": ''
+
         },
         mobile: {
             "background-attachment": '',
@@ -50,40 +55,41 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": ""
+            "background-type": "",
+            "background-gradient": ''
+
         }
     }
-
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
     let defaultVals = props.params.default
-        ? {
-
-            ...props.params.default,
-        }
+        ? props.params.default
         : defaultValues;
 
     value = value ? value : defaultVals;
     const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
 
-    let responsiveHtml;
+    const updateValue = (obj) => {
+        if (responsive) {
+            setPropsValue(prevState => ({
+                ...prevState,
+                value: obj
+            }));
+        } else {
+            setPropsValue(obj);
+        }
+        props.onChange(obj);
+    }
 
-    const updateValues = (obj) => {
-        setPropsValue(prevState => ({
-            ...prevState,
-            obj
-        }));
-        props.onChange(props.id, obj);
-    };
     const updateBackgroundType = (device) => {
         let value = props.value;
         let obj = {
             ...value
         };
 
-        if (obj !== props_value) {
+        if (!props_value[device]['background-type']) {
             let deviceObj = {
                 ...obj[device]
             };
@@ -91,34 +97,34 @@ const BackgroundComponent = props => {
             if (props_value[device]['background-color']) {
                 deviceObj['background-type'] = 'color';
                 obj[device] = deviceObj;
-                updateValues(obj);
+                updateValue(obj);
 
-                if (props_value[device]['background-color'].includes('gradient')) {
-                    deviceObj['background-type'] = 'gradient';
-                    obj[device] = deviceObj;
-                    updateValues(obj);
-                }
+
+            }
+            if (props_value[device]['background-gradient']) {
+                deviceObj['background-type'] = 'gradient';
+                obj[device] = deviceObj;
+                updateValue(obj);
             }
 
             if (props_value[device]['background-image']) {
                 deviceObj['background-type'] = 'image';
                 obj[device] = deviceObj;
-                updateValues(obj);
+                updateValue(obj);
             }
         }
     };
-    useEffect(() => {
-        updateBackgroundType(device);
 
-    }, []);
-
-
+    let responsiveHtml;
 
     if (responsive) {
         responsiveHtml = <Responsive
             onChange={(device) => setDevice(device)}
         />
     }
+
+
+
     const renderReset = () => {
         return <span className="customize-control-title">
 
@@ -127,8 +133,7 @@ const BackgroundComponent = props => {
                     className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
                     disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
-                        props.onChange(props.id, defaultVals);
-                        setPropsValue(defaultVals);
+                        updateValue(defaultVals)
                     }}>
                     <Dashicon icon='image-rotate' />
                 </button>
@@ -154,9 +159,8 @@ const BackgroundComponent = props => {
             obj['background-image'] = media.url;
             obj['background-type'] = backgroundType;
         }
+        updateValue(obj)
 
-        props.onChange(props.id, obj);
-        setPropsValue(obj);
     };
 
     const onChangeImageOptions = (mainKey, value, backgroundType) => {
@@ -170,10 +174,18 @@ const BackgroundComponent = props => {
             obj[mainKey] = value;
             obj['background-type'] = backgroundType;
         }
+        updateValue(obj)
 
-        props.onChange(props.id, obj);
-        setPropsValue(obj);
     };
+    useEffect(() => {
+        if (responsive) {
+            let devices = ['desktop', 'mobile', 'tablet'];
+            for (let device of devices) {
+                updateBackgroundType(device);
+            }
+        }
+
+    }, []);
 
     const renderSettings = () => {
         let renderBackground = responsive ? props_value[device] : props_value;
@@ -182,7 +194,9 @@ const BackgroundComponent = props => {
             <KemetColorPickerControl
                 text={__('Background', 'Kemet')}
                 color={undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : ''}
+                gradient={undefined !== renderBackground['background-gradient'] && renderBackground['background-gradient'] ? renderBackground['background-gradient'] : ''}
                 onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
+                onChangeGradient={(gradient, backgroundType) => handleChangeGradient(gradient, backgroundType)}
                 media={undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : ''}
                 backgroundImage={undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : ''}
                 backgroundAttachment={undefined !== renderBackground['background-attachment'] && renderBackground['background-attachment'] ? renderBackground['background-attachment'] : ''}
@@ -199,9 +213,22 @@ const BackgroundComponent = props => {
 
 
     };
+    const handleChangeGradient = (gradient, backgroundType) => {
+
+        let obj = {
+            ...props_value
+        };
+        if (responsive) {
+            obj[device]['background-gradient'] = gradient;
+            obj[device]['background-type'] = 'gradient';
+        } else {
+            obj['background-gradient'] = gradient;
+            obj['background-type'] = 'gradient';
+        }
+        updateValue(obj)
+    }
 
     const handleChangeComplete = (color, backgroundType) => {
-        let backgroundT = backgroundType ? backgroundType : 'color';
         let value = '';
 
         if (color) {
@@ -219,14 +246,12 @@ const BackgroundComponent = props => {
         };
         if (responsive) {
             obj[device]['background-color'] = value;
-            obj[device]['background-type'] = backgroundT;
+            obj[device]['background-type'] = 'color';
         } else {
             obj['background-color'] = value;
-            obj['background-type'] = backgroundT;
+            obj['background-type'] = 'color';
         }
-
-        props.onChange(props.id, obj);
-        setPropsValue(obj);
+        updateValue(obj)
     };
 
     const {
