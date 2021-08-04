@@ -5,6 +5,8 @@ import { Fragment } from 'react';
 import Responsive from '../common/responsive';
 
 const SpacingComponent = props => {
+    let value = props.value
+    const [device, setDevice] = useState('desktop');
     let responsive = props.params.responsive;
     let ResDefaultParam = {
         "desktop": {
@@ -47,7 +49,7 @@ const SpacingComponent = props => {
             ...props.params.default,
         }
         : defaultValues;
-    let value = props.value
+
     value = value
         ? {
             ...defaultVals,
@@ -56,7 +58,6 @@ const SpacingComponent = props => {
         : defaultVals
         ;
     const [state, setState] = useState(value);
-    const [device, setDevice] = useState('desktop');
 
     useEffect(() => {
         if (state !== value) {
@@ -160,7 +161,7 @@ const SpacingComponent = props => {
 
         if (choices) {
             htmlChoices = Object.keys(choices).map(choiceID => {
-                let inputValue = responsive ? state[device][choiceID] : state[choiceID];
+                let inputValue = responsive ? state[device][choiceID] : state[`value`][choiceID];
 
                 let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
