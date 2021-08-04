@@ -5476,10 +5476,10 @@ function invariant(condition, message) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
@@ -5498,7 +5498,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -5509,7 +5509,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var BackgroundComponent = function BackgroundComponent(props) {
   var value = props.control.setting.get();
-  var responsive = false;
+  var responsive = true;
   var defaultValue = {
     "background-attachment": '',
     "background-color": '',
@@ -5518,7 +5518,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
     "background-position": '',
     "background-repeat": '',
     "background-size": '',
-    "background-type": ""
+    "background-type": "",
+    "background-gradient": ''
   };
   var ResDefaultParam = {
     desktop: {
@@ -5529,7 +5530,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     },
     tablet: {
       "background-attachment": '',
@@ -5539,7 +5541,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     },
     mobile: {
       "background-attachment": '',
@@ -5549,31 +5552,35 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": ""
+      "background-type": "",
+      "background-gradient": ''
     }
   };
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
-  var defaultVals = props.control.params.default ? _objectSpread({}, props.control.params.default) : defaultValues;
+  var defaultVals = props.control.params.default ? props.control.params.default : defaultValues;
   value = value ? value : defaultVals;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('desktop'),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       device = _useState4[0],
       setDevice = _useState4[1];
 
-  var responsiveHtml;
-
-  var updateValues = function updateValues(obj) {
-    setPropsValue(function (prevState) {
-      return _objectSpread(_objectSpread({}, prevState), {}, {
-        obj: obj
+  var updateValue = function updateValue(obj) {
+    if (responsive) {
+      setPropsValue(function (prevState) {
+        return _objectSpread(_objectSpread({}, prevState), {}, {
+          value: obj
+        });
       });
-    });
+    } else {
+      setPropsValue(obj);
+    }
+
     props.control.setting.set(obj);
   };
 
@@ -5582,32 +5589,30 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     var obj = _objectSpread({}, value);
 
-    if (obj !== props_value) {
+    if (!props_value[device]['background-type']) {
       var deviceObj = _objectSpread({}, obj[device]);
 
       if (props_value[device]['background-color']) {
         deviceObj['background-type'] = 'color';
         obj[device] = deviceObj;
-        updateValues(obj);
+        updateValue(obj);
+      }
 
-        if (props_value[device]['background-color'].includes('gradient')) {
-          deviceObj['background-type'] = 'gradient';
-          obj[device] = deviceObj;
-          updateValues(obj);
-        }
+      if (props_value[device]['background-gradient']) {
+        deviceObj['background-type'] = 'gradient';
+        obj[device] = deviceObj;
+        updateValue(obj);
       }
 
       if (props_value[device]['background-image']) {
         deviceObj['background-type'] = 'image';
         obj[device] = deviceObj;
-        updateValues(obj);
+        updateValue(obj);
       }
     }
   };
 
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
-    updateBackgroundType(device);
-  }, []);
+  var responsiveHtml;
 
   if (responsive) {
     responsiveHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -5627,8 +5632,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
       onClick: function onClick(e) {
         e.preventDefault();
-        props.control.setting.set(defaultVals);
-        setPropsValue(defaultVals);
+        updateValue(defaultVals);
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
       icon: "image-rotate"
@@ -5648,8 +5652,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       obj['background-type'] = backgroundType;
     }
 
-    props.control.setting.set(obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
 
   var _onChangeImageOptions = function onChangeImageOptions(mainKey, value, backgroundType) {
@@ -5663,17 +5666,31 @@ var BackgroundComponent = function BackgroundComponent(props) {
       obj['background-type'] = backgroundType;
     }
 
-    props.control.setting.set(obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    if (responsive) {
+      var devices = ['desktop', 'mobile', 'tablet'];
+
+      for (var _i = 0, _devices = devices; _i < _devices.length; _i++) {
+        var _device = _devices[_i];
+        updateBackgroundType(_device);
+      }
+    }
+  }, []);
 
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
       text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])('Background', 'Kemet'),
       color: undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : '',
+      gradient: undefined !== renderBackground['background-gradient'] && renderBackground['background-gradient'] ? renderBackground['background-gradient'] : '',
       onChangeComplete: function onChangeComplete(color, backgroundType) {
         return handleChangeComplete(color, backgroundType);
+      },
+      onChangeGradient: function onChangeGradient(gradient, backgroundType) {
+        return handleChangeGradient(gradient, backgroundType);
       },
       media: undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : '',
       backgroundImage: undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : '',
@@ -5693,8 +5710,21 @@ var BackgroundComponent = function BackgroundComponent(props) {
     }));
   };
 
+  var handleChangeGradient = function handleChangeGradient(gradient, backgroundType) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]['background-gradient'] = gradient;
+      obj[device]['background-type'] = 'gradient';
+    } else {
+      obj['background-gradient'] = gradient;
+      obj['background-type'] = 'gradient';
+    }
+
+    updateValue(obj);
+  };
+
   var handleChangeComplete = function handleChangeComplete(color, backgroundType) {
-    var backgroundT = backgroundType ? backgroundType : 'color';
     var value = '';
 
     if (color) {
@@ -5711,14 +5741,13 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     if (responsive) {
       obj[device]['background-color'] = value;
-      obj[device]['background-type'] = backgroundT;
+      obj[device]['background-type'] = 'color';
     } else {
       obj['background-color'] = value;
-      obj['background-type'] = backgroundT;
+      obj['background-type'] = 'color';
     }
 
-    props.control.setting.set(obj);
-    setPropsValue(obj);
+    updateValue(obj);
   };
 
   var _props$control$params = props.control.params,
@@ -6982,7 +7011,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         }
       }, ('color' === backgroundType || 'gradient' === backgroundType) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
         className: "kemet-advanced-color-indicate",
-        colorValue: this.props.color
+        colorValue: 'gradient' === backgroundType ? this.props.gradient : this.props.color
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
         class: "kmt-tooltip-top"
       }, this.state.text)), 'image' === backgroundType && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["ColorIndicator"], {
@@ -7009,7 +7038,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           if ('gradient' === tab.name) {
             tabout = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["__experimentalGradientPicker"], {
               className: "kmt-gradient-color-picker",
-              value: _this2.props.color && backgroundType === "gradient" ? _this2.props.color : '',
+              value: _this2.props.gradient && backgroundType === "gradient" ? _this2.props.gradient : '',
               onChange: function onChange(gradient) {
                 return _this2.onChangeGradientComplete(gradient);
               }
@@ -7100,9 +7129,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
       this.setState({
         color: gradient
       });
-      this.props.onChangeComplete(gradient, "gradient");
-      this.props.onChangeImageOptions('background-image', gradient, 'gradient');
-      this.props.onChangeImageOptions('background-media', "", 'gradient');
+      this.props.onChangeGradient(gradient, "gradient");
     }
   }, {
     key: "onChangeComplete",

@@ -196,7 +196,7 @@ class KemetColorPickerControl extends Component {
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={'gradient' === backgroundType ? this.props.gradient : this.props.color} />
                                 <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
@@ -232,7 +232,7 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         <__experimentalGradientPicker
                                                                             className="kmt-gradient-color-picker"
-                                                                            value={this.props.color && backgroundType === "gradient" ? this.props.color : ''}
+                                                                            value={this.props.gradient && backgroundType === "gradient" ? this.props.gradient : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
                                                                         <ul className={'ct-gradient-swatches'}>
@@ -349,11 +349,7 @@ class KemetColorPickerControl extends Component {
 
         this.setState({ backgroundType: 'gradient' });
         this.setState({ color: gradient })
-        this.props.onChangeComplete(gradient, "gradient")
-        this.props.onChangeImageOptions('background-image', gradient, 'gradient');
-        this.props.onChangeImageOptions('background-media', "", 'gradient');
-
-
+        this.props.onChangeGradient(gradient, "gradient")
     }
 
     onChangeComplete(color) {
