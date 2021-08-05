@@ -387,8 +387,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector . ' .kmt-grid-row' => array(
 						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
 					),
-					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
-						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
+						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
+					),
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'desktop' ),
 						'--borderLeftColor' => esc_attr( $bottom_border_color ),
 					),
@@ -411,7 +413,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--minHeight' => kemet_responsive_slider( $height, 'tablet' ),
 					),
 					$selector . ' > .site-footer-section' => array(
-						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'tablet' ),
+						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'tablet' ),
+					),
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'tablet' ),
 					),
 				);
@@ -430,7 +434,9 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--minHeight' => kemet_responsive_slider( $height, 'mobile' ),
 					),
 					$selector . ' > .site-footer-section' => array(
-						'--padding'         => kemet_responsive_spacing( $columns_padding, 'all', 'mobile' ),
+						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'mobile' ),
+					),
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
 						'--borderLeftWidth' => kemet_responsive_slider( $columns_border, 'mobile' ),
 					),
 				);
