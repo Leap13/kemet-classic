@@ -97,7 +97,10 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-vertical-offset' => array(
 								'type'         => 'kmt-slider',
-								'default'      => 10,
+								'default'      => array(
+									'value' => 10,
+									'unit'  => '%',
+								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Vertical Offset', 'kemet' ),
 								'unit_choices' => array(
@@ -116,7 +119,10 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-horizontal-offset' => array(
 								'type'         => 'kmt-slider',
-								'default'      => 10,
+								'default'      => array(
+									'value' => 10,
+									'unit'  => '%',
+								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Horizontal Offset', 'kemet' ),
 								'unit_choices' => array(

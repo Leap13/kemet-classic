@@ -96,7 +96,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'desktop-popup-slide-side'             => 'right',
 					'desktop-popup-content-align'          => 'left',
 					'desktop-popup-content-vertical-align' => 'top',
-					'desktop-popup-slide-width'            => 35,
+					'desktop-popup-slide-width'            => array(
+						'value' => 35,
+						'unit'  => '%',
+					),
 					'header-mobile-items'                  => array(
 						'popup'  => array( 'popup_content' => array( 'offcanvas-menu' ) ),
 						'top'    =>
@@ -122,7 +125,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'mobile-popup-slide-side'              => 'right',
 					'mobile-popup-content-align'           => 'left',
 					'mobile-popup-content-vertical-align'  => 'top',
-					'mobile-popup-slide-width'             => 90,
+					'mobile-popup-slide-width'             => array(
+						'value' => 90,
+						'unit'  => '%',
+					),
 					'header-button-label'                  => 'button',
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,
