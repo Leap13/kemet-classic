@@ -20,6 +20,8 @@
   z-index: 1000;
   display: flex;
   align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .kmt-builder-show-button.kmt-builder-tab-toggle {
   visibility: hidden;
@@ -443,7 +445,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   text-transform: uppercase;
   height: 46px;
   margin: 0;
-  margin-bottom: -4px;
   padding: 0 18px;
   cursor: pointer;
   border: 0;
@@ -709,7 +710,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-areas.popup-vertical-group .kmt-builder-group {
   height: auto;
-  min-height: 160px;
+  min-height: 100%;
   margin-bottom: 0;
 }
 
@@ -1200,6 +1201,12 @@ li#customize-control-kemet-settings-footer-desktop-items {
   border: 0;
 }
 
+.components-popover__content
+  .kmt-popover-builder-list
+  .kmt-radio-container-control {
+  grid-gap: 8px;
+}
+
 .customize-control-kmt-row-layout
   .components-button-group.kmt-radio-container-control {
   display: grid;
@@ -1448,7 +1455,12 @@ li#customize-control-kemet-settings-footer-desktop-items {
   background: #007cba;
   color: #ffffff;
 }
-
+.kmt-popover-builder-list
+  .kmt-radio-container-control
+  .components-button.is-tertiary {
+  font-weight: 400;
+  padding: 10px 6px;
+}
 .kmt-social-type .kmt-radio-container-control button:not(:first-child) {
   margin-left: 15px;
 }

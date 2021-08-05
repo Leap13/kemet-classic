@@ -153,6 +153,10 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 		 * Top Footer
 		 */
 		public function top_footer() {
+			if ( self::is_empty_row( 'top' ) ) {
+				return;
+			}
+
 			set_query_var( 'row', 'top' );
 			get_template_part(
 				'templates/footer/footer',
@@ -164,9 +168,29 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 		}
 
 		/**
+		 * Checks to see if the row has any content.
+		 *
+		 * @param string $row the name of the row.
+		 * @return bool
+		 */
+		public static function is_empty_row( $row = 'main' ) {
+			$items = kemet_get_option( 'footer-items' );
+			foreach ( array( '1', '2', '3', '4', '5' ) as $column ) {
+				if ( isset( $items ) && isset( $items[ $row ] ) && isset( $items[ $row ][ $row . '_' . $column ] ) && is_array( $items[ $row ][ $row . '_' . $column ] ) && ! empty( $items[ $row ][ $row . '_' . $column ] ) ) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		/**
 		 * Main Footer
 		 */
 		public function main_footer() {
+			if ( self::is_empty_row( 'main' ) ) {
+				return;
+			}
+
 			set_query_var( 'row', 'main' );
 			get_template_part(
 				'templates/footer/footer',
@@ -181,6 +205,10 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 		 * Bottom Footer
 		 */
 		public function bottom_footer() {
+			if ( self::is_empty_row( 'bottom' ) ) {
+				return;
+			}
+
 			set_query_var( 'row', 'bottom' );
 			get_template_part(
 				'templates/footer/footer',

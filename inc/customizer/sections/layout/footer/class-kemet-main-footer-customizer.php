@@ -26,6 +26,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'main-footer';
+		$selector         = '.site-' . self::$prefix . '-wrap';
 		$register_options = array(
 			self::$prefix . '-tabs' => array(
 				'type' => 'kmt-tabs',
@@ -33,7 +34,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-columns' => array(
+							self::$prefix . '-columns'     => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-radio',
 								'label'     => __( 'Columns', 'kemet' ),
@@ -45,11 +46,52 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'5' => __( '5', 'kemet' ),
 								),
 							),
-							self::$prefix . '-layout'  => array(
+							self::$prefix . '-layout'      => array(
 								'type'      => 'kmt-row-layout',
 								'label'     => __( 'Layout', 'kemet' ),
 								'transport' => 'postMessage',
-								'row'       => 'main',
+								'row'       => 'bottom',
+							),
+							self::$prefix . '-min-height'  => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Min Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 500,
+									),
+									'em' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $selector . ' .kmt-grid-row',
+									'property'   => '--minHeight',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-row-padding' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Row Spacing', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector,
+									'property'   => '--padding',
+									'sides'      => true,
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-columns-padding' => array(
 								'type'           => 'kmt-spacing',
@@ -64,6 +106,22 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'bottom' => __( 'Bottom', 'kemet' ),
 									'left'   => __( 'Left', 'kemet' ),
 								),
+								'preview'        => array(
+									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-columns-direction' => array(
+								'default'   => 'row',
+								'transport' => 'postMessage',
+								'type'      => 'kmt-radio',
+								'label'     => __( 'Column Direction', 'kemet' ),
+								'choices'   => array(
+									'row'    => __( 'Row', 'kemet' ),
+									'column' => __( 'Column', 'kemet' ),
+								),
 							),
 						),
 					),
@@ -74,7 +132,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Row Settings', 'kemet' ),
 							),
-							self::$prefix . 'top-border-width' => array(
+							self::$prefix . '-top-border-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
@@ -91,8 +149,13 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => '--borderTopWidth',
+									'responsive' => true,
+								),
 							),
-							self::$prefix . 'bottom-border-width' => array(
+							self::$prefix . '-bottom-border-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'transport'    => 'postMessage',
@@ -109,6 +172,11 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => '--borderBottomWidth',
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-row-border-color' => array(
 								'type'      => 'kmt-color',
@@ -122,6 +190,16 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									array(
 										'title' => __( 'Bottom', 'kemet' ),
 										'id'    => 'bottom',
+									),
+								),
+								'preview'   => array(
+									'top'    => array(
+										'selector' => $selector,
+										'property' => '--borderTopColor',
+									),
+									'bottom' => array(
+										'selector' => $selector,
+										'property' => '--borderBottomColor',
 									),
 								),
 							),
@@ -146,6 +224,11 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 10,
 									),
 								),
+								'preview'      => array(
+									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
+									'property'   => '--borderLeftWidth',
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-columns-border-color' => array(
 								'type'      => 'kmt-color',
@@ -154,7 +237,13 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'inital',
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
+										'property' => '--borderLeftColor',
 									),
 								),
 							),

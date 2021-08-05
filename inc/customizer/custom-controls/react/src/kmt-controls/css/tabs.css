@@ -52,3 +52,10 @@
   position: relative;
   margin-top: 25px;
 }
+.customize-control-kmt-tabs > ul > li.active {
+  background: #f0f0f1 !important;
+  border-bottom: 0px;
+}
+.customize-control-kmt-tabs > ul > li {
+  font-weight: 400;
+}

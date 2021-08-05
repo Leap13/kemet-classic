@@ -26,7 +26,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'bottom-footer';
-		$selector         = '.site-bottom-footer-wrap';
+		$selector         = '.site-' . self::$prefix . '-wrap';
 		$register_options = array(
 			self::$prefix . '-tabs' => array(
 				'type' => 'kmt-tabs',
@@ -107,7 +107,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector'   => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
 									'property'   => '--padding',
 									'sides'      => false,
 									'responsive' => true,
@@ -225,7 +225,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector'   => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
 									'property'   => '--borderLeftWidth',
 									'responsive' => true,
 								),
@@ -242,7 +242,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => $selector . ' .site-bottom-footer-inner-wrap > .site-footer-section',
+										'selector' => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
 										'property' => '--borderLeftColor',
 									),
 								),
