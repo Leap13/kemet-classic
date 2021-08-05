@@ -76,15 +76,17 @@ const BackgroundComponent = props => {
         setPropsValue(obj)
         if (responsive) {
 
-            this.props.control.setting.set({
-                ...this.props.control.setting.get(),
+            props.control.setting.set({
+                ...props.control.setting.get(),
                 ...obj,
-                flag: !this.props.control.setting.get().flag
+                flag: !props.control.setting.get().flag
             });
         } else {
             props.control.setting.set(obj);
         }
     }
+
+    console.log(props_value)
 
     const updateBackgroundType = (device) => {
         let value = props.control.setting.get();
