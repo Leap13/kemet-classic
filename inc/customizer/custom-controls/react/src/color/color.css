@@ -350,6 +350,7 @@
   left: 2px;
   right: 0;
   bottom: 0;
+  height: max-content;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(2)

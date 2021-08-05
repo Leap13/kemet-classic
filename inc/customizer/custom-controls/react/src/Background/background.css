@@ -128,7 +128,7 @@
 .ct-gradient-swatches {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 19px;
+  grid-column-gap: 17px;
   grid-row-gap: 19px;
   padding: 20px 14px;
   margin: 0;

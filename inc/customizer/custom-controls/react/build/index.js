@@ -5495,9 +5495,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _this = undefined;
-
-
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -5577,13 +5574,15 @@ var BackgroundComponent = function BackgroundComponent(props) {
     setPropsValue(obj);
 
     if (responsive) {
-      _this.props.control.setting.set(_objectSpread(_objectSpread(_objectSpread({}, _this.props.control.setting.get()), obj), {}, {
-        flag: !_this.props.control.setting.get().flag
+      props.control.setting.set(_objectSpread(_objectSpread(_objectSpread({}, props.control.setting.get()), obj), {}, {
+        flag: !props.control.setting.get().flag
       }));
     } else {
       props.control.setting.set(obj);
     }
   };
+
+  console.log(props_value);
 
   var updateBackgroundType = function updateBackgroundType(device) {
     var value = props.control.setting.get();
