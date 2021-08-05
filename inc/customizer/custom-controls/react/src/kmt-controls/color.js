@@ -49,8 +49,8 @@ const ColorComponent = props => {
 
             UpdatedState = value
         }
-        props.onChange(props.id, {});
-        props.onChange(UpdatedState);
+
+        props.onChange({ ...UpdatedState, flag: !value.flag });
         setState(UpdatedState)
     };
 

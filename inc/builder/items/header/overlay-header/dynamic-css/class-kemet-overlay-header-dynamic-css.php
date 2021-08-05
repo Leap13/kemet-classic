@@ -94,7 +94,7 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'desktop' ),
 					),
 					$menu_selector . ' > li ul > li > a:hover' => array(
-						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd_color, 'hover', 'desktop' ),
+						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd, 'hover', 'desktop' ),
 					),
 					$search_selector . ' form'            => array(
 						'background-color' => esc_attr( $search_bg_color ),
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'tablet' ),
 					),
 					$menu_selector . ' > li ul > li > a:hover' => array(
-						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd_color, 'hover', 'tablet' ),
+						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd, 'hover', 'tablet' ),
 					),
 					$widget_selector . ' .widget-title'  => array(
 						'--headingLinksColor' => kemet_responsive_color( $widget_title_color, 'initial', 'tablet' ),
@@ -199,7 +199,7 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'mobile' ),
 					),
 					$menu_selector . ' > li ul > li > a:hover' => array(
-						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd_color, 'hover', 'mobile' ),
+						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd, 'hover', 'mobile' ),
 					),
 					$widget_selector . ' .widget-title'  => array(
 						'--headingLinksColor' => kemet_responsive_color( $widget_title_color, 'initial', 'mobile' ),

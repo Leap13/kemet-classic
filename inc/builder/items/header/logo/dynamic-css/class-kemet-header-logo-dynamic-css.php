@@ -21,8 +21,8 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 		public function dynamic_css( $dynamic_css ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( 'logo', 'header', 'all' ) ) {
 				$site_title_font_size      = kemet_get_option( 'site-title-font-size' );
-				$site_title_color          = kemet_get_option( 'site-title-color' );
-				$site_title_h_color        = kemet_get_option( 'site-title-h-color' );
+				$site_title_color          = kemet_get_sub_option( 'site-title-color', 'initial' );
+				$site_title_h_color        = kemet_get_sub_option( 'site-title-color', 'hover' );
 				$tagline_color             = kemet_get_option( 'tagline-color' );
 				$site_tagline_font_size    = kemet_get_option( 'font-size-site-tagline' );
 				$site_title_letter_spacing = kemet_get_option( 'site-title-letter-spacing' );

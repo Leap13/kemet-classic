@@ -906,7 +906,7 @@ function kemet_color_css(control, data) {
 
       var dynamicStyle = '';
       jQuery.each(new_value, function (id, val) {
-        if (val) {
+        if (id !== 'flag' && val) {
           var previewData = data[id];
           dynamicStyle += previewData.selector +
             "	{ " +
@@ -935,6 +935,7 @@ function kemet_responsive_color_css(control, data) {
       var tabletStyle = '';
       var mobileStyle = '';
       jQuery.each(data, function (index, colorData) {
+
         var desktopVal = new_value.desktop[index],
           tabletVal = new_value.tablet[index],
           mobileVal = new_value.mobile[index];
