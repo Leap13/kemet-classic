@@ -1,0 +1,19 @@
+.customize-control-kmt-title .customize-control-title {
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #525252;
+  margin: 0px -12px;
+  display: block;
+}
+.customize-control-kmt-title .customize-control-title:hover {
+  cursor: pointer;
+}
+
+.customize-control-kmt-title .customize-control-title {
+  padding: 15px;
+  margin-bottom: 0px;
+}
+.customize-control-kmt-title .description.customize-control-description {
+  padding: 7px 0;
+  margin-bottom: 0px;
+}
