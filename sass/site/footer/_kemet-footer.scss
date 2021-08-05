@@ -93,6 +93,13 @@
   }
 }
 
-#colophon .customize-partial-edit-shortcut {
-  display: none;
+.site-footer .customize-partial-edit-shortcut {
+  button {
+    left: 0;
+  }
+}
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
 }

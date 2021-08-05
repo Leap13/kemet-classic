@@ -4936,8 +4936,13 @@ h4.widget-title {
   grid-template-columns: var(--gridTemplateColummns);
 }
 
-#colophon .customize-partial-edit-shortcut {
-  display: none;
+.site-footer .customize-partial-edit-shortcut button {
+  right: 0;
+}
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
 }
 
 @media all and (max-width: 768px) {
