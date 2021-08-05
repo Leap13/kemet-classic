@@ -76,7 +76,6 @@
   }
   .kmt-grid-row {
     grid-row-gap: 20px;
-    --minHeight: 60px;
     grid-template-columns: var(--gridTemplateColummns);
   }
 }
