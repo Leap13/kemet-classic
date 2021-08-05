@@ -73,17 +73,17 @@ const BackgroundComponent = props => {
     const [device, setDevice] = useState('desktop');
 
     const updateValue = (obj) => {
+        setPropsValue(obj)
         if (responsive) {
-            setPropsValue(prevState => ({
-                ...prevState,
-                value: obj
-            }));
+
+            this.props.control.setting.set({
+                ...this.props.control.setting.get(),
+                ...obj,
+                flag: !this.props.control.setting.get().flag
+            });
         } else {
-            setPropsValue(obj);
+            props.control.setting.set(obj);
         }
-        props.control.setting.set(obj);
-
-
     }
 
     const updateBackgroundType = (device) => {
