@@ -17,6 +17,8 @@ import SortableComponent from '../kmt-controls/sortable'
 import RadioComponent from '../kmt-controls/radio'
 import RowLayoutComponent from '../kmt-controls/row-layout'
 import BackgroundComponent from '../kmt-controls/background'
+import IconSelectComponent from '../kmt-controls/icon-select'
+import RadioImageComponent from '../kmt-controls/radio-image'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -73,6 +75,12 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-background':
             OptionComponent = BackgroundComponent;
+            break;
+        case 'radio-image':
+            OptionComponent = RadioImageComponent;
+            break;
+        case 'icon-select':
+            OptionComponent = IconSelectComponent;
             break;
     }
 

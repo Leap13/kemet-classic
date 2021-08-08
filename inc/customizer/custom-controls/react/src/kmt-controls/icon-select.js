@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 const IconSelectComponent = props => {
-    const [value, setValue] = useState(props.control.params.value);
+    const [value, setValue] = useState(props.value);
 
     const onLayoutChange = (value) => {
         setValue(value);
-        props.control.setting.set(value);
+        props.onChange(value);
     };
     const {
         label,

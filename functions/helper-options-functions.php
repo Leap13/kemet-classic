@@ -50,40 +50,6 @@ if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
 }
 
 /**
- * Generate CSS
- */
-if ( ! function_exists( 'kemet_css' ) ) {
-
-	/**
-	 * Generate CSS
-	 *
-	 * @param  mixed  $value         CSS value.
-	 * @param  string $css_property CSS property.
-	 * @param  string $selector     CSS selector.
-	 * @param  string $unit         CSS property unit.
-	 * @return void               Echo generated CSS.
-	 */
-	function kemet_css( $value = '', $css_property = '', $selector = '', $unit = '' ) {
-
-		if ( $selector ) {
-			if ( $css_property && $value ) {
-
-				if ( '' != $unit ) {
-					$value .= $unit;
-				}
-
-				$css  = $selector;
-				$css .= '{';
-				$css .= '	' . $css_property . ': ' . $value . ';';
-				$css .= '}';
-
-				printf( $css ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-		}
-	}
-}
-
-/**
  * Get Font Size value
  */
 if ( ! function_exists( 'kemet_responsive_font' ) ) {

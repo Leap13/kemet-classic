@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 const { __ } = wp.i18n;
 import { useState } from 'react';
-const RadioComponent = (props) => {
-    const [props_value, setPropsValue] = useState(props.control.setting.get());
+const RadioImageComponent = (props) => {
+    const [props_value, setPropsValue] = useState(props.value);
 
     const onLayoutChange = (value) => {
         setPropsValue(value);
-        props.control.setting.set(value);
+        props.onChange(value);
     };
 
     const {
@@ -19,7 +19,7 @@ const RadioComponent = (props) => {
         choices_titles,
         link,
         labelStyle
-    } = props.control.params;
+    } = props.params;
     let inputContent = [];
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
@@ -68,8 +68,8 @@ const RadioComponent = (props) => {
         </Fragment>
     )
 }
-RadioComponent.propTypes = {
+RadioImageComponent.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default React.memo(RadioComponent);
+export default React.memo(RadioImageComponent);
