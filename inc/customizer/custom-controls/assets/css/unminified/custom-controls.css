@@ -6744,6 +6744,12 @@ i.fipicon-angle-left:before {
   padding: 4px;
   background: transparent;
   box-shadow: none;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.kmt-color-btn-reset-wrap:hover .kmt-reset-btn.components-button,
+.kmt-resp-slider-reset-wrap:hover .kmt-reset-btn.components-button {
+  opacity: 1;
 }
 .kmt-color-btn-reset-wrap .kmt-reset-btn.components-button span,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button span {
@@ -6772,7 +6778,7 @@ i.fipicon-angle-left:before {
 .kmt-reset-btn.components-button.is-secondary:disabled span {
   color: #c5c5c5;
   font-size: 16px;
-  display: none;
+  opacity: 0;
 }
 /** Inside Setting group popup - Colors */
 .kmt-field-settings-modal .color-button-wrap {
