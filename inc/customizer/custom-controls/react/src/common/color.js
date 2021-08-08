@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
@@ -193,6 +194,10 @@ class KemetColorPickerControl extends Component {
             )
         }
 
+        const onSelect = (tabName) => {
+            this.setState({ backgroundType: tabName })
+        };
+
         return (
             <>
                 <div className="color-button-wrap">
@@ -222,7 +227,10 @@ class KemetColorPickerControl extends Component {
                                             <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                                 activeClass="active-tab"
                                                 initialTabName={backgroundType}
-                                                tabs={tabs}>
+                                                tabs={tabs}
+                                                onSelect={onSelect}
+                                            >
+
                                                 {
                                                     (tab) => {
                                                         let tabout;
