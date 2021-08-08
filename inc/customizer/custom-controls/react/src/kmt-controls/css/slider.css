@@ -131,12 +131,7 @@
 }
 
 .customize-control-kmt-slider .input-field-wrapper {
-  display: none;
   width: 100%;
-}
-
-.customize-control-kmt-slider .input-field-wrapper.active {
-  display: flex;
 }
 
 /**

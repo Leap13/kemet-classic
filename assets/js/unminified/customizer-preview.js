@@ -466,10 +466,7 @@ function get_background_css(bg_obj) {
   } else {
     switch (bg_type) {
       case 'color':
-        if ("" != bg_color && "" !== bg_img) {
-          gen_bg_css = "background-color: " + bg_color + ";";
-          gen_bg_css += "background-image: url(" + bg_img + ");";
-        } else if ("" != bg_color) {
+        if ("" != bg_color) {
           gen_bg_css = "background-color: " + bg_color + ";";
           gen_bg_css += "background-image: none;";
         }
@@ -482,35 +479,45 @@ function get_background_css(bg_obj) {
       case 'image':
         if ("" != bg_img) {
           gen_bg_css = "background-image: url(" + bg_img + ");";
+          var backgroundRepeat =
+            "undefined" != typeof bg_obj["background-repeat"]
+              ? bg_obj["background-repeat"]
+              : "repeat",
+            backgroundPosition =
+              "undefined" != typeof bg_obj["background-position"]
+
+              && bg_obj["background-position"],
+            backgroundSize =
+              "undefined" != typeof bg_obj["background-size"]
+                ? bg_obj["background-size"]
+                : "auto",
+            backgroundAttachment =
+              "undefined" != typeof bg_obj["background-attachment"]
+                ? bg_obj["background-attachment"]
+                : "inherit";
+
+          if (backgroundPosition) {
+            if (backgroundPosition.x) {
+              gen_bg_css += "background-position-x: " + (backgroundPosition.x * 100) + "%;";
+            }
+            if (backgroundPosition.y) {
+              gen_bg_css += "background-position-y: " + (backgroundPosition.y * 100) + "%;";
+            }
+          }
+          if (backgroundRepeat) {
+            gen_bg_css += "background-repeat: " + backgroundRepeat + ";";
+          }
+          if (backgroundSize) {
+            gen_bg_css += "background-size: " + backgroundSize + ";";
+          }
+          if (backgroundAttachment) {
+            gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
+          }
         }
         if ("" != bg_color) {
           gen_bg_css += "background-color: " + bg_color + ";";
         }
         break;
-    }
-
-    if ("undefined" != typeof bg_img && "" !== bg_img) {
-      var backgroundRepeat =
-        "undefined" != typeof bg_obj["background-repeat"]
-          ? bg_obj["background-repeat"]
-          : "repeat",
-        backgroundPosition =
-          "undefined" != typeof bg_obj["background-position"]
-            ? bg_obj["background-position"]
-            : "center center",
-        backgroundSize =
-          "undefined" != typeof bg_obj["background-size"]
-            ? bg_obj["background-size"]
-            : "auto",
-        backgroundAttachment =
-          "undefined" != typeof bg_obj["background-attachment"]
-            ? bg_obj["background-attachment"]
-            : "inherit";
-
-      gen_bg_css += "background-repeat: " + backgroundRepeat + ";";
-      gen_bg_css += "background-position: " + backgroundPosition + ";";
-      gen_bg_css += "background-size: " + backgroundSize + ";";
-      gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
     }
 
     return gen_bg_css;

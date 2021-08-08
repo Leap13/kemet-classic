@@ -557,10 +557,8 @@ if ( ! function_exists( 'kemet_get_background_css' ) ) {
 				if ( '' !== $bg_color ) {
 					$gen_bg_css = array(
 						'background-color' => esc_attr( $bg_color ),
+						'background-image' => 'none',
 					);
-				}
-				if ( '' !== $bg_img && '' !== $bg_color ) {
-					$gen_bg_css['background-image'] = 'url(' . esc_url( $bg_img ) . ')';
 				}
 				break;
 			case 'gradient':
@@ -573,30 +571,40 @@ if ( ! function_exists( 'kemet_get_background_css' ) ) {
 			case 'image':
 				if ( '' !== $bg_img ) {
 					$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
+					if ( isset( $bg_obj['background-repeat'] ) ) {
+						$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
+					}
+
+					if ( isset( $bg_obj['background-position'] ) && is_array( $bg_obj['background-position'] ) ) {
+						if ( isset( $bg_obj['background-position']['x'] ) && '' !== $bg_obj['background-position']['x'] ) {
+							$gen_bg_css['background-position-x'] = esc_attr( $bg_obj['background-position']['x'] * 100 . '%' );
+						}
+						if ( isset( $bg_obj['background-position']['y'] ) && '' !== $bg_obj['background-position']['y'] ) {
+							$gen_bg_css['background-position-y'] = esc_attr( $bg_obj['background-position']['y'] * 100 . '%' );
+						}
+					}
+
+					if ( isset( $bg_obj['background-size'] ) ) {
+						$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
+					}
+
+					if ( isset( $bg_obj['background-attachment'] ) ) {
+						/* Parse CSS from array()*/
+						$parse_css .= kemet_parse_css(
+							array(
+								$selector => array(
+									'background-attachment' => esc_attr( $bg_obj['background-attachment'] ),
+								),
+							),
+							'1025'
+						);
+					}
 				}
 				if ( '' !== $bg_color ) {
 					$gen_bg_css['background-color'] = esc_attr( $bg_color );
 				}
+
 				break;
-		}
-
-		if ( '' !== $bg_img ) {
-			if ( isset( $bg_obj['background-repeat'] ) ) {
-				$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
-			}
-
-			if ( isset( $bg_obj['background-position'] ) && is_array( $bg_obj['background-position'] ) ) {
-				if ( isset( $bg_obj['background-position']['x'] ) && '' !== $bg_obj['background-position']['x'] ) {
-					$gen_bg_css['background-position-x'] = esc_attr( $bg_obj['background-position']['x'] * 100 . '%' );
-				}
-				if ( isset( $bg_obj['background-position']['y'] ) && '' !== $bg_obj['background-position']['y'] ) {
-					$gen_bg_css['background-position-y'] = esc_attr( $bg_obj['background-position']['y'] * 100 . '%' );
-				}
-			}
-
-			if ( isset( $bg_obj['background-size'] ) ) {
-				$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
-			}
 		}
 
 		/* Parse CSS from array() */
@@ -607,18 +615,6 @@ if ( ! function_exists( 'kemet_get_background_css' ) ) {
 			'',
 			$media
 		);
-
-		if ( isset( $bg_obj['background-attachment'] ) && '' !== $bg_img ) {
-			/* Parse CSS from array()*/
-			$parse_css .= kemet_parse_css(
-				array(
-					$selector => array(
-						'background-attachment' => esc_attr( $bg_obj['background-attachment'] ),
-					),
-				),
-				'1025'
-			);
-		}
 
 		return $parse_css;
 	}
