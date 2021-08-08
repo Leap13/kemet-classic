@@ -456,33 +456,37 @@ function kemet_background(control, selector) {
  */
 function get_background_css(bg_obj) {
   var gen_bg_css = "";
+  var bg_type = bg_obj["background-type"];
   var bg_img = bg_obj["background-image"];
   var bg_color = bg_obj["background-color"];
+  var bg_gradient = bg_obj["background-gradient"];
 
-  if ("" === bg_color && "" === bg_img) {
+  if (!bg_color && !bg_img && !bg_gradient) {
     return '';
   } else {
-    if (
-      "undefined" != typeof bg_img &&
-      "" !== bg_img &&
-      "undefined" != typeof bg_color &&
-      "" !== bg_color
-    ) {
-      if ("" != bg_color) {
-        gen_bg_css =
-          "background-image: linear-gradient(to right, " +
-          bg_color +
-          ", " +
-          bg_color +
-          ") , url(" +
-          bg_img +
-          ");";
-      }
-    } else if ("undefined" != typeof bg_img && "" != bg_img) {
-      gen_bg_css = "background-image: url(" + bg_img + ");";
-    } else if ("undefined" != typeof bg_color && "" != bg_color) {
-      gen_bg_css = "background-color: " + bg_color + ";";
-      gen_bg_css += "background-image: none;";
+    switch (bg_type) {
+      case 'color':
+        if ("" != bg_color && "" !== bg_img) {
+          gen_bg_css = "background-color: " + bg_color + ";";
+          gen_bg_css += "background-image: url(" + bg_img + ");";
+        } else if ("" != bg_color) {
+          gen_bg_css = "background-color: " + bg_color + ";";
+          gen_bg_css += "background-image: none;";
+        }
+        break;
+      case 'gradient':
+        if ("" != bg_gradient) {
+          gen_bg_css += "background-image: " + bg_gradient + ";";
+        }
+        break;
+      case 'image':
+        if ("" != bg_img) {
+          gen_bg_css = "background-image: url(" + bg_img + ");";
+        }
+        if ("" != bg_color) {
+          gen_bg_css += "background-color: " + bg_color + ";";
+        }
+        break;
     }
 
     if ("undefined" != typeof bg_img && "" !== bg_img) {

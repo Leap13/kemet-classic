@@ -493,53 +493,11 @@ if ( ! function_exists( 'kemet_get_background_obj' ) ) {
 	 * @return string
 	 */
 	function kemet_get_background_obj( $selector = '', $bg_obj = array() ) {
-		$gen_bg_css = array();
-
-		$bg_img   = isset( $bg_obj['background-image'] ) ? $bg_obj['background-image'] : '';
-		$bg_color = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
-
-		if ( '' !== $bg_img && '' !== $bg_color ) {
-			$gen_bg_css = array(
-				'background-color' => esc_attr( $bg_color ),
-				'background-image' => 'url(' . esc_url( $bg_img ) . ')',
-			);
-		} elseif ( '' !== $bg_img ) {
-			$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
-		} elseif ( '' !== $bg_color ) {
-			$gen_bg_css = array( 'background-color' => esc_attr( $bg_color ) );
+		if ( empty( $bg_obj ) ) {
+			return '';
 		}
 
-		if ( '' !== $bg_img ) {
-			if ( isset( $bg_obj['background-repeat'] ) ) {
-				$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
-			}
-
-			if ( isset( $bg_obj['background-position'] ) ) {
-				$gen_bg_css['background-position'] = esc_attr( $bg_obj['background-position'] );
-			}
-
-			if ( isset( $bg_obj['background-size'] ) ) {
-				$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
-			}
-		}
-
-		/* Parse CSS from array() */
-		$parse_css = kemet_parse_css(
-			array(
-				$selector => $gen_bg_css,
-			)
-		);
-		if ( isset( $bg_obj['background-attachment'] ) ) {
-			/* Parse CSS from array()*/
-			$parse_css .= kemet_parse_css(
-				array(
-					$selector => array(
-						'background-attachment' => esc_attr( $bg_obj['background-attachment'] ),
-					),
-				),
-				'1025'
-			);
-		}
+		$parse_css = kemet_get_background_css( $bg_obj, $selector, '' );
 
 		return $parse_css;
 	}
@@ -562,57 +520,104 @@ if ( ! function_exists( 'kemet_get_responsive_background_obj' ) ) {
 		$parse_css  = '';
 		$devices    = array( 'desktop', 'tablet', 'mobile' );
 		foreach ( $devices as $device ) {
-			$bg_obj   = isset( $responsive_bg_obj[ $device ] ) ? $responsive_bg_obj[ $device ] : array();
-			$media    = 'tablet' === $device ? '768' : '';
-			$media    = 'mobile' === $device ? '544' : $media;
-			$bg_img   = isset( $bg_obj['background-image'] ) ? $bg_obj['background-image'] : '';
-			$bg_color = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : array();
+			$bg_obj = isset( $responsive_bg_obj[ $device ] ) ? $responsive_bg_obj[ $device ] : array();
+			$media  = 'tablet' === $device ? '768' : '';
+			$media  = 'mobile' === $device ? '544' : $media;
 
-			if ( '' !== $bg_img && ! empty( $bg_color ) ) {
-				$gen_bg_css = array(
-					'background-color' => esc_attr( $bg_color ),
-					'background-image' => 'url(' . esc_url( $bg_img ) . ')',
-				);
-			} elseif ( '' !== $bg_img ) {
-				$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
-			} elseif ( ! empty( $bg_color ) ) {
-				$gen_bg_css = array( 'background-color' => esc_attr( $bg_color ) );
+			$parse_css .= kemet_get_background_css( $bg_obj, $selector, $media );
+		}
+
+		return $parse_css;
+	}
+}
+
+if ( ! function_exists( 'kemet_get_background_css' ) ) {
+	/**
+	 * kemet_get_background_css
+	 *
+	 * @param  mixed $bg_obj
+	 * @param  mixed $selector
+	 * @param  mixed $media
+	 * @return void
+	 */
+	function kemet_get_background_css( $bg_obj, $selector, $media ) {
+		$gen_bg_css  = array();
+		$parse_css   = '';
+		$bg_type     = isset( $bg_obj['background-type'] ) ? $bg_obj['background-type'] : '';
+		$bg_img      = isset( $bg_obj['background-image'] ) ? $bg_obj['background-image'] : '';
+		$bg_color    = isset( $bg_obj['background-color'] ) ? $bg_obj['background-color'] : '';
+		$bg_gradient = isset( $bg_obj['background-gradient'] ) ? $bg_obj['background-gradient'] : '';
+
+		if ( '' === $bg_color && '' === $bg_img && '' === $bg_gradient ) {
+			return '';
+		}
+
+		switch ( $bg_type ) {
+			case 'color':
+				if ( '' !== $bg_color ) {
+					$gen_bg_css = array(
+						'background-color' => esc_attr( $bg_color ),
+					);
+				}
+				if ( '' !== $bg_img && '' !== $bg_color ) {
+					$gen_bg_css['background-image'] = 'url(' . esc_url( $bg_img ) . ')';
+				}
+				break;
+			case 'gradient':
+				if ( '' !== $bg_gradient ) {
+					$gen_bg_css = array(
+						'background-image' => esc_attr( $bg_gradient ),
+					);
+				}
+				break;
+			case 'image':
+				if ( '' !== $bg_img ) {
+					$gen_bg_css = array( 'background-image' => 'url(' . esc_url( $bg_img ) . ')' );
+				}
+				if ( '' !== $bg_color ) {
+					$gen_bg_css['background-color'] = esc_attr( $bg_color );
+				}
+				break;
+		}
+
+		if ( '' !== $bg_img ) {
+			if ( isset( $bg_obj['background-repeat'] ) ) {
+				$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
 			}
 
-			if ( '' !== $bg_img ) {
-				if ( isset( $bg_obj['background-repeat'] ) ) {
-					$gen_bg_css['background-repeat'] = esc_attr( $bg_obj['background-repeat'] );
+			if ( isset( $bg_obj['background-position'] ) && is_array( $bg_obj['background-position'] ) ) {
+				if ( isset( $bg_obj['background-position']['x'] ) && '' !== $bg_obj['background-position']['x'] ) {
+					$gen_bg_css['background-position-x'] = esc_attr( $bg_obj['background-position']['x'] * 100 . '%' );
 				}
-
-				if ( isset( $bg_obj['background-position'] ) ) {
-					$gen_bg_css['background-position'] = esc_attr( $bg_obj['background-position'] );
-				}
-
-				if ( isset( $bg_obj['background-size'] ) ) {
-					$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
+				if ( isset( $bg_obj['background-position']['y'] ) && '' !== $bg_obj['background-position']['y'] ) {
+					$gen_bg_css['background-position-y'] = esc_attr( $bg_obj['background-position']['y'] * 100 . '%' );
 				}
 			}
 
-			/* Parse CSS from array() */
+			if ( isset( $bg_obj['background-size'] ) ) {
+				$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
+			}
+		}
+
+		/* Parse CSS from array() */
+		$parse_css .= kemet_parse_css(
+			array(
+				$selector => $gen_bg_css,
+			),
+			'',
+			$media
+		);
+
+		if ( isset( $bg_obj['background-attachment'] ) && '' !== $bg_img ) {
+			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css(
 				array(
-					$selector => $gen_bg_css,
-				),
-				'',
-				$media
-			);
-
-			if ( isset( $bg_obj['background-attachment'] ) && '' !== $bg_img ) {
-				/* Parse CSS from array()*/
-				$parse_css .= kemet_parse_css(
-					array(
-						$selector => array(
-							'background-attachment' => esc_attr( $bg_obj['background-attachment'] ),
-						),
+					$selector => array(
+						'background-attachment' => esc_attr( $bg_obj['background-attachment'] ),
 					),
-					'1025'
-				);
-			}
+				),
+				'1025'
+			);
 		}
 
 		return $parse_css;

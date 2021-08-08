@@ -19,7 +19,7 @@ const BackgroundComponent = props => {
         "background-repeat": '',
         "background-size": '',
         "background-type": "",
-        "background-gradient": '',
+        "background-gradient": ''
     }
 
     let ResDefaultParam = {
@@ -33,7 +33,6 @@ const BackgroundComponent = props => {
             "background-size": '',
             "background-type": "",
             "background-gradient": ''
-
         },
         tablet: {
             "background-attachment": '',
@@ -45,7 +44,6 @@ const BackgroundComponent = props => {
             "background-size": '',
             "background-type": "",
             "background-gradient": ''
-
         },
         mobile: {
             "background-attachment": '',
@@ -57,8 +55,7 @@ const BackgroundComponent = props => {
             "background-size": '',
             "background-type": "",
             "background-gradient": ''
-
-        },
+        }
     }
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
@@ -72,6 +69,7 @@ const BackgroundComponent = props => {
     const [device, setDevice] = useState('desktop');
 
     const updateValue = (obj) => {
+        console.log(obj);
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });
     }
@@ -207,7 +205,6 @@ const BackgroundComponent = props => {
 
     };
     const handleChangeGradient = (gradient, backgroundType) => {
-
         let obj = {
             ...props_value
         };
