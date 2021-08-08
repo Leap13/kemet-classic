@@ -350,18 +350,7 @@
   left: 2px;
   right: 0;
   bottom: 0;
-}
-.kmt-color-picker-container
-  .color-button-wrap:nth-child(3)
-  .kemet-color-picker-wrap
-  .kemet-popover-color::before {
-  position: absolute;
-  content: "";
-  left: calc(100% - 97px);
-  border-style: solid;
-  top: 3px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
+  height: max-content;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(2)

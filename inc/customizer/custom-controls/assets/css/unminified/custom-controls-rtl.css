@@ -1,14 +1,28 @@
 .customize-control-kmt-background {
   position: relative;
 }
-.customize-control-kmt-background .customize-control-title {
-  display: flex;
-  align-items: baseline;
-}
 .customize-control-kmt-background .background-container {
   display: flex;
+  align-content: center;
   align-items: center;
   justify-content: space-between;
+}
+.components-circular-option-picker {
+  display: inline-block;
+  width: 100%;
+  min-width: 188px;
+  margin: 0;
+  padding: 20px 14px 20px 14px;
+  box-sizing: border-box;
+}
+.background-container .customize-control-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  line-height: 18px;
 }
 .customize-control-kmt-background
   .wp-picker-container
@@ -96,6 +110,9 @@
   display: flex;
   margin: 0;
 }
+.kmt-control:last-child {
+  padding: 0 14px 7px 14px;
+}
 .kmt-buttons-group li {
   flex: 1 1 auto;
   display: flex;
@@ -114,7 +131,7 @@
 .kmt-buttons-group li.active {
   z-index: 1;
   color: #fff;
-  background: var(--accentColor);
+  background: #298cbe;
   box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 .kmt-buttons-group li:first-child {
@@ -171,6 +188,8 @@
   flex: 0 0 43px;
   margin-bottom: 16px;
   border: 1px solid #eee;
+  height: 47px;
+  border-radius: 0%;
 }
 
 .components-tab-panel__tabs button {
@@ -187,13 +206,38 @@
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
   border-radius: 5px;
+  border-radius: 0%;
+}
+.components-tab-panel__tabs button:hover {
+  color: inherit !important;
 }
 
-.kemet-popover-tabs.kemet-background-tabs button.active-tab {
+.kemet-popover-tabs.kemet-background-tabs
+  button.components-tab-panel__tabs-item:not(.active-tab) {
+  color: rgba(68, 68, 68, 0.7);
+}
+.kemet-popover-tabs.kemet-background-tabs
+  button.components-tab-panel__tabs-item:not(:last-child) {
+  border-left: 1px solid #eee;
+}
+.kemet-popover-tabs.kemet-background-tabs
+  button.components-tab-panel__tabs-item.active-tab {
   z-index: 1;
-  color: #fff;
-  background: #2271b1;
+  color: #000;
   box-shadow: inset 0px 0px 0px 1px rgb(0 0 0 / 10%);
+  position: relative;
+  box-shadow: none;
+  outline: none;
+  border-bottom: 2px solid #298cbe;
+}
+.kemet-popover-tabs.kemet-background-tabs button.active-tab::after {
+  position: absolute;
+  content: "";
+  right: -1px;
+  bottom: -1px;
+  width: calc(100% + 2px);
+  height: 2px;
+  background: #298cbe;
 }
 .components-custom-gradient-picker__gradient-bar:not(.has-gradient) {
   opacity: 1 !important;
@@ -214,7 +258,7 @@
 .components-custom-gradient-picker__gradient-bar {
   width: auto !important;
 }
-.customize-control-kmt-background .components-button.upload-button {
+.kmt-image-background-wrap .upload-button {
   width: 100%;
   padding: 5px 0;
   border-radius: 3px;
@@ -224,51 +268,6 @@
   text-align: center;
   display: inline-block;
   margin: 15px auto;
-}
-.customize-control-kmt-background .premium-image-actions {
-  position: absolute;
-  left: 0;
-  z-index: 99;
-  margin-top: 3px;
-}
-.customize-control-kmt-background .premium-image-actions button {
-  width: 34px;
-  height: 29px;
-  line-height: 29px;
-  min-height: initial;
-  padding: 0;
-  border: none;
-  border-right-color: currentcolor;
-  border-right-style: none;
-  border-right-width: medium;
-  border-radius: 0;
-  background: transparent;
-}
-.customize-control-kmt-background
-  .background-container
-  .color-button-wrap:nth-child(2)
-  .kemet-color-picker-wrap
-  .kemet-popover-color::before {
-  position: absolute;
-  content: "";
-  right: calc(100% - 55px);
-  border-style: solid;
-  top: 3px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
-.customize-control-kmt-background
-  .background-container
-  .color-button-wrap:nth-child(1)
-  .kemet-color-picker-wrap
-  .kemet-popover-color::before {
-  position: absolute;
-  content: "";
-  right: calc(100% - 22px);
-  border-style: solid;
-  top: 3px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
 }
 .kmt-control,
 .kmt-controls-group {
@@ -330,6 +329,21 @@
 #tab-panel-0-image-view > .kmt-control + * {
   padding-top: 20px;
   border-top: 1px dashed #eee;
+}
+.background-container .color-button-wrap {
+  display: inline-block;
+  margin-right: 10px;
+  height: 38px;
+  width: 38px;
+}
+.background-container
+  .color-button-wrap
+  .components-button.kemet-color-icon-indicate
+  .component-color-indicator.kemet-advanced-color-indicate {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  margin: 0;
 }
 
 .customize-control-kmt-tabs > ul.tabs {
@@ -6634,18 +6648,7 @@ i.fipicon-angle-left:before {
   right: 2px;
   left: 0;
   bottom: 0;
-}
-.kmt-color-picker-container
-  .color-button-wrap:nth-child(3)
-  .kemet-color-picker-wrap
-  .kemet-popover-color::before {
-  position: absolute;
-  content: "";
-  right: calc(100% - 97px);
-  border-style: solid;
-  top: 3px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
+  height: max-content;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(2)
