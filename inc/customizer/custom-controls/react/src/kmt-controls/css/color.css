@@ -25,8 +25,8 @@
   letter-spacing: 0.1px;
   line-height: 18px;
 }
-.customize-control-title {
-  display: block;
+.kmt-color-container .customize-control-title {
+  display: inline-block;
   font-size: 14px;
   line-height: 1;
   font-weight: 600;
@@ -325,6 +325,7 @@
   margin-top: 10px;
   background-color: #ffffff;
   border-radius: 4px;
+  height: max-content;
 }
 
 .kmt-field-settings-modal .kemet-popover-color {
@@ -351,6 +352,18 @@
   right: 0;
   bottom: 0;
   height: max-content;
+}
+.kmt-color-picker-container
+  .color-button-wrap:nth-child(3)
+  .kemet-color-picker-wrap
+  .kemet-popover-color::before {
+  position: absolute;
+  content: "";
+  left: calc(100% - 97px);
+  border-style: solid;
+  top: 3px;
+  border-width: 0 6px 7px 6px;
+  border-color: transparent transparent #ffffff transparent;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(2)
