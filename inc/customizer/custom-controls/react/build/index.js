@@ -5646,6 +5646,12 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         })));
       };
 
+      var onSelect = function onSelect(tabName) {
+        _this2.setState({
+          backgroundType: tabName
+        });
+      };
+
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
@@ -5672,7 +5678,8 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         className: "kemet-popover-tabs kemet-background-tabs",
         activeClass: "active-tab",
         initialTabName: backgroundType,
-        tabs: tabs
+        tabs: tabs,
+        onSelect: onSelect
       }, function (tab) {
         var tabout;
 
@@ -10007,6 +10014,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import Typography from '../kmt-controls/typography';
 
 var wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -10081,6 +10089,9 @@ var OptionComponent = function OptionComponent(type) {
     case 'kmt-background':
       OptionComponent = _kmt_controls_background__WEBPACK_IMPORTED_MODULE_20__["default"];
       break;
+    // case 'kmt-typography':
+    //     OptionComponent = Typography;
+    //     break;
   }
 
   return OptionComponent;

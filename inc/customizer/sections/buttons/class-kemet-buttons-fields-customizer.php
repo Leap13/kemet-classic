@@ -94,20 +94,11 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							// 'buttons-font-family'      => array(
-							// 'type'     => 'kmt-font-family',
-							// 'label'    => __( 'Font Family', 'kemet' ),
-							// 'section'  => 'section-buttons-fields',
-							// 'priority' => 10,
-							// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-weight]',
-							// ),
-							// 'buttons-font-weight'      => array(
-							// 'type'     => 'kmt-font-weight',
-							// 'label'    => __( 'Font Weight', 'kemet' ),
-							// 'section'  => 'section-buttons-fields',
-							// 'priority' => 15,
-							// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-family]',
-							// ),
+							'kmt-buttons-typography'     => array(
+							'type'     => 'kmt-typography',
+							'label'    => __( 'Buttons Typography', 'kemet' ),
+							'transport' => 'postMessage',
+            				),
 							'buttons-text-transform' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-select',
