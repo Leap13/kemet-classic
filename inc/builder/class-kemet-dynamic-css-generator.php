@@ -300,7 +300,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				/* Parse CSS from array() */
 				$parse_css  = kemet_parse_css( $css_output );
 				$parse_css .= kemet_get_responsive_background_obj( $selector, $background );
-				$parse_css .= kemet_get_background_obj( '.kmt-sticky-' . $row . '-bar #sitehead ' . $selector . '.kmt-is-sticky', $sticky_background );
+				$parse_css .= kemet_get_responsive_background_obj( '.kmt-sticky-' . $row . '-bar #sitehead ' . $selector . '.kmt-is-sticky', $sticky_background );
 
 				$tablet = array(
 					$selector . ' .kmt-grid-row' => array(

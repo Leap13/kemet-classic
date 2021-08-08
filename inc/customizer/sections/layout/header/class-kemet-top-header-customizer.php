@@ -152,6 +152,10 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 								'transport'  => 'postMessage',
 								'label'      => __( 'Sticky Background', 'kemet' ),
 								'responsive' => true,
+								'preview'    => array(
+									'selector'   => '.kmt-sticky-top-bar #sitehead ' . $selector . '.kmt-is-sticky',
+									'responsive' => true,
+								),
 							),
 						),
 					),
