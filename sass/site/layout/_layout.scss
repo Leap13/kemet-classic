@@ -379,3 +379,25 @@ body:not(.kmt-separate-container) {
     }
   }
 }
+body.search {
+ .page-content {
+  .search-form {
+    position: relative;
+      label {
+        width: 100%;
+        display: inline-block;
+    }
+    .search-field {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .search-submit {
+      float: right;
+    }
+    .kemet-search-svg-icon-wrap {
+        position: absolute;
+        top: -5px;
+    }
+  }
+}
+}

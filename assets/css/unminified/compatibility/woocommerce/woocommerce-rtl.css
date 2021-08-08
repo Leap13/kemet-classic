@@ -264,17 +264,6 @@ p.demo_store a,
   position: relative;
 }
 
-.kmt-cart-menu-wrap .count.icon-bag:before {
-  content: "\e90f";
-  display: inline-block;
-  font-family: "Kemet-font";
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-rendering: auto;
-  vertical-align: middle;
-  position: relative;
-}
-
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
@@ -402,7 +391,7 @@ p.demo_store a,
 .woocommerce a.remove,
 .woocommerce-page a.remove {
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
   font-weight: 400;
   font-size: 18px;
   width: 24px;

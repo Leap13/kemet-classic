@@ -32,6 +32,7 @@
     "postcss-flexibility": "^2.0.0"
   },
   "dependencies": {
+    "load-grunt-tasks": "^5.1.0",
     "release": "^6.3.0"
   },
   "bugs": {

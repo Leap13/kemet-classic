@@ -66,7 +66,8 @@
 
     .page_item_has_children > a:after,
     .menu-item-has-children > a:after {
-      @include kmt-has-child-menu-item();
+      // old code will remove
+     // @include kmt-has-child-menu-item();
       line-height: normal;
     }
 
@@ -90,18 +91,19 @@
       outline: none;
     }
   }
-  &::after {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    font-family: Kemet-font;
-    font-size: 1.2em;
-    font-weight: 600;
-    content: "\e90d";
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-  }
+  // old code will remove
+  // &::after {
+  //   position: absolute;
+  //   top: 50%;
+  //   right: 15px;
+  //   font-family: Kemet-font;
+  //   font-size: 1.2em;
+  //   font-weight: 600;
+  //   content: "\e90d";
+  //   -webkit-transform: translate(0, -50%);
+  //   -ms-transform: translate(0, -50%);
+  //   transform: translate(0, -50%);
+  // }
   &:hover,
   &:focus,
   &.kmt-search-box-form {
@@ -253,14 +255,15 @@
         line-height: inherit;
         transition: all 0.2s;
         border-width: 0px;
-        &::before {
-          font-weight: bold;
-          content: "\e907";
-          font-family: "Kemet-font";
-          text-decoration: inherit;
-          display: inline-block;
-          font-size: medium;
-        }
+        // old code will remove
+        // &::before {
+        //   font-weight: bold;
+        //   content: "\e907";
+        //   font-family: "Kemet-font";
+        //   text-decoration: inherit;
+        //   display: inline-block;
+        //   font-size: medium;
+        // }
         &:hover {
           border-width: 0px;
         }
@@ -414,9 +417,10 @@
   }
 }
 .toggle-button {
-  --padding: 0;
-  width: 2.2em;
-  height: 2.1em;
+  // old code will remove
+  // --padding: 0;
+  // width: 2.2em;
+  // height: 2.1em;
   --fontStyle: 1.5em;
   --fontWeight: normal;
   --borderRadius: 2px;
@@ -429,12 +433,13 @@
     vertical-align: middle;
     line-height: inherit;
 
-    &:before {
-      content: "\e90c";
-      font-family: "Kemet-font";
-      text-decoration: inherit;
-      font-weight: 600;
-    }
+    // old code will remove
+    // &:before {
+    //   content: "\e90c";
+    //   font-family: "Kemet-font";
+    //   text-decoration: inherit;
+    //   font-weight: 600;
+    // }
   }
   &.toggled {
     .toggle-button-icon {
@@ -515,14 +520,15 @@
     box-shadow: none;
   }
 }
-.kmt-close-icon {
-  &:before {
-    content: "\e905";
-    font-family: Kemet-font;
-    font-weight: 600;
-    text-decoration: inherit;
-  }
-}
+// old code will remove
+// .kmt-close-icon {
+//   &:before {
+//     content: "\e905";
+//     font-family: Kemet-font;
+//     font-weight: 600;
+//     text-decoration: inherit;
+//   }
+// }
 .kmt-popup-overlay {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -624,8 +630,41 @@
 .kmt-popup-header {
   display: flex;
   justify-content: flex-end;
-  min-height: calc(1.2em + 24px);
 }
 .header-bar-content {
   padding: 0 15px;
+}
+.icon-menu {
+  svg {
+        transition: fill 0.12s cubic-bezier(.455,.03,.515,.955);
+      }
+}
+.kmt-close-icon {
+      width: 18px;
+}
+
+.header-toggle-button.toggled path:nth-child(1) {
+    x: 0px;
+    transform: rotate(45deg);
+    width: 18px;
+    y: 6.15px;
+}
+
+.header-toggle-button.toggled path:nth-child(2) {
+    opacity: 0;
+}
+
+.header-toggle-button.toggled path:nth-child(3) {
+    transform: rotate(-45deg);
+     width: 18px;
+    y: 6.15px;
+}
+
+.header-toggle-button path {
+  width: 18px;
+      -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: all .12s cubic-bezier(.455,.03,.515,.955);
+    transition: all .12s cubic-bezier(.455,.03,.515,.955);
 }
