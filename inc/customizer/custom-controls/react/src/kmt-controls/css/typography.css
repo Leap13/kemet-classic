@@ -1,0 +1,90 @@
+.ct-option-modal {
+  position: fixed;
+  z-index: 100000;
+  width: var(--option-modal-width, 295px);
+  background: #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
+  right: var(--modal-x-offset);
+}
+.ct-option-modal {
+  left: 12px;
+}
+.ct-option-modal[data-position="top"] {
+  bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
+  transform-origin: center bottom;
+}
+.ct-option-modal {
+  z-index: 500000;
+}
+.ct-typography-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 430px;
+  position: relative;
+}
+.ct-typography-top {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 70px;
+  padding: 0 20px;
+  margin: 0;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #eee;
+}
+.ct-typography-top.ct-static > * {
+  transition: none !important;
+}
+.ct-typography-top .ct-back {
+  z-index: 2;
+  width: 28px;
+  margin-right: 12px;
+  margin-left: -44px;
+  opacity: 0;
+  transition: margin 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    opacity 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.ct-typography-top li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  height: 28px;
+  color: #555d66;
+  cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 0 8px;
+  margin-bottom: 0;
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid #d1d5d9;
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+    border-color 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.ct-typography-top .ct-font {
+  flex: 1;
+}
+.ct-typography-top .ct-weight {
+  justify-content: flex-end;
+  width: 78px;
+  margin-left: 7%;
+  transition: width 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.ct-option-modal::before {
+  position: absolute;
+  content: "";
+  left: var(--option-modal-arrow-position, calc(100% - 55px));
+  border-style: solid;
+}
+.ct-option-modal[data-position="top"]::before {
+  bottom: -7px;
+  border-width: 7px 6px 0 6px;
+  border-color: #ffffff transparent transparent transparent;
+}

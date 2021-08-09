@@ -15,6 +15,7 @@
 }
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
+  padding-left: 2px;
 }
 .kemet-control-field .customize-control-title {
   font-size: 14px;
@@ -438,21 +439,26 @@
   padding: 0 8px;
 }
 /* Reset Button CSS */
-
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button {
+.kmt-color-btn-reset-wrap {
+  width: 3px;
+}
+.kmt-color-control-wrap:hover
+  .kmt-color-btn-reset-wrap
+  .kmt-reset-btn.components-button:not(:disabled)
+  span {
+  opacity: 1;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button {
   color: #006ba1;
   font-size: 10px;
   padding: 4px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(-26px, 0, 0);
   transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
 }
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button:hover,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button:hover {
-  opacity: 1;
-}
+/*   */
 .kmt-color-btn-reset-wrap .kmt-reset-btn.components-button span,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button span {
   font-size: 10px !important;
@@ -476,6 +482,7 @@
   padding: 1.5px;
   border: none;
 }
+
 .kemet-color-clear-button.components-button.is-secondary:disabled,
 .kmt-reset-btn.components-button.is-secondary:disabled span {
   color: #c5c5c5;

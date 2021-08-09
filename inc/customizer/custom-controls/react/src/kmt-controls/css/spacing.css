@@ -1,5 +1,6 @@
 .customize-control-kmt-spacing .customize-control-title {
   display: inline-block;
+  padding-left: 2px;
 }
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
