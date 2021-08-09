@@ -194,9 +194,7 @@ class KemetColorPickerControl extends Component {
             )
         }
 
-        const onSelect = (tabName) => {
-            this.setState({ backgroundType: tabName })
-        };
+
 
         return (
             <>
@@ -228,7 +226,6 @@ class KemetColorPickerControl extends Component {
                                                 activeClass="active-tab"
                                                 initialTabName={backgroundType}
                                                 tabs={tabs}
-                                                onSelect={onSelect}
                                             >
 
                                                 {

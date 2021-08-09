@@ -5646,12 +5646,6 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         })));
       };
 
-      var onSelect = function onSelect(tabName) {
-        _this2.setState({
-          backgroundType: tabName
-        });
-      };
-
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "color-button-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
@@ -5678,8 +5672,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         className: "kemet-popover-tabs kemet-background-tabs",
         activeClass: "active-tab",
         initialTabName: backgroundType,
-        tabs: tabs,
-        onSelect: onSelect
+        tabs: tabs
       }, function (tab) {
         var tabout;
 
@@ -6883,6 +6876,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       device = _useState4[0],
       setDevice = _useState4[1];
 
+  console.log(value);
+
   var updateValue = function updateValue(obj) {
     setPropsValue(obj);
     props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
@@ -6934,7 +6929,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "kmt-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
+      className: "kmt-reset-btn components-button components-circular-option-picker__clear  is-small",
       disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
       onClick: function onClick(e) {
         e.preventDefault();
@@ -6974,17 +6969,6 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
     updateValue(obj);
   };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
-    if (responsive) {
-      var devices = ['desktop', 'mobile', 'tablet'];
-
-      for (var _i = 0, _devices = devices; _i < _devices.length; _i++) {
-        var _device = _devices[_i];
-        updateBackgroundType(_device);
-      }
-    }
-  }, []);
 
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
@@ -7235,7 +7219,7 @@ var ColorComponent = function ColorComponent(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "kmt-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
+      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-small",
       disabled: JSON.stringify(state) === JSON.stringify(defaultValue),
       onClick: function onClick(e) {
         e.preventDefault();
@@ -9943,9 +9927,10 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
     jQuery(document).mouseup(function (e) {
       var container = jQuery(control.container);
       var colorWrap = container.find('.kemet-color-picker-wrap');
-      var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+      var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+      var colorButton = container.find('.color-button-wrap'); // If the target of the click isn't the container nor a descendant of the container.
 
-      if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+      if (!colorWrap.has(e.target) || colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
         container.find('.components-button.kemet-color-icon-indicate.open').click();
       }
     }); // Responsive

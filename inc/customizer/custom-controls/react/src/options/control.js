@@ -64,9 +64,10 @@ document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
             var container = jQuery(control.container);
             var colorWrap = container.find('.kemet-color-picker-wrap');
             var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+            var colorButton = container.find('.color-button-wrap')
 
             // If the target of the click isn't the container nor a descendant of the container.
-            if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+            if ((!colorWrap.has(e.target)) || (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0)) {
                 container.find('.components-button.kemet-color-icon-indicate.open').click();
             }
         });

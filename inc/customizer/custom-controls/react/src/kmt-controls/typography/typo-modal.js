@@ -67,7 +67,7 @@ function fuzzysearch(needle, haystack) {
 
 const TypographyModal = ({
     option,
-
+    value,
     initialView,
     currentView,
     previousView,
@@ -76,7 +76,7 @@ const TypographyModal = ({
     onChange,
     wrapperProps = {},
 }) => {
-    const value = "Default"
+
     const [typographyList, setTypographyList] = useState(
         getDefaultFonts('Default')
     )

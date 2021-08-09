@@ -71,6 +71,8 @@ const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
 
+    console.log(value)
+
     const updateValue = (obj) => {
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });
@@ -123,7 +125,7 @@ const BackgroundComponent = props => {
 
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                    className="kmt-reset-btn components-button components-circular-option-picker__clear  is-small"
                     disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
                         updateValue(defaultVals)
@@ -170,15 +172,7 @@ const BackgroundComponent = props => {
         updateValue(obj)
 
     };
-    useEffect(() => {
-        if (responsive) {
-            let devices = ['desktop', 'mobile', 'tablet'];
-            for (let device of devices) {
-                updateBackgroundType(device);
-            }
-        }
 
-    }, []);
 
     const renderSettings = () => {
         let renderBackground = responsive ? props_value[device] : props_value;

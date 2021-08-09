@@ -428,6 +428,7 @@ module.exports = function (grunt) {
     concat: {
       css: {
         src: [
+          "inc/customizer/custom-controls/react/src/kmt-controls/css/typography.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/background.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/tabs.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/builder-control.css",

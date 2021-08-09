@@ -1,15 +1,4 @@
-import {
-    Fragment,
-    createElement,
-    createPortal,
-    Component,
-    useRef,
-    useReducer,
-    useEffect,
-    useMemo,
-    useCallback,
-    useState,
-} from '@wordpress/element';
+import { createPortal, useRef, useMemo, useCallback, useState, } from '@wordpress/element';
 import classnames from 'classnames';
 import OutsideComponent from '../common/outside-component';
 import PopoverComponent from '../common/popover-component';
@@ -17,11 +6,8 @@ import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 import { __ } from '@wordpress/i18n';
 import { humanizeVariations, familyForDisplay } from '../common/typo-helper'
-import PopoverComponent from '../common/popover-component'
 
 import TypographyModal from './typography/typo-modal'
-
-
 
 const getLeftForEl = (modal, el) => {
     if (!modal) return
@@ -39,8 +25,18 @@ const getLeftForEl = (modal, el) => {
     }
 }
 
-const Typography = () => {
-
+const Typography = (props) => {
+    let value = props.value;
+    let defaultValue = {
+        'family': 'System Default',
+        'variation': 'n4',
+        'size': '16px',
+        'line-height': '1.65',
+        'letter-spacing': '0em',
+        'text-transform': 'none',
+        'text-decoration': 'none',
+    }
+    value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
 
     const typographyWrapper = useRef()
@@ -261,9 +257,9 @@ const Typography = () => {
                                         },
                                         ...popoverProps,
                                     }}
-                                    onChange={() => console.log("Hello")}
-                                    // value={value}
-                                    // option={option}
+                                    onChange={props.onChange}
+                                    value={value}
+                                    option={props}
                                     initialView={item}
                                     setInititialView={(initialView) =>
                                         setIsOpen(initialView)

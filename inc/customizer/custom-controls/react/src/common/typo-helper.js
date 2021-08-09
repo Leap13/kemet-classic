@@ -94,22 +94,20 @@ export const humanizeVariations = (variation) => {
     return all[variation]
 }
 
-export const familyForDisplay = (family) => {
-    if (family.indexOf('ct_font') === 0) {
-        return family
-            .replace('ct_font_', '')
-            .replace(/([-_][a-z])/gi, ($1) =>
-                $1.toUpperCase().replace('-', '').replace('_', '')
-            )
+export const familyForDisplay = (fontValue) => {
+    // Bail if fontVAlue does not contain a comma.
+    if (!fontValue.includes(",")) return fontValue;
+
+    var splitFont = fontValue.split(",");
+    var pattern = new RegExp("'", "gi");
+
+    // Check if the cleaned font exists in the Google fonts array.
+    var googleFontValue = splitFont[0].replace(pattern, "");
+    if ("undefined" != typeof KmtFontFamilies.google[googleFontValue]) {
+        fontValue = googleFontValue;
     }
 
-    if (family.indexOf('ct_typekit') === 0) {
-        return family
-            .replace('ct_typekit_', '')
-            .replace(/([-_][a-z])/gi, ($1) =>
-                $1.toUpperCase().replace('-', ' ').replace('_', ' ')
-            )
-    }
+    return fontValue;
 
-    return family
+
 }

@@ -23,11 +23,13 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 		$input_selector       = 'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit])';
 		$input_focus_selector = 'input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus, select:focus, .wpcf7 form input:not([type=submit]):focus';
 		$register_options     = array(
+		
 			'kmt-buttons'     => array(
 				'type'     => 'kmt-title',
 				'label'    => __( 'Buttons Style', 'kemet' ),
 				'priority' => 1,
 			),
+			
 			'buttons-tabs'    => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
@@ -94,11 +96,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							'kmt-buttons-typography'     => array(
-							'type'     => 'kmt-typography',
-							'label'    => __( 'Buttons Typography', 'kemet' ),
-							'transport' => 'postMessage',
-            				),
+							
 							'buttons-text-transform' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-select',
@@ -153,6 +151,11 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
+								'kmt-buttons-typography'     => array(
+							'type'     => 'kmt-typography',
+							'label'    => __( 'Buttons Typography', 'kemet' ),
+							'transport' => 'postMessage',
+            				),
 							'buttons-letter-spacing' => array(
 								'transport'    => 'postMessage',
 								'type'         => 'kmt-slider',
