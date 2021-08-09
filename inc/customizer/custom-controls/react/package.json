@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "dependencies": {
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
+    "bezier-easing": "^2.1.0",
     "classnames": "^2.2.6",
+    "match-conditions": "^1.0.9",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-color": "^2.19.3",
@@ -14,7 +16,10 @@
     "react-select": "^3.2.0",
     "react-sortablejs": "^6.0.0",
     "sortablejs": "^1.13.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "@react-spring/web": "^9.0.0-rc.2",
+    "react-spring": "^8.0.1",
+    "vanilla-lazyload": "^8.17.0"
   },
   "devDependencies": {
     "@wordpress/scripts": "^12.6.1"
