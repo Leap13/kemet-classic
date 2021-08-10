@@ -4923,6 +4923,10 @@ h4.widget-title {
   border-left: var(--borderLeftWidth) var(--borderLeftStyle, solid) var(--borderLeftColor);
 }
 
+[class*="-footer-wrap"] .site-footer-section.direction-row .kmt-footer-item:not(:first-child) {
+  margin-left: 30px;
+}
+
 [class*="-footer-wrap"] .site-footer-section .kmt-footer-item {
   -webkit-box-flex: 1;
   -webkit-flex: 1;

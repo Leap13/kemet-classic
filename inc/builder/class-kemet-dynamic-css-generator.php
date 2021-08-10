@@ -388,7 +388,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector . ' .kmt-grid-row' => array(
 						'--minHeight' => kemet_responsive_slider( $height, 'desktop' ),
 					),
-					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
+					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section' => array(
 						'--padding' => kemet_responsive_spacing( $columns_padding, 'all', 'desktop' ),
 					),
 					$selector . ' .site-' . $row . '-footer-inner-wrap > .site-footer-section:after' => array(
