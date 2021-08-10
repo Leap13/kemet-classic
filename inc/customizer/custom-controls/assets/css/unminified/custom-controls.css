@@ -444,6 +444,10 @@
   visibility: visible;
   opacity: 1;
 }
+.kmt-builder-hide .kmt-builder-hide-button.kmt-builder-tab-toggle {
+  visibility: hidden;
+  opacity: 0;
+}
 .kmt-builder-tab-toggle:hover,
 .kmt-builder-section-shortcut:hover {
   background: #f0f0f1;
