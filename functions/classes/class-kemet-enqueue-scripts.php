@@ -56,6 +56,9 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 * @return void
 		 */
 		public function editor_scripts() {
+			if ( is_customize_preview() ) {
+				return;
+			}
 			// Fonts - Render Fonts.
 			Kemet_Fonts::render_fonts();
 
