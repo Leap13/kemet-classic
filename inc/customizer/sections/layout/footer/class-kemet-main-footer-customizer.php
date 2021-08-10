@@ -304,7 +304,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function add_partials( $partials ) {
 		$new_partials = array_fill_keys(
-			array( 'main-footer-columns', 'main-footer-layout' ),
+			array( self::$prefix . '-columns-direction', self::$prefix . '-columns', self::$prefix . '-layout' ),
 			array(
 				'selector'            => '#colophon',
 				'container_inclusive' => true,
