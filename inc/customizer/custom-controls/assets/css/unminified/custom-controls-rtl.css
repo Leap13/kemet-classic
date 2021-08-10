@@ -428,14 +428,33 @@
   height: 38px;
   width: 38px;
 }
-.background-container
-  .color-button-wrap
-  .components-button.kemet-color-icon-indicate
-  .component-color-indicator.kemet-advanced-color-indicate {
+.background-container .kemet-color-icon-indicate.components-button {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   margin: 0;
+  background-color: #fff;
+}
+.background-container .kemet-color-icon-indicate[data-background-type="image"] {
+  background-image: var(--background-image);
+  background-position: var(--background-position);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.background-container
+  .kemet-color-icon-indicate[data-background-type="gradient"] {
+  background-image: var(--background-image);
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+.background-container .kemet-color-picker-wrap {
+  position: absolute;
+  z-index: 99999;
+  top: 32px;
+  right: 2px;
+  left: 0;
+  bottom: 0;
+  height: max-content;
 }
 .components-circular-option-picker__custom-clear-wrapper {
   justify-content: initial;
@@ -6480,12 +6499,9 @@ i.fipicon-angle-left:before {
   transition: none;
   border-radius: 50%;
   padding: 0;
-  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
-    linear-gradient(45deg, #ddd 25%, transparent 0),
-    linear-gradient(-45deg, transparent 75%, #ddd 0),
-    linear-gradient(45deg, transparent 75%, #ddd 0);
-  background-size: 10px 10px;
-  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 /** Color */

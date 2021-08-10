@@ -189,29 +189,29 @@ class KemetColorPickerControl extends Component {
                 </div>
             )
         }
-        const onSelect = (tabName) => {
-            this.setState({ backgroundType: tabName })
-        }
+
 
         return (
             <>
                 <div className="color-button-wrap">
-                    <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
-                        {('color' === backgroundType || 'gradient' === backgroundType) &&
-                            <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={'gradient' === backgroundType ? this.props.gradient : this.props.color} />
-                                <i class="kmt-tooltip-top">{this.state.text}</i>
-                            </>
-                        }
-                        {'image' === backgroundType && this.props.backgroundImage &&
-                            <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue='#ffffff' />
-                                <img className={`kemet-image-indicate`} src={this.props.backgroundImage} />
-                                <i class="kmt-tooltip-top">{this.state.text}</i>
+                    <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} data-background-type={this.props.backgroundType} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }} style={{
+                        backgroundColor: this.props.color,
+                        '--background-position': this.props.backgroundPosition ? ` ${Math.round(
+                            parseFloat(this.props.backgroundPosition.x) * 100
+                        )}% ${Math.round(
+                            parseFloat(this.props.backgroundPosition.y) * 100
+                        )}%` : null,
+                        '--background-image':
+                            this.props.backgroundType === 'gradient'
+                                ? this.props.gradient
+                                : this.props.backgroundImage
+                                    ? `url(${this.props.backgroundImage})`
+                                    : 'none',
 
-                            </>
-                        }
+
+                    }}>
                     </Button>
+
                     {isVisible ? (
                         <div className="kemet-color-picker-wrap">
                             <>
@@ -224,7 +224,6 @@ class KemetColorPickerControl extends Component {
                                             <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                                 activeClass="active-tab"
                                                 initialTabName={backgroundType}
-                                                onSelect={onSelect}
                                                 tabs={tabs}>
                                                 {
                                                     (tab) => {
