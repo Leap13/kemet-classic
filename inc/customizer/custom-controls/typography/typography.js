@@ -46,10 +46,10 @@
         templateSelection: function (data) {
           var $data = $(
             '<span style="font-family:' +
-              data.element.value +
-              ';">' +
-              data.text +
-              "</span>"
+            data.element.value +
+            ';">' +
+            data.text +
+            "</span>"
           );
           return $data;
         },

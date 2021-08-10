@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
@@ -156,9 +155,6 @@ class KemetColorPickerControl extends Component {
             tabs.push(imageTab)
         }
 
-        let finalpaletteColors = [];
-        let count = 0;
-
         const defaultColorPalette = [
             '#000000',
             '#ffffff',
@@ -181,7 +177,7 @@ class KemetColorPickerControl extends Component {
                                 }}
                                 className={classnames({
                                     active:
-                                        this.state.color === color,
+                                        this.props.color === color,
                                 })}
                                 onClick={() => this.onPaletteChangeComplete(color)}>
                                 <div className="kmt-tooltip-top">
@@ -193,8 +189,9 @@ class KemetColorPickerControl extends Component {
                 </div>
             )
         }
-
-
+        const onSelect = (tabName) => {
+            this.setState({ backgroundType: tabName })
+        }
 
         return (
             <>
@@ -202,14 +199,16 @@ class KemetColorPickerControl extends Component {
                     <Button className={isVisible ? 'kemet-color-icon-indicate open' : 'kemet-color-icon-indicate'} onClick={() => { isVisible ? this.toggleClose() : toggleVisible() }}>
                         {('color' === backgroundType || 'gradient' === backgroundType) &&
                             <>
-                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={this.props.color} />
+                                <ColorIndicator className="kemet-advanced-color-indicate" colorValue={'gradient' === backgroundType ? this.props.gradient : this.props.color} />
                                 <i class="kmt-tooltip-top">{this.state.text}</i>
                             </>
                         }
-                        {'image' === backgroundType &&
+                        {'image' === backgroundType && this.props.backgroundImage &&
                             <>
                                 <ColorIndicator className="kemet-advanced-color-indicate" colorValue='#ffffff' />
-                                <Dashicon icon="format-image" />
+                                <img className={`kemet-image-indicate`} src={this.props.backgroundImage} />
+                                <i class="kmt-tooltip-top">{this.state.text}</i>
+
                             </>
                         }
                     </Button>
@@ -225,9 +224,8 @@ class KemetColorPickerControl extends Component {
                                             <TabPanel className="kemet-popover-tabs kemet-background-tabs"
                                                 activeClass="active-tab"
                                                 initialTabName={backgroundType}
-                                                tabs={tabs}
-                                            >
-
+                                                onSelect={onSelect}
+                                                tabs={tabs}>
                                                 {
                                                     (tab) => {
                                                         let tabout;
@@ -238,7 +236,7 @@ class KemetColorPickerControl extends Component {
                                                                     <>
                                                                         <__experimentalGradientPicker
                                                                             className="kmt-gradient-color-picker"
-                                                                            value={this.props.color && this.props.color.includes('gradient') ? this.props.color : ''}
+                                                                            value={this.props.gradient && backgroundType === "gradient" ? this.props.gradient : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
                                                                         <ul className={'ct-gradient-swatches'}>
@@ -265,7 +263,7 @@ class KemetColorPickerControl extends Component {
 
                                                                                 {RenderTopSection()}
                                                                                 <ColorPicker
-                                                                                    color={this.state.color}
+                                                                                    color={this.props.color}
                                                                                     onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
                                                                             </>
@@ -274,7 +272,7 @@ class KemetColorPickerControl extends Component {
                                                                             <>
                                                                                 {RenderTopSection()}
                                                                                 <ColorPicker
-                                                                                    color={this.state.color}
+                                                                                    color={this.props.color}
                                                                                     onChangeComplete={(color) => this.onChangeComplete(color)}
                                                                                 />
                                                                             </>
@@ -298,7 +296,7 @@ class KemetColorPickerControl extends Component {
                                                     {RenderTopSection()}
 
                                                     <ColorPicker
-                                                        color={this.state.color}
+                                                        color={this.props.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
 
@@ -308,7 +306,7 @@ class KemetColorPickerControl extends Component {
                                                 <>
                                                     {RenderTopSection()}
                                                     <ColorPicker
-                                                        color={this.state.color}
+                                                        color={this.props.color}
                                                         onChangeComplete={(color) => this.onChangeComplete(color)}
                                                     />
                                                 </>
@@ -354,7 +352,8 @@ class KemetColorPickerControl extends Component {
     onChangeGradientComplete(gradient) {
 
         this.setState({ backgroundType: 'gradient' });
-        this.props.onChangeComplete(gradient, 'gradient');
+        this.setState({ color: gradient })
+        this.props.onChangeGradient(gradient, "gradient")
     }
 
     onChangeComplete(color) {
@@ -371,6 +370,7 @@ class KemetColorPickerControl extends Component {
 
     onPaletteChangeComplete(color) {
         this.setState({ color: color });
+        this.setState({ backgroundType: 'color' });
         if (this.state.refresh === true) {
             this.setState({ refresh: false });
         } else {
@@ -403,31 +403,6 @@ class KemetColorPickerControl extends Component {
         this.props.onChangeImageOptions(mainkey, value, 'image');
     }
 
-    toggleMoreSettings() {
-
-        let parent = event.target.parentElement.parentElement;
-        let trigger = parent.querySelector('.more-settings');
-        let wrapper = parent.querySelector('.media-position-setting');
-
-        let dataDirection = trigger.dataset.direction;
-        let dataId = trigger.dataset.id;
-
-        if ('down' === dataDirection) {
-            trigger.setAttribute('data-direction', 'up');
-            parent.querySelector('.message').innerHTML = __("Less Settings");
-            parent.querySelector('.icon').innerHTML = '↑';
-        } else {
-            trigger.setAttribute('data-direction', 'down');
-            parent.querySelector('.message').innerHTML = __("More Settings");
-            parent.querySelector('.icon').innerHTML = '↓';
-        }
-
-        if (wrapper.classList.contains('hide-settings')) {
-            wrapper.classList.remove('hide-settings');
-        } else {
-            wrapper.classList.add('hide-settings');
-        }
-    }
 
 
     renderImageSettings() {
@@ -459,7 +434,7 @@ class KemetColorPickerControl extends Component {
                         render={({ open }) => (
                             <>
 
-                                {(!this.props.media && !this.props.backgroundImage) &&
+                                {!this.props.media &&
                                     < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
                                         {__("Select Background Image", 'Kemet')}
                                     </Button>
@@ -468,7 +443,7 @@ class KemetColorPickerControl extends Component {
                         )}
                     />
                 </div>
-                {(this.props.media || this.props.backgroundImage) &&
+                {(this.props.media && this.state.backgroundType === "image") &&
                     <div className='kmt-control'>
                         <div className={`thumbnail thumbnail-image`}>
                             <FocalPointPicker
@@ -550,6 +525,9 @@ class KemetColorPickerControl extends Component {
                         </ul>
                     </section>
                 </div>
+
+
+
             </>
 
         )
