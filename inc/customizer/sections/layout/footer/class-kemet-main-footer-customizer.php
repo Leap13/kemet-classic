@@ -50,7 +50,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'type'      => 'kmt-row-layout',
 								'label'     => __( 'Layout', 'kemet' ),
 								'transport' => 'postMessage',
-								'row'       => 'bottom',
+								'row'       => 'main',
 							),
 							self::$prefix . '-min-height'  => array(
 								'type'         => 'kmt-slider',

@@ -6318,13 +6318,7 @@ i.fipicon-angle-left:before {
   letter-spacing: 0.1px;
   line-height: 18px;
 }
-.customize-control-title {
-  display: block;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
+
 .kmt-color-container {
   display: flex;
   align-items: center;
