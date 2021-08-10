@@ -103,6 +103,10 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 								'transport'  => 'postMessage',
 								'label'      => __( 'Background', 'kemet' ),
 								'responsive' => true,
+								'preview'    => array(
+									'selector'   => $selector,
+									'responsive' => true,
+								),
 							),
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-spacing',

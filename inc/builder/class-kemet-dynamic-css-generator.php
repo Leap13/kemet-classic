@@ -368,6 +368,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$height               = kemet_get_option( $prefix . '-min-height' );
 				$columns_padding      = kemet_get_option( $prefix . '-columns-padding' );
 				$row_padding          = kemet_get_option( $prefix . '-row-padding' );
+				$background           = kemet_get_option( $prefix . '-background' );
 				$row_top_border       = kemet_get_option( $prefix . '-top-border-width' );
 				$row_bottom_border    = kemet_get_option( $prefix . '-bottom-border-width' );
 				$top_border_color     = kemet_get_sub_option( $prefix . '-row-border-color', 'top' );
@@ -400,7 +401,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				);
 
 				/* Parse CSS from array() */
-				$parse_css = kemet_parse_css( $css_output );
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= kemet_get_responsive_background_obj( $selector, $background );
 
 				$tablet = array(
 					$selector                             => array(

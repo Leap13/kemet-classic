@@ -128,7 +128,17 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-row-title' => array(
+							self::$prefix . '-background' => array(
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'label'      => __( 'Background', 'kemet' ),
+								'responsive' => true,
+								'preview'    => array(
+									'selector'   => $selector,
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-row-title'  => array(
 								'type'  => 'kmt-title',
 								'label' => __( 'Row Settings', 'kemet' ),
 							),
