@@ -12,7 +12,7 @@ const IconSelectComponent = props => {
         description,
         id,
         choices,
-    } = props.control.params;
+    } = props.params;
     let ContentHTML = [];
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;

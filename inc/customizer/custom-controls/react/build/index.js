@@ -7527,11 +7527,11 @@ var IconSelectComponent = function IconSelectComponent(props) {
     props.onChange(value);
   };
 
-  var _props$control$params = props.control.params,
-      label = _props$control$params.label,
-      description = _props$control$params.description,
-      id = _props$control$params.id,
-      choices = _props$control$params.choices;
+  var _props$params = props.params,
+      label = _props$params.label,
+      description = _props$params.description,
+      id = _props$params.id,
+      choices = _props$params.choices;
   var ContentHTML = [];
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title"
