@@ -315,12 +315,13 @@
   align-items: center;
   cursor: pointer;
 }
-.color-button-wrap:nth-child(1)
+.background-container
+  .color-button-wrap
   .kemet-color-picker-wrap
   .kemet-popover-color::before {
   position: absolute;
   content: "";
-  left: calc(100% - 55px);
+  left: calc(100% - 22px);
   border-style: solid;
   top: 3px;
   border-width: 0 6px 7px 6px;
@@ -344,4 +345,12 @@
   height: 38px;
   border-radius: 50%;
   margin: 0;
+}
+.components-circular-option-picker__custom-clear-wrapper {
+  justify-content: initial;
+}
+.color-button-wrap .kemet-image-indicate {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
 }
