@@ -7,10 +7,6 @@ const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
 
 const RadioComponent = (props) => {
     let value = props.value;
-
-    const [state, setState] = useState({
-        value
-    });
     const [device, setDevice] = useState('desktop');
 
     const HandleChange = (value) => {
@@ -36,11 +32,24 @@ const RadioComponent = (props) => {
         label,
         name,
         choices,
-        responsive
+        responsive,
+        defaultValue
     } = props.params;
 
+    let defaultVal = responsive ? {
+        desktop: '',
+        tablet: '',
+        mobile: ''
+    } : '';
+    defaultVal = defaultValue ? defaultValue : defaultVal;
+    value = value ? value : defaultVal;
+    const [state, setState] = useState({
+        value
+    });
+
     const renderButtons = () => {
-        let currentChoices = responsive ? choices[device] : choices
+        let currentChoices = choices
+
         return <Fragment>
             {Object.keys(currentChoices).map((choice) => {
                 const currentValue = responsive ? state.value[device] : state.value

@@ -8638,17 +8638,10 @@ var _wp$components = wp.components,
 var RadioComponent = function RadioComponent(props) {
   var value = props.value;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
-    value: value
-  }),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('desktop'),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])('desktop'),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
-      device = _useState4[0],
-      setDevice = _useState4[1];
+      device = _useState2[0],
+      setDevice = _useState2[1];
 
   var HandleChange = function HandleChange(value) {
     props.onChange(value);
@@ -8672,10 +8665,25 @@ var RadioComponent = function RadioComponent(props) {
       label = _props$params.label,
       name = _props$params.name,
       choices = _props$params.choices,
-      responsive = _props$params.responsive;
+      responsive = _props$params.responsive,
+      defaultValue = _props$params.defaultValue;
+  var defaultVal = responsive ? {
+    desktop: '',
+    tablet: '',
+    mobile: ''
+  } : '';
+  defaultVal = defaultValue ? defaultValue : defaultVal;
+  value = value ? value : defaultVal;
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
+    value: value
+  }),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      state = _useState4[0],
+      setState = _useState4[1];
 
   var renderButtons = function renderButtons() {
-    var currentChoices = responsive ? choices[device] : choices;
+    var currentChoices = choices;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object.keys(currentChoices).map(function (choice) {
       var currentValue = responsive ? state.value[device] : state.value;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
