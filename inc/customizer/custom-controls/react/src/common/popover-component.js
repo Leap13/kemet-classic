@@ -2,7 +2,6 @@ import { useMemo, useRef, useState, useEffect } from '@wordpress/element'
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';
 
-
 export function nullifyTransforms(el) {
     const parseTransform = (el) =>
         window
@@ -36,13 +35,12 @@ export function nullifyTransforms(el) {
     }
 }
 
-const PopoverComponent = ({
+const usePopoverMaker = ({
     contentRef: contentRefProp,
     shouldCalculate = true,
     ref,
     defaultHeight = 0,
 } = {}) => {
-    console.log(contentRef, ref)
     const contentRef = useRef()
     const [s, setState] = useState(null)
 
@@ -240,4 +238,4 @@ const PopoverComponent = ({
     }
 }
 
-export default PopoverComponent
+export default usePopoverMaker

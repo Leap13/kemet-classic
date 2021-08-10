@@ -248,6 +248,7 @@ const Typography = (props) => {
                             }
 
                             return (
+
                                 <TypographyModal
                                     wrapperProps={{
                                         style: {

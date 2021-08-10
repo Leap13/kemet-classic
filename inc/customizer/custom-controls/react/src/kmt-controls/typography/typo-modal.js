@@ -25,7 +25,6 @@ import FontsList from './FontsList'
 import VariationsList from './VariationsList'
 import FontOptions from './FontOptions'
 
-// import GenericOptionType from '../../GenericOptionType'
 
 const combineRefs = (...refs) => (el) => {
     refs.map((ref) => {
@@ -38,7 +37,7 @@ const combineRefs = (...refs) => (el) => {
         ) {
             ref.current = el
         } else if (ref === null) {
-            // No-op
+
         }
     })
 }
@@ -76,9 +75,8 @@ const TypographyModal = ({
     onChange,
     wrapperProps = {},
 }) => {
-
     const [typographyList, setTypographyList] = useState(
-        getDefaultFonts('Default')
+        getDefaultFonts(option)
     )
     const [isSearch, setIsSearch] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
@@ -124,13 +122,14 @@ const TypographyModal = ({
     const fetchFontsList = async () => {
         const body = new FormData()
 
-        body.append('action', 'blocksy_get_fonts_list')
+        body.append('action', 'kemet_get_fonts_list')
 
         try {
             const response = await fetch(ajaxurl, {
                 method: 'POST',
                 body,
             })
+
 
             if (response.status === 200) {
                 const { success, data } = await response.json()
@@ -141,36 +140,34 @@ const TypographyModal = ({
                         system: {
                             ...data.fonts.system,
                             families: [
-                                ...(option.isDefault
-                                    ? []
-                                    : [
-                                        {
-                                            source: 'system',
-                                            family: 'Default',
-                                            variations: [],
-                                            all_variations: [
-                                                'Default',
-                                                'n1',
-                                                'i1',
-                                                'n2',
-                                                'i2',
-                                                'n3',
-                                                'i3',
-                                                'n4',
-                                                'i4',
-                                                'n5',
-                                                'i5',
-                                                'n6',
-                                                'i6',
-                                                'n7',
-                                                'i7',
-                                                'n8',
-                                                'i8',
-                                                'n9',
-                                                'i9',
-                                            ],
-                                        },
-                                    ]),
+                                ...([
+                                    {
+                                        source: 'system',
+                                        family: 'Default',
+                                        variations: [],
+                                        all_variations: [
+                                            'Default',
+                                            'n1',
+                                            'i1',
+                                            'n2',
+                                            'i2',
+                                            'n3',
+                                            'i3',
+                                            'n4',
+                                            'i4',
+                                            'n5',
+                                            'i5',
+                                            'n6',
+                                            'i6',
+                                            'n7',
+                                            'i7',
+                                            'n8',
+                                            'i8',
+                                            'n9',
+                                            'i9',
+                                        ],
+                                    },
+                                ]),
 
                                 ...data.fonts.system.families,
                             ],
@@ -178,7 +175,9 @@ const TypographyModal = ({
                     })
                 }
             }
-        } catch (e) { }
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     useEffect(() => {
