@@ -76,10 +76,10 @@ const OptionComponent = (type) => {
         case 'kmt-background':
             OptionComponent = BackgroundComponent;
             break;
-        case 'radio-image':
+        case 'kmt-radio-image':
             OptionComponent = RadioImageComponent;
             break;
-        case 'icon-select':
+        case 'kmt-icon-select':
             OptionComponent = IconSelectComponent;
             break;
     }

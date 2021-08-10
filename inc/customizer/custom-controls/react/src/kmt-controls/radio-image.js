@@ -16,7 +16,6 @@ const RadioImageComponent = (props) => {
         id,
         choices,
         inputAttrs,
-        choices_titles,
         link,
         labelStyle
     } = props.params;
@@ -50,8 +49,8 @@ const RadioImageComponent = (props) => {
                     id={id + key} checked={props_value === key ? true : false} onChange={() => onLayoutChange(key)} />
 
                 <label htmlFor={id + key} {...labelStyle} className="image">
-                    <img className="wp-ui-highlight" src={choices[key]} />
-                    <span className="image-clickable" title={choices_titles[key]}></span>
+                    <img className="wp-ui-highlight" src={choices[key].path} />
+                    <span className="image-clickable" title={choices[key].label}></span>
                 </label>
             </Fragment>
         );

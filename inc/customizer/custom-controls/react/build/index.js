@@ -8524,7 +8524,6 @@ var RadioImageComponent = function RadioImageComponent(props) {
       id = _props$params.id,
       choices = _props$params.choices,
       inputAttrs = _props$params.inputAttrs,
-      choices_titles = _props$params.choices_titles,
       link = _props$params.link,
       labelStyle = _props$params.labelStyle;
   var inputContent = [];
@@ -8577,10 +8576,10 @@ var RadioImageComponent = function RadioImageComponent(props) {
       className: "image"
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
       className: "wp-ui-highlight",
-      src: choices[key]
+      src: choices[key].path
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "image-clickable",
-      title: choices_titles[key]
+      title: choices[key].label
     })));
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", {
@@ -10274,11 +10273,11 @@ var OptionComponent = function OptionComponent(type) {
       OptionComponent = _kmt_controls_background__WEBPACK_IMPORTED_MODULE_20__["default"];
       break;
 
-    case 'radio-image':
+    case 'kmt-radio-image':
       OptionComponent = _kmt_controls_radio_image__WEBPACK_IMPORTED_MODULE_22__["default"];
       break;
 
-    case 'icon-select':
+    case 'kmt-icon-select':
       OptionComponent = _kmt_controls_icon_select__WEBPACK_IMPORTED_MODULE_21__["default"];
       break;
   }
