@@ -5684,7 +5684,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
                 return _this2.onChangeGradientComplete(gradient);
               }
             }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
-              className: 'ct-gradient-swatches'
+              className: 'kmt-gradient-swatches'
             }, allGradients.map(function (gradient, slug) {
               return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("li", {
                 onClick: function onClick() {
