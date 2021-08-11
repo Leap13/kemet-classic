@@ -71,7 +71,6 @@ const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
 
-    console.log(value)
 
     const updateValue = (obj) => {
         setPropsValue(obj);

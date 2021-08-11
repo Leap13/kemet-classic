@@ -54,6 +54,7 @@ class ResponsiveSliderComponent extends Component {
     }
 
 
+
     updateValues(device, value) {
         let updateState = {
             ...this.state.initialState
@@ -107,6 +108,8 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
+
+
         let { label, suffix, description } = this.props.params;
 
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
