@@ -131,7 +131,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $selector . ' .top-header-bar, ' . $selector . ' .main-header-bar, ' . $selector . ' .bottom-header-bar',
-										'property' => '--backgroundColor',
+										'property' => 'background-color',
 									),
 								),
 							),

@@ -46,6 +46,43 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 			add_action( 'kemet_render_footer_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+			add_action( 'kemet_footer_copyright', array( $this, 'render_copyright' ) );
+		}
+
+		/**
+		 * Copyright
+		 */
+		public function render_copyright() {
+			echo self::get_copyright_text( 'footer-copyright-text' );
+		}
+
+		/**
+		 * Function to get Small Footer Custom Text
+		 *
+		 * @param string $option Custom text option name.
+		 * @return mixed         Markup of custom text option.
+		 */
+		public static function get_copyright_text( $option = '' ) {
+			$output = '';
+			$wrap   = '<div class="kmt-footer-copyright">';
+			if ( '' != $option ) {
+				$output = kemet_get_option( $option );
+				$output = str_replace( '[site_title]', '<span class="kmt-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
+
+				$theme_author = apply_filters(
+					'kemet_theme_author',
+					array(
+						'theme_name'       => __( 'Kemet', 'kemet' ),
+						'theme_author_url' => 'https://kemet.io/',
+					)
+				);
+
+				$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
+			}
+			$wrap .= $output;
+			$wrap .= '</div>';
+
+			return do_shortcode( $wrap );
 		}
 
 		/**

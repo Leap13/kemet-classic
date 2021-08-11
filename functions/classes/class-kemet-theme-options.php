@@ -149,7 +149,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'main_5' => array(),
 						),
 						'bottom' => array(
-							'bottom_1' => array(),
+							'bottom_1' => array( 'copyright' ),
 							'bottom_2' => array(),
 							'bottom_3' => array(),
 							'bottom_4' => array(),
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'top-footer-columns'                   => '5',
 					'main-footer-columns'                  => '3',
-					'bottom-footer-columns'                => '2',
+					'bottom-footer-columns'                => '1',
 					// Blog Single.
 					'blog-single-post-structure'           => array(
 						'single-image',
@@ -353,7 +353,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Kemet Footer.
 					'copyright-footer-layout'              => 'copyright-footer-layout-1',
 					'footer-copyright-section-1'           => 'custom',
-					'footer-copyright-section-1-part'      => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
+					'footer-copyright-text'                => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
 					'footer-copyright-section-2'           => '',
 					'footer-copyright-section-2-part'      => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
 					'footer-copyright-dist-equal-align'    => true,

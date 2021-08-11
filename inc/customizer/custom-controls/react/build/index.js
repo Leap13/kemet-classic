@@ -7189,7 +7189,7 @@ var ColorComponent = function ColorComponent(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "kmt-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
+      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-small",
       disabled: JSON.stringify(state) === JSON.stringify(defaultValue),
       onClick: function onClick(e) {
         e.preventDefault();
@@ -8623,7 +8623,13 @@ var RadioComponent = function RadioComponent(props) {
       setDevice = _useState2[1];
 
   var HandleChange = function HandleChange(value) {
-    props.onChange(value);
+    if (responsive) {
+      props.onChange(_objectSpread(_objectSpread({}, value), {}, {
+        flag: !props.value.flag
+      }));
+    } else {
+      props.onChange(value);
+    }
 
     if (props.id.includes('footer-columns')) {
       var row = props.id.replace('-footer-columns', '');
@@ -10401,8 +10407,8 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
     customizer: wp.customize,
     onChange: function onChange(value) {
       var key = getSettingId(optionId);
-      wp.customize(key).set(value);
       setValue(value);
+      wp.customize(key).set(value);
     }
   }));
 };

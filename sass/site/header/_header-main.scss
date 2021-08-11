@@ -325,7 +325,6 @@
   [class*="-header-bar"] {
     border-color: var(--borderColor);
     border-width: var(--borderWidth, 0 0 1px 0);
-    background-color: var(--backgroundColor, var(--globalBackgroundColor));
     .header-bar-content {
       background-color: var(--backgroundColor);
     }

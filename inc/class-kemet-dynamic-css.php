@@ -619,20 +619,15 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 
 				'.kmt-footer-copyright'                 => array(
-					'color'           => 'var(--footerTextColor)',
-					'--fontSize'      => kemet_responsive_slider( $footer_sml_font_size, 'desktop' ),
-					'--letterSpacing' => kemet_responsive_slider( $footer_sml_letter_spacing, 'desktop' ),
+					'color'               => 'var(--footerTextColor)',
+					'--headingLinksColor' => esc_attr( $footer_link_color ),
+					'--linksHoverColor'   => esc_attr( $footer_link_h_color ),
+					'--fontSize'          => kemet_responsive_slider( $footer_sml_font_size, 'desktop' ),
+					'--letterSpacing'     => kemet_responsive_slider( $footer_sml_letter_spacing, 'desktop' ),
 				),
 				'.kmt-footer-copyright .kmt-footer-copyright-content' => array(
 					'--padding' => kemet_responsive_spacing( $footer_bar_spacing, 'all', 'desktop' ),
 				),
-				'.kmt-footer-copyright a'               => array(
-					'--headingLinksColor' => esc_attr( $footer_link_color ),
-				),
-				'.kmt-footer-copyright a:hover'         => array(
-					'--linksHoverColor' => esc_attr( $footer_link_h_color ),
-				),
-
 				// main Fotter styling/colors/fonts.
 				'.kemet-footer .widget-title,.kemet-footer .widget-head .widget-title,.kemet-footer .widget-head .widget-title a , .kmt-footer-copyright .widget-head .widget-title,.kmt-footer-copyright .widget-head .widget-title a' => array(
 					'--headingLinksColor' => esc_attr( $kemet_footer_widget_title_color ),
@@ -1377,27 +1372,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					),
 				);
 				$parse_css      .= kemet_parse_css( $single_blog_css, '769' );
-			endif;
-
-			/* Small Footer CSS */
-			if ( 'disabled' != $copyright_footer_layout ) :
-				$sml_footer_css = array(
-					'.kmt-footer-copyright' => array(
-						'border-top-style' => 'solid',
-						'border-top-width' => kemet_get_css_value( $copyright_footer_divider, 'px' ),
-						'border-top-color' => esc_attr( $copyright_footer_divider_color ),
-					),
-				);
-				$parse_css     .= kemet_parse_css( $sml_footer_css );
-
-				if ( 'copyright-footer-layout-2' != $copyright_footer_layout ) {
-					$sml_footer_css = array(
-						'.kmt-footer-copyright-wrap' => array(
-							'text-align' => 'center',
-						),
-					);
-					$parse_css     .= kemet_parse_css( $sml_footer_css );
-				}
 			endif;
 
 			/* 404 Page */

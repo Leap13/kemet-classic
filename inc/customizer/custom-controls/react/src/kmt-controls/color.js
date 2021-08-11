@@ -58,7 +58,7 @@ const ColorComponent = props => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
                     disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
                     onClick={e => {
                         e.preventDefault();

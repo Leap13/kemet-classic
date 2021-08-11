@@ -11,7 +11,11 @@ const RadioComponent = (props) => {
 
     const HandleChange = (value) => {
 
-        props.onChange(value);
+        if (responsive) {
+            props.onChange({ ...value, flag: !props.value.flag });
+        } else {
+            props.onChange(value);
+        }
 
         if (props.id.includes('footer-columns')) {
             let row = props.id.replace('-footer-columns', '');

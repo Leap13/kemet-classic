@@ -79,7 +79,7 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 						'--backgroundColor' => esc_attr( 'transparent' ),
 					),
 					$selector . ' .top-header-bar, ' . $selector . ' .main-header-bar, ' . $selector . ' .bottom-header-bar' => array(
-						'--backgroundColor' => kemet_responsive_color( $backgrourd, 'initial', 'desktop' ),
+						'background-color' => kemet_responsive_color( $backgrourd, 'initial', 'desktop' ),
 					),
 					$menu_selector                        => array(
 						'--backgroundColor' => kemet_responsive_color( $menu_backgrourd, 'initial', 'desktop' ),

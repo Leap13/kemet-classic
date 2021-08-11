@@ -29,6 +29,11 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 				'choices'     => apply_filters(
 					'footer_items',
 					array(
+						'copyright'       => array(
+							'name'    => __( 'Copyright', 'kemet' ),
+							'icon'    => 'welcome-write-blog',
+							'section' => 'section-footer-copyright',
+						),
 						'footer-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',

@@ -17,16 +17,14 @@ h4.widget-title {
 /********************** widget style 2 **********************/
 .kmt-widget-style1 {
   .widget-title {
-  padding: 3px 10px;
-
+    padding: 3px 10px;
+  }
 }
-} 
 .sidebar-main {
   color: var(--textColor);
 }
 .sidebar-main,
-.kemet-footer,
-.kmt-footer-copyright {
+.kemet-footer {
   .widget {
     padding-bottom: 2.8em;
   }

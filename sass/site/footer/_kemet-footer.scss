@@ -58,9 +58,9 @@
 }
 // Footer Builder
 [class*="-footer-wrap"] {
-  padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);
-  background-color: #eeeeee;
+  padding-top: var(--padding-top, 25px);
+  padding-bottom: var(--padding-bottom, 25px);
+  background-color: var(--footerBackgroundColor);
   border-top: var(--borderTopWidth) var(--borderTopStyle, solid)
     var(--borderTopColor);
   border-bottom: var(--borderBottomWidth) var(--borderBottomStyle, solid)
