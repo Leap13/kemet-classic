@@ -131,14 +131,20 @@
 }
 
 .customize-control-kmt-slider .input-field-wrapper {
+  display: none;
   width: 100%;
+}
+
+.customize-control-kmt-slider .input-field-wrapper.active {
+  display: flex;
 }
 
 /**
  * Responsive Icons
  */
-.customize-control-title {
+.customize-control-kmt-slider .customize-control-title {
   display: inline-block;
+  padding-left: 2px;
 }
 
 .customize-control-kmt-slider .kmt-slider-units {
@@ -171,7 +177,7 @@
 
 .kmt-responsive-control-btns {
   line-height: 1;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
   display: inline-block;
   vertical-align: top;
   position: relative;

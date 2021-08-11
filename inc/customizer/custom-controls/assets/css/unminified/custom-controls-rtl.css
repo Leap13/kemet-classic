@@ -142,7 +142,7 @@
   height: 13px;
   fill: currentColor;
 }
-.ct-gradient-swatches {
+.kmt-gradient-swatches {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-column-gap: 19px;
@@ -151,7 +151,7 @@
   margin: 0;
   border-top: 1px dashed #eee;
 }
-.ct-gradient-swatches li {
+.kmt-gradient-swatches li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +164,7 @@
   background-image: var(--background-image);
   transition: box-shadow 0.1s ease;
 }
-.ct-patterns-list {
+.kmt-patterns-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 15px;
@@ -173,7 +173,7 @@
   margin: 25px 0 0 0;
   padding: 0 14px 25px 14px;
 }
-.ct-patterns-list li {
+.kmt-patterns-list li {
   cursor: pointer;
   margin: 0;
   min-height: 71.6px;
@@ -359,7 +359,7 @@
 .background-container .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99999;
-  top: 32px;
+  top: 34px;
   right: 2px;
   left: 0;
   bottom: 0;
@@ -372,6 +372,38 @@
   height: 38px;
   width: 38px;
   border-radius: 50%;
+}
+.kmt-image-actions .actions {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #fff;
+  opacity: 1;
+  z-index: 9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+.kmt-image-actions .actions button {
+  width: 34px;
+  height: 29px;
+  line-height: 29px;
+  min-height: initial;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  margin-top: 4px !important;
+}
+.kmt-image-actions .actions button::before {
+  font-family: "dashicons";
+  font-size: 15px;
+}
+.kmt-image-actions .actions .components-button.remove-image::before {
+  content: "\f335";
+}
+.kmt-image-actions .actions .components-button.edit-image::before {
+  content: "\f464";
 }
 
 .customize-control-kmt-tabs > ul.tabs {
@@ -6108,14 +6140,20 @@ i.fipicon-angle-left:before {
 }
 
 .customize-control-kmt-slider .input-field-wrapper {
+  display: none;
   width: 100%;
+}
+
+.customize-control-kmt-slider .input-field-wrapper.active {
+  display: flex;
 }
 
 /**
  * Responsive Icons
  */
-.customize-control-title {
+.customize-control-kmt-slider .customize-control-title {
   display: inline-block;
+  padding-right: 2px;
 }
 
 .customize-control-kmt-slider .kmt-slider-units {
@@ -6148,7 +6186,7 @@ i.fipicon-angle-left:before {
 
 .kmt-responsive-control-btns {
   line-height: 1;
-  margin-bottom: 7px;
+  margin-bottom: 0px;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -6363,6 +6401,7 @@ i.fipicon-angle-left:before {
   align-items: center;
   flex-grow: 2;
   justify-content: space-between;
+  margin: 0 2px;
 }
 .kmt-color-picker-container {
   display: flex;
@@ -7330,6 +7369,7 @@ i.fipicon-angle-left:before {
 
 .customize-control-kmt-spacing .customize-control-title {
   display: inline-block;
+  padding-right: 2px;
 }
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
@@ -7342,7 +7382,7 @@ i.fipicon-angle-left:before {
   transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
-  left: 8px;
+  left: 0px;
   width: 80px;
   text-align: left;
 }
@@ -7373,7 +7413,7 @@ i.fipicon-angle-left:before {
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  width: 20%;
+  margin: 0 2px;
 }
 .customize-control-kmt-spacing
   .input-wrapper
@@ -7382,12 +7422,14 @@ i.fipicon-angle-left:before {
   input.kmt-spacing-input {
   text-align: center;
   padding: 0 3px;
-  width: 90% !important;
+  width: 100% !important;
   border: 1px solid #dcdddf;
 }
 
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
   display: flex;
+  align-items: initial;
+  justify-content: center;
 }
 
 .customize-control-kmt-spacing
