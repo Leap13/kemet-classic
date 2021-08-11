@@ -662,7 +662,7 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-partials.php';
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-callback.php';
 			require KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer-sanitizes.php';
-			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/typography.php';
+		
 
 			// Group Control Generator.
 			require KEMET_THEME_DIR . 'inc/customizer/custom-controls/group/class-kemet-generate-control-group.php';

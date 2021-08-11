@@ -70,6 +70,7 @@ if ( is_admin() ) {
  * Customizer.
  */
 require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';
+require KEMET_THEME_DIR . 'inc/customizer/custom-controls/typography.php';
 
 /**
  * Compatibility.
