@@ -13,7 +13,7 @@
   transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
-  right: 8px;
+  right: 0px;
   width: 80px;
   text-align: right;
 }
@@ -44,7 +44,7 @@
   -webkit-box-flex: 1;
   -ms-flex: auto;
   flex: auto;
-  width: 20%;
+  margin: 0 2px;
 }
 .customize-control-kmt-spacing
   .input-wrapper
@@ -53,12 +53,14 @@
   input.kmt-spacing-input {
   text-align: center;
   padding: 0 3px;
-  width: 90% !important;
+  width: 100% !important;
   border: 1px solid #dcdddf;
 }
 
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
   display: flex;
+  align-items: initial;
+  justify-content: center;
 }
 
 .customize-control-kmt-spacing
