@@ -213,16 +213,16 @@ const TypographyModal = ({
 
     return (
         <animated.div
-            className="ct-option-modal ct-typography-modal"
+            className="kmt-option-modal kmt-typography-modal"
             {...wrapperProps}>
-            <div className="ct-typography-container">
+            <div className="kmt-typography-container">
                 <ul
-                    className={classnames('ct-typography-top', {
-                        'ct-switch-panel': currentView !== 'options',
-                        'ct-static': previousView === '_',
+                    className={classnames('kmt-typography-top', {
+                        'kmt-switch-panel': currentView !== 'options',
+                        'kmt-static': previousView === '_',
                     })}>
                     <li
-                        className="ct-back"
+                        className="kmt-back"
                         onClick={() => setCurrentView('options')}>
                         <svg width="10" height="10" viewBox="0 0 15 15">
                             <path d="M14.2,6.8H2.6l4-4c0.3-0.3,0.3-0.8,0-1.1c-0.3-0.3-0.8-0.3-1.1,0L0.2,7l0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1l0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1C0.2,8,0.2,8,0.2,8l5.3,5.3c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1.1l-4-4h11.7c0.4,0,0.8-0.3,0.8-0.8S14.7,6.8,14.2,6.8z" />
@@ -230,7 +230,7 @@ const TypographyModal = ({
                     </li>
 
                     <li
-                        className={classnames('ct-font', {
+                        className={classnames('kmt-font', {
                             active:
                                 currentView === 'search' ||
                                 currentView === 'fonts',
@@ -278,7 +278,7 @@ const TypographyModal = ({
                     </li>
 
                     <li
-                        className={classnames('ct-weight', {
+                        className={classnames('kmt-weight', {
                             active: currentView === 'variations',
                         })}
                         onClick={() => setCurrentView('variations')}>

@@ -32,17 +32,17 @@ const loadGoogleFonts = (font_families) => {
 		WebFontLoader.load({
 			...(googleFonts.length > 0
 				? {
-						google: {
-							families: googleFonts,
-						},
-				  }
+					google: {
+						families: googleFonts,
+					},
+				}
 				: {}),
 			...(typekitFonts.length > 0
 				? {
-						typekit: {
-							id: typekitFonts[0].kit,
-						},
-				  }
+					typekit: {
+						id: typekitFonts[0].kit,
+					},
+				}
 				: {}),
 			classes: false,
 			text: 'abcdefghijklmnopqrstuvwxyz',
@@ -62,21 +62,21 @@ const SingleFont = ({
 			style={style}
 			onClick={() => onPickFamily(family)}
 			className={classnames(
-				'ct-typography-single-font',
-				`ct-${family.source}`,
+				'kmt-typography-single-font',
+				`kmt-${family.source}`,
 				{
 					active: family.family === value.family,
 				}
 			)}
 			key={family.family}>
-			<span className="ct-font-name">
+			<span className="kmt-font-name">
 				{family.display || family.family}
 			</span>
 			<span
 				style={{
 					fontFamily: fontFamilyToCSSFamily(family.family),
 				}}
-				className="ct-font-preview">
+				className="kmt-font-preview">
 				Simply dummy text
 			</span>
 		</div>
@@ -159,8 +159,8 @@ const FontsList = ({
 				onPickFamily,
 				value,
 			}}
-			onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => {}}
-			className="ct-typography-fonts">
+			onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
+			className="kmt-typography-fonts">
 			{SingleFont}
 		</List>
 	)

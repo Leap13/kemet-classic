@@ -106,13 +106,13 @@ const Typography = (props) => {
         fontSizeRef && fontSizeRef.current,
         dotsRef && dotsRef.current,
     ])
-    console.log(currentView)
+
     return (
-        <div className={classnames('ct-typography', {})}>
+        <div className={classnames('kmt-typography', {})}>
             <OutsideComponent
                 disabled={!isOpen}
                 useCapture={false}
-                className="ct-typohraphy-value"
+                className="kmt-typohraphy-value"
                 additionalRefs={[popoverProps.ref]}
                 onOutsideClick={() => {
                     setIsOpen(false)
@@ -144,7 +144,7 @@ const Typography = (props) => {
                             setCurrentViewCache('fonts:_')
                             setIsOpen('fonts')
                         }}
-                        className="ct-font"
+                        className="kmt-font"
                         ref={fontFamilyRef}>
                         <span>
                             {value.family === 'Default'
@@ -166,7 +166,7 @@ const Typography = (props) => {
                             setIsOpen('font_size')
                         }}
                         ref={fontSizeRef}
-                        className="ct-size">
+                        className="kmt-size">
                         <span>
                             {/* {maybePromoteScalarValueIntoResponsive(
                                 value['size']
@@ -192,7 +192,7 @@ const Typography = (props) => {
                             setCurrentViewCache('variations:_')
                             setIsOpen('variations')
                         }}
-                        className="ct-weight">
+                        className="kmt-weight">
                         {/* <span>{humanizeVariations(value.variation)}</span> */}
                         <span>font weight</span>
                     </span>

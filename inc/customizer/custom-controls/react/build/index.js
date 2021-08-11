@@ -12774,7 +12774,9 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
           '--background-position': this.props.backgroundPosition ? " ".concat(Math.round(parseFloat(this.props.backgroundPosition.x) * 100), "% ").concat(Math.round(parseFloat(this.props.backgroundPosition.y) * 100), "%") : null,
           '--background-image': this.props.backgroundType === 'gradient' ? this.props.gradient : this.props.backgroundImage ? "url(".concat(this.props.backgroundImage, ")") : 'none'
         }
-      }), isVisible ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("i", {
+        className: "kmt-tooltip-top"
+      }, this.state.text)), isVisible ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kemet-color-picker-wrap"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kemet-popover-color",
@@ -12797,7 +12799,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
                 return _this2.onChangeGradientComplete(gradient);
               }
             }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
-              className: 'ct-gradient-swatches'
+              className: 'kmt-gradient-swatches'
             }, allGradients.map(function (gradient, slug) {
               return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("li", {
                 onClick: function onClick() {
@@ -13007,7 +13009,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         }))
       };
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
-        className: "kmt-control"
+        className: "kmt-control kmt-image-actions"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_10__["MediaUpload"], {
         title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'astra'),
         onSelect: function onSelect(media) {
@@ -13023,9 +13025,21 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
             onClick: function onClick() {
               return _this3.open(open);
             }
-          }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'Kemet')));
+          }, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])("Select Background Image", 'Kemet')), _this3.props.media && _this3.props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+            className: "actions"
+          }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+            type: "button",
+            className: "button remove-image",
+            onClick: _this3.onRemoveImage
+          }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+            type: "button",
+            className: "button edit-image",
+            onClick: function onClick() {
+              return _this3.open(open);
+            }
+          })));
         }
-      })), this.props.media && this.props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      })), this.props.media && this.props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kmt-control"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "thumbnail thumbnail-image"
@@ -13039,7 +13053,7 @@ var KemetColorPickerControl = /*#__PURE__*/function (_Component) {
         onChange: function onChange(focalPoint) {
           return _this3.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint);
         }
-      }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
+      })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("div", {
         className: "kmt-control"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("label", null, Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__["__"])('Background Repeat'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("ul", {
         className: "kmt-radio-option kmt-buttons-group"
@@ -13447,8 +13461,8 @@ var usePopoverMaker = function usePopoverMaker() {
         attributes: true
       });
 
-      if (ref.current.closest('.ct-tabs-scroll')) {
-        observer.observe(ref.current.closest('.ct-tabs-scroll'), {
+      if (ref.current.closest('.kmt-tabs-scroll')) {
+        observer.observe(ref.current.closest('.kmt-tabs-scroll'), {
           attributes: true
         });
       }
@@ -13496,7 +13510,7 @@ var usePopoverMaker = function usePopoverMaker() {
 
     if (ref.current) {
       var rect = ref.current.getBoundingClientRect();
-      var el = ref.current.closest('.ct-select-input') ? ref.current.closest('.ct-select-input') : ref.current;
+      var el = ref.current.closest('.kmt-selekmt-input') ? ref.current.closest('.kmt-selekmt-input') : ref.current;
       var maybeWidthFlag = getComputedStyle(el, ':before').content;
       yOffset = rect.top + rect.height;
       right = window.innerWidth - rect.right;
@@ -13530,7 +13544,7 @@ var usePopoverMaker = function usePopoverMaker() {
           }
         }
 
-        otherStyles['--x-select-dropdown-width'] = "".concat(width, "px");
+        otherStyles['--x-selekmt-dropdown-width'] = "".concat(width, "px");
       }
 
       var popoverRect = contentRefProp && contentRefProp.current || contentRef.current ? nullifyTransforms(contentRefProp ? contentRefProp.current : contentRef.current) : {
@@ -14544,8 +14558,6 @@ var BackgroundComponent = function BackgroundComponent(props) {
       _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       device = _useState4[0],
       setDevice = _useState4[1];
-
-  console.log(value);
 
   var updateValue = function updateValue(obj) {
     setPropsValue(obj);
@@ -17657,13 +17669,12 @@ var Typography = function Typography(props) {
     var futureRef = view === 'options' ? fontSizeRef.current : view === 'fonts' ? fontFamilyRef.current : view === 'variations' ? fontWeightRef.current : fontSizeRef.current;
     return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
   }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
-  console.log(currentView);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('ct-typography', {})
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-typography', {})
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     disabled: !isOpen,
     useCapture: false,
-    className: "ct-typohraphy-value",
+    className: "kmt-typohraphy-value",
     additionalRefs: [popoverProps.ref],
     onOutsideClick: function onOutsideClick() {
       setIsOpen(false);
@@ -17694,7 +17705,7 @@ var Typography = function Typography(props) {
       setCurrentViewCache('fonts:_');
       setIsOpen('fonts');
     },
-    className: "ct-font",
+    className: "kmt-font",
     ref: fontFamilyRef
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === 'Default' ? 'Default Family' : 'Default Family')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", null, "/"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     onClick: function onClick(e) {
@@ -17709,7 +17720,7 @@ var Typography = function Typography(props) {
       setIsOpen('font_size');
     },
     ref: fontSizeRef,
-    className: "ct-size"
+    className: "kmt-size"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, "font Size")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", null, "/"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     ref: fontWeightRef,
     onClick: function onClick(e) {
@@ -17723,7 +17734,7 @@ var Typography = function Typography(props) {
       setCurrentViewCache('variations:_');
       setIsOpen('variations');
     },
-    className: "ct-weight"
+    className: "kmt-weight"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, "font weight"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
     ref: dotsRef
   })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_6__["Transition"], {
@@ -17798,6 +17809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../slider */ "./src/kmt-controls/slider.js");
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -17807,34 +17819,113 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
- // import GenericOptionType from '../../GenericOptionType'
+
+
 
 var FontOptions = function FontOptions(_ref) {
   var option = _ref.option,
       value = _ref.value,
       sizeRef = _ref.sizeRef,
-      onChange = _ref.onChange,
+      _onChange = _ref.onChange,
       props = _ref.props;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_4__["animated"].ul, {
     style: props,
-    className: "ct-typography-options",
+    className: "kmt-typography-options",
     key: "options"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-    key: "size"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-    key: "line-height"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-    key: "letter-spacing"
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+    key: "size",
+    className: "customize-control-kmt-slider"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: value.size,
+    values: value,
+    id: "size",
+    params: {
+      id: 'size',
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'blocksy'),
+      value: 35,
+      responsive: true,
+      unit_choices: {
+        'px': {
+          min: 0,
+          max: 200,
+          step: 1
+        },
+        'em': {
+          min: 0,
+          max: 50,
+          step: 1
+        }
+      },
+      onChange: function onChange() {
+        return _onChange();
+      }
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+    key: "line-height",
+    className: "customize-control-kmt-slider"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: value.size,
+    values: value,
+    id: "size",
+    params: {
+      id: 'size',
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'blocksy'),
+      value: 35,
+      responsive: true,
+      unit_choices: {
+        'px': {
+          min: 0,
+          max: 200,
+          step: 1
+        },
+        'em': {
+          min: 0,
+          max: 50,
+          step: 1
+        }
+      },
+      onChange: function onChange() {
+        return _onChange();
+      }
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+    key: "letter-space",
+    className: "customize-control-kmt-slider"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    value: value.size,
+    values: value,
+    id: "size",
+    params: {
+      id: 'size',
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'blocksy'),
+      value: 35,
+      responsive: true,
+      unit_choices: {
+        'px': {
+          min: 0,
+          max: 200,
+          step: 1
+        },
+        'em': {
+          min: 0,
+          max: 50,
+          step: 1
+        }
+      },
+      onChange: function onChange() {
+        return _onChange();
+      }
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
     key: "variant",
-    className: "ct-typography-variant"
+    className: "kmt-typography-variant"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('ct-text-transform')
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-text-transform')
   }, ['capitalize', 'uppercase'].map(function (variant) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
       key: variant,
       onClick: function onClick() {
-        return onChange(_objectSpread(_objectSpread({}, value), {}, {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
           'text-transform': value['text-transform'] === variant ? 'none' : variant
         }));
       },
@@ -17843,18 +17934,15 @@ var FontOptions = function FontOptions(_ref) {
       }),
       "data-variant": variant
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
-      className: "ct-tooltip-top"
-    }, {
-      capitalize: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Capitalize', 'blocksy'),
-      uppercase: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Uppercase', 'blocksy')
-    }[variant]));
+      className: "kmt-tooltip-top"
+    }, variant));
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('ct-text-decoration')
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-text-decoration')
   }, ['line-through', 'underline'].map(function (variant) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
       key: variant,
       onClick: function onClick() {
-        return onChange(_objectSpread(_objectSpread({}, value), {}, {
+        return _onChange(_objectSpread(_objectSpread({}, value), {}, {
           'text-decoration': value['text-decoration'] === variant ? 'none' : variant
         }));
       },
@@ -17863,11 +17951,8 @@ var FontOptions = function FontOptions(_ref) {
       }),
       "data-variant": variant
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
-      className: "ct-tooltip-top"
-    }, {
-      'line-through': Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Line Through', 'blocksy'),
-      underline: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Underline', 'blocksy')
-    }[variant]));
+      className: "kmt-tooltip-top"
+    }, variant));
   }))));
 };
 
@@ -17963,17 +18048,17 @@ var SingleFont = function SingleFont(_ref4) {
     onClick: function onClick() {
       return onPickFamily(family);
     },
-    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('ct-typography-single-font', "ct-".concat(family.source), {
+    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('kmt-typography-single-font', "kmt-".concat(family.source), {
       active: family.family === value.family
     }),
     key: family.family
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "ct-font-name"
+    className: "kmt-font-name"
   }, family.display || family.family), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     style: {
       fontFamily: Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["fontFamilyToCSSFamily"])(family.family)
     },
-    className: "ct-font-preview"
+    className: "kmt-font-preview"
   }, "Simply dummy text"));
 };
 
@@ -18053,7 +18138,7 @@ var FontsList = function FontsList(_ref5) {
       var overscanStartIndex = _ref8.overscanStartIndex,
           overscanStopIndex = _ref8.overscanStopIndex;
     },
-    className: "ct-typography-fonts"
+    className: "kmt-typography-fonts"
   }, SingleFont);
 };
 
@@ -18108,7 +18193,7 @@ var VariationsList = function VariationsList(_ref) {
   }, [selectedFontFamily]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_5__["animated"].ul, {
     style: props,
-    className: "ct-typography-variations",
+    className: "kmt-typography-variations",
     ref: parentEl
   }, selectedFontFamily && selectedFontFamily.all_variations.map(function (variation) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
@@ -18122,7 +18207,7 @@ var VariationsList = function VariationsList(_ref) {
       }),
       key: variation
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
-      className: "ct-variation-name",
+      className: "kmt-variation-name",
       "data-variation": variation
     }, Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["humanizeVariations"])(variation)));
   }));
@@ -18547,16 +18632,16 @@ var TypographyModal = function TypographyModal(_ref) {
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_13__["animated"].div, _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    className: "ct-option-modal ct-typography-modal"
+    className: "kmt-option-modal kmt-typography-modal"
   }, wrapperProps), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("div", {
-    className: "ct-typography-container"
+    className: "kmt-typography-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('ct-typography-top', {
-      'ct-switch-panel': currentView !== 'options',
-      'ct-static': previousView === '_'
+    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('kmt-typography-top', {
+      'kmt-switch-panel': currentView !== 'options',
+      'kmt-static': previousView === '_'
     })
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("li", {
-    className: "ct-back",
+    className: "kmt-back",
     onClick: function onClick() {
       return setCurrentView('options');
     }
@@ -18567,7 +18652,7 @@ var TypographyModal = function TypographyModal(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("path", {
     d: "M14.2,6.8H2.6l4-4c0.3-0.3,0.3-0.8,0-1.1c-0.3-0.3-0.8-0.3-1.1,0L0.2,7l0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1l0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1C0.2,8,0.2,8,0.2,8l5.3,5.3c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1.1l-4-4h11.7c0.4,0,0.8-0.3,0.8-0.8S14.7,6.8,14.2,6.8z"
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("li", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('ct-font', {
+    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('kmt-font', {
       active: currentView === 'search' || currentView === 'fonts'
     }),
     onClick: function onClick() {
@@ -18603,7 +18688,7 @@ var TypographyModal = function TypographyModal(_ref) {
   }), currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("path", {
     d: "M14.6,14.6c-0.6,0.6-1.4,0.6-2,0l-2.5-2.5c-1,0.7-2.2,1-3.5,1C2.9,13.1,0,10.2,0,6.6S2.9,0,6.6,0c3.6,0,6.6,2.9,6.6,6.6c0,1.3-0.4,2.5-1,3.5l2.5,2.5C15.1,13.1,15.1,14,14.6,14.6z M6.6,1.9C4,1.9,1.9,4,1.9,6.6s2.1,4.7,4.7,4.7c2.6,0,4.7-2.1,4.7-4.7C11.3,4,9.2,1.9,6.6,1.9z"
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_7__["createElement"])("li", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('ct-weight', {
+    className: classnames__WEBPACK_IMPORTED_MODULE_8___default()('kmt-weight', {
       active: currentView === 'variations'
     }),
     onClick: function onClick() {
@@ -18753,15 +18838,31 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
     // Color
     'use strict';
 
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(control.container);
-      var colorWrap = container.find('.kemet-color-picker-wrap');
-      var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
-      var colorButton = container.find('.color-button-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+    jQuery(document).ready(function ($) {
+      $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(function (e) {
+        if (!$(e.target).closest(".kemet-color-picker-wrap").length && !$(e.target).closest(".color-button-wrap").length) {
+          $(".components-button.kemet-color-icon-indicate.open").trigger("click");
+        }
+      });
+      control.container.on("click", ".components-button.kemet-color-icon-indicate", function () {
+        var $this = $(this),
+            parentWrap = $this.closest(".customize-control-kmt-color"),
+            Section = parentWrap.parents(".control-section");
 
-      if (!colorWrap.has(e.target) || colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
+        if ($this.hasClass("open")) {
+          parentWrap.find(".kemet-color-picker-wrap").hide();
+        } else {
+          var getOpenPopup = Section.find(".components-button.kemet-color-icon-indicate.open");
+
+          if (getOpenPopup.length > 0) {
+            getOpenPopup.trigger("click");
+          }
+
+          parentWrap.find(".kemet-color-picker-wrap").show();
+        }
+
+        $(this).toggleClass("open");
+      });
     }); // Responsive
 
     Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(control);

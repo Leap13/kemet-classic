@@ -27,7 +27,7 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 		parentEl.current.scrollTop =
 			(
 				parentEl.current.children[
-					selectedFontFamily.all_variations.indexOf(value.variation)
+				selectedFontFamily.all_variations.indexOf(value.variation)
 				] || parentEl.current.children[0]
 			).offsetTop - parentEl.current.offsetTop
 	}, [selectedFontFamily])
@@ -35,7 +35,7 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 	return (
 		<animated.ul
 			style={props}
-			className="ct-typography-variations"
+			className="kmt-typography-variations"
 			ref={parentEl}>
 			{selectedFontFamily &&
 				selectedFontFamily.all_variations.map((variation) => (
@@ -51,7 +51,7 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 						})}
 						key={variation}>
 						<span
-							className="ct-variation-name"
+							className="kmt-variation-name"
 							data-variation={variation}>
 							{humanizeVariations(variation)}
 						</span>

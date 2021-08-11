@@ -81,8 +81,8 @@ const usePopoverMaker = ({
                 attributes: true,
             })
 
-            if (ref.current.closest('.ct-tabs-scroll')) {
-                observer.observe(ref.current.closest('.ct-tabs-scroll'), {
+            if (ref.current.closest('.kmt-tabs-scroll')) {
+                observer.observe(ref.current.closest('.kmt-tabs-scroll'), {
                     attributes: true,
                 })
             }
@@ -130,8 +130,8 @@ const usePopoverMaker = ({
         if (ref.current) {
             let rect = ref.current.getBoundingClientRect()
 
-            let el = ref.current.closest('.ct-select-input')
-                ? ref.current.closest('.ct-select-input')
+            let el = ref.current.closest('.kmt-selekmt-input')
+                ? ref.current.closest('.kmt-selekmt-input')
                 : ref.current
 
             let maybeWidthFlag = getComputedStyle(el, ':before').content
@@ -175,7 +175,7 @@ const usePopoverMaker = ({
                     }
                 }
 
-                otherStyles['--x-select-dropdown-width'] = `${width}px`
+                otherStyles['--x-selekmt-dropdown-width'] = `${width}px`
             }
 
             let popoverRect =
