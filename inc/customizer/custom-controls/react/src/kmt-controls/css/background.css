@@ -145,8 +145,8 @@
 .kmt-gradient-swatches {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 19px;
-  grid-row-gap: 19px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   padding: 20px 14px;
   margin: 0;
   border-top: 1px dashed #eee;
@@ -404,4 +404,7 @@
 }
 .kmt-image-actions .actions .components-button.edit-image::before {
   content: "\f464";
+}
+.components-circular-option-picker__custom-clear-wrapper {
+  justify-content: initial;
 }

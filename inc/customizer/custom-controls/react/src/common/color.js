@@ -242,7 +242,7 @@ class KemetColorPickerControl extends Component {
                                                                             value={this.props.gradient && this.props.backgroundType === "gradient" ? this.props.gradient : ''}
                                                                             onChange={(gradient) => this.onChangeGradientComplete(gradient)}
                                                                         />
-                                                                        <ul className={'ct-gradient-swatches'}>
+                                                                        <ul className={'kmt-gradient-swatches'}>
                                                                             {allGradients.map((gradient, slug) => (
                                                                                 <li
                                                                                     onClick={() => this.onChangeGradientComplete(gradient)}
