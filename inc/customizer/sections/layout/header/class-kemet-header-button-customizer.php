@@ -253,7 +253,6 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 								),
 								$prefix . '-border-width' => array(
 									'type'         => 'kmt-slider',
-									'default'      => 1,
 									'transport'    => 'postMessage',
 									'label'        => __( 'Border Size', 'kemet' ),
 									'unit_choices' => array(
@@ -266,6 +265,24 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									'preview'      => array(
 										'selector' => $selector,
 										'property' => '--borderWidth',
+									),
+								),
+								$prefix . '-radius'       => array(
+									'type'           => 'kmt-spacing',
+									'transport'      => 'postMessage',
+									'label'          => __( 'Border Radius', 'kemet' ),
+									'linked_choices' => true,
+									'unit_choices'   => array( 'px', 'em', '%' ),
+									'choices'        => array(
+										'top'    => __( 'Top', 'kemet' ),
+										'right'  => __( 'Right', 'kemet' ),
+										'bottom' => __( 'Bottom', 'kemet' ),
+										'left'   => __( 'Left', 'kemet' ),
+									),
+									'preview'        => array(
+										'selector' => $selector,
+										'property' => '--borderRadius',
+										'sides'    => false,
 									),
 								),
 								$prefix . '-padding'      => array(

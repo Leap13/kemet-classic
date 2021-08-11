@@ -268,6 +268,24 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 										'property' => '--borderWidth',
 									),
 								),
+								$prefix . '-radius'       => array(
+									'type'           => 'kmt-spacing',
+									'transport'      => 'postMessage',
+									'label'          => __( 'Border Radius', 'kemet' ),
+									'linked_choices' => true,
+									'unit_choices'   => array( 'px', 'em', '%' ),
+									'choices'        => array(
+										'top'    => __( 'Top', 'kemet' ),
+										'right'  => __( 'Right', 'kemet' ),
+										'bottom' => __( 'Bottom', 'kemet' ),
+										'left'   => __( 'Left', 'kemet' ),
+									),
+									'preview'        => array(
+										'selector' => $selector,
+										'property' => '--borderRadius',
+										'sides'    => false,
+									),
+								),
 								$prefix . '-padding'      => array(
 									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',

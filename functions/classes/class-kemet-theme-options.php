@@ -318,7 +318,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-items-text-transform'            => '',
 					'menu-items-font-style'                => 'inherit',
 					'menu-link-bottom-border-color'        => '',
-					'display-responsive-menu-point'        => 921,
+					'kemet-break-point'                    => array(
+						'value' => 921,
+						'unit'  => 'px',
+					),
 					'sub-menu-animation'                   => 'none',
 					'search-style'                         => 'search-icon',
 					'search-box-shadow'                    => true,

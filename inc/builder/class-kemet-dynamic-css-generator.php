@@ -38,6 +38,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$font_size          = kemet_get_option( $button . '-font-size' );
 				$line_height        = kemet_get_option( $button . '-line-height' );
 				$letter_spacing     = kemet_get_option( $button . '-letter-spacing' );
+				$border_radius      = kemet_get_option( $button . '-radius' );
 
 				$css_output = array(
 					$selector => array(
@@ -53,6 +54,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--fontSize'                   => kemet_slider( $font_size ),
 						'--letterSpacing'              => kemet_slider( $letter_spacing ),
 						'--lineHeight'                 => kemet_slider( $line_height ),
+						'--borderRadius'               => kemet_spacing( $border_radius, 'all' ),
 					),
 				);
 

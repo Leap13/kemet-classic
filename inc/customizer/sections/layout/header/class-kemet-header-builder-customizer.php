@@ -311,6 +311,17 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			'kemet-break-point'             => array(
+				'type'         => 'kmt-slider',
+				'label'        => __( 'Screen size to switch to mobile header', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 4000,
+					),
+				),
+			),
 			'focus-overlay-header-section'  => array(
 				'type'          => 'kmt-focus-button',
 				'button_params' => array(

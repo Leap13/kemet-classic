@@ -593,7 +593,8 @@ if ( ! function_exists( 'kemet_header_break_point' ) ) {
 	 * @return number
 	 */
 	function kemet_header_break_point() {
-		$kemet_responsive_menu_point = kemet_get_option( 'display-responsive-menu-point' );
+		$kemet_responsive_menu_point = kemet_get_option( 'kemet-break-point' );
+		$kemet_responsive_menu_point = isset( $kemet_responsive_menu_point['value'] ) ? $kemet_responsive_menu_point['value'] : 921;
 
 		return absint( apply_filters( 'kemet_responsive_menu_point', $kemet_responsive_menu_point ) );
 	}
