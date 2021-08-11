@@ -18,8 +18,8 @@ const BackgroundComponent = props => {
         "background-position": '',
         "background-repeat": '',
         "background-size": '',
-        "background-type": "",
-        "background-gradient": ''
+        "background-type": "color",
+        "background-gradient": '',
     }
 
     let ResDefaultParam = {
@@ -31,7 +31,7 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": "",
+            "background-type": "color",
             "background-gradient": ''
         },
         tablet: {
@@ -53,9 +53,9 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": "",
+            "background-type": "color",
             "background-gradient": ''
-        }
+        },
     }
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
@@ -69,7 +69,6 @@ const BackgroundComponent = props => {
     const [device, setDevice] = useState('desktop');
 
     const updateValue = (obj) => {
-        console.log(obj);
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });
     }
@@ -121,7 +120,7 @@ const BackgroundComponent = props => {
 
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                    className="kmt-reset-btn components-button components-circular-option-picker__clear  is-small"
                     disabled={(JSON.stringify(props_value) === JSON.stringify(defaultVals))} onClick={e => {
                         e.preventDefault();
                         updateValue(defaultVals)
@@ -137,46 +136,51 @@ const BackgroundComponent = props => {
         </span >;
     };
 
-    const onSelectImage = (media, backgroundType) => {
+    const onSelectImage = (media) => {
         let obj = {
             ...props_value
         };
         if (responsive) {
             obj[device]['background-media'] = media.id;
             obj[device]['background-image'] = media.url;
-            obj[device]['background-type'] = backgroundType;
+
         } else {
             obj['background-media'] = media.id;
             obj['background-image'] = media.url;
-            obj['background-type'] = backgroundType;
+
         }
         updateValue(obj)
 
     };
 
-    const onChangeImageOptions = (mainKey, value, backgroundType) => {
+    const onChangeImageOptions = (mainKey, value) => {
         let obj = {
             ...props_value
         };
         if (responsive) {
             obj[device][mainKey] = value;
-            obj[device]['background-type'] = backgroundType;
+
         } else {
             obj[mainKey] = value;
-            obj['background-type'] = backgroundType;
+
         }
         updateValue(obj)
 
     };
-    useEffect(() => {
+    const onSelectType = (type) => {
+        let obj = {
+            ...props_value
+        };
         if (responsive) {
-            let devices = ['desktop', 'mobile', 'tablet'];
-            for (let device of devices) {
-                updateBackgroundType(device);
-            }
-        }
+            obj[device]['background-type'] = type;
 
-    }, []);
+        } else {
+            obj['background-type'] = type;
+
+        }
+        updateValue(obj)
+    }
+
 
     const renderSettings = () => {
         let renderBackground = responsive ? props_value[device] : props_value;
@@ -184,18 +188,19 @@ const BackgroundComponent = props => {
         return <>
             <KemetColorPickerControl
                 text={__('Background', 'Kemet')}
+                onSelect={(type) => onSelectType(type)}
                 color={undefined !== renderBackground['background-color'] && renderBackground['background-color'] ? renderBackground['background-color'] : ''}
                 gradient={undefined !== renderBackground['background-gradient'] && renderBackground['background-gradient'] ? renderBackground['background-gradient'] : ''}
-                onChangeComplete={(color, backgroundType) => handleChangeComplete(color, backgroundType)}
-                onChangeGradient={(gradient, backgroundType) => handleChangeGradient(gradient, backgroundType)}
+                onChangeComplete={(color) => handleChangeComplete(color)}
+                onChangeGradient={(gradient) => handleChangeGradient(gradient)}
                 media={undefined !== renderBackground['background-media'] && renderBackground['background-media'] ? renderBackground['background-media'] : ''}
                 backgroundImage={undefined !== renderBackground['background-image'] && renderBackground['background-image'] ? renderBackground['background-image'] : ''}
                 backgroundAttachment={undefined !== renderBackground['background-attachment'] && renderBackground['background-attachment'] ? renderBackground['background-attachment'] : ''}
                 backgroundPosition={undefined !== renderBackground['background-position'] && renderBackground['background-position'] ? renderBackground['background-position'] : ''}
                 backgroundRepeat={undefined !== renderBackground['background-repeat'] && renderBackground['background-repeat'] ? renderBackground['background-repeat'] : ''}
                 backgroundSize={undefined !== renderBackground['background-size'] && renderBackground['background-size'] ? renderBackground['background-size'] : ''}
-                onSelectImage={(media, backgroundType) => onSelectImage(media, backgroundType)}
-                onChangeImageOptions={(mainKey, value, backgroundType) => onChangeImageOptions(mainKey, value, backgroundType)}
+                onSelectImage={(media) => onSelectImage(media)}
+                onChangeImageOptions={(mainKey, value) => onChangeImageOptions(mainKey, value)}
                 backgroundType={undefined !== renderBackground['background-type'] && renderBackground['background-type'] ? renderBackground['background-type'] : 'color'}
                 allowGradient={true}
                 allowImage={true}
@@ -204,21 +209,21 @@ const BackgroundComponent = props => {
 
 
     };
-    const handleChangeGradient = (gradient, backgroundType) => {
+    const handleChangeGradient = (gradient) => {
+
+
         let obj = {
             ...props_value
         };
         if (responsive) {
             obj[device]['background-gradient'] = gradient;
-            obj[device]['background-type'] = 'gradient';
         } else {
             obj['background-gradient'] = gradient;
-            obj['background-type'] = 'gradient';
         }
         updateValue(obj)
     }
 
-    const handleChangeComplete = (color, backgroundType) => {
+    const handleChangeComplete = (color) => {
         let value = '';
 
         if (color) {
@@ -236,10 +241,8 @@ const BackgroundComponent = props => {
         };
         if (responsive) {
             obj[device]['background-color'] = value;
-            obj[device]['background-type'] = 'color';
         } else {
             obj['background-color'] = value;
-            obj['background-type'] = 'color';
         }
         updateValue(obj)
     };

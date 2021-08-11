@@ -466,18 +466,18 @@ function get_background_css(bg_obj) {
   } else {
     switch (bg_type) {
       case 'color':
-        if ("" != bg_color) {
+        if (bg_color) {
           gen_bg_css = "background-color: " + bg_color + ";";
           gen_bg_css += "background-image: none;";
         }
         break;
       case 'gradient':
-        if ("" != bg_gradient) {
+        if (bg_gradient) {
           gen_bg_css += "background-image: " + bg_gradient + ";";
         }
         break;
       case 'image':
-        if ("" != bg_img) {
+        if (bg_img) {
           gen_bg_css = "background-image: url(" + bg_img + ");";
           var backgroundRepeat =
             "undefined" != typeof bg_obj["background-repeat"]
@@ -514,7 +514,7 @@ function get_background_css(bg_obj) {
             gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
           }
         }
-        if ("" != bg_color) {
+        if (bg_color) {
           gen_bg_css += "background-color: " + bg_color + ";";
         }
         break;

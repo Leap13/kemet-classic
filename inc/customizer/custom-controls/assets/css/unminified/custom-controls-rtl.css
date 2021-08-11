@@ -315,12 +315,13 @@
   align-items: center;
   cursor: pointer;
 }
-.color-button-wrap:nth-child(1)
+.background-container
+  .color-button-wrap
   .kemet-color-picker-wrap
   .kemet-popover-color::before {
   position: absolute;
   content: "";
-  right: calc(100% - 55px);
+  right: calc(100% - 22px);
   border-style: solid;
   top: 3px;
   border-width: 0 6px 7px 6px;
@@ -336,14 +337,41 @@
   height: 38px;
   width: 38px;
 }
-.background-container
-  .color-button-wrap
-  .components-button.kemet-color-icon-indicate
-  .component-color-indicator.kemet-advanced-color-indicate {
+.background-container .kemet-color-icon-indicate.components-button {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   margin: 0;
+  background-color: #fff;
+}
+.background-container .kemet-color-icon-indicate[data-background-type="image"] {
+  background-image: var(--background-image);
+  background-position: var(--background-position);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.background-container
+  .kemet-color-icon-indicate[data-background-type="gradient"] {
+  background-image: var(--background-image);
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+.background-container .kemet-color-picker-wrap {
+  position: absolute;
+  z-index: 99999;
+  top: 32px;
+  right: 2px;
+  left: 0;
+  bottom: 0;
+  height: max-content;
+}
+.components-circular-option-picker__custom-clear-wrapper {
+  justify-content: initial;
+}
+.color-button-wrap .kemet-image-indicate {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
 }
 
 .customize-control-kmt-tabs > ul.tabs {
@@ -6312,6 +6340,7 @@ i.fipicon-angle-left:before {
 }
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
+  padding-right: 2px;
 }
 .kemet-control-field .customize-control-title {
   font-size: 14px;
@@ -6322,7 +6351,13 @@ i.fipicon-angle-left:before {
   letter-spacing: 0.1px;
   line-height: 18px;
 }
-
+.kmt-color-container .customize-control-title {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
 .kmt-color-container {
   display: flex;
   align-items: center;
@@ -6371,12 +6406,9 @@ i.fipicon-angle-left:before {
   transition: none;
   border-radius: 50%;
   padding: 0;
-  background-image: linear-gradient(-45deg, #ddd 25%, transparent 0),
-    linear-gradient(45deg, #ddd 25%, transparent 0),
-    linear-gradient(-45deg, transparent 75%, #ddd 0),
-    linear-gradient(45deg, transparent 75%, #ddd 0);
-  background-size: 10px 10px;
-  background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 /** Color */
@@ -6616,6 +6648,7 @@ i.fipicon-angle-left:before {
   margin-top: 10px;
   background-color: #ffffff;
   border-radius: 4px;
+  height: max-content;
 }
 
 .kmt-field-settings-modal .kemet-popover-color {
@@ -6642,6 +6675,18 @@ i.fipicon-angle-left:before {
   left: 0;
   bottom: 0;
   height: max-content;
+}
+.kmt-color-picker-container
+  .color-button-wrap:nth-child(3)
+  .kemet-color-picker-wrap
+  .kemet-popover-color::before {
+  position: absolute;
+  content: "";
+  right: calc(100% - 97px);
+  border-style: solid;
+  top: 3px;
+  border-width: 0 6px 7px 6px;
+  border-color: transparent transparent #ffffff transparent;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(2)
@@ -6716,15 +6761,26 @@ i.fipicon-angle-left:before {
   padding: 0 8px;
 }
 /* Reset Button CSS */
-
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button {
+.kmt-color-btn-reset-wrap {
+  width: 3px;
+}
+.kmt-color-control-wrap:hover
+  .kmt-color-btn-reset-wrap
+  .kmt-reset-btn.components-button:not(:disabled)
+  span {
+  opacity: 1;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button {
   color: #006ba1;
   font-size: 10px;
   padding: 4px;
   background: transparent;
   box-shadow: none;
+  transform: translate3d(26px, 0, 0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
 }
+/*   */
 .kmt-color-btn-reset-wrap .kmt-reset-btn.components-button span,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button span {
   font-size: 10px !important;
@@ -6748,11 +6804,12 @@ i.fipicon-angle-left:before {
   padding: 1.5px;
   border: none;
 }
+
 .kemet-color-clear-button.components-button.is-secondary:disabled,
 .kmt-reset-btn.components-button.is-secondary:disabled span {
   color: #c5c5c5;
   font-size: 16px;
-  display: none;
+  opacity: 0;
 }
 /** Inside Setting group popup - Colors */
 .kmt-field-settings-modal .color-button-wrap {

@@ -24,7 +24,16 @@ a.wp-block-button__link,
     box-shadow: none;
   }
 }
-
+.kmt-widget-area {
+  .wp-block-buttons {
+    > .wp-block-button {
+      margin: 0;
+    }
+  }
+  .wp-block-button__link {
+    margin-bottom: 0;
+  }
+}
 .wp-block-button__link {
   margin-bottom: 10px;
 }
