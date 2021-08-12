@@ -366,7 +366,8 @@
   bottom: 0;
   height: max-content;
 }
-.components-circular-option-picker__custom-clear-wrapper {
+.components-circular-option-picker.kmt-gradient-color-picker
+  .components-circular-option-picker__custom-clear-wrapper {
   justify-content: initial;
 }
 .color-button-wrap .kemet-image-indicate {
