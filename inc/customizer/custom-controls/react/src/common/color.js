@@ -213,6 +213,9 @@ class KemetColorPickerControl extends Component {
 
 
                     }}>
+                        <i className="kmt-tooltip-top">
+                            {this.state.text}
+                        </i>
                     </Button>
 
                     {isVisible ? (
@@ -425,35 +428,53 @@ class KemetColorPickerControl extends Component {
 
         return (
             <>
-                <div className="kmt-control">
-                    <MediaUpload
-                        title={__("Select Background Image", 'astra')}
-                        onSelect={(media) => this.onSelectImage(media)}
-                        allowedTypes={["image"]}
-                        value={(this.props.media && this.props.media ? this.props.media : '')}
-                        render={({ open }) => (
-                            <>
 
-                                {!this.props.media &&
+
+                <MediaUpload
+                    title={__("Select Background Image", 'astra')}
+                    onSelect={(media) => this.onSelectImage(media)}
+                    allowedTypes={["image"]}
+                    value={(this.props.media && this.props.media ? this.props.media : '')}
+                    render={({ open }) => (
+                        <>
+                            {!this.props.media &&
+                                <div className="kmt-control kmt-image-actions">
                                     < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
                                         {__("Select Background Image", 'Kemet')}
                                     </Button>
-                                }
-                            </>
-                        )}
-                    />
-                </div>
-                {(this.props.media && this.props.backgroundType === "image") &&
-                    <div className='kmt-control'>
-                        <div className={`thumbnail thumbnail-image`}>
-                            <FocalPointPicker
-                                url={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage}
-                                dimensions={dimensions}
-                                value={(undefined !== this.props.backgroundPosition ? this.props.backgroundPosition : { x: 0.5, y: 0.5 })}
-                                onChange={(focalPoint) => this.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
-                            />
+                                </div>
+                            }
+                            {(this.props.media && this.props.backgroundType === "image") &&
+                                <div className=" kmt-image-actions">
+                                    <div className="actions">
+                                        <Button type="button" className="button remove-image" onClick={this.onRemoveImage} >
+                                        </Button>
+                                        <Button type="button" className="button edit-image" onClick={() => this.open(open)}>
+                                        </Button>
+                                    </div>
+                                </div>}
+
+                        </>
+                    )}
+                />
+
+                {
+                    (this.props.media && this.props.backgroundType === "image") &&
+                    <>
+                        <div className='kmt-control'>
+                            <div className={`thumbnail thumbnail-image`}>
+                                <FocalPointPicker
+                                    url={(this.props.media.url) ? this.props.media.url : this.props.backgroundImage}
+                                    dimensions={dimensions}
+                                    value={(undefined !== this.props.backgroundPosition ? this.props.backgroundPosition : { x: 0.5, y: 0.5 })}
+                                    onChange={(focalPoint) => this.onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
+                                />
+
+                            </div>
+
                         </div>
-                    </div>
+
+                    </>
                 }
                 <div className='kmt-control'>
                     <header><label>{__('Background Repeat')}</label></header>
@@ -502,7 +523,6 @@ class KemetColorPickerControl extends Component {
                         </ul>
                     </section>
                 </div>
-
                 <div className='kmt-control'>
                     <header><label>{__('Background Attachment')}</label></header>
                     <section>

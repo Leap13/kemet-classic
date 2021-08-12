@@ -33,13 +33,6 @@ const ColorComponent = props => {
     let optionsHtml = null;
     let innerOptionsHtml = null;
 
-    useEffect(() => {
-        // If settings are changed externally.
-        if (state.value !== value) {
-            setState(value);
-        }
-    }, []);
-
     const updateValues = (value) => {
         let UpdatedState = { ...state };
         if (responsive) {
@@ -49,7 +42,6 @@ const ColorComponent = props => {
 
             UpdatedState = value
         }
-
         props.onChange({ ...UpdatedState, flag: !value.flag });
         setState(UpdatedState)
     };
@@ -58,8 +50,8 @@ const ColorComponent = props => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
-                    disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
+                    className="kmt-reset-btn "
+                    disabled={JSON.stringify(state) === JSON.stringify(defaultValue) ? true : false}
                     onClick={e => {
                         e.preventDefault();
                         let value = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
@@ -90,7 +82,6 @@ const ColorComponent = props => {
 
         updateValues(value);
     };
-
 
     if (responsive) {
         responsiveHtml = <Responsive
@@ -128,7 +119,6 @@ const ColorComponent = props => {
         return innerOptionsHtml
 
     }
-
 
     if (responsive) {
         optionsHtml = <>
