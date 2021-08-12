@@ -33,14 +33,14 @@ const ColorComponent = props => {
     let optionsHtml = null;
     let innerOptionsHtml = null;
 
-    const updateValues = (value) => {
+    const updateValues = (obj) => {
         let UpdatedState = { ...state };
         if (responsive) {
-            UpdatedState[device] = value
+            UpdatedState[device] = obj
         }
         else {
 
-            UpdatedState = value
+            UpdatedState = obj
         }
         props.onChange({ ...UpdatedState, flag: !value.flag });
         setState(UpdatedState)

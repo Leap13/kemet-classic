@@ -6864,34 +6864,6 @@ var BackgroundComponent = function BackgroundComponent(props) {
     }));
   };
 
-  var updateBackgroundType = function updateBackgroundType(device) {
-    var value = props.value;
-
-    var obj = _objectSpread({}, value);
-
-    if (!props_value[device]['background-type']) {
-      var deviceObj = _objectSpread({}, obj[device]);
-
-      if (props_value[device]['background-color']) {
-        deviceObj['background-type'] = 'color';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-
-      if (props_value[device]['background-gradient']) {
-        deviceObj['background-type'] = 'gradient';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-
-      if (props_value[device]['background-image']) {
-        deviceObj['background-type'] = 'image';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-    }
-  };
-
   var responsiveHtml;
 
   if (responsive) {
@@ -7180,13 +7152,13 @@ var ColorComponent = function ColorComponent(props) {
   var optionsHtml = null;
   var innerOptionsHtml = null;
 
-  var updateValues = function updateValues(value) {
+  var updateValues = function updateValues(obj) {
     var UpdatedState = _objectSpread({}, state);
 
     if (responsive) {
-      UpdatedState[device] = value;
+      UpdatedState[device] = obj;
     } else {
-      UpdatedState = value;
+      UpdatedState = obj;
     }
 
     props.onChange(_objectSpread(_objectSpread({}, UpdatedState), {}, {

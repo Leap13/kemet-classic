@@ -73,37 +73,7 @@ const BackgroundComponent = props => {
         props.onChange({ ...obj, flag: !value.flag });
     }
 
-    const updateBackgroundType = (device) => {
-        let value = props.value;
-        let obj = {
-            ...value
-        };
 
-        if (!props_value[device]['background-type']) {
-            let deviceObj = {
-                ...obj[device]
-            };
-
-            if (props_value[device]['background-color']) {
-                deviceObj['background-type'] = 'color';
-                obj[device] = deviceObj;
-                updateValue(obj);
-
-
-            }
-            if (props_value[device]['background-gradient']) {
-                deviceObj['background-type'] = 'gradient';
-                obj[device] = deviceObj;
-                updateValue(obj);
-            }
-
-            if (props_value[device]['background-image']) {
-                deviceObj['background-type'] = 'image';
-                obj[device] = deviceObj;
-                updateValue(obj);
-            }
-        }
-    };
 
     let responsiveHtml;
 
