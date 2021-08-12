@@ -410,3 +410,13 @@
 .components-circular-option-picker__custom-clear-wrapper {
   justify-content: initial;
 }
+.kmt-color-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(-19px, 0, 0);
+  outline: 0;
+  border: 0;
+}
