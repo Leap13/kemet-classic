@@ -415,6 +415,16 @@
 .components-circular-option-picker__custom-clear-wrapper {
   justify-content: initial;
 }
+.kmt-color-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(19px, 0, 0);
+  outline: 0;
+  border: 0;
+}
 
 .customize-control-kmt-tabs > ul.tabs {
   display: flex;
@@ -6546,7 +6556,6 @@ i.fipicon-angle-left:before {
     linear-gradient(45deg, #ddd 25%, transparent 0),
     linear-gradient(-45deg, transparent 75%, #ddd 0),
     linear-gradient(45deg, transparent 75%, #ddd 0);
-  border: 1px solid #dadada;
   background-size: 10px 10px;
   background-position: 100% 0, 100% 5px, 5px -5px, -5px 0;
 }
@@ -6808,6 +6817,7 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   width: 3px;
+  margin-top: 4px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
