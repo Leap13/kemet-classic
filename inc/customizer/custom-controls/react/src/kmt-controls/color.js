@@ -33,23 +33,15 @@ const ColorComponent = props => {
     let optionsHtml = null;
     let innerOptionsHtml = null;
 
-    useEffect(() => {
-        // If settings are changed externally.
-        if (state.value !== value) {
-            setState(value);
-        }
-    }, []);
-
-    const updateValues = (value) => {
+    const updateValues = (obj) => {
         let UpdatedState = { ...state };
         if (responsive) {
-            UpdatedState[device] = value
+            UpdatedState[device] = obj
         }
         else {
 
-            UpdatedState = value
+            UpdatedState = obj
         }
-
         props.onChange({ ...UpdatedState, flag: !value.flag });
         setState(UpdatedState)
     };
@@ -91,7 +83,6 @@ const ColorComponent = props => {
         updateValues(value);
     };
 
-
     if (responsive) {
         responsiveHtml = <Responsive
             onChange={(currentDevice) => setDevice(currentDevice)}
@@ -128,7 +119,6 @@ const ColorComponent = props => {
         return innerOptionsHtml
 
     }
-
 
     if (responsive) {
         optionsHtml = <>
