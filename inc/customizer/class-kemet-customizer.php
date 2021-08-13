@@ -660,6 +660,8 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-bottom-footer-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-footer-widget-customizer.php';
 			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-footer-copyright-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-footer-menu-customizer.php';
+			require KEMET_THEME_DIR . 'inc/customizer/sections/layout/footer/class-kemet-footer-buttons-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 

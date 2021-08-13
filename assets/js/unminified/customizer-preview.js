@@ -348,7 +348,7 @@ function kemet_responsive_slider(control, selector, type) {
 function kemet_responsive_css(control, selector, type) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
-      console.log(value);
+
       var selectType = "text-align";
       if (value.desktop || value.tablet || value.mobile) {
         if (typeof type != undefined) {
