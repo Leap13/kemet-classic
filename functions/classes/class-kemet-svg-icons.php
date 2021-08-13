@@ -86,11 +86,16 @@ class Kemet_Svg_Icons {
 					</svg>';
 					break;
                 case 'menu':
-                    $output = '<svg width="18" height="14" data-name="Layer 1" viewBox="0 0 70.4 69.4" xmlns="http://www.w3.org/2000/svg">
-                    <path transform="translate(-12.3 -12.8)" d="M14.8,17.8H80.2a2.5,2.5,0,0,0,0-5H14.8a2.5,2.5,0,0,0,0,5Z"/>
-                    <path transform="translate(-12.3 -12.8)" d="M80.2,77.2H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
-                    <path transform="translate(-12.3 -12.8)" d="M80.2,45H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
-                    </svg>';
+                    // $output = '<svg width="18" height="14" data-name="Layer 1" viewBox="0 0 70.4 69.4" xmlns="http://www.w3.org/2000/svg">
+                    // <path transform="translate(-12.3 -12.8)" d="M14.8,17.8H80.2a2.5,2.5,0,0,0,0-5H14.8a2.5,2.5,0,0,0,0,5Z"/>
+                    // <path transform="translate(-12.3 -12.8)" d="M80.2,77.2H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
+                    // <path transform="translate(-12.3 -12.8)" d="M80.2,45H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
+                    // </svg>';
+					$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16">
+					<path d="M1,11H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,11Z" transform="translate(0 -4)"/>
+					<path d="M1,4H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1A1,1,0,0,1,0,5H0A1,1,0,0,1,1,4Z" transform="translate(0 -4)"/>
+					<path d="M1,18H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,18Z" transform="translate(0 -4)"/>
+					</svg>';
                     break;
                 case 'close':
                     $output = '<svg data-name="Layer 1" viewBox="0 0 51.3 51.3" xmlns="http://www.w3.org/2000/svg">

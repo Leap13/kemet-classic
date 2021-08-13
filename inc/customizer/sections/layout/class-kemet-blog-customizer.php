@@ -17,7 +17,20 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
+		$blog_post_selector = '.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post ';
 		$register_options = array(
+			'blog-layouts'  => array(
+				'label'    => __( 'Blog Layouts', 'kemet' ),
+				'type'     => 'kmt-radio',
+				'choices'  => array(
+					'blog-layout-1' => __( 'blog-layout-1', 'kemet' ),
+					'blog-layout-2' => __( 'blog-layout-2', 'kemet' ),
+					'blog-layout-3' => __( 'blog-layout-3', 'kemet' ),
+					'blog-layout-4' => __( 'blog-layout-4', 'kemet' ),
+					'blog-layout-5' => __( 'blog-layout-5', 'kemet' ),
+				),
+
+			),
 			'blog-controls-tabs'        => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
@@ -54,6 +67,134 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'blog-grids'  => array(
+								'type'     => 'kmt-radio',
+								'label'    => __( 'Blog Columns', 'kemet' ),
+								//'responsive' => true,
+								'choices'  => array(
+									1 => __( '1', 'kemet'),
+									2 => __( '2', 'kemet'),
+									3 => __( '3', 'kemet'),
+									4 => __( '4', 'kemet'),
+								),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'value'   => 'blog-layout-2',
+									),
+								),
+							),
+							'post-image-position'  => array(
+								'type'     => 'kmt-select',
+								'label'    => __( 'Image Position', 'kemet' ),
+								'choices'  => array(
+									'left'  => __( 'Left', 'kemet' ),
+									'right' => __( 'Right', 'kemet' ),
+								),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'value'   => 'blog-layout-5',
+									),
+								),
+							),
+							'blog-posts-border-size'  => array (
+								'type'        => 'kmt-slider',
+								'label'       => __( 'Posts Border Size', 'kemet' ),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'value'   => 'blog-layout-3',
+									),
+								),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 50,
+									),
+								),
+
+							),
+							'layout-2-post-border-size'  => array (
+								'transport'      => 'postMessage',
+								'type'           => 'kmt-spacing',
+								'label'          => __( 'Posts Border Size', 'kemet' ),
+								'linked_choices' => true,
+								'responsive' => true,
+								'unit_choices'   => array( 'px' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'value'   => 'blog-layout-2',
+									),
+								),
+								'preview'      => array(
+									'selector' => $blog_post_selector,
+									'property' => '--borderWidth',
+									'sides'      => false,
+									'responsive' => true,
+								),
+							),
+							'blog-posts-border-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Posts Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'operator' => 'in_array',
+										'value'   => array( 'blog-layout-2', 'blog-layout-3' ),
+									),
+								),
+							),
+							'blog-title-meta-border-size'   => array(
+								'type'        => 'kmt-slider',
+								'label'       => __( 'Title & Meta Border Size', 'kemet' ),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'value'   => 'blog-layout-3',
+									),
+								),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 50,
+									),
+								),
+							),
+							'blog-title-meta-border-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Title & Meta Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'context'      => array(
+									array(
+										'setting' => 'blog-layouts',
+										'operator' => 'in_array',
+										'value'   => array( 'blog-layout-3', 'blog-layout-3' ),
+									),
+								),
+							),
 							'blog-post-structure' => array(
 								'type'    => 'kmt-sortable',
 								'label'   => __( 'Blog Post Structure', 'kemet' ),
@@ -61,6 +202,13 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'image'            => __( 'Featured Image', 'kemet' ),
 									'title-meta'       => __( 'Title & Blog Meta', 'kemet' ),
 									'content-readmore' => __( 'Content & Readmore', 'kemet' ),
+								),
+								'context'   => array(
+									array(
+										'setting' => 'blog-layouts',
+										'operator' => 'in_array',
+										'value'    => array( 'blog-layout-1', 'blog-layout-2' ),
+									),
 								),
 							),
 							'blog-meta'           => array(
@@ -89,6 +237,19 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'excerpt'      => __( 'Excerpt', 'kemet' ),
 								),
 							),
+							'blog-excerpt-length'  => array(
+								'type'        => 'kmt-slider',
+								'label'       => __( 'Excerpt Length', 'kemet' ),
+								'transport'    => 'postMessage',
+								'unit_choices' => array(
+									'' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 500,
+									),
+								),
+							)
+							
 						),
 					),
 					'design'  => array(
@@ -575,6 +736,167 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			'kmt-overlay-title'       => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Overlay Image Style', 'kemet' ),
+			),
+			'overlay-image-style'  => array(
+				'type'     => 'kmt-select',
+				'label'    => __( 'Overlay Styles', 'kemet' ),
+				'transport'      => 'postMessage',
+				'choices' => array(
+					'none'     => __( 'None', 'kemet' ),
+					'framed'   => __( 'Framed', 'kemet' ),
+					'diagonal' => __( 'Diagonal', 'kemet' ),
+					'bordered' => __( 'Bordered', 'kemet' ),
+					'squares'  => __( 'Squares', 'kemet' ),
+				),
+			),
+			'hover-image-effect'  => array(
+				'type'     => 'kmt-select',
+				'label'    => __( 'Hover Image Effect', 'kemet' ),
+				'transport'      => 'postMessage',
+				'choices' => array(
+					'none'      => __( 'None', 'kemet' ),
+					'zoom-in'   => __( 'Zoom In', 'kemet' ),
+					'zoom-out'  => __( 'Zoom Out', 'kemet' ),
+					'scale'     => __( 'Scale', 'kemet' ),
+					'grayscale' => __( 'Grayscale', 'kemet' ),
+				),
+			),
+			'overlay-image-bg-color'  => array(
+				'type'       => 'kmt-background',
+				'transport'  => 'postMessage',
+				'label'      => __( 'Overlay Image Background Color', 'kemet' ),
+				'allowImage' => false,
+				'context'  => array (
+					array (
+					'setting' => 'overlay-image-style',
+					'operator' => 'in_array',
+					'value'    => array( 'framed', 'squares' ),
+					),
+				),
+			),
+			'blog-container-inner-spacing'  => array(
+				'transport'      => 'postMessage',
+				'type'           => 'kmt-spacing',
+				'label'          => __( 'Blog Container Spacing', 'kemet' ),
+				'linked_choices' => true,
+				'responsive'     => true,
+				'unit_choices'   => array( 'px' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+			),
+			'post-margin-bottom'   => array(
+				'type'         => 'kmt-slider',
+				'transport'    => 'postMessage',
+				'label'        => __( 'Post Margin Spacing', 'kemet' ),
+				'responsive'   => true,
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 500,
+					),
+				),
+			),
+			'kemet-blog-pagination-title'       => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Pagination Style', 'kemet' ),
+			),
+			'blog-pagination-style'  => array(
+				'type'         => 'kmt-select',
+				'transport'    => 'postMessage',
+				'label'        => __( 'Pagination Type', 'kemet'),
+				'choices'  => array(
+					'next-prev'       => __( 'Next/Prev', 'kemet' ),
+					'standard'        => __( 'Standard', 'kemet' ),
+					'infinite-scroll' => __( 'Infinite', 'kemet' ),
+				),
+			),
+			'blog-pagination-border-color'  => array(
+				'type'    => 'kmt-color',
+				'label'   =>  __( 'Pagination Border Color'),
+				'transport'    => 'postMessage',
+				'pickers'   => array(
+					array(
+						'title' => __( 'Color', 'kemet' ),
+						'id'    => 'initial',
+					),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'blog-pagination-style',
+						'value'   => 'standard',
+					),
+				),
+			),
+			'load-more-style'  => array(
+				'label'    => __( 'Load More Style', 'kemet' ),
+				'type'     => 'kmt-radio',
+				'choices'  => array(
+					'dots'   => __( 'Dots', 'kemet' ),
+					'button' => __( 'Button', 'kemet' ),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'blog-pagination-style',
+						'value'   => 'infinite-scroll',
+					),
+				),
+			),
+			'blog-infinite-loader-color' => array(
+				'type'    => 'kmt-color',
+				'label'   =>  __( 'Infinite Scroll Loader Color'),
+				'transport'    => 'postMessage',
+				'pickers'   => array(
+					array(
+						'title' => __( 'Color', 'kemet' ),
+						'id'    => 'initial',
+					),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'load-more-style',
+						'value'   => 'dots',
+					),
+				),
+			),
+			'kmt-featured-image'   => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Featured Image Settings', 'kemet' ),
+			),
+			'blog-featured-image-width'  => array(
+				'type'         => 'kmt-slider',
+				'transport'    => 'postMessage',
+				'label'        => __( 'Featured Image Custom Width', 'kemet' ),
+				'responsive'   => true,
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 1200,
+					),
+				),
+			),
+			'blog-featured-image-height'  => array(
+				'type'         => 'kmt-slider',
+				'transport'    => 'postMessage',
+				'label'        => __( 'Featured Image Custom Height', 'kemet' ),
+				'responsive'   => true,
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 1200,
+					),
+				),
+			),
+
 		);
 
 		$register_options = array(
