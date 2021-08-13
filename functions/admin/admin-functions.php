@@ -21,10 +21,8 @@ if ( ! function_exists( 'kemet_register_menu_locations' ) ) {
 		 */
 		register_nav_menus(
 			array(
-				// 'primary'     => __( 'Primary Menu', 'kemet' ),
-				'top_menu'    => __( 'Top Menu', 'kemet' ),
-				'left_menu'   => __( 'Left Menu', 'kemet' ),
-				'footer_menu' => __( 'Footer Menu', 'kemet' ),
+				'top_menu'  => __( 'Top Menu', 'kemet' ),
+				'left_menu' => __( 'Left Menu', 'kemet' ),
 			)
 		);
 	}

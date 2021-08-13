@@ -47,6 +47,58 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 			add_action( 'kemet_render_footer_column', array( $this, 'render_column' ), 10, 2 );
 			add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 			add_action( 'kemet_footer_copyright', array( $this, 'render_copyright' ) );
+			add_action( 'init', array( $this, 'register_menu_locations' ) );
+			add_action( 'kemet_footer_menu', array( $this, 'get_footer_menu' ) );
+		}
+
+		/**
+		 * Function to get Footer Menu
+		 *
+		 * @return html
+		 */
+		public function get_footer_menu() {
+			ob_start();
+
+			if ( has_nav_menu( 'footer-menu' ) ) {
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'footer-menu',
+						'menu'            => apply_filters( 'kemet_' . 'footer-menu' . '_slug', 'footer-menu' ),
+						'menu_id'         => 'footer-menu',
+						'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-center',
+						'container'       => 'div',
+						'container_class' => 'main-header-bar-navigation',
+						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'depth'           => 1,
+					)
+				);
+			} else {
+				if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
+					?>
+					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'kemet' ); ?></a>
+					<?php
+				}
+			}
+
+			echo ob_get_clean();
+		}
+
+		/**
+		 * Register menus
+		 */
+		public function register_menu_locations() {
+			$menu_items = apply_filters(
+				'kemet_footer_register_menu_items',
+				array(
+					'footer-menu' => 'Footer Menu',
+				)
+			);
+			/**
+			 * Menus
+			 */
+			register_nav_menus(
+				$menu_items
+			);
 		}
 
 		/**
@@ -133,8 +185,8 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 		public static function render_column_content( $column, $row, $builder = 'footer' ) {
 			$items = kemet_get_option( $builder . '-items' );
 			foreach ( $items[ $row ][ $row . '_' . $column ] as $key => $item ) {
-				if ( false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) || false !== strpos( $item, 'button' ) ) {
-					$type = ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'html' ) ) || ( false !== strpos( $item, 'mobile' ) && false !== strpos( $item, 'button' ) ) ? explode( '-', str_replace( 'mobile-', '', $item ) )[1] : explode( '-', $item )[1];
+				if ( false !== strpos( $item, 'menu' ) || false !== strpos( $item, 'widget' ) ) {
+					$type = explode( '-', $item )[1];
 					get_template_part( 'templates/' . $builder . '/components/' . $type, 'type', array( 'type' => $item ) );
 				} else {
 					get_template_part( 'templates/' . $builder . '/components/' . $item );

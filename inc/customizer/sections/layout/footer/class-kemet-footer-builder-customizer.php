@@ -34,6 +34,11 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'welcome-write-blog',
 							'section' => 'section-footer-copyright',
 						),
+						'footer-menu'     => array(
+							'name'    => __( 'Footer Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-footer-menu',
+						),
 						'footer-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
@@ -107,13 +112,20 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 		);
 
 		$layout_options = array(
-			'footer-availble-items' => array(
+			'footer-availble-items'        => array(
 				'label'       => __( 'Available Items', 'kemet' ),
 				'transport'   => 'postMessage',
 				'type'        => 'kmt-available',
 				'input_attrs' => array(
 					'group' => 'footer-items',
 					'zones' => array( 'top', 'main', 'bottom' ),
+				),
+			),
+			'foucs-footer-buttons-section' => array(
+				'type'          => 'kmt-focus-button',
+				'button_params' => array(
+					'title'   => __( 'Buttons Styles', 'kemet-addons' ),
+					'section' => 'section-footer-buttons',
 				),
 			),
 		);

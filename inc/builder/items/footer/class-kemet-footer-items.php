@@ -44,6 +44,7 @@ if ( ! class_exists( 'Kemet_Footer_Items' ) ) :
 			require KEMET_FOOTER_ITEMS_DIR . 'bottom-footer/class-kemet-bottom-footer.php';
 			require KEMET_FOOTER_ITEMS_DIR . 'widget/class-kemet-footer-widget-item.php';
 			require KEMET_FOOTER_ITEMS_DIR . 'copyright/class-kemet-footer-copyright-item.php';
+			require KEMET_FOOTER_ITEMS_DIR . 'menu/class-kemet-footer-menu-item.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 	}

@@ -109,4 +109,9 @@
 .site-footer {
   position: relative;
   overflow: hidden;
+  .main-navigation {
+    ul {
+      background-color: var(--backgroundColor);
+    }
+  }
 }

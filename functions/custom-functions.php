@@ -391,39 +391,6 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 }
 
 /**
- * Function to get Small Left/Right Footer
- */
-if ( ! function_exists( 'kemet_get_copyright_footer' ) ) {
-
-	/**
-	 * Function to get Small Left/Right Footer
-	 *
-	 * @param string $section   Sections of Small Footer.
-	 * @return mixed            Markup of sections.
-	 */
-	function kemet_get_copyright_footer( $section = '' ) {
-		$copyright_footer_type = kemet_get_option( $section );
-		$output                = null;
-
-		switch ( $copyright_footer_type ) {
-			case 'menu':
-				$output = kemet_get_copyright_footer_menu();
-				break;
-
-			case 'custom':
-				$output = kemet_get_copyright_footer_custom_text( $section . '-part' );
-				break;
-
-			case 'widget':
-				$output = kemet_get_custom_widget( $section );
-				break;
-		}
-
-		return $output;
-	}
-}
-
-/**
  * Function to get Small Footer Custom Text
  */
 if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
@@ -453,42 +420,6 @@ if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
 		}
 
 		return do_shortcode( $output );
-	}
-}
-
-/**
- * Function to get Footer Menu
- */
-if ( ! function_exists( 'kemet_get_copyright_footer_menu' ) ) {
-
-	/**
-	 * Function to get Footer Menu
-	 *
-	 * @return html
-	 */
-	function kemet_get_copyright_footer_menu() {
-		ob_start();
-
-		if ( has_nav_menu( 'footer_menu' ) ) {
-			wp_nav_menu(
-				array(
-					'container'       => 'div',
-					'container_class' => 'footer-primary-navigation',
-					'theme_location'  => 'footer_menu',
-					'menu_class'      => 'nav-menu',
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-					'depth'           => 1,
-				)
-			);
-		} else {
-			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
-				?>
-					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Footer Menu', 'kemet' ); ?></a>
-				<?php
-			}
-		}
-
-		return ob_get_clean();
 	}
 }
 

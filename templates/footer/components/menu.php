@@ -1,0 +1,25 @@
+<?php
+/**
+ * Template part for displaying the footer menu
+ *
+ * @package kemet
+ */
+
+$slug = wp_parse_args(
+	$args,
+	array(
+		'type' => 'footer-menu',
+	)
+);
+$slug = $slug['type'];
+?>
+<div class="kmt-footer-item kmt-footer-item-menu">
+	<?php
+	/**
+	 * Kemet Footer Menu
+	 *
+	 * Hooked kemet_footer_menu
+	 */
+	do_action( 'kemet_footer_menu', $slug );
+	?>
+</div>
