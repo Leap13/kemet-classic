@@ -34,6 +34,12 @@ require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-fonts.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-gutenberg-editor-style.php';
 
 /**
+ * Kemet SVG Icons
+ */
+require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-svg-icons.php';
+
+remove_theme_support('widgets-block-editor');
+/**
  * Functions.
  */
 require_once KEMET_THEME_DIR . 'functions/helper-options-functions.php';
@@ -48,6 +54,8 @@ require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
 require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog.php';
+require_once KEMET_THEME_DIR . 'inc/blog/blog-helper.php';
+require_once KEMET_THEME_DIR . 'inc/blog/class-blog-layout-partials.php';
 require_once KEMET_THEME_DIR . 'inc/blog/single-blog.php';
 require_once KEMET_THEME_DIR . 'inc/builder/class-kemet-builder.php';
 require_once KEMET_THEME_DIR . 'functions/template-parts.php';

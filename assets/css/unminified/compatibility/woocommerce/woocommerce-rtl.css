@@ -264,6 +264,7 @@ p.demo_store a,
   position: relative;
 }
 
+<<<<<<< HEAD
 .kmt-cart-menu-wrap .count.icon-bag:before {
   content: "\e90f";
   display: inline-block;
@@ -275,6 +276,8 @@ p.demo_store a,
   position: relative;
 }
 
+=======
+>>>>>>> new-customizer-options-svg
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */

@@ -67,6 +67,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			add_action( 'kemet_header', array( $this, 'mobile_header_logo' ), 9 );
 			add_filter( 'kemet_header_class', array( $this, 'header_classes' ), 10, 1 );
 			add_filter( 'customizer_widgets_section_args', array( $this, 'customizer_custom_widget_areas' ), 10, 3 );
+			add_filter( 'get_search_form', array( $this, 'add_search_icon' ), 99 );
+			add_filter( 'get_product_search_form', array( $this, 'add_search_icon' ), 99 );
+
 		}
 
 		/**
@@ -292,6 +295,18 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 					)
 				)
 			);
+		}
+
+		/**
+		 * Add Search Icon
+		 *
+		 * @param string $markup search form markup.
+		 *
+		 * @return mixed
+		 */
+		public function add_search_icon( $markup ) {
+			$markup = str_replace( '</form>', '<div class="kemet-search-svg-icon-wrap">' . Kemet_Svg_Icons::get_icons( 'search' ) . '</div></form>', $markup );
+			return $markup;
 		}
 
 		/**
@@ -648,7 +663,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function get_toggle_button( $device ) {
 			$toggle_title        = trim( apply_filters( 'kemet_' . $device . '_toggle_label', kemet_get_option( 'header-' . $device . '-toggle-label' ) ) );
-			$toggle_icon         = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
+			//$toggle_icon         = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
 			$floating            = kemet_get_option( $device . '-toggle-button-float' );
 			$float_position      = kemet_get_option( $device . '-toggle-button-float-position' );
 			$classes             = array();
@@ -664,7 +679,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			?>
 			<button type="button" class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( implode( ' ', $classes ) ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
-				<i class="<?php echo esc_attr( $toggle_icon ); ?>"></i>
+				<?php echo Kemet_Svg_Icons::get_icons( 'menu' ); ?>
 				<?php if ( '' != $toggle_title ) { ?>
 					<span class="<?php echo esc_attr( $device ); ?>-popup-wrap">
 						<span class="<?php echo esc_attr( $device ); ?>-popup"><?php echo esc_html( $toggle_title ); ?></span>
@@ -713,7 +728,9 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 				<div class="kmt-popup-content kmt-<?php echo esc_attr( $device ); ?>-popup-content">
 					<div class="kmt-popup-header">
 						<button id="kmt-toggle-button-close" class="toggle-button-close">
-							<span class="kmt-close-icon"></span>
+							<span class="kmt-close-icon">
+								<?php echo Kemet_Svg_Icons::get_icons( 'close' ); ?> 
+							</span>
 						</button>
 					</div>
 					<div class="kmt-popup-body-content">

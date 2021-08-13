@@ -60,12 +60,13 @@
       vertical-align: middle;
       line-height: 2.05;
 
-      &:before {
-        content: "\e90c";
-        font-family: "Kemet-font";
-        text-decoration: inherit;
-        font-weight: 600;
-      }
+      // old code will remove
+      // &:before {
+      //   content: "\e90c";
+      //   font-family: "Kemet-font";
+      //   text-decoration: inherit;
+      //   font-weight: 600;
+      // }
     }
     &.toggled {
       .toggle-button-icon {
@@ -133,4 +134,42 @@
     float: right;
     text-align: right;
   }
+}
+.kmt-svg-icon {
+   pointer-events: none;
+	svg {
+		fill: currentColor;
+	}
+}
+.kmt-svg-icon {
+	&.icon-dropdown-menu {
+		svg {
+			position: relative;
+			margin-left: 10px;
+		}
+	}
+	&.icon-search {
+		svg {
+			height: 1em;
+			width: 0.9em;
+			margin-top: 3px;
+			margin-right: 2px;
+		}
+	}
+}
+#kmt-desktop-header {
+		.sub-menu {
+			.menu-item.menu-item-has-children {
+        .kmt-svg-icon {
+          &.icon-dropdown-menu {
+            svg {
+						position: absolute;
+						right: .60em;
+						top: 50%;
+						transform: translate(0, -50%) rotate(270deg);
+					}
+				}
+			}
+    }
+	}
 }
