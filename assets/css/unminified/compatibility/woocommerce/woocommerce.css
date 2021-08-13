@@ -264,20 +264,6 @@ p.demo_store a,
   position: relative;
 }
 
-<<<<<<< HEAD
-.kmt-cart-menu-wrap .count.icon-bag:before {
-  content: "\e90f";
-  display: inline-block;
-  font-family: "Kemet-font";
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-rendering: auto;
-  vertical-align: middle;
-  position: relative;
-}
-
-=======
->>>>>>> new-customizer-options-svg
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
