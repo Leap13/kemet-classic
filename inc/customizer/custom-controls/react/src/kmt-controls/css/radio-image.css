@@ -1,7 +1,6 @@
 .customize-control-kmt-radio-image label {
   position: relative;
   display: inline-block;
-  margin: 0 5px 5px 0;
 }
 .customize-control-kmt-radio-image .image {
   display: flex;

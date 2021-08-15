@@ -74,9 +74,9 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 			$page_title_layout = apply_filters( 'kemet_the_page_title_layout', kemet_get_option( 'page-title-layouts' ) );
 			if ( 'disable' != $page_title_layout ) {
 				if ( 'page-title-layout-2' !== $page_title_layout ) {
-					get_template_part( 'templates/page-title/' . esc_attr( $page_title_layout ) . '.php' );
+					get_template_part( 'templates/page-title/' . esc_attr( $page_title_layout ) );
 				} else {
-					get_template_part( 'templates/page-title/page-title-layout-1.php' );
+					get_template_part( 'templates/page-title/page-title-layout-1' );
 				}
 			}
 			$header_merged_title = kemet_get_option( 'merge-with-header' );

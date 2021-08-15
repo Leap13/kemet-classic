@@ -1067,7 +1067,6 @@ function kemet_responsive_color_css(control, data) {
         }
         break;
       case "kmt-radio":
-        console.log(data);
         if (data.responsive) {
           delete data.responsive;
           kemet_responsive_css(control, data.selector, data.property);

@@ -10,7 +10,7 @@ const RadioComponent = (props) => {
     const [device, setDevice] = useState('desktop');
 
     const HandleChange = (value) => {
-        console.log(value);
+
         if (responsive) {
             props.onChange({ ...value, flag: !props.value.flag });
         } else {

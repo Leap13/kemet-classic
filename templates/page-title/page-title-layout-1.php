@@ -2,7 +2,7 @@
 /**
  * Page Title
  *
- * @package Kemet Addons
+ * @package Kemet
  */
 
 $post_title        = kemet_get_the_title();
