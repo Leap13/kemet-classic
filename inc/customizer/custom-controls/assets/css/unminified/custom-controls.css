@@ -6817,7 +6817,6 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   width: 3px;
-  margin-top: 4px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -7539,6 +7538,12 @@ i.fipicon-angle-left:before {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
+}
+.toggle-control-label {
+  font-weight: 600;
+}
+.components-base-control__field .components-form-toggle {
+  margin-right: 0px;
 }
 
 .customize-control-kmt-radio-image label {
