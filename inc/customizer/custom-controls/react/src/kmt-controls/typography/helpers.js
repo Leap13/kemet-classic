@@ -37,9 +37,12 @@ export const decideVariationToSelect = (newValue, oldValue) => {
 
 	if (newValue.all_variations.indexOf('n4') > -1) {
 		return 'n4'
+
 	}
 
 	return newValue.all_variations[0]
+
+
 }
 
 export const humanizeVariationsShort = (variation) => {

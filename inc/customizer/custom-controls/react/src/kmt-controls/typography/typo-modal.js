@@ -73,7 +73,7 @@ const TypographyModal = ({
     setCurrentView,
     setInititialView,
     onChange,
-    wrapperProps = {},
+    wrapperProps = {}
 }) => {
     const [typographyList, setTypographyList] = useState(
         getDefaultFonts(option)
@@ -119,67 +119,6 @@ const TypographyModal = ({
         []
     )
 
-    const fetchFontsList = async () => {
-        const body = new FormData()
-
-        body.append('action', 'kemet_get_fonts_list')
-
-        try {
-            const response = await fetch(ajaxurl, {
-                method: 'POST',
-                body,
-            })
-
-
-            if (response.status === 200) {
-                const { success, data } = await response.json()
-
-                if (success) {
-                    setTypographyList({
-                        ...data.fonts,
-                        system: {
-                            ...data.fonts.system,
-                            families: [
-                                ...([
-                                    {
-                                        source: 'system',
-                                        family: 'Default',
-                                        variations: [],
-                                        all_variations: [
-                                            'Default',
-                                            'n1',
-                                            'i1',
-                                            'n2',
-                                            'i2',
-                                            'n3',
-                                            'i3',
-                                            'n4',
-                                            'i4',
-                                            'n5',
-                                            'i5',
-                                            'n6',
-                                            'i6',
-                                            'n7',
-                                            'i7',
-                                            'n8',
-                                            'i8',
-                                            'n9',
-                                            'i9',
-                                        ],
-                                    },
-                                ]),
-
-                                ...data.fonts.system.families,
-                            ],
-                        },
-                    })
-                }
-            }
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
     useEffect(() => {
         if (initialView && initialView !== 'done') {
             setSearchTerm('')
@@ -193,9 +132,7 @@ const TypographyModal = ({
         }
     }, [initialView])
 
-    useEffect(() => {
-        fetchFontsList()
-    }, [])
+
 
     useEffect(() => {
         if (currentView === 'search') {
@@ -204,6 +141,7 @@ const TypographyModal = ({
     }, [currentView])
 
     const pickFontFamily = (family) => {
+        console.log(family)
         onChange({
             ...value,
             family: family.family,
@@ -324,6 +262,7 @@ const TypographyModal = ({
                                     onChange={onChange}
                                     props={props}
                                     currentView={currentView}
+
                                 />
                             )
                         }
@@ -341,8 +280,8 @@ const TypographyModal = ({
                                         currentView={`${currentView}:${previousView}`}
                                         onPickFamily={(family) => {
                                             pickFontFamily(family)
-                                            // setCurrentView('options')
-                                            // setSearchTerm('')
+                                            setCurrentView('options')
+                                            setSearchTerm('')
                                         }}
                                         value={value}
                                     />
@@ -358,7 +297,7 @@ const TypographyModal = ({
                                     typographyList={typographyList}
                                     onChange={(value) => {
                                         onChange(value)
-                                        // setCurrentView('options')
+                                        setCurrentView('options')
                                     }}
                                     value={value}
                                 />

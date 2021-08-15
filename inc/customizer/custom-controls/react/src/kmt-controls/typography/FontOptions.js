@@ -26,7 +26,7 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 					id="size"
 					params={{
 						id: 'size',
-						label: __('Font Size', 'blocksy'),
+						label: __('Font Size', 'kemet'),
 						value: 35,
 						responsive: true,
 						unit_choices: {
@@ -41,94 +41,78 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 								max: 50,
 								step: 1
 							},
-
-
-
-
-
 						},
-
-
-
-						onChange: () => onChange()
-					}
-
-					}
+					}}
+					onChange={(newValue) =>
+						onChange({
+							...value,
+							size: newValue,
+						})}
 				/>
 			</li>
 
 			<li key="line-height" className={`customize-control-kmt-slider`}>
 				<ResponsiveSliderComponent
-					value={value.size}
+					value={value['line-height']}
 					values={value}
-					id="size"
+					id='line-height'
 					params={{
 						id: 'size',
-						label: __('Font Size', 'blocksy'),
+						label: __('Line Height', 'blocksy'),
 						value: 35,
 						responsive: true,
 						unit_choices: {
 
 							'px': {
 								min: 0,
-								max: 200,
+								max: 100,
 								step: 1,
 							},
 							'em': {
 								min: 0,
-								max: 50,
+								max: 100,
 								step: 1
 							},
-
-
-
-
-
 						},
-
-
-
-						onChange: () => onChange()
-					}
-
-					}
+					}}
+					onChange={(newValue) =>
+						onChange({
+							...value,
+							'line-height': newValue,
+						})}
 				/>
 			</li>
 
 			<li key="letter-space" className={`customize-control-kmt-slider`}>
 				<ResponsiveSliderComponent
-					value={value.size}
+					value={value['letter-spacing']}
 					values={value}
-					id="size"
+					id='letter-spacing'
 					params={{
 						id: 'size',
-						label: __('Font Size', 'blocksy'),
+						label: __('Letter Spacing', 'blocksy'),
 						value: 35,
 						responsive: true,
+
 						unit_choices: {
 
 							'px': {
-								min: 0,
-								max: 200,
+								min: -20,
+								max: 20,
 								step: 1,
 							},
 							'em': {
-								min: 0,
-								max: 50,
+								min: -5,
+								max: 5,
 								step: 1
 							},
-
-
-
-
-
 						},
-
-
-
-						onChange: () => onChange()
-					}
-
+					}}
+					onChange={(newValue) =>
+						onChange({
+							...value,
+							'letter-spacing': newValue,
+						})
 					}
 				/>
 			</li>

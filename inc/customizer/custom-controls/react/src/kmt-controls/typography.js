@@ -30,14 +30,38 @@ const Typography = (props) => {
     let defaultValue = {
         'family': 'System Default',
         'variation': 'n4',
-        'size': '16px',
-        'line-height': '1.65',
-        'letter-spacing': '0em',
+        'size': {
+            "desktop": '35',
+            "desktop-unit": 'px',
+            'tablet': '',
+            'tablet-unit': 'px',
+            'mobile': '',
+            'mobile-unit': 'px'
+        },
+        'line-height': {
+            "desktop": '',
+            "desktop-unit": 'px',
+            'tablet': '',
+            'tablet-unit': 'px',
+            'mobile': '',
+            'mobile-unit': 'px'
+        },
+
+        'letter-spacing': {
+            "desktop": '',
+            "desktop-unit": 'px',
+            'tablet': '',
+            'tablet-unit': 'px',
+            'mobile': '',
+            'mobile-unit': 'px'
+        },
+
         'text-transform': 'none',
         'text-decoration': 'none',
     }
     value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
+    let device = 'desktop'
 
     const typographyWrapper = useRef()
 
@@ -106,6 +130,7 @@ const Typography = (props) => {
         fontSizeRef && fontSizeRef.current,
         dotsRef && dotsRef.current,
     ])
+    console.log(value)
 
     return (
         <div className={classnames('kmt-typography', {})}>
@@ -147,9 +172,7 @@ const Typography = (props) => {
                         className="kmt-font"
                         ref={fontFamilyRef}>
                         <span>
-                            {value.family === 'Default'
-                                ? 'Default Family'
-                                : 'Default Family'}
+                            {value.family}
                         </span>
                     </span>
                     <i>/</i>
@@ -168,14 +191,7 @@ const Typography = (props) => {
                         ref={fontSizeRef}
                         className="kmt-size">
                         <span>
-                            {/* {maybePromoteScalarValueIntoResponsive(
-                                value['size']
-                            )[device] === 'CT_CSS_SKIP_RULE'
-                                ? __('Default Size', 'blocksy')
-                                : maybePromoteScalarValueIntoResponsive(
-                                    value['size']
-                                )[device]} */}
-                                font Size
+                            {`${value.size[device]}${value.size[`${device}-unit`]} `}
                         </span>
                     </span>
                     <i>/</i>
@@ -193,8 +209,8 @@ const Typography = (props) => {
                             setIsOpen('variations')
                         }}
                         className="kmt-weight">
-                        {/* <span>{humanizeVariations(value.variation)}</span> */}
-                        <span>font weight</span>
+                        <span>{humanizeVariations(value.variation)}</span>
+
                     </span>
                 </div>
 
@@ -258,6 +274,7 @@ const Typography = (props) => {
                                         },
                                         ...popoverProps,
                                     }}
+
                                     onChange={props.onChange}
                                     value={value}
                                     option={props}
