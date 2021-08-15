@@ -1,25 +1,29 @@
 import {
-	Fragment,
-	createElement,
-	Component,
-	useRef,
-	useEffect,
 	useState,
+	useEffect,
 } from '@wordpress/element'
 import classnames from 'classnames'
 import { __ } from '@wordpress/i18n';
 
 import { animated } from '@react-spring/web'
+import Responsive from '../../common/responsive';
+
 
 import ResponsiveSliderComponent from '../slider'
 
-const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
+const FontOptions = ({ value, onChange, props }) => {
+
 	return (
 		<animated.ul
 			style={props}
 			className="kmt-typography-options"
-			key="options">
+			key="options"
+		>
 			<li key="size" className={`customize-control-kmt-slider`}>
+				<Responsive
+					onChange={(device) => setDevice(device)}
+
+				/>
 				<ResponsiveSliderComponent
 					value={value.size}
 					values={value}
@@ -28,9 +32,8 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 						id: 'size',
 						label: __('Font Size', 'kemet'),
 						value: 35,
-						responsive: true,
+						responsive: false,
 						unit_choices: {
-
 							'px': {
 								min: 0,
 								max: 200,
@@ -60,7 +63,7 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 						id: 'size',
 						label: __('Line Height', 'blocksy'),
 						value: 35,
-						responsive: true,
+						responsive: false,
 						unit_choices: {
 
 							'px': {
@@ -92,7 +95,7 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 						id: 'size',
 						label: __('Letter Spacing', 'blocksy'),
 						value: 35,
-						responsive: true,
+						responsive: false,
 
 						unit_choices: {
 
@@ -116,7 +119,6 @@ const FontOptions = ({ option, value, sizeRef, onChange, props }) => {
 					}
 				/>
 			</li>
-
 
 			<li key="variant" className="kmt-typography-variant">
 				<ul className={classnames('kmt-text-transform')}>

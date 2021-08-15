@@ -17578,6 +17578,11 @@ var Typography = function Typography(props) {
     'text-transform': 'none',
     'text-decoration': 'none'
   };
+
+  var getInitialDevice = function getInitialDevice() {
+    return wp.customize.previewedDevice();
+  };
+
   value = value ? value : defaultValue;
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])('_:_'),
@@ -17585,8 +17590,13 @@ var Typography = function Typography(props) {
       currentViewCache = _useState2[0],
       setCurrentViewCache = _useState2[1];
 
-  var device = 'desktop';
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(getInitialDevice()),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      device = _useState4[0],
+      setInnerDevice = _useState4[1];
+
   var typographyWrapper = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+  getInitialDevice();
 
   var _useMemo = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useMemo"])(function () {
     return currentViewCache.split(':');
@@ -17595,15 +17605,15 @@ var Typography = function Typography(props) {
       currentView = _useMemo2[0],
       previousView = _useMemo2[1];
 
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
+  var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
     isOpen: false,
     isTransitioning: false
   }),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
-      _useState4$ = _useState4[0],
-      isOpen = _useState4$.isOpen,
-      isTransitioning = _useState4$.isTransitioning,
-      setModalState = _useState4[1];
+      _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState5, 2),
+      _useState6$ = _useState6[0],
+      isOpen = _useState6$.isOpen,
+      isTransitioning = _useState6$.isTransitioning,
+      setModalState = _useState6[1];
 
   var _PopoverComponent = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_5__["default"])({
     ref: typographyWrapper,
@@ -17777,14 +17787,19 @@ var Typography = function Typography(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
-/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../slider */ "./src/kmt-controls/slider.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../slider */ "./src/kmt-controls/slider.js");
+
+
 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -17797,28 +17812,40 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var FontOptions = function FontOptions(_ref) {
-  var option = _ref.option,
-      value = _ref.value,
-      sizeRef = _ref.sizeRef,
+  var value = _ref.value,
       _onChange = _ref.onChange,
       props = _ref.props;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_4__["animated"].ul, {
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])('desktop'),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      device = _useState2[0],
+      setDevice = _useState2[1];
+
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    document.dispatchEvent(new CustomEvent("kmtSubOptionsReady"));
+  }, []);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_5__["animated"].ul, {
     style: props,
     className: "kmt-typography-options",
     key: "options"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
     key: "size",
     className: "customize-control-kmt-slider"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onChange: function onChange(device) {
+      return setDevice(device);
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: value.size,
     values: value,
     id: "size",
     params: {
       id: 'size',
-      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'kemet'),
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Font Size', 'kemet'),
       value: 35,
-      responsive: true,
+      responsive: false,
       unit_choices: {
         'px': {
           min: 0,
@@ -17837,18 +17864,18 @@ var FontOptions = function FontOptions(_ref) {
         size: newValue
       }));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
     key: "line-height",
     className: "customize-control-kmt-slider"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: value['line-height'],
     values: value,
     id: "line-height",
     params: {
       id: 'size',
-      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Line Height', 'blocksy'),
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Line Height', 'blocksy'),
       value: 35,
-      responsive: true,
+      responsive: false,
       unit_choices: {
         'px': {
           min: 0,
@@ -17867,18 +17894,18 @@ var FontOptions = function FontOptions(_ref) {
         'line-height': newValue
       }));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
     key: "letter-space",
     className: "customize-control-kmt-slider"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: value['letter-spacing'],
     values: value,
     id: "letter-spacing",
     params: {
       id: 'size',
-      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Letter Spacing', 'blocksy'),
+      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__["__"])('Letter Spacing', 'blocksy'),
       value: 35,
-      responsive: true,
+      responsive: false,
       unit_choices: {
         'px': {
           min: -20,
@@ -17897,41 +17924,41 @@ var FontOptions = function FontOptions(_ref) {
         'letter-spacing': newValue
       }));
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
     key: "variant",
     className: "kmt-typography-variant"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-text-transform')
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-text-transform')
   }, ['capitalize', 'uppercase'].map(function (variant) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
       key: variant,
       onClick: function onClick() {
         return _onChange(_objectSpread(_objectSpread({}, value), {}, {
           'text-transform': value['text-transform'] === variant ? 'none' : variant
         }));
       },
-      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()({
         active: variant === value['text-transform']
       }),
       "data-variant": variant
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
       className: "kmt-tooltip-top"
     }, variant));
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-text-decoration')
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-text-decoration')
   }, ['line-through', 'underline'].map(function (variant) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
       key: variant,
       onClick: function onClick() {
         return _onChange(_objectSpread(_objectSpread({}, value), {}, {
           'text-decoration': value['text-decoration'] === variant ? 'none' : variant
         }));
       },
-      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
+      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()({
         active: variant === value['text-decoration']
       }),
       "data-variant": variant
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
       className: "kmt-tooltip-top"
     }, variant));
   }))));
@@ -17993,11 +18020,11 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     var family = _ref2.family;
     return family;
   }).filter(function (family) {
-    return family.indexOf('ct_typekit') === -1;
+    return family.indexOf('kmt_typekit') === -1;
   });
   var typekitFonts = font_families.filter(function (_ref3) {
     var family = _ref3.family;
-    return family.indexOf('ct_typekit') > -1;
+    return family.indexOf('kmt_typekit') > -1;
   });
 
   if (googleFonts.length > 0 || typekitFonts.length > 0) {
@@ -18251,7 +18278,7 @@ var fontFamilyToCSSFamily = function fontFamilyToCSSFamily(family) {
     return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
   }
 
-  return family.replace('ct_typekit_', '');
+  return family.replace('kmt_typekit_', '');
 };
 
 var findSourceTypeSettingsFor = function findSourceTypeSettingsFor(font_family, fonts_list) {
@@ -18340,14 +18367,14 @@ var humanizeVariations = function humanizeVariations(variation) {
   return all[variation];
 };
 var familyForDisplay = function familyForDisplay(family) {
-  if (family.indexOf('ct_font') === 0) {
-    return family.replace('ct_font_', '').replace(/([-_][a-z])/gi, function ($1) {
+  if (family.indexOf('kmt_font') === 0) {
+    return family.replace('kmt_font_', '').replace(/([-_][a-z])/gi, function ($1) {
       return $1.toUpperCase().replace('-', '').replace('_', '');
     });
   }
 
-  if (family.indexOf('ct_typekit') === 0) {
-    return family.replace('ct_typekit_', '').replace(/([-_][a-z])/gi, function ($1) {
+  if (family.indexOf('kmt_typekit') === 0) {
+    return family.replace('kmt_typekit_', '').replace(/([-_][a-z])/gi, function ($1) {
       return $1.toUpperCase().replace('-', ' ').replace('_', ' ');
     });
   }

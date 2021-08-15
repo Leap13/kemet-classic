@@ -22,10 +22,10 @@ const loadGoogleFonts = (font_families) => {
 
 	const googleFonts = font_families
 		.map(({ family }) => family)
-		.filter((family) => family.indexOf('ct_typekit') === -1)
+		.filter((family) => family.indexOf('kmt_typekit') === -1)
 
 	const typekitFonts = font_families.filter(
-		({ family }) => family.indexOf('ct_typekit') > -1
+		({ family }) => family.indexOf('kmt_typekit') > -1
 	)
 
 	if (googleFonts.length > 0 || typekitFonts.length > 0) {

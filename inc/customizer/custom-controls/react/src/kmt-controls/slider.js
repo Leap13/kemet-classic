@@ -53,8 +53,6 @@ class ResponsiveSliderComponent extends Component {
         this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-
-
     updateValues(device, value) {
         let updateState = {
             ...this.state.initialState

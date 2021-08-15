@@ -73,7 +73,8 @@ const TypographyModal = ({
     setCurrentView,
     setInititialView,
     onChange,
-    wrapperProps = {}
+    wrapperProps = {},
+
 }) => {
     const [typographyList, setTypographyList] = useState(
         getDefaultFonts(option)
@@ -262,7 +263,6 @@ const TypographyModal = ({
                                     onChange={onChange}
                                     props={props}
                                     currentView={currentView}
-
                                 />
                             )
                         }

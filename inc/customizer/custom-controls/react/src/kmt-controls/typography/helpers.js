@@ -3,7 +3,7 @@ export const fontFamilyToCSSFamily = (family) => {
 		return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
 	}
 
-	return family.replace('ct_typekit_', '')
+	return family.replace('kmt_typekit_', '')
 }
 
 const findSourceTypeSettingsFor = (font_family, fonts_list) =>
@@ -98,17 +98,17 @@ export const humanizeVariations = (variation) => {
 }
 
 export const familyForDisplay = (family) => {
-	if (family.indexOf('ct_font') === 0) {
+	if (family.indexOf('kmt_font') === 0) {
 		return family
-			.replace('ct_font_', '')
+			.replace('kmt_font_', '')
 			.replace(/([-_][a-z])/gi, ($1) =>
 				$1.toUpperCase().replace('-', '').replace('_', '')
 			)
 	}
 
-	if (family.indexOf('ct_typekit') === 0) {
+	if (family.indexOf('kmt_typekit') === 0) {
 		return family
-			.replace('ct_typekit_', '')
+			.replace('kmt_typekit_', '')
 			.replace(/([-_][a-z])/gi, ($1) =>
 				$1.toUpperCase().replace('-', ' ').replace('_', ' ')
 			)

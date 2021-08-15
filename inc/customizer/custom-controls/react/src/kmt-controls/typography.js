@@ -1,4 +1,4 @@
-import { createPortal, useRef, useMemo, useCallback, useState, } from '@wordpress/element';
+import { createPortal, useRef, useMemo, useCallback, useState } from '@wordpress/element';
 import classnames from 'classnames';
 import OutsideComponent from '../common/outside-component';
 import PopoverComponent from '../common/popover-component';
@@ -46,7 +46,6 @@ const Typography = (props) => {
             'mobile': '',
             'mobile-unit': 'px'
         },
-
         'letter-spacing': {
             "desktop": '',
             "desktop-unit": 'px',
@@ -59,12 +58,19 @@ const Typography = (props) => {
         'text-transform': 'none',
         'text-decoration': 'none',
     }
+    const getInitialDevice = () => {
+
+        return wp.customize.previewedDevice()
+
+    }
     value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
-    let device = 'desktop'
+    const [device, setInnerDevice] = useState(getInitialDevice())
 
     const typographyWrapper = useRef()
 
+
+    getInitialDevice();
     let [currentView, previousView] = useMemo(
         () => currentViewCache.split(':'),
         [currentViewCache]
@@ -97,6 +103,7 @@ const Typography = (props) => {
             ...state,
             isTransitioning: false,
         }))
+
 
     const fontFamilyRef = useRef()
     const fontSizeRef = useRef()
@@ -255,7 +262,8 @@ const Typography = (props) => {
                                 : {
                                     opacity: 1,
                                 }
-                        }>
+                        }
+                    >
                         {(style, item) => {
                             if (!item) {
                                 return <div>
@@ -282,6 +290,7 @@ const Typography = (props) => {
                                     setInititialView={(initialView) =>
                                         setIsOpen(initialView)
                                     }
+
                                     currentView={currentView}
                                     previousView={previousView}
                                     setCurrentView={setCurrentView}
