@@ -24,7 +24,7 @@ $sub_title = apply_filters( 'kemet_sub_title_addon', $sub_title );
 $classes   = implode( ' ', $classes );
 
 ?>
-<div class="kmt-page-title-addon-content <?php echo esc_attr( $classes_responsive ); ?>">
+<div class="kmt-page-title-content <?php echo esc_attr( $classes_responsive ); ?>">
 	<div class="kmt-page-title <?php echo esc_attr( $classes ); ?>" >
 		<div class="kmt-container">
 			<div class="kmt-page-title-wrap">
