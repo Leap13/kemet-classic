@@ -18,6 +18,7 @@ import RadioComponent from '../kmt-controls/radio'
 import RowLayoutComponent from '../kmt-controls/row-layout'
 import BackgroundComponent from '../kmt-controls/background'
 import Typography from '../kmt-controls/typography';
+import ColorPalettes from '../kmt-controls/color-pallet';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -77,6 +78,10 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-typography':
             OptionComponent = Typography;
+            break;
+
+        case 'kmt-color-palettes':
+            OptionComponent = ColorPalettes;
             break;
     }
 

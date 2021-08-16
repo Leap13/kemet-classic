@@ -19,45 +19,45 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
-			'colorPalette' => [
+			'colorPalette' => array(
 					'label' => __( 'Global Color Palette', 'Kemet' ),
 					'type'  => 'kmt-color-palettes',
-					'value' => [
-						'color1' => [
+					'value' =>array(
+						'color1' => array(
 							'color' => '#2872fa',
-						],
+						),
 
-						'color2' => [
+						'color2' => array(
 							'color' => '#1559ed',
-						],
+						),
 
-						'color3' => [
+						'color3' => array(
 							'color' => '#3A4F66',
-						],
+						),
 
-						'color4' => [
+						'color4' => array(
 							'color' => '#192a3d',
-						],
+						),
 
-						'color5' => [
+						'color5' => array(
 							'color' => '#e1e8ed',
-						],
+						),
 
-						'color6' => [
+						'color6' => array(
 							'color' => '#f2f5f7',
-						],
+						),
 
-						'color7' => [
+						'color7' => array(
 							'color' => '#FAFBFC',
-						],
+						),
 
-						'color8' => [
+						'color8' => array(
 							'color' => '#ffffff',
-						],
+						),
 
 						'current_palette' => 'palette-2',
 
-						'palettes' => [
+						'palettes' => array(
 							[
 								'id' => 'palette-2',
 
@@ -598,9 +598,9 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 								],
 							],
 
-						]
-					],
-			],
+						)
+						),
+				),
 			'theme-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Primary Color', 'kemet' ),

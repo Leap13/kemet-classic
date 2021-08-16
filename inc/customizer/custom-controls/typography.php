@@ -437,7 +437,7 @@ if (! function_exists('kemet_output_font_css')) {
 		if ($args['font_value']['family'] === 'System Default') {
 			$args['font_value']['family'] = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
 		} else {
-			$fonts_manager = new Blocksy_Fonts_Manager();
+			$fonts_manager = new Kemet_Fonts_Manager();
 
 			if (! in_array(
 				$args['font_value']['family'],
@@ -585,7 +585,7 @@ if (! function_exists('kemet_typography_default_values')) {
 add_action( 'wp_ajax_kemet_get_fonts_list', function () {
 	
 
-	$m = new Blocksy_Fonts_Manager();
+	$m = new Kemet_Fonts_Manager();
 
 	wp_send_json_success([
 		'fonts' => $m->get_all_fonts()

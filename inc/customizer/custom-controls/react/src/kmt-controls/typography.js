@@ -1,4 +1,4 @@
-import { createPortal, useRef, useMemo, useCallback, useState } from '@wordpress/element';
+import { createPortal, useRef, useMemo, useCallback, useState, useEffect } from '@wordpress/element';
 import classnames from 'classnames';
 import OutsideComponent from '../common/outside-component';
 import PopoverComponent from '../common/popover-component';
@@ -58,8 +58,11 @@ const Typography = (props) => {
         'text-transform': 'none',
         'text-decoration': 'none',
     }
+    useEffect(() => {
+        getInitialDevice()
+    }, [])
     const getInitialDevice = () => {
-
+        console.log(wp.customize.previewedDevice())
         return wp.customize.previewedDevice()
 
     }
@@ -67,10 +70,15 @@ const Typography = (props) => {
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
     const [device, setInnerDevice] = useState(getInitialDevice())
 
+    const listener = () => {
+        setInnerDevice(getInitialDevice())
+    }
+    if (wp.customize) {
+        setTimeout(() => wp.customize.previewedDevice.bind(listener), 1000)
+    }
+
     const typographyWrapper = useRef()
 
-
-    getInitialDevice();
     let [currentView, previousView] = useMemo(
         () => currentViewCache.split(':'),
         [currentViewCache]
@@ -103,6 +111,7 @@ const Typography = (props) => {
             ...state,
             isTransitioning: false,
         }))
+
 
 
     const fontFamilyRef = useRef()
