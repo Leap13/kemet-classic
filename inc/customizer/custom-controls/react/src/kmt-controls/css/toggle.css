@@ -9,6 +9,8 @@
 }
 .toggle-control-label {
   font-weight: 600;
+  font-size: 14px;
+  line-height: 1.75;
 }
 .components-base-control__field .components-form-toggle {
   margin-right: 0px !important;

@@ -12,6 +12,7 @@
 }
 .kmt-control-wrap.kmt-color-control-wrap {
   display: flex;
+  align-items: flex-start;
 }
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
@@ -342,7 +343,7 @@
   position: absolute;
   z-index: 99999;
   top: 27px;
-  left: 2px;
+  left: 0px;
   right: 0;
   bottom: 0;
   height: max-content;
@@ -433,7 +434,8 @@
 }
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
-  width: 3px;
+  position: absolute;
+  top: 1px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -447,9 +449,11 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-19px, 0, 0);
+  transform: translate3d(-22px, 0, 0);
   outline: 0;
   border: 0;
+  width: 18px;
+  height: 18px;
 }
 /*   */
 .kmt-color-btn-reset-wrap .kmt-reset-btn span,

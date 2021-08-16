@@ -1,6 +1,7 @@
 #customize-theme-controls
   ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
   height: 100%;
+  padding: 12px 20px 12px 20px !important;
 }
 
 .customize-control-kmt-background {
@@ -366,7 +367,7 @@
   position: absolute;
   z-index: 99999;
   top: 34px;
-  right: 2px;
+  right: 0px;
   left: 0;
   bottom: 0;
   height: max-content;
@@ -421,7 +422,7 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(19px, 0, 0);
+  transform: translate3d(23px, 0, 0);
   outline: 0;
   border: 0;
 }
@@ -6395,6 +6396,7 @@ i.fipicon-angle-left:before {
 }
 .kmt-control-wrap.kmt-color-control-wrap {
   display: flex;
+  align-items: flex-start;
 }
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
@@ -6725,7 +6727,7 @@ i.fipicon-angle-left:before {
   position: absolute;
   z-index: 99999;
   top: 27px;
-  right: 2px;
+  right: 0px;
   left: 0;
   bottom: 0;
   height: max-content;
@@ -6816,7 +6818,8 @@ i.fipicon-angle-left:before {
 }
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
-  width: 3px;
+  position: absolute;
+  top: 1px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -6830,9 +6833,11 @@ i.fipicon-angle-left:before {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(19px, 0, 0);
+  transform: translate3d(22px, 0, 0);
   outline: 0;
   border: 0;
+  width: 18px;
+  height: 18px;
 }
 /*   */
 .kmt-color-btn-reset-wrap .kmt-reset-btn span,
@@ -7541,9 +7546,11 @@ i.fipicon-angle-left:before {
 }
 .toggle-control-label {
   font-weight: 600;
+  font-size: 14px;
+  line-height: 1.75;
 }
 .components-base-control__field .components-form-toggle {
-  margin-left: 0px;
+  margin-left: 0px !important;
 }
 
 .customize-control-kmt-radio-image label {

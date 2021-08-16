@@ -361,7 +361,7 @@
   position: absolute;
   z-index: 99999;
   top: 34px;
-  left: 2px;
+  left: 0px;
   right: 0;
   bottom: 0;
   height: max-content;
@@ -416,7 +416,7 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-19px, 0, 0);
+  transform: translate3d(-23px, 0, 0);
   outline: 0;
   border: 0;
 }
