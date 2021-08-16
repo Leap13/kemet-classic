@@ -371,6 +371,7 @@
   left: 0;
   bottom: 0;
   height: max-content;
+  width: 295px;
 }
 .components-circular-option-picker.kmt-gradient-color-picker
   .components-circular-option-picker__custom-clear-wrapper {
@@ -422,9 +423,11 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(23px, 0, 0);
+  transform: translate3d(20px, 0, 0);
   outline: 0;
   border: 0;
+  height: 18px;
+  width: 18px;
 }
 
 .customize-control-kmt-tabs > ul.tabs {
@@ -6731,6 +6734,7 @@ i.fipicon-angle-left:before {
   left: 0;
   bottom: 0;
   height: max-content;
+  width: 295px;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(3)
@@ -6833,7 +6837,7 @@ i.fipicon-angle-left:before {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(22px, 0, 0);
+  transform: translate3d(20px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;
