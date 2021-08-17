@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 				self::$system_fonts = array(
 					'Helvetica' => array(
 						'fallback' => 'Verdana, Arial, sans-serif',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					),
 					'Verdana'   => array(
 						'fallback' => 'Helvetica, Arial, sans-serif',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					),
 					'Arial'     => array(
 						'fallback' => 'Helvetica, Verdana, sans-serif',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					),
 					'Times'     => array(
 						'fallback' => 'Georgia, serif',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					),
 					'Georgia'   => array(
 						'fallback' => 'Times, serif',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					),
 					'Courier'   => array(
 						'fallback' => 'monospace',
-						'weights'  => array(
+						'variants' => array(
 							'300',
 							'400',
 							'700',
@@ -136,23 +136,22 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 
 				$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
 				$google_fonts_json = json_decode( $file_contants, 1 );
+				$google_fonts_json = $google_fonts_json['items'];
 
-				foreach ( $google_fonts_json as $key => $font ) {
-					$name = key( $font );
-					foreach ( $font[ $name ] as $font_key => $single_font ) {
+				foreach ( $google_fonts_json as $font ) {
+					$variants = array();
+					foreach ( $font['variants'] as $variant_key => $variant ) {
 
-						if ( 'variants' === $font_key ) {
-
-							foreach ( $single_font as $variant_key => $variant ) {
-
-								if ( 'regular' == $variant ) {
-									$font[ $name ][ $font_key ][ $variant_key ] = '400';
-								}
-							}
+						if ( 'regular' == $variant ) {
+							$variants[ $variant_key ] = '400';
 						}
-
-						self::$google_fonts[ $name ] = array_values( $font[ $name ] );
 					}
+
+					$font_data                             = array(
+						$variants,
+						$font['category'],
+					);
+					self::$google_fonts[ $font['family'] ] = $font_data;
 				}
 			}
 

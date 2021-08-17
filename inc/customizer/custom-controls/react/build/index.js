@@ -17785,15 +17785,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
-/* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/popover-component */ "./src/common/popover-component.js");
-/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
-/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
-/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _common_typo_helper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/typo-helper */ "./src/common/typo-helper.js");
-/* harmony import */ var _typography_typo_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./typography/typo-modal */ "./src/kmt-controls/typography/typo-modal.js");
+/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
+/* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/popover-component */ "./src/common/popover-component.js");
+/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _common_typo_helper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/typo-helper */ "./src/common/typo-helper.js");
+/* harmony import */ var _typography_typo_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./typography/typo-modal */ "./src/kmt-controls/typography/typo-modal.js");
 
 
 
@@ -17904,7 +17904,7 @@ var Typography = function Typography(props) {
       isTransitioning = _useState6$.isTransitioning,
       setModalState = _useState6[1];
 
-  var _PopoverComponent = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_11__["default"])({
+  var _PopoverComponent = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_5__["default"])({
     ref: typographyWrapper,
     defaultHeight: 430,
     shouldCalculate: isTransitioning || isOpen
@@ -17944,7 +17944,7 @@ var Typography = function Typography(props) {
   }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-typography', {})
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     disabled: !isOpen,
     useCapture: false,
     className: "kmt-typohraphy-value",
@@ -18008,16 +18008,16 @@ var Typography = function Typography(props) {
       setIsOpen('variations');
     },
     className: "kmt-weight"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, Object(_common_typo_helper__WEBPACK_IMPORTED_MODULE_8__["humanizeVariations"])(value.variation)))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, Object(_common_typo_helper__WEBPACK_IMPORTED_MODULE_9__["humanizeVariations"])(value.variation)))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
     ref: dotsRef
-  })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_5__["Transition"], {
+  })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_6__["Transition"], {
     items: isOpen,
     onRest: function onRest(isOpen) {
       stopTransitioning();
     },
     config: {
       duration: 100,
-      easing: bezier_easing__WEBPACK_IMPORTED_MODULE_6___default()(0.25, 0.1, 0.25, 1.0)
+      easing: bezier_easing__WEBPACK_IMPORTED_MODULE_7___default()(0.25, 0.1, 0.25, 1.0)
     },
     from: isOpen ? {
       transform: 'scale3d(0.95, 0.95, 1)',
@@ -18042,7 +18042,7 @@ var Typography = function Typography(props) {
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, "Salma2");
     }
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_typography_typo_modal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_typography_typo_modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
       wrapperProps: _objectSpread({
         style: _objectSpread(_objectSpread(_objectSpread({}, style), styles), arrowLeft)
       }, popoverProps),
