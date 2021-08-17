@@ -19,6 +19,7 @@ import RowLayoutComponent from '../kmt-controls/row-layout'
 import BackgroundComponent from '../kmt-controls/background'
 import IconSelectComponent from '../kmt-controls/icon-select'
 import RadioImageComponent from '../kmt-controls/radio-image'
+import Typography from '../kmt-controls/typography';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -81,6 +82,9 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-icon-select':
             OptionComponent = IconSelectComponent;
+            break;
+        case 'kmt-typography':
+            OptionComponent = Typography;
             break;
     }
 

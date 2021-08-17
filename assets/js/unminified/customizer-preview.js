@@ -306,34 +306,7 @@ function kemet_responsive_slider(control, selector, type) {
           spacingType = type + "";
         }
 
-        var desktopWidth = "",
-          tabletWidth = "",
-          mobileWidth = "";
-
-        desktopWidth +=
-          spacingType + ": " + value["desktop"] + value["desktop-unit"] + " ;";
-
-        tabletWidth +=
-          spacingType + ": " + value["tablet"] + value["tablet-unit"] + " ;";
-
-        mobileWidth +=
-          spacingType + ": " + value["mobile"] + value["mobile-unit"] + " ;";
-
-        // Concat and append new <style>.
-        var dynamicStyle = selector +
-          "	{ " +
-          desktopWidth +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletWidth +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileWidth +
-          " } }";
+        var dynamicStyle = kemet_responsive_slider_css(value, spacingType, selector)
 
         kemet_add_dynamic_css(control, dynamicStyle);
       } else {
@@ -341,6 +314,39 @@ function kemet_responsive_slider(control, selector, type) {
       }
     });
   });
+}
+
+function kemet_responsive_slider_css(value, type, selector) {
+  var desktop = "",
+    tablet = "",
+    mobile = "";
+
+  desktop +=
+    type + ": " + value["desktop"] + value["desktop-unit"] + " ;";
+
+  tablet +=
+    type + ": " + value["tablet"] + value["tablet-unit"] + " ;";
+
+  mobile +=
+    type + ": " + value["mobile"] + value["mobile-unit"] + " ;";
+
+  // Concat and append new <style>.
+  var dynamicStyle = selector +
+    "	{ " +
+    desktop +
+    " }" +
+    "@media (max-width: 768px) {" +
+    selector +
+    "	{ " +
+    tablet +
+    " } }" +
+    "@media (max-width: 544px) {" +
+    selector +
+    "	{ " +
+    mobile +
+    " } }";
+
+  return dynamicStyle;
 }
 /**
  * Responsive Icons Select CSS
@@ -565,6 +571,14 @@ function kemet_responsive_background(control, selector) {
       kemet_add_dynamic_css(control, dynamicStyle);
     });
   });
+}
+
+function kemet_typography_css(control, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      console.log(selector, value);
+    })
+  })
 }
 
 function kemet_font_family_css(control, selector) {
@@ -1057,6 +1071,9 @@ function kemet_responsive_color_css(control, data) {
         break;
       case "kmt-select":
         kemet_css(control, data.property, data.selector);
+        break;
+      case "kmt-typography":
+        kemet_typography_css(control, data.selector);
         break;
       case "kmt-color":
         if (data.responsive) {
