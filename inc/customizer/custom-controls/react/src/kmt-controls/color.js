@@ -1,8 +1,5 @@
 import {
-    createElement,
-    Component,
-    Fragment,
-    createContext,
+
     useRef,
     useContext,
     useState,
@@ -50,7 +47,7 @@ const ColorComponent = (props) => {
             wrapperProps={{
                 ref: containerRef,
             }}
-            className="ct-color-picker-container"
+            className="kmt-color-picker-container"
             additionalRefs={[modalRef]}
             onOutsideClick={() => {
                 setState(({ isPicking }) => ({

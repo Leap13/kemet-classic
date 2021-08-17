@@ -4,16 +4,13 @@ import $ from 'jquery'
 const { __ } = wp.i18n;
 
 const ColorPickerIris = ({ onChange, value, value: { color } }) => {
+	console.log(value)
 	return (
 		<div>
 			<ColorPicker
 				color={color}
 				onChangeComplete={({ color, hex }) => {
-					onChange({
-						...value,
-						color:
-							color.getAlpha() === 1 ? hex : color.toRgbString()
-					})
+					console.log(value,color,hex)
 				}}
 			/>
 		</div>

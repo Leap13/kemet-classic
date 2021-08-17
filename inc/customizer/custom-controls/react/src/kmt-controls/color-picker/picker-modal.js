@@ -56,14 +56,11 @@ const PickerModal = ({
 	appendToBody,
 	inheritValue,
 }) => {
+	console.log(value)
 	const getValueForPicker = useMemo(() => {
-
-
-
-
-		if ((value.color || '').indexOf('var') > -1) {
+		if ((value || '').indexOf('var') > -1) {
 			return {
-				key: 'var' + value.color,
+				key: 'var' + value,
 				color: getComputedStyle(document.documentElement)
 					.getPropertyValue(
 						value.color.replace(/var\(/, '').replace(/\)/, '')
@@ -73,10 +70,10 @@ const PickerModal = ({
 			}
 		}
 
-		return { key: 'color', color: value.color }
+		return { key: 'color', color: value }
 	}, [value, picker])
 
-	let valueToCheck = value.color
+	let valueToCheck = value
 
 
 
@@ -94,19 +91,18 @@ const PickerModal = ({
 			<div
 				tabIndex="0"
 				className={classnames(
-					`ct-color-picker-modal`,
+					`kmt-color-picker-modal`,
 					{
-						'ct-option-modal': !inline_modal && appendToBody,
+						'kmt-option-modal': !inline_modal && appendToBody,
 					},
-					option.modalClassName
 				)}
 				style={{
 					...arrowLeft,
 					...(style ? style : {}),
 				}}
 				{...wrapperProps}>
-				<div className="ct-color-picker-top">
-					<ul className="ct-color-picker-skins">
+				<div className="kmt-color-picker-top">
+					<ul className="kmt-color-picker-skins">
 						{[
 							'paletteColor1',
 							'paletteColor2',
@@ -132,7 +128,7 @@ const PickerModal = ({
 										color: `var(--${color})`,
 									})
 								}>
-								<div className="ct-tooltip-top">
+								<div className="kmt-tooltip-top">
 									{
 										{
 											paletteColor1: 'Color 1',
@@ -149,19 +145,18 @@ const PickerModal = ({
 							</li>
 						))}
 
-						{!option.skipNoColorPill && false && (
-							<li
-								onClick={() =>
-									onChange({
-										...value
-									})
-								}
-							>
-								<i className="ct-tooltip-top">
-									{__('No Color', 'blocksy')}
-								</i>
-							</li>
-						)}
+						<li
+							onClick={() =>
+								onChange({
+									...value
+								})
+							}
+						>
+							<i className="kmt-tooltip-top">
+								{__('No Color', 'blocksy')}
+							</i>
+						</li>
+
 					</ul>
 				</div>
 
