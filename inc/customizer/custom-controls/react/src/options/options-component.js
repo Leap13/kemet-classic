@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import ColorComponent from '../kmt-controls/color'
+import KemetColorComponent from '../kmt-controls/kmt-color'
 import SliderComponent from '../kmt-controls/slider'
 import SpacingComponent from '../kmt-controls/spacing'
 import TabsComponent from '../kmt-controls/tabs'
@@ -26,7 +26,7 @@ const OptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
         case 'kmt-color':
-            OptionComponent = ColorComponent;
+            OptionComponent = KemetColorComponent;
             break;
         case 'kmt-slider':
             OptionComponent = SliderComponent;

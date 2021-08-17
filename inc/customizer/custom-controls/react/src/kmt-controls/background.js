@@ -69,7 +69,7 @@ const BackgroundComponent = props => {
     const [device, setDevice] = useState('desktop');
 
     const updateValue = (obj) => {
-        console.log(obj);
+
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });
     }

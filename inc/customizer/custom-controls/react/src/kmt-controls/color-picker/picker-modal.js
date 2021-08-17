@@ -1,32 +1,8 @@
-import {
-	createElement,
-	Component,
-	useRef,
-	useCallback,
-	useMemo,
-	createRef,
-	Fragment,
-} from '@wordpress/element'
+import { useMemo, Fragment } from '@wordpress/element'
 import ColorPickerIris from './color-picker-iris.js'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
 
-import { nullifyTransforms } from '../../helpers/usePopoverMaker'
-
-
-const focusOrOpenCustomizerSectionProps = (section) => ({
-	target: '_blank',
-	href: `${window.ct_localizations ? window.ct_localizations.customizer_url : ''
-		}${encodeURIComponent(`[section]=${section}`)}`,
-	...(wp && wp.customize && wp.customize.section
-		? {
-			onClick: (e) => {
-				e.preventDefault()
-				wp.customize.section(section).expand()
-			},
-		}
-		: {}),
-})
 
 const getLeftForEl = (modal, el) => {
 	if (!modal) return
@@ -45,7 +21,6 @@ const getLeftForEl = (modal, el) => {
 }
 
 const PickerModal = ({
-	containerRef,
 	el,
 	value,
 	picker,
@@ -53,17 +28,16 @@ const PickerModal = ({
 	style,
 	wrapperProps = {},
 	inline_modal,
-	appendToBody,
-	inheritValue,
+	appendToBody
 }) => {
-	console.log(value)
+
 	const getValueForPicker = useMemo(() => {
 		if ((value || '').indexOf('var') > -1) {
 			return {
 				key: 'var' + value,
 				color: getComputedStyle(document.documentElement)
 					.getPropertyValue(
-						value.color.replace(/var\(/, '').replace(/\)/, '')
+						value.replace(/var\(/, '').replace(/\)/, '')
 					)
 					.trim()
 					.replace(/\s/g, ''),
@@ -74,8 +48,6 @@ const PickerModal = ({
 	}, [value, picker])
 
 	let valueToCheck = value
-
-
 
 	const arrowLeft = useMemo(
 		() =>
@@ -104,59 +76,35 @@ const PickerModal = ({
 				<div className="kmt-color-picker-top">
 					<ul className="kmt-color-picker-skins">
 						{[
-							'paletteColor1',
-							'paletteColor2',
-							'paletteColor3',
-							'paletteColor4',
-							'paletteColor5',
-							'paletteColor6',
-							'paletteColor7',
-							'paletteColor8',
-						].map((color) => (
+							'#000000',
+							'#ffffff',
+							'#dd3333',
+							'#dd9933',
+							'#eeee22',
+							'#81d742',
+							'#1e73be',
+							"#e2e7ed"
+
+						].map((color, index) => (
 							<li
 								key={color}
 								style={{
-									background: `var(--${color})`,
+									background: color,
 								}}
 								className={classnames({
 									active:
-										valueToCheck === `var(--${color})`,
+										valueToCheck === color,
 								})}
 								onClick={() =>
-									onChange({
-										...value,
-										color: `var(--${color})`,
-									})
+									onChange(color)
 								}>
 								<div className="kmt-tooltip-top">
 									{
-										{
-											paletteColor1: 'Color 1',
-											paletteColor2: 'Color 2',
-											paletteColor3: 'Color 3',
-											paletteColor4: 'Color 4',
-											paletteColor5: 'Color 5',
-											paletteColor6: 'Color 6',
-											paletteColor7: 'Color 7',
-											paletteColor8: 'Color 8',
-										}[color]
+										`Color`
 									}
 								</div>
 							</li>
 						))}
-
-						<li
-							onClick={() =>
-								onChange({
-									...value
-								})
-							}
-						>
-							<i className="kmt-tooltip-top">
-								{__('No Color', 'blocksy')}
-							</i>
-						</li>
-
 					</ul>
 				</div>
 
@@ -164,10 +112,7 @@ const PickerModal = ({
 				<ColorPickerIris
 					key={getValueForPicker.key}
 					onChange={(v) => onChange(v)}
-					value={{
-						...value,
-						color: getValueForPicker.color,
-					}}
+					value={value}
 				/>
 			</div>
 		</Fragment>
