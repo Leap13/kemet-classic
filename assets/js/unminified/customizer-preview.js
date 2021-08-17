@@ -1071,7 +1071,7 @@ function kemet_responsive_color_css(control, data) {
           delete data.responsive;
           kemet_responsive_css(control, data.selector, data.property);
         } else {
-          kemet_css(control, data.selector, data.property);
+          kemet_css(control, data.property, data.selector);
         }
         break;
       case "kmt-spacing":

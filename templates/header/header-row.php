@@ -5,7 +5,10 @@
  * @package Kemet
  */
 
-$row       = get_query_var( 'row' );
+$row = get_query_var( 'row' );
+if ( Kemet_Header_Markup::is_empty_row( $row, 'desktop' ) ) {
+	return;
+}
 $helper    = new Kemet_Builder_Helper();
 $has_sides = $helper::column_has_items( 'left', $row ) || $helper::column_has_items( 'right', $row );
 $classes   = array();

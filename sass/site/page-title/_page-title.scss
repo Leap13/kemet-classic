@@ -1,5 +1,5 @@
 .kmt-page-title-content {
-  padding: 50px 0px;
+  padding: var(--padding, 50px 0px);
 }
 .page-title-layout-1 {
   .kemet-page-sub-title {
@@ -12,6 +12,8 @@
   }
 }
 .kemet-breadcrumb-trail {
+  padding: var(--padding);
+  color: var(--textColor);
   .trail-items,
   li {
     list-style: none;
@@ -110,6 +112,25 @@
   .kmt-page-title-content {
     position: relative;
     z-index: 1;
+  }
+}
+// Merge With Header
+.kemet-merged-header-title {
+  &.overlay {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+  }
+  .site-header {
+    &.kmt-header-transparent {
+      position: relative;
+    }
+  }
+  .site-header {
+    [class*="-header-bar"] {
+      background-image: none;
+      background-color: transparent;
+    }
   }
 }
 @media only screen and (max-width: 767px) {

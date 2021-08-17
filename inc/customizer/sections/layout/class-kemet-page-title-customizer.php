@@ -60,11 +60,15 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-alignment'  => array(
 								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
-								'label'     => __( 'Page Title Alignment', 'kemet-addons' ),
+								'label'     => __( 'Page Title Alignment', 'kemet' ),
 								'choices'   => array(
 									'left'   => __( 'Left', 'kemet' ),
 									'center' => __( 'Center', 'kemet' ),
 									'right'  => __( 'Right', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => '.kmt-page-title.page-title-layout-1',
+									'property' => 'text-align',
 								),
 								'context'   => array(
 									array(
@@ -75,16 +79,16 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-merge-with-header' => array(
 								'type'  => 'kmt-switcher',
-								'label' => __( 'Merge/Combine Page Title With Main Header', 'kemet-addons' ),
+								'label' => __( 'Merge/Combine Page Title With Main Header', 'kemet' ),
 							),
 							self::$prefix . '-responsive' => array(
 								'type'    => 'kmt-select',
-								'label'   => __( 'Page Title Visibility', 'kemet-addons' ),
+								'label'   => __( 'Page Title Visibility', 'kemet' ),
 								'choices' => array(
-									'all-devices'        => __( 'Show on All Devices', 'kemet-addons' ),
-									'hide-tablet'        => __( 'Hide on Tablet', 'kemet-addons' ),
-									'hide-mobile'        => __( 'Hide on Mobile', 'kemet-addons' ),
-									'hide-tablet-mobile' => __( 'Hide on Tablet and Mobile', 'kemet-addons' ),
+									'all-devices'        => __( 'Show on All Devices', 'kemet' ),
+									'hide-tablet'        => __( 'Hide on Tablet', 'kemet' ),
+									'hide-mobile'        => __( 'Hide on Mobile', 'kemet' ),
+									'hide-tablet-mobile' => __( 'Hide on Tablet and Mobile', 'kemet' ),
 								),
 							),
 						),
@@ -98,18 +102,24 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Background', 'kemet' ),
 								'responsive' => true,
 								'preview'    => array(
-									'selector'   => $selector,
+									'selector'   => $selector . ', .kemet-merged-header-title',
 									'responsive' => true,
 								),
 							),
 							self::$prefix . '-border-right-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
-								'label'     => __( 'Page Title Divider Color', 'kemet-addons' ),
+								'label'     => __( 'Page Title Divider Color', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
 										'title' => __( 'Color', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.page-title-layout-3 .kmt-page-title-wrap',
+										'property' => 'border-color',
 									),
 								),
 								'context'   => array(
@@ -122,36 +132,54 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-spacing'    => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
-								'label'          => __( 'Padding', 'kemet-addons' ),
+								'label'          => __( 'Padding', 'kemet' ),
 								'responsive'     => true,
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(
-									'top'    => __( 'Top', 'kemet-addons' ),
-									'right'  => __( 'Right', 'kemet-addons' ),
-									'bottom' => __( 'Bottom', 'kemet-addons' ),
-									'left'   => __( 'Left', 'kemet-addons' ),
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector,
+									'responsive' => true,
+									'sides'      => false,
+									'property'   => '--padding',
 								),
 							),
 							self::$prefix . '-color'      => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
-								'label'     => __( 'Font Color', 'kemet-addons' ),
+								'label'     => __( 'Font Color', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
 										'title' => __( 'Color', 'kemet' ),
 									),
 								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kemet-page-title',
+										'property' => '--headingLinksColor',
+									),
+								),
 							),
 							self::$prefix . '-bottomline-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
-								'label'     => __( 'Separator Color', 'kemet-addons' ),
+								'label'     => __( 'Separator Color', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
 										'title' => __( 'Color', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kemet-page-title::after',
+										'property' => 'background-color',
 									),
 								),
 							),
@@ -167,8 +195,8 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--borderWidth',
+									'selector' => '.kemet-page-title::after',
+									'property' => 'height',
 								),
 							),
 							self::$prefix . '-bottomline-width' => array(
@@ -183,8 +211,8 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--borderWidth',
+									'selector' => '.kemet-page-title::after',
+									'property' => 'width',
 								),
 							),
 						),
@@ -214,11 +242,11 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_sections( $sections ) {
 		$register_section = array(
-			// 'section-breadcrumbs'       => array(
-			// 'title'    => __( 'Breadcrumbs', 'kemet' ),
-			// 'panel'    => 'panel-layout',
-			// 'priority' => 50,
-			// ),
+			'section-breadcrumbs'      => array(
+				'title'    => __( 'Breadcrumbs', 'kemet' ),
+				'panel'    => 'panel-layout',
+				'priority' => 50,
+			),
 			'section-' . self::$prefix => array(
 				'title'    => __( 'Page Title', 'kemet' ),
 				'panel'    => 'panel-layout',

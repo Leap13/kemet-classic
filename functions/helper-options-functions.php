@@ -100,7 +100,7 @@ if ( ! function_exists( 'kemet_responsive_spacing' ) ) {
 		if ( 'all' === $side && isset( $option[ $device ] ) && is_array( $option[ $device ] ) ) {
 			$device_spacing = $option[ $device ];
 			$device_unit    = $option[ $device . '-unit' ];
-			if ( array_filter( $device_spacing ) ) {
+			if ( is_array( $device_spacing ) ) {
 				array_walk(
 					$device_spacing,
 					function( &$value, $key, $device_unit ) {

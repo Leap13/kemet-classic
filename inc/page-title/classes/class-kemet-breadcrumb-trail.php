@@ -38,7 +38,7 @@ function kemet_breadcrumb_trail( $args = array() ) {
 	}
 	$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
 	if ( ! is_object( $breadcrumb ) ) {
-		$breadcrumb = new Kemet_Addon_Breadcrumb_Trail( $args );
+		$breadcrumb = new Kemet_Breadcrumb_Trail( $args );
 	}
 	return $breadcrumb->trail();
 }
@@ -48,7 +48,7 @@ function kemet_breadcrumb_trail( $args = array() ) {
  * @since  0.6.0
  * @access public
  */
-class Kemet_Addon_Breadcrumb_Trail {
+class Kemet_Breadcrumb_Trail {
 	/**
 	 * Array of items belonging to the current breadcrumb trail.
 	 *
@@ -148,7 +148,7 @@ class Kemet_Addon_Breadcrumb_Trail {
 	public function get_trail() {
 		// Set up variables that we'll need.
 		$breadcrumb        = '';
-		$breadcrumb_prefix = kemet_get_option( 'breadcrumb-prefix' );
+		$breadcrumb_prefix = kemet_get_option( 'breadcrumbs-prefix' );
 		$separator         = apply_filters( 'kemet_breadcrumb_separator', kemet_get_option( 'breadcrumb-separator', '»' ) );
 		$separator         = '<span class="breadcrumb-sep">' . $separator . '</span>';
 		$item_count        = count( $this->items );
@@ -386,7 +386,7 @@ class Kemet_Addon_Breadcrumb_Trail {
 	 */
 	protected function add_network_home_link() {
 		// Home item
-		$setting = kemet_get_option( 'kemet_breadcrumbs_home', 'icon' );
+		$setting = kemet_get_option( 'breadcrumbs-home-item', 'icon' );
 
 		// Icon
 		$icon_class = '';
@@ -421,7 +421,7 @@ class Kemet_Addon_Breadcrumb_Trail {
 	 */
 	protected function add_site_home_link() {
 		// Home item
-		$home_item = kemet_get_option( 'breadcrumb-home-item', 'icon' );
+		$home_item = kemet_get_option( 'breadcrumbs-home-item', 'icon' );
 
 		$html = '';
 		if ( 'icon' == $home_item ) {
@@ -522,7 +522,7 @@ class Kemet_Addon_Breadcrumb_Trail {
 			}
 		}
 		// End with the post title.
-		if ( true == kemet_get_option( 'show-item-title' ) && $post_title = single_post_title( '', false ) ) {
+		if ( true == kemet_get_option( 'breadcrumbs-show-item-title' ) && $post_title = single_post_title( '', false ) ) {
 			if ( ( 1 < get_query_var( 'page' ) || is_paged() ) || ( get_option( 'page_comments' ) && 1 < absint( get_query_var( 'cpage' ) ) ) ) {
 				$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $post_id ) ), $post_title );
 			} elseif ( true === $this->args['show_title'] ) {

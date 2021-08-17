@@ -302,6 +302,21 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		}
 
 		/**
+		 * Checks to see if the row has any content.
+		 *
+		 * @param string $row the name of the row.
+		 * @return bool
+		 */
+		public static function is_empty_row( $row = 'main', $device = 'desktop' ) {
+			$items  = kemet_get_option( 'header-' . $device . '-items' );
+			$helper = new Kemet_Builder_Helper();
+			if ( $helper::column_has_items( 'left', $row ) || $helper::column_has_items( 'right', $row ) || $helper::column_has_items( 'left_center', $row ) || $helper::column_has_items( 'center', $row ) || $helper::column_has_items( 'right_center', $row ) ) {
+				return false;
+			}
+			return true;
+		}
+
+		/**
 		 * Header
 		 */
 		public function desktop_header() {

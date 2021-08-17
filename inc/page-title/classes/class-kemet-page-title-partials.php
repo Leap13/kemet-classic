@@ -43,6 +43,64 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 			add_action( 'kemet_before_header_block', array( $this, 'header_merged_with_title' ) );
 			add_filter( 'kemet_the_title_enabled', array( $this, 'page_title_display' ) );
 			add_filter( 'kemet_disable_breadcrumbs', array( $this, 'breadcrumbs_display' ) );
+			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
+		}
+
+		/**
+		 * Customizer options default values
+		 *
+		 * @param object $defaults object of default values.
+		 * @return object
+		 */
+		public function theme_defaults( $defaults ) {
+			$prefix = 'page-title';
+			// Page title Options.
+			$defaults[ $prefix . '-layouts' ]           = 'page-title-layout-1';
+			$defaults[ $prefix . '-alignment' ]         = 'center';
+			$defaults[ $prefix . '-background' ]        = '';
+			$defaults[ $prefix . '-merge-with-header' ] = false;
+			$defaults[ $prefix . '-spacing' ]           = '';
+			$defaults[ $prefix . '-color' ]             = '';
+			// $defaults['page-title-font-size']           = '';
+			// $defaults['page-title-letter-spacing']      = '';
+			// $defaults['page-title-font-family']         = 'inherit';
+			// $defaults['page-title-font-weight']         = 'inherit';
+			// $defaults['pagetitle-text-transform']       = '';
+			// $defaults['pagetitle-font-style']           = 'inherit';
+			// $defaults['pagetitle-line-height']          = '';
+			$defaults[ $prefix . '-responsive' ]        = 'all-devices';
+			$defaults[ $prefix . '-bottomline-height' ] = '';
+			$defaults[ $prefix . '-bottomline-width' ]  = 150;
+			$defaults[ $prefix . '-bottomline-color' ]  = '';
+			// $defaults['sub-title-color']                = '';
+			// $defaults['sub-title-font-size']            = '';
+			// $defaults['sub-title-letter-spacing']       = '';
+			// $defaults['sub-title-font-family']          = 'inherit';
+			// $defaults['sub-title-font-weight']          = 'inherit';
+			// $defaults['sub-title-text-transform']       = '';
+			// $defaults['sub-title-line-height']          = '';
+			// Breadcrumbs Defaults.
+			$breadcrumbs_prefix                                   = 'breadcrumbs';
+			$defaults[ $breadcrumbs_prefix . '-show-item-title' ] = true;
+			$defaults[ $breadcrumbs_prefix . '-separator' ]       = '»';
+			$defaults[ $breadcrumbs_prefix . '-prefix' ]          = '';
+			// $defaults['breadcrumbs-font-size']              = '';
+			// $defaults['breadcrumbs-letter-spacing']         = '';
+			// $defaults['breadcrumbs-font-family']            = 'inherit';
+			// $defaults['breadcrumbs-font-weight']            = 'inherit';
+			// $defaults['breadcrumbs-text-transform']         = '';
+			// $defaults['breadcrumbs-line-height']            = '';
+			$defaults[ $breadcrumbs_prefix . '-home-item' ]                   = 'text';
+			$defaults[ 'disable-' . $breadcrumbs_prefix . '-in-archive' ]     = false;
+			$defaults[ 'disable-' . $breadcrumbs_prefix . '-in-single-page' ] = false;
+			$defaults[ 'disable-' . $breadcrumbs_prefix . '-in-single-post' ] = false;
+			$defaults[ 'disable-' . $breadcrumbs_prefix . '-in-404-page' ]    = false;
+			$defaults[ $breadcrumbs_prefix . '-posts-taxonomy' ]              = 'category';
+			$defaults[ $breadcrumbs_prefix . '-spacing' ]                     = '';
+			$defaults[ $breadcrumbs_prefix . '-color' ]                       = '';
+			$defaults[ $breadcrumbs_prefix . '-link-color' ]                  = '';
+			$defaults[ $breadcrumbs_prefix . '-enabled' ]                     = true;
+			return $defaults;
 		}
 
 		/**
@@ -79,7 +137,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 					get_template_part( 'templates/page-title/page-title-layout-1' );
 				}
 			}
-			$header_merged_title = kemet_get_option( 'merge-with-header' );
+			$header_merged_title = kemet_get_option( 'page-title-merge-with-header' );
 			if ( '1' == $header_merged_title && 'disable' != $page_title_layout ) {
 				echo '</div>';
 			}
@@ -105,7 +163,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 		 */
 		public function header_merged_with_title() {
 			$page_title_layout   = apply_filters( 'kemet_the_page_title_layout', kemet_get_option( 'page-title-layouts' ) );
-			$header_merged_title = kemet_get_option( 'merge-with-header' );
+			$header_merged_title = kemet_get_option( 'page-title-merge-with-header' );
 
 			if ( '1' == $header_merged_title && 'disable' != $page_title_layout ) {
 				$combined = 'kemet-merged-header-title';

@@ -6007,7 +6007,7 @@ input[type="color"]::-webkit-color-swatch {
 
 /*----------  Page Title  ----------*/
 .kmt-page-title-content {
-  padding: 50px 0px;
+  padding: var(--padding, 50px 0px);
 }
 
 .page-title-layout-1 .kemet-page-sub-title {
@@ -6016,6 +6016,11 @@ input[type="color"]::-webkit-color-swatch {
 
 .page-title-layout-3 .kemet-page-sub-title {
   width: 100%;
+}
+
+.kemet-breadcrumb-trail {
+  padding: var(--padding);
+  color: var(--textColor);
 }
 
 .kemet-breadcrumb-trail .trail-items,
@@ -6120,6 +6125,21 @@ input[type="color"]::-webkit-color-swatch {
 .kmt-sticky-footer .kmt-page-title-content {
   position: relative;
   z-index: 1;
+}
+
+.kemet-merged-header-title.overlay {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+}
+
+.kemet-merged-header-title .site-header.kmt-header-transparent {
+  position: relative;
+}
+
+.kemet-merged-header-title .site-header [class*="-header-bar"] {
+  background-image: none;
+  background-color: transparent;
 }
 
 @media only screen and (max-width: 767px) {

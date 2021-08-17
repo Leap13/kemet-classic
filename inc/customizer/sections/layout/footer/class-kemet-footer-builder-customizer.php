@@ -124,7 +124,7 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 			'foucs-footer-buttons-section' => array(
 				'type'          => 'kmt-focus-button',
 				'button_params' => array(
-					'title'   => __( 'Buttons Styles', 'kemet-addons' ),
+					'title'   => __( 'Buttons Styles', 'kemet' ),
 					'section' => 'section-footer-buttons',
 				),
 			),

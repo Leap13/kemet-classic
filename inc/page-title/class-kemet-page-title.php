@@ -41,7 +41,6 @@ if ( ! class_exists( 'Kemet_Page_Title' ) ) {
 		 */
 		public function __construct() {
 
-			require_once KEMET_PAGE_TITLE_DIR . 'classes/class-kemet-page-title-settings.php';
 			require_once KEMET_PAGE_TITLE_DIR . 'classes/class-kemet-page-title-partials.php';
 			require_once KEMET_PAGE_TITLE_DIR . 'classes/class-kemet-breadcrumb-trail.php';
 
