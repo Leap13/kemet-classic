@@ -5,7 +5,7 @@ import PopoverComponent from '../common/popover-component';
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 import { __ } from '@wordpress/i18n';
-import { humanizeVariations, familyForDisplay } from '../common/typo-helper'
+import { humanizeVariations, familyForDisplay } from './typography/helpers'
 
 import TypographyModal from './typography/typo-modal'
 

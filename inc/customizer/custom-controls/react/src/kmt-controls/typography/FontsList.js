@@ -11,7 +11,6 @@ import { getDefaultFonts } from './default-data'
 import { humanizeVariations, fontFamilyToCSSFamily } from './helpers'
 import { FixedSizeList as List } from 'react-window'
 import WebFontLoader from 'webfontloader'
-import AutoSizer from 'react-virtualized-auto-sizer'
 
 let loadedFonts = []
 
