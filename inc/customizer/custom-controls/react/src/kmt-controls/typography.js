@@ -146,7 +146,7 @@ const Typography = (props) => {
         fontSizeRef && fontSizeRef.current,
         dotsRef && dotsRef.current,
     ])
-    console.log(value)
+    console.log(KmtFontFamilies);
 
     return (
         <div className={classnames('kmt-typography', {})}>

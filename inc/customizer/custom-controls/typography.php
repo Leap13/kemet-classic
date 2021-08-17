@@ -2,6 +2,8 @@
 
 class Kemet_Fonts_Manager {
 	private $matching_fonts_collection = [];
+	public static $google_fonts = array();
+
 
 	public function get_all_fonts() {
 		return apply_filters('kemet_typography_font_sources', [
@@ -140,7 +142,7 @@ class Kemet_Fonts_Manager {
 			return;
 		}
 
-		$url = $this->get_google_fonts_url($this->get_static_fonts_ids());
+		$url = $this->get_google_fonts_url($google_fonts, $font_subset );
 
 		if (! empty($url)) {
 			wp_register_style('kemet-fonts-font-source-google', $url);
@@ -148,75 +150,54 @@ class Kemet_Fonts_Manager {
 		}
 	}
 
-	private function get_google_fonts_url($to_enqueue = []) {
-		$url = 'https://fonts.googleapis.com/css2?';
+public static function get_google_fonts_url( $fonts, $subsets = array() ) {
 
-		$families = [];
+		/* URL */
+		$base_url  = '//fonts.googleapis.com/css';
+		$font_args = array();
+		$family    = array();
 
-		foreach ($to_enqueue as $family => $variations) {
-			$to_push = 'family=' . $family . ':';
+		$fonts = apply_filters( 'kemet_google_fonts', $fonts );
 
-			$ital_vars = [];
-			$wght_vars = [];
-
-			foreach ($variations as $variation) {
-				$var_to_push = intval($variation[1]) * 100;
-				$var_to_push .= $variation[0] === 'i' ? 'i' : '';
-
-				if ($variation[0] === 'i') {
-					$ital_vars[] = intval($variation[1]) * 100;
-				} else {
-					$wght_vars[] = intval($variation[1]) * 100;
+		/* Format Each Font Family in Array */
+		foreach ( $fonts as $font_name => $font_weight ) {
+			$font_name = str_replace( ' ', '+', $font_name );
+			if ( ! empty( $font_weight ) ) {
+				if ( is_array( $font_weight ) ) {
+					$font_weight = implode( ',', $font_weight );
 				}
+				$font_family = explode( ',', $font_name );
+				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
+				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
+			} else {
+				$family[] = trim( $font_name );
 			}
-
-			sort($ital_vars);
-			sort($wght_vars);
-
-			$axis_tag_list = [];
-
-			if (count($ital_vars) > 0) {
-				$axis_tag_list[] = 'ital';
-			}
-
-			$axis_tag_list[] = 'wght';
-
-			$to_push .= implode(',', $axis_tag_list);
-			$to_push .= '@';
-
-			$all_vars = [];
-
-			foreach ($ital_vars as $ital_var) {
-				if (count($wght_vars) > 1) {
-					$all_vars[] = '0,' . $ital_var;
-				} else {
-					$all_vars[] = '1,' . $ital_var;
-				}
-			}
-
-			foreach ($wght_vars as $wght_var) {
-				if (count($axis_tag_list) > 1) {
-					$all_vars[] = '1,' . $wght_var;
-				} else {
-					$all_vars[] = $wght_var;
-				}
-			}
-
-			$to_push .= implode(';', $all_vars);
-
-			$families[] = $to_push;
 		}
 
-		$families = implode('&', $families);
+		/* Only return URL if font family defined. */
+		if ( ! empty( $family ) ) {
 
-		if (! empty($families)) {
-			$url .= $families;
-			$url .= '&display=swap';
+			/* Make Font Family a String */
+			$family = implode( '|', $family );
 
-			return $url;
+			/* Add font family in args */
+			$font_args['family'] = $family;
+
+			/* Add font subsets in args */
+			if ( ! empty( $subsets ) ) {
+
+				/* format subsets to string */
+				if ( is_array( $subsets ) ) {
+					$subsets = implode( ',', $subsets );
+				}
+
+				$font_args['subset'] = rawurlencode( trim( $subsets ) );
+			}
+
+			return add_query_arg( $font_args, $base_url );
 		}
 
-		return false;
+		return '';
 	}
 
 	public function get_system_fonts() {
@@ -248,93 +229,47 @@ class Kemet_Fonts_Manager {
 		];
 	}
 
-	public function all_google_fonts() {
-		$saved_data = get_option('kemet_google_fonts', false);
-		$ttl = 7 * DAY_IN_SECONDS;
 
-		if (
-			false === $saved_data
-			||
-			(($saved_data['last_update'] + $ttl) < time())
-			||
-			!is_array($saved_data)
-			||
-			!isset($saved_data['fonts'])
-			||
-			empty($saved_data['fonts'])
-		) {
-			$response = wp_remote_get(
-				'https://demo.creativethemes.com/?route=google_fonts'
-			);
 
-			$body = wp_remote_retrieve_body($response);
+	public static function get_google_fonts() {
 
-			if (
-				200 === wp_remote_retrieve_response_code($response)
-				&&
-				! is_wp_error($body) && ! empty($body)
-			) {
-				update_option('kemet_google_fonts', [
-					'last_update' => time(),
-					'fonts' => $body
-				], false);
+		if ( empty( self::$google_fonts ) ) {
 
-				return $body;
-			} else {
-				if (empty($saved_data['fonts'])) {
-					$saved_data['fonts'] = json_encode(['items' => []]);
+			$google_fonts_file = apply_filters( 'kemet_google_fonts_json_file', KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' );
+
+			if ( ! file_exists( KEMET_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				return array();
+			}
+
+			global $wp_filesystem;
+			if ( empty( $wp_filesystem ) ) {
+				require_once ABSPATH . '/wp-admin/includes/file.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+				WP_Filesystem();
+			}
+
+			$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
+			$google_fonts_json = json_decode( $file_contants, 1 );
+
+			foreach ( $google_fonts_json as $key => $font ) {
+				$name = key( $font );
+				foreach ( $font[ $name ] as $font_key => $single_font ) {
+
+					if ( 'variants' === $font_key ) {
+
+						foreach ( $single_font as $variant_key => $variant ) {
+
+							if ( 'regular' == $variant ) {
+								$font[ $name ][ $font_key ][ $variant_key ] = '400';
+							}
+						}
+					}
+
+					self::$google_fonts[ $name ] = array_values( $font[ $name ] );
 				}
-
-				update_option(
-					'kemet_google_fonts',
-					array(
-						'last_update' => time() - $ttl + MINUTE_IN_SECONDS,
-						'fonts' => $saved_data['fonts']
-					),
-					false
-				);
 			}
 		}
 
-		return $saved_data['fonts'];
-	}
-
-	public function get_googgle_fonts($as_keys = false) {
-		$maybe_custom_source = apply_filters(
-			'kemet-typography-google-fonts-source',
-			null
-		);
-
-		if ($maybe_custom_source) {
-			return $maybe_custom_source;
-		}
-
-		$response = $this->all_google_fonts();
-		$response = json_decode($response, true);
-
-		if (! isset($response['items'])) {
-			return false;
-		}
-
-		if (! is_array($response['items']) || !count($response['items'])) {
-			return false;
-		}
-
-		foreach ($response['items'] as $key => $row) {
-			$response['items'][$key] = $this->prepare_font_data($row);
-		}
-
-		if (! $as_keys) {
-			return $response['items'];
-		}
-
-		$result = [];
-
-		foreach ($response['items'] as $single_item) {
-			$result[$single_item['family']] = true;
-		}
-
-		return $result;
+		return apply_filters( 'kemet_google_fonts', self::$google_fonts );
 	}
 
 	private function prepare_font_data($font) {
@@ -561,26 +496,7 @@ if (! function_exists('kemet_get_css_for_variation')) {
 	}
 }
 
-if (! function_exists('kemet_typography_default_values')) {
-	function kemet_typography_default_values($values = []) {
-		return array_merge([
-			'family' => 'Default',
-			'variation' => 'Default',
 
-			'size' => '17px',
-			'line-height' => '1.65',
-			'letter-spacing' => '0em',
-			'text-transform' => 'none',
-			'text-decoration' => 'none',
-
-			'size' => 'CT_CSS_SKIP_RULE',
-			'line-height' => 'CT_CSS_SKIP_RULE',
-			'letter-spacing' => 'CT_CSS_SKIP_RULE',
-			'text-transform' => 'CT_CSS_SKIP_RULE',
-			'text-decoration' => 'CT_CSS_SKIP_RULE',
-		], $values);
-	}
-}
 
 add_action( 'wp_ajax_kemet_get_fonts_list', function () {
 	

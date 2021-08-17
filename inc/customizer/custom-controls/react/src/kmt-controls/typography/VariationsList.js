@@ -1,13 +1,5 @@
-import {
-	Fragment,
-	createElement,
-	Component,
-	useRef,
-	useEffect,
-	useState,
-} from '@wordpress/element'
+import { useRef, useEffect } from '@wordpress/element'
 import classnames from 'classnames'
-import { getDefaultFonts } from './default-data'
 import { humanizeVariations, findSelectedFontFamily } from './helpers'
 import { animated } from '@react-spring/web'
 

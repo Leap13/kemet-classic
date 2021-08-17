@@ -44,7 +44,7 @@ const loadGoogleFonts = (font_families) => {
 				}
 				: {}),
 			classes: false,
-			text: 'abcdefghijklmnopqrstuvwxyz',
+			text: 'kemetabcdefg',
 		})
 	}
 }

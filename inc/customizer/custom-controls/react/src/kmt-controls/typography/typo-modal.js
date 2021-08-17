@@ -1,13 +1,4 @@
-import {
-    Fragment,
-    createElement,
-    Component,
-    useRef,
-    useEffect,
-    useMemo,
-    useCallback,
-    useState,
-} from '@wordpress/element'
+import { useRef, useEffect, useMemo, useState } from '@wordpress/element'
 import classnames from 'classnames'
 import { getDefaultFonts } from './default-data'
 import {
@@ -119,6 +110,65 @@ const TypographyModal = ({
         ],
         []
     )
+    const fetchFontsList = async () => {
+        const body = new FormData()
+
+        body.append('action', 'kemet_get_fonts_list')
+
+        try {
+            const response = await fetch(ajaxurl, {
+                method: 'POST',
+                body,
+            })
+
+            if (response.status === 200) {
+                const { success, data } = await response.json()
+
+                if (success) {
+                    setTypographyList({
+                        ...data.fonts,
+                        system: {
+                            ...data.fonts.system,
+                            families: [
+                                ...(option.isDefault
+                                    ? []
+                                    : [
+                                        {
+                                            source: 'system',
+                                            family: 'Default',
+                                            variations: [],
+                                            all_variations: [
+                                                'Default',
+                                                'n1',
+                                                'i1',
+                                                'n2',
+                                                'i2',
+                                                'n3',
+                                                'i3',
+                                                'n4',
+                                                'i4',
+                                                'n5',
+                                                'i5',
+                                                'n6',
+                                                'i6',
+                                                'n7',
+                                                'i7',
+                                                'n8',
+                                                'i8',
+                                                'n9',
+                                                'i9',
+                                            ],
+                                        },
+                                    ]),
+
+                                ...data.fonts.system.families,
+                            ],
+                        },
+                    })
+                }
+            }
+        } catch (e) { }
+    }
 
     useEffect(() => {
         if (initialView && initialView !== 'done') {
@@ -141,6 +191,9 @@ const TypographyModal = ({
         }
     }, [currentView])
 
+    useEffect(() => {
+        fetchFontsList()
+    }, [])
     const pickFontFamily = (family) => {
         console.log(family)
         onChange({

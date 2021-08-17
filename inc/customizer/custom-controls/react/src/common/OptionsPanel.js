@@ -31,16 +31,16 @@ const OptionsPanel = props => {
 		const localOptions = flattenOptions(options)
 
 		return [
-			...(localOptions.__CT_KEYS_ORDER__
-				? Object.keys(localOptions.__CT_KEYS_ORDER__)
+			...(localOptions.__KMT_KEYS_ORDER__
+				? Object.keys(localOptions.__KMT_KEYS_ORDER__)
 					.map(orderKey => parseInt(orderKey, 10))
 					.sort((a, b) => a - b)
 					.map(
-						orderKey => localOptions.__CT_KEYS_ORDER__[orderKey]
+						orderKey => localOptions.__KMT_KEYS_ORDER__[orderKey]
 					)
 				: Object.keys(localOptions))
 		]
-			.filter(id => id !== '__CT_KEYS_ORDER__')
+			.filter(id => id !== '__k_KEYS_ORDER__')
 			.map(id => ({
 				...localOptions[id],
 				id
@@ -55,16 +55,16 @@ const OptionsPanel = props => {
 				if (
 					((lastChunk[0].options &&
 						lastChunk[0].type === currentOptionDescriptor.type) ||
-						currentOptionDescriptor.type === 'ct-tab-group' ||
-						currentOptionDescriptor.type === 'ct-tab-group-sync') &&
+						currentOptionDescriptor.type === 'kmt-tab-group' ||
+						currentOptionDescriptor.type === 'kmt-tab-group-sync') &&
 					/**
 					 * Do not group rendering chunks for boxes
 					 */
 					currentOptionDescriptor.type !== 'box' &&
 					/**
-					 * Do not group rendering chunks for ct-popup's
+					 * Do not group rendering chunks for kmt-popup's
 					 */
-					currentOptionDescriptor.type !== 'ct-popup'
+					currentOptionDescriptor.type !== 'kmt-popup'
 				) {
 					return [
 						...chunksHolder.slice(0, -1),
@@ -84,7 +84,7 @@ const OptionsPanel = props => {
 				 */
 				if (
 					renderingChunk[0].options ||
-					renderingChunk[0].type === 'ct-tab-group-sync'
+					renderingChunk[0].type === 'kmt-tab-group-sync'
 				) {
 					return (
 						<GenericContainerType
