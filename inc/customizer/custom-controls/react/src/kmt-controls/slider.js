@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Responsive from '../common/responsive';
-
+const { RangeControl } = wp.components;
 const { Component, Fragment } = wp.element;
 class ResponsiveSliderComponent extends Component {
     constructor() {
@@ -54,12 +54,12 @@ class ResponsiveSliderComponent extends Component {
     }
 
 
-    updateValues(device, value) {
+    updateValues(value) {
         let updateState = {
             ...this.state.initialState
         };
         if (this.responsive) {
-            updateState[device] = value;
+            updateState[this.state.currentDevice] = value;
         } else {
             updateState[`value`] = value;
         }
@@ -159,9 +159,17 @@ class ResponsiveSliderComponent extends Component {
 
                 <div className="wrapper">
                     <div className={`input-field-wrapper ${this.state.currentDevice} active`}>
-                        <input type="range" value={sliderValue} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
+                        <  RangeControl
+                            className={'kmt-range-value-input'}
+                            value={sliderValue}
+                            onChange={(newVal) => this.updateValues(newVal)}
+                            min={`${dataAttributes.min}`}
+                            max={`${dataAttributes.max}`}
+                            step={`${dataAttributes.step}`}
+                            withInputField={false}
+                        />
                         <div className="kemet_range_value">
-                            <input type="number" className="kmt-range-value-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} />
+                            <input type="number" className="kmt-range-value-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(event.target.value)} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-units">

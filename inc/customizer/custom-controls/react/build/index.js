@@ -9134,6 +9134,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+var RangeControl = wp.components.RangeControl;
 var _wp$element = wp.element,
     Component = _wp$element.Component,
     Fragment = _wp$element.Fragment;
@@ -9233,11 +9234,11 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(ResponsiveSliderComponent, [{
     key: "updateValues",
-    value: function updateValues(device, value) {
+    value: function updateValues(value) {
       var updateState = _objectSpread({}, this.state.initialState);
 
       if (this.responsive) {
-        updateState[device] = value;
+        updateState[this.state.currentDevice] = value;
       } else {
         updateState["value"] = value;
       }
@@ -9333,15 +9334,16 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         className: "wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "input-field-wrapper ".concat(this.state.currentDevice, " active")
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "range",
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(RangeControl, {
+        className: 'kmt-range-value-input',
         value: sliderValue,
-        onChange: function onChange(event) {
-          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
+        onChange: function onChange(newVal) {
+          return _this2.updateValues(newVal);
         },
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step)
+        step: "".concat(dataAttributes.step),
+        withInputField: false
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "kemet_range_value"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
@@ -9352,7 +9354,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         max: "".concat(dataAttributes.max),
         step: "".concat(dataAttributes.step),
         onChange: function onChange(event) {
-          return _this2.updateValues(_this2.state.currentDevice, event.target.value);
+          return _this2.updateValues(event.target.value);
         }
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
         className: "kmt-slider-units"
