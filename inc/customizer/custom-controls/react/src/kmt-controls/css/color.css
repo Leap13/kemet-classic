@@ -81,8 +81,8 @@
   transition: none;
   border-radius: 50%;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
   border-radius: 50%;
 }
 
@@ -163,20 +163,16 @@
   box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
   border: 1px solid transparent;
 }
-.components-button.kemet-background-icon-indicate {
-  width: 50px;
-  height: 50px;
+.customize-control-kmt-color .color-button-wrap {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  position: relative;
-  transform: scale(1);
   transition: transform 0.1s ease;
-  border-radius: 50%;
   padding: 0;
-  background-image: linear-gradient(45deg, #ddd 25%, transparent 0),
+  background: linear-gradient(45deg, #ddd 25%, transparent 0),
     linear-gradient(-45deg, #ddd 25%, transparent 0),
     linear-gradient(45deg, transparent 75%, #ddd 0),
     linear-gradient(-45deg, transparent 75%, #ddd 0);
-  border: 1px solid #dadada;
   background-size: 10px 10px;
   background-position: 0 0, 0 5px, 5px -5px, -5px 0;
 }
@@ -357,7 +353,7 @@
   .kemet-popover-color::before {
   position: absolute;
   content: "";
-  left: calc(100% - 97px);
+  left: calc(100% - 96px);
   border-style: solid;
   top: 3px;
   border-width: 0 6px 7px 6px;
@@ -438,37 +434,43 @@
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   width: 3px;
+  margin-top: 4px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
-  .kmt-reset-btn.components-button:not(:disabled)
+  .kmt-reset-btn:not(:disabled)
   span {
   opacity: 1;
 }
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button {
+.kmt-color-btn-reset-wrap .kmt-reset-btn {
   color: #006ba1;
   font-size: 10px;
-  padding: 4px;
+  padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-26px, 0, 0);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  opacity: 0;
+  transform: translate3d(-19px, 0, 0);
+  outline: 0;
+  border: 0;
 }
 /*   */
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button span,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button span {
+.kmt-color-btn-reset-wrap .kmt-reset-btn span,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn span {
   font-size: 10px !important;
-  line-height: 18px !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn span:hover {
+  transform: rotate(-45deg);
 }
 .kemet-color-clear-button.components-button:focus:not(:disabled) {
   outline: unset;
   border: none;
+  opacity: 1;
 }
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button:hover,
-.kmt-color-btn-reset-wrap .kmt-reset-btn.components-button:focus,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button:hover,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn.components-button:focus {
+.kmt-color-btn-reset-wrap .kmt-reset-btn:hover,
+.kmt-color-btn-reset-wrap .kmt-reset-btn:focus,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn:focus {
   box-shadow: none;
   border: none;
   background: transparent;
@@ -480,11 +482,10 @@
   border: none;
 }
 
-.kemet-color-clear-button.components-button.is-secondary:disabled,
-.kmt-reset-btn.components-button.is-secondary:disabled span {
-  color: #c5c5c5;
+.kemet-color-clear-button:disabled,
+.kmt-reset-btn:disabled span {
+  color: #2271b1;
   font-size: 16px;
-  opacity: 0;
 }
 /** Inside Setting group popup - Colors */
 .kmt-field-settings-modal .color-button-wrap {
@@ -879,8 +880,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-bottom: 0;
   cursor: pointer;
   border-radius: 100%;

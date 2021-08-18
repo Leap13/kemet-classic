@@ -29,6 +29,10 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'page-title';
 		$selector         = '.kmt-page-title-content';
 		$register_options = array(
+			self::$prefix . '-title'         => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Page Title', 'kemet' ),
+			),
 			self::$prefix . '-controls-tabs' => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
@@ -96,6 +100,14 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => $selector,
+								),
+							),
 							self::$prefix . '-background' => array(
 								'type'       => 'kmt-background',
 								'transport'  => 'postMessage',
@@ -217,6 +229,35 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 							),
 						),
 					),
+				),
+			),
+			'subtitle-title'                 => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Sub Title', 'kemet' ),
+			),
+			'sub-title-color'                => array(
+				'type'      => 'kmt-color',
+				'transport' => 'postMessage',
+				'label'     => __( 'Text Color', 'kemet' ),
+				'pickers'   => array(
+					array(
+						'id'    => 'initial',
+						'title' => __( 'Color', 'kemet' ),
+					),
+				),
+				'preview'   => array(
+					'initial' => array(
+						'selector' => '.kemet-page-sub-title',
+						'property' => '--textColor',
+					),
+				),
+			),
+			'sub-title-typography'           => array(
+				'type'      => 'kmt-typography',
+				'label'     => __( 'Typography', 'kemet' ),
+				'transport' => 'postMessage',
+				'preview'   => array(
+					'selector' => '.kemet-page-sub-title',
 				),
 			),
 		);
