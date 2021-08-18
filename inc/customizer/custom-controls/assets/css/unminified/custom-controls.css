@@ -7591,6 +7591,10 @@ i.fipicon-angle-left:before {
   width: 100%;
   height: 100%;
 }
+.customize-control-kmt-row-layout .customize-control-title {
+  display: inline-block;
+  padding-left: 2px;
+}
 
 .kmt-option-modal {
   left: 12px;
