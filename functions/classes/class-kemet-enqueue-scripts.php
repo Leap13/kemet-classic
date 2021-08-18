@@ -136,32 +136,25 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 * Add Fonts
 		 */
 		public function add_fonts() {
-			$font_family = kemet_get_option( 'body-font-family' );
-			$font_weight = kemet_get_option( 'body-font-weight' );
+			// $font_family = kemet_get_option( 'body-font-family' );
+			// $font_weight = kemet_get_option( 'body-font-weight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			// Kemet_Fonts::add_font( $font_family, $font_weight );
 
 			// Render headings font.
-			$font_family = kemet_get_option( 'headings-font-family' );
-			$font_weight = kemet_get_option( 'headings-font-weight' );
+			// $font_family = kemet_get_option( 'headings-font-family' );
+			// $font_weight = kemet_get_option( 'headings-font-weight' );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			// Kemet_Fonts::add_font( $font_family, $font_weight );
 
-			// Render Widget Title Font.
-			$font_family = kemet_get_option( 'widget-title-font-family' );
-			$font_weight = kemet_get_option( 'widget-title-font-wight' );
+			// Button fonts.
+			$typography = kemet_get_option( 'buttons-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 
-			Kemet_Fonts::add_font( $font_family, $font_weight );
+			// Inputs fonts.
+			$typography = kemet_get_option( 'input-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 
-			// Render Menu Items.
-			$font_family = kemet_get_option( 'menu-items-font-family' );
-			$font_weight = kemet_get_option( 'menu-items-font-wight' );
-
-			// Render SubMenu Items.
-			$font_family = kemet_get_option( 'sub-menu-items-font-family' );
-			$font_weight = kemet_get_option( 'sub-menu-items-font-wight' );
-
-			Kemet_Fonts::add_font( $font_family, $font_weight );
 		}
 
 		/**

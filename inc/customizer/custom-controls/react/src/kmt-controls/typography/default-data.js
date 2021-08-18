@@ -16,7 +16,8 @@ export const getDefaultFonts = ({ isDefault }) => ({
 			'Gill Sans',
 			'Impact',
 			'Serif',
-			'monospace'
+			'monospace',
+			'Alegreya Sans'
 		].map(family => ({
 			source: 'system',
 			family,

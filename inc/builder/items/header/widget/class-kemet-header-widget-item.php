@@ -38,7 +38,6 @@ if ( ! class_exists( 'Kemet_Header_Widget_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 1 );
 			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_WIDGET_DIR . 'dynamic-css/class-kemet-header-widget-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -60,28 +59,6 @@ if ( ! class_exists( 'Kemet_Header_Widget_Item' ) ) {
 				Kemet_Fonts::add_font( $font_family, $font_weight );
 			}
 		}
-		/**
-		 * Add Preview Scripts
-		 *
-		 * @return void
-		 */
-		public function preview_scripts() {
-
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-
-			wp_enqueue_script( 'kemet-header-widget-customize-preview-js', KEMET_HEADER_WIDGET_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kemet-customizer-preview-js' ), KEMET_THEME_VERSION, true );
-
-			// Localize variables for HTML JS.
-			wp_localize_script(
-				'kemet-header-widget-customize-preview-js',
-				'kemetWidgetData',
-				array(
-					'widgetItems' => apply_filters( 'kemet_header_widget_items', array( 'header-widget-1', 'header-widget-2' ) ),
-				)
-			);
-		}
-
 	}
 	Kemet_Header_Widget_Item::get_instance();
 }

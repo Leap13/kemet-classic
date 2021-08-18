@@ -18488,7 +18488,7 @@ var getDefaultFonts = function getDefaultFonts(_ref) {
   return {
     system: {
       type: 'system',
-      families: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(!isDefault ? ['Default'] : []), ['System Default', 'Arial', 'Verdana', 'Trebuchet', 'Georgia', 'Times New Roman', 'Palatino', 'Helvetica', 'Myriad Pro', 'Lucida', 'Gill Sans', 'Impact', 'Serif', 'monospace']).map(function (family) {
+      families: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(!isDefault ? ['Default'] : []), ['System Default', 'Arial', 'Verdana', 'Trebuchet', 'Georgia', 'Times New Roman', 'Palatino', 'Helvetica', 'Myriad Pro', 'Lucida', 'Gill Sans', 'Impact', 'Serif', 'monospace', 'Alegreya Sans']).map(function (family) {
         return {
           source: 'system',
           family: family,

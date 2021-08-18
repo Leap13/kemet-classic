@@ -37,7 +37,6 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$link_h_border_width          = kemet_get_option( $prefix . '-link-bottom-border-width-hover' );
 				$menu_spacing                 = kemet_get_option( $prefix . '-spacing' );
 				$menu_link_spacing            = kemet_get_option( $prefix . '-item-spacing' );
-				$line_height                  = kemet_get_option( $prefix . '-line-height' );
 				$submenu_width                = kemet_get_option( $prefix . '-submenu-width' );
 				$submenu_bg_color             = kemet_get_sub_option( $prefix . '-submenu-bg-color', 'initial' );
 				$submenu_link_color           = kemet_get_sub_option( $prefix . '-submenu-link-color', 'initial' );

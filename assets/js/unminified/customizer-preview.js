@@ -576,71 +576,90 @@ function kemet_responsive_background(control, selector) {
 function kemet_typography_css(control, selector) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
-      console.log(selector, value);
+      var dynamicStyle = '',
+        controlName = control.replace('[', '-').replace(']', '');
+      if (value.family) {
+        var fontName = value.family;
+        if (value.variation) {
+          var fontType = value.source,
+            weight = value.variation[1] + '00',
+            link = '',
+            style = 'i' === value.variation[0] ? 'italic' : 'normal';
+          jQuery("link#" + controlName).remove();
+          if (fontName in previewData.googleFonts) {
+            fontName = fontName.split(" ").join("+");
+            var weightLink = 'italic' === style ? weight + value.variation[0] : weight;
+            link =
+              '<link rel="stylesheet" id="' +
+              controlName +
+              '" href="https://fonts.googleapis.com/css?family=' +
+              fontName +
+              ':' + weightLink +
+              '&display=swap" media="all">';
+            jQuery("head").append(link);
+          }
+        }
+        dynamicStyle += '--fontFamily: ' + value.family + ';';
+        dynamicStyle += '--fontWeight: ' + weight + ';';
+        dynamicStyle += '--fontStyle: ' + style + ';';
+        dynamicStyle = selector + '{' + dynamicStyle + '}';
+      }
+
+      kemet_add_dynamic_css(control, dynamicStyle);
     })
   })
 }
 
-function kemet_font_family_css(control, selector) {
-  wp.customize(control, function (value) {
-    value.bind(function (value) {
-      var fontName = value.split(",")[0],
-        link = "";
-      // Replace ' character with space, necessary to separate out font prop value.
-      fontName = fontName.replace(/'/g, "");
-      if (fontName in previewData.googleFonts) {
-        jQuery("link#" + control).remove();
+function kemet_font_family_css(control, selector, value) {
+  var fontName = value.split(",")[0],
+    link = "";
+  // Replace ' character with space, necessary to separate out font prop value.
+  fontName = fontName.replace(/'/g, "");
+  if (fontName in KmtFontFamilies.google) {
+    jQuery("link#" + control).remove();
 
-        var fontName = fontName.split(" ").join("+");
-        link =
-          '<link id="' +
-          control +
-          '" href="https://fonts.googleapis.com/css?family=' +
-          fontName +
-          '"  rel="stylesheet">';
-      }
+    var fontName = fontName.split(" ").join("+");
+    link =
+      '<link id="' +
+      control +
+      '" href="https://fonts.googleapis.com/css?family=' +
+      fontName +
+      '"  rel="stylesheet">';
+  }
 
-      var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
-      kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("footer").append(link);
-    });
-  });
+  var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
+  kemet_add_dynamic_css(control, dynamicStyle);
+  jQuery("footer").append(link);
 }
 
-function kemet_font_weight_css(control, selector) {
-  wp.customize(control, function (value) {
-    value.bind(function (value) {
-      var fontControl = control.replace("weight", "family"),
-        fontName = wp.customize._value[fontControl]._value,
-        link = "";
-      fontName = fontName.split(",")[0];
-      fontName = fontName.replace(/'/g, "");
+function kemet_font_weight_css(control, selector, fontName, value) {
+  var link = "";
+  fontName = fontName.split(",")[0];
+  fontName = fontName.replace(/'/g, "");
 
-      if (fontName in previewData.googleFonts) {
-        jQuery("link#" + fontControl).remove();
-        if (value === "inherit") {
-          link =
-            '<link id="' +
-            fontControl +
-            '" href="https://fonts.googleapis.com/css?family=' +
-            fontName +
-            '"  rel="stylesheet">';
-        } else {
-          link =
-            '<link id="' +
-            fontControl +
-            '" href="https://fonts.googleapis.com/css?family=' +
-            fontName +
-            "%3A" +
-            value +
-            '"  rel="stylesheet">';
-        }
-      }
-      var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
-      kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("footer").append(link);
-    });
-  });
+  if (fontName in KmtFontFamilies.google) {
+    jQuery("link#" + control).remove();
+    if (value === "inherit") {
+      link =
+        '<link id="' +
+        control +
+        '" href="https://fonts.googleapis.com/css?family=' +
+        fontName +
+        '"  rel="stylesheet">';
+    } else {
+      link =
+        '<link id="' +
+        control +
+        '" href="https://fonts.googleapis.com/css?family=' +
+        fontName +
+        "%3A" +
+        value +
+        '"  rel="stylesheet">';
+    }
+  }
+  var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
+  kemet_add_dynamic_css(control, dynamicStyle);
+  jQuery("footer").append(link);
 }
 function settingName(settingName) {
   var setting = previewData.setting.replace("setting_name", settingName);

@@ -273,18 +273,18 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 * @return array
 		 */
 		public static function get_weight_and_style( $variation ) {
-			$weight_and_style = array();
+			$variation_data = array();
 			if ( preg_match( '#(n|i)(\d+?)$#', $variation, $matches ) ) {
 				if ( 'i' === $matches[1] ) {
-					$weight_and_style['style'] = 'italic';
+					$variation_data['style'] = 'italic';
 				} else {
-					$weight_and_style['style'] = 'normal';
+					$variation_data['style'] = 'normal';
 				}
 
-				$weight_and_style['weight'] = (int) $matches[2] . '00';
+				$variation_data['weight'] = (int) $matches[2] . '00';
 			}
 
-			return $weight_and_style;
+			return $variation_data;
 		}
 
 		/**

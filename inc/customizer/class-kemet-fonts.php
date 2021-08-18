@@ -67,6 +67,19 @@ final class Kemet_Fonts {
 	}
 
 	/**
+	 * add_font_form_typography
+	 *
+	 * @param  mixed $option
+	 * @return void
+	 */
+	public static function add_font_form_typography( $typography ) {
+		$font_family = isset( $typography['family'] ) ? $typography['family'] : '';
+		$font_weight = isset( $typography['variation'] ) ? (int) $typography['variation'][1] . '00' : '';
+
+		self::add_font( $font_family, $font_weight );
+	}
+
+	/**
 	 * Get Fonts
 	 */
 	public static function get_fonts() {
@@ -120,7 +133,7 @@ final class Kemet_Fonts {
 	public static function google_fonts_url( $fonts, $subsets = array() ) {
 
 		/* URL */
-		$base_url  = '//fonts.googleapis.com/css';
+		$base_url  = 'https://fonts.googleapis.com/css2?';
 		$font_args = array();
 		$family    = array();
 
@@ -131,11 +144,11 @@ final class Kemet_Fonts {
 			$font_name = str_replace( ' ', '+', $font_name );
 			if ( ! empty( $font_weight ) ) {
 				if ( is_array( $font_weight ) ) {
-					$font_weight = implode( ',', $font_weight );
+					$font_weight = implode( ';', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
 				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
-				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
+				$family[]    = 'family=' . trim( $font_family . ':wgt@' . trim( $font_weight ) );
 			} else {
 				$family[] = trim( $font_name );
 			}
@@ -161,7 +174,7 @@ final class Kemet_Fonts {
 				$font_args['subset'] = rawurlencode( trim( $subsets ) );
 			}
 
-			return add_query_arg( $font_args, $base_url );
+			return $base_url . $font_args['family'];
 		}
 
 		return '';
