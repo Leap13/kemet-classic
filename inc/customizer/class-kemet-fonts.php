@@ -133,7 +133,7 @@ final class Kemet_Fonts {
 	public static function google_fonts_url( $fonts, $subsets = array() ) {
 
 		/* URL */
-		$base_url  = 'https://fonts.googleapis.com/css2?';
+		$base_url  = 'https://fonts.googleapis.com/css';
 		$font_args = array();
 		$family    = array();
 
@@ -144,11 +144,11 @@ final class Kemet_Fonts {
 			$font_name = str_replace( ' ', '+', $font_name );
 			if ( ! empty( $font_weight ) ) {
 				if ( is_array( $font_weight ) ) {
-					$font_weight = implode( ';', $font_weight );
+					$font_weight = implode( ',', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
 				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
-				$family[]    = 'family=' . trim( $font_family . ':wgt@' . trim( $font_weight ) );
+				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );
 			}
@@ -174,7 +174,7 @@ final class Kemet_Fonts {
 				$font_args['subset'] = rawurlencode( trim( $subsets ) );
 			}
 
-			return $base_url . $font_args['family'];
+			return add_query_arg( $font_args, $base_url );
 		}
 
 		return '';
