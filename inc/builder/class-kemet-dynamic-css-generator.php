@@ -185,10 +185,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$parse_css = kemet_parse_css( $btn_css_output );
 
 				// Popup Css.
-				$popup_selector   = ' #kmt-' . esc_attr( $device ) . '-popup';
-				$content_selector = '.kmt-' . esc_attr( $device ) . '-popup-content';
-				$popup_width      = kemet_get_option( $device . '-popup-slide-width' );
-				// $popup_bg            = kemet_get_option( $device . '-popup-background' );
+				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
+				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
+				$popup_width         = kemet_get_option( $device . '-popup-slide-width' );
+				$popup_bg            = kemet_get_option( $device . '-popup-background' );
 				$popup_icon_bg_color = kemet_get_sub_option( $device . '-popup-close-btn-color', 'initial' );
 				$popup_css_output    = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $popup_css_output );
-				// $parse_css .= kemet_get_background_obj( $content_selector, $popup_bg );
+				$parse_css .= kemet_get_background_obj( $content_selector, $popup_bg );
 
 				return $parse_css;
 			}

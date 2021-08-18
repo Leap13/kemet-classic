@@ -92,7 +92,15 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'desktop-popup-close-btn-color'      => array(
+							'desktop-popup-background' => array(
+								'type'      => 'kmt-background',
+								'transport' => 'postMessage',
+								'label'     => __( 'Background', 'kemet' ),
+								'preview'   => array(
+									'selector' => '.kmt-desktop-popup-content',
+								),
+							),
+							'desktop-popup-close-btn-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
 								'label'     => __( 'Close Icon Color', 'kemet' ),
@@ -113,19 +121,6 @@ class Kemet_Desktop_Popup_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			// 'desktop-popup-background'           => array(
-			// 'type'      => 'kmt-background',
-			// 'transport' => 'postMessage',
-			// 'section'   => 'section-mobile-popup-header-builder',
-			// 'priority'  => 10,
-			// 'context'   => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
-
 		);
 
 		$desktop_popup_options = array(
