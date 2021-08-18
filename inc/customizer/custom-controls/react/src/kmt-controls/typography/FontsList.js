@@ -19,6 +19,8 @@ const loadGoogleFonts = (font_families) => {
 
 	loadedFonts = [...loadedFonts, ...font_families.map(({ family }) => family)]
 
+	console.log(loadedFonts, "load fonts")
+
 	const googleFonts = font_families
 		.map(({ family }) => family)
 		.filter((family) => family.indexOf('kmt_typekit') === -1)

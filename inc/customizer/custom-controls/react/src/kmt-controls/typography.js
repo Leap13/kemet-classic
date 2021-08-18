@@ -62,7 +62,7 @@ const Typography = (props) => {
         getInitialDevice()
     }, [])
     const getInitialDevice = () => {
-        console.log(wp.customize.previewedDevice())
+
         return wp.customize.previewedDevice()
 
     }
@@ -146,7 +146,7 @@ const Typography = (props) => {
         fontSizeRef && fontSizeRef.current,
         dotsRef && dotsRef.current,
     ])
-    console.log(KmtFontFamilies);
+
 
     return (
         <div className={classnames('kmt-typography', {})}>
@@ -167,7 +167,6 @@ const Typography = (props) => {
                             setCurrentView('options')
                             return
                         }
-
                         setCurrentViewCache('options:_')
                         setIsOpen('options')
                     },
@@ -188,7 +187,9 @@ const Typography = (props) => {
                         className="kmt-font"
                         ref={fontFamilyRef}>
                         <span>
-                            {value.family}
+                            {value.family === 'Default'
+                                ? 'Default Family'
+                                : familyForDisplay(value.family)}
                         </span>
                     </span>
                     <i>/</i>
@@ -200,7 +201,6 @@ const Typography = (props) => {
                                 setCurrentView('options')
                                 return
                             }
-
                             setCurrentViewCache('options:_')
                             setIsOpen('font_size')
                         }}

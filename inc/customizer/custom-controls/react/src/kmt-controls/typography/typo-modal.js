@@ -115,59 +115,6 @@ const TypographyModal = ({
 
         body.append('action', 'kemet_get_fonts_list')
 
-        try {
-            const response = await fetch(ajaxurl, {
-                method: 'POST',
-                body,
-            })
-
-            if (response.status === 200) {
-                const { success, data } = await response.json()
-
-                if (success) {
-                    setTypographyList({
-                        ...data.fonts,
-                        system: {
-                            ...data.fonts.system,
-                            families: [
-                                ...(option.isDefault
-                                    ? []
-                                    : [
-                                        {
-                                            source: 'system',
-                                            family: 'Default',
-                                            variations: [],
-                                            all_variations: [
-                                                'Default',
-                                                'n1',
-                                                'i1',
-                                                'n2',
-                                                'i2',
-                                                'n3',
-                                                'i3',
-                                                'n4',
-                                                'i4',
-                                                'n5',
-                                                'i5',
-                                                'n6',
-                                                'i6',
-                                                'n7',
-                                                'i7',
-                                                'n8',
-                                                'i8',
-                                                'n9',
-                                                'i9',
-                                            ],
-                                        },
-                                    ]),
-
-                                ...data.fonts.system.families,
-                            ],
-                        },
-                    })
-                }
-            }
-        } catch (e) { }
     }
 
     useEffect(() => {
@@ -195,7 +142,6 @@ const TypographyModal = ({
         fetchFontsList()
     }, [])
     const pickFontFamily = (family) => {
-        console.log(family)
         onChange({
             ...value,
             family: family.family,

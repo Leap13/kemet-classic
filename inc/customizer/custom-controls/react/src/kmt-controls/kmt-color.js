@@ -100,7 +100,6 @@ const KemetColorComponent = props => {
 
     const renderInputHtml = (device) => {
         innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
-            console.log(pickers, picker)
 
             if (responsive) {
                 return (
@@ -154,9 +153,9 @@ const KemetColorComponent = props => {
                 {descriptionHtml}
                 {responsiveHtml}
             </label>
-            < section>
+            <div className={` className="kmt-color-picker-container`}>
                 {optionsHtml}
-            </section>
+            </div>
         </div>
     </div>;
 

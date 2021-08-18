@@ -33,7 +33,6 @@ const PalettePreview = ({
 				}
 
 				onClick()
-				console.log(e.target)
 			}}>
 			{renderBefore()}
 

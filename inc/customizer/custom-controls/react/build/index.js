@@ -16446,8 +16446,6 @@ var PalettePreview = function PalettePreview(_ref) {
       }
 
       _onClick();
-
-      console.log(e.target);
     }
   }, renderBefore(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-color-picker-container"
@@ -16981,7 +16979,6 @@ var ColorComponent = function ColorComponent(_ref) {
   var picker = _ref.picker,
       onChangeComplete = _ref.onChangeComplete,
       value = _ref.value;
-  console.log(picker, value);
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
     isPicking: null,
@@ -16995,14 +16992,13 @@ var ColorComponent = function ColorComponent(_ref) {
 
   var containerRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var modalRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     useCapture: false,
     display: "inline-block",
     disabled: !isPicking,
     wrapperProps: {
       ref: containerRef
     },
-    className: "kmt-color-picker-container",
     additionalRefs: [modalRef],
     onOutsideClick: function onOutsideClick() {
       setState(function (_ref2) {
@@ -17037,7 +17033,7 @@ var ColorComponent = function ColorComponent(_ref) {
       return onChangeComplete(color);
     },
     value: value[picker.id]
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ColorComponent);
@@ -17370,8 +17366,6 @@ var KemetColorComponent = function KemetColorComponent(props) {
           key = _ref3[0],
           picker = _ref3[1];
 
-      console.log(pickers, picker);
-
       if (responsive) {
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
           value: state[device],
@@ -17412,7 +17406,9 @@ var KemetColorComponent = function KemetColorComponent(props) {
     className: "kmt-control-wrap kmt-color-control-wrap"
   }, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-color-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml, responsiveHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("section", null, optionsHtml)));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml, responsiveHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: " className=\"kmt-color-picker-container"
+  }, optionsHtml)));
 };
 
 _color__WEBPACK_IMPORTED_MODULE_4__["default"].propTypes = {
@@ -19862,7 +19858,6 @@ var Typography = function Typography(props) {
   }, []);
 
   var getInitialDevice = function getInitialDevice() {
-    console.log(wp.customize.previewedDevice());
     return wp.customize.previewedDevice();
   };
 
@@ -19945,7 +19940,6 @@ var Typography = function Typography(props) {
     var futureRef = view === 'options' ? fontSizeRef.current : view === 'fonts' ? fontFamilyRef.current : view === 'variations' ? fontWeightRef.current : fontSizeRef.current;
     return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
   }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
-  console.log(KmtFontFamilies);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-typography', {})
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -19984,7 +19978,7 @@ var Typography = function Typography(props) {
     },
     className: "kmt-font",
     ref: fontFamilyRef
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", null, "/"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === 'Default' ? 'Default Family' : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyForDisplay"])(value.family))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", null, "/"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     onClick: function onClick(e) {
       e.stopPropagation();
 
@@ -20291,6 +20285,7 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     var family = _ref.family;
     return family;
   })));
+  console.log(loadedFonts, "load fonts");
   var googleFonts = font_families.map(function (_ref2) {
     var family = _ref2.family;
     return family;
@@ -20703,10 +20698,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -20819,64 +20814,20 @@ var TypographyModal = function TypographyModal(_ref) {
 
   var fetchFontsList = /*#__PURE__*/function () {
     var _ref3 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default.a.mark(function _callee() {
-      var body, response, _yield$response$json, success, data;
-
+      var body;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               body = new FormData();
               body.append('action', 'kemet_get_fonts_list');
-              _context.prev = 2;
-              _context.next = 5;
-              return fetch(ajaxurl, {
-                method: 'POST',
-                body: body
-              });
 
-            case 5:
-              response = _context.sent;
-
-              if (!(response.status === 200)) {
-                _context.next = 13;
-                break;
-              }
-
-              _context.next = 9;
-              return response.json();
-
-            case 9:
-              _yield$response$json = _context.sent;
-              success = _yield$response$json.success;
-              data = _yield$response$json.data;
-
-              if (success) {
-                setTypographyList(_objectSpread(_objectSpread({}, data.fonts), {}, {
-                  system: _objectSpread(_objectSpread({}, data.fonts.system), {}, {
-                    families: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()(option.isDefault ? [] : [{
-                      source: 'system',
-                      family: 'Default',
-                      variations: [],
-                      all_variations: ['Default', 'n1', 'i1', 'n2', 'i2', 'n3', 'i3', 'n4', 'i4', 'n5', 'i5', 'n6', 'i6', 'n7', 'i7', 'n8', 'i8', 'n9', 'i9']
-                    }]), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()(data.fonts.system.families))
-                  })
-                }));
-              }
-
-            case 13:
-              _context.next = 17;
-              break;
-
-            case 15:
-              _context.prev = 15;
-              _context.t0 = _context["catch"](2);
-
-            case 17:
+            case 2:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[2, 15]]);
+      }, _callee);
     }));
 
     return function fetchFontsList() {
@@ -20907,8 +20858,6 @@ var TypographyModal = function TypographyModal(_ref) {
   }, []);
 
   var pickFontFamily = function pickFontFamily(family) {
-    console.log(family);
-
     _onChange(_objectSpread(_objectSpread({}, value), {}, {
       family: family.family,
       variation: Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["decideVariationToSelect"])(family, value)
