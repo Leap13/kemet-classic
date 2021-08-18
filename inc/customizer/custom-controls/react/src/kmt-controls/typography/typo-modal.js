@@ -142,6 +142,7 @@ const TypographyModal = ({
     }, [currentView])
 
     const pickFontFamily = (family) => {
+        console.log(family);
         onChange({
             ...value,
             family: family.family,

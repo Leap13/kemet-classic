@@ -208,13 +208,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h6_font_color = kemet_get_sub_option( 'font-color-h6', 'initial' );
 
 			// Button Styling.
-			$btn_font_size         = kemet_get_option( 'buttons-font-size' );
-			$btn_font_family       = kemet_get_option( 'buttons-font-family' );
-			$btn_font_weight       = kemet_get_option( 'buttons-font-weight' );
-			$btn_text_tranform     = kemet_get_option( 'buttons-text-transform' );
-			$btn_font_style        = kemet_get_option( 'buttons-font-style' );
-			$btn_line_height       = kemet_get_option( 'buttons-line-height' );
-			$btn_letter_spacing    = kemet_get_option( 'buttons-letter-spacing' );
 			$btn_border_radius     = kemet_get_option( 'button-radius' );
 			$btn_padding           = kemet_get_option( 'button-spacing' );
 			$highlight_link_color  = kemet_get_foreground_color( $theme_color );
@@ -476,13 +469,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color'            => 'var(--textColor)',
 				),
 				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
-					'font-family'    => 'var(--fontFamily)',
-					'font-weight'    => 'var(--fontWeight)',
-					'font-size'      => 'var(--fontSize)',
-					'letter-spacing' => 'var(--letterSpacing)',
-					'line-height'    => 'var(--lineHeight)',
-					'text-transform' => 'var(--textTransform)',
-					'font-style'     => 'var(--fontStyle)',
+					'font-family'     => 'var(--fontFamily)',
+					'font-weight'     => 'var(--fontWeight)',
+					'font-size'       => 'var(--fontSize)',
+					'letter-spacing'  => 'var(--letterSpacing)',
+					'line-height'     => 'var(--lineHeight)',
+					'text-transform'  => 'var(--textTransform)',
+					'font-style'      => 'var(--fontStyle)',
+					'text-decoration' => 'var(--textDecoration)',
 				),
 				'p, .entry-content p'                   => array(
 					'--marginBottom' => kemet_slider( $para_margin_bottom ),
@@ -718,13 +712,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderColor'      => esc_attr( $btn_border_color ),
 					'--borderWidth'      => kemet_slider( $btn_border_size ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
-					'--fontSize'         => kemet_responsive_slider( $btn_font_size, 'desktop' ),
-					'--fontFamily'       => kemet_get_font_family( $btn_font_family ),
-					'--fontWeight'       => esc_attr( $btn_font_weight ),
-					'--textTransform'    => esc_attr( $btn_text_tranform ),
-					'--fontStyle'        => esc_attr( $btn_font_style ),
-					'--lineHeight'       => kemet_responsive_slider( $btn_line_height, 'desktop' ),
-					'--letterSpacing'    => kemet_responsive_slider( $btn_letter_spacing, 'desktop' ),
 					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px' : 'none',
 				),
 				'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover' => array(
@@ -882,7 +869,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css = kemet_parse_css( $css_output );
-
+			// Typography.
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'buttons', 'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' );
 			// Read More.
 			$readmore_text_color     = kemet_get_sub_option( 'readmore-text-color', 'initial' );
 			$readmore_text_h_color   = kemet_get_sub_option( 'readmore-text-color', 'hover' );
@@ -1029,10 +1017,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'--fontSize'      => kemet_responsive_slider( $btn_font_size, 'tablet' ),
-					'--lineHeight'    => kemet_responsive_slider( $btn_line_height, 'tablet' ),
-					'--letterSpacing' => kemet_responsive_slider( $btn_letter_spacing, 'tablet' ),
-					'--padding'       => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+					'--padding' => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
 				),
 				// Sidebar Spacing.
 				'.sidebar-main'                      => array(
@@ -1189,10 +1174,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Button Typography.
 				'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' => array(
-					'--fontSize'      => kemet_responsive_slider( $btn_font_size, 'mobile' ),
-					'--lineHeight'    => kemet_responsive_slider( $btn_line_height, 'mobile' ),
-					'--letterSpacing' => kemet_responsive_slider( $btn_letter_spacing, 'mobile' ),
-					'--padding'       => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
+					'--padding' => kemet_responsive_spacing( $btn_padding, 'all', 'mobile' ),
 				),
 				// post readmore spacing.
 				'.content-area p.read-more a'        => array(

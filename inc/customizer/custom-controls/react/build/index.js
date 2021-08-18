@@ -14542,7 +14542,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       "background-position": '',
       "background-repeat": '',
       "background-size": '',
-      "background-type": "",
+      "background-type": "color",
       "background-gradient": ''
     },
     mobile: {
@@ -14576,34 +14576,6 @@ var BackgroundComponent = function BackgroundComponent(props) {
     props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
       flag: !value.flag
     }));
-  };
-
-  var updateBackgroundType = function updateBackgroundType(device) {
-    var value = props.value;
-
-    var obj = _objectSpread({}, value);
-
-    if (!props_value[device]['background-type']) {
-      var deviceObj = _objectSpread({}, obj[device]);
-
-      if (props_value[device]['background-color']) {
-        deviceObj['background-type'] = 'color';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-
-      if (props_value[device]['background-gradient']) {
-        deviceObj['background-type'] = 'gradient';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-
-      if (props_value[device]['background-image']) {
-        deviceObj['background-type'] = 'image';
-        obj[device] = deviceObj;
-        updateValue(obj);
-      }
-    }
   };
 
   var responsiveHtml;
@@ -18828,6 +18800,8 @@ var TypographyModal = function TypographyModal(_ref) {
   }, [currentView]);
 
   var pickFontFamily = function pickFontFamily(family) {
+    console.log(family);
+
     _onChange(_objectSpread(_objectSpread({}, value), {}, {
       family: family.family,
       variation: Object(_helpers__WEBPACK_IMPORTED_MODULE_8__["decideVariationToSelect"])(family, value)
