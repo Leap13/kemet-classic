@@ -159,7 +159,7 @@ class ResponsiveSliderComponent extends Component {
 
                 <div className="wrapper">
                     <div className={`input-field-wrapper ${this.state.currentDevice} active`}>
-                        <  RangeControl
+                        <RangeControl
                             className={'kmt-range-value-input'}
                             value={sliderValue}
                             onChange={(newVal) => this.updateValues(newVal)}
@@ -169,7 +169,7 @@ class ResponsiveSliderComponent extends Component {
                             withInputField={false}
                         />
                         <div className="kemet_range_value">
-                            <input type="number" className="kmt-range-value-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(event.target.value)} />
+                            <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(event.target.value)} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-units">
@@ -177,9 +177,9 @@ class ResponsiveSliderComponent extends Component {
                         </ul>
                     </div>
 
-                    <div className="kmt-slider-reset" onClick={e => this.handleReset(e)}  >
+                    <button className="kmt-slider-reset" disabled={this.state.initialState === this.state.defaultVal ? true : false} onClick={e => this.handleReset(e)}  >
                         <span className="dashicons dashicons-image-rotate"></span>
-                    </div>
+                    </button>
                 </div>
                 {descriptionContent}
             </label >

@@ -9348,7 +9348,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         className: "kemet_range_value"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
         type: "number",
-        className: "kmt-range-value-input",
+        className: "kmt-range-value__input",
         value: sliderValue,
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
@@ -9358,8 +9358,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         }
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
         className: "kmt-slider-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
+        disabled: this.state.initialState === this.state.defaultVal ? true : false,
         onClick: function onClick(e) {
           return _this2.handleReset(e);
         }
@@ -9617,7 +9618,7 @@ var SpacingComponent = function SpacingComponent(props) {
     event.target.parentElement.classList.add('disconnected');
   };
 
-  var onSpacingChange = function onSpacingChange(device, choiceID) {
+  var onSpacingChange = function onSpacingChange(choiceID) {
     var choices = props.params.choices;
 
     var updateState = _objectSpread({}, state);

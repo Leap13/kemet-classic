@@ -91,7 +91,7 @@ const SpacingComponent = props => {
         event.target.parentElement.classList.add('disconnected');
     };
 
-    const onSpacingChange = (device, choiceID) => {
+    const onSpacingChange = (choiceID) => {
         const {
             choices
         } = props.params;
@@ -167,6 +167,7 @@ const SpacingComponent = props => {
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
                         value={inputValue} onChange={() => onSpacingChange(device, choiceID)}
                         data-element-connect={id} />
+
                     <span className="kmt-spacing-title">{choices[choiceID]}</span>
                 </li>;
                 return html;
