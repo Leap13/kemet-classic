@@ -602,7 +602,12 @@ function kemet_typography_css(control, selector) {
         dynamicStyle += '--fontFamily: ' + value.family + ';';
         dynamicStyle += '--fontWeight: ' + weight + ';';
         dynamicStyle += '--fontStyle: ' + style + ';';
+        dynamicStyle += '--textTransform: ' + value['text-decoration'] + ';';
+        dynamicStyle += '--textDecoration: ' + value['text-transform'] + ';';
         dynamicStyle = selector + '{' + dynamicStyle + '}';
+        dynamicStyle += kemet_responsive_slider_css(value.size, 'font-size', selector);
+        dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], 'letter-spacing', selector);
+        dynamicStyle += kemet_responsive_slider_css(value['line-height'], 'line-height', selector);
       }
 
       kemet_add_dynamic_css(control, dynamicStyle);
@@ -610,57 +615,6 @@ function kemet_typography_css(control, selector) {
   })
 }
 
-function kemet_font_family_css(control, selector, value) {
-  var fontName = value.split(",")[0],
-    link = "";
-  // Replace ' character with space, necessary to separate out font prop value.
-  fontName = fontName.replace(/'/g, "");
-  if (fontName in KmtFontFamilies.google) {
-    jQuery("link#" + control).remove();
-
-    var fontName = fontName.split(" ").join("+");
-    link =
-      '<link id="' +
-      control +
-      '" href="https://fonts.googleapis.com/css?family=' +
-      fontName +
-      '"  rel="stylesheet">';
-  }
-
-  var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
-  kemet_add_dynamic_css(control, dynamicStyle);
-  jQuery("footer").append(link);
-}
-
-function kemet_font_weight_css(control, selector, fontName, value) {
-  var link = "";
-  fontName = fontName.split(",")[0];
-  fontName = fontName.replace(/'/g, "");
-
-  if (fontName in KmtFontFamilies.google) {
-    jQuery("link#" + control).remove();
-    if (value === "inherit") {
-      link =
-        '<link id="' +
-        control +
-        '" href="https://fonts.googleapis.com/css?family=' +
-        fontName +
-        '"  rel="stylesheet">';
-    } else {
-      link =
-        '<link id="' +
-        control +
-        '" href="https://fonts.googleapis.com/css?family=' +
-        fontName +
-        "%3A" +
-        value +
-        '"  rel="stylesheet">';
-    }
-  }
-  var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
-  kemet_add_dynamic_css(control, dynamicStyle);
-  jQuery("footer").append(link);
-}
 function settingName(settingName) {
   var setting = previewData.setting.replace("setting_name", settingName);
 
