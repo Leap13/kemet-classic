@@ -147,7 +147,6 @@ const Typography = (props) => {
         dotsRef && dotsRef.current,
     ])
 
-
     return (
         <div className={classnames('kmt-typography', {})}>
             <OutsideComponent

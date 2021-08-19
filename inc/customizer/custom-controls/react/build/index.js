@@ -20258,11 +20258,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _default_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./default-data */ "./src/kmt-controls/typography/default-data.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers */ "./src/kmt-controls/typography/helpers.js");
-/* harmony import */ var react_window__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-window */ "./node_modules/react-window/dist/index.esm.js");
-/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! webfontloader */ "./node_modules/webfontloader/webfontloader.js");
-/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers */ "./src/kmt-controls/typography/helpers.js");
+/* harmony import */ var react_window__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-window */ "./node_modules/react-window/dist/index.esm.js");
+/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! webfontloader */ "./node_modules/webfontloader/webfontloader.js");
+/* harmony import */ var webfontloader__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(webfontloader__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -20270,7 +20270,6 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 
 
 
@@ -20285,20 +20284,19 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     var family = _ref.family;
     return family;
   })));
-  console.log(loadedFonts, "load fonts");
   var googleFonts = font_families.map(function (_ref2) {
     var family = _ref2.family;
     return family;
   }).filter(function (family) {
-    return family.indexOf('kmt_typekit') === -1;
+    return family.indexOf('ct_typekit') === -1;
   });
   var typekitFonts = font_families.filter(function (_ref3) {
     var family = _ref3.family;
-    return family.indexOf('kmt_typekit') > -1;
+    return family.indexOf('ct_typekit') > -1;
   });
 
   if (googleFonts.length > 0 || typekitFonts.length > 0) {
-    webfontloader__WEBPACK_IMPORTED_MODULE_8___default.a.load(_objectSpread(_objectSpread(_objectSpread({}, googleFonts.length > 0 ? {
+    webfontloader__WEBPACK_IMPORTED_MODULE_7___default.a.load(_objectSpread(_objectSpread(_objectSpread({}, googleFonts.length > 0 ? {
       google: {
         families: googleFonts
       }
@@ -20308,7 +20306,7 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
       }
     } : {}), {}, {
       classes: false,
-      text: 'kemetabcdefg'
+      text: 'abcdefghijklmnopqrstuvwxyz'
     }));
   }
 };
@@ -20326,30 +20324,25 @@ var SingleFont = function SingleFont(_ref4) {
     onClick: function onClick() {
       return onPickFamily(family);
     },
-    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('kmt-typography-single-font', "kmt-".concat(family.source), {
-      active: family.family === value.family
+    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()('kmt-typography-single-font', {
+      active: family[0] === value.family
     }),
-    key: family.family
+    key: family[0]
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "kmt-font-name"
-  }, family.display || family.family), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  }, family.family), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     style: {
-      fontFamily: Object(_helpers__WEBPACK_IMPORTED_MODULE_6__["fontFamilyToCSSFamily"])(family.family)
+      fontFamily: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["fontFamilyToCSSFamily"])(family)
     },
     className: "kmt-font-preview"
   }, "Simply dummy text"));
 };
 
 var FontsList = function FontsList(_ref5) {
-  var option = _ref5.option,
-      value = _ref5.value,
+  var value = _ref5.value,
       onPickFamily = _ref5.onPickFamily,
-      typographyList = _ref5.typographyList,
-      linearFontsList = _ref5.linearFontsList,
-      currentView = _ref5.currentView,
-      searchTerm = _ref5.searchTerm;
+      linearFontsList = _ref5.linearFontsList;
   var listRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
-  var timerRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(null),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
@@ -20377,8 +20370,7 @@ var FontsList = function FontsList(_ref5) {
           overscanStartIndex = _listRef$current$_get2[0];
 
       var perPage = 25;
-      var totalPages = Math.ceil(linearFontsList.length / perPage);
-      var startingPage = Math.ceil((overscanStartIndex + 1) / perPage); // const stopPage = Math.ceil((overscanStopIndex + 1) / perPage)
+      var startingPage = Math.ceil((overscanStartIndex + 1) / perPage);
 
       var pageItems = _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(Array(perPage)).map(function (_, i) {
         return (startingPage - 1) * perPage + i;
@@ -20399,7 +20391,7 @@ var FontsList = function FontsList(_ref5) {
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     _onScroll();
   }, [linearFontsList]);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react_window__WEBPACK_IMPORTED_MODULE_7__["FixedSizeList"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react_window__WEBPACK_IMPORTED_MODULE_6__["FixedSizeList"], {
     height: 360,
     itemCount: linearFontsList.length,
     itemSize: 85,
@@ -20483,7 +20475,7 @@ var VariationsList = function VariationsList(_ref) {
         active: variation === value.variation
       }),
       key: variation
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    }, variation, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "kmt-variation-name",
       "data-variation": variation
     }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["humanizeVariations"])(variation)));
@@ -20504,24 +20496,22 @@ var VariationsList = function VariationsList(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaultFonts", function() { return getDefaultFonts; });
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
-
-var getDefaultFonts = function getDefaultFonts(_ref) {
-  var isDefault = _ref.isDefault;
-  return {
-    system: {
-      type: 'system',
-      families: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(!isDefault ? ['Default'] : []), ['System Default', 'Arial', 'Verdana', 'Trebuchet', 'Georgia', 'Times New Roman', 'Palatino', 'Helvetica', 'Myriad Pro', 'Lucida', 'Gill Sans', 'Impact', 'Serif', 'monospace']).map(function (family) {
-        return {
-          source: 'system',
-          family: family,
-          variations: [],
-          all_variations: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(family === 'Default' ? ['Default'] : []), ['n1', 'i1', 'n2', 'i2', 'n3', 'i3', 'n4', 'i4', 'n5', 'i5', 'n6', 'i6', 'n7', 'i7', 'n8', 'i8', 'n9', 'i9'])
-        };
-      })
-    }
-  };
+var getDefaultFonts = function getDefaultFonts(isDefault) {
+  var sytemFonts = Object.entries(KmtFontFamilies["system"]).map(function (familyValue) {
+    return {
+      family: familyValue[0],
+      variations: [],
+      all_variations: familyValue.variants
+    };
+  });
+  var googleFonts = Object.entries(KmtFontFamilies["google"]).map(function (familyValue) {
+    return {
+      family: familyValue[0],
+      variations: [],
+      all_variations: familyValue[1][0]
+    };
+  });
+  return [sytemFonts, googleFonts];
 };
 
 /***/ }),
@@ -20547,12 +20537,12 @@ var fontFamilyToCSSFamily = function fontFamilyToCSSFamily(family) {
     return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
   }
 
-  return family.replace('kmt_typekit_', '');
+  return family.family.replace('kmt_typekit_', '');
 };
 
 var findSourceTypeSettingsFor = function findSourceTypeSettingsFor(font_family, fonts_list) {
   return Object.values(fonts_list).find(function (single_font_source) {
-    return single_font_source.families.map(function (_ref) {
+    return single_font_source.map(function (_ref) {
       var family = _ref.family;
       return family;
     }).indexOf(font_family) > -1;
@@ -20565,27 +20555,27 @@ var findSourceTypeFor = function findSourceTypeFor(font_family, fonts_list) {
   return source.type;
 };
 var findSelectedFontFamily = function findSelectedFontFamily(font_family, fonts_list) {
+  // console.log('findSelectedFontFamily');
   var source = findSourceTypeSettingsFor(font_family, fonts_list);
 
   if (!source) {
     return null;
   }
 
-  return source.families.find(function (_ref2) {
+  return source.find(function (_ref2) {
     var family = _ref2.family;
     return family === font_family;
   });
 };
 var decideVariationToSelect = function decideVariationToSelect(newValue, oldValue) {
-  if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
-    return oldValue.variation;
-  }
+  console.log(newValue, oldValue); // if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
+  // 	return oldValue.variation
+  // }
+  // if (newValue.all_variations.indexOf('n4') > -1) {
+  // 	return 'n4'
+  // }
 
-  if (newValue.all_variations.indexOf('n4') > -1) {
-    return 'n4';
-  }
-
-  return newValue.all_variations[0];
+  return newValue.all_variations;
 };
 var humanizeVariationsShort = function humanizeVariationsShort(variation) {
   var all = {
@@ -20636,18 +20626,6 @@ var humanizeVariations = function humanizeVariations(variation) {
   return all[variation];
 };
 var familyForDisplay = function familyForDisplay(family) {
-  if (family.indexOf('kmt_font') === 0) {
-    return family.replace('kmt_font_', '').replace(/([-_][a-z])/gi, function ($1) {
-      return $1.toUpperCase().replace('-', '').replace('_', '');
-    });
-  }
-
-  if (family.indexOf('kmt_typekit') === 0) {
-    return family.replace('kmt_typekit_', '').replace(/([-_][a-z])/gi, function ($1) {
-      return $1.toUpperCase().replace('-', ' ').replace('_', ' ');
-    });
-  }
-
   return family;
 };
 
@@ -20806,7 +20784,7 @@ var TypographyModal = function TypographyModal(_ref) {
   var inputEl = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["useRef"])(null);
   var sizeEl = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["useRef"])(null);
   var linearFontsList = Object.keys(typographyList).reduce(function (currentList, currentSource) {
-    return [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()(currentList), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()((typographyList[currentSource].families || []).filter(function (_ref2) {
+    return [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()(currentList), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3___default()((typographyList[currentSource] || []).filter(function (_ref2) {
       var family = _ref2.family;
       return fuzzysearch(searchTerm.toLowerCase(), family.toLowerCase());
     })));

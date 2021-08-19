@@ -42,6 +42,7 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 							active: variation === value.variation,
 						})}
 						key={variation}>
+						{variation}
 						<span
 							className="kmt-variation-name"
 							data-variation={variation}>

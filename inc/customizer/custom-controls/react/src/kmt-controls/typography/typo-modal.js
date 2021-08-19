@@ -1,17 +1,10 @@
 import { useRef, useEffect, useMemo, useState } from '@wordpress/element'
 import classnames from 'classnames'
 import { getDefaultFonts } from './default-data'
-import {
-    humanizeVariationsShort,
-    decideVariationToSelect,
-    familyForDisplay,
-} from './helpers'
+import { humanizeVariationsShort, decideVariationToSelect, familyForDisplay } from './helpers'
 import { __ } from '@wordpress/i18n';
-
 import bezierEasing from 'bezier-easing'
-
 import { Transition, animated } from '@react-spring/web'
-
 import FontsList from './FontsList'
 import VariationsList from './VariationsList'
 import FontOptions from './FontOptions'
@@ -67,9 +60,7 @@ const TypographyModal = ({
     wrapperProps = {},
 
 }) => {
-    const [typographyList, setTypographyList] = useState(
-        getDefaultFonts(option)
-    )
+    const [typographyList, setTypographyList] = useState(getDefaultFonts(option))
     const [isSearch, setIsSearch] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -103,7 +94,7 @@ const TypographyModal = ({
         (currentList, currentSource) => [
             ...currentList,
             ...(
-                typographyList[currentSource].families || []
+                typographyList[currentSource] || []
             ).filter(({ family }) =>
                 fuzzysearch(searchTerm.toLowerCase(), family.toLowerCase())
             ),
@@ -116,6 +107,7 @@ const TypographyModal = ({
         body.append('action', 'kemet_get_fonts_list')
 
     }
+
 
     useEffect(() => {
         if (initialView && initialView !== 'done') {
@@ -142,6 +134,7 @@ const TypographyModal = ({
         fetchFontsList()
     }, [])
     const pickFontFamily = (family) => {
+
         onChange({
             ...value,
             family: family.family,
@@ -222,6 +215,7 @@ const TypographyModal = ({
                         onClick={() => setCurrentView('variations')}>
                         <span data-variation={value.variation}>
                             {humanizeVariationsShort(value.variation)}
+                            {/* {value.variation} */}
                         </span>
                     </li>
                 </ul>
