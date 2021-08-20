@@ -1,6 +1,7 @@
 .customize-control-kmt-spacing .customize-control-title {
   display: inline-block;
-  padding-left: 2px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
@@ -120,4 +121,12 @@
   .kmt-spacing-input-item-link
   .kmt-spacing-disconnected {
   color: #2d3748;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }

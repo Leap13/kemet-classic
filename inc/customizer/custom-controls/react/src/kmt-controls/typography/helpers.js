@@ -9,6 +9,7 @@ export const fontFamilyToCSSFamily = (family) => {
 
 const findSourceTypeSettingsFor = (font_family, fonts_list) =>
 
+
 	Object.values(fonts_list).find(
 		(single_font_source) =>
 			single_font_source
@@ -24,9 +25,7 @@ export const findSourceTypeFor = (font_family, fonts_list) => {
 }
 
 export const findSelectedFontFamily = (font_family, fonts_list) => {
-	// console.log('findSelectedFontFamily');
 	let source = findSourceTypeSettingsFor(font_family, fonts_list)
-
 	if (!source) {
 		return null
 	}
@@ -35,7 +34,7 @@ export const findSelectedFontFamily = (font_family, fonts_list) => {
 }
 
 export const decideVariationToSelect = (newValue, oldValue) => {
-	console.log(newValue, oldValue)
+	// console.log(newValue, oldValue)
 	// if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
 	// 	return oldValue.variation
 	// }
@@ -44,9 +43,6 @@ export const decideVariationToSelect = (newValue, oldValue) => {
 	// 	return 'n4'
 
 	// }
-
-	return newValue.all_variations
-
 
 }
 

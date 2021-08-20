@@ -34,13 +34,14 @@ const KemetColorComponent = props => {
     let innerOptionsHtml = null;
 
     useEffect(() => {
-        // If settings are changed externally.
+
         if (state.value !== value) {
             setState(value);
         }
     }, []);
 
     const updateValues = (value) => {
+
         let UpdatedState = { ...state };
         if (responsive) {
             UpdatedState[device] = value
@@ -88,6 +89,7 @@ const KemetColorComponent = props => {
             value[`${id}`] = color.hex;
         }
 
+        console.log(color, "handleChangeCompelete")
         updateValues(value);
     };
 

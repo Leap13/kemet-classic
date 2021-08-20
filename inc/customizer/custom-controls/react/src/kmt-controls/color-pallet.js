@@ -18,6 +18,8 @@ const { __ } = wp.i18n;
 const ColorPalettes = (props) => {
     let value = props.params.value;
 
+
+
     const colorPalettesWrapper = useRef()
 
     const [{ isOpen, isTransitioning }, setModalState] = useState({
@@ -151,6 +153,8 @@ const ColorPalettes = (props) => {
                     }}
                     value={properValue}
                     onChange={(optionId, optionValue) => {
+                        console.log(properValue, "properValue")
+
                         props.onChange({
                             ...properValue,
                             ...optionValue,

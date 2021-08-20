@@ -34,6 +34,10 @@
   visibility: visible;
   opacity: 1;
 }
+.kmt-builder-hide .kmt-builder-hide-button.kmt-builder-tab-toggle {
+  visibility: hidden;
+  opacity: 0;
+}
 .kmt-builder-tab-toggle:hover,
 .kmt-builder-section-shortcut:hover {
   background: #f0f0f1;
@@ -418,7 +422,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 .kmt-control-tabs {
   position: relative;
-  min-height: 1px;
+  /* min-height: 1px; */
 }
 .kmt-build-tabs {
   display: flex;

@@ -26,7 +26,7 @@ const SinglePicker = ({
         contentRef: modalRef,
         ref: containerRef || {},
         defaultHeight: 379,
-        shouldCalculate: appendToBody,
+        shouldCalculate: true,
     })
     let modal = null
     if (
@@ -108,7 +108,9 @@ const SinglePicker = ({
                     innerRef.current = instance
                 }
             }}
-            className={classnames('kmt-color-picker-single', {})}>
+            className={classnames('kmt-color-picker-single', {})}
+            style={{ marginRight: ` 6px` }}
+        >
             <span tabIndex="0">
                 <span
                     tabIndex="0"

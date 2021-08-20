@@ -11,7 +11,6 @@ export const getDefaultFonts = (isDefault) => {
 		all_variations: familyValue[1][0]
 
 	}))
-
-	return [sytemFonts, googleFonts]
+	return [googleFonts.concat(sytemFonts)]
 
 }

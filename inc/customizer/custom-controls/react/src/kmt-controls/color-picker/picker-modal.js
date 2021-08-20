@@ -1,4 +1,4 @@
-import { useMemo, Fragment } from '@wordpress/element'
+import { useMemo, Fragment, useState } from '@wordpress/element'
 import ColorPickerIris from './color-picker-iris.js'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
@@ -20,6 +20,9 @@ const getLeftForEl = (modal, el) => {
     }
 }
 
+
+
+
 const PickerModal = ({
     el,
     value,
@@ -30,22 +33,13 @@ const PickerModal = ({
     inline_modal,
     appendToBody
 }) => {
+    const [currentColor, setCurrentColor] = useState(value)
 
-    const getValueForPicker = useMemo(() => {
-        if ((value || '').indexOf('var') > -1) {
-            return {
-                key: 'var' + value,
-                color: getComputedStyle(document.documentElement)
-                    .getPropertyValue(
-                        value.replace(/var\(/, '').replace(/\)/, '')
-                    )
-                    .trim()
-                    .replace(/\s/g, ''),
-            }
-        }
+    const handleTopColor = (color) => {
+        setCurrentColor(color)
+        onChange(color)
+    }
 
-        return { key: 'color', color: value }
-    }, [value, picker])
 
     let valueToCheck = value
 
@@ -96,11 +90,11 @@ const PickerModal = ({
                                         valueToCheck === color,
                                 })}
                                 onClick={() =>
-                                    onChange(color)
+                                    onChange(`${color}`)
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
-                                        `Color`
+                                        `Color ${index + 1} `
                                     }
                                 </div>
                             </li>
@@ -110,9 +104,8 @@ const PickerModal = ({
 
 
                 <ColorPickerIris
-                    key={getValueForPicker.key}
                     onChange={(v) => onChange(v)}
-                    value={value}
+                    value={currentColor}
                 />
             </div>
         </Fragment>
