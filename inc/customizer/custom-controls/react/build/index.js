@@ -17668,8 +17668,11 @@ var TitleComponent = function TitleComponent(props) {
     className: "customize-control-title"
   }, props.params.label) : null;
   var descriptionContent = props.params.description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "description customize-control-description"
-  }, props.params.description) : null;
+    className: "description customize-control-description",
+    dangerouslySetInnerHTML: {
+      __html: props.params.description
+    }
+  }) : null;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, captionContent, labelContent, descriptionContent);
 };
 

@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		public function __construct() {
 			 require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php'; // phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-
+			$this->customizer_options_register();
 			add_filter( 'woocommerce_enqueue_styles', array( $this, 'woo_filter_style' ) );
 
 			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			// add_filter( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
@@ -1148,17 +1148,21 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			 * Register Sections & Panels
 			 */
 			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/register-panels-and-sections.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		}
 
-			/**
-			 * Sections
-			 */
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-general.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-cart-menu-items.php';// phpcs:ignore: WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		/**
+		 * Register Customizer sections and panel for woocommerce
+		 */
+		public function customizer_options_register() {
+			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';
+			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
+			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
+			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';
+			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-general-customizer.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-cart-customizer.php';
+			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		}
 
 		/**
