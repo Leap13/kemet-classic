@@ -142,6 +142,8 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					$variants = array();
 					foreach ( $font['variants'] as $variant_key => $variant ) {
 
+						$variants[ $variant_key ] = $variant;
+
 						if ( 'regular' == $variant ) {
 							$variants[ $variant_key ] = '400';
 						}

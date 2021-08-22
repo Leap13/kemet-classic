@@ -13,11 +13,6 @@ const loadGoogleFonts = (font_families) => {
 
 	const googleFonts = font_families
 		.map(({ family }) => family)
-		.filter((family) => family.indexOf('ct_typekit') === -1)
-
-	const typekitFonts = font_families.filter(
-		({ family }) => family.indexOf('ct_typekit') > -1
-	)
 
 	if (googleFonts.length > 0 || typekitFonts.length > 0) {
 		WebFontLoader.load({
@@ -28,13 +23,7 @@ const loadGoogleFonts = (font_families) => {
 					},
 				}
 				: {}),
-			...(typekitFonts.length > 0
-				? {
-					typekit: {
-						id: typekitFonts[0].kit,
-					},
-				}
-				: {}),
+
 			classes: false,
 			text: 'abcdefghijklmnopqrstuvwxyz',
 		})
@@ -81,6 +70,7 @@ const FontsList = ({
 	const [scrollTimer, setScrollTimer] = useState(null)
 
 	useEffect(() => {
+
 		if (value.family) {
 			listRef.current.scrollToItem(
 				linearFontsList
@@ -100,6 +90,7 @@ const FontsList = ({
 					return
 				}
 				const [overscanStartIndex] = listRef.current._getRangeToRender()
+
 				const perPage = 25
 				const startingPage = Math.ceil(
 					(overscanStartIndex + 1) / perPage
@@ -108,11 +99,7 @@ const FontsList = ({
 					.map((_, i) => (startingPage - 1) * perPage + i)
 					.map((index) => linearFontsList[index])
 					.filter((s) => !!s)
-					.filter(
-						({ source, family }) =>
-							loadedFonts.indexOf(family) === -1 &&
-							(source === 'google' || source === 'typekit')
-					)
+
 
 				loadGoogleFonts(pageItems)
 			}, 100)

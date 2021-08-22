@@ -5,7 +5,7 @@ import PopoverComponent from '../common/popover-component';
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 import { __ } from '@wordpress/i18n';
-import { humanizeVariations, familyForDisplay } from './typography/helpers'
+import { familyForDisplay } from './typography/helpers'
 
 import TypographyModal from './typography/typo-modal'
 
@@ -29,7 +29,7 @@ const Typography = (props) => {
     let value = props.value;
     let defaultValue = {
         'family': 'System Default',
-        'variation': 'n4',
+        'variation': '',
         'size': {
             "desktop": '35',
             "desktop-unit": 'px',
@@ -69,7 +69,6 @@ const Typography = (props) => {
     value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
     const [device, setInnerDevice] = useState(getInitialDevice())
-
     const listener = () => {
         setInnerDevice(getInitialDevice())
     }
@@ -224,7 +223,7 @@ const Typography = (props) => {
                             setIsOpen('variations')
                         }}
                         className="kmt-weight">
-                        <span>{humanizeVariations(value.variation)}</span>
+                        <span>{value.variation}</span>
 
                     </span>
                 </div>
@@ -274,9 +273,7 @@ const Typography = (props) => {
                     >
                         {(style, item) => {
                             if (!item) {
-                                return <div>
-                                    Salma2
-                                </div>
+                                return null
                             }
 
                             return (
