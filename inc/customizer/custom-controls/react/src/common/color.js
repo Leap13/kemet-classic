@@ -429,37 +429,34 @@ class KemetColorPickerControl extends Component {
         return (
             <>
 
+                <div className="kmt-control kmt-image-actions">
+                    <MediaUpload
+                        title={__("Select Background Image", 'astra')}
+                        onSelect={(media) => this.onSelectImage(media)}
+                        allowedTypes={["image"]}
+                        value={(this.props.media && this.props.media ? this.props.media : '')}
+                        render={({ open }) => (
+                            <>
+                                {!this.props.media &&
 
-                <MediaUpload
-                    title={__("Select Background Image", 'astra')}
-                    onSelect={(media) => this.onSelectImage(media)}
-                    allowedTypes={["image"]}
-                    value={(this.props.media && this.props.media ? this.props.media : '')}
-                    render={({ open }) => (
-                        <>
-                            {!this.props.media &&
-                                <div className="kmt-control kmt-image-actions">
                                     < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
                                         {__("Select Background Image", 'Kemet')}
                                     </Button>
-                                </div>
-                            }
-                            {(this.props.media && this.props.backgroundType === "image") &&
-                                <div className=" kmt-image-actions">
+                                }
+                                {(this.props.media && this.props.backgroundType === "image") &&
                                     <div className="actions">
                                         <Button type="button" className="button remove-image" onClick={this.onRemoveImage} >
                                         </Button>
                                         <Button type="button" className="button edit-image" onClick={() => this.open(open)}>
                                         </Button>
-                                    </div>
-                                </div>}
+                                    </div>}
 
-                        </>
-                    )}
-                />
+                            </>
+                        )}
+                    />
+                </div>
 
-                {
-                    (this.props.media && this.props.backgroundType === "image") &&
+                {(this.props.media && this.props.backgroundType === "image") &&
                     <>
                         <div className='kmt-control'>
                             <div className={`thumbnail thumbnail-image`}>

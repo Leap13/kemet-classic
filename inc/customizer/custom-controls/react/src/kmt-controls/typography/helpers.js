@@ -3,13 +3,15 @@ export const fontFamilyToCSSFamily = (family) => {
 		return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
 	}
 
-	return family.replace('kmt_typekit_', '')
+	return family.family.replace('kmt_typekit_', '')
 }
 
 const findSourceTypeSettingsFor = (font_family, fonts_list) =>
+
+
 	Object.values(fonts_list).find(
 		(single_font_source) =>
-			single_font_source.families
+			single_font_source
 				.map(({ family }) => family)
 				.indexOf(font_family) > -1
 	)
@@ -22,26 +24,23 @@ export const findSourceTypeFor = (font_family, fonts_list) => {
 
 export const findSelectedFontFamily = (font_family, fonts_list) => {
 	let source = findSourceTypeSettingsFor(font_family, fonts_list)
-
 	if (!source) {
 		return null
 	}
 
-	return source.families.find(({ family }) => family === font_family)
+	return source.find(({ family }) => family === font_family)
 }
 
 export const decideVariationToSelect = (newValue, oldValue) => {
-	if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
-		return oldValue.variation
-	}
+	// console.log(newValue, oldValue)
+	// if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
+	// 	return oldValue.variation
+	// }
 
-	if (newValue.all_variations.indexOf('n4') > -1) {
-		return 'n4'
+	// if (newValue.all_variations.indexOf('n4') > -1) {
+	// 	return 'n4'
 
-	}
-
-	return newValue.all_variations[0]
-
+	// }
 
 }
 
@@ -98,21 +97,5 @@ export const humanizeVariations = (variation) => {
 }
 
 export const familyForDisplay = (family) => {
-	if (family.indexOf('kmt_font') === 0) {
-		return family
-			.replace('kmt_font_', '')
-			.replace(/([-_][a-z])/gi, ($1) =>
-				$1.toUpperCase().replace('-', '').replace('_', '')
-			)
-	}
-
-	if (family.indexOf('kmt_typekit') === 0) {
-		return family
-			.replace('kmt_typekit_', '')
-			.replace(/([-_][a-z])/gi, ($1) =>
-				$1.toUpperCase().replace('-', ' ').replace('_', ' ')
-			)
-	}
-
 	return family
 }

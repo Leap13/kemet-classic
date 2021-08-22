@@ -5,7 +5,7 @@ import PopoverComponent from '../common/popover-component';
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 import { __ } from '@wordpress/i18n';
-import { humanizeVariations, familyForDisplay } from '../common/typo-helper'
+import { familyForDisplay } from './typography/helpers'
 
 import TypographyModal from './typography/typo-modal'
 
@@ -29,7 +29,7 @@ const Typography = (props) => {
     let value = props.value;
     let defaultValue = {
         'family': 'System Default',
-        'variation': 'n4',
+        'variation': '',
         'size': {
             "desktop": '35',
             "desktop-unit": 'px',
@@ -68,7 +68,6 @@ const Typography = (props) => {
     value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
     const [device, setInnerDevice] = useState(getInitialDevice())
-
     const listener = () => {
         setInnerDevice(getInitialDevice())
     }
@@ -165,7 +164,6 @@ const Typography = (props) => {
                             setCurrentView('options')
                             return
                         }
-
                         setCurrentViewCache('options:_')
                         setIsOpen('options')
                     },
@@ -186,7 +184,9 @@ const Typography = (props) => {
                         className="kmt-font"
                         ref={fontFamilyRef}>
                         <span>
-                            {value.family}
+                            {value.family === 'Default'
+                                ? 'Default Family'
+                                : familyForDisplay(value.family)}
                         </span>
                     </span>
                     <i>/</i>
@@ -198,7 +198,6 @@ const Typography = (props) => {
                                 setCurrentView('options')
                                 return
                             }
-
                             setCurrentViewCache('options:_')
                             setIsOpen('font_size')
                         }}
@@ -223,15 +222,16 @@ const Typography = (props) => {
                             setIsOpen('variations')
                         }}
                         className="kmt-weight">
-                        <span>{humanizeVariations(value.variation)}</span>
+                        <span>{value.variation}</span>
 
                     </span>
                 </div>
 
                 <a ref={dotsRef} />
 
-            </OutsideComponent>
-            {(isTransitioning || isOpen) &&
+            </OutsideComponent >
+            {
+                (isTransitioning || isOpen) &&
                 createPortal(
                     <Transition
                         items={isOpen}
@@ -273,9 +273,7 @@ const Typography = (props) => {
                     >
                         {(style, item) => {
                             if (!item) {
-                                return <div>
-                                    Salma2
-                                </div>
+                                return null
                             }
 
                             return (
@@ -308,8 +306,9 @@ const Typography = (props) => {
                         }}
                     </Transition>,
                     document.body
-                )}
-        </div>)
+                )
+            }
+        </div >)
 }
 export default Typography
 

@@ -68,6 +68,7 @@ const BackgroundComponent = props => {
     const [props_value, setPropsValue] = useState(value);
     const [device, setDevice] = useState('desktop');
 
+
     const updateValue = (obj) => {
         setPropsValue(obj);
         props.onChange({ ...obj, flag: !value.flag });

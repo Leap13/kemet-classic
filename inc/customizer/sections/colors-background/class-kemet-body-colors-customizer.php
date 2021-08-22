@@ -19,6 +19,146 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
+			'colorPalette' => array(
+					'label' => __( 'Global Color Palette', 'Kemet' ),
+					'type'  => 'kmt-color-palettes',
+					'value' =>array(
+						'color1' => '#2872fa',
+						'color2' =>  '#1559ed',
+						'color3' =>  '#3A4F66',
+						'color4' =>  '#192a3d',
+						'color5' => '#e1e8ed',
+						'color6' =>'#f2f5f7',
+						'color7' => '#FAFBFC',
+						'color8' =>  '#ffffff',
+						'current_palette' => 'palette-2',
+
+						'palettes' => array(
+							[
+								'id' => 'palette-2',
+								'color1' => '#2872fa',
+								'color2' => '#1559ed',								
+								'color3' => '#3A4F66',								
+								'color4' => '#192a3d',								
+								'color5' => '#e1e8ed',
+								'color6' => '#f2f5f7',
+								'color7' => '#FAFBFC',
+								'color8' => '#ffffff',
+								
+							],
+							
+							[
+								'id' => 'palette-1',
+								'color1' => '#3eaf7c',							
+								'color2' =>  '#33a370',								
+								'color3' =>  '#415161',
+								'color4' =>  '#2c3e50',								
+								'color5' =>  '#E2E7ED',								
+								'color6' => '#edeff2',								
+								'color7' =>  '#f8f9fb',								
+								'color8' => '#ffffff',								
+							],
+
+							[
+								'id' => 'palette-3',
+								'color1' => '#FB7258',								
+								'color2' => '#F74D67',						
+								'color3' =>  '#6e6d76',							
+								'color4' => '#0e0c1b',								
+								'color5' => '#DFDFE2',								
+								'color6' =>  '#F4F4F5',								
+								'color7' => '#FBFBFB',							
+								'color8' =>  '#ffffff',							
+							],
+							[
+								'id' => 'palette-4',
+								'color1' => '#98c1d9',								
+								'color2' => '#E84855',							
+								'color3' =>  '#475671',							
+								'color4' => '#293241',							
+								'color5' =>'#E7E9EF',							
+								'color6' =>'#f3f4f7',								
+								'color7' => '#FBFBFC',								
+								'color8' => '#ffffff',							
+							],
+							[
+								'id' => 'palette-5',
+								'color1' =>  '#006466',							
+								'color2' => '#065A60',
+								'color3' =>'#7F8C9A',							
+								'color4' =>  '#ffffff',
+								'color5' => '#1e2933',
+								'color6' =>  '#0F141A',
+								'color7' =>  '#141b22',							
+								'color8' => '#1B242C',
+							
+							],
+
+							[
+								'id' => 'palette-6',
+								'color1' => '#007f5f',							
+								'color2' =>  '#55a630',							
+								'color3' =>  '#365951',							
+								'color4' => '#192c27',							
+								'color5' => '#E6F0EE',								
+								'color6' => '#F2F7F6',							
+								'color7' =>  '#FBFCFC',							
+								'color8' =>  '#ffffff',
+								
+							],
+							[
+								'id' => 'palette-7',
+								'color1' =>  '#7456f1',								
+								'color2' => '#5e3fde',								
+								'color3'=>  '#4d5d6d',								
+								'color4' => '#102136',
+							
+
+								'color5' => '#E7EBEE',
+								
+
+								'color6' => '#F3F5F7',
+							
+
+								'color7' => '#FBFBFC',
+							
+
+								'color8' => '#ffffff',
+							
+							],
+
+							[
+								'id' => 'palette-8',
+
+								'color1' =>  '#00509d',
+							
+
+								'color2' =>  '#003f88',
+							
+
+								'color3' =>  '#828487',
+						
+
+								'color4' => '#28292a',
+						
+
+								'color5' =>  '#e8ebed',
+							
+
+								'color6' =>  '#f4f5f6',
+							
+
+								'color7' =>'#FBFBFC',
+						
+
+								'color8' => '#ffffff',
+							
+							],
+
+							
+						)
+						),
+				),
 			'theme-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Primary Color', 'kemet' ),
