@@ -185,10 +185,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$parse_css = kemet_parse_css( $btn_css_output );
 
 				// Popup Css.
-				$popup_selector   = ' #kmt-' . esc_attr( $device ) . '-popup';
-				$content_selector = '.kmt-' . esc_attr( $device ) . '-popup-content';
-				$popup_width      = kemet_get_option( $device . '-popup-slide-width' );
-				// $popup_bg            = kemet_get_option( $device . '-popup-background' );
+				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
+				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
+				$popup_width         = kemet_get_option( $device . '-popup-slide-width' );
+				$popup_bg            = kemet_get_option( $device . '-popup-background' );
 				$popup_icon_bg_color = kemet_get_sub_option( $device . '-popup-close-btn-color', 'initial' );
 				$popup_css_output    = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				/* Parse CSS from array()*/
 				$parse_css .= kemet_parse_css( $popup_css_output );
-				// $parse_css .= kemet_get_background_obj( $content_selector, $popup_bg );
+				$parse_css .= kemet_get_background_obj( $content_selector, $popup_bg );
 
 				return $parse_css;
 			}
@@ -215,23 +215,27 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		 * @return string
 		 */
 		public static function typography_css( $item, $selector ) {
-			$font_size      = kemet_get_option( $item . '-font-size' );
-			$font_family    = kemet_get_option( $item . '-font-family' );
-			$font_weight    = kemet_get_option( $item . '-font-weight' );
-			$text_transform = kemet_get_option( $item . '-text-transform' );
-			$font_style     = kemet_get_option( $item . '-font-style' );
-			$line_height    = kemet_get_option( $item . '-line-height' );
-			$letter_spacing = kemet_get_option( $item . '-letter-spacing' );
+			$typography       = kemet_get_option( $item . '-typography' );
+			$weight_and_style = isset( $typography['variation'] ) ? self::get_weight_and_style( $typography['variation'] ) : array();
+			$font_size        = isset( $typography['size'] ) ? $typography['size'] : '';
+			$font_family      = isset( $typography['family'] ) ? $typography['family'] : '';
+			$font_weight      = isset( $weight_and_style['weight'] ) ? $weight_and_style['weight'] : '';
+			$text_transform   = isset( $typography['text-transform'] ) ? $typography['text-transform'] : '';
+			$text_decoration  = isset( $typography['text-decoration'] ) ? $typography['text-decoration'] : '';
+			$font_style       = isset( $weight_and_style['style'] ) ? $weight_and_style['style'] : '';
+			$line_height      = isset( $typography['line-height'] ) ? $typography['line-height'] : '';
+			$letter_spacing   = isset( $typography['letter-spacing'] ) ? $typography['letter-spacing'] : '';
 
 			$css_output = array(
 				$selector => array(
-					'--fontSize'      => kemet_responsive_slider( $font_size, 'desktop' ),
-					'--fontFamily'    => kemet_get_font_family( $font_family ),
-					'--fontWeight'    => esc_attr( $font_weight ),
-					'--letterSpacing' => kemet_responsive_slider( $letter_spacing, 'desktop' ),
-					'--lineHeight'    => kemet_responsive_slider( $line_height, 'desktop' ),
-					'--textTransform' => esc_attr( $text_transform ),
-					'--fontStyle'     => esc_attr( $font_style ),
+					'--fontSize'       => kemet_responsive_slider( $font_size, 'desktop' ),
+					'--fontFamily'     => kemet_get_font_family( $font_family ),
+					'--fontWeight'     => esc_attr( $font_weight ),
+					'--letterSpacing'  => kemet_responsive_slider( $letter_spacing, 'desktop' ),
+					'--lineHeight'     => kemet_responsive_slider( $line_height, 'desktop' ),
+					'--textTransform'  => esc_attr( $text_transform ),
+					'--fontStyle'      => esc_attr( $font_style ),
+					'--textDecoration' => esc_attr( $text_decoration ),
 				),
 			);
 
@@ -259,8 +263,28 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( $mobile_typo, '', '544' );
-
 			return $parse_css;
+		}
+
+		/**
+		 * get_weight_and_style
+		 *
+		 * @param  mixed $variation
+		 * @return array
+		 */
+		public static function get_weight_and_style( $variation ) {
+			$variation_data = array();
+			if ( preg_match( '#(n|i)(\d+?)$#', $variation, $matches ) ) {
+				if ( 'i' === $matches[1] ) {
+					$variation_data['style'] = 'italic';
+				} else {
+					$variation_data['style'] = 'normal';
+				}
+
+				$variation_data['weight'] = (int) $matches[2] . '00';
+			}
+
+			return $variation_data;
 		}
 
 		/**

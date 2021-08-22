@@ -332,7 +332,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			'foucs-sticky-section'          => array(
 				'type'          => 'kmt-focus-button',
 				'button_params' => array(
-					'title'   => __( 'Sticky Header', 'kemet-addons' ),
+					'title'   => __( 'Sticky Header', 'kemet' ),
 					'section' => 'section-sticky-header-options',
 				),
 			),

@@ -67,6 +67,19 @@ final class Kemet_Fonts {
 	}
 
 	/**
+	 * add_font_form_typography
+	 *
+	 * @param  mixed $option
+	 * @return void
+	 */
+	public static function add_font_form_typography( $typography ) {
+		$font_family = isset( $typography['family'] ) ? $typography['family'] : '';
+		$variation   = isset( $typography['variation'] ) ? $typography['variation'] : '';
+
+		self::add_font( $font_family, $variation );
+	}
+
+	/**
 	 * Get Fonts
 	 */
 	public static function get_fonts() {
@@ -104,7 +117,9 @@ final class Kemet_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
-		wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
+		if ( $google_font_url ) {
+			wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
+		}
 	}
 
 	/**
@@ -120,50 +135,59 @@ final class Kemet_Fonts {
 	public static function google_fonts_url( $fonts, $subsets = array() ) {
 
 		/* URL */
-		$base_url  = '//fonts.googleapis.com/css';
+		$base_url  = 'https://fonts.googleapis.com/css2?';
 		$font_args = array();
-		$family    = array();
-
-		$fonts = apply_filters( 'kemet_google_fonts', $fonts );
+		$families  = array();
+		$weights   = array(
+			'italic' => array(),
+			'normal' => array(),
+		);
+		$fonts     = apply_filters( 'kemet_google_fonts', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
-			$font_name = str_replace( ' ', '+', $font_name );
+			$family      = '';
+			$font_name   = str_replace( ' ', '+', $font_name );
+			$family      = 'family=' . $font_name . ':';
+			$weight_text = 'wght@';
+			$wghts       = array();
 			if ( ! empty( $font_weight ) ) {
-				if ( is_array( $font_weight ) ) {
-					$font_weight = implode( ',', $font_weight );
+				foreach ( $font_weight as  $weight ) {
+					$weight_val = (int) $weight[1] * 100;
+					if ( 'i' === $weight[0] ) {
+						$weights['italic'][] = $weight_val;
+					} else {
+						$weights['normal'][] = $weight_val;
+					}
 				}
-				$font_family = explode( ',', $font_name );
-				$font_family = str_replace( "'", '', kemet_prop( $font_family, 0 ) );
-				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
-			} else {
-				$family[] = trim( $font_name );
+				sort( $weights['italic'] );
+				sort( $weights['normal'] );
+
+				if ( ! empty( $weights['normal'] ) ) {
+					foreach ( $weights['normal'] as $wght ) {
+						$wghts[] = '0,' . $wght;
+					}
+				}
+
+				if ( ! empty( $weights['italic'] ) ) {
+					$family .= 'ital,';
+					foreach ( $weights['italic'] as $wght ) {
+						$wghts[] = '1,' . $wght;
+					}
+				}
+
+				$weight_text .= implode( ';', $wghts );
+				$families[]   = $family . $weight_text;
 			}
 		}
 
-		/* Only return URL if font family defined. */
-		if ( ! empty( $family ) ) {
+		if ( ! empty( $families ) ) {
+			$base_url .= implode( '&', $families );
+			$base_url .= '&display=swap';
 
-			/* Make Font Family a String */
-			$family = implode( '|', $family );
-
-			/* Add font family in args */
-			$font_args['family'] = $family;
-
-			/* Add font subsets in args */
-			if ( ! empty( $subsets ) ) {
-
-				/* format subsets to string */
-				if ( is_array( $subsets ) ) {
-					$subsets = implode( ',', $subsets );
-				}
-
-				$font_args['subset'] = rawurlencode( trim( $subsets ) );
-			}
-
-			return add_query_arg( $font_args, $base_url );
+			return $base_url;
 		}
 
-		return '';
+		return false;
 	}
 }

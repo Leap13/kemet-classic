@@ -306,34 +306,7 @@ function kemet_responsive_slider(control, selector, type) {
           spacingType = type + "";
         }
 
-        var desktopWidth = "",
-          tabletWidth = "",
-          mobileWidth = "";
-
-        desktopWidth +=
-          spacingType + ": " + value["desktop"] + value["desktop-unit"] + " ;";
-
-        tabletWidth +=
-          spacingType + ": " + value["tablet"] + value["tablet-unit"] + " ;";
-
-        mobileWidth +=
-          spacingType + ": " + value["mobile"] + value["mobile-unit"] + " ;";
-
-        // Concat and append new <style>.
-        var dynamicStyle = selector +
-          "	{ " +
-          desktopWidth +
-          " }" +
-          "@media (max-width: 768px) {" +
-          selector +
-          "	{ " +
-          tabletWidth +
-          " } }" +
-          "@media (max-width: 544px) {" +
-          selector +
-          "	{ " +
-          mobileWidth +
-          " } }";
+        var dynamicStyle = kemet_responsive_slider_css(value, spacingType, selector)
 
         kemet_add_dynamic_css(control, dynamicStyle);
       } else {
@@ -341,6 +314,39 @@ function kemet_responsive_slider(control, selector, type) {
       }
     });
   });
+}
+
+function kemet_responsive_slider_css(value, type, selector) {
+  var desktop = "",
+    tablet = "",
+    mobile = "";
+
+  desktop +=
+    type + ": " + value["desktop"] + value["desktop-unit"] + " ;";
+
+  tablet +=
+    type + ": " + value["tablet"] + value["tablet-unit"] + " ;";
+
+  mobile +=
+    type + ": " + value["mobile"] + value["mobile-unit"] + " ;";
+
+  // Concat and append new <style>.
+  var dynamicStyle = selector +
+    "	{ " +
+    desktop +
+    " }" +
+    "@media (max-width: 768px) {" +
+    selector +
+    "	{ " +
+    tablet +
+    " } }" +
+    "@media (max-width: 544px) {" +
+    selector +
+    "	{ " +
+    mobile +
+    " } }";
+
+  return dynamicStyle;
 }
 /**
  * Responsive Icons Select CSS
@@ -567,67 +573,48 @@ function kemet_responsive_background(control, selector) {
   });
 }
 
-function kemet_font_family_css(control, selector) {
+function kemet_typography_css(control, selector) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
-      var fontName = value.split(",")[0],
-        link = "";
-      // Replace ' character with space, necessary to separate out font prop value.
-      fontName = fontName.replace(/'/g, "");
-      if (fontName in previewData.googleFonts) {
-        jQuery("link#" + control).remove();
-
-        var fontName = fontName.split(" ").join("+");
-        link =
-          '<link id="' +
-          control +
-          '" href="https://fonts.googleapis.com/css?family=' +
-          fontName +
-          '"  rel="stylesheet">';
-      }
-
-      var dynamicStyle = selector + "{ --fontFamily: " + value + "; }";
-      kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("footer").append(link);
-    });
-  });
-}
-
-function kemet_font_weight_css(control, selector) {
-  wp.customize(control, function (value) {
-    value.bind(function (value) {
-      var fontControl = control.replace("weight", "family"),
-        fontName = wp.customize._value[fontControl]._value,
-        link = "";
-      fontName = fontName.split(",")[0];
-      fontName = fontName.replace(/'/g, "");
-
-      if (fontName in previewData.googleFonts) {
-        jQuery("link#" + fontControl).remove();
-        if (value === "inherit") {
-          link =
-            '<link id="' +
-            fontControl +
-            '" href="https://fonts.googleapis.com/css?family=' +
-            fontName +
-            '"  rel="stylesheet">';
-        } else {
-          link =
-            '<link id="' +
-            fontControl +
-            '" href="https://fonts.googleapis.com/css?family=' +
-            fontName +
-            "%3A" +
-            value +
-            '"  rel="stylesheet">';
+      var dynamicStyle = '',
+        controlName = control.replace('[', '-').replace(']', '');
+      if (value.family) {
+        var fontName = value.family;
+        if (value.variation) {
+          var fontType = value.source,
+            weight = value.variation[1] + '00',
+            link = '',
+            style = 'i' === value.variation[0] ? 'italic' : 'normal';
+          jQuery("link#" + controlName).remove();
+          if (fontName in previewData.googleFonts) {
+            fontName = fontName.split(" ").join("+");
+            var weightLink = 'italic' === style ? weight + value.variation[0] : weight;
+            link =
+              '<link rel="stylesheet" id="' +
+              controlName +
+              '" href="https://fonts.googleapis.com/css?family=' +
+              fontName +
+              ':' + weightLink +
+              '&display=swap" media="all">';
+            jQuery("head").append(link);
+          }
         }
+        dynamicStyle += '--fontFamily: ' + value.family + ';';
+        dynamicStyle += '--fontWeight: ' + weight + ';';
+        dynamicStyle += '--fontStyle: ' + style + ';';
+        dynamicStyle += '--textTransform: ' + value['text-decoration'] + ';';
+        dynamicStyle += '--textDecoration: ' + value['text-transform'] + ';';
+        dynamicStyle = selector + '{' + dynamicStyle + '}';
+        dynamicStyle += kemet_responsive_slider_css(value.size, 'font-size', selector);
+        dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], 'letter-spacing', selector);
+        dynamicStyle += kemet_responsive_slider_css(value['line-height'], 'line-height', selector);
       }
-      var dynamicStyle = selector + "{ --fontWeight: " + value + "; }";
+
       kemet_add_dynamic_css(control, dynamicStyle);
-      jQuery("footer").append(link);
-    });
-  });
+    })
+  })
 }
+
 function settingName(settingName) {
   var setting = previewData.setting.replace("setting_name", settingName);
 
@@ -1058,6 +1045,9 @@ function kemet_responsive_color_css(control, data) {
       case "kmt-select":
         kemet_css(control, data.property, data.selector);
         break;
+      case "kmt-typography":
+        kemet_typography_css(control, data.selector);
+        break;
       case "kmt-color":
         if (data.responsive) {
           delete data.responsive;
@@ -1067,12 +1057,11 @@ function kemet_responsive_color_css(control, data) {
         }
         break;
       case "kmt-radio":
-        console.log(data);
         if (data.responsive) {
           delete data.responsive;
           kemet_responsive_css(control, data.selector, data.property);
         } else {
-          kemet_css(control, data.selector, data.property);
+          kemet_css(control, data.property, data.selector);
         }
         break;
       case "kmt-spacing":

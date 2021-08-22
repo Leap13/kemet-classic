@@ -108,6 +108,27 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
+							self::$prefix . '-sticky-background' => array(
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'label'      => __( 'Sticky Background', 'kemet' ),
+								'responsive' => true,
+								'preview'    => array(
+									'selector'   => '.kmt-sticky-top-bar #sitehead ' . $selector . '.kmt-is-sticky',
+									'responsive' => true,
+								),
+								'context'    => array(
+									array(
+										'setting' => 'enable-sticky-top',
+										'value'   => true,
+									),
+									array(
+										'setting' => 'enable-sticky-mobile-top',
+										'value'   => true,
+									),
+									'relation' => 'OR',
+								),
+							),
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
@@ -143,22 +164,6 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 										'selector' => $selector,
 										'property' => '--borderColor',
 									),
-								),
-							),
-							self::$prefix . '-sticky-title' => array(
-								'type'     => 'kmt-title',
-								'section'  => 'section-' . self::$prefix . '-builder',
-								'priority' => 25,
-								'label'    => __( 'Sticky Header Option', 'kemet' ),
-							),
-							self::$prefix . '-sticky-background' => array(
-								'type'       => 'kmt-background',
-								'transport'  => 'postMessage',
-								'label'      => __( 'Sticky Background', 'kemet' ),
-								'responsive' => true,
-								'preview'    => array(
-									'selector'   => '.kmt-sticky-top-bar #sitehead ' . $selector . '.kmt-is-sticky',
-									'responsive' => true,
 								),
 							),
 						),

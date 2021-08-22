@@ -70,96 +70,12 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'buttons-font-size'      => array(
-								'type'         => 'option',
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'label'        => __( 'Font Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 1,
-										'step' => 1,
-										'max'  => 200,
-									),
-									'em' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $btn_selector,
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							// 'buttons-font-family'      => array(
-							// 'type'     => 'kmt-font-family',
-							// 'label'    => __( 'Font Family', 'kemet' ),
-							// 'section'  => 'section-buttons-fields',
-							// 'priority' => 10,
-							// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-weight]',
-							// ),
-							// 'buttons-font-weight'      => array(
-							// 'type'     => 'kmt-font-weight',
-							// 'label'    => __( 'Font Weight', 'kemet' ),
-							// 'section'  => 'section-buttons-fields',
-							// 'priority' => 15,
-							// 'connect'  => KEMET_THEME_SETTINGS . '[buttons-font-family]',
-							// ),
-							'buttons-text-transform' => array(
+							'buttons-typography'     => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
 								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Text Transform', 'kemet' ),
-								'choices'   => array(
-									''           => __( 'Default', 'kemet' ),
-									'none'       => __( 'None', 'kemet' ),
-									'capitalize' => __( 'Capitalize', 'kemet' ),
-									'uppercase'  => __( 'Uppercase', 'kemet' ),
-									'lowercase'  => __( 'Lowercase', 'kemet' ),
-								),
 								'preview'   => array(
 									'selector' => $btn_selector,
-									'property' => '--textTransform',
-								),
-							),
-							'buttons-font-style'     => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Font Style', 'kemet' ),
-								'choices'   => array(
-									'inherit' => __( 'Inherit', 'kemet' ),
-									'normal'  => __( 'Normal', 'kemet' ),
-									'italic'  => __( 'Italic', 'kemet' ),
-									'oblique' => __( 'Oblique', 'kemet' ),
-								),
-								'preview'   => array(
-									'selector' => $btn_selector,
-									'property' => '--fontStyle',
-								),
-							),
-							'buttons-line-height'    => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Line Height', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $btn_selector,
-									'property'   => '--lineHeight',
-									'responsive' => true,
 								),
 							),
 							'buttons-letter-spacing' => array(

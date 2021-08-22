@@ -25,7 +25,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					'type'         => 'kmt-slider',
 					'responsive'   => true,
 					'transport'    => 'postMessage',
-					'label'        => __( 'Logo Width', 'kemet-addons' ),
+					'label'        => __( 'Logo Width', 'kemet' ),
 					'unit_choices' => array(
 						'px' => array(
 							'min'  => 1,
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					'type'           => 'image',
 					'section'        => 'section-sticky-header-options',
 					'priority'       => 5,
-					'label'          => __( 'Logo Image', 'kemet-addons' ),
+					'label'          => __( 'Logo Image', 'kemet' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
 				'sticky-header-options' => array(

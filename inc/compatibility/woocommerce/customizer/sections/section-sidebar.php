@@ -13,74 +13,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Title
- */
-$wp_customize->add_control(
-	new Kemet_Control_Title(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[woocommerce-sidebar-title]',
-		array(
-			'type'     => 'kmt-title',
-			'label'    => __( 'Woocommerce', 'kemet' ),
-			'section'  => 'section-sidebars',
-			'priority' => 125,
-			'settings' => array(),
-		)
-	)
-);
+add_filter( 'kemet_sidebar_options', 'kemet_woo_sidebar' );
 
-/**
- * Option: Shop Page
- */
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]',
-	array(
-		'default'           => kemet_get_option( 'woocommerce-sidebar-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[woocommerce-sidebar-layout]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-sidebars',
-		'priority' => 125,
-		'label'    => __( 'WooCommerce', 'kemet' ),
-		'choices'  => array(
-			'default'       => __( 'Default', 'kemet' ),
-			'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
-			'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
-			'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
-		),
-	)
-);
+if ( ! function_exists( 'kemet_woo_sidebar' ) ) {
 
-/**
- * Option: Single Product
- */
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]',
-	array(
-		'default'           => kemet_get_option( 'single-product-sidebar-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[single-product-sidebar-layout]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-sidebars',
-		'priority' => 135,
-		'label'    => __( 'Single Product', 'kemet' ),
-		'choices'  => array(
-			'default'       => __( 'Default', 'kemet' ),
-			'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
-			'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
-			'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
-		),
-	)
-);
+	/**
+	 * kemet_woo_sidebar
+	 *
+	 * @param  array $options
+	 * @return array
+	 */
+	function kemet_woo_sidebar( $options ) {
+		$options['woocommerce-sidebar-title']     = array(
+			'type'  => 'kmt-title',
+			'label' => __( 'Woocommerce', 'kemet' ),
+		);
+		$options['woocommerce-sidebar-layout']    = array(
+			'type'    => 'kmt-select',
+			'label'   => __( 'WooCommerce', 'kemet' ),
+			'choices' => array(
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
+			),
+		);
+		$options['single-product-sidebar-layout'] = array(
+			'type'    => 'kmt-select',
+			'label'   => __( 'WooCommerce', 'kemet' ),
+			'choices' => array(
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
+			),
+		);
 
+		return $options;
+	}
+}

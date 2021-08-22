@@ -92,6 +92,14 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							'mobile-popup-background'      => array(
+								'type'      => 'kmt-background',
+								'transport' => 'postMessage',
+								'label'     => __( 'Background', 'kemet' ),
+								'preview'   => array(
+									'selector' => '.kmt-mobile-popup-content',
+								),
+							),
 							'mobile-popup-close-btn-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
@@ -113,19 +121,6 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			// 'mobile-popup-background'           => array(
-			// 'type'      => 'kmt-background',
-			// 'transport' => 'postMessage',
-			// 'section'   => 'section-mobile-popup-header-builder',
-			// 'priority'  => 10,
-			// 'context'   => array(
-			// array(
-			// 'setting' => 'tab',
-			// 'value'   => 'design',
-			// ),
-			// ),
-			// ),
-
 		);
 
 		$mobile_popup_options = array(

@@ -160,7 +160,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 				'section' => 'section-container-layout',
 				'type'    => 'kmt-options',
 				'data'    => array(
-					'options' => $register_options,
+					'options' => apply_filters( 'kemet_container_options', $register_options ),
 				),
 			),
 		);

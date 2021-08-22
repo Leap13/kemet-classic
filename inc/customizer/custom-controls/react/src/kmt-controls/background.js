@@ -42,7 +42,7 @@ const BackgroundComponent = props => {
             "background-position": '',
             "background-repeat": '',
             "background-size": '',
-            "background-type": "",
+            "background-type": "color",
             "background-gradient": ''
         },
         mobile: {
@@ -73,8 +73,6 @@ const BackgroundComponent = props => {
         props.onChange({ ...obj, flag: !value.flag });
     }
 
-
-
     let responsiveHtml;
 
     if (responsive) {
@@ -82,8 +80,6 @@ const BackgroundComponent = props => {
             onChange={(device) => setDevice(device)}
         />
     }
-
-
 
     const renderReset = () => {
         return <span className="customize-control-title">
