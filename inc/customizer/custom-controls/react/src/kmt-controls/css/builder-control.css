@@ -1212,23 +1212,18 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .customize-control-kmt-row-layout
   .components-button-group.kmt-radio-container-control {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
-  row-gap: 10px;
-}
-
-.customize-control-kmt-row-layout
-  .components-button-group.kmt-radio-container-control {
-  grid-template-columns: 1fr 1fr;
+  background: transparent;
+  padding: 10px 0;
 }
 
 .customize-control-kmt-row-layout
   .kmt-radio-container-control
   button.components-button.is-tertiary {
   flex: auto;
-  height: 80px;
-  color: #cbd5e0;
+  height: 59px;
+  color: #8b9299;
 }
 
 .kmt-radio-container-control button.components-button.is-tertiary {
@@ -1476,14 +1471,20 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .customize-control-kmt-row-layout
   .kmt-radio-container-control
-  button.components-button.is-tertiary.active-radio,
+  button.components-button.is-tertiary.active-radio {
+  border-color: #007cba;
+  background: #007cba;
+  color: #fff;
+}
+
 .customize-control-kmt-row-layout
   .kmt-radio-container-control
   button.components-button.is-tertiary:hover {
-  border-color: #007cba;
-  color: #007cba;
+  background: #dde0e2;
+  color: #8b9299;
+  border-color: #cbd5e0;
+  box-shadow: none;
 }
-
 .kmt-popover-builder-list
   .kmt-radio-container-control
   .components-button.is-tertiary {

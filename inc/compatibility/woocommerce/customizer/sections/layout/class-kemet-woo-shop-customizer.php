@@ -33,6 +33,30 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'type'  => 'kmt-title',
 				'label' => __( 'Shop Settings', 'kemet' ),
 			),
+			self::$prefix . '-layout'                     => array(
+				'type'    => 'kmt-select',
+				'default' => 'shop-grid',
+				'label'   => __( 'Shop Layout', 'kemet' ),
+				'choices' => array(
+					'shop-grid'   => __( 'Boxed', 'kemet' ),
+					'hover-style' => __( 'Simple', 'kemet' ),
+				),
+			),
+			self::$prefix . '-product-content-alignment'  => array(
+				'type'    => 'kmt-icon-select',
+				'label'   => __( 'Product Content Alignment', 'kemet' ),
+				'choices' => array(
+					'left'   => array(
+						'icon' => 'dashicons-editor-alignleft',
+					),
+					'center' => array(
+						'icon' => 'dashicons-editor-aligncenter',
+					),
+					'right'  => array(
+						'icon' => 'dashicons-editor-alignright',
+					),
+				),
+			),
 			self::$prefix . 'disable-breadcrumb'          => array(
 				'type'  => 'kmt-switcher',
 				'label' => __( 'Disable Breadcrumb', 'kemet' ),
@@ -87,13 +111,54 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 					)
 				),
 			),
+			self::$prefix . '-structure'                  => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Product Structure', 'kemet' ),
+			),
 			self::$prefix . '-product-structure'          => array(
 				'type'    => 'kmt-sortable',
-				'label'   => __( 'Shop Product Structure', 'kemet' ),
+				'label'   => __( 'Product Structure', 'kemet' ),
 				'choices' => array(
+					'title'      => __( 'Title', 'kemet' ),
+					'price'      => __( 'Price', 'kemet' ),
+					'ratings'    => __( 'Ratings', 'kemet' ),
 					'short_desc' => __( 'Short Description', 'kemet' ),
 					'add_cart'   => __( 'Add To Cart', 'kemet' ),
 					'category'   => __( 'Category', 'kemet' ),
+				),
+				'context' => array(
+					array(
+						'setting' => self::$prefix . '-layout',
+						'value'   => 'hover-style',
+					),
+				),
+			),
+			self::$prefix . '-list-product-structure'     => array(
+				'type'    => 'kmt-sortable',
+				'label'   => __( 'Product Structure', 'kemet' ),
+				'choices' => array(
+					'title'      => __( 'Title', 'kemet' ),
+					'price'      => __( 'Price', 'kemet' ),
+					'ratings'    => __( 'Ratings', 'kemet' ),
+					'short_desc' => __( 'Short Description', 'kemet' ),
+					'add_cart'   => __( 'Add To Cart', 'kemet' ),
+					'category'   => __( 'Category', 'kemet' ),
+				),
+				'context' => array(
+					array(
+						'setting' => self::$prefix . '-layout',
+						'value'   => 'shop-grid',
+					),
+				),
+			),
+			'disable-list-short-desc-in-responsive'       => array(
+				'type'    => 'kmt-switcher',
+				'label'   => __( 'Disable Short Description In Responsive', 'kemet' ),
+				'context' => array(
+					array(
+						'setting' => self::$prefix . '-layout',
+						'value'   => 'hover-style',
+					),
 				),
 			),
 			self::$prefix . '-product'                    => array(
@@ -227,7 +292,7 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'section' => 'woocommerce_product_catalog',
 				'type'    => 'kmt-options',
 				'data'    => array(
-					'options' => $register_options,
+					'options' => apply_filters( 'woo_shop_options', $register_options ),
 				),
 			),
 		);
