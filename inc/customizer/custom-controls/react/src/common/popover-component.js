@@ -130,14 +130,14 @@ const usePopoverMaker = ({
         if (ref.current) {
             let rect = ref.current.getBoundingClientRect()
 
-            let el = ref.current.closest('.kmt-selekmt-input')
-                ? ref.current.closest('.kmt-selekmt-input')
+            let el = ref.current.closest('.kmt-select-input')
+                ? ref.current.closest('.kmt-select-input')
                 : ref.current
 
             let maybeWidthFlag = getComputedStyle(el, ':before').content
 
             yOffset = rect.top + rect.height
-            right = window.innerWidth - rect.right
+            right = window.innerWidth - rect.right - 12
 
             if (document.body.classList.contains('rtl')) {
                 right = rect.left

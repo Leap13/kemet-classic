@@ -21,32 +21,24 @@ const PalettePreview = ({
 		}
 	}
 
-	const handleChangeComplete = (optionId, optionValue) => {
-		console.log(optionId, optionValue)
-		// if (optionId !== 'color') {
-		// 	return
-		// }
+	const hundleChangeColor = (color, optionId) => {
+		let newColor;
 
-		// onChange(
-		// 	optionId,
-		// 	Object.keys(optionValue).reduce(
-		// 		(finalValue, currentId) => ({
-		// 			...finalValue,
-		// 			...(currentId.indexOf('color') === 0
-		// 				? { [currentId]: optionValue[currentId] }
-		// 				: {}),
-		// 		}),
-
-		// 		{}
-		// 	)
-		// )
+		if (typeof color === 'string') {
+			newColor = color;
+		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+			newColor = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+		} else {
+			newColor = color.hex;
+		}
+		onChange(newColor, optionId)
 	}
 
 
 	const pickers = Object.keys(currentPalette)
 		.filter((k) => k.indexOf('color') === 0)
 		.map((key, index) => ({
-			title: `Color${index}`,
+			title: `Color ${index + 1}`,
 			id: key,
 		}))
 
@@ -65,24 +57,12 @@ const PalettePreview = ({
 			}}>
 			{renderBefore()}
 
-			<div className={`kmt-color-picker-container`}>
+			<div className={`kmt-color-pallet-container`}>
 				{pickers.map((picker) => (
 
 					<ColorComponent
 						picker={picker}
-						onChangeComplete={(optionId, optionValue) => {
-							onChange(optionId,
-								Object.keys(optionValue).reduce(
-									(finalValue, currentId) => ({
-										...finalValue,
-										...(currentId.indexOf('color') === 0
-											? { [currentId]: optionValue[currentId] }
-											: {}),
-									}),
-
-									{}
-								))
-						}}
+						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
 						value={currentPalette}
 					/>
 				))}

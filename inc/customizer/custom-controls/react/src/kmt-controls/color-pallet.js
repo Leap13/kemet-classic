@@ -16,7 +16,9 @@ import bezierEasing from 'bezier-easing'
 const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
-    let value = props.params.value;
+
+
+    const [value, setValue] = useState(props.params.value)
 
 
 
@@ -115,6 +117,15 @@ const ColorPalettes = (props) => {
             : {}),
     }
 
+    const handleCurrent = (current) => {
+        setValue(current)
+        props.onChange(current)
+    }
+
+    const handleCurrentPallet = (currentColor, id) => {
+        console.log(currentColor, id)
+
+    }
     return (
         <div>
             <OutsideClickHandler
@@ -138,6 +149,7 @@ const ColorPalettes = (props) => {
                         }
 
                         if (!properValue.palettes) {
+                            console.log("NOTPROPERVAlue")
                             return
                         }
 
@@ -152,32 +164,12 @@ const ColorPalettes = (props) => {
                         setIsOpen(true)
                     }}
                     value={properValue}
-                    onChange={(optionId, optionValue) => {
-                        console.log(properValue, "properValue")
-
-                        props.onChange({
-                            ...properValue,
-                            ...optionValue,
-                            ...(properValue.palettes
-                                ? {
-                                    palettes: properValue.palettes.map(
-                                        (p) =>
-                                            p.id ===
-                                                properValue.current_palette
-                                                ? {
-                                                    ...p,
-                                                    ...optionValue,
-                                                }
-                                                : p
-                                    ),
-                                }
-                                : {}),
-                        })
-                    }}
+                    onChange={(v, id) => handleCurrentPallet(v, id)}
                 />
             </OutsideClickHandler>
 
-            {(isTransitioning || isOpen) &&
+            {
+                (isTransitioning || isOpen) &&
                 createPortal(
                     <Transition
                         items={isOpen}
@@ -230,9 +222,9 @@ const ColorPalettes = (props) => {
                                         },
                                         ...popoverProps,
                                     }}
-                                    onChange={(value) => {
+                                    onChange={(val) => {
                                         setIsOpen(false)
-                                        props.onChange(value)
+                                        handleCurrent(val)
                                     }}
                                     value={properValue}
                                     option={value}
@@ -241,8 +233,9 @@ const ColorPalettes = (props) => {
                         }}
                     </Transition>,
                     document.body
-                )}
-        </div>
+                )
+            }
+        </div >
     )
 }
 

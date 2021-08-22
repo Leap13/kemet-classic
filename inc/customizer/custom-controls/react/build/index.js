@@ -15147,7 +15147,7 @@ var usePopoverMaker = function usePopoverMaker() {
       var el = ref.current.closest('.kmt-select-input') ? ref.current.closest('.kmt-select-input') : ref.current;
       var maybeWidthFlag = getComputedStyle(el, ':before').content;
       yOffset = rect.top + rect.height;
-      right = window.innerWidth - rect.right;
+      right = window.innerWidth - rect.right - 12;
 
       if (document.body.classList.contains('rtl')) {
         right = rect.left;
@@ -16458,7 +16458,7 @@ var PalettePreview = function PalettePreview(_ref) {
     return k.indexOf('color') === 0;
   }).map(function (key, index) {
     return {
-      title: "Color".concat(index),
+      title: "Color ".concat(index + 1),
       id: key
     };
   });
@@ -16713,11 +16713,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ColorPickerIris = function ColorPickerIris(props) {
+var ColorPickerIris = function ColorPickerIris(_ref) {
+  var color = _ref.value.color,
+      onChange = _ref.onChange;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__["ColorPicker"], {
-    color: props.value,
+    color: color,
     onChangeComplete: function onChangeComplete(val) {
-      return props.onChange(val);
+      return onChange(val);
     }
   }));
 };
@@ -16797,6 +16799,13 @@ var PickerModal = function PickerModal(_ref) {
   var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
     return wrapperProps.ref && wrapperProps.ref.current && el && getLeftForEl(wrapperProps.ref.current, el.current);
   }, [wrapperProps.ref && wrapperProps.ref.current, el && el.current]);
+
+  var onPaletteChangeComplete = function onPaletteChangeComplete(val) {
+    setCurrentColor(val);
+
+    _onChange(val);
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     tabIndex: "0",
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-color-picker-modal", {
@@ -16817,7 +16826,7 @@ var PickerModal = function PickerModal(_ref) {
         active: valueToCheck === color
       }),
       onClick: function onClick() {
-        return _onChange("".concat(color));
+        return onPaletteChangeComplete(color);
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
       className: "kmt-tooltip-top"

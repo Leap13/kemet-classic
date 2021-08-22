@@ -51,6 +51,10 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     )
+    const onPaletteChangeComplete = (val) => {
+        setCurrentColor(val)
+        onChange(val)
+    }
 
     return (
         <Fragment>
@@ -90,7 +94,7 @@ const PickerModal = ({
                                         valueToCheck === color,
                                 })}
                                 onClick={() =>
-                                    onChange(`${color}`)
+                                    onPaletteChangeComplete(color)
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
