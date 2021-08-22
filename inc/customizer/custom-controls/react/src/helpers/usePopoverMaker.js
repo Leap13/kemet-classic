@@ -1,5 +1,4 @@
 import { useMemo, useRef, useState, useEffect } from '@wordpress/element'
-import classnames from 'classnames'
 const { __ } = wp.i18n;
 
 export function nullifyTransforms(el) {
