@@ -135,8 +135,6 @@ const SinglePicker = ({
                     <i className="kmt-tooltip-top">
                         {picker.title}
                     </i>
-
-
                 </span>
             </span>
 
