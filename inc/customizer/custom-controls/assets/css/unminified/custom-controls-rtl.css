@@ -746,6 +746,9 @@ input {
 .kmt-palettes-modal .kmt-tooltip-top {
   display: none;
 }
+.kmt-color-pallet-container {
+  display: flex;
+}
 
 .kmt-option-modal {
   right: 12px;
@@ -1040,7 +1043,21 @@ input {
   margin: 0;
   box-sizing: border-box;
 }
-
+.kmt-typography-options
+  li.customize-control-kmt-slider.customize-control-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  transition: tr;
+  transform: translateY(-5px) !important;
+}
+.kmt-typography-options li.customize-control-kmt-slider .kmt-slider-units {
+  position: absolute;
+  transform: translateY(-88%) !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  left: 1px;
+}
 .kmt-typography-options > li:not(.kmt-typography-variant) {
   height: 95px;
 }
@@ -7526,7 +7543,6 @@ i.fipicon-angle-left:before {
 }
 .kmt-color-container {
   display: flex;
-  align-items: center;
   flex-grow: 2;
   justify-content: space-between;
 }

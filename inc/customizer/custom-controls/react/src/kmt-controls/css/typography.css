@@ -291,7 +291,21 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+.kmt-typography-options
+  li.customize-control-kmt-slider.customize-control-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  transition: tr;
+  transform: translateY(-5px) !important;
+}
+.kmt-typography-options li.customize-control-kmt-slider .kmt-slider-units {
+  position: absolute;
+  transform: translateY(-88%) !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  right: 1px;
+}
 .kmt-typography-options > li:not(.kmt-typography-variant) {
   height: 95px;
 }
