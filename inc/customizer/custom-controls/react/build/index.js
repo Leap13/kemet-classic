@@ -13145,6 +13145,68 @@ KemetColorPickerControl.propTypes = {
 
 /***/ }),
 
+/***/ "./src/common/icons.js":
+/*!*****************************!*\
+  !*** ./src/common/icons.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+var Icons = {
+  row: {
+    twocol: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "99",
+      height: "63",
+      viewBox: "0 0 99 63"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M56,10V71H10V10H56m1-1H9V72H57V9Z",
+      transform: "translate(-9 -9)"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M107,10V71H61V10h46m1-1H60V72h48V9Z",
+      transform: "translate(-9 -9)"
+    })),
+    twoleftgolden: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "99",
+      height: "63",
+      viewBox: "0 0 99 63"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M56,10V71H10V10H56m1-1H9V72H57V9Z",
+      transform: "translate(-9 -9)"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M107,10V71H61V10h46m1-1H60V72h48V9Z",
+      transform: "translate(-9 -9)"
+    })),
+    tworightgolden: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "99",
+      height: "63",
+      viewBox: "0 0 99 63"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M56,10V71H10V10H56m1-1H9V72H57V9Z",
+      transform: "translate(-9 -9)"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("path", {
+      class: "cls-1",
+      d: "M107,10V71H61V10h46m1-1H60V72h48V9Z",
+      transform: "translate(-9 -9)"
+    }))
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (Icons);
+
+/***/ }),
+
 /***/ "./src/common/outside-component.js":
 /*!*****************************************!*\
   !*** ./src/common/outside-component.js ***!
@@ -16432,6 +16494,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
 /* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../options/options-component */ "./src/options/options-component.js");
+/* harmony import */ var _common_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/icons */ "./src/common/icons.js");
 
 
 
@@ -16439,6 +16502,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -16723,7 +16787,7 @@ var RowLayoutComponent = function RowLayoutComponent(props) {
         newValue[device] = item;
         HandleChange(newValue);
       }
-    }, item));
+    }, _common_icons__WEBPACK_IMPORTED_MODULE_7__["default"].row[controlMap[item].icon] ? _common_icons__WEBPACK_IMPORTED_MODULE_7__["default"].row[controlMap[item].icon] : item));
   })));
 };
 

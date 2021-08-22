@@ -1708,6 +1708,19 @@ li#customize-control-kemet-settings-footer-desktop-items {
   row-gap: 10px;
 }
 
+.customize-control-kmt-row-layout
+  .components-button-group.kmt-radio-container-control {
+  grid-template-columns: 1fr 1fr;
+}
+
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary {
+  flex: auto;
+  height: 80px;
+  color: #cbd5e0;
+}
+
 .kmt-radio-container-control button.components-button.is-tertiary {
   flex: 1 1 0;
   display: flex;
@@ -1944,10 +1957,23 @@ li#customize-control-kemet-settings-footer-desktop-items {
   padding-bottom: 12px;
 }
 
-.kmt-radio-container-control .components-button.is-tertiary.active-radio {
+.customize-control-kmt-radio
+  .kmt-radio-container-control
+  .components-button.is-tertiary.active-radio {
   background: #007cba;
   color: #ffffff;
 }
+
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary.active-radio,
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary:hover {
+  border-color: #007cba;
+  color: #007cba;
+}
+
 .kmt-popover-builder-list
   .kmt-radio-container-control
   .components-button.is-tertiary {
@@ -2172,11 +2198,11 @@ li#customize-control-kemet-settings-footer-desktop-items {
   width: 16px;
 }
 
-.kmt-radio-container-control .components-button.is-tertiary svg {
+/* .kmt-radio-container-control .components-button.is-tertiary svg {
   width: 100%;
   height: 100%;
   max-height: 100%;
-}
+} */
 
 .kmt-row-layout-control .kmt-responsive-controls-content .components-button svg,
 .kmt-icon-set-control .kmt-radio-container-control .components-button svg {
@@ -2529,59 +2555,6 @@ button.components-button.kmt-sorter-item-expand {
   padding: 0;
   margin-left: 12px;
   min-height: 40px;
-}
-
-.components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary.active-radio
-  svg,
-.active-radio .kmt-icon-set svg {
-  background: #ffffff;
-  border-radius: 3px;
-  box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
-}
-
-.kmt-radio-icon-control
-  .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary
-  svg
-  rect,
-.kmt-radio-icon-control
-  .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary
-  svg
-  path,
-.kmt-icon-set svg,
-#customize-control-kemet-settings-header-trigger-icon
-  span.kmt-svg-iconset.svg-baseline
-  svg
-  path,
-span.kmt-svg-iconset.svg-baseline svg circle {
-  fill: rgb(160 174 192);
-}
-
-.kmt-radio-icon-control
-  .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary.active-radio
-  svg
-  rect,
-.kmt-radio-icon-control
-  .components-button-group.kmt-radio-container-control
-  .components-button.is-tertiary.active-radio
-  svg
-  path,
-.active-radio .kmt-icon-set svg,
-.active-radio .kmt-icon-set svg,
-#customize-control-kemet-settings-header-trigger-icon
-  input:checked
-  + .kmt-radio-img-svg
-  svg
-  path,
-#customize-control-kemet-settings-header-trigger-icon
-  input:checked
-  + .kmt-radio-img-svg
-  svg
-  circle {
-  fill: #007cba;
 }
 
 .kmt-icon-set-control.kmt-three-col-short
