@@ -1155,11 +1155,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		public function customizer_options_register() {
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';
-			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
-			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop.php';
-			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-single.php';
-			// require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/woo-shop-cart.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-container.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/section-sidebar.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-customizer.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-shop-single-customizer.php';
+			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-cart-page-customizer.php';
 			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-general-customizer.php';
 			require KEMET_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kemet-woo-cart-customizer.php';
 			// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound

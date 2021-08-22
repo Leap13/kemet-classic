@@ -7591,7 +7591,8 @@ i.fipicon-angle-left:before {
   width: 100%;
   height: 100%;
 }
-.customize-control-kmt-row-layout .customize-control-title {
+.customize-control-kmt-row-layout .customize-control-title,
+.customize-control-kmt-radio .customize-control-title {
   display: inline-block;
   padding-right: 2px;
 }

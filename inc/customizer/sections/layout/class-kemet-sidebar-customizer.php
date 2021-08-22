@@ -263,7 +263,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 				'section' => $section_name,
 				'type'    => 'kmt-options',
 				'data'    => array(
-					'options' => $register_options,
+					'options' => apply_filters( 'kemet_sidebar_options', $register_options ),
 				),
 			),
 		);

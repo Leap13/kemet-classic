@@ -158,7 +158,7 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 		$register_sections = array(
 			'section-' . self::$prefix => array(
 				'priority' => 50,
-				'title'    => __( 'Cart Page', 'kemet' ),
+				'title'    => __( 'Cart Header Item', 'kemet' ),
 				'panel'    => 'woocommerce',
 			),
 		);

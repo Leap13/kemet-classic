@@ -13,47 +13,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Title
- */
-$wp_customize->add_control(
-	new Kemet_Control_Title(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[woo-content-title]',
-		array(
-			'type'     => 'kmt-title',
-			'label'    => __( 'Woocommerce', 'kemet' ),
-			'section'  => 'section-container-layout',
-			'priority' => 85,
-			'settings' => array(),
-		)
-	)
-);
+add_filter( 'kemet_container_options', 'kemet_woo_container_layout' );
 
-/**
- * Option: Shop Page
- */
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[woocommerce-content-layout]',
-	array(
-		'default'           => kemet_get_option( 'woocommerce-content-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[woocommerce-content-layout]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-container-layout',
-		'priority' => 85,
-		'label'    => __( 'Container for WooCommerce', 'kemet' ),
-		'choices'  => array(
-			'default'                 => __( 'Default', 'kemet' ),
-			'boxed-container'         => __( 'Boxed', 'kemet' ),
-			'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-			'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
-		),
-	)
-);
+if ( ! function_exists( 'kemet_woo_container_layout' ) ) {
+
+	/**
+	 * kemet_woo_container_layout
+	 *
+	 * @param  array $options
+	 * @return array
+	 */
+	function kemet_woo_container_layout( $options ) {
+		$options['woo-container-title']          = array(
+			'type'  => 'kmt-title',
+			'label' => __( 'Woocommerce', 'kemet' ),
+		);
+		$options['woocommerce-container-layout'] = array(
+			'type'    => 'kmt-select',
+			'label'   => __( 'Container for WooCommerce', 'kemet' ),
+			'choices' => array(
+				'default'                 => __( 'Default', 'kemet' ),
+				'boxed-container'         => __( 'Boxed', 'kemet' ),
+				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
+				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+			),
+		);
+
+		return $options;
+	}
+}
