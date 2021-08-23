@@ -20,4 +20,6 @@
 }
 .customize-control-kmt-row-layout .customize-control-title {
   display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
 }

@@ -503,7 +503,7 @@ textarea {
 .customize-control-kmt-tabs > .current-tab-options {
   margin-top: -1px;
   padding: 0;
-  padding-top: 15px;
+  padding: 15px 20px 0 20px;
   border-top: 1px solid #d6d6d6;
 }
 .customize-control-kmt-tabs > ul > li.active:before {
@@ -529,7 +529,14 @@ textarea {
 .customize-control-kmt-tabs > ul > li {
   font-weight: 400;
 }
+.customize-control-kmt-tabs {
+  margin: 0 -20px 0 -20px;
+}
 
+.customize-control-kmt-radio .customize-control-title {
+  font-size: 13px;
+  font-weight: 500;
+}
 .kmt-builder-is-active .preview-desktop #customize-preview,
 .kmt-builder-is-active .preview-tablet #customize-preview {
   height: auto;
@@ -774,6 +781,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-items {
   padding: 35px 30px;
+}
+.kmt-builder-items .kmt-builder-item {
+  font-size: 12px !important;
 }
 
 .kmt-builder-sortable-panel {
@@ -1733,7 +1743,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .kmt-radio-container-control {
   display: flex;
-  padding: 10px;
+  padding: 10px 0px;
   background: transparent;
   border: 0;
 }
@@ -1751,6 +1761,12 @@ li#customize-control-kemet-settings-footer-desktop-items {
   column-gap: 10px;
   row-gap: 10px;
 }
+.kmt-radio-container-control button:first-child {
+  border-radius: 0 3px 3px 0;
+}
+.kmt-radio-container-control button:last-child {
+  border-radius: 3px 0 0 3px;
+}
 
 .kmt-radio-container-control button.components-button.is-tertiary {
   flex: 1 1 0;
@@ -1766,12 +1782,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   line-height: normal;
   margin: 0;
   padding: 4px;
-  border: 1px solid #cbd5e0;
-  border-radius: 2px;
+  box-shadow: inset 0px 0px 0px 1px #ddd;
   background: transparent;
   color: #4a5568;
   white-space: normal;
-  box-shadow: none;
 }
 
 .components-popover__content
@@ -7433,6 +7447,8 @@ input[type="number"] {
 }
 .customize-control-kmt-row-layout .customize-control-title {
   display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .components-toggle-control .components-base-control__field {
