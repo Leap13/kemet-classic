@@ -276,7 +276,11 @@ if ( ! function_exists( 'kemet_slider' ) ) {
 			$option                 = $default_value;
 		}
 
-		$value = kemet_get_css_value( $option['value'], $option['unit'] );
+		if ( isset( $option['unit'] ) && '' !== $option['unit'] ) {
+			$value = kemet_get_css_value( $option['value'], $option['unit'] );
+		} else {
+			$value = $option['value'];
+		}
 
 		return $value;
 	}

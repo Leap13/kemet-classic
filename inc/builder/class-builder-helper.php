@@ -71,7 +71,6 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 
 				foreach ( $items[ $row ] as $column => $c_items ) {
 					if ( isset( $items[ $row ][ $column ] ) && is_array( $items[ $row ][ $column ] ) && ! empty( $items[ $row ][ $column ] ) ) {
-						error_log( wp_json_encode( $items[ $row ][ $column ] ) );
 						$result = true;
 					}
 				}

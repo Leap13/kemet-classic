@@ -33,7 +33,26 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'type'  => 'kmt-title',
 				'label' => __( 'Shop Settings', 'kemet' ),
 			),
-
+			self::$prefix . '-product-structure'          => array(
+				'type'    => 'kmt-sortable',
+				'label'   => __( 'Product Structure', 'kemet' ),
+				'choices' => array(
+					'short_desc' => __( 'Short Description', 'kemet' ),
+					'add_cart'   => __( 'Add To Cart', 'kemet' ),
+					'category'   => __( 'Category', 'kemet' ),
+				),
+			),
+			self::$prefix . '-no-of-products'             => array(
+				'type'         => 'kmt-slider',
+				'label'        => __( 'Products Per Page', 'kemet' ),
+				'unit_choices' => array(
+					'' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 50,
+					),
+				),
+			),
 			self::$prefix . '-product-content-alignment'  => array(
 				'type'    => 'kmt-icon-select',
 				'label'   => __( 'Product Content Alignment', 'kemet' ),
@@ -49,7 +68,7 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . 'disable-breadcrumb'          => array(
+			self::$prefix . '-disable-breadcrumb'         => array(
 				'type'  => 'kmt-switcher',
 				'label' => __( 'Disable Breadcrumb', 'kemet' ),
 			),
@@ -245,28 +264,3 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 
 new Kemet_Woo_Shop_Customizer();
 
-/**
- * Option: Products Per Page
- */
-// $wp_customize->add_setting(
-// KEMET_THEME_SETTINGS . '[shop-no-of-products]',
-// array(
-// 'default'           => kemet_get_option( 'shop-no-of-products' ),
-// 'type'              => 'option',
-// 'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_number' ),
-// )
-// );
-// $wp_customize->add_control(
-// KEMET_THEME_SETTINGS . '[shop-no-of-products]',
-// array(
-// 'section'     => 'woocommerce_product_catalog',
-// 'label'       => __( 'Products Per Page', 'kemet' ),
-// 'type'        => 'number',
-// 'priority'    => 10,
-// 'input_attrs' => array(
-// 'min'  => 1,
-// 'step' => 1,
-// 'max'  => 50,
-// ),
-// )
-// );

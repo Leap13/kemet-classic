@@ -152,7 +152,7 @@ if ( ! function_exists( 'kemet_woo_woocommerce_shop_product_content' ) ) {
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
 	function kemet_woo_woocommerce_shop_product_content() {
-		$shop_structure = apply_filters( 'kemet_woo_shop_product_structure', kemet_get_option( 'shop-product-structure' ) );
+		$shop_structure = apply_filters( 'kemet_woo_shop_product_structure', kemet_get_option( 'woo-shop-product-structure' ) );
 
 		if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 

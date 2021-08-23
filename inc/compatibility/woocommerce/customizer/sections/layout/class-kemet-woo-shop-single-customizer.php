@@ -30,8 +30,9 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 		$selector         = '';
 		$register_options = array(
 			self::$prefix . '-disable-breadcrumb'       => array(
-				'type'  => 'kmt-switcher',
-				'label' => __( 'Disable Breadcrumb', 'kemet' ),
+				'type'    => 'kmt-switcher',
+				'default' => false,
+				'label'   => __( 'Disable Breadcrumb', 'kemet' ),
 			),
 			self::$prefix . '-enable-navigation'        => array(
 				'type'  => 'kmt-switcher',

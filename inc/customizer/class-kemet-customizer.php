@@ -229,12 +229,10 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 		 * @return object
 		 */
 		public function register_customizer_options( $wp_customize ) {
-			$options          = $this->get_controls_arr();
-			$panels           = $this->get_panels_arr();
-			$sections         = $this->get_sections_arr();
-			$partials         = $this->get_partials_arr();
-			$defautls_options = array( 'blogname', 'custom_logo', 'blogdescription' );
-			$defaults         = Kemet_Theme_Options::defaults();
+			$options  = $this->get_controls_arr();
+			$panels   = $this->get_panels_arr();
+			$sections = $this->get_sections_arr();
+			$partials = $this->get_partials_arr();
 
 			foreach ( $panels as $panel_id => $args ) {
 				$wp_customize->add_panel(
