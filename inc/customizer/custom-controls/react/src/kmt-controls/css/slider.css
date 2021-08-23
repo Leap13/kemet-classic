@@ -28,6 +28,8 @@
   color: rgba(0, 0, 0, 0.2);
   display: block;
   margin-left: 5px;
+  background: 0 0;
+  box-shadow: none;
 }
 
 .customize-control-kmt-slider .kmt-slider-reset span {
@@ -85,7 +87,7 @@
 
 .customize-control-kmt-slider .kmt-slider-units li.single-unit {
   display: inline-block;
-  margin-left: 6px;
+  margin-right: 6px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -101,6 +103,8 @@
 .description.customize-control-description {
   margin-bottom: 20px;
   margin-top: 10px;
+  color: #848484 !important;
+  font-size: 12px;
 }
 
 .kmt-responsive-control-btns {
@@ -188,4 +192,7 @@
   border-style: solid;
   border-color: #ddd;
   border-radius: 0;
+}
+.components-simple-tooltip.components-range-control__tooltip {
+  display: none !important;
 }

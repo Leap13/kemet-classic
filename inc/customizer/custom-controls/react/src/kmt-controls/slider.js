@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Responsive from '../common/responsive';
-
+const { RangeControl } = wp.components;
 const { Component, Fragment } = wp.element;
 class ResponsiveSliderComponent extends Component {
     constructor() {
@@ -42,7 +42,7 @@ class ResponsiveSliderComponent extends Component {
 
         this.state = {
             initialState: value,
-            currentDevice: this.props.device ? this.props.device : 'desktop',
+            currentDevice: 'desktop',
             defaultVal: defaultVals,
 
 
@@ -53,12 +53,13 @@ class ResponsiveSliderComponent extends Component {
         this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-    updateValues(device, value) {
+
+    updateValues(value) {
         let updateState = {
             ...this.state.initialState
         };
         if (this.responsive) {
-            updateState[device] = value;
+            updateState[this.state.currentDevice] = value;
         } else {
             updateState[`value`] = value;
         }
@@ -106,8 +107,6 @@ class ResponsiveSliderComponent extends Component {
     }
 
     render() {
-
-
         let { label, suffix, description } = this.props.params;
 
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
@@ -160,9 +159,17 @@ class ResponsiveSliderComponent extends Component {
 
                 <div className="wrapper">
                     <div className={`input-field-wrapper ${this.state.currentDevice} active`}>
-                        <input type="range" value={sliderValue} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} />
+                        <RangeControl
+                            className={'kmt-range-value-input'}
+                            value={sliderValue}
+                            onChange={(newVal) => this.updateValues(newVal)}
+                            min={`${dataAttributes.min}`}
+                            max={`${dataAttributes.max}`}
+                            step={`${dataAttributes.step}`}
+                            withInputField={false}
+                        />
                         <div className="kemet_range_value">
-                            <input type="number" className="kmt-range-value-input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(this.state.currentDevice, event.target.value)} />
+                            <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(event.target.value)} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-units">
@@ -170,9 +177,9 @@ class ResponsiveSliderComponent extends Component {
                         </ul>
                     </div>
 
-                    <div className="kmt-slider-reset" onClick={e => this.handleReset(e)}  >
+                    <button className="kmt-slider-reset" disabled={this.state.initialState === this.state.defaultVal ? true : false} onClick={e => this.handleReset(e)}  >
                         <span className="dashicons dashicons-image-rotate"></span>
-                    </div>
+                    </button>
                 </div>
                 {descriptionContent}
             </label >

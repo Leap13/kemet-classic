@@ -315,7 +315,7 @@
   .kemet-popover-color::before {
   position: absolute;
   content: "";
-  left: calc(100% - 26px);
+  left: calc(100% - 32px);
   border-style: solid;
   top: 3px;
   border-width: 0 6px 7px 6px;
@@ -360,7 +360,7 @@
 .background-container .kemet-color-picker-wrap {
   position: absolute;
   z-index: 99999;
-  top: 34px;
+  top: 36px;
   left: 0px;
   right: 0;
   bottom: 0;
