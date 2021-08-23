@@ -81,6 +81,7 @@ class ResponsiveSliderComponent extends Component {
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
+
     handleReset = (e) => {
         e.preventDefault();
         if (this.responsive) {
@@ -105,6 +106,8 @@ class ResponsiveSliderComponent extends Component {
             this.setState({ initialState: updateState });
         }
     }
+
+
 
     render() {
         let { label, suffix, description } = this.props.params;
@@ -150,6 +153,34 @@ class ResponsiveSliderComponent extends Component {
             </li>)
 
         })
+        const onChangeInput = (event) => {
+            if (event.target.value === '') {
+                this.updateValues(undefined);
+                return;
+            }
+            const newValue = Number(event.target.value);
+            if (newValue === '') {
+                this.updateValues(undefined);
+                return;
+            }
+            if (dataAttributes.min < -0.1) {
+                if (newValue > dataAttributes.max) {
+                    this.updateValues(dataAttributes.max);
+                } else if (newValue < dataAttributes.min && newValue !== '-') {
+                    this.updateValues(dataAttributes.min);
+                } else {
+                    this.updateValues(newValue);
+                }
+            } else {
+                if (newValue > dataAttributes.max) {
+                    this.updateValues(dataAttributes.max);
+                } else if (newValue < -0.1) {
+                    this.updateValues(dataAttributes.min);
+                } else {
+                    this.updateValues(newValue);
+                }
+            }
+        }
 
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
 
@@ -169,7 +200,7 @@ class ResponsiveSliderComponent extends Component {
                             withInputField={false}
                         />
                         <div className="kemet_range_value">
-                            <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={(event) => this.updateValues(event.target.value)} />
+                            <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={onChangeInput} />
                             {suffixContent}
                         </div>
                         <ul className="kmt-slider-units">

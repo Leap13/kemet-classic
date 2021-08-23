@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import ColorComponent from './color';
+import KemetColorPickerControl from '../common/color';
 import { useEffect, useState } from 'react';
 import Responsive from '../common/responsive'
 const { __ } = wp.i18n;
 
-const KemetColorComponent = props => {
+const ColorComponent = props => {
     let value = props.value;
 
     let responsiveBaseDefault = {
@@ -34,14 +34,13 @@ const KemetColorComponent = props => {
     let innerOptionsHtml = null;
 
     useEffect(() => {
-
+        // If settings are changed externally.
         if (state.value !== value) {
             setState(value);
         }
     }, []);
 
     const updateValues = (value) => {
-
         let UpdatedState = { ...state };
         if (responsive) {
             UpdatedState[device] = value
@@ -50,9 +49,9 @@ const KemetColorComponent = props => {
 
             UpdatedState = value
         }
-        setState(UpdatedState)
-        props.onChange({ ...UpdatedState, flag: !value.flag });
 
+        props.onChange({ ...UpdatedState, flag: !value.flag });
+        setState(UpdatedState)
     };
 
     const renderOperationButtons = () => {
@@ -89,7 +88,6 @@ const KemetColorComponent = props => {
             value[`${id}`] = color.hex;
         }
 
-        console.log(color, "handleChangeCompelete")
         updateValues(value);
     };
 
@@ -101,24 +99,27 @@ const KemetColorComponent = props => {
     }
 
     const renderInputHtml = (device) => {
-        innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
-
+        innerOptionsHtml = Object.entries(pickers).map(([key, value]) => {
             if (responsive) {
                 return (
-                    <ColorComponent
-                        value={state[device]}
-                        picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
+                    <KemetColorPickerControl
+                        text={value[`title`]}
+                        color={state[device][value[`id`]]}
+                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                        backgroundType={'color'}
+                        allowGradient={false}
+                        allowImage={false}
                     />
                 )
             } else {
                 return (
-                    <ColorComponent
-                        value={state}
-                        picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
+                    <KemetColorPickerControl
+                        text={value[`title`]}
+                        color={state[value[`id`]]}
+                        onChangeComplete={(color, backgroundType) => handleChangeComplete(color, value[`id`])}
+                        backgroundType={'color'}
+                        allowGradient={false}
+                        allowImage={false}
                     />
                 )
             }
@@ -155,7 +156,8 @@ const KemetColorComponent = props => {
                 {descriptionHtml}
                 {responsiveHtml}
             </label>
-            <div className={` className="kmt-color-picker-container`}>
+
+            <div className={`kmt-color-picker-container`}>
                 {optionsHtml}
             </div>
         </div>
@@ -168,4 +170,4 @@ ColorComponent.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default KemetColorComponent;
+export default ColorComponent;

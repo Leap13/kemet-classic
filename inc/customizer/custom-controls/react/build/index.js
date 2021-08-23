@@ -17277,7 +17277,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./color */ "./src/kmt-controls/color.js");
+/* harmony import */ var _common_color__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/color */ "./src/common/color.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
@@ -17295,7 +17295,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var __ = wp.i18n.__;
 
-var KemetColorComponent = function KemetColorComponent(props) {
+var ColorComponent = function ColorComponent(props) {
   var value = props.value;
   var responsiveBaseDefault = {
     'desktop': {},
@@ -17335,6 +17335,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
   var optionsHtml = null;
   var innerOptionsHtml = null;
   Object(react__WEBPACK_IMPORTED_MODULE_5__["useEffect"])(function () {
+    // If settings are changed externally.
     if (state.value !== value) {
       setState(value);
     }
@@ -17349,10 +17350,10 @@ var KemetColorComponent = function KemetColorComponent(props) {
       UpdatedState = value;
     }
 
-    setState(UpdatedState);
     props.onChange(_objectSpread(_objectSpread({}, UpdatedState), {}, {
       flag: !value.flag
     }));
+    setState(UpdatedState);
   };
 
   var renderOperationButtons = function renderOperationButtons() {
@@ -17387,7 +17388,6 @@ var KemetColorComponent = function KemetColorComponent(props) {
       value["".concat(id)] = color.hex;
     }
 
-    console.log(color, "handleChangeCompelete");
     updateValues(value);
   };
 
@@ -17403,23 +17403,29 @@ var KemetColorComponent = function KemetColorComponent(props) {
     innerOptionsHtml = Object.entries(pickers).map(function (_ref2) {
       var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, 2),
           key = _ref3[0],
-          picker = _ref3[1];
+          value = _ref3[1];
 
       if (responsive) {
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: state[device],
-          picker: picker,
-          onChangeComplete: function onChangeComplete(color) {
-            return handleChangeComplete(color, picker["id"]);
-          }
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          text: value["title"],
+          color: state[device][value["id"]],
+          onChangeComplete: function onChangeComplete(color, backgroundType) {
+            return handleChangeComplete(color, value["id"]);
+          },
+          backgroundType: 'color',
+          allowGradient: false,
+          allowImage: false
         });
       } else {
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          value: state,
-          picker: picker,
-          onChangeComplete: function onChangeComplete(color) {
-            return handleChangeComplete(color, picker["id"]);
-          }
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          text: value["title"],
+          color: state[value["id"]],
+          onChangeComplete: function onChangeComplete(color, backgroundType) {
+            return handleChangeComplete(color, value["id"]);
+          },
+          backgroundType: 'color',
+          allowGradient: false,
+          allowImage: false
         });
       }
     });
@@ -17446,14 +17452,14 @@ var KemetColorComponent = function KemetColorComponent(props) {
   }, renderOperationButtons(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-color-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml, responsiveHtml), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: " className=\"kmt-color-picker-container"
+    className: "kmt-color-picker-container"
   }, optionsHtml)));
 };
 
-_color__WEBPACK_IMPORTED_MODULE_4__["default"].propTypes = {
+ColorComponent.propTypes = {
   control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
-/* harmony default export */ __webpack_exports__["default"] = (KemetColorComponent);
+/* harmony default export */ __webpack_exports__["default"] = (ColorComponent);
 
 /***/ }),
 
@@ -19110,6 +19116,41 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
+
+      var onChangeInput = function onChangeInput(event) {
+        if (event.target.value === '') {
+          _this2.updateValues(undefined);
+
+          return;
+        }
+
+        var newValue = Number(event.target.value);
+
+        if (newValue === '') {
+          _this2.updateValues(undefined);
+
+          return;
+        }
+
+        if (dataAttributes.min < -0.1) {
+          if (newValue > dataAttributes.max) {
+            _this2.updateValues(dataAttributes.max);
+          } else if (newValue < dataAttributes.min && newValue !== '-') {
+            _this2.updateValues(dataAttributes.min);
+          } else {
+            _this2.updateValues(newValue);
+          }
+        } else {
+          if (newValue > dataAttributes.max) {
+            _this2.updateValues(dataAttributes.max);
+          } else if (newValue < -0.1) {
+            _this2.updateValues(dataAttributes.min);
+          } else {
+            _this2.updateValues(newValue);
+          }
+        }
+      };
+
       var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
         htmlFor: ""
@@ -19136,9 +19177,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         min: "".concat(dataAttributes.min),
         max: "".concat(dataAttributes.max),
         step: "".concat(dataAttributes.step),
-        onChange: function onChange(event) {
-          return _this2.updateValues(event.target.value);
-        }
+        onChange: onChangeInput
       }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
         className: "kmt-slider-units"
       }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
@@ -19867,7 +19906,7 @@ var Typography = function Typography(props) {
   var value = props.value;
   var defaultValue = {
     'family': 'System Default',
-    'variation': '',
+    'variation': 'regular',
     'size': {
       "desktop": '35',
       "desktop-unit": 'px',
@@ -20502,7 +20541,11 @@ var VariationsList = function VariationsList(_ref) {
       className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
         active: variation === value.variation
       }),
-      key: variation
+      key: variation,
+      style: {
+        fontWeight: variation === 'italic' || variation === 'regular' ? 'normal' : variation.replace(/[^0-9]/g, ''),
+        fontStyle: variation.includes('italic') ? 'italic' : 'regular'
+      }
     }, variation, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "kmt-variation-name",
       "data-variation": variation
@@ -20932,7 +20975,7 @@ var TypographyModal = function TypographyModal(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])("span", {
     "data-variation": value.variation
-  }, Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["humanizeVariationsShort"])(value.variation)))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_13__["Transition"], {
+  }, value.variation))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_6__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_13__["Transition"], {
     items: currentView,
     immediate: direction === 'static',
     config: function config(item, type) {

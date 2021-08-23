@@ -29,7 +29,7 @@ const Typography = (props) => {
     let value = props.value;
     let defaultValue = {
         'family': 'System Default',
-        'variation': '',
+        'variation': 'regular',
         'size': {
             "desktop": '35',
             "desktop-unit": 'px',
