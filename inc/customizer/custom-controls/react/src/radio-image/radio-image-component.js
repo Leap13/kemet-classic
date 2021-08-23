@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 const { __ } = wp.i18n;
 import { useState } from 'react';
-const RadioImageComponent = (props) => {
-    const [props_value, setPropsValue] = useState(props.value);
+const RadioComponent = (props) => {
+    const [props_value, setPropsValue] = useState(props.control.setting.get());
 
     const onLayoutChange = (value) => {
         setPropsValue(value);
-        props.onChange(value);
+        props.control.setting.set(value);
     };
 
     const {
@@ -16,14 +16,15 @@ const RadioImageComponent = (props) => {
         id,
         choices,
         inputAttrs,
+        choices_titles,
         link,
         labelStyle
-    } = props.params;
+    } = props.control.params;
     let inputContent = [];
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
 
-    let descriptionContent = (description && description !== '') ? <span className="description customize-control-description">{description}</span> : null;
+    let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
 
     const HandleRepeat = (item) => {
         let splitedItems = item.split(" ").map((item, i) => {
@@ -49,8 +50,8 @@ const RadioImageComponent = (props) => {
                     id={id + key} checked={props_value === key ? true : false} onChange={() => onLayoutChange(key)} />
 
                 <label htmlFor={id + key} {...labelStyle} className="image">
-                    <img className="wp-ui-highlight" src={choices[key].path} />
-                    <span className="image-clickable" title={choices[key].label}></span>
+                    <img className="wp-ui-highlight" src={choices[key]} />
+                    <span className="image-clickable" title={choices_titles[key]}></span>
                 </label>
             </Fragment>
         );
@@ -67,8 +68,8 @@ const RadioImageComponent = (props) => {
         </Fragment>
     )
 }
-RadioImageComponent.propTypes = {
+RadioComponent.propTypes = {
     control: PropTypes.object.isRequired
 };
 
-export default React.memo(RadioImageComponent);
+export default React.memo(RadioComponent);

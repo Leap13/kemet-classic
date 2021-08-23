@@ -7,3 +7,28 @@
   align-items: center;
   justify-content: space-between;
 }
+.toggle-control-label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.components-base-control__field .components-form-toggle {
+  margin-right: 0px !important;
+}
+input[type="checkbox"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.components-form-toggle .components-form-toggle__track {
+  border: 1px solid #b9b8b8 !important;
+}
+
+.components-form-toggle .components-form-toggle__thumb {
+  background-color: #b9b8b8 !important;
+}
+.components-form-toggle
+  .components-form-toggle__input:focus
+  + .components-form-toggle__track {
+  outline: none !important;
+  box-shadow: none !important;
+}

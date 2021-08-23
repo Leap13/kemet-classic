@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 const IconSelectComponent = props => {
-    const [value, setValue] = useState(props.value);
+    const [value, setValue] = useState(props.control.params.value);
 
     const onLayoutChange = (value) => {
         setValue(value);
-        props.onChange(value);
+        props.control.setting.set(value);
     };
     const {
         label,
         description,
         id,
         choices,
-    } = props.params;
+    } = props.control.params;
     let ContentHTML = [];
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;

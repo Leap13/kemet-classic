@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Fragment, useState, useEffect } from "react";
 import Responsive from '../common/responsive'
 import { getSettingId } from '../options/options-component'
-import Icons from "../common/icons";
 
 const { __ } = wp.i18n;
 const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
@@ -273,7 +272,7 @@ const RowLayoutComponent = (props) => {
                             HandleChange(newValue)
                         }}
                     >
-                        {Icons.row[controlMap[item].icon] ? Icons.row[controlMap[item].icon] : item}
+                        {item}
                     </Button>
                 </Tooltip>
             })}

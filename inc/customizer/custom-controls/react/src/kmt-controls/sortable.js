@@ -14,7 +14,7 @@ const SortableComponent = props => {
         inputAttrs
     } = props.params;
 
-    const value = props.value ? props.value : [];
+    const value = props.value;
     const list = useRef(null);
 
     useEffect(() => {
@@ -28,7 +28,6 @@ const SortableComponent = props => {
             });
             props.onChange(newValue);
         }
-
         jQuery(list.current).sortable({
             stop: function () {
                 updateValue();

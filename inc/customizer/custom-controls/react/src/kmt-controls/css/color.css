@@ -12,14 +12,15 @@
 }
 .kmt-control-wrap.kmt-color-control-wrap {
   display: flex;
+  align-items: flex-start;
 }
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
   padding-left: 2px;
 }
 .kemet-control-field .customize-control-title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -28,9 +29,9 @@
 }
 .kmt-color-container .customize-control-title {
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 4px;
 }
 .kmt-color-container {
@@ -342,10 +343,11 @@
   position: absolute;
   z-index: 99999;
   top: 27px;
-  left: 2px;
+  left: 0px;
   right: 0;
   bottom: 0;
   height: max-content;
+  width: 295px;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(3)
@@ -433,8 +435,8 @@
 }
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
-  width: 3px;
-  margin-top: 4px;
+  position: absolute;
+  top: 1px;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -448,9 +450,11 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-19px, 0, 0);
+  transform: translate3d(-20px, 0, 0);
   outline: 0;
   border: 0;
+  width: 18px;
+  height: 18px;
 }
 /*   */
 .kmt-color-btn-reset-wrap .kmt-reset-btn span,
