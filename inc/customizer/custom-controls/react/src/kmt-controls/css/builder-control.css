@@ -611,7 +611,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   padding: 0 13px 4px 13px;
-  background: #2271b1;
+  background: var(--primaryColor);
   border-radius: 4px 4px 0 0;
   transform: translateY(-100%);
   transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;

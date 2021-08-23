@@ -26,3 +26,6 @@ textarea {
 .customize-section-title {
   margin: -12px -20px 0 -20px !important;
 }
+#customize-theme-controls .customize-pane-child.accordion-section-content {
+  padding: 12px 20px 25px 20px;
+}

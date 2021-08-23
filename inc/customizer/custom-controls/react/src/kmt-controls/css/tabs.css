@@ -43,7 +43,7 @@
   left: -1px;
   right: -1px;
   height: 2px;
-  background: #2271b1;
+  background: var(--primaryColor);
 }
 .customize-control-kmt-tabs .current-tab-options > div:first-child {
   margin-top: 0;

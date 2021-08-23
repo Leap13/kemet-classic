@@ -30,7 +30,6 @@
 .kmt-color-container .customize-control-title {
   display: inline-block;
   font-size: 13px;
-  line-height: 1;
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -436,7 +435,7 @@
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   position: absolute;
-  top: 1px;
+  top: 0.2rem;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -488,7 +487,7 @@
 
 .kemet-color-clear-button:disabled,
 .kmt-reset-btn:disabled span {
-  color: #2271b1;
+  color: var(--primaryColor);
   font-size: 16px;
 }
 /** Inside Setting group popup - Colors */
@@ -743,7 +742,7 @@
   outline: none;
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle:hover {
-  border-color: #2271b1;
+  border-color: var(--primaryColor);
 }
 .kemet-color-picker-wrap .components-color-picker__inputs-toggle svg {
   width: 14px;

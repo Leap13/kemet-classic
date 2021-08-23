@@ -2,8 +2,8 @@
   font-size: 13px;
   background-color: #ffffff;
   color: #525252;
-  margin: 0px -12px;
-  display: inline-block;
+  margin: 0px -22px;
+  display: block;
   padding: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -17,4 +17,7 @@
   margin-bottom: 0px;
   color: #848484 !important;
   font-size: 12px;
+}
+.customize-control-kmt-row-layout .customize-control-title {
+  display: inline-block;
 }
