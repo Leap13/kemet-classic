@@ -26,7 +26,7 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		self::$prefix     = 'woo-shop-single';
+		self::$prefix     = 'woo-single';
 		$selector         = '';
 		$register_options = array(
 			self::$prefix . '-disable-breadcrumb'       => array(

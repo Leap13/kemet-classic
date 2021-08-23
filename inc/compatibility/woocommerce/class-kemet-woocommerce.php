@@ -101,153 +101,113 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 11 );
 
 			add_filter( 'woocommerce_get_stock_html', 'kemet_woo_product_in_stock', 10, 2 );
+
+			add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_product_args' ) );
+
+			add_filter( 'post_class', array( $this, 'product_classes' ) );
+
+			add_filter( 'body_class', array( $this, 'shop_layout' ) );
+			// Wishlist.
+			add_filter( 'wp_nav_menu_items', array( $this, 'menu_wishlist_icon' ), 10, 2 );
+			add_filter( 'yith_wcwl_product_already_in_wishlist_text_button', array( $this, 'kemet_added_to_wishlist' ) );
+			add_action( 'kemet_woo_shop_add_to_cart_after', array( $this, 'kemet_get_wishlist' ) );
+			add_filter( 'yith_wcwl_browse_wishlist_label', '__return_false' );
+			add_filter( 'yith_wcwl_loop_positions', array( $this, 'kemet_wishlist_position' ) );
+			add_filter( 'yith_wcwl_button_label', array( $this, 'add_to_wishlist_text' ) );
+			add_filter( 'yith_wcwl_positions', array( $this, 'kemet_wishlist_position' ) );
+			add_filter( 'yith_wcwl_positions', array( $this, 'kemet_wishlist_position' ) );
+			add_filter( 'woocommerce_single_product_summary', array( $this, 'kemet_single_wishlist' ), 31 );
 		}
 
 		/**
-		 * Single product next and previous links
+		 * Single Product wishlist position
 		 *
+		 * @param string $content product summary content.
 		 * @return void
 		 */
-		public function product_nav_links() {
-			if ( ! is_product() ) {
-				return;
-			}
-			?>
-			<div class="kmt-product-navigation">
-				<div class="kmt-product-links">
-					<?php
-						previous_post_link( '%link', '<span class="prev"></span>' );
-						next_post_link( '%link', '<span class="next"></span>' );
-					?>
-				</div>
-			</div>
-			<?php
-		}
+		public function kemet_single_wishlist( $content ) {
+			global $product, $yith_wcwl;
 
-		/**
-		 * Up-sell product arguments
-		 *
-		 * @return void
-		 */
-		public function up_sell_product() {
-
-			// up-sell posts per page.
-			$products_per_page = kemet_get_option( 'woo-shop-single-up-sells-products-count' );
-			$products_per_page = $products_per_page ? $products_per_page : '3';
-
-			// up-sell columns.
-			$columns = kemet_get_option( 'woo-shop-single-up-sells-products-colunms' );
-			$columns = $columns ? $columns : '4';
-
-			woocommerce_upsell_display( $products_per_page, $columns );
-		}
-
-		/**
-		 * Product Classes
-		 *
-		 * @param array $classes single post classes.
-		 * @return array
-		 */
-		public function product_classes( $classes ) {
-			$gallay_style = kemet_get_option( 'product-gallery-style' );
-
-			if ( post_type_exists( 'product' ) && is_product() && 'product' == get_post_type() ) {
-				$product        = wc_get_product();
-				$attachment_ids = $product->get_gallery_image_ids( 'view' );
-				if ( count( $attachment_ids ) > 1 ) {
-					$classes[] = 'kmt-product-has-v-gallary';
-				}
-				$classes[] = 'kmt-gallary-' . $gallay_style;
+			if ( isset( $yith_wcwl ) ) {
+				$content .= do_shortcode( '[yith_wcwl_add_to_wishlist]' );
+				printf( '%s', $content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
-			return $classes;
+		}
+
+			/**
+			 * Wishlist Position
+			 *
+			 * @param string $hooks wishlist type.
+			 * @return string
+			 */
+		public function kemet_wishlist_position( $hooks ) {
+			return 'shortcode';
+
 		}
 
 		/**
-		 * Sale badge content
+		 * Add to Wishlist Text
 		 *
+		 * @param string $text wishlist text.
 		 * @return string
 		 */
-		public function kemet_sale_flash_content() {
-			global $product;
+		public function add_to_wishlist_text( $text ) {
+			$text = __( 'Wishlist', 'kemet' );
+			return $text;
+		}
 
-			if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
-				$product_price = $product->get_regular_price();
-				$sale_price    = $product->get_sale_price();
-				$percent       = round( ( ( floatval( $product_price ) - floatval( $sale_price ) ) / floatval( $product_price ) ) * 100 );
-			} elseif ( $product->is_type( 'variable' ) ) {
-				$available_variations = $product->get_available_variations();
-				$maximumper           = 0;
-				$counter              = count( $available_variations );
-				for ( $i = 0; $i < $counter; ++$i ) {
-					$variation_id     = $available_variations[ $i ]['variation_id'];
-					$variable_product = new WC_Product_Variation( $variation_id );
+		/**
+		 * Wishlist button
+		 *
+		 * @return void
+		 */
+		public function kemet_get_wishlist() {
 
-					if ( ! $variable_product->is_on_sale() ) {
-						continue;
-					}
-
-					$product_price = $variable_product->get_regular_price();
-					$sale_price    = $variable_product->get_sale_price();
-					$percent       = round( ( ( floatval( $product_price ) - floatval( $sale_price ) ) / floatval( $product_price ) ) * 100 );
-
-					if ( $percent > $maximumper ) {
-						$maximumper = $percent;
-					}
+			if ( class_exists( 'YITH_WCWL' ) ) {
+				if ( 'yes' == get_option( 'yith_wcwl_show_on_loop', 'no' ) ) {
+					echo '<div class="woo-wishlist-btn button">' . do_shortcode( '[yith_wcwl_add_to_wishlist]' ) . '</div>';
 				}
-
-				$percent = sprintf( esc_html( '%s' ), $maximumper );
-			} else {
-				$percent = '<span class="onsale">' . esc_html__( 'Sale!', 'kemet-addons' ) . '</span>';
-				return $percent;
 			}
-
-			$value = '-' . esc_html( $percent ) . '%';
-
-			return '<span class="onsale">' . esc_html( $value ) . '</span>';
 		}
 
 		/**
-		 * Related product arguments
+		 * Wishlist button text
 		 *
-		 * @return array
+		 * @param string $default wishlist added text.
+		 * @return string
 		 */
-		public function related_product_args() {
-			global $product, $orderby, $related;
-
-			// Related posts per page.
-			$products_per_page = kemet_get_option( 'woo-shop-single-related-products-count' );
-			$products_per_page = $products_per_page ? $products_per_page : '3';
-
-			// Related columns.
-			$columns = kemet_get_option( 'woo-shop-single-related-products-colunms' );
-			$columns = $columns ? $columns : '3';
-
-			$args = array(
-				'posts_per_page' => $products_per_page,
-				'columns'        => $columns,
-			);
-
-			return $args;
+		public function kemet_added_to_wishlist( $default ) {
+			$default = __( 'Added', 'kemet-addons' );
+			return $default;
 		}
 
-		/**
-		 * Shop Layout
-		 *
-		 * @param array $classes body classes.
-		 * @return array
-		 */
-		public function shop_layout( $classes ) {
-			$layout_style      = apply_filters( 'kemet_shop_layout_style', kemet_get_option( 'woo-shop-layout' ) );
-			$content_alignment = kemet_get_option( 'woo-shop-product-content-alignment' );
-			$classes[]         = 'content-align-' . $content_alignment;
-			if ( in_array( 'shop-grid', $classes ) ) {
-				$layout_class = array_search( 'shop-grid', $classes );
-				unset( $classes[ $layout_class ] );
-				$classes[] = $layout_style;
+			/**
+			 * Adds wishlist icon to menu
+			 *
+			 * @param mixed $items header items.
+			 * @param array $args header items args.
+			 * @return mixed
+			 */
+		public function menu_wishlist_icon( $items, $args ) {
+			$wishlist_in_header = kemet_get_option( 'wishlist-in-header' );
+
+			if ( class_exists( 'YITH_WCWL' ) && $wishlist_in_header && ( 'primary-menu' == $args->theme_location || 'secondary-menu' == $args->theme_location ) ) {
+				// get wishlist url.
+				$wishlist_url = YITH_WCWL()->get_wishlist_url();
+				// Add wishlist link to menu items.
+				$item  = '<li class="woo-wishlist-link">';
+				$item .= '<a href="' . esc_url( $wishlist_url ) . '" class="kmt-wishlist">';
+				$item .= '<i class="fa fa-heart-o"></i>';
+				$item .= '<span class="kmt-wishlist-text">' . YITH_WCWL()->count_products() . '</span>';
+				$item .= '</a>';
+				$item .= '</li>';
+
+				$items .= $item;
 			}
 
-			return $classes;
+			// Return menu items.
+			return $items;
 		}
 
 		/**
@@ -754,6 +714,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 			remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+
 			// Breadcrumb.
 			if ( kemet_get_option( 'disable-shop-breadcrumb' ) && ( is_shop() || is_product_taxonomy() ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
@@ -761,7 +722,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			/**
 			 * Disable Related Products.
 			 */
-			$disable_related_products = kemet_get_option( 'disable-related-products' );
+			$disable_related_products = kemet_get_option( 'woo-single-disable-related-products' );
 
 			if ( $disable_related_products ) {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
@@ -778,6 +739,171 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			} else {
 				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 			}
+
+			/**
+			 * Enable Single Product Nav Links
+			 */
+			$enable_nav_links = kemet_get_option( 'enable-product-navigation' );
+			if ( $enable_nav_links ) {
+				add_action( 'woocommerce_single_product_summary', array( $this, 'product_nav_links' ), 1, 0 );
+			}
+
+			/**
+			 * Sale badge content
+			 */
+			$sale_content = kemet_get_option( 'sale-content' );
+
+			if ( 'percent' == $sale_content ) {
+				add_filter( 'woocommerce_sale_flash', array( $this, 'kemet_sale_flash_content' ), 10, 3 );
+			}
+
+		}
+
+		/**
+		 * Single product next and previous links
+		 *
+		 * @return void
+		 */
+		public function product_nav_links() {
+			if ( ! is_product() ) {
+				return;
+			}
+			?>
+			<div class="kmt-product-navigation">
+				<div class="kmt-product-links">
+					<?php
+						previous_post_link( '%link', '<span class="prev"></span>' );
+						next_post_link( '%link', '<span class="next"></span>' );
+					?>
+				</div>
+			</div>
+			<?php
+		}
+
+		/**
+		 * Up-sell product arguments
+		 *
+		 * @return void
+		 */
+		public function up_sell_product() {
+
+			// up-sell posts per page.
+			$products_per_page = kemet_get_option( 'woo-single-up-sells-products-count' );
+			$products_per_page = $products_per_page ? $products_per_page : '3';
+
+			// up-sell columns.
+			$columns = kemet_get_option( 'woo-single-up-sells-products-colunms' );
+			$columns = $columns ? $columns : '4';
+
+			woocommerce_upsell_display( $products_per_page, $columns );
+		}
+
+		/**
+		 * Product Classes
+		 *
+		 * @param array $classes single post classes.
+		 * @return array
+		 */
+		public function product_classes( $classes ) {
+			$gallay_style = kemet_get_option( 'product-gallery-style' );
+
+			if ( post_type_exists( 'product' ) && is_product() && 'product' == get_post_type() ) {
+				$product        = wc_get_product();
+				$attachment_ids = $product->get_gallery_image_ids( 'view' );
+				if ( count( $attachment_ids ) > 1 ) {
+					$classes[] = 'kmt-product-has-v-gallary';
+				}
+				$classes[] = 'kmt-gallary-' . $gallay_style;
+			}
+
+			return $classes;
+		}
+
+		/**
+		 * Sale badge content
+		 *
+		 * @return string
+		 */
+		public function kemet_sale_flash_content() {
+			global $product;
+
+			if ( $product->is_type( 'simple' ) || $product->is_type( 'external' ) ) {
+				$product_price = $product->get_regular_price();
+				$sale_price    = $product->get_sale_price();
+				$percent       = round( ( ( floatval( $product_price ) - floatval( $sale_price ) ) / floatval( $product_price ) ) * 100 );
+			} elseif ( $product->is_type( 'variable' ) ) {
+				$available_variations = $product->get_available_variations();
+				$maximumper           = 0;
+				$counter              = count( $available_variations );
+				for ( $i = 0; $i < $counter; ++$i ) {
+					$variation_id     = $available_variations[ $i ]['variation_id'];
+					$variable_product = new WC_Product_Variation( $variation_id );
+
+					if ( ! $variable_product->is_on_sale() ) {
+						continue;
+					}
+
+					$product_price = $variable_product->get_regular_price();
+					$sale_price    = $variable_product->get_sale_price();
+					$percent       = round( ( ( floatval( $product_price ) - floatval( $sale_price ) ) / floatval( $product_price ) ) * 100 );
+
+					if ( $percent > $maximumper ) {
+						$maximumper = $percent;
+					}
+				}
+
+				$percent = sprintf( esc_html( '%s' ), $maximumper );
+			} else {
+				$percent = '<span class="onsale">' . esc_html__( 'Sale!', 'kemet-addons' ) . '</span>';
+				return $percent;
+			}
+
+			$value = '-' . esc_html( $percent ) . '%';
+
+			return '<span class="onsale">' . esc_html( $value ) . '</span>';
+		}
+
+		/**
+		 * Related product arguments
+		 *
+		 * @return array
+		 */
+		public function related_product_args() {
+			global $product, $orderby, $related;
+
+			// Related posts per page.
+			$products_per_page = kemet_get_option( 'woo-single-related-products-count' );
+			$products_per_page = $products_per_page ? $products_per_page : '3';
+
+			// Related columns.
+			$columns = kemet_get_option( 'woo-single-related-products-colunms' );
+			$columns = $columns ? $columns : '3';
+			var_dump( $columns );
+			$args = array(
+				'posts_per_page' => $products_per_page,
+				'columns'        => $columns,
+			);
+
+			return $args;
+		}
+
+		/**
+		 * Shop Layout
+		 *
+		 * @param array $classes body classes.
+		 * @return array
+		 */
+		public function shop_layout( $classes ) {
+			$layout_style      = apply_filters( 'kemet_shop_layout_style', kemet_get_option( 'woo-shop-layout' ) );
+			$content_alignment = kemet_get_option( 'woo-shop-product-content-alignment' );
+			$classes[]         = 'content-align-' . $content_alignment;
+			if ( in_array( 'shop-grid', $classes ) ) {
+				$layout_class = array_search( 'shop-grid', $classes );
+				unset( $classes[ $layout_class ] );
+				$classes[] = $layout_style;
+			}
+
+			return $classes;
 		}
 
 		/**
