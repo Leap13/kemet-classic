@@ -10,27 +10,26 @@ const NumberComponent = ({
     device,
     onChange,
 }) => {
-    const parsedValue =
-        markAsAutoFor && markAsAutoFor.indexOf(device) > -1 ? 'auto' : value
+
     return (
         <div
-            className={classnames('ct-option-number', {
-                [`ct-reached-limits`]:
-                    parseFloat(parsedValue) === parseInt(option.min) ||
-                    parseFloat(parsedValue) === parseInt(option.max),
+            className={classnames('kmt-option-number', {
+                [`kmt-reached-limits`]:
+                    parseFloat(value) === parseInt(option.min) ||
+                    parseFloat(value) === parseInt(option.max),
             })}
             {...(attr || {})}>
             <a
-                className={classnames('ct-minus', {
-                    ['ct-disabled']:
-                        parseFloat(parsedValue) === parseInt(option.min),
+                className={classnames('kmt-minus', {
+                    ['kmt-disabled']:
+                        parseFloat(value) === parseInt(option.min),
                 })}
                 onClick={() =>
                     onChange(
                         round(
                             Math.min(
                                 Math.max(
-                                    parseFloat(parsedValue) - parseFloat(step),
+                                    parseFloat(value) - parseFloat(step),
                                     option.min || -Infinity
                                 ),
                                 option.max || Infinity
@@ -41,16 +40,16 @@ const NumberComponent = ({
             />
 
             <a
-                className={classnames('ct-plus', {
-                    ['ct-disabled']:
-                        parseFloat(parsedValue) === parseInt(option.max),
+                className={classnames('kmt-plus', {
+                    ['kmt-disabled']:
+                        parseFloat(value) === parseInt(option.max),
                 })}
                 onClick={() =>
                     onChange(
                         round(
                             Math.min(
                                 Math.max(
-                                    parseFloat(parsedValue) + parseFloat(step),
+                                    parseFloat(value) + parseFloat(step),
                                     option.min || -Infinity
                                 ),
                                 option.max || Infinity
@@ -59,7 +58,7 @@ const NumberComponent = ({
                     )
                 }
             />
-            <input type="number" value={parsedValue}
+            <input type="number" value={value}
                 step={step}
                 onChange={(value) =>
                     _.isNumber(parseFloat(value))

@@ -1,14 +1,14 @@
 import { ColorPicker } from '@wordpress/components'
 
-const ColorPickerIris = ({ value: { color }, onChange }) => {
+const ColorPickerIris = ({ value, onChange }) => {
 
 
 
     return (
         <div>
             <ColorPicker
-                color={color}
-                onChangeComplete={(val) => onChange(val)}
+                color={value}
+                onChangeComplete={(val) => onChange(val.hex)}
             />
         </div>
     )

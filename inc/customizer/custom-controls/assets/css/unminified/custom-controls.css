@@ -1,3 +1,19 @@
+:root {
+  --paletteColor1: #2872fa;
+  --paletteColor2: #1559ed;
+  --paletteColor3: #3a4f66;
+  --paletteColor4: #192a3d;
+  --paletteColor5: #e1e8ed;
+  --paletteColor6: #f2f5f7;
+  --paletteColor7: #fafbfc;
+  --paletteColor8: #ffffff;
+  --color: var(--paletteColor3);
+  --linkInitialColor: var(--paletteColor1);
+  --linkHoverColor: var(--paletteColor2);
+  --border-color: var(--paletteColor5);
+  --headings-color: var(--paletteColor4);
+}
+
 #customize-theme-controls
   ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
   height: 100%;
