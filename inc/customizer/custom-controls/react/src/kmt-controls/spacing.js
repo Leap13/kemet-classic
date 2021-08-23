@@ -187,7 +187,7 @@ const SpacingComponent = props => {
                     }} data-element-connect={id} > </span>
             </li>
         ) : null;
-        return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
+        return <ul key={device} className={`kmt-spacing-wrapper ${active}`}>
             {htmlChoices}
             {linkHtml}
 

@@ -7339,15 +7339,6 @@ i.fipicon-angle-left:before {
   width: 100% !important;
 }
 
-.customize-control-kmt-spacing
-  .input-wrapper
-  .kmt-spacing-wrapper
-  li
-  input.kmt-spacing-input:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
   display: flex;
   align-items: initial;
@@ -7454,8 +7445,8 @@ input[type="number"] {
   justify-content: space-between;
 }
 .toggle-control-label {
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 13px;
   line-height: 1.75;
 }
 .components-base-control__field .components-form-toggle {

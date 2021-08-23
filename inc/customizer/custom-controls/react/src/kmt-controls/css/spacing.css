@@ -56,15 +56,6 @@
   width: 100% !important;
 }
 
-.customize-control-kmt-spacing
-  .input-wrapper
-  .kmt-spacing-wrapper
-  li
-  input.kmt-spacing-input:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
   display: flex;
   align-items: initial;
