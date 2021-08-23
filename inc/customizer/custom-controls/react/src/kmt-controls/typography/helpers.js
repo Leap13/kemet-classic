@@ -33,18 +33,7 @@ export const findSelectedFontFamily = (font_family, fonts_list) => {
 	return source.find(({ family }) => family === font_family)
 }
 
-export const decideVariationToSelect = (newValue, oldValue) => {
-	// console.log(newValue, oldValue)
-	// if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
-	// 	return oldValue.variation
-	// }
 
-	// if (newValue.all_variations.indexOf('n4') > -1) {
-	// 	return 'n4'
-
-	// }
-
-}
 
 export const humanizeVariationsShort = (variation) => {
 	var all = {

@@ -20591,7 +20591,7 @@ var getDefaultFonts = function getDefaultFonts(isDefault) {
 /*!************************************************!*\
   !*** ./src/kmt-controls/typography/helpers.js ***!
   \************************************************/
-/*! exports provided: fontFamilyToCSSFamily, findSourceTypeFor, findSelectedFontFamily, decideVariationToSelect, humanizeVariationsShort, humanizeVariations, familyForDisplay */
+/*! exports provided: fontFamilyToCSSFamily, findSourceTypeFor, findSelectedFontFamily, humanizeVariationsShort, humanizeVariations, familyForDisplay */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20599,7 +20599,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontFamilyToCSSFamily", function() { return fontFamilyToCSSFamily; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findSourceTypeFor", function() { return findSourceTypeFor; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findSelectedFontFamily", function() { return findSelectedFontFamily; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideVariationToSelect", function() { return decideVariationToSelect; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanizeVariationsShort", function() { return humanizeVariationsShort; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanizeVariations", function() { return humanizeVariations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "familyForDisplay", function() { return familyForDisplay; });
@@ -20636,14 +20635,6 @@ var findSelectedFontFamily = function findSelectedFontFamily(font_family, fonts_
     var family = _ref2.family;
     return family === font_family;
   });
-};
-var decideVariationToSelect = function decideVariationToSelect(newValue, oldValue) {// console.log(newValue, oldValue)
-  // if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
-  // 	return oldValue.variation
-  // }
-  // if (newValue.all_variations.indexOf('n4') > -1) {
-  // 	return 'n4'
-  // }
 };
 var humanizeVariationsShort = function humanizeVariationsShort(variation) {
   var all = {

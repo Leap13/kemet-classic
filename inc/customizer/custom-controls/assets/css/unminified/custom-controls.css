@@ -7830,6 +7830,11 @@ input[type="checkbox"]:focus {
   text-transform: uppercase;
   right: 1px;
 }
+.kmt-typography-options
+  li.customize-control-kmt-slider
+  .kmt-range-value__input {
+  width: 100%;
+}
 .kmt-typography-options > li:not(.kmt-typography-variant) {
   height: 95px;
 }
@@ -8026,34 +8031,4 @@ input[type="checkbox"]:focus {
 .kmt-typography-variations .kmt-variation-name {
   font-size: 14px;
   line-height: 1.3;
-}
-.kmt-typography-variations [data-variation*="1"] {
-  font-weight: 100;
-}
-.kmt-typography-variations [data-variation*="2"] {
-  font-weight: 200;
-}
-.kmt-typography-variations [data-variation*="3"] {
-  font-weight: 300;
-}
-.kmt-typography-variations [data-variation*="4"] {
-  font-weight: 400;
-}
-.kmt-typography-variations [data-variation*="5"] {
-  font-weight: 500;
-}
-.kmt-typography-variations [data-variation*="6"] {
-  font-weight: 600;
-}
-.kmt-typography-variations [data-variation*="7"] {
-  font-weight: 700;
-}
-.kmt-typography-variations [data-variation*="8"] {
-  font-weight: 800;
-}
-.kmt-typography-variations [data-variation*="9"] {
-  font-weight: 900;
-}
-.kmt-typography-variations [data-variation*="i"] {
-  font-style: italic;
 }
