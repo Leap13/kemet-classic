@@ -38,6 +38,7 @@ const RadioComponent = (props) => {
         choices,
         responsive
     } = props.params;
+    console.log(choices, responsive)
 
     const renderButtons = () => {
         let currentChoices = responsive ? choices[device] : choices

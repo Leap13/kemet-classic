@@ -17,8 +17,9 @@ import SortableComponent from '../kmt-controls/sortable'
 import RadioComponent from '../kmt-controls/radio'
 import RowLayoutComponent from '../kmt-controls/row-layout'
 import BackgroundComponent from '../kmt-controls/background'
+import IconSelectComponent from '../kmt-controls/icon-select'
+import RadioImageComponent from '../kmt-controls/radio-image'
 import Typography from '../kmt-controls/typography';
-import ColorPalettes from '../kmt-controls/color-pallet';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -76,12 +77,14 @@ const OptionComponent = (type) => {
         case 'kmt-background':
             OptionComponent = BackgroundComponent;
             break;
+        case 'kmt-radio-image':
+            OptionComponent = RadioImageComponent;
+            break;
+        case 'kmt-icon-select':
+            OptionComponent = IconSelectComponent;
+            break;
         case 'kmt-typography':
             OptionComponent = Typography;
-            break;
-
-        case 'kmt-color-palettes':
-            OptionComponent = ColorPalettes;
             break;
     }
 
@@ -203,8 +206,8 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
         <Option id={optionId} value={settingVal} params={option} control={control} customizer={wp.customize} onChange={(value) => {
             const key = getSettingId(optionId);
-            wp.customize(key).set(value);
             setValue(value);
+            wp.customize(key).set(value);
         }} />
     </div>;
 }
