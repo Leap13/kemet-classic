@@ -18,9 +18,8 @@ const SortableComponent = props => {
     const list = useRef(null);
 
     useEffect(() => {
+        let newValue = [];
         const updateValue = () => {
-            let newValue = [];
-
             jQuery(list.current).find('li').each(function () {
                 if (!jQuery(this).is('.invisible')) {
                     newValue.push(jQuery(this).data('value'));
@@ -40,7 +39,7 @@ const SortableComponent = props => {
         }).click(function () {
             updateValue();
         });
-    }, [])
+    }, [props])
 
     if (label) {
         labelHtml = <span className="customize-control-title">{label}</span>;

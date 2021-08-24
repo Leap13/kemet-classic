@@ -19324,8 +19324,9 @@ var SortableComponent = function SortableComponent(props) {
   var value = props.value;
   var list = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    var newValue = [];
+
     var updateValue = function updateValue() {
-      var newValue = [];
       jQuery(list.current).find('li').each(function () {
         if (!jQuery(this).is('.invisible')) {
           newValue.push(jQuery(this).data('value'));
@@ -19345,7 +19346,7 @@ var SortableComponent = function SortableComponent(props) {
     }).click(function () {
       updateValue();
     });
-  }, []);
+  }, [props]);
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
