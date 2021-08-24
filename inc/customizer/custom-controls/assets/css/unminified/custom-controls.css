@@ -7422,6 +7422,51 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.kmt-spacing-btn-reset-wrap {
+  position: absolute;
+  top: 0.2rem;
+}
+.kmt-spacing-responsive:hover
+  .kmt-spacing-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled)
+  span {
+  opacity: 1;
+}
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(-20px, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+}
+/*   */
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn span,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn span {
+  font-size: 10px !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn span:hover {
+  transform: rotate(-45deg);
+}
+.kemet-color-clear-button.components-button:focus:not(:disabled) {
+  outline: unset;
+  border: none;
+  opacity: 1;
+}
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover,
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn:focus,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,
+.kmt-resp-slider-reset-wrap .kmt-reset-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
 
 .customize-control-kmt-title .customize-control-title {
   font-size: 13px;
