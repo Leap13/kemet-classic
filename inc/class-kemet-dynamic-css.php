@@ -569,13 +569,14 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color' => 'var(--headingLinksColor)',
 				),
 				// Input.
-				'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
+				'input[type="text"], input[type="email"], input[type=number], input[type="tel"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
 					'padding'          => 'var(--padding, 0.75em)',
 					'color'            => 'var(--inputColor)',
 					'background-color' => 'var(--inputBackgroundColor)',
 					'border-color'     => 'var(--inputBorderColor)',
 					'border-radius'    => 'var(--inputBorderRadius, 2px)',
 					'border-width'     => 'var(--inputBorderWidth, 1px)',
+					'border-style'     => 'var(--inputBorderStyle, solid)',
 					'--padding'        => kemet_responsive_spacing( $input_spacing, 'all', 'desktop' ),
 					'--fontSize'       => kemet_responsive_slider( $input_font_size, 'desktop' ),
 					'--fontFamily'     => kemet_get_font_family( $input_font_family ),
@@ -1002,7 +1003,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--padding'           => kemet_responsive_spacing( $footer_input_padding, 'top', 'tablet' ),
 				),
 				// Input.
-				'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
+				'input[type="text"], input[type="email"], input[type=number], input[type="url"], input[type="tel"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
 					'--padding'       => kemet_responsive_spacing( $input_spacing, 'all', 'tablet' ),
 					'--fontSize'      => kemet_responsive_slider( $input_font_size, 'tablet' ),
 					'--lineHeight'    => kemet_responsive_slider( $input_line_height, 'tablet' ),
@@ -1154,7 +1155,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--padding'           => kemet_responsive_spacing( $footer_input_padding, 'top', 'mobile' ),
 				),
 				// Input.
-				'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
+				'input[type="text"], input[type="email"], input[type=number], input[type="url"], input[type="tel"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit]), .wpcf7 form textarea' => array(
 					'--padding'       => kemet_responsive_spacing( $input_spacing, 'all', 'mobile' ),
 					'--fontSize'      => kemet_responsive_slider( $input_font_size, 'mobile' ),
 					'--lineHeight'    => kemet_responsive_slider( $input_line_height, 'mobile' ),

@@ -682,7 +682,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
 
 			// Breadcrumb.
-			if ( kemet_get_option( 'woo-single-disable-breadcrumb' ) && ( is_shop() || is_product_taxonomy() ) ) {
+			if ( kemet_get_option( 'woo-shop-disable-breadcrumb' ) && ( is_shop() || is_product_taxonomy() ) ) {
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 			}
 			/**
@@ -966,8 +966,29 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			// Widget Separator.
 			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
 			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+			// Single Product.
+			$image_width = ! empty( kemet_get_option( 'woo-single-image-width' ) ) ? kemet_get_option( 'woo-single-image-width' ) : array(
+				'value' => 50,
+				'unit'  => '%',
+			);
+
+			// sale
+			$sale_color    = kemet_get_sub_option( 'sale-text-color', 'initial' );
+			$sale_bg_color = kemet_get_sub_option( 'sale-background-color', 'initial' );
 
 			$css_output = array(
+				'.woocommerce .product .onsale , .product .onsale' => array(
+					'--buttonColor'           => esc_attr( $sale_color ),
+					'--buttonBackgroundColor' => esc_attr( $sale_bg_color ),
+				),
+				'.woocommerce #content .kmt-woocommerce-container div.product div.images,.woocommerce .kmt-woocommerce-container div.product div.images' => array(
+					'width'     => kemet_slider( $image_width ),
+					'max-width' => kemet_slider( $image_width ),
+				),
+				'.woocommerce #content .kmt-woocommerce-container div.product div.summary,.woocommerce .kmt-woocommerce-container div.product div.summary' => array(
+					'width'     => kemet_get_css_value( ( 100 - $image_width['value'] ) - 3, '%' ),
+					'max-width' => kemet_get_css_value( ( 100 - $image_width['value'] ) - 3, '%' ),
+				),
 				'.woocommerce .woocommerce-message .button ,.woocommerce-info .button, .woocommerce-info a' => array(
 					'color' => 'var(--headingLinksColor)',
 				),
@@ -987,8 +1008,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-color'     => esc_attr( $cart_dropdown_border_color ),
 				),
 				'.kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before' => array(
-					'font-size' => kemet_slider( $cart_icon_size ),
-					'top'       => kemet_slider( $cart_icon_center_vertically ),
+					'--fontSize' => kemet_slider( $cart_icon_size ),
+					'top'        => kemet_slider( $cart_icon_center_vertically ),
+				),
+				'.shop-list ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .woo-wishlist-btn' => array(
+					'border-color' => 'var(--borderColor)',
 				),
 				'.woocommerce div.product form.cart .variations' => array(
 					'border-bottom-color' => 'var(--borderColor)',
@@ -1053,6 +1077,20 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				// 'border-radius'    => kemet_responsive_slider( $btn_border_radius, 'desktop' ),
 				// 'padding'      => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 				// ),
+				'.single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-icon, .single-product div.product .entry-summary .compare:before' => array(
+					'background-color' => esc_attr( kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ),
+				),
+				'.single-product div.product .entry-summary .compare' => array(
+					'border' => 'none',
+				),
+				'.added_to_cart'                         => array(
+					'background-color'    => 'var(--buttonBackgroundColor)',
+					'--headingLinksColor' => 'var(--buttonColor)',
+				),
+				'.added_to_cart:hover, .added_to_cart:focus' => array(
+					'background-color'  => 'var(--buttonBackgroundHoverColor)',
+					'--linksHoverColor' => 'var(--buttonHoverColor, var(--buttonColor))',
+				),
 				'.shop-grid ul.products li.product .button , .shop-grid ul.products li.product .added_to_cart' => array(
 					'color' => 'var(--headingLinksColor)',
 				),
