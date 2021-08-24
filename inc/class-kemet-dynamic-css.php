@@ -71,7 +71,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$global_footer_text_color = kemet_get_sub_option( 'global-footer-text-color', 'initial' );
 			$global_footer_bg_color   = kemet_get_sub_option( 'global-footer-bg-color', 'initial' );
 
-			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
+			$site_content_width = kemet_get_option( 'site-content-width' );
 
 			// Site Background Color.
 			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );

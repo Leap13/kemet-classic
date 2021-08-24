@@ -31,7 +31,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
 			$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
 			// container width.
-			$site_content_width = kemet_get_option( 'site-content-width', 1200 );
+			$site_content_width = kemet_get_option( 'site-content-width' );
 			// Body.
 			$body_font_size       = kemet_get_option( 'font-size-body' );
 			$body_letter_spacing  = kemet_get_option( 'letter-spacing-body' );
@@ -237,7 +237,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'max-width' => kemet_slider( $site_content_width ),
 				),
 				'.block-editor-block-list__block[data-align=wide]' => array(
-					'max-width' => kemet_slider( $site_content_width + 200, 'px' ),
+					'max-width' => kemet_get_css_value( $site_content_width['value'] + 200, 'px' ),
 				),
 				'.editor-post-title__block .editor-post-title__input, .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6, .edit-post-visual-editor .block-editor-block-list__layout h1, .edit-post-visual-editor .block-editor-block-list__layout h2, .edit-post-visual-editor .block-editor-block-list__layout h3, .edit-post-visual-editor .block-editor-block-list__layout h4, .edit-post-visual-editor .block-editor-block-list__layout h5, .edit-post-visual-editor .block-editor-block-list__layout h6' => array(
 					'font-family'    => kemet_get_css_value( $headings_font_family, 'font' ),

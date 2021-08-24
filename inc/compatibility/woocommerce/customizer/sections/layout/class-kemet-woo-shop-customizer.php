@@ -104,6 +104,10 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 						'max'  => 1920,
 					),
 				),
+				'preview'      => array(
+					'selector' => '.kmt-woo-shop-archive .site-content > .kmt-container',
+					'property' => 'max-width',
+				),
 				'context'      => array(
 					array(
 						'setting' => self::$prefix . '-archive-width',
@@ -136,11 +140,20 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 						'title' => __( 'Color', 'kemet' ),
 					),
 				),
+				'preview'   => array(
+					'initial' => array(
+						'selector' => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
+						'property' => '--headingLinksColor',
+					),
+				),
 			),
 			self::$prefix . '-product-title-typography'   => array(
 				'type'      => 'kmt-typography',
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
+				),
 			),
 			self::$prefix . '-product-title-spacing'      => array(
 				'type'           => 'kmt-spacing',
@@ -154,6 +167,12 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 					'right'  => __( 'Right', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'        => array(
+					'selector'   => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
+					'property'   => 'margin',
+					'responsive' => true,
+					'sides'      => false,
 				),
 			),
 			self::$prefix . '-product-content'            => array(
@@ -170,11 +189,20 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 						'title' => __( 'Color', 'kemet' ),
 					),
 				),
+				'preview'   => array(
+					'initial' => array(
+						'selector' => '.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description',
+						'property' => 'color',
+					),
+				),
 			),
 			self::$prefix . '-product-content-typography' => array(
 				'type'      => 'kmt-typography',
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => '.woocommerce ul.products li.product .kmt-woo-product-category, .woocommerce-page ul.products li.product .kmt-woo-product-category, .woocommerce ul.products li.product .kmt-woo-shop-product-description, .woocommerce-page ul.products li.product .kmt-woo-shop-product-description',
+				),
 			),
 			self::$prefix . '-price'                      => array(
 				'type'  => 'kmt-title',
@@ -190,11 +218,20 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 						'title' => __( 'Color', 'kemet' ),
 					),
 				),
+				'preview'   => array(
+					'initial' => array(
+						'selector' => '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins',
+						'property' => 'color',
+					),
+				),
 			),
 			self::$prefix . '-product-price-typography'   => array(
 				'type'      => 'kmt-typography',
 				'transport' => 'postMessage',
 				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins',
+				),
 			),
 			self::$prefix . '-product-price-spacing'      => array(
 				'type'           => 'kmt-spacing',
@@ -209,12 +246,18 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
+				'preview'        => array(
+					'selector'   => '.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins',
+					'property'   => 'margin',
+					'responsive' => true,
+					'sides'      => false,
+				),
 			),
 			self::$prefix . '-rating'                     => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Product Rating Style', 'kemet' ),
 			),
-			self::$prefix . '-rating-font-size'           => array(
+			self::$prefix . '-product-rating-font-size'   => array(
 				'type'         => 'kmt-slider',
 				'transport'    => 'postMessage',
 				'responsive'   => true,
@@ -231,6 +274,11 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 						'max'  => 10,
 					),
 				),
+				'preview'      => array(
+					'selector'   => '.woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating',
+					'property'   => 'font-size',
+					'responsive' => true,
+				),
 			),
 			self::$prefix . '-product-rating-spacing'     => array(
 				'type'           => 'kmt-spacing',
@@ -244,6 +292,12 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 					'right'  => __( 'Right', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'        => array(
+					'selector'   => '.woocommerce ul.products li.product .star-rating ,  ul.products li.product .star-rating',
+					'property'   => 'margin',
+					'responsive' => true,
+					'responsive' => false,
 				),
 			),
 		);

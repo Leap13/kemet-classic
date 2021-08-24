@@ -43,6 +43,12 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 						'title' => __( 'Color', 'kemet' ),
 					),
 				),
+				'preview'   => array(
+					'initial' => array(
+						'selector' => '.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before , .product_list_widget .star-rating',
+						'property' => 'color',
+					),
+				),
 			),
 			'kmt-rating-title'      => array(
 				'type'  => 'kmt-title',
@@ -77,6 +83,12 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 										'title' => __( 'Color', 'kemet' ),
 									),
 								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.woocommerce .product .onsale , .product .onsale',
+										'property' => '--buttonColor',
+									),
+								),
 							),
 							'sale-background-color' => array(
 								'type'      => 'kmt-color',
@@ -86,6 +98,12 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 									array(
 										'id'    => 'initial',
 										'title' => __( 'Color', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.woocommerce .product .onsale , .product .onsale',
+										'property' => '--buttonBackgroundColor',
 									),
 								),
 							),

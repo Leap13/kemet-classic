@@ -443,7 +443,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'menu-item-border-bottom'              => 1,
 
 					// Site Layout.
-					'site-content-width'                   => 1200,
+					'site-content-width'                   => array(
+						'value' => 1200,
+						'unit'  => 'px',
+					),
 					'site-layout-outside-bg-obj'           => '',
 					// Container.
 					'site-title-color'                     => '',

@@ -41,13 +41,15 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'disable-cart-if-empty'       => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Disable Cart If Empty', 'kemet' ),
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+								'label'     => __( 'Disable Cart If Empty', 'kemet' ),
 							),
 							'cart-icon-display'           => array(
-								'type'    => 'kmt-select',
-								'label'   => __( 'Display', 'kemet' ),
-								'choices' => array(
+								'type'      => 'kmt-select',
+								'transport' => 'postMessage',
+								'label'     => __( 'Display', 'kemet' ),
+								'choices'   => array(
 									'icon'             => __( 'Icon Only', 'kemet' ),
 									'icon-total'       => __( 'Icon & Cart Total', 'kemet' ),
 									'icon-count'       => __( 'Icon & Cart Count', 'kemet' ),
@@ -65,6 +67,10 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 										'max'  => 50,
 									),
 								),
+								'preview'      => array(
+									'selector' => '.kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before',
+									'property' => '--fontSize',
+								),
 							),
 							'cart-icon-center-vertically' => array(
 								'type'         => 'kmt-slider',
@@ -77,6 +83,10 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 										'max'  => 100,
 									),
 								),
+								'preview'      => array(
+									'selector' => '.kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before',
+									'property' => 'top',
+								),
 							),
 							'cart-dropdown-width'         => array(
 								'type'         => 'kmt-slider',
@@ -88,6 +98,10 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 										'step' => 1,
 										'max'  => 600,
 									),
+								),
+								'preview'      => array(
+									'selector' => '.kmt-site-header-cart .widget_shopping_cart',
+									'property' => 'width',
 								),
 							),
 						),
@@ -105,6 +119,12 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 										'title' => __( 'Color', 'kemet' ),
 									),
 								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-site-header-cart .widget_shopping_cart',
+										'property' => 'background-color',
+									),
+								),
 							),
 							'cart-dropdown-border-size'  => array(
 								'type'         => 'kmt-slider',
@@ -117,6 +137,10 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 										'max'  => 100,
 									),
 								),
+								'preview'      => array(
+									'selector' => '.kmt-site-header-cart .widget_shopping_cart',
+									'property' => 'border-width',
+								),
 							),
 							'cart-dropdown-border-color' => array(
 								'type'      => 'kmt-color',
@@ -126,6 +150,12 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 									array(
 										'id'    => 'initial',
 										'title' => __( 'Color', 'kemet' ),
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-site-header-cart .widget_shopping_cart',
+										'property' => '--borderColor',
 									),
 								),
 							),
@@ -165,6 +195,24 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 
 		return array_merge( $sections, $register_sections );
 
+	}
+
+	/**
+	 * Add Partials
+	 *
+	 * @param array $partials partials.
+	 * @return array
+	 */
+	public function add_partials( $partials ) {
+		$new_partials = array_fill_keys(
+			array( 'cart-icon-display', 'shop-cart-icon', 'disable-cart-if-empty' ),
+			array(
+				'selector'            => '#kmt-site-header-cart',
+				'container_inclusive' => false,
+				'render_callback'     => array( Kemet_Woocommerce::get_instance(), 'woo_mini_cart_markup' ),
+			)
+		);
+		return array_merge( $partials, $new_partials );
 	}
 }
 
