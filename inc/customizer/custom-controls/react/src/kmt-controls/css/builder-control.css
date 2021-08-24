@@ -1,3 +1,7 @@
+.customize-control-kmt-radio .customize-control-title {
+  font-size: 13px;
+  font-weight: 500;
+}
 .kmt-builder-is-active .preview-desktop #customize-preview,
 .kmt-builder-is-active .preview-tablet #customize-preview {
   height: auto;
@@ -133,7 +137,7 @@
 }
 
 .kmt-compontent-tabs .kmt-compontent-tabs-button.nav-tab-active {
-  border-bottom-color: #007cba;
+  border-bottom-color: var(--primaryColor);
   background: #f9f9f9;
   color: #000;
 }
@@ -243,6 +247,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .kmt-builder-items {
   padding: 35px 30px;
 }
+.kmt-builder-items .kmt-builder-item {
+  font-size: 12px !important;
+}
 
 .kmt-builder-sortable-panel {
   min-height: 46px;
@@ -260,7 +267,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-item {
   line-height: 32px;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -422,6 +430,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 .kmt-control-tabs {
   position: relative;
+  /* min-height: 1px; */
 }
 .kmt-build-tabs {
   display: flex;
@@ -470,14 +479,14 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-build-tabs .nav-tab.nav-tab-active {
-  border-bottom-color: #007cba;
+  border-bottom-color: var(--primaryColor);
   background: #f9f9f9;
   color: #000;
 }
 .nav-tab-active,
 .nav-tab-active:focus,
 .nav-tab-active:focus:active {
-  border-bottom: 4px solid #007cba;
+  border-bottom: 4px solid var(--primaryColor);
 }
 .kmt-build-tabs .nav-tab:hover,
 .kmt-build-tabs .nav-tab:focus {
@@ -589,7 +598,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-group-horizontal:hover .components-button.kmt-row-actions {
-  color: #007cba;
+  color: var(--primaryColor);
 }
 .kmt-builder-areas .components-button.kmt-fixed-row-actions {
   opacity: 1;
@@ -609,7 +618,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   padding: 0 13px 4px 13px;
-  background: #2271b1;
+  background: var(--primaryColor);
   border-radius: 4px 4px 0 0;
   transform: translateY(-100%);
   transition: color 0.15s ease, opacity 0.1s ease, visibility 0.1s ease;
@@ -831,7 +840,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-areas .components-button.kmt-row-actions {
-  background: #007cba;
+  background: var(--primaryColor);
   color: #c8dbe4;
   text-transform: uppercase;
   font-size: 8px;
@@ -877,8 +886,8 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .active-builder-row .components-button.kmt-row-actions {
-  background: #007cba;
-  border-color: #007cba;
+  background: var(--primaryColor);
+  border-color: var(--primaryColor);
   color: white;
   box-shadow: -9px 3px 10px rgb(0 39 36 / 7%);
 }
@@ -909,7 +918,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 
 .kmt-builder-areas .components-button.kmt-row-actions:hover,
 .kmt-builder-areas .components-button.kmt-row-actions:focus {
-  background: #007cba !important;
+  background: var(--primaryColor) !important;
   color: white !important;
   box-shadow: none !important;
 }
@@ -1025,7 +1034,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-item-start .kmt-builder-item:hover > .kmt-builder-item-icon {
-  color: #007cba;
+  color: var(--primaryColor);
 }
 
 .kmt-builder-item .kmt-builder-item-icon.kmt-move-icon {
@@ -1199,8 +1208,8 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .kmt-radio-container-control {
   display: flex;
-  padding: 10px;
-  background: #f9f9f9;
+  padding: 10px 0px;
+  background: transparent;
   border: 0;
 }
 
@@ -1213,19 +1222,15 @@ li#customize-control-kemet-settings-footer-desktop-items {
 .customize-control-kmt-row-layout
   .components-button-group.kmt-radio-container-control {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 10px;
   row-gap: 10px;
-  background: transparent;
-  padding: 10px 0;
 }
-
-.customize-control-kmt-row-layout
-  .kmt-radio-container-control
-  button.components-button.is-tertiary {
-  flex: auto;
-  height: 59px;
-  color: #8b9299;
+.kmt-radio-container-control button:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.kmt-radio-container-control button:last-child {
+  border-radius: 0 3px 3px 0;
 }
 
 .kmt-radio-container-control button.components-button.is-tertiary {
@@ -1242,12 +1247,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   line-height: normal;
   margin: 0;
   padding: 4px;
-  border: 1px solid #cbd5e0;
-  border-radius: 2px;
+  box-shadow: inset 0px 0px 0px 1px #ddd;
   background: transparent;
   color: #4a5568;
   white-space: normal;
-  box-shadow: none;
 }
 
 .components-popover__content
@@ -1384,7 +1387,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 .kmt-responsive-control-bar
   .floating-controls
   .components-button:focus:not(:disabled) {
-  color: #007cba;
+  color: var(--primaryColor);
   box-shadow: none;
 }
 
@@ -1464,28 +1467,9 @@ li#customize-control-kemet-settings-footer-desktop-items {
   padding-bottom: 12px;
 }
 
-.customize-control-kmt-radio
-  .kmt-radio-container-control
-  .components-button.is-tertiary.active-radio {
-  background: #007cba;
+.kmt-radio-container-control .components-button.is-tertiary.active-radio {
+  background: var(--primaryColor);
   color: #ffffff;
-}
-
-.customize-control-kmt-row-layout
-  .kmt-radio-container-control
-  button.components-button.is-tertiary.active-radio {
-  border-color: #007cba;
-  background: #007cba;
-  color: #fff;
-}
-
-.customize-control-kmt-row-layout
-  .kmt-radio-container-control
-  button.components-button.is-tertiary:hover {
-  background: #dde0e2;
-  color: #8b9299;
-  border-color: #cbd5e0;
-  box-shadow: none;
 }
 .kmt-popover-builder-list
   .kmt-radio-container-control
@@ -1578,7 +1562,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 .kmt-popover-tabs.kmt-background-tabs
   .components-tab-panel__tabs
   .components-button.active-tab {
-  border-bottom-color: #007cba;
+  border-bottom-color: var(--primaryColor);
   opacity: 1;
 }
 
@@ -1657,8 +1641,8 @@ li#customize-control-kemet-settings-footer-desktop-items {
   .components-button-group
   .components-button.is-tertiary.active-palette {
   color: #ffffff;
-  border: 1px solid #007cba;
-  background: #007cba;
+  border: 1px solid var(--primaryColor);
+  background: var(--primaryColor);
 }
 
 .kmt-border-control .kmt-responsive-controls-content {
@@ -1711,11 +1695,11 @@ li#customize-control-kemet-settings-footer-desktop-items {
   width: 16px;
 }
 
-/* .kmt-radio-container-control .components-button.is-tertiary svg {
+.kmt-radio-container-control .components-button.is-tertiary svg {
   width: 100%;
   height: 100%;
   max-height: 100%;
-} */
+}
 
 .kmt-row-layout-control .kmt-responsive-controls-content .components-button svg,
 .kmt-icon-set-control .kmt-radio-container-control .components-button svg {
@@ -2068,6 +2052,59 @@ button.components-button.kmt-sorter-item-expand {
   padding: 0;
   margin-right: 12px;
   min-height: 40px;
+}
+
+.components-button-group.kmt-radio-container-control
+  .components-button.is-tertiary.active-radio
+  svg,
+.active-radio .kmt-icon-set svg {
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.kmt-radio-icon-control
+  .components-button-group.kmt-radio-container-control
+  .components-button.is-tertiary
+  svg
+  rect,
+.kmt-radio-icon-control
+  .components-button-group.kmt-radio-container-control
+  .components-button.is-tertiary
+  svg
+  path,
+.kmt-icon-set svg,
+#customize-control-kemet-settings-header-trigger-icon
+  span.kmt-svg-iconset.svg-baseline
+  svg
+  path,
+span.kmt-svg-iconset.svg-baseline svg circle {
+  fill: rgb(160 174 192);
+}
+
+.kmt-radio-icon-control
+  .components-button-group.kmt-radio-container-control
+  .components-button.is-tertiary.active-radio
+  svg
+  rect,
+.kmt-radio-icon-control
+  .components-button-group.kmt-radio-container-control
+  .components-button.is-tertiary.active-radio
+  svg
+  path,
+.active-radio .kmt-icon-set svg,
+.active-radio .kmt-icon-set svg,
+#customize-control-kemet-settings-header-trigger-icon
+  input:checked
+  + .kmt-radio-img-svg
+  svg
+  path,
+#customize-control-kemet-settings-header-trigger-icon
+  input:checked
+  + .kmt-radio-img-svg
+  svg
+  circle {
+  fill: var(--primaryColor);
 }
 
 .kmt-icon-set-control.kmt-three-col-short
