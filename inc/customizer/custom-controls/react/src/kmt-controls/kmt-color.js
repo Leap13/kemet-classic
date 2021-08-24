@@ -49,13 +49,9 @@ const KemetColorComponent = props => {
                     disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
                     onClick={e => {
                         e.preventDefault();
-                        let value = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
-
-                        if (undefined === value || '' === value) {
-                            value = 'unset';
-                        }
-
-                        updateValues(value);
+                        let val = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
+                        setState(val)
+                        props.onChange(val);
                     }}>
                     <span className="dashicons dashicons-image-rotate"></span>
                 </button>
@@ -63,21 +59,7 @@ const KemetColorComponent = props => {
         </>;
     };
 
-    const handleChangeComplete = (color, id) => {
 
-        let value = responsive ? state[device] : state;
-
-        if (typeof color === 'string') {
-            value[`${id}`] = color;
-        } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-            value[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
-        } else {
-            value[`${id}`] = color.hex;
-        }
-
-        console.log(color, "handleChangeCompelete")
-        updateValues(value);
-    };
 
     console.log(value)
 

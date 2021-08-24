@@ -130,7 +130,7 @@ const SinglePicker = ({
                         onPickingChange(futureIsPicking)
                     }}
 
-                    style={{ backgroundColor: value }}
+                    style={{ backgroundColor: value[picker[`id`]] }}
                 >
                     <i className="kmt-tooltip-top">
                         {picker.title}

@@ -1,5 +1,4 @@
 import { useMemo, Fragment, useState } from '@wordpress/element'
-import { ColorPicker } from '@wordpress/components'
 import ColorPickerIris from './color-picker-iris'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
@@ -21,9 +20,6 @@ const getLeftForEl = (modal, el) => {
     }
 }
 
-
-
-
 const PickerModal = ({
     el,
     value,
@@ -44,6 +40,30 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     )
+
+    const [UpdatedState, setUpdate] = useState(value)
+
+    const handleChangeComplete = (color, id) => {
+        if (typeof color === 'string') {
+            value[`${id}`] = color;
+        } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+            value[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+        } else {
+            value[`${id}`] = color.hex;
+        }
+
+        console.log(id, picker[`id`])
+
+        updateValues(value);
+    };
+
+    const updateValues = (val) => {
+        setUpdate(val)
+
+
+        onChange({ ...UpdatedState, flag: !value.flag });
+    };
+
     return (
         <Fragment>
             <div
@@ -65,26 +85,26 @@ const PickerModal = ({
                 <div className="kmt-color-picker-top">
                     <ul className="kmt-color-picker-skins">
                         {[
-                            'paletteColor1',
-                            'paletteColor2',
-                            'paletteColor3',
-                            'paletteColor4',
-                            'paletteColor5',
-                            'paletteColor6',
-                            'paletteColor7',
-                            'paletteColor8',
+                            '#000000',
+                            '#ffffff',
+                            '#dd3333',
+                            '#dd9933',
+                            '#eeee22',
+                            '#81d742',
+                            '#1e73be',
+                            "#e2e7ed"
                         ].map((color, index) => (
                             <li
                                 key={color}
                                 style={{
-                                    background: `var(--${color}) `,
+                                    background: color,
                                 }}
                                 className={classnames({
                                     active:
-                                        valueToCheck === `var(--${color})`,
+                                        valueToCheck === color,
                                 })}
                                 onClick={() =>
-                                    onChange({ [picker.id]: `var(--${color})` })
+                                    handleChangeComplete(color, picker[`id`])
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
@@ -106,10 +126,10 @@ const PickerModal = ({
                 </div>
 
                 <ColorPickerIris
-                    onChange={onChange}
-                    values={value}
+                    onChange={(color, id) => handleChangeComplete(color, picker[`id`])}
+                    values={UpdatedState}
                     picker={[picker.id]}
-                    value={value[picker.id]}
+                    value={UpdatedState[picker.id]}
 
                 />
             </div>

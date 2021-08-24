@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Fragment, useState, useEffect } from "react";
-const { Dashicon } = wp.components;
 const { __ } = wp.i18n;
 import { renderOptions } from '../options/options-component'
 
