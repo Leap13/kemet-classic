@@ -34,10 +34,6 @@ const PickerModal = ({
     inline_modal,
     appendToBody
 }) => {
-
-
-
-
     let valueToCheck = value
 
     const arrowLeft = useMemo(
@@ -48,11 +44,6 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     )
-    const onPaletteChangeComplete = (val) => {
-
-        le
-    }
-
     return (
         <Fragment>
             <div
@@ -68,6 +59,9 @@ const PickerModal = ({
                     ...(style ? style : {}),
                 }}
                 {...wrapperProps}>
+                {/* {
+                    !option.predefined &&
+                    } */}
                 <div className="kmt-color-picker-top">
                     <ul className="kmt-color-picker-skins">
                         {[
@@ -90,7 +84,7 @@ const PickerModal = ({
                                         valueToCheck === `var(--${color})`,
                                 })}
                                 onClick={() =>
-                                    onChange({ value: `var(--${color})` })
+                                    onChange({ [picker.id]: `var(--${color})` })
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
@@ -112,10 +106,11 @@ const PickerModal = ({
                 </div>
 
                 <ColorPickerIris
-                    onChange={(v) => onChange(v)}
-                    value={{
-                        value: value,
-                    }}
+                    onChange={onChange}
+                    values={value}
+                    picker={[picker.id]}
+                    value={value[picker.id]}
+
                 />
             </div>
         </Fragment >

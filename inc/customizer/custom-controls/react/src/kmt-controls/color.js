@@ -1,16 +1,8 @@
-import {
-    createElement,
-    Component,
-    Fragment,
-    createContext,
-    useRef,
-    useContext,
-    useState,
-} from '@wordpress/element'
+import { useRef, useState, } from '@wordpress/element'
 import SinglePicker from './color-picker/single-picker'
 import OutsideClickHandler from '../common/outside-component'
 
-const ColorComponent = ({ picker, onChangeComplete, value }) => {
+const ColorComponent = ({ picker, onChange, value }) => {
 
     const [{ isPicking, isTransitioning }, setState] = useState({
         isPicking: null,
@@ -19,6 +11,8 @@ const ColorComponent = ({ picker, onChangeComplete, value }) => {
 
     const containerRef = useRef()
     const modalRef = useRef()
+
+
 
     return (
         <section>
@@ -57,8 +51,8 @@ const ColorComponent = ({ picker, onChangeComplete, value }) => {
                             isTransitioning: false,
                         }))
                     }
-                    onChange={(color) => onChangeComplete(color)}
-                    value={value[picker.id]}
+                    onChange={onChange}
+                    value={value}
                 />
 
             </OutsideClickHandler>

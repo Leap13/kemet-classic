@@ -26,6 +26,7 @@ const KemetColorComponent = props => {
     baseDefault = props.params.default ? props.params.default : baseDefault;
 
     let defaultValue = props.params.default ? props.params.default : baseDefault;
+
     value = value ? value : defaultValue;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
@@ -39,21 +40,6 @@ const KemetColorComponent = props => {
             setState(value);
         }
     }, []);
-
-    const updateValues = (value) => {
-
-        let UpdatedState = { ...state };
-        if (responsive) {
-            UpdatedState[device] = value
-        }
-        else {
-
-            UpdatedState = value
-        }
-        setState(UpdatedState)
-        props.onChange({ ...UpdatedState, flag: !value.flag });
-
-    };
 
     const renderOperationButtons = () => {
         return <>
@@ -93,6 +79,7 @@ const KemetColorComponent = props => {
         updateValues(value);
     };
 
+    console.log(value)
 
     if (responsive) {
         responsiveHtml = <Responsive
@@ -108,8 +95,7 @@ const KemetColorComponent = props => {
                     <ColorComponent
                         value={state[device]}
                         picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
+                        onChange={props.onChange}
                     />
                 )
             } else {
@@ -117,8 +103,7 @@ const KemetColorComponent = props => {
                     <ColorComponent
                         value={state}
                         picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
+                        onChange={props.onChange}
                     />
                 )
             }
