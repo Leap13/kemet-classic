@@ -73,6 +73,11 @@ if ( is_admin() ) {
 require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';
 
 /**
+ * Meta
+ */
+require_once KEMET_THEME_DIR . 'inc/meta/class-kemet-meta.php';
+
+/**
  * Compatibility.
  */
 require_once KEMET_THEME_DIR . 'inc/compatibility/woocommerce/class-kemet-woocommerce.php';
