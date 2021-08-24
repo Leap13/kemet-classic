@@ -189,7 +189,7 @@ class ResponsiveSliderComponent extends Component {
                 {labelContent}
 
                 <div className="wrapper">
-                    <div className={`input-field-wrapper  `}>
+                    <div className={`input-field-wrapper active`}>
                         <RangeControl
                             className={'kmt-range-value-input'}
                             value={sliderValue}

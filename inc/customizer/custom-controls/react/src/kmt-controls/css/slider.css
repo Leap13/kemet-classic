@@ -79,7 +79,7 @@
 
 .customize-control-kmt-slider .kmt-slider-units {
   position: absolute;
-  transform: translateY(-130%);
+  transform: translateY(-120%);
   font-size: 11px;
   text-transform: uppercase;
   right: 1px;

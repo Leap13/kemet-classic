@@ -343,10 +343,8 @@
   z-index: 99999;
   top: 27px;
   left: 0px;
-  right: 0;
+  right: -5px;
   bottom: 0;
-  height: max-content;
-  width: 295px;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(3)
@@ -823,7 +821,7 @@
     visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .kmt-tooltip-top {
-  transform: translate3d(-5px, -35px, 0px);
+  transform: translate3d(0px, -35px, 0px);
 }
 [class*="kmt-tooltip"][class*="-top"]::before {
   left: 0;

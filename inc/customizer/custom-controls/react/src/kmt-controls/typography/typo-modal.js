@@ -101,12 +101,7 @@ const TypographyModal = ({
         ],
         []
     )
-    const fetchFontsList = async () => {
-        const body = new FormData()
 
-        body.append('action', 'kemet_get_fonts_list')
-
-    }
 
 
     useEffect(() => {
@@ -130,9 +125,7 @@ const TypographyModal = ({
         }
     }, [currentView])
 
-    useEffect(() => {
-        fetchFontsList()
-    }, [])
+
     const pickFontFamily = (family) => {
 
         onChange({
@@ -214,8 +207,8 @@ const TypographyModal = ({
                         })}
                         onClick={() => setCurrentView('variations')}>
                         <span data-variation={value.variation}>
-
-                            {value.variation}
+                            {humanizeVariationsShort(value.variation)}
+                            {/* {value.variation} */}
                         </span>
                     </li>
                 </ul>

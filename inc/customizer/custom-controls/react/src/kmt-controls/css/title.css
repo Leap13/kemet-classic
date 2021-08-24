@@ -18,8 +18,19 @@
   color: #848484 !important;
   font-size: 12px;
 }
+.description.customize-control-description > * {
+  font-size: 12px;
+}
 .customize-control-kmt-row-layout .customize-control-title {
   display: inline-block;
   font-size: 13px;
   font-weight: 500;
+}
+
+.customize-control-kmt-text .customize-control-title,
+.customize-control-image .customize-control-title,
+.customize-control-cropped_image .customize-control-title,
+.customize-control-site_icon .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }

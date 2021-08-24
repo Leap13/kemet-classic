@@ -6165,7 +6165,7 @@ i.fipicon-angle-left:before {
 
 .customize-control-kmt-slider .kmt-slider-units {
   position: absolute;
-  transform: translateY(-130%);
+  transform: translateY(-120%);
   font-size: 11px;
   text-transform: uppercase;
   left: 1px;
@@ -6628,10 +6628,8 @@ i.fipicon-angle-left:before {
   z-index: 99999;
   top: 27px;
   right: 0px;
-  left: 0;
+  left: -5px;
   bottom: 0;
-  height: max-content;
-  width: 295px;
 }
 .kmt-color-picker-container
   .color-button-wrap:nth-child(3)
@@ -7108,7 +7106,7 @@ i.fipicon-angle-left:before {
     visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .kmt-tooltip-top {
-  transform: translate3d(5px, -35px, 0px);
+  transform: translate3d(0px, -35px, 0px);
 }
 [class*="kmt-tooltip"][class*="-top"]::before {
   right: 0;
@@ -7445,10 +7443,21 @@ input[type="number"] {
   color: #848484 !important;
   font-size: 12px;
 }
+.description.customize-control-description > * {
+  font-size: 12px;
+}
 .customize-control-kmt-row-layout .customize-control-title {
   display: inline-block;
   font-size: 13px;
   font-weight: 500;
+}
+
+.customize-control-kmt-text .customize-control-title,
+.customize-control-image .customize-control-title,
+.customize-control-cropped_image .customize-control-title,
+.customize-control-site_icon .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }
 
 .components-toggle-control .components-base-control__field {
