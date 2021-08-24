@@ -1212,8 +1212,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .customize-control-kmt-row-layout
   .components-button-group.kmt-radio-container-control {
-  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 10px;
+  row-gap: 10px;
   background: transparent;
   padding: 10px 0;
 }
