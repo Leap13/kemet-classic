@@ -581,14 +581,14 @@ function kemet_typography_css(control, selector) {
       if (value.family) {
         var fontName = value.family;
         if (value.variation) {
-          var fontType = value.source,
-            weight = value.variation[1] + '00',
+          var weight = value.variation[1] + '00',
             link = '',
             style = 'i' === value.variation[0] ? 'italic' : 'normal';
           jQuery("link#" + controlName).remove();
           if (fontName in previewData.googleFonts) {
             fontName = fontName.split(" ").join("+");
-            var weightLink = 'italic' === style ? weight + value.variation[0] : weight;
+            var weightLink = 'italic' === style ? weight + value.variation[0] : weight,
+              weightLink = weightLink ? weightLink : 400;
             link =
               '<link rel="stylesheet" id="' +
               controlName +
@@ -599,11 +599,21 @@ function kemet_typography_css(control, selector) {
             jQuery("head").append(link);
           }
         }
-        dynamicStyle += '--fontFamily: ' + value.family + ';';
-        dynamicStyle += '--fontWeight: ' + weight + ';';
-        dynamicStyle += '--fontStyle: ' + style + ';';
-        dynamicStyle += '--textTransform: ' + value['text-decoration'] + ';';
-        dynamicStyle += '--textDecoration: ' + value['text-transform'] + ';';
+        if (value.family) {
+          dynamicStyle += '--fontFamily: ' + value.family + ';';
+        }
+        if (weight) {
+          dynamicStyle += '--fontWeight: ' + weight + ';';
+        }
+        if (style) {
+          dynamicStyle += '--fontStyle: ' + style + ';';
+        }
+        if (value['text-decoration']) {
+          dynamicStyle += '--textTransform: ' + value['text-decoration'] + ';';
+        }
+        if (value['text-transform']) {
+          dynamicStyle += '--textDecoration: ' + value['text-transform'] + ';';
+        }
         dynamicStyle = selector + '{' + dynamicStyle + '}';
         dynamicStyle += kemet_responsive_slider_css(value.size, 'font-size', selector);
         dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], 'letter-spacing', selector);
