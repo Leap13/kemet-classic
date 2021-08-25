@@ -536,6 +536,7 @@ textarea {
 .customize-control-kmt-radio .customize-control-title {
   font-size: 13px;
   font-weight: 500;
+  display: inline-block;
 }
 .kmt-builder-is-active .preview-desktop #customize-preview,
 .kmt-builder-is-active .preview-tablet #customize-preview {

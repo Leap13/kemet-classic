@@ -7,15 +7,15 @@ const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
 
 const RadioComponent = (props) => {
     let value = props.value;
-
-    const [state, setState] = useState({
-        value
-    });
     const [device, setDevice] = useState('desktop');
 
     const HandleChange = (value) => {
 
-        props.onChange(value);
+        if (responsive) {
+            props.onChange({ ...value, flag: !props.value.flag });
+        } else {
+            props.onChange(value);
+        }
 
         if (props.id.includes('footer-columns')) {
             let row = props.id.replace('-footer-columns', '');
@@ -36,12 +36,24 @@ const RadioComponent = (props) => {
         label,
         name,
         choices,
-        responsive
+        responsive,
+        defaultValue
     } = props.params;
-    console.log(choices, responsive)
+
+    let defaultVal = responsive ? {
+        desktop: '',
+        tablet: '',
+        mobile: ''
+    } : '';
+    defaultVal = defaultValue ? defaultValue : defaultVal;
+    value = value ? value : defaultVal;
+    const [state, setState] = useState({
+        value
+    });
 
     const renderButtons = () => {
-        let currentChoices = responsive ? choices[device] : choices
+        let currentChoices = choices
+
         return <Fragment>
             {Object.keys(currentChoices).map((choice) => {
                 const currentValue = responsive ? state.value[device] : state.value
@@ -65,7 +77,7 @@ const RadioComponent = (props) => {
     }
     return <Fragment>
         {responsive ? <Responsive
-            onChange={(currentDevice) => setDevice({ currentDevice })}
+            onChange={(currentDevice) => setDevice(currentDevice)}
             label={label}
         /> : <span className="customize-control-title">{label}</span>}
         <ButtonGroup className="kmt-radio-container-control">
