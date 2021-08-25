@@ -16,7 +16,6 @@ import { IconButton, Button } from '@wordpress/components'
 const kemetPageOptions = (props) => {
     return (
         <Fragment>
-            <div>Kemettttt</div>
             <PluginSidebarMoreMenuItem target="kemet" icon="admin-customizer">
                 Kemet Page Settings
             </PluginSidebarMoreMenuItem>
@@ -31,38 +30,19 @@ const kemetPageOptions = (props) => {
 }
 
 const KemetOptionsComposed = compose(
-    withPluginContext((context, { name }) => ({
-        sidebarName: `${context.name}/${name}`,
-    })),
-    withSelect((select, { sidebarName }) => {
-        const { getActiveGeneralSidebarName, isPluginItemPinned } = select(
-            'core/edit-post'
-        )
+    withSelect((select) => {
         const postMeta = select('core/editor').getEditedPostAttribute('meta');
         const oldPostMeta = select('core/editor').getCurrentPostAttribute('meta');
         return {
-            isActive: getActiveGeneralSidebarName() === sidebarName,
-            isPinned: isPluginItemPinned(sidebarName),
             meta: { ...oldPostMeta, ...postMeta },
             oldMeta: oldPostMeta,
         };
     }),
-    withDispatch((dispatch, { sidebarName }) => {
-        const {
-            closeGeneralSidebar,
-            openGeneralSidebar,
-            togglePinnedPluginItem,
-        } = dispatch('core/edit-post')
-        return {
-            closeGeneralSidebar,
-            togglePin: () => {
-                togglePinnedPluginItem(sidebarName)
-            },
-            setMetaFieldValue: (value, field) => dispatch('core/editor').editPost(
-                { meta: { [field]: value } }
-            ),
-        }
-    }),
+    withDispatch((dispatch) => ({
+        onChange: (value, field) => dispatch('core/editor').editPost(
+            { meta: { [field]: value } }
+        ),
+    })),
 )(kemetPageOptions);
 
 if (KemetMetaData.version) {

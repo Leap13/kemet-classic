@@ -164,7 +164,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var kemetPageOptions = function kemetPageOptions(props) {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, "Kemettttt"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__["PluginSidebarMoreMenuItem"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__["PluginSidebarMoreMenuItem"], {
     target: "kemet",
     icon: "admin-customizer"
   }, "Kemet Page Settings"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_3__["PluginSidebar"], {
@@ -174,40 +174,16 @@ var kemetPageOptions = function kemetPageOptions(props) {
   }));
 };
 
-var KemetOptionsComposed = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_5__["compose"])(Object(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_2__["withPluginContext"])(function (context, _ref) {
-  var name = _ref.name;
-  return {
-    sidebarName: "".concat(context.name, "/").concat(name)
-  };
-}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__["withSelect"])(function (select, _ref2) {
-  var sidebarName = _ref2.sidebarName;
-
-  var _select = select('core/edit-post'),
-      getActiveGeneralSidebarName = _select.getActiveGeneralSidebarName,
-      isPluginItemPinned = _select.isPluginItemPinned;
-
+var KemetOptionsComposed = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_5__["compose"])(Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__["withSelect"])(function (select) {
   var postMeta = select('core/editor').getEditedPostAttribute('meta');
   var oldPostMeta = select('core/editor').getCurrentPostAttribute('meta');
   return {
-    isActive: getActiveGeneralSidebarName() === sidebarName,
-    isPinned: isPluginItemPinned(sidebarName),
     meta: _objectSpread(_objectSpread({}, oldPostMeta), postMeta),
     oldMeta: oldPostMeta
   };
-}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__["withDispatch"])(function (dispatch, _ref3) {
-  var sidebarName = _ref3.sidebarName;
-
-  var _dispatch = dispatch('core/edit-post'),
-      closeGeneralSidebar = _dispatch.closeGeneralSidebar,
-      openGeneralSidebar = _dispatch.openGeneralSidebar,
-      togglePinnedPluginItem = _dispatch.togglePinnedPluginItem;
-
+}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__["withDispatch"])(function (dispatch) {
   return {
-    closeGeneralSidebar: closeGeneralSidebar,
-    togglePin: function togglePin() {
-      togglePinnedPluginItem(sidebarName);
-    },
-    setMetaFieldValue: function setMetaFieldValue(value, field) {
+    onChange: function onChange(value, field) {
       return dispatch('core/editor').editPost({
         meta: _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, field, value)
       });
