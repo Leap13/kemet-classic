@@ -1758,7 +1758,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 .customize-control-kmt-row-layout
   .components-button-group.kmt-radio-container-control {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
   row-gap: 10px;
 }
@@ -1779,10 +1779,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
-  height: 40px;
+  height: 52px;
   line-height: normal;
   margin: 0;
-  padding: 4px;
+  padding: 12px 4px;
   box-shadow: inset 0px 0px 0px 1px #ddd;
   background: transparent;
   color: #4a5568;
@@ -2594,7 +2594,6 @@ button.components-button.kmt-sorter-item-expand {
   .components-button.is-tertiary.active-radio
   svg,
 .active-radio .kmt-icon-set svg {
-  background: #ffffff;
   border-radius: 3px;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
 }
@@ -7533,6 +7532,31 @@ input[type="checkbox"]:focus {
   + .components-form-toggle__track {
   outline: none !important;
   box-shadow: none !important;
+}
+.components-form-toggle .components-form-toggle__track {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  width: 36px;
+  height: 18px;
+  border-radius: 9px;
+  transition: background 0.2s ease;
+}
+.components-form-toggle .components-form-toggle__thumb {
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: transform 0.1s ease;
+  background-color: #bdbdbd;
+  border: 0px !important;
 }
 
 .customize-control-kmt-radio-image label {
