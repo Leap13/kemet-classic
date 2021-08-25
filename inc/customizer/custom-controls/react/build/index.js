@@ -17527,7 +17527,6 @@ var Typography = function Typography(props) {
     var futureRef = view === 'options' ? fontSizeRef.current : view === 'fonts' ? fontFamilyRef.current : view === 'variations' ? fontWeightRef.current : fontSizeRef.current;
     return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
   }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
-  console.log(value);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-typography', {})
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
