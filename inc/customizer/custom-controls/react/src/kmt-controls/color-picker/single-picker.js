@@ -3,7 +3,7 @@ import PickerModal from './picker-modal'
 import { Transition } from 'react-spring/renderprops'
 import bezierEasing from 'bezier-easing'
 import classnames from 'classnames'
-import usePopoverMaker from '../../common/popover-component'
+import usePopoverMaker from '../../common/popover-component';
 const { __ } = wp.i18n;
 
 const SinglePicker = ({
@@ -26,7 +26,7 @@ const SinglePicker = ({
         contentRef: modalRef,
         ref: containerRef || {},
         defaultHeight: 379,
-        shouldCalculate: true,
+        shouldCalculate: appendToBody,
     })
     let modal = null
     if (
@@ -108,9 +108,7 @@ const SinglePicker = ({
                     innerRef.current = instance
                 }
             }}
-            className={classnames('kmt-color-picker-single', {})}
-            style={{ marginRight: ` 6px` }}
-        >
+            className={classnames('kmt-color-picker-single', {})}>
             <span tabIndex="0">
                 <span
                     tabIndex="0"

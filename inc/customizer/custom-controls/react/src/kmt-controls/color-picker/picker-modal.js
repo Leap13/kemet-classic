@@ -1,5 +1,5 @@
-import { useMemo, Fragment, useState } from '@wordpress/element'
-import ColorPickerIris from './color-picker-iris.js'
+import { useMemo, Fragment, useState, useEffect } from '@wordpress/element'
+import { ColorPicker } from '@wordpress/components'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
 
@@ -20,9 +20,6 @@ const getLeftForEl = (modal, el) => {
     }
 }
 
-
-
-
 const PickerModal = ({
     el,
     value,
@@ -33,13 +30,24 @@ const PickerModal = ({
     inline_modal,
     appendToBody
 }) => {
-    const [currentColor, setCurrentColor] = useState(value)
 
-    const handleTopColor = (color) => {
-        setCurrentColor(color)
-        onChange(color)
-    }
+    const getValueForPicker = useMemo(() => {
+        if ((value || '').indexOf('var') > -1) {
+            return {
+                key: 'var' + value,
+                color: getComputedStyle(document.documentElement)
+                    .getPropertyValue(
+                        value.replace(/var\(/, '').replace(/\)/, '')
+                    )
+                    .trim()
+                    .replace(/\s/g, ''),
+            }
+        }
 
+        return { key: 'color', color: value }
+    }, [value, picker])
+
+    const [refresh, setRefresh] = useState(false)
 
     let valueToCheck = value
 
@@ -51,10 +59,19 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     )
-    const onPaletteChangeComplete = (val) => {
-        setCurrentColor(val)
-        onChange(val)
+
+    const handletoppart = (colorValue) => {
+        if (refresh) {
+            setRefresh(false)
+        } else {
+            setRefresh(true)
+        }
+        onChange(colorValue)
+
     }
+    useEffect(() => {
+        onChange
+    }, [value])
 
     return (
         <Fragment>
@@ -94,11 +111,11 @@ const PickerModal = ({
                                         valueToCheck === color,
                                 })}
                                 onClick={() =>
-                                    onPaletteChangeComplete(color)
+                                    handletoppart(color)
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
-                                        `Color ${index + 1} `
+                                        `Color`
                                     }
                                 </div>
                             </li>
@@ -107,10 +124,23 @@ const PickerModal = ({
                 </div>
 
 
-                <ColorPickerIris
-                    onChange={(v) => onChange(v)}
-                    value={currentColor}
-                />
+                {refresh && (
+                    <>
+                        <ColorPicker
+                            color={value}
+                            onChangeComplete={(color) => onChange(color)}
+                        />
+                    </>
+                )}
+                {!refresh && (
+                    <>
+                        <ColorPicker
+                            color={value}
+                            onChangeComplete={(color) => onChange(color)}
+                        />
+                    </>
+                )}
+
             </div>
         </Fragment>
     )
