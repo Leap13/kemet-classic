@@ -1578,3 +1578,19 @@ if ( ! function_exists( 'kemet_has_widget_editor' ) ) {
 		return ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) ) || version_compare( substr( get_bloginfo( 'version' ), 0, 3 ), '5.8', '>=' );
 	}
 }
+
+if ( ! function_exists( 'kemet_get_meta' ) ) {
+	/**
+	 * kemet_get_meta
+	 */
+	function kemet_get_meta( $meta_key, $key ) {
+		$meta = get_post_meta( get_the_ID(), $meta_key, true );
+		$meta = json_decode( $meta, true );
+
+		if ( ! empty( $meta ) && isset( $meta[ $key ] ) ) {
+			return $meta[ $key ];
+		}
+
+		return false;
+	}
+}

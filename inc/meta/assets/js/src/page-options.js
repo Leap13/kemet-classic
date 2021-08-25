@@ -12,18 +12,31 @@ import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post'
 import { withSelect, withDispatch } from '@wordpress/data'
 import { compose } from '@wordpress/compose'
 import { IconButton, Button } from '@wordpress/components'
+const { __ } = wp.i18n;
+import { OptionsComponent } from './options'
 
 const kemetPageOptions = (props) => {
+    const metaValue = props.meta.kemet_meta ? JSON.parse(props.meta.kemet_meta) : {};
+    const [values, setValue] = useState(metaValue);
+    const onChange = (value, key) => {
+        const newValues = values;
+        newValues[key] = value;
+        props.onChange(JSON.stringify({ ...newValues, flag: !metaValue.flag }), 'kemet_meta')
+        setValue(newValues);
+    }
+
     return (
         <Fragment>
             <PluginSidebarMoreMenuItem target="kemet" icon="admin-customizer">
-                Kemet Page Settings
+                {KemetMetaData.post_type_name + ' ' + __('Settings', 'kemet')}
             </PluginSidebarMoreMenuItem>
             <PluginSidebar
+                className="kmt-post-options"
                 isPinnable={true}
                 name="theme-meta-panel"
-                title="Kemet Settings"
+                title={__('Kemet Settings', 'kemet')}
             >
+                <OptionsComponent options={props.options} onChange={onChange} values={values} />
             </PluginSidebar>
         </Fragment>
     )
@@ -36,6 +49,7 @@ const KemetOptionsComposed = compose(
         return {
             meta: { ...oldPostMeta, ...postMeta },
             oldMeta: oldPostMeta,
+            options: KemetMetaData.options
         };
     }),
     withDispatch((dispatch) => ({
@@ -45,7 +59,7 @@ const KemetOptionsComposed = compose(
     })),
 )(kemetPageOptions);
 
-if (KemetMetaData.version) {
+if (KemetMetaData) {
     registerPlugin('kemet', {
         render: () => <KemetOptionsComposed name="kemet" />,
     })

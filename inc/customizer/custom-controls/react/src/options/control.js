@@ -70,7 +70,7 @@ document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
                 container.find('.components-button.kemet-color-icon-indicate.open').click();
             }
         });
-        // Responsive
-        kemetGetResponsiveJs(control);
     }
+    // Responsive
+    kemetGetResponsiveJs();
 });

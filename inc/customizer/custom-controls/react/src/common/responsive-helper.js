@@ -1,4 +1,4 @@
-export function kemetGetResponsiveJs(control) {
+export function kemetGetResponsiveJs() {
   'use strict';
 
   let device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device')

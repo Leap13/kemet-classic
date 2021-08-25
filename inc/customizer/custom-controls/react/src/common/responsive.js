@@ -16,7 +16,7 @@ class Responsive extends Component {
         const { label } = this.props;
         return (
             <>
-                { label ? <span className="customize-control-title">{label}</span> : null}
+                {label ? <span className="customize-control-title">{label}</span> : null}
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
                     <li className="desktop active">
                         <button type="button" className="preview-desktop active" data-device="desktop">
@@ -58,7 +58,20 @@ class Responsive extends Component {
     }
     changeViewType(device) {
         this.setState({ view: device });
-        wp.customize.previewedDevice(device);
+        wp.customize && wp.customize.previewedDevice(device);
+        if (
+            wp.data &&
+            wp.data.dispatch &&
+            wp.data.dispatch('core/edit-post') &&
+            wp.data.dispatch('core/edit-post')
+                .__experimentalSetPreviewDeviceType
+        ) {
+            wp.data
+                .dispatch('core/edit-post')
+                .__experimentalSetPreviewDeviceType(
+                    device.replace(/\w/, (c) => c.toUpperCase())
+                )
+        }
         this.props.onChange(device);
     }
 

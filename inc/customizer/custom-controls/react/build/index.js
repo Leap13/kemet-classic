@@ -13671,7 +13671,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveColorJs", function() { return kemetGetResponsiveColorJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveBgJs", function() { return kemetGetResponsiveBgJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KemetGetResponsiveColorGroupJs", function() { return KemetGetResponsiveColorGroupJs; });
-function kemetGetResponsiveJs(control) {
+function kemetGetResponsiveJs() {
   'use strict';
 
   var device = jQuery('.wp-full-overlay-footer .devices button.active').attr('data-device');
@@ -13968,7 +13968,14 @@ var Responsive = /*#__PURE__*/function (_Component) {
       this.setState({
         view: device
       });
-      wp.customize.previewedDevice(device);
+      wp.customize && wp.customize.previewedDevice(device);
+
+      if (wp.data && wp.data.dispatch && wp.data.dispatch('core/edit-post') && wp.data.dispatch('core/edit-post').__experimentalSetPreviewDeviceType) {
+        wp.data.dispatch('core/edit-post').__experimentalSetPreviewDeviceType(device.replace(/\w/, function (c) {
+          return c.toUpperCase();
+        }));
+      }
+
       this.props.onChange(device);
     }
   }, {
@@ -19077,10 +19084,11 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
       if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
         container.find('.components-button.kemet-color-icon-indicate.open').click();
       }
-    }); // Responsive
+    });
+  } // Responsive
 
-    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(control);
-  }
+
+  Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])();
 });
 
 /***/ }),
@@ -19089,11 +19097,12 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
 /*!******************************************!*\
   !*** ./src/options/options-component.js ***!
   \******************************************/
-/*! exports provided: getSettingId, getSetting, isDisplay, renderOptions, default */
+/*! exports provided: OptionComponent, getSettingId, getSetting, isDisplay, renderOptions, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptionComponent", function() { return OptionComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSettingId", function() { return getSettingId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSetting", function() { return getSetting; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplay", function() { return isDisplay; });
@@ -19151,7 +19160,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var wpOptions = ["custom_logo", "blogname", "blogdescription"];
-
 var OptionComponent = function OptionComponent(type) {
   var OptionComponent;
 
@@ -19239,7 +19247,6 @@ var OptionComponent = function OptionComponent(type) {
 
   return OptionComponent;
 };
-
 var getSettingId = function getSettingId(id) {
   var setting = wpOptions.includes(id) ? id : KemetCustomizerData.setting.replace("setting_name", id);
   return setting;

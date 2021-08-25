@@ -23,7 +23,7 @@ import Typography from '../kmt-controls/typography';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
-const OptionComponent = (type) => {
+export const OptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
         case 'kmt-color':
