@@ -1,5 +1,5 @@
-import { useMemo, Fragment } from '@wordpress/element'
-import ColorPickerIris from './color-picker-iris.js'
+import { useMemo, Fragment, useState, useEffect } from '@wordpress/element'
+import { ColorPicker } from '@wordpress/components'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
 
@@ -47,6 +47,8 @@ const PickerModal = ({
 		return { key: 'color', color: value }
 	}, [value, picker])
 
+	const [refresh, setRefresh] = useState(false)
+
 	let valueToCheck = value
 
 	const arrowLeft = useMemo(
@@ -57,6 +59,19 @@ const PickerModal = ({
 			getLeftForEl(wrapperProps.ref.current, el.current),
 		[wrapperProps.ref && wrapperProps.ref.current, el && el.current]
 	)
+
+	const handletoppart = (colorValue) => {
+		if (refresh) {
+			setRefresh(false)
+		} else {
+			setRefresh(true)
+		}
+		onChange(colorValue)
+
+	}
+	useEffect(() => {
+		onChange
+	}, [value])
 
 	return (
 		<Fragment>
@@ -96,7 +111,7 @@ const PickerModal = ({
 										valueToCheck === color,
 								})}
 								onClick={() =>
-									onChange(color)
+									handletoppart(color)
 								}>
 								<div className="kmt-tooltip-top">
 									{
@@ -109,11 +124,23 @@ const PickerModal = ({
 				</div>
 
 
-				<ColorPickerIris
-					key={getValueForPicker.key}
-					onChange={(v) => onChange(v)}
-					value={value}
-				/>
+				{refresh && (
+					<>
+						<ColorPicker
+							color={value}
+							onChangeComplete={(color) => onChange(color)}
+						/>
+					</>
+				)}
+				{!refresh && (
+					<>
+						<ColorPicker
+							color={value}
+							onChangeComplete={(color) => onChange(color)}
+						/>
+					</>
+				)}
+
 			</div>
 		</Fragment>
 	)
