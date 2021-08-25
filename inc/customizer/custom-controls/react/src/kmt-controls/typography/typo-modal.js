@@ -208,7 +208,7 @@ const TypographyModal = ({
                         onClick={() => setCurrentView('variations')}>
                         <span data-variation={value.variation}>
                             {humanizeVariationsShort(value.variation)}
-                            {/* {value.variation} */}
+
                         </span>
                     </li>
                 </ul>

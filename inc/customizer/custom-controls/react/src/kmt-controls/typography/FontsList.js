@@ -14,7 +14,7 @@ const loadGoogleFonts = (font_families) => {
 	const googleFonts = font_families
 		.map(({ family }) => family)
 
-	if (googleFonts.length > 0 || typekitFonts.length > 0) {
+	if (googleFonts.length > 0) {
 		WebFontLoader.load({
 			...(googleFonts.length > 0
 				? {

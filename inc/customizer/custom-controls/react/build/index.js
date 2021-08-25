@@ -17074,7 +17074,6 @@ var SpacingComponent = function SpacingComponent(props) {
 
       updateState["".concat(device, "-unit")] = defUnit;
       updateState[device] = size;
-      console.log(updateState);
       props.onChange(updateState);
       setState(updateState);
     } else {
@@ -17085,7 +17084,6 @@ var SpacingComponent = function SpacingComponent(props) {
 
       _updateState["unit"] = _defUnit;
       _updateState["value"] = _size;
-      console.log(_updateState);
       props.onChange(_updateState);
       setState(_updateState);
     }
@@ -17414,7 +17412,7 @@ var Typography = function Typography(props) {
   var value = props.value;
   var defaultValue = {
     'family': 'System Default',
-    'variation': 'regular',
+    'variation': 'n4',
     'size': {
       "desktop": '35',
       "desktop-unit": 'px',
@@ -17529,6 +17527,7 @@ var Typography = function Typography(props) {
     var futureRef = view === 'options' ? fontSizeRef.current : view === 'fonts' ? fontFamilyRef.current : view === 'variations' ? fontWeightRef.current : fontSizeRef.current;
     return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
   }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
+  console.log(value);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-typography', {})
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -17595,7 +17594,7 @@ var Typography = function Typography(props) {
       setIsOpen('variations');
     },
     className: "kmt-weight"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.variation))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["humanizeVariations"])(value.variation)))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("a", {
     ref: dotsRef
   })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_6__["Transition"], {
     items: isOpen,
@@ -17878,7 +17877,7 @@ var loadGoogleFonts = function loadGoogleFonts(font_families) {
     return family;
   });
 
-  if (googleFonts.length > 0 || typekitFonts.length > 0) {
+  if (googleFonts.length > 0) {
     webfontloader__WEBPACK_IMPORTED_MODULE_7___default.a.load(_objectSpread(_objectSpread({}, googleFonts.length > 0 ? {
       google: {
         families: googleFonts
@@ -18049,12 +18048,8 @@ var VariationsList = function VariationsList(_ref) {
       className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
         active: variation === value.variation
       }),
-      key: variation,
-      style: {
-        fontWeight: variation === 'italic' || variation === 'regular' ? 'normal' : variation.replace(/[^0-9]/g, ''),
-        fontStyle: variation.includes('italic') ? 'italic' : 'regular'
-      }
-    }, variation, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      key: variation
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "kmt-variation-name",
       "data-variation": variation
     }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["humanizeVariations"])(variation)));
@@ -18116,12 +18111,12 @@ var fontFamilyToCSSFamily = function fontFamilyToCSSFamily(family) {
     return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
   }
 
-  return family.family.replace('kmt_typekit_', '');
+  return family.family;
 };
 
 var findSourceTypeSettingsFor = function findSourceTypeSettingsFor(font_family, fonts_list) {
-  return Object.values(fonts_list).find(function (single_font_source) {
-    return single_font_source.map(function (_ref) {
+  return fonts_list.find(function (single_font_source) {
+    return Object.values(single_font_source).map(function (_ref) {
       var family = _ref.family;
       return family;
     }).indexOf(font_family) > -1;
@@ -18145,13 +18140,16 @@ var findSelectedFontFamily = function findSelectedFontFamily(font_family, fonts_
     return family === font_family;
   });
 };
-var decideVariationToSelect = function decideVariationToSelect(newValue, oldValue) {// console.log(newValue, oldValue)
-  // if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
-  // 	return oldValue.variation
-  // }
-  // if (newValue.all_variations.indexOf('n4') > -1) {
-  // 	return 'n4'
-  // }
+var decideVariationToSelect = function decideVariationToSelect(newValue, oldValue) {
+  if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
+    return oldValue.variation;
+  }
+
+  if (newValue.all_variations.indexOf('n4') > -1) {
+    return 'n4';
+  }
+
+  return newValue.all_variations[0];
 };
 var humanizeVariationsShort = function humanizeVariationsShort(variation) {
   var all = {

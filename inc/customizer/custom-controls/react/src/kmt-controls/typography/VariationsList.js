@@ -42,13 +42,10 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 							active: variation === value.variation,
 						})}
 						key={variation}
-						style={{
-							fontWeight: (variation === 'italic' || variation === 'regular' ? 'normal' : variation.replace(/[^0-9]/g, '')),
-							fontStyle: (variation.includes('italic') ? 'italic' : 'regular'),
-						}}
+
 
 					>
-						{variation}
+
 						<span
 							className="kmt-variation-name"
 							data-variation={variation}

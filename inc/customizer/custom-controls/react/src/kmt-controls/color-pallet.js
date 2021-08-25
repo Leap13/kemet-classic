@@ -149,7 +149,7 @@ const ColorPalettes = (props) => {
                         }
 
                         if (!properValue.palettes) {
-                            console.log("NOTPROPERVAlue")
+
                             return
                         }
 
