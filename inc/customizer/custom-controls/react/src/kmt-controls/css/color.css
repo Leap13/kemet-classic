@@ -35,7 +35,6 @@
 }
 .kmt-color-container {
   display: flex;
-  align-items: center;
   flex-grow: 2;
   justify-content: space-between;
 }

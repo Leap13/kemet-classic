@@ -36,15 +36,11 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 						'options' => array(
 							self::$prefix . '-columns'     => array(
 								'transport' => 'postMessage',
-								'type'      => 'kmt-radio',
+								'type'      => 'kmt-number',
 								'label'     => __( 'Columns', 'kemet' ),
-								'choices'   => array(
-									'1' => __( '1', 'kemet' ),
-									'2' => __( '2', 'kemet' ),
-									'3' => __( '3', 'kemet' ),
-									'4' => __( '4', 'kemet' ),
-									'5' => __( '5', 'kemet' ),
-								),
+								'value' =>3,
+								'min'=>1,
+								'max'=>6
 							),
 							self::$prefix . '-layout'      => array(
 								'type'      => 'kmt-row-layout',

@@ -154,9 +154,9 @@ const KemetColorComponent = props => {
                 {descriptionHtml}
                 {responsiveHtml}
             </label>
-            < section>
+            < div className={`kmt-color-picker-container`}>
                 {optionsHtml}
-            </section>
+            </div>
         </div>
     </div>;
 
