@@ -54,6 +54,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--linksHoverColor'   => esc_attr( $link_h_color ),
 					),
 					$selector . ' > li > a'               => array(
+						'font-family'         => 'var(--fontFamily)',
 						'--borderBottomWidth' => kemet_responsive_slider( $link_h_border_width, 'desktop' ),
 						'--padding'           => kemet_responsive_spacing( $menu_link_spacing, 'all', 'desktop' ),
 					),
