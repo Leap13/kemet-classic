@@ -29,3 +29,6 @@ textarea {
 #customize-theme-controls .customize-pane-child.accordion-section-content {
   padding: 12px 20px 25px 20px;
 }
+.customize-control-kmt-focus-button {
+  margin-top: 0px !important;
+}

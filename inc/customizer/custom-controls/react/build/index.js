@@ -16701,12 +16701,11 @@ var SortableComponent = function SortableComponent(props) {
       description = _props$params.description,
       choices = _props$params.choices,
       inputAttrs = _props$params.inputAttrs;
-  var value = props.value;
+  var value = props.value ? props.value : [];
   var list = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    var newValue = [];
-
     var updateValue = function updateValue() {
+      var newValue = [];
       jQuery(list.current).find('li').each(function () {
         if (!jQuery(this).is('.invisible')) {
           newValue.push(jQuery(this).data('value'));
@@ -16726,7 +16725,7 @@ var SortableComponent = function SortableComponent(props) {
     }).click(function () {
       updateValue();
     });
-  }, [props]);
+  }, []);
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
@@ -17543,12 +17542,12 @@ var Typography = function Typography(props) {
         e.preventDefault();
 
         if (isOpen) {
-          setCurrentView('options');
+          setCurrentView('fonts');
           return;
         }
 
-        setCurrentViewCache('options:_');
-        setIsOpen('options');
+        setCurrentViewCache('fonts:_');
+        setIsOpen('fonts');
       }
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {

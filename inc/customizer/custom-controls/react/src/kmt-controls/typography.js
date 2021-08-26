@@ -162,11 +162,11 @@ const Typography = (props) => {
                         e.preventDefault()
 
                         if (isOpen) {
-                            setCurrentView('options')
+                            setCurrentView('fonts')
                             return
                         }
-                        setCurrentViewCache('options:_')
-                        setIsOpen('options')
+                        setCurrentViewCache('fonts:_')
+                        setIsOpen('fonts')
                     },
                 }}>
                 <div>

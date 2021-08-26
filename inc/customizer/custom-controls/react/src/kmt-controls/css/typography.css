@@ -88,7 +88,6 @@
   right: -3px;
   bottom: -1px;
   border-radius: 2px;
-  background: rgba(14, 142, 204, 0.3);
   opacity: 0;
 }
 .kmt-typohraphy-value > div > span span {
@@ -101,7 +100,7 @@
   opacity: 1;
 }
 .kmt-typohraphy-value > div > span:hover span {
-  color: #28607b;
+  color: var(--primaryColor);
 }
 .kmt-typohraphy-value .kmt-font {
   display: inline-flex;

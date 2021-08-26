@@ -29,6 +29,9 @@ textarea {
 #customize-theme-controls .customize-pane-child.accordion-section-content {
   padding: 12px 20px 25px 20px;
 }
+.customize-control-kmt-focus-button {
+  margin-top: 0px !important;
+}
 
 :root {
   --primaryColor: #007cba;
@@ -7698,7 +7701,6 @@ input[type="checkbox"]:focus {
   right: -3px;
   bottom: -1px;
   border-radius: 2px;
-  background: rgba(14, 142, 204, 0.3);
   opacity: 0;
 }
 .kmt-typohraphy-value > div > span span {
@@ -7711,7 +7713,7 @@ input[type="checkbox"]:focus {
   opacity: 1;
 }
 .kmt-typohraphy-value > div > span:hover span {
-  color: #28607b;
+  color: var(--primaryColor);
 }
 .kmt-typohraphy-value .kmt-font {
   display: inline-flex;
