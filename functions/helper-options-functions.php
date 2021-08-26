@@ -542,15 +542,15 @@ if ( ! function_exists( 'kemet_get_background_css' ) ) {
 					}
 
 					if ( isset( $bg_obj['background-position'] ) && is_array( $bg_obj['background-position'] ) ) {
-						if ( isset( $bg_obj['background-position']['x'] ) && '' !== $bg_obj['background-position']['x'] ) {
-							$gen_bg_css['background-position-x'] = esc_attr( $bg_obj['background-position']['x'] * 100 . '%' );
+						if ( isset( $bg_obj['backgroundPosition']['x'] ) && '' !== $bg_obj['backgroundPosition']['x'] ) {
+							$gen_bg_css['background-position-x'] = esc_attr( $bg_obj['backgroundPosition']['x'] * 100 . '%' );
 						}
-						if ( isset( $bg_obj['background-position']['y'] ) && '' !== $bg_obj['background-position']['y'] ) {
-							$gen_bg_css['background-position-y'] = esc_attr( $bg_obj['background-position']['y'] * 100 . '%' );
+						if ( isset( $bg_obj['backgroundPosition']['y'] ) && '' !== $bg_obj['backgroundPosition']['y'] ) {
+							$gen_bg_css['background-position-y'] = esc_attr( $bg_obj['backgroundPosition']['y'] * 100 . '%' );
 						}
 					}
 
-					if ( isset( $bg_obj['background-size'] ) ) {
+					if ( isset( $bg_obj['backgroundSize'] ) ) {
 						$gen_bg_css['background-size'] = esc_attr( $bg_obj['background-size'] );
 					}
 

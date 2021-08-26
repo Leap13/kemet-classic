@@ -240,7 +240,7 @@
   transform-origin: center bottom;
   position: fixed;
   z-index: 3000;
-  width: var(--option-modal-width, 295px);
+
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;
@@ -977,7 +977,6 @@
   z-index: 20;
 }
 .kmt-color-picker-modal {
-  width: var(--modalWidth, 295px);
   border-radius: 8px;
 }
 .kmt-color-picker-modal[data-position="bottom"] .kmt-arrow {
@@ -1066,7 +1065,7 @@
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;
-  width: var(--option-modal-width, 295px);
+
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;

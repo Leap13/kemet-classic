@@ -233,7 +233,6 @@ const SpacingComponent = props => {
             };
             updateState[`${device}-unit`] = defUnit;
             updateState[device] = size;
-            console.log(updateState)
             props.onChange(updateState);
             setState(updateState);
         } else {
@@ -244,7 +243,6 @@ const SpacingComponent = props => {
             };
             updateState[`unit`] = defUnit;
             updateState[`value`] = size;
-            console.log(updateState)
             props.onChange(updateState);
             setState(updateState);
         }

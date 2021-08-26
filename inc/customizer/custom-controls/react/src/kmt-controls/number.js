@@ -5,7 +5,6 @@ const round = (value) => Math.round(value * 10) / 10
 const NumberComponent = (props) => {
     let value = props.value;
     const parsedValue = value
-    console.log(props, "Props")
     let { min, max } = props.params;
     let step = 1;
     return (

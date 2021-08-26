@@ -100,7 +100,7 @@ const KemetColorComponent = props => {
 
     const renderInputHtml = (device) => {
         innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
-            console.log(pickers, picker)
+
 
             if (responsive) {
                 return (

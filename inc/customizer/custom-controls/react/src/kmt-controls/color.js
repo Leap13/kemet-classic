@@ -11,7 +11,6 @@ import SinglePicker from './color-picker/single-picker'
 import OutsideClickHandler from '../common/outside-component'
 
 const ColorComponent = ({ picker, onChangeComplete, value }) => {
-    console.log(picker, value)
     const [{ isPicking, isTransitioning }, setState] = useState({
         isPicking: null,
         isTransitioning: null,
