@@ -90,14 +90,7 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
 
 				if ( $this->is_elementor_activated( $id ) ) {
-
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
-					if ( isset( $meta ) ) {
-						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					} else {
-						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					}
-
+					kemet_update_meta( 'kemet_meta', 'content-layout', 'page-builder' );
 					add_filter( 'kemet_get_content_layout', array( $this, 'elementor_default_content_layout' ) );
 				}
 			}

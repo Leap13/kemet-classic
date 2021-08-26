@@ -1012,7 +1012,7 @@ if ( ! function_exists( 'kemet_archive_page_info' ) ) {
  */
 function content_layout( $default ) {
 
-	$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
+	$meta = kemet_get_meta( 'kemet_meta', 'content-layout' );
 
 	if ( ! empty( $meta ) ) {
 		$default = $meta;

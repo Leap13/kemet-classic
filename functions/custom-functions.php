@@ -1594,3 +1594,17 @@ if ( ! function_exists( 'kemet_get_meta' ) ) {
 		return false;
 	}
 }
+
+if ( ! function_exists( 'kemet_update_meta' ) ) {
+	/**
+	 * kemet_get_meta
+	 */
+	function kemet_update_meta( $meta_key, $key, $value ) {
+		$meta = get_post_meta( get_the_ID(), $meta_key, true );
+		$meta = json_decode( $meta, true );
+
+		$meta[ $key ] = $value;
+
+		update_post_meta( $meta_key, wp_json_encode( $meta ) );
+	}
+}

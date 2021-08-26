@@ -64,14 +64,7 @@ if ( ! class_exists( 'Kemet_Beaver_Builder' ) ) :
 			if ( isset( $post ) && ( is_admin() || is_singular() ) ) {
 
 				if ( FLBuilderModel::is_builder_enabled() ) {
-
-					$meta = get_post_meta( get_the_ID(), 'kemet-content-layout', true );
-					if ( isset( $meta ) ) {
-						update_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					} else {
-						add_post_meta( $id, 'kemet-content-layout', 'page-builder' );
-					}
-
+					kemet_update_meta( 'kemet_meta', 'content-layout', 'page-builder' );
 					add_filter( 'kemet_get_content_layout', array( $this, 'beaver_builder_default_content_layout' ) );
 				}
 			}
