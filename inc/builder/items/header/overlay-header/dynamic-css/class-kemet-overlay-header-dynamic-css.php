@@ -20,7 +20,7 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 		 */
 		public function dynamic_css( $dynamic_css ) {
 			$prefix         = 'overlay-header';
-			$overlay_header = kemet_get_option( $prefix . '-enable' );
+			$overlay_header = apply_filters( 'kemet_enable_overlay_header', kemet_get_option( $prefix . '-enable' ) );
 
 			if ( $overlay_header ) {
 				$enable_device = kemet_get_option( $prefix . '-enable-device' );

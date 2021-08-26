@@ -39,3 +39,6 @@
 .customize-control-kmt-icon-select .icon-select.rtl {
   flex-direction: row-reverse;
 }
+.customize-control-kmt-select select {
+  width: 100%;
+}

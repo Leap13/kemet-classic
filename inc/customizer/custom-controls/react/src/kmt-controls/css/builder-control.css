@@ -1227,7 +1227,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   height: 59px;
   color: #8b9299;
 }
-
+.kmt-radio-container-control
+  button.components-button.is-tertiary:not(:first-child) {
+  margin-left: 4px;
+}
 .kmt-radio-container-control button.components-button.is-tertiary {
   flex: 1 1 0;
   display: flex;

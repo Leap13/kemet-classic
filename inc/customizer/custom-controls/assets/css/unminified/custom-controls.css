@@ -1717,7 +1717,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
   height: 59px;
   color: #8b9299;
 }
-
+.kmt-radio-container-control
+  button.components-button.is-tertiary:not(:first-child) {
+  margin-left: 4px;
+}
 .kmt-radio-container-control button.components-button.is-tertiary {
   flex: 1 1 0;
   display: flex;
@@ -7328,6 +7331,9 @@ i.fipicon-angle-left:before {
 }
 .customize-control-kmt-icon-select .icon-select.rtl {
   flex-direction: row-reverse;
+}
+.customize-control-kmt-select select {
+  width: 100%;
 }
 
 .customize-control-kmt-sortable ul.ui-sortable {

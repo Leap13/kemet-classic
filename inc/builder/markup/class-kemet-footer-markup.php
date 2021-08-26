@@ -226,7 +226,9 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 		 * Function to get site Footer
 		 */
 		public function footer_markup() {
-			get_template_part( 'templates/footer/footer-layout' );
+			if ( apply_filters( 'kemet_display_footer', true ) ) {
+				get_template_part( 'templates/footer/footer-layout' );
+			}
 		}
 
 		/**

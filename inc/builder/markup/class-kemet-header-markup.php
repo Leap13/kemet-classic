@@ -320,14 +320,19 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * Header
 		 */
 		public function desktop_header() {
-			get_template_part( 'templates/header/header-desktop-layout' );
+			if ( apply_filters( 'kemet_display_header', true ) ) {
+				get_template_part( 'templates/header/header-desktop-layout' );
+			}
+
 		}
 
 		/**
 		 * Mobile Header
 		 */
 		public function mobile_header() {
-			get_template_part( 'templates/header/header-mobile-layout' );
+			if ( apply_filters( 'kemet_display_header', true ) ) {
+				get_template_part( 'templates/header/header-mobile-layout' );
+			}
 		}
 
 		/**

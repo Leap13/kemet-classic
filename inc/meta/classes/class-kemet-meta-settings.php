@@ -49,13 +49,25 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 		 * register_meta
 		 */
 		public function register_meta() {
+			$default = array(
+				'overlay-header' => 'default',
+				'sidebar-layout' => 'default',
+				'content-layout' => 'default',
+				'disable-header' => false,
+				'disable-footer' => false,
+			);
 			register_post_meta(
 				'', // Pass an empty string to register the meta key across all existing post types.
 				'kemet_meta',
 				array(
-					'show_in_rest'  => true,
 					'single'        => true,
 					'type'          => 'string',
+					'show_in_rest'  => array(
+						'schema' => array(
+							'type'    => 'string',
+							'default' => wp_json_encode( $default ),
+						),
+					),
 					'auth_callback' => '__return_true',
 				)
 			);
@@ -68,10 +80,21 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 		 */
 		public static function meta_options() {
 			$options = array(
+				'overlay-header'       => array(
+					'type'    => 'kmt-radio',
+					'default' => 'default',
+					'label'   => __( 'Overlay Header', 'kemet-addons' ),
+					'choices' => array(
+						'default' => __( 'Default', 'kemet' ),
+						'enable'  => __( 'Enable', 'kemet' ),
+						'disable' => __( 'Disable', 'kemet' ),
+					),
+				),
 				'sidebar-layout'       => array(
 					'type'    => 'kmt-select',
 					'label'   => __( 'Sidebar Layout', 'kemet' ),
 					'choices' => array(
+						'default'       => __( 'Default', 'kemet-addons' ),
 						'no-sidebar'    => __( 'No Sidebar', 'kemet-addons' ),
 						'left-sidebar'  => __( 'Left Sidebar', 'kemet-addons' ),
 						'right-sidebar' => __( 'Right Sidebar', 'kemet-addons' ),
@@ -81,6 +104,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 					'type'    => 'kmt-select',
 					'label'   => __( 'Sidebar Layout', 'kemet' ),
 					'choices' => array(
+						'default'                 => __( 'Default', 'kemet-addons' ),
 						'boxed-container'         => __( 'Boxed Layout', 'kemet-addons' ),
 						'content-boxed-container' => __( 'Boxed Content', 'kemet-addons' ),
 						'plain-container'         => __( 'Full Width Content', 'kemet-addons' ),
@@ -88,9 +112,8 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 					),
 				),
 				'disable-featured-img' => array(
-					'type'        => 'kmt-switcher',
-					'label'       => __( 'Disable Featured Image', 'kemet-addons' ),
-					'description' => __( 'Disable The Featured Image in The Current Page/Post.', 'kemet-addons' ),
+					'type'  => 'kmt-switcher',
+					'label' => __( 'Disable Featured Image', 'kemet-addons' ),
 				),
 				'content-padding'      => array(
 					'type'           => 'kmt-spacing',
@@ -102,6 +125,14 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'top'    => __( 'Top', 'kemet' ),
 						'bottom' => __( 'Bottom', 'kemet' ),
 					),
+				),
+				'disable-header'       => array(
+					'type'  => 'kmt-switcher',
+					'label' => __( 'Disable Header', 'kemet-addons' ),
+				),
+				'disable-footer'       => array(
+					'type'  => 'kmt-switcher',
+					'label' => __( 'Disable Footer', 'kemet-addons' ),
 				),
 			);
 

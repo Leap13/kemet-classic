@@ -52,8 +52,63 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 			if ( is_singular() ) {
 				add_filter( 'kemet_content_padding', array( $this, 'content_padding' ) );
 				add_filter( 'kemet_featured_image_enabled', array( $this, 'featured_img' ) );
+				add_filter( 'kemet_display_header', array( $this, 'display_header' ) );
+				add_filter( 'kemet_display_footer', array( $this, 'display_footer' ) );
+				add_filter( 'kemet_enable_overlay_header', array( $this, 'overlay_header' ) );
 			}
 
+		}
+
+		/**
+		 * Disable Post / Page Header
+		 *
+		 * @param boolean $defaults default value.
+		 * @return boolean
+		 */
+		public function display_header( $defaults ) {
+			$disable_header = kemet_get_meta( 'kemet_meta', 'disable-header' );
+
+			if ( $disable_header ) {
+				$defaults = false;
+			}
+
+			return $defaults;
+		}
+
+		/**
+		 * Post / Page Overlay Header
+		 *
+		 * @param boolean $defaults default value.
+		 * @return boolean
+		 */
+		public function overlay_header( $defaults ) {
+			$overlay_header = kemet_get_meta( 'kemet_meta', 'overlay-header' );
+
+			if ( 'enable' === $overlay_header ) {
+				return true;
+			}
+
+			if ( 'disable' === $overlay_header ) {
+				return false;
+			}
+
+			return $defaults;
+		}
+
+		/**
+		 * Disable Post / Page Footer
+		 *
+		 * @param boolean $defaults default value.
+		 * @return boolean
+		 */
+		public function display_footer( $defaults ) {
+			$disable_footer = kemet_get_meta( 'kemet_meta', 'disable-footer' );
+
+			if ( $disable_footer ) {
+				$defaults = false;
+			}
+
+			return $defaults;
 		}
 
 		/**

@@ -224,7 +224,8 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'border-bottom-width' => esc_attr( '1px' ),
 				),
 				'.kmt-theme-container .edit-post-visual-editor' => array(
-					'overflow' => esc_attr( 'visible' ),
+					'background-color' => '#f0f0f1',
+					'overflow'         => esc_attr( 'visible' ),
 				),
 				// Global selection CSS.
 				'.block-editor-block-list__layout .block-editor-block-list__block ::selection,.block-editor-block-list__layout .block-editor-block-list__block.is-multi-selected .editor-block-list__block-edit:before' => array(
@@ -807,6 +808,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			$boxed_container = array(
 				'.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow'       => array(
+					'width'            => '100%',
 					'max-width'        => kemet_slider( $site_content_width ),
 					'margin'           => '0 auto',
 					'background-color' => '#fff',
