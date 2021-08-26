@@ -91,7 +91,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 									'transport' => 'postMessage',
 									'label'     => __( 'Typography', 'kemet' ),
 									'preview'   => array(
-										'selector' => $selector,
+										'selector' => $selector . ' > li > a',
 									),
 								),
 								$prefix . '-bg-color'   => array(

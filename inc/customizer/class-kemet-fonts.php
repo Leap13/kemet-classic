@@ -118,7 +118,7 @@ final class Kemet_Fonts {
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
 		if ( $google_font_url ) {
-			wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), KEMET_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kemet-google-fonts', $google_font_url, array(), null );
 		}
 	}
 
@@ -148,10 +148,10 @@ final class Kemet_Fonts {
 		foreach ( $fonts as $font_name => $font_weight ) {
 			$family      = '';
 			$font_name   = str_replace( ' ', '+', $font_name );
-			$family      = 'family=' . $font_name . ':';
-			$weight_text = 'wght@';
+			$family      = 'family=' . $font_name;
+			$weight_text = ':wght@';
 			$wghts       = array();
-			if ( ! empty( $font_weight ) ) {
+			if ( ! empty( $font_weight ) && count( $font_weight ) > 1 ) {
 				foreach ( $font_weight as  $weight ) {
 					$weight_val = (int) $weight[1] * 100;
 					if ( 'i' === $weight[0] ) {
@@ -178,6 +178,8 @@ final class Kemet_Fonts {
 
 				$weight_text .= implode( ';', $wghts );
 				$families[]   = $family . $weight_text;
+			} else {
+				$families[] = $family;
 			}
 		}
 
