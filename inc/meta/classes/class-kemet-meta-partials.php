@@ -55,8 +55,66 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				add_filter( 'kemet_display_header', array( $this, 'display_header' ) );
 				add_filter( 'kemet_display_footer', array( $this, 'display_footer' ) );
 				add_filter( 'kemet_enable_overlay_header', array( $this, 'overlay_header' ) );
+				add_filter( 'kemet_the_page_title_layout', array( $this, 'post_title' ) );
+				add_filter( 'kemet_disable_breadcrumbs', array( $this, 'disable_breadcrumbs' ) );
+				add_filter( 'kemet_sub_title', array( $this, 'post_sub_title' ) );
+				add_filter( 'sub_title_color', array( $this, 'post_sub_title_color' ) );
 			}
 
+		}
+
+		/**
+		 * Post / Page SubTitle
+		 *
+		 * @return string
+		 */
+		public function post_sub_title() {
+			$sub_title = kemet_get_meta( 'kemet_meta', 'sub-title' );
+
+			return $sub_title;
+		}
+
+		/**
+		 * Post / Page SubTitle Color
+		 *
+		 * @param string $default default color.
+		 * @return string
+		 */
+		public function post_sub_title_color( $default ) {
+			$sub_title_color = kemet_get_meta( 'kemet_meta', 'sub-title-color' );
+			if ( ! empty( $sub_title_color['initial'] ) ) {
+				$default = $sub_title_color['initial'];
+			}
+			return $default;
+		}
+
+		/**
+		 * Breadcrumbs Option
+		 *
+		 * @param boolean $default default value.
+		 * @return boolean
+		 */
+		public function disable_breadcrumbs( $default ) {
+			$disable_breadcrumbs = kemet_get_meta( 'kemet_meta', 'disable-breadcrumbs' );
+
+			if ( $disable_breadcrumbs ) {
+				$default = false;
+			}
+
+			return $default;
+		}
+
+		/**
+		 * Disable Post / Page Title
+		 *
+		 * @param string $defaults default layout.
+		 * @return string
+		 */
+		public function post_title( $defaults ) {
+			$meta  = kemet_get_meta( 'kemet_meta', 'page-title-layouts' );
+			$title = ( $meta && 'default' != $meta ) ? $meta : $defaults;
+
+			return $title;
 		}
 
 		/**

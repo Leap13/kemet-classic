@@ -20,7 +20,7 @@ if ( 'disable' != $page_title_layout && apply_filters( 'kemet_disable_breadcrumb
 	$classes [] = 'has-breadcrumb';
 }
 $sub_title = '';
-$sub_title = apply_filters( 'kemet_sub_title_addon', $sub_title );
+$sub_title = apply_filters( 'kemet_sub_title', $sub_title );
 $classes   = implode( ' ', $classes );
 ?>
 

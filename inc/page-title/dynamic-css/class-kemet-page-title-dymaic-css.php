@@ -105,6 +105,8 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( $mobile, '', '544' );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'page-title', $selector );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'sub-title', '.kemet-page-sub-title' );
 
 			$dynamic_css .= $parse_css;
 

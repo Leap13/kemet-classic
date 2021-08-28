@@ -226,7 +226,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 * @return string
 		 */
 		public function kemet_added_to_wishlist( $default ) {
-			$default = __( 'Added', 'kemet-addons' );
+			$default = __( 'Added', 'kemet' );
 			return $default;
 		}
 
@@ -820,7 +820,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 				$percent = sprintf( esc_html( '%s' ), $maximumper );
 			} else {
-				$percent = '<span class="onsale">' . esc_html__( 'Sale!', 'kemet-addons' ) . '</span>';
+				$percent = '<span class="onsale">' . esc_html__( 'Sale!', 'kemet' ) . '</span>';
 				return $percent;
 			}
 
