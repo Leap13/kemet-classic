@@ -17413,7 +17413,7 @@ var Typography = function Typography(props) {
     'family': 'System Default',
     'variation': 'n4',
     'size': {
-      "desktop": '35',
+      "desktop": '15',
       "desktop-unit": 'px',
       'tablet': '',
       'tablet-unit': 'px',
@@ -17701,7 +17701,7 @@ var FontOptions = function FontOptions(_ref) {
     params: {
       id: 'size',
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'kemet'),
-      value: 35,
+      value: 15,
       responsive: true,
       unit_choices: {
         'px': {
@@ -17731,7 +17731,7 @@ var FontOptions = function FontOptions(_ref) {
     params: {
       id: 'size',
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Line Height', 'Kemet'),
-      value: 35,
+      value: 15,
       responsive: true,
       unit_choices: {
         'px': {
@@ -17761,7 +17761,7 @@ var FontOptions = function FontOptions(_ref) {
     params: {
       id: 'size',
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Letter Spacing', 'kemet'),
-      value: 35,
+      value: 15,
       responsive: true,
       unit_choices: {
         'px': {

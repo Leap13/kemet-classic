@@ -609,15 +609,21 @@ function kemet_typography_css(control, selector) {
           dynamicStyle += '--fontStyle: ' + style + ';';
         }
         if (value['text-decoration']) {
-          dynamicStyle += '--textTransform: ' + value['text-decoration'] + ';';
+          dynamicStyle += '--textTransform: ' + value['text-transform'] + ';';
         }
         if (value['text-transform']) {
-          dynamicStyle += '--textDecoration: ' + value['text-transform'] + ';';
+          dynamicStyle += '--textDecoration: ' + value['text-decoration'] + ';';
         }
         dynamicStyle = selector + '{' + dynamicStyle + '}';
-        dynamicStyle += kemet_responsive_slider_css(value.size, 'font-size', selector);
-        dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], 'letter-spacing', selector);
-        dynamicStyle += kemet_responsive_slider_css(value['line-height'], 'line-height', selector);
+        if (value.size) {
+          dynamicStyle += kemet_responsive_slider_css(value.size, '--fontSize', selector);
+        }
+        if (value['letter-spacing']) {
+          dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], '--letterSpacing', selector);
+        }
+        if (value['line-height']) {
+          dynamicStyle += kemet_responsive_slider_css(value['line-height'], 'lineHeight', selector);
+        }
       }
 
       kemet_add_dynamic_css(control, dynamicStyle);

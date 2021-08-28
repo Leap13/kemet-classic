@@ -136,23 +136,30 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 * Add Fonts
 		 */
 		public function add_fonts() {
-			// $font_family = kemet_get_option( 'body-font-family' );
-			// $font_weight = kemet_get_option( 'body-font-weight' );
-
-			// Kemet_Fonts::add_font( $font_family, $font_weight );
+			$typography = kemet_get_option( 'body-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 
 			// Render headings font.
-			// $font_family = kemet_get_option( 'headings-font-family' );
-			// $font_weight = kemet_get_option( 'headings-font-weight' );
-
-			// Kemet_Fonts::add_font( $font_family, $font_weight );
-
+			$typography = kemet_get_option( 'h1-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+			$typography = kemet_get_option( 'h2-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+			$typography = kemet_get_option( 'h3-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+			$typography = kemet_get_option( 'h4-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+			$typography = kemet_get_option( 'h5-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+			$typography = kemet_get_option( 'h6-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 			// Button fonts.
 			$typography = kemet_get_option( 'buttons-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
-
+			// Widgets title fonts.
+			$typography = kemet_get_option( 'widget-title-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 			// Inputs fonts.
-			$typography = kemet_get_option( 'input-typography' );
+			$typography = kemet_get_option( 'inputs-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
 
 		}

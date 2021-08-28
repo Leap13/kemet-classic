@@ -56,9 +56,8 @@ if ( ! class_exists( 'Kemet_Header_Button_Item' ) ) {
 				if ( ! Kemet_Builder_Helper::is_item_loaded( $button, 'header', 'desktop' ) ) {
 					continue;
 				}
-				$font_family = kemet_get_option( $button . '-font-family' );
-				$font_weight = kemet_get_option( $button . '-font-weight' );
-				Kemet_Fonts::add_font( $font_family, $font_weight );
+				$typography = kemet_get_option( $button . '-typography' );
+				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}
 		/**

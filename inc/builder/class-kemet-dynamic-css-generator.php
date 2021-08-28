@@ -61,7 +61,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				/* Parse CSS from array()*/
 				$parse_css = kemet_parse_css( $css_output );
 
-				// $parse_css .= self::typography_css( $button, $selector );
+				$parse_css .= self::typography_css( $button, $selector );
 
 				return $parse_css;
 			}
@@ -130,8 +130,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					),
 				);
 
-				$parse_css = kemet_parse_css( $css_output );
-				// $parse_css .= self::typography_css( $html, $selector );
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= self::typography_css( $html, $selector );
 				return $parse_css;
 			}
 		}

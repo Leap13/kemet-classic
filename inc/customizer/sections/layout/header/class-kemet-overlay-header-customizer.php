@@ -96,7 +96,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-enable-device' => array(
-								'type'    => 'kmt-select',
+								'type'    => 'kmt-radio',
 								'default' => 'desktop_mobile',
 								'label'   => __( 'Enable For', 'kemet' ),
 								'choices' => array(

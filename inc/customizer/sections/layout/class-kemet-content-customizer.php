@@ -42,109 +42,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-body'            => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $global_selectors,
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			// 'body-font-family'          => array(
-			// 'type'     => 'kmt-font-family',
-			// 'label'    => __( 'Font Family', 'kemet' ),
-			// 'connect'  => KEMET_THEME_SETTINGS . '[body-font-weight]',
-			// ),
-			// 'body-font-weight'          => array(
-			// 'type'     => 'kmt-font-weight',
-			// 'label'    => __( 'Font Weight', 'kemet' ),
-			// 'connect'  => KEMET_THEME_SETTINGS . '[body-font-family]',
-			// ),
-			'body-text-transform'       => array(
+			'body-typography'           => array(
+				'type'      => 'kmt-typography',
 				'transport' => 'postMessage',
-				'type'      => 'kmt-select',
-				'label'     => __( 'Text Transform', 'kemet' ),
-				'choices'   => array(
-					''           => __( 'Default', 'kemet' ),
-					'none'       => __( 'None', 'kemet' ),
-					'capitalize' => __( 'Capitalize', 'kemet' ),
-					'uppercase'  => __( 'Uppercase', 'kemet' ),
-					'lowercase'  => __( 'Lowercase', 'kemet' ),
-				),
+				'label'     => __( 'Typography', 'kemet' ),
 				'preview'   => array(
 					'selector' => $global_selectors,
-					'property' => '--textTransform',
-				),
-			),
-			'body-font-style'           => array(
-				'transport' => 'postMessage',
-				'type'      => 'kmt-select',
-				'label'     => __( 'Font Style', 'kemet' ),
-				'choices'   => array(
-					'inherit' => __( 'Inherit', 'kemet' ),
-					'normal'  => __( 'Normal', 'kemet' ),
-					'italic'  => __( 'Italic', 'kemet' ),
-					'oblique' => __( 'Oblique', 'kemet' ),
-				),
-				'preview'   => array(
-					'selector' => $global_selectors,
-					'property' => '--fontStyle',
-				),
-			),
-			'body-line-height'          => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Line Height', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
-					),
-					'em' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $global_selectors,
-					'property'   => '--lineHeight',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-body'       => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $global_selectors,
-					'property'   => '--letterSpacing',
-					'responsive' => true,
 				),
 			),
 			'para-margin-bottom'        => array(
@@ -193,33 +96,6 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'type'  => 'kmt-title',
 				'label' => __( 'Headings Style', 'kemet' ),
 			),
-			// 'headings-font-family'      => array(
-			// 'type'     => 'kmt-font-family',
-			// 'label'    => __( 'Font Family', 'kemet' ),
-			// 'connect'  => KEMET_THEME_SETTINGS . '[headings-font-weight]',
-			// ),
-			// 'headings-font-weight'      => array(
-			// 'type'        => 'kmt-font-weight',
-			// 'kmt_inherit' => __( 'Default', 'kemet' ),
-			// 'label'       => __( 'Font Weight', 'kemet' ),
-			// 'connect'     => KEMET_THEME_SETTINGS . '[headings-font-family]',
-			// ),
-			'headings-text-transform'   => array(
-				'transport' => 'postMessage',
-				'label'     => __( 'Text Transform', 'kemet' ),
-				'type'      => 'kmt-select',
-				'choices'   => array(
-					''           => __( 'Inherit', 'kemet' ),
-					'none'       => __( 'None', 'kemet' ),
-					'capitalize' => __( 'Capitalize', 'kemet' ),
-					'uppercase'  => __( 'Uppercase', 'kemet' ),
-					'lowercase'  => __( 'Lowercase', 'kemet' ),
-				),
-				'preview'   => array(
-					'selector' => $global_headings,
-					'property' => '--textTransform',
-				),
-			),
 			'kmt-heading-1'             => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Heading 1', 'kemet' ),
@@ -241,45 +117,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h1'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h1, .entry-content h1, .entry-content h1 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h1'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h1, .entry-content h1, .entry-content h1 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h1-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h1, .entry-content h1, .entry-content h1 a',
 				),
 			),
 			'kmt-heading-2'             => array(
@@ -303,45 +146,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h2'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 20,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h2, .entry-content h2, .entry-content h2 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h2'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h2, .entry-content h2, .entry-content h2 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h2-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h2, .entry-content h2, .entry-content h2 a',
 				),
 			),
 			'kmt-heading-3'             => array(
@@ -365,45 +175,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h3'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 20,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h3, .entry-content h3, .entry-content h3 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h3'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h3, .entry-content h3, .entry-content h3 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h3-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h3, .entry-content h3, .entry-content h3 a',
 				),
 			),
 			'kmt-heading-4'             => array(
@@ -427,45 +204,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h4'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 20,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h4, .entry-content h4, .entry-content h4 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h4'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h4, .entry-content h4, .entry-content h4 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h4-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h4, .entry-content h4, .entry-content h4 a',
 				),
 			),
 			'kmt-heading-5'             => array(
@@ -489,45 +233,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h5'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 20,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h5, .entry-content h5, .entry-content h5 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h5'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h5, .entry-content h5, .entry-content h5 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h5-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h5, .entry-content h5, .entry-content h5 a',
 				),
 			),
 			'kmt-heading-6'             => array(
@@ -551,45 +262,12 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'font-size-h6'              => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 20,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h6, .entry-content h6, .entry-content h6 a',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'letter-spacing-h6'         => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'preview'      => array(
-					'selector'   => 'h6, .entry-content h6, .entry-content h6 a',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
+			'h6-typography'             => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => 'h6, .entry-content h6, .entry-content h6 a',
 				),
 			),
 		);
