@@ -42,6 +42,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 */
 		public function __construct() {
 			add_action( 'wp', array( $this, 'meta_options_hooks' ) );
+			add_action( 'load-post.php', array( $this, 'meta_options_hooks' ) );
 		}
 
 		/**
@@ -49,7 +50,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 */
 		public function meta_options_hooks() {
 
-			if ( is_singular() ) {
+			if ( is_singular() || isset( $_GET['post'] ) ) {
 				add_filter( 'kemet_content_padding', array( $this, 'content_padding' ) );
 				add_filter( 'kemet_featured_image_enabled', array( $this, 'featured_img' ) );
 				add_filter( 'kemet_display_header', array( $this, 'display_header' ) );
@@ -59,8 +60,42 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				add_filter( 'kemet_disable_breadcrumbs', array( $this, 'disable_breadcrumbs' ) );
 				add_filter( 'kemet_sub_title', array( $this, 'post_sub_title' ) );
 				add_filter( 'sub_title_color', array( $this, 'post_sub_title_color' ) );
+				add_filter( 'kemet_site_layout_outside_bg', array( $this, 'page_background' ) );
+				add_filter( 'kemet_site_boxed_inner_bg', array( $this, 'page_boxed_background' ) );
 			}
 
+		}
+
+		/**
+		 * page_background
+		 *
+		 * @param  mixed $default
+		 * @return void
+		 */
+		public function page_background( $default ) {
+			$background = kemet_get_meta( 'kemet_meta', 'background' );
+
+			if ( $background ) {
+				return $background;
+			}
+
+			return $default;
+		}
+
+		/**
+		 * page_boxed_background
+		 *
+		 * @param  mixed $default
+		 * @return void
+		 */
+		public function page_boxed_background( $default ) {
+			$background = kemet_get_meta( 'kemet_meta', 'boxed-background' );
+
+			if ( $background ) {
+				return $background;
+			}
+
+			return $default;
 		}
 
 		/**

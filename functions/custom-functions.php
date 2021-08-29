@@ -1584,8 +1584,9 @@ if ( ! function_exists( 'kemet_get_meta' ) ) {
 	 * kemet_get_meta
 	 */
 	function kemet_get_meta( $meta_key, $key ) {
-		$meta = get_post_meta( get_the_ID(), $meta_key, true );
-		$meta = json_decode( $meta, true );
+		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : get_the_ID();
+		$meta    = get_post_meta( $post_id, $meta_key, true );
+		$meta    = json_decode( $meta, true );
 
 		if ( ! empty( $meta ) && isset( $meta[ $key ] ) ) {
 			return $meta[ $key ];

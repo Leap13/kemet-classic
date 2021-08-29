@@ -16,6 +16,16 @@ const RenderOptions = ({ options, onChange, values }) => {
         let option = options[optionId];
         useEffect(() => {
             kemetGetResponsiveJs();
+            jQuery(document).mouseup(function (e) {
+                var container = jQuery(document);
+                var colorWrap = container.find('.kemet-color-picker-wrap');
+                var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+
+                // If the target of the click isn't the container nor a descendant of the container.
+                if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+                    container.find('.components-button.kemet-color-icon-indicate.open').click();
+                }
+            });
         }, []);
         return <SingleOptionComponent value={value} optionId={optionId} option={option} onChange={(newVal) => {
             onChange(newVal, optionId)
@@ -23,7 +33,7 @@ const RenderOptions = ({ options, onChange, values }) => {
     })
 }
 
-export function kemetGetResponsiveJs() {
+function kemetGetResponsiveJs() {
     'use strict';
 
     let device = 'desktop'

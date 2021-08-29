@@ -124,6 +124,11 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'mobile-unit'  => 'em',
 				)
 			);
+			// Site Background Color.
+			$box_bg_obj = apply_filters( 'kemet_site_layout_outside_bg', kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) ) );
+
+			// Boxed inner Options.
+			$box_bg_inner_boxed = apply_filters( 'kemet_site_boxed_inner_bg', kemet_get_option( 'site-boxed-inner-bg', array( 'background-color' => kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ) ) );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -134,19 +139,24 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
-			$parse_css = '';
-
-			$blocks_parent = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .editor-styles-wrapper' : '.edit-post-visual-editor.editor-styles-wrapper';
+			$parse_css     = '';
+			$parse_css    .= kemet_get_background_obj( '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow', $box_bg_inner_boxed );
+			$parse_css    .= kemet_get_background_obj( '.edit-post-visual-editor__content-area, .block-editor-writing-flow', $box_bg_obj );
+			$blocks_parent = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .edit-post-visual-editor__content-area' : '.edit-post-visual-editor.editor-styles-wrapper';
 			$desktop_css   = array(
 				'html'                                    => array(
 					'font-size' => kemet_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				'.kmt-theme-container .edit-post-visual-editor__content-area>div' => array(
+					'background-color' => 'transparent !important;',
+				),
+				'.edit-post-visual-editor__content-area'  => array(),
 				'.edit-post-visual-editor .editor-styles-wrapper' => array(
 					'margin'     => esc_attr( '0' ),
 					'overflow-y' => esc_attr( 'visible' ),
 				),
 				'.kmt-separate-container .edit-post-visual-editor, .kmt-page-builder-template .edit-post-visual-editor, .kmt-plain-container .edit-post-visual-editor' => array(
-					'padding' => esc_attr( '10px' ),
+					'padding' => esc_attr( '0' ),
 				),
 				$blocks_parent . ' .wp-block-categories ul[class*="wp-block-"], ' . $blocks_parent . ' .block-editor-block-list__block ul[class*="wp-block-"], ' . $blocks_parent . ' .block-editor-block-list__block ol[class*="wp-block-"]' => array(
 					'padding-left' => esc_attr( '0' ),
@@ -462,9 +472,6 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			);
 
 			$parse_css .= kemet_parse_css( $desktop_css );
-
-			$parse_css .= kemet_get_background_obj( '.kmt-separate-container .edit-post-visual-editor, .kmt-page-builder-template .edit-post-visual-editor, .kmt-plain-container .edit-post-visual-editor, .kmt-separate-container #wpwrap #editor .edit-post-visual-editor', $box_bg_obj );
-
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -808,10 +815,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			$boxed_container = array(
 				'.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow'       => array(
-					'width'            => '100%',
-					'max-width'        => kemet_slider( $site_content_width ),
-					'margin'           => '0 auto',
-					'background-color' => '#fff',
+					'width'     => '100%',
+					'max-width' => kemet_slider( $site_content_width ),
+					'margin'    => '0 auto',
 				),
 				'.kmt-separate-container .gutenberg__editor, .kmt-two-container .gutenberg__editor'         => array(
 					'background-color' => '#f5f5f5',

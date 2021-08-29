@@ -19093,12 +19093,11 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/options.js ***!
   \************************/
-/*! exports provided: kemetGetResponsiveJs, OptionsComponent */
+/*! exports provided: OptionsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "kemetGetResponsiveJs", function() { return kemetGetResponsiveJs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptionsComponent", function() { return OptionsComponent; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -19133,6 +19132,15 @@ var RenderOptions = function RenderOptions(_ref2) {
     var option = options[optionId];
     Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
       kemetGetResponsiveJs();
+      jQuery(document).mouseup(function (e) {
+        var container = jQuery(document);
+        var colorWrap = container.find('.kemet-color-picker-wrap');
+        var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+
+        if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+          container.find('.components-button.kemet-color-icon-indicate.open').click();
+        }
+      });
     }, []);
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(SingleOptionComponent, {
       value: value,
@@ -19173,6 +19181,7 @@ function kemetGetResponsiveJs() {
     jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
   });
 }
+
 var OptionsComponent = function OptionsComponent(_ref3) {
   var options = _ref3.options,
       onChange = _ref3.onChange,
@@ -19214,6 +19223,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _options__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./options */ "./src/options.js");
+/* harmony import */ var _customizer_custom_controls_react_src_kmt_controls_background__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../customizer/custom-controls/react/src/kmt-controls/background */ "../../../customizer/custom-controls/react/src/kmt-controls/background.js");
 
 
 
@@ -19228,6 +19238,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var __ = wp.i18n.__;
+
 
 
 var kemetPageOptions = function kemetPageOptions(props) {
@@ -19245,8 +19256,79 @@ var kemetPageOptions = function kemetPageOptions(props) {
       flag: !metaValue.flag
     })), 'kemet_meta');
     setValue(newValues);
+    var event = new CustomEvent("KemetUpdateMeta", {
+      detail: {
+        key: key,
+        value: value
+      }
+    });
+    document.dispatchEvent(event);
   };
 
+  var optionsPreview = function optionsPreview() {
+    document.addEventListener('KemetUpdateMeta', function (_ref) {
+      var _ref$detail = _ref.detail,
+          key = _ref$detail.key,
+          value = _ref$detail.value;
+
+      if ('content-layout' === key) {
+        var className = '';
+        document.body.classList.remove('kmt-separate-container', 'kmt-two-container', 'kmt-page-builder-template', 'kmt-plain-container');
+
+        if ('content-boxed-container' == value) {
+          className = 'kmt-separate-container';
+        } else if ('boxed-container' == value) {
+          className = 'kmt-separate-container';
+        } else if ('page-builder' == value) {
+          className = 'kmt-page-builder-template';
+        } else if ('plain-container' == value) {
+          className = 'kmt-plain-container';
+        }
+
+        document.body.classList.add(className);
+      }
+
+      if ('background' === key) {
+        var dynamicStyle = get_background_css(value);
+        dynamicStyle = '.edit-post-visual-editor__content-area, .block-editor-writing-flow{' + dynamicStyle + '}';
+        var css = dynamicStyle,
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+        head.appendChild(style);
+        style.type = 'text/css';
+
+        if (style.styleSheet) {
+          // This is required for IE8 and below.
+          style.styleSheet.cssText = css;
+        } else {
+          style.appendChild(document.createTextNode(css));
+        }
+      }
+
+      if ('boxed-background' === key) {
+        var _dynamicStyle = get_background_css(value);
+
+        _dynamicStyle = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow{' + _dynamicStyle + '}';
+
+        var _css = _dynamicStyle,
+            _head = document.head || document.getElementsByTagName('head')[0],
+            _style = document.createElement('style');
+
+        _head.appendChild(_style);
+
+        _style.type = 'text/css';
+
+        if (_style.styleSheet) {
+          // This is required for IE8 and below.
+          _style.styleSheet.cssText = _css;
+        } else {
+          _style.appendChild(document.createTextNode(_css));
+        }
+      }
+    });
+  };
+
+  optionsPreview();
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4__["PluginSidebarMoreMenuItem"], {
     target: "kemet",
     icon: "admin-customizer"
@@ -19260,6 +19342,74 @@ var kemetPageOptions = function kemetPageOptions(props) {
     onChange: onChange,
     values: values
   })));
+};
+
+var get_background_css = function get_background_css(bg_obj) {
+  var gen_bg_css = "";
+  var bg_type = bg_obj["background-type"];
+  var bg_img = bg_obj["background-image"];
+  var bg_color = bg_obj["background-color"];
+  var bg_gradient = bg_obj["background-gradient"];
+
+  if (!bg_color && !bg_img && !bg_gradient) {
+    return '';
+  } else {
+    switch (bg_type) {
+      case 'color':
+        if (bg_color) {
+          gen_bg_css = "background-color: " + bg_color + ";";
+          gen_bg_css += "background-image: none;";
+        }
+
+        break;
+
+      case 'gradient':
+        if (bg_gradient) {
+          gen_bg_css += "background-image: " + bg_gradient + ";";
+        }
+
+        break;
+
+      case 'image':
+        if (bg_img) {
+          gen_bg_css = "background-image: url(" + bg_img + ");";
+          var backgroundRepeat = "undefined" != typeof bg_obj["background-repeat"] ? bg_obj["background-repeat"] : "repeat",
+              backgroundPosition = "undefined" != typeof bg_obj["background-position"] && bg_obj["background-position"],
+              backgroundSize = "undefined" != typeof bg_obj["background-size"] ? bg_obj["background-size"] : "auto",
+              backgroundAttachment = "undefined" != typeof bg_obj["background-attachment"] ? bg_obj["background-attachment"] : "inherit";
+
+          if (backgroundPosition) {
+            if (backgroundPosition.x) {
+              gen_bg_css += "background-position-x: " + backgroundPosition.x * 100 + "%;";
+            }
+
+            if (backgroundPosition.y) {
+              gen_bg_css += "background-position-y: " + backgroundPosition.y * 100 + "%;";
+            }
+          }
+
+          if (backgroundRepeat) {
+            gen_bg_css += "background-repeat: " + backgroundRepeat + ";";
+          }
+
+          if (backgroundSize) {
+            gen_bg_css += "background-size: " + backgroundSize + ";";
+          }
+
+          if (backgroundAttachment) {
+            gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
+          }
+        }
+
+        if (bg_color) {
+          gen_bg_css += "background-color: " + bg_color + ";";
+        }
+
+        break;
+    }
+
+    return gen_bg_css;
+  }
 };
 
 var KemetOptionsComposed = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__["compose"])(Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__["withSelect"])(function (select) {

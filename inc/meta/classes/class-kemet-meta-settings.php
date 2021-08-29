@@ -112,6 +112,14 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'page-builder'            => __( 'Stretched Content', 'kemet' ),
 					),
 				),
+				'background'           => array(
+					'type'  => 'kmt-background',
+					'label' => __( 'Page Background', 'kemet' ),
+				),
+				'boxed-background'     => array(
+					'type'  => 'kmt-background',
+					'label' => __( 'Page Boxed Background', 'kemet' ),
+				),
 				'disable-featured-img' => array(
 					'type'  => 'kmt-switcher',
 					'label' => __( 'Disable Featured Image', 'kemet' ),

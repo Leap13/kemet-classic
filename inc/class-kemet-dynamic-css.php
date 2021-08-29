@@ -74,7 +74,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$site_content_width = kemet_get_option( 'site-content-width' );
 
 			// Site Background Color.
-			$box_bg_obj = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );
+			$box_bg_obj = apply_filters( 'kemet_site_layout_outside_bg', kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) ) );
 
 			// Input Options.
 			$input_font_size          = kemet_get_option( 'inputs-font-size' );
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$input_spacing            = kemet_get_option( 'input-spacing' );
 
 			// Boxed inner Options.
-			$box_bg_inner_boxed             = kemet_get_option( 'site-boxed-inner-bg', array( 'background-color' => kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ) );
+			$box_bg_inner_boxed             = apply_filters( 'kemet_site_boxed_inner_bg', kemet_get_option( 'site-boxed-inner-bg', array( 'background-color' => kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ) ) );
 			$container_inner_spacing        = kemet_get_option( 'container-inner-spacing' );
 			$content_padding                = apply_filters( 'kemet_content_padding', kemet_get_option( 'content-padding' ) );
 			$single_content_separator_color = kemet_get_sub_option( 'content-separator-color', 'initial', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );

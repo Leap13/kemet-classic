@@ -8108,3 +8108,16 @@ i.fipicon-angle-left:before {
   padding-right: 16px;
   padding-left: 10px;
 }
+.kmt-post-options .customize-control-title {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.kmt-post-options .customize-control-kmt-text input {
+  padding: 0 8px;
+  line-height: 2;
+  min-height: 30px;
+  width: 100%;
+}
