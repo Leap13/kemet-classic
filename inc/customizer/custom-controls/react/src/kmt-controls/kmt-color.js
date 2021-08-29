@@ -14,6 +14,7 @@ const KemetColorComponent = props => {
     }
     let { pickers, responsive } = props.params;
     let baseDefault = responsive ? responsiveBaseDefault : {};
+    let predefined = props.params.predefined ? props.params.predefined : false;
     pickers.map(({ id }) => {
         if (responsive) {
             baseDefault['desktop'][id] = '';
@@ -97,7 +98,7 @@ const KemetColorComponent = props => {
             onChange={(currentDevice) => setDevice(currentDevice)}
         />
     }
-
+    console.log(value)
     const renderInputHtml = (device) => {
         innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
 
@@ -107,6 +108,7 @@ const KemetColorComponent = props => {
                     <ColorComponent
                         value={state[device]}
                         picker={picker}
+                        predefined={predefined}
                         onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
 
                     />

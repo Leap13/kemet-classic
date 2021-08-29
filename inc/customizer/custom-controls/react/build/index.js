@@ -16336,7 +16336,8 @@ var PalettePreview = function PalettePreview(_ref) {
       onChangeComplete: function onChangeComplete(color, id) {
         return hundleChangeColor(color, picker["id"]);
       },
-      value: currentPalette
+      value: currentPalette,
+      predefined: true
     });
   })));
 };
@@ -16609,7 +16610,8 @@ var PickerModal = function PickerModal(_ref) {
       _ref$wrapperProps = _ref.wrapperProps,
       wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps,
       inline_modal = _ref.inline_modal,
-      appendToBody = _ref.appendToBody;
+      appendToBody = _ref.appendToBody,
+      predefined = _ref.predefined;
   var getValueForPicker = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
     if ((value || '').indexOf('var') > -1) {
       return {
@@ -16653,25 +16655,34 @@ var PickerModal = function PickerModal(_ref) {
       'kmt-option-modal': !inline_modal && appendToBody
     }),
     style: _objectSpread(_objectSpread({}, arrowLeft), style ? style : {})
-  }, wrapperProps), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, wrapperProps), !predefined && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-color-picker-top"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     className: "kmt-color-picker-skins"
-  }, ['#000000', '#ffffff', '#dd3333', '#dd9933', '#eeee22', '#81d742', '#1e73be', "#e2e7ed"].map(function (color, index) {
+  }, ['paletteColor1', 'paletteColor2', 'paletteColor3', 'paletteColor4', 'paletteColor5', 'paletteColor6', 'paletteColor7', 'paletteColor8'].map(function (color, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
       key: color,
       style: {
-        background: color
+        background: "var(--".concat(color, ")")
       },
       className: classnames__WEBPACK_IMPORTED_MODULE_5___default()({
-        active: valueToCheck === color
+        active: valueToCheck === "var(--".concat(color, ")")
       }),
       onClick: function onClick() {
-        return handletoppart(color);
+        return handletoppart("var(--".concat(color, ")"));
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
       className: "kmt-tooltip-top"
-    }, "Color"));
+    }, {
+      paletteColor1: 'Color 1',
+      paletteColor2: 'Color 2',
+      paletteColor3: 'Color 3',
+      paletteColor4: 'Color 4',
+      paletteColor5: 'Color 5',
+      paletteColor6: 'Color 6',
+      paletteColor7: 'Color 7',
+      paletteColor8: 'Color 8'
+    }[color]));
   }))), refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
     color: value,
     onChangeComplete: function onChangeComplete(color) {
@@ -16735,7 +16746,8 @@ var SinglePicker = function SinglePicker(_ref) {
       containerRef = _ref.containerRef,
       modalRef = _ref.modalRef,
       isTransitioning = _ref.isTransitioning,
-      isPicking = _ref.isPicking;
+      isPicking = _ref.isPicking,
+      predefined = _ref.predefined;
   var el = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
   var appendToBody = true;
 
@@ -16792,7 +16804,8 @@ var SinglePicker = function SinglePicker(_ref) {
           wrapperProps: appendToBody ? popoverProps : {
             ref: modalRef
           },
-          appendToBody: appendToBody
+          appendToBody: appendToBody,
+          predefined: predefined
         });
       };
     }), appendToBody ? document.body : el.current.closest('section').parentNode);
@@ -16860,7 +16873,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var ColorComponent = function ColorComponent(_ref) {
   var picker = _ref.picker,
       onChangeComplete = _ref.onChangeComplete,
-      value = _ref.value;
+      value = _ref.value,
+      predefined = _ref.predefined;
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
     isPicking: null,
@@ -16914,7 +16928,8 @@ var ColorComponent = function ColorComponent(_ref) {
     onChange: function onChange(color) {
       return onChangeComplete(color);
     },
-    value: value[picker.id]
+    value: value[picker.id],
+    predefined: predefined
   }));
 };
 
@@ -17336,6 +17351,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
       pickers = _props$params.pickers,
       responsive = _props$params.responsive;
   var baseDefault = responsive ? responsiveBaseDefault : {};
+  var predefined = props.params.predefined ? props.params.predefined : false;
   pickers.map(function (_ref) {
     var id = _ref.id;
 
@@ -17429,6 +17445,8 @@ var KemetColorComponent = function KemetColorComponent(props) {
     });
   }
 
+  console.log(value);
+
   var renderInputHtml = function renderInputHtml(device) {
     innerOptionsHtml = Object.entries(pickers).map(function (_ref2) {
       var _ref3 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, 2),
@@ -17439,6 +17457,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_4__["default"], {
           value: state[device],
           picker: picker,
+          predefined: predefined,
           onChangeComplete: function onChangeComplete(color) {
             return handleChangeComplete(color, picker["id"]);
           }

@@ -64,6 +64,7 @@ const PalettePreview = ({
 						picker={picker}
 						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
 						value={currentPalette}
+						predefined={true}
 					/>
 				))}
 			</div>

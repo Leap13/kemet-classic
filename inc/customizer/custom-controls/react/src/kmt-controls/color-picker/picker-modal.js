@@ -28,7 +28,8 @@ const PickerModal = ({
     style,
     wrapperProps = {},
     inline_modal,
-    appendToBody
+    appendToBody,
+    predefined
 }) => {
 
     const getValueForPicker = useMemo(() => {
@@ -88,40 +89,48 @@ const PickerModal = ({
                     ...(style ? style : {}),
                 }}
                 {...wrapperProps}>
-                <div className="kmt-color-picker-top">
+                {!predefined && <div className="kmt-color-picker-top">
                     <ul className="kmt-color-picker-skins">
-                        {[
-                            '#000000',
-                            '#ffffff',
-                            '#dd3333',
-                            '#dd9933',
-                            '#eeee22',
-                            '#81d742',
-                            '#1e73be',
-                            "#e2e7ed"
+                        {['paletteColor1',
+                            'paletteColor2',
+                            'paletteColor3',
+                            'paletteColor4',
+                            'paletteColor5',
+                            'paletteColor6',
+                            'paletteColor7',
+                            'paletteColor8',
 
                         ].map((color, index) => (
                             <li
                                 key={color}
                                 style={{
-                                    background: color,
+                                    background: `var(--${color})`,
                                 }}
                                 className={classnames({
                                     active:
-                                        valueToCheck === color,
+                                        valueToCheck === `var(--${color})`,
                                 })}
                                 onClick={() =>
-                                    handletoppart(color)
+                                    handletoppart(`var(--${color})`)
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
-                                        `Color`
+                                        {
+                                            paletteColor1: 'Color 1',
+                                            paletteColor2: 'Color 2',
+                                            paletteColor3: 'Color 3',
+                                            paletteColor4: 'Color 4',
+                                            paletteColor5: 'Color 5',
+                                            paletteColor6: 'Color 6',
+                                            paletteColor7: 'Color 7',
+                                            paletteColor8: 'Color 8',
+                                        }[color]
                                     }
                                 </div>
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div>}
 
 
                 {refresh && (

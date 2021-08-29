@@ -23,12 +23,14 @@ if ( ! class_exists( 'Kemet_Custom_Controls_Dynamic_Css' ) ) {
 
 			$output_css = array(
 				':root' => array(
-					'--paletteColor1' => '',
-					'--paletteColor2' => '',
-					'--paletteColor3' => '',
-					'--paletteColor4' => '',
-					'--paletteColor5' => '',
-					'--paletteColor6' => '',
+					'--paletteColor1' => '#2872fa',
+					'--paletteColor2' => '#1559ed',
+					'--paletteColor3' => '#3A4F66',
+					'--paletteColor4' => '#192a3d',
+					'--paletteColor5' => '#e1e8ed',
+					'--paletteColor6' => '#f2f5f7',
+					'--paletteColor7' => '#FAFBFC',
+					'--paletteColor8' => '#ffffff',
 				),
 			);
 
