@@ -19018,9 +19018,8 @@ var SortableComponent = function SortableComponent(props) {
       inputAttrs = _props$params.inputAttrs;
   var value = props.value;
   var list = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
+  var newValue = value;
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    var newValue = [];
-
     var updateValue = function updateValue() {
       jQuery(list.current).find('li').each(function () {
         if (!jQuery(this).is('.invisible')) {
@@ -19041,7 +19040,7 @@ var SortableComponent = function SortableComponent(props) {
     }).click(function () {
       updateValue();
     });
-  }, [props]);
+  }, []);
 
   if (label) {
     labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
@@ -19055,7 +19054,7 @@ var SortableComponent = function SortableComponent(props) {
     }, description);
   }
 
-  var visibleMetaHtml = Object.values(value).map(function (choiceID) {
+  var visibleMetaHtml = Object.values(newValue).map(function (choiceID) {
     var html = '';
 
     if (choices[choiceID]) {
@@ -19075,7 +19074,7 @@ var SortableComponent = function SortableComponent(props) {
   var invisibleMetaHtml = Object.keys(choices).map(function (choiceID) {
     var html = '';
 
-    if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
+    if (Array.isArray(value) && -1 === newValue.indexOf(choiceID)) {
       html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, inputAttrs, {
         key: choiceID,
         className: "kmt-sortable-item invisible",
@@ -19089,6 +19088,7 @@ var SortableComponent = function SortableComponent(props) {
 
     return html;
   });
+  console.log(invisibleMetaHtml, visibleMetaHtml);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
     className: "kmt-sortable"
   }, labelHtml, descriptionHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {

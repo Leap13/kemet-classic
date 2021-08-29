@@ -16,9 +16,9 @@ const SortableComponent = props => {
 
     const value = props.value;
     const list = useRef(null);
-
+    let newValue = value;
     useEffect(() => {
-        let newValue = [];
+
         const updateValue = () => {
             jQuery(list.current).find('li').each(function () {
                 if (!jQuery(this).is('.invisible')) {
@@ -39,7 +39,7 @@ const SortableComponent = props => {
         }).click(function () {
             updateValue();
         });
-    }, [props])
+    }, [])
 
     if (label) {
         labelHtml = <span className="customize-control-title">{label}</span>;
@@ -49,7 +49,7 @@ const SortableComponent = props => {
         descriptionHtml = <span className="description customize-control-description">{description}</span>;
     }
 
-    let visibleMetaHtml = Object.values(value).map(choiceID => {
+    let visibleMetaHtml = Object.values(newValue).map(choiceID => {
         let html = '';
         if (choices[choiceID]) {
             html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item' data-value={choiceID}>
@@ -64,7 +64,7 @@ const SortableComponent = props => {
 
     let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
         let html = '';
-        if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
+        if (Array.isArray(value) && -1 === newValue.indexOf(choiceID)) {
             html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item invisible' data-value={choiceID}>
 
                 <i className="dashicons dashicons-visibility visibility"></i>
@@ -74,6 +74,8 @@ const SortableComponent = props => {
         }
         return html;
     });
+
+    console.log(invisibleMetaHtml, visibleMetaHtml)
 
     return <label className='kmt-sortable'>
         {labelHtml}
