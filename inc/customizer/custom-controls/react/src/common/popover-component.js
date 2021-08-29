@@ -137,7 +137,7 @@ const usePopoverMaker = ({
             let maybeWidthFlag = getComputedStyle(el, ':before').content
 
             yOffset = rect.top + rect.height
-            right = window.innerWidth - rect.right - 12
+            right = window.innerWidth - rect.right - 6
 
             if (document.body.classList.contains('rtl')) {
                 right = rect.left

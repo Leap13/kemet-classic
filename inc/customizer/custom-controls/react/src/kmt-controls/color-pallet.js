@@ -16,11 +16,7 @@ import bezierEasing from 'bezier-easing'
 const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
-
-
     const [value, setValue] = useState(props.params.value)
-
-
 
     const colorPalettesWrapper = useRef()
 
@@ -116,16 +112,47 @@ const ColorPalettes = (props) => {
             }
             : {}),
     }
-
-    const handleCurrent = (current) => {
-        setValue(current)
-        props.onChange(current)
+    const updateValues = (val) => {
+        setValue({ ...value, ...val });
+        props.onChange({ ...val, flag: !value.flag })
     }
 
-    const handleCurrentPallet = (currentColor, id) => {
-        console.log(currentColor, id)
+    const handleChangePalette = (active) => {
+        let currentPalette = active.palettes.find(
+            ({ id }) => id === active.current_palette
+        )
+        const newItems = Object.values(currentPalette).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
 
+        updateValues(active)
     }
+
+    const handleChangeComplete = (color, index) => {
+
+
+        let newColor = {};
+        if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+            newColor.color = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+        } else {
+            newColor.color = color.hex;
+        }
+
+        l
+        // let value = this.state.value;
+        // const newItems = this.state.value[this.state.value.active].map((item, thisIndex) => {
+        //     if (parseInt(index) === parseInt(thisIndex)) {
+        //         item = { ...item, ...newColor };
+        //         document.documentElement.style.setProperty('--global-' + this.state.value[this.state.value.active][index].slug, newColor.color);
+        //     }
+
+        //     return item;
+        // });
+        // value[this.state.value.active] = newItems;
+        // updateValues(value);
+    }
+
     return (
         <div>
             <OutsideClickHandler
@@ -149,7 +176,7 @@ const ColorPalettes = (props) => {
                         }
 
                         if (!properValue.palettes) {
-                            console.log("NOTPROPERVAlue")
+
                             return
                         }
 
@@ -164,7 +191,7 @@ const ColorPalettes = (props) => {
                         setIsOpen(true)
                     }}
                     value={properValue}
-                    onChange={(v, id) => handleCurrentPallet(v, id)}
+                    onChange={(v, id) => handleChangeComplete(v, id)}
                 />
             </OutsideClickHandler>
 
@@ -224,7 +251,7 @@ const ColorPalettes = (props) => {
                                     }}
                                     onChange={(val) => {
                                         setIsOpen(false)
-                                        handleCurrent(val)
+                                        handleChangePalette(val)
                                     }}
                                     value={properValue}
                                     option={value}

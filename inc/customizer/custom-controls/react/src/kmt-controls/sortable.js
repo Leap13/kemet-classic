@@ -75,7 +75,6 @@ const SortableComponent = props => {
         return html;
     });
 
-    console.log(invisibleMetaHtml, visibleMetaHtml)
 
     return <label className='kmt-sortable'>
         {labelHtml}

@@ -14699,7 +14699,7 @@ var usePopoverMaker = function usePopoverMaker() {
       var el = ref.current.closest('.kmt-select-input') ? ref.current.closest('.kmt-select-input') : ref.current;
       var maybeWidthFlag = getComputedStyle(el, ':before').content;
       yOffset = rect.top + rect.height;
-      right = window.innerWidth - rect.right - 12;
+      right = window.innerWidth - rect.right - 6;
 
       if (document.body.classList.contains('rtl')) {
         right = rect.left;
@@ -16282,8 +16282,7 @@ var PalettePreview = function PalettePreview(_ref) {
       value = _ref.value,
       onChange = _ref.onChange,
       _onClick = _ref.onClick,
-      _ref$currentPalette = _ref.currentPalette,
-      currentPalette = _ref$currentPalette === void 0 ? null : _ref$currentPalette,
+      currentPalette = _ref.currentPalette,
       className = _ref.className;
 
   if (!currentPalette) {
@@ -16459,13 +16458,44 @@ var ColorPalettes = function ColorPalettes(props) {
     })
   } : {});
 
-  var handleCurrent = function handleCurrent(current) {
-    setValue(current);
-    props.onChange(current);
+  var updateValues = function updateValues(val) {
+    setValue(_objectSpread(_objectSpread({}, value), val));
+    props.onChange(_objectSpread(_objectSpread({}, val), {}, {
+      flag: !value.flag
+    }));
   };
 
-  var handleCurrentPallet = function handleCurrentPallet(currentColor, id) {
-    console.log(currentColor, id);
+  var handleChangePalette = function handleChangePalette(active) {
+    var currentPalette = active.palettes.find(function (_ref5) {
+      var id = _ref5.id;
+      return id === active.current_palette;
+    });
+    var newItems = Object.values(currentPalette).map(function (item, index) {
+      document.documentElement.style.setProperty('--paletteColor' + index, item);
+      return item;
+    });
+    updateValues(active);
+  };
+
+  var handleChangeComplete = function handleChangeComplete(color, index) {
+    var newColor = {};
+
+    if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+      newColor.color = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+    } else {
+      newColor.color = color.hex;
+    }
+
+    l; // let value = this.state.value;
+    // const newItems = this.state.value[this.state.value.active].map((item, thisIndex) => {
+    //     if (parseInt(index) === parseInt(thisIndex)) {
+    //         item = { ...item, ...newColor };
+    //         document.documentElement.style.setProperty('--global-' + this.state.value[this.state.value.active][index].slug, newColor.color);
+    //     }
+    //     return item;
+    // });
+    // value[this.state.value.active] = newItems;
+    // updateValues(value);
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -16486,7 +16516,6 @@ var ColorPalettes = function ColorPalettes(props) {
         }
 
         if (!properValue.palettes) {
-          console.log("NOTPROPERVAlue");
           return;
         }
 
@@ -16503,7 +16532,7 @@ var ColorPalettes = function ColorPalettes(props) {
     },
     value: properValue,
     onChange: function onChange(v, id) {
-      return handleCurrentPallet(v, id);
+      return handleChangeComplete(v, id);
     }
   })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_8__["Transition"], {
     items: isOpen,
@@ -16543,7 +16572,7 @@ var ColorPalettes = function ColorPalettes(props) {
       }, popoverProps),
       onChange: function onChange(val) {
         setIsOpen(false);
-        handleCurrent(val);
+        handleChangePalette(val);
       },
       value: properValue,
       option: value
@@ -17444,8 +17473,6 @@ var KemetColorComponent = function KemetColorComponent(props) {
       }
     });
   }
-
-  console.log(value);
 
   var renderInputHtml = function renderInputHtml(device) {
     innerOptionsHtml = Object.entries(pickers).map(function (_ref2) {
@@ -19534,7 +19561,6 @@ var SortableComponent = function SortableComponent(props) {
 
     return html;
   });
-  console.log(invisibleMetaHtml, visibleMetaHtml);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
     className: "kmt-sortable"
   }, labelHtml, descriptionHtml, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {

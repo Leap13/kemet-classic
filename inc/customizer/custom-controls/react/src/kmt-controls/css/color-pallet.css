@@ -110,7 +110,7 @@
   z-index: 20;
 }
 .kmt-color-picker-modal {
-  width: var(--modalWidth, 295px);
+  width: var(--modalWidth, 300px);
   border-radius: 8px;
 }
 .kmt-color-picker-modal[data-position="bottom"] .kmt-arrow {

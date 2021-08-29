@@ -98,7 +98,6 @@ const KemetColorComponent = props => {
             onChange={(currentDevice) => setDevice(currentDevice)}
         />
     }
-    console.log(value)
     const renderInputHtml = (device) => {
         innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
 

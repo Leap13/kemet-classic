@@ -8,7 +8,7 @@ const PalettePreview = ({
 	value,
 	onChange,
 	onClick,
-	currentPalette = null,
+	currentPalette,
 	className,
 }) => {
 	if (!currentPalette) {
@@ -20,6 +20,7 @@ const PalettePreview = ({
 			)
 		}
 	}
+
 
 	const hundleChangeColor = (color, optionId) => {
 		let newColor;
