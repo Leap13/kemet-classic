@@ -15961,7 +15961,7 @@ var RadioComponent = function RadioComponent(props) {
       name = _props$params.name,
       choices = _props$params.choices,
       responsive = _props$params.responsive,
-      defaultValue = _props$params.defaultValue;
+      defaultValue = _props$params.default;
   var defaultVal = responsive ? {
     desktop: '',
     tablet: '',
@@ -16354,22 +16354,25 @@ RowLayoutComponent.propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 
 var SelectComponent = function SelectComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.value),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
@@ -16381,32 +16384,53 @@ var SelectComponent = function SelectComponent(props) {
   var _props$params = props.params,
       label = _props$params.label,
       name = _props$params.name,
-      choices = _props$params.choices;
-  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      choices = _props$params.choices,
+      multiple = _props$params.multiple,
+      customClass = _props$params.class;
+  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
   }, label) : null;
   var optionsHtml = Object.entries(choices).map(function (key) {
-    var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("option", {
-      key: key[0],
-      value: key[0]
-    }, key[1]);
+    var html;
+
+    if (_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(key[1]) === 'object') {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("optgroup", {
+        label: key[0]
+      }, Object.entries(key[1]).map(function (key) {
+        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("option", {
+          key: key[0],
+          value: key[0],
+          dangerouslySetInnerHTML: {
+            __html: key[1]
+          }
+        });
+        return html;
+      }));
+    } else {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("option", {
+        key: key[0],
+        value: key[0]
+      }, key[1]);
+    }
+
     return html;
   });
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("select", {
-    className: "kmt-select-input",
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("select", {
+    className: "kmt-select-input".concat(customClass ? ' ' + customClass : ''),
     "data-name": name,
     "data-value": props_value,
     value: props_value,
     onChange: function onChange() {
       HandleChange(event.target.value);
-    }
+    },
+    multiple: multiple ? true : false
   }, optionsHtml)));
 };
 
 SelectComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(SelectComponent));
 
@@ -17320,12 +17344,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ToggleControlComponent = function ToggleControlComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
+  var _props$params = props.params,
+      defaultValue = _props$params.default,
+      label = _props$params.label;
+  var value = props.value ? props.value : defaultValue;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
-  var label = props.params.label;
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "toggle-control-label"
   }, label) : null;
@@ -19093,29 +19121,117 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************!*\
   !*** ./src/options.js ***!
   \************************/
-/*! exports provided: OptionsComponent */
+/*! exports provided: isDisplay, OptionsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplay", function() { return isDisplay; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptionsComponent", function() { return OptionsComponent; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _customizer_custom_controls_react_src_options_options_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../customizer/custom-controls/react/src/options/options-component */ "../../../customizer/custom-controls/react/src/options/options-component.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _customizer_custom_controls_react_src_options_options_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../customizer/custom-controls/react/src/options/options-component */ "../../../customizer/custom-controls/react/src/options/options-component.js");
 
 
 
 
-var SingleOptionComponent = function SingleOptionComponent(_ref) {
-  var value = _ref.value,
-      optionId = _ref.optionId,
-      option = _ref.option,
-      onChange = _ref.onChange;
-  var Option = Object(_customizer_custom_controls_react_src_options_options_component__WEBPACK_IMPORTED_MODULE_1__["OptionComponent"])(option.type);
-  return option.type && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+var isDisplay = function isDisplay(rules, values) {
+  if (!values) {
+    return;
+  }
+
+  var relation = undefined != rules.relation ? rules.relation : "AND",
+      isVisible = "AND" === relation ? true : false;
+
+  _.each(rules, function (rule, ruleKey) {
+    if ("relation" == ruleKey) {
+      return;
+    }
+
+    var boolean = false,
+        operator = undefined != rule.operator ? rule.operator : "=",
+        ruleValue = rule.value;
+    var settingValue = values[rule.setting];
+
+    switch (operator) {
+      case "in_array":
+        boolean = ruleValue.includes(settingValue);
+        break;
+
+      case "contain":
+        boolean = settingValue.includes(ruleValue);
+        break;
+
+      case ">":
+        boolean = settingValue > ruleValue;
+        break;
+
+      case "<":
+        boolean = settingValue < ruleValue;
+        break;
+
+      case ">=":
+        boolean = settingValue >= ruleValue;
+        break;
+
+      case "<=":
+        boolean = settingValue <= ruleValue;
+        break;
+
+      case "not_empty":
+        boolean = typeof settingValue !== "undefined" && undefined !== settingValue && null !== settingValue && "" !== settingValue;
+        break;
+
+      case "!=":
+        boolean = settingValue !== ruleValue;
+        break;
+
+      default:
+        boolean = settingValue == ruleValue;
+        break;
+    }
+
+    isVisible = "OR" === relation ? isVisible || boolean : isVisible && boolean;
+  });
+
+  return isVisible;
+};
+
+var toggleVisible = function toggleVisible(rules, onChange) {
+  document.addEventListener('KemetUpdateMeta', function (_ref) {
+    var _ref$detail = _ref.detail,
+        key = _ref$detail.key,
+        values = _ref$detail.values;
+
+    _.each(rules, function (rule) {
+      if (rule.setting === key) {
+        onChange(isDisplay(rules, values));
+      }
+    });
+  });
+  document.addEventListener('KemetInitMeta', function (_ref2) {
+    var values = _ref2.detail.values;
+
+    _.each(rules, function (rule) {
+      if (values[rule.setting]) {
+        onChange(isDisplay(rules, values));
+      }
+    });
+  });
+};
+
+var SingleOptionComponent = function SingleOptionComponent(_ref3) {
+  var value = _ref3.value,
+      optionId = _ref3.optionId,
+      option = _ref3.option,
+      onChange = _ref3.onChange;
+  var Option = Object(_customizer_custom_controls_react_src_options_options_component__WEBPACK_IMPORTED_MODULE_2__["OptionComponent"])(option.type);
+  return option.type && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     id: optionId,
     className: "customize-control-".concat(option.type)
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Option, {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Option, {
     id: optionId,
     value: value,
     params: option,
@@ -19123,14 +19239,29 @@ var SingleOptionComponent = function SingleOptionComponent(_ref) {
   }));
 };
 
-var RenderOptions = function RenderOptions(_ref2) {
-  var options = _ref2.options,
-      _onChange = _ref2.onChange,
-      values = _ref2.values;
+var RenderOptions = function RenderOptions(_ref4) {
+  var options = _ref4.options,
+      _onChange = _ref4.onChange,
+      values = _ref4.values;
   return Object.keys(options).map(function (optionId) {
     var value = values[optionId];
     var option = options[optionId];
-    Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var context = option.context ? isDisplay(option.context) : true;
+
+    var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(context),
+        _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+        isVisible = _useState2[0],
+        setVisible = _useState2[1];
+
+    var onChangeVisible = function onChangeVisible(value) {
+      setVisible(value);
+    };
+
+    if (option.context) {
+      toggleVisible(option.context, onChangeVisible);
+    }
+
+    Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
       kemetGetResponsiveJs();
       jQuery(document).mouseup(function (e) {
         var container = jQuery(document);
@@ -19141,8 +19272,14 @@ var RenderOptions = function RenderOptions(_ref2) {
           container.find('.components-button.kemet-color-icon-indicate.open').click();
         }
       });
+      var event = new CustomEvent("KemetInitMeta", {
+        detail: {
+          values: values
+        }
+      });
+      document.dispatchEvent(event);
     }, []);
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(SingleOptionComponent, {
+    return isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SingleOptionComponent, {
       value: value,
       optionId: optionId,
       option: option,
@@ -19182,13 +19319,17 @@ function kemetGetResponsiveJs() {
   });
 }
 
-var OptionsComponent = function OptionsComponent(_ref3) {
-  var options = _ref3.options,
-      onChange = _ref3.onChange,
-      values = _ref3.values;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+var OptionsComponent = function OptionsComponent(_ref5) {
+  var options = _ref5.options,
+      onChange = _ref5.onChange,
+      values = _ref5.values;
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var event = new CustomEvent("KemetInitOptionsMeta");
+    document.dispatchEvent(event);
+  }, []);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-options"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(RenderOptions, {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(RenderOptions, {
     options: options,
     onChange: onChange,
     values: values
@@ -19223,7 +19364,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _options__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./options */ "./src/options.js");
-/* harmony import */ var _customizer_custom_controls_react_src_kmt_controls_background__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../customizer/custom-controls/react/src/kmt-controls/background */ "../../../customizer/custom-controls/react/src/kmt-controls/background.js");
 
 
 
@@ -19238,7 +19378,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var __ = wp.i18n.__;
-
 
 
 var kemetPageOptions = function kemetPageOptions(props) {
@@ -19259,7 +19398,8 @@ var kemetPageOptions = function kemetPageOptions(props) {
     var event = new CustomEvent("KemetUpdateMeta", {
       detail: {
         key: key,
-        value: value
+        value: value,
+        values: newValues
       }
     });
     document.dispatchEvent(event);

@@ -37,7 +37,7 @@ const RadioComponent = (props) => {
         name,
         choices,
         responsive,
-        defaultValue
+        default: defaultValue
     } = props.params;
 
     let defaultVal = responsive ? {

@@ -8105,6 +8105,9 @@ i.fipicon-angle-left:before {
   margin-top: 25px;
 }
 .kmt-post-options .kmt-options {
+  padding-bottom: 25px;
+}
+.kmt-post-options .kmt-options > div {
   padding-left: 16px;
   padding-right: 10px;
 }
@@ -8120,4 +8123,12 @@ i.fipicon-angle-left:before {
   line-height: 2;
   min-height: 30px;
   width: 100%;
+}
+.kmt-post-options .kmt-options .customize-control-kmt-title {
+  padding: 0;
+}
+.kmt-post-options .customize-control-kmt-title .customize-control-title {
+  width: 100%;
+  margin: 0;
+  background-color: #eaeaea;
 }

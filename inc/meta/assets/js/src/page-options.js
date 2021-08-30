@@ -14,7 +14,6 @@ import { compose } from '@wordpress/compose'
 import { IconButton, Button } from '@wordpress/components'
 const { __ } = wp.i18n;
 import { OptionsComponent } from './options'
-import background from '../../../../customizer/custom-controls/react/src/kmt-controls/background'
 
 const kemetPageOptions = (props) => {
     const metaValue = props.meta.kemet_meta ? JSON.parse(props.meta.kemet_meta) : {};
@@ -27,12 +26,12 @@ const kemetPageOptions = (props) => {
         let event = new CustomEvent("KemetUpdateMeta", {
             detail: {
                 key,
-                value
+                value,
+                values: newValues
             },
         });
         document.dispatchEvent(event);
     }
-
     const optionsPreview = () => {
         document.addEventListener('KemetUpdateMeta', function ({ detail: { key, value } }) {
             if ('content-layout' === key) {

@@ -63,7 +63,6 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 				add_filter( 'kemet_site_layout_outside_bg', array( $this, 'page_background' ) );
 				add_filter( 'kemet_site_boxed_inner_bg', array( $this, 'page_boxed_background' ) );
 			}
-
 		}
 
 		/**
