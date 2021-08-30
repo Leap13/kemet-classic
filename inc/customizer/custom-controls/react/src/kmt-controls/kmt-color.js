@@ -119,6 +119,7 @@ const KemetColorComponent = props => {
                         picker={picker}
                         onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
 
+
                     />
                 )
             }

@@ -66,7 +66,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.kmt-color-picker-single:not(:last-child) {
+.kmt-color-picker-single {
   margin-right: 6px;
 }
 .kmt-color-picker-single > span {
@@ -8326,7 +8326,7 @@ i.fipicon-angle-left:before {
   display: flex;
   justify-content: flex-end;
 }
-.kmt-color-picker-single:not(:last-child) {
+.kmt-color-picker-single {
   margin-right: 6px;
 }
 .kmt-color-picker-single > span {

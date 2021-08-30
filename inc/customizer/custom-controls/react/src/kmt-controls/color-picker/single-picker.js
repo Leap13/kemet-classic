@@ -17,7 +17,8 @@ const SinglePicker = ({
     modalRef,
     isTransitioning,
     isPicking,
-    predefined
+    predefined,
+    className
 }) => {
     const el = useRef()
 
@@ -91,6 +92,7 @@ const SinglePicker = ({
                             }
                             appendToBody={appendToBody}
                             predefined={predefined}
+                            className={className}
                         />
                     ))
                 }

@@ -10,7 +10,7 @@ import {
 import SinglePicker from './color-picker/single-picker'
 import OutsideClickHandler from '../common/outside-component'
 
-const ColorComponent = ({ picker, onChangeComplete, value, predefined }) => {
+const ColorComponent = ({ picker, onChangeComplete, value, predefined, className }) => {
     const [{ isPicking, isTransitioning }, setState] = useState({
         isPicking: null,
         isTransitioning: null,
@@ -58,6 +58,7 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined }) => {
                 onChange={(color) => onChangeComplete(color)}
                 value={value[picker.id]}
                 predefined={predefined}
+                className={className}
             />
 
         </OutsideClickHandler>

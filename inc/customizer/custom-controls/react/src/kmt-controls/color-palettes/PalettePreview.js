@@ -1,4 +1,3 @@
-import { createElement, useRef, Fragment, useMemo } from '@wordpress/element'
 const { __ } = wp.i18n;
 import classnames from 'classnames'
 import ColorComponent from '../color'
@@ -42,14 +41,13 @@ const PalettePreview = ({
 			title: `Color ${index + 1}`,
 			id: key,
 		}))
-
 	return (
 		<div
 			className={classnames('kmt-single-palette', className)}
 			onClick={(e) => {
 				if (
 					e.target.closest('.kmt-color-picker-modal') ||
-					e.target.classList.contains('kmt-color-picker-modal')
+					e.target.classList.contains('.kmt-color-picker-modal')
 				) {
 					return
 				}
@@ -57,6 +55,7 @@ const PalettePreview = ({
 				onClick()
 			}}>
 			{renderBefore()}
+
 
 			<div className={`kmt-color-pallet-container`}>
 				{pickers.map((picker) => (
@@ -66,6 +65,7 @@ const PalettePreview = ({
 						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
 						value={currentPalette}
 						predefined={true}
+						className={'kmt-color-palette-modal'}
 					/>
 				))}
 			</div>

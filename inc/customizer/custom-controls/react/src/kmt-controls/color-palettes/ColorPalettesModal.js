@@ -1,14 +1,3 @@
-import {
-	Fragment,
-	createElement,
-	Component,
-	useRef,
-	useEffect,
-	useMemo,
-	useCallback,
-	useState,
-} from '@wordpress/element'
-import classnames from 'classnames'
 const { __, sprintf } = wp.i18n;
 import { Transition, animated } from '@react-spring/web'
 import PalettePreview from './PalettePreview'

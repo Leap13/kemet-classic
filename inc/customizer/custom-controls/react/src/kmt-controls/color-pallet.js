@@ -44,76 +44,9 @@ const ColorPalettes = (props) => {
             ...state,
             isTransitioning: false,
         }))
-    const properValue = {
-        ...value,
-        ...Object.keys(value).reduce(
-            (all, currentKey) => ({
-                ...all,
-                ...(value[currentKey]
-                    ? {
-                        [currentKey]: value[currentKey],
-                    }
-                    : {}),
-            }),
-            {}
-        ),
-        ...(value.palettes
-            ? {
-                palettes: value.palettes.map((p, index) => {
-                    let maybeCurrentlyInValue = value.palettes.find(
-                        ({ id }) => p.id === id
-                    )
 
-                    let maybeCurrentValue = {}
-
-                    if (p.id === value.current_palette) {
-                        Object.keys(p).map((maybeColor) => {
-                            if (
-                                maybeColor.indexOf('color') === 0 &&
-                                value[maybeColor]
-                            ) {
-                                maybeCurrentValue[maybeColor] =
-                                    value[maybeColor]
-                            }
-                        })
-                    }
-
-                    const result = {
-                        ...Object.keys(p).reduce(
-                            (all, currentKey) => ({
-                                ...all,
-                                ...(p[currentKey]
-                                    ? {
-                                        [currentKey]: p[currentKey],
-                                    }
-                                    : {}),
-                            }),
-                            {}
-                        ),
-                        ...Object.keys(maybeCurrentlyInValue || {}).reduce(
-                            (all, currentKey) => ({
-                                ...all,
-                                ...(maybeCurrentlyInValue[currentKey]
-                                    ? {
-                                        [currentKey]:
-                                            maybeCurrentlyInValue[
-                                            currentKey
-                                            ],
-                                    }
-                                    : {}),
-                            }),
-                            {}
-                        ),
-                        ...maybeCurrentValue,
-                    }
-
-                    return result
-                }),
-            }
-            : {}),
-    }
     const updateValues = (val) => {
-        setValue({ ...value, ...val });
+        setValue(val);
         props.onChange({ ...val, flag: !value.flag })
     }
 
@@ -121,7 +54,7 @@ const ColorPalettes = (props) => {
         let currentPalette = active.palettes.find(
             ({ id }) => id === active.current_palette
         )
-        const newItems = Object.values(currentPalette).map((item, index) => {
+        Object.values(currentPalette).map((item, index) => {
             document.documentElement.style.setProperty('--paletteColor' + index, item);
             return item;
         });
@@ -130,27 +63,17 @@ const ColorPalettes = (props) => {
     }
 
     const handleChangeComplete = (color, index) => {
-
-
-        let newColor = {};
-        if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-            newColor.color = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
-        } else {
-            newColor.color = color.hex;
-        }
-
-        l
-        // let value = this.state.value;
-        // const newItems = this.state.value[this.state.value.active].map((item, thisIndex) => {
-        //     if (parseInt(index) === parseInt(thisIndex)) {
-        //         item = { ...item, ...newColor };
-        //         document.documentElement.style.setProperty('--global-' + this.state.value[this.state.value.active][index].slug, newColor.color);
-        //     }
-
-        //     return item;
-        // });
-        // value[this.state.value.active] = newItems;
-        // updateValues(value);
+        let currentPalette = value.palettes.find(
+            ({ id }) => id === value.current_palette
+        )
+        let newValue = currentPalette;
+        newValue[index] = color;
+        let { id, ...colors } = newValue;
+        Object.values(newValue).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
+        updateValues({ ...value, current_palette: id, ...colors })
     }
 
     return (
@@ -175,7 +98,7 @@ const ColorPalettes = (props) => {
                             return
                         }
 
-                        if (!properValue.palettes) {
+                        if (!value.palettes) {
 
                             return
                         }
@@ -185,12 +108,12 @@ const ColorPalettes = (props) => {
                 }}>
                 <PalettePreview
                     onClick={() => {
-                        if (!properValue.palettes) {
+                        if (!value.palettes) {
                             return
                         }
                         setIsOpen(true)
                     }}
-                    value={properValue}
+                    value={value}
                     onChange={(v, id) => handleChangeComplete(v, id)}
                 />
             </OutsideClickHandler>
@@ -253,7 +176,7 @@ const ColorPalettes = (props) => {
                                         setIsOpen(false)
                                         handleChangePalette(val)
                                     }}
-                                    value={properValue}
+                                    value={value}
                                     option={value}
                                 />
                             )

@@ -29,7 +29,8 @@ const PickerModal = ({
     wrapperProps = {},
     inline_modal,
     appendToBody,
-    predefined
+    predefined,
+    className
 }) => {
 
     const getValueForPicker = useMemo(() => {
@@ -82,7 +83,10 @@ const PickerModal = ({
                     `kmt-color-picker-modal`,
                     {
                         'kmt-option-modal': !inline_modal && appendToBody,
+
+
                     },
+                    className
                 )}
                 style={{
                     ...arrowLeft,
@@ -151,7 +155,7 @@ const PickerModal = ({
                 )}
 
             </div>
-        </Fragment>
+        </Fragment >
     )
 }
 

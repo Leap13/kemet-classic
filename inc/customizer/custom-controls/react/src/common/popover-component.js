@@ -117,11 +117,13 @@ const usePopoverMaker = ({
         }
     }, [shouldCalculate, contentRef.current, contentRefProp, ref.current])
 
-    let { right, yOffset, position, otherStyles } = useMemo(() => {
+    let { right, yOffset, position, otherStyles, modalWidth } = useMemo(() => {
         let right = 0
         let yOffset = 0
         let position = 'bottom'
         let otherStyles = {}
+        let modalWidth = document.querySelector(".control-section-kmt_section.open").clientWidth;
+
 
         if (!shouldCalculate) {
             return { yOffset, right, position }
@@ -132,7 +134,7 @@ const usePopoverMaker = ({
 
             let el = ref.current.closest('.kmt-select-input')
                 ? ref.current.closest('.kmt-select-input')
-                : ref.current
+                : ref.current;
 
             let maybeWidthFlag = getComputedStyle(el, ':before').content
 
@@ -204,7 +206,7 @@ const usePopoverMaker = ({
             }
         }
 
-        return { yOffset, right, position, otherStyles }
+        return { yOffset, right, position, otherStyles, modalWidth }
     }, [
         s,
         shouldCalculate,
@@ -220,6 +222,8 @@ const usePopoverMaker = ({
         styles: {
             '--modal-y-offset': `${yOffset}px`,
             '--modal-x-offset': `${right}px`,
+            '--modalWidth': `${modalWidth - 20}px`,
+
             ...otherStyles,
             // [position === 'bottom' ? 'top' : 'bottom']: `${yOffset}px`,
             // right: `${right}px`,
