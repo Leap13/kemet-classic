@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { ReactSortable } from "react-sortablejs";
 
 const SortableComponent = props => {
 
@@ -14,32 +15,9 @@ const SortableComponent = props => {
         inputAttrs
     } = props.params;
 
-    const value = props.value;
-    const list = useRef(null);
-    let newValue = value;
-    useEffect(() => {
+    const [value, setValue] = useState([choices])
 
-        const updateValue = () => {
-            jQuery(list.current).find('li').each(function () {
-                if (!jQuery(this).is('.invisible')) {
-                    newValue.push(jQuery(this).data('value'));
-                }
-            });
-            props.onChange(newValue);
-        }
-        jQuery(list.current).sortable({
-            stop: function () {
-                updateValue();
-            }
-        }).disableSelection().find('li').each(function () {
-
-            jQuery(this).find('i.visibility').click(function () {
-                jQuery(this).toggleClass('dashicons-visibility-faint').parents('li:eq(0)').toggleClass('invisible');
-            });
-        }).click(function () {
-            updateValue();
-        });
-    }, [])
+    console.log(value)
 
     if (label) {
         labelHtml = <span className="customize-control-title">{label}</span>;
@@ -49,40 +27,24 @@ const SortableComponent = props => {
         descriptionHtml = <span className="description customize-control-description">{description}</span>;
     }
 
-    let visibleMetaHtml = Object.values(newValue).map(choiceID => {
-        let html = '';
-        if (choices[choiceID]) {
-            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item' data-value={choiceID}>
-
-                <i className="dashicons dashicons-visibility visibility"></i>
-                {choices[choiceID]}
-                <i class="dashicons dashicons-menu"></i>
-            </li>;
-        }
-        return html;
-    });
-
-    let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
-        let html = '';
-        if (Array.isArray(value) && -1 === newValue.indexOf(choiceID)) {
-            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item invisible' data-value={choiceID}>
-
-                <i className="dashicons dashicons-visibility visibility"></i>
-                {choices[choiceID]}
-                <i class="dashicons dashicons-menu"></i>
-            </li>;
-        }
-        return html;
-    });
-
+    console.log(props.params, props.value)
 
     return <label className='kmt-sortable'>
         {labelHtml}
         {descriptionHtml}
-        <ul className="sortable" ref={list}>
-            {visibleMetaHtml}
-            {invisibleMetaHtml}
-        </ul>
+        <ReactSortable animation={100} className="sortable" list={value} setList={(newValue) => setValue(newValue)}>
+            {value.map((item, index) => {
+                return (
+                    <div
+                        key={item}
+                        style={{ border: "1px solid black", padding: "20px 20px" }}
+                        data-item={item}
+                    >
+                        { item['author']}
+                    </div>
+                );
+            })}
+        </ReactSortable>
     </label>;
 
 };

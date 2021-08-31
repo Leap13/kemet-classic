@@ -111,10 +111,11 @@ const ColorPalettes = (props) => {
                         if (!value.palettes) {
                             return
                         }
-                        setIsOpen(true)
+                        setIsOpen(false)
                     }}
                     value={value}
                     onChange={(v, id) => handleChangeComplete(v, id)}
+                    skipModal={false}
                 />
             </OutsideClickHandler>
 

@@ -18,7 +18,8 @@ const SinglePicker = ({
     isTransitioning,
     isPicking,
     predefined,
-    className
+    className,
+    skipModal
 }) => {
     const el = useRef()
 
@@ -31,9 +32,9 @@ const SinglePicker = ({
         shouldCalculate: appendToBody,
     })
     let modal = null
-    if (
-        isTransitioning === picker.id ||
-        (isPicking || '').split(':')[0] === picker.id
+    if (!skipModal &&
+        (isTransitioning === picker.id ||
+            (isPicking || '').split(':')[0] === picker.id)
     ) {
         modal = createPortal(
             <Transition

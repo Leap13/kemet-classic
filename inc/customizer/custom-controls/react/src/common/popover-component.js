@@ -122,7 +122,11 @@ const usePopoverMaker = ({
         let yOffset = 0
         let position = 'bottom'
         let otherStyles = {}
-        let modalWidth = document.querySelector(".control-section-kmt_section.open").clientWidth;
+        let selector = document.querySelector(".control-section.open");
+        let modalWidth = 0;
+        if (selector) {
+            modalWidth = selector.clientWidth;
+        }
 
 
         if (!shouldCalculate) {
