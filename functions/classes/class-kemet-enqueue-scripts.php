@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			$post_id = get_the_ID();
 
 			if ( $post_id ) {
-				$meta_content_layout = kemet_get_meta( 'kemet_meta', 'content-layout' );
+				$meta_content_layout = kemet_get_meta( 'content-layout' );
 			}
 
 			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {

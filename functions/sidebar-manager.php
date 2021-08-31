@@ -25,7 +25,7 @@ if ( ! function_exists( 'kemet_layout' ) ) {
 
 			// If post meta value isset,
 			// Then get the POST_TYPE sidebar.
-			$layout = kemet_get_meta( 'kemet_meta', 'sidebar-layout' );
+			$layout = kemet_get_meta( 'sidebar-layout' );
 
 			if ( empty( $layout ) ) {
 

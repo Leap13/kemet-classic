@@ -89,45 +89,30 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 					),
 				),
-				'layout-tabs'          => array(
-					'type' => 'kmt-tabs',
-					'tabs' => array(
-						'general' => array(
-							'title'   => __( 'General', 'kemet' ),
-							'options' => array(
-								'content-layout' => array(
-									'type'    => 'kmt-select',
-									'default' => 'default',
-									'label'   => __( 'Page Layout', 'kemet' ),
-									'choices' => array(
-										'default'         => __( 'Default', 'kemet' ),
-										'boxed-container' => __( 'Boxed Layout', 'kemet' ),
-										'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
-										'plain-container' => __( 'Full Width Content', 'kemet' ),
-										'page-builder'    => __( 'Stretched Content', 'kemet' ),
-									),
-								),
-							),
-						),
-						'design'  => array(
-							'title'   => __( 'Design', 'kemet' ),
-							'options' => array(
-								'background'       => array(
-									'type'  => 'kmt-background',
-									'label' => __( 'Page Background', 'kemet' ),
-								),
-								'boxed-background' => array(
-									'type'    => 'kmt-background',
-									'label'   => __( 'Page Boxed Background', 'kemet' ),
-									'context' => array(
-										array(
-											'setting'  => 'content-layout',
-											'operator' => 'in_array',
-											'value'    => array( 'boxed-container', 'content-boxed-container' ),
-										),
-									),
-								),
-							),
+				'content-layout'       => array(
+					'type'    => 'kmt-select',
+					'default' => 'default',
+					'label'   => __( 'Page Layout', 'kemet' ),
+					'choices' => array(
+						'default'                 => __( 'Default', 'kemet' ),
+						'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
+						'content-boxed-container' => __( 'Boxed Content', 'kemet' ),
+						'plain-container'         => __( 'Full Width Content', 'kemet' ),
+						'page-builder'            => __( 'Stretched Content', 'kemet' ),
+					),
+				),
+				'background'           => array(
+					'type'  => 'kmt-background',
+					'label' => __( 'Page Background', 'kemet' ),
+				),
+				'boxed-background'     => array(
+					'type'    => 'kmt-background',
+					'label'   => __( 'Page Boxed Background', 'kemet' ),
+					'context' => array(
+						array(
+							'setting'  => 'content-layout',
+							'operator' => 'in_array',
+							'value'    => array( 'boxed-container', 'content-boxed-container' ),
 						),
 					),
 				),
@@ -172,32 +157,17 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'layout-tabs'          => array(
-					'type' => 'kmt-tabs',
-					'tabs' => array(
-						'general' => array(
-							'title'   => __( 'General', 'kemet' ),
-							'options' => array(
-								'sub-title' => array(
-									'type'  => 'kmt-text',
-									'label' => __( 'Sub Title', 'kemet' ),
-								),
-							),
-						),
-						'design'  => array(
-							'title'   => __( 'Design', 'kemet' ),
-							'options' => array(
-								'sub-title-color' => array(
-									'type'    => 'kmt-color',
-									'label'   => __( 'Sub title color', 'kemet' ),
-									'pickers' => array(
-										array(
-											'id'    => 'initial',
-											'title' => __( 'Color', 'kemet' ),
-										),
-									),
-								),
-							),
+				'sub-title'            => array(
+					'type'  => 'kmt-text',
+					'label' => __( 'Sub Title', 'kemet' ),
+				),
+				'sub-title-color'      => array(
+					'type'    => 'kmt-color',
+					'label'   => __( 'Sub title color', 'kemet' ),
+					'pickers' => array(
+						array(
+							'id'    => 'initial',
+							'title' => __( 'Color', 'kemet' ),
 						),
 					),
 				),

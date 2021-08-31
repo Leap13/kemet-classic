@@ -16381,6 +16381,11 @@ var SelectComponent = function SelectComponent(props) {
     props.onChange(value);
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
+    select.current.addEventListener('onCustomChange', function (e) {
+      HandleChange(e.detail.value);
+    });
+  }, []);
   var _props$params = props.params,
       label = _props$params.label,
       name = _props$params.name,
@@ -16390,6 +16395,7 @@ var SelectComponent = function SelectComponent(props) {
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
   }, label) : null;
+  var select = Object(react__WEBPACK_IMPORTED_MODULE_4__["useRef"])(null);
   var optionsHtml = Object.entries(choices).map(function (key) {
     var html;
 
@@ -16418,6 +16424,7 @@ var SelectComponent = function SelectComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("select", {
+    ref: select,
     className: "kmt-select-input".concat(customClass ? ' ' + customClass : ''),
     "data-name": name,
     "data-value": props_value,

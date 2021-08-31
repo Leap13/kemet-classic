@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 const SelectComponent = props => {
@@ -11,6 +11,12 @@ const SelectComponent = props => {
         props.onChange(value);
     };
 
+    useEffect(() => {
+        select.current.addEventListener('onCustomChange', function (e) {
+            HandleChange(e.detail.value);
+        })
+    }, []);
+
     const {
         label,
         name,
@@ -20,7 +26,7 @@ const SelectComponent = props => {
     } = props.params;
 
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
-
+    const select = useRef(null);
     let optionsHtml = Object.entries(choices).map(key => {
         let html;
         if (typeof key[1] === 'object') {
@@ -40,7 +46,7 @@ const SelectComponent = props => {
     return <>
         {labelContent}
         <div className="customize-control-content">
-            <select className={`kmt-select-input${customClass ? ' ' + customClass : ''}`} data-name={name} data-value={props_value} value={props_value}
+            <select ref={select} className={`kmt-select-input${customClass ? ' ' + customClass : ''}`} data-name={name} data-value={props_value} value={props_value}
                 onChange={() => {
                     HandleChange(event.target.value);
                 }} multiple={multiple ? true : false}>

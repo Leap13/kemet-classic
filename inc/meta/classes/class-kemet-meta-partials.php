@@ -72,7 +72,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return void
 		 */
 		public function page_background( $default ) {
-			$background = kemet_get_meta( 'kemet_meta', 'background' );
+			$background = kemet_get_meta( 'background' );
 
 			if ( $background ) {
 				return $background;
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return void
 		 */
 		public function page_boxed_background( $default ) {
-			$background = kemet_get_meta( 'kemet_meta', 'boxed-background' );
+			$background = kemet_get_meta( 'boxed-background' );
 
 			if ( $background ) {
 				return $background;
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return string
 		 */
 		public function post_sub_title() {
-			$sub_title = kemet_get_meta( 'kemet_meta', 'sub-title' );
+			$sub_title = kemet_get_meta( 'sub-title' );
 
 			return $sub_title;
 		}
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return string
 		 */
 		public function post_sub_title_color( $default ) {
-			$sub_title_color = kemet_get_meta( 'kemet_meta', 'sub-title-color' );
+			$sub_title_color = kemet_get_meta( 'sub-title-color' );
 			if ( ! empty( $sub_title_color['initial'] ) ) {
 				$default = $sub_title_color['initial'];
 			}
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return boolean
 		 */
 		public function disable_breadcrumbs( $default ) {
-			$disable_breadcrumbs = kemet_get_meta( 'kemet_meta', 'disable-breadcrumbs' );
+			$disable_breadcrumbs = kemet_get_meta( 'disable-breadcrumbs' );
 
 			if ( $disable_breadcrumbs ) {
 				$default = false;
@@ -145,7 +145,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return string
 		 */
 		public function post_title( $defaults ) {
-			$meta  = kemet_get_meta( 'kemet_meta', 'page-title-layouts' );
+			$meta  = kemet_get_meta( 'page-title-layouts' );
 			$title = ( $meta && 'default' != $meta ) ? $meta : $defaults;
 
 			return $title;
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return boolean
 		 */
 		public function display_header( $defaults ) {
-			$disable_header = kemet_get_meta( 'kemet_meta', 'disable-header' );
+			$disable_header = kemet_get_meta( 'disable-header' );
 
 			if ( $disable_header ) {
 				$defaults = false;
@@ -174,7 +174,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return boolean
 		 */
 		public function overlay_header( $defaults ) {
-			$overlay_header = kemet_get_meta( 'kemet_meta', 'overlay-header' );
+			$overlay_header = kemet_get_meta( 'overlay-header' );
 
 			if ( 'enable' === $overlay_header ) {
 				return true;
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return boolean
 		 */
 		public function display_footer( $defaults ) {
-			$disable_footer = kemet_get_meta( 'kemet_meta', 'disable-footer' );
+			$disable_footer = kemet_get_meta( 'disable-footer' );
 
 			if ( $disable_footer ) {
 				$defaults = false;
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return object
 		 */
 		public function content_padding( $defaults ) {
-			$padding = kemet_get_meta( 'kemet_meta', 'content-padding' );
+			$padding = kemet_get_meta( 'content-padding' );
 
 			if ( $padding ) {
 				$defaults = $padding;
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Kemet_Meta_Partials' ) ) {
 		 * @return boolean
 		 */
 		public function featured_img( $defaults ) {
-			$featured_img = kemet_get_meta( 'kemet_meta', 'disable-featured-img' );
+			$featured_img = kemet_get_meta( 'disable-featured-img' );
 
 			if ( $featured_img ) {
 				$defaults = false;

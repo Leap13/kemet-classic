@@ -1583,10 +1583,12 @@ if ( ! function_exists( 'kemet_get_meta' ) ) {
 	/**
 	 * kemet_get_meta
 	 */
-	function kemet_get_meta( $meta_key, $key ) {
-		$post_id = isset( $_GET['post'] ) ? $_GET['post'] : get_the_ID();
-		$meta    = get_post_meta( $post_id, $meta_key, true );
-		$meta    = json_decode( $meta, true );
+	function kemet_get_meta( $key, $post_id = '' ) {
+		if ( '' === $post_id ) {
+			$post_id = isset( $_GET['post'] ) ? $_GET['post'] : get_the_id();
+		}
+		$meta = get_post_meta( $post_id, 'kemet_meta', true );
+		$meta = json_decode( $meta, true );
 
 		if ( ! empty( $meta ) && isset( $meta[ $key ] ) ) {
 			return $meta[ $key ];
