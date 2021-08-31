@@ -19,11 +19,7 @@ const SelectComponent = props => {
         class: customClass
     } = props.params;
 
-
-
-
     let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
-
 
     let optionsHtml = Object.entries(choices).map(key => {
         let html;
