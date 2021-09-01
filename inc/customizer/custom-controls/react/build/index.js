@@ -16899,6 +16899,7 @@ var SelectComponent = function SelectComponent(props) {
       name = _props$params.name,
       choices = _props$params.choices,
       multiple = _props$params.multiple,
+      description = _props$params.description,
       customClass = _props$params.class;
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
@@ -16941,7 +16942,9 @@ var SelectComponent = function SelectComponent(props) {
       HandleChange(event.target.value);
     },
     multiple: multiple ? true : false
-  }, optionsHtml)));
+  }, optionsHtml), description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+    className: "description customize-control-description"
+  }, description)));
 };
 
 SelectComponent.propTypes = {

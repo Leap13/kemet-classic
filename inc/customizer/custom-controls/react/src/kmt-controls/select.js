@@ -22,6 +22,7 @@ const SelectComponent = props => {
         name,
         choices,
         multiple,
+        description,
         class: customClass
     } = props.params;
 
@@ -52,6 +53,7 @@ const SelectComponent = props => {
                 }} multiple={multiple ? true : false}>
                 {optionsHtml}
             </select>
+            {description && <p className="description customize-control-description" >{description}</p>}
         </div>
     </>;
 
