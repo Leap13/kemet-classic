@@ -15821,9 +15821,7 @@ var NumberComponent = function NumberComponent(props) {
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
     type: "number",
     value: parsedValue,
-    min: min,
     step: step,
-    max: max,
     onChange: function onChange(value) {
       return _.isNumber(parseFloat(value)) ? props.onChange(round(Math.min(Math.max(value, min || -Infinity), max || Infinity))) : parseFloat(value) ? props.onChange(round(Math.min(parseFloat(value), max || Infinity))) : props.onChange(round(value));
     }

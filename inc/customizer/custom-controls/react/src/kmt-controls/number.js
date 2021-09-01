@@ -59,9 +59,7 @@ const NumberComponent = (props) => {
                     }
                 />
                 <input type="number" value={parsedValue}
-                    min={min}
                     step={step}
-                    max={max}
                     onChange={(value) =>
                         _.isNumber(parseFloat(value))
                             ? props.onChange(
