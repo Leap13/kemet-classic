@@ -4,7 +4,8 @@ const round = (value) => Math.round(value * 10) / 10
 
 const NumberComponent = (props) => {
     let value = props.value;
-    const parsedValue = value
+    const defaultVal = props.default ? props.default : 0;
+    const parsedValue = value ? value : defaultVal;
     let { min, max, label, description } = props.params;
     let step = 1;
     return (
@@ -58,7 +59,9 @@ const NumberComponent = (props) => {
                     }
                 />
                 <input type="number" value={parsedValue}
+                    min={min}
                     step={step}
+                    max={max}
                     onChange={(value) =>
                         _.isNumber(parseFloat(value))
                             ? props.onChange(

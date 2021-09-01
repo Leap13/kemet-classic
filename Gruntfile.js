@@ -371,6 +371,7 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/react/src/kmt-controls/css/typography.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/extra-style.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/number.css",
+          "inc/customizer/custom-controls/react/src/kmt-controls/css/root.css",
         ],
         dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
       },

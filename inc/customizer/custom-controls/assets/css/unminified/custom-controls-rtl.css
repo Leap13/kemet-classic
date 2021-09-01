@@ -8202,3 +8202,10 @@ i.fipicon-angle-left:before {
 .kmt-option-number > a:hover ~ input {
   --borderColor: var(--accentColor) !important;
 }
+
+:root {
+  --primaryColor: #007cba;
+  --accentColorHover: #135e96;
+  --optionBorderColor: #ddd;
+  --tabBorderColor: #d6d6d6;
+}

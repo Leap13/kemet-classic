@@ -15794,7 +15794,8 @@ var round = function round(value) {
 
 var NumberComponent = function NumberComponent(props) {
   var value = props.value;
-  var parsedValue = value;
+  var defaultVal = props.default ? props.default : 0;
+  var parsedValue = value ? value : defaultVal;
   var _props$params = props.params,
       min = _props$params.min,
       max = _props$params.max,
@@ -15820,7 +15821,9 @@ var NumberComponent = function NumberComponent(props) {
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
     type: "number",
     value: parsedValue,
+    min: min,
     step: step,
+    max: max,
     onChange: function onChange(value) {
       return _.isNumber(parseFloat(value)) ? props.onChange(round(Math.min(Math.max(value, min || -Infinity), max || Infinity))) : parseFloat(value) ? props.onChange(round(Math.min(parseFloat(value), max || Infinity))) : props.onChange(round(value));
     }
