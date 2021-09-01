@@ -10,6 +10,7 @@ const NumberComponent = (props) => {
     return (
         <label>
             <span className="customize-control-title">{label}</span>
+            {description && <span className="description customize-control-description" >{description}</span>}
             <div
                 className={classnames('kmt-option-number', {
                     [`kmt-reached-limits`]:
