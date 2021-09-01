@@ -4,9 +4,7 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import { arrayMoveImmutable } from 'array-move';
 
 const SortableItem = SortableElement(({ value, handleClick, newIndex, values }) => {
-
     if (values.includes(newIndex)) {
-
         return (
             <li key={value} className='kmt-sortable-item' data-value={newIndex} >
 
@@ -24,8 +22,6 @@ const SortableItem = SortableElement(({ value, handleClick, newIndex, values }) 
         </li>)
     }
 });
-
-
 const SortableList = SortableContainer(({ items, onChange, values }) => {
     return (
         <ul>
@@ -40,7 +36,6 @@ const SortableComponent = props => {
 
     let labelHtml = null,
         descriptionHtml = null;
-
 
     const {
         label,
@@ -59,27 +54,23 @@ const SortableComponent = props => {
     if (description) {
         descriptionHtml = <span className="description customize-control-description">{description}</span>;
     }
+
     const onSortEnd = ({ oldIndex, newIndex }) => {
         setSortItems(arrayMoveImmutable(sortItems, oldIndex, newIndex));
     };
-    const updateValues = (val, thisIndex) => {
-        console.log("HEllo")
-        let newValue = [];
 
+    const updateValues = (val, thisIndex) => {
+        let newValue = [];
         if (value.includes(thisIndex)) {
             newValue = value.filter((item) => {
                 return item !== thisIndex
             })
-
         } else {
-
             newValue = [...value, thisIndex]
         }
         setValue(newValue)
         props.onChange(newValue)
     }
-
-
 
     return <label className='kmt-sortable'>
         {labelHtml}
