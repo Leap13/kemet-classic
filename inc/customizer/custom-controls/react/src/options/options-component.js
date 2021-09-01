@@ -20,6 +20,7 @@ import BackgroundComponent from '../kmt-controls/background'
 import IconSelectComponent from '../kmt-controls/icon-select'
 import RadioImageComponent from '../kmt-controls/radio-image'
 import Typography from '../kmt-controls/typography';
+import NumberComponent from '../kmt-controls/number';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -85,6 +86,9 @@ export const OptionComponent = (type) => {
             break;
         case 'kmt-typography':
             OptionComponent = Typography;
+            break;
+        case 'kmt-number':
+            OptionComponent = NumberComponent;
             break;
     }
 

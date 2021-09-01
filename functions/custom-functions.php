@@ -1608,6 +1608,6 @@ if ( ! function_exists( 'kemet_update_meta' ) ) {
 
 		$meta[ $key ] = $value;
 
-		update_post_meta( $meta_key, wp_json_encode( $meta ) );
+		update_post_meta( get_the_ID(), $meta_key, wp_json_encode( $meta ) );
 	}
 }

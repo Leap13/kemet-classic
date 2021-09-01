@@ -15769,6 +15769,66 @@ var RowComponent = function RowComponent(props) {
 
 /***/ }),
 
+/***/ "../../../customizer/custom-controls/react/src/kmt-controls/number.js":
+/*!*************************************************************************************************************************!*\
+  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/number.js ***!
+  \*************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "../../../customizer/custom-controls/react/node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var round = function round(value) {
+  return Math.round(value * 10) / 10;
+};
+
+var NumberComponent = function NumberComponent(props) {
+  var value = props.value;
+  var parsedValue = value;
+  var _props$params = props.params,
+      min = _props$params.min,
+      max = _props$params.max,
+      label = _props$params.label,
+      descriptino = _props$params.descriptino;
+  var step = 1;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(min))),
+    onClick: function onClick() {
+      return props.onChange(round(Math.min(Math.max(parseFloat(parsedValue) - parseFloat(step), min), max)));
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(max))),
+    onClick: function onClick() {
+      return props.onChange(round(Math.min(Math.max(parseFloat(parsedValue) + parseFloat(step), min), max)));
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
+    type: "number",
+    value: parsedValue,
+    step: step,
+    onChange: function onChange(value) {
+      return _.isNumber(parseFloat(value)) ? props.onChange(round(Math.min(Math.max(value, min || -Infinity), max || Infinity))) : parseFloat(value) ? props.onChange(round(Math.min(parseFloat(value), max || Infinity))) : props.onChange(round(value));
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NumberComponent);
+
+/***/ }),
+
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/radio-image.js":
 /*!******************************************************************************************************************************!*\
   !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/radio-image.js ***!
@@ -18634,6 +18694,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _kmt_controls_icon_select__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../kmt-controls/icon-select */ "../../../customizer/custom-controls/react/src/kmt-controls/icon-select.js");
 /* harmony import */ var _kmt_controls_radio_image__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../kmt-controls/radio-image */ "../../../customizer/custom-controls/react/src/kmt-controls/radio-image.js");
 /* harmony import */ var _kmt_controls_typography__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../kmt-controls/typography */ "../../../customizer/custom-controls/react/src/kmt-controls/typography.js");
+/* harmony import */ var _kmt_controls_number__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../kmt-controls/number */ "../../../customizer/custom-controls/react/src/kmt-controls/number.js");
+
 
 
 
@@ -18741,6 +18803,10 @@ var OptionComponent = function OptionComponent(type) {
 
     case 'kmt-typography':
       OptionComponent = _kmt_controls_typography__WEBPACK_IMPORTED_MODULE_23__["default"];
+      break;
+
+    case 'kmt-number':
+      OptionComponent = _kmt_controls_number__WEBPACK_IMPORTED_MODULE_24__["default"];
       break;
   }
 
