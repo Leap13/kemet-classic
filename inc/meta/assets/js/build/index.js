@@ -15799,7 +15799,7 @@ var NumberComponent = function NumberComponent(props) {
       min = _props$params.min,
       max = _props$params.max,
       label = _props$params.label,
-      descriptino = _props$params.descriptino;
+      description = _props$params.description;
   var step = 1;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title"
