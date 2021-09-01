@@ -252,48 +252,6 @@ if ( ! function_exists( 'kemet_custom_logo' ) ) {
 add_filter( 'get_custom_logo', 'kemet_custom_logo', 10, 2 );
 
 /**
- * Return the selected sections
- */
-if ( ! function_exists( 'kemet_get_dynamic_header_content' ) ) {
-
-	/**
-	 * Return the selected sections
-	 *
-	 * @param  string $option Custom content type. E.g. search, text-html etc.
-	 * @return array         Array of Custom contents.
-	 */
-	function kemet_get_dynamic_header_content( $option ) {
-		$output   = array();
-		$sections = kemet_get_option( $option );
-
-		if ( is_array( $sections ) ) {
-			foreach ( $sections as $section ) {
-				switch ( $section ) {
-
-					case 'search':
-						$output[] = kemet_get_search( $option );
-						break;
-
-					case 'text-html':
-						$output[] = kemet_get_custom_html( $option . '-html' );
-						break;
-
-					case 'kmt-widget':
-						$output[] = kemet_get_custom_widget( $option );
-						break;
-
-					default:
-						$output[] = apply_filters( 'kemet_get_dynamic_header_content', '', $option, $sections );
-						break;
-				}
-			}
-		}
-
-		return $output;
-	}
-}
-
-/**
  * Adding Wrapper for Search Form.
  */
 if ( ! function_exists( 'kemet_get_search' ) ) {
@@ -362,22 +320,6 @@ if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
 	function kemet_get_custom_widget( $option_name = '' ) {
 		ob_start();
 
-		if ( 'header-main-rt-section' == $option_name ) {
-			$widget_id = 'header-widget';
-		}
-		if ( 'header-right-section' == $option_name ) {
-			$widget_id = 'header-right-section';
-		}
-		if ( 'footer-copyright-section-1' == $option_name ) {
-			$widget_id = 'copyright-widget-1';
-		} elseif ( 'footer-copyright-section-2' == $option_name ) {
-			$widget_id = 'copyright-widget-2';
-		}
-		if ( 'top-section-1' == $option_name ) {
-			$widget_id = 'top-widget-section1';
-		} elseif ( 'top-section-2' == $option_name ) {
-			$widget_id = 'top-widget-section2';
-		}
 		if ( 'off-canvas-filter' == $option_name ) {
 			$widget_id = 'off-canvas-filter-widget';
 		}
@@ -1609,5 +1551,21 @@ if ( ! function_exists( 'kemet_update_meta' ) ) {
 		$meta[ $key ] = $value;
 
 		update_post_meta( get_the_ID(), $meta_key, wp_json_encode( $meta ) );
+	}
+}
+
+/**
+ * Kemet Sidebar
+ */
+if ( ! function_exists( 'kemet_dynamic_sidebar' ) ) {
+	/**
+	 * Kemet Sidebar
+	 *
+	 * @param int $sidebar_id sidebar id.
+	 */
+	function kemet_dynamic_sidebar( $sidebar_id ) {
+		ob_start();
+		dynamic_sidebar( $sidebar_id );
+		echo apply_filters( 'kemet_' . $sidebar_id, ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }

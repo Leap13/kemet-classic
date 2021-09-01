@@ -17,9 +17,9 @@ $sidebar = apply_filters( 'kemet_get_sidebar', 'sidebar-1' );
 
 	<?php kemet_sidebars_before(); ?>
 
-		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
+		<?php if ( is_active_sidebar( $sidebar ) || apply_filters( 'kemet_' . $sidebar . '_hook', false ) ) : ?>
 
-			<?php dynamic_sidebar( $sidebar ); ?>
+			<?php kemet_dynamic_sidebar( $sidebar ); ?>
 
 		<?php endif; ?>
 

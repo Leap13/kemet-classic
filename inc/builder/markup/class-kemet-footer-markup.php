@@ -41,7 +41,6 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 			add_action( 'kemet_main_footer', array( $this, 'main_footer' ) );
 			add_action( 'kemet_bottom_footer', array( $this, 'bottom_footer' ) );
 			add_action( 'kemet_footer_widget', array( $this, 'widget_markup' ), 10, 1 );
-			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 			add_filter( 'customizer_widgets_section_args', array( $this, 'customizer_custom_widget_areas' ), 10, 3 );
 			add_filter( 'customize_section_active', array( $this, 'display_sidebar' ), 99, 2 );
 			add_action( 'kemet_render_footer_column', array( $this, 'render_column' ), 10, 2 );
