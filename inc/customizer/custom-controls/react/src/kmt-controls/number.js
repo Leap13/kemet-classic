@@ -5,8 +5,10 @@ const round = (value) => Math.round(value * 10) / 10
 const NumberComponent = (props) => {
     let value = props.value;
     const parsedValue = value
-    let { min, max } = props.params;
+    let min = 1;
+    let max = 5
     let step = 1;
+
     return (
         <div
             className={classnames('kmt-option-number', {
@@ -54,31 +56,16 @@ const NumberComponent = (props) => {
                     )
                 }
             />
-            <input type="number" value={parsedValue}
+            <input type="number"
+                value={value}
                 step={step}
-                onChange={(value) =>
-                    _.isNumber(parseFloat(value))
-                        ? props.onChange(
-                            round(
-                                Math.min(
-                                    Math.max(
-                                        value,
-                                        min || -Infinity
-                                    ),
-                                    max || Infinity
-                                )
-                            )
-                        )
-                        : parseFloat(value)
-                            ? props.onChange(
-                                round(
-                                    Math.min(
-                                        parseFloat(value),
-                                        max || Infinity
-                                    )
-                                )
-                            )
-                            : props.onChange(round(value))
+                max={max}
+                min={min}
+                onChange={() =>
+                    props.onChange(
+                        event.target.value
+                    )
+
                 } />
         </div>
     )

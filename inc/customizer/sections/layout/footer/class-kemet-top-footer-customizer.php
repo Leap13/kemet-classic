@@ -38,7 +38,6 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 								'transport' => 'postMessage',
 								'type'      => 'kmt-number',
 								'label'     => __( 'Columns', 'kemet' ),
-								'value' =>3,
 								'min'=>1,
 								'max'=>6
 							),
