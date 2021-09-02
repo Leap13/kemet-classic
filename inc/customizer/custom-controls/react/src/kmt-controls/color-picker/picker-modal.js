@@ -140,7 +140,7 @@ const PickerModal = ({
                 {refresh && (
                     <>
                         <ColorPicker
-                            color={value}
+                            color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
                         />
                     </>
@@ -148,7 +148,7 @@ const PickerModal = ({
                 {!refresh && (
                     <>
                         <ColorPicker
-                            color={value}
+                            color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
                         />
                     </>

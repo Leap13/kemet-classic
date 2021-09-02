@@ -18815,12 +18815,12 @@ var PickerModal = function PickerModal(_ref) {
       paletteColor8: 'Color 8'
     }[color]));
   }))), refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
-    color: value,
+    color: getValueForPicker.color,
     onChangeComplete: function onChangeComplete(color) {
       return onChange(color);
     }
   })), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
-    color: value,
+    color: getValueForPicker.color,
     onChangeComplete: function onChangeComplete(color) {
       return onChange(color);
     }

@@ -1170,53 +1170,57 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 	 * @param boolean $echo echo or not.
 	 * @return string
 	 */
-	// function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
-	// 	$default = 'rgb(0,0,0)';
+	function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
+		$default = 'rgb(0,0,0)';
 
-	// 	// Return default if no color provided.
-	// 	if ( empty( $color ) ) {
-	// 		return $default;
-	// 	}
+		// Return default if no color provided.
+		if ( empty( $color ) ) {
+			return $default;
+		}
 
-	// 	// Sanitize $color if "#" is provided.
-	// 	if ( '#' == $color[0] ) {
-	// 		$color = substr( $color, 1 );
-	// 	}
+		// Sanitize $color if "#" is provided.
+		if ( '#' == $color[0] ) {
+			$color = substr( $color, 1 );
+		}
 
-	// 	// Check if color has 6 or 3 characters and get values.
-	// 	if ( strlen( $color ) == 6 ) {
-	// 		$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-	// 	} elseif ( strlen( $color ) == 3 ) {
-	// 		$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-	// 	} else {
-	// 		return $default;
-	// 	}
+		// Check if color has 6 or 3 characters and get values.
+		if ( strlen( $color ) == 6 ) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( strlen( $color ) == 3 ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			return $default;
+		}
 
-	// 	// Convert hexadec to rgb.
-	// 	$rgb = array_map( 'hexdec', $hex );
+        if (strlen($color) > 2 && substr( $color, 0, 5 ) === "var(--") {
+			return $color;
+		}
 
-	// 	// Check if opacity is set(rgba or rgb).
-	// 	if ( $opacity ) {
-	// 		if ( abs( $opacity ) > 1 ) {
-	// 			$opacity = 1.0;
-	// 		}
-	// 		if ( $echo ) {
-	// 			$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
-	// 		} else {
-	// 			$rgb[]  = $opacity;
-	// 			$output = $rgb;
-	// 		}
-	// 	} else {
-	// 		if ( $echo ) {
-	// 			$output = 'rgb(' . implode( ',', $rgb ) . ')';
-	// 		} else {
-	// 			$output = $rgb;
-	// 		}
-	// 	}
+		// Convert hexadec to rgb.
+		$rgb = array_map( 'hexdec', $hex );
 
-	// 	// Return rgb(a) color string.
-	// 	return $output;
-	// }
+		// Check if opacity is set(rgba or rgb).
+		if ( $opacity ) {
+			if ( abs( $opacity ) > 1 ) {
+				$opacity = 1.0;
+			}
+			if ( $echo ) {
+				$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
+			} else {
+				$rgb[]  = $opacity;
+				$output = $rgb;
+			}
+		} else {
+			if ( $echo ) {
+				$output = 'rgb(' . implode( ',', $rgb ) . ')';
+			} else {
+				$output = $rgb;
+			}
+		}
+
+		// Return rgb(a) color string.
+		return $output;
+	}
 }
 
 if ( ! function_exists( 'kemet_color_brightness' ) ) {
@@ -1241,9 +1245,9 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 				$rgb     = explode( ',', $output );
 				$rgb     = array_map( 'intval', $rgb );
 			}
-			//  else {
-			// 	// $rgb = kemet_hex2rgba( $hex );
-			// }
+			 else {
+				$rgb = kemet_hex2rgba( $hex );
+			}
 
 			// CALCULATE.
 			for ( $i = 0; $i < 3; $i++ ) {
@@ -1419,55 +1423,7 @@ function gutenberg_support() {
 
 
 
-	// add_theme_support('editor-color-palette', apply_filters('kemet:editor-color-palette', [
-	// 	[
-	// 		'name' => __( 'Palette Color 1', 'kemet' ),
-	// 		'slug' => 'palette-color-1',
-	// 		'color' => 'var(--paletteColor1, ' . $paletteColors['color1'] . ')',
-	// 	],
 
-	// 	[
-	// 		'name' => __( 'Palette Color 2', 'kemet' ),
-	// 		'slug' => 'palette-color-2',
-	// 		'color' => 'var(--paletteColor2, ' . $paletteColors['color2'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 3', 'kemet' ),
-	// 		'slug' => 'palette-color-3',
-	// 		'color' => 'var(--paletteColor3, '. $paletteColors['color3'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 4', 'kemet' ),
-	// 		'slug' => 'palette-color-4',
-	// 		'color' => 'var(--paletteColor4, ' . $paletteColors['color4'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 5', 'kemet' ),
-	// 		'slug' => 'palette-color-5',
-	// 		'color' => 'var(--paletteColor5, ' . $paletteColors['color5'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 6', 'kemet' ),
-	// 		'slug' => 'palette-color-6',
-	// 		'color' => 'var(--paletteColor6, ' . $paletteColors['color6'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 7', 'kemet' ),
-	// 		'slug' => 'palette-color-7',
-	// 		'color' => 'var(--paletteColor7, ' . $paletteColors['color7'] . ')',
-	// 	],
-
-	// 	[
-	// 		'name' => __( 'Palette Color 8', 'kemet' ),
-	// 		'slug' => 'palette-color-8',
-	// 		'color' => 'var(--paletteColor8, ' . $paletteColors['color8'] . ')',
-	// 	]
-	// ]));
 }
 
 add_action( 'after_setup_theme', 'gutenberg_support', 10 );
