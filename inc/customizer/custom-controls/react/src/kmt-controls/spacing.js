@@ -8,29 +8,6 @@ const SpacingComponent = props => {
     let value = props.value
     const [device, setDevice] = useState('desktop');
     let responsive = props.params.responsive;
-    let ResDefaultParam = {
-        "desktop": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "tablet": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "mobile": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "desktop-unit": 'px',
-        'tablet-unit': 'px',
-        'mobile-unit': ''
-    }
     let defaultValue = {
         value: {
             'top': '',
@@ -40,8 +17,15 @@ const SpacingComponent = props => {
         },
         unit: 'px'
     }
-    let defaultValues;
-    defaultValues = responsive ? ResDefaultParam : defaultValue;
+    let ResDefaultParam = {
+        "desktop": defaultValue.value,
+        "tablet": defaultValue.value,
+        "mobile": defaultValue.value,
+        "desktop-unit": defaultValue.unit,
+        'tablet-unit': defaultValue.unit,
+        'mobile-unit': defaultValue.unit
+    }
+    let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
     let defaultVals = props.params.default
         ? {
@@ -69,6 +53,7 @@ const SpacingComponent = props => {
     const onConnectedClick = () => {
         let parent = event.target.parentElement.parentElement;
         let inputs = parent.querySelectorAll('.kmt-spacing-input');
+        let elements = event.target.dataset.elementConnect;
 
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].classList.remove('connected');
@@ -92,9 +77,10 @@ const SpacingComponent = props => {
     };
 
     const onSpacingChange = (device, choiceID) => {
-        const {
-            choices
-        } = props.params;
+        if (event)
+            const {
+                choices
+            } = props.params;
         let updateState = {
             ...state
         };
@@ -165,7 +151,8 @@ const SpacingComponent = props => {
 
                 let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
                     <input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
-                        value={inputValue} onChange={() => onSpacingChange(device, choiceID)}
+                        value={inputValue}
+                        onChange={() => onSpacingChange(device, choiceID)}
                         data-element-connect={id} />
                     <span className="kmt-spacing-title">{choices[choiceID]}</span>
                 </li>;
