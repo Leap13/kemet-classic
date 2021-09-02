@@ -18491,15 +18491,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _color_palettes_PalettePreview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color-palettes/PalettePreview */ "./src/kmt-controls/color-palettes/PalettePreview.js");
-/* harmony import */ var _color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color-palettes/ColorPalettesModal */ "./src/kmt-controls/color-palettes/ColorPalettesModal.js");
-/* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/popover-component */ "./src/common/popover-component.js");
-/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
-/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
-/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
-/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _color_palettes_PalettePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./color-palettes/PalettePreview */ "./src/kmt-controls/color-palettes/PalettePreview.js");
+/* harmony import */ var _color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color-palettes/ColorPalettesModal */ "./src/kmt-controls/color-palettes/ColorPalettesModal.js");
+/* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/popover-component */ "./src/common/popover-component.js");
+/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
+/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! bezier-easing */ "./node_modules/bezier-easing/src/index.js");
+/* harmony import */ var bezier_easing__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(bezier_easing__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -18516,11 +18514,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-
 var __ = wp.i18n.__;
 
 var ColorPalettes = function ColorPalettes(props) {
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.params.value),
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(props.value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
       value = _useState2[0],
       setValue = _useState2[1];
@@ -18537,7 +18534,7 @@ var ColorPalettes = function ColorPalettes(props) {
       isTransitioning = _useState4$.isTransitioning,
       setModalState = _useState4[1];
 
-  var _usePopoverMaker = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_7__["default"])({
+  var _usePopoverMaker = Object(_common_popover_component__WEBPACK_IMPORTED_MODULE_6__["default"])({
     ref: colorPalettesWrapper,
     defaultHeight: 430,
     shouldCalculate: isTransitioning || isOpen
@@ -18570,37 +18567,38 @@ var ColorPalettes = function ColorPalettes(props) {
   };
 
   var handleChangePalette = function handleChangePalette(active) {
-    // let currentPalette = active.palettes.find(
-    //     ({ id }) => id === active.current_palette
-    // )
-    // Object.values(currentPalette).map((item, index) => {
-    //     document.documentElement.style.setProperty('--paletteColor' + index, item);
-    //     return item;
-    // });
+    var currentPalette = active.palettes.find(function (_ref) {
+      var id = _ref.id;
+      return id === active.current_palette;
+    });
+    Object.values(currentPalette).map(function (item, index) {
+      document.documentElement.style.setProperty('--paletteColor' + index, item);
+      return item;
+    });
     updateValues(active);
   };
 
   var handleChangeComplete = function handleChangeComplete(color, index) {
-    var currentPalette = value.palettes.find(function (_ref) {
-      var id = _ref.id;
+    var currentPalette = value.palettes.find(function (_ref2) {
+      var id = _ref2.id;
       return id === value.current_palette;
     });
     var newValue = currentPalette;
     newValue[index] = color;
 
     var id = newValue.id,
-        colors = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0___default()(newValue, ["id"]); // Object.values(newValue).map((item, index) => {
-    //     document.documentElement.style.setProperty('--paletteColor' + index, item);
-    //     return item;
-    // });
+        colors = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0___default()(newValue, ["id"]);
 
-
+    Object.values(newValue).map(function (item, index) {
+      document.documentElement.style.setProperty('--paletteColor' + index, item);
+      return item;
+    });
     updateValues(_objectSpread(_objectSpread({}, value), {}, {
       current_palette: id
     }, colors));
   };
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_7__["default"], {
     disabled: !isOpen,
     useCapture: false,
     className: "kmt-palettes-preview",
@@ -18624,7 +18622,7 @@ var ColorPalettes = function ColorPalettes(props) {
         setIsOpen(true);
       }
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_PalettePreview__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_PalettePreview__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onClick: function onClick() {
       if (!value.palettes) {
         return;
@@ -18637,14 +18635,14 @@ var ColorPalettes = function ColorPalettes(props) {
       return handleChangeComplete(v, id);
     },
     skipModal: false
-  })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_9__["Transition"], {
+  })), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_8__["Transition"], {
     items: isOpen,
     onRest: function onRest(isOpen) {
       stopTransitioning();
     },
     config: {
       duration: 100,
-      easing: bezier_easing__WEBPACK_IMPORTED_MODULE_10___default()(0.25, 0.1, 0.25, 1.0)
+      easing: bezier_easing__WEBPACK_IMPORTED_MODULE_9___default()(0.25, 0.1, 0.25, 1.0)
     },
     from: isOpen ? {
       transform: 'scale3d(0.95, 0.95, 1)',
@@ -18669,7 +18667,7 @@ var ColorPalettes = function ColorPalettes(props) {
       return null;
     }
 
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       wrapperProps: _objectSpread({
         style: _objectSpread(_objectSpread({}, style), styles)
       }, popoverProps),

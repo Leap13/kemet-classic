@@ -396,6 +396,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--inputBorderWidth'           => kemet_responsive_slider( $input_border_size, 'desktop' ),
 					'--contentWidth'               => kemet_slider( $site_content_width ),
 					'--buttonShadow'               => 'none',
+					
 				),
 				// Gutenberg Support.
 				'.kmt-single-post .has-global-color'    => array(

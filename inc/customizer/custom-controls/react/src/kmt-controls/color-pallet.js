@@ -3,7 +3,6 @@ import {
     useRef,
     useState,
 } from '@wordpress/element'
-import cls from 'classnames'
 import PalettePreview from './color-palettes/PalettePreview'
 import ColorPalettesModal from './color-palettes/ColorPalettesModal'
 import usePopoverMaker from '../common/popover-component'
@@ -13,7 +12,7 @@ import bezierEasing from 'bezier-easing'
 const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
-    const [value, setValue] = useState(props.params.value)
+    const [value, setValue] = useState(props.value)
 
     const colorPalettesWrapper = useRef()
 
@@ -48,13 +47,13 @@ const ColorPalettes = (props) => {
     }
 
     const handleChangePalette = (active) => {
-        // let currentPalette = active.palettes.find(
-        //     ({ id }) => id === active.current_palette
-        // )
-        // Object.values(currentPalette).map((item, index) => {
-        //     document.documentElement.style.setProperty('--paletteColor' + index, item);
-        //     return item;
-        // });
+        let currentPalette = active.palettes.find(
+            ({ id }) => id === active.current_palette
+        )
+        Object.values(currentPalette).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
 
         updateValues(active)
     }
@@ -66,10 +65,10 @@ const ColorPalettes = (props) => {
         let newValue = currentPalette;
         newValue[index] = color;
         let { id, ...colors } = newValue;
-        // Object.values(newValue).map((item, index) => {
-        //     document.documentElement.style.setProperty('--paletteColor' + index, item);
-        //     return item;
-        // });
+        Object.values(newValue).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
         updateValues({ ...value, current_palette: id, ...colors })
     }
 

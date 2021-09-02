@@ -1417,99 +1417,57 @@ function gutenberg_support() {
 	$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
 	$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
 
-	add_theme_support(
-		'editor-color-palette',
-		array(
-			array(
-				'name'  => __( 'Global Color', 'kemet' ),
-				'slug'  => 'global',
-				'color' => $theme_color,
-			),
-			array(
-				'name'  => __( 'Global Background Color', 'kemet' ),
-				'slug'  => 'global-bg',
-				'color' => $global_bg_color,
-			),
-			array(
-				'name'  => __( 'Global Headings Color', 'kemet' ),
-				'slug'  => 'headings-links',
-				'color' => $headings_links_color,
-			),
-			array(
-				'name'  => __( 'Global Text Color', 'kemet' ),
-				'slug'  => 'text-meta',
-				'color' => $text_meta_color,
-			),
-			array(
-				'name'  => __( 'Global Border Color', 'kemet' ),
-				'slug'  => 'global-border',
-				'color' => $global_border_color,
-			),
-		)
-	);
-	$paletteColors = kemet_get_sub_option(
-		get_theme_mod('colorPalette'),
-		[
-			'color1' => [ 'color' => '#2872fa' ],
-			'color2' => [ 'color' => '#1559ed' ],
-			'color3' => [ 'color' => '#3A4F66' ],
-			'color4' => [ 'color' => '#192a3d' ],
-			'color5' => [ 'color' => '#e1e8ed' ],
-			'color6' => [ 'color' => '#f2f5f7' ],
-			'color7' => [ 'color' => '#FAFBFC' ],
-			'color8' => [ 'color' => '#ffffff' ],
-		]
-	);
 
-	add_theme_support('editor-color-palette', apply_filters('kemet:editor-color-palette', [
-		[
-			'name' => __( 'Palette Color 1', 'blocksy' ),
-			'slug' => 'palette-color-1',
-			'color' => 'var(--paletteColor1, ' . $paletteColors['color1'] . ')',
-		],
 
-		[
-			'name' => __( 'Palette Color 2', 'blocksy' ),
-			'slug' => 'palette-color-2',
-			'color' => 'var(--paletteColor2, ' . $paletteColors['color2'] . ')',
-		],
+	// add_theme_support('editor-color-palette', apply_filters('kemet:editor-color-palette', [
+	// 	[
+	// 		'name' => __( 'Palette Color 1', 'kemet' ),
+	// 		'slug' => 'palette-color-1',
+	// 		'color' => 'var(--paletteColor1, ' . $paletteColors['color1'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 3', 'blocksy' ),
-			'slug' => 'palette-color-3',
-			'color' => 'var(--paletteColor3, '. $paletteColors['color3'] . ')',
-		],
+	// 	[
+	// 		'name' => __( 'Palette Color 2', 'kemet' ),
+	// 		'slug' => 'palette-color-2',
+	// 		'color' => 'var(--paletteColor2, ' . $paletteColors['color2'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 4', 'blocksy' ),
-			'slug' => 'palette-color-4',
-			'color' => 'var(--paletteColor4, ' . $paletteColors['color4'] . ')',
-		],
+	// 	[
+	// 		'name' => __( 'Palette Color 3', 'kemet' ),
+	// 		'slug' => 'palette-color-3',
+	// 		'color' => 'var(--paletteColor3, '. $paletteColors['color3'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 5', 'blocksy' ),
-			'slug' => 'palette-color-5',
-			'color' => 'var(--paletteColor5, ' . $paletteColors['color5'] . ')',
-		],
+	// 	[
+	// 		'name' => __( 'Palette Color 4', 'kemet' ),
+	// 		'slug' => 'palette-color-4',
+	// 		'color' => 'var(--paletteColor4, ' . $paletteColors['color4'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 6', 'blocksy' ),
-			'slug' => 'palette-color-6',
-			'color' => 'var(--paletteColor6, ' . $paletteColors['color6'] . ')',
-		],
+	// 	[
+	// 		'name' => __( 'Palette Color 5', 'kemet' ),
+	// 		'slug' => 'palette-color-5',
+	// 		'color' => 'var(--paletteColor5, ' . $paletteColors['color5'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 7', 'blocksy' ),
-			'slug' => 'palette-color-7',
-			'color' => 'var(--paletteColor7, ' . $paletteColors['color7'] . ')',
-		],
+	// 	[
+	// 		'name' => __( 'Palette Color 6', 'kemet' ),
+	// 		'slug' => 'palette-color-6',
+	// 		'color' => 'var(--paletteColor6, ' . $paletteColors['color6'] . ')',
+	// 	],
 
-		[
-			'name' => __( 'Palette Color 8', 'blocksy' ),
-			'slug' => 'palette-color-8',
-			'color' => 'var(--paletteColor8, ' . $paletteColors['color8'] . ')',
-		]
-	]));
+	// 	[
+	// 		'name' => __( 'Palette Color 7', 'kemet' ),
+	// 		'slug' => 'palette-color-7',
+	// 		'color' => 'var(--paletteColor7, ' . $paletteColors['color7'] . ')',
+	// 	],
+
+	// 	[
+	// 		'name' => __( 'Palette Color 8', 'kemet' ),
+	// 		'slug' => 'palette-color-8',
+	// 		'color' => 'var(--paletteColor8, ' . $paletteColors['color8'] . ')',
+	// 	]
+	// ]));
 }
 
 add_action( 'after_setup_theme', 'gutenberg_support', 10 );
