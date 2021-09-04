@@ -3,24 +3,19 @@ import {
     useRef,
     useState,
 } from '@wordpress/element'
-import cls from 'classnames'
 import PalettePreview from './color-palettes/PalettePreview'
 import ColorPalettesModal from './color-palettes/ColorPalettesModal'
-
 import usePopoverMaker from '../common/popover-component'
 import OutsideClickHandler from '../common/outside-component'
-
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
-
 const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
-
-
-    const [value, setValue] = useState(props.params.value)
-
-
+    const [value, setValue] = useState(props.value)
+    const [currentPalette, setCurrtPalette] = useState(value.palettes.find(
+        ({ id }) => id === value.current_palette
+    ))
 
     const colorPalettesWrapper = useRef()
 
@@ -48,84 +43,27 @@ const ColorPalettes = (props) => {
             ...state,
             isTransitioning: false,
         }))
-    const properValue = {
-        ...value,
-        ...Object.keys(value).reduce(
-            (all, currentKey) => ({
-                ...all,
-                ...(value[currentKey]
-                    ? {
-                        [currentKey]: value[currentKey],
-                    }
-                    : {}),
-            }),
-            {}
-        ),
-        ...(value.palettes
-            ? {
-                palettes: value.palettes.map((p, index) => {
-                    let maybeCurrentlyInValue = value.palettes.find(
-                        ({ id }) => p.id === id
-                    )
 
-                    let maybeCurrentValue = {}
-
-                    if (p.id === value.current_palette) {
-                        Object.keys(p).map((maybeColor) => {
-                            if (
-                                maybeColor.indexOf('color') === 0 &&
-                                value[maybeColor]
-                            ) {
-                                maybeCurrentValue[maybeColor] =
-                                    value[maybeColor]
-                            }
-                        })
-                    }
-
-                    const result = {
-                        ...Object.keys(p).reduce(
-                            (all, currentKey) => ({
-                                ...all,
-                                ...(p[currentKey]
-                                    ? {
-                                        [currentKey]: p[currentKey],
-                                    }
-                                    : {}),
-                            }),
-                            {}
-                        ),
-                        ...Object.keys(maybeCurrentlyInValue || {}).reduce(
-                            (all, currentKey) => ({
-                                ...all,
-                                ...(maybeCurrentlyInValue[currentKey]
-                                    ? {
-                                        [currentKey]:
-                                            maybeCurrentlyInValue[
-                                            currentKey
-                                            ],
-                                    }
-                                    : {}),
-                            }),
-                            {}
-                        ),
-                        ...maybeCurrentValue,
-                    }
-
-                    return result
-                }),
-            }
-            : {}),
+    const updateValues = (val) => {
+        setValue(val);
+        props.onChange({ ...val, flag: !value.flag })
     }
 
-    const handleCurrent = (current) => {
-        setValue(current)
-        props.onChange(current)
+    const handleColors = (current) => {
+
+        Object.values(current).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
+    }
+    const handleChangeComplete = (color, index) => {
+        let newValue = currentPalette;
+        newValue[index] = color;
+        let { id, ...colors } = newValue;
+        handleColors(newValue)
+        updateValues({ ...value, current_palette: id, ...colors })
     }
 
-    const handleCurrentPallet = (currentColor, id) => {
-        console.log(currentColor, id)
-
-    }
     return (
         <div>
             <OutsideClickHandler
@@ -148,7 +86,7 @@ const ColorPalettes = (props) => {
                             return
                         }
 
-                        if (!properValue.palettes) {
+                        if (!value.palettes) {
 
                             return
                         }
@@ -158,13 +96,14 @@ const ColorPalettes = (props) => {
                 }}>
                 <PalettePreview
                     onClick={() => {
-                        if (!properValue.palettes) {
+                        if (!value.palettes) {
                             return
                         }
-                        setIsOpen(true)
+                        setIsOpen(false)
                     }}
-                    value={properValue}
-                    onChange={(v, id) => handleCurrentPallet(v, id)}
+                    value={value}
+                    onChange={(v, id) => handleChangeComplete(v, id)}
+                    skipModal={false}
                 />
             </OutsideClickHandler>
 
@@ -224,9 +163,10 @@ const ColorPalettes = (props) => {
                                     }}
                                     onChange={(val) => {
                                         setIsOpen(false)
-                                        handleCurrent(val)
+                                        updateValues(val)
+                                        handleColors(currentPalette)
                                     }}
-                                    value={properValue}
+                                    value={value}
                                     option={value}
                                 />
                             )

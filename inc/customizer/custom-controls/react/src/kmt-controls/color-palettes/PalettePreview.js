@@ -1,15 +1,16 @@
-import { createElement, useRef, Fragment, useMemo } from '@wordpress/element'
 const { __ } = wp.i18n;
 import classnames from 'classnames'
 import ColorComponent from '../color'
+import { SlotFillProvider } from '@wordpress/components'
 
 const PalettePreview = ({
 	renderBefore = () => null,
 	value,
 	onChange,
 	onClick,
-	currentPalette = null,
+	currentPalette,
 	className,
+	skipModal
 }) => {
 	if (!currentPalette) {
 		currentPalette = value
@@ -20,10 +21,8 @@ const PalettePreview = ({
 			)
 		}
 	}
-
 	const hundleChangeColor = (color, optionId) => {
 		let newColor;
-
 		if (typeof color === 'string') {
 			newColor = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
@@ -33,37 +32,35 @@ const PalettePreview = ({
 		}
 		onChange(newColor, optionId)
 	}
-
-
 	const pickers = Object.keys(currentPalette)
 		.filter((k) => k.indexOf('color') === 0)
 		.map((key, index) => ({
 			title: `Color ${index + 1}`,
 			id: key,
 		}))
-
 	return (
 		<div
 			className={classnames('kmt-single-palette', className)}
 			onClick={(e) => {
 				if (
-					e.target.closest('.kmt-color-picker-modal') ||
-					e.target.classList.contains('kmt-color-picker-modal')
+					e.target.closest('.ct-color-picker-modal') ||
+					e.target.classList.contains('ct-color-picker-modal')
 				) {
 					return
 				}
-
 				onClick()
 			}}>
 			{renderBefore()}
-
 			<div className={`kmt-color-pallet-container`}>
 				{pickers.map((picker) => (
-
 					<ColorComponent
 						picker={picker}
 						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
 						value={currentPalette}
+						predefined={true}
+						className={'kmt-color-palette-modal'}
+						skipModal={skipModal}
+
 					/>
 				))}
 			</div>

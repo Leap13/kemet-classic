@@ -1,8 +1,7 @@
-import { useMemo, Fragment, useState } from '@wordpress/element'
-import ColorPickerIris from './color-picker-iris.js'
+import { useMemo, Fragment, useState, useEffect } from '@wordpress/element'
+import { ColorPicker } from '@wordpress/components'
 import classnames from 'classnames'
 const { __ } = wp.i18n;
-
 
 const getLeftForEl = (modal, el) => {
     if (!modal) return
@@ -20,9 +19,6 @@ const getLeftForEl = (modal, el) => {
     }
 }
 
-
-
-
 const PickerModal = ({
     el,
     value,
@@ -31,15 +27,28 @@ const PickerModal = ({
     style,
     wrapperProps = {},
     inline_modal,
-    appendToBody
+    appendToBody,
+    predefined,
+    className
 }) => {
-    const [currentColor, setCurrentColor] = useState(value)
 
-    const handleTopColor = (color) => {
-        setCurrentColor(color)
-        onChange(color)
-    }
+    const getValueForPicker = useMemo(() => {
+        if ((value || '').indexOf('var') > -1) {
+            return {
+                key: 'var' + value,
+                color: getComputedStyle(document.documentElement)
+                    .getPropertyValue(
+                        value.replace(/var\(/, '').replace(/\)/, '')
+                    )
+                    .trim()
+                    .replace(/\s/g, ''),
+            }
+        }
 
+        return { key: 'color', color: value }
+    }, [value, picker])
+
+    const [refresh, setRefresh] = useState(false)
 
     let valueToCheck = value
 
@@ -51,9 +60,14 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     )
-    const onPaletteChangeComplete = (val) => {
-        setCurrentColor(val)
-        onChange(val)
+
+    const handleTopPart = (colorValue) => {
+        if (refresh) {
+            setRefresh(false)
+        } else {
+            setRefresh(true)
+        }
+        onChange(colorValue)
     }
 
     return (
@@ -65,54 +79,66 @@ const PickerModal = ({
                     {
                         'kmt-option-modal': !inline_modal && appendToBody,
                     },
+                    className
                 )}
                 style={{
                     ...arrowLeft,
                     ...(style ? style : {}),
                 }}
                 {...wrapperProps}>
-                <div className="kmt-color-picker-top">
+                {!predefined && <div className="kmt-color-picker-top">
                     <ul className="kmt-color-picker-skins">
-                        {[
-                            '#000000',
-                            '#ffffff',
-                            '#dd3333',
-                            '#dd9933',
-                            '#eeee22',
-                            '#81d742',
-                            '#1e73be',
-                            "#e2e7ed"
+                        {['paletteColor1',
+                            'paletteColor2',
+                            'paletteColor3',
+                            'paletteColor4',
+                            'paletteColor5',
+                            'paletteColor6',
+                            'paletteColor7',
+                            'paletteColor8',
 
                         ].map((color, index) => (
                             <li
                                 key={color}
                                 style={{
-                                    background: color,
+                                    background: `var(--${color})`,
                                 }}
                                 className={classnames({
                                     active:
-                                        valueToCheck === color,
+                                        valueToCheck === `var(--${color})`,
                                 })}
                                 onClick={() =>
-                                    onPaletteChangeComplete(color)
+                                    handleTopPart(`var(--${color})`)
                                 }>
                                 <div className="kmt-tooltip-top">
                                     {
-                                        `Color ${index + 1} `
+                                        {
+                                            paletteColor1: 'Color 1',
+                                            paletteColor2: 'Color 2',
+                                            paletteColor3: 'Color 3',
+                                            paletteColor4: 'Color 4',
+                                            paletteColor5: 'Color 5',
+                                            paletteColor6: 'Color 6',
+                                            paletteColor7: 'Color 7',
+                                            paletteColor8: 'Color 8',
+                                        }[color]
                                     }
                                 </div>
                             </li>
                         ))}
                     </ul>
-                </div>
+                </div>}
+
+                <>
+                    <ColorPicker
+                        color={getValueForPicker.color}
+                        onChangeComplete={(color) => onChange(color)}
+                    />
+                </>
 
 
-                <ColorPickerIris
-                    onChange={(v) => onChange(v)}
-                    value={currentColor}
-                />
             </div>
-        </Fragment>
+        </Fragment >
     )
 }
 

@@ -1,33 +1,42 @@
-.customize-control-kmt-sortable ul.ui-sortable {
+.customize-control-kmt-sortable .kmt-sortable ul {
   cursor: default;
 }
+.sortable-list-tab {
+  cursor: default;
+  visibility: visible !important;
+  z-index: 99999999;
+  list-style-type: none;
+  padding: 0.3em;
+}
 
-.customize-control-kmt-sortable ul.ui-sortable .dashicons-visibility {
+.customize-control-kmt-sortable .kmt-sortable ul .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-kmt-sortable ul.ui-sortable li {
+.customize-control-kmt-sortable .kmt-sortable ul li {
   padding: 5px 10px;
   border: 1px solid #333;
   background: #fff;
   cursor: move;
+  z-index: 999999;
 }
 
-.customize-control-kmt-sortable ul.ui-sortable li i.dashicons.dashicons-menu {
+.customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu {
   float: right;
 }
 
-.customize-control-kmt-sortable ul.ui-sortable li .dashicons.visibility {
+.customize-control-kmt-sortable .kmt-sortable ul li .dashicons.visibility {
   margin-right: 10px;
 }
 
-.customize-control-kmt-sortable ul.ui-sortable li.invisible {
+.customize-control-kmt-sortable .kmt-sortable ul li.invisible {
   color: #aaa;
   border: 1px dashed #aaa;
 }
 
 .customize-control-kmt-sortable
-  ul.ui-sortable
+  .kmt-sortable
+  ul
   li.invisible
   .dashicons.visibility {
   color: #aaa;

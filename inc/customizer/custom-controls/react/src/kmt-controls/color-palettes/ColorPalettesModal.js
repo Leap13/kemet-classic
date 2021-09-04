@@ -1,43 +1,37 @@
-import {
-	Fragment,
-	createElement,
-	Component,
-	useRef,
-	useEffect,
-	useMemo,
-	useCallback,
-	useState,
-} from '@wordpress/element'
-import classnames from 'classnames'
 const { __, sprintf } = wp.i18n;
-import { Transition, animated } from '@react-spring/web'
+import { animated } from '@react-spring/web'
 import PalettePreview from './PalettePreview'
+import { SlotFillProvider } from '@wordpress/components'
 
-const ColorPalettesModal = ({ option, value, onChange, wrapperProps = {} }) => {
+
+const ColorPalettesModal = ({ value, onChange, wrapperProps = {} }) => {
 	return (
 		<animated.div
 			className="kmt-option-modal kmt-palettes-modal"
 			{...wrapperProps}>
 			{value.palettes.map((palette, index) => (
-				<PalettePreview
-					currentPalette={palette}
-					className={
-						value.current_palette === palette.id ? 'kmt-active' : ''
-					}
-					renderBefore={() => (
-						<label>
-							{sprintf(__('Palette #%s', 'Kemet'), index + 1)}
-						</label>
-					)}
-					onClick={() => {
-						const { id, ...colors } = palette
-						onChange({
-							...value,
-							current_palette: id,
-							...colors,
-						})
-					}}
-				/>
+				<SlotFillProvider>
+					<PalettePreview
+						currentPalette={palette}
+						className={
+							value.current_palette === palette.id ? 'kmt-active' : ''
+						}
+						renderBefore={() => (
+							<label>
+								{sprintf(__('Palette #%s', 'Kemet'), index + 1)}
+							</label>
+						)}
+						onClick={() => {
+							const { id, ...colors } = palette
+							onChange({
+								...value,
+								current_palette: id,
+								...colors,
+							})
+						}}
+						skipModal={true}
+					/>
+				</SlotFillProvider>
 			))}
 		</animated.div>
 	)
