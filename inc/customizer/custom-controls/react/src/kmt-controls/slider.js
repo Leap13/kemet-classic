@@ -10,20 +10,19 @@ class ResponsiveSliderComponent extends Component {
         this.responsive = this.props.params.responsive;
         let value = this.props.value
         this.defaultValue = this.props.params.default
-        let ResDefaultParam = {
-            "desktop": '',
-            "desktop-unit": 'px',
-            'tablet': '',
-            'tablet-unit': 'px',
-            'mobile': '',
-            'mobile-unit': ''
-        }
+        let ResDefaultParam = ['destop', 'tablet', 'mobile'].map((device) => (
+            {
+                [`${device}`]: '',
+                [`${device}-unit`]: 'px'
+            }
+        ))
+
         let defaultValue = {
             value: '',
             unit: 'px'
         }
-        let defaultValues;
-        defaultValues = this.responsive ? ResDefaultParam : defaultValue;
+
+        let defaultValues = this.responsive ? ResDefaultParam : defaultValue;
 
         let defaultVals = this.props.params.default
             ? {
@@ -43,9 +42,7 @@ class ResponsiveSliderComponent extends Component {
         this.state = {
             initialState: value,
             currentDevice: 'desktop',
-            defaultVal: defaultVals,
-
-
+            defaultVal: defaultVals
         }
 
         this.updateValues = this.updateValues.bind(this)
@@ -53,28 +50,22 @@ class ResponsiveSliderComponent extends Component {
         this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-
     updateValues(value) {
-        let updateState = {
-            ...this.state.initialState
-        };
+        let updateState = { ...this.state.initialState };
         if (this.responsive) {
             updateState[this.state.currentDevice] = value;
         } else {
             updateState[`value`] = value;
         }
-
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
+
     handleUnitChange = (device, value) => {
 
-        let updateState = {
-            ...this.state.initialState
-        };
+        let updateState = { ...this.state.initialState };
         if (this.responsive) {
             updateState[`${device}-unit`] = value;
-
         } else {
             updateState[`unit`] = value;
         }
@@ -92,8 +83,7 @@ class ResponsiveSliderComponent extends Component {
             };
             updateState[`${this.state.currentDevice}-unit`] = defUnit;
             updateState[this.state.currentDevice] = size;
-            this.props.onChange(updateState);
-            this.setState({ initialState: updateState });
+
         } else {
             let defUnit = this.state.defaultVal[`unit`],
                 size = this.state.defaultVal[`value`];
@@ -102,12 +92,10 @@ class ResponsiveSliderComponent extends Component {
             };
             updateState[`unit`] = defUnit;
             updateState[`value`] = size;
-            this.props.onChange(updateState);
-            this.setState({ initialState: updateState });
         }
+        this.props.onChange(updateState);
+        this.setState({ initialState: updateState });
     }
-
-
 
     render() {
         let { label, suffix, description } = this.props.params;
@@ -136,6 +124,7 @@ class ResponsiveSliderComponent extends Component {
                 label={label}
             />
         ) : <span className="customize-control-title">{label}</span>;
+
         let unitHTML = units.map((unit) => {
             let unit_class = '';
             if (this.responsive) {
@@ -181,13 +170,10 @@ class ResponsiveSliderComponent extends Component {
                 }
             }
         }
-
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
-
         return (
             <label htmlFor="">
                 {labelContent}
-
                 <div className="wrapper">
                     <div className={`input-field-wrapper active`}>
                         <RangeControl

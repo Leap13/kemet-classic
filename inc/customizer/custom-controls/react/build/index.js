@@ -17490,19 +17490,11 @@ var AvailableComponent = function AvailableComponent(props) {
       items = _useState2[0],
       setItems = _useState2[1];
 
-  var onDrogStart = function onDrogStart() {
+  var handleDrag = function handleDrag() {
     var dragZones = document.querySelectorAll(".kmt-builder-area");
 
     for (var i = 0; i < dragZones.length; i++) {
-      dragZones[i].classList.add("kmt-dragging-dropzones");
-    }
-  };
-
-  var onDragEnd = function onDragEnd() {
-    var dragZones = document.querySelectorAll(".kmt-builder-area");
-
-    for (var i = 0; i < dragZones.length; i++) {
-      dragZones[i].classList.remove("kmt-dragging-dropzones");
+      dragZones[i].classList.toggle("kmt-dragging-dropzones");
     }
   };
 
@@ -17563,13 +17555,13 @@ var AvailableComponent = function AvailableComponent(props) {
       animation: 100,
       className: "kmt-builder-item-start kmt-move-item",
       onStart: function onStart() {
-        return onDrogStart();
+        return handleDrag();
       },
       setList: function setList(newItems) {
         return onDragStop(newItems);
       },
       onEnd: function onEnd() {
-        return onDragEnd();
+        return handleDrag();
       },
       group: {
         name: controlParams.group,
@@ -17598,7 +17590,7 @@ var AvailableComponent = function AvailableComponent(props) {
     className: "kmt-available-items-title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
-  }, __("Available Items", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, __("Available Items", "Kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-container"
   }, Object.keys(choices).map(function (item) {
     return renderItems(item, "available");
@@ -20111,14 +20103,8 @@ var RadioImageComponent = function RadioImageComponent(props) {
     return splitedItems;
   };
 
-  if (inputAttrs) {
-    HandleRepeat(inputAttrs);
-  }
-
-  if (link) {
-    HandleRepeat(link);
-  }
-
+  inputAttrs ? HandleRepeat(inputAttrs) : null;
+  link ? HandleRepeat(link) : null;
   var radioContent = Object.entries(choices).map(function (_ref) {
     var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_ref, 2),
         key = _ref2[0],
@@ -20197,8 +20183,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var __ = wp.i18n.__;
 var _wp$components = wp.components,
     ButtonGroup = _wp$components.ButtonGroup,
-    Dashicon = _wp$components.Dashicon,
-    Tooltip = _wp$components.Tooltip,
     Button = _wp$components.Button;
 
 var RadioComponent = function RadioComponent(props) {
@@ -20779,31 +20763,25 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
             size = _this.state.defaultVal[_this.state.currentDevice];
 
-        var updateState = _objectSpread({}, _this.state.defaultVal);
+        var _updateState = _objectSpread({}, _this.state.defaultVal);
 
-        updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
-        updateState[_this.state.currentDevice] = size;
-
-        _this.props.onChange(updateState);
-
-        _this.setState({
-          initialState: updateState
-        });
+        _updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
+        _updateState[_this.state.currentDevice] = size;
       } else {
         var _defUnit = _this.state.defaultVal["unit"],
             _size = _this.state.defaultVal["value"];
 
-        var _updateState = _objectSpread({}, _this.state.defaultVal);
+        var _updateState2 = _objectSpread({}, _this.state.defaultVal);
 
-        _updateState["unit"] = _defUnit;
-        _updateState["value"] = _size;
-
-        _this.props.onChange(_updateState);
-
-        _this.setState({
-          initialState: _updateState
-        });
+        _updateState2["unit"] = _defUnit;
+        _updateState2["value"] = _size;
       }
+
+      _this.props.onChange(updateState);
+
+      _this.setState({
+        initialState: updateState
+      });
     });
 
     _this.unit_choices = _this.props.params.unit_choices;
@@ -20811,20 +20789,16 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _this.responsive = _this.props.params.responsive;
     var _value = _this.props.value;
     _this.defaultValue = _this.props.params.default;
-    var ResDefaultParam = {
-      "desktop": '',
-      "desktop-unit": 'px',
-      'tablet': '',
-      'tablet-unit': 'px',
-      'mobile': '',
-      'mobile-unit': ''
-    };
+    var ResDefaultParam = ['destop', 'tablet', 'mobile'].map(function (device) {
+      var _ref;
+
+      return _ref = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_ref, "".concat(device), ''), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_ref, "".concat(device, "-unit"), 'px'), _ref;
+    });
     var defaultValue = {
       value: '',
       unit: 'px'
     };
-    var defaultValues;
-    defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
+    var defaultValues = _this.responsive ? ResDefaultParam : defaultValue;
     var defaultVals = _this.props.params.default ? _objectSpread(_objectSpread({}, defaultValues), _this.props.params.default) : defaultValues;
     _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultVals;
     _this.state = {
@@ -21227,31 +21201,28 @@ var SpacingComponent = function SpacingComponent(props) {
     }
   }, [props]);
 
-  var onConnectedClick = function onConnectedClick() {
+  var handleClick = function handleClick() {
     var parent = event.target.parentElement.parentElement;
     var inputs = parent.querySelectorAll('.kmt-spacing-input');
     var elements = event.target.dataset.elementConnect;
 
     for (var i = 0; i < inputs.length; i++) {
-      inputs[i].classList.remove('connected');
+      inputs[i].classList.toggle('connected');
       inputs[i].setAttribute('data-element-connect', '');
     }
 
-    event.target.parentElement.classList.remove('disconnected');
-  };
+    event.target.parentElement.classList.toggle('disconnected');
+  }; // const onDisconnectedClick = () => {
+  // 	let elements = event.target.dataset.elementConnect;
+  // 	let parent = event.target.parentElement.parentElement;
+  // 	let inputs = parent.querySelectorAll('.kmt-spacing-input');
+  // 	for (let i = 0; i < inputs.length; i++) {
+  // 		inputs[i].classList.add('connected');
+  // 		inputs[i].setAttribute('data-element-connect', elements);
+  // 	}
+  // 	event.target.parentElement.classList.add('disconnected');
+  // };
 
-  var onDisconnectedClick = function onDisconnectedClick() {
-    var elements = event.target.dataset.elementConnect;
-    var parent = event.target.parentElement.parentElement;
-    var inputs = parent.querySelectorAll('.kmt-spacing-input');
-
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].classList.add('connected');
-      inputs[i].setAttribute('data-element-connect', elements);
-    }
-
-    event.target.parentElement.classList.add('disconnected');
-  };
 
   var onSpacingChange = function onSpacingChange(device, choiceID) {
     var choices = props.params.choices;
@@ -21337,14 +21308,14 @@ var SpacingComponent = function SpacingComponent(props) {
       title: title,
       className: "dashicons  dashicons-editor-unlink  kmt-spacing-disconnected ",
       onClick: function onClick() {
-        onDisconnectedClick();
+        handleClick();
       },
       "data-element-connect": id
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
       title: title,
       className: "dashicons dashicons-admin-links kmt-spacing-connected ",
       onClick: function onClick() {
-        onConnectedClick();
+        handleClick();
       },
       "data-element-connect": id
     }, " ")) : null;

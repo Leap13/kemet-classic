@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
-
 const EditorComponent = props => {
     const editorId = props.id + 'editor';
     const [state, setState] = useState({

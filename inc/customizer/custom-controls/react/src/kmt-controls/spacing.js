@@ -50,30 +50,30 @@ const SpacingComponent = props => {
 	}, [props]);
 
 
-	const onConnectedClick = () => {
+	const handleClick = () => {
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.kmt-spacing-input');
 		let elements = event.target.dataset.elementConnect;
 
 		for (let i = 0; i < inputs.length; i++) {
-			inputs[i].classList.remove('connected');
+			inputs[i].classList.toggle('connected');
 			inputs[i].setAttribute('data-element-connect', '');
 		}
-		event.target.parentElement.classList.remove('disconnected');
+		event.target.parentElement.classList.toggle('disconnected');
 	};
 
-	const onDisconnectedClick = () => {
-		let elements = event.target.dataset.elementConnect;
-		let parent = event.target.parentElement.parentElement;
-		let inputs = parent.querySelectorAll('.kmt-spacing-input');
+	// const onDisconnectedClick = () => {
+	// 	let elements = event.target.dataset.elementConnect;
+	// 	let parent = event.target.parentElement.parentElement;
+	// 	let inputs = parent.querySelectorAll('.kmt-spacing-input');
 
-		for (let i = 0; i < inputs.length; i++) {
-			inputs[i].classList.add('connected');
-			inputs[i].setAttribute('data-element-connect', elements);
-		}
+	// 	for (let i = 0; i < inputs.length; i++) {
+	// 		inputs[i].classList.add('connected');
+	// 		inputs[i].setAttribute('data-element-connect', elements);
+	// 	}
 
-		event.target.parentElement.classList.add('disconnected');
-	};
+	// 	event.target.parentElement.classList.add('disconnected');
+	// };
 
 	const onSpacingChange = (device, choiceID) => {
 		const { choices } = props.params;
@@ -140,14 +140,14 @@ const SpacingComponent = props => {
 				<span title={title}
 					className="dashicons  dashicons-editor-unlink  kmt-spacing-disconnected "
 					onClick={() => {
-						onDisconnectedClick();
+						handleClick();
 					}} data-element-connect={id} >
 				</span>
 				<span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected "
 					onClick={() => {
-						onConnectedClick();
+						handleClick();
 					}} data-element-connect={id} > </span>
-			</li>
+			</li >
 		) : null;
 		return <ul key={device} className={`kmt-spacing-wrapper ${active}`}>
 			{htmlChoices}

@@ -1,39 +1,35 @@
-import _ from 'underscore'
 import classnames from 'classnames'
 
 const round = (value) => Math.round(value * 10) / 10
 
-const NumberComponent = ({
-    value,
-    option,
-    option: { attr, step = 1, markAsAutoFor },
-    device,
-    onChange,
-}) => {
-    const parsedValue =
-        markAsAutoFor && markAsAutoFor.indexOf(device) > -1 ? 'auto' : value
+const NumberComponent = (props) => {
+    let value = props.value;
+    const parsedValue = value
+    let { min, max } = props.params
+    let step = 1;
+
     return (
         <div
-            className={classnames('ct-option-number', {
-                [`ct-reached-limits`]:
-                    parseFloat(parsedValue) === parseInt(option.min) ||
-                    parseFloat(parsedValue) === parseInt(option.max),
+            className={classnames('kmt-option-number', {
+                [`kmt-reached-limits`]:
+                    parseFloat(parsedValue) === parseInt(min) ||
+                    parseFloat(parsedValue) === parseInt(max),
             })}
-            {...(attr || {})}>
+        >
             <a
-                className={classnames('ct-minus', {
-                    ['ct-disabled']:
-                        parseFloat(parsedValue) === parseInt(option.min),
+                className={classnames('kmt-minus', {
+                    ['kmt-disabled']:
+                        parseFloat(parsedValue) === parseInt(min),
                 })}
                 onClick={() =>
-                    onChange(
+                    props.onChange(
                         round(
                             Math.min(
                                 Math.max(
                                     parseFloat(parsedValue) - parseFloat(step),
-                                    option.min || -Infinity
+                                    min
                                 ),
-                                option.max || Infinity
+                                max
                             )
                         )
                     )
@@ -41,49 +37,34 @@ const NumberComponent = ({
             />
 
             <a
-                className={classnames('ct-plus', {
-                    ['ct-disabled']:
-                        parseFloat(parsedValue) === parseInt(option.max),
+                className={classnames('kmt-plus', {
+                    ['kmt-disabled']:
+                        parseFloat(parsedValue) === parseInt(max),
                 })}
                 onClick={() =>
-                    onChange(
+                    props.onChange(
                         round(
                             Math.min(
                                 Math.max(
                                     parseFloat(parsedValue) + parseFloat(step),
-                                    option.min || -Infinity
+                                    min
                                 ),
-                                option.max || Infinity
+                                max
                             )
                         )
                     )
                 }
             />
-            <input type="number" value={parsedValue}
+            <input type="number"
+                value={value}
                 step={step}
-                onChange={(value) =>
-                    _.isNumber(parseFloat(value))
-                        ? onChange(
-                            round(
-                                Math.min(
-                                    Math.max(
-                                        value,
-                                        option.min || -Infinity
-                                    ),
-                                    option.max || Infinity
-                                )
-                            )
-                        )
-                        : parseFloat(value)
-                            ? onChange(
-                                round(
-                                    Math.min(
-                                        parseFloat(value),
-                                        option.max || Infinity
-                                    )
-                                )
-                            )
-                            : onChange(round(value))
+                max={max}
+                min={min}
+                onChange={() =>
+                    props.onChange(
+                        event.target.value
+                    )
+
                 } />
         </div>
     )

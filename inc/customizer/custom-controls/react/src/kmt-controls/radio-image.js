@@ -35,12 +35,9 @@ const RadioImageComponent = (props) => {
         return splitedItems;
     }
 
-    if (inputAttrs) {
-        HandleRepeat(inputAttrs)
-    }
-    if (link) {
-        HandleRepeat(link)
-    }
+    inputAttrs ? HandleRepeat(inputAttrs) : null
+
+    link ? HandleRepeat(link) : null
 
     let radioContent = Object.entries(choices).map(([key, value]) => {
         return (
