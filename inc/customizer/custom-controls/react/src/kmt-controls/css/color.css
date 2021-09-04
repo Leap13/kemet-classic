@@ -1090,3 +1090,10 @@
 .kmt-color-picker-modal .components-color-picker__inputs-toggle span {
   display: none;
 }
+.kmt-color-picker-modal {
+  width: var(--modalWidth, 300px);
+  border-radius: 8px;
+}
+.kmt-color-picker-single {
+  margin-right: 6px;
+}
