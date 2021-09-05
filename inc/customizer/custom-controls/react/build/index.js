@@ -17698,16 +17698,16 @@ var BackgroundComponent = function BackgroundComponent(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
       className: "customize-control-title"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-      className: "kmt-color-btn-reset-wrap"
+      className: "kmt-background-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-      className: "kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small",
+      className: "kmt-reset-btn ",
       disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
       onClick: function onClick(e) {
         e.preventDefault();
         updateValue(defaultVals);
       }
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__["Dashicon"], {
-      icon: "image-rotate"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "dashicons dashicons-image-rotate"
     }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml);
   };
 
@@ -17881,7 +17881,7 @@ var BackgroundModal = function BackgroundModal(props) {
           background: color
         },
         className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
-          active: props.props.color === color
+          active: props.color === color
         }),
         onClick: function onClick() {
           return onChangeComplete(color);
@@ -17949,21 +17949,23 @@ var BackgroundModal = function BackgroundModal(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "kmt-control kmt-image-actions"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
-      title: __("Select Background Image", 'astra'),
+      title: __("Select Background Image", 'Kemet'),
       onSelect: function onSelect(media) {
         return onSelectImage(media);
       },
       allowedTypes: ["image"],
-      value: props.props.media && props.props.media ? props.props.media : '',
+      value: props.media && props.media ? props.media : '',
       render: function render(_ref) {
         var open = _ref.open;
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !props.props.media && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !props.media && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+          className: "kmt-control kmt-image-actions"
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           className: "upload-button button-add-media",
           isDefault: true,
           onClick: function onClick() {
             return open(open);
           }
-        }, __("Select Background Image", 'Kemet')), props.props.media && props.props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+        }, __("Select Background Image", 'Kemet'))), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
           className: "actions"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           type: "button",
@@ -17977,14 +17979,12 @@ var BackgroundModal = function BackgroundModal(props) {
           }
         })));
       }
-    })), props.props.media && props.props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-      className: "kmt-control"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    }), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "thumbnail thumbnail-image"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["FocalPointPicker"], {
-      url: props.props.media.url ? props.props.media.url : props.props.backgroundImage,
+      url: props.media.url ? props.media.url : props.backgroundImage,
       dimensions: dimensions,
-      value: undefined !== props.props.backgroundPosition ? props.props.backgroundPosition : {
+      value: undefined !== props.backgroundPosition ? props.backgroundPosition : {
         x: 0.5,
         y: 0.5
       },
@@ -17998,7 +17998,7 @@ var BackgroundModal = function BackgroundModal(props) {
     }, Object.keys(repeat).map(function (item) {
       var classActive = "";
 
-      if (item === props.props.backgroundRepeat) {
+      if (item === props.backgroundRepeat) {
         classActive = "active";
       }
 
@@ -18016,7 +18016,7 @@ var BackgroundModal = function BackgroundModal(props) {
     }, ["auto", "cover", "contain"].map(function (item) {
       var classActive = "";
 
-      if (item === props.props.backgroundSize) {
+      if (item === props.backgroundSize) {
         classActive = "active";
       }
 
@@ -18034,7 +18034,7 @@ var BackgroundModal = function BackgroundModal(props) {
     }, ["fixed", "scroll", "inherit"].map(function (item) {
       var classActive = "";
 
-      if (item === props.props.backgroundAttachment) {
+      if (item === props.backgroundAttachment) {
         classActive = "active";
       }
 
@@ -18054,15 +18054,15 @@ var BackgroundModal = function BackgroundModal(props) {
       setToggle = _useState2[1];
 
   var onSelectImage = function onSelectImage(media) {
-    props.props.onSelectImage(media, "image");
+    props.onSelectImage(media, "image");
   };
 
   var onSelect = function onSelect(tabName) {
-    props.props.onSelect(tabName);
+    props.onSelect(tabName);
   };
 
   var onRemoveImage = function onRemoveImage() {
-    props.props.onSelectImage("");
+    props.onSelectImage("");
   };
 
   var open = function open(_open) {
@@ -18072,7 +18072,7 @@ var BackgroundModal = function BackgroundModal(props) {
   };
 
   var onChangeImageOptions = function onChangeImageOptions(tempKey, mainkey, value) {
-    props.props.onChangeImageOptions(mainkey, value, "image");
+    props.onChangeImageOptions(mainkey, value, "image");
   };
 
   var onChangeComplete = function onChangeComplete(newValue) {
@@ -18082,7 +18082,7 @@ var BackgroundModal = function BackgroundModal(props) {
       setToggle(true);
     }
 
-    props.props.onChangeComplete(newValue);
+    props.onChangeComplete(newValue);
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
@@ -18095,10 +18095,10 @@ var BackgroundModal = function BackgroundModal(props) {
       "data-type": type,
       key: type,
       className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
-        active: type === props.props.backgroundType
+        active: type === props.backgroundType
       }),
       onClick: function onClick() {
-        return props.props.onSelect(type);
+        return props.onSelect(type);
       }
     }, {
       color: __("Color", "blocksy"),
@@ -18107,25 +18107,25 @@ var BackgroundModal = function BackgroundModal(props) {
     }[type]);
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
-      "kmt-image-tab kmt-options-container": props.props.backgroundType === "image",
-      "kmt-gradient-tab kmt-color-picker-modal": props.props.backgroundType === "gradient",
-      "kmt-color-tab": props.props.backgroundType === "color"
+      "kmt-image-tab kmt-options-container": props.backgroundType === "image",
+      "kmt-gradient-tab kmt-color-picker-modal": props.backgroundType === "gradient",
+      "kmt-color-tab": props.backgroundType === "color"
     })
-  }, props.props.backgroundType === "image" && renderImageSettings(), props.props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGradientPicker"], {
+  }, props.backgroundType === "image" && renderImageSettings(), props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGradientPicker"], {
     className: "kmt-gradient-color-picker",
-    value: props.props.gradient && props.props.backgroundType === "gradient" ? props.props.gradient : "",
+    value: props.gradient && props.backgroundType === "gradient" ? props.gradient : "",
     onChange: function onChange(gradient) {
-      return props.props.onChangeGradient(gradient, "gradient");
+      return props.onChangeGradient(gradient, "gradient");
     }
-  })), props.props.backgroundType == "color" && toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
-    color: props.props.color,
+  })), props.backgroundType == "color" && toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
+    color: props.color,
     onChangeComplete: function onChangeComplete(color) {
-      return props.props.onChangeComplete(color);
+      return props.onChangeComplete(color);
     }
-  })), props.props.backgroundType == "color" && !toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
-    color: props.props.color,
+  })), props.backgroundType == "color" && !toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
+    color: props.color,
     onChangeComplete: function onChangeComplete(color) {
-      return props.props.onChangeComplete(color);
+      return props.onChangeComplete(color);
     }
   }))));
 };
@@ -18932,9 +18932,7 @@ var Background = function Background(props) {
         active: isOpen
       })
     })
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    props: props
-  })), document.body));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__["default"], props)), document.body));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Background);
@@ -21201,35 +21199,25 @@ var SpacingComponent = function SpacingComponent(props) {
     }
   }, [props]);
 
-  var handleClick = function handleClick() {
+  var handleToggleClick = function handleToggleClick(text) {
     var parent = event.target.parentElement.parentElement;
     var inputs = parent.querySelectorAll('.kmt-spacing-input');
     var elements = event.target.dataset.elementConnect;
 
     for (var i = 0; i < inputs.length; i++) {
       inputs[i].classList.toggle('connected');
-      inputs[i].setAttribute('data-element-connect', '');
+      text === "disconnect" ? inputs[i].setAttribute('data-element-connect', elements) : inputs[i].setAttribute('data-element-connect', '');
     }
 
     event.target.parentElement.classList.toggle('disconnected');
-  }; // const onDisconnectedClick = () => {
-  // 	let elements = event.target.dataset.elementConnect;
-  // 	let parent = event.target.parentElement.parentElement;
-  // 	let inputs = parent.querySelectorAll('.kmt-spacing-input');
-  // 	for (let i = 0; i < inputs.length; i++) {
-  // 		inputs[i].classList.add('connected');
-  // 		inputs[i].setAttribute('data-element-connect', elements);
-  // 	}
-  // 	event.target.parentElement.classList.add('disconnected');
-  // };
-
+  };
 
   var onSpacingChange = function onSpacingChange(device, choiceID) {
     var choices = props.params.choices;
 
     var updateState = _objectSpread({}, state);
 
-    var deviceUpdateState = responsive ? updateState[device] : updateState["value"];
+    var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
 
     if (!event.target.classList.contains('connected')) {
       deviceUpdateState[choiceID] = event.target.value;
@@ -21239,12 +21227,7 @@ var SpacingComponent = function SpacingComponent(props) {
       }
     }
 
-    if (responsive) {
-      updateState[device] = deviceUpdateState;
-    } else {
-      updateState["value"] = deviceUpdateState;
-    }
-
+    responsive ? updateState[device] = deviceUpdateState : updateState["value"] = deviceUpdateState;
     props.onChange(updateState);
     setState(updateState);
   };
@@ -21254,25 +21237,32 @@ var SpacingComponent = function SpacingComponent(props) {
 
     var updateState = _objectSpread({}, state);
 
-    if (responsive) {
-      updateState["".concat(device, "-unit")] = unitKey;
-    } else {
-      updateState["unit"] = unitKey;
-    }
-
+    responsive ? updateState["".concat(device, "-unit")] = unitKey : updateState["unit"] = unitKey;
     props.onChange(updateState);
     setState(updateState);
   };
 
-  var renderInputHtml = function renderInputHtml() {
-    var active = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var renderResponsiveInput = function renderResponsiveInput(device) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+      key: device,
+      type: "hidden",
+      onChange: function onChange() {
+        return onUnitChange(device, '');
+      },
+      className: "kmt-spacing-unit-input kmt-spacing-".concat(device, "-unit"),
+      "data-device": "".concat(device),
+      value: state["".concat(device, "-unit")]
+    });
+  };
+
+  var renderInputHtml = function renderInputHtml(device) {
+    var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     var _props$params = props.params,
         linked_choices = _props$params.linked_choices,
         id = _props$params.id,
         title = _props$params.title,
         choices = _props$params.choices,
         inputAttrs = _props$params.inputAttrs,
-        unit_choices = _props$params.unit_choices,
         connected = _props$params.connected;
     var connectedClass = false === connected ? '' : 'connected';
     var disconnectedClass = false === connected ? '' : 'disconnected';
@@ -21308,20 +21298,20 @@ var SpacingComponent = function SpacingComponent(props) {
       title: title,
       className: "dashicons  dashicons-editor-unlink  kmt-spacing-disconnected ",
       onClick: function onClick() {
-        handleClick();
+        handleToggleClick("disConnect");
       },
       "data-element-connect": id
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
       title: title,
       className: "dashicons dashicons-admin-links kmt-spacing-connected ",
       onClick: function onClick() {
-        handleClick();
+        handleToggleClick("Connect");
       },
       "data-element-connect": id
     }, " ")) : null;
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
       key: device,
-      className: "kmt-spacing-wrapper ".concat(active)
+      className: "kmt-spacing-wrapper ".concat(device, " ").concat(active)
     }, htmlChoices, linkHtml);
   };
 
@@ -21364,32 +21354,6 @@ var SpacingComponent = function SpacingComponent(props) {
     }, responsiveUnit);
   };
 
-  var handleReset = function handleReset(e) {
-    e.preventDefault();
-
-    if (responsive) {
-      var defUnit = defaultVals["".concat(device, "-unit")],
-          size = defaultVals[device];
-
-      var updateState = _objectSpread({}, defaultVals);
-
-      updateState["".concat(device, "-unit")] = defUnit;
-      updateState[device] = size;
-      props.onChange(updateState);
-      setState(updateState);
-    } else {
-      var _defUnit = defaultVals["unit"],
-          _size = defaultVals["value"];
-
-      var _updateState = _objectSpread({}, defaultVals);
-
-      _updateState["unit"] = _defUnit;
-      _updateState["value"] = _size;
-      props.onChange(_updateState);
-      setState(_updateState);
-    }
-  };
-
   var _props$params2 = props.params,
       label = _props$params2.label,
       description = _props$params2.description;
@@ -21397,21 +21361,11 @@ var SpacingComponent = function SpacingComponent(props) {
   var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
-  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml('active'));
+  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml(device, 'active'));
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     key: 'kmt-spacing-responsive',
     className: "kmt-spacing-responsive"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-spacing-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn components-button components-circular-option-picker__clear is-small",
-    disabled: JSON.stringify(state) === JSON.stringify(defaultVals),
-    onClick: function onClick(e) {
-      return handleReset(e);
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "dashicons dashicons-image-rotate"
-  }))), responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onChange: function onChange(currentDevice) {
       return setDevice(currentDevice);
     },

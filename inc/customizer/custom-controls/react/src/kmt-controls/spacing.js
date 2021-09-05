@@ -25,6 +25,8 @@ const SpacingComponent = props => {
 		'tablet-unit': defaultValue.unit,
 		'mobile-unit': defaultValue.unit
 	}
+
+
 	let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
 	let defaultVals = props.params.default
@@ -50,36 +52,33 @@ const SpacingComponent = props => {
 	}, [props]);
 
 
-	const handleClick = () => {
+	const handleToggleClick = (text) => {
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.kmt-spacing-input');
 		let elements = event.target.dataset.elementConnect;
 
 		for (let i = 0; i < inputs.length; i++) {
 			inputs[i].classList.toggle('connected');
-			inputs[i].setAttribute('data-element-connect', '');
+
+			text === "disconnect" ? inputs[i].setAttribute('data-element-connect', elements) : inputs[i].setAttribute('data-element-connect', '')
 		}
+
 		event.target.parentElement.classList.toggle('disconnected');
 	};
 
-	// const onDisconnectedClick = () => {
-	// 	let elements = event.target.dataset.elementConnect;
-	// 	let parent = event.target.parentElement.parentElement;
-	// 	let inputs = parent.querySelectorAll('.kmt-spacing-input');
-
-	// 	for (let i = 0; i < inputs.length; i++) {
-	// 		inputs[i].classList.add('connected');
-	// 		inputs[i].setAttribute('data-element-connect', elements);
-	// 	}
-
-	// 	event.target.parentElement.classList.add('disconnected');
-	// };
-
 	const onSpacingChange = (device, choiceID) => {
-		const { choices } = props.params;
-		let updateState = { ...state };
+		const {
+			choices
+		} = props.params;
+		let updateState = {
+			...state
+		};
 
-		let deviceUpdateState = responsive ? updateState[device] : updateState[`value`];
+		let deviceUpdateState = responsive ? {
+			...updateState[device]
+		} : {
+			...updateState[`value`]
+		};
 
 		if (!event.target.classList.contains('connected')) {
 			deviceUpdateState[choiceID] = event.target.value;
@@ -88,46 +87,46 @@ const SpacingComponent = props => {
 				deviceUpdateState[choiceID] = event.target.value;
 			}
 		}
-		if (responsive) {
-			updateState[device] = deviceUpdateState;
-
-		} else {
-			updateState[`value`] = deviceUpdateState
-		}
+		responsive ? updateState[device] = deviceUpdateState : updateState[`value`] = deviceUpdateState;
 		props.onChange(updateState);
 		setState(updateState);
 	};
 
 	const onUnitChange = (device, unitKey = '') => {
-		let updateState = { ...state };
-		if (responsive) {
-			updateState[`${device}-unit`] = unitKey;
-		} else {
-			updateState[`unit`] = unitKey;
-		}
+		let updateState = {
+			...state
+		};
+		responsive ? updateState[`${device}-unit`] = unitKey : updateState[`unit`] = unitKey;
 		props.onChange(updateState);
 		setState(updateState);
 	};
-	const renderInputHtml = (active = '') => {
+
+	const renderResponsiveInput = (device) => {
+		return <input key={device} type='hidden' onChange={() => onUnitChange(device, '')}
+			className={`kmt-spacing-unit-input kmt-spacing-${device}-unit`} data-device={`${device}`}
+			value={state[`${device}-unit`]}></input>;
+	};
+
+	const renderInputHtml = (device, active = '') => {
 		const {
 			linked_choices,
 			id,
 			title,
 			choices,
 			inputAttrs,
-			unit_choices,
 			connected
 		} = props.params;
+
 		let connectedClass = false === connected ? '' : 'connected';
 		let disconnectedClass = false === connected ? '' : 'disconnected';
 		let htmlChoices = null;
 		if (choices) {
 			htmlChoices = Object.keys(choices).map(choiceID => {
 				let inputValue = responsive ? state[device][choiceID] : state[`value`][choiceID];
+
 				let html = <li key={choiceID} {...inputAttrs} className='kmt-spacing-input-item'>
 					<input type='number' className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`} data-id={choiceID}
-						value={inputValue}
-						onChange={() => onSpacingChange(device, choiceID)}
+						value={inputValue} onChange={() => onSpacingChange(device, choiceID)}
 						data-element-connect={id} />
 					<span className="kmt-spacing-title">{choices[choiceID]}</span>
 				</li>;
@@ -140,16 +139,16 @@ const SpacingComponent = props => {
 				<span title={title}
 					className="dashicons  dashicons-editor-unlink  kmt-spacing-disconnected "
 					onClick={() => {
-						handleClick();
+						handleToggleClick("disConnect");
 					}} data-element-connect={id} >
 				</span>
 				<span title={title} className="dashicons dashicons-admin-links kmt-spacing-connected "
 					onClick={() => {
-						handleClick();
+						handleToggleClick("Connect");
 					}} data-element-connect={id} > </span>
-			</li >
+			</li>
 		) : null;
-		return <ul key={device} className={`kmt-spacing-wrapper ${active}`}>
+		return <ul key={device} className={`kmt-spacing-wrapper ${device} ${active}`}>
 			{htmlChoices}
 			{linkHtml}
 
@@ -171,7 +170,6 @@ const SpacingComponent = props => {
 						unitClass = 'active';
 					}
 				}
-
 				let html = <li key={unitKey} className={`single-unit ${unitClass}`}
 					onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>
 					<span className="unit-text">{unitKey}</span>
@@ -185,53 +183,16 @@ const SpacingComponent = props => {
 		</ul>)
 	}
 
-	const handleReset = (e) => {
-		e.preventDefault();
-		if (responsive) {
-			let defUnit = defaultVals[`${device}-unit`],
-				size = defaultVals[device];
-			let updateState = {
-				...defaultVals
-			};
-			updateState[`${device}-unit`] = defUnit;
-			updateState[device] = size;
-
-			props.onChange(updateState);
-			setState(updateState);
-		} else {
-			let defUnit = defaultVals[`unit`],
-				size = defaultVals[`value`];
-			let updateState = {
-				...defaultVals
-			};
-			updateState[`unit`] = defUnit;
-			updateState[`value`] = size;
-
-			props.onChange(updateState);
-			setState(updateState);
-		}
-	}
-	const {
-		label,
-		description
-	} = props.params;
+	const { label, description } = props.params;
 
 	let inputHtml = null;
-
 	let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
 	inputHtml = <Fragment>
-		{renderInputHtml('active')}
+		{renderInputHtml(device, 'active')}
 	</Fragment>;
 
 	return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
-		<div className="kmt-spacing-btn-reset-wrap">
-			<button
-				className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
-				disabled={JSON.stringify(state) === JSON.stringify(defaultVals)}
-				onClick={e => handleReset(e)}>
-				<span className="dashicons dashicons-image-rotate"></span>
-			</button>
-		</div>
+
 		{responsive ? <Responsive
 			onChange={(currentDevice) => setDevice(currentDevice)}
 			label={label}
@@ -243,6 +204,7 @@ const SpacingComponent = props => {
 			<div className="input-wrapper kmt-spacing-responsive-wrapper">
 				{inputHtml}
 			</div>
+
 		</div>
 	</div>;
 

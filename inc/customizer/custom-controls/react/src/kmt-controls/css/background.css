@@ -378,7 +378,7 @@
 }
 .kmt-image-actions .actions {
   position: absolute;
-  top: 107px;
+  top: 17px;
   right: 38px;
   overflow: hidden;
   border-radius: 3px;
@@ -424,8 +424,8 @@
   width: 18px;
 }
 .kmt-background {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   cursor: pointer;
   border-radius: 100%;
   margin-left: auto;
@@ -755,13 +755,6 @@
   height: 2px;
   background: var(--primaryColor);
 }
-.kmt-option-modal {
-  position: fixed;
-  z-index: 100000;
-  width: var(--modalWidth, 295px);
-  background: #fff;
-  border-radius: 6px;
-  box-sizing: border-box;
-  box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
-  right: var(--modal-x-offset);
+.kmt-control.kmt-image-actions {
+  margin-top: 0px;
 }

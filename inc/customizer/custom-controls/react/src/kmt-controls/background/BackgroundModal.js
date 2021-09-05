@@ -32,7 +32,7 @@ const BackgroundModal = (props) => {
                                 background: color,
                             }}
                             className={classnames({
-                                active: props.props.color === color,
+                                active: props.color === color,
                             })}
                             onClick={() => onChangeComplete(color)}
                         >
@@ -77,50 +77,45 @@ const BackgroundModal = (props) => {
 
         return (
             <>
-                <div className="kmt-control kmt-image-actions">
+                <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
-                        title={__("Select Background Image", 'astra')}
+                        title={__("Select Background Image", 'Kemet')}
                         onSelect={(media) => onSelectImage(media)}
                         allowedTypes={["image"]}
-                        value={(props.props.media && props.props.media ? props.props.media : '')}
+                        value={(props.media && props.media ? props.media : '')}
                         render={({ open }) => (
                             <>
-                                {!props.props.media &&
-
-                                    < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
-                                        {__("Select Background Image", 'Kemet')}
-                                    </Button>
+                                {!props.media &&
+                                    <div className="kmt-control kmt-image-actions">
+                                        < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
+                                            {__("Select Background Image", 'Kemet')}
+                                        </Button>
+                                    </div>
                                 }
-                                {(props.props.media && props.props.backgroundType === "image") &&
+                                {(props.media && props.backgroundType === "image") &&
                                     <div className="actions">
                                         <Button type="button" className="button remove-image" onClick={onRemoveImage} >
                                         </Button>
                                         <Button type="button" className="button edit-image" onClick={() => open(open)}>
                                         </Button>
                                     </div>}
-
                             </>
                         )}
                     />
-                </div>
-
-                {(props.props.media && props.props.backgroundType === "image") &&
-                    <>
-                        <div className='kmt-control'>
+                    {(props.media && props.backgroundType === "image") &&
+                        <>
                             <div className={`thumbnail thumbnail-image`}>
                                 <FocalPointPicker
-                                    url={(props.props.media.url) ? props.props.media.url : props.props.backgroundImage}
+                                    url={(props.media.url) ? props.media.url : props.backgroundImage}
                                     dimensions={dimensions}
-                                    value={(undefined !== props.props.backgroundPosition ? props.props.backgroundPosition : { x: 0.5, y: 0.5 })}
+                                    value={(undefined !== props.backgroundPosition ? props.backgroundPosition : { x: 0.5, y: 0.5 })}
                                     onChange={(focalPoint) => onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
                                 />
 
                             </div>
-
-                        </div>
-
-                    </>
-                }
+                        </>
+                    }
+                </div>
                 <div className="kmt-control">
                     <header>
                         <label>{__("Background Repeat")}</label>
@@ -129,7 +124,7 @@ const BackgroundModal = (props) => {
                         <ul className="kmt-radio-option kmt-buttons-group">
                             {Object.keys(repeat).map((item) => {
                                 let classActive = "";
-                                if (item === props.props.backgroundRepeat) {
+                                if (item === props.backgroundRepeat) {
                                     classActive = "active";
                                 }
                                 return (
@@ -159,7 +154,7 @@ const BackgroundModal = (props) => {
                         <ul className="kmt-radio-option kmt-buttons-group">
                             {["auto", "cover", "contain"].map((item) => {
                                 let classActive = "";
-                                if (item === props.props.backgroundSize) {
+                                if (item === props.backgroundSize) {
                                     classActive = "active";
                                 }
                                 return (
@@ -190,7 +185,7 @@ const BackgroundModal = (props) => {
                         <ul className="kmt-radio-option kmt-buttons-group">
                             {["fixed", "scroll", "inherit"].map((item) => {
                                 let classActive = "";
-                                if (item === props.props.backgroundAttachment) {
+                                if (item === props.backgroundAttachment) {
                                     classActive = "active";
                                 }
                                 return (
@@ -219,14 +214,14 @@ const BackgroundModal = (props) => {
     const [toggle, setToggle] = useState(false)
 
     const onSelectImage = (media) => {
-        props.props.onSelectImage(media, "image");
+        props.onSelectImage(media, "image");
     };
     const onSelect = (tabName) => {
 
-        props.props.onSelect(tabName);
+        props.onSelect(tabName);
     };
     const onRemoveImage = () => {
-        props.props.onSelectImage("");
+        props.onSelectImage("");
     };
 
     const open = (open) => {
@@ -235,7 +230,7 @@ const BackgroundModal = (props) => {
     };
 
     const onChangeImageOptions = (tempKey, mainkey, value) => {
-        props.props.onChangeImageOptions(mainkey, value, "image");
+        props.onChangeImageOptions(mainkey, value, "image");
     };
 
     const onChangeComplete = (newValue) => {
@@ -244,7 +239,7 @@ const BackgroundModal = (props) => {
         } else {
             setToggle(true)
         }
-        props.props.onChangeComplete(newValue)
+        props.onChangeComplete(newValue)
     }
     return (
         <Fragment>
@@ -259,9 +254,9 @@ const BackgroundModal = (props) => {
                         data-type={type}
                         key={type}
                         className={classnames({
-                            active: type === props.props.backgroundType,
+                            active: type === props.backgroundType,
                         })}
-                        onClick={() => props.props.onSelect(type)}
+                        onClick={() => props.onSelect(type)}
                     >
                         {
                             {
@@ -277,53 +272,53 @@ const BackgroundModal = (props) => {
             <div
                 className={classnames({
                     "kmt-image-tab kmt-options-container":
-                        props.props.backgroundType === "image",
+                        props.backgroundType === "image",
                     "kmt-gradient-tab kmt-color-picker-modal":
-                        props.props.backgroundType === "gradient",
-                    "kmt-color-tab": props.props.backgroundType === "color",
+                        props.backgroundType === "gradient",
+                    "kmt-color-tab": props.backgroundType === "color",
                 })}
             >
-                {props.props.backgroundType === "image" && renderImageSettings()}
+                {props.backgroundType === "image" && renderImageSettings()}
 
-                {props.props.backgroundType === "gradient" && (
+                {props.backgroundType === "gradient" && (
                     <>
                         <__experimentalGradientPicker
                             className="kmt-gradient-color-picker"
                             value={
-                                props.props.gradient &&
-                                    props.props.backgroundType === "gradient"
-                                    ? props.props.gradient
+                                props.gradient &&
+                                    props.backgroundType === "gradient"
+                                    ? props.gradient
                                     : ""
                             }
                             onChange={(gradient) =>
-                                props.props.onChangeGradient(gradient, "gradient")
+                                props.onChangeGradient(gradient, "gradient")
                             }
                         />
 
                     </>
                 )}
 
-                {props.props.backgroundType == "color" &&
+                {props.backgroundType == "color" &&
                     toggle &&
                     (
                         <>
                             {RenderTopSection()}
                             < ColorPicker
-                                color={props.props.color}
-                                onChangeComplete={(color) => props.props.onChangeComplete(color)}
+                                color={props.color}
+                                onChangeComplete={(color) => props.onChangeComplete(color)}
                             />
                         </>
                     )
 
                 }
-                {props.props.backgroundType == "color" &&
+                {props.backgroundType == "color" &&
                     !toggle &&
                     (
                         <>
                             {RenderTopSection()}
                             < ColorPicker
-                                color={props.props.color}
-                                onChangeComplete={(color) => props.props.onChangeComplete(color)}
+                                color={props.color}
+                                onChangeComplete={(color) => props.onChangeComplete(color)}
                             />
                         </>
                     )

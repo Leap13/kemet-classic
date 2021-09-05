@@ -16,12 +16,10 @@ class ResponsiveSliderComponent extends Component {
                 [`${device}-unit`]: 'px'
             }
         ))
-
         let defaultValue = {
             value: '',
             unit: 'px'
         }
-
         let defaultValues = this.responsive ? ResDefaultParam : defaultValue;
 
         let defaultVals = this.props.params.default

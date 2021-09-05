@@ -42,13 +42,12 @@ const BackgroundComponent = (props) => {
 
     let responsiveHtml = responsive ? <Responsive onChange={(device) => setDevice(device)} /> : null;
 
-
     const renderReset = () => {
         return (
             <span className="customize-control-title">
-                <div className="kmt-color-btn-reset-wrap">
+                <div className="kmt-background-btn-reset-wrap">
                     <button
-                        className="kmt-reset-btn components-button components-circular-option-picker__clear is-secondary is-small"
+                        className="kmt-reset-btn "
                         disabled={
                             JSON.stringify(props_value) === JSON.stringify(defaultVals)
                         }
@@ -57,7 +56,7 @@ const BackgroundComponent = (props) => {
                             updateValue(defaultVals);
                         }}
                     >
-                        <Dashicon icon="image-rotate" />
+                        <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 <label>

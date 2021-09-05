@@ -6,7 +6,6 @@ const { __ } = wp.i18n;
 import usePopoverMaker from "../common/popover-component";
 
 
-
 const Background = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const backgroundWrapper = useRef();
@@ -75,7 +74,7 @@ const Background = (props) => {
                             }),
                         }}
                     >
-                        <BackgroundModal props={props} />
+                        <BackgroundModal {...props} />
                     </OutsideClickHandler>,
                     document.body
                 )}
