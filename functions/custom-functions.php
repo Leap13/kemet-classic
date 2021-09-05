@@ -81,18 +81,6 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 		$page_layout = 'kmt-' . kemet_layout();
 		$classes[]   = $page_layout;
 
-		// Current Kemet verion.
-		$classes[] = 'kemet-' . KEMET_THEME_VERSION;
-
-		$outside_menu  = kemet_get_option( 'header-display-outside-menu' );
-		$header_layout = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-
-		if ( $outside_menu || 'header-main-layout-3' != $header_layout ) {
-			$classes[] = 'kmt-header-custom-item-outside';
-		} else {
-			$classes[] = 'kmt-header-custom-item-inside';
-		}
-
 		// Footer.
 		$kemet_sticky_footer = kemet_get_option( 'enable-sticky-footer' );
 
@@ -252,87 +240,6 @@ if ( ! function_exists( 'kemet_custom_logo' ) ) {
 add_filter( 'get_custom_logo', 'kemet_custom_logo', 10, 2 );
 
 /**
- * Adding Wrapper for Search Form.
- */
-if ( ! function_exists( 'kemet_get_search' ) ) {
-
-	/**
-	 * Adding Wrapper for Search Form.
-	 *
-	 * @param  string $option   Search Option name.
-	 * @return mixed Search HTML structure created.
-	 */
-	function kemet_get_search( $option = '' ) {
-		$search_style      = kemet_get_option( 'search-style' );
-		$box_shadow        = '';
-		$search_box_shadow = kemet_get_option( 'search-box-shadow' );
-		if ( true == $search_box_shadow ) {
-			$box_shadow = 'search-box-shadow';
-		}
-
-		$search_html  = '<div class="kmt-search-container">';
-		$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
-		$search_html .= '<div class="kmt-search-menu-icon ' . $box_shadow . '" id="kmt-search-form" data-type="' . $search_style . '">';
-		$search_html .= get_search_form( false );
-		$search_html .= '</div>';
-		$search_html .= '</div>';
-
-		return apply_filters( 'kemet_get_search', $search_html, $option );
-	}
-}
-
-/**
- * Get custom HTML added by user.
- */
-if ( ! function_exists( 'kemet_get_custom_html' ) ) {
-
-	/**
-	 * Get custom HTML added by user.
-	 *
-	 * @param  string $option_name Option name.
-	 * @return String TEXT/HTML added by user in options panel.
-	 */
-	function kemet_get_custom_html( $option_name = '' ) {
-		$custom_html         = '';
-		$custom_html_content = kemet_get_option( $option_name );
-
-		if ( ! empty( $custom_html_content ) ) {
-			$custom_html = '<div class="kmt-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
-		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . KEMET_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kemet' ) . '</a>';
-		}
-
-		return $custom_html;
-	}
-}
-
-/**
- * Get Widget added by user.
- */
-if ( ! function_exists( 'kemet_get_custom_widget' ) ) {
-
-	/**
-	 * Get custom widget added by user.
-	 *
-	 * @param  string $option_name Option name.
-	 * @return Widget added by user in options panel.
-	 */
-	function kemet_get_custom_widget( $option_name = '' ) {
-		ob_start();
-
-		if ( 'off-canvas-filter' == $option_name ) {
-			$widget_id = 'off-canvas-filter-widget';
-		}
-
-		echo '<div class="kmt-' . esc_attr( $widget_id ) . '-area">';
-		kemet_get_sidebar( $widget_id );
-		echo '</div>';
-
-		return ob_get_clean();
-	}
-}
-
-/**
  * Function to get Small Footer Custom Text
  */
 if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
@@ -365,70 +272,6 @@ if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
 	}
 }
 
-/**
- * Function to get Top Menu
- */
-if ( ! function_exists( 'kemet_get_top_menu' ) ) {
-
-	/**
-	 * Function to get Top Menu
-	 *
-	 * @return html
-	 */
-	function kemet_get_top_menu() {
-		ob_start();
-
-		if ( has_nav_menu( 'top_menu' ) ) {
-			wp_nav_menu(
-				array(
-					'container'       => 'div',
-					'container_class' => 'top-navigation',
-					'theme_location'  => 'top_menu',
-					'menu_class'      => 'nav-menu',
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-					// 'depth'           => 1,
-				)
-			);
-		} else {
-			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
-				?>
-					<a href="<?php echo esc_url( admin_url( '/nav-menus.php?action=locations' ) ); ?>"><?php esc_html_e( 'Assign Top Menu', 'kemet' ); ?></a>
-				<?php
-			}
-		}
-
-		return ob_get_clean();
-	}
-}
-/**
- * Function to get Right Section Menu
- */
-if ( ! function_exists( 'kemet_get_right_section_menu' ) ) {
-
-	/**
-	 * Function to get Right Section Menu
-	 *
-	 * @return html
-	 */
-	function kemet_get_right_section_menu() {
-		ob_start();
-		$right_section_menu = kemet_get_option( 'header-right-section-menu' );
-
-		if ( 0 != $right_section_menu ) {
-			wp_nav_menu(
-				array(
-					'menu'            => $right_section_menu,
-					'container'       => 'div',
-					'container_class' => 'header-right-section-navigation',
-					'menu_class'      => 'nav-menu',
-					'menu_id'         => 'right-section-menu',
-					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-				)
-			);
-		}
-		return ob_get_clean();
-	}
-}
 /**
  * Function to get site Header
  */
@@ -503,28 +346,6 @@ function kemet_header_breakpoint_style() {
 add_action( 'wp_enqueue_scripts', 'kemet_header_breakpoint_style' );
 
 /**
- * Function to get Body Font Family
- */
-if ( ! function_exists( 'kemet_body_font_family' ) ) {
-
-	/**
-	 * Function to get Body Font Family
-	 *
-	 * @return string
-	 */
-	function kemet_body_font_family() {
-		$font_family = kemet_get_option( 'body-font-family' );
-
-		// Body Font Family.
-		if ( 'inherit' == $font_family ) {
-			$font_family = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif';
-		}
-
-		return apply_filters( 'kemet_body_font_family', $font_family );
-	}
-}
-
-/**
  * Function to get Edit Post Link
  */
 if ( ! function_exists( 'kemet_edit_post_link' ) ) {
@@ -555,31 +376,13 @@ if ( ! function_exists( 'kemet_header_classes' ) ) {
 	 * Function to get Header Classes
 	 */
 	function kemet_header_classes() {
-		$classes                  = array( 'site-header' );
-		$menu_logo_location       = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-		$mobile_header_alignment  = kemet_get_option( 'header-main-menu-align' );
-		$primary_menu_disable     = kemet_get_option( 'disable-primary-nav' );
-		$primary_menu_custom_item = kemet_get_option( 'header-main-rt-section' );
-		$logo_title_inline        = kemet_get_option( 'logo-title-inline' );
-		$header_layouts           = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
+		$classes           = array( 'site-header' );
+		$logo_title_inline = kemet_get_option( 'logo-title-inline' );
 
-		if ( $menu_logo_location ) {
-			$classes[] = $menu_logo_location;
-		}
-
-		if ( $primary_menu_disable ) {
-			$classes[] = 'kmt-primary-menu-disabled';
-
-			if ( 'none' == $primary_menu_custom_item ) {
-				$classes[] = 'kmt-no-menu-items';
-			}
-		}
 		// Add class if Inline Logo & Site Title.
 		if ( $logo_title_inline ) {
 			$classes[] = 'kmt-logo-title-inline';
 		}
-
-		$classes[] = 'kmt-mobile-header-' . $mobile_header_alignment;
 
 		$classes = array_unique( apply_filters( 'kemet_header_class', $classes ) );
 
@@ -780,41 +583,6 @@ if ( ! function_exists( 'kemet_get_sidebar' ) ) {
 				<p class='no-widget-text'>
 					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
 						<?php esc_html_e( 'Add Widget', 'kemet' ); ?>
-					</a>
-				</p>
-			</div>
-			<?php
-		}
-	}
-}
-
-/**
- * Get Footer widgets
- */
-if ( ! function_exists( 'kemet_get_footer_widget' ) ) {
-
-	/**
-	 * Get Footer Default Sidebar
-	 *
-	 * @param  string $sidebar_id   Sidebar Id..
-	 * @return void
-	 */
-	function kemet_get_footer_widget( $sidebar_id ) {
-		if ( is_active_sidebar( $sidebar_id ) ) {
-			dynamic_sidebar( $sidebar_id );
-		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			global $wp_registered_sidebars;
-			$sidebar_name = '';
-			if ( isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
-				$sidebar_name = $wp_registered_sidebars[ $sidebar_id ]['name'];
-			}
-			?>
-			<div class="widget kmt-no-widget-row">
-				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
-				<p class='no-widget-text'>
-					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Assign a widget here', 'kemet' ); ?>
 					</a>
 				</p>
 			</div>
@@ -1245,89 +1013,6 @@ if ( ! function_exists( 'kemet_enable_page_builder' ) ) :
 	}
 
 endif;
-
-/**
- * Header Layouts
- *
- * @param string $layout header layout.
- * @return string
- */
-function kemet_header_layout( $layout ) {
-	$kemet_layouts = array( 'header-main-layout-1', 'header-main-layout-2', 'header-main-layout-3' );
-
-	if ( ! class_exists( 'Kemet_Addons' ) && ! in_array( $layout, $kemet_layouts ) ) {
-		$layout = 'header-main-layout-1';
-	}
-
-	return $layout;
-}
-add_filter( 'kemet_primary_header_layout', 'kemet_header_layout' );
-
-/**
- * Header classes
- *
- * @param array $classes header classes.
- * @return array
- */
-function header_classes( $classes ) {
-	$header_layouts = apply_filters( 'kemet_primary_header_layout', kemet_get_option( 'header-layouts' ) );
-	if ( 'header-main-layout-1' == $header_layouts || 'header-main-layout-2' == $header_layouts ) {
-		$menu_aglin = kemet_get_option( 'menu-alignment' );
-
-		$classes[] = $menu_aglin;
-	}
-	if ( 'header-main-layout-1' == $header_layouts ) {
-		$menu_class = 'menu-rtl';
-
-		if ( is_rtl() ) {
-			$menu_class = 'menu-ltr';
-		}
-		$classes[] = $menu_class;
-	}
-
-	return $classes;
-}
-add_filter( 'kemet_header_class', 'header_classes', 10, 1 );
-
-if ( ! function_exists( 'theme_default_header_layout' ) ) {
-
-	/**
-	 * Default Header layout
-	 *
-	 * @param string $header header layout.
-	 * @return string
-	 */
-	function theme_default_header_layout( $header ) {
-		$theme_headers = array( 'header-main-layout-1', 'header-main-layout-2', 'header-main-layout-3' );
-		if ( in_array( $header, $theme_headers ) ) {
-			return $header;
-		}
-
-		return 'header-main-layout-1';
-	}
-}
-
-if ( ! function_exists( 'kemet_default_header_layout' ) ) {
-
-	/**
-	 * Default header layout
-	 *
-	 * @return mixed
-	 */
-	function kemet_default_header_layout() {
-		if ( defined( 'KEMET_ADDONS_VERSION' ) ) {
-			$header_option = get_option( 'kemet_addons_options' );
-			$header_option = $header_option ? $header_option['extra-headers'] : false;
-			if ( $header_option ) {
-				return;
-			}
-		}
-
-		add_filter( 'kemet_primary_header_layout', 'theme_default_header_layout' );
-	}
-}
-
-add_action( 'init', 'kemet_default_header_layout' );
 
 /**
  * Support upload svg

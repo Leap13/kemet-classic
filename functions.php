@@ -43,7 +43,6 @@ require_once KEMET_THEME_DIR . 'inc/class-kemet-add-dynamic-css.php';
 require_once KEMET_THEME_DIR . 'functions/template-tags.php';
 require_once KEMET_THEME_DIR . 'inc/widgets.php';
 require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
-require_once KEMET_THEME_DIR . 'functions/admin/admin-functions.php';
 require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
 require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';

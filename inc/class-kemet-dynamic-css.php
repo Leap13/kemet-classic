@@ -102,7 +102,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$single_content_separator_color = kemet_get_sub_option( 'content-separator-color', 'initial', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
 
 			// Typography.
-			$body_font_size                    = kemet_get_option( 'font-size-body' );
+			$body_typography                   = kemet_get_option( 'body-typography' );
+			$body_font_size                    = $body_typography['size'];
 			$body_letter_spacing               = kemet_get_option( 'letter-spacing-body' );
 			$body_line_height                  = kemet_get_option( 'body-line-height' );
 			$para_margin_bottom                = kemet_get_option( 'para-margin-bottom' );
@@ -353,9 +354,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$blog_max_width        = kemet_get_option( 'blog-max-width' );
 
 			$css_output = array();
-			// Body Font Family.
-			$body_font_family = kemet_body_font_family();
-			$body_font_weight = kemet_get_option( 'body-font-weight' );
 
 			if ( is_array( $body_font_size ) ) {
 				$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
@@ -365,14 +363,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			$css_output = array(
 				':root'                                 => array(
-					'--fontFamily'                 => kemet_get_font_family( $body_font_family ),
-					'--fontSize'                   => kemet_responsive_slider( $body_font_size, 'desktop' ),
-					'--fontWeight'                 => esc_attr( $body_font_weight ),
-					'--textTransform'              => 'none',
-					'--textDecoration'             => 'none',
-					'--lineHeight'                 => '1.85714285714286',
-					'--letterSpacing'              => kemet_responsive_slider( $body_letter_spacing, 'desktop' ),
-					'--fontStyle'                  => esc_attr( $body_font_style ),
 					'--themeColor'                 => esc_attr( $theme_color ),
 					'--textColor'                  => esc_attr( $text_meta_color ),
 					'--headingLinksColor'          => esc_attr( $headings_links_color ),
@@ -871,6 +861,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			/* Parse CSS from array() */
 			$parse_css = kemet_parse_css( $css_output );
 			// Typography.
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'body', ':root' );
+			// Branch: merged-style.
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'buttons', 'button, .button, .kmt-button, input[type=button], input[type=reset] ,input[type="submit"], .wp-block-button a.wp-block-button__link, .wp-block-search button.wp-block-search__button' );
 			// Read More.
 			$readmore_text_color     = kemet_get_sub_option( 'readmore-text-color', 'initial' );
@@ -1317,21 +1309,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( $site_width, '769' );
-
-			/**
-			 * Kemet Fonts
-			 */
-			if ( apply_filters( 'kemet_enable_default_fonts', true ) ) {
-				$kemet_fonts  = '@font-face {';
-				$kemet_fonts .= 'font-family: "Kemet-font";';
-				$kemet_fonts .= 'src: url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.woff) format("woff"),';
-				$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.ttf) format("truetype"),';
-				$kemet_fonts .= 'url( ' . KEMET_THEME_URI . 'assets/fonts/kemet-font.svg#kemet) format("svg");';
-				$kemet_fonts .= 'font-weight: normal;';
-				$kemet_fonts .= 'font-style: normal;';
-				$kemet_fonts .= '}';
-				$parse_css   .= $kemet_fonts;
-			}
 
 			/* Blog */
 			if ( 'custom' === $blog_width ) :

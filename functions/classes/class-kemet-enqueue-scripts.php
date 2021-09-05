@@ -133,16 +133,7 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 		 * Add Fonts
 		 */
 		public function add_fonts() {
-			// $font_family = kemet_get_option( 'body-font-family' );
-			// $font_weight = kemet_get_option( 'body-font-weight' );
-
-			// Kemet_Fonts::add_font( $font_family, $font_weight );
-
-			// Render headings font.
-			// $font_family = kemet_get_option( 'headings-font-family' );
-			// $font_weight = kemet_get_option( 'headings-font-weight' );
-
-			// Kemet_Fonts::add_font( $font_family, $font_weight );
+			// Branch: merged-style.
 
 			// Button fonts.
 			$typography = kemet_get_option( 'buttons-typography' );
