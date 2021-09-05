@@ -138,6 +138,7 @@
     position: relative;
     color: inherit;
     margin: auto;
+    background-color: var(--globalBackgroundColor);
     box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
   }
 
@@ -329,7 +330,7 @@
     border-color: var(--borderColor);
     border-width: var(--borderWidth, 0 0 1px 0);
     .header-bar-content {
-      background-color: var(--backgroundColor);
+      background-color: var(--globalBackgroundColor);
     }
   }
 }
@@ -658,11 +659,14 @@
     height: 6.15px;
 }
 
-.header-toggle-button path {
-  width: 18px;
-      -webkit-transform-origin: 50% 50%;
+.header-toggle-button path:nth-child(1) {
+   -webkit-transform-origin: 50% 50%;
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
+}
+
+.header-toggle-button path {
+  width: 18px;
     -webkit-transition: all .12s cubic-bezier(.455,.03,.515,.955);
     transition: all .12s cubic-bezier(.455,.03,.515,.955);
 }

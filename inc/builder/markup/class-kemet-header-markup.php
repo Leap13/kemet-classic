@@ -550,7 +550,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			}
 
 			$search_html  = '<div class="kmt-search-container">';
-			$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#"><span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
+			$search_html .= '<div class="kmt-search-icon"><a class="kemet-search-icon" href="#">' . Kemet_Svg_Icons::get_icons( 'search' ) . '<span class="screen-reader-text">' . esc_html__( 'Search', 'kemet' ) . '</span></a></div>';
 			$search_html .= '<div class="kmt-search-menu-icon ' . $box_shadow . '" id="kmt-search-form">';
 			$search_html .= get_search_form( false );
 			$search_html .= '</div>';

@@ -8,38 +8,23 @@ const SpacingComponent = props => {
     let value = props.value
     const [device, setDevice] = useState('desktop');
     let responsive = props.params.responsive;
-    let ResDefaultParam = {
-        "desktop": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "tablet": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "mobile": {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        "desktop-unit": 'px',
-        'tablet-unit': 'px',
-        'mobile-unit': ''
-    }
     let defaultValue = {
-        value: {
-            'top': '',
-            'right': '',
-            'bottom': '',
-            'left': ''
-        },
-        unit: 'px'
-    }
+            value: {
+                'top': '',
+                'right': '',
+                'bottom': '',
+                'left': '',
+            },
+            unit: "px"
+        }
+    let ResDefaultParam = {
+            "desktop": defaultValue.value,
+            "tablet": defaultValue.value,
+            "mobile": defaultValue.value,
+            "desktop-unit": defaultValue.unit,
+            "tablet-unit": defaultValue.unit,
+            "mobile-unit": defaultValue.unit,
+        }
     let defaultValues;
     defaultValues = responsive ? ResDefaultParam : defaultValue;
 
@@ -91,7 +76,7 @@ const SpacingComponent = props => {
         event.target.parentElement.classList.add('disconnected');
     };
 
-    const onSpacingChange = (choiceID) => {
+    const onSpacingChange = (device, choiceID) => {
         const {
             choices
         } = props.params;

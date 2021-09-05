@@ -42,8 +42,8 @@ class Kemet_Svg_Icons {
                     </svg>';
 					break;
 				case 'search':
-					$output = '<svg data-name="Layer 1" viewBox="0 0 90.1 90" xmlns="http://www.w3.org/2000/svg">
-					<path transform="translate(-2.5 -2.5)" d="m91.8 88.3-26.2-26.2a35.94 35.94 0 1 0-27.1 12.4 35.35 35.35 0 0 0 23.6-8.9l26.2 26.2a2.41 2.41 0 0 0 1.8 0.7 2.87 2.87 0 0 0 1.8-0.7 2.27 2.27 0 0 0 0.7-1.8 3.37 3.37 0 0 0-0.8-1.7zm-53.3-18.8a31 31 0 1 1 31-31 31 31 0 0 1-31 31z"/>
+					$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="24.02" height="24.02" viewBox="0 0 24.02 24.02"><title>search</title>
+					<path d="M23.71,22.29l-6-6a10,10,0,1,0-1.42,1.42l6,6a1,1,0,0,0,1.42-1.42ZM10,18a8,8,0,1,1,8-8A8,8,0,0,1,10,18Z" transform="translate(0.03 0.03)"/>
 					</svg>';
 					break;
 				case 'author':
@@ -86,7 +86,7 @@ class Kemet_Svg_Icons {
 					</svg>';
 					break;
                 case 'menu':
-                    // $output = '<svg width="18" height="14" data-name="Layer 1" viewBox="0 0 70.4 69.4" xmlns="http://www.w3.org/2000/svg">
+                    // 1 $output = '<svg width="18" height="14" data-name="Layer 1" viewBox="0 0 70.4 69.4" xmlns="http://www.w3.org/2000/svg">
                     // <path transform="translate(-12.3 -12.8)" d="M14.8,17.8H80.2a2.5,2.5,0,0,0,0-5H14.8a2.5,2.5,0,0,0,0,5Z"/>
                     // <path transform="translate(-12.3 -12.8)" d="M80.2,77.2H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
                     // <path transform="translate(-12.3 -12.8)" d="M80.2,45H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
@@ -102,6 +102,26 @@ class Kemet_Svg_Icons {
                     <path transform="translate(-21.85 -21.85)" d="M72.4,68.8a2.55,2.55,0,0,1-3.6,3.6L47.5,51.1,26.2,72.4a2.55,2.55,0,0,1-3.6-3.6L43.9,47.5,22.6,26.2a2.55,2.55,0,1,1,3.6-3.6L47.5,43.9,68.8,22.6a2.55,2.55,0,0,1,3.6,3.6L51.1,47.5Z"/>
                     </svg>';
                     break;
+				case 'long_arrow_top':
+					$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="12.01" height="14" viewBox="0 0 12.01 14"><title>long-arrow-top</title>
+					<path d="M6.29,10.88a1,1,0,0,0,1.42,0L11,7.59V18a1,1,0,0,0,2,0V7.59l3.29,3.29a1,1,0,0,0,1.44-1.39l0,0L14.12,5.88a3,3,0,0,0-4.24,0h0L6.29,9.47A1,1,0,0,0,6.29,10.88Z" transform="translate(-6 -5)"/>
+					</svg>';
+					break;
+				case 'arrow-up':
+					$output = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+						<path d="M7 13l4.030-6 3.97 6h-8z"></path>
+					</svg>';
+					break;
+				case 'arrow-up-alt':
+					$output = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+						<path d="M11 18h-2v-12l-4 4-2-1 7-7 7 7-2 1-4-4v12z"></path>
+					</svg>';
+					break;
+				case 'arrow-up-alt2':
+					$output = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+						<path d="M15 14l-5-5-5 5-2-1 7-7 7 7z"></path>
+					</svg>';
+					break;
 				default:
 					$output = '';
 					break;

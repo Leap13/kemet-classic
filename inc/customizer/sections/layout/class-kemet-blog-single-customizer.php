@@ -81,53 +81,24 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'enable-page-title-content-area'  => array(
+								'type'    => 'kmt-switcher',
+								'label'    => __( 'Enable Post Title in Content Area', 'kemet' ),
+							),
+							'prev-next-links'      => array(
+								'type'    => 'kmt-switcher',
+								'label'    => __( 'Disable Next / Prev Links', 'kemet' ),
+							),
+							'enable-author-box'    => array(
+								'type'    => 'kmt-switcher',
+								'label'    => __( 'Enable Author Box', 'kemet' ),
+							)
 						),
 					),
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'font-size-entry-title'      => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Title Font Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 1,
-										'step' => 1,
-										'max'  => 200,
-									),
-									'em' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.kmt-single-post .entry-header .entry-title',
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							'letter-spacing-entry-title' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Title Letter Spacing', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.kmt-single-post .entry-header .entry-title',
-									'property'   => '--letterSpacing',
-									'responsive' => true,
-								),
-							),
-							'font-color-entry-title'     => array(
+						'font-color-entry-title'     => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
 								'label'     => __( 'Post Title Font Color', 'kemet' ),
@@ -161,6 +132,50 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'title-meta-position'  => array(
+								'type'     => 'kmt-radio',
+								'label'    => __( 'Title And Meta Position', 'kemet' ),
+								'choices'   => array(
+									'left'   => __( 'Left', 'kemet' ),
+									'center' => __( 'Center', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.single .entry-heade',
+									'property'   => 'text-align',
+								),
+							),
+							'content-alignment'  => array(
+								'type'     => 'kmt-radio',
+								'label'    => __( 'Content Alignment', 'kemet' ),
+								'choices'   => array(
+									'left'   => __( 'Left', 'kemet' ),
+									'center' => __( 'Center', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.single .entry-content',
+									'property'   => 'text-alignn',
+								),
+							),
+							'padding-inside-container'     => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Content Padding', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => '.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li',
+									'property'   => 'padding',
+								),
+							),
 							'comment-button-spacing'     => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
@@ -181,8 +196,114 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
+							
 						),
-					),
+					// 		'entry-title-typography'     => array(
+					// 			'type'      => 'kmt-typography',
+					// 			'label'     => __( 'Typography', 'kemet' ),
+					// 			'transport' => 'postMessage',
+					// 			'preview'   => array(
+					// 				'selector' => '.kmt-single-post .entry-header .entry-title',
+					// 			),
+					// 		),
+					// 		    'font-size-entry-title'      => array(
+					// 			'type'         => 'kmt-slider',
+					// 			'responsive'   => true,
+					// 			'transport'    => 'postMessage',
+					// 			'label'        => __( 'Title Font Size', 'kemet' ),
+					// 			'unit_choices' => array(
+					// 				'px' => array(
+					// 					'min'  => 1,
+					// 					'step' => 1,
+					// 					'max'  => 200,
+					// 				),
+					// 				'em' => array(
+					// 					'min'  => 0.1,
+					// 					'step' => 0.1,
+					// 					'max'  => 10,
+					// 				),
+					// 			),
+					// 			'preview'      => array(
+					// 				'selector'   => '.kmt-single-post .entry-header .entry-title',
+					// 				'property'   => '--fontSize',
+					// 				'responsive' => true,
+					// 			),
+					// 		),
+					// 		'letter-spacing-entry-title' => array(
+					// 			'type'         => 'kmt-slider',
+					// 			'responsive'   => true,
+					// 			'transport'    => 'postMessage',
+					// 			'label'        => __( 'Title Letter Spacing', 'kemet' ),
+					// 			'unit_choices' => array(
+					// 				'px' => array(
+					// 					'min'  => 0.1,
+					// 					'step' => 0.1,
+					// 					'max'  => 10,
+					// 				),
+					// 			),
+					// 			'preview'      => array(
+					// 				'selector'   => '.kmt-single-post .entry-header .entry-title',
+					// 				'property'   => '--letterSpacing',
+					// 				'responsive' => true,
+					// 			),
+					// 		),
+					// 		'font-color-entry-title'     => array(
+					// 			'type'      => 'kmt-color',
+					// 			'transport' => 'postMessage',
+					// 			'label'     => __( 'Post Title Font Color', 'kemet' ),
+					// 			'pickers'   => array(
+					// 				array(
+					// 					'title' => __( 'Color', 'kemet' ),
+					// 					'id'    => 'initial',
+					// 				),
+					// 			),
+					// 			'preview'   => array(
+					// 				'initial' => array(
+					// 					'selector' => '.kmt-single-post .entry-header .entry-title',
+					// 					'property' => '--headingLinksColor',
+					// 				),
+					// 			),
+					// 		),
+					// 		'single-post-meta-color'     => array(
+					// 			'type'      => 'kmt-color',
+					// 			'transport' => 'postMessage',
+					// 			'label'     => __( 'Post Meta Color', 'kemet' ),
+					// 			'pickers'   => array(
+					// 				array(
+					// 					'title' => __( 'Color', 'kemet' ),
+					// 					'id'    => 'initial',
+					// 				),
+					// 			),
+					// 			'preview'   => array(
+					// 				'initial' => array(
+					// 					'selector' => '.kmt-single-post .entry-meta,.kmt-single-post .entry-meta *',
+					// 					'property' => '--headingLinksColor',
+					// 				),
+					// 			),
+					// 		),
+					// 		'comment-button-spacing'     => array(
+					// 			'type'           => 'kmt-spacing',
+					// 			'transport'      => 'postMessage',
+					// 			'responsive'     => true,
+					// 			'label'          => __( 'Comment Button Spacing', 'kemet' ),
+					// 			'linked_choices' => true,
+					// 			'unit_choices'   => array( 'px', 'em', '%' ),
+					// 			'choices'        => array(
+					// 				'top'    => __( 'Top', 'kemet' ),
+					// 				'right'  => __( 'Right', 'kemet' ),
+					// 				'bottom' => __( 'Bottom', 'kemet' ),
+					// 				'left'   => __( 'Left', 'kemet' ),
+					// 			),
+					// 			'preview'        => array(
+					// 				'selector'   => '.comments-area .form-submit input[type="submit"]',
+					// 				'property'   => '--margin',
+					// 				'sides'      => false,
+					// 				'responsive' => true,
+					// 			),
+					// 		),
+					// 	),
+					// ),
+				),
 				),
 			),
 		);

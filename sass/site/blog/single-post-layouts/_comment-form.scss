@@ -24,7 +24,7 @@
     list-style: none;
     &.depth-1 .kmt-comment,
     &.depth-2 .kmt-comment {
-      border-bottom: 1px solid $color-border-content;
+      border-bottom: 1px solid var(--borderColor);
     }
   }
   .children {
@@ -38,7 +38,7 @@
   }
   .comment-respond {
     padding: 1em 0;
-    border-bottom: 1px solid $color-border-content;
+    border-bottom: 1px solid var(--borderColor);
     .comment-reply-title {
       margin-top: 0;
       padding-top: 0;

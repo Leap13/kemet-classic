@@ -1,0 +1,65 @@
+.kmt-go-top-button {
+  position: fixed;
+  bottom: var(--bottomOffset);
+  opacity: 0;
+  cursor: pointer;
+  visibility: hidden;
+  z-index: 99;
+  transform: translate3d(0, 15px, 0);
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  line-height: normal;
+  padding: .4em .4em .4em .4em;
+  &.go-top-left {
+    left: var(--sideOffset);
+  }
+  &.go-top-right {
+    right: var(--sideOffset);
+  }
+  &.is-opacity {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+  }
+  span {
+    display: flex;
+  }
+  svg {
+    height: 1em;
+    width: 1em;
+  }
+}
+
+
+
+/* Go Top Responsive */
+@media only screen and (max-width: 480px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hide-tablet-mobile {
+    display: none !important;
+  }
+  .kmt-go-top-link {
+    right: 20px;
+    bottom: 20px;
+    width: 35px;
+    height: 35px;
+  }
+}

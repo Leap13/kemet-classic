@@ -1773,3 +1773,26 @@ var toggleClass = function (el, className) {
   window.addEventListener("resize", parallaxFooter());
   parallaxFooter();
 })();
+/**
+ * scroll to top.
+ */
+(function() {
+  var goTopBtn = document.getElementById("kmt-go-top");
+  if (goTopBtn) {
+    var checkScrollVisiblity = function () {
+      if (window.scrollY > 100) {
+        goTopBtn.classList.add('is-opacity');
+      } else {
+        goTopBtn.classList.remove('is-opacity');;
+      }
+    }
+    window.addEventListener('scroll', checkScrollVisiblity);
+    checkScrollVisiblity();
+    // Scroll to top on click.
+    goTopBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+

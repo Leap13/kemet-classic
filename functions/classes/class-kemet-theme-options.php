@@ -164,7 +164,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'single-image',
 						'single-title-meta',
 					),
-
+					'title-meta-position'   			   => 'left',
+					'content-alignment'					   => 'left',
+					'padding-inside-container'             => '',
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
 					'blog-single-meta'                     => array(
@@ -173,11 +175,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					// Kemet Blog.
+					'blog-layouts'                        => 'blog-layout-1',
 					'blog-post-structure'                  => array(
 						'image',
 						'title-meta',
 						'content-readmore',
 					),
+					'blog-excerpt-length'          => 50,
 					'blog-width'                           => 'default',
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
@@ -186,6 +190,9 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					'blog-featured-image-width'      		=>  '',
+			        'blog-featured-image-height'     		=>  '',
+					'hover-image-effect'           		   => 'none',
 					'pagination-padding'                   => '',
 					'font-color-entry-title'               => '',
 					'comment-button-spacing'               => '',
@@ -342,6 +349,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'desktop-unit' => 'px',
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
+					),
+					'blog-grids'                   => array(
+						'desktop' => 3,
+						'tablet'  => 2,
+						'mobile'  => 1,
 					),
 					'search-btn-h-bg-color'                => '',
 					'search-btn-color'                     => '',
@@ -639,6 +651,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					),
 					'search-font-style'                    => 'inherit',
 					'search-font-family'                   => 'inherit',
+					// Go top
+					'go-top-position'           => 'right',
+					'go-top-side-offset'        => 50,
+					'go-top-bottom-offset'		=> 50,
+					'go-top-style'              => 'arrow-up-alt'
 				)
 			);
 		}
