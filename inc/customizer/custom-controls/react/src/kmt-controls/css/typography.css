@@ -41,6 +41,33 @@
 .kmt-typography {
   position: relative;
 }
+.kmt-typography header .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500;
+}
+.kmt-typography header .kmt-reset-btn {
+  font-size: 10px;
+  color: var(--primaryColor);
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  transform: translate3d(-10px, 0, 0);
+  background: 0 0;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+.kmt-typography header .kmt-reset-btn span {
+  font-size: 10px !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+.kmt-typography header .kmt-reset-btn span:hover {
+  transform: rotate(-45deg);
+}
+.kmt-typography:hover header .kmt-reset-btn:not(:disabled) span {
+  opacity: 1;
+}
 .kmt-typohraphy-value {
   display: flex;
   align-items: center;

@@ -1,8 +1,4 @@
-import {
-    createPortal,
-    useRef,
-    useState,
-} from '@wordpress/element'
+import { createPortal, useRef, useState } from '@wordpress/element'
 import PalettePreview from './color-palettes/PalettePreview'
 import ColorPalettesModal from './color-palettes/ColorPalettesModal'
 import usePopoverMaker from '../common/popover-component'
@@ -13,9 +9,6 @@ const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
     const [value, setValue] = useState(props.value)
-    const [currentPalette, setCurrtPalette] = useState(value.palettes.find(
-        ({ id }) => id === value.current_palette
-    ))
 
     const colorPalettesWrapper = useRef()
 
@@ -49,18 +42,29 @@ const ColorPalettes = (props) => {
         props.onChange({ ...val, flag: !value.flag })
     }
 
-    const handleColors = (current) => {
-
-        Object.values(current).map((item, index) => {
+    const handleChangePalette = (active) => {
+        let currentPalette = active.palettes.find(
+            ({ id }) => id === active.current_palette
+        )
+        Object.values(currentPalette).map((item, index) => {
             document.documentElement.style.setProperty('--paletteColor' + index, item);
             return item;
         });
+
+        updateValues(active)
     }
+
     const handleChangeComplete = (color, index) => {
+        let currentPalette = value.palettes.find(
+            ({ id }) => id === value.current_palette
+        )
         let newValue = currentPalette;
         newValue[index] = color;
         let { id, ...colors } = newValue;
-        handleColors(newValue)
+        Object.values(newValue).map((item, index) => {
+            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            return item;
+        });
         updateValues({ ...value, current_palette: id, ...colors })
     }
 
@@ -78,19 +82,15 @@ const ColorPalettes = (props) => {
                     ref: colorPalettesWrapper,
                     onClick: (e) => {
                         e.preventDefault()
-
                         if (
                             e.target.closest('.kmt-color-picker-modal') ||
                             e.target.classList.contains('kmt-color-picker-modal')
                         ) {
                             return
                         }
-
                         if (!value.palettes) {
-
                             return
                         }
-
                         setIsOpen(true)
                     },
                 }}>
@@ -151,7 +151,6 @@ const ColorPalettes = (props) => {
                             if (!item) {
                                 return null
                             }
-
                             return (
                                 <ColorPalettesModal
                                     wrapperProps={{
@@ -163,8 +162,7 @@ const ColorPalettes = (props) => {
                                     }}
                                     onChange={(val) => {
                                         setIsOpen(false)
-                                        updateValues(val)
-                                        handleColors(currentPalette)
+                                        handleChangePalette(val)
                                     }}
                                     value={value}
                                     option={value}

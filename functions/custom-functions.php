@@ -1184,6 +1184,10 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 	 * @return string
 	 */
 	function kemet_hex2rgba( $color, $opacity = false, $echo = false ) {
+
+		if (strlen($color ) > 2 && substr( $color , 0, 5 ) === "var(--") {
+            return $color ;
+        } 
 		$default = 'rgb(0,0,0)';
 
 		// Return default if no color provided.
@@ -1206,29 +1210,7 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 		}
 
 		// Convert hexadec to rgb.
-		$rgb = array_map( 'hexdec', $hex );
-
-		// Check if opacity is set(rgba or rgb).
-		if ( $opacity ) {
-			if ( abs( $opacity ) > 1 ) {
-				$opacity = 1.0;
-			}
-			if ( $echo ) {
-				$output = 'rgba(' . implode( ',', $rgb ) . ',' . $opacity . ')';
-			} else {
-				$rgb[]  = $opacity;
-				$output = $rgb;
-			}
-		} else {
-			if ( $echo ) {
-				$output = 'rgb(' . implode( ',', $rgb ) . ')';
-			} else {
-				$output = $rgb;
-			}
-		}
-
-		// Return rgb(a) color string.
-		return $output;
+	
 	}
 }
 
@@ -1262,33 +1244,34 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 				// See if brighter or darker.
 				if ( $percent > 0 ) {
 					// Lighter.
-					$rgb[ $i ] = round( $rgb[ $i ] * $percent ) + round( 255 * ( 1 - $percent ) );
+					// $rgb[ $i ] = round( $rgb[ $i ] * $percent ) + round( 255 * ( 1 - $percent ) );
 				} else {
 					// Darker.
 					$positive_percent = $percent - ( $percent * 2 );
-					$rgb[ $i ]        = round( $rgb[ $i ] * $positive_percent ) + round( 0 * ( 1 - $positive_percent ) );
+					// $rgb[ $i ]        = round( $rgb[ $i ] * $positive_percent ) + round( 0 * ( 1 - $positive_percent ) );
 				}
 				// In case rounding up causes us to go to 256.
-				if ( $rgb[ $i ] > 255 ) {
-					$rgb[ $i ] = 255;
-				}
+				// if ( $rgb[ $i ] > 255 ) {
+				// 	$rgb[ $i ] = 255;
+				// }
 			}
 			// RBG to Hex.
-			$new_hex = '#';
-			for ( $i = 0; $i < 3; $i++ ) {
-				// Convert the decimal digit to hex.
-				$hex_digit = dechex( $rgb[ $i ] );
-				// Add a leading zero if necessary.
-				if ( strlen( $hex_digit ) == 1 ) {
-					$hex_digit = '0' . $hex_digit;
-				}
-				// Append to the hex string.
-				$new_hex .= $hex_digit;
-			}
-			return $new_hex;
-		} else {
-			return;
-		}
+		// 	$new_hex = '#';
+		// 	for ( $i = 0; $i < 3; $i++ ) {
+		// 		// Convert the decimal digit to hex.
+		// 		$hex_digit = dechex( $rgb[ $i ] );
+		// 		// Add a leading zero if necessary.
+		// 		if ( strlen( $hex_digit ) == 1 ) {
+		// 			$hex_digit = '0' . $hex_digit;
+		// 		}
+		// 		// Append to the hex string.
+		// 		$new_hex .= $hex_digit;
+		// 	}
+		// 	return $new_hex;
+		// } else {
+		// 	return;
+		// }
+	 }
 	}
 }
 if ( ! function_exists( 'kemet_enable_page_builder' ) ) :

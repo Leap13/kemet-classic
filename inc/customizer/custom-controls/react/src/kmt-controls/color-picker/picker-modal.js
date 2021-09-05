@@ -129,12 +129,22 @@ const PickerModal = ({
                     </ul>
                 </div>}
 
-                <>
-                    <ColorPicker
-                        color={getValueForPicker.color}
-                        onChangeComplete={(color) => onChange(color)}
-                    />
-                </>
+                {refresh && (
+                    <>
+                        <ColorPicker
+                            color={getValueForPicker.color}
+                            onChangeComplete={(color) => onChange(color)}
+                        />
+                    </>
+                )}
+                {!refresh && (
+                    <>
+                        <ColorPicker
+                            color={getValueForPicker.color}
+                            onChangeComplete={(color) => onChange(color)}
+                        />
+                    </>
+                )}
 
 
             </div>

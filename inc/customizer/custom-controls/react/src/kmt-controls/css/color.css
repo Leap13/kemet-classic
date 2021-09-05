@@ -432,7 +432,8 @@
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   position: absolute;
-  top: 0.2rem;
+  top: 8px;
+  left: 0;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
@@ -1065,7 +1066,7 @@
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;
-
+  width: var(--modalWidth);
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;

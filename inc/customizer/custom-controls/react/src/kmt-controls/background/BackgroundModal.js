@@ -261,9 +261,9 @@ const BackgroundModal = (props) => {
                     >
                         {
                             {
-                                color: __("Color", "blocksy"),
-                                gradient: __("Gradient", "blocksy"),
-                                image: __("Image", "blocksy"),
+                                color: __("Color", "Kemet"),
+                                gradient: __("Gradient", "Kemet"),
+                                image: __("Image", "Kemet"),
                             }[type]
                         }
                     </li>
@@ -319,10 +319,7 @@ const BackgroundModal = (props) => {
                             onChange={(color) => props.onChangeComplete(color)}
 
                         />
-
-
                     )
-
                 }
             </div>
         </Fragment >

@@ -10,16 +10,19 @@ class ResponsiveSliderComponent extends Component {
         this.responsive = this.props.params.responsive;
         let value = this.props.value
         this.defaultValue = this.props.params.default
-        let ResDefaultParam = ['destop', 'tablet', 'mobile'].map((device) => (
-            {
-                [`${device}`]: '',
-                [`${device}-unit`]: 'px'
-            }
-        ))
         let defaultValue = {
             value: '',
             unit: 'px'
         }
+        let ResDefaultParam = {
+            "desktop": defaultValue.value,
+            "desktop-unit": defaultValue.unit,
+            'tablet': defaultValue.value,
+            'tablet-unit': defaultValue.unit,
+            'mobile': defaultValue.value,
+            'mobile-unit': defaultValue.unit
+        }
+
         let defaultValues = this.responsive ? ResDefaultParam : defaultValue;
 
         let defaultVals = this.props.params.default
@@ -73,10 +76,11 @@ class ResponsiveSliderComponent extends Component {
 
     handleReset = (e) => {
         e.preventDefault();
+        let updateState;
         if (this.responsive) {
             let defUnit = this.state.defaultVal[`${this.state.currentDevice}-unit`],
                 size = this.state.defaultVal[this.state.currentDevice];
-            let updateState = {
+            updateState = {
                 ...this.state.defaultVal
             };
             updateState[`${this.state.currentDevice}-unit`] = defUnit;
@@ -85,7 +89,7 @@ class ResponsiveSliderComponent extends Component {
         } else {
             let defUnit = this.state.defaultVal[`unit`],
                 size = this.state.defaultVal[`value`];
-            let updateState = {
+            updateState = {
                 ...this.state.defaultVal
             };
             updateState[`unit`] = defUnit;

@@ -25,26 +25,31 @@ if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
 	 * @return string      Return foreground color depend on input HEX color.
 	 */
 	function kemet_get_foreground_color( $hex ) {
+		if (strlen($hex ) > 2 && substr( $hex , 0, 5 ) === "var(--") {
+            return $hex ;
+        } 
 
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
 
-		} else {
+		}elseif(strlen($hex) > 2 && substr( $hex, 0, 5 ) === "var(--") {
+            return $hex;
+		}else {
 
 			// Get clean hex code.
-			$hex = str_replace( '#', '', $hex );
+			// $hex = str_replace( '#', '', $hex );
 
-			if ( 3 == strlen( $hex ) ) {
-				$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
-			}
+			// if ( 3 == strlen( $hex ) ) {
+			// 	$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+			// }
 
-			// Get r, g & b codes from hex code.
-			$r   = hexdec( substr( $hex, 0, 2 ) );
-			$g   = hexdec( substr( $hex, 2, 2 ) );
-			$b   = hexdec( substr( $hex, 4, 2 ) );
-			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
+			// // Get r, g & b codes from hex code.
+			// $r   = hexdec( substr( $hex, 0, 2 ) );
+			// $g   = hexdec( substr( $hex, 2, 2 ) );
+			// $b   = hexdec( substr( $hex, 4, 2 ) );
+			// $hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
 
-			return 128 <= $hex ? '#000000' : '#ffffff';
+			// return 128 <= $hex ? '#000000' : '#ffffff';
 		}
 	}
 }

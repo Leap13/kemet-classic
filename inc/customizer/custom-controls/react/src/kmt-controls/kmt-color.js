@@ -149,9 +149,10 @@ const KemetColorComponent = props => {
     let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
 
     return <div className="kmt-control-wrap kmt-color-control-wrap">
-        {renderOperationButtons()}
+
         <div className={`kmt-color-container`}>
             <label>
+                {renderOperationButtons()}
                 {labelHtml}
                 {descriptionHtml}
                 {responsiveHtml}
