@@ -1,5 +1,6 @@
 import { Fragment, useState } from "@wordpress/element";
 import classnames from "classnames";
+import PickerModal from '../color-picker/picker-modal'
 import {
     Button,
     FocalPointPicker,
@@ -299,32 +300,30 @@ const BackgroundModal = (props) => {
                 )}
 
                 {props.backgroundType == "color" &&
-                    toggle &&
                     (
-                        <>
-                            {RenderTopSection()}
-                            < ColorPicker
-                                color={props.color}
-                                onChangeComplete={(color) => props.onChangeComplete(color)}
-                            />
-                        </>
+                        <PickerModal
+                            design=
+                            {props.backgroundType === 'color'
+                                ? 'none'
+                                : 'inline'}
+                            value={props.color}
+                            pickers={[
+                                {
+                                    title: __('Initial', 'Kemet'),
+                                    id: 'default',
+                                },
+                            ]}
+                            inline_modal={props.backgroundType === 'color'}
+                            skipArrow={true}
+                            appendToBody={false}
+                            onChange={(color) => props.onChangeComplete(color)}
+
+                        />
+
+
                     )
 
                 }
-                {props.backgroundType == "color" &&
-                    !toggle &&
-                    (
-                        <>
-                            {RenderTopSection()}
-                            < ColorPicker
-                                color={props.color}
-                                onChangeComplete={(color) => props.onChangeComplete(color)}
-                            />
-                        </>
-                    )
-
-                }
-
             </div>
         </Fragment >
     );

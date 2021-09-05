@@ -17854,10 +17854,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/media-utils */ "@wordpress/media-utils");
-/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _color_picker_picker_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../color-picker/picker-modal */ "./src/kmt-controls/color-picker/picker-modal.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/media-utils */ "@wordpress/media-utils");
+/* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -17948,7 +17950,7 @@ var BackgroundModal = function BackgroundModal(props) {
     };
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "kmt-control kmt-image-actions"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_5__["MediaUpload"], {
       title: __("Select Background Image", 'Kemet'),
       onSelect: function onSelect(media) {
         return onSelectImage(media);
@@ -17959,7 +17961,7 @@ var BackgroundModal = function BackgroundModal(props) {
         var open = _ref.open;
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !props.media && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
           className: "kmt-control kmt-image-actions"
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
           className: "upload-button button-add-media",
           isDefault: true,
           onClick: function onClick() {
@@ -17967,11 +17969,11 @@ var BackgroundModal = function BackgroundModal(props) {
           }
         }, __("Select Background Image", 'Kemet'))), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
           className: "actions"
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
           type: "button",
           className: "button remove-image",
           onClick: onRemoveImage
-        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Button"], {
           type: "button",
           className: "button edit-image",
           onClick: function onClick() {
@@ -17981,7 +17983,7 @@ var BackgroundModal = function BackgroundModal(props) {
       }
     }), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "thumbnail thumbnail-image"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["FocalPointPicker"], {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["FocalPointPicker"], {
       url: props.media.url ? props.media.url : props.backgroundImage,
       dimensions: dimensions,
       value: undefined !== props.backgroundPosition ? props.backgroundPosition : {
@@ -18111,23 +18113,26 @@ var BackgroundModal = function BackgroundModal(props) {
       "kmt-gradient-tab kmt-color-picker-modal": props.backgroundType === "gradient",
       "kmt-color-tab": props.backgroundType === "color"
     })
-  }, props.backgroundType === "image" && renderImageSettings(), props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGradientPicker"], {
+  }, props.backgroundType === "image" && renderImageSettings(), props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["__experimentalGradientPicker"], {
     className: "kmt-gradient-color-picker",
     value: props.gradient && props.backgroundType === "gradient" ? props.gradient : "",
     onChange: function onChange(gradient) {
       return props.onChangeGradient(gradient, "gradient");
     }
-  })), props.backgroundType == "color" && toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
-    color: props.color,
-    onChangeComplete: function onChangeComplete(color) {
+  })), props.backgroundType == "color" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_color_picker_picker_modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    design: props.backgroundType === 'color' ? 'none' : 'inline',
+    value: props.color,
+    pickers: [{
+      title: __('Initial', 'Kemet'),
+      id: 'default'
+    }],
+    inline_modal: props.backgroundType === 'color',
+    skipArrow: true,
+    appendToBody: false,
+    onChange: function onChange(color) {
       return props.onChangeComplete(color);
     }
-  })), props.backgroundType == "color" && !toggle && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, RenderTopSection(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["ColorPicker"], {
-    color: props.color,
-    onChangeComplete: function onChangeComplete(color) {
-      return props.onChangeComplete(color);
-    }
-  }))));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (BackgroundModal);
