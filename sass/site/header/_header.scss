@@ -2,21 +2,16 @@
  * 	Header
  *
  * @import
- * 1 - Header Layouts
- * 3 - Header Layout Common
- * 4 - Header Main
- * 7 - Header Toggle Buttons
+ * 1 - Header Layout Common
+ * 2 - Header Main
+ * 3 - Header Toggle Buttons
 */
 
-/* 1 - Header Layouts  */
-@import "header-layouts";
-
-/* 3 - Header Common  */
+/* 1 - Header Common  */
 @import "header-common";
 
-/* 4 - Header Main */
+/* 2 - Header Main */
 @import "header-main";
 
-/* 7 - Header Toggle Buttons */
+/* 3 - Header Toggle Buttons */
 @import "header-toggle-buttons.scss";
-

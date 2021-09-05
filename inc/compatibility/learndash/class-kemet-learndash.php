@@ -41,7 +41,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			$this->customize_register();
 			// Content Layout.
 			add_filter( 'kemet_get_content_layout', array( $this, 'content_layout' ) );
 			// Sidebar Layout.
@@ -52,17 +52,13 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 
 		/**
 		 * Register Customizer sections and panel for learnDash
-		 *
-		 * @since 1.0.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
             // @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
 			 * Register Sections & Panels
 			 */
-			require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/customizer/register-panels-and-sections.php';
             require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-container.php';
             require_once KEMET_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/section-sidebar.php';
             // @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -75,8 +71,8 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		 * @return array
 		 */
 		public function theme_defaults( $defaults ) {
-			$defaults['learndash-sidebar-layout'] = 'no-sidebar';
-			$defaults['learndash-content-layout'] = 'default';
+			$defaults['learndash-sidebar-layout']   = 'no-sidebar';
+			$defaults['learndash-container-layout'] = 'default';
 
 			return $defaults;
 		}
@@ -96,10 +92,7 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 					$sidebar_layout = $learndash_sidebar;
 				}
 
-				if ( class_exists( 'KFW' ) ) {
-					$meta    = get_post_meta( get_the_ID(), 'kemet_page_options', true );
-					$sidebar = ( isset( $meta['site-sidebar-layout'] ) && $meta['site-sidebar-layout'] ) ? $meta['site-sidebar-layout'] : 'default';
-				}
+				$sidebar = kemet_get_meta( 'sidebar-layout' );
 
 				if ( 'default' !== $sidebar && ! empty( $sidebar ) ) {
 					$sidebar_layout = $sidebar;
@@ -118,17 +111,14 @@ if ( ! class_exists( 'Kemet_LearnDash' ) ) :
 		 */
 		public function content_layout( $layout ) {
 			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
-				$learndash_layout = kemet_get_option( 'learndash-content-layout' );
+				$learndash_layout = kemet_get_option( 'learndash-container-layout' );
 				$shop_layout      = 'default';
 
 				if ( 'default' !== $learndash_layout ) {
 					$layout = $learndash_layout;
 				}
 
-				if ( class_exists( 'KFW' ) ) {
-					$meta        = get_post_meta( get_the_ID(), 'kemet_page_options', true );
-					$shop_layout = ( isset( $meta['site-content-layout'] ) && $meta['site-content-layout'] ) ? $meta['site-content-layout'] : 'default';
-				}
+				$shop_layout = kemet_get_meta( 'content-layout' );
 
 				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
 					$layout = $shop_layout;

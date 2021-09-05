@@ -13,47 +13,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Title
- */
-$wp_customize->add_control(
-	new Kemet_Control_Title(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[learndash-content-title]',
-		array(
-			'type'     => 'kmt-title',
-			'label'    => __( 'LearnDash', 'kemet' ),
-			'section'  => 'section-container-layout',
-			'priority' => 90,
-			'settings' => array(),
-		)
-	)
-);
+add_filter( 'kemet_container_options', 'kemet_learndash_container_layout' );
 
-/**
- * Option: Shop Page
- */
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[learndash-content-layout]',
-	array(
-		'default'           => kemet_get_option( 'learndash-content-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[learndash-content-layout]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-container-layout',
-		'priority' => 90,
-		'label'    => __( 'Container for LearnDash', 'kemet' ),
-		'choices'  => array(
-			'default'                 => __( 'Default', 'kemet' ),
-			'boxed-container'         => __( 'Boxed', 'kemet' ),
-			'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
-			'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
-			'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
-		),
-	)
-);
+if ( ! function_exists( 'kemet_learndash_container_layout' ) ) {
+
+	/**
+	 * kemet_learndash_container_layout
+	 *
+	 * @param  array $options
+	 * @return array
+	 */
+	function kemet_learndash_container_layout( $options ) {
+		$options['learndash-container-title']  = array(
+			'type'  => 'kmt-title',
+			'label' => __( 'bbPress', 'kemet' ),
+		);
+		$options['learndash-container-layout'] = array(
+			'type'    => 'kmt-select',
+			'label'   => __( 'Container for LearnDash', 'kemet' ),
+			'choices' => array(
+				'default'                 => __( 'Default', 'kemet' ),
+				'boxed-container'         => __( 'Boxed', 'kemet' ),
+				'content-boxed-container' => __( 'Content Boxed', 'kemet' ),
+				'plain-container'         => __( 'Full Width / Contained', 'kemet' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'kemet' ),
+			),
+		);
+
+		return $options;
+	}
+}

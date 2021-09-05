@@ -930,8 +930,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$global_bg_color              = kemet_get_sub_option( 'global-background-color', 'initial' );
 			$global_footer_bg_color       = kemet_get_sub_option( 'global-footer-bg-color', 'initial' );
 			$global_footer_text_color     = kemet_get_sub_option( 'global-footer-text-color', 'initial' );
-			$kemet_footer_link_color      = kemet_get_sub_option( 'footer-link-color', 'initial', $global_footer_text_color );
-			$kemet_footer_link_h_color    = kemet_get_sub_option( 'footer-link-h-color', 'initial', $theme_color );
 			$kemet_footer_widget_bg_color = kemet_get_sub_option( 'footer-wgt-bg-color', 'initial' );
 
 			$site_content_width         = kemet_get_option( 'site-content-width' );
@@ -1156,18 +1154,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-color' => esc_attr( kemet_color_brightness( $global_border_color, 0.9, 'dark' ) ),
 				),
 				'.woocommerce .kemet-footer a.remove, .woocommerce-page .kemet-footer a.remove' => array(
-					'color'        => esc_attr( $kemet_footer_link_color ),
 					'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.9, 'light' ) ),
 				),
 				'.woocommerce .kemet-footer a.remove:hover, .woocommerce-page .kemet-footer a.remove:hover' => array(
-					'color'        => esc_attr( $kemet_footer_link_h_color ),
 					'border-color' => esc_attr( kemet_color_brightness( $global_footer_bg_color, 0.8, 'light' ) ),
-				),
-				'.kemet-footer .woocommerce.widget_shopping_cart a:not(.button)' => array(
-					'color' => esc_attr( $kemet_footer_link_color ),
-				),
-				'.kemet-footer .woocommerce.widget_shopping_cart a:not(.button):hover' => array(
-					'color' => esc_attr( $kemet_footer_link_h_color ),
 				),
 				'.woocommerce .widget .amount, .woocommerce .widget ins' => array(
 					'color' => 'var(--themeColor)',

@@ -2,36 +2,6 @@
  * Footer Widget Layouts
  */
 
-.kemet-footer-overlay {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.kemet-footer {
-  .widget {
-    ul {
-      > li:last-child {
-        border: none;
-      }
-    }
-  }
-  p:last-child {
-    --marginBottom: 0;
-  }
-  .widget_calendar {
-    table {
-      margin-bottom: 0;
-    }
-  }
-  &.kemet-footer-align-center {
-    text-align: center;
-  }
-  &.kemet-footer-layout-5 {
-    .kmt-col-lg-2 {
-      width: 20%;
-    }
-  }
-}
 /**
  * Sticky footer
  */

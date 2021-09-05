@@ -105,9 +105,21 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 					$current_items[ $d_items ] = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
 				}
 			}
+
+			if ( 'footer' === $builder ) {
+				$loaded_items = array();
+				foreach ( $items as $row => $columns ) {
+
+					if ( is_array( $columns ) && ! empty( $columns ) ) {
+						$loaded_items = array_merge( $loaded_items, array_values( $columns ) );
+					}
+				}
+				$current_items = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
+			}
+
 			switch ( $device ) {
 				case 'all':
-					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $items;
+					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $current_items;
 					break;
 
 				default:

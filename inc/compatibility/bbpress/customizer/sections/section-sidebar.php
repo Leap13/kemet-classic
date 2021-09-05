@@ -13,46 +13,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Option: Title
- */
-$wp_customize->add_control(
-	new Kemet_Control_Title(
-		$wp_customize,
-		KEMET_THEME_SETTINGS . '[bbpress-sidebar-title]',
-		array(
-			'type'     => 'kmt-title',
-			'label'    => __( 'bbPress', 'kemet' ),
-			'section'  => 'section-sidebars',
-			'priority' => 145,
-			'settings' => array(),
-		)
-	)
-);
+add_filter( 'kemet_sidebar_options', 'kemet_bbpress_sidebar' );
 
-/**
- * Option: Shop Page
- */
-$wp_customize->add_setting(
-	KEMET_THEME_SETTINGS . '[bbpress-sidebar-layout]',
-	array(
-		'default'           => kemet_get_option( 'bbpress-sidebar-layout' ),
-		'type'              => 'option',
-		'sanitize_callback' => array( 'Kemet_Customizer_Sanitizes', 'sanitize_choices' ),
-	)
-);
-$wp_customize->add_control(
-	KEMET_THEME_SETTINGS . '[bbpress-sidebar-layout]',
-	array(
-		'type'     => 'select',
-		'section'  => 'section-sidebars',
-		'priority' => 145,
-		'label'    => __( 'bbPress', 'kemet' ),
-		'choices'  => array(
-			'default'       => __( 'Default', 'kemet' ),
-			'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
-			'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
-			'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
-		),
-	)
-);
+if ( ! function_exists( 'kemet_bbpress_sidebar' ) ) {
+
+	/**
+	 * kemet_bbpress_sidebar
+	 *
+	 * @param  array $options
+	 * @return array
+	 */
+	function kemet_bbpress_sidebar( $options ) {
+		$options['bbpress-sidebar-title']  = array(
+			'type'  => 'kmt-title',
+			'label' => __( 'bbPress', 'kemet' ),
+		);
+		$options['bbpress-sidebar-layout'] = array(
+			'type'    => 'kmt-select',
+			'label'   => __( 'bbPress', 'kemet' ),
+			'choices' => array(
+				'default'       => __( 'Default', 'kemet' ),
+				'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
+				'left-sidebar'  => __( 'Left Sidebar', 'kemet' ),
+				'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
+			),
+		);
+
+		return $options;
+	}
+}

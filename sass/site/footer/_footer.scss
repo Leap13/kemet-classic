@@ -1,17 +1,15 @@
 /* 2 - Small Footer */
 @import "footer-copyright-layouts";
-@import "footer-copyright-layout-1";
-@import "footer-copyright-layout-2";
 
 .site-footer {
-	ul {
-	    margin: 0;
-	    list-style-type: none;
-	}
+  ul {
+    margin: 0;
+    list-style-type: none;
+  }
 
-	.nav-menu li {
-	    display: inline-block;
-	}
+  .nav-menu li {
+    display: inline-block;
+  }
 }
 
 @import "kemet-footer";
