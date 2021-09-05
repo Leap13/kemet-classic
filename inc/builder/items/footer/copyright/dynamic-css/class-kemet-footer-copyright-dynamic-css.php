@@ -19,7 +19,6 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 		 * @return string
 		 */
 		public function dynamic_css( $dynamic_css ) {
-			var_dump( Kemet_Builder_Helper::is_item_loaded( 'copyright', 'footer' ) );
 			if ( Kemet_Builder_Helper::is_item_loaded( 'copyright', 'footer' ) ) {
 				$prefix                   = 'footer-copyright';
 				$selector                 = '.kmt-' . $prefix;
@@ -27,7 +26,7 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 				$color                    = kemet_get_sub_option( $prefix . '-color', 'initial', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 				$link_color               = kemet_get_sub_option( $prefix . '-link-color', 'initial', $global_footer_text_color );
 				$link_hover_color         = kemet_get_sub_option( $prefix . '-link-color', 'hover' );
-				var_dump( $link_color );
+
 				$css_output = array(
 					$selector => array(
 						'color'               => 'var(--footerTextColor)',
