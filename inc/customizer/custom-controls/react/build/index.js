@@ -21800,6 +21800,32 @@ var SpacingComponent = function SpacingComponent(props) {
     }, responsiveUnit);
   };
 
+  var handleReset = function handleReset(e) {
+    e.preventDefault();
+
+    if (responsive) {
+      var defUnit = defaultVals["".concat(device, "-unit")],
+          size = defaultVals[device];
+
+      var updateState = _objectSpread({}, defaultVals);
+
+      updateState["".concat(device, "-unit")] = defUnit;
+      updateState[device] = size;
+      props.onChange(updateState);
+      setState(updateState);
+    } else {
+      var _defUnit = defaultVals["unit"],
+          _size = defaultVals["value"];
+
+      var _updateState = _objectSpread({}, defaultVals);
+
+      _updateState["unit"] = _defUnit;
+      _updateState["value"] = _size;
+      props.onChange(_updateState);
+      setState(_updateState);
+    }
+  };
+
   var _props$params2 = props.params,
       label = _props$params2.label,
       description = _props$params2.description;
@@ -21811,7 +21837,17 @@ var SpacingComponent = function SpacingComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     key: 'kmt-spacing-responsive',
     className: "kmt-spacing-responsive"
-  }, responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-spacing-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "kmt-reset-btn components-button components-circular-option-picker__clear is-small",
+    disabled: JSON.stringify(state) === JSON.stringify(defaultVals),
+    onClick: function onClick(e) {
+      return handleReset(e);
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "dashicons dashicons-image-rotate"
+  }))), responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onChange: function onChange(currentDevice) {
       return setDevice(currentDevice);
     },

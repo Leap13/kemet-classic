@@ -183,6 +183,31 @@ const SpacingComponent = props => {
 		</ul>)
 	}
 
+	const handleReset = (e) => {
+		e.preventDefault();
+		if (responsive) {
+			let defUnit = defaultVals[`${device}-unit`],
+				size = defaultVals[device];
+			let updateState = {
+				...defaultVals
+			};
+			updateState[`${device}-unit`] = defUnit;
+			updateState[device] = size;
+			props.onChange(updateState);
+			setState(updateState);
+		} else {
+			let defUnit = defaultVals[`unit`],
+				size = defaultVals[`value`];
+			let updateState = {
+				...defaultVals
+			};
+			updateState[`unit`] = defUnit;
+			updateState[`value`] = size;
+			props.onChange(updateState);
+			setState(updateState);
+		}
+	}
+
 	const { label, description } = props.params;
 
 	let inputHtml = null;
@@ -192,7 +217,14 @@ const SpacingComponent = props => {
 	</Fragment>;
 
 	return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
-
+		<div className="kmt-spacing-btn-reset-wrap">
+			<button
+				className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
+				disabled={JSON.stringify(state) === JSON.stringify(defaultVals)}
+				onClick={e => handleReset(e)}>
+				<span className="dashicons dashicons-image-rotate"></span>
+			</button>
+		</div>
 		{responsive ? <Responsive
 			onChange={(currentDevice) => setDevice(currentDevice)}
 			label={label}

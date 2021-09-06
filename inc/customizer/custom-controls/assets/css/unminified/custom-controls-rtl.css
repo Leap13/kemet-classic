@@ -7323,7 +7323,7 @@ i.fipicon-angle-left:before {
 }
 
 .kmt-responsive-control-btns {
-  line-height: 1;
+  line-height: 1px;
   margin-bottom: 0px;
   display: inline-block;
   vertical-align: top;
@@ -7846,7 +7846,7 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 0;
 }
 .kmt-color-control-wrap:hover
@@ -9116,7 +9116,8 @@ input[type="number"] {
 }
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
-  top: 0.2rem;
+  top: 5px;
+  right: -3px;
 }
 .kmt-spacing-responsive:hover
   .kmt-spacing-btn-reset-wrap
@@ -9351,8 +9352,8 @@ input[type="checkbox"]:focus {
   font-size: 10px;
   color: var(--primaryColor);
   position: absolute;
-  top: 4px;
-  right: -3px;
+  top: 3px;
+  right: 0px;
   transform: translate3d(10px, 0, 0);
   background: 100% 0;
   outline: none;

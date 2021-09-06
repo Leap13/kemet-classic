@@ -108,7 +108,7 @@
 }
 
 .kmt-responsive-control-btns {
-  line-height: 1;
+  line-height: 1px;
   margin-bottom: 0px;
   display: inline-block;
   vertical-align: top;
