@@ -953,6 +953,9 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 	 * @return string the new generated color hex.
 	 */
 	function kemet_color_brightness( $hex, $percent, $brightness = 'light' ) {
+		if ( substr( $hex, 0, 5 ) === 'var(-' ) {
+			return $hex;
+		}
 		if ( '' != $hex ) {
 			if ( 'dark' == $brightness ) {
 				$percent = $percent * -1;

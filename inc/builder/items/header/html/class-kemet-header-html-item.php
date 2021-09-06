@@ -54,9 +54,8 @@ if ( ! class_exists( 'Kemet_Header_Html_Item' ) ) {
 				if ( ! Kemet_Builder_Helper::is_item_loaded( $html, 'header', 'desktop' ) ) {
 					continue;
 				}
-				$font_family = kemet_get_option( $html . '-font-family' );
-				$font_weight = kemet_get_option( $html . '-font-weight' );
-				Kemet_Fonts::add_font( $font_family, $font_weight );
+				$typography = kemet_get_option( $html . '-typography' );
+				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}
 	}

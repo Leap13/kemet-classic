@@ -1,13 +1,5 @@
-import {
-	Fragment,
-	createElement,
-	Component,
-	useRef,
-	useEffect,
-	useState,
-} from '@wordpress/element'
+import { useRef, useEffect } from '@wordpress/element'
 import classnames from 'classnames'
-import { getDefaultFonts } from './default-data'
 import { humanizeVariations, findSelectedFontFamily } from './helpers'
 import { animated } from '@react-spring/web'
 
@@ -49,15 +41,23 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 						className={classnames({
 							active: variation === value.variation,
 						})}
-						key={variation}>
+						key={variation}
+
+
+					>
+
 						<span
 							className="kmt-variation-name"
-							data-variation={variation}>
+							data-variation={variation}
+
+						>
 							{humanizeVariations(variation)}
 						</span>
+
 					</li>
-				))}
-		</animated.ul>
+				))
+			}
+		</animated.ul >
 	)
 }
 

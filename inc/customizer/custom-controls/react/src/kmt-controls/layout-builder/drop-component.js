@@ -7,9 +7,9 @@ const DropComponent = (props) => {
   const location = props.zone.replace(props.row + "_", "");
   let currentList =
     typeof props.items != "undefined" &&
-    props.items != null &&
-    props.items.length != null &&
-    props.items.length > 0
+      props.items != null &&
+      props.items.length != null &&
+      props.items.length > 0
       ? props.items
       : [];
   let choices = props.choices,
@@ -31,9 +31,9 @@ const DropComponent = (props) => {
   }
   let currentCenterList =
     typeof props.centerItems != "undefined" &&
-    props.centerItems != null &&
-    props.centerItems.length != null &&
-    props.centerItems.length > 0
+      props.centerItems != null &&
+      props.centerItems.length != null &&
+      props.centerItems.length > 0
       ? props.centerItems
       : [];
   let theCenterItems = [];
@@ -59,9 +59,8 @@ const DropComponent = (props) => {
           animation={100}
           onStart={() => props.showDrop()}
           group={props.controlParams.group}
-          className={`kmt-builder-drop kmt-builder-sortable-panel kmt-builder-drop-${
-            location + id
-          }`}
+          className={`kmt-builder-drop kmt-builder-sortable-panel kmt-builder-drop-${location + id
+            }`}
           list={items}
           setList={(newState) =>
             props.onUpdate(props.row, props.zone + listLocation, newState)

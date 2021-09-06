@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
 import { Fragment, useState } from "react";
 import Responsive from '../common/responsive'
-
 const { __ } = wp.i18n;
-const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
+const { ButtonGroup, Button } = wp.components;
 
 const RadioComponent = (props) => {
     let value = props.value;

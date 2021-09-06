@@ -5,7 +5,7 @@ import PopoverComponent from '../common/popover-component';
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 import { __ } from '@wordpress/i18n';
-import { humanizeVariations, familyForDisplay } from '../common/typo-helper'
+import { humanizeVariations, familyForDisplay } from './typography/helpers'
 
 import TypographyModal from './typography/typo-modal'
 
@@ -31,7 +31,7 @@ const Typography = (props) => {
         'family': 'System Default',
         'variation': 'n4',
         'size': {
-            "desktop": '35',
+            "desktop": '30',
             "desktop-unit": 'px',
             'tablet': '',
             'tablet-unit': 'px',
@@ -58,17 +58,20 @@ const Typography = (props) => {
         'text-transform': 'none',
         'text-decoration': 'none',
     }
+
+    let { label } = props.params
+
     useEffect(() => {
         getInitialDevice()
     }, [])
     const getInitialDevice = () => {
+
         return wp.customize.previewedDevice()
 
     }
     value = value ? value : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState('_:_')
     const [device, setInnerDevice] = useState(getInitialDevice())
-
     const listener = () => {
         setInnerDevice(getInitialDevice())
     }
@@ -111,8 +114,6 @@ const Typography = (props) => {
             isTransitioning: false,
         }))
 
-
-
     const fontFamilyRef = useRef()
     const fontSizeRef = useRef()
     const fontWeightRef = useRef()
@@ -146,8 +147,31 @@ const Typography = (props) => {
         dotsRef && dotsRef.current,
     ])
 
+    const updateValues = (obj) => {
+        props.onChange(obj)
+    }
+
     return (
         <div className={classnames('kmt-typography', {})}>
+            <header>
+                <div className={`kmt-reset-btn`}>
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={(JSON.stringify(value) === JSON.stringify(defaultValue))}
+                        onClick={e => {
+                            e.preventDefault();
+                            let resetValue = JSON.parse(JSON.stringify(defaultValue));
+                            if (undefined === resetValue || '' === resetValue) {
+                                resetValue = 'unset';
+                            }
+                            updateValues(resetValue);
+                        }}>
+                        <span className="dashicons dashicons-image-rotate"></span>
+                    </button>
+                </div>
+                <span className="customize-control-title">{label}</span>
+
+            </header>
             <OutsideComponent
                 disabled={!isOpen}
                 useCapture={false}
@@ -162,12 +186,11 @@ const Typography = (props) => {
                         e.preventDefault()
 
                         if (isOpen) {
-                            setCurrentView('options')
+                            setCurrentView('fonts')
                             return
                         }
-
-                        setCurrentViewCache('options:_')
-                        setIsOpen('options')
+                        setCurrentViewCache('fonts:_')
+                        setIsOpen('fonts')
                     },
                 }}>
                 <div>
@@ -186,7 +209,9 @@ const Typography = (props) => {
                         className="kmt-font"
                         ref={fontFamilyRef}>
                         <span>
-                            {value.family}
+                            {value.family === 'Default'
+                                ? 'Default Family'
+                                : familyForDisplay(value.family)}
                         </span>
                     </span>
                     <i>/</i>
@@ -198,7 +223,6 @@ const Typography = (props) => {
                                 setCurrentView('options')
                                 return
                             }
-
                             setCurrentViewCache('options:_')
                             setIsOpen('font_size')
                         }}
@@ -273,9 +297,7 @@ const Typography = (props) => {
                     >
                         {(style, item) => {
                             if (!item) {
-                                return <div>
-                                    Salma2
-                                </div>
+                                return null
                             }
 
                             return (

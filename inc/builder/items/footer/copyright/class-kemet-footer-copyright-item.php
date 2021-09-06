@@ -49,9 +49,8 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Item' ) ) {
 		 */
 		public function add_fonts() {
 			if ( Kemet_Builder_Helper::is_item_loaded( 'copyright', 'footer' ) ) {
-				$font_family = kemet_get_option( 'copyright-font-family' );
-				$font_weight = kemet_get_option( 'copyright-font-weight' );
-				Kemet_Fonts::add_font( $font_family, $font_weight );
+				$typography = kemet_get_option( 'copyright-typography' );
+				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}
 

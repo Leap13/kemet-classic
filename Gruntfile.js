@@ -356,7 +356,10 @@ module.exports = function (grunt) {
     concat: {
       css: {
         src: [
+          "inc/customizer/custom-controls/react/src/kmt-controls/css/color-palette.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/customizer.css",
+          "inc/customizer/custom-controls/react/src/kmt-controls/css/root.css",
+          "inc/customizer/custom-controls/react/src/kmt-controls/css/select.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/background.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/tabs.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/builder-control.css",
@@ -371,7 +374,6 @@ module.exports = function (grunt) {
           "inc/customizer/custom-controls/react/src/kmt-controls/css/typography.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/extra-style.css",
           "inc/customizer/custom-controls/react/src/kmt-controls/css/number.css",
-          "inc/customizer/custom-controls/react/src/kmt-controls/css/root.css",
         ],
         dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
       },

@@ -187,111 +187,12 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							self::$prefix . '-font-size'   => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Font Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 1,
-										'step' => 1,
-										'max'  => 200,
-									),
-									'em' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							// self::$prefix . '-font-family'            => array(
-							// 'type'      => 'kmt-font-family',
-							// 'transport' => 'postMessage',
-							// 'label'     => __( 'Font Family', 'kemet' ),
-							// 'connect'   => KEMET_THEME_SETTINGS . '[' . self::$prefix . '-font-weight]',
-							// ),
-							// self::$prefix . '-font-weight'            => array(
-							// 'type'      => 'kmt-font-weight',
-							// 'transport' => 'postMessage',
-							// 'label'     => __( 'Font Weight', 'kemet' ),
-							// 'connect'   => KEMET_THEME_SETTINGS . '[ ' . self::$prefix . ' -font-family]',
-							// ),
-							self::$prefix . '-text-transform' => array(
-								'type'      => 'kmt-select',
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
 								'transport' => 'postMessage',
-								'label'     => __( 'Text Transform', 'kemet' ),
-								'choices'   => array(
-									''           => __( 'Default', 'kemet' ),
-									'none'       => __( 'None', 'kemet' ),
-									'capitalize' => __( 'Capitalize', 'kemet' ),
-									'uppercase'  => __( 'Uppercase', 'kemet' ),
-									'lowercase'  => __( 'Lowercase', 'kemet' ),
-								),
+								'label'     => __( 'Font Typography', 'kemet' ),
 								'preview'   => array(
 									'selector' => $selector,
-									'property' => '--textTransform',
-								),
-							),
-							self::$prefix . '-font-style'  => array(
-								'type'      => 'kmt-select',
-								'transport' => 'postMessage',
-								'label'     => __( 'Font Style', 'kemet' ),
-								'choices'   => array(
-									'inherit' => __( 'Inherit', 'kemet' ),
-									'normal'  => __( 'Normal', 'kemet' ),
-									'italic'  => __( 'Italic', 'kemet' ),
-									'oblique' => __( 'Oblique', 'kemet' ),
-								),
-								'preview'   => array(
-									'selector' => $selector,
-									'property' => '--fontStyle',
-								),
-							),
-							self::$prefix . '-line-height' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Line Height', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => '--lineHeight',
-									'responsive' => true,
-								),
-							),
-							self::$prefix . '-letter-spacing' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Letter Spacing', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => '--letterSpacing',
-									'responsive' => true,
 								),
 							),
 						),

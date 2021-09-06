@@ -60,17 +60,40 @@ document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
     if (control) {
         // Color
         'use strict';
-        jQuery(document).mouseup(function (e) {
-            var container = jQuery(control.container);
-            var colorWrap = container.find('.kemet-color-picker-wrap');
-            var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap');
+        jQuery(document).ready(function ($) {
+            $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(
+                function (e) {
+                    if (
+                        !$(e.target).closest(".kemet-color-picker-wrap").length &&
+                        !$(e.target).closest(".color-button-wrap").length
+                    ) {
+                        $(".components-button.kemet-color-icon-indicate.open").trigger("click");
+                    }
+                }
+            );
+            control.container.on(
+                "click",
+                ".components-button.kemet-color-icon-indicate",
+                function () {
+                    var $this = $(this),
+                        parentWrap = $this.closest(".customize-control-kmt-color"),
+                        Section = parentWrap.parents(".control-section");
 
-            // If the target of the click isn't the container nor a descendant of the container.
-            if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
-                container.find('.components-button.kemet-color-icon-indicate.open').click();
-            }
+                    if ($this.hasClass("open")) {
+                        parentWrap.find(".kemet-color-picker-wrap").hide();
+                    } else {
+                        var getOpenPopup = Section.find(".components-button.kemet-color-icon-indicate.open");
+                        if (getOpenPopup.length > 0) {
+                            getOpenPopup.trigger("click");
+                        }
+                        parentWrap.find(".kemet-color-picker-wrap").show();
+                    }
+                    $(this).toggleClass("open");
+                }
+            );
+
         });
     }
     // Responsive
-    kemetGetResponsiveJs();
+    kemetGetResponsiveJs(control);
 });

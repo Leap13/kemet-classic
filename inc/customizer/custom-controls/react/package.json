@@ -23,7 +23,9 @@
     "simple-linear-scale": "^1.0.1",
     "use-force-update": "^1.0.4",
     "vanilla-lazyload": "^8.17.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "react-sortable-hoc": "^2.0.0",
+    "array-move": "^4.0.0"
   },
   "devDependencies": {
     "@wordpress/scripts": "^12.6.1"

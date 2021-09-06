@@ -1,89 +1,71 @@
 import PropTypes from 'prop-types';
-import { useRef, useEffect } from 'react';
+import { useState } from 'react';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import { arrayMoveImmutable } from 'array-move';
+
+const SortableItem = SortableElement(({ value, handleClick, newIndex, values }) => {
+    let invisibleClass = values.includes(newIndex) ? " " : 'invisible';
+    return (
+        <li key={value} className={`kmt-sortable-item ${invisibleClass} `} data-value={newIndex} >
+
+            <i className="dashicons dashicons-visibility visibility" onClick={() => { handleClick(value, newIndex) }}></i>
+            {value}
+            <i class="dashicons dashicons-menu"></i>
+        </li>
+    )
+});
+const SortableList = SortableContainer(({ items, onChange, values }) => {
+    return (
+        <ul>
+            {Object.values(items).map((value, index) => (
+                <SortableItem key={`item-${value[0]}`} distance={10} index={index} newIndex={value[0]} value={value[1]} handleClick={onChange} values={values} />
+            ))}
+        </ul>
+    )
+});
 
 const SortableComponent = props => {
-
-    let labelHtml = null,
-        descriptionHtml = null;
-
-
     const {
         label,
         description,
         choices,
-        inputAttrs
     } = props.params;
+    const [value, setValue] = useState(props.value);
 
-    const value = props.value ? props.value : [];
-    const list = useRef(null);
+    const [sortItems, setSortItems] = useState(Object.entries(choices))
 
-    useEffect(() => {
-        const updateValue = () => {
-            let newValue = [];
+    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
 
-            jQuery(list.current).find('li').each(function () {
-                if (!jQuery(this).is('.invisible')) {
-                    newValue.push(jQuery(this).data('value'));
-                }
-            });
-            props.onChange(newValue);
+    let descriptionHtml = description ? <span className="description customize-control-description">{description}</span> : null;
+
+    const onSortEnd = ({ oldIndex, newIndex }) => {
+        setSortItems(arrayMoveImmutable(sortItems, oldIndex, newIndex));
+    };
+
+    const updateValues = (val, thisIndex) => {
+        let newValue = [];
+        if (value.includes(thisIndex)) {
+            newValue = value.filter((item) => {
+                return item !== thisIndex
+            })
+        } else {
+            newValue = [...value, thisIndex]
         }
-
-        jQuery(list.current).sortable({
-            stop: function () {
-                updateValue();
-            }
-        }).disableSelection().find('li').each(function () {
-
-            jQuery(this).find('i.visibility').click(function () {
-                jQuery(this).toggleClass('dashicons-visibility-faint').parents('li:eq(0)').toggleClass('invisible');
-            });
-        }).click(function () {
-            updateValue();
-        });
-    }, [])
-
-    if (label) {
-        labelHtml = <span className="customize-control-title">{label}</span>;
+        setValue(newValue)
+        props.onChange(newValue)
     }
-
-    if (description) {
-        descriptionHtml = <span className="description customize-control-description">{description}</span>;
-    }
-
-    let visibleMetaHtml = Object.values(value).map(choiceID => {
-        let html = '';
-        if (choices[choiceID]) {
-            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item' data-value={choiceID}>
-
-                <i className="dashicons dashicons-visibility visibility"></i>
-                {choices[choiceID]}
-                <i class="dashicons dashicons-menu"></i>
-            </li>;
-        }
-        return html;
-    });
-
-    let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
-        let html = '';
-        if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
-            html = <li {...inputAttrs} key={choiceID} className='kmt-sortable-item invisible' data-value={choiceID}>
-
-                <i className="dashicons dashicons-visibility visibility"></i>
-                {choices[choiceID]}
-                <i class="dashicons dashicons-menu"></i>
-            </li>;
-        }
-        return html;
-    });
 
     return <label className='kmt-sortable'>
         {labelHtml}
         {descriptionHtml}
-        <ul className="sortable" ref={list}>
-            {visibleMetaHtml}
-            {invisibleMetaHtml}
-        </ul>
+        <SortableList
+            items={sortItems}
+            values={value}
+            onSortEnd={onSortEnd}
+            onChange={(item, index) => updateValues(item, index)}
+            distance={1}
+            lockAxis="y"
+        />
     </label>;
 
 };

@@ -41,6 +41,33 @@
 .kmt-typography {
   position: relative;
 }
+.kmt-typography header .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500;
+}
+.kmt-typography header .kmt-reset-btn {
+  font-size: 10px;
+  color: var(--primaryColor);
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  transform: translate3d(-10px, 0, 0);
+  background: 0 0;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+.kmt-typography header .kmt-reset-btn span {
+  font-size: 10px !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+.kmt-typography header .kmt-reset-btn span:hover {
+  transform: rotate(-45deg);
+}
+.kmt-typography:hover header .kmt-reset-btn:not(:disabled) span {
+  opacity: 1;
+}
 .kmt-typohraphy-value {
   display: flex;
   align-items: center;
@@ -88,7 +115,6 @@
   right: -3px;
   bottom: -1px;
   border-radius: 2px;
-  background: rgba(14, 142, 204, 0.3);
   opacity: 0;
 }
 .kmt-typohraphy-value > div > span span {
@@ -101,7 +127,7 @@
   opacity: 1;
 }
 .kmt-typohraphy-value > div > span:hover span {
-  color: #28607b;
+  color: var(--primaryColor);
 }
 .kmt-typohraphy-value .kmt-font {
   display: inline-flex;
@@ -177,11 +203,11 @@
     border-color 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .kmt-typography-top li.active {
-  border-color: #2271b1;
-  box-shadow: 0 0 0 1px #2271b1;
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 0 1px var (--primaryColor);
 }
 .kmt-typography-top li:hover {
-  border-color: #2271b1;
+  border-color: var(--primaryColor);
 }
 .kmt-typography-top .kmt-font {
   flex: 1;
@@ -287,11 +313,30 @@
 }
 .kmt-typography-options > li {
   align-items: center;
-  padding: 0 20px;
+  padding: 14px 20px;
   margin: 0;
   box-sizing: border-box;
 }
-
+.kmt-typography-options
+  li.customize-control-kmt-slider.customize-control-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  transition: tr;
+  transform: translateY(-5px) !important;
+}
+.kmt-typography-options li.customize-control-kmt-slider .kmt-slider-units {
+  position: absolute;
+  transform: translateY(-120%) !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  right: 1px;
+}
+.kmt-typography-options
+  li.customize-control-kmt-slider
+  .kmt-range-value__input {
+  width: 100%;
+}
 .kmt-typography-options > li:not(.kmt-typography-variant) {
   height: 95px;
 }
@@ -350,13 +395,13 @@
   color: #727c88;
 }
 .kmt-typography-variant ul li:not(.active):hover {
-  color: #2271b1;
+  color: var(--primaryColor);
 }
 .kmt-typography-variant ul li.active {
   z-index: 2;
   color: #fff;
-  background: #2271b1;
-  border-color: #2271b1;
+  background: var(--primaryColor);
+  border-color: var(--primaryColor);
 }
 .kmt-typography-variant ul li[data-variant="capitalize"]:before {
   content: "Aa";
@@ -408,14 +453,14 @@
 .kmt-typography-variations li:hover,
 .kmt-typography-variations li.active {
   color: #fff;
-  background: #2271b1;
-  border-color: #2271b1;
+  background: var(--primaryColor);
+  border-color: var(--primaryColor);
 }
 .kmt-typography-single-font:hover:after,
 .kmt-typography-single-font.active:after,
 .kmt-typography-variations li:hover:after,
 .kmt-typography-variations li.active:after {
-  box-shadow: -5px 0px 15px 10px #2271b1;
+  box-shadow: -5px 0px 15px 10px var(--primaryColor);
 }
 .kmt-typography-single-font:hover + *,
 .kmt-typography-single-font.active + *,
@@ -488,34 +533,4 @@
 .kmt-typography-variations .kmt-variation-name {
   font-size: 14px;
   line-height: 1.3;
-}
-.kmt-typography-variations [data-variation*="1"] {
-  font-weight: 100;
-}
-.kmt-typography-variations [data-variation*="2"] {
-  font-weight: 200;
-}
-.kmt-typography-variations [data-variation*="3"] {
-  font-weight: 300;
-}
-.kmt-typography-variations [data-variation*="4"] {
-  font-weight: 400;
-}
-.kmt-typography-variations [data-variation*="5"] {
-  font-weight: 500;
-}
-.kmt-typography-variations [data-variation*="6"] {
-  font-weight: 600;
-}
-.kmt-typography-variations [data-variation*="7"] {
-  font-weight: 700;
-}
-.kmt-typography-variations [data-variation*="8"] {
-  font-weight: 800;
-}
-.kmt-typography-variations [data-variation*="9"] {
-  font-weight: 900;
-}
-.kmt-typography-variations [data-variation*="i"] {
-  font-style: italic;
 }

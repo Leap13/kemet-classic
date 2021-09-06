@@ -11,7 +11,6 @@
   -ms-flex-align: center;
   align-items: center;
 }
-
 .customize-control-kmt-slider .input-field-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,112 +19,42 @@
   -ms-flex-align: center;
   align-items: center;
 }
-
-.customize-control-kmt-slider input[type="range"] {
-  -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
-  padding: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.customize-control-kmt-slider input[type="range"]:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.customize-control-kmt-slider input[type="range"]:hover,
-.customize-control-kmt-slider input[type="range"]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-moz-range-track {
-  border: inherit;
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-track {
-  border: inherit;
-  color: transparent;
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-fill-lower,
-.customize-control-kmt-slider input[type="range"]::-ms-fill-upper {
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-tooltip {
-  display: none;
-}
-
-.customize-control-kmt-slider .kemet_range_value {
-  font-size: 14px;
-  padding: 0 0 0 5px;
-  font-weight: 400;
-  position: relative;
+.input-field-wrapper .kemet_range_value {
+  margin-left: 16px;
+  margin-bottom: 0;
+  flex: 0 1 88px;
 }
 .customize-control-kmt-slider .kmt-slider-reset {
   color: rgba(0, 0, 0, 0.2);
   display: block;
   margin-left: 5px;
+  background: 0 0;
+  box-shadow: none;
 }
 
 .customize-control-kmt-slider .kmt-slider-reset span {
-  font-size: 15px;
-  line-height: 30px;
-}
-
-.customize-control-kmt-slider .kmt-slider-reset:hover,
-.customize-control-kmt-slider .kmt-slider-reset:focus {
-  color: red;
-}
-.kemet_range_value input.kmt-range-value-input {
-  width: 50px;
-  height: 22px;
+  width: 12px;
+  height: 12px;
   font-size: 12px;
-  padding: 3px;
 }
 
+.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover,
+.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):focus {
+  color: #057bb6;
+}
+.input-field-wrapper .components-range-control.kmt-range-value-input {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+.kmt-range-value-input {
+  width: 100%;
+}
+.kmt-range-value-input .components-base-control__field {
+  margin-bottom: 0px;
+}
+.css-1u6yfd4-Wrapper {
+  margin-left: 0px !important;
+}
 .kemet_range_value .kmt-range-unit {
   margin-left: 5px;
 }
@@ -144,12 +73,13 @@
  */
 .customize-control-kmt-slider .customize-control-title {
   display: inline-block;
-  padding-left: 2px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .customize-control-kmt-slider .kmt-slider-units {
   position: absolute;
-  transform: translateY(-100%);
+  transform: translateY(-120%);
   font-size: 11px;
   text-transform: uppercase;
   right: 1px;
@@ -157,7 +87,7 @@
 
 .customize-control-kmt-slider .kmt-slider-units li.single-unit {
   display: inline-block;
-  margin-left: 6px;
+  margin-right: 6px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -173,11 +103,13 @@
 .description.customize-control-description {
   margin-bottom: 20px;
   margin-top: 10px;
+  color: #848484 !important;
+  font-size: 12px;
 }
 
 .kmt-responsive-control-btns {
-  line-height: 1;
-  margin: 0px;
+  line-height: 1px;
+  margin-bottom: 0px;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -226,102 +158,12 @@
   align-items: center;
 }
 
-.customize-control-kmt-slider input[type="range"] {
-  -webkit-appearance: none;
-  -webkit-transition: background 0.3s;
-  -moz-transition: background 0.3s;
-  transition: background 0.3s;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 5px;
-  padding: 0;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.customize-control-kmt-slider input[type="range"]:focus {
-  box-shadow: none;
-  outline: none;
-}
-
-.customize-control-kmt-slider input[type="range"]:hover,
-.customize-control-kmt-slider input[type="range"]:focus {
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
-.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border: none;
-  border-radius: 50%;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 0;
-  background-color: #3498d9;
-}
-
-.customize-control-kmt-slider input[type="range"]::-moz-range-track {
-  border: inherit;
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-track {
-  border: inherit;
-  color: transparent;
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-fill-lower,
-.customize-control-kmt-slider input[type="range"]::-ms-fill-upper {
-  background: transparent;
-}
-
-.customize-control-kmt-slider input[type="range"]::-ms-tooltip {
-  display: none;
-}
-
-.kemet_range_value {
-  display: flex;
-  font-size: 14px;
-  padding: 0 0 0 5px;
-  font-weight: 400;
-  position: relative;
-}
-
 .customize-control-kmt-slider .kmt-slider-reset {
   display: inline-block;
   margin-left: 7px;
   color: rgba(0, 0, 0, 0.2);
-}
-
-.kemet_range_value input.kmt-range-value-input {
-  width: 50px;
-  height: 22px;
-  font-size: 12px;
-  padding: 3px;
+  outline: 0;
+  border: 0;
 }
 
 .kemet_range_value .kmt-range-unit {
@@ -350,4 +192,7 @@
   border-style: solid;
   border-color: #ddd;
   border-radius: 0;
+}
+.components-simple-tooltip.components-range-control__tooltip {
+  display: none !important;
 }

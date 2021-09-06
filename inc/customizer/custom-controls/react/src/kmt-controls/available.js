@@ -21,18 +21,11 @@ const AvailableComponent = (props) => {
       : [];
   let usedItems = wp.customize(builderControlId).get();
   const [items, setItems] = useState(usedItems);
-  const onDrogStart = () => {
+  const handleDrag = () => {
     let dragZones = document.querySelectorAll(".kmt-builder-area");
 
     for (let i = 0; i < dragZones.length; i++) {
-      dragZones[i].classList.add("kmt-dragging-dropzones");
-    }
-  };
-  const onDragEnd = () => {
-    let dragZones = document.querySelectorAll(".kmt-builder-area");
-
-    for (let i = 0; i < dragZones.length; i++) {
-      dragZones[i].classList.remove("kmt-dragging-dropzones");
+      dragZones[i].classList.toggle("kmt-dragging-dropzones");
     }
   };
   const onUpdate = () => {
@@ -96,9 +89,9 @@ const AvailableComponent = (props) => {
           <ReactSortable
             animation={100}
             className={"kmt-builder-item-start kmt-move-item"}
-            onStart={() => onDrogStart()}
+            onStart={() => handleDrag()}
             setList={(newItems) => onDragStop(newItems)}
-            onEnd={() => onDragEnd()}
+            onEnd={() => handleDrag()}
             group={{ name: controlParams.group, put: false }}
             list={list}
           >
