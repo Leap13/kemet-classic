@@ -21183,14 +21183,22 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
 
     _this = _super.apply(this, arguments);
 
+    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "updateValues", function (value) {
+      var updateState = _objectSpread({}, _this.state.initialState);
+
+      _this.responsive ? updateState[_this.state.currentDevice] = value : updateState["value"] = value;
+
+      _this.props.onChange(updateState);
+
+      _this.setState({
+        initialState: updateState
+      });
+    });
+
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
-      if (_this.responsive) {
-        updateState["".concat(device, "-unit")] = value;
-      } else {
-        updateState["unit"] = value;
-      }
+      _this.responsive ? updateState["".concat(device, "-unit")] = valueelse : updateState["unit"] = value;
 
       _this.props.onChange(updateState);
 
@@ -21256,22 +21264,6 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(ResponsiveSliderComponent, [{
-    key: "updateValues",
-    value: function updateValues(value) {
-      var updateState = _objectSpread({}, this.state.initialState);
-
-      if (this.responsive) {
-        updateState[this.state.currentDevice] = value;
-      } else {
-        updateState["value"] = value;
-      }
-
-      this.props.onChange(updateState);
-      this.setState({
-        initialState: updateState
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -21328,16 +21320,12 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         className: "customize-control-title"
       }, label);
       var unitHTML = units.map(function (unit) {
-        var unit_class = '';
+        var unit_class;
 
         if (_this2.responsive) {
-          if (_this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit) {
-            unit_class = 'active';
-          }
+          _this2.state.initialState["".concat(_this2.state.currentDevice, "-unit")] === unit ? unit_class = 'active' : unit_class = "";
         } else {
-          if (_this2.state.initialState["unit"] === unit) {
-            unit_class = 'active';
-          }
+          _this2.state.initialState["unit"] === unit ? unit_class = 'active' : unit_class = "";
         }
 
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("li", {
@@ -21367,21 +21355,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         }
 
         if (dataAttributes.min < -0.1) {
-          if (newValue > dataAttributes.max) {
-            _this2.updateValues(dataAttributes.max);
-          } else if (newValue < dataAttributes.min && newValue !== '-') {
-            _this2.updateValues(dataAttributes.min);
-          } else {
-            _this2.updateValues(newValue);
-          }
+          newValue > dataAttributes.max ? _this2.updateValues(dataAttributes.max) : newValue < dataAttributes.min && newValue !== '-' ? _this2.updateValues(dataAttributes.min) : _this2.updateValues(newValue);
         } else {
-          if (newValue > dataAttributes.max) {
-            _this2.updateValues(dataAttributes.max);
-          } else if (newValue < -0.1) {
-            _this2.updateValues(dataAttributes.min);
-          } else {
-            _this2.updateValues(newValue);
-          }
+          newValue > dataAttributes.max ? _this2.updateValues(dataAttributes.max) : newValue < -0.1 ? _this2.updateValues(dataAttributes.min) : _this2.updateValues(newValue);
         }
       };
 
@@ -21688,19 +21664,6 @@ var SpacingComponent = function SpacingComponent(props) {
     setState(updateState);
   };
 
-  var renderResponsiveInput = function renderResponsiveInput(device) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
-      key: device,
-      type: "hidden",
-      onChange: function onChange() {
-        return onUnitChange(device, '');
-      },
-      className: "kmt-spacing-unit-input kmt-spacing-".concat(device, "-unit"),
-      "data-device": "".concat(device),
-      value: state["".concat(device, "-unit")]
-    });
-  };
-
   var renderInputHtml = function renderInputHtml(device) {
     var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
     var _props$params = props.params,
@@ -21768,16 +21731,12 @@ var SpacingComponent = function SpacingComponent(props) {
 
     if (unit_choices) {
       responsiveUnit = Object.values(unit_choices).map(function (unitKey) {
-        var unitClass = '';
+        var unitClass;
 
         if (responsive) {
-          if (state["".concat(device, "-unit")] === unitKey) {
-            unitClass = 'active';
-          }
+          state["".concat(device, "-unit")] === unitKey ? unitClass = 'active' : unitClass = '';
         } else {
-          if (state["unit"] === unitKey) {
-            unitClass = 'active';
-          }
+          state["unit"] === unitKey ? unitClass = 'active' : unitClass = '';
         }
 
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
@@ -22145,7 +22104,7 @@ var Typography = function Typography(props) {
     'family': 'System Default',
     'variation': 'n4',
     'size': {
-      "desktop": '',
+      "desktop": '30',
       "desktop-unit": 'px',
       'tablet': '',
       'tablet-unit': 'px',

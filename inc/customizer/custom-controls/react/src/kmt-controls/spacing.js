@@ -25,10 +25,7 @@ const SpacingComponent = props => {
 		'tablet-unit': defaultValue.unit,
 		'mobile-unit': defaultValue.unit
 	}
-
-
 	let defaultValues = responsive ? ResDefaultParam : defaultValue;
-
 	let defaultVals = props.params.default
 		? {
 			...defaultValues,
@@ -56,13 +53,10 @@ const SpacingComponent = props => {
 		let parent = event.target.parentElement.parentElement;
 		let inputs = parent.querySelectorAll('.kmt-spacing-input');
 		let elements = event.target.dataset.elementConnect;
-
 		for (let i = 0; i < inputs.length; i++) {
 			inputs[i].classList.toggle('connected');
-
 			text === "disconnect" ? inputs[i].setAttribute('data-element-connect', elements) : inputs[i].setAttribute('data-element-connect', '')
 		}
-
 		event.target.parentElement.classList.toggle('disconnected');
 	};
 
@@ -99,12 +93,6 @@ const SpacingComponent = props => {
 		responsive ? updateState[`${device}-unit`] = unitKey : updateState[`unit`] = unitKey;
 		props.onChange(updateState);
 		setState(updateState);
-	};
-
-	const renderResponsiveInput = (device) => {
-		return <input key={device} type='hidden' onChange={() => onUnitChange(device, '')}
-			className={`kmt-spacing-unit-input kmt-spacing-${device}-unit`} data-device={`${device}`}
-			value={state[`${device}-unit`]}></input>;
 	};
 
 	const renderInputHtml = (device, active = '') => {
@@ -160,15 +148,14 @@ const SpacingComponent = props => {
 		const { unit_choices } = props.params;
 		if (unit_choices) {
 			responsiveUnit = Object.values(unit_choices).map(unitKey => {
-				let unitClass = '';
+				let unitClass;
 				if (responsive) {
-					if (state[`${device}-unit`] === unitKey) {
-						unitClass = 'active';
-					}
+					(state[`${device}-unit`] === unitKey) ?
+						unitClass = 'active' : unitClass = ''
+
 				} else {
-					if (state[`unit`] === unitKey) {
-						unitClass = 'active';
-					}
+					(state[`unit`] === unitKey) ?
+						unitClass = 'active' : unitClass = ''
 				}
 				let html = <li key={unitKey} className={`single-unit ${unitClass}`}
 					onClick={() => onUnitChange(device, unitKey)} data-unit={unitKey}>

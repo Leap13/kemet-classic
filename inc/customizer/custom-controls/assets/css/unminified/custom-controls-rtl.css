@@ -1169,7 +1169,7 @@ textarea {
 .kmt-background-btn-reset-wrap {
   position: absolute;
   right: -3px;
-  top: 10px;
+  top: 15px;
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn {
   color: #006ba1;
@@ -9116,7 +9116,7 @@ input[type="number"] {
 }
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
-  top: 5px;
+  top: 8px;
   right: -3px;
 }
 .kmt-spacing-responsive:hover
@@ -9131,7 +9131,7 @@ input[type="number"] {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(20px, 0, 0);
+  transform: translate3d(15px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;

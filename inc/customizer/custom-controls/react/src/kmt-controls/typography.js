@@ -31,7 +31,7 @@ const Typography = (props) => {
         'family': 'System Default',
         'variation': 'n4',
         'size': {
-            "desktop": '',
+            "desktop": '30',
             "desktop-unit": 'px',
             'tablet': '',
             'tablet-unit': 'px',

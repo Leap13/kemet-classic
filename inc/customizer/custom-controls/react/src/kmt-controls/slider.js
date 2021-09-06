@@ -51,25 +51,16 @@ class ResponsiveSliderComponent extends Component {
         this.handleUnitChange = this.handleUnitChange.bind(this)
     }
 
-    updateValues(value) {
+    updateValues = (value) => {
         let updateState = { ...this.state.initialState };
-        if (this.responsive) {
-            updateState[this.state.currentDevice] = value;
-        } else {
-            updateState[`value`] = value;
-        }
+        (this.responsive) ? updateState[this.state.currentDevice] = value : updateState[`value`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
 
     handleUnitChange = (device, value) => {
-
         let updateState = { ...this.state.initialState };
-        if (this.responsive) {
-            updateState[`${device}-unit`] = value;
-        } else {
-            updateState[`unit`] = value;
-        }
+        this.responsive ? updateState[`${device}-unit`] = valueelse : updateState[`unit`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
@@ -101,7 +92,6 @@ class ResponsiveSliderComponent extends Component {
 
     render() {
         let { label, suffix, description } = this.props.params;
-
         let suffixContent = suffix ? <span class="kmt-range-unit">{suffix}</span> : null;
         let descriptionContent = (description || description !== '') ? <span class="description customize-control-description">{description}</span> : null;
         let dataAttributes = ''
@@ -128,15 +118,15 @@ class ResponsiveSliderComponent extends Component {
         ) : <span className="customize-control-title">{label}</span>;
 
         let unitHTML = units.map((unit) => {
-            let unit_class = '';
+            let unit_class;
             if (this.responsive) {
-                if (this.state.initialState[`${this.state.currentDevice}-unit`] === unit) {
-                    unit_class = 'active';
-                }
+                (this.state.initialState[`${this.state.currentDevice}-unit`] === unit) ?
+                    unit_class = 'active' : unit_class = ""
+
             } else {
-                if (this.state.initialState[`unit`] === unit) {
-                    unit_class = 'active';
-                }
+                (this.state.initialState[`unit`] === unit) ?
+                    unit_class = 'active' : unit_class = ""
+
             }
 
             return (<li className={`single-unit ${unit_class}`} data-unit={unit}  >
@@ -155,21 +145,11 @@ class ResponsiveSliderComponent extends Component {
                 return;
             }
             if (dataAttributes.min < -0.1) {
-                if (newValue > dataAttributes.max) {
-                    this.updateValues(dataAttributes.max);
-                } else if (newValue < dataAttributes.min && newValue !== '-') {
-                    this.updateValues(dataAttributes.min);
-                } else {
-                    this.updateValues(newValue);
-                }
+                (newValue > dataAttributes.max) ? this.updateValues(dataAttributes.max) : (newValue < dataAttributes.min && newValue !== '-') ? this.updateValues(dataAttributes.min) : this.updateValues(newValue);
+
             } else {
-                if (newValue > dataAttributes.max) {
-                    this.updateValues(dataAttributes.max);
-                } else if (newValue < -0.1) {
-                    this.updateValues(dataAttributes.min);
-                } else {
-                    this.updateValues(newValue);
-                }
+                (newValue > dataAttributes.max) ? this.updateValues(dataAttributes.max) : (newValue < -0.1) ? this.updateValues(dataAttributes.min) : this.updateValues(newValue);
+
             }
         }
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
