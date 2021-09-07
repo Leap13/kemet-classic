@@ -44,7 +44,12 @@ if ( ! function_exists( 'kemet_entry_content_blog_template' ) ) {
 	 * /templates/content-search.php
 	 */
 	function kemet_entry_content_blog_template() {
-		get_template_part( 'templates/blog/blog-layout' );
+		$blog_layout = kemet_get_option( 'blog-layouts' );
+		if ( 'blog-layout-1' == $blog_layout || 'blog-layout-2' == $blog_layout ) {
+			get_template_part( 'templates/blog/blog-layout-1' );
+		} else {
+			get_template_part( 'templates/blog/' . esc_attr( $blog_layout ) );
+		}
 	}
 }
 
