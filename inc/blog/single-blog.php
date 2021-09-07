@@ -91,7 +91,8 @@ if ( ! function_exists( 'kemet_single_get_post_meta' ) ) {
 			}
 		}
 		if ( $echo ) {
-			echo wp_kses_post( $output );;
+			echo wp_kses_post( $output );
+
 		} else {
 			return $output;
 		}
@@ -120,7 +121,7 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 			case 'pingback':
 			case 'trackback':
 				// Display trackbacks differently than normal comments.
-			?>
+				?>
 				<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 					<p><?php esc_html_e( 'Pingback:', 'kemet' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'kemet' ), '<span class="edit-link">', '</span>' ); ?></p>
 				</li>
@@ -151,9 +152,9 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 									printf(
 										'<div class="kmt-comment-time kmt-col-lg-12"><span  class="timendate"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></span></div>',
 										esc_url( get_comment_link( $comment->comment_ID ) ),
-										esc_html(get_comment_time( 'c' )),
+										esc_html( get_comment_time( 'c' ) ),
 										/* translators: 1: date, 2: time */
-										sprintf( esc_html__( '%1$s at %2$s', 'kemet' ), esc_html(get_comment_date() ), esc_html(get_comment_time()) )
+										sprintf( esc_html__( '%1$s at %2$s', 'kemet' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) )
 									);
 
 									?>
@@ -167,7 +168,8 @@ if ( ! function_exists( 'kemet_comment' ) ) {
 									<?php
 									comment_reply_link(
 										array_merge(
-											$args, array(
+											$args,
+											array(
 												'reply_text' => kemet_theme_strings( 'string-comment-reply-link', false ),
 												'add_below' => 'comment',
 												'depth'  => $depth,
@@ -226,7 +228,8 @@ if ( ! function_exists( 'kemet_single_post_navigation_markup' ) ) {
 			 */
 			the_post_navigation(
 				apply_filters(
-					'kemet_single_post_navigation', array(
+					'kemet_single_post_navigation',
+					array(
 						'next_text' => $next_text,
 						'prev_text' => $prev_text,
 					)

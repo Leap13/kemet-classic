@@ -30,11 +30,13 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
+					$output_str .= Kemet_Svg_Icons::get_icons( 'author' );
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 					$output_str .= kemet_post_author();
 					break;
 
 				case 'date':
+					$output_str .= Kemet_Svg_Icons::get_icons( 'date' );
 					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 					$output_str .= kemet_post_date();
 					break;
@@ -42,6 +44,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'category':
 					$category = kemet_post_categories();
 					if ( '' != $category ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'category' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $category;
 					}
@@ -50,6 +53,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'tag':
 					$tags = kemet_post_tags();
 					if ( '' != $tags ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'tags' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $tags;
 					}
@@ -58,6 +62,7 @@ if ( ! function_exists( 'kemet_get_post_meta' ) ) {
 				case 'comments':
 					$comment = kemet_post_comments();
 					if ( '' != $comment ) {
+						$output_str .= Kemet_Svg_Icons::get_icons( 'comment' );
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $comment;
 					}

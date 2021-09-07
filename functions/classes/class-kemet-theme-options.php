@@ -363,6 +363,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'blog-grids'                           => array(
+						'desktop' => 3,
+						'tablet'  => 2,
+						'mobile'  => 1,
+					),
 					// Kemet Footer.
 					'footer-copyright-text'                => __( 'Powered by [theme_author] WordPress Theme', 'kemet' ),
 					// General.
@@ -426,7 +431,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'mobile-unit'  => 'px',
 					),
 					'body-typography'                      => array(
-						'size'            => array(
+						'size'        => array(
 							'desktop'      => 15,
 							'tablet'       => 15,
 							'mobile'       => 15,
@@ -434,10 +439,14 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
-						'family'          => '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif',
-						'letter-spacing'  => 'normal',
-						'text-transform'  => 'none',
-						'text-decoration' => 'none',
+						'line-height' => array(
+							'desktop'      => 1.85714285714286,
+							'tablet'       => 1.85714285714286,
+							'mobile'       => 1.85714285714286,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h1-typography'                        => array(
 						'size' => array(
@@ -527,6 +536,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Widgets.
 					'widget-padding'                       => '',
 					'widget-bg-color'                      => '',
+					// Go top
+					'go-top-position'                      => 'right',
+					'go-top-side-offset'                   => 50,
+					'go-top-bottom-offset'                 => 50,
+					'go-top-style'                         => 'arrow-up-alt',
 				)
 			);
 		}

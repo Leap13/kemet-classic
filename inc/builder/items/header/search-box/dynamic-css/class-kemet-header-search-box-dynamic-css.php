@@ -45,14 +45,14 @@ if ( ! class_exists( 'Kemet_Header_Search_Box_Dynamic_Css' ) ) {
 						'--inputFocusBackgroundColor' => esc_attr( $bg_focus_color ),
 						'--inputFocusBorderColor'     => esc_attr( $border_focus_color ),
 					),
-					$parent_selector . ' .kmt-search-box-form::after' => array(
-						'color'        => 'var(--inputColor)',
-						'font-size'    => 'var(--fontSize)',
-						'--inputColor' => esc_attr( $icon_color ),
-						'--fontSize'   => kemet_responsive_slider( $icon_size, 'desktop' ),
+					$parent_selector . ' .kmt-search-box-form .icon-search' => array(
+						'color'       => 'var(--iconColor)',
+						'font-size'   => 'var(--fontSize)',
+						'--iconColor' => esc_attr( $icon_color ),
+						'--fontSize'  => kemet_responsive_slider( $icon_size, 'desktop' ),
 					),
-					$parent_selector . ' .kmt-search-box-form:hover::after' => array(
-						'--inputColor' => esc_attr( $icon_h_color ),
+					$parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search' => array(
+						'--iconColor' => esc_attr( $icon_h_color ),
 					),
 				);
 

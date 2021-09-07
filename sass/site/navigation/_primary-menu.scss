@@ -1,15 +1,19 @@
 .kemet-search-icon {
   vertical-align: middle;
 }
-.kemet-search-icon::before {
-  content: "\e90d";
-  font-family: "Kemet-font";
-  font-style: normal;
-  font-weight: 600;
-  text-decoration: inherit;
+.kemet-search-svg-icon-wrap {
+  position: absolute;
+  right: 0px;
+  z-index: 99;
+  top: 0px;
+  height: 100%;
+  width: 50px;
+  padding: 0px;
   text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .kmt-search-container {
   position: relative;
@@ -252,4 +256,9 @@
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+}
+.kmt-svg-icon {
+  &.icon-search {
+    pointer-events: none;
+  }
 }

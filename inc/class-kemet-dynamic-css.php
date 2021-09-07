@@ -169,6 +169,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$archive_post_meta_line_height    = kemet_get_option( 'post-meta-line-height' );
 			$archive_post_meta_letter_spacing = kemet_get_option( 'letter-spacing-post-meta' );
 			$meta_color                       = kemet_get_sub_option( 'listing-post-meta-color', 'initial' );
+			$meta_hover_color                 = kemet_get_sub_option( 'listing-post-meta-color', 'hover' );
 			$pagination_padding               = kemet_get_option( 'pagination-padding' );
 
 			// Footer widget Meta color.
@@ -245,10 +246,29 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$btn_hover_effect     = kemet_get_option( 'button-hover-effect' );
 
 			// Blog Post Title Typography Options.
-			$single_post_max       = kemet_get_option( 'blog-single-width' );
-			$single_post_max_width = kemet_get_option( 'blog-single-max-width' );
-			$blog_width            = kemet_get_option( 'blog-width' );
-			$blog_max_width        = kemet_get_option( 'blog-max-width' );
+			$single_post_max           = kemet_get_option( 'blog-single-width' );
+			$single_post_max_width     = kemet_get_option( 'blog-single-max-width' );
+			$blog_width                = kemet_get_option( 'blog-width' );
+			$blog_max_width            = kemet_get_option( 'blog-max-width' );
+			$blog_layout2_border_width = kemet_get_option( 'layout-2-post-border-size' );
+			$blog_layout_border_color  = kemet_get_option( 'blog-posts-border-color', $global_border_color );
+			$overlay_color             = kemet_get_sub_option( 'overlay-image-bg-color', 'initial', $theme_color );
+			$overlay_icon_color        = kemet_get_sub_option( 'overlay-icon-color', 'initial', $global_border_color );
+			$title_meta_poistion       = kemet_get_option( 'title-meta-position' );
+			$content_alignment         = kemet_get_option( 'content-alignment' );
+			$padding_inside_container  = kemet_get_option( 'padding-inside-container' );
+
+			// Go top
+			$go_top_size          = kemet_get_option( 'go-top-icon-size' );
+			$go_top_side_offset   = kemet_get_option( 'go-top-side-offset' );
+			$go_top_bottom_offset = kemet_get_option( 'go-top-bottom-offset' );
+			$go_top_radius        = kemet_get_option( 'go-top-radius' );
+			$go_top_color         = kemet_get_sub_option( 'go-top-icon-color', 'initial' );
+			$go_top_h_color       = kemet_get_sub_option( 'go-top-icon-color', 'hover' );
+			$go_top_bgcolor       = kemet_get_sub_option( 'go-top-icon-bgcolor', 'initial' );
+			$go_top_h_bgcolor     = kemet_get_sub_option( 'go-top-icon-bgcolor', 'hover' );
+			$go_top_bordercolor   = kemet_get_sub_option( 'go-top-border-color', 'initial' );
+			$go_top_h_bordercolor = kemet_get_sub_option( 'go-top-border-color', 'hover' );
 
 			$css_output = array();
 
@@ -291,6 +311,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--inputBorderWidth'           => kemet_responsive_slider( $input_border_size, 'desktop' ),
 					'--contentWidth'               => kemet_slider( $site_content_width ),
 					'--buttonShadow'               => 'none',
+					'--overlayColor'               => esc_attr( $overlay_color ),
+					'--overlayIconColor'           => esc_attr( $overlay_icon_color ),
 				),
 				// Gutenberg Support.
 				'.kmt-single-post .has-global-color'    => array(
@@ -364,7 +386,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'color'            => 'var(--textColor)',
 				),
 				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
-					'font-family'     => 'var(--fontFamily)',
+					'font-family'     => 'var(--fontFamily, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif)',
 					'font-weight'     => 'var(--fontWeight)',
 					'font-size'       => 'var(--fontSize)',
 					'letter-spacing'  => 'var(--letterSpacing)',
@@ -579,6 +601,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--textColor' => esc_attr( kemet_color_brightness( $text_meta_color, 0.7, 'light' ) ),
 				),
 				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
+					'--linksHoverColor' => esc_attr( $meta_hover_color ),
+				),
+				'.single .entry-header'                 => array(
+					'text-align' => esc_attr( $title_meta_poistion ),
+				),
+				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
+					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'desktop' ),
+				),
+				'.single .entry-content , .single .comments-area , .single .comments-area .comment-form-textarea textarea' => array(
+					'text-align' => esc_attr( $content_alignment ),
+				),
+				'.entry-meta a:hover, .entry-meta a:hover *, .entry-meta a:focus, .entry-meta a:focus *' => array(
 					'--linksHoverColor' => esc_attr( $theme_color ),
 				),
 				'div.sidebar-main'                      => array(
@@ -700,6 +734,46 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-bottom-style' => 'var(--borderBottomStyle)',
 					'border-bottom-width' => 'var(--borderBottomWidth)',
 					'border-bottom-color' => 'var(--borderBottomColor)',
+				),
+
+				// Blog Layouts
+				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
+					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'desktop' ),
+					'border-color'  => kemet_get_sub_option( 'blog-posts-border-color', 'initial', $global_border_color ),
+				),
+				'.squares .overlay-image .overlay-color .section-1:before ,.squares .overlay-image .overlay-color .section-1:after ,.squares .overlay-image .overlay-color .section-2:before ,.squares .overlay-image .overlay-color .section-2:after , .bordered .overlay-color ,.framed .overlay-color' => array(
+					'background-color' => 'var(--overlayColor)',
+				),
+				'.overlay-image .post-details a:before, .overlay-image .post-details a:after' => array(
+					'background-color' => 'var(--overlayIconColor)',
+				),
+				'.bordered .overlay-color .color-section-1 .color-section-2:after, .bordered .overlay-color .color-section-1 .color-section-2:before' => array(
+					'border-color' => 'var(--overlayIconColor)',
+				),
+				// Go Top Button
+				'#kmt-go-top, #kmt-go-top span'         => array(
+					'font-size' => kemet_responsive_slider( $go_top_size, 'desktop' ),
+				),
+				'.kmt-go-top-button.go-top-right, .kmt-go-top-button.go-top-left' => array(
+					'--sideOffset' => kemet_responsive_slider( $go_top_side_offset, 'desktop' ),
+				),
+				'.kmt-go-top-button'                    => array(
+					'bottom'        => kemet_responsive_slider( $go_top_bottom_offset, 'desktop' ),
+					'border-radius' => kemet_responsive_slider( $go_top_radius, 'desktop' ),
+				),
+				'.kmt-go-top-button span'               => array(
+					'color' => esc_attr( $go_top_color ),
+				),
+				'.kmt-go-top-button:hover span'         => array(
+					'color' => esc_attr( $go_top_h_color ),
+				),
+				'#kmt-go-top'                           => array(
+					'background-color' => esc_attr( $go_top_bgcolor ),
+					'border-color'     => esc_attr( $go_top_bordercolor ),
+				),
+				'#kmt-go-top:hover'                     => array(
+					'background-color' => esc_attr( $go_top_h_bgcolor ),
+					'border-color'     => esc_attr( $go_top_h_bordercolor ),
 				),
 			);
 
@@ -877,6 +951,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-content .kmt-pagination' => array(
 					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'tablet' ),
 				),
+				// Blog Layouts
+				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
+					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'tablet' ),
+				),
+				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
+					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'tablet' ),
+				),
 			);
 
 			/* Parse CSS from array()*/
@@ -999,6 +1080,13 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Footer Widget.
 				'.site-content .kmt-pagination' => array(
 					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'mobile' ),
+				),
+				// Blog Layouts
+				'.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post' => array(
+					'--borderWidth' => kemet_responsive_spacing( $blog_layout2_border_width, 'all', 'mobile' ),
+				),
+				'.single-post .kmt-article-single, .single-post .comments-area .comment-respond , .single-post .kmt-author-box-info , .single-post .kmt-comment-list li' => array(
+					'padding' => kemet_responsive_spacing( $padding_inside_container, 'all', 'tablet' ),
 				),
 			);
 

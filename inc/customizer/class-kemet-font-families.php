@@ -142,11 +142,40 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					$variants = array();
 					foreach ( $font['variants'] as $variant_key => $variant ) {
 
-						$variants[ $variant_key ] = $variant;
-
-						if ( 'regular' == $variant ) {
-							$variants[ $variant_key ] = '400';
+						$prefix = 'n';
+						$sufix  = '4';
+						$value  = strtolower( trim( $variant ) );
+						$value  = str_replace( ' ', '', $variant );
+						if ( is_numeric( $value ) && isset( $value[0] ) ) {
+							$sufix  = $value[0];
+							$prefix = 'n';
 						}
+						if ( preg_match( '#italic#', $value ) ) {
+							if ( 'italic' === $value ) {
+								$sufix  = 4;
+								$prefix = 'i';
+							} else {
+								$value = trim( str_replace( 'italic', '', $value ) );
+								if ( is_numeric( $value ) && isset( $value[0] ) ) {
+									$sufix  = $value[0];
+									$prefix = 'i';
+								}
+							}
+						}
+						if ( preg_match( '#regular|normal#', $value ) ) {
+							if ( 'regular' === $value ) {
+								$sufix  = 4;
+								$prefix = 'n';
+							} else {
+								$value = trim( str_replace( array( 'regular', 'normal' ), '', $value ) );
+
+								if ( is_numeric( $value ) && isset( $value[0] ) ) {
+									$sufix  = $value[0];
+									$prefix = 'n';
+								}
+							}
+						}
+						$variants[ $variant_key ] = "{$prefix}{$sufix}";
 					}
 
 					$font_data                             = array(

@@ -49,7 +49,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'      => array(
-									'selector'   => $parent_selector . ' .kmt-search-box-form::after',
+									'selector'   => $parent_selector . ' .kmt-search-box-form .icon-search',
 									'property'   => '--fontSize',
 									'responsive' => true,
 								),
@@ -75,12 +75,12 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => $parent_selector . ' .kmt-search-box-form::after',
-										'property' => '--inputColor',
+										'selector' => $parent_selector . ' .kmt-search-box-form .icon-search',
+										'property' => '--iconColor',
 									),
 									'hover'   => array(
-										'selector' => $parent_selector . ' .kmt-search-box-form:hover::after',
-										'property' => '--inputColor',
+										'selector' => $parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search',
+										'property' => '--iconColor',
 									),
 								),
 							),
