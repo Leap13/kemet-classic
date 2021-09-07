@@ -59,7 +59,7 @@ const KemetColorComponent = props => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
+                    className="kmt-reset-btn "
                     disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
                     onClick={e => {
                         e.preventDefault();
@@ -71,7 +71,6 @@ const KemetColorComponent = props => {
 
                         updateValues(value);
                     }}>
-                    <span className="dashicons dashicons-image-rotate"></span>
                 </button>
             </div>
         </>;
@@ -151,16 +150,18 @@ const KemetColorComponent = props => {
     return <div className="kmt-control-wrap kmt-color-control-wrap">
 
         <div className={`kmt-color-container`}>
-            <label>
+
+            <header>
                 {renderOperationButtons()}
                 {labelHtml}
-                {descriptionHtml}
                 {responsiveHtml}
-            </label>
+            </header>
             < div className={`kmt-color-picker-container`}>
                 {optionsHtml}
             </div>
+
         </div>
+        {descriptionHtml}
     </div>;
 
 }

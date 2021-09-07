@@ -117,8 +117,6 @@ const TypographyModal = ({
         }
     }, [initialView])
 
-
-
     useEffect(() => {
         if (currentView === 'search') {
             inputEl.current.focus()

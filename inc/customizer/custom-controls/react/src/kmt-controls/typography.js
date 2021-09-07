@@ -154,7 +154,7 @@ const Typography = (props) => {
     return (
         <div className={classnames('kmt-typography', {})}>
             <header>
-                <div className={`kmt-reset-btn`}>
+                <div className={`kmt-typography-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
                         disabled={(JSON.stringify(value) === JSON.stringify(defaultValue))}
@@ -166,7 +166,6 @@ const Typography = (props) => {
                             }
                             updateValues(resetValue);
                         }}>
-                        <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 <span className="customize-control-title">{label}</span>

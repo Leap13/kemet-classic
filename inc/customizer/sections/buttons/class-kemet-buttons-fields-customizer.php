@@ -44,6 +44,19 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'transport' => 'postMessage',
 								'label'     => __( 'Button Hover Effect', 'kemet' ),
 							),
+							'menu_item_icon' => array(
+							'type' => 'icon-picker',
+							'label' => __('Icon', 'kemet'),
+							'value' => array(
+								'icon' => ''
+								)
+							),
+							// 'button_upload_font' =>array(
+							// 'type' => 'font-upload',
+							// 'label' => __('Font Upload', 'kemet'),
+							
+							// ),
+							
 							'button-spacing'      => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',

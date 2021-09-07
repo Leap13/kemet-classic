@@ -378,6 +378,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'enable-footer-widget-list-separator'  => false,
 					'footer-widget-list-border-color'      => '',
 					// Kemet Buttons & Fields.
+					'menu_item_icon' =>array('icon'=>''),
+					'button_upload_font'=>'',
 					'buttons-font-size'                    => '',
 					'buttons-font-family'                  => 'inherit',
 					'buttons-font-weight'                  => 'inherit',

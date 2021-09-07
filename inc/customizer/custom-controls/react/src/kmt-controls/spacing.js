@@ -204,18 +204,20 @@ const SpacingComponent = props => {
 	</Fragment>;
 
 	return <div key={'kmt-spacing-responsive'} className='kmt-spacing-responsive' >
-		<div className="kmt-spacing-btn-reset-wrap">
-			<button
-				className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
-				disabled={JSON.stringify(state) === JSON.stringify(defaultVals)}
-				onClick={e => handleReset(e)}>
-				<span className="dashicons dashicons-image-rotate"></span>
-			</button>
-		</div>
-		{responsive ? <Responsive
-			onChange={(currentDevice) => setDevice(currentDevice)}
-			label={label}
-		/> : <span className="customize-control-title">{label}</span>}
+		<header>
+			<div className="kmt-spacing-btn-reset-wrap">
+				<button
+					className="kmt-reset-btn "
+					disabled={JSON.stringify(state) === JSON.stringify(defaultVals)}
+					onClick={e => handleReset(e)}>
+				</button>
+			</div>
+			<span className="customize-control-title">{label}</span>
+			{responsive ? <Responsive
+				onChange={(currentDevice) => setDevice(currentDevice)}
+
+			/> : null}
+		</header>
 		{renderUnit()}
 
 		{descriptionContent}

@@ -63,7 +63,10 @@ const Background = (props) => {
                         useCapture={false}
                         display="block"
                         disabled={!isOpen}
-                        onOutsideClick={() => {
+                        onOutsideClick={(e) => {
+                            if (e.target.closest('.media-modal-content')) {
+                                return
+                            }
                             setTimeout(() => setIsOpen(false));
                         }}
                         wrapperProps={{

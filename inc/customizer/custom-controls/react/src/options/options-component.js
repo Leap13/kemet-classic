@@ -21,7 +21,8 @@ import IconSelectComponent from '../kmt-controls/icon-select'
 import RadioImageComponent from '../kmt-controls/radio-image'
 import Typography from '../kmt-controls/typography';
 import ColorPalettes from '../kmt-controls/color-pallet';
-
+import IconPicker from '../kmt-controls/icon';
+// import EditSettings from '../kmt-controls/uploadFont';
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -91,6 +92,12 @@ const OptionComponent = (type) => {
         case 'kmt-color-palettes':
             OptionComponent = ColorPalettes;
             break;
+        case 'icon-picker':
+            OptionComponent = IconPicker;
+            break;
+        // case 'font-upload':
+        //     OptionComponent = EditSettings;
+        //     break;
     }
 
     return OptionComponent;
