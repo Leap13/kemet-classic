@@ -22190,7 +22190,7 @@ var Typography = function Typography(props) {
     'family': 'System Default',
     'variation': 'n4',
     'size': {
-      "desktop": '30',
+      "desktop": '15',
       "desktop-unit": 'px',
       'tablet': '',
       'tablet-unit': 'px',
@@ -23430,11 +23430,12 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
 /*!******************************************!*\
   !*** ./src/options/options-component.js ***!
   \******************************************/
-/*! exports provided: getSettingId, getSetting, isDisplay, renderOptions, default */
+/*! exports provided: OptionComponent, getSettingId, getSetting, isDisplay, renderOptions, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptionComponent", function() { return OptionComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSettingId", function() { return getSettingId; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSetting", function() { return getSetting; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplay", function() { return isDisplay; });
@@ -23496,7 +23497,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var wpOptions = ["custom_logo", "blogname", "blogdescription"];
-
 var OptionComponent = function OptionComponent(type) {
   var OptionComponent;
 
@@ -23592,7 +23592,6 @@ var OptionComponent = function OptionComponent(type) {
 
   return OptionComponent;
 };
-
 var getSettingId = function getSettingId(id) {
   var setting = wpOptions.includes(id) ? id : KemetCustomizerData.setting.replace("setting_name", id);
   return setting;

@@ -424,25 +424,6 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Widget', 'kemet' ),
 							),
-							self::$prefix . '-widget-title-color' => array(
-								'transport'  => 'postMessage',
-								'type'       => 'kmt-color',
-								'responsive' => true,
-								'label'      => __( 'Title Color', 'kemet' ),
-								'pickers'    => array(
-									array(
-										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'    => array(
-									'responsive' => true,
-									'initial'    => array(
-										'selector' => $widget_selector . ' .widget-title',
-										'property' => '--headingLinksColor',
-									),
-								),
-							),
 							self::$prefix . '-widget-content-color' => array(
 								'transport'  => 'postMessage',
 								'type'       => 'kmt-color',

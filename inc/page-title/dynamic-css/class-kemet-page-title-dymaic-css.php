@@ -56,6 +56,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'desktop' ),
 				),
 				'.kemet-page-title'                   => array(
+					'font-family'         => 'var(--fontFamily)',
 					'--headingLinksColor' => esc_attr( $page_title_color ),
 				),
 				'.taxonomy-description'               => array(
@@ -73,6 +74,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'border-color' => esc_attr( $layout3_border_right_color ),
 				),
 				'.kemet-breadcrumb-trail'             => array(
+					'font-family'         => 'var(--fontFamily)',
 					'--padding'           => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'desktop' ),
 					'--headingLinksColor' => esc_attr( $breadcrumbs_link_color ),
 					'--linksHoverColor'   => esc_attr( $breadcrumbs_link_h_color ),
@@ -110,8 +112,9 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 
 			/* Parse CSS from array()*/
 			$parse_css .= kemet_parse_css( $mobile, '', '544' );
-			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'page-title', $selector );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'page-title', $selector . ' .kemet-page-title' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'sub-title', '.kemet-page-sub-title' );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'breadcrumbs', '.kemet-breadcrumb-trail' );
 
 			$dynamic_css .= $parse_css;
 

@@ -119,11 +119,11 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 
 			switch ( $device ) {
 				case 'all':
-					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $current_items;
+					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : array_unique( $current_items );
 					break;
 
 				default:
-					$current_items = 'header' == $builder ? array_unique( $current_items[ $device ] ) : $current_items;
+					$current_items = 'header' == $builder ? array_unique( $current_items[ $device ] ) : array_unique( $current_items );
 					break;
 			}
 

@@ -105,7 +105,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Typography', 'kemet' ),
 								'transport' => 'postMessage',
 								'preview'   => array(
-									'selector' => $selector,
+									'selector' => $selector . ' .kemet-page-title',
 								),
 							),
 							self::$prefix . '-background' => array(

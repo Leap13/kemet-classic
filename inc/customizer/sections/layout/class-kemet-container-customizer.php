@@ -132,7 +132,27 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'content-separator-color' => array(
+							'site-layout-outside-bg-obj' => array(
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'label'      => __( 'Body Background', 'kemet' ),
+								'preview'    => array(
+									'selector'   => '.kmt-sticky-footer #content, body, .kmt-separate-container , .entry-layout.blog-large-modern .entry-content',
+									'responsive' => true,
+								),
+							),
+							'site-boxed-inner-bg'        => array(
+								'type'       => 'kmt-background',
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'label'      => __( 'Boxed Background', 'kemet' ),
+								'preview'    => array(
+									'selector'   => '.kmt-separate-container .kmt-article-post,.kmt-separate-container .kmt-article-single ,.kmt-separate-container .comment-respond ,.kmt-separate-container .kmt-author-box-info , .kmt-separate-container .kmt-woocommerce-container ,.kmt-separate-container .kmt-comment-list li ,.kmt-separate-container .comments-count-wrapper ,.kmt-separate-container.kmt-two-container #secondary div.widget',
+									'responsive' => true,
+								),
+							),
+							'content-separator-color'    => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Separator Color', 'kemet' ),

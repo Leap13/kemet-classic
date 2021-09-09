@@ -44,6 +44,21 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 			add_filter( 'kemet_the_title_enabled', array( $this, 'page_title_display' ) );
 			add_filter( 'kemet_disable_breadcrumbs', array( $this, 'breadcrumbs_display' ) );
 			add_filter( 'kemet_theme_defaults', array( $this, 'theme_defaults' ) );
+			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
+		}
+
+		/**
+		 * Add Google Fonts
+		 */
+		public function add_fonts() {
+			$typography = kemet_get_option( 'page-title-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+
+			$typography = kemet_get_option( 'sub-title-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+
+			$typography = kemet_get_option( 'breadcrumbs-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 		}
 
 		/**

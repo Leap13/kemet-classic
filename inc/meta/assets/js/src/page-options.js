@@ -49,8 +49,37 @@ const kemetPageOptions = (props) => {
                 document.body.classList.add(className);
             }
             if ('background' === key) {
-                let dynamicStyle = get_background_css(value);
-                dynamicStyle = '.edit-post-visual-editor__content-area, .block-editor-writing-flow{' + dynamicStyle + '}';
+                let background = {
+                    desktop: "",
+                    tablet: "",
+                    mobile: "",
+                };
+                if ("" != value["desktop"]) {
+                    background.desktop = get_background_css(value["desktop"]);
+                }
+
+                if ("" != value["tablet"]) {
+                    background.tablet = get_background_css(value["tablet"]);
+                }
+
+                if ("" != value["mobile"]) {
+                    background.mobile = get_background_css(value["mobile"]);
+                }
+                let dynamicStyle =
+                    selector +
+                    "	{ " +
+                    background.desktop +
+                    " }" +
+                    "@media (max-width: 768px) {" +
+                    selector +
+                    "	{ " +
+                    background.tablet +
+                    " } }" +
+                    "@media (max-width: 544px) {" +
+                    selector +
+                    "	{ " +
+                    background.mobile +
+                    " } }";
                 let css = dynamicStyle,
                     head = document.head || document.getElementsByTagName('head')[0],
                     style = document.createElement('style');
@@ -65,7 +94,37 @@ const kemetPageOptions = (props) => {
                 }
             }
             if ('boxed-background' === key) {
-                let dynamicStyle = get_background_css(value);
+                let background = {
+                    desktop: "",
+                    tablet: "",
+                    mobile: "",
+                };
+                if ("" != value["desktop"]) {
+                    background.desktop = get_background_css(value["desktop"]);
+                }
+
+                if ("" != value["tablet"]) {
+                    background.tablet = get_background_css(value["tablet"]);
+                }
+
+                if ("" != value["mobile"]) {
+                    background.mobile = get_background_css(value["mobile"]);
+                }
+                let dynamicStyle =
+                    selector +
+                    "	{ " +
+                    background.desktop +
+                    " }" +
+                    "@media (max-width: 768px) {" +
+                    selector +
+                    "	{ " +
+                    background.tablet +
+                    " } }" +
+                    "@media (max-width: 544px) {" +
+                    selector +
+                    "	{ " +
+                    background.mobile +
+                    " } }";
                 dynamicStyle = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow{' + dynamicStyle + '}';
                 let css = dynamicStyle,
                     head = document.head || document.getElementsByTagName('head')[0],

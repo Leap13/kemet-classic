@@ -470,6 +470,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 
 			return do_shortcode( $html );
 		}
+
 		/**
 		 * Site Title / Logo
 		 */

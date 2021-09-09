@@ -66,7 +66,7 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 						'menu_id'         => 'footer-menu',
 						'menu_class'      => 'main-header-menu kmt-flex kmt-justify-content-center',
 						'container'       => 'div',
-						'container_class' => 'main-header-bar-navigation',
+						'container_class' => 'main-header-bar-navigation main-navigation',
 						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 						'depth'           => 1,
 					)

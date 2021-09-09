@@ -102,13 +102,15 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 					),
 				),
 				'background'           => array(
-					'type'  => 'kmt-background',
-					'label' => __( 'Page Background', 'kemet' ),
+					'type'       => 'kmt-background',
+					'responsive' => true,
+					'label'      => __( 'Page Background', 'kemet' ),
 				),
 				'boxed-background'     => array(
-					'type'    => 'kmt-background',
-					'label'   => __( 'Page Boxed Background', 'kemet' ),
-					'context' => array(
+					'type'       => 'kmt-background',
+					'responsive' => true,
+					'label'      => __( 'Page Boxed Background', 'kemet' ),
+					'context'    => array(
 						array(
 							'setting'  => 'content-layout',
 							'operator' => 'in_array',

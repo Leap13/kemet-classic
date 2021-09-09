@@ -61,7 +61,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				/* Parse CSS from array()*/
 				$parse_css = kemet_parse_css( $css_output );
 
-				// $parse_css .= self::typography_css( $button, $selector );
+				$parse_css .= self::typography_css( $button, $selector );
 
 				return $parse_css;
 			}
@@ -78,20 +78,16 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 		public static function widget_css( $widget, $builder = 'header', $device = 'all' ) {
 			if ( Kemet_Builder_Helper::is_item_loaded( $widget, 'header', $device ) ) {
 				$selector      = '.kmt-' . $widget . '-area';
-				$title_color   = kemet_get_sub_option( $widget . '-title-color', 'initial' );
 				$link_color    = kemet_get_sub_option( $widget . '-link-color', 'initial' );
 				$content_color = kemet_get_sub_option( $widget . '-content-color', 'initial' );
 				$link_h_color  = kemet_get_sub_option( $widget . '-link-color', 'hover' );
 
 				$css_output = array(
-					$selector                    => array(
+					$selector => array(
 						'--textColor'         => esc_attr( $content_color ),
 						'--headingLinksColor' => esc_attr( $link_color ),
 						'--linksHoverColor'   => esc_attr( $link_h_color ),
 						'color'               => 'var(--textColor)',
-					),
-					$selector . ' .widget-title' => array(
-						'--headingLinksColor' => esc_attr( $title_color ),
 					),
 				);
 

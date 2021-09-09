@@ -143,7 +143,7 @@ a,
 a:visited,
 a:hover,
 a:focus {
-  text-decoration: none;
+  text-decoration: var(--textDecoration, none);
 }
 
 abbr[title] {

@@ -19,7 +19,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
-			'widget-tabs'        => array(
+			'widget-tabs'       => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -39,7 +39,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
-								'label'          => __( 'Spacing', 'kemet' ),
+								'label'          => __( 'Padding', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(
@@ -98,105 +98,11 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'widget_title-title' => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Title Settings', 'kemet' ),
-			),
-			'widget-title-tabs'  => array(
-				'type' => 'kmt-tabs',
-				'tabs' => array(
-					'general' => array(
-						'title'   => __( 'General', 'kemet' ),
-						'options' => array(
-							'enable-widget-title-separator' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Enable Widget Title Separator', 'kemet' ),
-							),
-						),
-					),
-					'design'  => array(
-						'title'   => __( 'Design', 'kemet' ),
-						'options' => array(
-							'widget-title-typography'   => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-typography',
-								'label'     => __( 'Typography', 'kemet' ),
-								'preview'   => array(
-									'selector' => '.widget-head .widget-title , .widget-title',
-								),
-							),
-							'widget-title-color'        => array(
-								'type'      => 'kmt-color',
-								'transport' => 'postMessage',
-								'label'     => __( 'Font Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget',
-										'property' => 'background-color',
-									),
-								),
-							),
-							'widget-title-border-color' => array(
-								'type'      => 'kmt-color',
-								'transport' => 'postMessage',
-								'label'     => __( 'Separator Color', 'kemet' ),
-								'context'   => array(
-									array(
-										'setting' => 'enable-widget-list-separator',
-										'value'   => true,
-									),
-								),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '.widget .widget-head',
-										'property' => '--borderBottomColor',
-									),
-								),
-							),
-							'widget-title-border-size'  => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Separator Width', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 600,
-									),
-								),
-								'context'      => array(
-									array(
-										'setting' => 'enable-widget-list-separator',
-										'value'   => true,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.widget .widget-head',
-									'property'   => '--borderBottomWidth',
-									'responsive' => true,
-								),
-							),
-						),
-					),
-				),
-			),
-			'widget_list-title'  => array(
+			'widget_list-title' => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'List Settings', 'kemet' ),
 			),
-			'widget-list-tabs'   => array(
+			'widget-list-tabs'  => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(

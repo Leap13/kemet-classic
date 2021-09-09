@@ -34,7 +34,6 @@
 
 .main-header-menu {
   li > a {
-    text-decoration: none;
     --padding: 1em;
     display: inline-block;
     @include kmt-transition();

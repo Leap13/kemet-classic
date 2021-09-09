@@ -173,6 +173,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'author',
 					),
 					// Kemet Blog.
+					'blog-layouts'                         => 'blog-layout-1',
 					'blog-post-structure'                  => array(
 						'image',
 						'title-meta',

@@ -441,7 +441,7 @@ function kemet_add_dynamic_css(control, style) {
   control = control.replace("]", "");
   jQuery("style#" + control).remove();
 
-  jQuery("footer").append('<style id="' + control + '">' + style + "</style>");
+  jQuery("head").append('<style id="' + control + '">' + style + "</style>");
 }
 
 /**
@@ -616,17 +616,17 @@ function kemet_typography_css(control, selector) {
           dynamicStyle += '--textDecoration: ' + value['text-decoration'] + ';';
         }
         dynamicStyle = selector + '{' + dynamicStyle + '}';
-        if (value.size) {
-          dynamicStyle += kemet_responsive_slider_css(value.size, '--fontSize', selector);
-        }
-        if (value['letter-spacing']) {
-          dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], '--letterSpacing', selector);
-        }
-        if (value['line-height']) {
-          dynamicStyle += kemet_responsive_slider_css(value['line-height'], '--lineHeight', selector);
-        }
       }
 
+      if (value.size) {
+        dynamicStyle += kemet_responsive_slider_css(value.size, '--fontSize', selector);
+      }
+      if (value['letter-spacing']) {
+        dynamicStyle += kemet_responsive_slider_css(value['letter-spacing'], '--letterSpacing', selector);
+      }
+      if (value['line-height']) {
+        dynamicStyle += kemet_responsive_slider_css(value['line-height'], '--lineHeight', selector);
+      }
       kemet_add_dynamic_css(control, dynamicStyle);
     })
   })

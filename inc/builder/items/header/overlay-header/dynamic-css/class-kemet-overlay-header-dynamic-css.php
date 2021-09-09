@@ -56,7 +56,6 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 				$search_box_text_color   = kemet_get_option( $prefix . '-search-box-text-color' );
 				// Widget
 				$widget_selector      = $selector . ' .kmt-widget-area';
-				$widget_title_color   = kemet_get_option( $prefix . '-widget-title-color' );
 				$widget_content_color = kemet_get_option( $prefix . '-widget-content-color' );
 				$widget_link_color    = kemet_get_option( $prefix . '-widget-link-color' );
 				// Html
@@ -119,9 +118,6 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 						'--inputBackgroundColor' => esc_attr( $search_box_bg_color ),
 						'--inputBorderColor'     => esc_attr( $search_box_border_color ),
 					),
-					$widget_selector . ' .widget-title'   => array(
-						'--headingLinksColor' => kemet_responsive_color( $widget_title_color, 'initial', 'desktop' ),
-					),
 					$widget_selector                      => array(
 						'--textColor'         => kemet_responsive_color( $widget_content_color, 'initial', 'desktop' ),
 						'--headingLinksColor' => kemet_responsive_color( $widget_link_color, 'initial', 'desktop' ),
@@ -160,9 +156,6 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 					$menu_selector . ' > li ul > li > a:hover' => array(
 						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd, 'hover', 'tablet' ),
 					),
-					$widget_selector . ' .widget-title'  => array(
-						'--headingLinksColor' => kemet_responsive_color( $widget_title_color, 'initial', 'tablet' ),
-					),
 					$widget_selector                     => array(
 						'--textColor'         => kemet_responsive_color( $widget_content_color, 'initial', 'tablet' ),
 						'--headingLinksColor' => kemet_responsive_color( $widget_link_color, 'initial', 'tablet' ),
@@ -200,9 +193,6 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 					),
 					$menu_selector . ' > li ul > li > a:hover' => array(
 						'--backgroundColor' => kemet_responsive_color( $submenu_backgrourd, 'hover', 'mobile' ),
-					),
-					$widget_selector . ' .widget-title'  => array(
-						'--headingLinksColor' => kemet_responsive_color( $widget_title_color, 'initial', 'mobile' ),
 					),
 					$widget_selector                     => array(
 						'--textColor'         => kemet_responsive_color( $widget_content_color, 'initial', 'mobile' ),

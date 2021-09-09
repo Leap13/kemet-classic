@@ -81,6 +81,18 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
+							'enable-page-title-content-area' => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Enable Post Title in Content Area', 'kemet' ),
+							),
+							'prev-next-links'            => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Disable Next / Prev Links', 'kemet' ),
+							),
+							'enable-author-box'          => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Enable Author Box', 'kemet' ),
+							),
 						),
 					),
 					'design'  => array(
@@ -165,7 +177,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
-								'label'          => __( 'Comment Button Spacing', 'kemet' ),
+								'label'          => __( 'Comment Button Margin', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(

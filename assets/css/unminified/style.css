@@ -174,7 +174,9 @@ a,
 a:visited,
 a:hover,
 a:focus {
-  text-decoration: none;
+  -webkit-text-decoration: var(--textDecoration, none);
+  -moz-text-decoration: var(--textDecoration, none);
+  text-decoration: var(--textDecoration, none);
 }
 
 abbr[title] {
@@ -1968,7 +1970,9 @@ body:not(.logged-in) {
 
 a,
 a:focus {
-  text-decoration: none;
+  -webkit-text-decoration: var(--textDecoration, none);
+  -moz-text-decoration: var(--textDecoration, none);
+  text-decoration: var(--textDecoration, none);
 }
 
 a,
@@ -2616,7 +2620,6 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 }
 
 .main-header-menu li > a {
-  text-decoration: none;
   --padding: 1em;
   display: inline-block;
   -webkit-transition: all 0.2s linear;
@@ -5850,6 +5853,10 @@ body:not(.kmt-separate-container) .kmt-article-post:last-child > div {
   margin-bottom: 1.5em;
 }
 
+.single.hide-nav-links .post-navigation {
+  display: none;
+}
+
 @media (max-width: 420px) {
   .post-password-form input[type="password"] {
     display: block;
@@ -5953,6 +5960,65 @@ body:not(.kmt-separate-container) .kmt-article-post:last-child > div {
 @media (max-width: 768px) {
   .kmt-separate-container .entry-header {
     margin-bottom: 1em;
+  }
+}
+
+.kmt-author-box-info {
+  border-top: 1px solid;
+  padding: 25px 0;
+}
+
+.kmt-author-box-info .kmt-author-info {
+  -js-display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.kmt-author-box-info .kmt-author-info .author-information {
+  margin-left: 15px;
+}
+
+.kmt-author-box-info .kmt-author-info p {
+  margin-bottom: 0;
+}
+
+.kmt-author-box-info .kmt-author-avatar img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.kmt-separate-container .kmt-author-box-info {
+  border-top: 0;
+  padding: 4em 6.67em;
+  margin-top: 2em;
+}
+
+@media (max-width: 544px) {
+  .kmt-separate-container .kmt-author-box-info {
+    padding: 1.5em 1em;
+    margin-bottom: 2em;
+    border: 0;
+  }
+  .single.kmt-page-builder-template .kmt-author-box-info {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .kmt-separate-container .kmt-author-box-info {
+    padding: 1.5em 2.14em;
+    margin-bottom: 2em;
+    border: 0;
   }
 }
 

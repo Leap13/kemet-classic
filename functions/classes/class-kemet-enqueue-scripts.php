@@ -151,9 +151,6 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			// Button fonts.
 			$typography = kemet_get_option( 'buttons-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
-			// Widgets title fonts.
-			$typography = kemet_get_option( 'widget-title-typography' );
-			Kemet_Fonts::add_font_form_typography( $typography );
 			// Inputs fonts.
 			$typography = kemet_get_option( 'inputs-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );

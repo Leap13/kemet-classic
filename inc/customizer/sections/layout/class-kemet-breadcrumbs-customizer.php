@@ -86,6 +86,14 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Typography', 'kemet' ),
+								'transport' => 'postMessage',
+								'preview'   => array(
+									'selector' => $selector,
+								),
+							),
 							self::$prefix . '-color'      => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
@@ -131,7 +139,7 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-spacing'    => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
-								'label'          => __( 'Breadcrumbs Spacing', 'kemet' ),
+								'label'          => __( 'Breadcrumbs Padding', 'kemet' ),
 								'responsive'     => true,
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),

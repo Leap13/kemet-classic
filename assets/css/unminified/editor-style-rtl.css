@@ -173,7 +173,9 @@ a,
 a:visited,
 a:hover,
 a:focus {
-  text-decoration: none;
+  -webkit-text-decoration: var(--textDecoration, none);
+  -moz-text-decoration: var(--textDecoration, none);
+  text-decoration: var(--textDecoration, none);
 }
 
 abbr[title] {
@@ -1954,7 +1956,9 @@ body:not(.logged-in) {
 
 a,
 a:focus {
-  text-decoration: none;
+  -webkit-text-decoration: var(--textDecoration, none);
+  -moz-text-decoration: var(--textDecoration, none);
+  text-decoration: var(--textDecoration, none);
 }
 
 a,

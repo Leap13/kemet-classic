@@ -75,6 +75,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--padding'        => '0',
 					),
 					$selector . ' > li ul > li > a'       => array(
+						'font-family'         => 'var(--fontFamily)',
 						'background-color'    => 'var(--backgroundColor)',
 						'--backgroundColor'   => esc_attr( $submenu_bg_color ),
 						'--headingLinksColor' => esc_attr( $submenu_link_color ),

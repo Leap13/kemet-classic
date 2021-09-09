@@ -149,7 +149,7 @@ class Kemet_Breadcrumb_Trail {
 		// Set up variables that we'll need.
 		$breadcrumb        = '';
 		$breadcrumb_prefix = kemet_get_option( 'breadcrumbs-prefix' );
-		$separator         = apply_filters( 'kemet_breadcrumb_separator', kemet_get_option( 'breadcrumb-separator', '»' ) );
+		$separator         = apply_filters( 'kemet_breadcrumb_separator', kemet_get_option( 'breadcrumbs-separator', '»' ) );
 		$separator         = '<span class="breadcrumb-sep">' . $separator . '</span>';
 		$item_count        = count( $this->items );
 		$item_position     = 0;

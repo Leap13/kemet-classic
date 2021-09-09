@@ -33,23 +33,6 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 			$selector       = '.kmt-' . $prefix . '-area';
 			$num            = explode( 'footer-widget-', $prefix )[1];
 			$widget_options = array(
-				$prefix . '-title-color'    => array(
-					'transport' => 'postMessage',
-					'type'      => 'kmt-color',
-					'label'     => __( 'Title Color', 'kemet' ),
-					'pickers'   => array(
-						array(
-							'title' => __( 'Text', 'kemet' ),
-							'id'    => 'initial',
-						),
-					),
-					'preview'   => array(
-						'initial' => array(
-							'selector' => $selector . ' .widget-title',
-							'property' => '--headingLinksColor',
-						),
-					),
-				),
 				$prefix . '-content-color'  => array(
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
