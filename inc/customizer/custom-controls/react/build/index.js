@@ -1128,6 +1128,1491 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
+/***/ "./node_modules/@reach/component-component/dist/reach-component-component.esm.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@reach/component-component/dist/reach-component-component.esm.js ***!
+  \***************************************************************************************/
+/*! exports provided: default, Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return Component; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+var _excluded = ["initialState", "getInitialState", "refs", "getRefs", "didMount", "didUpdate", "willUnmount", "getSnapshotBeforeUpdate", "shouldUpdate", "render"];
+
+function cleanProps(props) {
+  props.initialState;
+      props.getInitialState;
+      props.refs;
+      props.getRefs;
+      props.didMount;
+      props.didUpdate;
+      props.willUnmount;
+      props.getSnapshotBeforeUpdate;
+      props.shouldUpdate;
+      props.render;
+      var rest = _objectWithoutPropertiesLoose(props, _excluded);
+
+  return rest;
+}
+
+var Component = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(Component, _React$Component);
+
+  function Component() {
+    var _this;
+
+    for (var _len = arguments.length, _args = new Array(_len), _key = 0; _key < _len; _key++) {
+      _args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(_args)) || this;
+
+    _this.state = _this.props.initialState || (_this.props.getInitialState || function () {
+      return {};
+    })(_this.props);
+
+    _this._refs = _this.props.refs || (_this.props.getRefs || function () {
+      return {};
+    })(_this.getArgs());
+
+    _this._setState = function () {
+      var _this2;
+
+      return (_this2 = _this).setState.apply(_this2, arguments);
+    };
+
+    _this._forceUpdate = function () {
+      var _this3;
+
+      return (_this3 = _this).forceUpdate.apply(_this3, arguments);
+    };
+
+    return _this;
+  }
+
+  var _proto = Component.prototype;
+
+  _proto.getArgs = function getArgs() {
+    var state = this.state,
+        props = this.props,
+        setState = this._setState,
+        forceUpdate = this._forceUpdate,
+        refs = this._refs;
+    return {
+      state: state,
+      props: cleanProps(props),
+      refs: refs,
+      setState: setState,
+      forceUpdate: forceUpdate
+    };
+  };
+
+  _proto.componentDidMount = function componentDidMount() {
+    if (this.props.didMount) this.props.didMount(this.getArgs());
+  };
+
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.shouldUpdate) return this.props.shouldUpdate({
+      props: this.props,
+      state: this.state,
+      nextProps: cleanProps(nextProps),
+      nextState: nextState
+    });else return true;
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    if (this.props.willUnmount) this.props.willUnmount({
+      state: this.state,
+      props: cleanProps(this.props),
+      refs: this._refs
+    });
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.didUpdate) this.props.didUpdate(Object.assign(this.getArgs(), {
+      prevProps: cleanProps(prevProps),
+      prevState: prevState
+    }), snapshot);
+  };
+
+  _proto.getSnapshotBeforeUpdate = function getSnapshotBeforeUpdate(prevProps, prevState) {
+    if (this.props.getSnapshotBeforeUpdate) {
+      return this.props.getSnapshotBeforeUpdate(Object.assign(this.getArgs(), {
+        prevProps: cleanProps(prevProps),
+        prevState: prevState
+      }));
+    } else {
+      return null;
+    }
+  };
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        children = _this$props.children,
+        render = _this$props.render;
+    return render ? render(this.getArgs()) : typeof children === "function" ? children(this.getArgs()) : children || null;
+  };
+
+  return Component;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+Component.defaultProps = {
+  getInitialState: function getInitialState() {},
+  getRefs: function getRefs() {
+    return {};
+  }
+};
+
+if (true) {
+  // @ts-ignore
+  Component.displayName = "ComponentComponent"; // @ts-ignore
+
+  Component.propTypes = {
+    initialState: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    getInitialState: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    refs: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    getRefs: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    didMount: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    didUpdate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    willUnmount: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    getSnapshotBeforeUpdate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    shouldUpdate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    render: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+    children: /*#__PURE__*/prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node])
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Component);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js ***!
+  \***********************************************************************************/
+/*! exports provided: canUseDOM */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canUseDOM", function() { return canUseDOM; });
+function canUseDOM() {
+  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/clone-valid-element/dist/reach-utils-clone-valid-element.esm.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/clone-valid-element/dist/reach-utils-clone-valid-element.esm.js ***!
+  \***************************************************************************************************/
+/*! exports provided: cloneValidElement */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cloneValidElement", function() { return cloneValidElement; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Type-safe clone element
+ *
+ * @param element
+ * @param props
+ * @param children
+ */
+function cloneValidElement(element, props) {
+  for (var _len = arguments.length, children = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    children[_key - 2] = arguments[_key];
+  }
+
+  return /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["isValidElement"])(element) ? react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"].apply(void 0, [element, props].concat(children)) : element;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/compose-event-handlers/dist/reach-utils-compose-event-handlers.esm.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/compose-event-handlers/dist/reach-utils-compose-event-handlers.esm.js ***!
+  \*********************************************************************************************************/
+/*! exports provided: composeEventHandlers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "composeEventHandlers", function() { return composeEventHandlers; });
+/**
+ * Wraps a lib-defined event handler and a user-defined event handler, returning
+ * a single handler that allows a user to prevent lib-defined handlers from
+ * firing.
+ *
+ * @param theirHandler User-supplied event handler
+ * @param ourHandler Library-supplied event handler
+ */
+function composeEventHandlers(theirHandler, ourHandler) {
+  return function (event) {
+    theirHandler && theirHandler(event);
+
+    if (!event.defaultPrevented) {
+      return ourHandler(event);
+    }
+  };
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/compose-refs/dist/reach-utils-compose-refs.esm.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/compose-refs/dist/reach-utils-compose-refs.esm.js ***!
+  \*************************************************************************************/
+/*! exports provided: assignRef, useComposedRefs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assignRef", function() { return assignRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useComposedRefs", function() { return useComposedRefs; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../type-check/dist/reach-utils-type-check.esm.js */ "./node_modules/@reach/utils/type-check/dist/reach-utils-type-check.esm.js");
+
+
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+  var it;
+
+  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+      return function () {
+        if (i >= o.length) return {
+          done: true
+        };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  it = o[Symbol.iterator]();
+  return it.next.bind(it);
+}
+
+/**
+ * Passes or assigns an arbitrary value to a ref function or object.
+ *
+ * @param ref
+ * @param value
+ */
+function assignRef(ref, value) {
+  if (ref == null) return;
+
+  if (Object(_type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_1__["isFunction"])(ref)) {
+    ref(value);
+  } else {
+    try {
+      ref.current = value;
+    } catch (error) {
+      throw new Error("Cannot assign value \"" + value + "\" to ref \"" + ref + "\"");
+    }
+  }
+}
+/**
+ * Passes or assigns a value to multiple refs (typically a DOM node). Useful for
+ * dealing with components that need an explicit ref for DOM calculations but
+ * also forwards refs assigned by an app.
+ *
+ * @param refs Refs to fork
+ */
+
+function useComposedRefs() {
+  for (var _len = arguments.length, refs = new Array(_len), _key = 0; _key < _len; _key++) {
+    refs[_key] = arguments[_key];
+  }
+
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (node) {
+    for (var _iterator = _createForOfIteratorHelperLoose(refs), _step; !(_step = _iterator()).done;) {
+      var ref = _step.value;
+      assignRef(ref, node);
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, refs);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/computed-styles/dist/reach-utils-computed-styles.esm.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/computed-styles/dist/reach-utils-computed-styles.esm.js ***!
+  \*******************************************************************************************/
+/*! exports provided: getComputedStyle, getComputedStyles */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComputedStyle", function() { return getComputedStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComputedStyles", function() { return getComputedStyles; });
+/* harmony import */ var _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../owner-document/dist/reach-utils-owner-document.esm.js */ "./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js");
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+
+/**
+ * Get computed style properties of a DOM element.
+ *
+ * @param element
+ * @param styleProp
+ */
+
+function getComputedStyles(element) {
+  var ownerWindow = Object(_owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__["getOwnerWindow"])(element);
+
+  if (ownerWindow) {
+    return ownerWindow.getComputedStyle(element, null);
+  }
+
+  return null;
+}
+/**
+ * Get a computed style value by property.
+ *
+ * @param element
+ * @param styleProp
+ */
+
+function getComputedStyle(element, styleProp) {
+  var _getComputedStyles;
+
+  return ((_getComputedStyles = getComputedStyles(element)) == null ? void 0 : _getComputedStyles.getPropertyValue(styleProp)) || null;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/context/dist/reach-utils-context.esm.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@reach/utils/context/dist/reach-utils-context.esm.js ***!
+  \***************************************************************************/
+/*! exports provided: createNamedContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamedContext", function() { return createNamedContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function createNamedContext(name, defaultValue) {
+  var Ctx = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(defaultValue);
+
+  if (true) {
+    Ctx.displayName = name;
+  }
+
+  return Ctx;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/dev-utils/dist/reach-utils-dev-utils.esm.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@reach/utils/dev-utils/dist/reach-utils-dev-utils.esm.js ***!
+  \*******************************************************************************/
+/*! exports provided: checkStyles, useCheckStyles, useControlledSwitchWarning, useStateLogger */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkStyles", function() { return checkStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useCheckStyles", function() { return useCheckStyles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useControlledSwitchWarning", function() { return useControlledSwitchWarning; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStateLogger", function() { return useStateLogger; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/* eslint-disable react-hooks/rules-of-hooks */
+var checkedPkgs = {};
+/**
+ * Just a lil state logger
+ *
+ * @param state
+ * @param DEBUG
+ */
+
+function useStateLogger(state, DEBUG) {
+  if (DEBUG === void 0) {
+    DEBUG = false;
+  }
+
+  if (true) {
+    var debugRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(DEBUG);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      debugRef.current = DEBUG;
+    }, [DEBUG]);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      if (debugRef.current) {
+        console.group("State Updated");
+        console.log("%c" + state, "font-weight: normal; font-size: 120%; font-style: italic;");
+        console.groupEnd();
+      }
+    }, [state]);
+  }
+}
+/**
+ * When in dev mode, checks that styles for a given `@reach` package are loaded.
+ *
+ * @param packageName Name of the package to check.
+ * @example checkStyles("dialog") will check for styles for @reach/dialog
+ */
+
+function checkStyles(packageName) {
+  if (true) {
+    // In CJS files, process.env.NODE_ENV is stripped from our build, but we
+    // need it to prevent style checks from clogging up user logs while testing.
+    // This is a workaround until we can tweak the build a bit to accommodate.
+    var _ref = typeof process !== "undefined" ? process.env : {
+      NODE_ENV: "development"
+    },
+        environment = _ref.NODE_ENV; // only check once per package
+
+
+    if (checkedPkgs[packageName]) return;
+    checkedPkgs[packageName] = true;
+
+    if (environment === "development" && parseInt(window.getComputedStyle(document.body).getPropertyValue("--reach-" + packageName), 10) !== 1) {
+      console.warn("@reach/" + packageName + " styles not found. If you are using a bundler like webpack or parcel include this in the entry file of your app before any of your own styles:\n  \n      import \"@reach/" + packageName + "/styles.css\";\n  \n    Otherwise you'll need to include them some other way:\n  \n      <link rel=\"stylesheet\" type=\"text/css\" href=\"node_modules/@reach/" + packageName + "/styles.css\" />\n  \n    For more information visit https://ui.reach.tech/styling.\n    ");
+    }
+  }
+}
+/**
+ * When in dev mode, checks that styles for a given `@reach` package are loaded.
+ *
+ * @param packageName Name of the package to check.
+ * @example useCheckStyles("dialog") will check for styles for @reach/dialog
+ */
+
+function useCheckStyles(packageName) {
+  if (true) {
+    var name = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(packageName);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      return void (name.current = packageName);
+    }, [packageName]);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      return checkStyles(name.current);
+    }, []);
+  }
+}
+/**
+ * Logs a warning in dev mode when a component switches from controlled to
+ * uncontrolled, or vice versa
+ *
+ * A single prop should typically be used to determine whether or not a
+ * component is controlled or not.
+ *
+ * @param controlledValue
+ * @param controlledPropName
+ * @param componentName
+ */
+
+function useControlledSwitchWarning(controlledValue, controlledPropName, componentName) {
+  if (true) {
+    var controlledRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(controlledValue != null);
+    var nameCache = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])({
+      componentName: componentName,
+      controlledPropName: controlledPropName
+    });
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      nameCache.current = {
+        componentName: componentName,
+        controlledPropName: controlledPropName
+      };
+    }, [componentName, controlledPropName]);
+    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+      var wasControlled = controlledRef.current;
+      var _nameCache$current = nameCache.current,
+          componentName = _nameCache$current.componentName,
+          controlledPropName = _nameCache$current.controlledPropName;
+      var isControlled = controlledValue != null;
+
+      if (wasControlled !== isControlled) {
+        console.error("A component is changing an " + (wasControlled ? "" : "un") + "controlled `" + controlledPropName + "` state of " + componentName + " to be " + (wasControlled ? "un" : "") + "controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled " + componentName + " element for the lifetime of the component.\n      More info: https://fb.me/react-controlled-components");
+      }
+    }, [controlledValue]);
+  }
+}
+
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/dist/reach-utils.esm.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@reach/utils/dist/reach-utils.esm.js ***!
+  \***********************************************************/
+/*! exports provided: canUseDOM, cloneValidElement, composeEventHandlers, assignRef, useComposedRefs, getComputedStyle, getComputedStyles, createNamedContext, checkStyles, useCheckStyles, useControlledSwitchWarning, useStateLogger, getDocumentDimensions, getScrollPosition, getScrollbarOffset, isRightClick, makeId, noop, getOwnerDocument, getOwnerWindow, isBoolean, isFunction, isNumber, isString, useConstant, useControlledState, useEventListener, useFocusChange, useForceUpdate, useIsomorphicLayoutEffect, useLazyRef, usePrevious, useStableCallback, useStableLayoutCallback, useStatefulRefValue, useUpdateEffect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "canUseDOM", function() { return _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_0__["canUseDOM"]; });
+
+/* harmony import */ var _clone_valid_element_dist_reach_utils_clone_valid_element_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../clone-valid-element/dist/reach-utils-clone-valid-element.esm.js */ "./node_modules/@reach/utils/clone-valid-element/dist/reach-utils-clone-valid-element.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "cloneValidElement", function() { return _clone_valid_element_dist_reach_utils_clone_valid_element_esm_js__WEBPACK_IMPORTED_MODULE_1__["cloneValidElement"]; });
+
+/* harmony import */ var _compose_event_handlers_dist_reach_utils_compose_event_handlers_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../compose-event-handlers/dist/reach-utils-compose-event-handlers.esm.js */ "./node_modules/@reach/utils/compose-event-handlers/dist/reach-utils-compose-event-handlers.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "composeEventHandlers", function() { return _compose_event_handlers_dist_reach_utils_compose_event_handlers_esm_js__WEBPACK_IMPORTED_MODULE_2__["composeEventHandlers"]; });
+
+/* harmony import */ var _compose_refs_dist_reach_utils_compose_refs_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../compose-refs/dist/reach-utils-compose-refs.esm.js */ "./node_modules/@reach/utils/compose-refs/dist/reach-utils-compose-refs.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "assignRef", function() { return _compose_refs_dist_reach_utils_compose_refs_esm_js__WEBPACK_IMPORTED_MODULE_3__["assignRef"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useComposedRefs", function() { return _compose_refs_dist_reach_utils_compose_refs_esm_js__WEBPACK_IMPORTED_MODULE_3__["useComposedRefs"]; });
+
+/* harmony import */ var _computed_styles_dist_reach_utils_computed_styles_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../computed-styles/dist/reach-utils-computed-styles.esm.js */ "./node_modules/@reach/utils/computed-styles/dist/reach-utils-computed-styles.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getComputedStyle", function() { return _computed_styles_dist_reach_utils_computed_styles_esm_js__WEBPACK_IMPORTED_MODULE_4__["getComputedStyle"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getComputedStyles", function() { return _computed_styles_dist_reach_utils_computed_styles_esm_js__WEBPACK_IMPORTED_MODULE_4__["getComputedStyles"]; });
+
+/* harmony import */ var _context_dist_reach_utils_context_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../context/dist/reach-utils-context.esm.js */ "./node_modules/@reach/utils/context/dist/reach-utils-context.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createNamedContext", function() { return _context_dist_reach_utils_context_esm_js__WEBPACK_IMPORTED_MODULE_5__["createNamedContext"]; });
+
+/* harmony import */ var _dev_utils_dist_reach_utils_dev_utils_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../dev-utils/dist/reach-utils-dev-utils.esm.js */ "./node_modules/@reach/utils/dev-utils/dist/reach-utils-dev-utils.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "checkStyles", function() { return _dev_utils_dist_reach_utils_dev_utils_esm_js__WEBPACK_IMPORTED_MODULE_6__["checkStyles"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useCheckStyles", function() { return _dev_utils_dist_reach_utils_dev_utils_esm_js__WEBPACK_IMPORTED_MODULE_6__["useCheckStyles"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useControlledSwitchWarning", function() { return _dev_utils_dist_reach_utils_dev_utils_esm_js__WEBPACK_IMPORTED_MODULE_6__["useControlledSwitchWarning"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStateLogger", function() { return _dev_utils_dist_reach_utils_dev_utils_esm_js__WEBPACK_IMPORTED_MODULE_6__["useStateLogger"]; });
+
+/* harmony import */ var _get_document_dimensions_dist_reach_utils_get_document_dimensions_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../get-document-dimensions/dist/reach-utils-get-document-dimensions.esm.js */ "./node_modules/@reach/utils/get-document-dimensions/dist/reach-utils-get-document-dimensions.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getDocumentDimensions", function() { return _get_document_dimensions_dist_reach_utils_get_document_dimensions_esm_js__WEBPACK_IMPORTED_MODULE_7__["getDocumentDimensions"]; });
+
+/* harmony import */ var _get_scroll_position_dist_reach_utils_get_scroll_position_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../get-scroll-position/dist/reach-utils-get-scroll-position.esm.js */ "./node_modules/@reach/utils/get-scroll-position/dist/reach-utils-get-scroll-position.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollPosition", function() { return _get_scroll_position_dist_reach_utils_get_scroll_position_esm_js__WEBPACK_IMPORTED_MODULE_8__["getScrollPosition"]; });
+
+/* harmony import */ var _get_scrollbar_offset_dist_reach_utils_get_scrollbar_offset_esm_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../get-scrollbar-offset/dist/reach-utils-get-scrollbar-offset.esm.js */ "./node_modules/@reach/utils/get-scrollbar-offset/dist/reach-utils-get-scrollbar-offset.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getScrollbarOffset", function() { return _get_scrollbar_offset_dist_reach_utils_get_scrollbar_offset_esm_js__WEBPACK_IMPORTED_MODULE_9__["getScrollbarOffset"]; });
+
+/* harmony import */ var _is_right_click_dist_reach_utils_is_right_click_esm_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../is-right-click/dist/reach-utils-is-right-click.esm.js */ "./node_modules/@reach/utils/is-right-click/dist/reach-utils-is-right-click.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isRightClick", function() { return _is_right_click_dist_reach_utils_is_right_click_esm_js__WEBPACK_IMPORTED_MODULE_10__["isRightClick"]; });
+
+/* harmony import */ var _make_id_dist_reach_utils_make_id_esm_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../make-id/dist/reach-utils-make-id.esm.js */ "./node_modules/@reach/utils/make-id/dist/reach-utils-make-id.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "makeId", function() { return _make_id_dist_reach_utils_make_id_esm_js__WEBPACK_IMPORTED_MODULE_11__["makeId"]; });
+
+/* harmony import */ var _noop_dist_reach_utils_noop_esm_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../noop/dist/reach-utils-noop.esm.js */ "./node_modules/@reach/utils/noop/dist/reach-utils-noop.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "noop", function() { return _noop_dist_reach_utils_noop_esm_js__WEBPACK_IMPORTED_MODULE_12__["noop"]; });
+
+/* harmony import */ var _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../owner-document/dist/reach-utils-owner-document.esm.js */ "./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOwnerDocument", function() { return _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_13__["getOwnerDocument"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getOwnerWindow", function() { return _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_13__["getOwnerWindow"]; });
+
+/* harmony import */ var _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../type-check/dist/reach-utils-type-check.esm.js */ "./node_modules/@reach/utils/type-check/dist/reach-utils-type-check.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isBoolean", function() { return _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_14__["isBoolean"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isFunction", function() { return _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_14__["isFunction"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isNumber", function() { return _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_14__["isNumber"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "isString", function() { return _type_check_dist_reach_utils_type_check_esm_js__WEBPACK_IMPORTED_MODULE_14__["isString"]; });
+
+/* harmony import */ var _use_constant_dist_reach_utils_use_constant_esm_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../use-constant/dist/reach-utils-use-constant.esm.js */ "./node_modules/@reach/utils/use-constant/dist/reach-utils-use-constant.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useConstant", function() { return _use_constant_dist_reach_utils_use_constant_esm_js__WEBPACK_IMPORTED_MODULE_15__["useConstant"]; });
+
+/* harmony import */ var _use_controlled_state_dist_reach_utils_use_controlled_state_esm_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../use-controlled-state/dist/reach-utils-use-controlled-state.esm.js */ "./node_modules/@reach/utils/use-controlled-state/dist/reach-utils-use-controlled-state.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useControlledState", function() { return _use_controlled_state_dist_reach_utils_use_controlled_state_esm_js__WEBPACK_IMPORTED_MODULE_16__["useControlledState"]; });
+
+/* harmony import */ var _use_event_listener_dist_reach_utils_use_event_listener_esm_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../use-event-listener/dist/reach-utils-use-event-listener.esm.js */ "./node_modules/@reach/utils/use-event-listener/dist/reach-utils-use-event-listener.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useEventListener", function() { return _use_event_listener_dist_reach_utils_use_event_listener_esm_js__WEBPACK_IMPORTED_MODULE_17__["useEventListener"]; });
+
+/* harmony import */ var _use_focus_change_dist_reach_utils_use_focus_change_esm_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../use-focus-change/dist/reach-utils-use-focus-change.esm.js */ "./node_modules/@reach/utils/use-focus-change/dist/reach-utils-use-focus-change.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useFocusChange", function() { return _use_focus_change_dist_reach_utils_use_focus_change_esm_js__WEBPACK_IMPORTED_MODULE_18__["useFocusChange"]; });
+
+/* harmony import */ var _use_force_update_dist_reach_utils_use_force_update_esm_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../use-force-update/dist/reach-utils-use-force-update.esm.js */ "./node_modules/@reach/utils/use-force-update/dist/reach-utils-use-force-update.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useForceUpdate", function() { return _use_force_update_dist_reach_utils_use_force_update_esm_js__WEBPACK_IMPORTED_MODULE_19__["useForceUpdate"]; });
+
+/* harmony import */ var _use_isomorphic_layout_effect_dist_reach_utils_use_isomorphic_layout_effect_esm_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js */ "./node_modules/@reach/utils/use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useIsomorphicLayoutEffect", function() { return _use_isomorphic_layout_effect_dist_reach_utils_use_isomorphic_layout_effect_esm_js__WEBPACK_IMPORTED_MODULE_20__["useIsomorphicLayoutEffect"]; });
+
+/* harmony import */ var _use_lazy_ref_dist_reach_utils_use_lazy_ref_esm_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../use-lazy-ref/dist/reach-utils-use-lazy-ref.esm.js */ "./node_modules/@reach/utils/use-lazy-ref/dist/reach-utils-use-lazy-ref.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useLazyRef", function() { return _use_lazy_ref_dist_reach_utils_use_lazy_ref_esm_js__WEBPACK_IMPORTED_MODULE_21__["useLazyRef"]; });
+
+/* harmony import */ var _use_previous_dist_reach_utils_use_previous_esm_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../use-previous/dist/reach-utils-use-previous.esm.js */ "./node_modules/@reach/utils/use-previous/dist/reach-utils-use-previous.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePrevious", function() { return _use_previous_dist_reach_utils_use_previous_esm_js__WEBPACK_IMPORTED_MODULE_22__["usePrevious"]; });
+
+/* harmony import */ var _use_stable_callback_dist_reach_utils_use_stable_callback_esm_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../use-stable-callback/dist/reach-utils-use-stable-callback.esm.js */ "./node_modules/@reach/utils/use-stable-callback/dist/reach-utils-use-stable-callback.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStableCallback", function() { return _use_stable_callback_dist_reach_utils_use_stable_callback_esm_js__WEBPACK_IMPORTED_MODULE_23__["useStableCallback"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStableLayoutCallback", function() { return _use_stable_callback_dist_reach_utils_use_stable_callback_esm_js__WEBPACK_IMPORTED_MODULE_23__["useStableLayoutCallback"]; });
+
+/* harmony import */ var _use_stateful_ref_value_dist_reach_utils_use_stateful_ref_value_esm_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../use-stateful-ref-value/dist/reach-utils-use-stateful-ref-value.esm.js */ "./node_modules/@reach/utils/use-stateful-ref-value/dist/reach-utils-use-stateful-ref-value.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStatefulRefValue", function() { return _use_stateful_ref_value_dist_reach_utils_use_stateful_ref_value_esm_js__WEBPACK_IMPORTED_MODULE_24__["useStatefulRefValue"]; });
+
+/* harmony import */ var _use_update_effect_dist_reach_utils_use_update_effect_esm_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../use-update-effect/dist/reach-utils-use-update-effect.esm.js */ "./node_modules/@reach/utils/use-update-effect/dist/reach-utils-use-update-effect.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useUpdateEffect", function() { return _use_update_effect_dist_reach_utils_use_update_effect_esm_js__WEBPACK_IMPORTED_MODULE_25__["useUpdateEffect"]; });
+
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_26__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/get-document-dimensions/dist/reach-utils-get-document-dimensions.esm.js":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/get-document-dimensions/dist/reach-utils-get-document-dimensions.esm.js ***!
+  \***********************************************************************************************************/
+/*! exports provided: getDocumentDimensions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDocumentDimensions", function() { return getDocumentDimensions; });
+/* harmony import */ var _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../owner-document/dist/reach-utils-owner-document.esm.js */ "./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js");
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+
+/**
+ * Get the size of the working document minus the scrollbar offset.
+ *
+ * @param element
+ */
+
+function getDocumentDimensions(element) {
+  var _ownerDocument$docume, _ownerDocument$docume2;
+
+  var ownerDocument = Object(_owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__["getOwnerDocument"])(element);
+  var ownerWindow = ownerDocument.defaultView || window;
+
+  if (!ownerDocument) {
+    return {
+      width: 0,
+      height: 0
+    };
+  }
+
+  return {
+    width: (_ownerDocument$docume = ownerDocument.documentElement.clientWidth) != null ? _ownerDocument$docume : ownerWindow.innerWidth,
+    height: (_ownerDocument$docume2 = ownerDocument.documentElement.clientHeight) != null ? _ownerDocument$docume2 : ownerWindow.innerHeight
+  };
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/get-scroll-position/dist/reach-utils-get-scroll-position.esm.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/get-scroll-position/dist/reach-utils-get-scroll-position.esm.js ***!
+  \***************************************************************************************************/
+/*! exports provided: getScrollPosition */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScrollPosition", function() { return getScrollPosition; });
+/* harmony import */ var _owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../owner-document/dist/reach-utils-owner-document.esm.js */ "./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js");
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+
+/**
+ * Get the scoll position of the global window object relative to a given node.
+ *
+ * @param element
+ */
+
+function getScrollPosition(element) {
+  var ownerWindow = Object(_owner_document_dist_reach_utils_owner_document_esm_js__WEBPACK_IMPORTED_MODULE_0__["getOwnerWindow"])(element);
+
+  if (!ownerWindow) {
+    return {
+      scrollX: 0,
+      scrollY: 0
+    };
+  }
+
+  return {
+    scrollX: ownerWindow.scrollX,
+    scrollY: ownerWindow.scrollY
+  };
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/get-scrollbar-offset/dist/reach-utils-get-scrollbar-offset.esm.js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/get-scrollbar-offset/dist/reach-utils-get-scrollbar-offset.esm.js ***!
+  \*****************************************************************************************************/
+/*! exports provided: getScrollbarOffset */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getScrollbarOffset", function() { return getScrollbarOffset; });
+/**
+ * Get the scrollbar offset distance.
+ *
+ * TODO: Remove in 1.0 (we used this in public examples)
+ */
+function getScrollbarOffset() {
+  try {
+    if (window.innerWidth > document.documentElement.clientWidth) {
+      return window.innerWidth - document.documentElement.clientWidth;
+    }
+  } catch (err) {}
+
+  return 0;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/is-right-click/dist/reach-utils-is-right-click.esm.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/is-right-click/dist/reach-utils-is-right-click.esm.js ***!
+  \*****************************************************************************************/
+/*! exports provided: isRightClick */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRightClick", function() { return isRightClick; });
+/**
+ * Detects right clicks
+ *
+ * @param nativeEvent
+ */
+function isRightClick(nativeEvent) {
+  return "which" in nativeEvent ? nativeEvent.which === 3 : "button" in nativeEvent ? nativeEvent.button === 2 : false;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/make-id/dist/reach-utils-make-id.esm.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@reach/utils/make-id/dist/reach-utils-make-id.esm.js ***!
+  \***************************************************************************/
+/*! exports provided: makeId */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeId", function() { return makeId; });
+/**
+ * Joins strings to format IDs for compound components.
+ *
+ * @param args
+ */
+function makeId() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return args.filter(function (val) {
+    return val != null;
+  }).join("--");
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/noop/dist/reach-utils-noop.esm.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@reach/utils/noop/dist/reach-utils-noop.esm.js ***!
+  \*********************************************************************/
+/*! exports provided: noop */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "noop", function() { return noop; });
+function noop() {}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/owner-document/dist/reach-utils-owner-document.esm.js ***!
+  \*****************************************************************************************/
+/*! exports provided: getOwnerDocument, getOwnerWindow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOwnerDocument", function() { return getOwnerDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOwnerWindow", function() { return getOwnerWindow; });
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+/**
+ * Get an element's owner document. Useful when components are used in iframes
+ * or other environments like dev tools.
+ *
+ * @param element
+ */
+
+function getOwnerDocument(element) {
+  return Object(_can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_0__["canUseDOM"])() ? element ? element.ownerDocument : document : null;
+}
+/**
+ * TODO: Remove in 1.0
+ */
+
+function getOwnerWindow(element) {
+  var ownerDocument = getOwnerDocument(element);
+  return ownerDocument ? ownerDocument.defaultView || window : null;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/type-check/dist/reach-utils-type-check.esm.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@reach/utils/type-check/dist/reach-utils-type-check.esm.js ***!
+  \*********************************************************************************/
+/*! exports provided: isBoolean, isFunction, isNumber, isString */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBoolean", function() { return isBoolean; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFunction", function() { return isFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNumber", function() { return isNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isString", function() { return isString; });
+/**
+ * Checks whether or not a value is a boolean.
+ *
+ * @param value
+ */
+function isBoolean(value) {
+  return typeof value === "boolean";
+}
+/**
+ * Checks whether or not a value is a function.
+ *
+ * @param value
+ */
+
+function isFunction(value) {
+  // eslint-disable-next-line eqeqeq
+  return !!(value && {}.toString.call(value) == "[object Function]");
+}
+/**
+ * Checks whether or not a value is a number.
+ *
+ * @param value
+ */
+
+function isNumber(value) {
+  return typeof value === "number" && !isNaN(value);
+}
+/**
+ * Checks whether or not a value is a string.
+ *
+ * @param value
+ */
+
+function isString(value) {
+  return typeof value === "string";
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-constant/dist/reach-utils-use-constant.esm.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-constant/dist/reach-utils-use-constant.esm.js ***!
+  \*************************************************************************************/
+/*! exports provided: useConstant */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useConstant", function() { return useConstant; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * React hook for creating a value exactly once.
+ * @see https://github.com/Andarist/use-constant
+ */
+
+function useConstant(fn) {
+  var ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  if (!ref.current) {
+    ref.current = {
+      v: fn()
+    };
+  }
+
+  return ref.current.v;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-controlled-state/dist/reach-utils-use-controlled-state.esm.js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-controlled-state/dist/reach-utils-use-controlled-state.esm.js ***!
+  \*****************************************************************************************************/
+/*! exports provided: useControlledState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useControlledState", function() { return useControlledState; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Check if a component is controlled or uncontrolled and return the correct
+ * state value and setter accordingly. If the component state is controlled by
+ * the app, the setter is a noop.
+ *
+ * @param controlledValue
+ * @param defaultValue
+ */
+function useControlledState(controlledValue, defaultValue) {
+  var controlledRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(controlledValue != null);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(defaultValue),
+      valueState = _useState[0],
+      setValue = _useState[1];
+
+  var set = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (n) {
+    if (!controlledRef.current) {
+      setValue(n);
+    }
+  }, []);
+  return [controlledRef.current ? controlledValue : valueState, set];
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-event-listener/dist/reach-utils-use-event-listener.esm.js":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-event-listener/dist/reach-utils-use-event-listener.esm.js ***!
+  \*************************************************************************************************/
+/*! exports provided: useEventListener */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useEventListener", function() { return useEventListener; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Adds a DOM event listener
+ *
+ * @param eventName
+ * @param listener
+ * @param element
+ */
+
+function useEventListener(eventName, listener, element) {
+  if (element === void 0) {
+    element = window;
+  }
+
+  var savedHandler = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(listener);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    savedHandler.current = listener;
+  }, [listener]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var isSupported = element && element.addEventListener;
+
+    if (!isSupported) {
+      if (true) {
+        console.warn("Event listener not supported on the element provided");
+      }
+
+      return;
+    }
+
+    function eventListener(event) {
+      savedHandler.current(event);
+    }
+
+    element.addEventListener(eventName, eventListener);
+    return function () {
+      element.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element]);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-focus-change/dist/reach-utils-use-focus-change.esm.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-focus-change/dist/reach-utils-use-focus-change.esm.js ***!
+  \*********************************************************************************************/
+/*! exports provided: useFocusChange */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useFocusChange", function() { return useFocusChange; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Detect when focus changes in our document.
+ *
+ * @param handleChange
+ * @param when
+ * @param ownerDocument
+ */
+
+function useFocusChange(handleChange, when, ownerDocument) {
+  if (handleChange === void 0) {
+    handleChange = console.log;
+  }
+
+  if (when === void 0) {
+    when = "focus";
+  }
+
+  if (ownerDocument === void 0) {
+    ownerDocument = document;
+  }
+
+  var lastActiveElement = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(ownerDocument.activeElement);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    lastActiveElement.current = ownerDocument.activeElement;
+
+    function onChange(event) {
+      if (lastActiveElement.current !== ownerDocument.activeElement) {
+        handleChange(ownerDocument.activeElement, lastActiveElement.current, event);
+        lastActiveElement.current = ownerDocument.activeElement;
+      }
+    }
+
+    ownerDocument.addEventListener(when, onChange, true);
+    return function () {
+      ownerDocument.removeEventListener(when, onChange);
+    };
+  }, [when, handleChange, ownerDocument]);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-force-update/dist/reach-utils-use-force-update.esm.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-force-update/dist/reach-utils-use-force-update.esm.js ***!
+  \*********************************************************************************************/
+/*! exports provided: useForceUpdate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useForceUpdate", function() { return useForceUpdate; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Forces a re-render, similar to `forceUpdate` in class components.
+ */
+
+function useForceUpdate() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Object.create(null)),
+      dispatch = _useState[1];
+
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
+    dispatch(Object.create(null));
+  }, []);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js ***!
+  \*********************************************************************************************************************/
+/*! exports provided: useIsomorphicLayoutEffect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useIsomorphicLayoutEffect", function() { return useIsomorphicLayoutEffect; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+
+/**
+ * React currently throws a warning when using useLayoutEffect on the server. To
+ * get around it, we can conditionally useEffect on the server (no-op) and
+ * useLayoutEffect in the browser. We occasionally need useLayoutEffect to
+ * ensure we don't get a render flash for certain operations, but we may also
+ * need affected components to render on the server. One example is when setting
+ * a component's descendants to retrieve their index values.
+ *
+ * Important to note that using this hook as an escape hatch will break the
+ * eslint dependency warnings unless you rename the import to `useLayoutEffect`.
+ * Use sparingly only when the effect won't effect the rendered HTML to avoid
+ * any server/client mismatch.
+ *
+ * If a useLayoutEffect is needed and the result would create a mismatch, it's
+ * likely that the component in question shouldn't be rendered on the server at
+ * all, so a better approach would be to lazily render those in a parent
+ * component after client-side hydration.
+ *
+ * https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
+ * https://github.com/reduxjs/react-redux/blob/master/src/utils/useIsomorphicLayoutEffect.js
+ *
+ * @param effect
+ * @param deps
+ */
+
+var useIsomorphicLayoutEffect = /*#__PURE__*/Object(_can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_1__["canUseDOM"])() ? react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"] : react__WEBPACK_IMPORTED_MODULE_0__["useEffect"];
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-lazy-ref/dist/reach-utils-use-lazy-ref.esm.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-lazy-ref/dist/reach-utils-use-lazy-ref.esm.js ***!
+  \*************************************************************************************/
+/*! exports provided: useLazyRef */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useLazyRef", function() { return useLazyRef; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function useLazyRef(fn) {
+  var isSet = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(false);
+  var ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+
+  if (!isSet.current) {
+    isSet.current = true;
+    ref.current = fn();
+  }
+
+  return ref;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-previous/dist/reach-utils-use-previous.esm.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-previous/dist/reach-utils-use-previous.esm.js ***!
+  \*************************************************************************************/
+/*! exports provided: usePrevious */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usePrevious", function() { return usePrevious; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Returns the previous value of a reference after a component update.
+ *
+ * @param value
+ */
+
+function usePrevious(value) {
+  var ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-stable-callback/dist/reach-utils-use-stable-callback.esm.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-stable-callback/dist/reach-utils-use-stable-callback.esm.js ***!
+  \***************************************************************************************************/
+/*! exports provided: useStableCallback, useStableLayoutCallback */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStableCallback", function() { return useStableCallback; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStableLayoutCallback", function() { return useStableLayoutCallback; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _use_isomorphic_layout_effect_dist_reach_utils_use_isomorphic_layout_effect_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js */ "./node_modules/@reach/utils/use-isomorphic-layout-effect/dist/reach-utils-use-isomorphic-layout-effect.esm.js");
+/* harmony import */ var _can_use_dom_dist_reach_utils_can_use_dom_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../can-use-dom/dist/reach-utils-can-use-dom.esm.js */ "./node_modules/@reach/utils/can-use-dom/dist/reach-utils-can-use-dom.esm.js");
+
+
+
+
+/* eslint-disable react-hooks/rules-of-hooks */
+
+/**
+ * Converts a callback to a ref to avoid triggering re-renders when passed as a
+ * prop and exposed as a stable function to avoid executing effects when
+ * passed as a dependency.
+ */
+function createStableCallbackHook(useEffectHook, callback) {
+  var callbackRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(callback);
+  useEffectHook(function () {
+    callbackRef.current = callback;
+  }); // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
+    callbackRef.current && callbackRef.current.apply(callbackRef, arguments);
+  }, []);
+}
+/**
+ * Converts a callback to a ref to avoid triggering re-renders when passed as a
+ * prop and exposed as a stable function to avoid executing effects when passed
+ * as a dependency.
+ */
+
+
+function useStableCallback(callback) {
+  return createStableCallbackHook(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"], callback);
+}
+/**
+ * Converts a callback to a ref to avoid triggering re-renders when passed as a
+ * prop and exposed as a stable function to avoid executing effects when passed
+ * as a dependency.
+ *
+ * Use this over `useStableCallback` when you want the callback to be cached in
+ * `useLayoutEffect` instead of `useEffect` to deal with timing issues only when
+ * needed.
+ */
+
+function useStableLayoutCallback(callback) {
+  return createStableCallbackHook(_use_isomorphic_layout_effect_dist_reach_utils_use_isomorphic_layout_effect_esm_js__WEBPACK_IMPORTED_MODULE_1__["useIsomorphicLayoutEffect"], callback);
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-stateful-ref-value/dist/reach-utils-use-stateful-ref-value.esm.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-stateful-ref-value/dist/reach-utils-use-stateful-ref-value.esm.js ***!
+  \*********************************************************************************************************/
+/*! exports provided: useStatefulRefValue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStatefulRefValue", function() { return useStatefulRefValue; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function useStatefulRefValue(ref, initialState) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(initialState),
+      state = _useState[0],
+      setState = _useState[1];
+
+  var callbackRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (refValue) {
+    ref.current = refValue;
+    setState(refValue); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return [state, callbackRef];
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@reach/utils/use-update-effect/dist/reach-utils-use-update-effect.esm.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@reach/utils/use-update-effect/dist/reach-utils-use-update-effect.esm.js ***!
+  \***********************************************************************************************/
+/*! exports provided: useUpdateEffect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useUpdateEffect", function() { return useUpdateEffect; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Call an effect after a component update, skipping the initial mount.
+ *
+ * @param effect Effect to call
+ * @param deps Effect dependency list
+ */
+function useUpdateEffect(effect, deps) {
+  var mounted = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(false);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (mounted.current) {
+      effect();
+    } else {
+      mounted.current = true;
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, deps);
+}
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/@react-spring/animated/dist/react-spring-animated.esm.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@react-spring/animated/dist/react-spring-animated.esm.js ***!
@@ -5524,6 +7009,651 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/focus-trap/dist/focus-trap.esm.js":
+/*!********************************************************!*\
+  !*** ./node_modules/focus-trap/dist/focus-trap.esm.js ***!
+  \********************************************************/
+/*! exports provided: createFocusTrap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFocusTrap", function() { return createFocusTrap; });
+/* harmony import */ var tabbable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tabbable */ "./node_modules/tabbable/dist/index.esm.js");
+/*!
+* focus-trap 6.6.1
+* @license MIT, https://github.com/focus-trap/focus-trap/blob/master/LICENSE
+*/
+
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var activeFocusTraps = function () {
+  var trapQueue = [];
+  return {
+    activateTrap: function activateTrap(trap) {
+      if (trapQueue.length > 0) {
+        var activeTrap = trapQueue[trapQueue.length - 1];
+
+        if (activeTrap !== trap) {
+          activeTrap.pause();
+        }
+      }
+
+      var trapIndex = trapQueue.indexOf(trap);
+
+      if (trapIndex === -1) {
+        trapQueue.push(trap);
+      } else {
+        // move this existing trap to the front of the queue
+        trapQueue.splice(trapIndex, 1);
+        trapQueue.push(trap);
+      }
+    },
+    deactivateTrap: function deactivateTrap(trap) {
+      var trapIndex = trapQueue.indexOf(trap);
+
+      if (trapIndex !== -1) {
+        trapQueue.splice(trapIndex, 1);
+      }
+
+      if (trapQueue.length > 0) {
+        trapQueue[trapQueue.length - 1].unpause();
+      }
+    }
+  };
+}();
+
+var isSelectableInput = function isSelectableInput(node) {
+  return node.tagName && node.tagName.toLowerCase() === 'input' && typeof node.select === 'function';
+};
+
+var isEscapeEvent = function isEscapeEvent(e) {
+  return e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27;
+};
+
+var isTabEvent = function isTabEvent(e) {
+  return e.key === 'Tab' || e.keyCode === 9;
+};
+
+var delay = function delay(fn) {
+  return setTimeout(fn, 0);
+}; // Array.find/findIndex() are not supported on IE; this replicates enough
+//  of Array.findIndex() for our needs
+
+
+var findIndex = function findIndex(arr, fn) {
+  var idx = -1;
+  arr.every(function (value, i) {
+    if (fn(value)) {
+      idx = i;
+      return false; // break
+    }
+
+    return true; // next
+  });
+  return idx;
+};
+/**
+ * Get an option's value when it could be a plain value, or a handler that provides
+ *  the value.
+ * @param {*} value Option's value to check.
+ * @param {...*} [params] Any parameters to pass to the handler, if `value` is a function.
+ * @returns {*} The `value`, or the handler's returned value.
+ */
+
+
+var valueOrHandler = function valueOrHandler(value) {
+  for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    params[_key - 1] = arguments[_key];
+  }
+
+  return typeof value === 'function' ? value.apply(void 0, params) : value;
+};
+
+var createFocusTrap = function createFocusTrap(elements, userOptions) {
+  var doc = document;
+
+  var config = _objectSpread2({
+    returnFocusOnDeactivate: true,
+    escapeDeactivates: true,
+    delayInitialFocus: true
+  }, userOptions);
+
+  var state = {
+    // @type {Array<HTMLElement>}
+    containers: [],
+    // list of objects identifying the first and last tabbable nodes in all containers/groups in
+    //  the trap
+    // NOTE: it's possible that a group has no tabbable nodes if nodes get removed while the trap
+    //  is active, but the trap should never get to a state where there isn't at least one group
+    //  with at least one tabbable node in it (that would lead to an error condition that would
+    //  result in an error being thrown)
+    // @type {Array<{ container: HTMLElement, firstTabbableNode: HTMLElement|null, lastTabbableNode: HTMLElement|null }>}
+    tabbableGroups: [],
+    nodeFocusedBeforeActivation: null,
+    mostRecentlyFocusedNode: null,
+    active: false,
+    paused: false,
+    // timer ID for when delayInitialFocus is true and initial focus in this trap
+    //  has been delayed during activation
+    delayInitialFocusTimer: undefined
+  };
+  var trap; // eslint-disable-line prefer-const -- some private functions reference it, and its methods reference private functions, so we must declare here and define later
+
+  var getOption = function getOption(configOverrideOptions, optionName, configOptionName) {
+    return configOverrideOptions && configOverrideOptions[optionName] !== undefined ? configOverrideOptions[optionName] : config[configOptionName || optionName];
+  };
+
+  var containersContain = function containersContain(element) {
+    return state.containers.some(function (container) {
+      return container.contains(element);
+    });
+  };
+
+  var getNodeForOption = function getNodeForOption(optionName) {
+    var optionValue = config[optionName];
+
+    if (!optionValue) {
+      return null;
+    }
+
+    var node = optionValue;
+
+    if (typeof optionValue === 'string') {
+      node = doc.querySelector(optionValue);
+
+      if (!node) {
+        throw new Error("`".concat(optionName, "` refers to no known node"));
+      }
+    }
+
+    if (typeof optionValue === 'function') {
+      node = optionValue();
+
+      if (!node) {
+        throw new Error("`".concat(optionName, "` did not return a node"));
+      }
+    }
+
+    return node;
+  };
+
+  var getInitialFocusNode = function getInitialFocusNode() {
+    var node; // false indicates we want no initialFocus at all
+
+    if (getOption({}, 'initialFocus') === false) {
+      return false;
+    }
+
+    if (getNodeForOption('initialFocus') !== null) {
+      node = getNodeForOption('initialFocus');
+    } else if (containersContain(doc.activeElement)) {
+      node = doc.activeElement;
+    } else {
+      var firstTabbableGroup = state.tabbableGroups[0];
+      var firstTabbableNode = firstTabbableGroup && firstTabbableGroup.firstTabbableNode;
+      node = firstTabbableNode || getNodeForOption('fallbackFocus');
+    }
+
+    if (!node) {
+      throw new Error('Your focus-trap needs to have at least one focusable element');
+    }
+
+    return node;
+  };
+
+  var updateTabbableNodes = function updateTabbableNodes() {
+    state.tabbableGroups = state.containers.map(function (container) {
+      var tabbableNodes = Object(tabbable__WEBPACK_IMPORTED_MODULE_0__["tabbable"])(container);
+
+      if (tabbableNodes.length > 0) {
+        return {
+          container: container,
+          firstTabbableNode: tabbableNodes[0],
+          lastTabbableNode: tabbableNodes[tabbableNodes.length - 1]
+        };
+      }
+
+      return undefined;
+    }).filter(function (group) {
+      return !!group;
+    }); // remove groups with no tabbable nodes
+    // throw if no groups have tabbable nodes and we don't have a fallback focus node either
+
+    if (state.tabbableGroups.length <= 0 && !getNodeForOption('fallbackFocus')) {
+      throw new Error('Your focus-trap must have at least one container with at least one tabbable node in it at all times');
+    }
+  };
+
+  var tryFocus = function tryFocus(node) {
+    if (node === false) {
+      return;
+    }
+
+    if (node === doc.activeElement) {
+      return;
+    }
+
+    if (!node || !node.focus) {
+      tryFocus(getInitialFocusNode());
+      return;
+    }
+
+    node.focus({
+      preventScroll: !!config.preventScroll
+    });
+    state.mostRecentlyFocusedNode = node;
+
+    if (isSelectableInput(node)) {
+      node.select();
+    }
+  };
+
+  var getReturnFocusNode = function getReturnFocusNode(previousActiveElement) {
+    var node = getNodeForOption('setReturnFocus');
+    return node ? node : previousActiveElement;
+  }; // This needs to be done on mousedown and touchstart instead of click
+  // so that it precedes the focus event.
+
+
+  var checkPointerDown = function checkPointerDown(e) {
+    if (containersContain(e.target)) {
+      // allow the click since it ocurred inside the trap
+      return;
+    }
+
+    if (valueOrHandler(config.clickOutsideDeactivates, e)) {
+      // immediately deactivate the trap
+      trap.deactivate({
+        // if, on deactivation, we should return focus to the node originally-focused
+        //  when the trap was activated (or the configured `setReturnFocus` node),
+        //  then assume it's also OK to return focus to the outside node that was
+        //  just clicked, causing deactivation, as long as that node is focusable;
+        //  if it isn't focusable, then return focus to the original node focused
+        //  on activation (or the configured `setReturnFocus` node)
+        // NOTE: by setting `returnFocus: false`, deactivate() will do nothing,
+        //  which will result in the outside click setting focus to the node
+        //  that was clicked, whether it's focusable or not; by setting
+        //  `returnFocus: true`, we'll attempt to re-focus the node originally-focused
+        //  on activation (or the configured `setReturnFocus` node)
+        returnFocus: config.returnFocusOnDeactivate && !Object(tabbable__WEBPACK_IMPORTED_MODULE_0__["isFocusable"])(e.target)
+      });
+      return;
+    } // This is needed for mobile devices.
+    // (If we'll only let `click` events through,
+    // then on mobile they will be blocked anyways if `touchstart` is blocked.)
+
+
+    if (valueOrHandler(config.allowOutsideClick, e)) {
+      // allow the click outside the trap to take place
+      return;
+    } // otherwise, prevent the click
+
+
+    e.preventDefault();
+  }; // In case focus escapes the trap for some strange reason, pull it back in.
+
+
+  var checkFocusIn = function checkFocusIn(e) {
+    var targetContained = containersContain(e.target); // In Firefox when you Tab out of an iframe the Document is briefly focused.
+
+    if (targetContained || e.target instanceof Document) {
+      if (targetContained) {
+        state.mostRecentlyFocusedNode = e.target;
+      }
+    } else {
+      // escaped! pull it back in to where it just left
+      e.stopImmediatePropagation();
+      tryFocus(state.mostRecentlyFocusedNode || getInitialFocusNode());
+    }
+  }; // Hijack Tab events on the first and last focusable nodes of the trap,
+  // in order to prevent focus from escaping. If it escapes for even a
+  // moment it can end up scrolling the page and causing confusion so we
+  // kind of need to capture the action at the keydown phase.
+
+
+  var checkTab = function checkTab(e) {
+    updateTabbableNodes();
+    var destinationNode = null;
+
+    if (state.tabbableGroups.length > 0) {
+      // make sure the target is actually contained in a group
+      // NOTE: the target may also be the container itself if it's tabbable
+      //  with tabIndex='-1' and was given initial focus
+      var containerIndex = findIndex(state.tabbableGroups, function (_ref) {
+        var container = _ref.container;
+        return container.contains(e.target);
+      });
+
+      if (containerIndex < 0) {
+        // target not found in any group: quite possible focus has escaped the trap,
+        //  so bring it back in to...
+        if (e.shiftKey) {
+          // ...the last node in the last group
+          destinationNode = state.tabbableGroups[state.tabbableGroups.length - 1].lastTabbableNode;
+        } else {
+          // ...the first node in the first group
+          destinationNode = state.tabbableGroups[0].firstTabbableNode;
+        }
+      } else if (e.shiftKey) {
+        // REVERSE
+        // is the target the first tabbable node in a group?
+        var startOfGroupIndex = findIndex(state.tabbableGroups, function (_ref2) {
+          var firstTabbableNode = _ref2.firstTabbableNode;
+          return e.target === firstTabbableNode;
+        });
+
+        if (startOfGroupIndex < 0 && state.tabbableGroups[containerIndex].container === e.target) {
+          // an exception case where the target is the container itself, in which
+          //  case, we should handle shift+tab as if focus were on the container's
+          //  first tabbable node, and go to the last tabbable node of the LAST group
+          startOfGroupIndex = containerIndex;
+        }
+
+        if (startOfGroupIndex >= 0) {
+          // YES: then shift+tab should go to the last tabbable node in the
+          //  previous group (and wrap around to the last tabbable node of
+          //  the LAST group if it's the first tabbable node of the FIRST group)
+          var destinationGroupIndex = startOfGroupIndex === 0 ? state.tabbableGroups.length - 1 : startOfGroupIndex - 1;
+          var destinationGroup = state.tabbableGroups[destinationGroupIndex];
+          destinationNode = destinationGroup.lastTabbableNode;
+        }
+      } else {
+        // FORWARD
+        // is the target the last tabbable node in a group?
+        var lastOfGroupIndex = findIndex(state.tabbableGroups, function (_ref3) {
+          var lastTabbableNode = _ref3.lastTabbableNode;
+          return e.target === lastTabbableNode;
+        });
+
+        if (lastOfGroupIndex < 0 && state.tabbableGroups[containerIndex].container === e.target) {
+          // an exception case where the target is the container itself, in which
+          //  case, we should handle tab as if focus were on the container's
+          //  last tabbable node, and go to the first tabbable node of the FIRST group
+          lastOfGroupIndex = containerIndex;
+        }
+
+        if (lastOfGroupIndex >= 0) {
+          // YES: then tab should go to the first tabbable node in the next
+          //  group (and wrap around to the first tabbable node of the FIRST
+          //  group if it's the last tabbable node of the LAST group)
+          var _destinationGroupIndex = lastOfGroupIndex === state.tabbableGroups.length - 1 ? 0 : lastOfGroupIndex + 1;
+
+          var _destinationGroup = state.tabbableGroups[_destinationGroupIndex];
+          destinationNode = _destinationGroup.firstTabbableNode;
+        }
+      }
+    } else {
+      destinationNode = getNodeForOption('fallbackFocus');
+    }
+
+    if (destinationNode) {
+      e.preventDefault();
+      tryFocus(destinationNode);
+    } // else, let the browser take care of [shift+]tab and move the focus
+
+  };
+
+  var checkKey = function checkKey(e) {
+    if (isEscapeEvent(e) && valueOrHandler(config.escapeDeactivates) !== false) {
+      e.preventDefault();
+      trap.deactivate();
+      return;
+    }
+
+    if (isTabEvent(e)) {
+      checkTab(e);
+      return;
+    }
+  };
+
+  var checkClick = function checkClick(e) {
+    if (valueOrHandler(config.clickOutsideDeactivates, e)) {
+      return;
+    }
+
+    if (containersContain(e.target)) {
+      return;
+    }
+
+    if (valueOrHandler(config.allowOutsideClick, e)) {
+      return;
+    }
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+  }; //
+  // EVENT LISTENERS
+  //
+
+
+  var addListeners = function addListeners() {
+    if (!state.active) {
+      return;
+    } // There can be only one listening focus trap at a time
+
+
+    activeFocusTraps.activateTrap(trap); // Delay ensures that the focused element doesn't capture the event
+    // that caused the focus trap activation.
+
+    state.delayInitialFocusTimer = config.delayInitialFocus ? delay(function () {
+      tryFocus(getInitialFocusNode());
+    }) : tryFocus(getInitialFocusNode());
+    doc.addEventListener('focusin', checkFocusIn, true);
+    doc.addEventListener('mousedown', checkPointerDown, {
+      capture: true,
+      passive: false
+    });
+    doc.addEventListener('touchstart', checkPointerDown, {
+      capture: true,
+      passive: false
+    });
+    doc.addEventListener('click', checkClick, {
+      capture: true,
+      passive: false
+    });
+    doc.addEventListener('keydown', checkKey, {
+      capture: true,
+      passive: false
+    });
+    return trap;
+  };
+
+  var removeListeners = function removeListeners() {
+    if (!state.active) {
+      return;
+    }
+
+    doc.removeEventListener('focusin', checkFocusIn, true);
+    doc.removeEventListener('mousedown', checkPointerDown, true);
+    doc.removeEventListener('touchstart', checkPointerDown, true);
+    doc.removeEventListener('click', checkClick, true);
+    doc.removeEventListener('keydown', checkKey, true);
+    return trap;
+  }; //
+  // TRAP DEFINITION
+  //
+
+
+  trap = {
+    activate: function activate(activateOptions) {
+      if (state.active) {
+        return this;
+      }
+
+      var onActivate = getOption(activateOptions, 'onActivate');
+      var onPostActivate = getOption(activateOptions, 'onPostActivate');
+      var checkCanFocusTrap = getOption(activateOptions, 'checkCanFocusTrap');
+
+      if (!checkCanFocusTrap) {
+        updateTabbableNodes();
+      }
+
+      state.active = true;
+      state.paused = false;
+      state.nodeFocusedBeforeActivation = doc.activeElement;
+
+      if (onActivate) {
+        onActivate();
+      }
+
+      var finishActivation = function finishActivation() {
+        if (checkCanFocusTrap) {
+          updateTabbableNodes();
+        }
+
+        addListeners();
+
+        if (onPostActivate) {
+          onPostActivate();
+        }
+      };
+
+      if (checkCanFocusTrap) {
+        checkCanFocusTrap(state.containers.concat()).then(finishActivation, finishActivation);
+        return this;
+      }
+
+      finishActivation();
+      return this;
+    },
+    deactivate: function deactivate(deactivateOptions) {
+      if (!state.active) {
+        return this;
+      }
+
+      clearTimeout(state.delayInitialFocusTimer); // noop if undefined
+
+      state.delayInitialFocusTimer = undefined;
+      removeListeners();
+      state.active = false;
+      state.paused = false;
+      activeFocusTraps.deactivateTrap(trap);
+      var onDeactivate = getOption(deactivateOptions, 'onDeactivate');
+      var onPostDeactivate = getOption(deactivateOptions, 'onPostDeactivate');
+      var checkCanReturnFocus = getOption(deactivateOptions, 'checkCanReturnFocus');
+
+      if (onDeactivate) {
+        onDeactivate();
+      }
+
+      var returnFocus = getOption(deactivateOptions, 'returnFocus', 'returnFocusOnDeactivate');
+
+      var finishDeactivation = function finishDeactivation() {
+        delay(function () {
+          if (returnFocus) {
+            tryFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation));
+          }
+
+          if (onPostDeactivate) {
+            onPostDeactivate();
+          }
+        });
+      };
+
+      if (returnFocus && checkCanReturnFocus) {
+        checkCanReturnFocus(getReturnFocusNode(state.nodeFocusedBeforeActivation)).then(finishDeactivation, finishDeactivation);
+        return this;
+      }
+
+      finishDeactivation();
+      return this;
+    },
+    pause: function pause() {
+      if (state.paused || !state.active) {
+        return this;
+      }
+
+      state.paused = true;
+      removeListeners();
+      return this;
+    },
+    unpause: function unpause() {
+      if (!state.paused || !state.active) {
+        return this;
+      }
+
+      state.paused = false;
+      updateTabbableNodes();
+      addListeners();
+      return this;
+    },
+    updateContainerElements: function updateContainerElements(containerElements) {
+      var elementsAsArray = [].concat(containerElements).filter(Boolean);
+      state.containers = elementsAsArray.map(function (element) {
+        return typeof element === 'string' ? doc.querySelector(element) : element;
+      });
+
+      if (state.active) {
+        updateTabbableNodes();
+      }
+
+      return this;
+    }
+  }; // initialize container elements
+
+  trap.updateContainerElements(elements);
+  return trap;
+};
+
+
+//# sourceMappingURL=focus-trap.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/invariant/browser.js":
 /*!*******************************************!*\
   !*** ./node_modules/invariant/browser.js ***!
@@ -5745,6 +7875,201 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 
 /***/ }),
@@ -16244,6 +18569,286 @@ Sortable.mount(Remove, Revert);
 
 /***/ }),
 
+/***/ "./node_modules/tabbable/dist/index.esm.js":
+/*!*************************************************!*\
+  !*** ./node_modules/tabbable/dist/index.esm.js ***!
+  \*************************************************/
+/*! exports provided: focusable, isFocusable, isTabbable, tabbable */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "focusable", function() { return focusable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFocusable", function() { return isFocusable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isTabbable", function() { return isTabbable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tabbable", function() { return tabbable; });
+/*!
+* tabbable 5.2.1
+* @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
+*/
+var candidateSelectors = ['input', 'select', 'textarea', 'a[href]', 'button', '[tabindex]', 'audio[controls]', 'video[controls]', '[contenteditable]:not([contenteditable="false"])', 'details>summary:first-of-type', 'details'];
+var candidateSelector = /* #__PURE__ */candidateSelectors.join(',');
+var matches = typeof Element === 'undefined' ? function () {} : Element.prototype.matches || Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+
+var getCandidates = function getCandidates(el, includeContainer, filter) {
+  var candidates = Array.prototype.slice.apply(el.querySelectorAll(candidateSelector));
+
+  if (includeContainer && matches.call(el, candidateSelector)) {
+    candidates.unshift(el);
+  }
+
+  candidates = candidates.filter(filter);
+  return candidates;
+};
+
+var isContentEditable = function isContentEditable(node) {
+  return node.contentEditable === 'true';
+};
+
+var getTabindex = function getTabindex(node) {
+  var tabindexAttr = parseInt(node.getAttribute('tabindex'), 10);
+
+  if (!isNaN(tabindexAttr)) {
+    return tabindexAttr;
+  } // Browsers do not return `tabIndex` correctly for contentEditable nodes;
+  // so if they don't have a tabindex attribute specifically set, assume it's 0.
+
+
+  if (isContentEditable(node)) {
+    return 0;
+  } // in Chrome, <details/>, <audio controls/> and <video controls/> elements get a default
+  //  `tabIndex` of -1 when the 'tabindex' attribute isn't specified in the DOM,
+  //  yet they are still part of the regular tab order; in FF, they get a default
+  //  `tabIndex` of 0; since Chrome still puts those elements in the regular tab
+  //  order, consider their tab index to be 0.
+
+
+  if ((node.nodeName === 'AUDIO' || node.nodeName === 'VIDEO' || node.nodeName === 'DETAILS') && node.getAttribute('tabindex') === null) {
+    return 0;
+  }
+
+  return node.tabIndex;
+};
+
+var sortOrderedTabbables = function sortOrderedTabbables(a, b) {
+  return a.tabIndex === b.tabIndex ? a.documentOrder - b.documentOrder : a.tabIndex - b.tabIndex;
+};
+
+var isInput = function isInput(node) {
+  return node.tagName === 'INPUT';
+};
+
+var isHiddenInput = function isHiddenInput(node) {
+  return isInput(node) && node.type === 'hidden';
+};
+
+var isDetailsWithSummary = function isDetailsWithSummary(node) {
+  var r = node.tagName === 'DETAILS' && Array.prototype.slice.apply(node.children).some(function (child) {
+    return child.tagName === 'SUMMARY';
+  });
+  return r;
+};
+
+var getCheckedRadio = function getCheckedRadio(nodes, form) {
+  for (var i = 0; i < nodes.length; i++) {
+    if (nodes[i].checked && nodes[i].form === form) {
+      return nodes[i];
+    }
+  }
+};
+
+var isTabbableRadio = function isTabbableRadio(node) {
+  if (!node.name) {
+    return true;
+  }
+
+  var radioScope = node.form || node.ownerDocument;
+
+  var queryRadios = function queryRadios(name) {
+    return radioScope.querySelectorAll('input[type="radio"][name="' + name + '"]');
+  };
+
+  var radioSet;
+
+  if (typeof window !== 'undefined' && typeof window.CSS !== 'undefined' && typeof window.CSS.escape === 'function') {
+    radioSet = queryRadios(window.CSS.escape(node.name));
+  } else {
+    try {
+      radioSet = queryRadios(node.name);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error('Looks like you have a radio button with a name attribute containing invalid CSS selector characters and need the CSS.escape polyfill: %s', err.message);
+      return false;
+    }
+  }
+
+  var checked = getCheckedRadio(radioSet, node.form);
+  return !checked || checked === node;
+};
+
+var isRadio = function isRadio(node) {
+  return isInput(node) && node.type === 'radio';
+};
+
+var isNonTabbableRadio = function isNonTabbableRadio(node) {
+  return isRadio(node) && !isTabbableRadio(node);
+};
+
+var isHidden = function isHidden(node, displayCheck) {
+  if (getComputedStyle(node).visibility === 'hidden') {
+    return true;
+  }
+
+  var isDirectSummary = matches.call(node, 'details>summary:first-of-type');
+  var nodeUnderDetails = isDirectSummary ? node.parentElement : node;
+
+  if (matches.call(nodeUnderDetails, 'details:not([open]) *')) {
+    return true;
+  }
+
+  if (!displayCheck || displayCheck === 'full') {
+    while (node) {
+      if (getComputedStyle(node).display === 'none') {
+        return true;
+      }
+
+      node = node.parentElement;
+    }
+  } else if (displayCheck === 'non-zero-area') {
+    var _node$getBoundingClie = node.getBoundingClientRect(),
+        width = _node$getBoundingClie.width,
+        height = _node$getBoundingClie.height;
+
+    return width === 0 && height === 0;
+  }
+
+  return false;
+}; // form fields (nested) inside a disabled fieldset are not focusable/tabbable
+//  unless they are in the _first_ <legend> element of the top-most disabled
+//  fieldset
+
+
+var isDisabledFromFieldset = function isDisabledFromFieldset(node) {
+  if (isInput(node) || node.tagName === 'SELECT' || node.tagName === 'TEXTAREA' || node.tagName === 'BUTTON') {
+    var parentNode = node.parentElement;
+
+    while (parentNode) {
+      if (parentNode.tagName === 'FIELDSET' && parentNode.disabled) {
+        // look for the first <legend> as an immediate child of the disabled
+        //  <fieldset>: if the node is in that legend, it'll be enabled even
+        //  though the fieldset is disabled; otherwise, the node is in a
+        //  secondary/subsequent legend, or somewhere else within the fieldset
+        //  (however deep nested) and it'll be disabled
+        for (var i = 0; i < parentNode.children.length; i++) {
+          var child = parentNode.children.item(i);
+
+          if (child.tagName === 'LEGEND') {
+            if (child.contains(node)) {
+              return false;
+            } // the node isn't in the first legend (in doc order), so no matter
+            //  where it is now, it'll be disabled
+
+
+            return true;
+          }
+        } // the node isn't in a legend, so no matter where it is now, it'll be disabled
+
+
+        return true;
+      }
+
+      parentNode = parentNode.parentElement;
+    }
+  } // else, node's tabbable/focusable state should not be affected by a fieldset's
+  //  enabled/disabled state
+
+
+  return false;
+};
+
+var isNodeMatchingSelectorFocusable = function isNodeMatchingSelectorFocusable(options, node) {
+  if (node.disabled || isHiddenInput(node) || isHidden(node, options.displayCheck) || // For a details element with a summary, the summary element gets the focus
+  isDetailsWithSummary(node) || isDisabledFromFieldset(node)) {
+    return false;
+  }
+
+  return true;
+};
+
+var isNodeMatchingSelectorTabbable = function isNodeMatchingSelectorTabbable(options, node) {
+  if (!isNodeMatchingSelectorFocusable(options, node) || isNonTabbableRadio(node) || getTabindex(node) < 0) {
+    return false;
+  }
+
+  return true;
+};
+
+var tabbable = function tabbable(el, options) {
+  options = options || {};
+  var regularTabbables = [];
+  var orderedTabbables = [];
+  var candidates = getCandidates(el, options.includeContainer, isNodeMatchingSelectorTabbable.bind(null, options));
+  candidates.forEach(function (candidate, i) {
+    var candidateTabindex = getTabindex(candidate);
+
+    if (candidateTabindex === 0) {
+      regularTabbables.push(candidate);
+    } else {
+      orderedTabbables.push({
+        documentOrder: i,
+        tabIndex: candidateTabindex,
+        node: candidate
+      });
+    }
+  });
+  var tabbableNodes = orderedTabbables.sort(sortOrderedTabbables).map(function (a) {
+    return a.node;
+  }).concat(regularTabbables);
+  return tabbableNodes;
+};
+
+var focusable = function focusable(el, options) {
+  options = options || {};
+  var candidates = getCandidates(el, options.includeContainer, isNodeMatchingSelectorFocusable.bind(null, options));
+  return candidates;
+};
+
+var isTabbable = function isTabbable(node, options) {
+  options = options || {};
+
+  if (!node) {
+    throw new Error('No node provided');
+  }
+
+  if (matches.call(node, candidateSelector) === false) {
+    return false;
+  }
+
+  return isNodeMatchingSelectorTabbable(options, node);
+};
+
+var focusableCandidateSelector = /* #__PURE__ */candidateSelectors.concat('iframe').join(',');
+
+var isFocusable = function isFocusable(node, options) {
+  options = options || {};
+
+  if (!node) {
+    throw new Error('No node provided');
+  }
+
+  if (matches.call(node, focusableCandidateSelector) === false) {
+    return false;
+  }
+
+  return isNodeMatchingSelectorFocusable(options, node);
+};
+
+
+//# sourceMappingURL=index.esm.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
@@ -18473,6 +21078,165 @@ var BackgroundModal = function BackgroundModal(props) {
 
 /***/ }),
 
+/***/ "./src/kmt-controls/border.js":
+/*!************************************!*\
+  !*** ./src/kmt-controls/border.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color */ "./src/kmt-controls/color.js");
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+var __ = wp.i18n.__;
+
+var clamp = function clamp(min, max, value) {
+  return Math.max(min, Math.min(max, value));
+};
+
+var Border = function Border(_ref) {
+  var _classnames;
+
+  var value = _ref.value,
+      _onChange = _ref.onChange,
+      params = _ref.params;
+  var secondColor = params.secondColor,
+      label = params.label;
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
+      isOpen = _useState2[0],
+      setIsOpen = _useState2[1];
+
+  var defaultValue = _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({
+    secondColor: true,
+    style: 'none',
+    width: '',
+    color: ''
+  }, "secondColor", '');
+
+  value = value ? value : defaultValue;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-border-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "kmt-reset-btn ",
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    onClick: function onClick(e) {
+      e.preventDefault();
+
+      _onChange(_objectSpread({}, defaultValue));
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-option-border')
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()('kmt-value-changer', (_classnames = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, 'active', isOpen), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, 'kmt-disabled', value.style === 'none'), _classnames))
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+    type: "number",
+    value: value.width,
+    onChange: function onChange(_ref2) {
+      var width = _ref2.target.value;
+      return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+        width: clamp(1, 5, parseInt(width, 10) || 1)
+      }));
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "kmt-value-divider"
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "kmt-current-value",
+    "data-style": value.inherit ? 'none' : value.style,
+    onClick: function onClick() {
+      return setIsOpen(!isOpen);
+    }
+  }, value.style === 'none' ? value.style : null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    disabled: !isOpen,
+    onOutsideClick: function onOutsideClick() {
+      if (!isOpen) return;
+      setIsOpen(false);
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
+    className: "kmt-styles-list"
+  }, ['solid', 'dashed', 'dotted', 'none'].reduce(function (current, el, index) {
+    return [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(current.slice(0, index % 2 === 0 ? undefined : -1)), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(index % 2 === 0 ? [[el]] : [[current[current.length - 1][0], el]]));
+  }, []).map(function (group) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
+      key: group[0]
+    }, group.map(function (style) {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({
+        className: classnames__WEBPACK_IMPORTED_MODULE_5___default()({
+          active: style === value.style
+        }),
+        "data-style": style,
+        key: style,
+        onClick: function onClick() {
+          _onChange(_objectSpread(_objectSpread({}, value), {}, {
+            style: style
+          }));
+
+          setIsOpen(false);
+        }
+      }, "data-style", style), style === 'none' ? __('None', 'Kemet') : null);
+    }));
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onChange: function onChange(colorValue) {
+      return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+        color: colorValue.default
+      }));
+    },
+    picker: {
+      id: 'default',
+      title: __('Initial', 'kemet')
+    },
+    value: {
+      default: value.color
+    }
+  }), secondColor && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onChange: function onChange(colorValue) {
+      return _onChange(_objectSpread(_objectSpread({}, value), {}, {
+        secondColor: colorValue.default
+      }));
+    },
+    picker: {
+      id: 'default',
+      title: __('Hover', 'kemet')
+    },
+    value: {
+      default: value.secondColor
+    }
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Border);
+
+/***/ }),
+
 /***/ "./src/kmt-controls/builder-tabs.js":
 /*!******************************************!*\
   !*** ./src/kmt-controls/builder-tabs.js ***!
@@ -19609,26 +22373,24 @@ var IconPicker = function IconPicker(_ref) {
   }, [value.icon]);
   var label = params.label;
   var el = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
+  var defaultValue = {
+    icon: ''
+  };
 
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(value),
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(''),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
-      state = _useState2[0],
-      setState = _useState2[1];
+      searchString = _useState2[0],
+      setSearchString = _useState2[1];
 
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(''),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
-      searchString = _useState4[0],
-      setSearchString = _useState4[1];
-
-  var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])({
     isPicking: null,
     isTransitioning: null
   }),
-      _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState5, 2),
-      _useState6$ = _useState6[0],
-      isPicking = _useState6$.isPicking,
-      isTransitioning = _useState6$.isTransitioning,
-      setAnimationState = _useState6[1];
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      _useState4$ = _useState4[0],
+      isPicking = _useState4$.isPicking,
+      isTransitioning = _useState4$.isTransitioning,
+      setAnimationState = _useState4[1];
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-icon-container "
@@ -19636,14 +22398,12 @@ var IconPicker = function IconPicker(_ref) {
     className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
     className: "kmt-reset-btn ",
-    disabled: JSON.stringify(state) === JSON.stringify(value),
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
     onClick: function onClick(e) {
       e.preventDefault();
-      onchange(state);
+      onChange(_objectSpread({}, defaultValue));
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "dashicons dashicons-image-rotate"
-  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     ref: el
@@ -21650,7 +24410,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
-      _this.responsive ? updateState["".concat(device, "-unit")] = valueelse : updateState["unit"] = value;
+      _this.responsive ? updateState["".concat(device, "-unit")] = value : updateState["unit"] = value;
 
       _this.props.onChange(updateState);
 
@@ -23680,6 +26440,779 @@ var TypographyModal = function TypographyModal(_ref) {
 
 /***/ }),
 
+/***/ "./src/kmt-controls/uploadFont.js":
+/*!****************************************!*\
+  !*** ./src/kmt-controls/uploadFont.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _uploadFont_Overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./uploadFont/Overlay */ "./src/kmt-controls/uploadFont/Overlay.js");
+/* harmony import */ var _uploadFont_AllFonts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./uploadFont/AllFonts */ "./src/kmt-controls/uploadFont/AllFonts.js");
+/* harmony import */ var _uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./uploadFont/Upload */ "./src/kmt-controls/uploadFont/Upload.js");
+
+
+
+var __ = wp.i18n.__;
+
+
+
+var customFontsSettingsCache = {
+  fonts: []
+};
+
+var EditSettings = function EditSettings() {
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      isEditing = _useState2[0],
+      setIsEditing = _useState2[1];
+
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(Object(_uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__["getDefaultFutureFont"])()),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      futureFont = _useState4[0],
+      setFutureFont = _useState4[1];
+
+  var _useState5 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])('all'),
+      _useState6 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState5, 2),
+      openView = _useState6[0],
+      setOpenView = _useState6[1];
+
+  var _useState7 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(customFontsSettingsCache),
+      _useState8 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState7, 2),
+      customFontsSettings = _useState8[0],
+      setCustomFontsSettings = _useState8[1];
+
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    if (isEditing) {
+      setFutureFont(Object(_uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__["getDefaultFutureFont"])());
+    }
+  }, [isEditing]);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+    className: "kmt-button kmt-config-btn",
+    "data-button": "white",
+    title: __('Settings', 'kemet'),
+    onClick: function onClick() {
+      event.preventDefault();
+      setIsEditing(true);
+    }
+  }, __('Settings', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_uploadFont_Overlay__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    items: isEditing,
+    onDismiss: function onDismiss() {
+      return setIsEditing(false);
+    },
+    className: 'kmt-custom-fonts-modal',
+    render: function render() {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, openView.indexOf('edit:') > -1 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        futureFont: futureFont,
+        setFutureFont: setFutureFont,
+        onChange: function onChange(e) {
+          setCustomFontsSettings(e);
+        },
+        moveToAllFonts: function moveToAllFonts() {
+          setOpenView('all');
+        },
+        customFontsSettings: customFontsSettings,
+        editedIndex: parseInt(openView.split(':')[1], 10)
+      }), openView === 'all' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_uploadFont_AllFonts__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onChange: function onChange(e) {
+          setCustomFontsSettings(e);
+        },
+        customFontsSettings: customFontsSettings,
+        editFont: function editFont(index) {
+          setFutureFont(customFontsSettings.fonts[index]);
+          setOpenView("edit:".concat(index));
+        },
+        moveToUploader: function moveToUploader(type) {
+          setFutureFont(Object(_uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__["getDefaultFutureFont"])(type));
+          setOpenView('upload');
+        }
+      }), openView === 'upload' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_uploadFont_Upload__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        futureFont: futureFont,
+        setFutureFont: setFutureFont,
+        onChange: function onChange(e) {
+          setCustomFontsSettings(e);
+        },
+        moveToAllFonts: function moveToAllFonts() {
+          setOpenView('all');
+        },
+        customFontsSettings: customFontsSettings
+      }));
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EditSettings);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/uploadFont/AllFonts.js":
+/*!*************************************************!*\
+  !*** ./src/kmt-controls/uploadFont/AllFonts.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _typography_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../typography/helpers */ "./src/kmt-controls/typography/helpers.js");
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+var __ = wp.i18n.__;
+
+
+var AllFonts = function AllFonts(_ref) {
+  var customFontsSettings = _ref.customFontsSettings,
+      onChange = _ref.onChange,
+      moveToUploader = _ref.moveToUploader,
+      editFont = _ref.editFont;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "kmt-modal-content kmt-all-fonts"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("h2", null, __('Custom Fonts Settings', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", null, __('Here you can see all your custom fonts that could be used in all typography options across the theme.', 'kemet')), customFontsSettings.fonts.length > 0 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "kmt-modal-scroll"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", null, customFontsSettings.fonts.map(function (font, index) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
+      key: index
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", null, font.name, font.__custom ? " (".concat(__('Dynamic Font', 'kemet'), ")") : '', font.fontType === 'variable' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, __('Variable font', 'kemet'), ":\xA0", font.variations.filter(function (_ref2) {
+      var url = _ref2.url;
+      return !!url;
+    }).map(function (_ref3) {
+      var variation = _ref3.variation;
+      return Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_2__["humanizeVariations"])(variation, true);
+    }).join(', ')) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", null, __('Variations', 'kemet'), ":\xA0", font.variations.map(function (_ref4) {
+      var variation = _ref4.variation;
+      return Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_2__["humanizeVariations"])(variation);
+    }).join(', '))), !font.__custom && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+      className: "kmt-edit-font",
+      onClick: function onClick() {
+        return editFont(index);
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      className: "kmt-tooltip-top"
+    }, __('Edit Font', 'kemet'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+      className: "kmt-remove-font",
+      "data-hover": "red",
+      onClick: function onClick() {
+        onChange(_objectSpread(_objectSpread({}, customFontsSettings), {}, {
+          fonts: customFontsSettings.fonts.filter(function (_ref5) {
+            var name = _ref5.name;
+            return name !== font.name;
+          })
+        }));
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+      className: "kmt-tooltip-top"
+    }, __('Remove Font', 'kemet')))));
+  }))), customFontsSettings.fonts.length === 0 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "kmt-notification"
+  }, __('There are no custom fonts at the moment, hit the button below and upload some.', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "kmt-modal-actions has-divider",
+    "data-buttons": "2"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+    className: "button button-primary",
+    onClick: function onClick() {
+      moveToUploader('regular');
+    }
+  }, __('Upload Simple Font', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", {
+    className: "button button-primary",
+    onClick: function onClick() {
+      moveToUploader('variable');
+    }
+  }, __('Upload Variable Font', 'kemet'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AllFonts);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/uploadFont/Overlay.js":
+/*!************************************************!*\
+  !*** ./src/kmt-controls/uploadFont/Overlay.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dialog */ "./src/kmt-controls/uploadFont/dialog.js");
+/* harmony import */ var _react_spring_web__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-spring/web */ "./node_modules/@react-spring/web/dist/react-spring-web.esm.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+var __ = wp.i18n.__;
+
+
+var defaultIsVisible = function defaultIsVisible(i) {
+  return !!i;
+};
+
+var Overlay = function Overlay(_ref) {
+  var items = _ref.items,
+      _ref$isVisible = _ref.isVisible,
+      isVisible = _ref$isVisible === void 0 ? defaultIsVisible : _ref$isVisible,
+      render = _ref.render,
+      className = _ref.className,
+      _onDismiss = _ref.onDismiss;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_2__["Transition"], {
+    items: items,
+    onStart: function onStart() {
+      return document.body.classList[items ? 'add' : 'remove']('kmt-dashboard-overlay-open');
+    },
+    config: {
+      duration: 200
+    },
+    from: {
+      opacity: 0,
+      y: -10
+    },
+    enter: {
+      opacity: 1,
+      y: 0
+    },
+    leave: {
+      opacity: 0,
+      y: 10
+    }
+  }, function (visable) {
+    return isVisible(items) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_dialog__WEBPACK_IMPORTED_MODULE_1__["DialogOverlay"], {
+      container: document.querySelector('.wp-full-overlay.section-open #customize-preview '),
+      onDismiss: function onDismiss() {
+        return _onDismiss();
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_dialog__WEBPACK_IMPORTED_MODULE_1__["DialogContent"], {
+      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-admin-modal', className),
+      style: {
+        transform: "translate3d(0px, 0px, 0px)"
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
+      className: "close-button",
+      onClick: function onClick() {
+        return _onDismiss();
+      }
+    }, "\xD7"), render(visable)));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Overlay);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/uploadFont/Upload.js":
+/*!***********************************************!*\
+  !*** ./src/kmt-controls/uploadFont/Upload.js ***!
+  \***********************************************/
+/*! exports provided: getDefaultFutureFont, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaultFutureFont", function() { return getDefaultFutureFont; });
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Overlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Overlay */ "./src/kmt-controls/uploadFont/Overlay.js");
+/* harmony import */ var _typography_helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../typography/helpers */ "./src/kmt-controls/typography/helpers.js");
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+var _wp$i18n = wp.i18n,
+    __ = _wp$i18n.__,
+    sprintf = _wp$i18n.sprintf;
+
+
+
+var preloadAttachment = function preloadAttachment(ID, callback) {
+  if (wp.media.attachment(ID).get('url')) {
+    wp.media.attachment(ID).fetch().then(function () {
+      return callback(wp.media.attachment(ID));
+    });
+    return;
+  }
+
+  callback(wp.media.attachment(ID));
+};
+
+var getDefaultVariation = function getDefaultVariation(prefill) {
+  return _objectSpread({
+    variation: 'n4',
+    attachment_id: null,
+    url: '',
+    filename: ''
+  }, prefill);
+};
+
+var getDefaultFutureFont = function getDefaultFutureFont() {
+  var fontType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'regular';
+  return {
+    name: '',
+    // regular | variable
+    fontType: fontType,
+    variations: [getDefaultVariation({
+      variation: 'n4'
+    })].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(fontType === 'variable' ? [getDefaultVariation({
+      variation: 'i4'
+    })] : []))
+  };
+};
+
+var AddVariation = function AddVariation(_ref) {
+  var futureFont = _ref.futureFont,
+      setFutureFont = _ref.setFutureFont;
+  var itemsThatAreNotAdded = Object.keys(Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_5__["humanizeVariations"])()).filter(function (variation) {
+    return !futureFont.variations.find(function (v) {
+      return v.variation === variation;
+    });
+  }).reduce(function (all, currentVariation) {
+    return _objectSpread(_objectSpread({}, all), {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, currentVariation, Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_5__["humanizeVariationsShort"])(currentVariation)));
+  }, {});
+
+  if (itemsThatAreNotAdded.length === 0) {
+    return null;
+  }
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "button",
+    onClick: function onClick() {
+      setFutureFont(_objectSpread(_objectSpread({}, futureFont), {}, {
+        variations: [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(futureFont.variations), [getDefaultVariation({
+          variation: ''
+        })])
+      }));
+    }
+  }, __('Add Variation', 'kemet'));
+};
+
+var SingleVariation = function SingleVariation(_ref2) {
+  var futureFont = _ref2.futureFont,
+      variation = _ref2.variation,
+      onChange = _ref2.onChange,
+      onRemove = _ref2.onRemove;
+
+  var itemsThatAreNotAdded = _objectSpread({}, Object.keys(Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_5__["humanizeVariations"])()).filter(function (singleVariation) {
+    return variation.variation === singleVariation || !futureFont.variations.find(function (v) {
+      return v.variation === singleVariation;
+    });
+  }).reduce(function (all, currentVariation) {
+    return _objectSpread(_objectSpread({}, all), {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, currentVariation, Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_5__["humanizeVariationsShort"])(currentVariation)));
+  }, {}));
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "button button-primary",
+    onClick: function onClick() {
+      var frame = wp.media({
+        button: {
+          text: 'Select'
+        },
+        states: [new wp.media.controller.Library({
+          title: 'Select font',
+          multiple: false,
+          date: false,
+          priority: 20
+        })]
+      });
+
+      if (variation.attachment_id) {
+        frame.on('open', function () {
+          frame.reset();
+          preloadAttachment(variation.attachment_id, function () {
+            frame.state().get('selection').add(wp.media.attachment(variation.attachment_id));
+          });
+        });
+      }
+
+      frame.setState('library').open();
+      frame.on('select', function () {
+        var attachment = frame.state().get('selection').first().toJSON();
+        onChange(_objectSpread(_objectSpread({}, variation), {}, {
+          attachment_id: attachment.id,
+          url: wp.media.attachment(attachment.id).get('url'),
+          filename: attachment.filename
+        }));
+      });
+    }
+  }, variation.attachment_id ? __('Change', 'kemet') : __('Choose', 'kemet')), variation.attachment_id && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "kmt-font-preview"
+  }, variation.filename), futureFont.fontType === 'variable' && variation.variation === 'n4' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "kmt-variation-name"
+  }, __('Regular', 'kemet')), futureFont.fontType === 'variable' && variation.variation === 'i4' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "kmt-variation-name"
+  }, __('Italic', 'kemet')), futureFont.fontType === 'regular' && futureFont.variations.length > 1 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "kmt-remove",
+    onClick: function onClick() {
+      return onRemove();
+    }
+  }, "\xD7"));
+};
+
+var Uploader = function Uploader(_ref3) {
+  var customFontsSettings = _ref3.customFontsSettings,
+      onChange = _ref3.onChange,
+      futureFont = _ref3.futureFont,
+      moveToAllFonts = _ref3.moveToAllFonts,
+      setFutureFont = _ref3.setFutureFont,
+      editedIndex = _ref3.editedIndex;
+  var name = futureFont.name,
+      variations = futureFont.variations;
+  var isDisabled = !name || variations.length === 0 || futureFont.fontType === 'regular' && variations.length > 0 && variations.some(function (_ref4) {
+    var attachment_id = _ref4.attachment_id,
+        variation = _ref4.variation;
+    return !attachment_id || !variation;
+  }) || futureFont.fontType === 'variable' && variations.length > 0 && variations.find(function (_ref5) {
+    var attachment_id = _ref5.attachment_id,
+        variation = _ref5.variation;
+    return (!attachment_id || !variation) && variation === 'n4';
+  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-modal-content kmt-upload-fonts"
+  }, futureFont.fontType === 'regular' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h2", null, __('Upload Simple Font', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+    dangerouslySetInnerHTML: {
+      __html: sprintf(__("Upload only the %s.woff2%s or %s.ttf%s font file formats (see browser coverage %shere%s). Use %sthis converter tool%s if you don't have these font formats.", 'kemet'), '<code>', '</code>', '<code>', '</code>', '<a href="https://caniuse.com/#search=woff2" target="_blank">', '</a>', '<a href="https://transfonter.org/" target="_blank">', '</a>')
+    }
+  })), futureFont.fontType === 'variable' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("h2", null, __('Upload Variable Font', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
+    dangerouslySetInnerHTML: {
+      __html: sprintf(__("Upload only the %s.woff2%s or %s.ttf%s font file formats. Please don't convert non-woff variable fonts by yourself. Instead, just ask the font provider to hand a correct file otherwise the %svariable%s font will loose its capabilities.", 'kemet'), '<code>', '</code>', '<code>', '</code>', '<a href="https://web.dev/variable-fonts/" target="_blank">', '</a>')
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-font-name"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-option-input"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("input", {
+    onChange: function onChange(_ref6) {
+      var name = _ref6.target.value;
+      setFutureFont(_objectSpread(_objectSpread({}, futureFont), {}, {
+        name: name
+      }));
+    },
+    type: "text",
+    placeholder: __('Font Name', 'kemet'),
+    value: name,
+    style: {
+      width: '100%'
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-modal-scroll"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", null, variations.map(function (variation, index) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(SingleVariation, {
+      futureFont: futureFont,
+      key: index,
+      variation: variation,
+      onChange: function onChange(newVariation) {
+        return setFutureFont(_objectSpread(_objectSpread({}, futureFont), {}, {
+          variations: variations.map(function (v, nestedIndex) {
+            return nestedIndex === index ? newVariation : v;
+          })
+        }));
+      },
+      onRemove: function onRemove() {
+        return setFutureFont(_objectSpread(_objectSpread({}, futureFont), {}, {
+          variations: variations.slice(0, index).concat(variations.slice(index + 1, variations.length))
+        }));
+      }
+    });
+  }), futureFont.fontType === 'regular' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("li", {
+    className: "kmt-add-variation"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "kmt-notification"
+  }, __('Add/upload another font variation', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(AddVariation, {
+    futureFont: futureFont,
+    setFutureFont: setFutureFont
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-modal-actions has-divider",
+    "data-buttons": "2"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "button",
+    onClick: function onClick() {
+      moveToAllFonts();
+      setFutureFont(getDefaultFutureFont());
+    }
+  }, "\u2190 ", __('Back to All Fonts', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "button button-primary",
+    disabled: isDisabled,
+    onClick: function onClick() {
+      onChange(_objectSpread(_objectSpread({}, customFontsSettings), {}, {
+        fonts: editedIndex || editedIndex === 0 ? customFontsSettings.fonts.map(function (f, index) {
+          return index === editedIndex ? futureFont : f;
+        }) : [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(customFontsSettings.fonts), [futureFont])
+      }));
+      setFutureFont(getDefaultFutureFont());
+      moveToAllFonts();
+    }
+  }, __('Save Custom Font', 'kemet'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Uploader);
+
+/***/ }),
+
+/***/ "./src/kmt-controls/uploadFont/dialog.js":
+/*!***********************************************!*\
+  !*** ./src/kmt-controls/uploadFont/dialog.js ***!
+  \***********************************************/
+/*! exports provided: DialogOverlay, DialogContent, Dialog */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogOverlay", function() { return DialogOverlay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogContent", function() { return DialogContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dialog", function() { return Dialog; });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _reach_component_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @reach/component-component */ "./node_modules/@reach/component-component/dist/reach-component-component.esm.js");
+/* harmony import */ var _portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./portal */ "./src/kmt-controls/uploadFont/portal.js");
+/* harmony import */ var _reach_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @reach/utils */ "./node_modules/@reach/utils/dist/reach-utils.esm.js");
+/* harmony import */ var focus_trap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! focus-trap */ "./node_modules/focus-trap/dist/focus-trap.esm.js");
+
+
+
+
+
+
+
+
+var createAriaHider = function createAriaHider(dialogNode) {
+  var originalValues = [];
+  var rootNodes = [];
+  Array.prototype.forEach.call(document.querySelectorAll('body > *'), function (node) {
+    if (node === dialogNode.parentNode) {
+      return;
+    }
+
+    var attr = node.getAttribute('aria-hidden');
+    var alreadyHidden = attr !== null && attr !== 'false';
+
+    if (alreadyHidden) {
+      return;
+    }
+
+    originalValues.push(attr);
+    rootNodes.push(node);
+    node.setAttribute('aria-hidden', 'true');
+  });
+  return function () {
+    rootNodes.forEach(function (node, index) {
+      var originalValue = originalValues[index];
+
+      if (originalValue === null) {
+        node.removeAttribute('aria-hidden');
+      } else {
+        node.setAttribute('aria-hidden', originalValue);
+      }
+    });
+  };
+};
+
+var k = function k() {};
+
+var checkDialogStyles = function checkDialogStyles() {
+  return Object(_reach_utils__WEBPACK_IMPORTED_MODULE_5__["checkStyles"])('dialog');
+};
+
+var portalDidMount = function portalDidMount(refs, initialFocusRef) {
+  refs.disposeAriaHider = createAriaHider(refs.overlayNode);
+  refs.trap = Object(focus_trap__WEBPACK_IMPORTED_MODULE_6__["createFocusTrap"])(refs.overlayNode, {
+    initialFocus: initialFocusRef ? function () {
+      return initialFocusRef.current;
+    } : undefined,
+    fallbackFocus: refs.contentNode,
+    escapeDeactivates: false,
+    clickOutsideDeactivates: false
+  });
+};
+
+var contentWillUnmount = function contentWillUnmount(_ref) {
+  var refs = _ref.refs;
+  refs.trap.deactivate();
+  refs.disposeAriaHider();
+};
+
+var FocusContext = React.createContext();
+var DialogOverlay = React.forwardRef(function (_ref2, forwardRef) {
+  var container = _ref2.container,
+      _ref2$isOpen = _ref2.isOpen,
+      isOpen = _ref2$isOpen === void 0 ? true : _ref2$isOpen,
+      _ref2$onDismiss = _ref2.onDismiss,
+      onDismiss = _ref2$onDismiss === void 0 ? k : _ref2$onDismiss,
+      initialFocusRef = _ref2.initialFocusRef,
+      onClick = _ref2.onClick,
+      onKeyDown = _ref2.onKeyDown,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref2, ["container", "isOpen", "onDismiss", "initialFocusRef", "onClick", "onKeyDown"]);
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_reach_component_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    didMount: checkDialogStyles
+  }, isOpen ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_portal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    container: container,
+    "data-reach-dialog-wrapper": true,
+    onClick: function onClick(event) {
+      event.stopPropagation();
+      onDismiss();
+    }
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_reach_component_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    refs: {
+      overlayNode: null,
+      contentNode: null
+    },
+    didMount: function didMount(_ref3) {
+      var refs = _ref3.refs;
+      portalDidMount(refs, initialFocusRef);
+    },
+    willUnmount: contentWillUnmount
+  }, function (_ref4) {
+    var refs = _ref4.refs;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(FocusContext.Provider, {
+      value: function value(node) {
+        return refs.contentNode = node;
+      }
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+      "data-reach-dialog-overlay": true,
+      onKeyDown: function onKeyDown(event) {
+        if (event.key === 'Escape') {
+          event.stopPropagation();
+          onDismiss();
+        }
+      },
+      ref: function ref(node) {
+        refs.overlayNode = node;
+        forwardRef && forwardRef(node);
+      }
+    }, props)));
+  })) : null);
+});
+DialogOverlay.propTypes = {
+  initialFocusRef: function initialFocusRef() {}
+};
+
+var stopPropagation = function stopPropagation(event) {
+  return event.stopPropagation();
+};
+
+var DialogContent = React.forwardRef(function (_ref5, forwardRef) {
+  var onClick = _ref5.onClick,
+      onKeyDown = _ref5.onKeyDown,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref5, ["onClick", "onKeyDown"]);
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(FocusContext.Consumer, null, function (contentRef) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+      "aria-modal": "true",
+      "data-reach-dialog-content": true,
+      tabIndex: "-1",
+      onClick: function onClick() {
+        return stopPropagation;
+      },
+      ref: function ref(node) {
+        contentRef(node);
+        forwardRef && forwardRef(node);
+      }
+    }, props));
+  });
+});
+
+var Dialog = function Dialog(_ref6) {
+  var container = _ref6.container,
+      isOpen = _ref6.isOpen,
+      _ref6$onDismiss = _ref6.onDismiss,
+      onDismiss = _ref6$onDismiss === void 0 ? k : _ref6$onDismiss,
+      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref6, ["container", "isOpen", "onDismiss"]);
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(DialogOverlay, {
+    container: container,
+    isOpen: isOpen,
+    onDismiss: onDismiss
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(DialogContent, props));
+};
+
+
+
+/***/ }),
+
+/***/ "./src/kmt-controls/uploadFont/portal.js":
+/*!***********************************************!*\
+  !*** ./src/kmt-controls/uploadFont/portal.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reach_component_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reach/component-component */ "./node_modules/@reach/component-component/dist/reach-component-component.esm.js");
+
+
+
+var Portal = function Portal(_ref) {
+  var children = _ref.children,
+      _ref$container = _ref.container,
+      container = _ref$container === void 0 ? document.body : _ref$container,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'reach-portal' : _ref$type;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_reach_component_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    getRefs: function getRefs() {
+      return {
+        node: null
+      };
+    },
+    didMount: function didMount(_ref2) {
+      var refs = _ref2.refs,
+          forceUpdate = _ref2.forceUpdate;
+      var containerNode = container.hasOwnProperty('current') ? container.current : container;
+      refs.node = document.createElement(type);
+      containerNode.appendChild(refs.node);
+      forceUpdate();
+    },
+    willUnmount: function willUnmount(_ref3) {
+      var node = _ref3.refs.node;
+      var containerNode = container.hasOwnProperty('current') ? container.current : container;
+
+      if (containerNode) {
+        containerNode.removeChild(node);
+      }
+    },
+    render: function render(_ref4) {
+      var node = _ref4.refs.node;
+      return node ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createPortal"])(children, node) : null;
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Portal);
+
+/***/ }),
+
 /***/ "./src/options/control.js":
 /*!********************************!*\
   !*** ./src/options/control.js ***!
@@ -23829,6 +27362,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _kmt_controls_typography__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../kmt-controls/typography */ "./src/kmt-controls/typography.js");
 /* harmony import */ var _kmt_controls_color_pallet__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../kmt-controls/color-pallet */ "./src/kmt-controls/color-pallet.js");
 /* harmony import */ var _kmt_controls_icon__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../kmt-controls/icon */ "./src/kmt-controls/icon.js");
+/* harmony import */ var _kmt_controls_uploadFont__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../kmt-controls/uploadFont */ "./src/kmt-controls/uploadFont.js");
+/* harmony import */ var _kmt_controls_border__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../kmt-controls/border */ "./src/kmt-controls/border.js");
 
 
 
@@ -23854,7 +27389,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // import EditSettings from '../kmt-controls/uploadFont';
+
+
 
 var wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -23949,9 +27485,14 @@ var OptionComponent = function OptionComponent(type) {
     case 'icon-picker':
       OptionComponent = _kmt_controls_icon__WEBPACK_IMPORTED_MODULE_25__["default"];
       break;
-    // case 'font-upload':
-    //     OptionComponent = EditSettings;
-    //     break;
+
+    case 'font-upload':
+      OptionComponent = _kmt_controls_uploadFont__WEBPACK_IMPORTED_MODULE_26__["default"];
+      break;
+
+    case 'kmt-border':
+      OptionComponent = _kmt_controls_border__WEBPACK_IMPORTED_MODULE_27__["default"];
+      break;
   }
 
   return OptionComponent;

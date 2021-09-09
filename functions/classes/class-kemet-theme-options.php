@@ -380,6 +380,12 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Kemet Buttons & Fields.
 					'menu_item_icon' =>array('icon'=>''),
 					'button_upload_font'=>'',
+					'buttonBorder'  					=> array(
+								'width'			=> 1,
+								'style' 		=> 'none',
+								'color' 		=> 'rgba(224, 229, 235, 0.5)',								
+								'secondColor' 	=> 'rgba(224, 229, 235, 0.7)',
+					),
 					'buttons-font-size'                    => '',
 					'buttons-font-family'                  => 'inherit',
 					'buttons-font-weight'                  => 'inherit',

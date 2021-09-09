@@ -9,7 +9,7 @@
 }
 .kmt-icon-container header .kmt-btn-reset-wrap {
   position: absolute;
-  top: 2px;
+  top: 3px;
   left: 0;
 }
 .kmt-icon-container:hover
@@ -44,7 +44,7 @@
   transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
+.kmt-icon-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(-45deg);
 }
 /*   */

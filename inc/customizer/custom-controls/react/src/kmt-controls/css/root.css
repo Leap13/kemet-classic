@@ -4,3 +4,12 @@
   --optionBorderColor: #ddd;
   --tabBorderColor: #d6d6d6;
 }
+:root {
+  --reach-dialog: 1;
+  --modal-width: 600px;
+  --modal-padding: 50px;
+  --modal-margin: 5vh auto;
+  --modal-radius: 5px;
+  --modal-max-height: 85vh;
+  --modal-min-height: 400px;
+}

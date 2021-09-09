@@ -51,12 +51,15 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'icon' => ''
 								)
 							),
-							// 'button_upload_font' =>array(
-							// 'type' => 'font-upload',
-							// 'label' => __('Font Upload', 'kemet'),
-							
-							// ),
-							
+							'button_upload_font' =>array(
+							'type' => 'font-upload',
+							'label' => __('Font Upload', 'kemet'),
+							),
+							'buttonBorder' => array(
+							'label' 				=> __( 'Border', 'Kemet' ),
+							'type' 					=> 'kmt-border',
+							'secondColor' 			=> true,
+							),
 							'button-spacing'      => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',

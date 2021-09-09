@@ -1,0 +1,370 @@
+.kmt-dashboard-overlay-open {
+  overflow: hidden !important;
+}
+[data-reach-dialog-overlay] {
+  display: flex;
+  align-items: center;
+  background: rgba(245, 247, 249, 0.8);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: var(--modal-left, 160px);
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+.kmt-admin-modal {
+  display: flex;
+  flex-direction: column;
+  width: var(--modal-width);
+  padding: var(--modal-padding);
+  margin: var(--modal-margin);
+  border-radius: var(--modal-radius);
+  max-height: var(--modal-max-height);
+  min-height: var(--modal-min-height);
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 50px 300px rgba(92, 110, 128, 0.5);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+.kmt-admin-modal .close-button {
+  display: var(--modal-close-button, flex);
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: #717a84;
+  line-height: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0.4;
+  transition: opacity 0.15s ease;
+}
+.kmt-admin-modal .close-button:hover {
+  opacity: 1;
+}
+.kmt-admin-modal .close-button:focus {
+  outline: none;
+}
+.folded [data-reach-dialog-overlay] {
+  --modal-left: 36px;
+}
+@media (max-width: 782px) {
+  .auto-fold [data-reach-dialog-overlay] {
+    --modal-left: 0;
+  }
+}
+@media (min-width: 783px) and (max-width: 960px) {
+  .auto-fold [data-reach-dialog-overlay] {
+    --modal-left: 36px;
+  }
+}
+.kmt-modal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #5c6977;
+  max-height: calc(var(--modal-max-height) - var(--modal-padding) * 2);
+  --optionBorderColor: #efefef;
+  --option-modal-shadown: 0 5px 25px 1px rgba(0, 0, 0, 0.08);
+  --image-picker-bg: #f3f5f6;
+  --options-horizontal-spacing: 0;
+}
+.kmt-modal-content h2,
+.kmt-modal-content h4 {
+  color: #3e5667;
+  margin: 0 0 0.8em 0;
+}
+.kmt-modal-content h2 {
+  font-size: 17px;
+  line-height: 1.5;
+}
+.kmt-modal-content p {
+  font-size: inherit;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+.kmt-modal-content p:last-child {
+  margin-bottom: 0;
+}
+.kmt-modal-content code {
+  font-size: 12px;
+  font-style: normal;
+  padding: 3px 7px;
+  border-radius: 2px;
+  background: #f1f3f5;
+}
+.kmt-modal-list {
+  list-style: initial;
+  margin: 0;
+  padding-left: 20px;
+}
+.kmt-modal-list li {
+  line-height: 1.5;
+  margin-bottom: 2em;
+}
+.kmt-modal-list li:last-child {
+  margin-bottom: 0;
+}
+.kmt-modal-list li i {
+  display: block;
+  line-height: 1.7;
+}
+.kmt-modal-actions {
+  margin-top: 25px;
+}
+.kmt-modal-actions [class*="button"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  min-height: 40px;
+}
+.kmt-modal-actions.has-divider {
+  position: relative;
+  padding-top: calc(var(--modal-padding) - 10px);
+  margin-top: auto;
+  margin-bottom: -10px;
+}
+.kmt-modal-actions.has-divider:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--modal-padding) * -1);
+  height: 1px;
+  width: var(--modal-width);
+  background: var(--optionBorderColor);
+}
+.kmt-modal-actions[data-buttons="2"] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+}
+.kmt-divider[data-type="full-modal"] {
+  margin: 30px 0;
+}
+.kmt-remove-font:before {
+  content: "\f182";
+}
+
+.kmt-edit-font:before {
+  content: "\f111";
+}
+.kmt-all-fonts ul li {
+  justify-content: space-between;
+}
+.kmt-all-fonts ul li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.kmt-all-fonts ul li:last-child {
+  padding-bottom: 0;
+}
+.kmt-all-fonts ul li > span {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+.kmt-all-fonts ul li > span i {
+  margin-top: 2px;
+  font-size: 12px;
+  color: rgba(85, 93, 102, 0.8);
+}
+.kmt-all-fonts ul button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  opacity: 0.7;
+  background: transparent;
+  transition: color 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.kmt-all-fonts ul button .kmt-tooltip-top {
+  transform: translate3d(0px, -23px, 0px);
+}
+.kmt-all-fonts ul button:hover {
+  opacity: 1;
+}
+.kmt-all-fonts ul button:hover .kmt-tooltip-top {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0px, -26px, 0px);
+}
+.kmt-all-fonts ul button:focus {
+  outline: none;
+}
+.kmt-all-fonts ul button:last-of-type {
+  margin-left: 15px;
+}
+.kmt-all-fonts ul button:before {
+  font-family: dashicons;
+  font-size: 15px;
+}
+.kmt-all-fonts ul .kmt-remove-font:before {
+  content: "\f182";
+}
+.kmt-all-fonts ul .kmt-edit-font:before {
+  content: "\f111";
+}
+.kmt-custom-fonts-modal ul li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px dashed #eee;
+}
+.kmt-all-fonts ul button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 0.7;
+  background: transparent;
+  transition: color 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.kmt-all-fonts ul button .kmt-tooltip-top {
+  transform: translate3d(0px, -23px, 0px);
+}
+.kmt-all-fonts ul button:hover {
+  opacity: 1;
+}
+.kmt-all-fonts ul button:hover .kmt-tooltip-top {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0px, -26px, 0px);
+}
+.kmt-all-fonts ul button:focus {
+  outline: none;
+}
+.kmt-all-fonts ul button:last-of-type {
+  margin-left: 15px;
+}
+.kmt-all-fonts ul button:before {
+  font-family: dashicons;
+  font-size: 15px;
+}
+.kmt-all-fonts ul .kmt-remove-font:before {
+  content: "\f182";
+}
+.kmt-all-fonts ul .kmt-edit-font:before {
+  content: "\f111";
+}
+.kmt-upload-fonts ul li:last-child {
+  padding-bottom: 0;
+}
+.kmt-upload-fonts ul li .button-primary {
+  min-height: 30px;
+  line-height: initial;
+  margin: 0;
+}
+.kmt-upload-fonts ul li .kmt-font-preview {
+  font-size: 12px;
+  padding: 0 10px;
+}
+.kmt-upload-fonts ul li .kmt-variation-name {
+  font-weight: 500;
+  max-width: 150px;
+  -webkit-margin-start: auto;
+  margin-inline-start: auto;
+}
+.kmt-upload-fonts ul li .kmt-selekmt-input {
+  max-width: 150px;
+  -webkit-margin-start: auto;
+  margin-inline-start: auto;
+}
+.kmt-upload-fonts ul li .kmt-selekmt-input:before {
+  content: "ref-width";
+}
+.kmt-upload-fonts ul li .kmt-remove {
+  position: absolute;
+  right: -28px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+.kmt-upload-fonts ul li .kmt-remove:hover {
+  color: #e05757;
+}
+.kmt-upload-fonts ul li .kmt-remove:focus {
+  outline: none;
+}
+.kmt-font-name {
+  padding: 10px;
+  margin: 0 -10px;
+  border-radius: 3px;
+  background: rgba(238, 238, 238, 0.5);
+}
+.kmt-font-name .kmt-font-name {
+  --fontSize: 13px;
+  --height: 35px;
+}
+.kmt-add-variation .button {
+  width: 150px;
+  -webkit-margin-start: auto;
+  margin-inline-start: auto;
+}
+.kmt-custom-fonts-modal {
+  --modal-min-height: 335px;
+}
+.kmt-custom-fonts-modal p {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+}
+.kmt-custom-fonts-modal ul {
+  margin: 0;
+}
+.kmt-custom-fonts-modal ul li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px dashed #eee;
+}
+.kmt-custom-fonts-modal .kmt-modal-scroll {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.kmt-custom-fonts-modal .kmt-notification {
+  padding-top: 0;
+}
+.kmt-custom-fonts-modal p code {
+  background: rgba(0, 0, 0, 0.05);
+}

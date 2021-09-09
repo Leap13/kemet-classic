@@ -40,7 +40,7 @@
 
 .customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover,
 .customize-control-kmt-slider .kmt-slider-reset:not(:disabled):focus {
-  color: #057bb6;
+  color: var(--primaryColor);
 }
 .input-field-wrapper .components-range-control.kmt-range-value-input {
   flex-grow: 1;

@@ -19,7 +19,9 @@ const IconPicker = ({ value, onChange, params, option }) => {
 
     let { label } = params;
     const el = useRef()
-    const [state, setState] = useState(value)
+    let defaultValue = {
+        icon: ''
+    }
     const [searchString, setSearchString] = useState('')
 
     const [{ isPicking, isTransitioning }, setAnimationState] = useState({
@@ -33,12 +35,11 @@ const IconPicker = ({ value, onChange, params, option }) => {
                 <div className="kmt-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
-                        disabled={JSON.stringify(state) === JSON.stringify(value)}
+                        disabled={JSON.stringify(defaultValue) === JSON.stringify(value)}
                         onClick={e => {
                             e.preventDefault()
-                            onchange(state)
+                            onChange({ ...defaultValue })
                         }}>
-                        <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 <span className="customize-control-title">{label}</span>
