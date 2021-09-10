@@ -19464,7 +19464,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
 
     setState(UpdatedState);
     props.onChange(_objectSpread(_objectSpread({}, UpdatedState), {}, {
-      flag: !value.flag
+      flag: !props.value.flag
     }));
   };
 

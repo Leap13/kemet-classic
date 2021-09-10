@@ -165,38 +165,40 @@
     padding-left: 0;
 
     ul {
-      li a,
-      li .kmt-menu-item-wrap {
+      > li > a,
+      > li > .kmt-menu-item-wrap {
         --padding: 5px 20px;
         display: inline-block;
         width: 100%;
       }
-      &.children li a,
-      &.sub-menu li a {
+    }
+    #offcanvas-menu {
+      .children > li > a,
+      .sub-menu > li > a {
         padding-left: 30px;
         &:before {
           content: "-";
           margin-right: 2px;
         }
       }
-      &.children li li a,
-      &.sub-menu li li a {
+      .children li li a,
+      .sub-menu li li a {
         padding-left: 40px;
         &:before {
           content: "--";
           margin-right: 2px;
         }
       }
-      &.children li li li a,
-      &.sub-menu li li li a {
+      .children li li li a,
+      .sub-menu li li li a {
         padding-left: 50px;
         &:before {
           content: "---";
           margin-right: 2px;
         }
       }
-      &.children li li li li a,
-      &.sub-menu li li li li a {
+      .children li li li li a,
+      .sub-menu li li li li a {
         padding-left: 60px;
         &:before {
           content: "----";

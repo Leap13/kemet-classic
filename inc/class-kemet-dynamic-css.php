@@ -222,7 +222,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			// sidebar input color.
 			$sidebar_input_color         = kemet_get_sub_option( 'sidebar-input-color', 'initial' );
-			$sidebar_input_bg_color      = kemet_get_option( 'sidebar-input-bg-color', 'initial' );
+			$sidebar_input_bg_color      = kemet_get_sub_option( 'sidebar-input-bg-color', 'initial' );
 			$sidebar_input_border_color  = kemet_get_sub_option( 'sidebar-input-border-color', 'initial' );
 			$sidebar_input_border_radius = kemet_get_option( 'sidebar-input-border-radius' );
 			$sidebar_input_border_size   = kemet_get_option( 'sidebar-input-border-size' );
@@ -395,7 +395,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'background-color' => 'var(--globalBackgroundColor)',
 					'color'            => 'var(--textColor)',
 				),
-				'body, button, input, select, textarea, .button, a.wp-block-button__link' => array(
+				'body, div, button, input, select, textarea, .button, a.wp-block-button__link' => array(
 					'font-family'     => 'var(--fontFamily, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif)',
 					'font-weight'     => 'var(--fontWeight)',
 					'font-size'       => 'var(--fontSize)',

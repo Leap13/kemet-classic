@@ -129,7 +129,9 @@
     margin: auto;
     box-shadow: 0 3px 13px 0 rgba(0, 0, 0, 0.2);
   }
-
+  .kmt-svg-icon.icon-search {
+    display: none;
+  }
   .search-field {
     border: none;
     transition: width 0.2s;

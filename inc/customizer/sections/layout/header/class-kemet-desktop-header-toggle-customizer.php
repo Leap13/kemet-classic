@@ -139,22 +139,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 									),
 								),
 							),
-							self::$prefix . '-icon-size'  => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Icon Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 50,
-									),
-								),
-								'preview'      => array(
-									'selector' => $selector,
-									'property' => '--fontSize',
-								),
-							),
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
@@ -186,7 +170,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'label'     => __( 'Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(

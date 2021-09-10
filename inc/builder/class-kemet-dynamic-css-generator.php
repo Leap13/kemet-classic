@@ -84,6 +84,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$css_output = array(
 					$selector => array(
+						'font-family'         => 'var(--fontFamily)',
 						'--textColor'         => esc_attr( $content_color ),
 						'--headingLinksColor' => esc_attr( $link_color ),
 						'--linksHoverColor'   => esc_attr( $link_h_color ),
@@ -126,8 +127,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					),
 				);
 
-				$parse_css = kemet_parse_css( $css_output );
-				// $parse_css .= self::typography_css( $html, $selector );
+				$parse_css  = kemet_parse_css( $css_output );
+				$parse_css .= self::typography_css( $html, $selector );
 				return $parse_css;
 			}
 		}
@@ -148,7 +149,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$icon_bg_color     = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'initial' );
 				$icon_h_color      = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover' );
 				$icon_bg_h_color   = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'hover' );
-				$icon_size         = kemet_get_option( $toggle_button . '-button-icon-size' );
 				$btn_width         = kemet_get_option( $toggle_button . '-button-width' );
 				$btn_height        = kemet_get_option( $toggle_button . '-button-height' );
 				$btn_radius        = kemet_get_option( $toggle_button . '-button-border-radius' );
@@ -172,7 +172,6 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'width'                        => kemet_slider( $btn_width ),
 						'height'                       => kemet_slider( $btn_height ),
 						'--borderRadius'               => kemet_slider( $btn_radius ),
-						'--fontSize'                   => kemet_slider( $icon_size ),
 						'--buttonHoverColor'           => esc_attr( $icon_h_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 					),

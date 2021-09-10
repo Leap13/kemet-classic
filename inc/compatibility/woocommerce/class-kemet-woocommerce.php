@@ -953,7 +953,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_dropdown_bg_color      = kemet_get_sub_option( 'cart-dropdown-bg-color', 'initial', $global_bg_color );
 			// Widget Separator.
 			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
-			$widget_list_border_color = kemet_get_option( 'widget-list-border-color', $global_border_color );
+			$widget_list_border_color = kemet_get_sub_option( 'widget-list-border-color', 'initial', $global_border_color );
 			// Single Product.
 			$image_width = ! empty( kemet_get_option( 'woo-single-image-width' ) ) ? kemet_get_option( 'woo-single-image-width' ) : array(
 				'value' => 50,

@@ -64,6 +64,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 								'transport'      => 'postMessage',
 								'label'          => __( 'Menu Item Spacing', 'kemet' ),
 								'linked_choices' => true,
+								'responsive'     => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(
 									'top'    => __( 'Top', 'kemet' ),
@@ -72,9 +73,10 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector' => $selector . ' li > a',
-									'property' => '--padding',
-									'sides'    => false,
+									'selector'   => $selector . ' li > a',
+									'property'   => '--padding',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 						),

@@ -42,7 +42,6 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 								'preview'      => array(
 									'selector' => '#secondary',
 									'property' => 'width',
-									'unit'     => '%',
 								),
 							),
 							'site-sidebar-layout'         => array(
