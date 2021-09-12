@@ -204,7 +204,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 				'section' => 'section-blog-single',
 				'type'    => 'kmt-options',
 				'data'    => array(
-					'options' => $single_blog_options,
+					'options' => apply_filters( 'kemet_single_blog_options', $single_blog_options ),
 				),
 			),
 		);

@@ -51,7 +51,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							'blog-width'                 => array(
+							'blog-width'          => array(
 								'type'    => 'kmt-select',
 								'label'   => __( 'Blog Content Width', 'kemet' ),
 								'choices' => array(
@@ -59,7 +59,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'custom'  => __( 'Custom', 'kemet' ),
 								),
 							),
-							'blog-max-width'             => array(
+							'blog-max-width'      => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
@@ -81,10 +81,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'blog-grids'                 => array(
+							'blog-grids'          => array(
 								'type'       => 'kmt-radio',
 								'label'      => __( 'Blog Columns', 'kemet' ),
-								// 'transport'    => 'postMessage',
 								'responsive' => true,
 								'choices'    => array(
 									'1' => __( '1', 'kemet' ),
@@ -99,7 +98,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'blog-post-structure'        => array(
+							'blog-post-structure' => array(
 								'type'    => 'kmt-sortable',
 								'label'   => __( 'Blog Post Structure', 'kemet' ),
 								'choices' => array(
@@ -115,7 +114,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'blog-meta'                  => array(
+							'blog-meta'           => array(
 								'type'    => 'kmt-sortable',
 								'label'   => __( 'Blog Meta', 'kemet' ),
 								'choices' => array(
@@ -133,7 +132,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'blog-post-content'          => array(
+							'blog-post-content'   => array(
 								'label'   => __( 'Blog Post Content', 'kemet' ),
 								'type'    => 'kmt-select',
 								'choices' => array(
@@ -141,10 +140,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'excerpt'      => __( 'Excerpt', 'kemet' ),
 								),
 							),
-							'blog-excerpt-length'        => array(
+							'blog-excerpt-length' => array(
 								'type'    => 'kmt-select',
 								'label'   => __( 'Excerpt Length', 'kemet' ),
-								// 'transport'    => 'postMessage',
 								'choices' => array(
 									5  => __( '5', 'kemet' ),
 									10 => __( '10', 'kemet' ),
@@ -159,50 +157,10 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-as-button'         => array(
+							'readmore-as-button'  => array(
 								'type'      => 'kmt-switcher',
 								'transport' => 'postMessage',
 								'label'     => __( 'Enable Read More As Button', 'kemet' ),
-							),
-							'blog-featured-image-width'  => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Featured Image Custom Width', 'kemet' ),
-								'responsive'   => true,
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 1200,
-									),
-								),
-								'context'      => array(
-									array(
-										'setting'  => 'blog-post-structure',
-										'operator' => 'contain',
-										'value'    => 'image',
-									),
-								),
-							),
-							'blog-featured-image-height' => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Featured Image Custom Height', 'kemet' ),
-								'responsive'   => true,
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 1200,
-									),
-								),
-								'context'      => array(
-									array(
-										'setting'  => 'blog-post-structure',
-										'operator' => 'contain',
-										'value'    => 'image',
-									),
-								),
 							),
 						),
 					),
@@ -698,7 +656,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 				'section' => 'section-blog',
 				'type'    => 'kmt-options',
 				'data'    => array(
-					'options' => $register_options,
+					'options' => apply_filters( 'kemet_blog_options', $register_options ),
 				),
 			),
 		);

@@ -42,17 +42,14 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 	 */
 	function kemet_post_class_blog_grid( $classes ) {
 
-		// $is_ajax_pagination = $this->is_ajax_pagination();
-
-		if ( is_archive() || is_home() || is_search() ) {
+		$is_ajax_pagination = apply_filters( 'kemet_is_ajax_pagination', false );
+		if ( is_archive() || is_home() || is_search() || $is_ajax_pagination ) {
 
 			$blog_layout = kemet_get_option( 'blog-layouts' );
 			$blog_grids  = kemet_get_option( 'blog-grids' );
 
-			// if ( $is_ajax_pagination ) {
-				$classes[] = 'kmt-col-sm-12';
+			$classes[]     = 'kmt-col-sm-12';
 				$classes[] = 'kmt-article-post';
-			// }
 
 			if ( 'blog-layout-2' == $blog_layout ) {
 
@@ -64,8 +61,6 @@ if ( ! function_exists( 'kemet_post_class_blog_grid' ) ) {
 				 $tablet_columns  = ! empty( $blog_grids['tablet'] ) ? ' kmt-col-sm-' . strval( 12 / $blog_grids['tablet'] ) : ' kmt-col-sm-12';
 				 $mobile_columns  = ! empty( $blog_grids['mobile'] ) ? ' kmt-col-xs-' . strval( 12 / $blog_grids['mobile'] ) : ' kmt-col-xs-12';
 				 $classes[]       = $desktop_columns . $tablet_columns . $mobile_columns;
-				// $columns = ! empty( $blog_grids ) ? ' kmt-col-md-' . strval( 12 / $blog_grids ) : ' kmt-col-sm-12';
-				// $classes[]  = $columns;
 			}
 		}
 

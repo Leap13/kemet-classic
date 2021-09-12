@@ -173,49 +173,6 @@ function kemet_image_sizes() {
 add_action( 'after_setup_theme', 'kemet_image_sizes' );
 
 /**
- * Featured Image Custom Width and Height
- *
- * @param string $image image.
- * @return string
- */
-function kemet_blog_featured_image_custom_attrs( $image ) {
-	if ( 'post' === get_post_type() && ( is_archive() || is_search() || is_home() ) ) {
-		$blog_featured_image_width  = kemet_get_option( 'blog-featured-image-width' );
-		$blog_featured_image_height = kemet_get_option( 'blog-featured-image-height' );
-
-		$attributes = array(
-			'width'  => empty( $blog_featured_image_width ) ? false : $blog_featured_image_width,
-			'height' => empty( $blog_featured_image_height ) ? false : $blog_featured_image_height,
-			'crop'   => ( empty( $blog_featured_image_width ) || empty( $blog_featured_image_height ) ) ? false : true,
-		);
-
-		if ( ! $attributes['width'] && ! $attributes['height'] ) {
-			$attributes = array();
-		}
-
-		$image_id = get_post_thumbnail_id( get_the_ID(), 'full' );
-
-		$blog_post_structure = kemet_get_option( 'blog-post-structure' );
-
-		if ( in_array( 'image', $blog_post_structure ) ) {
-			if ( $attributes && function_exists( 'ipq_get_theme_image' ) ) {
-				$image = ipq_get_theme_image(
-					$image_id,
-					array(
-						array( $attributes['width'], $attributes['height'], $attributes['crop'] ),
-					),
-					array(
-						'class' => '',
-					)
-				);
-			}
-		}
-	}
-
-	return $image;
-}
-add_filter( 'kemet_featured_image_attrs', 'kemet_blog_featured_image_custom_attrs', 12 );
-/**
  * Enable / Disable page title in content area
  *
  * @param boolean $default default value.
