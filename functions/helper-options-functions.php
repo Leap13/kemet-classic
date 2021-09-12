@@ -25,7 +25,9 @@ if ( ! function_exists( 'kemet_get_foreground_color' ) ) {
 	 * @return string      Return foreground color depend on input HEX color.
 	 */
 	function kemet_get_foreground_color( $hex ) {
-
+		if ( substr( $hex, 0, 5 ) === 'var(-' ) {
+			return $hex;
+		}
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
 

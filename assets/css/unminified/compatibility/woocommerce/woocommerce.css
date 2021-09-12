@@ -4940,6 +4940,7 @@ body:not(.kmt-separate-container).woocommerce .kmt-article-post > div {
 }
 
 .shop-grid ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap > * {
+  border: none;
   padding: 10px;
   border-top-width: 1px;
   border-top-style: solid;

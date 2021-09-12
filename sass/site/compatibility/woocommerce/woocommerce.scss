@@ -3770,6 +3770,7 @@ body:not(.kmt-separate-container) {
           border-bottom: 1px solid;
           margin: -1px;
           > * {
+            border: none;
             padding: 10px;
             border-top-width: 1px;
             border-top-style: solid;

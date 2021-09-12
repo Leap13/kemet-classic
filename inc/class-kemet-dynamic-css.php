@@ -147,10 +147,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$heading_h6_font_color = kemet_get_sub_option( 'font-color-h6', 'initial' );
 
 			// Button Styling.
-			$btn_border_radius     = kemet_get_option( 'button-radius' );
-			$btn_padding           = kemet_get_option( 'button-spacing' );
-			$highlight_link_color  = kemet_get_foreground_color( $theme_color );
-			$highlight_theme_color = kemet_get_foreground_color( $theme_color );
+			$btn_border_radius = kemet_get_option( 'button-radius' );
+			$btn_padding       = kemet_get_option( 'button-spacing' );
 
 			// Content.
 			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial' );
@@ -262,7 +260,11 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 			}
 			$color_pallet = kemet_get_option( 'colorPalette' );
-			$css_output   = array(
+			// Selection.
+			$highlight_link_color  = kemet_get_foreground_color( $color_pallet['color1'] );
+			$highlight_theme_color = kemet_get_foreground_color( $color_pallet['color1'] );
+
+			$css_output = array(
 				':root'                                 => array(
 					'--paletteColor1'              => $color_pallet['color1'],
 					'--paletteColor2'              => $color_pallet['color2'],
@@ -436,7 +438,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Global CSS.
 				'::selection'                           => array(
 					'background-color' => 'var(--headingLinksColor)',
-					'color'            => esc_attr( $highlight_theme_color ),
+					'color'            => esc_attr( $color_pallet['color2'] ),
 				),
 				'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' => array(
 					'color' => 'var(--headingLinksColor)',
@@ -645,7 +647,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'border-color' => 'var(--headingLinksColor)',
 				),
 				'.calendar_wrap #today > a'             => array(
-					'--headingLinksColor' => kemet_get_foreground_color( $theme_color ),
+					'--headingLinksColor' => kemet_get_foreground_color( $color_pallet['color1'] ),
 				),
 
 				// Pagination.

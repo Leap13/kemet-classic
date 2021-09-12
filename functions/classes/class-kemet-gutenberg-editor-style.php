@@ -114,12 +114,11 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
-
-			$parse_css     = '';
-			$parse_css    .= kemet_get_background_obj( '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow', $box_bg_inner_boxed );
-			$parse_css    .= kemet_get_background_obj( '.edit-post-visual-editor__content-area, .block-editor-writing-flow', $box_bg_obj );
-			$blocks_parent = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .edit-post-visual-editor__content-area' : '.edit-post-visual-editor.editor-styles-wrapper';
-			$desktop_css   = array(
+			$parse_css            = '';
+			$parse_css           .= kemet_get_responsive_background_obj( '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow', $box_bg_inner_boxed );
+			$parse_css           .= kemet_get_responsive_background_obj( '.edit-post-visual-editor__content-area', $box_bg_obj );
+			$blocks_parent        = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .edit-post-visual-editor__content-area' : '.edit-post-visual-editor.editor-styles-wrapper';
+			$desktop_css          = array(
 				':root'                                   => array(
 					'--themeColor'                 => esc_attr( $theme_color ),
 					'--textColor'                  => esc_attr( $text_meta_color ),
