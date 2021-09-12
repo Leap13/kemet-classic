@@ -1,4 +1,8 @@
-import { isDisplay, getSetting, getSettingId } from './options/options-component'
+import {
+  isDisplay,
+  getSetting,
+  getSettingId,
+} from "./options/options-component";
 (function ($, api) {
   var $window = $(window),
     $body = $("body");
@@ -12,7 +16,11 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
         e.preventDefault();
         var device = $(this).data("device");
         api.previewedDevice.set(device);
-        jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
+        jQuery(
+          '.wp-full-overlay-footer .devices button[data-device="' +
+            device +
+            '"]'
+        ).trigger("click");
       }
     );
 
@@ -91,16 +99,20 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
           let options = $.merge(section.controls(), section_layout.controls());
           if (isExpanded) {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: { control, isExpanded: true }
-              }));
-            })
+              document.dispatchEvent(
+                new CustomEvent("kmtExpandedBuilder", {
+                  detail: { control, isExpanded: true },
+                })
+              );
+            });
           } else {
             _.each(options, function (control) {
-              document.dispatchEvent(new CustomEvent("kmtExpandedBuilder", {
-                detail: { control, isExpanded: false }
-              }));
-            })
+              document.dispatchEvent(
+                new CustomEvent("kmtExpandedBuilder", {
+                  detail: { control, isExpanded: false },
+                })
+              );
+            });
           }
           Promise.all([
             _.each(section.controls(), function (control) {
@@ -166,7 +178,7 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
   // Default contexts
   if (KemetCustomizerData && KemetCustomizerData.contexts) {
     const context = KemetCustomizerData.contexts;
-    let mobileLogo = getSettingId('kmt-header-mobile-logo');
+    let mobileLogo = getSettingId("kmt-header-mobile-logo");
     const setupControl = (element) => {
       const rules = context[element.id];
       var setActiveState = function () {
@@ -186,8 +198,7 @@ import { isDisplay, getSetting, getSettingId } from './options/options-component
 
       element.active.validate = isDisplay(rules);
       setActiveState();
-    }
+    };
     api.control(mobileLogo, setupControl);
   }
-
 })(jQuery, wp.customize);

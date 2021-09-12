@@ -1,35 +1,37 @@
-import PropTypes from 'prop-types';
-import ColorComponent from './color';
-import { useEffect, useState } from 'react';
-import Responsive from '../common/responsive'
+import PropTypes from "prop-types";
+import ColorComponent from "./color";
+import { useEffect, useState } from "react";
+import Responsive from "../common/responsive";
 const { __ } = wp.i18n;
 
-const KemetColorComponent = props => {
+const KemetColorComponent = (props) => {
     let value = props.value;
 
     let responsiveBaseDefault = {
-        'desktop': {},
-        'tablet': {},
-        'mobile': {}
-    }
+        desktop: {},
+        tablet: {},
+        mobile: {},
+    };
     let { pickers, responsive } = props.params;
     let baseDefault = responsive ? responsiveBaseDefault : {};
     let predefined = props.params.predefined ? props.params.predefined : false;
     pickers.map(({ id }) => {
         if (responsive) {
-            baseDefault['desktop'][id] = '';
-            baseDefault['tablet'][id] = '';
-            baseDefault['mobile'][id] = '';
+            baseDefault["desktop"][id] = "";
+            baseDefault["tablet"][id] = "";
+            baseDefault["mobile"][id] = "";
         } else {
-            baseDefault[id] = '';
+            baseDefault[id] = "";
         }
-    })
+    });
     baseDefault = props.params.default ? props.params.default : baseDefault;
 
-    let defaultValue = props.params.default ? props.params.default : baseDefault;
+    let defaultValue = props.params.default
+        ? props.params.default
+        : baseDefault;
     value = value ? value : defaultValue;
     const [state, setState] = useState(value);
-    const [device, setDevice] = useState('desktop');
+    const [device, setDevice] = useState("desktop");
     let responsiveHtml = null;
     let optionsHtml = null;
     let innerOptionsHtml = null;
@@ -44,46 +46,57 @@ const KemetColorComponent = props => {
     const updateValues = (value) => {
         let UpdatedState = { ...state };
         if (responsive) {
-            UpdatedState[device] = value
+            UpdatedState[device] = value;
+        } else {
+            UpdatedState = value;
         }
-        else {
-
-            UpdatedState = value
-        }
-        setState(UpdatedState)
+        setState(UpdatedState);
         props.onChange({ ...UpdatedState, flag: !value.flag });
-
     };
 
     const renderOperationButtons = () => {
-        return <>
-            <div className="kmt-color-btn-reset-wrap">
-                <button
-                    className="kmt-reset-btn "
-                    disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
-                    onClick={e => {
-                        e.preventDefault();
-                        let value = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
-
-                        if (undefined === value || '' === value) {
-                            value = 'unset';
+        return (
+            <>
+                <div className="kmt-color-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={
+                            JSON.stringify(state) ===
+                            JSON.stringify(defaultValue)
                         }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            let value = responsive
+                                ? JSON.parse(
+                                      JSON.stringify(defaultValue[device])
+                                  )
+                                : JSON.parse(JSON.stringify(defaultValue));
 
-                        updateValues(value);
-                    }}>
-                </button>
-            </div>
-        </>;
+                            if (undefined === value || "" === value) {
+                                value = "unset";
+                            }
+
+                            updateValues(value);
+                        }}
+                    ></button>
+                </div>
+            </>
+        );
     };
 
     const handleChangeComplete = (color, id) => {
-
         let value = responsive ? state[device] : state;
 
-        if (typeof color === 'string') {
+        if (typeof color === "string") {
             value[`${id}`] = color;
-        } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-            value[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+        } else if (
+            undefined !== color.rgb &&
+            undefined !== color.rgb.a &&
+            1 !== color.rgb.a
+        ) {
+            value[
+                `${id}`
+            ] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
         } else {
             value[`${id}`] = color.hex;
         }
@@ -91,83 +104,79 @@ const KemetColorComponent = props => {
         updateValues(value);
     };
 
-
     if (responsive) {
-        responsiveHtml = <Responsive
-            onChange={(currentDevice) => setDevice(currentDevice)}
-        />
+        responsiveHtml = (
+            <Responsive
+                onChange={(currentDevice) => setDevice(currentDevice)}
+            />
+        );
     }
     const renderInputHtml = (device) => {
         innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
-
-
             if (responsive) {
                 return (
                     <ColorComponent
                         value={state[device]}
                         picker={picker}
                         predefined={predefined}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
+                        onChangeComplete={(color) =>
+                            handleChangeComplete(color, picker[`id`])
+                        }
                     />
-                )
+                );
             } else {
                 return (
                     <ColorComponent
                         value={state}
                         picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
-
+                        onChangeComplete={(color) =>
+                            handleChangeComplete(color, picker[`id`])
+                        }
                     />
-                )
+                );
             }
-
-        })
-        return innerOptionsHtml
-
-    }
-
+        });
+        return innerOptionsHtml;
+    };
 
     if (responsive) {
-        optionsHtml = <>
-            {renderInputHtml(device, 'active')}
-        </>;
+        optionsHtml = <>{renderInputHtml(device, "active")}</>;
     } else {
-        optionsHtml = <>
-            {renderInputHtml('')}
-        </>;
+        optionsHtml = <>{renderInputHtml("")}</>;
     }
 
-    const {
-        label,
-        description
-    } = props.params;
+    const { label, description } = props.params;
 
-    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
-    let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
+    let labelHtml = label ? (
+        <span className="customize-control-title">{label}</span>
+    ) : null;
+    let descriptionHtml =
+        description !== "" && description ? (
+            <span className="description customize-control-description">
+                {" "}
+                {description}
+            </span>
+        ) : null;
 
-    return <div className="kmt-control-wrap kmt-color-control-wrap">
-
-        <div className={`kmt-color-container`}>
-
-            <header>
-                {renderOperationButtons()}
-                {labelHtml}
-                {responsiveHtml}
-            </header>
-            < div className={`kmt-color-picker-container`}>
-                {optionsHtml}
+    return (
+        <div className="kmt-control-wrap kmt-color-control-wrap">
+            <div className={`kmt-color-container`}>
+                <header>
+                    {renderOperationButtons()}
+                    {labelHtml}
+                    {responsiveHtml}
+                </header>
+                <div className={`kmt-color-picker-container`}>
+                    {optionsHtml}
+                </div>
             </div>
-
+            {descriptionHtml}
         </div>
-        {descriptionHtml}
-    </div>;
-
-}
-
+    );
+};
 
 ColorComponent.propTypes = {
-    control: PropTypes.object.isRequired
+    control: PropTypes.object.isRequired,
 };
 
 export default KemetColorComponent;

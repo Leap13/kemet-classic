@@ -1,9 +1,6 @@
-import { ColorPicker } from '@wordpress/components'
+import { ColorPicker } from "@wordpress/components";
 
 const ColorPickerIris = ({ value: { color }, onChange }) => {
-
-
-
     return (
         <div>
             <ColorPicker
@@ -11,7 +8,7 @@ const ColorPickerIris = ({ value: { color }, onChange }) => {
                 onChangeComplete={(val) => onChange(val)}
             />
         </div>
-    )
-}
+    );
+};
 
-export default ColorPickerIris
+export default ColorPickerIris;
