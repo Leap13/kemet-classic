@@ -70,7 +70,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'buttons-typography'     => array(
+							'buttons-typography' => array(
 								'type'      => 'kmt-typography',
 								'label'     => __( 'Typography', 'kemet' ),
 								'transport' => 'postMessage',
@@ -78,25 +78,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'selector' => $btn_selector,
 								),
 							),
-							'buttons-letter-spacing' => array(
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'label'        => __( 'Letter Spacing', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $btn_selector,
-									'property'   => '--letterSpacing',
-									'responsive' => true,
-								),
-							),
-							'button-text-color'      => array(
+							'button-text-color'  => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
 								'label'     => __( 'Text Color', 'kemet' ),
@@ -121,7 +103,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'button-bg-color'        => array(
+							'button-bg-color'    => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
 								'label'     => __( 'Background Color', 'kemet' ),
@@ -147,7 +129,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'btn-border-color'       => array(
+							'btn-border-color'   => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Border Color', 'kemet' ),
@@ -172,7 +154,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'button-radius'          => array(
+							'button-radius'      => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
@@ -192,7 +174,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							'btn-border-size'        => array(
+							'btn-border-size'    => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
 								'label'        => __( 'Border Size', 'kemet' ),

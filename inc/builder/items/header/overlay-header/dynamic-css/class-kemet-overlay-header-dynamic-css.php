@@ -41,19 +41,18 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 				$submenu_backgrourd = kemet_get_option( $prefix . '-submenu-bg-color' );
 				// Search
 				$search_selector       = $selector . ' .kmt-header-item-search';
-				$search_icon_color     = kemet_get_option( $prefix . '-search-icon-color' );
-				$search_icon_h_color   = kemet_get_option( $prefix . '-search-icon-h-color' );
-				$search_border_color   = kemet_get_option( $prefix . '-search-border-color' );
-				$search_bg_color       = kemet_get_option( $prefix . '-search-bg-color' );
-				$search_input_bg_color = kemet_get_option( $prefix . '-search-input-bg-color' );
-				$search_text_color     = kemet_get_option( $prefix . '-search-text-color' );
+				$search_icon_color     = kemet_get_sub_option( $prefix . '-search-icon-color', 'initial' );
+				$search_icon_h_color   = kemet_get_sub_option( $prefix . '-search-icon-h-color', 'hover' );
+				$search_bg_color       = kemet_get_sub_option( $prefix . '-search-bg-color', 'initial' );
+				$search_input_bg_color = kemet_get_sub_option( $prefix . '-search-input-bg-color', 'initial' );
+				$search_text_color     = kemet_get_sub_option( $prefix . '-search-text-color', 'initial' );
 				// Search Box
 				$search_box_selector     = $selector . ' .kmt-header-item-search-box';
-				$search_box_icon_color   = kemet_get_option( $prefix . '-search-box-icon-color' );
-				$search_box_icon_h_color = kemet_get_option( $prefix . '-search-box-icon-h-color' );
-				$search_box_border_color = kemet_get_option( $prefix . '-search-box-border-color' );
-				$search_box_bg_color     = kemet_get_option( $prefix . '-search-box-bg-color' );
-				$search_box_text_color   = kemet_get_option( $prefix . '-search-box-text-color' );
+				$search_box_icon_color   = kemet_get_sub_option( $prefix . '-search-box-icon-color', 'initial' );
+				$search_box_icon_h_color = kemet_get_sub_option( $prefix . '-search-box-icon-h-color', 'hover' );
+				$search_box_border_color = kemet_get_sub_option( $prefix . '-search-box-border-color', 'initial' );
+				$search_box_bg_color     = kemet_get_sub_option( $prefix . '-search-box-bg-color', 'initial' );
+				$search_box_text_color   = kemet_get_sub_option( $prefix . '-search-box-text-color', 'initial' );
 				// Widget
 				$widget_selector      = $selector . ' .kmt-widget-area';
 				$widget_content_color = kemet_get_option( $prefix . '-widget-content-color' );
@@ -105,13 +104,12 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 					$selector . ' .kmt-search-menu-icon form .search-field' => array(
 						'--inputColor'           => esc_attr( $search_text_color ),
 						'--inputBackgroundColor' => esc_attr( $search_input_bg_color ),
-						'--inputBorderColor'     => esc_attr( $search_border_color ),
 					),
-					$search_box_selector . ' .kmt-search-box-form::after' => array(
-						'--inputColor' => esc_attr( $search_box_icon_color ),
+					$search_box_selector . ' .kmt-search-box-form .icon-search' => array(
+						'--iconColor' => esc_attr( $search_box_icon_color ),
 					),
-					$search_box_selector . ' .kmt-search-box-form:hover::after' => array(
-						'--inputColor' => esc_attr( $search_box_icon_h_color ),
+					$search_box_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search' => array(
+						'--iconColor' => esc_attr( $search_box_icon_h_color ),
 					),
 					$selector . ' .kmt-search-box-form .search-field' => array(
 						'--inputColor'           => esc_attr( $search_box_text_color ),

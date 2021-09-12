@@ -49,6 +49,7 @@ const kemetPageOptions = (props) => {
                 document.body.classList.add(className);
             }
             if ('background' === key) {
+                let selector = '.edit-post-visual-editor__content-area, .block-editor-writing-flow';
                 let background = {
                     desktop: "",
                     tablet: "",
@@ -110,6 +111,7 @@ const kemetPageOptions = (props) => {
                 if ("" != value["mobile"]) {
                     background.mobile = get_background_css(value["mobile"]);
                 }
+                let selector = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow';
                 let dynamicStyle =
                     selector +
                     "	{ " +
@@ -125,7 +127,6 @@ const kemetPageOptions = (props) => {
                     "	{ " +
                     background.mobile +
                     " } }";
-                dynamicStyle = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow{' + dynamicStyle + '}';
                 let css = dynamicStyle,
                     head = document.head || document.getElementsByTagName('head')[0],
                     style = document.createElement('style');

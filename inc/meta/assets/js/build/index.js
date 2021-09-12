@@ -19049,7 +19049,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
 
     setState(UpdatedState);
     props.onChange(_objectSpread(_objectSpread({}, UpdatedState), {}, {
-      flag: !value.flag
+      flag: !props.value.flag
     }));
   };
 
@@ -23729,6 +23729,7 @@ var kemetPageOptions = function kemetPageOptions(props) {
       }
 
       if ('background' === key) {
+        var selector = '.edit-post-visual-editor__content-area, .block-editor-writing-flow';
         var background = {
           desktop: "",
           tablet: "",
@@ -23781,9 +23782,9 @@ var kemetPageOptions = function kemetPageOptions(props) {
           _background.mobile = get_background_css(value["mobile"]);
         }
 
-        var _dynamicStyle = selector + "	{ " + _background.desktop + " }" + "@media (max-width: 768px) {" + selector + "	{ " + _background.tablet + " } }" + "@media (max-width: 544px) {" + selector + "	{ " + _background.mobile + " } }";
+        var _selector = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow';
 
-        _dynamicStyle = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow{' + _dynamicStyle + '}';
+        var _dynamicStyle = _selector + "	{ " + _background.desktop + " }" + "@media (max-width: 768px) {" + _selector + "	{ " + _background.tablet + " } }" + "@media (max-width: 544px) {" + _selector + "	{ " + _background.mobile + " } }";
 
         var _css = _dynamicStyle,
             _head = document.head || document.getElementsByTagName('head')[0],

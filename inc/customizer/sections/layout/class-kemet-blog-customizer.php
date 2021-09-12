@@ -402,7 +402,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'transport'      => 'postMessage',
 								'type'           => 'kmt-spacing',
 								'responsive'     => true,
-								'label'          => __( 'Pagination Spacing', 'kemet' ),
+								'label'          => __( 'Pagination Padding', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(
@@ -422,220 +422,22 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-title',
 								'label' => __( 'Title and Meta Style', 'kemet' ),
 							),
-							'font-size-page-title'         => array(
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'priority'     => 1,
-								'label'        => __( 'Font Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 1,
-										'step' => 1,
-										'max'  => 200,
-									),
-									'em' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							// 'post-title-font-family'    => array(
-							// 'type'    => 'kmt-font-family',
-							// 'label'   => __( 'Font Family', 'kemet' ),
-							// 'connect' => KEMET_THEME_SETTINGS . '[post-title-font-weight]',
-							// ),
-							// 'post-title-font-weight'    => array(
-							// 'type'    => 'kmt-font-weight',
-							// 'label'   => __( 'Font Weight', 'kemet' ),
-							// 'connect' => KEMET_THEME_SETTINGS . '[post-title-font-family]',
-							// ),
-							'post-title-text-transform'    => array(
+							'post-title-typography'        => array(
 								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Text Transform', 'kemet' ),
-								'choices'   => array(
-									''           => __( 'Default', 'kemet' ),
-									'none'       => __( 'None', 'kemet' ),
-									'capitalize' => __( 'Capitalize', 'kemet' ),
-									'uppercase'  => __( 'Uppercase', 'kemet' ),
-									'lowercase'  => __( 'Lowercase', 'kemet' ),
-								),
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Title Typography', 'kemet' ),
 								'preview'   => array(
 									'selector' => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-									'property' => '--textTransform',
 								),
 							),
-							'post-title-font-style'        => array(
+							'post-meta-typography'         => array(
 								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Font Style', 'kemet' ),
-								'section'   => 'section-blog',
-								'priority'  => 5,
-								'choices'   => array(
-									'inherit' => __( 'Inherit', 'kemet' ),
-									'normal'  => __( 'Normal', 'kemet' ),
-									'italic'  => __( 'Italic', 'kemet' ),
-									'oblique' => __( 'Oblique', 'kemet' ),
-								),
-								'preview'   => array(
-									'selector' => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-									'property' => '--fontStyle',
-								),
-							),
-							'post-title-line-height'       => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Line Height', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-									'property'   => '--lineHeight',
-									'responsive' => true,
-								),
-							),
-							'letter-spacing-page-title'    => array(
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'label'        => __( 'Letter Spacing', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-title , .blog-posts-container .entry-title a , .category-blog .entry-title a',
-									'property'   => '--letterSpacing',
-									'responsive' => true,
-								),
-							),
-							'font-size-post-meta'          => array(
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'label'        => __( 'Font Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 1,
-										'step' => 1,
-										'max'  => 200,
-									),
-									'em' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							// 'post-meta-font-family'     => array(
-							// 'type'    => 'kmt-font-family',
-							// 'label'   => __( 'Font Family', 'kemet' ),
-							// 'connect' => KEMET_THEME_SETTINGS . '[post-meta-font-weight]',
-							// ),
-							// 'post-meta-font-weight'     => array(
-							// 'type'    => 'kmt-font-weight',
-							// 'label'   => __( 'Font Weight', 'kemet' ),
-							// 'connect' => KEMET_THEME_SETTINGS . '[post-meta-font-family]',
-							// ),
-							'post-meta-text-transform'     => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Text Transform', 'kemet' ),
-								'choices'   => array(
-									''           => __( 'Default', 'kemet' ),
-									'none'       => __( 'None', 'kemet' ),
-									'capitalize' => __( 'Capitalize', 'kemet' ),
-									'uppercase'  => __( 'Uppercase', 'kemet' ),
-									'lowercase'  => __( 'Lowercase', 'kemet' ),
-								),
+								'type'      => 'kmt-typography',
+								'label'     => __( 'Meta Typography', 'kemet' ),
 								'preview'   => array(
 									'selector' => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-									'property' => '--textTransform',
 								),
 							),
-							'post-meta-font-style'         => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-select',
-								'label'     => __( 'Font Style', 'kemet' ),
-								'choices'   => array(
-									'inherit' => __( 'Inherit', 'kemet' ),
-									'normal'  => __( 'Normal', 'kemet' ),
-									'italic'  => __( 'Italic', 'kemet' ),
-									'oblique' => __( 'Oblique', 'kemet' ),
-								),
-								'preview'   => array(
-									'selector' => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-									'property' => '--fontStyle',
-								),
-							),
-							'post-meta-line-height'        => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Line Height', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'em' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-									'property'   => '--lineHeight',
-									'responsive' => true,
-								),
-							),
-							'letter-spacing-post-meta'     => array(
-								'transport'    => 'postMessage',
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'label'        => __( 'Letter Spacing', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0.1,
-										'step' => 0.1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.blog-posts-container .entry-meta , .blog-posts-container .entry-meta * , .category-blog .entry-meta *',
-									'property'   => '--letterSpacing',
-									'responsive' => true,
-								),
-							),
-
 							'kmt-overlay-title'            => array(
 								'type'  => 'kmt-title',
 								'label' => __( 'Overlay Image Style', 'kemet' ),
@@ -710,19 +512,6 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									'initial' => array(
 										'selector' => '.overlay-image .post-details a:before, .overlay-image .post-details a:after, .bordered .overlay-color .color-section-1 .color-section-2:after, .bordered .overlay-color .color-section-1 .color-section-2:before',
 										'property' => '--overlayIconColor',
-									),
-								),
-							),
-							'post-margin-bottom'           => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Post Margin Spacing', 'kemet' ),
-								'responsive'   => true,
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 500,
 									),
 								),
 							),

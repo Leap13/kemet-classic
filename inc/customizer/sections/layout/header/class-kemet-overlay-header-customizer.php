@@ -235,11 +235,11 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $menu_selector . ' > li ul > li > a',
-										'property' => '--headingLinksColor',
+										'property' => '--backgroundColor',
 									),
 									'hover'      => array(
 										'selector' => $menu_selector . ' > li ul > li > a:hover',
-										'property' => '--linksHoverColor',
+										'property' => '--backgroundColor',
 									),
 								),
 							),
@@ -323,23 +323,6 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							self::$prefix . '-search-border-color' => array(
-								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Border Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => $selector . ' .kmt-search-menu-icon form .search-field',
-										'property' => '--inputBorderColor',
-									),
-								),
-							),
 							self::$prefix . '-search-box-title' => array(
 								'type'  => 'kmt-title',
 								'label' => __( 'Search Box', 'kemet' ),
@@ -360,12 +343,12 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => $search_box_selector . ' .kmt-search-box-form::after',
-										'property' => '--inputColor',
+										'selector' => $search_box_selector . ' .kmt-search-box-form .icon-search',
+										'property' => '--iconColor',
 									),
 									'hover'   => array(
-										'selector' => $search_box_selector . ' .kmt-search-box-form:hover::after',
-										'property' => '--inputColor',
+										'selector' => $search_box_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search',
+										'property' => '--iconColor',
 									),
 								),
 							),
@@ -486,7 +469,8 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 								'preview'    => array(
-									'initial' => array(
+									'responsive' => true,
+									'initial'    => array(
 										'selector' => $html_selector,
 										'property' => '--textColor',
 									),

@@ -43,7 +43,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 								'transport'      => 'postMessage',
 								'type'           => 'kmt-spacing',
 								'responsive'     => true,
-								'label'          => __( 'Menu Item Spacing', 'kemet' ),
+								'label'          => __( 'Menu Item Padding', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(

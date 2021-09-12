@@ -111,7 +111,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,
-								'label'          => __( 'Boxed Container Spacing', 'kemet' ),
+								'label'          => __( 'Boxed Container Padding', 'kemet' ),
 								'linked_choices' => true,
 								'unit_choices'   => array( 'px', 'em', '%' ),
 								'choices'        => array(

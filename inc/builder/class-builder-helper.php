@@ -114,16 +114,17 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 						$loaded_items = array_merge( $loaded_items, array_values( $columns ) );
 					}
 				}
-				$current_items = ! empty( $loaded_items ) ? call_user_func_array( 'array_merge', $loaded_items ) : array();
+
+				$current_items = ! empty( $loaded_items ) ? $loaded_items : array();
 			}
 
 			switch ( $device ) {
 				case 'all':
-					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : array_unique( $current_items );
+					$current_items = 'header' == $builder ? array_unique( array_merge( $current_items['desktop'], $current_items['mobile'] ) ) : $current_items;
 					break;
 
 				default:
-					$current_items = 'header' == $builder ? array_unique( $current_items[ $device ] ) : array_unique( $current_items );
+					$current_items = 'header' == $builder ? array_unique( $current_items[ $device ] ) : $current_items;
 					break;
 			}
 
