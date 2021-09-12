@@ -1,6 +1,6 @@
 import { Fragment } from "@wordpress/element";
 const { __ } = wp.i18n;
-import { humanizeVariations } from "../typography/helpers";
+import { humanizeVariations } from "./helpers";
 
 const AllFonts = ({
     customFontsSettings,

@@ -9,10 +9,8 @@ import {
 import classnames from "classnames";
 const { __, sprintf } = wp.i18n;
 import Overlay from "./Overlay";
-import {
-    humanizeVariations,
-    humanizeVariationsShort,
-} from "../typography/helpers";
+import { getAllVariations, humanizeVariations } from './helpers'
+
 
 const preloadAttachment = (ID, callback) => {
     if (wp.media.attachment(ID).get("url")) {
@@ -49,7 +47,7 @@ export const getDefaultFutureFont = (fontType = "regular") => ({
 });
 
 const AddVariation = ({ futureFont, setFutureFont }) => {
-    const itemsThatAreNotAdded = Object.keys(humanizeVariations())
+    const itemsThatAreNotAdded = Object.keys(getAllVariations())
         .filter(
             (variation) =>
                 !futureFont.variations.find((v) => v.variation === variation)
@@ -57,7 +55,7 @@ const AddVariation = ({ futureFont, setFutureFont }) => {
         .reduce(
             (all, currentVariation) => ({
                 ...all,
-                [currentVariation]: humanizeVariationsShort(currentVariation),
+                [currentVariation]: humanizeVariations(currentVariation),
             }),
             {}
         );
@@ -88,7 +86,7 @@ const AddVariation = ({ futureFont, setFutureFont }) => {
 
 const SingleVariation = ({ futureFont, variation, onChange, onRemove }) => {
     const itemsThatAreNotAdded = {
-        ...Object.keys(humanizeVariations())
+        ...Object.keys(getAllVariations())
             .filter(
                 (singleVariation) =>
                     variation.variation === singleVariation ||
@@ -99,8 +97,7 @@ const SingleVariation = ({ futureFont, variation, onChange, onRemove }) => {
             .reduce(
                 (all, currentVariation) => ({
                     ...all,
-                    [currentVariation]:
-                        humanizeVariationsShort(currentVariation),
+                    [currentVariation]: humanizeVariations(currentVariation),
                 }),
                 {}
             ),
@@ -353,15 +350,15 @@ const Uploader = ({
                             fonts:
                                 editedIndex || editedIndex === 0
                                     ? customFontsSettings.fonts.map(
-                                          (f, index) =>
-                                              index === editedIndex
-                                                  ? futureFont
-                                                  : f
-                                      )
+                                        (f, index) =>
+                                            index === editedIndex
+                                                ? futureFont
+                                                : f
+                                    )
                                     : [
-                                          ...customFontsSettings.fonts,
-                                          futureFont,
-                                      ],
+                                        ...customFontsSettings.fonts,
+                                        futureFont,
+                                    ],
                         });
 
                         setFutureFont(getDefaultFutureFont());

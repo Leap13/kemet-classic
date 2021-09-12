@@ -1,10 +1,4 @@
-import {
-    createElement,
-    useEffect,
-    createPortal,
-    useState,
-    Fragment,
-} from "@wordpress/element";
+import { createPortal } from "@wordpress/element";
 import Component from "@reach/component-component";
 
 let Portal = ({

@@ -1,18 +1,18 @@
 import { Fragment, useMemo, useRef, useState } from "@wordpress/element";
 import OutsideComponent from "../common/outside-component";
-const { __, sprintf } = wp.i18n;
+const { __ } = wp.i18n;
 
 import Dashicons from "../common/iconList";
 import IconPickerModal from "./Icon-control/Modal";
 
 export const packs = Dashicons;
 
-const IconPicker = ({ value, onChange, params, option }) => {
+const IconPicker = ({ value, onChange, params }) => {
     const correctIcon = useMemo(() => {
-        return value.icon && packs
-            ? packs.find((icon) => icon === value.icon)
+        return (value.icon || value.url) && packs
+            ? (packs.find((icon) => icon === value.icon) || value.url)
             : null;
-    }, [value.icon]);
+    }, [value]);
 
     let { label } = params;
     const el = useRef();
@@ -130,7 +130,6 @@ const IconPicker = ({ value, onChange, params, option }) => {
                     el={el}
                     value={value}
                     onChange={onChange}
-                    option={option}
                     isPicking={isPicking}
                     isTransitioning={isTransitioning}
                     searchString={searchString}

@@ -17,11 +17,15 @@ const ColorPalettes = (props) => {
         isTransitioning: false,
     });
 
+    let defaultValue = props.params.default;
+
     const { styles, popoverProps } = usePopoverMaker({
         ref: colorPalettesWrapper,
         defaultHeight: 430,
         shouldCalculate: isTransitioning || isOpen,
     });
+
+    let { label } = props.params;
 
     const setIsOpen = (isOpen) => {
         setModalState((state) => ({
@@ -75,113 +79,131 @@ const ColorPalettes = (props) => {
     };
 
     return (
-        <div>
-            <OutsideClickHandler
-                disabled={!isOpen}
-                useCapture={false}
-                className="kmt-palettes-preview"
-                additionalRefs={[popoverProps.ref]}
-                onOutsideClick={() => {
-                    setIsOpen(false);
-                }}
-                wrapperProps={{
-                    ref: colorPalettesWrapper,
-                    onClick: (e) => {
-                        e.preventDefault();
-                        if (
-                            e.target.closest(".kmt-color-picker-modal") ||
-                            e.target.classList.contains(
-                                "kmt-color-picker-modal"
-                            )
-                        ) {
-                            return;
+        <>
+            <header>
+                <div className="kmt-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={
+                            JSON.stringify(defaultValue) ===
+                            JSON.stringify(value)
                         }
-                        if (!value.palettes) {
-                            return;
-                        }
-                        setIsOpen(true);
-                    },
-                }}
-            >
-                <PalettePreview
-                    onClick={() => {
-                        if (!value.palettes) {
-                            return;
-                        }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleChangePalette(defaultValue);
+                        }}
+                    ></button>
+                </div>
+                <span className="customize-control-title">{label}</span>
+            </header>
+            <div>
+                <OutsideClickHandler
+                    disabled={!isOpen}
+                    useCapture={false}
+                    className="kmt-palettes-preview"
+                    additionalRefs={[popoverProps.ref]}
+                    onOutsideClick={() => {
                         setIsOpen(false);
                     }}
-                    value={value}
-                    onChange={(v, id) => handleChangeComplete(v, id)}
-                    skipModal={false}
-                />
-            </OutsideClickHandler>
-
-            {(isTransitioning || isOpen) &&
-                createPortal(
-                    <Transition
-                        items={isOpen}
-                        onRest={(isOpen) => {
-                            stopTransitioning();
-                        }}
-                        config={{
-                            duration: 100,
-                            easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
-                        }}
-                        from={
-                            isOpen
-                                ? {
-                                      transform: "scale3d(0.95, 0.95, 1)",
-                                      opacity: 0,
-                                  }
-                                : { opacity: 1 }
-                        }
-                        enter={
-                            isOpen
-                                ? {
-                                      transform: "scale3d(1, 1, 1)",
-                                      opacity: 1,
-                                  }
-                                : {
-                                      opacity: 1,
-                                  }
-                        }
-                        leave={
-                            !isOpen
-                                ? {
-                                      transform: "scale3d(0.95, 0.95, 1)",
-                                      opacity: 0,
-                                  }
-                                : {
-                                      opacity: 1,
-                                  }
-                        }
-                    >
-                        {(style, item) => {
-                            if (!item) {
-                                return null;
+                    wrapperProps={{
+                        ref: colorPalettesWrapper,
+                        onClick: (e) => {
+                            e.preventDefault();
+                            if (
+                                e.target.closest(".kmt-color-picker-modal") ||
+                                e.target.classList.contains(
+                                    "kmt-color-picker-modal"
+                                )
+                            ) {
+                                return;
                             }
-                            return (
-                                <ColorPalettesModal
-                                    wrapperProps={{
-                                        style: {
-                                            ...style,
-                                            ...styles,
-                                        },
-                                        ...popoverProps,
-                                    }}
-                                    onChange={(val) => {
-                                        setIsOpen(false);
-                                        handleChangePalette(val);
-                                    }}
-                                    value={value}
-                                    option={value}
-                                />
-                            );
+                            if (!value.palettes) {
+                                return;
+                            }
+                            setIsOpen(true);
+                        },
+                    }}
+                >
+                    <PalettePreview
+                        onClick={() => {
+                            if (!value.palettes) {
+                                return;
+                            }
+                            setIsOpen(false);
                         }}
-                    </Transition>,
-                    document.body
-                )}
-        </div>
+                        value={value}
+                        onChange={(v, id) => handleChangeComplete(v, id)}
+                        skipModal={false}
+                    />
+                </OutsideClickHandler>
+
+                {(isTransitioning || isOpen) &&
+                    createPortal(
+                        <Transition
+                            items={isOpen}
+                            onRest={(isOpen) => {
+                                stopTransitioning();
+                            }}
+                            config={{
+                                duration: 100,
+                                easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
+                            }}
+                            from={
+                                isOpen
+                                    ? {
+                                        transform: "scale3d(0.95, 0.95, 1)",
+                                        opacity: 0,
+                                    }
+                                    : { opacity: 1 }
+                            }
+                            enter={
+                                isOpen
+                                    ? {
+                                        transform: "scale3d(1, 1, 1)",
+                                        opacity: 1,
+                                    }
+                                    : {
+                                        opacity: 1,
+                                    }
+                            }
+                            leave={
+                                !isOpen
+                                    ? {
+                                        transform: "scale3d(0.95, 0.95, 1)",
+                                        opacity: 0,
+                                    }
+                                    : {
+                                        opacity: 1,
+                                    }
+                            }
+                        >
+                            {(style, item) => {
+                                if (!item) {
+                                    return null;
+                                }
+                                return (
+                                    <ColorPalettesModal
+                                        wrapperProps={{
+                                            style: {
+                                                ...style,
+                                                ...styles,
+                                            },
+                                            ...popoverProps,
+                                        }}
+                                        onChange={(val) => {
+                                            setIsOpen(false);
+                                            handleChangePalette(val);
+                                        }}
+                                        value={value}
+                                        option={value}
+                                    />
+                                );
+                            }}
+                        </Transition>,
+                        document.body
+                    )}
+            </div>
+        </>
     );
 };
 

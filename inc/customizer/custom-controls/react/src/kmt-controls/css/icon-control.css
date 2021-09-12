@@ -203,6 +203,12 @@
 .kmt-upload-icon-container {
   padding: 14px;
 }
+
+.kmt-upload-icon-container button {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
 .kmt-upload-icon-container .thumbnail {
   position: relative;
   display: flex;

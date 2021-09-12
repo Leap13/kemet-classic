@@ -4,17 +4,17 @@ import Overlay from "./uploadFont/Overlay";
 import AllFonts from "./uploadFont/AllFonts";
 import Uploader, { getDefaultFutureFont } from "./uploadFont/Upload";
 
-let customFontsSettingsCache = {
+let customSettingsCache = {
     fonts: [],
 };
 
 const EditSettings = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [futureFont, setFutureFont] = useState(getDefaultFutureFont());
-    const [openView, setOpenView] = useState("all");
+    const [currentView, setcurrentView] = useState("all");
 
-    const [customFontsSettings, setCustomFontsSettings] = useState(
-        customFontsSettingsCache
+    const [customSettings, setcustomSettings] = useState(
+        customSettingsCache
     );
     useEffect(() => {
         if (isEditing) {
@@ -29,8 +29,9 @@ const EditSettings = () => {
                 data-button="white"
                 title={__("Settings", "kemet")}
                 onClick={() => {
-                    event.preventDefault();
-                    setIsEditing(true);
+                    event.stopPropagation()
+                    event.preventDefault()
+                    setIsEditing(true)
                 }}
             >
                 {__("Settings", "kemet")}
@@ -42,58 +43,58 @@ const EditSettings = () => {
                 className={"kmt-custom-fonts-modal"}
                 render={() => (
                     <Fragment>
-                        {openView.indexOf("edit:") > -1 && (
+                        {currentView.indexOf("edit:") > -1 && (
                             <Uploader
                                 futureFont={futureFont}
                                 setFutureFont={setFutureFont}
                                 onChange={(e) => {
-                                    setCustomFontsSettings(e);
+                                    setcustomSettings(e);
                                 }}
                                 moveToAllFonts={() => {
-                                    setOpenView("all");
+                                    setcurrentView("all");
                                 }}
-                                customFontsSettings={customFontsSettings}
+                                customSettings={customSettings}
                                 editedIndex={parseInt(
-                                    openView.split(":")[1],
+                                    currentView.split(":")[1],
                                     10
                                 )}
                             />
                         )}
-                        {openView === "all" && (
+                        {currentView === "all" && (
                             <AllFonts
                                 onChange={(e) => {
-                                    setCustomFontsSettings(e);
+                                    setcustomSettings(e);
                                 }}
-                                customFontsSettings={customFontsSettings}
+                                customSettings={customSettings}
                                 editFont={(index) => {
                                     setFutureFont(
-                                        customFontsSettings.fonts[index]
+                                        customSettings.fonts[index]
                                     );
-                                    setOpenView(`edit:${index}`);
+                                    setcurrentView(`edit:${index}`);
                                 }}
                                 moveToUploader={(type) => {
                                     setFutureFont(getDefaultFutureFont(type));
-                                    setOpenView("upload");
+                                    setcurrentView("upload");
                                 }}
                             />
                         )}
-                        {openView === "upload" && (
+                        {currentView === "upload" && (
                             <Uploader
                                 futureFont={futureFont}
                                 setFutureFont={setFutureFont}
                                 onChange={(e) => {
-                                    setCustomFontsSettings(e);
+                                    setcustomSettings(e);
                                 }}
                                 moveToAllFonts={() => {
-                                    setOpenView("all");
+                                    setcurrentView("all");
                                 }}
-                                customFontsSettings={customFontsSettings}
+                                customSettings={customSettings}
                             />
                         )}
                     </Fragment>
                 )}
             />
-        </Fragment>
+        </Fragment >
     );
 };
 export default EditSettings;

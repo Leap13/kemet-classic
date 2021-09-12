@@ -30,7 +30,6 @@ if ( ! class_exists( 'Kemet_Custom_Controls_Dynamic_Css' ) ) {
 					'--paletteColor5' => $colorPalette['color5'],
 					'--paletteColor6' => $colorPalette['color6'],
 					'--paletteColor7' => $colorPalette['color7'],
-					'--paletteColor8' => $colorPalette['color8'],
 				),
 			);
 

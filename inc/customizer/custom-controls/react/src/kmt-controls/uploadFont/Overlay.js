@@ -31,6 +31,7 @@ const Overlay = ({
                         container={document.querySelector(
                             ".wp-full-overlay.section-open #customize-preview "
                         )}
+                        items={items}
                         onDismiss={() => onDismiss()}
                     >
                         <DialogContent

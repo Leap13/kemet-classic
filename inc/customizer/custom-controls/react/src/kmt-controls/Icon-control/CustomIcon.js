@@ -1,7 +1,6 @@
 const { __ } = wp.i18n;
 import { MediaUpload } from "@wordpress/media-utils";
 import { Button } from "@wordpress/components";
-import { useState } from "react";
 const openSelect = (open) => {
     open();
 };

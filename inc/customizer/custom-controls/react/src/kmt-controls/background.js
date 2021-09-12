@@ -22,9 +22,9 @@ const BackgroundComponent = (props) => {
     };
 
     let ResDefaultParam = {
-        desktop: defaultValue,
-        tablet: defaultValue,
-        mobile: defaultValue,
+        desktop: { ...defaultValue },
+        tablet: { ...defaultValue },
+        mobile: { ...defaultValue },
     };
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
@@ -46,6 +46,7 @@ const BackgroundComponent = (props) => {
         <Responsive onChange={(device) => setDevice(device)} />
     ) : null;
 
+    console.log(value)
     const renderReset = () => {
         return (
             <span className="customize-control-title">
@@ -120,13 +121,13 @@ const BackgroundComponent = (props) => {
                     onSelect={(type) => onSelectType(type)}
                     color={
                         undefined !== renderBackground["background-color"] &&
-                        renderBackground["background-color"]
+                            renderBackground["background-color"]
                             ? renderBackground["background-color"]
                             : ""
                     }
                     gradient={
                         undefined !== renderBackground["background-gradient"] &&
-                        renderBackground["background-gradient"]
+                            renderBackground["background-gradient"]
                             ? renderBackground["background-gradient"]
                             : ""
                     }
@@ -136,38 +137,38 @@ const BackgroundComponent = (props) => {
                     }
                     media={
                         undefined !== renderBackground["background-media"] &&
-                        renderBackground["background-media"]
+                            renderBackground["background-media"]
                             ? renderBackground["background-media"]
                             : ""
                     }
                     backgroundImage={
                         undefined !== renderBackground["background-image"] &&
-                        renderBackground["background-image"]
+                            renderBackground["background-image"]
                             ? renderBackground["background-image"]
                             : ""
                     }
                     backgroundAttachment={
                         undefined !==
                             renderBackground["background-attachment"] &&
-                        renderBackground["background-attachment"]
+                            renderBackground["background-attachment"]
                             ? renderBackground["background-attachment"]
                             : ""
                     }
                     backgroundPosition={
                         undefined !== renderBackground["background-position"] &&
-                        renderBackground["background-position"]
+                            renderBackground["background-position"]
                             ? renderBackground["background-position"]
                             : ""
                     }
                     backgroundRepeat={
                         undefined !== renderBackground["background-repeat"] &&
-                        renderBackground["background-repeat"]
+                            renderBackground["background-repeat"]
                             ? renderBackground["background-repeat"]
                             : ""
                     }
                     backgroundSize={
                         undefined !== renderBackground["background-size"] &&
-                        renderBackground["background-size"]
+                            renderBackground["background-size"]
                             ? renderBackground["background-size"]
                             : ""
                     }
@@ -177,7 +178,7 @@ const BackgroundComponent = (props) => {
                     }
                     backgroundType={
                         undefined !== renderBackground["background-type"] &&
-                        renderBackground["background-type"]
+                            renderBackground["background-type"]
                             ? renderBackground["background-type"]
                             : "color"
                     }

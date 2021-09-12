@@ -107,13 +107,13 @@ const Border = ({ value, onChange, params }) => {
                                         ...(index % 2 === 0
                                             ? [[el]]
                                             : [
-                                                  [
-                                                      current[
-                                                          current.length - 1
-                                                      ][0],
-                                                      el,
-                                                  ],
-                                              ]),
+                                                [
+                                                    current[
+                                                    current.length - 1
+                                                    ][0],
+                                                    el,
+                                                ],
+                                            ]),
                                     ],
                                     []
                                 )
@@ -150,30 +150,37 @@ const Border = ({ value, onChange, params }) => {
                         </ul>
                     </OutsideClickHandler>
                 </div>
-
-                <ColorComponent
-                    onChangeComplete={(colorValue) =>
-                        handleChangeComplete(colorValue, "color")
-                    }
-                    picker={{
-                        id: "default",
-                        title: __("Initial", "kemet"),
-                    }}
-                    value={{ default: value.color }}
-                />
-
-                {secondColor && (
+                {value.style !== "none" && <>
                     <ColorComponent
                         onChangeComplete={(colorValue) =>
-                            handleChangeComplete(colorValue, "secondColor")
+                            onChange({
+                                ...value,
+                                color: colorValue.hex,
+                            })
                         }
                         picker={{
                             id: "default",
-                            title: __("Hover", "kemet"),
+                            title: __("Initial", "kemet"),
                         }}
-                        value={{ default: value.secondColor }}
+                        value={{ default: value.color }}
                     />
-                )}
+
+                    {secondColor && (
+                        <ColorComponent
+                            onChangeComplete={(colorValue) =>
+                                onChange({
+                                    ...value,
+                                    secondColor: colorValue.hex,
+                                })
+                            }
+                            picker={{
+                                id: "default",
+                                title: __("Hover", "kemet"),
+                            }}
+                            value={{ default: value.secondColor }}
+                        />
+                    )}
+                </>}
             </div>
         </div>
     );

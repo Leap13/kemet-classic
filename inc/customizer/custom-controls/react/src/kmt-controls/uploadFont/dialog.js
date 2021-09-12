@@ -35,7 +35,7 @@ let createAriaHider = (dialogNode) => {
     };
 };
 
-let k = () => {};
+let k = () => { };
 
 let checkDialogStyles = () => checkStyles("dialog");
 
@@ -72,7 +72,7 @@ let DialogOverlay = React.forwardRef(
         forwardRef
     ) => (
         <Component didMount={checkDialogStyles}>
-            {isOpen ? (
+            {!!isOpen ? (
                 <Portal
                     container={container}
                     data-reach-dialog-wrapper
@@ -116,7 +116,7 @@ let DialogOverlay = React.forwardRef(
 );
 
 DialogOverlay.propTypes = {
-    initialFocusRef: () => {},
+    initialFocusRef: () => { },
 };
 
 let stopPropagation = (event) => event.stopPropagation();
