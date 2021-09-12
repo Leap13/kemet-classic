@@ -1066,7 +1066,7 @@
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;
-  width: var(--modalWidth);
+  width: var(--modalWidth, 280px);
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;
@@ -1101,7 +1101,7 @@
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
-  --modal-x-offset: 12px !important;
+  --modal-x-offset: 20px !important;
 }
 .components-color-picker {
   width: 100%;

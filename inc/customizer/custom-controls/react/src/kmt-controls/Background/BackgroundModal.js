@@ -5,45 +5,13 @@ import {
     Button,
     FocalPointPicker,
     __experimentalGradientPicker,
-    ColorPicker,
 } from "@wordpress/components";
 import { MediaUpload } from "@wordpress/media-utils";
 const { __ } = wp.i18n;
 
 const BackgroundModal = (props) => {
 
-    const defaultColorPalette = [
-        "#000000",
-        "#ffffff",
-        "#dd3333",
-        "#dd9933",
-        "#eeee22",
-        "#81d742",
-        "#1e73be",
-        "#e2e7ed",
-    ];
-    const RenderTopSection = () => {
-        return (
-            <div className={`kmt-color-picker-top`}>
-                <ul className="kmt-color-picker-skins">
-                    {defaultColorPalette.map((color, index) => (
-                        <li
-                            key={`color-${index}`}
-                            style={{
-                                background: color,
-                            }}
-                            className={classnames({
-                                active: props.color === color,
-                            })}
-                            onClick={() => onChangeComplete(color)}
-                        >
-                            <div className="kmt-tooltip-top">{`Color ${index + 1}`}</div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    };
+
     const renderImageSettings = () => {
         const dimensions = {
             width: 400,
@@ -234,14 +202,7 @@ const BackgroundModal = (props) => {
         props.onChangeImageOptions(mainkey, value, "image");
     };
 
-    const onChangeComplete = (newValue) => {
-        if (toggle) {
-            setToggle(false)
-        } else {
-            setToggle(true)
-        }
-        props.onChangeComplete(newValue)
-    }
+
     return (
         <Fragment>
             <ul

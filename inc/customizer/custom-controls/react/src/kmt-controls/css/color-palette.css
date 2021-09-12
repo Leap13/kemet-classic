@@ -110,7 +110,7 @@
   z-index: 20;
 }
 .kmt-color-picker-modal {
-  width: var(--modalWidth, 300px);
+  width: var(--modalWidth, 280px);
   border-radius: 8px;
 }
 .kmt-color-picker-modal[data-position="bottom"] .kmt-arrow {
@@ -656,7 +656,7 @@
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
-  --modal-x-offset: 12px !important;
+  --modal-x-offset: 20px !important;
 }
 .kmt-palettes-modal {
   max-height: 450px;

@@ -87,9 +87,9 @@
 /******/ ({
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
-/*!******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
-  \******************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -109,9 +109,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithHoles.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -125,9 +125,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -143,9 +143,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/assertThisInitialized.js":
-/*!***********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
-  \***********************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/assertThisInitialized.js ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -163,9 +163,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/classCallCheck.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/classCallCheck.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -181,9 +181,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/createClass.js":
-/*!*************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/createClass.js ***!
-  \*************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/createClass.js ***!
+  \*************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -209,9 +209,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -236,9 +236,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
-/*!**********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
-  \**********************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -258,9 +258,9 @@ function _arrayLikeToArray(arr, len) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js":
-/*!********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
-  \********************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -274,9 +274,9 @@ function _arrayWithHoles(arr) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js":
-/*!***********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js ***!
-  \***********************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -292,9 +292,9 @@ function _arrayWithoutHoles(arr) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js":
-/*!***************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
-  \***************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -312,9 +312,9 @@ function _assertThisInitialized(self) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
-/*!********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
-  \********************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -330,9 +330,9 @@ function _classCallCheck(instance, Constructor) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/createClass.js":
-/*!*****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/createClass.js ***!
-  \*****************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -358,9 +358,9 @@ function _createClass(Constructor, protoProps, staticProps) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/defineProperty.js":
-/*!********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
-  \********************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -385,9 +385,9 @@ function _defineProperty(obj, key, value) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/extends.js":
-/*!*************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/extends.js ***!
-  \*************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/extends.js ***!
+  \*************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -415,9 +415,9 @@ function _extends() {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js":
-/*!********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
-  \********************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -434,9 +434,9 @@ function _getPrototypeOf(o) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inherits.js":
-/*!**************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inherits.js ***!
-  \**************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inherits.js ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -463,9 +463,9 @@ function _inherits(subClass, superClass) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -483,9 +483,9 @@ function _inheritsLoose(subClass, superClass) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArray.js":
-/*!*********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArray.js ***!
-  \*********************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArray.js ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -499,9 +499,9 @@ function _iterableToArray(iter) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js":
-/*!**************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
-  \**************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -541,9 +541,9 @@ function _iterableToArrayLimit(arr, i) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js":
-/*!*********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
-  \*********************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -557,9 +557,9 @@ function _nonIterableRest() {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js":
-/*!***********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js ***!
-  \***********************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -573,9 +573,9 @@ function _nonIterableSpread() {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectSpread.js":
-/*!******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectSpread.js ***!
-  \******************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectSpread.js ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -606,9 +606,9 @@ function _objectSpread(target) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
-  \**********************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -633,9 +633,9 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js":
-/*!*******************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
-  \*******************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -658,9 +658,9 @@ function _possibleConstructorReturn(self, call) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
-/*!********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
-  \********************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -679,9 +679,9 @@ function _setPrototypeOf(o, p) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js":
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -703,9 +703,9 @@ function _slicedToArray(arr, i) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js":
-/*!***********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js ***!
-  \***********************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -727,9 +727,9 @@ function _toConsumableArray(arr) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js":
-/*!********************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js ***!
-  \********************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -750,9 +750,9 @@ function _unsupportedIterableToArray(o, minLen) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/extends.js":
-/*!*********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/extends.js ***!
-  \*********************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/extends.js ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -781,9 +781,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/getPrototypeOf.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/getPrototypeOf.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -801,9 +801,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/inherits.js":
-/*!**********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/inherits.js ***!
-  \**********************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/inherits.js ***!
+  \**********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -830,9 +830,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArray.js":
-/*!*****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArray.js ***!
-  \*****************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -846,9 +846,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
-/*!**********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
-  \**********************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -888,9 +888,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableRest.js":
-/*!*****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
-  \*****************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -904,9 +904,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableSpread.js":
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -920,9 +920,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutProperties.js":
-/*!*************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutProperties.js ***!
-  \*************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutProperties.js ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -953,9 +953,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js":
-/*!******************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js ***!
-  \******************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -980,9 +980,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js":
-/*!***************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
-  \***************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js ***!
+  \***************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1004,9 +1004,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/setPrototypeOf.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1026,9 +1026,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js":
-/*!***************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js ***!
-  \***************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1050,9 +1050,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/toConsumableArray.js":
-/*!*******************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
-  \*******************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1074,9 +1074,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/typeof.js":
-/*!********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/typeof.js ***!
-  \********************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/typeof.js ***!
+  \********************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1106,9 +1106,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
-/*!****************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
-  \****************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1129,9 +1129,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/animated/dist/react-spring-animated.esm.js":
-/*!********************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/animated/dist/react-spring-animated.esm.js ***!
-  \********************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/animated/dist/react-spring-animated.esm.js ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: Animated, AnimatedArray, AnimatedObject, AnimatedString, AnimatedValue, createHost, getAnimated, getAnimatedType, getPayload, isAnimated, setAnimated */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1525,9 +1525,9 @@ const getDisplayName = arg => _react_spring_shared__WEBPACK_IMPORTED_MODULE_0__[
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/core/dist/react-spring-core.esm.js":
-/*!************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/core/dist/react-spring-core.esm.js ***!
-  \************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/core/dist/react-spring-core.esm.js ***!
+  \************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4026,9 +4026,9 @@ const update = _react_spring_shared__WEBPACK_IMPORTED_MODULE_0__["frameLoop"].ad
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js":
-/*!************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js ***!
-  \************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/rafz/dist/react-spring-rafz.esm.js ***!
+  \************************************************************************************************************************************************************************************************************************/
 /*! exports provided: __raf, raf */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4240,9 +4240,9 @@ const __raf = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/shared/dist/react-spring-shared.esm.js":
-/*!****************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/shared/dist/react-spring-shared.esm.js ***!
-  \****************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/shared/dist/react-spring-shared.esm.js ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: raf, FluidValue, Globals, addFluidObserver, callFluidObserver, callFluidObservers, colorToRgba, colors, createInterpolator, createStringInterpolator, defineHidden, deprecateDirectCall, deprecateInterpolate, each, eachProp, flush, flushCalls, frameLoop, getFluidObservers, getFluidValue, hasFluidValue, hex3, hex4, hex6, hex8, hsl, hsla, is, isAnimatedString, isEqual, noop, removeFluidObserver, rgb, rgba, setFluidGetter, toArray, useForceUpdate, useLayoutEffect, useMemoOne, useOnce, usePrev */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5025,9 +5025,9 @@ const useLayoutEffect = typeof window !== 'undefined' && window.document && wind
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/types/animated.js":
-/*!*******************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/types/animated.js ***!
-  \*******************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/types/animated.js ***!
+  \*******************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -5036,9 +5036,9 @@ const useLayoutEffect = typeof window !== 'undefined' && window.document && wind
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/types/interpolation.js":
-/*!************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/types/interpolation.js ***!
-  \************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/types/interpolation.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -5047,9 +5047,9 @@ const useLayoutEffect = typeof window !== 'undefined' && window.document && wind
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/@react-spring/web/dist/react-spring-web.esm.js":
-/*!**********************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/web/dist/react-spring-web.esm.js ***!
-  \**********************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/@react-spring/web/dist/react-spring-web.esm.js ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5308,9 +5308,9 @@ const animated = host.animated;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/array-move/index.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/array-move/index.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/array-move/index.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! exports provided: arrayMoveMutable, arrayMoveImmutable */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5339,9 +5339,9 @@ function arrayMoveImmutable(array, fromIndex, toIndex) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/bezier-easing/src/index.js":
-/*!**************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/bezier-easing/src/index.js ***!
-  \**************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/bezier-easing/src/index.js ***!
+  \**************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -5457,9 +5457,9 @@ module.exports = function bezier (mX1, mY1, mX2, mY2) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/classnames/index.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/classnames/index.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/classnames/index.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5525,9 +5525,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/invariant/browser.js":
-/*!********************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/invariant/browser.js ***!
-  \********************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/invariant/browser.js ***!
+  \********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5586,9 +5586,9 @@ module.exports = invariant;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/memoize-one/dist/memoize-one.esm.js":
-/*!***********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/memoize-one/dist/memoize-one.esm.js ***!
-  \***********************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/memoize-one/dist/memoize-one.esm.js ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5648,9 +5648,9 @@ function memoizeOne(resultFn, isEqual) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/object-assign/index.js":
-/*!**********************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/object-assign/index.js ***!
-  \**********************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/object-assign/index.js ***!
+  \**********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5750,9 +5750,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/prop-types/checkPropTypes.js":
-/*!****************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/checkPropTypes.js ***!
-  \****************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/checkPropTypes.js ***!
+  \****************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5864,9 +5864,9 @@ module.exports = checkPropTypes;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/prop-types/factoryWithTypeCheckers.js":
-/*!*************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/factoryWithTypeCheckers.js ***!
-  \*************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/factoryWithTypeCheckers.js ***!
+  \*************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6467,9 +6467,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/index.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/index.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6493,9 +6493,9 @@ if (true) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/prop-types/lib/ReactPropTypesSecret.js":
-/*!**************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
-  \**************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6517,9 +6517,9 @@ module.exports = ReactPropTypesSecret;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-is/cjs/react-is.development.js":
-/*!************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-is/cjs/react-is.development.js ***!
-  \************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-is/cjs/react-is.development.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6710,9 +6710,9 @@ exports.typeOf = typeOf;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-is/index.js":
-/*!*****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-is/index.js ***!
-  \*****************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-is/index.js ***!
+  \*****************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6727,9 +6727,9 @@ if (false) {} else {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js":
-/*!*************************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js ***!
-  \*************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: SortableContainer, sortableContainer, SortableElement, sortableElement, SortableHandle, sortableHandle, arrayMove */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -8372,9 +8372,9 @@ function sortableElement(WrappedComponent) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-sortablejs/dist/index.js":
-/*!******************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-sortablejs/dist/index.js ***!
-  \******************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-sortablejs/dist/index.js ***!
+  \******************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8385,9 +8385,9 @@ var e=g(__webpack_require__(/*! tiny-invariant */ "../../../customizer/custom-co
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-spring/renderprops.js":
-/*!***************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-spring/renderprops.js ***!
-  \***************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-spring/renderprops.js ***!
+  \***************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10413,9 +10413,9 @@ exports.Globals = Globals;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/react-window/dist/index.esm.js":
-/*!******************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-window/dist/index.esm.js ***!
-  \******************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/react-window/dist/index.esm.js ***!
+  \******************************************************************************************************************************************************************************************************/
 /*! exports provided: VariableSizeGrid, VariableSizeList, FixedSizeGrid, FixedSizeList, areEqual, shouldComponentUpdate */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12518,9 +12518,9 @@ function shouldComponentUpdate(nextProps, nextState) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/sortablejs/modular/sortable.esm.js":
-/*!**********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/sortablejs/modular/sortable.esm.js ***!
-  \**********************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/sortablejs/modular/sortable.esm.js ***!
+  \**********************************************************************************************************************************************************************************************************/
 /*! exports provided: default, MultiDrag, Sortable, Swap */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16245,9 +16245,9 @@ Sortable.mount(Remove, Revert);
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
-/*!*****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
-  \*****************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16271,9 +16271,9 @@ function invariant(condition, message) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/node_modules/webfontloader/webfontloader.js":
-/*!******************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/webfontloader/webfontloader.js ***!
-  \******************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/node_modules/webfontloader/webfontloader.js ***!
+  \******************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16300,9 +16300,9 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/common/icons.js":
-/*!******************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/icons.js ***!
-  \******************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/icons.js ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16448,9 +16448,9 @@ var Icons = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/common/outside-component.js":
-/*!******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/outside-component.js ***!
-  \******************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/outside-component.js ***!
+  \******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16665,9 +16665,9 @@ OutsideComponent.defaultProps = defaultProps;
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/common/popover-component.js":
-/*!******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/popover-component.js ***!
-  \******************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/popover-component.js ***!
+  \******************************************************************************************************************************************************************************************/
 /*! exports provided: nullifyTransforms, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -16819,7 +16819,7 @@ var usePopoverMaker = function usePopoverMaker() {
     var position = 'bottom';
     var otherStyles = {};
     var selector = document.querySelector(".control-section.open");
-    var modalWidth = 0;
+    var modalWidth;
 
     if (selector) {
       modalWidth = selector.clientWidth;
@@ -16906,7 +16906,7 @@ var usePopoverMaker = function usePopoverMaker() {
     styles: _objectSpread({
       '--modal-y-offset': "".concat(yOffset, "px"),
       '--modal-x-offset': "".concat(right, "px"),
-      '--modalWidth': "".concat(modalWidth - 20, "px")
+      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 20 : 270, "px")
     }, otherStyles),
     position: position,
     popoverProps: _objectSpread({
@@ -16922,9 +16922,9 @@ var usePopoverMaker = function usePopoverMaker() {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/common/responsive.js":
-/*!***********************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/responsive.js ***!
-  \***********************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/common/responsive.js ***!
+  \***********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17073,408 +17073,10 @@ Responsive.defaultProps = {
 
 /***/ }),
 
-/***/ "../../../customizer/custom-controls/react/src/kmt-controls/available.js":
-/*!****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/available.js ***!
-  \****************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-sortablejs */ "../../../customizer/custom-controls/react/node_modules/react-sortablejs/dist/index.js");
-/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-var __ = wp.i18n.__;
-var _wp$components = wp.components,
-    Dashicon = _wp$components.Dashicon,
-    Button = _wp$components.Button;
-
-var AvailableComponent = function AvailableComponent(props) {
-  var defaultParams = {};
-  var controlParams = props.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.params.input_attrs) : defaultParams;
-  var builderControlId = "kemet-settings[" + controlParams.group + "]";
-  var choices = KemetCustomizerData && KemetCustomizerData.choices && KemetCustomizerData.choices[builderControlId] ? KemetCustomizerData.choices[builderControlId] : [];
-  var usedItems = wp.customize(builderControlId).get();
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(usedItems),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
-      items = _useState2[0],
-      setItems = _useState2[1];
-
-  var handleDrag = function handleDrag() {
-    var dragZones = document.querySelectorAll(".kmt-builder-area");
-
-    for (var i = 0; i < dragZones.length; i++) {
-      dragZones[i].classList.toggle("kmt-dragging-dropzones");
-    }
-  };
-
-  var onUpdate = function onUpdate() {
-    var newItems = wp.customize(builderControlId).get();
-    setItems(newItems);
-  };
-
-  var onDragStop = function onDragStop(items) {
-    if (items.length != null && items.length === 0) {
-      onUpdate();
-    }
-  };
-
-  var linkRemovingItem = function linkRemovingItem() {
-    document.addEventListener("KemetBuilderRemovedBuilderItem", function (e) {
-      if (e.detail === controlParams.group) {
-        onUpdate();
-      }
-    });
-  };
-
-  linkRemovingItem();
-
-  var focusSection = function focusSection(section) {
-    if (undefined !== wp.customize.section(section)) {
-      wp.customize.section(section).focus();
-    }
-  };
-
-  var renderItems = function renderItems(item, type) {
-    var available = true;
-    controlParams.zones.map(function (zone) {
-      Object.keys(items[zone]).map(function (row) {
-        if (items[zone][row].includes(item)) {
-          available = false;
-        }
-      });
-    });
-    var list = [{
-      id: item
-    }];
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, !available && type == "used" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-      className: "kmt-builder-item-start"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
-      className: "kmt-builder-item",
-      "data-id": item,
-      onClick: function onClick() {
-        return focusSection(choices[item].section);
-      },
-      "data-section": choices[item] && choices[item].section ? choices[item].section : "",
-      key: item
-    }, choices[item] && choices[item].name ? choices[item].name : "", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "kmt-builder-item-icon"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
-      icon: "arrow-right-alt2"
-    })))), available && type == "available" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__["ReactSortable"], {
-      animation: 100,
-      className: "kmt-builder-item-start kmt-move-item",
-      onStart: function onStart() {
-        return handleDrag();
-      },
-      setList: function setList(newItems) {
-        return onDragStop(newItems);
-      },
-      onEnd: function onEnd() {
-        return handleDrag();
-      },
-      group: {
-        name: controlParams.group,
-        put: false
-      },
-      list: list
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-      className: "kmt-builder-item",
-      key: item
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "kmt-builder-item-icon kmt-move-icon"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
-      icon: "move"
-    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "kmt-builder-item-text"
-    }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""))));
-  };
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-control-field kmt-available-items"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-used-items-container"
-  }, Object.keys(choices).map(function (item) {
-    return renderItems(item, "used");
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-available-items-title"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "customize-control-title"
-  }, __("Available Items", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-available-items-container"
-  }, Object.keys(choices).map(function (item) {
-    return renderItems(item, "available");
-  })));
-};
-
-AvailableComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
-  customizer: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(AvailableComponent));
-
-/***/ }),
-
-/***/ "../../../customizer/custom-controls/react/src/kmt-controls/background.js":
-/*!*****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/background.js ***!
-  \*****************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _kmt_background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./kmt-background */ "../../../customizer/custom-controls/react/src/kmt-controls/kmt-background.js");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/responsive */ "../../../customizer/custom-controls/react/src/common/responsive.js");
-
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-
-
-
-
-var BackgroundComponent = function BackgroundComponent(props) {
-  var value = props.value;
-  var responsive = props.params.responsive;
-  var defaultValue = {
-    "background-attachment": "",
-    "background-color": "",
-    "background-image": "",
-    "background-media": "",
-    "background-position": {
-      x: "",
-      y: ""
-    },
-    "background-repeat": "",
-    "background-size": "",
-    "background-type": "color",
-    "background-gradient": ""
-  };
-  var ResDefaultParam = {
-    desktop: defaultValue,
-    tablet: defaultValue,
-    mobile: defaultValue
-  };
-  var defaultValues = responsive ? ResDefaultParam : defaultValue;
-  var defaultVals = props.params.default ? props.params.default : defaultValues;
-  value = value ? value : defaultVals;
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
-      props_value = _useState2[0],
-      setPropsValue = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])("desktop"),
-      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
-      device = _useState4[0],
-      setDevice = _useState4[1];
-
-  var updateValue = function updateValue(obj) {
-    setPropsValue(obj);
-    props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
-      flag: !value.flag
-    }));
-  };
-
-  var responsiveHtml = responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    onChange: function onChange(device) {
-      return setDevice(device);
-    }
-  }) : null;
-
-  var renderReset = function renderReset() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "customize-control-title"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-      className: "kmt-background-btn-reset-wrap"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-      className: "kmt-reset-btn ",
-      disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
-      onClick: function onClick(e) {
-        e.preventDefault();
-        updateValue(defaultVals);
-      }
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-      className: "dashicons dashicons-image-rotate"
-    }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml);
-  };
-
-  var _onSelectImage = function onSelectImage(media) {
-    var obj = _objectSpread({}, props_value);
-
-    if (responsive) {
-      obj[device]["background-media"] = media.id;
-      obj[device]["background-image"] = media.url;
-    } else {
-      obj["background-media"] = media.id;
-      obj["background-image"] = media.url;
-    }
-
-    updateValue(obj);
-  };
-
-  var _onChangeImageOptions = function onChangeImageOptions(mainKey, value) {
-    var obj = _objectSpread({}, props_value);
-
-    if (responsive) {
-      obj[device][mainKey] = value;
-    } else {
-      obj[mainKey] = value;
-    }
-
-    updateValue(obj);
-  };
-
-  var onSelectType = function onSelectType(type) {
-    var obj = _objectSpread({}, props_value);
-
-    if (responsive) {
-      obj[device]["background-type"] = type;
-    } else {
-      obj["background-type"] = type;
-    }
-
-    updateValue(obj);
-  };
-
-  var renderSettings = function renderSettings() {
-    var renderBackground = responsive ? props_value[device] : props_value;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])("Background", "Kemet"),
-      onSelect: function onSelect(type) {
-        return onSelectType(type);
-      },
-      color: undefined !== renderBackground["background-color"] && renderBackground["background-color"] ? renderBackground["background-color"] : "",
-      gradient: undefined !== renderBackground["background-gradient"] && renderBackground["background-gradient"] ? renderBackground["background-gradient"] : "",
-      onChangeComplete: function onChangeComplete(color) {
-        return handleChangeComplete(color);
-      },
-      onChangeGradient: function onChangeGradient(gradient) {
-        return handleChangeGradient(gradient);
-      },
-      media: undefined !== renderBackground["background-media"] && renderBackground["background-media"] ? renderBackground["background-media"] : "",
-      backgroundImage: undefined !== renderBackground["background-image"] && renderBackground["background-image"] ? renderBackground["background-image"] : "",
-      backgroundAttachment: undefined !== renderBackground["background-attachment"] && renderBackground["background-attachment"] ? renderBackground["background-attachment"] : "",
-      backgroundPosition: undefined !== renderBackground["background-position"] && renderBackground["background-position"] ? renderBackground["background-position"] : "",
-      backgroundRepeat: undefined !== renderBackground["background-repeat"] && renderBackground["background-repeat"] ? renderBackground["background-repeat"] : "",
-      backgroundSize: undefined !== renderBackground["background-size"] && renderBackground["background-size"] ? renderBackground["background-size"] : "",
-      onSelectImage: function onSelectImage(media) {
-        return _onSelectImage(media);
-      },
-      onChangeImageOptions: function onChangeImageOptions(mainKey, value) {
-        return _onChangeImageOptions(mainKey, value);
-      },
-      backgroundType: undefined !== renderBackground["background-type"] && renderBackground["background-type"] ? renderBackground["background-type"] : "color"
-    }));
-  };
-
-  var handleChangeGradient = function handleChangeGradient(gradient) {
-    var obj = _objectSpread({}, props_value);
-
-    if (responsive) {
-      obj[device]["background-gradient"] = gradient;
-    } else {
-      obj["background-gradient"] = gradient;
-    }
-
-    updateValue(obj);
-  };
-
-  var handleChangeComplete = function handleChangeComplete(color) {
-    var value = "";
-
-    if (color) {
-      if (typeof color === "string" || color instanceof String) {
-        value = color;
-      } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-        value = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")");
-      } else {
-        value = color.hex;
-      }
-    }
-
-    var obj = _objectSpread({}, props_value);
-
-    if (responsive) {
-      obj[device]["background-color"] = value;
-    } else {
-      obj["background-color"] = value;
-    }
-
-    updateValue(obj);
-  };
-
-  var _props$params = props.params,
-      label = _props$params.label,
-      description = _props$params.description;
-  var labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "customize-control-title"
-  }, label ? label : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])("Background"));
-  var descriptionHtml = description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "description customize-control-description"
-  }, description) : null;
-  var inputHtml = null;
-  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "background-container"
-  }, renderReset(), renderSettings());
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, inputHtml);
-};
-
-BackgroundComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
-};
-/* harmony default export */ __webpack_exports__["default"] = (React.memo(BackgroundComponent));
-
-/***/ }),
-
-/***/ "../../../customizer/custom-controls/react/src/kmt-controls/background/BackgroundModal.js":
-/*!*********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/background/BackgroundModal.js ***!
-  \*********************************************************************************************************************************************/
+/***/ "../../../customizer/custom-controls/react/src/kmt-controls/Background/BackgroundModal.js":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/Background/BackgroundModal.js ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17501,31 +17103,6 @@ __webpack_require__.r(__webpack_exports__);
 var __ = wp.i18n.__;
 
 var BackgroundModal = function BackgroundModal(props) {
-  var defaultColorPalette = ["#000000", "#ffffff", "#dd3333", "#dd9933", "#eeee22", "#81d742", "#1e73be", "#e2e7ed"];
-
-  var RenderTopSection = function RenderTopSection() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-      className: "kmt-color-picker-top"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
-      className: "kmt-color-picker-skins"
-    }, defaultColorPalette.map(function (color, index) {
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
-        key: "color-".concat(index),
-        style: {
-          background: color
-        },
-        className: classnames__WEBPACK_IMPORTED_MODULE_2___default()({
-          active: props.color === color
-        }),
-        onClick: function onClick() {
-          return onChangeComplete(color);
-        }
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-        className: "kmt-tooltip-top"
-      }, "Color ".concat(index + 1)));
-    })));
-  };
-
   var renderImageSettings = function renderImageSettings() {
     var dimensions = {
       width: 400,
@@ -17709,16 +17286,6 @@ var BackgroundModal = function BackgroundModal(props) {
     props.onChangeImageOptions(mainkey, value, "image");
   };
 
-  var onChangeComplete = function onChangeComplete(newValue) {
-    if (toggle) {
-      setToggle(false);
-    } else {
-      setToggle(true);
-    }
-
-    props.onChangeComplete(newValue);
-  };
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("ul", {
     className: "kmt-modal-tabs",
     onMouseUp: function onMouseUp(e) {
@@ -17771,10 +17338,405 @@ var BackgroundModal = function BackgroundModal(props) {
 
 /***/ }),
 
+/***/ "../../../customizer/custom-controls/react/src/kmt-controls/available.js":
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/available.js ***!
+  \****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-sortablejs */ "../../../customizer/custom-controls/react/node_modules/react-sortablejs/dist/index.js");
+/* harmony import */ var react_sortablejs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+var __ = wp.i18n.__;
+var _wp$components = wp.components,
+    Dashicon = _wp$components.Dashicon,
+    Button = _wp$components.Button;
+
+var AvailableComponent = function AvailableComponent(props) {
+  var defaultParams = {};
+  var controlParams = props.params.input_attrs ? _objectSpread(_objectSpread({}, defaultParams), props.params.input_attrs) : defaultParams;
+  var builderControlId = "kemet-settings[" + controlParams.group + "]";
+  var choices = KemetCustomizerData && KemetCustomizerData.choices && KemetCustomizerData.choices[builderControlId] ? KemetCustomizerData.choices[builderControlId] : [];
+  var usedItems = wp.customize(builderControlId).get();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(usedItems),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      items = _useState2[0],
+      setItems = _useState2[1];
+
+  var handleDrag = function handleDrag() {
+    var dragZones = document.querySelectorAll(".kmt-builder-area");
+
+    for (var i = 0; i < dragZones.length; i++) {
+      dragZones[i].classList.toggle("kmt-dragging-dropzones");
+    }
+  };
+
+  var onUpdate = function onUpdate() {
+    var newItems = wp.customize(builderControlId).get();
+    setItems(newItems);
+  };
+
+  var onDragStop = function onDragStop(items) {
+    if (items.length != null && items.length === 0) {
+      onUpdate();
+    }
+  };
+
+  var linkRemovingItem = function linkRemovingItem() {
+    document.addEventListener("KemetBuilderRemovedBuilderItem", function (e) {
+      if (e.detail === controlParams.group) {
+        onUpdate();
+      }
+    });
+  };
+
+  linkRemovingItem();
+
+  var focusSection = function focusSection(section) {
+    if (undefined !== wp.customize.section(section)) {
+      wp.customize.section(section).focus();
+    }
+  };
+
+  var renderItems = function renderItems(item, type) {
+    var available = true;
+    controlParams.zones.map(function (zone) {
+      Object.keys(items[zone]).map(function (row) {
+        if (items[zone][row].includes(item)) {
+          available = false;
+        }
+      });
+    });
+    var list = [{
+      id: item
+    }];
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, !available && type == "used" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-builder-item-start"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Button, {
+      className: "kmt-builder-item",
+      "data-id": item,
+      onClick: function onClick() {
+        return focusSection(choices[item].section);
+      },
+      "data-section": choices[item] && choices[item].section ? choices[item].section : "",
+      key: item
+    }, choices[item] && choices[item].name ? choices[item].name : "", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "kmt-builder-item-icon"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
+      icon: "arrow-right-alt2"
+    })))), available && type == "available" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react_sortablejs__WEBPACK_IMPORTED_MODULE_5__["ReactSortable"], {
+      animation: 100,
+      className: "kmt-builder-item-start kmt-move-item",
+      onStart: function onStart() {
+        return handleDrag();
+      },
+      setList: function setList(newItems) {
+        return onDragStop(newItems);
+      },
+      onEnd: function onEnd() {
+        return handleDrag();
+      },
+      group: {
+        name: controlParams.group,
+        put: false
+      },
+      list: list
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-builder-item",
+      key: item
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "kmt-builder-item-icon kmt-move-icon"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(Dashicon, {
+      icon: "move"
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+      className: "kmt-builder-item-text"
+    }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""))));
+  };
+
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-control-field kmt-available-items"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-used-items-container"
+  }, Object.keys(choices).map(function (item) {
+    return renderItems(item, "used");
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-available-items-title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title"
+  }, __("Available Items", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-available-items-container"
+  }, Object.keys(choices).map(function (item) {
+    return renderItems(item, "available");
+  })));
+};
+
+AvailableComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+  customizer: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(AvailableComponent));
+
+/***/ }),
+
+/***/ "../../../customizer/custom-controls/react/src/kmt-controls/background.js":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/background.js ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../../customizer/custom-controls/react/node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "../../../customizer/custom-controls/react/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _kmt_background__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./kmt-background */ "../../../customizer/custom-controls/react/src/kmt-controls/kmt-background.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/responsive */ "../../../customizer/custom-controls/react/src/common/responsive.js");
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+
+var BackgroundComponent = function BackgroundComponent(props) {
+  var value = props.value;
+  var responsive = props.params.responsive;
+  var defaultValue = {
+    "background-attachment": "",
+    "background-color": "",
+    "background-image": "",
+    "background-media": "",
+    "background-position": {
+      x: "",
+      y: ""
+    },
+    "background-repeat": "",
+    "background-size": "",
+    "background-type": "color",
+    "background-gradient": ""
+  };
+  var ResDefaultParam = {
+    desktop: _objectSpread({}, defaultValue),
+    tablet: _objectSpread({}, defaultValue),
+    mobile: _objectSpread({}, defaultValue)
+  };
+  var defaultValues = responsive ? ResDefaultParam : defaultValue;
+  var defaultVals = props.params.default ? props.params.default : defaultValues;
+  value = value ? value : defaultVals;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+      props_value = _useState2[0],
+      setPropsValue = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])("desktop"),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState3, 2),
+      device = _useState4[0],
+      setDevice = _useState4[1];
+
+  var updateValue = function updateValue(obj) {
+    setPropsValue(obj);
+    props.onChange(_objectSpread(_objectSpread({}, obj), {}, {
+      flag: !value.flag
+    }));
+  };
+
+  var responsiveHtml = responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    onChange: function onChange(device) {
+      return setDevice(device);
+    }
+  }) : null;
+  console.log(value);
+
+  var renderReset = function renderReset() {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+      className: "kmt-background-btn-reset-wrap"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+      className: "kmt-reset-btn ",
+      disabled: JSON.stringify(props_value) === JSON.stringify(defaultVals),
+      onClick: function onClick(e) {
+        e.preventDefault();
+        updateValue(defaultVals);
+      }
+    })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml);
+  };
+
+  var _onSelectImage = function onSelectImage(media) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]["background-media"] = media.id;
+      obj[device]["background-image"] = media.url;
+    } else {
+      obj["background-media"] = media.id;
+      obj["background-image"] = media.url;
+    }
+
+    updateValue(obj);
+  };
+
+  var _onChangeImageOptions = function onChangeImageOptions(mainKey, value) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device][mainKey] = value;
+    } else {
+      obj[mainKey] = value;
+    }
+
+    updateValue(obj);
+  };
+
+  var onSelectType = function onSelectType(type) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]["background-type"] = type;
+    } else {
+      obj["background-type"] = type;
+    }
+
+    updateValue(obj);
+  };
+
+  var renderSettings = function renderSettings() {
+    var renderBackground = responsive ? props_value[device] : props_value;
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])("Background", "Kemet"),
+      onSelect: function onSelect(type) {
+        return onSelectType(type);
+      },
+      color: undefined !== renderBackground["background-color"] && renderBackground["background-color"] ? renderBackground["background-color"] : "",
+      gradient: undefined !== renderBackground["background-gradient"] && renderBackground["background-gradient"] ? renderBackground["background-gradient"] : "",
+      onChangeComplete: function onChangeComplete(color) {
+        return handleChangeComplete(color);
+      },
+      onChangeGradient: function onChangeGradient(gradient) {
+        return handleChangeGradient(gradient);
+      },
+      media: undefined !== renderBackground["background-media"] && renderBackground["background-media"] ? renderBackground["background-media"] : "",
+      backgroundImage: undefined !== renderBackground["background-image"] && renderBackground["background-image"] ? renderBackground["background-image"] : "",
+      backgroundAttachment: undefined !== renderBackground["background-attachment"] && renderBackground["background-attachment"] ? renderBackground["background-attachment"] : "",
+      backgroundPosition: undefined !== renderBackground["background-position"] && renderBackground["background-position"] ? renderBackground["background-position"] : "",
+      backgroundRepeat: undefined !== renderBackground["background-repeat"] && renderBackground["background-repeat"] ? renderBackground["background-repeat"] : "",
+      backgroundSize: undefined !== renderBackground["background-size"] && renderBackground["background-size"] ? renderBackground["background-size"] : "",
+      onSelectImage: function onSelectImage(media) {
+        return _onSelectImage(media);
+      },
+      onChangeImageOptions: function onChangeImageOptions(mainKey, value) {
+        return _onChangeImageOptions(mainKey, value);
+      },
+      backgroundType: undefined !== renderBackground["background-type"] && renderBackground["background-type"] ? renderBackground["background-type"] : "color"
+    }));
+  };
+
+  var handleChangeGradient = function handleChangeGradient(gradient) {
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]["background-gradient"] = gradient;
+    } else {
+      obj["background-gradient"] = gradient;
+    }
+
+    updateValue(obj);
+  };
+
+  var handleChangeComplete = function handleChangeComplete(color) {
+    var value = "";
+
+    if (color) {
+      if (typeof color === "string" || color instanceof String) {
+        value = color;
+      } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
+        value = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")");
+      } else {
+        value = color.hex;
+      }
+    }
+
+    var obj = _objectSpread({}, props_value);
+
+    if (responsive) {
+      obj[device]["background-color"] = value;
+    } else {
+      obj["background-color"] = value;
+    }
+
+    updateValue(obj);
+  };
+
+  var _props$params = props.params,
+      label = _props$params.label,
+      description = _props$params.description;
+  var labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label ? label : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__["__"])("Background"));
+  var descriptionHtml = description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "description customize-control-description"
+  }, description) : null;
+  var inputHtml = null;
+  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "background-container"
+  }, renderReset(), renderSettings());
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, inputHtml);
+};
+
+BackgroundComponent.propTypes = {
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (React.memo(BackgroundComponent));
+
+/***/ }),
+
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/builder-tabs.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/builder-tabs.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/builder-tabs.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17828,9 +17790,9 @@ var BuilderTabs = function BuilderTabs(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color-palettes/ColorPalettesModal.js":
-/*!****************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-palettes/ColorPalettesModal.js ***!
-  \****************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-palettes/ColorPalettesModal.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17896,9 +17858,9 @@ var ColorPalettesModal = function ColorPalettesModal(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color-palettes/PalettePreview.js":
-/*!************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-palettes/PalettePreview.js ***!
-  \************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-palettes/PalettePreview.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17992,9 +17954,9 @@ var PalettePreview = function PalettePreview(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color-pallet.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-pallet.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-pallet.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18203,9 +18165,9 @@ var ColorPalettes = function ColorPalettes(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color-picker/picker-modal.js":
-/*!********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-picker/picker-modal.js ***!
-  \********************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-picker/picker-modal.js ***!
+  \********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18346,9 +18308,9 @@ var PickerModal = function PickerModal(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color-picker/single-picker.js":
-/*!*********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-picker/single-picker.js ***!
-  \*********************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color-picker/single-picker.js ***!
+  \*********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18491,9 +18453,9 @@ var SinglePicker = function SinglePicker(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/color.js":
-/*!************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color.js ***!
-  \************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/color.js ***!
+  \************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18591,9 +18553,9 @@ var ColorComponent = function ColorComponent(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/editor.js":
-/*!*************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/editor.js ***!
-  \*************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/editor.js ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18718,9 +18680,9 @@ EditorComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/focus.js":
-/*!************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/focus.js ***!
-  \************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/focus.js ***!
+  \************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18772,9 +18734,9 @@ FocusComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/icon-select.js":
-/*!******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/icon-select.js ***!
-  \******************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/icon-select.js ***!
+  \******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18860,9 +18822,9 @@ IconSelectComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/kmt-background.js":
-/*!*********************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/kmt-background.js ***!
-  \*********************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/kmt-background.js ***!
+  \*********************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18876,7 +18838,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "../../../customizer/custom-controls/react/node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./background/BackgroundModal */ "../../../customizer/custom-controls/react/src/kmt-controls/background/BackgroundModal.js");
+/* harmony import */ var _Background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Background/BackgroundModal */ "../../../customizer/custom-controls/react/src/kmt-controls/Background/BackgroundModal.js");
 /* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/outside-component */ "../../../customizer/custom-controls/react/src/common/outside-component.js");
 /* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/popover-component */ "../../../customizer/custom-controls/react/src/common/popover-component.js");
 
@@ -18937,7 +18899,11 @@ var Background = function Background(props) {
     useCapture: false,
     display: "block",
     disabled: !isOpen,
-    onOutsideClick: function onOutsideClick() {
+    onOutsideClick: function onOutsideClick(e) {
+      if (e.target.closest(".media-modal-content")) {
+        return;
+      }
+
       setTimeout(function () {
         return setIsOpen(false);
       });
@@ -18949,7 +18915,7 @@ var Background = function Background(props) {
         active: isOpen
       })
     })
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__["default"], props)), document.body));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_Background_BackgroundModal__WEBPACK_IMPORTED_MODULE_4__["default"], props)), document.body));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Background);
@@ -18957,9 +18923,9 @@ var Background = function Background(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/kmt-color.js":
-/*!****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/kmt-color.js ***!
-  \****************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/kmt-color.js ***!
+  \****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19156,9 +19122,9 @@ _color__WEBPACK_IMPORTED_MODULE_4__["default"].propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/layout-builder/add-component.js":
-/*!***********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/add-component.js ***!
-  \***********************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/add-component.js ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19279,9 +19245,9 @@ var AddComponent = function AddComponent(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/layout-builder/builder-component.js":
-/*!***************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/builder-component.js ***!
-  \***************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/builder-component.js ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19736,9 +19702,9 @@ var BuilderComponent = function BuilderComponent(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/layout-builder/drop-component.js":
-/*!************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/drop-component.js ***!
-  \************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/drop-component.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19853,9 +19819,9 @@ var DropComponent = function DropComponent(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/layout-builder/item-component.js":
-/*!************************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/item-component.js ***!
-  \************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/item-component.js ***!
+  \************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -19919,9 +19885,9 @@ var ItemComponent = function ItemComponent(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/layout-builder/row-component.js":
-/*!***********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/row-component.js ***!
-  \***********************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/layout-builder/row-component.js ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20054,9 +20020,9 @@ var RowComponent = function RowComponent(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/number.js":
-/*!*************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/number.js ***!
-  \*************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/number.js ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20112,9 +20078,9 @@ var NumberComponent = function NumberComponent(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/radio-image.js":
-/*!******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/radio-image.js ***!
-  \******************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/radio-image.js ***!
+  \******************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20223,9 +20189,9 @@ RadioImageComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/radio.js":
-/*!************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/radio.js ***!
-  \************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/radio.js ***!
+  \************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20354,9 +20320,9 @@ RadioComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/row-layout.js":
-/*!*****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/row-layout.js ***!
-  \*****************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/row-layout.js ***!
+  \*****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20680,9 +20646,9 @@ RowLayoutComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/select.js":
-/*!*************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/select.js ***!
-  \*************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/select.js ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20781,9 +20747,9 @@ SelectComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/slider.js":
-/*!*************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/slider.js ***!
-  \*************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/slider.js ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21077,9 +21043,9 @@ ResponsiveSliderComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/sortable.js":
-/*!***************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/sortable.js ***!
-  \***************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/sortable.js ***!
+  \***************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21206,9 +21172,9 @@ SortableComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/spacing.js":
-/*!**************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/spacing.js ***!
-  \**************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/spacing.js ***!
+  \**************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21247,7 +21213,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var SpacingComponent = function SpacingComponent(props) {
   var value = props.value;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])('desktop'),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_6__["useState"])("desktop"),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
       device = _useState2[0],
       setDevice = _useState2[1];
@@ -21255,20 +21221,20 @@ var SpacingComponent = function SpacingComponent(props) {
   var responsive = props.params.responsive;
   var defaultValue = {
     value: {
-      'top': '',
-      'right': '',
-      'bottom': '',
-      'left': ''
+      top: "",
+      right: "",
+      bottom: "",
+      left: ""
     },
-    unit: 'px'
+    unit: "px"
   };
   var ResDefaultParam = {
-    "desktop": defaultValue.value,
-    "tablet": defaultValue.value,
-    "mobile": defaultValue.value,
+    desktop: defaultValue.value,
+    tablet: defaultValue.value,
+    mobile: defaultValue.value,
     "desktop-unit": defaultValue.unit,
-    'tablet-unit': defaultValue.unit,
-    'mobile-unit': defaultValue.unit
+    "tablet-unit": defaultValue.unit,
+    "mobile-unit": defaultValue.unit
   };
   var defaultValues = responsive ? ResDefaultParam : defaultValue;
   var defaultVals = props.params.default ? _objectSpread(_objectSpread({}, defaultValues), props.params.default) : defaultValues;
@@ -21287,15 +21253,15 @@ var SpacingComponent = function SpacingComponent(props) {
 
   var handleToggleClick = function handleToggleClick(text) {
     var parent = event.target.parentElement.parentElement;
-    var inputs = parent.querySelectorAll('.kmt-spacing-input');
+    var inputs = parent.querySelectorAll(".kmt-spacing-input");
     var elements = event.target.dataset.elementConnect;
 
     for (var i = 0; i < inputs.length; i++) {
-      inputs[i].classList.toggle('connected');
-      text === "disconnect" ? inputs[i].setAttribute('data-element-connect', elements) : inputs[i].setAttribute('data-element-connect', '');
+      inputs[i].classList.toggle("connected");
+      text === "disconnect" ? inputs[i].setAttribute("data-element-connect", elements) : inputs[i].setAttribute("data-element-connect", "");
     }
 
-    event.target.parentElement.classList.toggle('disconnected');
+    event.target.parentElement.classList.toggle("disconnected");
   };
 
   var onSpacingChange = function onSpacingChange(device, choiceID) {
@@ -21305,7 +21271,7 @@ var SpacingComponent = function SpacingComponent(props) {
 
     var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
 
-    if (!event.target.classList.contains('connected')) {
+    if (!event.target.classList.contains("connected")) {
       deviceUpdateState[choiceID] = event.target.value;
     } else {
       for (var _choiceID in choices) {
@@ -21319,7 +21285,7 @@ var SpacingComponent = function SpacingComponent(props) {
   };
 
   var onUnitChange = function onUnitChange(device) {
-    var unitKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var unitKey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
 
     var updateState = _objectSpread({}, state);
 
@@ -21329,7 +21295,7 @@ var SpacingComponent = function SpacingComponent(props) {
   };
 
   var renderInputHtml = function renderInputHtml(device) {
-    var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    var active = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
     var _props$params = props.params,
         linked_choices = _props$params.linked_choices,
         id = _props$params.id,
@@ -21337,8 +21303,8 @@ var SpacingComponent = function SpacingComponent(props) {
         choices = _props$params.choices,
         inputAttrs = _props$params.inputAttrs,
         connected = _props$params.connected;
-    var connectedClass = false === connected ? '' : 'connected';
-    var disconnectedClass = false === connected ? '' : 'disconnected';
+    var connectedClass = false === connected ? "" : "connected";
+    var disconnectedClass = false === connected ? "" : "disconnected";
     var htmlChoices = null;
 
     if (choices) {
@@ -21365,7 +21331,7 @@ var SpacingComponent = function SpacingComponent(props) {
     }
 
     var linkHtml = linked_choices ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
-      key: 'connect-disconnect' + device,
+      key: "connect-disconnect" + device,
       className: "kmt-spacing-input-item-link ".concat(disconnectedClass)
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
       title: title,
@@ -21398,9 +21364,9 @@ var SpacingComponent = function SpacingComponent(props) {
         var unitClass;
 
         if (responsive) {
-          state["".concat(device, "-unit")] === unitKey ? unitClass = 'active' : unitClass = '';
+          state["".concat(device, "-unit")] === unitKey ? unitClass = "active" : unitClass = "";
         } else {
-          state["unit"] === unitKey ? unitClass = 'active' : unitClass = '';
+          state["unit"] === unitKey ? unitClass = "active" : unitClass = "";
         }
 
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
@@ -21418,7 +21384,7 @@ var SpacingComponent = function SpacingComponent(props) {
     }
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
-      key: 'responsive-units',
+      key: "responsive-units",
       className: "kmt-spacing-responsive-units kmt-spacing-".concat(device, "-responsive-units")
     }, responsiveUnit);
   };
@@ -21453,31 +21419,28 @@ var SpacingComponent = function SpacingComponent(props) {
       label = _props$params2.label,
       description = _props$params2.description;
   var inputHtml = null;
-  var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  var descriptionContent = description || description !== "" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
-  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml(device, 'active'));
+  inputHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, renderInputHtml(device, "active"));
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    key: 'kmt-spacing-responsive',
+    key: "kmt-spacing-responsive",
     className: "kmt-spacing-responsive"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-spacing-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn components-button components-circular-option-picker__clear is-small",
+    className: "kmt-reset-btn ",
     disabled: JSON.stringify(state) === JSON.stringify(defaultVals),
     onClick: function onClick(e) {
       return handleReset(e);
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "dashicons dashicons-image-rotate"
-  }))), responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title"
+  }, label), responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onChange: function onChange(currentDevice) {
       return setDevice(currentDevice);
-    },
-    label: label
-  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title"
-  }, label), renderUnit(), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    }
+  }) : null, renderUnit()), descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-spacing-responsive-outer-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "input-wrapper kmt-spacing-responsive-wrapper"
@@ -21492,9 +21455,9 @@ SpacingComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/tabs.js":
-/*!***********************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/tabs.js ***!
-  \***********************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/tabs.js ***!
+  \***********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21556,9 +21519,9 @@ TabsComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/text.js":
-/*!***********************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/text.js ***!
-  \***********************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/text.js ***!
+  \***********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21611,9 +21574,9 @@ TextComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/title.js":
-/*!************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/title.js ***!
-  \************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/title.js ***!
+  \************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21651,9 +21614,9 @@ TitleComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/toggle.js":
-/*!*************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/toggle.js ***!
-  \*************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/toggle.js ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -21715,9 +21678,9 @@ ToggleControlComponent.propTypes = {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography.js":
-/*!*****************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography.js ***!
-  \*****************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography.js ***!
+  \*****************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22036,9 +21999,9 @@ var Typography = function Typography(props) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/FontOptions.js":
-/*!*****************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/FontOptions.js ***!
-  \*****************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/FontOptions.js ***!
+  \*****************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22213,9 +22176,9 @@ var FontOptions = function FontOptions(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/FontsList.js":
-/*!***************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/FontsList.js ***!
-  \***************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/FontsList.js ***!
+  \***************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22376,9 +22339,9 @@ var FontsList = function FontsList(_ref4) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/VariationsList.js":
-/*!********************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/VariationsList.js ***!
-  \********************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/VariationsList.js ***!
+  \********************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22446,9 +22409,9 @@ var VariationsList = function VariationsList(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/default-data.js":
-/*!******************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/default-data.js ***!
-  \******************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/default-data.js ***!
+  \******************************************************************************************************************************************************************************************************/
 /*! exports provided: getDefaultFonts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22476,9 +22439,9 @@ var getDefaultFonts = function getDefaultFonts(isDefault) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/helpers.js":
-/*!*************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/helpers.js ***!
-  \*************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/helpers.js ***!
+  \*************************************************************************************************************************************************************************************************/
 /*! exports provided: fontFamilyToCSSFamily, findSourceTypeFor, findSelectedFontFamily, decideVariationToSelect, humanizeVariationsShort, humanizeVariations, familyForDisplay */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22591,9 +22554,9 @@ var familyForDisplay = function familyForDisplay(family) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/kmt-controls/typography/typo-modal.js":
-/*!****************************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/typo-modal.js ***!
-  \****************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/kmt-controls/typography/typo-modal.js ***!
+  \****************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -22905,9 +22868,9 @@ var TypographyModal = function TypographyModal(_ref) {
 /***/ }),
 
 /***/ "../../../customizer/custom-controls/react/src/options/options-component.js":
-/*!*******************************************************************************************************************************!*\
-  !*** C:/xampp/htdocs/wordpress/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/options/options-component.js ***!
-  \*******************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** /Users/nilecreations/.bitnami/stackman/machines/xampp/volumes/root/htdocs/kemet_theme/wp-content/themes/kemet/inc/customizer/custom-controls/react/src/options/options-component.js ***!
+  \*******************************************************************************************************************************************************************************************/
 /*! exports provided: OptionComponent, getSettingId, getSetting, isDisplay, renderOptions, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

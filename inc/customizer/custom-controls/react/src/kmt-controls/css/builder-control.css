@@ -1,6 +1,6 @@
 .customize-control-kmt-radio .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   display: inline-block;
 }
 .kmt-builder-is-active .preview-desktop #customize-preview,

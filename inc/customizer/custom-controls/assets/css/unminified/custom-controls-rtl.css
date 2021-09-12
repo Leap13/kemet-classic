@@ -110,7 +110,7 @@
   z-index: 20;
 }
 .kmt-color-picker-modal {
-  width: var(--modalWidth, 300px);
+  width: var(--modalWidth, 280px);
   border-radius: 8px;
 }
 .kmt-color-picker-modal[data-position="bottom"] .kmt-arrow {
@@ -656,7 +656,7 @@
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
-  --modal-x-offset: 12px !important;
+  --modal-x-offset: 20px !important;
 }
 .kmt-palettes-modal {
   max-height: 450px;
@@ -749,6 +749,13 @@
   font-size: 13px;
   font-weight: 500;
 }
+.customize-control-content .kmt-select-input {
+  width: 100%;
+}
+.customize-control-kmt-select .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
 
 .customize-control-kmt-background {
   position: relative;
@@ -759,6 +766,11 @@
   align-items: center;
   justify-content: space-between;
 }
+.customize-control-kmt-background .background-container header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 .components-circular-option-picker {
   display: inline-block;
   width: 100%;
@@ -768,8 +780,8 @@
   box-sizing: border-box;
 }
 .background-container .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -1163,13 +1175,14 @@
 .kmt-image-actions .actions .components-button.edit-image::before {
   content: "\f464";
 }
-.components-circular-option-picker__custom-clear-wrapper {
-  justify-content: initial;
-}
 .kmt-background-btn-reset-wrap {
   position: absolute;
-  right: -3px;
-  top: 15px;
+  right: 0;
+}
+.background-container:hover
+  .kmt-background-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn {
   color: #006ba1;
@@ -1177,29 +1190,32 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(20px, 0, 0);
+  transform: translate3d(17px, 0, 0);
   outline: 0;
   border: 0;
-  height: 18px;
   width: 18px;
-}
-.kmt-background-btn-reset-wrap .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
   opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.background-container:hover
-  .kmt-background-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled)
-  span {
-  opacity: 1;
+.kmt-background-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
 }
-.kmt-background-btn-reset-wrap .kmt-reset-btn span:hover {
+.kmt-background-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(45deg);
 }
 .kmt-background {
-  width: 38px;
-  height: 38px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   border-radius: 100%;
   margin-right: auto;
@@ -1663,8 +1679,8 @@
 }
 
 .customize-control-kmt-radio .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   display: inline-block;
 }
 .kmt-builder-is-active .preview-desktop #customize-preview,
@@ -7326,6 +7342,7 @@ i.fipicon-angle-left:before {
   vertical-align: top;
   position: relative;
   z-index: 8;
+  margin-top: -3px;
 }
 
 .kmt-responsive-control-btns > li {
@@ -8477,7 +8494,7 @@ i.fipicon-angle-left:before {
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;
-  width: var(--modalWidth);
+  width: var(--modalWidth, 280px);
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;
@@ -8512,7 +8529,7 @@ i.fipicon-angle-left:before {
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
-  --modal-x-offset: 12px !important;
+  --modal-x-offset: 20px !important;
 }
 .components-color-picker {
   width: 100%;
@@ -8984,8 +9001,8 @@ i.fipicon-angle-left:before {
 
 .customize-control-kmt-spacing .customize-control-title {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important ;
+  font-weight: 500 !important;
 }
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
@@ -8995,7 +9012,6 @@ i.fipicon-angle-left:before {
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-units {
   position: absolute;
-  transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
   left: 0px;
@@ -9038,6 +9054,7 @@ i.fipicon-angle-left:before {
   text-align: center;
   padding: 0 3px;
   width: 100% !important;
+  height: 32px;
 }
 
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
@@ -9088,12 +9105,11 @@ i.fipicon-angle-left:before {
   .kmt-spacing-input-item-link
   span {
   width: 35px;
-  height: 25px;
+  height: 32px;
   line-height: 26px;
   font-size: 14px;
   border: 1px solid #dcdddf;
   background-color: #fff;
-  padding: 2px 0;
   font-size: 12px;
 }
 .customize-control-kmt-spacing
@@ -9111,15 +9127,18 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.kmt-spacing-responsive header {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
-  top: 8px;
-  right: -3px;
+  right: 0;
 }
 .kmt-spacing-responsive:hover
   .kmt-spacing-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled)
-  span {
+  .kmt-reset-btn:not(:disabled) {
   opacity: 1;
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn {
@@ -9128,27 +9147,31 @@ input[type="number"] {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(15px, 0, 0);
+  transform: translate3d(17px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;
   height: 18px;
-}
-/*   */
-.kmt-spacing-btn-reset-wrap .kmt-reset-btn span,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
   opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.kmt-spacing-btn-reset-wrap .kmt-reset-btn span:hover {
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(45deg);
 }
-.kemet-color-clear-button.components-button:focus:not(:disabled) {
-  outline: unset;
-  border: none;
-  opacity: 1;
-}
+/*   */
+
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover,
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:focus,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,
@@ -9303,9 +9326,6 @@ input[type="checkbox"]:focus {
   padding-right: 2px;
 }
 
-.kmt-option-modal {
-  right: 12px;
-}
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;

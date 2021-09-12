@@ -22,14 +22,16 @@ const BackgroundComponent = (props) => {
     };
 
     let ResDefaultParam = {
-        desktop: defaultValue,
-        tablet: defaultValue,
-        mobile: defaultValue,
+        desktop: { ...defaultValue },
+        tablet: { ...defaultValue },
+        mobile: { ...defaultValue },
     };
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
-    let defaultVals = props.params.default ? props.params.default : defaultValues;
+    let defaultVals = props.params.default
+        ? props.params.default
+        : defaultValues;
 
     value = value ? value : defaultVals;
     const [props_value, setPropsValue] = useState(value);
@@ -40,23 +42,26 @@ const BackgroundComponent = (props) => {
         props.onChange({ ...obj, flag: !value.flag });
     };
 
-    let responsiveHtml = responsive ? <Responsive onChange={(device) => setDevice(device)} /> : null;
+    let responsiveHtml = responsive ? (
+        <Responsive onChange={(device) => setDevice(device)} />
+    ) : null;
 
+    console.log(value)
     const renderReset = () => {
         return (
-            <span className="customize-control-title">
+            <header >
                 <div className="kmt-background-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
                         disabled={
-                            JSON.stringify(props_value) === JSON.stringify(defaultVals)
+                            JSON.stringify(props_value) ===
+                            JSON.stringify(defaultVals)
                         }
                         onClick={(e) => {
                             e.preventDefault();
                             updateValue(defaultVals);
                         }}
                     >
-                        <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 <label>
@@ -64,7 +69,7 @@ const BackgroundComponent = (props) => {
                     {descriptionHtml}
                 </label>
                 {responsiveHtml}
-            </span>
+            </header>
         );
     };
 
@@ -126,7 +131,9 @@ const BackgroundComponent = (props) => {
                             : ""
                     }
                     onChangeComplete={(color) => handleChangeComplete(color)}
-                    onChangeGradient={(gradient) => handleChangeGradient(gradient)}
+                    onChangeGradient={(gradient) =>
+                        handleChangeGradient(gradient)
+                    }
                     media={
                         undefined !== renderBackground["background-media"] &&
                             renderBackground["background-media"]
@@ -140,7 +147,8 @@ const BackgroundComponent = (props) => {
                             : ""
                     }
                     backgroundAttachment={
-                        undefined !== renderBackground["background-attachment"] &&
+                        undefined !==
+                            renderBackground["background-attachment"] &&
                             renderBackground["background-attachment"]
                             ? renderBackground["background-attachment"]
                             : ""

@@ -2,3 +2,10 @@
   font-size: 13px;
   font-weight: 500;
 }
+.customize-control-content .kmt-select-input {
+  width: 100%;
+}
+.customize-control-kmt-select .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}

@@ -114,6 +114,7 @@
   vertical-align: top;
   position: relative;
   z-index: 8;
+  margin-top: -3px;
 }
 
 .kmt-responsive-control-btns > li {
