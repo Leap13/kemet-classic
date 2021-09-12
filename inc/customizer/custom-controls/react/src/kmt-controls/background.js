@@ -29,7 +29,9 @@ const BackgroundComponent = (props) => {
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
-    let defaultVals = props.params.default ? props.params.default : defaultValues;
+    let defaultVals = props.params.default
+        ? props.params.default
+        : defaultValues;
 
     value = value ? value : defaultVals;
     const [props_value, setPropsValue] = useState(value);
@@ -40,7 +42,9 @@ const BackgroundComponent = (props) => {
         props.onChange({ ...obj, flag: !value.flag });
     };
 
-    let responsiveHtml = responsive ? <Responsive onChange={(device) => setDevice(device)} /> : null;
+    let responsiveHtml = responsive ? (
+        <Responsive onChange={(device) => setDevice(device)} />
+    ) : null;
 
     const renderReset = () => {
         return (
@@ -49,7 +53,8 @@ const BackgroundComponent = (props) => {
                     <button
                         className="kmt-reset-btn "
                         disabled={
-                            JSON.stringify(props_value) === JSON.stringify(defaultVals)
+                            JSON.stringify(props_value) ===
+                            JSON.stringify(defaultVals)
                         }
                         onClick={(e) => {
                             e.preventDefault();
@@ -115,51 +120,54 @@ const BackgroundComponent = (props) => {
                     onSelect={(type) => onSelectType(type)}
                     color={
                         undefined !== renderBackground["background-color"] &&
-                            renderBackground["background-color"]
+                        renderBackground["background-color"]
                             ? renderBackground["background-color"]
                             : ""
                     }
                     gradient={
                         undefined !== renderBackground["background-gradient"] &&
-                            renderBackground["background-gradient"]
+                        renderBackground["background-gradient"]
                             ? renderBackground["background-gradient"]
                             : ""
                     }
                     onChangeComplete={(color) => handleChangeComplete(color)}
-                    onChangeGradient={(gradient) => handleChangeGradient(gradient)}
+                    onChangeGradient={(gradient) =>
+                        handleChangeGradient(gradient)
+                    }
                     media={
                         undefined !== renderBackground["background-media"] &&
-                            renderBackground["background-media"]
+                        renderBackground["background-media"]
                             ? renderBackground["background-media"]
                             : ""
                     }
                     backgroundImage={
                         undefined !== renderBackground["background-image"] &&
-                            renderBackground["background-image"]
+                        renderBackground["background-image"]
                             ? renderBackground["background-image"]
                             : ""
                     }
                     backgroundAttachment={
-                        undefined !== renderBackground["background-attachment"] &&
-                            renderBackground["background-attachment"]
+                        undefined !==
+                            renderBackground["background-attachment"] &&
+                        renderBackground["background-attachment"]
                             ? renderBackground["background-attachment"]
                             : ""
                     }
                     backgroundPosition={
                         undefined !== renderBackground["background-position"] &&
-                            renderBackground["background-position"]
+                        renderBackground["background-position"]
                             ? renderBackground["background-position"]
                             : ""
                     }
                     backgroundRepeat={
                         undefined !== renderBackground["background-repeat"] &&
-                            renderBackground["background-repeat"]
+                        renderBackground["background-repeat"]
                             ? renderBackground["background-repeat"]
                             : ""
                     }
                     backgroundSize={
                         undefined !== renderBackground["background-size"] &&
-                            renderBackground["background-size"]
+                        renderBackground["background-size"]
                             ? renderBackground["background-size"]
                             : ""
                     }
@@ -169,7 +177,7 @@ const BackgroundComponent = (props) => {
                     }
                     backgroundType={
                         undefined !== renderBackground["background-type"] &&
-                            renderBackground["background-type"]
+                        renderBackground["background-type"]
                             ? renderBackground["background-type"]
                             : "color"
                     }

@@ -5,7 +5,6 @@ import OutsideClickHandler from "../common/outside-component";
 const { __ } = wp.i18n;
 import usePopoverMaker from "../common/popover-component";
 
-
 const Background = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const backgroundWrapper = useRef();
@@ -34,15 +33,17 @@ const Background = (props) => {
                     backgroundColor: props.color,
                     "--background-position": props.backgroundPosition
                         ? ` ${Math.round(
-                            parseFloat(props.backgroundPosition.x) * 100
-                        )}% ${Math.round(parseFloat(props.backgroundPosition.y) * 100)}%`
+                              parseFloat(props.backgroundPosition.x) * 100
+                          )}% ${Math.round(
+                              parseFloat(props.backgroundPosition.y) * 100
+                          )}%`
                         : null,
                     "--background-image":
                         props.backgroundType === "gradient"
                             ? props.gradient
                             : props.backgroundImage
-                                ? `url(${props.backgroundImage})`
-                                : "none",
+                            ? `url(${props.backgroundImage})`
+                            : "none",
                 }}
             >
                 <i className="kmt-tooltip-top">
@@ -64,17 +65,20 @@ const Background = (props) => {
                         display="block"
                         disabled={!isOpen}
                         onOutsideClick={(e) => {
-                            if (e.target.closest('.media-modal-content')) {
-                                return
+                            if (e.target.closest(".media-modal-content")) {
+                                return;
                             }
                             setTimeout(() => setIsOpen(false));
                         }}
                         wrapperProps={{
                             style: styles,
                             ...popoverProps,
-                            className: cls("kmt-option-modal kmt-background-modal", {
-                                active: isOpen,
-                            }),
+                            className: cls(
+                                "kmt-option-modal kmt-background-modal",
+                                {
+                                    active: isOpen,
+                                }
+                            ),
                         }}
                     >
                         <BackgroundModal {...props} />

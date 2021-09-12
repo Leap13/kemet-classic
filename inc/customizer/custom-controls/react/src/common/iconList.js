@@ -463,6 +463,6 @@ const Dashicons = [
 
     "dashicons dashicons-layout",
 
-    "dashicons dashicons-paperclip"
-]
+    "dashicons dashicons-paperclip",
+];
 export default Dashicons;

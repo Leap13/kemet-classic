@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState, useEffect } from '@wordpress/element'
-import classnames from 'classnames'
-import { __ } from '@wordpress/i18n';
+import { useMemo, useRef, useState, useEffect } from "@wordpress/element";
+import classnames from "classnames";
+import { __ } from "@wordpress/i18n";
 
 export function nullifyTransforms(el) {
     const parseTransform = (el) =>
@@ -8,18 +8,18 @@ export function nullifyTransforms(el) {
             .getComputedStyle(el)
             .transform.split(/\(|,|\)/)
             .slice(1, -1)
-            .map((v) => parseFloat(v))
+            .map((v) => parseFloat(v));
 
     // 1
-    let { top, left, width, height } = el.getBoundingClientRect()
-    let transformArr = parseTransform(el)
+    let { top, left, width, height } = el.getBoundingClientRect();
+    let transformArr = parseTransform(el);
 
     if (transformArr.length == 6) {
         // 2D matrix
-        const t = transformArr
+        const t = transformArr;
 
         // 2
-        let det = t[0] * t[3] - t[1] * t[2]
+        let det = t[0] * t[3] - t[1] * t[2];
 
         // 3
         return {
@@ -27,11 +27,11 @@ export function nullifyTransforms(el) {
             height: height / t[3],
             left: (left * t[3] - top * t[2] + t[2] * t[5] - t[4] * t[3]) / det,
             top: (-left * t[1] + top * t[0] + t[4] * t[1] - t[0] * t[5]) / det,
-        }
+        };
     } else {
         // This case is not handled because it's very rarely needed anyway.
         // We just return the tranformed metrics, as they are, for consistency.
-        return { top, left, width, height }
+        return { top, left, width, height };
     }
 }
 
@@ -41,62 +41,62 @@ const usePopoverMaker = ({
     ref,
     defaultHeight = 0,
 } = {}) => {
-    const contentRef = useRef()
-    const [s, setState] = useState(null)
+    const contentRef = useRef();
+    const [s, setState] = useState(null);
 
     const refresh = () => {
         if (!shouldCalculate) {
-            return
+            return;
         }
 
-        setState(Math.random())
-    }
+        setState(Math.random());
+    };
 
     const refreshOnScroll = (e) => {
-        let modalRef = contentRefProp || contentRef
+        let modalRef = contentRefProp || contentRef;
 
         if (
             modalRef &&
             modalRef.current &&
             !modalRef.current.contains(e.target)
         ) {
-            refresh()
+            refresh();
         }
-    }
+    };
 
     useEffect(() => {
         setTimeout(() => {
-            refresh()
-        }, 500)
+            refresh();
+        }, 500);
 
-        window.addEventListener('resize', refresh)
-        window.addEventListener('scroll', refreshOnScroll, true)
+        window.addEventListener("resize", refresh);
+        window.addEventListener("scroll", refreshOnScroll, true);
 
-        let observer
+        let observer;
 
         if (ref.current) {
-            observer = new window.ResizeObserver(refresh)
+            observer = new window.ResizeObserver(refresh);
 
             observer.observe(ref.current, {
                 attributes: true,
-            })
+            });
 
-            if (ref.current.closest('.kmt-tabs-scroll')) {
-                observer.observe(ref.current.closest('.kmt-tabs-scroll'), {
+            if (ref.current.closest(".kmt-tabs-scroll")) {
+                observer.observe(ref.current.closest(".kmt-tabs-scroll"), {
                     attributes: true,
-                })
+                });
             }
 
-            if (ref.current.closest('.customize-pane-child')) {
-                observer.observe(ref.current.closest('.customize-pane-child'), {
+            if (ref.current.closest(".customize-pane-child")) {
+                observer.observe(ref.current.closest(".customize-pane-child"), {
                     attributes: true,
-                })
+                });
             }
         }
 
         if (contentRefProp ? contentRefProp.current : contentRef.current) {
             if (!observer) {
-                observer = new window.ResizeObserver(refresh)
+                observer = new window.ResizeObserver(refresh);
             }
 
             observer.observe(
@@ -104,113 +104,112 @@ const usePopoverMaker = ({
                 {
                     attributes: true,
                 }
-            )
+            );
         }
 
         return () => {
-            window.removeEventListener('resize', refresh)
-            window.removeEventListener('scroll', refreshOnScroll, true)
+            window.removeEventListener("resize", refresh);
+            window.removeEventListener("scroll", refreshOnScroll, true);
 
             if (observer) {
-                observer.disconnect()
+                observer.disconnect();
             }
-        }
-    }, [shouldCalculate, contentRef.current, contentRefProp, ref.current])
+        };
+    }, [shouldCalculate, contentRef.current, contentRefProp, ref.current]);
 
     let { right, yOffset, position, otherStyles, modalWidth } = useMemo(() => {
-        let right = 0
-        let yOffset = 0
-        let position = 'bottom'
-        let otherStyles = {}
+        let right = 0;
+        let yOffset = 0;
+        let position = "bottom";
+        let otherStyles = {};
         let selector = document.querySelector(".control-section.open");
         let modalWidth = 0;
         if (selector) {
             modalWidth = selector.clientWidth;
         }
 
-
         if (!shouldCalculate) {
-            return { yOffset, right, position }
+            return { yOffset, right, position };
         }
 
         if (ref.current) {
-            let rect = ref.current.getBoundingClientRect()
+            let rect = ref.current.getBoundingClientRect();
 
-            let el = ref.current.closest('.kmt-select-input')
-                ? ref.current.closest('.kmt-select-input')
+            let el = ref.current.closest(".kmt-select-input")
+                ? ref.current.closest(".kmt-select-input")
                 : ref.current;
 
-            let maybeWidthFlag = getComputedStyle(el, ':before').content
+            let maybeWidthFlag = getComputedStyle(el, ":before").content;
 
-            yOffset = rect.top + rect.height
-            right = window.innerWidth - rect.right - 6
+            yOffset = rect.top + rect.height;
+            right = window.innerWidth - rect.right - 6;
 
-            if (document.body.classList.contains('rtl')) {
-                right = rect.left
+            if (document.body.classList.contains("rtl")) {
+                right = rect.left;
             }
 
-            if (maybeWidthFlag.indexOf('ref-width') > -1) {
-                let width = rect.width
+            if (maybeWidthFlag.indexOf("ref-width") > -1) {
+                let width = rect.width;
 
                 if (
-                    maybeWidthFlag.indexOf('left') > -1 &&
+                    maybeWidthFlag.indexOf("left") > -1 &&
                     el.previousElementSibling
                 ) {
-                    if (document.body.classList.contains('rtl')) {
+                    if (document.body.classList.contains("rtl")) {
                         width =
                             el.previousElementSibling.getBoundingClientRect()
-                                .right - rect.left
+                                .right - rect.left;
                     } else {
                         width =
                             rect.right -
                             el.previousElementSibling.getBoundingClientRect()
-                                .left
+                                .left;
                     }
                 }
 
-                if (maybeWidthFlag.indexOf('right') > -1) {
+                if (maybeWidthFlag.indexOf("right") > -1) {
                     let nextRect = el.parentNode // el.nextElementSibling || el.parentNode
-                        .getBoundingClientRect()
+                        .getBoundingClientRect();
 
-                    if (document.body.classList.contains('rtl')) {
-                        right = nextRect.left
-                        width = rect.right - nextRect.left
+                    if (document.body.classList.contains("rtl")) {
+                        right = nextRect.left;
+                        width = rect.right - nextRect.left;
                     } else {
-                        right = window.innerWidth - nextRect.right
-                        width = nextRect.right - rect.left
+                        right = window.innerWidth - nextRect.right;
+                        width = nextRect.right - rect.left;
                     }
                 }
 
-                otherStyles['--x-selekmt-dropdown-width'] = `${width}px`
+                otherStyles["--x-selekmt-dropdown-width"] = `${width}px`;
             }
 
             let popoverRect =
                 (contentRefProp && contentRefProp.current) || contentRef.current
                     ? nullifyTransforms(
-                        contentRefProp
-                            ? contentRefProp.current
-                            : contentRef.current
-                    )
-                    : { height: defaultHeight }
+                          contentRefProp
+                              ? contentRefProp.current
+                              : contentRef.current
+                      )
+                    : { height: defaultHeight };
 
             if (
                 yOffset + popoverRect.height > window.innerHeight &&
                 rect.top - 15 > popoverRect.height
             ) {
-                position = 'top'
-                yOffset = window.innerHeight - rect.bottom + rect.height
+                position = "top";
+                yOffset = window.innerHeight - rect.bottom + rect.height;
             }
 
             if (
                 yOffset + popoverRect.height > window.innerHeight &&
-                position === 'bottom'
+                position === "bottom"
             ) {
-                position = 'top'
-                yOffset = 0
+                position = "top";
+                yOffset = 0;
             }
         }
 
-        return { yOffset, right, position, otherStyles, modalWidth }
+        return { yOffset, right, position, otherStyles, modalWidth };
     }, [
         s,
         shouldCalculate,
@@ -219,14 +218,14 @@ const usePopoverMaker = ({
         contentRefProp,
         contentRef.current,
         defaultHeight,
-    ])
+    ]);
 
     return {
         refreshPopover: refresh,
         styles: {
-            '--modal-y-offset': `${yOffset}px`,
-            '--modal-x-offset': `${right}px`,
-            '--modalWidth': `${modalWidth - 20}px`,
+            "--modal-y-offset": `${yOffset}px`,
+            "--modal-x-offset": `${right}px`,
+            "--modalWidth": `${modalWidth - 20}px`,
 
             ...otherStyles,
             // [position === 'bottom' ? 'top' : 'bottom']: `${yOffset}px`,
@@ -239,11 +238,11 @@ const usePopoverMaker = ({
             ref: contentRefProp || contentRef,
             ...(position
                 ? {
-                    'data-position': position,
-                }
+                      "data-position": position,
+                  }
                 : {}),
         },
-    }
-}
+    };
+};
 
-export default usePopoverMaker
+export default usePopoverMaker;

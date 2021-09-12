@@ -1,72 +1,78 @@
-import { createPortal, useRef, useState } from '@wordpress/element'
-import PalettePreview from './color-palettes/PalettePreview'
-import ColorPalettesModal from './color-palettes/ColorPalettesModal'
-import usePopoverMaker from '../common/popover-component'
-import OutsideClickHandler from '../common/outside-component'
-import { Transition } from '@react-spring/web'
-import bezierEasing from 'bezier-easing'
+import { createPortal, useRef, useState } from "@wordpress/element";
+import PalettePreview from "./color-palettes/PalettePreview";
+import ColorPalettesModal from "./color-palettes/ColorPalettesModal";
+import usePopoverMaker from "../common/popover-component";
+import OutsideClickHandler from "../common/outside-component";
+import { Transition } from "@react-spring/web";
+import bezierEasing from "bezier-easing";
 const { __ } = wp.i18n;
 
 const ColorPalettes = (props) => {
-    const [value, setValue] = useState(props.value)
+    const [value, setValue] = useState(props.value);
 
-    const colorPalettesWrapper = useRef()
+    const colorPalettesWrapper = useRef();
 
     const [{ isOpen, isTransitioning }, setModalState] = useState({
         isOpen: false,
         isTransitioning: false,
-    })
+    });
 
     const { styles, popoverProps } = usePopoverMaker({
         ref: colorPalettesWrapper,
         defaultHeight: 430,
         shouldCalculate: isTransitioning || isOpen,
-    })
+    });
 
     const setIsOpen = (isOpen) => {
         setModalState((state) => ({
             ...state,
             isOpen,
             isTransitioning: true,
-        }))
-    }
+        }));
+    };
 
     const stopTransitioning = () =>
         setModalState((state) => ({
             ...state,
             isTransitioning: false,
-        }))
+        }));
 
     const updateValues = (val) => {
         setValue(val);
-        props.onChange({ ...val, flag: !value.flag })
-    }
+        props.onChange({ ...val, flag: !value.flag });
+    };
 
     const handleChangePalette = (active) => {
         let currentPalette = active.palettes.find(
             ({ id }) => id === active.current_palette
-        )
+        );
         Object.values(currentPalette).map((item, index) => {
-            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            document.documentElement.style.setProperty(
+                "--paletteColor" + index,
+                item
+            );
             return item;
         });
 
-        updateValues(active)
-    }
+        updateValues(active);
+    };
 
     const handleChangeComplete = (color, index) => {
         let currentPalette = value.palettes.find(
             ({ id }) => id === value.current_palette
-        )
+        );
         let newValue = currentPalette;
         newValue[index] = color;
         let { id, ...colors } = newValue;
         Object.values(newValue).map((item, index) => {
-            document.documentElement.style.setProperty('--paletteColor' + index, item);
+            document.documentElement.style.setProperty(
+                "--paletteColor" + index,
+                item
+            );
             return item;
         });
-        updateValues({ ...value, current_palette: id, ...colors })
-    }
+        updateValues({ ...value, current_palette: id, ...colors });
+    };
 
     return (
         <div>
@@ -76,30 +82,33 @@ const ColorPalettes = (props) => {
                 className="kmt-palettes-preview"
                 additionalRefs={[popoverProps.ref]}
                 onOutsideClick={() => {
-                    setIsOpen(false)
+                    setIsOpen(false);
                 }}
                 wrapperProps={{
                     ref: colorPalettesWrapper,
                     onClick: (e) => {
-                        e.preventDefault()
+                        e.preventDefault();
                         if (
-                            e.target.closest('.kmt-color-picker-modal') ||
-                            e.target.classList.contains('kmt-color-picker-modal')
+                            e.target.closest(".kmt-color-picker-modal") ||
+                            e.target.classList.contains(
+                                "kmt-color-picker-modal"
+                            )
                         ) {
-                            return
+                            return;
                         }
                         if (!value.palettes) {
-                            return
+                            return;
                         }
-                        setIsOpen(true)
+                        setIsOpen(true);
                     },
-                }}>
+                }}
+            >
                 <PalettePreview
                     onClick={() => {
                         if (!value.palettes) {
-                            return
+                            return;
                         }
-                        setIsOpen(false)
+                        setIsOpen(false);
                     }}
                     value={value}
                     onChange={(v, id) => handleChangeComplete(v, id)}
@@ -107,13 +116,12 @@ const ColorPalettes = (props) => {
                 />
             </OutsideClickHandler>
 
-            {
-                (isTransitioning || isOpen) &&
+            {(isTransitioning || isOpen) &&
                 createPortal(
                     <Transition
                         items={isOpen}
                         onRest={(isOpen) => {
-                            stopTransitioning()
+                            stopTransitioning();
                         }}
                         config={{
                             duration: 100,
@@ -122,34 +130,35 @@ const ColorPalettes = (props) => {
                         from={
                             isOpen
                                 ? {
-                                    transform: 'scale3d(0.95, 0.95, 1)',
-                                    opacity: 0,
-                                }
+                                      transform: "scale3d(0.95, 0.95, 1)",
+                                      opacity: 0,
+                                  }
                                 : { opacity: 1 }
                         }
                         enter={
                             isOpen
                                 ? {
-                                    transform: 'scale3d(1, 1, 1)',
-                                    opacity: 1,
-                                }
+                                      transform: "scale3d(1, 1, 1)",
+                                      opacity: 1,
+                                  }
                                 : {
-                                    opacity: 1,
-                                }
+                                      opacity: 1,
+                                  }
                         }
                         leave={
                             !isOpen
                                 ? {
-                                    transform: 'scale3d(0.95, 0.95, 1)',
-                                    opacity: 0,
-                                }
+                                      transform: "scale3d(0.95, 0.95, 1)",
+                                      opacity: 0,
+                                  }
                                 : {
-                                    opacity: 1,
-                                }
-                        }>
+                                      opacity: 1,
+                                  }
+                        }
+                    >
                         {(style, item) => {
                             if (!item) {
-                                return null
+                                return null;
                             }
                             return (
                                 <ColorPalettesModal
@@ -161,20 +170,19 @@ const ColorPalettes = (props) => {
                                         ...popoverProps,
                                     }}
                                     onChange={(val) => {
-                                        setIsOpen(false)
-                                        handleChangePalette(val)
+                                        setIsOpen(false);
+                                        handleChangePalette(val);
                                     }}
                                     value={value}
                                     option={value}
                                 />
-                            )
+                            );
                         }}
                     </Transition>,
                     document.body
-                )
-            }
-        </div >
-    )
-}
+                )}
+        </div>
+    );
+};
 
-export default ColorPalettes
+export default ColorPalettes;

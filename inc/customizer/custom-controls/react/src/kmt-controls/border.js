@@ -1,71 +1,103 @@
-import { useState } from '@wordpress/element'
-import OutsideClickHandler from '../common/outside-component'
-import classnames from 'classnames'
-import ColorComponent from './color'
+import { useState } from "@wordpress/element";
+import OutsideClickHandler from "../common/outside-component";
+import classnames from "classnames";
+import ColorComponent from "./color";
 const { __ } = wp.i18n;
 const clamp = (min, max, value) => Math.max(min, Math.min(max, value));
 const Border = ({ value, onChange, params }) => {
     let { secondColor, label } = params;
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
     let defaultValue = {
         secondColor: true,
-        style: 'none',
-        width: '',
-        color: '',
-        secondColor: ''
-    }
+        style: "none",
+        width: "",
+        color: "",
+        secondColor: "",
+    };
     value = value ? value : defaultValue;
+
+    const [state, setState] = useState(value);
+    const handleChangeComplete = (color, id) => {
+        let colorValue = state;
+
+        if (typeof color === "string") {
+            value[id] = color;
+        } else if (
+            undefined !== color.rgb &&
+            undefined !== color.rgb.a &&
+            1 !== color.rgb.a
+        ) {
+            value[
+                id
+            ] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+        } else {
+            value[id] = color.hex;
+        }
+        setState(colorValue);
+
+        onChange(colorValue);
+    };
+
+    console.log(state);
     return (
         <div className={`kmt-border-container`}>
             <header>
                 <div className="kmt-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
-                        disabled={JSON.stringify(defaultValue) === JSON.stringify(value)}
-                        onClick={e => {
-                            e.preventDefault()
-                            onChange({ ...defaultValue })
-                        }}>
-                    </button>
+                        disabled={
+                            JSON.stringify(defaultValue) ===
+                            JSON.stringify(value)
+                        }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setState({ ...defaultValue });
+                            onChange({ ...defaultValue });
+                        }}
+                    ></button>
                 </div>
                 <span className="customize-control-title">{label}</span>
             </header>
-            <div className={classnames('kmt-option-border')}>
+            <div className={classnames("kmt-option-border")}>
                 <div
-                    className={classnames('kmt-value-changer', {
-                        ['active']: isOpen,
-                        ['kmt-disabled']: value.style === 'none',
-                    })}>
+                    className={classnames("kmt-value-changer", {
+                        ["active"]: isOpen,
+                        ["kmt-disabled"]: value.style === "none",
+                    })}
+                >
                     <input
                         type="number"
                         value={value.width}
-                        onChange={({ target: { value: width } }) =>
+                        onChange={({ target: { value: width } }) => {
+                            setState({
+                                ...value,
+                                width: clamp(1, 5, parseInt(width, 10) || 1),
+                            });
                             onChange({
                                 ...value,
                                 width: clamp(1, 5, parseInt(width, 10) || 1),
-                            })
-                        }
+                            });
+                        }}
                     />
 
                     <span className="kmt-value-divider"></span>
 
                     <span
                         className="kmt-current-value"
-                        data-style={value.inherit ? 'none' : value.style}
-                        onClick={() => setIsOpen(!isOpen)}>
-                        {value.style === 'none'
-                            ? value.style
-                            : null
-                        }
+                        data-style={value.inherit ? "none" : value.style}
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {value.style === "none" ? value.style : null}
                     </span>
                     <OutsideClickHandler
                         disabled={!isOpen}
                         onOutsideClick={() => {
-                            if (!isOpen) return
-                            setIsOpen(false)
-                        }}>
+                            if (!isOpen) return;
+                            setIsOpen(false);
+                        }}
+                    >
                         <ul className="kmt-styles-list">
-                            {['solid', 'dashed', 'dotted', 'none']
+                            {["solid", "dashed", "dotted", "none"]
                                 .reduce(
                                     (current, el, index) => [
                                         ...current.slice(
@@ -75,13 +107,13 @@ const Border = ({ value, onChange, params }) => {
                                         ...(index % 2 === 0
                                             ? [[el]]
                                             : [
-                                                [
-                                                    current[
-                                                    current.length - 1
-                                                    ][0],
-                                                    el,
-                                                ],
-                                            ]),
+                                                  [
+                                                      current[
+                                                          current.length - 1
+                                                      ][0],
+                                                      el,
+                                                  ],
+                                              ]),
                                     ],
                                     []
                                 )
@@ -90,21 +122,26 @@ const Border = ({ value, onChange, params }) => {
                                         {group.map((style) => (
                                             <span
                                                 className={classnames({
-                                                    active: style === value.style,
+                                                    active:
+                                                        style === value.style,
                                                 })}
                                                 data-style={style}
                                                 key={style}
                                                 onClick={() => {
+                                                    setState({
+                                                        ...value,
+                                                        style,
+                                                    });
                                                     onChange({
                                                         ...value,
                                                         style,
-
-                                                    })
-                                                    setIsOpen(false)
+                                                    });
+                                                    setIsOpen(false);
                                                 }}
-                                                data-style={style}>
-                                                {style === 'none'
-                                                    ? __('None', 'Kemet')
+                                                data-style={style}
+                                            >
+                                                {style === "none"
+                                                    ? __("None", "Kemet")
                                                     : null}
                                             </span>
                                         ))}
@@ -115,45 +152,31 @@ const Border = ({ value, onChange, params }) => {
                 </div>
 
                 <ColorComponent
-                    onChange={(colorValue) =>
-                        onChange({
-                            ...value,
-                            color: colorValue.default,
-                        })
+                    onChangeComplete={(colorValue) =>
+                        handleChangeComplete(colorValue, "color")
                     }
-                    picker={
-                        {
-                            id: 'default',
-                            title: __('Initial', 'kemet'),
-                        }
-                    }
-                    value={{
-                        default: value.color,
+                    picker={{
+                        id: "default",
+                        title: __("Initial", "kemet"),
                     }}
+                    value={{ default: value.color }}
                 />
 
                 {secondColor && (
                     <ColorComponent
-                        onChange={(colorValue) =>
-                            onChange({
-                                ...value,
-                                secondColor: colorValue.default,
-                            })
+                        onChangeComplete={(colorValue) =>
+                            handleChangeComplete(colorValue, "secondColor")
                         }
-                        picker={
-                            {
-                                id: 'default',
-                                title: __('Hover', 'kemet'),
-                            }
-                        }
-                        value={{
-                            default: value.secondColor
+                        picker={{
+                            id: "default",
+                            title: __("Hover", "kemet"),
                         }}
+                        value={{ default: value.secondColor }}
                     />
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Border
+export default Border;
