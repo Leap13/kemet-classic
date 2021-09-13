@@ -15,7 +15,7 @@ const TextComponent = props => {
         label,
     } = props.params;
 
-    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
+    let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     return <>
         {labelContent}

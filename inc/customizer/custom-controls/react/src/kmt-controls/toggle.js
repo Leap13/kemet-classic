@@ -8,7 +8,7 @@ const ToggleControlComponent = (props) => {
   let value = props.value ? props.value : defaultValue;
   const [props_value, setPropsValue] = useState(value);
   let labelContent = label ? (
-    <span className="toggle-control-label">{label}</span>
+    <span className="toggle-control-label kmt-control-title">{label}</span>
   ) : null;
 
   const updateValues = () => {

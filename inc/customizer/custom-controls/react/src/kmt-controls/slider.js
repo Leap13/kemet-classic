@@ -60,7 +60,7 @@ class ResponsiveSliderComponent extends Component {
 
     handleUnitChange = (device, value) => {
         let updateState = { ...this.state.initialState };
-        this.responsive ? updateState[`${device}-unit`] = valueelse : updateState[`unit`] = value;
+        this.responsive ? updateState[`${device}-unit`] = value : updateState[`unit`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
@@ -115,7 +115,7 @@ class ResponsiveSliderComponent extends Component {
                 onChange={(currentDevice) => this.setState({ currentDevice })}
                 label={label}
             />
-        ) : <span className="customize-control-title">{label}</span>;
+        ) : <span className="customize-control-title kmt-control-title">{label}</span>;
 
         let unitHTML = units.map((unit) => {
             let unit_class;

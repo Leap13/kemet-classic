@@ -1,141 +1,146 @@
-import { createPortal, useRef, useMemo, useCallback, useState, useEffect } from '@wordpress/element';
-import classnames from 'classnames';
-import OutsideComponent from '../common/outside-component';
-import PopoverComponent from '../common/popover-component';
-import { Transition } from '@react-spring/web'
-import bezierEasing from 'bezier-easing'
-import { __ } from '@wordpress/i18n';
-import { humanizeVariations, familyForDisplay } from './typography/helpers'
+import {
+    createPortal,
+    useRef,
+    useMemo,
+    useCallback,
+    useState,
+    useEffect,
+} from "@wordpress/element";
+import classnames from "classnames";
+import OutsideComponent from "../common/outside-component";
+import PopoverComponent from "../common/popover-component";
+import { Transition } from "@react-spring/web";
+import bezierEasing from "bezier-easing";
+import { __ } from "@wordpress/i18n";
+import { humanizeVariations, familyForDisplay } from "./typography/helpers";
 
-import TypographyModal from './typography/typo-modal'
+import TypographyModal from "./typography/typo-modal";
 
 const getLeftForEl = (modal, el) => {
-    if (!modal) return
-    if (!el) return
+    if (!modal) return;
+    if (!el) return;
 
-    let style = getComputedStyle(modal)
+    let style = getComputedStyle(modal);
 
-    let wrapperLeft = parseFloat(style.left)
+    let wrapperLeft = parseFloat(style.left);
 
-    el = el.getBoundingClientRect()
+    el = el.getBoundingClientRect();
 
     return {
-        '--option-modal-arrow-position': `${el.left + el.width / 2 - wrapperLeft - 6
+        "--option-modal-arrow-position": `${el.left + el.width / 2 - wrapperLeft - 6
             }px`,
-    }
-}
+    };
+};
 
 const Typography = (props) => {
     let value = props.value;
     let defaultValue = {
-        'family': 'System Default',
-        'variation': 'n4',
-        'size': {
-            "desktop": '15',
-            "desktop-unit": 'px',
-            'tablet': '',
-            'tablet-unit': 'px',
-            'mobile': '',
-            'mobile-unit': 'px'
+        family: "System Default",
+        variation: "n4",
+        size: {
+            desktop: "15",
+            "desktop-unit": "px",
+            tablet: "",
+            "tablet-unit": "px",
+            mobile: "",
+            "mobile-unit": "px",
         },
-        'line-height': {
-            "desktop": '',
-            "desktop-unit": 'px',
-            'tablet': '',
-            'tablet-unit': 'px',
-            'mobile': '',
-            'mobile-unit': 'px'
+        "line-height": {
+            desktop: "",
+            "desktop-unit": "px",
+            tablet: "",
+            "tablet-unit": "px",
+            mobile: "",
+            "mobile-unit": "px",
         },
-        'letter-spacing': {
-            "desktop": '',
-            "desktop-unit": 'px',
-            'tablet': '',
-            'tablet-unit': 'px',
-            'mobile': '',
-            'mobile-unit': 'px'
+        "letter-spacing": {
+            desktop: "",
+            "desktop-unit": "px",
+            tablet: "",
+            "tablet-unit": "px",
+            mobile: "",
+            "mobile-unit": "px",
         },
 
-        'text-transform': 'none',
-        'text-decoration': 'none',
-    }
+        "text-transform": "none",
+        "text-decoration": "none",
+    };
 
-    let { label } = props.params
+    let { label } = props.params;
 
     useEffect(() => {
-        getInitialDevice()
-    }, [])
+        getInitialDevice();
+    }, []);
     const getInitialDevice = () => {
-
-        return wp.customize.previewedDevice()
-
-    }
-    value = value ? value : defaultValue;
-    const [currentViewCache, setCurrentViewCache] = useState('_:_')
-    const [device, setInnerDevice] = useState(getInitialDevice())
+        return wp.customize.previewedDevice();
+    };
+    value = value ? { ...defaultValue, ...value } : defaultValue;
+    const [currentViewCache, setCurrentViewCache] = useState("_:_");
+    const [device, setInnerDevice] = useState(getInitialDevice());
     const listener = () => {
-        setInnerDevice(getInitialDevice())
-    }
+        setInnerDevice(getInitialDevice());
+    };
     if (wp.customize) {
-        setTimeout(() => wp.customize.previewedDevice.bind(listener), 1000)
+        setTimeout(() => wp.customize.previewedDevice.bind(listener), 1000);
     }
 
-    const typographyWrapper = useRef()
+    const typographyWrapper = useRef();
 
     let [currentView, previousView] = useMemo(
-        () => currentViewCache.split(':'),
+        () => currentViewCache.split(":"),
         [currentViewCache]
-    )
+    );
     const [{ isOpen, isTransitioning }, setModalState] = useState({
         isOpen: false,
         isTransitioning: false,
-    })
+    });
 
     const { styles, popoverProps } = PopoverComponent({
         ref: typographyWrapper,
         defaultHeight: 430,
         shouldCalculate: isTransitioning || isOpen,
-    })
+    });
     const setCurrentView = useCallback(
         (newView) => setCurrentViewCache(`${newView}:${currentView}`),
         [currentView]
-    )
+    );
 
     const setIsOpen = (isOpen) => {
         setModalState((state) => ({
             ...state,
             isOpen,
             isTransitioning: true,
-        }))
-    }
+        }));
+    };
 
     const stopTransitioning = () =>
         setModalState((state) => ({
             ...state,
             isTransitioning: false,
-        }))
+        }));
 
-    const fontFamilyRef = useRef()
-    const fontSizeRef = useRef()
-    const fontWeightRef = useRef()
-    const dotsRef = useRef()
+    const fontFamilyRef = useRef();
+    const fontSizeRef = useRef();
+    const fontWeightRef = useRef();
+    const dotsRef = useRef();
 
     const arrowLeft = useMemo(() => {
-        const view = currentView
+        const view = currentView;
 
         const futureRef =
-            view === 'options'
+            view === "options"
                 ? fontSizeRef.current
-                : view === 'fonts'
+                : view === "fonts"
                     ? fontFamilyRef.current
-                    : view === 'variations'
+                    : view === "variations"
                         ? fontWeightRef.current
-                        : fontSizeRef.current
+                        : fontSizeRef.current;
 
         return (
             popoverProps.ref &&
             popoverProps.ref.current &&
             getLeftForEl(popoverProps.ref.current, futureRef)
-        )
+        );
     }, [
         isOpen,
         currentView,
@@ -145,32 +150,35 @@ const Typography = (props) => {
         fontWeightRef && fontWeightRef.current,
         fontSizeRef && fontSizeRef.current,
         dotsRef && dotsRef.current,
-    ])
+    ]);
 
     const updateValues = (obj) => {
-        props.onChange(obj)
-    }
+        props.onChange(obj);
+    };
 
     return (
-        <div className={classnames('kmt-typography', {})}>
+        <div className={classnames("kmt-typography", {})}>
             <header>
-                <div className={`kmt-reset-btn`}>
+                <div className={`kmt-typography-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
-                        disabled={(JSON.stringify(value) === JSON.stringify(defaultValue))}
-                        onClick={e => {
+                        disabled={
+                            JSON.stringify(value) ===
+                            JSON.stringify(defaultValue)
+                        }
+                        onClick={(e) => {
                             e.preventDefault();
-                            let resetValue = JSON.parse(JSON.stringify(defaultValue));
-                            if (undefined === resetValue || '' === resetValue) {
-                                resetValue = 'unset';
+                            let resetValue = JSON.parse(
+                                JSON.stringify(defaultValue)
+                            );
+                            if (undefined === resetValue || "" === resetValue) {
+                                resetValue = "unset";
                             }
                             updateValues(resetValue);
-                        }}>
-                        <span className="dashicons dashicons-image-rotate"></span>
-                    </button>
+                        }}
+                    ></button>
                 </div>
-                <span className="customize-control-title">{label}</span>
-
+                <span className="customize-control-title kmt-control-title">{label}</span>
             </header>
             <OutsideComponent
                 disabled={!isOpen}
@@ -178,89 +186,92 @@ const Typography = (props) => {
                 className="kmt-typohraphy-value"
                 additionalRefs={[popoverProps.ref]}
                 onOutsideClick={() => {
-                    setIsOpen(false)
+                    setIsOpen(false);
                 }}
                 wrapperProps={{
                     ref: typographyWrapper,
                     onClick: (e) => {
-                        e.preventDefault()
+                        e.preventDefault();
 
                         if (isOpen) {
-                            setCurrentView('fonts')
-                            return
+                            setCurrentView("fonts");
+                            return;
                         }
-                        setCurrentViewCache('fonts:_')
-                        setIsOpen('fonts')
+                        setCurrentViewCache("fonts:_");
+                        setIsOpen("fonts");
                     },
-                }}>
+                }}
+            >
                 <div>
                     <span
                         onClick={(e) => {
-                            e.stopPropagation()
+                            e.stopPropagation();
 
                             if (isOpen) {
-                                setCurrentView('fonts')
-                                return
+                                setCurrentView("fonts");
+                                return;
                             }
 
-                            setCurrentViewCache('fonts:_')
-                            setIsOpen('fonts')
+                            setCurrentViewCache("fonts:_");
+                            setIsOpen("fonts");
                         }}
                         className="kmt-font"
-                        ref={fontFamilyRef}>
+                        ref={fontFamilyRef}
+                    >
                         <span>
-                            {value.family === 'Default'
-                                ? 'Default Family'
+                            {value.family === "Default"
+                                ? "Default Family"
                                 : familyForDisplay(value.family)}
                         </span>
                     </span>
                     <i>/</i>
                     <span
                         onClick={(e) => {
-                            e.stopPropagation()
+                            e.stopPropagation();
 
                             if (isOpen) {
-                                setCurrentView('options')
-                                return
+                                setCurrentView("options");
+                                return;
                             }
-                            setCurrentViewCache('options:_')
-                            setIsOpen('font_size')
+                            setCurrentViewCache("options:_");
+                            setIsOpen("font_size");
                         }}
                         ref={fontSizeRef}
-                        className="kmt-size">
+                        className="kmt-size"
+                    >
                         <span>
-                            {`${value.size[device]}${value.size[`${device}-unit`]} `}
+                            {`${value.size[device]}${value.size[`${device}-unit`]
+                                } `}
                         </span>
                     </span>
                     <i>/</i>
                     <span
                         ref={fontWeightRef}
                         onClick={(e) => {
-                            e.stopPropagation()
+                            e.stopPropagation();
 
                             if (isOpen) {
-                                setCurrentView('variations')
-                                return
+                                setCurrentView("variations");
+                                return;
                             }
 
-                            setCurrentViewCache('variations:_')
-                            setIsOpen('variations')
+                            setCurrentViewCache("variations:_");
+                            setIsOpen("variations");
                         }}
-                        className="kmt-weight">
+                        className="kmt-weight"
+                    >
                         <span>{humanizeVariations(value.variation)}</span>
-
                     </span>
                 </div>
 
                 <a ref={dotsRef} />
-
             </OutsideComponent>
             {(isTransitioning || isOpen) &&
                 createPortal(
                     <Transition
                         items={isOpen}
                         onRest={(isOpen) => {
-                            stopTransitioning()
+                            stopTransitioning();
                         }}
                         config={{
                             duration: 100,
@@ -269,7 +280,7 @@ const Typography = (props) => {
                         from={
                             isOpen
                                 ? {
-                                    transform: 'scale3d(0.95, 0.95, 1)',
+                                    transform: "scale3d(0.95, 0.95, 1)",
                                     opacity: 0,
                                 }
                                 : { opacity: 1 }
@@ -277,7 +288,7 @@ const Typography = (props) => {
                         enter={
                             isOpen
                                 ? {
-                                    transform: 'scale3d(1, 1, 1)',
+                                    transform: "scale3d(1, 1, 1)",
                                     opacity: 1,
                                 }
                                 : {
@@ -287,7 +298,7 @@ const Typography = (props) => {
                         leave={
                             !isOpen
                                 ? {
-                                    transform: 'scale3d(0.95, 0.95, 1)',
+                                    transform: "scale3d(0.95, 0.95, 1)",
                                     opacity: 0,
                                 }
                                 : {
@@ -297,11 +308,10 @@ const Typography = (props) => {
                     >
                         {(style, item) => {
                             if (!item) {
-                                return null
+                                return null;
                             }
 
                             return (
-
                                 <TypographyModal
                                     wrapperProps={{
                                         style: {
@@ -311,7 +321,6 @@ const Typography = (props) => {
                                         },
                                         ...popoverProps,
                                     }}
-
                                     onChange={props.onChange}
                                     value={value}
                                     option={props}
@@ -319,19 +328,16 @@ const Typography = (props) => {
                                     setInititialView={(initialView) =>
                                         setIsOpen(initialView)
                                     }
-
                                     currentView={currentView}
                                     previousView={previousView}
                                     setCurrentView={setCurrentView}
                                 />
-                            )
-
-
+                            );
                         }}
                     </Transition>,
                     document.body
                 )}
-        </div>)
-}
-export default Typography
-
+        </div>
+    );
+};
+export default Typography;

@@ -210,27 +210,24 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					// Kemet Colors.
 					// Kemet Colors.
 					'colorPalette'                         => array(
-						'color1'          => '#2872fa',
-						'color2'          => '#1559ed',
-						'color3'          => '#3A4F66',
-						'color4'          => '#192a3d',
-						'color5'          => '#e1e8ed',
-						'color6'          => '#f2f5f7',
-						'color7'          => '#FAFBFC',
-						'color8'          => '#ffffff',
+						'color1'          => '#0085ba',
+						'color2'          => '#333333',
+						'color3'          => '#444140',
+						'color4'          => '#eaeaea',
+						'color5'          => '#ffffff',
+						'color6'          => '#fbfbfb',
+						'color7'          => '#222222',
 						'current_palette' => 'palette-2',
 						'palettes'        => array(
 							array(
 								'id'     => 'palette-2',
-								'color1' => '#2872fa',
-								'color2' => '#1559ed',
-								'color3' => '#3A4F66',
-								'color4' => '#192a3d',
-								'color5' => '#e1e8ed',
-								'color6' => '#f2f5f7',
-								'color7' => '#FAFBFC',
-								'color8' => '#ffffff',
-
+								'color1'          => '#0085ba',
+								'color2'          => '#333333',
+								'color3'          => '#444140',
+								'color4'          => '#eaeaea',
+								'color5'          => '#ffffff',
+								'color6'          => '#fbfbfb',
+								'color7'          => '#222222',
 							),
 							array(
 								'id'     => 'palette-1',
@@ -241,7 +238,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#E2E7ED',
 								'color6' => '#edeff2',
 								'color7' => '#f8f9fb',
-								'color8' => '#ffffff',
 							),
 							array(
 								'id'     => 'palette-3',
@@ -252,7 +248,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#DFDFE2',
 								'color6' => '#F4F4F5',
 								'color7' => '#FBFBFB',
-								'color8' => '#ffffff',
 							),
 							array(
 								'id'     => 'palette-4',
@@ -263,7 +258,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#E7E9EF',
 								'color6' => '#f3f4f7',
 								'color7' => '#FBFBFC',
-								'color8' => '#ffffff',
 							),
 							array(
 								'id'     => 'palette-5',
@@ -274,10 +268,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#1e2933',
 								'color6' => '#0F141A',
 								'color7' => '#141b22',
-								'color8' => '#1B242C',
-
 							),
-
 							array(
 								'id'     => 'palette-6',
 								'color1' => '#007f5f',
@@ -287,8 +278,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#E6F0EE',
 								'color6' => '#F2F7F6',
 								'color7' => '#FBFCFC',
-								'color8' => '#ffffff',
-
 							),
 							array(
 								'id'     => 'palette-7',
@@ -299,7 +288,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#E7EBEE',
 								'color6' => '#F3F5F7',
 								'color7' => '#FBFBFC',
-								'color8' => '#ffffff',
 							),
 							array(
 								'id'     => 'palette-8',
@@ -310,8 +298,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#e8ebed',
 								'color6' => '#f4f5f6',
 								'color7' => '#FBFBFC',
-								'color8' => '#ffffff',
-
 							),
 						),
 					),

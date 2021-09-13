@@ -19,6 +19,8 @@
   background: #fff;
   cursor: move;
   z-index: 999999;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu {

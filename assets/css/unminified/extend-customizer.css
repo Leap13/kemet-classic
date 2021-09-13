@@ -17,6 +17,8 @@
   border-left: 4px solid #fff;
   -webkit-transition: 0.15s color ease-in-out,
     0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
+  -webkit-transition: 0.15s color ease-in-out,
+    0.15s background-color ease-in-out, 0.15s border-color ease-in-out;
   -webkit-transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
     0.15s border-color ease-in-out;
   transition: 0.15s color ease-in-out, 0.15s background-color ease-in-out,
@@ -47,6 +49,6 @@
 }
 
 #customize-controls .control-section-kmt_section .accordion-section {
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: -18px;
+  margin-right: -18px;
 }

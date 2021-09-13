@@ -567,6 +567,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   top: 50%;
   transform: translateY(-50%);
 }
+.kmt-builder-item-add-icon:hover::after {
+  opacity: 0.7;
+}
 
 .kmt-dragging-dropzones .kmt-builder-item-add-icon:after {
   opacity: 1;

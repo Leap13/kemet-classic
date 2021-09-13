@@ -104,8 +104,8 @@
   .kmt-spacing-input-item-link
   span {
   width: 35px;
-  height: 32px;
-  line-height: 26px;
+  height: 30px;
+  line-height: 30px;
   font-size: 14px;
   border: 1px solid #dcdddf;
   background-color: #fff;
@@ -130,6 +130,7 @@ input[type="number"] {
   display: flex;
   position: relative;
   align-items: center;
+  margin-bottom: 5px;
 }
 .kmt-spacing-btn-reset-wrap {
   position: absolute;

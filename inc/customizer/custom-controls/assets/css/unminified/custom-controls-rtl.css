@@ -2,7 +2,7 @@
 .kmt-palettes-modal .kmt-color-picker-container {
   justify-content: initial;
 }
-.customize-control-kmt-color-palettes div .kmt-palettes-preview {
+.customize-control-kmt-color-palettes .kmt-palettes-preview {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +10,73 @@
   padding: 5px 12px 0 12px;
   margin: 0 -14px;
   border-radius: 100px;
+}
+.customize-control-kmt-color-palettes header span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
+  position: absolute;
+  top: 3px;
+  right: 0;
+}
+.customize-control-kmt-color-palettes:hover
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(17px, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover::before {
+  transform: rotate(45deg);
+}
+/*   */
+
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover,
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }
 .kmt-palettes-preview:after {
   font-family: "dashicons";
@@ -110,7 +177,7 @@
   z-index: 20;
 }
 .kmt-color-picker-modal {
-  width: var(--modalWidth, 280px);
+  width: var(--modalWidth, 300px);
   border-radius: 8px;
 }
 .kmt-color-picker-modal[data-position="bottom"] .kmt-arrow {
@@ -2246,6 +2313,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   opacity: 0.3;
   top: 50%;
   transform: translateY(-50%);
+}
+.kmt-builder-item-add-icon:hover::after {
+  opacity: 0.7;
 }
 
 .kmt-dragging-dropzones .kmt-builder-item-add-icon:after {
@@ -7438,33 +7508,25 @@ i.fipicon-angle-left:before {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.kmt-control-wrap.kmt-color-control-wrap {
-  display: flex;
-  align-items: flex-start;
-}
+
 .kemet-control-field.kemet-color-control .customize-control-title {
   flex-grow: 2;
   padding-right: 2px;
 }
-.kemet-control-field .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.1px;
-  line-height: 18px;
-}
+
 .kmt-color-container .customize-control-title {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   margin-bottom: 4px;
 }
 .kmt-color-container {
   display: flex;
   flex-grow: 2;
   justify-content: space-between;
+}
+.kmt-color-container header {
+  position: relative;
 }
 .kmt-color-picker-container {
   display: flex;
@@ -7860,13 +7922,12 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   position: absolute;
-  top: 12px;
+  top: 2px;
   right: 0;
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled)
-  span {
+  .kmt-reset-btn:not(:disabled) {
   opacity: 1;
 }
 .kmt-color-btn-reset-wrap .kmt-reset-btn {
@@ -7875,27 +7936,31 @@ i.fipicon-angle-left:before {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(20px, 0, 0);
+  transform: translate3d(17px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;
   height: 18px;
-}
-/*   */
-.kmt-color-btn-reset-wrap .kmt-reset-btn span,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
   opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.kmt-color-btn-reset-wrap .kmt-reset-btn span:hover {
+.kmt-color-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.kmt-color-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(45deg);
 }
-.kemet-color-clear-button.components-button:focus:not(:disabled) {
-  outline: unset;
-  border: none;
-  opacity: 1;
-}
+/*   */
+
 .kmt-color-btn-reset-wrap .kmt-reset-btn:hover,
 .kmt-color-btn-reset-wrap .kmt-reset-btn:focus,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,
@@ -7904,18 +7969,7 @@ i.fipicon-angle-left:before {
   border: none;
   background: transparent;
 }
-.kemet-color-clear-button.components-button.is-secondary:hover:not(:disabled),
-.kemet-color-clear-button.components-button:focus:not(:disabled) {
-  box-shadow: 0 0 black;
-  padding: 1.5px;
-  border: none;
-}
 
-.kemet-color-clear-button:disabled,
-.kmt-reset-btn:disabled span {
-  color: var(--primaryColor);
-  font-size: 16px;
-}
 /** Inside Setting group popup - Colors */
 .kmt-field-settings-modal .color-button-wrap {
   left: 16px;
@@ -8494,7 +8548,7 @@ i.fipicon-angle-left:before {
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;
-  width: var(--modalWidth, 280px);
+  width: var(--modalWidth);
   background: #fff;
   border-radius: 6px;
   box-sizing: border-box;
@@ -8912,6 +8966,9 @@ i.fipicon-angle-left:before {
 .kmt-tooltip-top {
   transform: translate3d(0px, -35px, 0px);
 }
+.wp-customizer .kmt-option-modal {
+  right: 12px;
+}
 
 .customize-control-kmt-icon-select .icon-select {
   display: -webkit-box;
@@ -8976,6 +9033,8 @@ i.fipicon-angle-left:before {
   background: #fff;
   cursor: move;
   z-index: 999999;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu {
@@ -9105,8 +9164,8 @@ i.fipicon-angle-left:before {
   .kmt-spacing-input-item-link
   span {
   width: 35px;
-  height: 32px;
-  line-height: 26px;
+  height: 30px;
+  line-height: 30px;
   font-size: 14px;
   border: 1px solid #dcdddf;
   background-color: #fff;
@@ -9131,6 +9190,7 @@ input[type="number"] {
   display: flex;
   position: relative;
   align-items: center;
+  margin-bottom: 5px;
 }
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
@@ -9370,29 +9430,59 @@ input[type="checkbox"]:focus {
   font-size: 13px !important;
   font-weight: 500;
 }
-.kmt-typography header .kmt-reset-btn {
-  font-size: 10px;
-  color: var(--primaryColor);
+.kmt-typography header .kmt-typography-btn-reset-wrap {
   position: absolute;
-  top: 3px;
-  right: 0px;
-  transform: translate3d(10px, 0, 0);
-  background: 100% 0;
-  outline: none;
-  box-shadow: none;
-  border: 0;
+  top: 2px;
+  right: 0;
 }
-.kmt-typography header .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  opacity: 0;
-}
-.kmt-typography header .kmt-reset-btn span:hover {
-  transform: rotate(45deg);
-}
-.kmt-typography:hover header .kmt-reset-btn:not(:disabled) span {
+.kmt-typography:hover
+  .kmt-typography-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
   opacity: 1;
 }
+.kmt-typography header .kmt-typography-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(17px, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+.kmt-typography header .kmt-typography-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.kmt-typography
+  header
+  .kmt-typography-btn-reset-wrap
+  .kmt-reset-btn:hover::before {
+  transform: rotate(45deg);
+}
+/*   */
+
+.kmt-typography header .kmt-typography-btn-reset-wrap .kmt-reset-btn:hover,
+.kmt-typography header .kmt-typography-btn-reset-wrap .kmt-reset-btn:focus,
+.kmt-typography header .kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,
+.kmt-typography header .kmt-resp-slider-reset-wrap .kmt-reset-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
 .kmt-typohraphy-value {
   display: flex;
   align-items: center;
@@ -9873,7 +9963,7 @@ input[type="checkbox"]:focus {
 .kmt-post-options .customize-control-title {
   display: inline-block;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.7;
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -9892,6 +9982,50 @@ input[type="checkbox"]:focus {
   background-color: #eaeaea;
 }
 
+.kmt-number-container header {
+  position: relative;
+}
+.kmt-number-container header span {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+.kmt-number-container header .kmt-btn-reset-wrap {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+}
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(17px, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
+  transform: rotate(45deg);
+}
+.kmt-number-container:hover .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
+}
 .kmt-option-number {
   display: flex;
   align-items: center;

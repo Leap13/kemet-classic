@@ -7,7 +7,6 @@ import Responsive from "../common/responsive";
 
 const BackgroundComponent = (props) => {
     let value = props.value;
-
     let responsive = props.params.responsive;
     let defaultValue = {
         "background-attachment": "",
@@ -46,7 +45,6 @@ const BackgroundComponent = (props) => {
         <Responsive onChange={(device) => setDevice(device)} />
     ) : null;
 
-    console.log(value)
     const renderReset = () => {
         return (
             <header >
@@ -228,7 +226,7 @@ const BackgroundComponent = (props) => {
     const { label, description } = props.params;
 
     let labelHtml = (
-        <span className="customize-control-title">
+        <span className="customize-control-title kmt-control-title">
             {label ? label : __("Background")}
         </span>
     );

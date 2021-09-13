@@ -1,18 +1,24 @@
-import { useRef, useState, } from '@wordpress/element'
-import SinglePicker from './color-picker/single-picker'
-import OutsideClickHandler from '../common/outside-component'
+import { useRef, useState } from "@wordpress/element";
+import SinglePicker from "./color-picker/single-picker";
+import OutsideClickHandler from "../common/outside-component";
 
-const ColorComponent = ({ picker, onChangeComplete, value, predefined, className, skipModal }) => {
+const ColorComponent = ({
+    picker,
+    onChangeComplete,
+    value,
+    predefined,
+    className,
+    skipModal,
+}) => {
     const [{ isPicking, isTransitioning }, setState] = useState({
         isPicking: null,
         isTransitioning: null,
-    })
+    });
 
-    const containerRef = useRef()
-    const modalRef = useRef()
+    const containerRef = useRef();
+    const modalRef = useRef();
 
     return (
-
         <OutsideClickHandler
             useCapture={false}
             display="inline-block"
@@ -25,9 +31,9 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
                 setState(({ isPicking }) => ({
                     isPicking: null,
                     isTransitioning: isPicking,
-                }))
-            }}>
-
+                }));
+            }}
+        >
             <SinglePicker
                 containerRef={containerRef}
                 picker={picker}
@@ -53,10 +59,8 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
                 className={className}
                 skipModal={skipModal}
             />
-
         </OutsideClickHandler>
+    );
+};
 
-    )
-}
-
-export default ColorComponent
+export default ColorComponent;

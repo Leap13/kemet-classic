@@ -238,7 +238,7 @@ const SpacingComponent = (props) => {
 
     let inputHtml = null;
     let descriptionContent =
-        description || description !== "" ? (
+        description && description !== "" ? (
             <span className="description customize-control-description">
                 {description}
             </span>

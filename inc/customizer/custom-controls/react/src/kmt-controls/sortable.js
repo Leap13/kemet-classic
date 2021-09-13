@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import { arrayMoveImmutable } from 'array-move';
 
-const SortableItem = SortableElement(({ value, handleClick, newIndex, values }) => {
-    let invisibleClass = values.includes(newIndex) ? " " : 'invisible';
+const SortableItem = SortableElement(({ value, handleClick, indexValue, values }) => {
+    let invisibleClass = values.includes(indexValue) ? " " : 'invisible';
     return (
-        <li key={value} className={`kmt-sortable-item ${invisibleClass} `} data-value={newIndex} >
+        <li tabIndex={0} key={value} className={`kmt-sortable-item ${invisibleClass} `} data-value={indexValue} >
 
-            <i className="dashicons dashicons-visibility visibility" onClick={() => { handleClick(value, newIndex) }}></i>
+            <i className="dashicons dashicons-visibility visibility" onClick={() => { handleClick(value, indexValue) }}></i>
             {value}
             <i class="dashicons dashicons-menu"></i>
         </li>
@@ -18,7 +18,7 @@ const SortableList = SortableContainer(({ items, onChange, values }) => {
     return (
         <ul>
             {Object.values(items).map((value, index) => (
-                <SortableItem key={`item-${value[0]}`} distance={10} index={index} newIndex={value[0]} value={value[1]} handleClick={onChange} values={values} />
+                <SortableItem key={`item-${value[0]}`} index={index} indexValue={value[0]} value={value[1]} handleClick={onChange} values={values} style={{ zIndex: 100000 }} />
             ))}
         </ul>
     )
@@ -31,15 +31,17 @@ const SortableComponent = props => {
         choices,
     } = props.params;
     const [value, setValue] = useState(props.value);
+    const [isDragging, setDragging] = useState(false)
 
     const [sortItems, setSortItems] = useState(Object.entries(choices))
 
-    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
+    let labelHtml = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     let descriptionHtml = description ? <span className="description customize-control-description">{description}</span> : null;
 
     const onSortEnd = ({ oldIndex, newIndex }) => {
         setSortItems(arrayMoveImmutable(sortItems, oldIndex, newIndex));
+        setDragging(false)
     };
 
     const updateValues = (val, thisIndex) => {
@@ -54,6 +56,9 @@ const SortableComponent = props => {
         setValue(newValue)
         props.onChange(newValue)
     }
+    const updateBeforeSortStart = () => {
+        setDragging(true)
+    }
 
     return <label className='kmt-sortable'>
         {labelHtml}
@@ -63,8 +68,9 @@ const SortableComponent = props => {
             values={value}
             onSortEnd={onSortEnd}
             onChange={(item, index) => updateValues(item, index)}
-            distance={1}
-            lockAxis="y"
+            updateBeforeSortStart={updateBeforeSortStart}
+            isDragging={isDragging}
+            hideSortableGhost={false}
         />
     </label>;
 
