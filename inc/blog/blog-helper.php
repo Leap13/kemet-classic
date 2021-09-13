@@ -123,11 +123,14 @@ if ( ! function_exists( 'kemet_addons_get_thumbnail_with_overlay' ) ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
-				$post_thumb = get_the_post_thumbnail(
-					get_the_ID(),
-					apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
-					array(
-						'itemprop' => 'image',
+				$post_thumb = apply_filters(
+					'kemet_featured_image_attrs',
+					get_the_post_thumbnail(
+						get_the_ID(),
+						apply_filters( 'kemet_post_thumbnail_default_size', 'full' ),
+						array(
+							'itemprop' => 'image',
+						)
 					)
 				);
 
