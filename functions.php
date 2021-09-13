@@ -74,6 +74,10 @@ if ( is_admin() ) {
 }
 
 /**
+ * Options.
+ */
+require_once KEMET_THEME_DIR . 'inc/react-options/class-kemet-options.php';
+/**
  * Customizer.
  */
 require_once KEMET_THEME_DIR . 'inc/customizer/class-kemet-customizer.php';

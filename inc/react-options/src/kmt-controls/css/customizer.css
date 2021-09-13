@@ -3,22 +3,22 @@
   height: 100%;
   padding: 12px 20px 12px 20px !important;
 }
-.kmt-options input[type="color"],
-.kmt-options input[type="date"],
-.kmt-options input[type="datetime-local"],
-.kmt-options input[type="datetime"],
-.kmt-options input[type="email"],
-.kmt-options input[type="month"],
-.kmt-options input[type="number"],
-.kmt-options input[type="password"],
-.kmt-options input[type="search"],
-.kmt-options input[type="tel"],
-.kmt-options input[type="text"],
-.kmt-options input[type="time"],
-.kmt-options input[type="url"],
-.kmt-options input[type="week"],
-.kmt-options select,
-.kmt-options textarea {
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+textarea {
   border: 1px solid #dcdddf !important;
   border-radius: 0 !important;
 }

@@ -1,5 +1,4 @@
 import { Base } from "./customizer";
-
 import "./options/control";
 
 window.addEventListener('load', () => {

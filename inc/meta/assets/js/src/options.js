@@ -1,4 +1,3 @@
-import { OptionComponent } from '../../../../customizer/custom-controls/react/src/options/options-component'
 import {
     useEffect, useState
 } from '@wordpress/element'
@@ -84,6 +83,7 @@ const toggleVisible = (rules, onChange) => {
 }
 
 const SingleOptionComponent = ({ value, optionId, option, onChange }) => {
+    const { OptionComponent } = window.KmtOptionComponent;
     const Option = OptionComponent(option.type);
     return option.type && <div id={optionId} className={`customize-control-${option.type}`}>
         <Option id={optionId} value={value} params={option} onChange={onChange} />

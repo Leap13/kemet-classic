@@ -51,7 +51,7 @@ const KemetColorComponent = props => {
             UpdatedState = value
         }
         setState(UpdatedState)
-        props.onChange({ ...UpdatedState, flag: !props.value.flag });
+        props.onChange({ ...UpdatedState, flag: !value.flag });
 
     };
 

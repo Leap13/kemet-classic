@@ -95,5 +95,5 @@ document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
         });
     }
     // Responsive
-    kemetGetResponsiveJs(control);
+    kemetGetResponsiveJs();
 });

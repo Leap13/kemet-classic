@@ -1,50 +1,19 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import KemetColorComponent from '../kmt-controls/kmt-color'
-import SliderComponent from '../kmt-controls/slider'
-import SpacingComponent from '../kmt-controls/spacing'
-import TabsComponent from '../kmt-controls/tabs'
-import SelectComponent from '../kmt-controls/select'
-import TitleComponent from '../kmt-controls/title'
-import BuilderComponent from '../kmt-controls/layout-builder/builder-component'
-import AvailableComponent from '../kmt-controls/available'
-import ToggleControlComponent from '../kmt-controls/toggle'
-import BuilderTabs from '../kmt-controls/builder-tabs'
-import TextComponent from '../kmt-controls/text'
-import EditorComponent from '../kmt-controls/editor'
-import FocusComponent from '../kmt-controls/focus'
-import SortableComponent from '../kmt-controls/sortable'
-import RadioComponent from '../kmt-controls/radio'
-import RowLayoutComponent from '../kmt-controls/row-layout'
-import BackgroundComponent from '../kmt-controls/background'
-import IconSelectComponent from '../kmt-controls/icon-select'
-import RadioImageComponent from '../kmt-controls/radio-image'
-import Typography from '../kmt-controls/typography';
-import ColorPalettes from '../kmt-controls/color-pallet';
-import NumberComponent from '../kmt-controls/number';
+import TabsComponent from '../customizer-options/tabs'
+import BuilderComponent from '../customizer-options/layout-builder/builder-component'
+import AvailableComponent from '../customizer-options/available'
+import BuilderTabs from '../customizer-options/builder-tabs'
+import FocusComponent from '../customizer-options/focus'
+import RowLayoutComponent from '../customizer-options/row-layout'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
-export const OptionComponent = (type) => {
+export const CustomizerOptionComponent = (type) => {
     let OptionComponent;
     switch (type) {
-        case 'kmt-color':
-            OptionComponent = KemetColorComponent;
-            break;
-        case 'kmt-slider':
-            OptionComponent = SliderComponent;
-            break;
-        case 'kmt-spacing':
-            OptionComponent = SpacingComponent;
-            break;
         case 'kmt-tabs':
             OptionComponent = TabsComponent;
-            break;
-        case 'kmt-select':
-            OptionComponent = SelectComponent;
-            break;
-        case 'kmt-title':
-            OptionComponent = TitleComponent;
             break;
         case 'kmt-builder':
             OptionComponent = BuilderComponent;
@@ -52,47 +21,14 @@ export const OptionComponent = (type) => {
         case 'kmt-available':
             OptionComponent = AvailableComponent;
             break;
-        case 'kmt-switcher':
-            OptionComponent = ToggleControlComponent;
-            break;
         case 'kmt-builder-tabs':
             OptionComponent = BuilderTabs;
-            break;
-        case 'kmt-text':
-            OptionComponent = TextComponent;
-            break;
-        case 'kmt-editor':
-            OptionComponent = EditorComponent;
             break;
         case 'kmt-focus-button':
             OptionComponent = FocusComponent;
             break;
-        case 'kmt-sortable':
-            OptionComponent = SortableComponent;
-            break;
-        case 'kmt-radio':
-            OptionComponent = RadioComponent;
-            break;
         case 'kmt-row-layout':
             OptionComponent = RowLayoutComponent;
-            break;
-        case 'kmt-background':
-            OptionComponent = BackgroundComponent;
-            break;
-        case 'kmt-radio-image':
-            OptionComponent = RadioImageComponent;
-            break;
-        case 'kmt-icon-select':
-            OptionComponent = IconSelectComponent;
-            break;
-        case 'kmt-typography':
-            OptionComponent = Typography;
-            break;
-        case 'kmt-color-palettes':
-            OptionComponent = ColorPalettes;
-            break;
-        case 'kmt-number':
-            OptionComponent = NumberComponent;
             break;
     }
 
@@ -199,6 +135,7 @@ const toggleVisible = (rules, onChange) => {
 }
 
 const SingleOptionComponent = ({ value, optionId, option, control }) => {
+    const { OptionComponent } = window.KmtOptionComponent;
     let context = option.context ? isDisplay(option.context) : true;
     const [isVisible, setVisible] = useState(context);
     let [settingVal, setValue] = useState(value);
@@ -210,7 +147,7 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
         toggleVisible(option.context, onChange)
     }
 
-    const Option = OptionComponent(option.type);
+    const Option = CustomizerOptionComponent(option.type) ? CustomizerOptionComponent(option.type) : OptionComponent(option.type);
     return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
         <Option id={optionId} value={settingVal} params={option} control={control} customizer={wp.customize} onChange={(value) => {
             const key = getSettingId(optionId);
