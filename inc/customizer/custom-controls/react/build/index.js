@@ -18563,7 +18563,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var __ = wp.i18n.__;
 
 var getLeftForEl = function getLeftForEl(modal, el) {
   if (!modal) return;
@@ -18611,17 +18610,11 @@ var PickerModal = function PickerModal(_ref) {
   var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
     return wrapperProps.ref && wrapperProps.ref.current && el && getLeftForEl(wrapperProps.ref.current, el.current);
   }, [wrapperProps.ref && wrapperProps.ref.current, el && el.current]);
-
-  var handleTopPart = function handleTopPart(colorValue) {
-    if (refresh) {
-      setRefresh(false);
-    } else {
-      setRefresh(true);
-    }
-
-    onChange(colorValue);
-  };
-
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+    setRefresh(function (prevState) {
+      return !prevState;
+    });
+  }, [value]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     tabIndex: "0",
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-color-picker-modal", {
@@ -18642,7 +18635,7 @@ var PickerModal = function PickerModal(_ref) {
         active: valueToCheck === "var(--".concat(color, ")")
       }),
       onClick: function onClick() {
-        return handleTopPart("var(--".concat(color, ")"));
+        return onChange("var(--".concat(color, ")"));
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
       className: "kmt-tooltip-top"
