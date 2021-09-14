@@ -23,7 +23,7 @@
 .background-container .customize-control-title {
   font-size: 13px !important;
   font-weight: 500 !important;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   letter-spacing: 0.1px;

@@ -58,42 +58,9 @@ document.addEventListener('kmtExpandedBuilder', ({ detail: { control, isExpanded
 
 document.addEventListener('kmtOptionsReady', ({ detail: control }) => {
     if (control) {
-        // Color
-        'use strict';
-        jQuery(document).ready(function ($) {
-            $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(
-                function (e) {
-                    if (
-                        !$(e.target).closest(".kemet-color-picker-wrap").length &&
-                        !$(e.target).closest(".color-button-wrap").length
-                    ) {
-                        $(".components-button.kemet-color-icon-indicate.open").trigger("click");
-                    }
-                }
-            );
-            control.container.on(
-                "click",
-                ".components-button.kemet-color-icon-indicate",
-                function () {
-                    var $this = $(this),
-                        parentWrap = $this.closest(".customize-control-kmt-color"),
-                        Section = parentWrap.parents(".control-section");
 
-                    if ($this.hasClass("open")) {
-                        parentWrap.find(".kemet-color-picker-wrap").hide();
-                    } else {
-                        var getOpenPopup = Section.find(".components-button.kemet-color-icon-indicate.open");
-                        if (getOpenPopup.length > 0) {
-                            getOpenPopup.trigger("click");
-                        }
-                        parentWrap.find(".kemet-color-picker-wrap").show();
-                    }
-                    $(this).toggleClass("open");
-                }
-            );
 
-        });
+        // Responsive
+        kemetGetResponsiveJs(control);
     }
-    // Responsive
-    kemetGetResponsiveJs(control);
 });

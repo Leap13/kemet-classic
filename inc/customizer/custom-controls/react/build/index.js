@@ -17016,17 +17016,6 @@ function kemetGetResponsiveColorJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var resColorWrap = container.find('.customize-control-content'); // If the target of the click isn't the container nor a descendant of the container.
-
-      if (!resColorWrap.is(e.target) && resColorWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
 }
 function kemetGetResponsiveBgJs(control, child_control_name) {
   'use strict';
@@ -17058,17 +17047,6 @@ function kemetGetResponsiveBgJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var bgWrap = container.find('.background-wrapper'); // If the target of the click isn't the container nor a descendant of the container.
-
-      if (!bgWrap.is(e.target) && bgWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
 }
 function KemetGetResponsiveColorGroupJs(control, child_control_name) {
   'use strict';
@@ -17099,17 +17077,6 @@ function KemetGetResponsiveColorGroupJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var bgWrap = container.find('.background-wrapper'); // If the target of the click isn't the container nor a descendant of the container.
-
-      if (!bgWrap.is(e.target) && bgWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
 }
 
 /***/ }),
@@ -22816,24 +22783,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var VariationsList = function VariationsList(_ref) {
-  var option = _ref.option,
-      value = _ref.value,
+  var value = _ref.value,
       onChange = _ref.onChange,
       typographyList = _ref.typographyList,
       props = _ref.props;
   var selectedFontFamily = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["findSelectedFontFamily"])(value.family, typographyList);
-  var parentEl = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
+  var parentElement = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     if (!selectedFontFamily) {
       return;
     }
 
-    parentEl.current.scrollTop = (parentEl.current.children[selectedFontFamily.all_variations.indexOf(value.variation)] || parentEl.current.children[0]).offsetTop - parentEl.current.offsetTop;
+    parentElement.current.scrollTop = (parentElement.current.children[selectedFontFamily.all_variations.indexOf(value.variation)] || parentElement.current.children[0]).offsetTop - parentElement.current.offsetTop;
   }, [selectedFontFamily]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_4__["animated"].ul, {
     style: props,
     className: "kmt-typography-variations",
-    ref: parentEl
+    ref: parentElement
   }, selectedFontFamily && selectedFontFamily.all_variations.map(function (variation) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
       onClick: function onClick() {
@@ -23385,39 +23351,9 @@ document.addEventListener('kmtOptionsReady', function (_ref3) {
   var control = _ref3.detail;
 
   if (control) {
-    // Color
-    'use strict';
-
-    jQuery(document).ready(function ($) {
-      $(".wp-full-overlay-sidebar-content, .wp-picker-container").click(function (e) {
-        if (!$(e.target).closest(".kemet-color-picker-wrap").length && !$(e.target).closest(".color-button-wrap").length) {
-          $(".components-button.kemet-color-icon-indicate.open").trigger("click");
-        }
-      });
-      control.container.on("click", ".components-button.kemet-color-icon-indicate", function () {
-        var $this = $(this),
-            parentWrap = $this.closest(".customize-control-kmt-color"),
-            Section = parentWrap.parents(".control-section");
-
-        if ($this.hasClass("open")) {
-          parentWrap.find(".kemet-color-picker-wrap").hide();
-        } else {
-          var getOpenPopup = Section.find(".components-button.kemet-color-icon-indicate.open");
-
-          if (getOpenPopup.length > 0) {
-            getOpenPopup.trigger("click");
-          }
-
-          parentWrap.find(".kemet-color-picker-wrap").show();
-        }
-
-        $(this).toggleClass("open");
-      });
-    });
-  } // Responsive
-
-
-  Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(control);
+    // Responsive
+    Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_2__["kemetGetResponsiveJs"])(control);
+  }
 });
 
 /***/ }),

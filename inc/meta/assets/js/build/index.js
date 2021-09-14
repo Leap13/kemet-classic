@@ -22401,24 +22401,23 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var VariationsList = function VariationsList(_ref) {
-  var option = _ref.option,
-      value = _ref.value,
+  var value = _ref.value,
       onChange = _ref.onChange,
       typographyList = _ref.typographyList,
       props = _ref.props;
   var selectedFontFamily = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["findSelectedFontFamily"])(value.family, typographyList);
-  var parentEl = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
+  var parentElement = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     if (!selectedFontFamily) {
       return;
     }
 
-    parentEl.current.scrollTop = (parentEl.current.children[selectedFontFamily.all_variations.indexOf(value.variation)] || parentEl.current.children[0]).offsetTop - parentEl.current.offsetTop;
+    parentElement.current.scrollTop = (parentElement.current.children[selectedFontFamily.all_variations.indexOf(value.variation)] || parentElement.current.children[0]).offsetTop - parentElement.current.offsetTop;
   }, [selectedFontFamily]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_4__["animated"].ul, {
     style: props,
     className: "kmt-typography-variations",
-    ref: parentEl
+    ref: parentElement
   }, selectedFontFamily && selectedFontFamily.all_variations.map(function (variation) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("li", {
       onClick: function onClick() {

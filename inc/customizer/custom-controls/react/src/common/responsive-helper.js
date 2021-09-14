@@ -98,16 +98,7 @@ export function kemetGetResponsiveColorJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var resColorWrap = container.find('.customize-control-content');
-      // If the target of the click isn't the container nor a descendant of the container.
-      if (!resColorWrap.is(e.target) && resColorWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
+
 }
 export function kemetGetResponsiveBgJs(control, child_control_name) {
   'use strict';
@@ -147,16 +138,7 @@ export function kemetGetResponsiveBgJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var bgWrap = container.find('.background-wrapper');
-      // If the target of the click isn't the container nor a descendant of the container.
-      if (!bgWrap.is(e.target) && bgWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
+
 }
 export function KemetGetResponsiveColorGroupJs(control, child_control_name) {
   'use strict';
@@ -194,14 +176,5 @@ export function KemetGetResponsiveColorGroupJs(control, child_control_name) {
 
     jQuery('.wp-full-overlay-footer .devices button[data-device="' + device + '"]').trigger('click');
   });
-  if (child_control_name) {
-    jQuery(document).mouseup(function (e) {
-      var container = jQuery(child_control_name);
-      var bgWrap = container.find('.background-wrapper');
-      // If the target of the click isn't the container nor a descendant of the container.
-      if (!bgWrap.is(e.target) && bgWrap.has(e.target).length === 0) {
-        container.find('.components-button.kemet-color-icon-indicate.open').click();
-      }
-    });
-  }
+
 }
