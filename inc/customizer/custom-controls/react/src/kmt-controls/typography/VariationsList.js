@@ -3,32 +3,31 @@ import classnames from "classnames";
 import { humanizeVariations, findSelectedFontFamily } from "./helpers";
 import { animated } from "@react-spring/web";
 
-const VariationsList = ({ option, value, onChange, typographyList, props }) => {
+const VariationsList = ({ value, onChange, typographyList, props }) => {
 	const selectedFontFamily = findSelectedFontFamily(
 		value.family,
 		typographyList
 	);
 
-	const parentEl = useRef(null);
+	const parentElement = useRef(null);
 
 	useEffect(() => {
 		if (!selectedFontFamily) {
 			return;
 		}
-
-		parentEl.current.scrollTop =
+		parentElement.current.scrollTop =
 			(
-				parentEl.current.children[
+				parentElement.current.children[
 				selectedFontFamily.all_variations.indexOf(value.variation)
-				] || parentEl.current.children[0]
-			).offsetTop - parentEl.current.offsetTop;
+				] || parentElement.current.children[0]
+			).offsetTop - parentElement.current.offsetTop;
 	}, [selectedFontFamily]);
 
 	return (
 		<animated.ul
 			style={props}
 			className="kmt-typography-variations"
-			ref={parentEl}
+			ref={parentElement}
 		>
 			{selectedFontFamily &&
 				selectedFontFamily.all_variations.map((variation) => (
