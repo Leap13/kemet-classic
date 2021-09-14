@@ -33,9 +33,8 @@ class Kemet_Svg_Icons {
 	 * @return string SVG for passed key.
 	 */
 	public static function get_icons( $icon, $is_echo = false ) {
-		$output = "";
+		$output = '';
 			switch ( $icon ) {
-
                 case 'dropdown-menu':
 					$output = '<svg width="9" height="9" data-name="Layer 1" viewBox="0 0 42.45 23.35" xmlns="http://www.w3.org/2000/svg">
                     <path transform="translate(-26.25 -35.85)" d="M64.5,36.6l-17,17-17-17a2.61,2.61,0,0,0-3.5,0,2.42,2.42,0,0,0,0,3.5L45.1,58.2a3.38,3.38,0,0,0,4.8,0L68,40a2.34,2.34,0,0,0,.7-1.7,2.45,2.45,0,0,0-4.2-1.7Z"/>
@@ -91,11 +90,15 @@ class Kemet_Svg_Icons {
                     // <path transform="translate(-12.3 -12.8)" d="M80.2,77.2H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
                     // <path transform="translate(-12.3 -12.8)" d="M80.2,45H14.8a2.5,2.5,0,1,0,0,5H80.2a2.5,2.5,0,0,0,0-5Z"/>
                     // </svg>';
-					$output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16">
-					<path d="M1,11H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,11Z" transform="translate(0 -4)"/>
-					<path d="M1,4H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1A1,1,0,0,1,0,5H0A1,1,0,0,1,1,4Z" transform="translate(0 -4)"/>
-					<path d="M1,18H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,18Z" transform="translate(0 -4)"/>
-					</svg>';
+					// $output = '<svg id="Outline" xmlns="http://www.w3.org/2000/svg">
+					// <path d="M1,11H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,11Z"/>
+					// <path d="M1,4H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1A1,1,0,0,1,0,5H0A1,1,0,0,1,1,4Z"/>
+					// <path d="M1,18H23a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1H0A1,1,0,0,1,1,18Z"/>
+					// </svg>';
+					$output = '<svg height="24pt" viewBox="0 -53 384 384" width="30pt" xmlns="http://www.w3.org/2000/svg">
+					<path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+					<path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+					<path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></svg>';
                     break;
                 case 'close':
                     $output = '<svg data-name="Layer 1" viewBox="0 0 51.3 51.3" xmlns="http://www.w3.org/2000/svg">
@@ -128,6 +131,7 @@ class Kemet_Svg_Icons {
 			}
 
 		$output = apply_filters( 'kemet_svg_icon_element', $output, $icon );
+		
 
 		$classes = array(
 			'kmt-svg-icon',

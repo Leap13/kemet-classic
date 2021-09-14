@@ -223,28 +223,8 @@ p.demo_store,
   .count {
     font-size: 15px;
     &.icon-cart {
-      &:before {
-        content: "\e903";
-        display: inline-block;
-        font-family: "Kemet-font";
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-rendering: auto;
-        vertical-align: middle;
-        position: relative;
-      }
     }
     &.icon-bag {
-      &:before {
-        content: "\e90f";
-        display: inline-block;
-        font-family: "Kemet-font";
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-rendering: auto;
-        vertical-align: middle;
-        position: relative;
-      }
     }
   }
 }
@@ -3515,16 +3495,6 @@ ul.product_list_widget {
     width: calc(50% - 5px);
     margin-right: 5px;
     text-align: center;
-    &::before {
-      content: "\e903";
-      font-family: Kemet-font;
-      speak: none;
-      vertical-align: sub;
-      margin-right: 5px;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
   }
   a:not(.button) {
     background: transparent;
@@ -3566,18 +3536,6 @@ ul.product_list_widget {
 ul.product-categories {
   > li {
     padding: 2px 0px;
-
-    ul {
-      li:before {
-        content: "\e907";
-        padding: 0 5px 0 5px;
-        display: inline-block;
-        font-family: Kemet-font;
-        transform: rotate(-90deg);
-        font-size: 11px;
-        font-size: 0.7rem;
-      }
-    }
   }
 }
 .widget_rating_filter {

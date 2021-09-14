@@ -64,12 +64,6 @@
       padding: 0;
     }
 
-    .page_item_has_children > a:after,
-    .menu-item-has-children > a:after {
-      @include kmt-has-child-menu-item();
-      line-height: normal;
-    }
-
     .kmt-search-icon {
       display: block;
       z-index: 4;
@@ -246,14 +240,6 @@
         line-height: inherit;
         transition: all 0.2s;
         border-width: 0px;
-        &::before {
-          font-weight: bold;
-          content: "\e907";
-          font-family: "Kemet-font";
-          text-decoration: inherit;
-          display: inline-block;
-          font-size: medium;
-        }
         &:hover {
           border-width: 0px;
         }
@@ -612,7 +598,10 @@
 .kmt-close-icon {
   width: 18px;
 }
-
+.header-toggle-button {
+  height: 53px;
+  padding: 10px;
+}
 .header-toggle-button.toggled path:nth-child(1) {
   transform: rotate(45deg);
   width: 18px;
@@ -630,13 +619,16 @@
 }
 
 .header-toggle-button path:nth-child(1) {
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 33%;
+  -ms-transform-origin: 50% 33%;
+  transform-origin: 50% 33%;
 }
 
 .header-toggle-button path {
   width: 18px;
   -webkit-transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-transform-origin: 10% 57%;
+  -ms-transform-origin: 10% 57%;
+  transform-origin: 10% 57%;
 }

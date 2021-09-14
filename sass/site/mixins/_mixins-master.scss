@@ -2,20 +2,6 @@
     transition: $property $transition-time $transition-function;
 }
 
-@mixin kmt-has-child-menu-item() {
-    content: "\e907";
-    display: inline-block;
-    font-family: 'Kemet-font';
-    font-size: 1rem;
-    font-weight: bold;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-left: 10px;
-    vertical-align: middle;
-
-}
-
 @mixin kmt-border-radius( $size: 2px ) {
     border-radius: $size;
 }
