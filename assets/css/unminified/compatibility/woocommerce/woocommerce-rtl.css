@@ -253,20 +253,7 @@ p.demo_store a,
 }
 
 .kmt-cart-menu-wrap .count {
-	display: flex;
-	line-height: normal;
-
-	align-items: center;
-}
-
-.kmt-cart-menu-wrap .count .kmt-svg-icon {
-	line-height: inherit;
-}
-
-.kmt-site-header-cart-li .cart-container {
-	display: inline-flex;
-
-	align-items: center;
+	font-size: 15px;
 }
 
 /**
@@ -4458,7 +4445,7 @@ button.pswp__button--zoom:hover {
 .woocommerce-page.woocommerce-checkout #customer_details h3 {
 	margin: 0 0 20px;
 	padding: 20px 0 14px;
-	border-bottom: 1px solid var(--borderColor);
+	border-bottom: 1px solid #ebebeb;
 	font-size: 1.2rem;
 }
 
@@ -4468,7 +4455,7 @@ button.pswp__button--zoom:hover {
 	padding: 1.5em 1.5em 1em;
 	border-width: 2px 2px 0 2px;
 	border-style: solid;
-	border-color: var(--borderColor);
+	border-color: #ebebeb;
 	font-size: 1.2rem;
 }
 
@@ -4494,7 +4481,7 @@ button.pswp__button--zoom:hover {
 	padding: 0 2em;
 	border-width: 0 2px 2px;
 	border-style: solid;
-	border-color: var(--borderColor);
+	border-color: #ebebeb;
 }
 
 .woocommerce.woocommerce-checkout form #order_review table,
@@ -4506,7 +4493,7 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout form #order_review th,
 .woocommerce-page.woocommerce-checkout form #order_review td,
 .woocommerce-page.woocommerce-checkout form #order_review th {
-	border-color: var(--borderColor);
+	border-color: #ebebeb;
 }
 
 @media (min-width: 769px) {
@@ -4540,12 +4527,12 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout #payment div.payment_box,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box {
-	background-color: var(--borderColor);
+	background-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.payment_box:before,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box:before {
-	border-bottom-color: var(--borderColor);
+	border-bottom-color: #efefef;
 }
 
 .woocommerce.woocommerce-checkout #payment div.form-row,
@@ -4573,8 +4560,8 @@ button.pswp__button--zoom:hover {
 	padding: 1em;
 	border-width: 1px 1px 0 1px;
 	border-style: solid;
-	border-color: var(--borderColor);
-	background: var(--borderColor);
+	border-color: #e5e5e5;
+	background: #fbfbfb;
 	font-size: 1.3rem;
 }
 
@@ -4814,16 +4801,6 @@ ul.product_list_widget li:last-child {
 
 ul.product-categories > li {
 	padding: 2px 0;
-}
-
-ul.product-categories > li ul li:before {
-	display: inline-block;
-	padding: 0 5px 0 5px;
-	font-family: Kemet-font;
-	font-size: 11px;
-	font-size: 0.7rem;
-	content: "\e907";
-	transform: rotate(90deg);
 }
 
 .widget_rating_filter ul li a {

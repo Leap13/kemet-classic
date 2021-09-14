@@ -141,15 +141,8 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'blog-excerpt-length' => array(
-								'type'    => 'kmt-select',
+								'type'    => 'kmt-number',
 								'label'   => __( 'Excerpt Length', 'kemet' ),
-								'choices' => array(
-									5  => __( '5', 'kemet' ),
-									10 => __( '10', 'kemet' ),
-									20 => __( '20', 'kemet' ),
-									40 => __( '40', 'kemet' ),
-									80 => __( '80', 'kemet' ),
-								),
 								'context' => array(
 									array(
 										'setting' => 'blog-post-content',

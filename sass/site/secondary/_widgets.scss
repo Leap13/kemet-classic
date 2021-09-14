@@ -75,17 +75,6 @@ h4.widget-title {
     background: initial;
     color: inherit;
 
-    &:after {
-      font-family: $font-family-kemet;
-      font-size: 1.2em;
-      font-weight: 600;
-      content: "\e90d";
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      transform: translate(0, -50%);
-    }
-
     > label {
       position: relative;
       width: 100%;

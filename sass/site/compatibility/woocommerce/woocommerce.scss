@@ -221,20 +221,14 @@ p.demo_store,
   display: inline-block;
   line-height: 1;
   .count {
-    display: flex;
-    align-items: center;
-    line-height: normal;
-    .kmt-svg-icon {
-      line-height: inherit;
+    font-size: 15px;
+    &.icon-cart {
+    }
+    &.icon-bag {
     }
   }
 }
-.kmt-site-header-cart-li {
-  .cart-container {
-    display: inline-flex;
-    align-items: center;
-  }
-}
+
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
@@ -3212,7 +3206,7 @@ button.pswp__button--zoom:hover {
         font-size: 1.2rem;
         padding: 20px 0 14px;
         margin: 0 0 20px;
-        border-bottom: 1px solid var(--borderColor);
+        border-bottom: 1px solid #ebebeb;
       }
     }
 
@@ -3223,7 +3217,7 @@ button.pswp__button--zoom:hover {
         font-size: 1.2rem;
         margin: 0;
         padding: 1.5em 1.5em 1em;
-        border-color: var(--borderColor);
+        border-color: #ebebeb;
       }
 
       #customer_details.col2-set {
@@ -3242,13 +3236,13 @@ button.pswp__button--zoom:hover {
         padding: 0 2em;
         border-width: 0 2px 2px;
         border-style: solid;
-        border-color: var(--borderColor);
+        border-color: #ebebeb;
         table {
           border-width: 0;
         }
         td,
         th {
-          border-color: var(--borderColor);
+          border-color: #ebebeb;
         }
       }
       @media (min-width: $col-md) {
@@ -3276,9 +3270,9 @@ button.pswp__button--zoom:hover {
         }
       }
       div.payment_box {
-        background-color: var(--borderColor);
+        background-color: #efefef;
         &:before {
-          border-bottom-color: var(--borderColor);
+          border-bottom-color: #efefef;
         }
       }
       div.form-row {
@@ -3300,13 +3294,13 @@ button.pswp__button--zoom:hover {
       h2 {
         &.woocommerce-column__title,
         &.woocommerce-order-details__title {
-          background: var(--borderColor);
+          background: #fbfbfb;
           padding: 1em;
           margin-bottom: 0;
           font-size: 1.3rem;
           border-width: 1px 1px 0 1px;
           border-style: solid;
-          border-color: var(--borderColor);
+          border-color: #e5e5e5;
         }
         &.wc-bacs-bank-details-heading {
           font-size: 1.5rem;
@@ -3542,18 +3536,6 @@ ul.product_list_widget {
 ul.product-categories {
   > li {
     padding: 2px 0px;
-
-    ul {
-      li:before {
-        content: "\e907";
-        padding: 0 5px 0 5px;
-        display: inline-block;
-        font-family: Kemet-font;
-        transform: rotate(-90deg);
-        font-size: 11px;
-        font-size: 0.7rem;
-      }
-    }
   }
 }
 .widget_rating_filter {
