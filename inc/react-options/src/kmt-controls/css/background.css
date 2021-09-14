@@ -7,6 +7,11 @@
   align-items: center;
   justify-content: space-between;
 }
+.customize-control-kmt-background .background-container header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 .components-circular-option-picker {
   display: inline-block;
   width: 100%;
@@ -15,15 +20,7 @@
   padding: 20px 14px 20px 14px;
   box-sizing: border-box;
 }
-.background-container .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 0;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.1px;
-  line-height: 18px;
-}
+
 .customize-control-kmt-background
   .wp-picker-container
   input[type="text"].wp-color-picker {
@@ -411,13 +408,14 @@
 .kmt-image-actions .actions .components-button.edit-image::before {
   content: "\f464";
 }
-.components-circular-option-picker__custom-clear-wrapper {
-  justify-content: initial;
-}
 .kmt-background-btn-reset-wrap {
   position: absolute;
-  left: -3px;
-  top: 15px;
+  left: 0;
+}
+.background-container:hover
+  .kmt-background-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn {
   color: #006ba1;
@@ -425,29 +423,32 @@
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-20px, 0, 0);
+  transform: translate3d(-17px, 0, 0);
   outline: 0;
   border: 0;
-  height: 18px;
   width: 18px;
-}
-.kmt-background-btn-reset-wrap .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
   opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.background-container:hover
-  .kmt-background-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled)
-  span {
-  opacity: 1;
+.kmt-background-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
 }
-.kmt-background-btn-reset-wrap .kmt-reset-btn span:hover {
+.kmt-background-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(-45deg);
 }
 .kmt-background {
-  width: 38px;
-  height: 38px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   border-radius: 100%;
   margin-left: auto;

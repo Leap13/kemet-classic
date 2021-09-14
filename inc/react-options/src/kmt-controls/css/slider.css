@@ -1,3 +1,7 @@
+.customize-control-kmt-slider header {
+  display: flex;
+  align-items: center;
+}
 .customize-control-kmt-slider .wrapper {
   position: relative;
   display: flex;
@@ -71,11 +75,6 @@
 /**
  * Responsive Icons
  */
-.customize-control-kmt-slider .customize-control-title {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
-}
 
 .customize-control-kmt-slider .kmt-slider-units {
   position: absolute;
@@ -114,6 +113,7 @@
   vertical-align: top;
   position: relative;
   z-index: 8;
+  margin-top: -3px;
 }
 
 .kmt-responsive-control-btns > li {

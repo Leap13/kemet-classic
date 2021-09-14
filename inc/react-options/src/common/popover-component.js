@@ -123,7 +123,7 @@ const usePopoverMaker = ({
         let position = 'bottom'
         let otherStyles = {}
         let selector = document.querySelector(".control-section.open");
-        let modalWidth = 0;
+        let modalWidth;
         if (selector) {
             modalWidth = selector.clientWidth;
         }
@@ -226,7 +226,7 @@ const usePopoverMaker = ({
         styles: {
             '--modal-y-offset': `${yOffset}px`,
             '--modal-x-offset': `${right}px`,
-            '--modalWidth': `${modalWidth - 20}px`,
+            '--modalWidth': `${modalWidth > 200 ? modalWidth - 20 : 270}px`,
 
             ...otherStyles,
             // [position === 'bottom' ? 'top' : 'bottom']: `${yOffset}px`,

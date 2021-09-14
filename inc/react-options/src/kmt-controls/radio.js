@@ -78,7 +78,7 @@ const RadioComponent = (props) => {
         {responsive ? <Responsive
             onChange={(currentDevice) => setDevice(currentDevice)}
             label={label}
-        /> : <span className="customize-control-title">{label}</span>}
+        /> : <span className="customize-control-title kmt-control-title">{label}</span>}
         <ButtonGroup className="kmt-radio-container-control">
             {renderButtons()}
         </ButtonGroup>

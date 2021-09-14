@@ -273,7 +273,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--paletteColor5'              => $color_pallet['color5'],
 					'--paletteColor6'              => $color_pallet['color6'],
 					'--paletteColor7'              => $color_pallet['color7'],
-					'--paletteColor8'              => $color_pallet['color8'],
 					'--themeColor'                 => esc_attr( $theme_color ),
 					'--textColor'                  => esc_attr( $text_meta_color ),
 					'--headingLinksColor'          => esc_attr( $headings_links_color ),

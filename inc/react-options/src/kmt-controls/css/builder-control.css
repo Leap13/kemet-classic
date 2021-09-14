@@ -1,6 +1,6 @@
 .customize-control-kmt-radio .customize-control-title {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   display: inline-block;
 }
 .kmt-builder-is-active .preview-desktop #customize-preview,
@@ -5544,4 +5544,7 @@ i.fipicon-angle-left:before {
 .kmt-options #header-desktop-items,
 .kmt-options #header-mobile-items {
   margin-top: 0;
+}
+.kmt-builder-item-add-icon:hover::after {
+  opacity: 0.7;
 }

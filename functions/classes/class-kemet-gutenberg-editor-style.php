@@ -114,11 +114,12 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
-			$parse_css            = '';
-			$parse_css           .= kemet_get_responsive_background_obj( '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow', $box_bg_inner_boxed );
-			$parse_css           .= kemet_get_responsive_background_obj( '.edit-post-visual-editor__content-area', $box_bg_obj );
-			$blocks_parent        = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .edit-post-visual-editor__content-area' : '.edit-post-visual-editor.editor-styles-wrapper';
-			$desktop_css          = array(
+
+			$parse_css     = '';
+			$parse_css    .= kemet_get_responsive_background_obj( '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow', $box_bg_inner_boxed );
+			$parse_css    .= kemet_get_responsive_background_obj( '.edit-post-visual-editor__content-area, .block-editor-writing-flow', $box_bg_obj );
+			$blocks_parent = version_compare( get_bloginfo( 'version' ), '5.6', '>' ) ? '.edit-post-visual-editor .edit-post-visual-editor__content-area' : '.edit-post-visual-editor.editor-styles-wrapper';
+			$desktop_css   = array(
 				':root'                                   => array(
 					'--themeColor'                 => esc_attr( $theme_color ),
 					'--textColor'                  => esc_attr( $text_meta_color ),
@@ -364,7 +365,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'font-size'      => esc_attr( '.8125em' ),
 					'font-style'     => esc_attr( 'normal' ),
 				),
-				'body, button, input, select, textarea, .button, ' . $blocks_parent . ' code ,' . $blocks_parent . ' p, ' . $blocks_parent . ' address,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .editor-post-title__block .editor-post-title__input, .edit-post-visual-editor .block-editor-block-list__block table, .edit-post-visual-editor .block-editor-block-list__block dl, ' . $blocks_parent . ' .wp-block-file .wp-block-file__textlink' => array(
+				'.edit-post-visual-editor,  ' . $blocks_parent . ' code ,' . $blocks_parent . ' p, ' . $blocks_parent . ' address,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .editor-post-title__block .editor-post-title__input, .edit-post-visual-editor .block-editor-block-list__block table, .edit-post-visual-editor .block-editor-block-list__block dl, ' . $blocks_parent . ' .wp-block-file .wp-block-file__textlink' => array(
 					'font-family'     => 'var(--fontFamily, -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif)',
 					'font-weight'     => 'var(--fontWeight)',
 					'font-size'       => 'var(--fontSize)',

@@ -1,10 +1,9 @@
 import { useRef, createPortal, useState } from "@wordpress/element";
 import cls from "classnames";
-import BackgroundModal from "./background/BackgroundModal";
+import BackgroundModal from "./Background/BackgroundModal";
 import OutsideClickHandler from "../common/outside-component";
 const { __ } = wp.i18n;
 import usePopoverMaker from "../common/popover-component";
-
 
 const Background = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +34,9 @@ const Background = (props) => {
                     "--background-position": props.backgroundPosition
                         ? ` ${Math.round(
                             parseFloat(props.backgroundPosition.x) * 100
-                        )}% ${Math.round(parseFloat(props.backgroundPosition.y) * 100)}%`
+                        )}% ${Math.round(
+                            parseFloat(props.backgroundPosition.y) * 100
+                        )}%`
                         : null,
                     "--background-image":
                         props.backgroundType === "gradient"
@@ -63,15 +64,21 @@ const Background = (props) => {
                         useCapture={false}
                         display="block"
                         disabled={!isOpen}
-                        onOutsideClick={() => {
+                        onOutsideClick={(e) => {
+                            if (e.target.closest(".media-modal-content")) {
+                                return;
+                            }
                             setTimeout(() => setIsOpen(false));
                         }}
                         wrapperProps={{
                             style: styles,
                             ...popoverProps,
-                            className: cls("kmt-option-modal kmt-background-modal", {
-                                active: isOpen,
-                            }),
+                            className: cls(
+                                "kmt-option-modal kmt-background-modal",
+                                {
+                                    active: isOpen,
+                                }
+                            ),
                         }}
                     >
                         <BackgroundModal {...props} />

@@ -15,7 +15,7 @@ const IconSelectComponent = props => {
     } = props.params;
     let ContentHTML = [];
 
-    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
+    let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
     for (const [key, icon] of Object.entries(choices)) {
