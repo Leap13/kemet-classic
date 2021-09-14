@@ -43,15 +43,11 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			self::$prefix . '-no-of-products'             => array(
-				'type'         => 'kmt-slider',
-				'label'        => __( 'Products Per Page', 'kemet' ),
-				'unit_choices' => array(
-					'' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 50,
-					),
-				),
+				'type'  => 'kmt-number',
+				'label' => __( 'Products Per Page', 'kemet' ),
+				'min'   => 1,
+				'step'  => 1,
+				'max'   => 50,
 			),
 			self::$prefix . '-product-content-alignment'  => array(
 				'type'    => 'kmt-icon-select',
@@ -77,12 +73,12 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'label'      => __( 'Shop Columns', 'kemet' ),
 				'choices'    => array(
-					'1' => 'One',
-					'2' => 'Two',
-					'3' => 'Three',
-					'4' => 'Four',
-					'5' => 'Five',
-					'6' => 'Six',
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
 				),
 			),
 			self::$prefix . '-archive-width'              => array(

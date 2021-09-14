@@ -66,16 +66,12 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 				'label' => __( 'Disable Related Products', 'kemet' ),
 			),
 			self::$prefix . '-related-products-count'   => array(
-				'type'         => 'kmt-slider',
-				'label'        => __( 'Related Products Count', 'kemet' ),
-				'unit_choices' => array(
-					'' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'context'      => array(
+				'type'    => 'kmt-number',
+				'label'   => __( 'Related Products Count', 'kemet' ),
+				'min'     => 1,
+				'step'    => 1,
+				'max'     => 100,
+				'context' => array(
 					array(
 						'setting' => self::$prefix . '-disable-related-products',
 						'value'   => false,
@@ -109,16 +105,12 @@ class Kemet_Woo_Shop_Single_Customizer extends Kemet_Customizer_Register {
 				'label' => __( 'Disable Related Products', 'kemet' ),
 			),
 			self::$prefix . '-up-sell-products-count'   => array(
-				'type'         => 'kmt-slider',
-				'label'        => __( 'Related Products Count', 'kemet' ),
-				'unit_choices' => array(
-					'' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'context'      => array(
+				'type'    => 'kmt-number',
+				'label'   => __( 'Related Products Count', 'kemet' ),
+				'min'     => 1,
+				'step'    => 1,
+				'max'     => 100,
+				'context' => array(
 					array(
 						'setting' => self::$prefix . '-disable-up-sell-products',
 						'value'   => false,

@@ -308,7 +308,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 					'px' => array(
 						'min'  => 0,
 						'step' => 1,
-						'max'  => 4000,
+						'max'  => 1200,
 					),
 				),
 			),

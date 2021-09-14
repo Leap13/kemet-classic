@@ -133,13 +133,31 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 									),
 								),
 							),
+							self::$prefix . '-z-index'    => array(
+								'type'      => 'kmt-number',
+								'transport' => 'postMessage',
+								'label'     => __( 'Z-index', 'kemet' ),
+								'min'       => 1,
+								'step'      => 1,
+								'max'       => 99999,
+								'preview'   => array(
+									'selector' => '.toggle-button-fixed',
+									'property' => 'z-index',
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-float',
+										'value'   => true,
+									),
+								),
+							),
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(

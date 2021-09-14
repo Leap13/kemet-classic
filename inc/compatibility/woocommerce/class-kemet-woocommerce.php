@@ -130,7 +130,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'category',
 				'add_cart',
 			);
-			$defaults['woo-shop-no-of-products']            = array( 'value' => 12 );
+			$defaults['woo-shop-no-of-products']            = 12;
 			$defaults['woo-shop-product-content-alignment'] = 'center';
 			$defaults['woo-shop-disable-breadcrumb']        = true;
 			$defaults['woo-shop-grids']                     = array(
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				'unit'  => 'px',
 			);
 			$defaults['woo-single-disable-breadcrumb']      = false;
-			$defaults['shop-cart-icon']                     = 'icon-cart';
+			$defaults['shop-cart-icon']                     = 'cart';
 			$defaults['disable-cart-if-empty']              = false;
 			$defaults['cart-icon-display']                  = 'icon-count';
 			$defaults['cart-icon-size']                     = array(
@@ -387,7 +387,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 		 */
 		public function shop_no_of_products() {
 			$products = kemet_get_option( 'woo-shop-no-of-products' );
-			$products = kemet_slider( $products );
+			$products = $products;
 
 			return $products;
 		}
@@ -755,11 +755,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			// up-sell posts per page.
 			$products_per_page = kemet_get_option( 'woo-single-up-sell-products-count' );
-			$products_per_page = $products_per_page ? kemet_slider( $products_per_page ) : '3';
+			$products_per_page = $products_per_page ? $products_per_page : '3';
 
 			// up-sell columns.
 			$columns = kemet_get_option( 'woo-single-up-sell-products-columns' );
-			$columns = $columns ? kemet_slider( $columns ) : '4';
+			$columns = $columns ? $columns : '4';
 
 			woocommerce_upsell_display( $products_per_page, $columns );
 		}
@@ -839,11 +839,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			// Related posts per page.
 			$products_per_page = kemet_get_option( 'woo-single-related-products-count' );
-			$products_per_page = $products_per_page ? kemet_slider( $products_per_page ) : '3';
+			$products_per_page = $products_per_page ? $products_per_page : '3';
 
 			// Related columns.
 			$columns = kemet_get_option( 'woo-single-related-products-columns' );
-			$columns = $columns ? kemet_slider( $columns ) : '3';
+			$columns = $columns ? $columns : '3';
 
 			$args = array(
 				'posts_per_page' => $products_per_page,
@@ -945,12 +945,11 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$product_price_spacing      = kemet_get_option( 'woo-shop-product-price-spacing' );
 
 			// General.
-			$cart_dropdown_width         = kemet_get_option( 'cart-dropdown-width' );
-			$cart_icon_size              = kemet_get_option( 'cart-icon-size' );
-			$cart_icon_center_vertically = kemet_get_option( 'cart-icon-center-vertically' );
-			$cart_dropdown_border_size   = kemet_get_option( 'cart-dropdown-border-size' );
-			$cart_dropdown_border_color  = kemet_get_sub_option( 'cart-dropdown-border-color', 'initial', $global_border_color );
-			$cart_dropdown_bg_color      = kemet_get_sub_option( 'cart-dropdown-bg-color', 'initial', $global_bg_color );
+			$cart_dropdown_width        = kemet_get_option( 'cart-dropdown-width' );
+			$cart_icon_size             = kemet_get_option( 'cart-icon-size' );
+			$cart_dropdown_border_size  = kemet_get_option( 'cart-dropdown-border-size' );
+			$cart_dropdown_border_color = kemet_get_sub_option( 'cart-dropdown-border-color', 'initial', $global_border_color );
+			$cart_dropdown_bg_color     = kemet_get_sub_option( 'cart-dropdown-bg-color', 'initial', $global_bg_color );
 			// Widget Separator.
 			$widget_list_border       = kemet_get_option( 'enable-widget-list-separator' );
 			$widget_list_border_color = kemet_get_sub_option( 'widget-list-border-color', 'initial', $global_border_color );
@@ -996,10 +995,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-width'     => kemet_slider( $cart_dropdown_border_size ),
 					'--borderColor'    => esc_attr( $cart_dropdown_border_color ),
 				),
-				'.kmt-cart-menu-wrap .count.icon-cart:before , .kmt-cart-menu-wrap .count.icon-bag:before' => array(
-					'--fontSize' => kemet_slider( $cart_icon_size ),
-					'font-size'  => 'var(--fontSize)',
-					'top'        => kemet_slider( $cart_icon_center_vertically ),
+				'.kmt-cart-menu-wrap .count .kmt-svg-icon svg' => array(
+					'width' => kemet_slider( $cart_icon_size ),
 				),
 				'.shop-list ul.products li.product .kemet-shop-thumbnail-wrap .kemet-shop-summary-wrap .woo-wishlist-btn' => array(
 					'border-color' => 'var(--borderColor)',
@@ -1325,7 +1322,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$items['cart'] = array(
 				'name'    => __( 'Cart', 'kemet' ),
 				'icon'    => 'cart',
-				'section' => 'section-woo-cart-menu-items',
+				'section' => 'section-woo-cart',
 			);
 
 			return $items;
@@ -1385,6 +1382,15 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$cart_display       = kemet_get_option( 'cart-icon-display' );
 			$cart_icon          = kemet_get_option( 'shop-cart-icon' );
 			$display            = '';
+			$icon               = '';
+			switch ( $cart_icon ) {
+				case 'cart':
+					$icon = Kemet_Svg_Icons::get_icons( 'cart' );
+					break;
+				case 'bag':
+					$icon = Kemet_Svg_Icons::get_icons( 'bag' );
+					break;
+			}
 			switch ( $cart_display ) {
 				case 'icon':
 					$display = '';
@@ -1409,10 +1415,10 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 							?>
 							<div class="kmt-cart-menu-wrap">
 
-								<span class="count <?php echo esc_attr( $cart_icon ); ?>">
+								<span class="count">
 									<?php
 									if ( apply_filters( 'kemet_woo_header_cart_total', true ) && null != WC()->cart ) {
-										echo wp_kses_post( $display );
+										echo $icon . wp_kses_post( $display );
 									}
 									?>
 								</span>

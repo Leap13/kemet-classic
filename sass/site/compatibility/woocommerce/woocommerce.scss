@@ -221,34 +221,20 @@ p.demo_store,
   display: inline-block;
   line-height: 1;
   .count {
-    font-size: 15px;
-    &.icon-cart {
-      &:before {
-        content: "\e903";
-        display: inline-block;
-        font-family: "Kemet-font";
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-rendering: auto;
-        vertical-align: middle;
-        position: relative;
-      }
-    }
-    &.icon-bag {
-      &:before {
-        content: "\e90f";
-        display: inline-block;
-        font-family: "Kemet-font";
-        font-size: 1.6rem;
-        font-weight: 500;
-        text-rendering: auto;
-        vertical-align: middle;
-        position: relative;
-      }
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    .kmt-svg-icon {
+      line-height: inherit;
     }
   }
 }
-
+.kmt-site-header-cart-li {
+  .cart-container {
+    display: inline-flex;
+    align-items: center;
+  }
+}
 /**
  * Header Cart Icon with shopping cart for responsive devices.
  */
@@ -3226,7 +3212,7 @@ button.pswp__button--zoom:hover {
         font-size: 1.2rem;
         padding: 20px 0 14px;
         margin: 0 0 20px;
-        border-bottom: 1px solid #ebebeb;
+        border-bottom: 1px solid var(--borderColor);
       }
     }
 
@@ -3237,7 +3223,7 @@ button.pswp__button--zoom:hover {
         font-size: 1.2rem;
         margin: 0;
         padding: 1.5em 1.5em 1em;
-        border-color: #ebebeb;
+        border-color: var(--borderColor);
       }
 
       #customer_details.col2-set {
@@ -3256,13 +3242,13 @@ button.pswp__button--zoom:hover {
         padding: 0 2em;
         border-width: 0 2px 2px;
         border-style: solid;
-        border-color: #ebebeb;
+        border-color: var(--borderColor);
         table {
           border-width: 0;
         }
         td,
         th {
-          border-color: #ebebeb;
+          border-color: var(--borderColor);
         }
       }
       @media (min-width: $col-md) {
@@ -3290,9 +3276,9 @@ button.pswp__button--zoom:hover {
         }
       }
       div.payment_box {
-        background-color: #efefef;
+        background-color: var(--borderColor);
         &:before {
-          border-bottom-color: #efefef;
+          border-bottom-color: var(--borderColor);
         }
       }
       div.form-row {
@@ -3314,13 +3300,13 @@ button.pswp__button--zoom:hover {
       h2 {
         &.woocommerce-column__title,
         &.woocommerce-order-details__title {
-          background: #fbfbfb;
+          background: var(--borderColor);
           padding: 1em;
           margin-bottom: 0;
           font-size: 1.3rem;
           border-width: 1px 1px 0 1px;
           border-style: solid;
-          border-color: #e5e5e5;
+          border-color: var(--borderColor);
         }
         &.wc-bacs-bank-details-heading {
           font-size: 1.5rem;

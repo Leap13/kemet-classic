@@ -1081,6 +1081,9 @@ function kemet_responsive_color_css(control, data) {
           kemet_css(control, data.property, data.selector);
         }
         break;
+      case "kmt-number":
+        kemet_css(control, data.property, data.selector);
+        break;
       case "kmt-spacing":
         if (data.responsive) {
           delete data.responsive;

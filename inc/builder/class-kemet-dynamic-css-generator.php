@@ -157,10 +157,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$float_hposition   = strpos( $float_position, 'left' ) !== false ? 'left' : 'right';
 				$vertical_offset   = kemet_get_option( $toggle_button . '-button-vertical-offset' );
 				$horizontal_offset = kemet_get_option( $toggle_button . '-button-horizontal-offset' );
+				$z_index           = kemet_get_option( $toggle_button . '-button-z-index' );
 
 				$btn_css_output = array(
 					$btn_selector . '.toggle-button-fixed' => array(
 						'position' => esc_attr( 'fixed' ),
+						'z-index'  => esc_attr( $z_index ),
 					),
 					$btn_selector . '.toggle-button-fixed.float-' . $float_position => array(
 						$float_vposition => kemet_slider( $vertical_offset ),

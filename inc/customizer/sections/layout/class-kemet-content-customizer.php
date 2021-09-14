@@ -53,6 +53,11 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'transport'    => 'postMessage',
 				'label'        => __( 'Paragraph Margin Bottom', 'kemet' ),
 				'unit_choices' => array(
+					'px' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 500,
+					),
 					'em' => array(
 						'min'  => 0.5,
 						'step' => 0.01,

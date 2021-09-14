@@ -30,7 +30,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 		$selector        = '.kmt-search-box-form .search-field';
 		$parent_selector = '.kmt-header-item-search-box';
 		$search_options  = array(
-			self::$prefix . '-icon-tabs'   => array(
+			self::$prefix . '-search-tabs' => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -51,6 +51,24 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								'preview'      => array(
 									'selector'   => $parent_selector . ' .kmt-search-box-form .icon-search',
 									'property'   => '--fontSize',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-width'     => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Enter Width', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 100,
+										'step' => 1,
+										'max'  => 600,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => 'width',
 									'responsive' => true,
 								),
 							),
@@ -84,39 +102,6 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-						),
-					),
-				),
-			),
-			self::$prefix . '-search-tabs' => array(
-				'type' => 'kmt-tabs',
-				'tabs' => array(
-					'general' => array(
-						'title'   => __( 'General', 'kemet' ),
-						'options' => array(
-							self::$prefix . '-width' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Enter Width', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 100,
-										'step' => 1,
-										'max'  => 600,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => 'width',
-									'responsive' => true,
-								),
-							),
-						),
-					),
-					'design'  => array(
-						'title'   => __( 'Design', 'kemet' ),
-						'options' => array(
 							self::$prefix . '-typography' => array(
 								'type'      => 'kmt-typography',
 								'transport' => 'postMessage',

@@ -250,29 +250,18 @@ p.demo_store a,
 }
 
 .kmt-cart-menu-wrap .count {
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  line-height: normal;
 }
 
-.kmt-cart-menu-wrap .count.icon-cart:before {
-  content: "\e903";
-  display: inline-block;
-  font-family: "Kemet-font";
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-rendering: auto;
-  vertical-align: middle;
-  position: relative;
+.kmt-cart-menu-wrap .count .kmt-svg-icon {
+  line-height: inherit;
 }
 
-.kmt-cart-menu-wrap .count.icon-bag:before {
-  content: "\e90f";
-  display: inline-block;
-  font-family: "Kemet-font";
-  font-size: 1.6rem;
-  font-weight: 500;
-  text-rendering: auto;
-  vertical-align: middle;
-  position: relative;
+.kmt-site-header-cart-li .cart-container {
+  display: inline-flex;
+  align-items: center;
 }
 
 /**
@@ -4393,7 +4382,7 @@ button.pswp__button--zoom:hover {
   font-size: 1.2rem;
   padding: 20px 0 14px;
   margin: 0 0 20px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout form #order_review_heading,
@@ -4403,7 +4392,7 @@ button.pswp__button--zoom:hover {
   font-size: 1.2rem;
   margin: 0;
   padding: 1.5em 1.5em 1em;
-  border-color: #ebebeb;
+  border-color: var(--borderColor);
 }
 
 @media (min-width: 769px) {
@@ -4427,7 +4416,7 @@ button.pswp__button--zoom:hover {
   padding: 0 2em;
   border-width: 0 2px 2px;
   border-style: solid;
-  border-color: #ebebeb;
+  border-color: var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout form #order_review table,
@@ -4439,7 +4428,7 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout form #order_review th,
 .woocommerce-page.woocommerce-checkout form #order_review td,
 .woocommerce-page.woocommerce-checkout form #order_review th {
-  border-color: #ebebeb;
+  border-color: var(--borderColor);
 }
 
 @media (min-width: 769px) {
@@ -4473,12 +4462,12 @@ button.pswp__button--zoom:hover {
 
 .woocommerce.woocommerce-checkout #payment div.payment_box,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box {
-  background-color: #efefef;
+  background-color: var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout #payment div.payment_box:before,
 .woocommerce-page.woocommerce-checkout #payment div.payment_box:before {
-  border-bottom-color: #efefef;
+  border-bottom-color: var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout #payment div.form-row,
@@ -4501,13 +4490,13 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout .woocommerce-order h2.woocommerce-column__title, .woocommerce.woocommerce-checkout .woocommerce-order h2.woocommerce-order-details__title,
 .woocommerce-page.woocommerce-checkout .woocommerce-order h2.woocommerce-column__title,
 .woocommerce-page.woocommerce-checkout .woocommerce-order h2.woocommerce-order-details__title {
-  background: #fbfbfb;
+  background: var(--borderColor);
   padding: 1em;
   margin-bottom: 0;
   font-size: 1.3rem;
   border-width: 1px 1px 0 1px;
   border-style: solid;
-  border-color: #e5e5e5;
+  border-color: var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout .woocommerce-order h2.wc-bacs-bank-details-heading,
