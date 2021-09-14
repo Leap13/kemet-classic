@@ -1,9 +1,3 @@
-.customize-control-kmt-spacing .customize-control-title {
-  display: inline-block;
-  font-size: 13px !important ;
-  font-weight: 500 !important;
-}
-
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
   display: flex;
   position: relative;

@@ -113,9 +113,9 @@ class ResponsiveSliderComponent extends Component {
         let labelContent = this.responsive ? (
             <Responsive
                 onChange={(currentDevice) => this.setState({ currentDevice })}
-                label={label}
+
             />
-        ) : <span className="customize-control-title kmt-control-title">{label}</span>;
+        ) : null;
 
         let unitHTML = units.map((unit) => {
             let unit_class;
@@ -154,8 +154,12 @@ class ResponsiveSliderComponent extends Component {
         }
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
         return (
-            <label htmlFor="">
-                {labelContent}
+            <>
+                <header>
+                    <span className="customize-control-title kmt-control-title">{label}</span>
+                    {labelContent}
+
+                </header>
                 <div className="wrapper">
                     <div className={`input-field-wrapper active`}>
                         <RangeControl
@@ -181,7 +185,7 @@ class ResponsiveSliderComponent extends Component {
                     </button>
                 </div>
                 {descriptionContent}
-            </label >
+            </ >
         )
     }
 

@@ -1,10 +1,7 @@
 .kmt-number-container header {
   position: relative;
 }
-.kmt-number-container header span {
-  font-size: 13px !important;
-  font-weight: 500 !important;
-}
+
 .kmt-number-container header .kmt-btn-reset-wrap {
   position: absolute;
   top: 2px;

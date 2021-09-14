@@ -258,7 +258,7 @@ const SpacingComponent = (props) => {
                         onClick={(e) => handleReset(e)}
                     ></button>
                 </div>
-                <span className="customize-control-title">{label}</span>
+                <span className="customize-control-title kmt-control-title">{label}</span>
                 {responsive ? (
                     <Responsive
                         onChange={(currentDevice) => setDevice(currentDevice)}

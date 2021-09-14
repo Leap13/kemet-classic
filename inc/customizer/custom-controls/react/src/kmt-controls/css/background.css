@@ -20,15 +20,7 @@
   padding: 20px 14px 20px 14px;
   box-sizing: border-box;
 }
-.background-container .customize-control-title {
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  margin-bottom: 4px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.1px;
-  line-height: 18px;
-}
+
 .customize-control-kmt-background
   .wp-picker-container
   input[type="text"].wp-color-picker {

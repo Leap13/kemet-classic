@@ -17146,7 +17146,7 @@ var Responsive = /*#__PURE__*/function (_Component) {
     value: function render() {
       var label = this.props.label;
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "customize-control-title"
+        className: "customize-control-title kmt-control-title"
       }, label) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("ul", {
         className: "kmt-responsive-control-btns kmt-responsive-slider-btns"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("li", {
@@ -21346,11 +21346,8 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           return _this2.setState({
             currentDevice: currentDevice
           });
-        },
-        label: label
-      }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
-        className: "customize-control-title kmt-control-title"
-      }, label);
+        }
+      }) : null;
       var unitHTML = units.map(function (unit) {
         var unit_class;
 
@@ -21394,9 +21391,9 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       };
 
       var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
-        htmlFor: ""
-      }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
+        className: "customize-control-title kmt-control-title"
+      }, label), labelContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "input-field-wrapper active"
@@ -21852,7 +21849,7 @@ var SpacingComponent = function SpacingComponent(props) {
       return handleReset(e);
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title"
+    className: "customize-control-title kmt-control-title"
   }, label), responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_responsive__WEBPACK_IMPORTED_MODULE_7__["default"], {
     onChange: function onChange(currentDevice) {
       return setDevice(currentDevice);

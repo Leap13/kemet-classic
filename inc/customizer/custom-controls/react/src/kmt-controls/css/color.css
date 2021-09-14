@@ -1,12 +1,7 @@
 .customize-control-kmt-color {
   position: relative;
 }
-.kmt-color-container .customize-control-title {
-  display: inline-block;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  margin-bottom: 4px;
-}
+
 .kmt-color-container {
   display: flex;
   flex-grow: 2;

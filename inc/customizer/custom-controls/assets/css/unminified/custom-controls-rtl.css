@@ -948,6 +948,13 @@
 	margin-top: 0 !important;
 }
 
+[class*="kmt-control-title"] {
+	display: inline-block !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	letter-spacing: 0.1px;
+}
+
 :root {
 	--accentColorHover: #135e96;
 	--optionBorderColor: #ddd;
@@ -962,11 +969,6 @@
 
 .customize-control-content .kmt-select-input {
 	width: 100%;
-}
-
-.customize-control-kmt-select .customize-control-title {
-	font-size: 13px !important;
-	font-weight: 500 !important;
 }
 
 .customize-control-kmt-background {
@@ -995,17 +997,6 @@
 	min-width: 188px;
 	margin: 0;
 	padding: 20px 14px 20px 14px;
-}
-
-.background-container .customize-control-title {
-	display: flex;
-	margin-bottom: 4px;
-	font-size: 13px !important;
-	font-weight: 500 !important;
-	line-height: 18px;
-	letter-spacing: 0.1px;
-
-	align-items: center;
 }
 
 .customize-control-kmt-background
@@ -7693,6 +7684,12 @@ i.fipicon-angle-left:before {
 	margin-top: 0;
 }
 
+.customize-control-kmt-slider header {
+	display: flex;
+
+	align-items: center;
+}
+
 .customize-control-kmt-slider .wrapper {
 	display: flex;
 	position: relative;
@@ -7779,11 +7776,6 @@ i.fipicon-angle-left:before {
 /**
  * Responsive Icons
  */
-.customize-control-kmt-slider .customize-control-title {
-	display: inline-block;
-	font-size: 13px;
-	font-weight: 500;
-}
 
 .customize-control-kmt-slider .kmt-slider-units {
 	position: absolute;
@@ -7913,13 +7905,6 @@ i.fipicon-angle-left:before {
 
 .customize-control-kmt-color {
 	position: relative;
-}
-
-.kmt-color-container .customize-control-title {
-	display: inline-block;
-	margin-bottom: 4px;
-	font-size: 13px !important;
-	font-weight: 500 !important;
 }
 
 .kmt-color-container {
@@ -8993,12 +8978,6 @@ i.fipicon-angle-left:before {
 	color: #aaa;
 }
 
-.customize-control-kmt-spacing .customize-control-title {
-	display: inline-block;
-	font-size: 13px !important;
-	font-weight: 500 !important;
-}
-
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
 	display: flex;
 	position: relative;
@@ -10064,11 +10043,6 @@ input[type="checkbox"]:focus {
 
 .kmt-number-container header {
 	position: relative;
-}
-
-.kmt-number-container header span {
-	font-size: 13px !important;
-	font-weight: 500 !important;
 }
 
 .kmt-number-container header .kmt-btn-reset-wrap {
