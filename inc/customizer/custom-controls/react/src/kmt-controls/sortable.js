@@ -18,7 +18,7 @@ const SortableList = SortableContainer(({ items, onChange, values }) => {
     return (
         <ul>
             {Object.values(items).map((value, index) => (
-                <SortableItem key={`item-${value[0]}`} index={index} indexValue={value[0]} value={value[1]} handleClick={onChange} values={values} style={{ zIndex: 100000 }} />
+                <SortableItem key={`${value[0]}`} index={index} indexValue={value[0]} value={value[1]} handleClick={onChange} values={values} style={{ zIndex: 99999999 }} />
             ))}
         </ul>
     )
@@ -71,6 +71,7 @@ const SortableComponent = props => {
             updateBeforeSortStart={updateBeforeSortStart}
             isDragging={isDragging}
             hideSortableGhost={false}
+            helperClass="sortable-list-tab"
         />
     </label>;
 

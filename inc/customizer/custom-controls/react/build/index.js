@@ -21531,14 +21531,14 @@ var SortableList = Object(react_sortable_hoc__WEBPACK_IMPORTED_MODULE_5__["Sorta
       values = _ref2.values;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("ul", null, Object.values(items).map(function (value, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(SortableItem, {
-      key: "item-".concat(value[0]),
+      key: "".concat(value[0]),
       index: index,
       indexValue: value[0],
       value: value[1],
       handleClick: onChange,
       values: values,
       style: {
-        zIndex: 100000
+        zIndex: 99999999
       }
     });
   }));
@@ -21609,7 +21609,8 @@ var SortableComponent = function SortableComponent(props) {
     },
     updateBeforeSortStart: updateBeforeSortStart,
     isDragging: isDragging,
-    hideSortableGhost: false
+    hideSortableGhost: false,
+    helperClass: "sortable-list-tab"
   }));
 };
 

@@ -9020,32 +9020,35 @@ i.fipicon-angle-left:before {
   visibility: visible !important;
   z-index: 99999999;
   list-style-type: none;
-  padding: 0.3em;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  background: #fff;
 }
 
 .customize-control-kmt-sortable .kmt-sortable ul .dashicons-visibility {
   cursor: pointer;
 }
 
-.customize-control-kmt-sortable .kmt-sortable ul li {
+.customize-control-kmt-sortable .kmt-sortable ul li,
+.sortable-list-tab {
   padding: 5px 10px;
   border: 1px solid #333;
   background: #fff;
   cursor: move;
-  z-index: 999999;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
-.customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu {
+.customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu,
+.sortable-list-tab i.dashicons.dashicons-menu {
   float: left;
 }
 
-.customize-control-kmt-sortable .kmt-sortable ul li .dashicons.visibility {
+.customize-control-kmt-sortable .kmt-sortable ul li .dashicons.visibility,
+.sortable-list-tab .dashicons.visibility {
   margin-left: 10px;
 }
 
-.customize-control-kmt-sortable .kmt-sortable ul li.invisible {
+.customize-control-kmt-sortable .kmt-sortable ul li.invisible,
+.sortable-list-tab.invisible {
   color: #aaa;
   border: 1px dashed #aaa;
 }
