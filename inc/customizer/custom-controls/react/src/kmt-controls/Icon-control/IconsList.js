@@ -13,7 +13,7 @@ const IconsList = ({
             <div className="kmt-option-input">
                 <input
                     type="text"
-                    placeholder={__("Search icon", "blc")}
+                    placeholder={__("Search icon", "kemet")}
                     value={searchString}
                     onChange={({ target: { value } }) => setSearchString(value)}
                 />

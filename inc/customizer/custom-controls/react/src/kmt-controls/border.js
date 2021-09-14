@@ -19,26 +19,21 @@ const Border = ({ value, onChange, params }) => {
     const [state, setState] = useState(value);
     const handleChangeComplete = (color, id) => {
         let colorValue = state;
-
         if (typeof color === "string") {
-            value[id] = color;
+            colorValue[id] = color;
         } else if (
             undefined !== color.rgb &&
             undefined !== color.rgb.a &&
             1 !== color.rgb.a
         ) {
-            value[
-                id
-            ] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+            colorValue[id] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
         } else {
-            value[id] = color.hex;
+            colorValue[id] = color.hex;
         }
         setState(colorValue);
-
-        onChange(colorValue);
+        onChange({ ...colorValue });
     };
 
-    console.log(state);
     return (
         <div className={`kmt-border-container`}>
             <header>
@@ -71,11 +66,11 @@ const Border = ({ value, onChange, params }) => {
                         onChange={({ target: { value: width } }) => {
                             setState({
                                 ...value,
-                                width: clamp(1, 5, parseInt(width, 10) || 1),
+                                width: width,
                             });
                             onChange({
                                 ...value,
-                                width: clamp(1, 5, parseInt(width, 10) || 1),
+                                width: width,
                             });
                         }}
                     />
@@ -117,7 +112,8 @@ const Border = ({ value, onChange, params }) => {
                                     ],
                                     []
                                 )
-                                .map((group) => (
+                                .map((group) =>
+                                (
                                     <li key={group[0]}>
                                         {group.map((style) => (
                                             <span
@@ -125,7 +121,6 @@ const Border = ({ value, onChange, params }) => {
                                                     active:
                                                         style === value.style,
                                                 })}
-                                                data-style={style}
                                                 key={style}
                                                 onClick={() => {
                                                     setState({
@@ -153,10 +148,7 @@ const Border = ({ value, onChange, params }) => {
                 {value.style !== "none" && <>
                     <ColorComponent
                         onChangeComplete={(colorValue) =>
-                            onChange({
-                                ...value,
-                                color: colorValue.hex,
-                            })
+                            handleChangeComplete(colorValue, 'color')
                         }
                         picker={{
                             id: "default",
@@ -168,10 +160,7 @@ const Border = ({ value, onChange, params }) => {
                     {secondColor && (
                         <ColorComponent
                             onChangeComplete={(colorValue) =>
-                                onChange({
-                                    ...value,
-                                    secondColor: colorValue.hex,
-                                })
+                                handleChangeComplete(colorValue, 'secondColor')
                             }
                             picker={{
                                 id: "default",

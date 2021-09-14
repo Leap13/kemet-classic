@@ -28,16 +28,8 @@ const IconPickerModal = ({
     isTransitioning,
     isPicking,
 }) => {
-    const filteredPacks = useMemo(
-        () =>
-            packs.filter(({ icons }) =>
-                searchString.trim().length > 0
-                    ? !!icons.find(
-                          ({ icon }) => icon.indexOf(searchString) > -1
-                      )
-                    : true
-            ),
-        [searchString]
+    const filteredPacks = packs.filter((icon) =>
+        icon.toLowerCase().includes(searchString.toLowerCase())
     );
     const { styles, popoverProps } = PopoverComponent({
         ref: el,
@@ -64,30 +56,30 @@ const IconPickerModal = ({
                 from={
                     (isPicking || "").indexOf("") === -1
                         ? {
-                              transform: "scale3d(0.95, 0.95, 1)",
-                              opacity: 0,
-                          }
+                            transform: "scale3d(0.95, 0.95, 1)",
+                            opacity: 0,
+                        }
                         : { opacity: 1 }
                 }
                 enter={
                     (isPicking || "").indexOf("") === -1
                         ? {
-                              transform: "scale3d(1, 1, 1)",
-                              opacity: 1,
-                          }
+                            transform: "scale3d(1, 1, 1)",
+                            opacity: 1,
+                        }
                         : {
-                              opacity: 1,
-                          }
+                            opacity: 1,
+                        }
                 }
                 leave={
                     (isPicking || "").indexOf("") === -1
                         ? {
-                              transform: "scale3d(0.95, 0.95, 1)",
-                              opacity: 0,
-                          }
+                            transform: "scale3d(0.95, 0.95, 1)",
+                            opacity: 0,
+                        }
                         : {
-                              opacity: 1,
-                          }
+                            opacity: 1,
+                        }
                 }
             >
                 {() =>
