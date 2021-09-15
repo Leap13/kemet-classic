@@ -80,9 +80,17 @@ const Typography = (props) => {
     const listener = () => {
         setInnerDevice(getInitialDevice());
     };
-    if (wp.customize) {
-        setTimeout(() => wp.customize.previewedDevice.bind(listener), 1000);
-    }
+
+    useEffect(() => {
+        let interval;
+        if (wp.customize) {
+            interval = setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
+        }
+        return () => {
+            clearInterval(interval)
+        }
+    })
+
 
     const typographyWrapper = useRef();
 

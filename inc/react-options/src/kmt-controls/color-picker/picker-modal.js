@@ -1,7 +1,6 @@
 import { useMemo, Fragment, useState, useEffect } from "@wordpress/element";
 import { ColorPicker } from "@wordpress/components";
 import classnames from "classnames";
-const { __ } = wp.i18n;
 
 const getLeftForEl = (modal, el) => {
     if (!modal) return;
@@ -59,16 +58,9 @@ const PickerModal = ({
             getLeftForEl(wrapperProps.ref.current, el.current),
         [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
     );
-
-    const handleTopPart = (colorValue) => {
-        if (refresh) {
-            setRefresh(false);
-        } else {
-            setRefresh(true);
-        }
-        onChange(colorValue);
-    };
-
+    useEffect(() => {
+        setRefresh(prevState => !prevState)
+    }, [value])
     return (
         <Fragment>
             <div
@@ -108,7 +100,7 @@ const PickerModal = ({
                                             valueToCheck === `var(--${color})`,
                                     })}
                                     onClick={() =>
-                                        handleTopPart(`var(--${color})`)
+                                        onChange(`var(--${color})`)
                                     }
                                 >
                                     <div className="kmt-tooltip-top">
