@@ -7,10 +7,12 @@ import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 const { __ } = wp.i18n;
 
-const ColorPalettes = (props) => {
-    const [value, setValue] = useState(props.value)
+const ColorPalettes = ({ value, onChange, params }) => {
+    const [state, setState] = useState(value)
 
     const colorPalettesWrapper = useRef()
+    let defaultValue = params.default;
+    let { label } = params;
 
     const [{ isOpen, isTransitioning }, setModalState] = useState({
         isOpen: false,
@@ -37,10 +39,7 @@ const ColorPalettes = (props) => {
             isTransitioning: false,
         }))
 
-    const updateValues = (val) => {
-        setValue(val);
-        props.onChange({ ...val, flag: !value.flag })
-    }
+
 
     const handleChangePalette = (active) => {
         let currentPalette = active.palettes.find(
@@ -50,13 +49,13 @@ const ColorPalettes = (props) => {
             document.documentElement.style.setProperty('--paletteColor' + index, item);
             return item;
         });
-
-        updateValues(active)
+        setState(active);
+        onChange({ ...active, flag: !value.flag })
     }
 
     const handleChangeComplete = (color, index) => {
-        let currentPalette = value.palettes.find(
-            ({ id }) => id === value.current_palette
+        let currentPalette = state.palettes.find(
+            ({ id }) => id === state.current_palette
         )
         let newValue = currentPalette;
         newValue[index] = color;
@@ -65,11 +64,28 @@ const ColorPalettes = (props) => {
             document.documentElement.style.setProperty('--paletteColor' + index, item);
             return item;
         });
-        updateValues({ ...value, current_palette: id, ...colors })
+        setState({ ...state, current_palette: id, ...colors });
+        onChange({ ...state, current_palette: id, ...colors, flag: !value.flag })
     }
 
     return (
         <div>
+            <header>
+                <div className="kmt-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={
+                            JSON.stringify(defaultValue) ===
+                            JSON.stringify(value)
+                        }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleChangePalette(defaultValue);
+                        }}
+                    ></button>
+                </div>
+                <span className="customize-control-title kmt-control-title">{label}</span>
+            </header>
             <OutsideClickHandler
                 disabled={!isOpen}
                 useCapture={false}
@@ -88,7 +104,7 @@ const ColorPalettes = (props) => {
                         ) {
                             return
                         }
-                        if (!value.palettes) {
+                        if (!state.palettes) {
                             return
                         }
                         setIsOpen(true)
@@ -96,12 +112,12 @@ const ColorPalettes = (props) => {
                 }}>
                 <PalettePreview
                     onClick={() => {
-                        if (!value.palettes) {
+                        if (!state.palettes) {
                             return
                         }
                         setIsOpen(false)
                     }}
-                    value={value}
+                    value={state}
                     onChange={(v, id) => handleChangeComplete(v, id)}
                     skipModal={false}
                 />
@@ -164,8 +180,8 @@ const ColorPalettes = (props) => {
                                         setIsOpen(false)
                                         handleChangePalette(val)
                                     }}
-                                    value={value}
-                                    option={value}
+                                    value={state}
+                                    option={state}
                                 />
                             )
                         }}

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes, { instanceOf } from 'prop-types';
 const { __ } = wp.i18n;
-
-
+import classnames from 'classnames'
 class Responsive extends Component {
     constructor(props) {
         super(props);
@@ -14,45 +13,58 @@ class Responsive extends Component {
 
     render() {
         const { label } = this.props;
+
+        const handleEvent = (device) => {
+            let event;
+
+            switch (device) {
+                case 'desktop':
+                    event = new CustomEvent(
+                        'KemetChangedRepsonsivePreview', {
+                        'detail': 'tablet'
+                    });
+                    break;
+                case 'tablet':
+                    event = new CustomEvent(
+                        'KemetChangedRepsonsivePreview', {
+                        'detail': 'mobile'
+                    });
+                    break;
+                case 'mobile':
+                    event = new CustomEvent(
+                        'KemetChangedRepsonsivePreview', {
+                        'detail': 'desktop'
+                    });
+                    break;
+            }
+            document.dispatchEvent(event);
+        }
+
         return (
             <>
-                {label ? <span className="customize-control-title">{label}</span> : null}
+                { label ? <span className="customize-control-title">{label}</span> : null}
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
-                    <li className="desktop active">
-                        <button type="button" className="preview-desktop active" data-device="desktop">
-                            < i class="dashicons dashicons-desktop" onClick={() => {
-                                let event = new CustomEvent(
-                                    'KemetChangedRepsonsivePreview', {
-                                    'detail': 'tablet'
-                                });
-                                document.dispatchEvent(event);
-                            }} ></i>
-                        </button>
-                    </li>
-                    <li class="tablet ">
-                        <button type="button" className="preview-tablet " data-device="tablet" >
-                            <i class="dashicons dashicons-tablet" onClick={() => {
-                                let event = new CustomEvent(
-                                    'KemetChangedRepsonsivePreview', {
-                                    'detail': 'mobile'
-                                });
-                                document.dispatchEvent(event);
-                            }} ></i>
-                        </button>
-                    </li>
-                    <li class="mobile">
-                        <button type="button" className="preview-mobile" data-device="mobile" >
-                            <i className="dashicons dashicons-smartphone" onClick={() => {
-                                let event = new CustomEvent(
-                                    'KemetChangedRepsonsivePreview', {
-                                    'detail': 'desktop'
-                                });
-                                document.dispatchEvent(event);
-                            }} ></i>
-                        </button>
-                    </li>
+                    {
+                        ['desktop', 'tablet', 'mobile'].map((device,) => <li className={classnames(
+                            `${device}`, {
+                            'active': this.state.view === device
+                        }
+                        )}>
+                            <button type="button" className={classnames(`preview-${device}`, {
+                                'active': this.state.view === device
+                            })} data-device={`${device}`}>
+                                < i class={classnames(`dashicons`,
+                                    {
+                                        'dashicons-desktop': device === "desktop",
+                                        'dashicons-tablet': device === "tablet",
+                                        'dashicons-smartphone': device === "mobile",
+                                    })} onClick={() => handleEvent(device)} ></i>
+                            </button>
+                        </li>)
+                    }
+
                 </ul>
-                {this.props.children}
+                { this.props.children}
             </>
         )
     }

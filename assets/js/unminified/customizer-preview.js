@@ -576,7 +576,6 @@ function kemet_responsive_background(control, selector) {
 function kemet_typography_css(control, selector) {
   wp.customize(control, function (value) {
     value.bind(function (value) {
-      console.log(value);
       var dynamicStyle = '',
         controlName = control.replace('[', '-').replace(']', '');
       if (value.family) {

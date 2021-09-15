@@ -5,45 +5,11 @@ import {
     Button,
     FocalPointPicker,
     __experimentalGradientPicker,
-    ColorPicker,
 } from "@wordpress/components";
 import { MediaUpload } from "@wordpress/media-utils";
 const { __ } = wp.i18n;
 
 const BackgroundModal = (props) => {
-
-    const defaultColorPalette = [
-        "#000000",
-        "#ffffff",
-        "#dd3333",
-        "#dd9933",
-        "#eeee22",
-        "#81d742",
-        "#1e73be",
-        "#e2e7ed",
-    ];
-    const RenderTopSection = () => {
-        return (
-            <div className={`kmt-color-picker-top`}>
-                <ul className="kmt-color-picker-skins">
-                    {defaultColorPalette.map((color, index) => (
-                        <li
-                            key={`color-${index}`}
-                            style={{
-                                background: color,
-                            }}
-                            className={classnames({
-                                active: props.color === color,
-                            })}
-                            onClick={() => onChangeComplete(color)}
-                        >
-                            <div className="kmt-tooltip-top">{`Color ${index + 1}`}</div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    };
     const renderImageSettings = () => {
         const dimensions = {
             width: 400,
@@ -81,7 +47,7 @@ const BackgroundModal = (props) => {
                 <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
                         title={__("Select Background Image", 'Kemet')}
-                        onSelect={(media) => onSelectImage(media)}
+                        onSelect={(media) => props.onSelectImage(media, "image")}
                         allowedTypes={["image"]}
                         value={(props.media && props.media ? props.media : '')}
                         render={({ open }) => (
@@ -95,7 +61,7 @@ const BackgroundModal = (props) => {
                                 }
                                 {(props.media && props.backgroundType === "image") &&
                                     <div className="actions">
-                                        <Button type="button" className="button remove-image" onClick={onRemoveImage} >
+                                        <Button type="button" className="button remove-image" onClick={props.onSelectImage("")} >
                                         </Button>
                                         <Button type="button" className="button edit-image" onClick={() => open(open)}>
                                         </Button>
@@ -110,7 +76,7 @@ const BackgroundModal = (props) => {
                                     url={(props.media.url) ? props.media.url : props.backgroundImage}
                                     dimensions={dimensions}
                                     value={(undefined !== props.backgroundPosition ? props.backgroundPosition : { x: 0.5, y: 0.5 })}
-                                    onChange={(focalPoint) => onChangeImageOptions('backgroundPosition', 'background-position', focalPoint)}
+                                    onChange={(focalPoint) => props.onChangeImageOptions('background-position', focalPoint, "image")}
                                 />
 
                             </div>
@@ -133,10 +99,10 @@ const BackgroundModal = (props) => {
                                         isTertiary
                                         className={`${classActive}`}
                                         onClick={() =>
-                                            onChangeImageOptions(
-                                                "backgroundRepeat",
+                                            props.onChangeImageOptions(
                                                 "background-repeat",
-                                                item
+                                                item,
+                                                "image"
                                             )
                                         }
                                     >
@@ -163,10 +129,9 @@ const BackgroundModal = (props) => {
                                         isTertiary
                                         className={`${classActive}`}
                                         onClick={() =>
-                                            onChangeImageOptions(
-                                                "backgroundSize",
+                                            props.onChangeImageOptions(
                                                 "background-size",
-                                                item
+                                                item, "image"
                                             )
                                         }
                                     >
@@ -194,10 +159,10 @@ const BackgroundModal = (props) => {
                                         isTertiary
                                         className={`${classActive}`}
                                         onClick={() =>
-                                            onChangeImageOptions(
-                                                "backgroundAttachment",
+                                            props.onChangeImageOptions(
                                                 "background-attachment",
-                                                item
+                                                item,
+                                                "image"
                                             )
                                         }
                                     >
@@ -211,37 +176,6 @@ const BackgroundModal = (props) => {
             </>
         );
     };
-
-    const [toggle, setToggle] = useState(false)
-
-    const onSelectImage = (media) => {
-        props.onSelectImage(media, "image");
-    };
-    const onSelect = (tabName) => {
-
-        props.onSelect(tabName);
-    };
-    const onRemoveImage = () => {
-        props.onSelectImage("");
-    };
-
-    const open = (open) => {
-        event.preventDefault();
-        open();
-    };
-
-    const onChangeImageOptions = (tempKey, mainkey, value) => {
-        props.onChangeImageOptions(mainkey, value, "image");
-    };
-
-    const onChangeComplete = (newValue) => {
-        if (toggle) {
-            setToggle(false)
-        } else {
-            setToggle(true)
-        }
-        props.onChangeComplete(newValue)
-    }
     return (
         <Fragment>
             <ul

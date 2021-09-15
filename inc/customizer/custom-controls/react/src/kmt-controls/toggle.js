@@ -3,9 +3,9 @@ import { Fragment } from "@wordpress/element";
 import { useState } from "react";
 import { ToggleControl } from "@wordpress/components";
 
-const ToggleControlComponent = (props) => {
-  const { default: defaultValue, label } = props.params;
-  let value = props.value ? props.value : defaultValue;
+const ToggleControlComponent = ({ params, value, onChange }) => {
+  const { default: defaultValue, label } = params;
+  value = value ? value : defaultValue;
   const [props_value, setPropsValue] = useState(value);
   let labelContent = label ? (
     <span className="toggle-control-label">{label}</span>
@@ -13,7 +13,7 @@ const ToggleControlComponent = (props) => {
 
   const updateValues = () => {
     setPropsValue(!props_value);
-    props.onChange(!props_value);
+    onChange(!props_value);
   };
 
   return (

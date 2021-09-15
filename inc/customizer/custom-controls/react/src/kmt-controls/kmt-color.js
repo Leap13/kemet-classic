@@ -30,48 +30,22 @@ const KemetColorComponent = props => {
     value = value ? value : defaultValue;
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
-    let responsiveHtml = null;
-    let optionsHtml = null;
-    let innerOptionsHtml = null;
-
-    useEffect(() => {
-        // If settings are changed externally.
-        if (state.value !== value) {
-            setState(value);
-        }
-    }, []);
-
-    const updateValues = (value) => {
-        let UpdatedState = { ...state };
-        if (responsive) {
-            UpdatedState[device] = value
-        }
-        else {
-
-            UpdatedState = value
-        }
-        setState(UpdatedState)
-        props.onChange({ ...UpdatedState, flag: !props.value.flag });
-
-    };
 
     const renderOperationButtons = () => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
                 <button
-                    className="kmt-reset-btn components-button components-circular-option-picker__clear is-small"
+                    className="kmt-reset-btn"
                     disabled={(JSON.stringify(state) === JSON.stringify(defaultValue))}
                     onClick={e => {
                         e.preventDefault();
-                        let value = responsive ? JSON.parse(JSON.stringify(defaultValue[device])) : JSON.parse(JSON.stringify(defaultValue));
-
+                        let value = JSON.parse(JSON.stringify(defaultValue));
                         if (undefined === value || '' === value) {
                             value = 'unset';
                         }
-
-                        updateValues(value);
+                        setState(value)
+                        props.onChange({ ...value, flag: !props.value.flag });
                     }}>
-                    <span className="dashicons dashicons-image-rotate"></span>
                 </button>
             </div>
         </>;
@@ -79,89 +53,70 @@ const KemetColorComponent = props => {
 
     const handleChangeComplete = (color, id) => {
 
-        let value = responsive ? state[device] : state;
-
+        let colorValue = responsive ? state[device] : state;
         if (typeof color === 'string') {
-            value[`${id}`] = color;
+            colorValue[`${id}`] = color;
         } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-            value[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
+            colorValue[`${id}`] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
         } else {
-            value[`${id}`] = color.hex;
+            colorValue[`${id}`] = color.hex;
         }
-
-        updateValues(value);
+        setState({ ...value, ...colorValue })
+        props.onChange({ ...value, colorValue, flag: !props.value.flag });
     };
 
 
-    if (responsive) {
-        responsiveHtml = <Responsive
-            onChange={(currentDevice) => setDevice(currentDevice)}
-        />
-    }
-    const renderInputHtml = (device) => {
-        innerOptionsHtml = Object.entries(pickers).map(([key, picker]) => {
 
+    let responsiveHtml = responsive ? <Responsive
+        onChange={(currentDevice) => setDevice(currentDevice)}
+    /> : null;
 
-            if (responsive) {
-                return (
-                    <ColorComponent
-                        value={state[device]}
-                        picker={picker}
-                        predefined={predefined}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
-                    />
-                )
-            } else {
-                return (
-                    <ColorComponent
-                        value={state}
-                        picker={picker}
-                        onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
-
-
-                    />
-                )
-            }
-
-        })
-        return innerOptionsHtml
-
-    }
-
-
-    if (responsive) {
-        optionsHtml = <>
-            {renderInputHtml(device, 'active')}
-        </>;
-    } else {
-        optionsHtml = <>
+    const renderInputHtml = (device) => Object.entries(pickers).map(([key, picker]) =>
+        responsive ? <ColorComponent
+            value={state[device]}
+            picker={picker}
+            predefined={predefined}
+            onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])} />
+            : <ColorComponent
+                value={state}
+                picker={picker}
+                onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
+            />
+    );
+    let optionsHtml = responsive ? <>{renderInputHtml(device, 'active')} </> :
+        <>
             {renderInputHtml('')}
         </>;
-    }
+
 
     const {
         label,
         description
     } = props.params;
-
-    let labelHtml = label ? <span className="customize-control-title">{label}</span> : null;
-    let descriptionHtml = (description !== '' && description) ? <span className="description customize-control-description" > {description}</span> : null;
+    let labelHtml = label ?
+        <span className="customize-control-title kmt-control-title">{label}</span>
+        : null;
+    let descriptionHtml =
+        description !== "" && description ? (
+            <span className="description customize-control-description">
+                {description}
+            </span>
+        ) : null;
 
     return <div className="kmt-control-wrap kmt-color-control-wrap">
-
         <div className={`kmt-color-container`}>
-            <label>
+            <header>
                 {renderOperationButtons()}
                 {labelHtml}
-                {descriptionHtml}
                 {responsiveHtml}
-            </label>
-            < div className={`kmt-color-picker-container`}>
+            </header>
+            <div className={`kmt-color-picker-container`}>
                 {optionsHtml}
             </div>
         </div>
-    </div>;
+        {descriptionHtml}
+    </div>
+        ;
 
 }
 

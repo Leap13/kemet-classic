@@ -1,13 +1,11 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { Dashicon } from "@wordpress/components";
 import Background from "./kmt-background";
 import { __ } from "@wordpress/i18n";
 import Responsive from "../common/responsive";
 
 const BackgroundComponent = (props) => {
     let value = props.value;
-
     let responsive = props.params.responsive;
     let defaultValue = {
         "background-attachment": "",
@@ -22,14 +20,16 @@ const BackgroundComponent = (props) => {
     };
 
     let ResDefaultParam = {
-        desktop: defaultValue,
-        tablet: defaultValue,
-        mobile: defaultValue,
+        desktop: { ...defaultValue },
+        tablet: { ...defaultValue },
+        mobile: { ...defaultValue },
     };
 
     let defaultValues = responsive ? ResDefaultParam : defaultValue;
 
-    let defaultVals = props.params.default ? props.params.default : defaultValues;
+    let defaultVals = props.params.default
+        ? props.params.default
+        : defaultValues;
 
     value = value ? value : defaultVals;
     const [props_value, setPropsValue] = useState(value);
@@ -40,23 +40,25 @@ const BackgroundComponent = (props) => {
         props.onChange({ ...obj, flag: !value.flag });
     };
 
-    let responsiveHtml = responsive ? <Responsive onChange={(device) => setDevice(device)} /> : null;
+    let responsiveHtml = responsive ? (
+        <Responsive onChange={(device) => setDevice(device)} />
+    ) : null;
 
     const renderReset = () => {
         return (
-            <span className="customize-control-title">
+            <header >
                 <div className="kmt-background-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
                         disabled={
-                            JSON.stringify(props_value) === JSON.stringify(defaultVals)
+                            JSON.stringify(props_value) ===
+                            JSON.stringify(defaultVals)
                         }
                         onClick={(e) => {
                             e.preventDefault();
                             updateValue(defaultVals);
                         }}
                     >
-                        <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 <label>
@@ -64,14 +66,12 @@ const BackgroundComponent = (props) => {
                     {descriptionHtml}
                 </label>
                 {responsiveHtml}
-            </span>
+            </header>
         );
     };
 
     const onSelectImage = (media) => {
-        let obj = {
-            ...props_value,
-        };
+        let obj = { ...props_value };
         if (responsive) {
             obj[device]["background-media"] = media.id;
             obj[device]["background-image"] = media.url;
@@ -86,22 +86,14 @@ const BackgroundComponent = (props) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device][mainKey] = value;
-        } else {
-            obj[mainKey] = value;
-        }
+        responsive ? obj[device][mainKey] = value : obj[mainKey] = value;
         updateValue(obj);
     };
     const onSelectType = (type) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device]["background-type"] = type;
-        } else {
-            obj["background-type"] = type;
-        }
+        responsive ? obj[device]["background-type"] = type : obj["background-type"] = type;
         updateValue(obj);
     };
 
@@ -126,7 +118,9 @@ const BackgroundComponent = (props) => {
                             : ""
                     }
                     onChangeComplete={(color) => handleChangeComplete(color)}
-                    onChangeGradient={(gradient) => handleChangeGradient(gradient)}
+                    onChangeGradient={(gradient) =>
+                        handleChangeGradient(gradient)
+                    }
                     media={
                         undefined !== renderBackground["background-media"] &&
                             renderBackground["background-media"]
@@ -140,7 +134,8 @@ const BackgroundComponent = (props) => {
                             : ""
                     }
                     backgroundAttachment={
-                        undefined !== renderBackground["background-attachment"] &&
+                        undefined !==
+                            renderBackground["background-attachment"] &&
                             renderBackground["background-attachment"]
                             ? renderBackground["background-attachment"]
                             : ""
@@ -181,17 +176,13 @@ const BackgroundComponent = (props) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device]["background-gradient"] = gradient;
-        } else {
-            obj["background-gradient"] = gradient;
-        }
+        responsive ? obj[device]["background-gradient"] = gradient : obj["background-gradient"] = gradient;
+
         updateValue(obj);
     };
 
     const handleChangeComplete = (color) => {
         let value = "";
-
         if (color) {
             if (typeof color === "string" || color instanceof String) {
                 value = color;
@@ -220,11 +211,11 @@ const BackgroundComponent = (props) => {
     const { label, description } = props.params;
 
     let labelHtml = (
-        <span className="customize-control-title">
+        <span className="customize-control-title kmt-control-title">
             {label ? label : __("Background")}
         </span>
     );
-    let descriptionHtml = description ? (
+    let descriptionHtml = (description && description !== "") ? (
         <span className="description customize-control-description">
             {description}
         </span>

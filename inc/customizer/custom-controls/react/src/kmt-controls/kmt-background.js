@@ -1,6 +1,6 @@
 import { useRef, createPortal, useState } from "@wordpress/element";
 import cls from "classnames";
-import BackgroundModal from "./background/BackgroundModal";
+import BackgroundModal from "./Background/BackgroundModal";
 import OutsideClickHandler from "../common/outside-component";
 const { __ } = wp.i18n;
 import usePopoverMaker from "../common/popover-component";
