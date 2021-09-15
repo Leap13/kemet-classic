@@ -16304,7 +16304,8 @@ __webpack_require__.r(__webpack_exports__);
 var ToggleControlComponent = function ToggleControlComponent(props) {
   var _props$params = props.params,
       defaultValue = _props$params.default,
-      label = _props$params.label;
+      label = _props$params.label,
+      description = _props$params.description;
   var value = props.value ? props.value : defaultValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
@@ -16315,6 +16316,9 @@ var ToggleControlComponent = function ToggleControlComponent(props) {
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "toggle-control-label kmt-control-title"
   }, label) : null;
+  var descriptionHtml = description !== "" && description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+    className: "description customize-control-description"
+  }, description) : null;
 
   var updateValues = function updateValues() {
     setPropsValue(!props_value);
@@ -16329,7 +16333,7 @@ var ToggleControlComponent = function ToggleControlComponent(props) {
     onChange: function onChange() {
       return updateValues();
     }
-  })));
+  }), descriptionHtml));
 };
 
 ToggleControlComponent.propTypes = {

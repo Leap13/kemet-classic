@@ -27,19 +27,21 @@ $zone        = 0;
 
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 	<div class="kmt-builder-grid-row-container-inner">
-		<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap kmt-grid-row <?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">
-			<?php while ( $zone++ < $columns ) { ?>
-				<div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $zone ); ?> direction-<?php echo esc_attr( $column_direction ); ?> site-footer-section">
-				<?php
-				/**
-				 * Kemet Render Footer Column
-				 *
-				 * Hooked kemet_render_footer_column
-				 */
-				do_action( 'kemet_render_footer_column', $zone, $row );
-				?>
-				</div>
-			<?php } ?>
+		<div class="kmt-container">
+			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap kmt-grid-row <?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">
+				<?php while ( $zone++ < $columns ) { ?>
+					<div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $zone ); ?> direction-<?php echo esc_attr( $column_direction ); ?> site-footer-section">
+					<?php
+					/**
+					 * Kemet Render Footer Column
+					 *
+					 * Hooked kemet_render_footer_column
+					 */
+					do_action( 'kemet_render_footer_column', $zone, $row );
+					?>
+					</div>
+				<?php } ?>
+			</div>
 		</div>
 	</div> 
 </div>

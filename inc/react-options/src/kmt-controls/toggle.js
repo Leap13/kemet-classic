@@ -4,13 +4,18 @@ import { useState } from "react";
 import { ToggleControl } from "@wordpress/components";
 
 const ToggleControlComponent = (props) => {
-  const { default: defaultValue, label } = props.params;
+  const { default: defaultValue, label,description } = props.params;
   let value = props.value ? props.value : defaultValue;
   const [props_value, setPropsValue] = useState(value);
   let labelContent = label ? (
     <span className="toggle-control-label kmt-control-title">{label}</span>
   ) : null;
-
+  let descriptionHtml =
+    description !== "" && description ? (
+      <span className="description customize-control-description">
+        {description}
+      </span>
+    ) : null;
   const updateValues = () => {
     setPropsValue(!props_value);
     props.onChange(!props_value);
@@ -24,6 +29,7 @@ const ToggleControlComponent = (props) => {
           checked={props_value}
           onChange={() => updateValues()}
         />
+        {descriptionHtml}
       </div>
     </Fragment>
   );

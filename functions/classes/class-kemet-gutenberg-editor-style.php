@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				)
 			);
 			$box_bg_obj           = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );
-			$content_text_color   = kemet_get_option( 'content-text-color', $text_meta_color );
+			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial', $text_meta_color );
 			$content_link_color   = kemet_get_sub_option( 'content-link-color', 'initial', $headings_links_color );
 			$content_link_h_color = kemet_get_sub_option( 'content-link-color', 'hover', $theme_color );
 			// Headings.
