@@ -375,7 +375,7 @@ class KemetColorPickerControl extends Component {
                                 {!this.props.media &&
 
                                     < Button className="upload-button button-add-media" isDefault onClick={() => this.open(open)}>
-                                        {__("Select Background Image", 'Kemet')}
+                                    {__("Select Background Image", 'kemet')}
                                     </Button>
                                 }
                                 {(this.props.media && this.props.backgroundType === "image") &&

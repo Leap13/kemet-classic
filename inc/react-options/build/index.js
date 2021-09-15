@@ -13266,7 +13266,7 @@ var BackgroundModal = function BackgroundModal(props) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "kmt-control kmt-image-actions"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
-      title: __("Select Background Image", 'Kemet'),
+      title: __("Select Background Image", 'kemet'),
       onSelect: function onSelect(media) {
         return props.onSelectImage(media, "image");
       },
@@ -13282,7 +13282,7 @@ var BackgroundModal = function BackgroundModal(props) {
           onClick: function onClick() {
             return open(open);
           }
-        }, __("Select Background Image", 'Kemet'))), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+        }, __("Select Background Image", 'kemet'))), props.media && props.backgroundType === "image" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
           className: "actions"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           type: "button",
@@ -13401,7 +13401,7 @@ var BackgroundModal = function BackgroundModal(props) {
     design: props.backgroundType === 'color' ? 'none' : 'inline',
     value: props.color,
     pickers: [{
-      title: __('Initial', 'Kemet'),
+      title: __('Initial', 'kemet'),
       id: 'default'
     }],
     inline_modal: props.backgroundType === 'color',

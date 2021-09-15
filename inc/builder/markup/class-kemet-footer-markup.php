@@ -149,7 +149,7 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 					apply_filters(
 						'kemet_header_widgets_' . $num,
 						array(
-							'name'          => esc_html__( 'Footer Widget ' . $num, 'kemet' ),
+							'name'          => __( 'Footer Widget ' . $num, 'kemet' ),
 							'id'            => $widget,
 							'before_widget' => '<div id="%1$s" class="widget %2$s">',
 							'after_widget'  => '</div>',

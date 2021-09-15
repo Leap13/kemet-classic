@@ -46,7 +46,7 @@ const BackgroundModal = (props) => {
             <>
                 <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
-                        title={__("Select Background Image", 'Kemet')}
+                        title={__("Select Background Image", 'kemet')}
                         onSelect={(media) => props.onSelectImage(media, "image")}
                         allowedTypes={["image"]}
                         value={(props.media && props.media ? props.media : '')}
@@ -55,7 +55,7 @@ const BackgroundModal = (props) => {
                                 {!props.media &&
                                     <div className="kmt-control kmt-image-actions">
                                         < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
-                                            {__("Select Background Image", 'Kemet')}
+                                        {__("Select Background Image", 'kemet')}
                                         </Button>
                                     </div>
                                 }
@@ -243,7 +243,7 @@ const BackgroundModal = (props) => {
                             value={props.color}
                             pickers={[
                                 {
-                                    title: __('Initial', 'Kemet'),
+                                    title: __('Initial', 'kemet'),
                                     id: 'default',
                                 },
                             ]}

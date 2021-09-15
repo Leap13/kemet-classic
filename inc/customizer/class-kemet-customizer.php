@@ -331,16 +331,14 @@ if ( ! class_exists( 'Kemet_Customizer' ) ) {
 
 			$default = $this->get_default( $id, $args );
 
-			$settings = array(
-				'default'           => $default,
-				'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
-				'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
-				'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
-			);
-
 			$wp_customize->add_setting(
 				$option_id,
-				$settings
+				array(
+					'default'           => $default,
+					'type'              => $this->get_control_prop( 'setting_type', $args, 'option' ),
+					'sanitize_callback' => isset( $this->sanitize[ $args['type'] ] ) ? $this->sanitize[ $args['type'] ] : false,
+					'transport'         => $this->get_control_prop( 'transport', $args, 'refresh' ),
+				)
 			);
 
 			if ( 'image' === $args['type'] ) {
