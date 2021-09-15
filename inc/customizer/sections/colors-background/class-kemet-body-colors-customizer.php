@@ -20,7 +20,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$register_options = array(
 			'colorPalette' => array(
-					'label' => __( 'Global Color Palette', 'Kemet' ),
+					'label' => __( 'Global Color Palette', 'kemet' ),
 					'type'  => 'kmt-color-palettes',
 				
 				),

@@ -50,7 +50,8 @@
 	color: #0073aa;
 }
 
-#customize-controls .control-section-kmt_section .accordion-section {
-	margin-right: -12px;
-	margin-left: -12px;
+#customize-controls .control-section-kmt_section .accordion-section,
+.control-section-kmt_section .accordion-section {
+	margin-right: -20px;
+	margin-left: -20px;
 }

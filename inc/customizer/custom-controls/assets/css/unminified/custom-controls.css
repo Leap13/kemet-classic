@@ -910,11 +910,12 @@
 	display: flex;
 }
 
-/* #customize-theme-controls
+#customize-theme-controls
   ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
-  height: 100%;
-  padding: 12px 20px 12px 20px !important;
-} */
+	height: 100%;
+	padding: 12px 20px 12px 20px !important;
+}
+
 input[type="color"],
 input[type="date"],
 input[type="datetime-local"],
@@ -935,15 +936,17 @@ textarea {
 	border-radius: 0 !important;
 }
 
-/* .customize-section-title {
-  margin: -12px -20px 0 -20px !important;
+.customize-section-title {
+	margin: -12px -20px 0 -20px !important;
 }
+
 #customize-theme-controls .customize-pane-child.accordion-section-content {
-  padding: 12px 20px 25px 20px;
+	padding: 12px 20px 25px 20px;
 }
+
 .customize-control-kmt-focus-button {
-  margin-top: 0px !important;
-} */
+	margin-top: 0 !important;
+}
 
 :root {
 	--accentColorHover: #135e96;

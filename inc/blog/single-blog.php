@@ -91,7 +91,7 @@ if ( ! function_exists( 'kemet_single_get_post_meta' ) ) {
 			}
 		}
 		if ( $echo ) {
-			echo wp_kses_post( $output );
+			echo $output;
 
 		} else {
 			return $output;
