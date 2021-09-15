@@ -1,9 +1,3 @@
-.customize-control-kmt-spacing .customize-control-title {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
-}
-
 .customize-control-kmt-spacing .kmt-spacing-responsive-outer-wrapper {
   display: flex;
   position: relative;
@@ -11,7 +5,6 @@
 
 .customize-control-kmt-spacing .kmt-spacing-responsive-units {
   position: absolute;
-  transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
   right: 0px;
@@ -45,6 +38,7 @@
   -ms-flex: auto;
   flex: auto;
   margin: 0 2px;
+  height: 30px;
 }
 .customize-control-kmt-spacing
   .input-wrapper
@@ -54,6 +48,7 @@
   text-align: center;
   padding: 0 3px;
   width: 100% !important;
+  height: 32px;
 }
 
 .customize-control-kmt-spacing .input-wrapper .kmt-spacing-wrapper.active {
@@ -104,12 +99,11 @@
   .kmt-spacing-input-item-link
   span {
   width: 35px;
-  height: 25px;
-  line-height: 26px;
+  height: 30px;
+  line-height: 30px;
   font-size: 14px;
   border: 1px solid #dcdddf;
   background-color: #fff;
-  padding: 2px 0;
   font-size: 12px;
 }
 .customize-control-kmt-spacing
@@ -127,15 +121,19 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.kmt-spacing-responsive header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: 5px;
+}
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
-  top: 8px;
-  left: -3px;
+  left: 0;
 }
 .kmt-spacing-responsive:hover
   .kmt-spacing-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled)
-  span {
+  .kmt-reset-btn:not(:disabled) {
   opacity: 1;
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn {
@@ -144,27 +142,31 @@ input[type="number"] {
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-15px, 0, 0);
+  transform: translate3d(-17px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;
   height: 18px;
-}
-/*   */
-.kmt-spacing-btn-reset-wrap .kmt-reset-btn span,
-.kmt-resp-slider-reset-wrap .kmt-reset-btn span {
-  font-size: 10px !important;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
   opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
 }
-.kmt-spacing-btn-reset-wrap .kmt-reset-btn span:hover {
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+.kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover::before {
   transform: rotate(-45deg);
 }
-.kemet-color-clear-button.components-button:focus:not(:disabled) {
-  outline: unset;
-  border: none;
-  opacity: 1;
-}
+/*   */
+
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover,
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:focus,
 .kmt-resp-slider-reset-wrap .kmt-reset-btn:hover,

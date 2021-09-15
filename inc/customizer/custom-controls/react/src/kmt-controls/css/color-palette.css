@@ -2,7 +2,7 @@
 .kmt-palettes-modal .kmt-color-picker-container {
   justify-content: initial;
 }
-.customize-control-kmt-color-palettes div .kmt-palettes-preview {
+.customize-control-kmt-color-palettes .kmt-palettes-preview {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +10,73 @@
   padding: 5px 12px 0 12px;
   margin: 0 -14px;
   border-radius: 100px;
+}
+.customize-control-kmt-color-palettes header span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.customize-control-kmt-color-palettes:hover
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  transform: translate3d(-17px, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover::before {
+  transform: rotate(-45deg);
+}
+/*   */
+
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover,
+.customize-control-kmt-color-palettes
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }
 .kmt-palettes-preview:after {
   font-family: "dashicons";
@@ -656,7 +723,7 @@
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
-  --modal-x-offset: 12px !important;
+  --modal-x-offset: 20px !important;
 }
 .kmt-palettes-modal {
   max-height: 450px;
