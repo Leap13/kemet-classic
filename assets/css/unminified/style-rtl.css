@@ -1927,6 +1927,10 @@ a.wp-block-button__link:focus,
 	box-shadow: none;
 }
 
+.wp-block-search .wp-block-search__input {
+	border-color: var(--borderColor);
+}
+
 .kmt-widget-area .wp-block-buttons > .wp-block-button {
 	margin: 0;
 }
@@ -4006,6 +4010,7 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 	font-style: normal;
 	line-height: inherit;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 .toggle-button.toggled .toggle-button-icon:before {
@@ -4301,8 +4306,9 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 }
 
 .header-toggle-button {
-	height: 53px;
+	height: 42px;
 	padding: 10px;
+	cursor: pointer;
 }
 
 .header-toggle-button.toggled path:nth-child(1) {

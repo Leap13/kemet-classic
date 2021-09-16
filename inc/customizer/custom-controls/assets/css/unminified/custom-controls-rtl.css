@@ -948,6 +948,13 @@ textarea {
 	margin-top: 0 !important;
 }
 
+[class*="kmt-control-title"] {
+	display: inline-block !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	letter-spacing: 0.1px;
+}
+
 :root {
 	--accentColorHover: #135e96;
 	--optionBorderColor: #ddd;
@@ -7908,7 +7915,11 @@ i.fipicon-angle-left:before {
 }
 
 .kmt-color-container header {
+	display: flex;
 	position: relative;
+	margin-bottom: 5px;
+
+	align-items: center;
 }
 
 .kmt-color-picker-container {

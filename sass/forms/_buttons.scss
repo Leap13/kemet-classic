@@ -24,6 +24,9 @@ a.wp-block-button__link,
     box-shadow: none;
   }
 }
+.wp-block-search .wp-block-search__input {
+  border-color: var(--borderColor);
+}
 .kmt-widget-area {
   .wp-block-buttons {
     > .wp-block-button {

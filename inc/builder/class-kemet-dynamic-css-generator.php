@@ -152,6 +152,8 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$btn_width         = kemet_get_option( $toggle_button . '-button-width' );
 				$btn_height        = kemet_get_option( $toggle_button . '-button-height' );
 				$btn_radius        = kemet_get_option( $toggle_button . '-button-border-radius' );
+				$toggle_design     = kemet_get_option( $toggle_button . '-toggle-button-design' );
+				$toggle_size       = kemet_get_option( $toggle_button . '-toggle-button-size' );
 				$float_position    = kemet_get_option( $toggle_button . '-button-float-position' );
 				$float_vposition   = strpos( $float_position, 'top' ) !== false ? 'top' : 'bottom';
 				$float_hposition   = strpos( $float_position, 'left' ) !== false ? 'left' : 'right';
@@ -173,10 +175,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'--buttonBackgroundColor'      => esc_attr( $icon_bg_color ),
 						'width'                        => kemet_slider( $btn_width ),
 						'height'                       => kemet_slider( $btn_height ),
+						'font-size'                    => kemet_slider( $toggle_size ),
 						'--borderRadius'               => kemet_slider( $btn_radius ),
 						'--buttonHoverColor'           => esc_attr( $icon_h_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $icon_bg_h_color ),
 					),
+					
 				);
 				/* Parse CSS from array()*/
 				$parse_css = kemet_parse_css( $btn_css_output );

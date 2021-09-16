@@ -8,7 +8,10 @@
   justify-content: space-between;
 }
 .kmt-color-container header {
+  display: flex;
   position: relative;
+  margin-bottom: 5px;
+  align-items: center;
 }
 .kmt-color-picker-container {
   display: flex;

@@ -403,6 +403,7 @@
     display: inline-block;
     vertical-align: middle;
     line-height: inherit;
+    cursor: pointer;
   }
   &.toggled {
     .toggle-button-icon {
@@ -599,8 +600,9 @@
   width: 18px;
 }
 .header-toggle-button {
-  height: 53px;
+  height: 42px;
   padding: 10px;
+  cursor: pointer;
 }
 .header-toggle-button.toggled path:nth-child(1) {
   transform: rotate(45deg);

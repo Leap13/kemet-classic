@@ -35,6 +35,16 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-style'  => array(
+								'type'         => 'kmt-radio',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Style', 'kemet' ),
+								'choices' => array(
+									'simple' => 'Simple',
+									'outline' => 'Outline',
+									'solid' => 'Solid',
+								),
+							),
 							self::$prefix . '-width'  => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
@@ -65,6 +75,22 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								'preview'      => array(
 									'selector' => $selector,
 									'property' => 'height',
+								),
+							),
+							self::$prefix . '-size' => array(
+								'type'         => 'kmt-slider',
+								'transport'    => 'postMessage',
+								'label'        => __( 'Icon Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 200,
+									),
+								),
+								'preview'      => array(
+									'selector' => $selector,
+									'property' => 'font-size',
 								),
 							),
 						),

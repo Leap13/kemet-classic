@@ -32,3 +32,9 @@ textarea {
 .customize-control-kmt-focus-button {
   margin-top: 0px !important;
 }
+[class*="kmt-control-title"] {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  letter-spacing: 0.1px;
+}
