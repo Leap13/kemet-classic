@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ToggleControl } from "@wordpress/components";
 
 const ToggleControlComponent = ({ params, value, onChange }) => {
-  const { default: defaultValue, label } = params;
+  const { default: defaultValue, label, description } = params;
   value = value ? value : defaultValue;
   const [props_value, setPropsValue] = useState(value);
   let labelContent = label ? (
