@@ -32,8 +32,8 @@ const getLeftForEl = (modal, el) => {
     };
 };
 
-const Typography = (props) => {
-    let value = props.value;
+const Typography = ({ value, onChange, params: { label } }) => {
+
     let defaultValue = {
         family: "System Default",
         variation: "n4",
@@ -66,7 +66,7 @@ const Typography = (props) => {
         "text-decoration": "none",
     };
 
-    let { label } = props.params;
+
 
     useEffect(() => {
         getInitialDevice();
@@ -161,7 +161,7 @@ const Typography = (props) => {
     ]);
 
     const updateValues = (obj) => {
-        props.onChange(obj);
+        onChange(obj);
     };
 
     return (
@@ -329,9 +329,8 @@ const Typography = (props) => {
                                         },
                                         ...popoverProps,
                                     }}
-                                    onChange={props.onChange}
+                                    onChange={onChange}
                                     value={value}
-                                    option={props}
                                     initialView={item}
                                     setInititialView={(initialView) =>
                                         setIsOpen(initialView)

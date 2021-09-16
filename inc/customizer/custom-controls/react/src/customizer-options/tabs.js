@@ -4,10 +4,9 @@ const { Dashicon } = wp.components;
 const { __ } = wp.i18n;
 import { renderOptions } from '../options/options-component'
 
-const TabsComponent = (props) => {
-    let tabs = props.params.tabs
-        ? props.params.tabs
-        : {};
+const TabsComponent = ({ params: { tabs } }) => {
+
+    tabs = tabs ? tabs : {}
     const [state, setState] = useState({
         currentTab: 0,
     });

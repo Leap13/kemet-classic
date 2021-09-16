@@ -1,11 +1,15 @@
 .customize-control-kmt-color {
   position: relative;
 }
-
 .kmt-color-container {
   display: flex;
   flex-grow: 2;
   justify-content: space-between;
+}
+.kmt-color-container header {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 .kmt-color-container header {
   position: relative;

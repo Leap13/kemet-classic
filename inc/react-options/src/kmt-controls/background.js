@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { Dashicon } from "@wordpress/components";
 import Background from "./kmt-background";
 import { __ } from "@wordpress/i18n";
 import Responsive from "../common/responsive";
@@ -72,9 +71,7 @@ const BackgroundComponent = (props) => {
     };
 
     const onSelectImage = (media) => {
-        let obj = {
-            ...props_value,
-        };
+        let obj = { ...props_value };
         if (responsive) {
             obj[device]["background-media"] = media.id;
             obj[device]["background-image"] = media.url;
@@ -89,22 +86,14 @@ const BackgroundComponent = (props) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device][mainKey] = value;
-        } else {
-            obj[mainKey] = value;
-        }
+        responsive ? obj[device][mainKey] = value : obj[mainKey] = value;
         updateValue(obj);
     };
     const onSelectType = (type) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device]["background-type"] = type;
-        } else {
-            obj["background-type"] = type;
-        }
+        responsive ? obj[device]["background-type"] = type : obj["background-type"] = type;
         updateValue(obj);
     };
 
@@ -187,17 +176,13 @@ const BackgroundComponent = (props) => {
         let obj = {
             ...props_value,
         };
-        if (responsive) {
-            obj[device]["background-gradient"] = gradient;
-        } else {
-            obj["background-gradient"] = gradient;
-        }
+        responsive ? obj[device]["background-gradient"] = gradient : obj["background-gradient"] = gradient;
+
         updateValue(obj);
     };
 
     const handleChangeComplete = (color) => {
         let value = "";
-
         if (color) {
             if (typeof color === "string" || color instanceof String) {
                 value = color;
@@ -230,7 +215,7 @@ const BackgroundComponent = (props) => {
             {label ? label : __("Background")}
         </span>
     );
-    let descriptionHtml = description ? (
+    let descriptionHtml = (description && description !== "") ? (
         <span className="description customize-control-description">
             {description}
         </span>

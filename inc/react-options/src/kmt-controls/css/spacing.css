@@ -38,6 +38,7 @@
   -ms-flex: auto;
   flex: auto;
   margin: 0 2px;
+  height: 30px;
 }
 .customize-control-kmt-spacing
   .input-wrapper

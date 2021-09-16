@@ -1,7 +1,6 @@
 const { __ } = wp.i18n;
-import classnames from "classnames";
-import ColorComponent from "../color";
-import { SlotFillProvider } from "@wordpress/components";
+import classnames from 'classnames'
+import ColorComponent from '../color'
 
 const PalettePreview = ({
 	renderBefore = () => null,
@@ -47,8 +46,8 @@ const PalettePreview = ({
 			className={classnames("kmt-single-palette", className)}
 			onClick={(e) => {
 				if (
-					e.target.closest(".ct-color-picker-modal") ||
-					e.target.classList.contains("ct-color-picker-modal")
+					e.target.closest('.kmt-color-picker-modal') ||
+					e.target.classList.contains('kmt-color-picker-modal')
 				) {
 					return;
 				}

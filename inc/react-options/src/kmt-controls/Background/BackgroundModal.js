@@ -55,7 +55,7 @@ const BackgroundModal = (props) => {
                                 {!props.media &&
                                     <div className="kmt-control kmt-image-actions">
                                         < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
-                                        {__("Select Background Image", 'kemet')}
+                                            {__("Select Background Image", 'kemet')}
                                         </Button>
                                     </div>
                                 }

@@ -115,7 +115,7 @@ class ResponsiveSliderComponent extends Component {
                 onChange={(currentDevice) => this.setState({ currentDevice })}
 
             />
-        ) : null;
+        ) : <span className="customize-control-title kmt-control-title">{label}</span>;
 
         let unitHTML = units.map((unit) => {
             let unit_class;

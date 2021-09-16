@@ -1,3 +1,6 @@
+.wp-customizer .kmt-option-modal {
+  left: 12px;
+}
 .kmt-option-modal {
   position: fixed;
   z-index: 100000;

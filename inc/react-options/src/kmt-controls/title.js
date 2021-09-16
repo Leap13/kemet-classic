@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { Fragment } from '@wordpress/element';
 
-const TitleComponent = props => {
+const TitleComponent = ({ params: { caption, label, description } }) => {
 
-    let captionContent = props.params.caption ? htmlCaption = <span className="customize-control-caption">{props.params.caption}</span> : null;
-    let labelContent = props.params.label ? <span className="customize-control-title">{props.params.label}</span> : null;
-    let descriptionContent = props.params.description ? <span className="description customize-control-description" dangerouslySetInnerHTML={{
-        __html: props.params.description
+    let captionContent = caption ? htmlCaption = <span className="customize-control-caption">{caption}</span> : null;
+    let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
+    let descriptionContent = description ? <span className="description customize-control-description" dangerouslySetInnerHTML={{
+        __html: description
     }}></span> : null;
 
     return <Fragment>
