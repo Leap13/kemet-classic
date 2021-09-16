@@ -14,6 +14,7 @@ import RadioImageComponent from './radio-image'
 import Typography from './typography';
 import ColorPalettes from './color-pallet';
 import NumberComponent from './number';
+import Visibility from './visibility'
 
 const OptionComponent = (type) => {
     let OptionComponent;
@@ -65,6 +66,9 @@ const OptionComponent = (type) => {
             break;
         case 'kmt-number':
             OptionComponent = NumberComponent;
+            break;
+        case 'kmt-visibility':
+            OptionComponent = Visibility;
             break;
     }
 
