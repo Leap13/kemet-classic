@@ -272,7 +272,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                     </span>
                 </div>
 
-                <a ref={dotsRef} />
+
             </OutsideComponent>
             {(isTransitioning || isOpen) &&
                 createPortal(
