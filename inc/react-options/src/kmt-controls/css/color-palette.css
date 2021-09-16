@@ -49,6 +49,7 @@
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .customize-control-kmt-color-palettes
   header

@@ -27,6 +27,7 @@
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
