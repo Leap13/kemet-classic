@@ -42,7 +42,7 @@ class ResponsiveSliderComponent extends Component {
 
         this.state = {
             initialState: value,
-            currentDevice: 'desktop',
+            currentDevice: wp.customize.previewedDevice(),
             defaultVal: defaultVals
         }
 
@@ -60,32 +60,7 @@ class ResponsiveSliderComponent extends Component {
 
     handleUnitChange = (device, value) => {
         let updateState = { ...this.state.initialState };
-        this.responsive ? updateState[`${device}-unit`] = valueelse : updateState[`unit`] = value;
-        this.props.onChange(updateState);
-        this.setState({ initialState: updateState });
-    }
-
-    handleReset = (e) => {
-        e.preventDefault();
-        let updateState;
-        if (this.responsive) {
-            let defUnit = this.state.defaultVal[`${this.state.currentDevice}-unit`],
-                size = this.state.defaultVal[this.state.currentDevice];
-            updateState = {
-                ...this.state.defaultVal
-            };
-            updateState[`${this.state.currentDevice}-unit`] = defUnit;
-            updateState[this.state.currentDevice] = size;
-
-        } else {
-            let defUnit = this.state.defaultVal[`unit`],
-                size = this.state.defaultVal[`value`];
-            updateState = {
-                ...this.state.defaultVal
-            };
-            updateState[`unit`] = defUnit;
-            updateState[`value`] = size;
-        }
+        this.responsive ? updateState[`${device}-unit`] = value : updateState[`unit`] = value;
         this.props.onChange(updateState);
         this.setState({ initialState: updateState });
     }
@@ -154,8 +129,16 @@ class ResponsiveSliderComponent extends Component {
         }
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
         return (
-            <label htmlFor="">
-                {labelContent}
+            <Fragment>
+                <header>
+                    <div className={`kmt-slider-title-wrap`}>
+                        {labelContent}
+                    </div>
+                    <ul className="kmt-slider-units">
+                        {unitHTML}
+                    </ul>
+                </header>
+
                 <div className="wrapper">
                     <div className={`input-field-wrapper active`}>
                         <RangeControl
@@ -171,17 +154,19 @@ class ResponsiveSliderComponent extends Component {
                             <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={onChangeInput} />
                             {suffixContent}
                         </div>
-                        <ul className="kmt-slider-units">
-                            {unitHTML}
-                        </ul>
+
                     </div>
 
-                    <button className="kmt-slider-reset" disabled={this.state.initialState === this.state.defaultVal ? true : false} onClick={e => this.handleReset(e)}  >
+                    <button className="kmt-slider-reset" disabled={this.state.initialState === this.state.defaultVal ? true : false} onClick={e => {
+                        e.preventDefault()
+                        this.props.onChange({ ...this.state.defaultVal });
+                        this.setState({ initialState: { ...this.state.defaultVal } });
+                    }}  >
                         <span className="dashicons dashicons-image-rotate"></span>
                     </button>
                 </div>
                 {descriptionContent}
-            </label >
+            </Fragment >
         )
     }
 
