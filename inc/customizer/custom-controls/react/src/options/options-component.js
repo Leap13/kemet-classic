@@ -24,6 +24,7 @@ import ColorPalettes from "../kmt-controls/color-pallet";
 import IconPicker from "../kmt-controls/icon";
 import EditSettings from "../kmt-controls/uploadFont";
 import Border from "../kmt-controls/border";
+import Visibility from '../kmt-controls/visibility'
 
 let wpOptions = ["custom_logo", "blogname", "blogdescription"];
 
@@ -101,6 +102,9 @@ const OptionComponent = (type) => {
       break;
     case "kmt-border":
       OptionComponent = Border;
+      break;
+    case "kmt-visibility":
+      OptionComponent = Visibility;
       break;
   }
 

@@ -377,6 +377,10 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color' 		=> 'rgba(224, 229, 235, 0.5)',								
 								'secondColor' 	=> 'rgba(224, 229, 235, 0.7)',
 					),
+					   'button-visibility'=>array(
+                        'desktop' => true,
+                            'tablet' => true,
+                            'mobile' => false),
 					'buttons-font-size'                    => '',
 					'buttons-font-family'                  => 'inherit',
 					'buttons-font-weight'                  => 'inherit',

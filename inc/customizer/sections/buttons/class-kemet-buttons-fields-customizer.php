@@ -55,6 +55,20 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'type' => 'font-upload',
 							'label' => __('Font Upload', 'kemet'),
 							),
+							   'button-visibility' => [
+                        'label' => __( 'Visibility', 'Kemet' ),
+                        'type' => 'kmt-visibility',
+               
+                         'transport' => 'postMessage' ,
+
+                       
+                        'choices' => array(
+                            'desktop' => __( 'Desktop', 'kemet' ),
+                            'tablet' => __( 'Tablet', 'kemet' ),
+                            'mobile' => __( 'Mobile', 'kemet' ),
+                        ),
+                    ],
+
 							'buttonBorder' => array(
 							'label' 				=> __( 'Border', 'Kemet' ),
 							'type' 					=> 'kmt-border',
