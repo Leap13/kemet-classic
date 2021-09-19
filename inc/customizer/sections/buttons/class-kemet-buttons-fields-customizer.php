@@ -44,24 +44,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'transport' => 'postMessage',
 								'label'     => __( 'Button Hover Effect', 'kemet' ),
 							),
-						'button-visibility' => [
-						'label' => __( 'Visibility', 'Kemet' ),
-						'type' => 'kmt-visibility',
-						'design' => 'block',
-						 'transport' => 'postMessage' ,
-
-						// 'value' => [
-						// 	'desktop' => true,
-						// 	'tablet' => true,
-						// 	'mobile' => false,
-						// ],
-
-						'choices' => array(
-							'desktop' => __( 'Desktop', 'kemet' ),
-							'tablet' => __( 'Tablet', 'kemet' ),
-							'mobile' => __( 'Mobile', 'kemet' ),
-						),
-					],
+					
 							'button-spacing'      => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',

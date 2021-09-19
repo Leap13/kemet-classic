@@ -324,10 +324,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'btn-border-size'                      => 0,
 					'button-radius'                        => '',
 					'button-spacing'                       => '',
-					'button-visibility'=>array(
-						'desktop' => true,
-							'tablet' => true,
-						 	'mobile' => false),
+				
 					'input-bg-color'                       => '',
 					'input-text-color'                     => '',
 					'input-border-color'                   => '',
