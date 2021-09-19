@@ -82,15 +82,10 @@ const Typography = ({ value, onChange, params: { label } }) => {
     };
 
     useEffect(() => {
-        let interval;
         if (wp.customize) {
-            interval = setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
-        }
-        return () => {
-            clearInterval(interval)
+            setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
         }
     })
-
 
     const typographyWrapper = useRef();
 
@@ -167,7 +162,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
     return (
         <div className={classnames("kmt-typography", {})}>
             <header>
-                <div className={`kmt-typography-btn-reset-wrap`}>
+                <div className={`kmt-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
                         disabled={

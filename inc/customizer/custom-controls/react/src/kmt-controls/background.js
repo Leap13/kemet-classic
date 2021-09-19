@@ -158,7 +158,7 @@ const BackgroundComponent = (props) => {
                             ? renderBackground["background-size"]
                             : ""
                     }
-                    onSelectImage={(media) => onSelectImage(media)}
+                    onSelectImg={(media) => onSelectImage(media)}
                     onChangeImageOptions={(mainKey, value) =>
                         onChangeImageOptions(mainKey, value)
                     }

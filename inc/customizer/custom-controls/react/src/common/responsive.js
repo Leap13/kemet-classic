@@ -42,7 +42,7 @@ class Responsive extends Component {
 
         return (
             <>
-                { label ? <span className="customize-control-title">{label}</span> : null}
+                { label ? <span className="customize-control-title kmt-control-title">{label}</span> : null}
                 <ul className="kmt-responsive-control-btns kmt-responsive-slider-btns">
                     {
                         ['desktop', 'tablet', 'mobile'].map((device,) => <li className={classnames(

@@ -5,7 +5,6 @@ import OutsideClickHandler from "../common/outside-component";
 const { __ } = wp.i18n;
 import usePopoverMaker from "../common/popover-component";
 
-
 const Background = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const backgroundWrapper = useRef();

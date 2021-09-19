@@ -17018,7 +17018,7 @@ var Responsive = /*#__PURE__*/function (_Component) {
       };
 
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-        className: "customize-control-title"
+        className: "customize-control-title kmt-control-title"
       }, label) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("ul", {
         className: "kmt-responsive-control-btns kmt-responsive-slider-btns"
       }, ['desktop', 'tablet', 'mobile'].map(function (device) {
@@ -17170,7 +17170,7 @@ var BackgroundModal = function BackgroundModal(props) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_4__["MediaUpload"], {
       title: __("Select Background Image", 'Kemet'),
       onSelect: function onSelect(media) {
-        return props.onSelectImage(media, "image");
+        return props.onSelectImg(media);
       },
       allowedTypes: ["image"],
       value: props.media && props.media ? props.media : '',
@@ -17189,7 +17189,10 @@ var BackgroundModal = function BackgroundModal(props) {
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           type: "button",
           className: "button remove-image",
-          onClick: props.onSelectImage("")
+          onClick: function onClick(e) {
+            e.preventDefault();
+            props.onSelectImg("");
+          }
         }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
           type: "button",
           className: "button edit-image",
@@ -17293,7 +17296,7 @@ var BackgroundModal = function BackgroundModal(props) {
       "kmt-gradient-tab kmt-color-picker-modal": props.backgroundType === "gradient",
       "kmt-color-tab": props.backgroundType === "color"
     })
-  }, props.backgroundType === "image" && renderImageSettings(), props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGradientPicker"], {
+  }, props.backgroundType === "image" && renderImageSettings(), props.backgroundType === "gradient" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SlotFillProvider"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["__experimentalGradientPicker"], {
     className: "kmt-gradient-color-picker",
     value: props.gradient && props.backgroundType === "gradient" ? props.gradient : "",
     onChange: function onChange(gradient) {
@@ -17582,7 +17585,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("label", null, labelHtml, descriptionHtml), responsiveHtml);
   };
 
-  var _onSelectImage = function onSelectImage(media) {
+  var onSelectImage = function onSelectImage(media) {
     var obj = _objectSpread({}, props_value);
 
     if (responsive) {
@@ -17631,8 +17634,8 @@ var BackgroundComponent = function BackgroundComponent(props) {
       backgroundPosition: undefined !== renderBackground["background-position"] && renderBackground["background-position"] ? renderBackground["background-position"] : "",
       backgroundRepeat: undefined !== renderBackground["background-repeat"] && renderBackground["background-repeat"] ? renderBackground["background-repeat"] : "",
       backgroundSize: undefined !== renderBackground["background-size"] && renderBackground["background-size"] ? renderBackground["background-size"] : "",
-      onSelectImage: function onSelectImage(media) {
-        return _onSelectImage(media);
+      onSelectImg: function onSelectImg(media) {
+        return onSelectImage(media);
       },
       onChangeImageOptions: function onChangeImageOptions(mainKey, value) {
         return _onChangeImageOptions(mainKey, value);
@@ -18744,13 +18747,12 @@ var IconSelectComponent = function IconSelectComponent(props) {
   var descriptionContent = description || description !== '' ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
+  ContentHTML = Object.entries(choices).map(function (_ref) {
+    var _ref2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref, 2),
+        key = _ref2[0],
+        icon = _ref2[1];
 
-  var _loop = function _loop() {
-    var _Object$entries$_i = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_Object$entries[_i], 2),
-        key = _Object$entries$_i[0],
-        icon = _Object$entries$_i[1];
-
-    ContentHTML.push(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
       className: "icon-select-input",
       type: "radio",
       value: key,
@@ -18763,21 +18765,14 @@ var IconSelectComponent = function IconSelectComponent(props) {
       className: "icon-select-label"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
       className: "dashicons ".concat(icon['icon'])
-    }))));
-  };
-
-  for (var _i = 0, _Object$entries = Object.entries(choices); _i < _Object$entries.length; _i++) {
-    _loop();
-  }
-
+    })));
+  });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
     className: "customizer-text"
   }, labelContent, descriptionContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     id: id,
     className: "icon-select"
-  }, ContentHTML.map(function (elem) {
-    return elem;
-  })));
+  }, ContentHTML));
 };
 
 IconSelectComponent.propTypes = {
@@ -20764,33 +20759,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleUnitChange", function (device, value) {
       var updateState = _objectSpread({}, _this.state.initialState);
 
-      _this.responsive ? updateState["".concat(device, "-unit")] = valueelse : updateState["unit"] = value;
-
-      _this.props.onChange(updateState);
-
-      _this.setState({
-        initialState: updateState
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this), "handleReset", function (e) {
-      e.preventDefault();
-      var updateState;
-
-      if (_this.responsive) {
-        var defUnit = _this.state.defaultVal["".concat(_this.state.currentDevice, "-unit")],
-            size = _this.state.defaultVal[_this.state.currentDevice];
-
-        updateState = _objectSpread({}, _this.state.defaultVal);
-        updateState["".concat(_this.state.currentDevice, "-unit")] = defUnit;
-        updateState[_this.state.currentDevice] = size;
-      } else {
-        var _defUnit = _this.state.defaultVal["unit"],
-            _size = _this.state.defaultVal["value"];
-        updateState = _objectSpread({}, _this.state.defaultVal);
-        updateState["unit"] = _defUnit;
-        updateState["value"] = _size;
-      }
+      _this.responsive ? updateState["".concat(device, "-unit")] = value : updateState["unit"] = value;
 
       _this.props.onChange(updateState);
 
@@ -20821,7 +20790,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultVals;
     _this.state = {
       initialState: _value,
-      currentDevice: 'desktop',
+      currentDevice: wp.customize.previewedDevice(),
       defaultVal: defaultVals
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
@@ -20928,9 +20897,11 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
       };
 
       var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("label", {
-        htmlFor: ""
-      }, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
+        className: "kmt-slider-title-wrap"
+      }, labelContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
+        className: "kmt-slider-units"
+      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "wrapper"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "input-field-wrapper active"
@@ -20954,13 +20925,17 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         max: "".concat(dataAttributes.max),
         step: "".concat(dataAttributes.step),
         onChange: onChangeInput
-      }), suffixContent), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("ul", {
-        className: "kmt-slider-units"
-      }, unitHTML)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
+      }), suffixContent)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
         disabled: this.state.initialState === this.state.defaultVal ? true : false,
         onClick: function onClick(e) {
-          return _this2.handleReset(e);
+          e.preventDefault();
+
+          _this2.props.onChange(_objectSpread({}, _this2.state.defaultVal));
+
+          _this2.setState({
+            initialState: _objectSpread({}, _this2.state.defaultVal)
+          });
         }
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("span", {
         className: "dashicons dashicons-image-rotate"
@@ -21340,32 +21315,6 @@ var SpacingComponent = function SpacingComponent(props) {
     }, responsiveUnit);
   };
 
-  var handleReset = function handleReset(e) {
-    e.preventDefault();
-
-    if (responsive) {
-      var defUnit = defaultVals["".concat(device, "-unit")],
-          size = defaultVals[device];
-
-      var updateState = _objectSpread({}, defaultVals);
-
-      updateState["".concat(device, "-unit")] = defUnit;
-      updateState[device] = size;
-      props.onChange(updateState);
-      setState(updateState);
-    } else {
-      var _defUnit = defaultVals["unit"],
-          _size = defaultVals["value"];
-
-      var _updateState = _objectSpread({}, defaultVals);
-
-      _updateState["unit"] = _defUnit;
-      _updateState["value"] = _size;
-      props.onChange(_updateState);
-      setState(_updateState);
-    }
-  };
-
   var _props$params2 = props.params,
       label = _props$params2.label,
       description = _props$params2.description;
@@ -21383,7 +21332,9 @@ var SpacingComponent = function SpacingComponent(props) {
     className: "kmt-reset-btn ",
     disabled: JSON.stringify(state) === JSON.stringify(defaultVals),
     onClick: function onClick(e) {
-      return handleReset(e);
+      e.preventDefault();
+      props.onChange(defaultVals);
+      setState(defaultVals);
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
@@ -21553,7 +21504,7 @@ var TitleComponent = function TitleComponent(_ref) {
     className: "customize-control-caption"
   }, caption) : null;
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
-    className: "customize-control-title kmt-control-title"
+    className: "customize-control-title"
   }, label) : null;
   var descriptionContent = description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "description customize-control-description",
@@ -21751,17 +21702,11 @@ var Typography = function Typography(_ref) {
   };
 
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    var interval;
-
     if (wp.customize) {
-      interval = setInterval(function () {
+      setInterval(function () {
         return wp.customize.previewedDevice.bind(listener);
       }, 1000);
     }
-
-    return function () {
-      clearInterval(interval);
-    };
   });
   var typographyWrapper = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
 
@@ -21828,7 +21773,7 @@ var Typography = function Typography(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("kmt-typography", {})
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-typography-btn-reset-wrap"
+    className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
     className: "kmt-reset-btn ",
     disabled: JSON.stringify(value) === JSON.stringify(defaultValue),
@@ -22011,12 +21956,10 @@ var FontOptions = function FontOptions(_ref) {
     className: "customize-control-kmt-slider"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_slider__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: value.size,
-    values: value,
     id: "size",
     params: {
       id: 'size',
       label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__["__"])('Font Size', 'kemet'),
-      value: 15,
       responsive: true,
       unit_choices: {
         'px': {

@@ -4,7 +4,7 @@ import { Fragment } from '@wordpress/element';
 const TitleComponent = ({ params: { caption, label, description } }) => {
 
     let captionContent = caption ? htmlCaption = <span className="customize-control-caption">{caption}</span> : null;
-    let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
+    let labelContent = label ? <span className="customize-control-title">{label}</span> : null;
     let descriptionContent = description ? <span className="description customize-control-description" dangerouslySetInnerHTML={{
         __html: description
     }}></span> : null;
