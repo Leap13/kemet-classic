@@ -18,22 +18,19 @@ const IconSelectComponent = props => {
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     let descriptionContent = (description || description !== '') ? <span className="description customize-control-description">{description}</span> : null;
-    for (const [key, icon] of Object.entries(choices)) {
-        ContentHTML.push(<label>
-            <input className="icon-select-input" type="radio" value={key} name={`_customize-icon-select-${id}`} checked={value === key} onChange={() => onLayoutChange(key)} />
-            <span className="icon-select-label">
-                <div className={`dashicons ${icon['icon']}`}></div>
-            </span>
-        </label>)
-    }
+
+    ContentHTML = Object.entries(choices).map(([key, icon]) => <label>
+        <input className="icon-select-input" type="radio" value={key} name={`_customize-icon-select-${id}`} checked={value === key} onChange={() => onLayoutChange(key)} />
+        <span className="icon-select-label">
+            <div className={`dashicons ${icon['icon']}`}></div>
+        </span>
+    </label>)
     return (
         <label className="customizer-text">
             {labelContent}
             {descriptionContent}
             <div id={id} className={`icon-select`}>
-                {
-                    ContentHTML.map((elem) => elem)
-                }
+                {ContentHTML}
             </div>
         </label>
     )
