@@ -1,7 +1,9 @@
 import { Fragment, useState } from "@wordpress/element";
 import classnames from "classnames";
 import PickerModal from '../color-picker/picker-modal'
+
 import {
+    SlotFillProvider,
     Button,
     FocalPointPicker,
     __experimentalGradientPicker,
@@ -41,13 +43,12 @@ const BackgroundModal = (props) => {
                 </svg>
             ),
         };
-
         return (
             <>
                 <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
                         title={__("Select Background Image", 'Kemet')}
-                        onSelect={(media) => props.onSelectImage(media, "image")}
+                        onSelect={(media) => props.onSelectImg(media)}
                         allowedTypes={["image"]}
                         value={(props.media && props.media ? props.media : '')}
                         render={({ open }) => (
@@ -61,7 +62,10 @@ const BackgroundModal = (props) => {
                                 }
                                 {(props.media && props.backgroundType === "image") &&
                                     <div className="actions">
-                                        <Button type="button" className="button remove-image" onClick={props.onSelectImage("")} >
+                                        <Button type="button" className="button remove-image" onClick={(e) => {
+                                            e.preventDefault();
+                                            props.onSelectImg("")
+                                        }} >
                                         </Button>
                                         <Button type="button" className="button edit-image" onClick={() => open(open)}>
                                         </Button>
@@ -216,7 +220,7 @@ const BackgroundModal = (props) => {
                 {props.backgroundType === "image" && renderImageSettings()}
 
                 {props.backgroundType === "gradient" && (
-                    <>
+                    <SlotFillProvider>
                         <__experimentalGradientPicker
                             className="kmt-gradient-color-picker"
                             value={
@@ -230,7 +234,7 @@ const BackgroundModal = (props) => {
                             }
                         />
 
-                    </>
+                    </SlotFillProvider>
                 )}
 
                 {props.backgroundType == "color" &&
@@ -251,7 +255,6 @@ const BackgroundModal = (props) => {
                             skipArrow={true}
                             appendToBody={false}
                             onChange={(color) => props.onChangeComplete(color)}
-
                         />
                     )
                 }
