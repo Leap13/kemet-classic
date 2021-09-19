@@ -567,6 +567,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   top: 50%;
   transform: translateY(-50%);
 }
+.kmt-builder-item-add-icon:hover::after {
+  opacity: 0.7;
+}
 
 .kmt-dragging-dropzones .kmt-builder-item-add-icon:after {
   opacity: 1;
@@ -1241,7 +1244,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
-  height: 52px;
+  height: 40px;
   line-height: normal;
   margin: 0;
   padding: 12px 4px;
@@ -1249,6 +1252,11 @@ li#customize-control-kemet-settings-footer-desktop-items {
   background: transparent;
   color: #4a5568;
   white-space: normal;
+}
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary {
+  height: 52px !important;
 }
 
 .components-popover__content
@@ -5539,7 +5547,7 @@ i.fipicon-angle-left:before {
 }
 .kmt-options > div {
   position: relative;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .kmt-options #header-desktop-items,
 .kmt-options #header-mobile-items {

@@ -28,26 +28,34 @@ input[type="checkbox"]:focus {
 }
 .components-form-toggle .components-form-toggle__track {
   content: "";
+  height: 19px !important;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
   background-color: #fff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #9c9c9c;
   width: 36px;
-  height: 18px;
   border-radius: 9px;
   transition: background 0.2s ease;
 }
 .components-form-toggle .components-form-toggle__thumb {
   display: block;
   position: absolute;
-  box-sizing: border-box;
   top: 3px;
-  left: 3px;
+  left: 4px;
+  box-sizing: border-box;
   width: 12px;
   height: 12px;
+  border: 0 !important;
   border-radius: 50%;
+  background-color: #838383;
   transition: transform 0.1s ease;
-  background-color: #bdbdbd;
-  border: 0px !important;
+}
+
+.components-form-toggle.is-checked .components-form-toggle__track {
+  border: 0;
+  border-color: var(--wp-admin-theme-color);
+}
+.components-form-toggle.is-checked .components-form-toggle__thumb {
+  left: 2px !important;
 }

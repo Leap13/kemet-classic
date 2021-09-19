@@ -21,7 +21,7 @@
 
 .customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
 	position: absolute;
-	top: 3px;
+	top: 2px;
 	right: 0;
 }
 
@@ -52,6 +52,7 @@
 	font-family: dashicons;
 	font-size: 10px;
 	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 	transform: translate3d(17px, 0, 0);
 
 	align-items: center;
@@ -1463,6 +1464,7 @@
 	font-family: dashicons;
 	font-size: 10px;
 	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 	transform: translate3d(17px, 0, 0);
 
 	align-items: center;
@@ -1962,7 +1964,7 @@
 	border: 1px solid #d6d6d6;
 	color: #555;
 	background: #eaeaec;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 500;
 	cursor: pointer;
 
@@ -2599,6 +2601,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 	content: "\f543";
 	transition: 0.2s;
 	transform: translateY(-50%);
+}
+
+.kmt-builder-item-add-icon:hover::after {
+	opacity: 0.7;
 }
 
 .kmt-dragging-dropzones .kmt-builder-item-add-icon:after {
@@ -3284,7 +3290,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .kmt-radio-container-control button.components-button.is-tertiary {
 	display: flex;
-	height: 52px;
+	height: 40px;
 	margin: 0;
 	padding: 12px 4px;
 	color: #4a5568;
@@ -3301,6 +3307,12 @@ li#customize-control-kemet-settings-footer-desktop-items {
 	-webkit-box-align: center;
 	flex: 1 1 0;
 	justify-content: center;
+}
+
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary {
+	height: 52px !important;
 }
 
 .components-popover__content
@@ -7649,7 +7661,7 @@ i.fipicon-angle-left:before {
 
 .kmt-options > div {
 	position: relative;
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 .kmt-options #header-desktop-items,
@@ -7661,6 +7673,10 @@ i.fipicon-angle-left:before {
 	display: flex;
 
 	align-items: center;
+}
+
+.customize-control-kmt-slider header .kmt-slider-title-wrap {
+	flex: 2;
 }
 
 .customize-control-kmt-slider .wrapper {
@@ -7751,11 +7767,8 @@ i.fipicon-angle-left:before {
  */
 
 .customize-control-kmt-slider .kmt-slider-units {
-	position: absolute;
-	left: 1px;
 	font-size: 11px;
 	text-transform: uppercase;
-	transform: translateY(-120%);
 }
 
 .customize-control-kmt-slider .kmt-slider-units li.single-unit {
@@ -7784,8 +7797,8 @@ i.fipicon-angle-left:before {
 	display: inline-block;
 	position: relative;
 	z-index: 8;
-	margin-top: -3px;
-	margin-bottom: 0;
+	margin-top: 0 !important;
+	margin-bottom: 2px;
 	line-height: 1px;
 	vertical-align: top;
 }
@@ -7978,6 +7991,7 @@ i.fipicon-angle-left:before {
 	font-family: dashicons;
 	font-size: 10px;
 	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 	transform: translate3d(17px, 0, 0);
 
 	align-items: center;
@@ -9095,6 +9109,7 @@ input[type="number"] {
 
 .kmt-spacing-btn-reset-wrap {
 	position: absolute;
+	top: 2px;
 	right: 0;
 }
 
@@ -9114,13 +9129,14 @@ input[type="number"] {
 	border: none;
 	outline: 0;
 	opacity: 0;
-	color: #006ba1;
+	color: var(--primaryColor);
 	background: transparent;
 	background: transparent;
 	box-shadow: none;
 	font-family: dashicons;
 	font-size: 10px;
 	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 	transform: translate3d(17px, 0, 0);
 
 	align-items: center;
@@ -9225,8 +9241,8 @@ input[type="checkbox"]:focus {
 	display: inline-block;
 	box-sizing: border-box;
 	width: 36px;
-	height: 18px;
-	border: 1px solid #d9d9d9;
+	height: 19px !important;
+	border: 1px solid #9c9c9c;
 	border-radius: 9px;
 	background-color: #fff;
 	vertical-align: top;
@@ -9238,14 +9254,23 @@ input[type="checkbox"]:focus {
 	display: block;
 	position: absolute;
 	top: 3px;
-	right: 3px;
+	right: 4px;
 	box-sizing: border-box;
 	width: 12px;
 	height: 12px;
 	border: 0 !important;
 	border-radius: 50%;
-	background-color: #bdbdbd;
+	background-color: #838383;
 	transition: transform 0.1s ease;
+}
+
+.components-form-toggle.is-checked .components-form-toggle__track {
+	border: 0;
+	border-color: var(--wp-admin-theme-color);
+}
+
+.components-form-toggle.is-checked .components-form-toggle__thumb {
+	right: 2px !important;
 }
 
 .customize-control-kmt-radio-image label {
@@ -9357,36 +9382,63 @@ input[type="checkbox"]:focus {
 	position: relative;
 }
 
-.kmt-typography header .customize-control-title {
-	font-size: 13px !important;
-	font-weight: 500;
+.kmt-typography header {
+	display: flex;
+	position: relative;
+	margin-bottom: 5px;
+
+	align-items: center;
 }
 
-.kmt-typography header .kmt-reset-btn {
+.kmt-typography header .kmt-btn-reset-wrap {
 	position: absolute;
-	top: 3px;
+	top: 2px;
 	right: 0;
+}
+
+.kmt-typography:hover header .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
+	opacity: 1;
+}
+
+.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn {
+	display: flex;
+	width: 18px;
+	height: 18px;
+	padding: 0 6px;
+	padding: 0;
 	border: 0;
-	outline: none;
-	color: var(--primaryColor);
-	background: 100% 0;
-	box-shadow: none;
-	font-size: 10px;
-	transform: translate3d(10px, 0, 0);
-}
-
-.kmt-typography header .kmt-reset-btn span {
+	border: none;
+	outline: 0;
 	opacity: 0;
-	font-size: 10px !important;
-	transition: opacity 0.5s ease, transform 0.5s ease;
+	color: var(--primaryColor);
+	background: transparent;
+	background: transparent;
+	box-shadow: none;
+	font-family: dashicons;
+	font-size: 10px;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+	transform: translate3d(17px, 0, 0);
+
+	align-items: center;
+	justify-content: center;
 }
 
-.kmt-typography header .kmt-reset-btn span:hover {
+.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+	content: "\f531";
+	transition: transform 0.3s ease;
+	transform: rotate(-45deg);
+}
+
+.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
 	transform: rotate(45deg);
 }
 
-.kmt-typography:hover header .kmt-reset-btn:not(:disabled) span {
-	opacity: 1;
+.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:hover,
+.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:focus {
+	border: none;
+	background: transparent;
+	box-shadow: none;
 }
 
 .kmt-typohraphy-value {
@@ -9702,7 +9754,6 @@ input[type="checkbox"]:focus {
 	left: 1px;
 	font-size: 11px;
 	text-transform: uppercase;
-	transform: translateY(-120%) !important;
 }
 
 .kmt-typography-options
@@ -9970,7 +10021,7 @@ input[type="checkbox"]:focus {
 	margin-bottom: 4px;
 	font-size: 14px;
 	font-weight: 600;
-	line-height: 1;
+	line-height: 1.75;
 }
 
 .kmt-post-options .customize-control-kmt-text input {

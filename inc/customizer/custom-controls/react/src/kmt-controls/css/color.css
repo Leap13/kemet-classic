@@ -87,6 +87,7 @@
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .kmt-color-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";

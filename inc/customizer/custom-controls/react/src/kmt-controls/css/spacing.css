@@ -130,6 +130,7 @@ input[type="number"] {
 .kmt-spacing-btn-reset-wrap {
   position: absolute;
   left: 0;
+  top: 2px;
 }
 .kmt-spacing-responsive:hover
   .kmt-spacing-btn-reset-wrap
@@ -137,7 +138,7 @@ input[type="number"] {
   opacity: 1;
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn {
-  color: #006ba1;
+  color: var(--primaryColor);
   font-size: 10px;
   padding: 0px 6px;
   background: transparent;
@@ -156,6 +157,7 @@ input[type="number"] {
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
