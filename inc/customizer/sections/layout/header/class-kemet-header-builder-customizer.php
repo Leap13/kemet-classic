@@ -18,8 +18,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
-		$builder_options = array(
-			// Header Builder
+		$builder_options = array(			
 			'header-builder-controls-tabs' => array(
 				'type'       => 'kmt-builder-tabs',
 				'responsive' => true,
@@ -36,15 +35,10 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'admin-appearance',
 							'section' => 'title_tagline',
 						),
-						'search'          => array(
-							'name'    => __( 'Search', 'kemet' ),
-							'icon'    => 'search',
-							'section' => 'section-header-search',
-						),
-						'search-box'      => array(
-							'name'    => __( 'Search Box', 'kemet' ),
-							'icon'    => 'search',
-							'section' => 'section-header-search-box',
+						'desktop-toggle'  => array(
+							'name'    => __( 'Trigger', 'kemet' ),
+							'icon'    => 'admin-links',
+							'section' => 'section-desktop-toggle-button',
 						),
 						'primary-menu'    => array(
 							'name'    => __( 'Primary Menu', 'kemet' ),
@@ -56,25 +50,15 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'menu',
 							'section' => 'section-header-secondary-menu',
 						),
-						'offcanvas-menu'  => array(
-							'name'    => __( 'Off Canvas Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-offcanvas-menu',
+						'search'          => array(
+							'name'    => __( 'Search', 'kemet' ),
+							'icon'    => 'search',
+							'section' => 'section-header-search',
 						),
-						'header-button-1' => array(
-							'name'    => __( 'Button 1', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-header-button-1',
-						),
-						'header-button-2' => array(
-							'name'    => __( 'Button 2', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-header-button-2',
-						),
-						'desktop-toggle'  => array(
-							'name'    => __( 'Toggle Button', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-desktop-toggle-button',
+						'search-box'      => array(
+							'name'    => __( 'Search Box', 'kemet' ),
+							'icon'    => 'search',
+							'section' => 'section-header-search-box',
 						),
 						'header-html-1'   => array(
 							'name'    => __( 'Html 1', 'kemet' ),
@@ -86,6 +70,16 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'text',
 							'section' => 'section-header-html-2',
 						),
+						'header-button-1' => array(
+							'name'    => __( 'Button 1', 'kemet' ),
+							'icon'    => 'admin-links',
+							'section' => 'section-header-button-1',
+						),
+						'header-button-2' => array(
+							'name'    => __( 'Button 2', 'kemet' ),
+							'icon'    => 'admin-links',
+							'section' => 'section-header-button-2',
+						),
 						'header-widget-1' => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
@@ -96,6 +90,11 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'wordpress-alt',
 							'section' => 'sidebar-widgets-header-widget-2',
 						),
+						'offcanvas-menu'  => array(
+							'name'    => __( 'Off Canvas Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-offcanvas-menu',
+						),																				
 					)
 				),
 				'input_attrs' => array(
@@ -147,10 +146,20 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'icon'    => 'admin-appearance',
 							'section' => 'title_tagline',
 						),
-						'mobile-button'          => array(
-							'name'    => __( 'Button', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-mobile-header-button',
+						'mobile-toggle'          => array(
+							'name'    => __( 'Trigger', 'kemet' ),
+							'icon'    => 'admin-links',
+							'section' => 'section-mobile-toggle-button',
+						),
+						'primary-menu'           => array(
+							'name'    => __( 'Primary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-primary-menu',
+						),
+						'secondary-menu'         => array(
+							'name'    => __( 'Secondary Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-secondary-menu',
 						),
 						'search'                 => array(
 							'name'    => __( 'Search', 'kemet' ),
@@ -161,16 +170,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Search Box', 'kemet' ),
 							'icon'    => 'search',
 							'section' => 'section-header-search-box',
-						),
-						'offcanvas-menu'         => array(
-							'name'    => __( 'Off Canvas Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-offcanvas-menu',
-						),
-						'mobile-toggle'          => array(
-							'name'    => __( 'Toggle Button', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-mobile-toggle-button',
 						),
 						'header-mobile-html-1'   => array(
 							'name'    => __( 'Html 1', 'kemet' ),
@@ -184,24 +183,15 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						),
 						'header-mobile-button-1' => array(
 							'name'    => __( 'Button 1', 'kemet' ),
-							'icon'    => 'button',
+							'icon'    => 'admin-links',
 							'section' => 'section-header-mobile-button-1',
 						),
 						'header-mobile-button-2' => array(
 							'name'    => __( 'Button 2', 'kemet' ),
-							'icon'    => 'button',
+							'icon'    => 'admin-links',
 							'section' => 'section-header-mobile-button-2',
 						),
-						'primary-menu'           => array(
-							'name'    => __( 'Primary Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-primary-menu',
-						),
-						'secondary-menu'         => array(
-							'name'    => __( 'Secondary Menu', 'kemet' ),
-							'icon'    => 'menu',
-							'section' => 'section-header-secondary-menu',
-						),
+						
 						'header-widget-1'        => array(
 							'name'    => __( 'Widget 1', 'kemet' ),
 							'icon'    => 'wordpress-alt',
@@ -211,6 +201,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Widget 2', 'kemet' ),
 							'icon'    => 'wordpress-alt',
 							'section' => 'sidebar-widgets-header-widget-2',
+						),
+						
+						'offcanvas-menu'         => array(
+							'name'    => __( 'Off Canvas Menu', 'kemet' ),
+							'icon'    => 'menu',
+							'section' => 'section-header-offcanvas-menu',
 						),
 					)
 				),
