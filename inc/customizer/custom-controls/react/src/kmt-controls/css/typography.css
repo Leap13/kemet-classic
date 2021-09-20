@@ -111,7 +111,7 @@
   color: #0073aa;
 }
 .kmt-typohraphy-value > div {
-  padding: 6px 0 6px 8px;
+  padding: 6px 0 6px 0px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -129,6 +129,7 @@
 }
 .kmt-typohraphy-value > div > span {
   position: relative;
+  padding: 2px 8px;
 }
 .kmt-typohraphy-value > div > span:after {
   position: absolute;
@@ -177,14 +178,12 @@
   opacity: 0.7;
   color: inherit;
 }
-.kmt-typohraphy-value a:before {
-  content: "\002022\002022\002022";
-}
+
 .kmt-typography-container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-height: 430px;
+  min-height: 380px;
   position: relative;
 }
 .kmt-typography-top {
@@ -197,6 +196,7 @@
   box-sizing: border-box;
   border-bottom: 1px dashed #eee;
 }
+
 .kmt-typography-top.kmt-static > * {
   transition: none !important;
 }
@@ -350,10 +350,8 @@
   transform: translateY(-5px) !important;
 }
 .kmt-typography-options li.customize-control-kmt-slider .kmt-slider-units {
-  position: absolute;
   font-size: 11px;
   text-transform: uppercase;
-  right: 1px;
 }
 .kmt-typography-options
   li.customize-control-kmt-slider

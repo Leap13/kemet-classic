@@ -3293,9 +3293,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
 	height: 40px;
 	margin: 0;
 	padding: 12px 4px;
+	border: none;
 	color: #4a5568;
 	background: transparent;
-	box-shadow: inset 0 0 0 1px #ddd;
+	box-shadow: none;
 	font-size: 11px;
 	font-weight: 600;
 	font-style: normal;
@@ -3313,6 +3314,11 @@ li#customize-control-kemet-settings-footer-desktop-items {
   .kmt-radio-container-control
   button.components-button.is-tertiary {
 	height: 52px !important;
+}
+
+.components-button.is-tertiary:hover:not(:disabled) {
+	color: var(--wp-admin-theme-color-darker-10);
+	box-shadow: none !important;
 }
 
 .components-popover__content
@@ -3543,7 +3549,9 @@ li#customize-control-kemet-settings-footer-desktop-items {
   .kmt-radio-container-control
   .components-button.is-tertiary {
 	padding: 10px 6px;
+	font-size: 11px;
 	font-weight: 400;
+	text-transform: uppercase;
 }
 
 .kmt-social-type .kmt-radio-container-control button:not(:first-child) {
@@ -3637,7 +3645,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 }
 
 .components-popover__content .kmt-radio-container-control {
-	padding: 20px 5px;
+	padding: 10px 5px;
 	background: white;
 }
 
@@ -9467,7 +9475,7 @@ input[type="checkbox"]:focus {
 	overflow: hidden;
 	box-sizing: border-box;
 	width: 100%;
-	padding: 6px 8px 6px 0;
+	padding: 6px 0 6px 0;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
@@ -9484,6 +9492,7 @@ input[type="checkbox"]:focus {
 
 .kmt-typohraphy-value > div > span {
 	position: relative;
+	padding: 2px 8px;
 }
 
 .kmt-typohraphy-value > div > span:after {
@@ -9542,16 +9551,12 @@ input[type="checkbox"]:focus {
 	justify-content: center;
 }
 
-.kmt-typohraphy-value a:before {
-	content: "\002022\002022\002022";
-}
-
 .kmt-typography-container {
 	display: flex;
 	overflow: hidden;
 	flex-direction: column;
 	position: relative;
-	min-height: 430px;
+	min-height: 380px;
 }
 
 .kmt-typography-top {
@@ -9750,8 +9755,6 @@ input[type="checkbox"]:focus {
 }
 
 .kmt-typography-options li.customize-control-kmt-slider .kmt-slider-units {
-	position: absolute;
-	left: 1px;
 	font-size: 11px;
 	text-transform: uppercase;
 }
