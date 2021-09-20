@@ -49,6 +49,7 @@ const BuilderComponent = (props) => {
   });
   let enablePopup = false;
 
+
   if (
     "header-desktop-items" === controlParams.group ||
     "header-mobile-items" === controlParams.group

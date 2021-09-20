@@ -16,7 +16,7 @@ const FontOptions = ({ value, onChange, props }) => {
 	}, []);
 	return (
 		<animated.ul
-			style={props}
+
 			className="kmt-typography-options"
 			key="options"
 		>

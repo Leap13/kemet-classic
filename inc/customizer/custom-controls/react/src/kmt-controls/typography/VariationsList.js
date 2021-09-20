@@ -25,7 +25,6 @@ const VariationsList = ({ value, onChange, typographyList, props }) => {
 
 	return (
 		<animated.ul
-			style={props}
 			className="kmt-typography-variations"
 			ref={parentElement}
 		>

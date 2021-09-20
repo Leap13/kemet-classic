@@ -82,7 +82,6 @@ const AddComponent = (props) => {
       setVisible(false);
     }
   };
-
   return (
     <div
       className={classnames(
@@ -119,7 +118,7 @@ const AddComponent = (props) => {
           <div className="kmt-popover-builder-list">
             <ButtonGroup className="kmt-radio-container-control">
               {Object.keys(choices)
-                .sort()
+
                 .map((item) => {
                   return renderItems(item, row, column);
                 })}

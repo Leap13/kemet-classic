@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { humanizeVariations, fontFamilyToCSSFamily } from './helpers'
 import { FixedSizeList as List } from 'react-window'
 import WebFontLoader from 'webfontloader'
+import { Fragment } from 'react'
 
 let loadedFonts = []
 
@@ -43,7 +44,7 @@ const SingleFont = ({
 			className={classnames(
 				'kmt-typography-single-font',
 				{
-					active: family[0] === value.family,
+					active: family.family === value.family,
 				}
 			)}
 			key={family[0]}>
@@ -111,23 +112,26 @@ const FontsList = ({
 	}, [linearFontsList])
 
 	return (
-		<List
-			height={360}
-			itemCount={linearFontsList.length}
-			itemSize={85}
-			ref={listRef}
-			onScroll={(e) => {
-				onScroll()
-			}}
-			itemData={{
-				linearFontsList,
-				onPickFamily,
-				value,
-			}}
-			onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
-			className="kmt-typography-fonts">
-			{SingleFont}
-		</List>
+		<Fragment>
+
+			<List
+				height={350}
+				itemCount={linearFontsList.length}
+				itemSize={85}
+				ref={listRef}
+				onScroll={(e) => {
+					onScroll()
+				}}
+				itemData={{
+					linearFontsList,
+					onPickFamily,
+					value,
+				}}
+				onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
+				className="kmt-typography-fonts">
+				{SingleFont}
+			</List>
+		</Fragment>
 	)
 }
 

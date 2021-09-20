@@ -38,7 +38,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
         family: "System Default",
         variation: "n4",
         size: {
-            desktop: "15",
+            desktop: "",
             "desktop-unit": "px",
             tablet: "",
             "tablet-unit": "px",
@@ -65,9 +65,6 @@ const Typography = ({ value, onChange, params: { label } }) => {
         "text-transform": "none",
         "text-decoration": "none",
     };
-
-
-
     useEffect(() => {
         getInitialDevice();
     }, []);
@@ -80,7 +77,6 @@ const Typography = ({ value, onChange, params: { label } }) => {
     const listener = () => {
         setInnerDevice(getInitialDevice());
     };
-
     useEffect(() => {
         if (wp.customize) {
             setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
@@ -196,78 +192,83 @@ const Typography = ({ value, onChange, params: { label } }) => {
                     onClick: (e) => {
                         e.preventDefault();
 
-                        if (isOpen) {
-                            setCurrentView("fonts");
-                            return;
-                        }
-                        setCurrentViewCache("fonts:_");
-                        setIsOpen("fonts");
+                        // if (isOpen) {
+                        //     setCurrentView("fonts");
+                        //     return;
+                        // }
+                        // setCurrentViewCache("fonts:_");
+                        // setIsOpen("fonts");
                     },
                 }}
             >
                 <div>
                     <span
-                        onClick={(e) => {
-                            e.stopPropagation();
 
-                            if (isOpen) {
-                                setCurrentView("fonts");
-                                return;
-                            }
-
-                            setCurrentViewCache("fonts:_");
-                            setIsOpen("fonts");
-                        }}
                         className="kmt-font"
                         ref={fontFamilyRef}
                     >
-                        <span>
+                        <span
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("fonts");
+                                    return;
+                                }
+
+                                setCurrentViewCache("fonts:_");
+                                setIsOpen("fonts");
+                            }}
+                        >
                             {value.family === "Default"
                                 ? "Default Family"
                                 : familyForDisplay(value.family)}
                         </span>
                     </span>
-                    <i>/</i>
+                    <i>|</i>
                     <span
-                        onClick={(e) => {
-                            e.stopPropagation();
 
-                            if (isOpen) {
-                                setCurrentView("options");
-                                return;
-                            }
-                            setCurrentViewCache("options:_");
-                            setIsOpen("font_size");
-                        }}
                         ref={fontSizeRef}
                         className="kmt-size"
                     >
-                        <span>
+                        <span
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("options");
+                                    return;
+                                }
+                                setCurrentViewCache("options:_");
+                                setIsOpen("font_size");
+                            }}
+                        >
                             {`${value.size[device]}${value.size[`${device}-unit`]
                                 } `}
                         </span>
                     </span>
-                    <i>/</i>
+                    <i>|</i>
                     <span
                         ref={fontWeightRef}
-                        onClick={(e) => {
-                            e.stopPropagation();
 
-                            if (isOpen) {
-                                setCurrentView("variations");
-                                return;
-                            }
-
-                            setCurrentViewCache("variations:_");
-                            setIsOpen("variations");
-                        }}
                         className="kmt-weight"
                     >
-                        <span>{humanizeVariations(value.variation)}</span>
+                        <span
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("variations");
+                                    return;
+                                }
+
+                                setCurrentViewCache("variations:_");
+                                setIsOpen("variations");
+                            }}>{humanizeVariations(value.variation)}</span>
                     </span>
                 </div>
 
-                <a ref={dotsRef} />
+
             </OutsideComponent>
             {(isTransitioning || isOpen) &&
                 createPortal(
