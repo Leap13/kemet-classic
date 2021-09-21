@@ -806,76 +806,6 @@ endif;
 
 add_filter( 'wp_get_attachment_image_attributes', 'kemet_replace_header_attr', 10, 3 );
 
-/**
- * Kemet Color Palletes.
- */
-if ( ! function_exists( 'kemet_color_palette' ) ) :
-
-	/**
-	 * Kemet Color Palletes.
-	 *
-	 * @return array Color Palletes.
-	 */
-	function kemet_color_palette() {
-		$color_palette = array(
-			'#000000',
-			'#ffffff',
-			'#dd3333',
-			'#dd9933',
-			'#eeee22',
-			'#81d742',
-			'#1e73be',
-			'#8224e3',
-		);
-
-		return apply_filters( 'kemet_color_palettes', $color_palette );
-	}
-
-endif;
-
-if ( ! function_exists( 'kemet_get_theme_name' ) ) :
-
-	/**
-	 * Get theme name.
-	 *
-	 * @return string Theme Name.
-	 */
-	function kemet_get_theme_name() {
-		$theme_name = __( 'Kemet', 'kemet' );
-
-		return apply_filters( 'kemet_theme_name', $theme_name );
-	}
-
-endif;
-
-if ( ! function_exists( 'kemet_strposa' ) ) :
-
-	/**
-	 * Strpos over an array.
-	 *
-	 * @param  String  $haystack The string to search in.
-	 * @param  Array   $needles  Array of needles to be passed to strpos().
-	 * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
-	 *
-	 * @return bool            True if haystack if part of any of the $needles.
-	 */
-	function kemet_strposa( $haystack, $needles, $offset = 0 ) {
-		if ( ! is_array( $needles ) ) {
-			$needles = array( $needles );
-		}
-
-		foreach ( $needles as $query ) {
-			if ( strpos( $haystack, $query, $offset ) !== false ) {
-				// stop on first true result.
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-endif;
-
 if ( ! function_exists( 'kemet_prop' ) ) :
 
 	/**
@@ -1055,6 +985,35 @@ function svg_upload_support( $mimes ) {
 	$mimes['svgz'] = 'image/svg+xml';
 
 	return $mimes;
+}
+
+add_action( 'upload_mimes', 'svg_upload_support' );
+
+/**
+ * Get visibility class from option
+ *
+ * @param array $option.
+ * @return string
+ */
+function get_visibility_class( $option ) {
+	$class = array();
+	if ( ! $option['desktop'] ) {
+		$class[] = 'hide-desktop';
+	}
+	if ( ! $option['tablet'] && ! $option['mobile'] ) {
+		$class[] = 'hide-mobile-tablet';
+	} else {
+		if ( ! $option['tablet'] ) {
+			$class[] = 'hide-tablet';
+		}
+		if ( ! $option['mobile'] ) {
+			$class[] = 'hide-mobile';
+		}
+	}
+	if ( empty( $class ) ) {
+		$class[] = 'all-devices';
+	}
+	return implode( $class, ' ' );
 }
 
 add_action( 'upload_mimes', 'svg_upload_support' );

@@ -86,13 +86,12 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'label' => __( 'Merge/Combine Page Title With Main Header', 'kemet' ),
 							),
 							self::$prefix . '-responsive' => array(
-								'type'    => 'kmt-select',
-								'label'   => __( 'Page Title Visibility', 'kemet' ),
+								'label'   => __( 'Visibility', 'Kemet' ),
+								'type'    => 'kmt-visibility',
 								'choices' => array(
-									'all-devices'        => __( 'Show on All Devices', 'kemet' ),
-									'hide-tablet'        => __( 'Hide on Tablet', 'kemet' ),
-									'hide-mobile'        => __( 'Hide on Mobile', 'kemet' ),
-									'hide-tablet-mobile' => __( 'Hide on Tablet and Mobile', 'kemet' ),
+									'desktop' => __( 'Desktop', 'kemet' ),
+									'tablet'  => __( 'Tablet', 'kemet' ),
+									'mobile'  => __( 'Mobile', 'kemet' ),
 								),
 							),
 						),

@@ -6,7 +6,8 @@
   visibility: hidden;
   z-index: 99;
   transform: translate3d(0, 15px, 0);
-  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,
+    visibility 0.3s ease;
   text-align: center;
   cursor: pointer;
   display: flex;
@@ -16,7 +17,7 @@
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   line-height: normal;
-  padding: .4em .4em .4em .4em;
+  padding: 0.4em 0.4em 0.4em 0.4em;
   &.go-top-left {
     left: var(--sideOffset);
   }
@@ -24,9 +25,9 @@
     right: var(--sideOffset);
   }
   &.is-opacity {
-  opacity: 1;
-  visibility: visible;
-  transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
   }
   span {
     display: flex;
@@ -37,7 +38,11 @@
   }
 }
 
-
+@media only screen and (min-width: 767px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
 
 /* Go Top Responsive */
 @media only screen and (max-width: 480px) {

@@ -52,7 +52,7 @@ if ( ! class_exists( 'Kemet_Admin_Notices' ) ) :
 			?>
 			<div class="notice kmt-notice is-dismissible">
 				<div class="kemet-notice-logo">
-					<span class="kmticon-AncientOwl" style="font-size: 55px;"></span>
+					
 				</div>
 				<div class="kemet-notice-text">
 					<p><?php esc_html_e( 'Take full advantage of Kemet theme! Install Kemet Addons Plugin for tons of extra customization options.', 'kemet' ); ?></p>

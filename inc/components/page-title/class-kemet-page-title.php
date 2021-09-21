@@ -5,8 +5,8 @@
  * @package Kemet
  */
 
-define( 'KEMET_PAGE_TITLE_DIR', KEMET_THEME_DIR . 'inc/page-title/' );
-define( 'KEMET_PAGE_TITLE_URL', KEMET_THEME_URI . 'inc/page-title/' );
+define( 'KEMET_PAGE_TITLE_DIR', KEMET_THEME_DIR . 'inc/components/page-title/' );
+define( 'KEMET_PAGE_TITLE_URL', KEMET_THEME_URI . 'inc/components/page-title/' );
 
 if ( ! class_exists( 'Kemet_Page_Title' ) ) {
 

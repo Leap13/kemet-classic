@@ -1216,9 +1216,6 @@ var toggleClass = function (el, className) {
                     "ul.main-header-menu .kmt-menu-toggle"
                   );
                   initKemetPopup.KemetToggleMenu(kemetMenuToggle);
-                  window.addEventListener("resize", function () {
-                    initKemetPopup.KemetSetPosition(kemetMenuToggle);
-                  });
                 }
               }
             }
@@ -1285,10 +1282,12 @@ var toggleClass = function (el, className) {
               "<span class='screen-reader-text'>Menu Toggle</span>";
 
             var link = parentList[i].querySelector("a");
+            var arrow = parentList[i].querySelector(".kmt-svg-icon.icon-dropdown-menu");
             var wrap = document.createElement("div");
             wrap.setAttribute("class", "kmt-menu-item-wrap");
             parentList[i].insertBefore(wrap, parentList[i].childNodes[0]);
             wrap.appendChild(link);
+            toggleButton.appendChild(arrow);
             wrap.appendChild(toggleButton);
           }
         }
@@ -1342,19 +1341,6 @@ var toggleClass = function (el, className) {
             }
           }
         };
-      }
-    },
-    KemetSetPosition: function (kemetMenuToggle) {
-      /* Submenu button click */
-      if (window.innerWidth <= kemet.break_point) {
-        for (var i = 0; i < kemetMenuToggle.length; i++) {
-          var parentLi = kemetMenuToggle[i].parentNode;
-          var link = parentLi.querySelector("a");
-          var top = window
-            .getComputedStyle(link, null)
-            .getPropertyValue("padding-top");
-          kemetMenuToggle[i].style.top = top;
-        }
       }
     },
     menuToggle: function (popupToggleOpen) {

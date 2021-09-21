@@ -1,12 +1,23 @@
 <wpml-config>
 	<admin-texts>
 		<key name="kemet-settings">
-            <key name="header-main-rt-section-html"/>
-            <key name="header-main-menu-label"/>
-            <key name="top-section-1-html"/>
-            <key name="top-section-2-html"/>
-            <key name="footer-copyright-section-1-part"/>
-            <key name="footer-copyright-section-2-part"/>
+                  <key name="blogname"/>
+                  <key name="blogdescription"/>
+                  <key name="header-html-1-text"/>
+                  <key name="header-html-2-text"/>
+                  <key name="header-html-1-url"/>
+                  <key name="header-html-2-url"/>
+                  <key name="header-mobile-html-1-text"/>
+                  <key name="header-mobile-html-2-text"/>
+                  <key name="header-mobile-html-1-url"/>
+                  <key name="header-mobile-html-2-url"/>
+                  <key name="header-button-1-label"/>
+                  <key name="header-button-2-label"/>
+                  <key name="header-mobile-button-1-label"/>
+                  <key name="header-mobile-button-2-label"/>
+                  <key name="breadcrumbs-prefix"/>
+                  <key name="breadcrumbs-separator"/>
+                  <key name="footer-copyright-text"/>
 		</key>
 	</admin-texts>
 </wpml-config>

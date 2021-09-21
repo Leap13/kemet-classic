@@ -3168,6 +3168,21 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 	--padding: 5px 20px;
 }
 
+.kmt-popup-main .main-navigation ul > li > .kmt-menu-item-wrap {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	-js-display: flex;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
 .kmt-popup-main .main-navigation #offcanvas-menu .children > li > a,
 .kmt-popup-main .main-navigation #offcanvas-menu .sub-menu > li > a {
 	padding-left: 30px;
@@ -3773,12 +3788,8 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 .kmt-popup-main .main-header-bar-navigation .page_item_has_children > .kmt-menu-item-wrap > .kmt-menu-toggle,
 .kmt-popup-main .main-header-bar-navigation .menu-item-has-children > .kmt-menu-item-wrap > .kmt-menu-toggle {
 	display: inline-block;
-	position: absolute;
-	top: -1px;
-	right: 20px;
 	padding: 0 0.907em;
 	border-width: 0;
-	font-size: 0;
 	font-weight: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -7704,8 +7715,8 @@ Hide From Devices
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	transition: opacity 0.3s ease, color 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease;
+	transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease,	visibility 0.3s ease, -webkit-transform 0.3s ease;
 	transition: all 0.5s ease-in-out;
 	-webkit-transform: translate3d(0, 15px, 0);
 	transform: translate3d(0, 15px, 0);
@@ -7741,6 +7752,12 @@ Hide From Devices
 .kmt-go-top-button svg {
 	width: 1em;
 	height: 1em;
+}
+
+@media only screen and (min-width: 767px) {
+	.hide-desktop {
+		display: none !important;
+	}
 }
 
 /* Go Top Responsive */

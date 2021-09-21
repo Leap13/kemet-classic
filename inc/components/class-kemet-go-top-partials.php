@@ -2,7 +2,7 @@
 /**
  * Go Top Partials
  *
- * @package Kemet Addons
+ * @package Kemet
  */
 
 if ( ! class_exists( 'Kemet_Go_Top_Partials' ) ) {
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Kemet_Go_Top_Partials' ) ) {
 			/**
 			 * Template for Go Top Template
 			 *
-			 * @package Kemet Addons
+			 * @package Kemet
 			 */
 
 			$display_go_top   = apply_filters( 'display_go_top_icon', kemet_get_option( 'go-top-display' ) );

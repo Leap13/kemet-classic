@@ -13,9 +13,9 @@ if ( 'post' == get_post_type() ) {
 		$post_title = esc_html__( 'Blog', 'kemet' );
 	}
 }
-$description        = get_the_archive_description();
-$classes []         = $page_title_layout;
-$classes_responsive = kemet_get_option( 'page-title-responsive' );
+$description = get_the_archive_description();
+$classes []  = $page_title_layout;
+$responsive  = kemet_get_option( 'page-title-responsive' );
 if ( 'disable' != $page_title_layout && apply_filters( 'kemet_disable_breadcrumbs', true ) ) {
 	$classes [] = 'has-breadcrumb';
 }
@@ -24,7 +24,7 @@ $sub_title = apply_filters( 'kemet_sub_title', $sub_title );
 $classes   = implode( ' ', $classes );
 
 ?>
-<div class="kmt-page-title-content <?php echo esc_attr( $classes_responsive ); ?>">
+<div class="kmt-page-title-content <?php echo esc_attr( get_visibility_class( $responsive ) ); ?>">
 	<div class="kmt-page-title <?php echo esc_attr( $classes ); ?>" >
 		<div class="kmt-container">
 			<div class="kmt-page-title-wrap">

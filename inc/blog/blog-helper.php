@@ -2,7 +2,7 @@
 /**
  * Blog Layouts
  *
- * @package Kemet Addons
+ * @package Kemet
  */
 
 if ( ! function_exists( 'kemet_is_valid_url' ) ) {

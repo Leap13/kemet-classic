@@ -3307,7 +3307,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 
 .kmt-radio-container-control button.components-button.is-tertiary {
 	display: flex;
-	height: 52px;
+	height: 40px;
 	margin: 0;
 	padding: 12px 4px;
 	color: #4a5568;
@@ -10141,4 +10141,154 @@ input[type="checkbox"]:focus {
 
 .kmt-option-number > a.kmt-disabled {
 	opacity: 0.4;
+}
+
+.kmt-visibility-container header {
+	display: flex;
+	position: relative;
+}
+
+.kmt-visibility-container header .kmt-btn-reset-wrap {
+	position: absolute;
+	top: 2px;
+	left: 0;
+}
+
+.kmt-visibility-container header .kmt-btn-reset-wrap .kmt-reset-btn {
+	display: flex;
+	width: 18px;
+	height: 18px;
+	padding: 0 6px;
+	padding: 0;
+	border: 0;
+	border: none;
+	outline: 0;
+	opacity: 0;
+	color: var(--primaryColor);
+	background: transparent;
+	background: transparent;
+	box-shadow: none;
+	font-family: dashicons;
+	font-size: 10px;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+	transform: translate3d(-17px, 0, 0);
+
+	align-items: center;
+	justify-content: center;
+}
+
+.kmt-visibility-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+	content: "\f531";
+	transition: transform 0.3s ease;
+	transform: rotate(45deg);
+}
+
+.kmt-visibility-container
+  header
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover::before {
+	transform: rotate(-45deg);
+}
+
+.kmt-visibility-container:hover
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
+	opacity: 1;
+}
+
+.kmt-buttons-group {
+	display: flex;
+	margin: 0;
+}
+
+.kmt-buttons-group li {
+	display: flex;
+	position: relative;
+	min-width: 40px;
+	height: 30px;
+	margin: 0;
+	background: rgba(255, 255, 255, 0.6);
+	box-shadow: inset 0 0 0 1px #ddd;
+	font-size: 13px;
+	cursor: pointer;
+	transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+	align-items: center;
+	flex: 1 1 auto;
+	justify-content: center;
+}
+
+.kmt-buttons-group li:hover {
+	color: #444;
+	background: #fff;
+}
+
+.kmt-buttons-group li.active {
+	z-index: 1;
+	color: #fff;
+	background: var(--primaryColor);
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.kmt-buttons-group li:not(:first-child) {
+	margin-left: -1px;
+}
+
+.kmt-buttons-group li:first-child {
+	border-radius: 3px 0 0 3px;
+}
+
+.kmt-buttons-group li:last-child {
+	border-radius: 0 3px 3px 0;
+}
+
+.kmt-devices li {
+	margin-bottom: 0;
+}
+
+.kmt-devices li:before,
+.kmt-devices li:after {
+	box-sizing: border-box;
+	border-radius: 2px;
+	content: "";
+}
+
+.kmt-devices li.kmt-desktop {
+	flex-direction: column;
+}
+
+.kmt-devices li.kmt-desktop:before {
+	width: 17px;
+	height: 11px;
+	margin-bottom: 1px;
+	border: 2px solid currentColor;
+}
+
+.kmt-devices li.kmt-desktop:after {
+	width: 9px;
+	height: 2px;
+	background: currentColor;
+}
+
+.kmt-devices li.kmt-tablet:before {
+	width: 13px;
+	height: 14px;
+	border: 2px solid currentColor;
+	border-bottom-width: 3px;
+}
+
+.kmt-devices li.kmt-tablet:after {
+	display: none;
+}
+
+.kmt-devices li.kmt-mobile:before {
+	width: 10px;
+	height: 14px;
+	border: 2px solid currentColor;
+	border-bottom-width: 3px;
+}
+
+.kmt-devices li.kmt-mobile:after {
+	display: none;
 }

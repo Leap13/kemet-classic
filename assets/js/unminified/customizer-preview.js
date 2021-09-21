@@ -1106,11 +1106,10 @@ function kemet_responsive_color_css(control, data) {
   var btnHoverSelector = 'button:focus, .button:hover, button:hover, .kmt-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .button:focus, .button:focus, .wp-block-button a.wp-block-button__link:hover, .wp-block-search button.wp-block-search__button:hover';
   wp.customize(settingName('button-effect'), function (value) {
     value.bind(function (new_value) {
-      var hoverEffect = wp.customize(settingName('button-hover-effect')).get();
       var dynamicStyle = '';
       if (new_value) {
         dynamicStyle = btnSelector + "{"
-          + "--buttonShadow: 2px 2px 10px -3px;"
+          + "--buttonShadow: 2px 2px 10px -3px var(--buttonBackgroundColor) !important;"
           + "}"
       } else {
         dynamicStyle = btnSelector + "{"
@@ -1129,7 +1128,7 @@ function kemet_responsive_color_css(control, data) {
       var dynamicStyle = '';
       if (new_value) {
         dynamicStyle = btnHoverSelector + "{"
-          + "--buttonShadow: 2px 2px 10px -3px;"
+          + "--buttonShadow: 2px 2px 10px -3px var(--buttonBackgroundHoverColor,var(--buttonBackgroundColor)) !important;"
           + "}"
       } else {
         dynamicStyle = btnHoverSelector + "{"
