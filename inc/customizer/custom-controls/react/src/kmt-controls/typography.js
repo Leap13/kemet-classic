@@ -192,79 +192,75 @@ const Typography = ({ value, onChange, params: { label } }) => {
                     onClick: (e) => {
                         e.preventDefault();
 
-                        // if (isOpen) {
-                        //     setCurrentView("fonts");
-                        //     return;
-                        // }
-                        // setCurrentViewCache("fonts:_");
-                        // setIsOpen("fonts");
                     },
                 }}
             >
-                <div>
+                <div className={`kmt-typography-title-container`}>
                     <span
+                        onClick={(e) => {
+                            e.stopPropagation();
 
+                            if (isOpen) {
+                                setCurrentView("fonts");
+                                return;
+                            }
+
+                            setCurrentViewCache("fonts:_");
+                            setIsOpen("fonts");
+                        }}
                         className="kmt-font"
                         ref={fontFamilyRef}
                     >
                         <span
-                            onClick={(e) => {
-                                e.stopPropagation();
 
-                                if (isOpen) {
-                                    setCurrentView("fonts");
-                                    return;
-                                }
-
-                                setCurrentViewCache("fonts:_");
-                                setIsOpen("fonts");
-                            }}
                         >
                             {value.family === "Default"
                                 ? "Default Family"
                                 : familyForDisplay(value.family)}
                         </span>
                     </span>
-                    <i>|</i>
-                    <span
 
+                    <span
+                        onClick={(e) => {
+                            e.stopPropagation();
+
+                            if (isOpen) {
+                                setCurrentView("options");
+                                return;
+                            }
+                            setCurrentViewCache("options:_");
+                            setIsOpen("font_size");
+                        }}
                         ref={fontSizeRef}
                         className="kmt-size"
                     >
                         <span
-                            onClick={(e) => {
-                                e.stopPropagation();
 
-                                if (isOpen) {
-                                    setCurrentView("options");
-                                    return;
-                                }
-                                setCurrentViewCache("options:_");
-                                setIsOpen("font_size");
-                            }}
                         >
                             {`${value.size[device]}${value.size[`${device}-unit`]
                                 } `}
                         </span>
                     </span>
-                    <i>|</i>
+
                     <span
                         ref={fontWeightRef}
 
                         className="kmt-weight"
+                        onClick={(e) => {
+                            e.stopPropagation();
+
+                            if (isOpen) {
+                                setCurrentView("variations");
+                                return;
+                            }
+
+                            setCurrentViewCache("variations:_");
+                            setIsOpen("variations");
+                        }}
                     >
                         <span
-                            onClick={(e) => {
-                                e.stopPropagation();
 
-                                if (isOpen) {
-                                    setCurrentView("variations");
-                                    return;
-                                }
-
-                                setCurrentViewCache("variations:_");
-                                setIsOpen("variations");
-                            }}>{humanizeVariations(value.variation)}</span>
+                        >{humanizeVariations(value.variation)}</span>
                     </span>
                 </div>
 
