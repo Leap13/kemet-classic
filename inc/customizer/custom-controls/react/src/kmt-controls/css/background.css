@@ -682,6 +682,7 @@
   box-sizing: border-box;
   box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
   right: var(--modal-x-offset);
+  border-radius: 0px;
 }
 .kmt-option-modal:before {
   position: absolute;

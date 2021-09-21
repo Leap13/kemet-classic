@@ -27,25 +27,25 @@ input[type="checkbox"]:focus {
   box-shadow: none !important;
 }
 .components-form-toggle .components-form-toggle__track {
-  content: "";
-  height: 19px !important;
   display: inline-block;
   box-sizing: border-box;
-  vertical-align: top;
-  background-color: #fff;
+  width: 34px;
+  height: 21px !important;
   border: 1px solid #9c9c9c;
-  width: 36px;
-  border-radius: 9px;
+  border-radius: 11px;
+  background-color: #fff;
+  vertical-align: top;
+  content: “”;
   transition: background 0.2s ease;
 }
 .components-form-toggle .components-form-toggle__thumb {
   display: block;
   position: absolute;
   top: 3px;
-  left: 4px;
+  left: 3px;
   box-sizing: border-box;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 15px;
   border: 0 !important;
   border-radius: 50%;
   background-color: #838383;
@@ -57,5 +57,5 @@ input[type="checkbox"]:focus {
   border-color: var(--wp-admin-theme-color);
 }
 .components-form-toggle.is-checked .components-form-toggle__thumb {
-  left: 2px !important;
+  left: -1px !important;
 }
