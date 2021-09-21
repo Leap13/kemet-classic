@@ -33,7 +33,7 @@
 .customize-control-kmt-tabs > .current-tab-options {
   margin-top: -1px;
   padding: 0;
-  padding: 15px 20px 0 20px;
+  padding: 20px 20px 0 20px;
   border-top: 1px solid #d6d6d6;
 }
 .customize-control-kmt-tabs > ul > li.active:before {
