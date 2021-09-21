@@ -38,3 +38,6 @@
   display: inline-block !important;
   letter-spacing: 0.1px;
 }
+.components-popover__content {
+  border-radius: 0px !important;
+}
