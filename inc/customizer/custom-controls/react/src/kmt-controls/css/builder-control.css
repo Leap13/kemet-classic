@@ -1252,6 +1252,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
   color: #4a5568;
   white-space: normal;
   border: none;
+  margin: 0px;
 }
 .customize-control-kmt-row-layout
   .kmt-radio-container-control
