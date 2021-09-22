@@ -36,9 +36,9 @@ const Typography = ({ value, onChange, params: { label } }) => {
 
     let defaultValue = {
         family: "System Default",
-        variation: "n4",
+        variation: 'n4',
         size: {
-            desktop: "",
+            desktop: "15",
             "desktop-unit": "px",
             tablet: "",
             "tablet-unit": "px",

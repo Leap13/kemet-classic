@@ -22092,9 +22092,9 @@ var Typography = function Typography(_ref) {
       label = _ref.params.label;
   var defaultValue = {
     family: "System Default",
-    variation: "n4",
+    variation: 'n4',
     size: {
-      desktop: "",
+      desktop: "15",
       "desktop-unit": "px",
       tablet: "",
       "tablet-unit": "px",

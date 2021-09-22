@@ -9585,7 +9585,7 @@ input[type="checkbox"]:focus {
 	overflow: hidden;
 	flex-direction: column;
 	position: relative;
-	min-height: 380px;
+	min-height: 360px;
 }
 
 .kmt-typography-top {
@@ -10080,6 +10080,15 @@ input[type="checkbox"]:focus {
 	width: 100%;
 	margin: 0;
 	background-color: #eaeaea;
+}
+
+.kmt-post-options
+  .customize-control-kmt-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link
+  span {
+	height: 32px;
 }
 
 .kmt-option-number {

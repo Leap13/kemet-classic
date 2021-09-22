@@ -29,3 +29,11 @@
   margin: 0;
   background-color: #eaeaea;
 }
+.kmt-post-options
+  .customize-control-kmt-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
+  .kmt-spacing-input-item-link
+  span {
+  height: 32px;
+}
