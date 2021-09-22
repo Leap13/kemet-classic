@@ -151,9 +151,12 @@
   z-index: 2;
   font-size: 13px;
   line-height: 1.4em;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
   overflow: hidden;
+  max-width: 100px;
+  text-transform: capitalize;
 }
 
 .kmt-typohraphy-value > div > span:hover span {
@@ -205,6 +208,10 @@
 
 .kmt-typography-top.kmt-static > * {
   transition: none !important;
+}
+.kmt-typography-container ~ * {
+  left: 0;
+  right: 0;
 }
 .kmt-typography-top ~ * {
   left: 0;
@@ -340,6 +347,8 @@
 }
 .kmt-typography-options {
   margin: 0;
+  right: 0;
+  left: 0;
 }
 .kmt-typography-options > li {
   align-items: center;
@@ -546,6 +555,8 @@
   overflow-x: auto;
   max-height: 360px;
   margin: 0;
+  right: 0;
+  left: 0;
 }
 .kmt-typography-variations li {
   display: flex;

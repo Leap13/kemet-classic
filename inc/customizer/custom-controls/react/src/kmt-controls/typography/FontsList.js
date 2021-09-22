@@ -3,7 +3,6 @@ import classnames from 'classnames'
 import { humanizeVariations, fontFamilyToCSSFamily } from './helpers'
 import { FixedSizeList as List } from 'react-window'
 import WebFontLoader from 'webfontloader'
-import { Fragment } from 'react'
 
 let loadedFonts = []
 
@@ -15,7 +14,7 @@ const loadGoogleFonts = (font_families) => {
 	const googleFonts = font_families
 		.map(({ family }) => family)
 
-	if (googleFonts.length > 0) {
+	if (googleFonts.length > 0 || typekitFonts.length > 0) {
 		WebFontLoader.load({
 			...(googleFonts.length > 0
 				? {
@@ -112,26 +111,23 @@ const FontsList = ({
 	}, [linearFontsList])
 
 	return (
-		<Fragment>
-
-			<List
-				height={350}
-				itemCount={linearFontsList.length}
-				itemSize={85}
-				ref={listRef}
-				onScroll={(e) => {
-					onScroll()
-				}}
-				itemData={{
-					linearFontsList,
-					onPickFamily,
-					value,
-				}}
-				onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
-				className="kmt-typography-fonts">
-				{SingleFont}
-			</List>
-		</Fragment>
+		<List
+			height={360}
+			itemCount={linearFontsList.length}
+			itemSize={85}
+			ref={listRef}
+			onScroll={(e) => {
+				onScroll()
+			}}
+			itemData={{
+				linearFontsList,
+				onPickFamily,
+				value,
+			}}
+			onItemsRendered={({ overscanStartIndex, overscanStopIndex }) => { }}
+			className="kmt-typography-fonts">
+			{SingleFont}
+		</List>
 	)
 }
 

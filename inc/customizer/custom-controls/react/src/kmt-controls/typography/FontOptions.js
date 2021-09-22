@@ -16,7 +16,7 @@ const FontOptions = ({ value, onChange, props }) => {
 	}, []);
 	return (
 		<animated.ul
-
+			style={props}
 			className="kmt-typography-options"
 			key="options"
 		>
@@ -24,10 +24,12 @@ const FontOptions = ({ value, onChange, props }) => {
 
 				<ResponsiveSliderComponent
 					value={value.size}
+					values={value}
 					id="size"
 					params={{
 						id: 'size',
 						label: __('Font Size', 'kemet'),
+						value: 35,
 						responsive: true,
 						unit_choices: {
 							'px': {
@@ -58,7 +60,7 @@ const FontOptions = ({ value, onChange, props }) => {
 					params={{
 						id: 'size',
 						label: __('Line Height', 'Kemet'),
-						value: 15,
+						value: 35,
 						responsive: true,
 						unit_choices: {
 
@@ -90,9 +92,11 @@ const FontOptions = ({ value, onChange, props }) => {
 					params={{
 						id: 'size',
 						label: __('Letter Spacing', 'kemet'),
-						value: 15,
+						value: 35,
 						responsive: true,
+
 						unit_choices: {
+
 							'px': {
 								min: -20,
 								max: 20,
