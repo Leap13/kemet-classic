@@ -159,6 +159,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'top-footer-columns'                   => '5',
 					'main-footer-columns'                  => '3',
 					'bottom-footer-columns'                => '1',
+					'desktop-toggle-button-style'          => 'simple',
 					// Blog Single.
 					'blog-single-post-structure'           => array(
 						'single-image',

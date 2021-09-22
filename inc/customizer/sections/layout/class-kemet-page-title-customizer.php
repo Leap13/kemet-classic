@@ -232,7 +232,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 			),
 			'subtitle-title'                 => array(
 				'type'  => 'kmt-title',
-				'label' => __( 'Sub Title', 'kemet' ),
+				'label' => __( 'Subtitle', 'kemet' ),
 			),
 			'sub-title-color'                => array(
 				'type'      => 'kmt-color',

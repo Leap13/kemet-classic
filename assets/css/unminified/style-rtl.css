@@ -1928,7 +1928,7 @@ a.wp-block-button__link:focus,
 }
 
 .wp-block-search .wp-block-search__input {
-	border-color: var(--borderColor);
+	border-color: var(--borderColor) !important;
 }
 
 .kmt-widget-area .wp-block-buttons > .wp-block-button {

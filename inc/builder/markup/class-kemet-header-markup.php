@@ -682,30 +682,24 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $device device type.
 		 */
 		public function get_toggle_button( $device ) {
-			$toggle_title        = trim( apply_filters( 'kemet_' . $device . '_toggle_label', kemet_get_option( 'header-' . $device . '-toggle-label' ) ) );
-			$toggle_icon         = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
-			$design              = kemet_get_option( $device . '-toggle-button-design' );
-			$floating            = kemet_get_option( $device . '-toggle-button-float' );
-			$float_position      = kemet_get_option( $device . '-toggle-button-float-position' );
-			$classes             = array();
-			$screen_reader_title = __( 'Desktop Popup', 'kemet' );
-			if ( '' !== $toggle_title ) {
-				$classes[]           = 'kmt-popup-label';
-				$screen_reader_title = $toggle_title;
-			}
+			$toggle_title   = trim( apply_filters( 'kemet_' . $device . '_toggle_label', kemet_get_option( $device . '-toggle-button-label', __( 'Menu', 'kemet' ) ) ) );
+			$toggle_icon    = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
+			$design         = kemet_get_option( $device . '-toggle-button-design' );
+			$floating       = kemet_get_option( $device . '-toggle-button-float' );
+			$style          = kemet_get_option( $device . '-toggle-button-style' );
+			$visibility     = kemet_get_option( $device . '-toggle-button-label-visibility' );
+			$float_position = kemet_get_option( $device . '-toggle-button-float-position' );
+			$label_position = kemet_get_option( $device . '-toggle-button-label-position', 'left' );
+			$classes        = array();
+
 			if ( $floating ) {
 				$classes[] = 'toggle-button-fixed';
 				$classes[] = 'float-' . $float_position;
 			}
 			?>
-			<a class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( implode( ' ', $classes ) ); ?>" rel="main-header-menu" data-target="#site-navigation" aria-controls='site-navigation' aria-expanded='false'>
-				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
+			<a class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( implode( ' ', $classes ) ); ?>" rel="main-header-menu" data-target="#site-navigation" data-label="<?php echo esc_attr( $label_position ); ?>" data-style="<?php echo esc_attr( $style ); ?>" aria-controls='site-navigation' aria-expanded='false'>
+				<span class="kmt-popup-label <?php echo get_visibility_class( $visibility ); ?>"><?php echo esc_html( $toggle_title ); ?></span>
 				<?php echo Kemet_Svg_Icons::get_icons( 'menu' ); ?>
-				<?php if ( '' != $toggle_title ) { ?>
-					<span class="<?php echo esc_attr( $device ); ?>-popup-wrap">
-						<span class="<?php echo esc_attr( $device ); ?>-popup"><?php echo esc_html( $toggle_title ); ?></span>
-					</span>
-				<?php } ?>
 			</a>
 			<?php
 		}

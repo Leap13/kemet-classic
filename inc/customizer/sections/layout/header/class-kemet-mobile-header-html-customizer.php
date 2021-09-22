@@ -94,7 +94,7 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-typography' => array(
 									'type'      => 'kmt-typography',
 									'transport' => 'postMessage',
-									'label'     => __( 'Font Typography', 'kemet' ),
+									'label'     => __( 'Typography', 'kemet' ),
 									'preview'   => array(
 										'selector' => $selector,
 									),

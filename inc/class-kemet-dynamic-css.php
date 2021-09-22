@@ -733,6 +733,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$parse_css = kemet_parse_css( $css_output );
 			// Typography.
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'body', ':root' );
+			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'headings', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'h1', 'h1, .entry-content h1, .entry-content h1 a' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'h2', 'h2, .entry-content h2, .entry-content h2 a' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'h3', 'h3, .entry-content h3, .entry-content h3 a' );

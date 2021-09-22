@@ -17,6 +17,20 @@ const SpacingComponent = (props) => {
         },
         unit: "px",
     };
+    const unitsRange = {
+        px: {
+            min: 0,
+            max: 500,
+        },
+        em: {
+            min: 0,
+            max: 12,
+        },
+        '%': {
+            min: 0,
+            max: 500,
+        }
+    }
     let ResDefaultParam = {
         desktop: defaultValue.value,
         tablet: defaultValue.value,
@@ -107,6 +121,7 @@ const SpacingComponent = (props) => {
         let disconnectedClass = false === connected ? "" : "disconnected";
         let htmlChoices = null;
         if (choices) {
+            console.log(unitsRange[state[`${device}-unit`]].min);
             htmlChoices = Object.keys(choices).map((choiceID) => {
                 let inputValue = responsive
                     ? state[device][choiceID]
@@ -120,6 +135,8 @@ const SpacingComponent = (props) => {
                     >
                         <input
                             type="number"
+                            min={unitsRange[state[`${device}-unit`]].min}
+                            max={unitsRange[state[`${device}-unit`]].max}
                             className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
                             data-id={choiceID}
                             value={inputValue}

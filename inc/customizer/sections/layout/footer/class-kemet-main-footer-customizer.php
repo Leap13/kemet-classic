@@ -51,6 +51,13 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Layout', 'kemet' ),
 								'transport' => 'postMessage',
 								'row'       => 'main',
+								'context'   => array(
+									array(
+										'setting'  => self::$prefix . '-columns',
+										'operator' => '!=',
+										'value'    => '1',
+									),
+								),
 							),
 							self::$prefix . '-min-height'  => array(
 								'type'         => 'kmt-slider',
@@ -66,7 +73,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'em' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 100,
+										'max'  => 12,
 									),
 								),
 								'preview'      => array(
@@ -156,7 +163,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'em' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 10,
+										'max'  => 12,
 									),
 								),
 								'preview'      => array(
@@ -179,7 +186,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'em' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 10,
+										'max'  => 12,
 									),
 								),
 								'preview'      => array(
@@ -231,7 +238,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 									'em' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 10,
+										'max'  => 12,
 									),
 								),
 								'preview'      => array(

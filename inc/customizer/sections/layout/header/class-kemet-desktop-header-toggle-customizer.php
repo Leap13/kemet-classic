@@ -35,16 +35,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-style'  => array(
-								'type'         => 'kmt-radio',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Style', 'kemet' ),
-								'choices' => array(
-									'simple' => 'Simple',
-									'outline' => 'Outline',
-									'solid' => 'Solid',
-								),
-							),
 							self::$prefix . '-width'  => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
@@ -77,7 +67,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 									'property' => 'height',
 								),
 							),
-							self::$prefix . '-size' => array(
+							self::$prefix . '-size'   => array(
 								'type'         => 'kmt-slider',
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
@@ -91,6 +81,64 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'preview'      => array(
 									'selector' => $selector . ' .kmt-svg-icon',
 									'property' => 'font-size',
+								),
+							),
+							self::$prefix . '-style'  => array(
+								'type'      => 'kmt-radio',
+								'transport' => 'postMessage',
+								'label'     => __( 'Style', 'kemet' ),
+								'choices'   => array(
+									'simple'  => __( 'Simple', 'kemet' ),
+									'outline' => __( 'Outline', 'kemet' ),
+									'solid'   => __( 'Solid', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'attr'     => 'data-style',
+								),
+							),
+							self::$prefix . '-label-visibility' => array(
+								'label'     => __( 'Label Visibility', 'Kemet' ),
+								'type'      => 'kmt-visibility',
+								'transport' => 'postMessage',
+								'choices'   => array(
+									'desktop' => __( 'Desktop', 'kemet' ),
+									'tablet'  => __( 'Tablet', 'kemet' ),
+									'mobile'  => __( 'Mobile', 'kemet' ),
+								),
+							),
+							self::$prefix . '-label-position' => array(
+								'type'      => 'kmt-radio',
+								'transport' => 'postMessage',
+								'label'     => __( 'Label Position', 'kemet' ),
+								'choices'   => array(
+									'left'   => __( 'Left', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => $selector,
+									'attr'     => 'data-label',
+								),
+								'context'   => array(
+									array(
+										'setting'  => self::$prefix . '-label-visibility',
+										'operator' => 'object_contain',
+										'value'    => true,
+									),
+								),
+							),
+							self::$prefix . '-label'  => array(
+								'type'       => 'kmt-text',
+								'responsive' => true,
+								'transport'  => 'postMessage',
+								'label'      => __( 'Label Text', 'kemet' ),
+								'context'    => array(
+									array(
+										'setting'  => self::$prefix . '-label-visibility',
+										'operator' => 'object_contain',
+										'value'    => true,
+									),
 								),
 							),
 						),
@@ -200,11 +248,11 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'preview'   => array(
 									'initial' => array(
 										'selector' => $selector,
-										'property' => '--buttonColor',
+										'property' => '--color',
 									),
 									'hover'   => array(
 										'selector' => $selector,
-										'property' => '--buttonHoverColor',
+										'property' => '--hoverColor',
 									),
 								),
 							),
@@ -224,12 +272,49 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => $selector,
-										'property' => '--buttonBackgroundColor',
+										'selector' => $selector . '[data-style="solid"]',
+										'property' => '--backgroundColor',
 									),
 									'hover'   => array(
-										'selector' => $selector,
-										'property' => '--buttonBackgroundHoverColor',
+										'selector' => $selector . '[data-style="solid"]',
+										'property' => '--backgroundHoverColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-style',
+										'value'   => 'solid',
+									),
+								),
+							),
+							self::$prefix . '-border-color' => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'label'     => __( 'Border Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector . '[data-style="outline"]',
+										'property' => '--borderColor',
+									),
+									'hover'   => array(
+										'selector' => $selector . '[data-style="outline"]',
+										'property' => '--borderHoverColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-style',
+										'value'   => 'outline',
 									),
 								),
 							),

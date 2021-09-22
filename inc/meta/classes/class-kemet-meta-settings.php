@@ -68,17 +68,11 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 		 */
 		public static function meta_options() {
 			$options = array(
-				'overlay-header'       => array(
-					'type'    => 'kmt-radio',
-					'default' => 'default',
-					'label'   => __( 'Overlay Header', 'kemet' ),
-					'choices' => array(
-						'default' => __( 'Default', 'kemet' ),
-						'enable'  => __( 'Enable', 'kemet' ),
-						'disable' => __( 'Disable', 'kemet' ),
-					),
+				'page-settings-title'      => array(
+					'type'  => 'kmt-title',
+					'label' => __( 'Page Settings', 'kemet' ),
 				),
-				'sidebar-layout'       => array(
+				'sidebar-layout'           => array(
 					'type'    => 'kmt-select',
 					'default' => 'default',
 					'label'   => __( 'Sidebar Layout', 'kemet' ),
@@ -89,7 +83,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 					),
 				),
-				'content-layout'       => array(
+				'content-layout'           => array(
 					'type'    => 'kmt-select',
 					'default' => 'default',
 					'label'   => __( 'Page Layout', 'kemet' ),
@@ -101,12 +95,12 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'page-builder'            => __( 'Stretched Content', 'kemet' ),
 					),
 				),
-				'background'           => array(
+				'background'               => array(
 					'type'       => 'kmt-background',
 					'responsive' => true,
 					'label'      => __( 'Page Background', 'kemet' ),
 				),
-				'boxed-background'     => array(
+				'boxed-background'         => array(
 					'type'       => 'kmt-background',
 					'responsive' => true,
 					'label'      => __( 'Page Boxed Background', 'kemet' ),
@@ -118,11 +112,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'disable-featured-img' => array(
-					'type'  => 'kmt-switcher',
-					'label' => __( 'Disable Featured Image', 'kemet' ),
-				),
-				'content-padding'      => array(
+				'content-padding'          => array(
 					'type'           => 'kmt-spacing',
 					'label'          => __( 'Content Padding', 'kemet' ),
 					'linked_choices' => true,
@@ -133,7 +123,11 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						'bottom' => __( 'Bottom', 'kemet' ),
 					),
 				),
-				'page-title-layouts'   => array(
+				'pagetitle-settings-title' => array(
+					'type'  => 'kmt-title',
+					'label' => __( 'Page Title Settings', 'kemet' ),
+				),
+				'page-title-layouts'       => array(
 					'label'   => __( 'Page Title Layouts', 'kemet' ),
 					'type'    => 'kmt-radio-image',
 					'choices' => array(
@@ -159,13 +153,13 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'sub-title'            => array(
+				'sub-title'                => array(
 					'type'  => 'kmt-text',
-					'label' => __( 'Sub Title', 'kemet' ),
+					'label' => __( 'Subtitle', 'kemet' ),
 				),
-				'sub-title-color'      => array(
+				'sub-title-color'          => array(
 					'type'    => 'kmt-color',
-					'label'   => __( 'Sub title color', 'kemet' ),
+					'label'   => __( 'Subtitle color', 'kemet' ),
 					'pickers' => array(
 						array(
 							'id'    => 'initial',
@@ -173,19 +167,37 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 						),
 					),
 				),
-				'disable-breadcrumbs'  => array(
+				'disable-breadcrumbs'      => array(
 					'type'  => 'kmt-switcher',
 					'label' => __( 'Disable Breadcrumbs', 'kemet' ),
 				),
-				'disable-header'       => array(
+				'page-elements-title'      => array(
+					'type'  => 'kmt-title',
+					'label' => __( 'Page Elements', 'kemet' ),
+				),
+				'overlay-header'           => array(
+					'type'    => 'kmt-radio',
+					'default' => 'default',
+					'label'   => __( 'Overlay Header', 'kemet' ),
+					'choices' => array(
+						'default' => __( 'Default', 'kemet' ),
+						'enable'  => __( 'Enable', 'kemet' ),
+						'disable' => __( 'Disable', 'kemet' ),
+					),
+				),
+				'disable-header'           => array(
 					'type'    => 'kmt-switcher',
 					'default' => false,
 					'label'   => __( 'Disable Header', 'kemet' ),
 				),
-				'disable-footer'       => array(
+				'disable-footer'           => array(
 					'type'    => 'kmt-switcher',
 					'default' => false,
 					'label'   => __( 'Disable Footer', 'kemet' ),
+				),
+				'disable-featured-img'     => array(
+					'type'  => 'kmt-switcher',
+					'label' => __( 'Disable Featured Image', 'kemet' ),
 				),
 			);
 

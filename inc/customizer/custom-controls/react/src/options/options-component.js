@@ -79,7 +79,9 @@ export const isDisplay = (rules) => {
             case "in_array":
                 boolean = ruleValue.includes(settingValue);
                 break;
-
+            case 'object_contain':
+                boolean = Object.values(settingValue).includes(ruleValue);
+                break;
             case "contain":
                 boolean = settingValue.includes(ruleValue);
                 break;
@@ -148,7 +150,8 @@ const SingleOptionComponent = ({ value, optionId, option, control }) => {
     }
 
     const Option = CustomizerOptionComponent(option.type) ? CustomizerOptionComponent(option.type) : OptionComponent(option.type);
-    return isVisible && option.type && <div id={optionId} className={`customize-control-${option.type}`}>
+    const divider = option.divider ? 'has-divider' : '';
+    return isVisible && option.type && <div id={optionId} className={`kmt-customize-control customize-control-${option.type} ${divider}`}>
         <Option id={optionId} value={settingVal} params={option} control={control} customizer={wp.customize} onChange={(value) => {
             const key = getSettingId(optionId);
             setValue(value);

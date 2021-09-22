@@ -71,7 +71,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'em' => array(
 						'min'  => 0.1,
 						'step' => 0.1,
-						'max'  => 10,
+						'max'  => 12,
 					),
 				),
 				'context'      => array(
@@ -100,7 +100,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'em' => array(
 						'min'  => 0.1,
 						'step' => 0.1,
-						'max'  => 10,
+						'max'  => 12,
 					),
 				),
 				'context'      => array(
@@ -277,7 +277,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 								'em' => array(
 									'min'  => 0.1,
 									'step' => 0.1,
-									'max'  => 10,
+									'max'  => 12,
 								),
 								'%'  => array(
 									'min'  => 1,

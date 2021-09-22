@@ -81,6 +81,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 							'button-text-color'  => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
+								'divider'   => true,
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(

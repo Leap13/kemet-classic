@@ -35,7 +35,7 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 						'em' => array(
 							'min'  => 0.1,
 							'step' => 0.1,
-							'max'  => 10,
+							'max'  => 12,
 						),
 						'%'  => array(
 							'min'  => 1,

@@ -146,9 +146,11 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				// Toggle Button Css.
 				$btn_selector      = '.' . $toggle_button . '-button';
 				$icon_color        = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'initial' );
+				$border_color      = kemet_get_sub_option( $toggle_button . '-button-border-color', 'initial' );
 				$icon_bg_color     = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'initial' );
 				$icon_h_color      = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover' );
 				$icon_bg_h_color   = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'hover' );
+				$border_h_color    = kemet_get_sub_option( $toggle_button . '-button-border-color', 'hover' );
 				$btn_width         = kemet_get_option( $toggle_button . '-button-width' );
 				$btn_height        = kemet_get_option( $toggle_button . '-button-height' );
 				$btn_radius        = kemet_get_option( $toggle_button . '-button-border-radius' );
@@ -171,16 +173,60 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						$float_hposition => kemet_slider( $horizontal_offset ),
 					),
 					$btn_selector                          => array(
-						'--buttonColor'                => esc_attr( $icon_color ),
-						'--buttonBackgroundColor'      => esc_attr( $icon_bg_color ),
-						'width'                        => kemet_slider( $btn_width ),
-						'height'                       => kemet_slider( $btn_height ),
-						'font-size'                    => kemet_slider( $toggle_size ),
-						'--borderRadius'               => kemet_slider( $btn_radius ),
-						'--buttonHoverColor'           => esc_attr( $icon_h_color ),
-						'--buttonBackgroundHoverColor' => esc_attr( $icon_bg_h_color ),
+						'display'          => 'flex',
+						'align-items'      => 'center',
+						'color'            => 'var(--color, var(--textColor) )',
+						'background-color' => 'var(--backgroundColor, var(--borderColor))',
+						'border'           => 'var(--borderWidth, 1px) var(--borderStyle, solid) var(--borderColor)',
+						'border-radius'    => 'var(--borderRadius)',
+						'width'            => kemet_slider( $btn_width ),
+						'height'           => kemet_slider( $btn_height ),
+						'font-size'        => kemet_slider( $toggle_size ),
+						'--borderRadius'   => kemet_slider( $btn_radius ),
+						'--color'          => esc_attr( $icon_color ),
+						'--hoverColor'     => esc_attr( $icon_h_color ),
 					),
-					
+					$btn_selector . '[data-label="right"]' => array(
+						'flex-direction' => 'row-reverse',
+					),
+					$btn_selector . '[data-label="bottom"]' => array(
+						'flex-direction' => 'column',
+					),
+					$btn_selector . '[data-label="right"] .kmt-popup-label' => array(
+						'margin-left' => '5px',
+					),
+					$btn_selector . '[data-label="left"] .kmt-popup-label' => array(
+						'margin-right' => '5px',
+					),
+					$btn_selector . '[data-label="bottom"] .kmt-popup-label' => array(
+						'margin-top' => '5px',
+					),
+					$btn_selector . ' .kmt-popup-label'    => array(
+						'--textTransform' => 'uppercase',
+					),
+					$btn_selector . ' .icon-menu'          => array(
+						'display' => 'flex',
+					),
+					$btn_selector . ':hover'               => array(
+						'color'            => 'var(--hoverColor, var(--themeColor))',
+						'background-color' => 'var(--backgroundHoverColor, var(--borderColor))',
+						'border'           => 'var(--borderWidth, 1px) var(--borderStyle, solid) var(--borderHoverColor, var(--borderColor))',
+					),
+					$btn_selector . '[data-style="simple"]' => array(
+						'background' => 'transparent',
+						'border'     => 'none',
+					),
+					$btn_selector . '[data-style="solid"]' => array(
+						'--backgroundColor'      => esc_attr( $icon_bg_color ),
+						'--backgroundHoverColor' => esc_attr( $icon_bg_h_color ),
+						'border'                 => 'none',
+					),
+					$btn_selector . '[data-style="outline"]' => array(
+						'--buttonColor'      => esc_attr( $icon_color ),
+						'--borderColor'      => esc_attr( $border_color ),
+						'--borderHoverColor' => esc_attr( $border_h_color ),
+						'background'         => 'transparent',
+					),
 				);
 				/* Parse CSS from array()*/
 				$parse_css = kemet_parse_css( $btn_css_output );

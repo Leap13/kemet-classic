@@ -29,3 +29,6 @@
   margin: 0;
   background-color: #eaeaea;
 }
+.theme-kemet .interface-complementary-area-header .components-button.has-icon {
+  display: none !important;
+}

@@ -1,1 +1,856 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=13)}([function(e,t){e.exports=window.wp.element},function(e,t,n){var o=n(7),r=n(8),a=n(9),i=n(11);e.exports=function(e,t){return o(e)||r(e,t)||a(e,t)||i()},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=function(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=window.wp.editPost},function(e,t){e.exports=window.wp.data},function(e,t){e.exports=window.wp.plugins},function(e,t){e.exports=window.wp.compose},function(e,t){e.exports=function(e){if(Array.isArray(e))return e},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=function(e,t){var n=e&&("undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"]);if(null!=n){var o,r,a=[],i=!0,c=!1;try{for(n=n.call(e);!(i=(o=n.next()).done)&&(a.push(o.value),!t||a.length!==t);i=!0);}catch(e){c=!0,r=e}finally{try{i||null==n.return||n.return()}finally{if(c)throw r}}return a}},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t,n){var o=n(10);e.exports=function(e,t){if(e){if("string"==typeof e)return o(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?o(e,t):void 0}},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=function(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,o=new Array(t);n<t;n++)o[n]=e[n];return o},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")},e.exports.default=e.exports,e.exports.__esModule=!0},function(e,t){e.exports=window.wp.components},function(e,t,n){"use strict";n.r(t);var o=n(2),r=n.n(o),a=n(1),i=n.n(a),c=n(0),u=n(5),s=n(3),l=n(4),d=n(6),p=(n(12),function(e,t){if(t){var n=null!=e.relation?e.relation:"AND",o="AND"===n;return _.each(e,(function(e,r){if("relation"!=r){var a=!1,i=null!=e.operator?e.operator:"=",c=e.value,u=t[e.setting];switch(i){case"in_array":a=c.includes(u);break;case"contain":a=u.includes(c);break;case">":a=u>c;break;case"<":a=u<c;break;case">=":a=u>=c;break;case"<=":a=u<=c;break;case"not_empty":a=void 0!==u&&null!=u&&""!==u;break;case"!=":a=u!==c;break;default:a=u==c}o="OR"===n?o||a:o&&a}})),o}}),m=function(e){var t=e.value,n=e.optionId,o=e.option,r=e.onChange,a=(0,window.KmtOptionComponent.OptionComponent)(o.type);return o.type&&Object(c.createElement)("div",{id:n,className:"customize-control-".concat(o.type)},Object(c.createElement)(a,{id:n,value:t,params:o,onChange:r}))},b=function(e){var t=e.options,n=e.onChange,o=e.values;return Object.keys(t).map((function(e){var r,a,u=o[e],s=t[e],l=!s.context||p(s.context),d=Object(c.useState)(l),b=i()(d,2),f=b[0],v=b[1];return s.context&&(r=s.context,a=function(e){v(e)},document.addEventListener("KemetUpdateMeta",(function(e){var t=e.detail,n=t.key,o=t.values;_.each(r,(function(e){e.setting===n&&a(p(r,o))}))})),document.addEventListener("KemetInitMeta",(function(e){var t=e.detail.values;_.each(r,(function(e){t[e.setting]&&a(p(r,t))}))}))),Object(c.useEffect)((function(){var e;e="desktop",wp.data&&wp.data.select&&wp.data.select("core/edit-post")&&wp.data.select("core/edit-post").__experimentalGetPreviewDeviceType&&(e=wp.data.select("core/edit-post").__experimentalGetPreviewDeviceType().toLowerCase()),jQuery(document).find(".kmt-responsive-control-btns > li").removeClass("active"),jQuery(document).find(".kmt-responsive-control-btns > li."+e).addClass("active"),jQuery(document).find(".kmt-responsive-control-btns button i").on("click",(function(e){e.preventDefault();var t=jQuery(this).parent("button").attr("data-device");t="desktop"==t?"tablet":"tablet"==t?"mobile":"desktop",jQuery(document).find(".kmt-responsive-control-btns > li").removeClass("active"),jQuery(document).find(".kmt-responsive-control-btns > li."+t).addClass("active")})),jQuery(document).mouseup((function(e){var t=jQuery(document),n=t.find(".kemet-color-picker-wrap"),o=t.find(".kmt-color-btn-reset-wrap");0===n.has(e.target).length&&0===o.has(e.target).length&&t.find(".components-button.kemet-color-icon-indicate.open").click()}));var t=new CustomEvent("KemetInitMeta",{detail:{values:o}});document.dispatchEvent(t)}),[]),f&&Object(c.createElement)(m,{value:u,optionId:e,option:s,onChange:function(t){n(t,e)},key:e})}))},f=function(e){var t=e.options,n=e.onChange,o=e.values;return Object(c.useEffect)((function(){var e=new CustomEvent("KemetInitOptionsMeta");document.dispatchEvent(e)}),[]),Object(c.createElement)("div",{className:"kmt-options"},Object(c.createElement)(b,{options:t,onChange:n,values:o}))};function v(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);t&&(o=o.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,o)}return n}function g(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{};t%2?v(Object(n),!0).forEach((function(t){r()(e,t,n[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(n)):v(Object(n)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(n,t))}))}return e}var k=wp.i18n.__,y=function(e){var t="",n=e["background-type"],o=e["background-image"],r=e["background-color"],a=e["background-gradient"];if(r||o||a){switch(n){case"color":r&&(t="background-color: "+r+";",t+="background-image: none;");break;case"gradient":a&&(t+="background-image: "+a+";");break;case"image":if(o){t="background-image: url("+o+");";var i=void 0!==e["background-repeat"]?e["background-repeat"]:"repeat",c=void 0!==e["background-position"]&&e["background-position"],u=void 0!==e["background-size"]?e["background-size"]:"auto",s=void 0!==e["background-attachment"]?e["background-attachment"]:"inherit";c&&(c.x&&(t+="background-position-x: "+100*c.x+"%;"),c.y&&(t+="background-position-y: "+100*c.y+"%;")),i&&(t+="background-repeat: "+i+";"),u&&(t+="background-size: "+u+";"),s&&(t+="background-attachment: "+s+";")}r&&(t+="background-color: "+r+";")}return t}return""},x=Object(d.compose)(Object(l.withSelect)((function(e){var t=e("core/editor").getEditedPostAttribute("meta"),n=e("core/editor").getCurrentPostAttribute("meta");return{meta:g(g({},n),t),oldMeta:n,options:KemetMetaData.options}})),Object(l.withDispatch)((function(e){return{onChange:function(t,n){return e("core/editor").editPost({meta:r()({},n,t)})}}})))((function(e){var t=e.meta.kemet_meta?JSON.parse(e.meta.kemet_meta):{},n=Object(c.useState)(t),o=i()(n,2),r=o[0],a=o[1];return document.addEventListener("KemetUpdateMeta",(function(e){var t=e.detail,n=t.key,o=t.value;if("content-layout"===n){var r="";document.body.classList.remove("kmt-separate-container","kmt-two-container","kmt-page-builder-template","kmt-plain-container"),"content-boxed-container"==o||"boxed-container"==o?r="kmt-separate-container":"page-builder"==o?r="kmt-page-builder-template":"plain-container"==o&&(r="kmt-plain-container"),document.body.classList.add(r)}if("background"===n){var a=".edit-post-visual-editor__content-area, .block-editor-writing-flow",i={desktop:"",tablet:"",mobile:""};""!=o.desktop&&(i.desktop=y(o.desktop)),""!=o.tablet&&(i.tablet=y(o.tablet)),""!=o.mobile&&(i.mobile=y(o.mobile));var c=a+"\t{ "+i.desktop+" }@media (max-width: 768px) {"+a+"\t{ "+i.tablet+" } }@media (max-width: 544px) {"+a+"\t{ "+i.mobile+" } }",u=document.head||document.getElementsByTagName("head")[0],s=document.createElement("style");u.appendChild(s),s.type="text/css",s.styleSheet?s.styleSheet.cssText=c:s.appendChild(document.createTextNode(c))}if("boxed-background"===n){var l={desktop:"",tablet:"",mobile:""};""!=o.desktop&&(l.desktop=y(o.desktop)),""!=o.tablet&&(l.tablet=y(o.tablet)),""!=o.mobile&&(l.mobile=y(o.mobile));var d=".kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow",p=d+"\t{ "+l.desktop+" }@media (max-width: 768px) {"+d+"\t{ "+l.tablet+" } }@media (max-width: 544px) {"+d+"\t{ "+l.mobile+" } }",m=document.head||document.getElementsByTagName("head")[0],b=document.createElement("style");m.appendChild(b),b.type="text/css",b.styleSheet?b.styleSheet.cssText=p:b.appendChild(document.createTextNode(p))}})),Object(c.createElement)(c.Fragment,null,Object(c.createElement)(s.PluginSidebarMoreMenuItem,{target:"kemet",icon:"admin-customizer"},KemetMetaData.post_type_name+" "+k("Settings","kemet")),Object(c.createElement)(s.PluginSidebar,{className:"kmt-post-options",isPinnable:!0,name:"theme-meta-panel",title:k("Kemet Settings","kemet")},Object(c.createElement)(f,{options:e.options,onChange:function(n,o){var i=r;i[o]=n,e.onChange(JSON.stringify(g(g({},i),{},{flag:!t.flag})),"kemet_meta"),a(i);var c=new CustomEvent("KemetUpdateMeta",{detail:{key:o,value:n,values:i}});document.dispatchEvent(c)},values:r})))}));KemetMetaData&&Object(u.registerPlugin)("kemet",{render:function(){return Object(c.createElement)(x,{name:"kemet"})}})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+module.exports = _arrayWithHoles;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]);
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+module.exports = _iterableToArrayLimit;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableRest.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableRest;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/slicedToArray.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ "./node_modules/@babel/runtime/helpers/arrayWithHoles.js");
+
+var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ "./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js");
+
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
+
+var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ "./node_modules/@babel/runtime/helpers/nonIterableRest.js");
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _page_options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./page-options */ "./src/page-options.js");
+
+
+/***/ }),
+
+/***/ "./src/options.js":
+/*!************************!*\
+  !*** ./src/options.js ***!
+  \************************/
+/*! exports provided: isDisplay, OptionsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDisplay", function() { return isDisplay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptionsComponent", function() { return OptionsComponent; });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var isDisplay = function isDisplay(rules, values) {
+  if (!values) {
+    return;
+  }
+
+  var relation = undefined != rules.relation ? rules.relation : "AND",
+      isVisible = "AND" === relation ? true : false;
+
+  _.each(rules, function (rule, ruleKey) {
+    if ("relation" == ruleKey) {
+      return;
+    }
+
+    var boolean = false,
+        operator = undefined != rule.operator ? rule.operator : "=",
+        ruleValue = rule.value;
+    var settingValue = values[rule.setting];
+
+    switch (operator) {
+      case "in_array":
+        boolean = ruleValue.includes(settingValue);
+        break;
+
+      case "contain":
+        boolean = settingValue.includes(ruleValue);
+        break;
+
+      case ">":
+        boolean = settingValue > ruleValue;
+        break;
+
+      case "<":
+        boolean = settingValue < ruleValue;
+        break;
+
+      case ">=":
+        boolean = settingValue >= ruleValue;
+        break;
+
+      case "<=":
+        boolean = settingValue <= ruleValue;
+        break;
+
+      case "not_empty":
+        boolean = typeof settingValue !== "undefined" && undefined !== settingValue && null !== settingValue && "" !== settingValue;
+        break;
+
+      case "!=":
+        boolean = settingValue !== ruleValue;
+        break;
+
+      default:
+        boolean = settingValue == ruleValue;
+        break;
+    }
+
+    isVisible = "OR" === relation ? isVisible || boolean : isVisible && boolean;
+  });
+
+  return isVisible;
+};
+
+var toggleVisible = function toggleVisible(rules, onChange) {
+  document.addEventListener('KemetUpdateMeta', function (_ref) {
+    var _ref$detail = _ref.detail,
+        key = _ref$detail.key,
+        values = _ref$detail.values;
+
+    _.each(rules, function (rule) {
+      if (rule.setting === key) {
+        onChange(isDisplay(rules, values));
+      }
+    });
+  });
+  document.addEventListener('KemetInitMeta', function (_ref2) {
+    var values = _ref2.detail.values;
+
+    _.each(rules, function (rule) {
+      if (values[rule.setting]) {
+        onChange(isDisplay(rules, values));
+      }
+    });
+  });
+};
+
+var SingleOptionComponent = function SingleOptionComponent(_ref3) {
+  var value = _ref3.value,
+      optionId = _ref3.optionId,
+      option = _ref3.option,
+      onChange = _ref3.onChange;
+  var OptionComponent = window.KmtOptionComponent.OptionComponent;
+  var Option = OptionComponent(option.type);
+  return option.type && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    id: optionId,
+    className: "customize-control-".concat(option.type)
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Option, {
+    id: optionId,
+    value: value,
+    params: option,
+    onChange: onChange
+  }));
+};
+
+var RenderOptions = function RenderOptions(_ref4) {
+  var options = _ref4.options,
+      _onChange = _ref4.onChange,
+      values = _ref4.values;
+  return Object.keys(options).map(function (optionId) {
+    var value = values[optionId];
+    var option = options[optionId];
+    var context = option.context ? isDisplay(option.context) : true;
+
+    var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useState"])(context),
+        _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+        isVisible = _useState2[0],
+        setVisible = _useState2[1];
+
+    var onChangeVisible = function onChangeVisible(value) {
+      setVisible(value);
+    };
+
+    if (option.context) {
+      toggleVisible(option.context, onChangeVisible);
+    }
+
+    Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+      kemetGetResponsiveJs();
+      jQuery(document).mouseup(function (e) {
+        var container = jQuery(document);
+        var colorWrap = container.find('.kemet-color-picker-wrap');
+        var resetBtnWrap = container.find('.kmt-color-btn-reset-wrap'); // If the target of the click isn't the container nor a descendant of the container.
+
+        if (colorWrap.has(e.target).length === 0 && resetBtnWrap.has(e.target).length === 0) {
+          container.find('.components-button.kemet-color-icon-indicate.open').click();
+        }
+      });
+      var event = new CustomEvent("KemetInitMeta", {
+        detail: {
+          values: values
+        }
+      });
+      document.dispatchEvent(event);
+    }, []);
+    return isVisible && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(SingleOptionComponent, {
+      value: value,
+      optionId: optionId,
+      option: option,
+      onChange: function onChange(newVal) {
+        _onChange(newVal, optionId);
+      },
+      key: optionId
+    });
+  });
+};
+
+function kemetGetResponsiveJs() {
+  'use strict';
+
+  var device = 'desktop';
+
+  if (wp.data && wp.data.select && wp.data.select('core/edit-post') && wp.data.select('core/edit-post').__experimentalGetPreviewDeviceType) {
+    device = wp.data.select('core/edit-post').__experimentalGetPreviewDeviceType().toLowerCase();
+  }
+
+  jQuery(document).find('.kmt-responsive-control-btns > li').removeClass('active');
+  jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
+  jQuery(document).find('.kmt-responsive-control-btns button i').on('click', function (event) {
+    event.preventDefault();
+    var device = jQuery(this).parent('button').attr('data-device');
+
+    if ('desktop' == device) {
+      device = 'tablet';
+    } else if ('tablet' == device) {
+      device = 'mobile';
+    } else {
+      device = 'desktop';
+    }
+
+    jQuery(document).find('.kmt-responsive-control-btns > li').removeClass('active');
+    jQuery(document).find('.kmt-responsive-control-btns > li.' + device).addClass('active');
+  });
+}
+
+var OptionsComponent = function OptionsComponent(_ref5) {
+  var options = _ref5.options,
+      onChange = _ref5.onChange,
+      values = _ref5.values;
+  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    var event = new CustomEvent("KemetInitOptionsMeta");
+    document.dispatchEvent(event);
+  }, []);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "kmt-options"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(RenderOptions, {
+    options: options,
+    onChange: onChange,
+    values: values
+  }));
+};
+
+/***/ }),
+
+/***/ "./src/page-options.js":
+/*!*****************************!*\
+  !*** ./src/page-options.js ***!
+  \*****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/plugins */ "@wordpress/plugins");
+/* harmony import */ var _wordpress_plugins__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/edit-post */ "@wordpress/edit-post");
+/* harmony import */ var _wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _options__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./options */ "./src/options.js");
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+
+
+
+var __ = wp.i18n.__;
+
+
+var kemetPageOptions = function kemetPageOptions(props) {
+  var metaValue = props.meta.kemet_meta ? JSON.parse(props.meta.kemet_meta) : {};
+
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(metaValue),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      values = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(value, key) {
+    var newValues = values;
+    newValues[key] = value;
+    props.onChange(JSON.stringify(_objectSpread(_objectSpread({}, newValues), {}, {
+      flag: !metaValue.flag
+    })), 'kemet_meta');
+    setValue(newValues);
+    var event = new CustomEvent("KemetUpdateMeta", {
+      detail: {
+        key: key,
+        value: value,
+        values: newValues
+      }
+    });
+    document.dispatchEvent(event);
+  };
+
+  var optionsPreview = function optionsPreview() {
+    document.addEventListener('KemetUpdateMeta', function (_ref) {
+      var _ref$detail = _ref.detail,
+          key = _ref$detail.key,
+          value = _ref$detail.value;
+
+      if ('content-layout' === key) {
+        var className = '';
+        document.body.classList.remove('kmt-separate-container', 'kmt-two-container', 'kmt-page-builder-template', 'kmt-plain-container');
+
+        if ('content-boxed-container' == value) {
+          className = 'kmt-separate-container';
+        } else if ('boxed-container' == value) {
+          className = 'kmt-separate-container';
+        } else if ('page-builder' == value) {
+          className = 'kmt-page-builder-template';
+        } else if ('plain-container' == value) {
+          className = 'kmt-plain-container';
+        }
+
+        document.body.classList.add(className);
+      }
+
+      if ('background' === key) {
+        var selector = '.edit-post-visual-editor__content-area, .block-editor-writing-flow';
+        var background = {
+          desktop: "",
+          tablet: "",
+          mobile: ""
+        };
+
+        if ("" != value["desktop"]) {
+          background.desktop = get_background_css(value["desktop"]);
+        }
+
+        if ("" != value["tablet"]) {
+          background.tablet = get_background_css(value["tablet"]);
+        }
+
+        if ("" != value["mobile"]) {
+          background.mobile = get_background_css(value["mobile"]);
+        }
+
+        var dynamicStyle = selector + "	{ " + background.desktop + " }" + "@media (max-width: 768px) {" + selector + "	{ " + background.tablet + " } }" + "@media (max-width: 544px) {" + selector + "	{ " + background.mobile + " } }";
+        var css = dynamicStyle,
+            head = document.head || document.getElementsByTagName('head')[0],
+            style = document.createElement('style');
+        head.appendChild(style);
+        style.type = 'text/css';
+
+        if (style.styleSheet) {
+          // This is required for IE8 and below.
+          style.styleSheet.cssText = css;
+        } else {
+          style.appendChild(document.createTextNode(css));
+        }
+      }
+
+      if ('boxed-background' === key) {
+        var _background = {
+          desktop: "",
+          tablet: "",
+          mobile: ""
+        };
+
+        if ("" != value["desktop"]) {
+          _background.desktop = get_background_css(value["desktop"]);
+        }
+
+        if ("" != value["tablet"]) {
+          _background.tablet = get_background_css(value["tablet"]);
+        }
+
+        if ("" != value["mobile"]) {
+          _background.mobile = get_background_css(value["mobile"]);
+        }
+
+        var _selector = '.kmt-separate-container .block-editor-writing-flow, .kmt-two-container .block-editor-writing-flow';
+
+        var _dynamicStyle = _selector + "	{ " + _background.desktop + " }" + "@media (max-width: 768px) {" + _selector + "	{ " + _background.tablet + " } }" + "@media (max-width: 544px) {" + _selector + "	{ " + _background.mobile + " } }";
+
+        var _css = _dynamicStyle,
+            _head = document.head || document.getElementsByTagName('head')[0],
+            _style = document.createElement('style');
+
+        _head.appendChild(_style);
+
+        _style.type = 'text/css';
+
+        if (_style.styleSheet) {
+          // This is required for IE8 and below.
+          _style.styleSheet.cssText = _css;
+        } else {
+          _style.appendChild(document.createTextNode(_css));
+        }
+      }
+    });
+  };
+
+  optionsPreview();
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4__["PluginSidebarMoreMenuItem"], {
+    target: "kemet",
+    className: "kmt-sidebar",
+    icon: "admin-customizer"
+  }, KemetMetaData.post_type_name + ' ' + __('Settings', 'kemet')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_4__["PluginSidebar"], {
+    className: "kmt-post-options",
+    isPinnable: true,
+    icon: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "23",
+      height: "58.04",
+      viewBox: "0 0 23 58.04"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("path", {
+      d: "M1,28V44H2.59c7.46,0,12.71-7.16,14.79-20.15l.3-1.85H1v3H13.15C12,30.68,9.54,38.37,4,39.55V28Z",
+      transform: "translate(-1 0.04)"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("path", {
+      d: "M4,12.36A8.32,8.32,0,0,1,5.79,7.2l5.11,5.32a2.56,2.56,0,0,0,1.65,1,1.5,1.5,0,0,0,1-.39l.14-.13L19.21,7.2A8.32,8.32,0,0,1,21,12.36V13h3v-.64A11.59,11.59,0,0,0,21.28,4.9L23.9,2.13,21.64,0,19,2.8A11.43,11.43,0,0,0,6,2.8C4.54,1.2,3.4,0,3.36,0L1.1,2.13,3.72,4.9A11.59,11.59,0,0,0,1,12.36V13H4Zm8.81-8.71A8.34,8.34,0,0,1,17.1,4.83L12.81,9.34,8.53,4.83A8.31,8.31,0,0,1,12.81,3.65Z",
+      transform: "translate(-1 0.04)"
+    }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("path", {
+      d: "M18,55,14.64,44.92a29.1,29.1,0,0,0,6.53-11.44A60.5,60.5,0,0,0,24,17.59L24,16H1v3H20.92c-.45,6.17-3.13,28-18.35,28H1v3H2.55a18,18,0,0,0,3.78-.4L8.14,55H1v3H24V55ZM9.64,48.56A16.38,16.38,0,0,0,12.41,47l2.67,8H11.8Z",
+      transform: "translate(-1 0.04)"
+    })),
+    name: "theme-meta-panel",
+    title: __('Kemet Settings', 'kemet')
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_options__WEBPACK_IMPORTED_MODULE_8__["OptionsComponent"], {
+    options: props.options,
+    onChange: onChange,
+    values: values
+  })));
+};
+
+var get_background_css = function get_background_css(bg_obj) {
+  var gen_bg_css = "";
+  var bg_type = bg_obj["background-type"];
+  var bg_img = bg_obj["background-image"];
+  var bg_color = bg_obj["background-color"];
+  var bg_gradient = bg_obj["background-gradient"];
+
+  if (!bg_color && !bg_img && !bg_gradient) {
+    return '';
+  } else {
+    switch (bg_type) {
+      case 'color':
+        if (bg_color) {
+          gen_bg_css = "background-color: " + bg_color + ";";
+          gen_bg_css += "background-image: none;";
+        }
+
+        break;
+
+      case 'gradient':
+        if (bg_gradient) {
+          gen_bg_css += "background-image: " + bg_gradient + ";";
+        }
+
+        break;
+
+      case 'image':
+        if (bg_img) {
+          gen_bg_css = "background-image: url(" + bg_img + ");";
+          var backgroundRepeat = "undefined" != typeof bg_obj["background-repeat"] ? bg_obj["background-repeat"] : "repeat",
+              backgroundPosition = "undefined" != typeof bg_obj["background-position"] && bg_obj["background-position"],
+              backgroundSize = "undefined" != typeof bg_obj["background-size"] ? bg_obj["background-size"] : "auto",
+              backgroundAttachment = "undefined" != typeof bg_obj["background-attachment"] ? bg_obj["background-attachment"] : "inherit";
+
+          if (backgroundPosition) {
+            if (backgroundPosition.x) {
+              gen_bg_css += "background-position-x: " + backgroundPosition.x * 100 + "%;";
+            }
+
+            if (backgroundPosition.y) {
+              gen_bg_css += "background-position-y: " + backgroundPosition.y * 100 + "%;";
+            }
+          }
+
+          if (backgroundRepeat) {
+            gen_bg_css += "background-repeat: " + backgroundRepeat + ";";
+          }
+
+          if (backgroundSize) {
+            gen_bg_css += "background-size: " + backgroundSize + ";";
+          }
+
+          if (backgroundAttachment) {
+            gen_bg_css += "background-attachment: " + backgroundAttachment + ";";
+          }
+        }
+
+        if (bg_color) {
+          gen_bg_css += "background-color: " + bg_color + ";";
+        }
+
+        break;
+    }
+
+    return gen_bg_css;
+  }
+};
+
+var KemetOptionsComposed = Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_6__["compose"])(Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__["withSelect"])(function (select) {
+  var postMeta = select('core/editor').getEditedPostAttribute('meta');
+  var oldPostMeta = select('core/editor').getCurrentPostAttribute('meta');
+  return {
+    meta: _objectSpread(_objectSpread({}, oldPostMeta), postMeta),
+    oldMeta: oldPostMeta,
+    options: KemetMetaData.options
+  };
+}), Object(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__["withDispatch"])(function (dispatch) {
+  return {
+    onChange: function onChange(value, field) {
+      return dispatch('core/editor').editPost({
+        meta: _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, field, value)
+      });
+    }
+  };
+}))(kemetPageOptions);
+
+if (KemetMetaData) {
+  Object(_wordpress_plugins__WEBPACK_IMPORTED_MODULE_3__["registerPlugin"])('kemet', {
+    render: function render() {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(KemetOptionsComposed, {
+        name: "kemet"
+      });
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["components"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/compose":
+/*!*********************************!*\
+  !*** external ["wp","compose"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["compose"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["data"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/edit-post":
+/*!**********************************!*\
+  !*** external ["wp","editPost"] ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["editPost"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["element"]; }());
+
+/***/ }),
+
+/***/ "@wordpress/plugins":
+/*!*********************************!*\
+  !*** external ["wp","plugins"] ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["plugins"]; }());
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=index.js.map

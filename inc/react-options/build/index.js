@@ -15960,6 +15960,20 @@ var SpacingComponent = function SpacingComponent(props) {
     },
     unit: "px"
   };
+  var unitsRange = {
+    px: {
+      min: 0,
+      max: 500
+    },
+    em: {
+      min: 0,
+      max: 12
+    },
+    '%': {
+      min: 0,
+      max: 500
+    }
+  };
   var ResDefaultParam = {
     desktop: defaultValue.value,
     tablet: defaultValue.value,
@@ -16040,6 +16054,7 @@ var SpacingComponent = function SpacingComponent(props) {
     var htmlChoices = null;
 
     if (choices) {
+      console.log(unitsRange[state["".concat(device, "-unit")]].min);
       htmlChoices = Object.keys(choices).map(function (choiceID) {
         var inputValue = responsive ? state[device][choiceID] : state["value"][choiceID];
         var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
@@ -16048,6 +16063,8 @@ var SpacingComponent = function SpacingComponent(props) {
           className: "kmt-spacing-input-item"
         }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
           type: "number",
+          min: unitsRange[state["".concat(device, "-unit")]].min,
+          max: unitsRange[state["".concat(device, "-unit")]].max,
           className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
           "data-id": choiceID,
           value: inputValue,

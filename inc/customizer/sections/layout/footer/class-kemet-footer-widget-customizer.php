@@ -91,7 +91,7 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 						'em' => array(
 							'min'  => 0.1,
 							'step' => 0.1,
-							'max'  => 10,
+							'max'  => 12,
 						),
 					),
 					'preview'      => array(
@@ -159,7 +159,7 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 						'em' => array(
 							'min'  => 0,
 							'step' => 1,
-							'max'  => 10,
+							'max'  => 12,
 						),
 					),
 					'preview'      => array(

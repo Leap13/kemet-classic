@@ -18,6 +18,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 	 * @return array
 	 */
 	public function register_options( $options ) {
+		$global_headings  = 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a';
 		$register_options = array(
 			'kmt-content-styling-title' => array(
 				'type'  => 'kmt-title',
@@ -61,7 +62,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 					'em' => array(
 						'min'  => 0.5,
 						'step' => 0.01,
-						'max'  => 5,
+						'max'  => 12,
 					),
 				),
 				'preview'      => array(
@@ -98,6 +99,14 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 			'kmt-heading-styling-title' => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Headings Style', 'kemet' ),
+			),
+			'headings-typography'       => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Headings Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => $global_headings,
+				),
 			),
 			'kmt-heading-1'             => array(
 				'type'  => 'kmt-title',

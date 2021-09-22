@@ -996,7 +996,16 @@ add_action( 'upload_mimes', 'svg_upload_support' );
  * @return string
  */
 function get_visibility_class( $option ) {
-	$class = array();
+	if ( empty( $option ) ) {
+		$option = array();
+	}
+	$class   = array();
+	$default = array(
+		'desktop' => false,
+		'tablet'  => false,
+		'mobile'  => false,
+	);
+	$option  = array_merge( $default, $option );
 	if ( ! $option['desktop'] ) {
 		$class[] = 'hide-desktop';
 	}

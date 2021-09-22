@@ -187,7 +187,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-typography' => array(
 								'type'      => 'kmt-typography',
 								'transport' => 'postMessage',
-								'label'     => __( 'Font Typography', 'kemet' ),
+								'label'     => __( 'Typography', 'kemet' ),
 								'preview'   => array(
 									'selector' => $selector,
 								),

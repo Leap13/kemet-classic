@@ -49,7 +49,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 									'em' => array(
 										'min'  => 0,
 										'step' => 1,
-										'max'  => 100,
+										'max'  => 12,
 									),
 								),
 								'preview'      => array(
@@ -66,6 +66,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-layout'     => array(
 								'type'      => 'kmt-select',
 								'default'   => 'content',
+								'label'     => __( 'Container Layout', 'kemet' ),
 								'transport' => 'postMessage',
 								'choices'   => array(
 									'full'      => __( 'Full Width', 'kemet' ),

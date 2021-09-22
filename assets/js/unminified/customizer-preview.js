@@ -704,6 +704,11 @@ function toggle_button_css(buttons) {
         }
       });
     });
+    wp.customize(settingName(prefix + "-label"), function (setting) {
+      setting.bind(function (label) {
+        jQuery(selector + '.kmt-popup-label').text(label);
+      });
+    });
     wp.customize(settingName(prefix + "-float-position"), function (value) {
       value.bind(function (floatPosition) {
         var position = floatPosition.split("-"),
@@ -993,6 +998,16 @@ function kemet_responsive_color_css(control, data) {
   })
 }
 
+function kemet_change_attr(control, selector, attr) {
+  wp.customize(control, function (value) {
+    value.bind(function (new_value) {
+      if (new_value) {
+        jQuery(selector).attr(attr, new_value)
+      }
+    })
+  })
+}
+
 (function ($) {
   // Trigger.
   wp.customize.bind("preview-ready", function () {
@@ -1073,6 +1088,10 @@ function kemet_responsive_color_css(control, data) {
         }
         break;
       case "kmt-radio":
+        if (data.attr) {
+          kemet_change_attr(control, data.selector, data.attr);
+          return;
+        }
         if (data.responsive) {
           delete data.responsive;
           kemet_responsive_css(control, data.selector, data.property);

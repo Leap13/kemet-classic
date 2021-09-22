@@ -955,6 +955,14 @@ textarea {
 	letter-spacing: 0.1px;
 }
 
+.kmt-customize-control.has-divider::before {
+	display: block;
+	width: 100%;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #dcdcde;
+	content: "";
+}
+
 :root {
 	--accentColorHover: #135e96;
 	--optionBorderColor: #ddd;
@@ -10011,6 +10019,10 @@ input[type="checkbox"]:focus {
 	width: 100%;
 	margin: 0;
 	background-color: #eaeaea;
+}
+
+.theme-kemet .interface-complementary-area-header .components-button.has-icon {
+	display: none !important;
 }
 
 .kmt-number-container header {

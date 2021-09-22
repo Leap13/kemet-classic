@@ -140,6 +140,8 @@ if ( ! class_exists( 'Kemet_Enqueue_Scripts' ) ) {
 			$typography = kemet_get_option( 'post-meta-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
 			// Render headings font.
+			$typography = kemet_get_option( 'headings-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 			$typography = kemet_get_option( 'h1-typography' );
 			Kemet_Fonts::add_font_form_typography( $typography );
 			$typography = kemet_get_option( 'h2-typography' );
