@@ -541,12 +541,12 @@
 }
 .kmt-gradient-swatches {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  margin: 0;
+  padding: 1.5em 0.8em;
+  border-top: 1px dashed #eee;
   grid-column-gap: 19px;
   grid-row-gap: 19px;
-  padding: 20px 14px;
-  margin: 0;
-  border-top: 1px dashed #eee;
+  grid-template-columns: repeat(5, 1fr);
 }
 .kmt-gradient-swatches li {
   display: flex;
@@ -625,7 +625,8 @@
 .kmt-background-modal {
   display: flex;
   flex-direction: column;
-  height: 440px;
+  min-height: 430px;
+  max-height: 445px;
   opacity: 0;
   visibility: hidden;
   transform: scale3d(0.95, 0.95, 1);
