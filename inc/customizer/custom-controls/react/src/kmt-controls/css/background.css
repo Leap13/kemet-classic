@@ -645,7 +645,7 @@
   flex: 1;
 }
 .kmt-background-modal .kmt-image-tab {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 .kmt-option-modal {
@@ -725,6 +725,7 @@
 }
 .kmt-control.kmt-image-actions {
   margin-top: 0px;
+  padding: 0px 14px;
 }
 
 .kmt-gradient-tab
@@ -755,7 +756,7 @@
   padding: 20px 14px;
 }
 .kmt-background-modal .kmt-gradient-tab {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

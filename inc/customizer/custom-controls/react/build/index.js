@@ -19299,7 +19299,11 @@ var Background = function Background(props) {
     useCapture: false,
     display: "block",
     disabled: !isOpen,
-    onOutsideClick: function onOutsideClick() {
+    onOutsideClick: function onOutsideClick(e) {
+      if (e.target.closest(".media-modal-content")) {
+        return;
+      }
+
       setTimeout(function () {
         return setIsOpen(false);
       });

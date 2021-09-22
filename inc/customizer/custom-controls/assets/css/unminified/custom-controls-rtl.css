@@ -699,7 +699,7 @@
   label {
 	display: flex;
 	position: absolute;
-	top: 1px;
+	top: 2px;
 	right: 1px;
 	bottom: 1px;
 	min-width: 18px;
@@ -745,7 +745,7 @@
 .kmt-color-picker-modal .components-color-picker__inputs-toggle {
 	display: flex;
 	width: 28px;
-	height: 30px;
+	height: 31px;
 	margin-right: 5px;
 	padding: 0;
 	border: 1px solid var(--borderColor, #ddd);
@@ -1746,7 +1746,7 @@
 
 .kmt-background-modal .kmt-image-tab {
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .kmt-option-modal {
@@ -1841,6 +1841,7 @@
 
 .kmt-control.kmt-image-actions {
 	margin-top: 0;
+	padding: 0 14px;
 }
 
 .kmt-gradient-tab
@@ -1874,7 +1875,7 @@
 
 .kmt-background-modal .kmt-gradient-tab {
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .kmt-gradient-tab .components-circular-option-picker__swatches {
@@ -8767,7 +8768,7 @@ i.fipicon-angle-left:before {
 .components-color-picker__inputs-wrapper .components-base-control__field label {
 	display: flex;
 	position: absolute;
-	top: 3px;
+	top: 2px;
 	right: 1px;
 	bottom: 1px;
 	min-width: 18px;
@@ -8808,10 +8809,10 @@ i.fipicon-angle-left:before {
 .components-color-picker__inputs-toggle {
 	display: flex;
 	width: 28px;
-	height: 28px;
+	height: 31px;
 	margin-right: 5px;
 	padding: 0;
-	border: 1px solid var(--borderColor, #ddd);
+	border: 1px solid #ddd;
 	border-radius: 3px;
 	background: rgba(238, 238, 238, 0.65);
 	cursor: pointer;
@@ -8826,7 +8827,7 @@ i.fipicon-angle-left:before {
 }
 
 .components-color-picker__inputs-toggle:hover {
-	border-color: #2271b1;
+	border-color: var(--primaryColor);
 }
 
 .components-color-picker__inputs-toggle svg {

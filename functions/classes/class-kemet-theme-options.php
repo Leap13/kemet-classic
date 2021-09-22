@@ -221,13 +221,13 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'palettes'        => array(
 							array(
 								'id'     => 'palette-2',
-								'color1' => '#2872fa',
-								'color2' => '#1559ed',
-								'color3' => '#3A4F66',
-								'color4' => '#192a3d',
-								'color5' => '#e1e8ed',
-								'color6' => '#f2f5f7',
-								'color7' => '#FAFBFC',
+								'color1'          => '#0085ba',
+								'color2'          => '#333333',
+								'color3'          => '#444140',
+								'color4'          => '#eaeaea',
+								'color5'          => '#ffffff',
+								'color6'          => '#fbfbfb',
+								'color7'          => '#222222',
 								
 							),
 							array(
