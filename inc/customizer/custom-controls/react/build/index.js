@@ -17685,6 +17685,7 @@ var BackgroundModal = function BackgroundModal(props) {
     })))));
   };
 
+  var allGradients = ['linear-gradient(to right, #8e2de2, #4a00e0)', 'linear-gradient(to right, #654ea3, #eaafc8)', 'linear-gradient(to right, #ff416c, #ff4b2b)', 'linear-gradient(to right, #009fff, #ec2f4b)', 'linear-gradient(to right, #544a7d, #ffd452)', 'linear-gradient(to right, #8360c3, #2ebf91)', 'linear-gradient(to right, #f12711, #f5af19)', 'linear-gradient(to right, #c31432, #240b36)', 'linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4)', 'linear-gradient(to right, #f953c6, #b91d73)', 'linear-gradient(to right, #1f4037, #99f2c8)', 'linear-gradient(to right, #373b44, #4286f4)', 'linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)', 'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)', 'linear-gradient(to right, #0f2027, #203a43, #2c5364)', 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)', 'linear-gradient(to right, #2193b0, #6dd5ed)', 'linear-gradient(to right, #ee9ca7, #ffdde1)', 'linear-gradient(to right, #bdc3c7, #2c3e50)', 'linear-gradient(to right, #ffe000, #799f0c)', 'linear-gradient(to right, #00416a, #799f0c, #ffe000)', 'linear-gradient(to right, #0052d4, #4364f7, #6fb1fc)', 'linear-gradient(to right, #5433ff, #20bdff, #a5fecb)', 'linear-gradient(to right, #ffe259, #ffa751)', 'linear-gradient(to right, #acb6e5, #86fde8)', 'linear-gradient(to right, #536976, #292e49)', 'linear-gradient(to right, #b79891, #94716b)', 'linear-gradient(to right, #9796f0, #fbc7d4)', 'linear-gradient(to right, #e52d27, #b31217)', 'linear-gradient(to right, #ec008c, #fc6767)'];
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
     className: "kmt-modal-tabs",
     onMouseUp: function onMouseUp(e) {
@@ -17717,7 +17718,19 @@ var BackgroundModal = function BackgroundModal(props) {
     onChange: function onChange(gradient) {
       return props.onChangeGradient(gradient, "gradient");
     }
-  })), props.backgroundType == "color" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_picker_picker_modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+    className: 'kmt-gradient-swatches'
+  }, allGradients.map(function (gradient, slug) {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("li", {
+      onClick: function onClick() {
+        return props.onChangeGradient(gradient, "gradient");
+      },
+      style: {
+        '--background-image': gradient
+      },
+      key: slug
+    });
+  }))), props.backgroundType == "color" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color_picker_picker_modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
     design: props.backgroundType === 'color' ? 'none' : 'inline',
     value: props.color,
     pickers: [{
@@ -22215,12 +22228,7 @@ var Typography = function Typography(_ref) {
     wrapperProps: {
       ref: typographyWrapper,
       onClick: function onClick(e) {
-        e.preventDefault(); // if (isOpen) {
-        //     setCurrentView("fonts");
-        //     return;
-        // }
-        // setCurrentViewCache("fonts:_");
-        // setIsOpen("fonts");
+        e.preventDefault();
       }
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {

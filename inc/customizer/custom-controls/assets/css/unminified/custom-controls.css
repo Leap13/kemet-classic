@@ -1160,7 +1160,7 @@
 .kmt-gradient-swatches {
 	display: grid;
 	margin: 0;
-	padding: 20px 14px;
+	padding: 1em;
 	border-top: 1px dashed #eee;
 
 	grid-column-gap: 0.5rem;
@@ -1170,8 +1170,8 @@
 
 .kmt-gradient-swatches li {
 	display: flex;
-	width: 28px;
-	height: 28px;
+	width: 2.2em;
+	height: 2.2em;
 	margin: auto;
 	border-radius: 100%;
 	background-image: var(--background-image);
@@ -1425,6 +1425,8 @@
 
 .components-circular-option-picker.kmt-gradient-color-picker
   .components-circular-option-picker__custom-clear-wrapper {
+	margin-left: 8px;
+
 	justify-content: initial;
 }
 
@@ -1715,46 +1717,11 @@
 	display: none;
 }
 
-.kmt-patterns-list {
-	display: grid;
-	margin: 25px 0 0 0;
-	padding: 0 14px 25px 14px;
-	border-bottom: 1px dashed #eee;
-
-	grid-column-gap: 15px;
-	grid-row-gap: 15px;
-	grid-template-columns: repeat(3, 1fr);
-}
-
-.kmt-patterns-list li {
-	box-sizing: border-box;
-	min-height: 71.6px;
-	margin: 0;
-	padding: 2px;
-	border: 2px solid #e0e0e0;
-	border-radius: 3px;
-	cursor: pointer;
-}
-
-.kmt-patterns-list li img {
-	display: block;
-	max-width: 100%;
-}
-
-.kmt-patterns-list li:hover {
-	border-color: #d1d2d2;
-}
-
-.kmt-patterns-list li.active {
-	border-color: var(--primaryColor);
-	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.05);
-}
-
 .kmt-background-modal {
 	display: flex;
 	visibility: hidden;
 	flex-direction: column;
-	height: 430px;
+	height: 440px;
 	opacity: 0;
 	transition: opacity 0.1s ease, visibility 0.1s ease, transform 0.1s ease-out;
 	transform: scale3d(0.95, 0.95, 1);
@@ -1904,6 +1871,11 @@
 	padding: 20px 14px;
 }
 
+.kmt-background-modal .kmt-gradient-tab {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
 .kmt-gradient-tab .components-circular-option-picker__swatches {
 	display: none;
 }
@@ -1940,6 +1912,8 @@
 }
 
 .kmt-gradient-tab .components-circular-option-picker__custom-clear-wrapper {
+	margin-left: 8px;
+
 	justify-content: initial;
 }
 
