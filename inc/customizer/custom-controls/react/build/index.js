@@ -18602,6 +18602,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+var __ = wp.i18n.__;
 
 var getLeftForEl = function getLeftForEl(modal, el) {
   if (!modal) return;
@@ -18610,7 +18611,7 @@ var getLeftForEl = function getLeftForEl(modal, el) {
   var wrapperLeft = parseFloat(style.left);
   el = el.firstElementChild.getBoundingClientRect();
   return {
-    "--option-modal-arrow-position": "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
+    '--option-modal-arrow-position': "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
   };
 };
 
@@ -18627,15 +18628,15 @@ var PickerModal = function PickerModal(_ref) {
       predefined = _ref.predefined,
       className = _ref.className;
   var getValueForPicker = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
-    if ((value || "").indexOf("var") > -1) {
+    if ((value || '').indexOf('var') > -1) {
       return {
-        key: "var" + value,
-        color: getComputedStyle(document.documentElement).getPropertyValue(value.replace(/var\(/, "").replace(/\)/, "")).trim().replace(/\s/g, "")
+        key: 'var' + value,
+        color: getComputedStyle(document.documentElement).getPropertyValue(value.replace(/var\(/, '').replace(/\)/, '')).trim().replace(/\s/g, '')
       };
     }
 
     return {
-      key: "color",
+      key: 'color',
       color: value
     };
   }, [value, picker]);
@@ -18649,22 +18650,31 @@ var PickerModal = function PickerModal(_ref) {
   var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
     return wrapperProps.ref && wrapperProps.ref.current && el && getLeftForEl(wrapperProps.ref.current, el.current);
   }, [wrapperProps.ref && wrapperProps.ref.current, el && el.current]);
+
+  var handletoppart = function handletoppart(colorValue) {
+    if (refresh) {
+      setRefresh(false);
+    } else {
+      setRefresh(true);
+    }
+
+    onChange(colorValue);
+  };
+
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    setRefresh(function (prevState) {
-      return !prevState;
-    });
+    onChange;
   }, [value]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     tabIndex: "0",
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-color-picker-modal", {
-      "kmt-option-modal": !inline_modal && appendToBody
+      'kmt-option-modal': !inline_modal && appendToBody
     }, className),
     style: _objectSpread(_objectSpread({}, arrowLeft), style ? style : {})
   }, wrapperProps), !predefined && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-color-picker-top"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     className: "kmt-color-picker-skins"
-  }, ["paletteColor1", "paletteColor2", "paletteColor3", "paletteColor4", "paletteColor5", "paletteColor6", "paletteColor7"].map(function (color, index) {
+  }, ['paletteColor1', 'paletteColor2', 'paletteColor3', 'paletteColor4', 'paletteColor5', 'paletteColor6', 'paletteColor7', 'paletteColor8'].map(function (color, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
       key: color,
       style: {
@@ -18674,18 +18684,19 @@ var PickerModal = function PickerModal(_ref) {
         active: valueToCheck === "var(--".concat(color, ")")
       }),
       onClick: function onClick() {
-        return onChange("var(--".concat(color, ")"));
+        return handletoppart("var(--".concat(color, ")"));
       }
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
       className: "kmt-tooltip-top"
     }, {
-      paletteColor1: "Color 1",
-      paletteColor2: "Color 2",
-      paletteColor3: "Color 3",
-      paletteColor4: "Color 4",
-      paletteColor5: "Color 5",
-      paletteColor6: "Color 6",
-      paletteColor7: "Color 7"
+      paletteColor1: 'Color 1',
+      paletteColor2: 'Color 2',
+      paletteColor3: 'Color 3',
+      paletteColor4: 'Color 4',
+      paletteColor5: 'Color 5',
+      paletteColor6: 'Color 6',
+      paletteColor7: 'Color 7',
+      paletteColor8: 'Color 8'
     }[color]));
   }))), refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
     color: getValueForPicker.color,
