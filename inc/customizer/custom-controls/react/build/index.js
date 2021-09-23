@@ -22203,12 +22203,11 @@ var Typography = function Typography(_ref) {
   var fontFamilyRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var fontSizeRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var fontWeightRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
-  var dotsRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useMemo"])(function () {
     var view = currentView;
     var futureRef = view === "options" ? fontSizeRef.current : view === "fonts" ? fontFamilyRef.current : view === "variations" ? fontWeightRef.current : fontSizeRef.current;
     return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
-  }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontWeightRef.current, fontSizeRef && fontSizeRef.current, dotsRef && dotsRef.current]);
+  }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontFamilyRef.current, fontSizeRef && fontFamilyRef.current]);
 
   var updateValues = function updateValues(obj) {
     onChange(obj);
@@ -22230,6 +22229,7 @@ var Typography = function Typography(_ref) {
       }
 
       updateValues(resetValue);
+      setCurrentView("");
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
@@ -22240,6 +22240,7 @@ var Typography = function Typography(_ref) {
     additionalRefs: [popoverProps.ref],
     onOutsideClick: function onOutsideClick() {
       setIsOpen(false);
+      setCurrentView('');
     },
     wrapperProps: {
       ref: typographyWrapper,
@@ -22250,6 +22251,10 @@ var Typography = function Typography(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-typography-title-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("kmt-font", {
+      active: currentView === "fonts"
+    }),
+    ref: fontFamilyRef,
     onClick: function onClick(e) {
       e.stopPropagation();
 
@@ -22260,10 +22265,12 @@ var Typography = function Typography(_ref) {
 
       setCurrentViewCache("fonts:_");
       setIsOpen("fonts");
-    },
-    className: "kmt-font",
-    ref: fontFamilyRef
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === "Default" ? "Default Family" : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyForDisplay"])(value.family))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-size', {
+      active: currentView === "options"
+    }),
+    ref: fontSizeRef,
     onClick: function onClick(e) {
       e.stopPropagation();
 
@@ -22274,12 +22281,12 @@ var Typography = function Typography(_ref) {
 
       setCurrentViewCache("options:_");
       setIsOpen("font_size");
-    },
-    ref: fontSizeRef,
-    className: "kmt-size"
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, "".concat(value.size[device]).concat(value.size["".concat(device, "-unit")], " "))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     ref: fontWeightRef,
-    className: "kmt-weight",
+    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-weight', {
+      active: currentView === "variations"
+    }),
     onClick: function onClick(e) {
       e.stopPropagation();
 
