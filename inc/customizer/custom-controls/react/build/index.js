@@ -18658,7 +18658,6 @@ var PickerModal = function PickerModal(_ref) {
       setRefresh(true);
     }
 
-    console.log(colorValue);
     onChange(colorValue);
   };
 
@@ -19393,8 +19392,6 @@ var KemetColorComponent = function KemetColorComponent(props) {
       _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
       device = _useState4[0],
       setDevice = _useState4[1];
-
-  console.log(value);
 
   var renderOperationButtons = function renderOperationButtons() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {

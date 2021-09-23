@@ -31,7 +31,6 @@ const KemetColorComponent = props => {
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
 
-    console.log(value)
 
     const renderOperationButtons = () => {
         return <>
