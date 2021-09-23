@@ -10107,6 +10107,53 @@ input[type="checkbox"]:focus {
 	display: none !important;
 }
 
+.kmt-number-container header {
+	position: relative;
+}
+
+.kmt-number-container header .kmt-btn-reset-wrap {
+	position: absolute;
+	top: 2px;
+	left: 0;
+}
+
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn {
+	display: flex;
+	width: 18px;
+	height: 18px;
+	padding: 0 6px;
+	padding: 0;
+	border: 0;
+	border: none;
+	outline: 0;
+	opacity: 0;
+	color: #006ba1;
+	background: transparent;
+	background: transparent;
+	box-shadow: none;
+	font-family: dashicons;
+	font-size: 10px;
+	-webkit-font-smoothing: antialiased;
+	transform: translate3d(-17px, 0, 0);
+
+	align-items: center;
+	justify-content: center;
+}
+
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+	content: "\f531";
+	transition: transform 0.3s ease;
+	transform: rotate(45deg);
+}
+
+.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
+	transform: rotate(-45deg);
+}
+
+.kmt-number-container:hover .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
+	opacity: 1;
+}
+
 .kmt-option-number {
 	display: flex;
 	position: relative;
@@ -10114,6 +10161,14 @@ input[type="checkbox"]:focus {
 	height: 30px;
 
 	align-items: center;
+}
+
+.kmt-option-number[data-width="full"] {
+	width: 100%;
+}
+
+.kmt-option-number[data-position="right"] {
+	margin-left: auto;
 }
 
 .kmt-option-number input {
