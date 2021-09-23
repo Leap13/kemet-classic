@@ -68,7 +68,6 @@ const PickerModal = ({
         } else {
             setRefresh(true)
         }
-        console.log(colorValue)
         onChange(colorValue)
 
     }
