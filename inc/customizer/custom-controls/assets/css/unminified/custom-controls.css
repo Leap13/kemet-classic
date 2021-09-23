@@ -9559,6 +9559,10 @@ input[type="checkbox"]:focus {
 	color: var(--primaryColor);
 }
 
+.kmt-typohraphy-value > div > span.active span {
+	color: var(--primaryColor);
+}
+
 .kmt-typohraphy-value .kmt-font {
 	display: inline-flex;
 
