@@ -102,8 +102,6 @@ const PickerModal = ({
                             'paletteColor5',
                             'paletteColor6',
                             'paletteColor7',
-                            'paletteColor8',
-
                         ].map((color, index) => (
                             <li
                                 key={color}
@@ -127,7 +125,6 @@ const PickerModal = ({
                                             paletteColor5: 'Color 5',
                                             paletteColor6: 'Color 6',
                                             paletteColor7: 'Color 7',
-                                            paletteColor8: 'Color 8',
                                         }[color]
                                     }
                                 </div>

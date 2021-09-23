@@ -1,6 +1,6 @@
 export const getDefaultFonts = () => {
 
-	let sytemFonts = Object.entries(KmtFontFamilies[`system`]).map((familyValue) => ({
+	let systemFonts = Object.entries(KmtFontFamilies[`system`]).map((familyValue) => ({
 		family: familyValue[0],
 		variations: [],
 		all_variations: [
@@ -31,6 +31,6 @@ export const getDefaultFonts = () => {
 		all_variations: familyValue[1][0]
 
 	}))
-	return [googleFonts.concat(sytemFonts)]
+	return [systemFonts.concat(googleFonts)]
 
 }

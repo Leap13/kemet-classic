@@ -18674,7 +18674,7 @@ var PickerModal = function PickerModal(_ref) {
     className: "kmt-color-picker-top"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     className: "kmt-color-picker-skins"
-  }, ['paletteColor1', 'paletteColor2', 'paletteColor3', 'paletteColor4', 'paletteColor5', 'paletteColor6', 'paletteColor7', 'paletteColor8'].map(function (color, index) {
+  }, ['paletteColor1', 'paletteColor2', 'paletteColor3', 'paletteColor4', 'paletteColor5', 'paletteColor6', 'paletteColor7'].map(function (color, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
       key: color,
       style: {
@@ -18695,8 +18695,7 @@ var PickerModal = function PickerModal(_ref) {
       paletteColor4: 'Color 4',
       paletteColor5: 'Color 5',
       paletteColor6: 'Color 6',
-      paletteColor7: 'Color 7',
-      paletteColor8: 'Color 8'
+      paletteColor7: 'Color 7'
     }[color]));
   }))), refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
     color: getValueForPicker.color,
@@ -22764,7 +22763,7 @@ var VariationsList = function VariationsList(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDefaultFonts", function() { return getDefaultFonts; });
 var getDefaultFonts = function getDefaultFonts() {
-  var sytemFonts = Object.entries(KmtFontFamilies["system"]).map(function (familyValue) {
+  var systemFonts = Object.entries(KmtFontFamilies["system"]).map(function (familyValue) {
     return {
       family: familyValue[0],
       variations: [],
@@ -22778,7 +22777,7 @@ var getDefaultFonts = function getDefaultFonts() {
       all_variations: familyValue[1][0]
     };
   });
-  return [googleFonts.concat(sytemFonts)];
+  return [systemFonts.concat(googleFonts)];
 };
 
 /***/ }),
