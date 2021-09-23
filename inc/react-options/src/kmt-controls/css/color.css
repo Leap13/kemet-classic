@@ -1,16 +1,14 @@
 .customize-control-kmt-color {
   position: relative;
 }
-
 .kmt-color-container {
   display: flex;
   flex-grow: 2;
   justify-content: space-between;
 }
 .kmt-color-container header {
-  display: flex;
   position: relative;
-  margin-bottom: 5px;
+  display: flex;
   align-items: center;
 }
 .kmt-color-picker-container {
@@ -89,6 +87,7 @@
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .kmt-color-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
@@ -438,6 +437,7 @@
   box-sizing: border-box;
   box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
   right: var(--modal-x-offset);
+  border-radius: 0px;
 }
 .kmt-option-modal:before {
   position: absolute;
@@ -733,7 +733,7 @@
 
 .components-color-picker__inputs-wrapper .components-base-control__field label {
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 1px;
   bottom: 1px;
   display: flex;
@@ -773,21 +773,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
+  height: 31px;
   width: 28px;
   padding: 0;
   border-radius: 3px;
   margin-left: 5px;
   cursor: pointer;
   background: rgba(238, 238, 238, 0.65);
-  border: 1px solid var(--borderColor, #ddd);
+  border: 1px solid #ddd;
   transition: border-color 0.1s linear;
 }
 .components-color-picker__inputs-toggle:focus {
   outline: none;
 }
 .components-color-picker__inputs-toggle:hover {
-  border-color: #2271b1;
+  border-color: var(--primaryColor);
 }
 .components-color-picker__inputs-toggle svg {
   width: 14px;

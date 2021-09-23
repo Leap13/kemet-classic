@@ -121,8 +121,6 @@ const Typography = ({ value, onChange, params: { label } }) => {
     const fontFamilyRef = useRef();
     const fontSizeRef = useRef();
     const fontWeightRef = useRef();
-    const dotsRef = useRef();
-
     const arrowLeft = useMemo(() => {
         const view = currentView;
 
@@ -146,9 +144,8 @@ const Typography = ({ value, onChange, params: { label } }) => {
         popoverProps.ref,
         popoverProps.ref && popoverProps.ref.current,
         fontFamilyRef && fontFamilyRef.current,
-        fontWeightRef && fontWeightRef.current,
-        fontSizeRef && fontSizeRef.current,
-        dotsRef && dotsRef.current,
+        fontWeightRef && fontFamilyRef.current,
+        fontSizeRef && fontFamilyRef.current,
     ]);
 
     const updateValues = (obj) => {
@@ -174,6 +171,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                                 resetValue = "unset";
                             }
                             updateValues(resetValue);
+                            setCurrentView("")
                         }}
                     ></button>
                 </div>
@@ -186,6 +184,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                 additionalRefs={[popoverProps.ref]}
                 onOutsideClick={() => {
                     setIsOpen(false);
+                    setCurrentView('')
                 }}
                 wrapperProps={{
                     ref: typographyWrapper,
@@ -197,6 +196,10 @@ const Typography = ({ value, onChange, params: { label } }) => {
             >
                 <div className={`kmt-typography-title-container`}>
                     <span
+                        className={classnames("kmt-font", {
+                            active: currentView === "fonts"
+                        })}
+                        ref={fontFamilyRef}
                         onClick={(e) => {
                             e.stopPropagation();
 
@@ -204,12 +207,9 @@ const Typography = ({ value, onChange, params: { label } }) => {
                                 setCurrentView("fonts");
                                 return;
                             }
-
                             setCurrentViewCache("fonts:_");
                             setIsOpen("fonts");
                         }}
-                        className="kmt-font"
-                        ref={fontFamilyRef}
                     >
                         <span
 
@@ -221,6 +221,10 @@ const Typography = ({ value, onChange, params: { label } }) => {
                     </span>
 
                     <span
+                        className={classnames('kmt-size', {
+                            active: currentView === "options",
+                        })}
+                        ref={fontSizeRef}
                         onClick={(e) => {
                             e.stopPropagation();
 
@@ -231,8 +235,8 @@ const Typography = ({ value, onChange, params: { label } }) => {
                             setCurrentViewCache("options:_");
                             setIsOpen("font_size");
                         }}
-                        ref={fontSizeRef}
-                        className="kmt-size"
+
+
                     >
                         <span
 
@@ -244,8 +248,10 @@ const Typography = ({ value, onChange, params: { label } }) => {
 
                     <span
                         ref={fontWeightRef}
+                        className={classnames('kmt-weight', {
+                            active: currentView === "variations"
+                        })}
 
-                        className="kmt-weight"
                         onClick={(e) => {
                             e.stopPropagation();
 
@@ -253,7 +259,6 @@ const Typography = ({ value, onChange, params: { label } }) => {
                                 setCurrentView("variations");
                                 return;
                             }
-
                             setCurrentViewCache("variations:_");
                             setIsOpen("variations");
                         }}

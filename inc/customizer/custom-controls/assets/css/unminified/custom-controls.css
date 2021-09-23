@@ -7912,7 +7912,6 @@ i.fipicon-angle-left:before {
 .kmt-color-container header {
 	display: flex;
 	position: relative;
-	margin-bottom: 5px;
 
 	align-items: center;
 }
@@ -8001,6 +8000,7 @@ i.fipicon-angle-left:before {
 	font-family: dashicons;
 	font-size: 10px;
 	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
 	transform: translate3d(-17px, 0, 0);
 
 	align-items: center;
@@ -8402,6 +8402,7 @@ i.fipicon-angle-left:before {
 	box-sizing: border-box;
 	width: var(--modalWidth);
 	border-radius: 6px;
+	border-radius: 0;
 	background: #fff;
 	box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
 }
@@ -8745,7 +8746,7 @@ i.fipicon-angle-left:before {
 .components-color-picker__inputs-wrapper .components-base-control__field label {
 	display: flex;
 	position: absolute;
-	top: 1px;
+	top: 2px;
 	bottom: 1px;
 	left: 1px;
 	min-width: 18px;
@@ -8786,10 +8787,10 @@ i.fipicon-angle-left:before {
 .components-color-picker__inputs-toggle {
 	display: flex;
 	width: 28px;
-	height: 28px;
+	height: 31px;
 	margin-left: 5px;
 	padding: 0;
-	border: 1px solid var(--borderColor, #ddd);
+	border: 1px solid #ddd;
 	border-radius: 3px;
 	background: rgba(238, 238, 238, 0.65);
 	cursor: pointer;
@@ -8804,7 +8805,7 @@ i.fipicon-angle-left:before {
 }
 
 .components-color-picker__inputs-toggle:hover {
-	border-color: #2271b1;
+	border-color: var(--primaryColor);
 }
 
 .components-color-picker__inputs-toggle svg {
