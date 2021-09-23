@@ -1,7 +1,6 @@
 const { __ } = wp.i18n;
-import classnames from "classnames";
-import ColorComponent from "../color";
-import { SlotFillProvider } from "@wordpress/components";
+import classnames from 'classnames'
+import ColorComponent from '../color'
 
 const PalettePreview = ({
 	renderBefore = () => null,
@@ -10,68 +9,63 @@ const PalettePreview = ({
 	onClick,
 	currentPalette,
 	className,
-	skipModal,
+	skipModal
 }) => {
 	if (!currentPalette) {
-		currentPalette = value;
+		currentPalette = value
 
 		if (value.palettes) {
 			currentPalette = value.palettes.find(
 				({ id }) => id === value.current_palette
-			);
+			)
 		}
 	}
 	const hundleChangeColor = (color, optionId) => {
 		let newColor;
-		if (typeof color === "string") {
+		if (typeof color === 'string') {
 			newColor = color;
-		} else if (
-			undefined !== color.rgb &&
-			undefined !== color.rgb.a &&
-			1 !== color.rgb.a
-		) {
+		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
 			newColor = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
 		} else {
 			newColor = color.hex;
 		}
-		onChange(newColor, optionId);
-	};
+		onChange(newColor, optionId)
+	}
 	const pickers = Object.keys(currentPalette)
-		.filter((k) => k.indexOf("color") === 0)
+		.filter((k) => k.indexOf('color') === 0)
 		.map((key, index) => ({
 			title: `Color ${index + 1}`,
 			id: key,
-		}));
+		}))
 	return (
 		<div
-			className={classnames("kmt-single-palette", className)}
+			className={classnames('kmt-single-palette', className)}
 			onClick={(e) => {
 				if (
-					e.target.closest(".ct-color-picker-modal") ||
-					e.target.classList.contains("ct-color-picker-modal")
+					e.target.closest('.kmt-color-picker-modal') ||
+					e.target.classList.contains('kmt-color-picker-modal')
 				) {
-					return;
+					return
 				}
-				onClick();
-			}}
-		>
+				onClick()
+			}}>
 			{renderBefore()}
 			<div className={`kmt-color-pallet-container`}>
 				{pickers.map((picker) => (
 					<ColorComponent
 						picker={picker}
-						onChangeComplete={(color, id) =>
-							hundleChangeColor(color, picker[`id`])
-						}
+						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
 						value={currentPalette}
 						predefined={true}
-						className={"kmt-color-palette-modal"}
+						className={'kmt-color-palette-modal'}
 						skipModal={skipModal}
+
 					/>
 				))}
 			</div>
-		</div>
-	);
-};
 
-export default PalettePreview;
+		</div>
+	)
+}
+
+export default PalettePreview

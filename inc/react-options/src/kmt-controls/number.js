@@ -2,10 +2,9 @@ import classnames from 'classnames'
 
 const round = (value) => Math.round(value * 10) / 10
 
-const NumberComponent = (props) => {
-    let value = props.value;
+const NumberComponent = ({ value, params, onChange }) => {
     const parsedValue = value
-    let { min, max, label } = props.params
+    let { min, max, label } = params
     let step = 1;
     let defaultValue = ''
 
@@ -21,7 +20,7 @@ const NumberComponent = (props) => {
                         }
                         onClick={(e) => {
                             e.preventDefault();
-                            props.onChange(defaultValue);
+                            onChange(defaultValue);
                         }}
                     ></button>
                 </div>
@@ -40,7 +39,7 @@ const NumberComponent = (props) => {
                             parseFloat(parsedValue) === parseInt(min),
                     })}
                     onClick={() =>
-                        props.onChange(
+                        onChange(
                             round(
                                 Math.min(
                                     Math.max(
@@ -53,14 +52,13 @@ const NumberComponent = (props) => {
                         )
                     }
                 />
-
                 <a
                     className={classnames('kmt-plus', {
                         ['kmt-disabled']:
                             parseFloat(parsedValue) === parseInt(max),
                     })}
                     onClick={() =>
-                        props.onChange(
+                        onChange(
                             round(
                                 Math.min(
                                     Math.max(
@@ -78,11 +76,8 @@ const NumberComponent = (props) => {
                     step={step}
                     max={max}
                     min={min}
-                    onChange={() =>
-                        props.onChange(
-                            event.target.value
-                        )
-
+                    onChange={({ target: { value: value } }) =>
+                        onChange(value)
                     } />
             </div>
         </div >

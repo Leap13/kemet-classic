@@ -17,7 +17,7 @@
 }
 .customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
   position: absolute;
-  top: 3px;
+  top: 2px;
   left: 0;
 }
 .customize-control-kmt-color-palettes:hover
@@ -49,6 +49,7 @@
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
+  cursor: pointer;
 }
 .customize-control-kmt-color-palettes
   header
@@ -564,7 +565,7 @@
   .components-base-control__field
   label {
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 1px;
   bottom: 1px;
   display: flex;
@@ -606,7 +607,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
+  height: 31px;
   width: 28px;
   padding: 0;
   border-radius: 3px;
@@ -694,6 +695,7 @@
   box-sizing: border-box;
   box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
   right: var(--modal-x-offset);
+  border-radius: 0px;
 }
 .kmt-option-modal:before {
   position: absolute;

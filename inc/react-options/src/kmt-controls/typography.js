@@ -32,11 +32,11 @@ const getLeftForEl = (modal, el) => {
     };
 };
 
-const Typography = (props) => {
-    let value = props.value;
+const Typography = ({ value, onChange, params: { label } }) => {
+
     let defaultValue = {
         family: "System Default",
-        variation: "n4",
+        variation: 'n4',
         size: {
             desktop: "15",
             "desktop-unit": "px",
@@ -65,9 +65,6 @@ const Typography = (props) => {
         "text-transform": "none",
         "text-decoration": "none",
     };
-
-    let { label } = props.params;
-
     useEffect(() => {
         getInitialDevice();
     }, []);
@@ -80,17 +77,11 @@ const Typography = (props) => {
     const listener = () => {
         setInnerDevice(getInitialDevice());
     };
-
     useEffect(() => {
-        let interval;
         if (wp.customize) {
-            interval = setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
-        }
-        return () => {
-            clearInterval(interval)
+            setInterval(() => wp.customize.previewedDevice.bind(listener), 1000);
         }
     })
-
 
     const typographyWrapper = useRef();
 
@@ -161,13 +152,13 @@ const Typography = (props) => {
     ]);
 
     const updateValues = (obj) => {
-        props.onChange(obj);
+        onChange(obj);
     };
 
     return (
         <div className={classnames("kmt-typography", {})}>
             <header>
-                <div className={`kmt-typography-btn-reset-wrap`}>
+                <div className={`kmt-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
                         disabled={
@@ -201,16 +192,10 @@ const Typography = (props) => {
                     onClick: (e) => {
                         e.preventDefault();
 
-                        if (isOpen) {
-                            setCurrentView("fonts");
-                            return;
-                        }
-                        setCurrentViewCache("fonts:_");
-                        setIsOpen("fonts");
                     },
                 }}
             >
-                <div>
+                <div className={`kmt-typography-title-container`}>
                     <span
                         onClick={(e) => {
                             e.stopPropagation();
@@ -226,13 +211,15 @@ const Typography = (props) => {
                         className="kmt-font"
                         ref={fontFamilyRef}
                     >
-                        <span>
+                        <span
+
+                        >
                             {value.family === "Default"
                                 ? "Default Family"
                                 : familyForDisplay(value.family)}
                         </span>
                     </span>
-                    <i>/</i>
+
                     <span
                         onClick={(e) => {
                             e.stopPropagation();
@@ -247,14 +234,18 @@ const Typography = (props) => {
                         ref={fontSizeRef}
                         className="kmt-size"
                     >
-                        <span>
+                        <span
+
+                        >
                             {`${value.size[device]}${value.size[`${device}-unit`]
                                 } `}
                         </span>
                     </span>
-                    <i>/</i>
+
                     <span
                         ref={fontWeightRef}
+
+                        className="kmt-weight"
                         onClick={(e) => {
                             e.stopPropagation();
 
@@ -266,13 +257,14 @@ const Typography = (props) => {
                             setCurrentViewCache("variations:_");
                             setIsOpen("variations");
                         }}
-                        className="kmt-weight"
                     >
-                        <span>{humanizeVariations(value.variation)}</span>
+                        <span
+
+                        >{humanizeVariations(value.variation)}</span>
                     </span>
                 </div>
 
-                <a ref={dotsRef} />
+
             </OutsideComponent>
             {(isTransitioning || isOpen) &&
                 createPortal(
@@ -329,9 +321,8 @@ const Typography = (props) => {
                                         },
                                         ...popoverProps,
                                     }}
-                                    onChange={props.onChange}
+                                    onChange={onChange}
                                     value={value}
-                                    option={props}
                                     initialView={item}
                                     setInititialView={(initialView) =>
                                         setIsOpen(initialView)

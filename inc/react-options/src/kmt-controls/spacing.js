@@ -17,20 +17,6 @@ const SpacingComponent = (props) => {
         },
         unit: "px",
     };
-    const unitsRange = {
-        px: {
-            min: 0,
-            max: 500,
-        },
-        em: {
-            min: 0,
-            max: 12,
-        },
-        '%': {
-            min: 0,
-            max: 500,
-        }
-    }
     let ResDefaultParam = {
         desktop: defaultValue.value,
         tablet: defaultValue.value,
@@ -121,7 +107,6 @@ const SpacingComponent = (props) => {
         let disconnectedClass = false === connected ? "" : "disconnected";
         let htmlChoices = null;
         if (choices) {
-            console.log(unitsRange[state[`${device}-unit`]].min);
             htmlChoices = Object.keys(choices).map((choiceID) => {
                 let inputValue = responsive
                     ? state[device][choiceID]
@@ -135,8 +120,6 @@ const SpacingComponent = (props) => {
                     >
                         <input
                             type="number"
-                            min={unitsRange[state[`${device}-unit`]].min}
-                            max={unitsRange[state[`${device}-unit`]].max}
                             className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
                             data-id={choiceID}
                             value={inputValue}
@@ -226,31 +209,6 @@ const SpacingComponent = (props) => {
         );
     };
 
-    const handleReset = (e) => {
-        e.preventDefault();
-        if (responsive) {
-            let defUnit = defaultVals[`${device}-unit`],
-                size = defaultVals[device];
-            let updateState = {
-                ...defaultVals,
-            };
-            updateState[`${device}-unit`] = defUnit;
-            updateState[device] = size;
-            props.onChange(updateState);
-            setState(updateState);
-        } else {
-            let defUnit = defaultVals[`unit`],
-                size = defaultVals[`value`];
-            let updateState = {
-                ...defaultVals,
-            };
-            updateState[`unit`] = defUnit;
-            updateState[`value`] = size;
-            props.onChange(updateState);
-            setState(updateState);
-        }
-    };
-
     const { label, description } = props.params;
 
     let inputHtml = null;
@@ -272,7 +230,11 @@ const SpacingComponent = (props) => {
                             JSON.stringify(state) ===
                             JSON.stringify(defaultVals)
                         }
-                        onClick={(e) => handleReset(e)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            props.onChange(defaultVals);
+                            setState(defaultVals);
+                        }}
                     ></button>
                 </div>
                 <span className="customize-control-title kmt-control-title">{label}</span>

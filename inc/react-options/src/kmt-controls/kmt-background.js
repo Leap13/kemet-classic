@@ -34,9 +34,7 @@ const Background = (props) => {
                     "--background-position": props.backgroundPosition
                         ? ` ${Math.round(
                             parseFloat(props.backgroundPosition.x) * 100
-                        )}% ${Math.round(
-                            parseFloat(props.backgroundPosition.y) * 100
-                        )}%`
+                        )}% ${Math.round(parseFloat(props.backgroundPosition.y) * 100)}%`
                         : null,
                     "--background-image":
                         props.backgroundType === "gradient"
@@ -73,12 +71,9 @@ const Background = (props) => {
                         wrapperProps={{
                             style: styles,
                             ...popoverProps,
-                            className: cls(
-                                "kmt-option-modal kmt-background-modal",
-                                {
-                                    active: isOpen,
-                                }
-                            ),
+                            className: cls("kmt-option-modal kmt-background-modal", {
+                                active: isOpen,
+                            }),
                         }}
                     >
                         <BackgroundModal {...props} />

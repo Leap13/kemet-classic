@@ -1,28 +1,21 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+const TextComponent = ({ onChange, value, params }) => {
 
-const TextComponent = props => {
-
-    const [props_value, setPropsValue] = useState(props.value);
-
-    const HandleChange = (value) => {
-        setPropsValue(value);
-        props.onChange(value);
-    };
-
-    const {
-        label,
-    } = props.params;
+    const [props_value, setPropsValue] = useState(value);
+    const { label } = params;
 
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
     return <>
         {labelContent}
         <div className="customize-control-content">
-            <input type='text' value={props_value} onChange={(event) => {
-                HandleChange(event.target.value)
-            }} />
+            <input type='text' value={props_value} onChange={({ target: { value: input } }) => {
+                setPropsValue(input);
+                onChange(input);
+            }}
+            />
         </div>
     </>;
 

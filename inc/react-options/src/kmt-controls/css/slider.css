@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
 }
+.customize-control-kmt-slider header .kmt-slider-title-wrap {
+  flex: 2;
+}
 .customize-control-kmt-slider .wrapper {
   position: relative;
   display: flex;
@@ -27,6 +30,9 @@
   margin-left: 16px;
   margin-bottom: 0;
   flex: 0 1 88px;
+}
+.input-field-wrapper .kemet_range_value input {
+  text-align: center;
 }
 .customize-control-kmt-slider .kmt-slider-reset {
   color: rgba(0, 0, 0, 0.2);
@@ -77,16 +83,13 @@
  */
 
 .customize-control-kmt-slider .kmt-slider-units {
-  position: absolute;
-  transform: translateY(-120%);
   font-size: 11px;
   text-transform: uppercase;
-  right: 1px;
 }
 
 .customize-control-kmt-slider .kmt-slider-units li.single-unit {
   display: inline-block;
-  margin-right: 6px;
+  margin-left: 6px;
   width: 16px;
   text-align: center;
   user-select: none;
@@ -108,12 +111,12 @@
 
 .kmt-responsive-control-btns {
   line-height: 1px;
-  margin-bottom: 0px;
+  margin-bottom: 2px;
   display: inline-block;
   vertical-align: top;
   position: relative;
   z-index: 8;
-  margin-top: -3px;
+  margin-top: 0px !important;
 }
 
 .kmt-responsive-control-btns > li {
@@ -140,7 +143,7 @@
 .kmt-responsive-control-btns button[type="button"] > i {
   width: 15px;
   height: 13px;
-  font-size: 17px;
+  font-size: 15px;
   color: #bbb;
 }
 .kemet-slider-wrap {
@@ -195,4 +198,10 @@
 }
 .components-simple-tooltip.components-range-control__tooltip {
   display: none !important;
+}
+.css-5p7d2w-ThumbWrapper {
+  height: 17px !important;
+  margin-top: 7px !important;
+  outline: none !important;
+  width: 17px !important;
 }

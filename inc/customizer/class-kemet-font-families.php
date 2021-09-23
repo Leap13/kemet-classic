@@ -45,7 +45,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
 				self::$system_fonts = array(
-					'Helvetica' => array(
+					'System Default' => array(
 						'fallback' => 'Verdana, Arial, sans-serif',
 						'variants' => array(
 							'300',
@@ -53,7 +53,15 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 							'700',
 						),
 					),
-					'Verdana'   => array(
+					'Helvetica'      => array(
+						'fallback' => 'Verdana, Arial, sans-serif',
+						'variants' => array(
+							'300',
+							'400',
+							'700',
+						),
+					),
+					'Verdana'        => array(
 						'fallback' => 'Helvetica, Arial, sans-serif',
 						'variants' => array(
 							'300',
@@ -61,7 +69,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 							'700',
 						),
 					),
-					'Arial'     => array(
+					'Arial'          => array(
 						'fallback' => 'Helvetica, Verdana, sans-serif',
 						'variants' => array(
 							'300',
@@ -69,7 +77,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 							'700',
 						),
 					),
-					'Times'     => array(
+					'Times'          => array(
 						'fallback' => 'Georgia, serif',
 						'variants' => array(
 							'300',
@@ -77,7 +85,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 							'700',
 						),
 					),
-					'Georgia'   => array(
+					'Georgia'        => array(
 						'fallback' => 'Times, serif',
 						'variants' => array(
 							'300',
@@ -85,7 +93,7 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 							'700',
 						),
 					),
-					'Courier'   => array(
+					'Courier'        => array(
 						'fallback' => 'monospace',
 						'variants' => array(
 							'300',
@@ -128,7 +136,13 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 					return array();
 				}
 
-				$file_contants     = file_get_contents( $google_fonts_file );
+				global $wp_filesystem;
+				if ( empty( $wp_filesystem ) ) {
+					require_once ABSPATH . '/wp-admin/includes/file.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+					WP_Filesystem();
+				}
+
+				$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
 				$google_fonts_json = json_decode( $file_contants, 1 );
 				$google_fonts_json = $google_fonts_json['items'];
 

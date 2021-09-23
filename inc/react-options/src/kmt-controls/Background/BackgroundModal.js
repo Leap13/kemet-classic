@@ -2,6 +2,7 @@ import { Fragment, useState } from "@wordpress/element";
 import classnames from "classnames";
 import PickerModal from '../color-picker/picker-modal'
 import {
+    SlotFillProvider,
     Button,
     FocalPointPicker,
     __experimentalGradientPicker,
@@ -42,12 +43,13 @@ const BackgroundModal = (props) => {
             ),
         };
 
+
         return (
             <>
                 <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
-                        title={__("Select Background Image", 'kemet')}
-                        onSelect={(media) => props.onSelectImage(media, "image")}
+                        title={__("Select Background Image", 'Kemet')}
+                        onSelect={(media) => props.onSelectImg(media)}
                         allowedTypes={["image"]}
                         value={(props.media && props.media ? props.media : '')}
                         render={({ open }) => (
@@ -55,13 +57,16 @@ const BackgroundModal = (props) => {
                                 {!props.media &&
                                     <div className="kmt-control kmt-image-actions">
                                         < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
-                                        {__("Select Background Image", 'kemet')}
+                                            {__("Select Background Image", 'Kemet')}
                                         </Button>
                                     </div>
                                 }
                                 {(props.media && props.backgroundType === "image") &&
                                     <div className="actions">
-                                        <Button type="button" className="button remove-image" onClick={props.onSelectImage("")} >
+                                        <Button type="button" className="button remove-image" onClick={(e) => {
+                                            e.preventDefault();
+                                            props.onSelectImg("")
+                                        }} >
                                         </Button>
                                         <Button type="button" className="button edit-image" onClick={() => open(open)}>
                                         </Button>
@@ -176,6 +181,38 @@ const BackgroundModal = (props) => {
             </>
         );
     };
+    const allGradients = [
+        'linear-gradient(to right, #8e2de2, #4a00e0)',
+        'linear-gradient(to right, #654ea3, #eaafc8)',
+        'linear-gradient(to right, #ff416c, #ff4b2b)',
+        'linear-gradient(to right, #009fff, #ec2f4b)',
+        'linear-gradient(to right, #544a7d, #ffd452)',
+        'linear-gradient(to right, #8360c3, #2ebf91)',
+        'linear-gradient(to right, #f12711, #f5af19)',
+        'linear-gradient(to right, #c31432, #240b36)',
+        'linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4)',
+        'linear-gradient(to right, #f953c6, #b91d73)',
+        'linear-gradient(to right, #1f4037, #99f2c8)',
+        'linear-gradient(to right, #373b44, #4286f4)',
+        'linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)',
+        'linear-gradient(to right, #12c2e9, #c471ed, #f64f59)',
+        'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
+        'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)',
+        'linear-gradient(to right, #2193b0, #6dd5ed)',
+        'linear-gradient(to right, #ee9ca7, #ffdde1)',
+        'linear-gradient(to right, #bdc3c7, #2c3e50)',
+        'linear-gradient(to right, #ffe000, #799f0c)',
+        'linear-gradient(to right, #00416a, #799f0c, #ffe000)',
+        'linear-gradient(to right, #0052d4, #4364f7, #6fb1fc)',
+        'linear-gradient(to right, #5433ff, #20bdff, #a5fecb)',
+        'linear-gradient(to right, #ffe259, #ffa751)',
+        'linear-gradient(to right, #acb6e5, #86fde8)',
+        'linear-gradient(to right, #536976, #292e49)',
+        'linear-gradient(to right, #b79891, #94716b)',
+        'linear-gradient(to right, #9796f0, #fbc7d4)',
+        'linear-gradient(to right, #e52d27, #b31217)',
+        'linear-gradient(to right, #ec008c, #fc6767)',
+    ]
     return (
         <Fragment>
             <ul
@@ -216,7 +253,7 @@ const BackgroundModal = (props) => {
                 {props.backgroundType === "image" && renderImageSettings()}
 
                 {props.backgroundType === "gradient" && (
-                    <>
+                    <SlotFillProvider>
                         <__experimentalGradientPicker
                             className="kmt-gradient-color-picker"
                             value={
@@ -229,8 +266,19 @@ const BackgroundModal = (props) => {
                                 props.onChangeGradient(gradient, "gradient")
                             }
                         />
+                        <ul className={'kmt-gradient-swatches'}>
+                            {allGradients.map((gradient, slug) => (
+                                <li
+                                    onClick={() => props.onChangeGradient(gradient, "gradient")}
+                                    style={{
+                                        '--background-image': gradient,
+                                    }}
+                                    key={slug}></li>
+                            ))}
+                        </ul>
 
-                    </>
+
+                    </SlotFillProvider>
                 )}
 
                 {props.backgroundType == "color" &&
@@ -243,7 +291,7 @@ const BackgroundModal = (props) => {
                             value={props.color}
                             pickers={[
                                 {
-                                    title: __('Initial', 'kemet'),
+                                    title: __('Initial', 'Kemet'),
                                     id: 'default',
                                 },
                             ]}
@@ -251,7 +299,6 @@ const BackgroundModal = (props) => {
                             skipArrow={true}
                             appendToBody={false}
                             onChange={(color) => props.onChangeComplete(color)}
-
                         />
                     )
                 }

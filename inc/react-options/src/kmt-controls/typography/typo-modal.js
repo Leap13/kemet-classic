@@ -10,21 +10,6 @@ import VariationsList from './VariationsList'
 import FontOptions from './FontOptions'
 
 
-const combineRefs = (...refs) => (el) => {
-    refs.map((ref) => {
-        if (typeof ref === 'function') {
-            ref(el)
-        } else if (
-            typeof ref === 'object' &&
-            ref !== null &&
-            ref.hasOwnProperty('current')
-        ) {
-            ref.current = el
-        } else if (ref === null) {
-
-        }
-    })
-}
 
 function fuzzysearch(needle, haystack) {
     var hlen = haystack.length
@@ -60,10 +45,8 @@ const TypographyModal = ({
     wrapperProps = {},
 
 }) => {
-    const [typographyList, setTypographyList] = useState(getDefaultFonts(option))
-    const [isSearch, setIsSearch] = useState(false)
+    const [typographyList, setTypographyList] = useState(getDefaultFonts())
     const [searchTerm, setSearchTerm] = useState('')
-
     const direction = useMemo(() => {
         if (previousView === '_') {
             return 'static'
@@ -140,24 +123,17 @@ const TypographyModal = ({
             className="kmt-option-modal kmt-typography-modal"
             {...wrapperProps}>
             <div className="kmt-typography-container">
-                <ul
+                {(currentView === "fonts" || currentView === "search") && <ul
                     className={classnames('kmt-typography-top', {
                         'kmt-switch-panel': currentView !== 'options',
                         'kmt-static': previousView === '_',
                     })}>
-                    <li
-                        className="kmt-back"
-                        onClick={() => setCurrentView('options')}>
-                        <svg width="10" height="10" viewBox="0 0 15 15">
-                            <path d="M14.2,6.8H2.6l4-4c0.3-0.3,0.3-0.8,0-1.1c-0.3-0.3-0.8-0.3-1.1,0L0.2,7l0,0c0,0-0.1,0.1-0.1,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1l0,0c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0.1c0,0,0,0,0,0.1C0.2,8,0.2,8,0.2,8l5.3,5.3c0.3,0.3,0.8,0.3,1.1,0c0.3-0.3,0.3-0.8,0-1.1l-4-4h11.7c0.4,0,0.8-0.3,0.8-0.8S14.7,6.8,14.2,6.8z" />
-                        </svg>
-                    </li>
+
 
                     <li
                         className={classnames('kmt-font', {
                             active:
-                                currentView === 'search' ||
-                                currentView === 'fonts',
+                                currentView === 'search'
                         })}
                         onClick={() => {
                             setCurrentView(
@@ -179,7 +155,6 @@ const TypographyModal = ({
                                     if (e.keyCode == 13) {
                                         if (linearFontsList.length > 0) {
                                             pickFontFamily(linearFontsList[0])
-                                            setCurrentView('options')
                                             setSearchTerm('')
                                         }
                                     }
@@ -200,19 +175,8 @@ const TypographyModal = ({
                             )}
                         </svg>
                     </li>
-
-                    <li
-                        className={classnames('kmt-weight', {
-                            active: currentView === 'variations',
-                        })}
-                        onClick={() => setCurrentView('variations')}>
-                        <span data-variation={value.variation}>
-                            {humanizeVariationsShort(value.variation)}
-
-                        </span>
-                    </li>
                 </ul>
-
+                }
                 <Transition
                     items={currentView}
                     immediate={direction === 'static'}
@@ -266,7 +230,6 @@ const TypographyModal = ({
                                         currentView={`${currentView}:${previousView}`}
                                         onPickFamily={(family) => {
                                             pickFontFamily(family)
-                                            setCurrentView('options')
                                             setSearchTerm('')
                                         }}
                                         value={value}
@@ -283,7 +246,6 @@ const TypographyModal = ({
                                     typographyList={typographyList}
                                     onChange={(value) => {
                                         onChange(value)
-                                        setCurrentView('options')
                                     }}
                                     value={value}
                                 />

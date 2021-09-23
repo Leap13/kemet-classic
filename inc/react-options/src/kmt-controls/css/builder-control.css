@@ -1,6 +1,6 @@
 .customize-control-kmt-radio .customize-control-title {
-  font-size: 13px !important;
-  font-weight: 500 !important;
+  font-size: 13px;
+  font-weight: 500;
   display: inline-block;
 }
 .kmt-builder-is-active .preview-desktop #customize-preview,
@@ -566,6 +566,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   opacity: 0.3;
   top: 50%;
   transform: translateY(-50%);
+}
+.kmt-builder-item-add-icon:hover::after {
+  opacity: 0.7;
 }
 
 .kmt-dragging-dropzones .kmt-builder-item-add-icon:after {
@@ -1243,22 +1246,33 @@ li#customize-control-kemet-settings-footer-desktop-items {
   text-transform: uppercase;
   height: 40px;
   line-height: normal;
-  margin: 0;
   padding: 12px 4px;
-  box-shadow: inset 0px 0px 0px 1px #ddd;
+  box-shadow: none;
   background: transparent;
   color: #4a5568;
   white-space: normal;
+  border: none;
+  margin: 0px;
+}
+.customize-control-kmt-row-layout
+  .kmt-radio-container-control
+  button.components-button.is-tertiary {
+  height: 52px !important;
+}
+
+.components-button.is-tertiary:hover:not(:disabled) {
+  color: var(--wp-admin-theme-color-darker-10);
+  box-shadow: none !important;
 }
 
 .components-popover__content
   .kmt-popover-builder-list
   .kmt-radio-container-control {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
   width: 300px;
   max-height: 340px;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .kmt-popover-builder-list {
@@ -1472,8 +1486,10 @@ li#customize-control-kemet-settings-footer-desktop-items {
 .kmt-popover-builder-list
   .kmt-radio-container-control
   .components-button.is-tertiary {
-  font-weight: 400;
   padding: 10px 6px;
+  font-weight: 400;
+  font-size: 11px;
+  text-transform: uppercase;
 }
 .kmt-social-type .kmt-radio-container-control button:not(:first-child) {
   margin-left: 15px;
@@ -1565,7 +1581,7 @@ li#customize-control-kemet-settings-footer-desktop-items {
 }
 
 .components-popover__content .kmt-radio-container-control {
-  padding: 20px 5px;
+  padding: 15px 5px;
   background: white;
 }
 
@@ -5539,12 +5555,9 @@ i.fipicon-angle-left:before {
 }
 .kmt-options > div {
   position: relative;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .kmt-options #header-desktop-items,
 .kmt-options #header-mobile-items {
   margin-top: 0;
-}
-.kmt-builder-item-add-icon:hover::after {
-  opacity: 0.7;
 }
