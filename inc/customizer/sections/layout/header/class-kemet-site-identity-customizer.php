@@ -30,29 +30,19 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 			),
 			'display-site-tagline'      => array(
 				'type'      => 'kmt-switcher',
+				'divider'   => true,
 				'transport' => 'postMessage',
 				'label'     => __( 'Display Site Tagline', 'kemet' ),
 			),
 			'blogname'                  => array(
 				'override'  => true,
 				'transport' => 'postMessage',
+				'divider'   => true,
 				'type'      => 'kmt-text',
 				'label'     => __( 'Site Title', 'kemet' ),
 				'context'   => array(
 					array(
 						'setting' => 'display-site-title',
-						'value'   => true,
-					),
-				),
-			),
-			'blogdescription'           => array(
-				'override'  => true,
-				'transport' => 'postMessage',
-				'type'      => 'kmt-text',
-				'label'     => __( 'Tagline', 'kemet' ),
-				'context'   => array(
-					array(
-						'setting' => 'display-site-tagline',
 						'value'   => true,
 					),
 				),
@@ -83,83 +73,6 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'preview'      => array(
 					'selector'   => '.site-title',
 					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'font-size-site-tagline'    => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Tagline Font Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 200,
-					),
-					'em' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 12,
-					),
-				),
-				'context'      => array(
-					array(
-						'setting' => 'display-site-tagline',
-						'value'   => true,
-					),
-				),
-				'preview'      => array(
-					'selector'   => '.site-header .site-description',
-					'property'   => '--fontSize',
-					'responsive' => true,
-				),
-			),
-			'site-title-letter-spacing' => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Title Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'context'      => array(
-					array(
-						'setting' => 'display-site-title',
-						'value'   => true,
-					),
-				),
-				'preview'      => array(
-					'selector'   => '.site-title',
-					'property'   => '--letterSpacing',
-					'responsive' => true,
-				),
-			),
-			'tagline-letter-spacing'    => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Tagline Letter Spacing', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0.1,
-						'step' => 0.1,
-						'max'  => 10,
-					),
-				),
-				'context'      => array(
-					array(
-						'setting' => 'display-site-tagline',
-						'value'   => true,
-					),
-				),
-				'preview'      => array(
-					'selector'   => '.site-header .site-description',
-					'property'   => '--letterSpacing',
 					'responsive' => true,
 				),
 			),
@@ -194,6 +107,97 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			'site-title-letter-spacing' => array(
+				'type'         => 'kmt-slider',
+				'responsive'   => true,
+				'transport'    => 'postMessage',
+				'label'        => __( 'Title Letter Spacing', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 10,
+					),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'display-site-title',
+						'value'   => true,
+					),
+				),
+				'preview'      => array(
+					'selector'   => '.site-title',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
+				),
+			),
+			'blogdescription'           => array(
+				'override'  => true,
+				'transport' => 'postMessage',
+				'divider'   => true,
+				'type'      => 'kmt-text',
+				'label'     => __( 'Tagline', 'kemet' ),
+				'context'   => array(
+					array(
+						'setting' => 'display-site-tagline',
+						'value'   => true,
+					),
+				),
+			),
+			'font-size-site-tagline'    => array(
+				'type'         => 'kmt-slider',
+				'responsive'   => true,
+				'transport'    => 'postMessage',
+				'label'        => __( 'Tagline Font Size', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 200,
+					),
+					'em' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 12,
+					),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'display-site-tagline',
+						'value'   => true,
+					),
+				),
+				'preview'      => array(
+					'selector'   => '.site-header .site-description',
+					'property'   => '--fontSize',
+					'responsive' => true,
+				),
+			),
+			'tagline-letter-spacing'    => array(
+				'type'         => 'kmt-slider',
+				'responsive'   => true,
+				'divider'      => true,
+				'transport'    => 'postMessage',
+				'label'        => __( 'Tagline Letter Spacing', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 0.1,
+						'step' => 0.1,
+						'max'  => 10,
+					),
+				),
+				'context'      => array(
+					array(
+						'setting' => 'display-site-tagline',
+						'value'   => true,
+					),
+				),
+				'preview'      => array(
+					'selector'   => '.site-header .site-description',
+					'property'   => '--letterSpacing',
+					'responsive' => true,
+				),
+			),
 			'tagline-color'             => array(
 				'type'      => 'kmt-color',
 				'transport' => 'postMessage',
@@ -221,6 +225,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
 				'responsive'     => true,
+				'divider'        => true,
 				'label'          => __( 'Padding', 'kemet' ),
 				'linked_choices' => true,
 				'unit_choices'   => array( 'px', 'em', '%' ),
@@ -266,6 +271,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'kmt-header-responsive-logo-width' => array(
 							'type'         => 'kmt-slider',
 							'responsive'   => true,
+							'divider'      => true,
 							'transport'    => 'postMessage',
 							'label'        => __( 'Logo Width', 'kemet' ),
 							'unit_choices' => array(
@@ -306,6 +312,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 						'different-logo-for-mobile'        => array(
 							'type'      => 'kmt-switcher',
 							'transport' => 'postMessage',
+							'divider'   => true,
 							'label'     => __( 'Different Logo for Mobile?', 'kemet' ),
 							'context'   => array(
 								array(

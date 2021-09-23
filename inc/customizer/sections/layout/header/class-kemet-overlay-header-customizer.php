@@ -47,6 +47,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-disable-404-archive' => array(
 								'type'    => 'kmt-switcher',
+								'divider' => true,
 								'label'   => __( 'Disable on 404, Search & Archives?', 'kemet' ),
 								'context' => array(
 									array(
@@ -57,6 +58,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-disable-blog' => array(
 								'type'    => 'kmt-switcher',
+								'divider' => true,
 								'label'   => __( 'Disable on Blog Page?', 'kemet' ),
 								'context' => array(
 									array(
@@ -67,6 +69,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-disable-latest-posts' => array(
 								'type'    => 'kmt-switcher',
+								'divider' => true,
 								'label'   => __( 'Disable on Latest Posts Page?', 'kemet' ),
 								'context' => array(
 									array(
@@ -77,6 +80,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-disable-posts' => array(
 								'type'    => 'kmt-switcher',
+								'divider' => true,
 								'label'   => __( 'Disable on Posts?', 'kemet' ),
 								'context' => array(
 									array(
@@ -87,6 +91,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-disable-pages' => array(
 								'type'    => 'kmt-switcher',
+								'divider' => true,
 								'label'   => __( 'Disable on Pages?', 'kemet' ),
 								'context' => array(
 									array(
@@ -97,6 +102,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-enable-device' => array(
 								'type'    => 'kmt-radio',
+								'divider' => true,
 								'default' => 'desktop_mobile',
 								'label'   => __( 'Enable For', 'kemet' ),
 								'choices' => array(

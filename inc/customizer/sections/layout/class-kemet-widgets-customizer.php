@@ -37,6 +37,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							),
 							'widget-padding'       => array(
 								'type'           => 'kmt-spacing',
+								'divider'        => true,
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Padding', 'kemet' ),
@@ -57,6 +58,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 							),
 							'widget-margin-bottom' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Margin Bottom', 'kemet' ),
 								'unit_choices' => array(

@@ -35,14 +35,29 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'headings-links-color'     => array(
+			'headings-color'     => array(
 				'type'        => 'kmt-color',
-				'label'       => __( 'Headings & Links Color', 'kemet' ),
-				'description' => __( "Used for all titles from H1 to H6, widgets' title, main menu links, and all other body links.", 'kemet' ),
+				'label'       => __( 'Headings Color', 'kemet' ),
+				'description' => __( "Used for all titles from H1 to H6, widgets' title.", 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Color', 'kemet' ),
 						'id'    => 'initial',
+					),
+				),
+			),
+			'links-color'     => array(
+				'type'        => 'kmt-color',
+				'label'       => __( 'Headings & Links Color', 'kemet' ),
+				'description' => __( "Main menu links, and all other body links.", 'kemet' ),
+				'pickers'     => array(
+					array(
+						'title' => __( 'Color', 'kemet' ),
+						'id'    => 'initial',
+					),
+					array(
+						'title' => __( 'Hover', 'kemet' ),
+						'id'    => 'hover',
 					),
 				),
 			),

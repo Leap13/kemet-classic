@@ -35,6 +35,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 							),
 							'blog-single-max-width'      => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
 								'unit_choices' => array(
@@ -57,6 +58,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 							),
 							'blog-single-post-structure' => array(
 								'type'    => 'kmt-sortable',
+								'divider' => true,
 								'label'   => __( 'Single Post Structure', 'kemet' ),
 								'choices' => array(
 									'single-image'      => __( 'Featured Image', 'kemet' ),
@@ -65,6 +67,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 							),
 							'blog-single-meta'           => array(
 								'type'    => 'kmt-sortable',
+								'divider' => true,
 								'label'   => __( 'Single Post Meta', 'kemet' ),
 								'choices' => array(
 									'author'   => __( 'Author', 'kemet' ),
@@ -82,22 +85,42 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'enable-page-title-content-area' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Enable Post Title in Content Area', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Enable Post Title in Content Area', 'kemet' ),
 							),
 							'prev-next-links'            => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Disable Next / Prev Links', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Disable Next / Prev Links', 'kemet' ),
 							),
 							'enable-author-box'          => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Enable Author Box', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Enable Author Box', 'kemet' ),
 							),
 						),
 					),
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							'font-color-entry-title'     => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Post Title Font Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Color', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-single-post .entry-header .entry-title',
+										'property' => '--headingLinksColor',
+									),
+								),
+							),
 							'font-size-entry-title'      => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
@@ -139,25 +162,9 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							'font-color-entry-title'     => array(
-								'type'      => 'kmt-color',
-								'transport' => 'postMessage',
-								'label'     => __( 'Post Title Font Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Color', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => '.kmt-single-post .entry-header .entry-title',
-										'property' => '--headingLinksColor',
-									),
-								),
-							),
 							'single-post-meta-color'     => array(
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Post Meta Color', 'kemet' ),
 								'pickers'   => array(
@@ -176,6 +183,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 							'comment-button-spacing'     => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
+								'divider'        => true,
 								'responsive'     => true,
 								'label'          => __( 'Comment Button Margin', 'kemet' ),
 								'linked_choices' => true,

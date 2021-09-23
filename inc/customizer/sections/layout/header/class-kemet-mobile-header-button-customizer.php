@@ -41,32 +41,38 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 							'options' => array(
 								$prefix . '-label'         => array(
 									'type'      => 'kmt-text',
+									'divider'   => true,
 									'default'   => __( 'Button', 'kemet' ),
 									'transport' => 'postMessage',
 									'label'     => __( 'Label', 'kemet' ),
 								),
 								$prefix . '-url'           => array(
 									'type'      => 'kmt-text',
+									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'URL', 'kemet' ),
 								),
 								$prefix . '-open-new-tab'  => array(
 									'type'      => 'kmt-switcher',
+									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'Open in New Tab?', 'kemet' ),
 								),
 								$prefix . '-link-nofollow' => array(
 									'type'      => 'kmt-switcher',
+									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'Set link to nofollow?', 'kemet' ),
 								),
 								$prefix . '-link-sponsored' => array(
 									'type'      => 'kmt-switcher',
+									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'Set link attribute Sponsored?', 'kemet' ),
 								),
 								$prefix . '-link-download' => array(
 									'type'      => 'kmt-switcher',
+									'divider'   => true,
 									'transport' => 'postMessage',
 									'label'     => __( 'Set link to Download?', 'kemet' ),
 								),
@@ -75,9 +81,18 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 						'design'  => array(
 							'title'   => __( 'Design', 'kemet' ),
 							'options' => array(
+								$prefix . '-typography'   => array(
+									'type'      => 'kmt-typography',
+									'transport' => 'postMessage',
+									'label'     => __( 'Typography', 'kemet' ),
+									'preview'   => array(
+										'selector' => $selector,
+									),
+								),
 								$prefix . '-color'        => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
+									'divider'   => true,
 									'label'     => __( 'Text Color', 'kemet' ),
 									'pickers'   => array(
 										array(
@@ -125,6 +140,41 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 								),
+								$prefix . '-radius'       => array(
+									'type'           => 'kmt-spacing',
+									'transport'      => 'postMessage',
+									'divider'        => true,
+									'label'          => __( 'Border Radius', 'kemet' ),
+									'linked_choices' => true,
+									'unit_choices'   => array( 'px', 'em', '%' ),
+									'choices'        => array(
+										'top'    => __( 'Top', 'kemet' ),
+										'right'  => __( 'Right', 'kemet' ),
+										'bottom' => __( 'Bottom', 'kemet' ),
+										'left'   => __( 'Left', 'kemet' ),
+									),
+									'preview'        => array(
+										'selector' => $selector,
+										'property' => '--borderRadius',
+										'sides'    => false,
+									),
+								),
+								$prefix . '-border-width' => array(
+									'type'         => 'kmt-slider',
+									'transport'    => 'postMessage',
+									'label'        => __( 'Border Size', 'kemet' ),
+									'unit_choices' => array(
+										'px' => array(
+											'min'  => 0,
+											'step' => 1,
+											'max'  => 50,
+										),
+									),
+									'preview'      => array(
+										'selector' => $selector,
+										'property' => '--borderWidth',
+									),
+								),
 								$prefix . '-border-color' => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
@@ -150,52 +200,10 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 								),
-								$prefix . '-typography'   => array(
-									'type'      => 'kmt-typography',
-									'transport' => 'postMessage',
-									'label'     => __( 'Typography', 'kemet' ),
-									'preview'   => array(
-										'selector' => $selector,
-									),
-								),
-								$prefix . '-border-width' => array(
-									'type'         => 'kmt-slider',
-									'default'      => 1,
-									'transport'    => 'postMessage',
-									'label'        => __( 'Border Size', 'kemet' ),
-									'unit_choices' => array(
-										'px' => array(
-											'min'  => 0,
-											'step' => 1,
-											'max'  => 50,
-										),
-									),
-									'preview'      => array(
-										'selector' => $selector,
-										'property' => '--borderWidth',
-									),
-								),
-								$prefix . '-radius'       => array(
-									'type'           => 'kmt-spacing',
-									'transport'      => 'postMessage',
-									'label'          => __( 'Border Radius', 'kemet' ),
-									'linked_choices' => true,
-									'unit_choices'   => array( 'px', 'em', '%' ),
-									'choices'        => array(
-										'top'    => __( 'Top', 'kemet' ),
-										'right'  => __( 'Right', 'kemet' ),
-										'bottom' => __( 'Bottom', 'kemet' ),
-										'left'   => __( 'Left', 'kemet' ),
-									),
-									'preview'        => array(
-										'selector' => $selector,
-										'property' => '--borderRadius',
-										'sides'    => false,
-									),
-								),
 								$prefix . '-padding'      => array(
 									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
+									'divider'        => true,
 									'label'          => __( 'Padding', 'kemet' ),
 									'linked_choices' => true,
 									'unit_choices'   => array( 'px', 'em', '%' ),
@@ -214,6 +222,7 @@ class Kemet_Header_Mobile_Button_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-margin'       => array(
 									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
+									'divider'        => true,
 									'label'          => __( 'Margin', 'kemet' ),
 									'linked_choices' => true,
 									'unit_choices'   => array( 'px', 'em', '%' ),

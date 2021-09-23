@@ -77,6 +77,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-layout-color' => array(
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Color', 'kemet' ),
 								'pickers'   => array(
@@ -101,6 +102,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-background' => array(
 								'type'       => 'kmt-background',
+								'divider'    => true,
 								'transport'  => 'postMessage',
 								'label'      => __( 'Background', 'kemet' ),
 								'responsive' => true,
@@ -111,6 +113,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-sticky-background' => array(
 								'type'       => 'kmt-background',
+								'divider'    => true,
 								'transport'  => 'postMessage',
 								'label'      => __( 'Sticky Background', 'kemet' ),
 								'responsive' => true,
@@ -132,6 +135,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-border-width' => array(
 								'type'           => 'kmt-spacing',
+								'divider'        => true,
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Border', 'kemet' ),

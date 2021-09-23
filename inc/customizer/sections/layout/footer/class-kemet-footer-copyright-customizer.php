@@ -44,6 +44,7 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 								'transport'  => 'postMessage',
 								'type'       => 'kmt-radio',
 								'responsive' => true,
+								'divider'    => true,
 								'label'      => __( 'Horizontal Alignment', 'kemet' ),
 								'choices'    => array(
 									'flex-start' => __( 'Left', 'kemet' ),
@@ -60,6 +61,7 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 								'transport'  => 'postMessage',
 								'type'       => 'kmt-radio',
 								'responsive' => true,
+								'divider'    => true,
 								'label'      => __( 'Vertical Alignment', 'kemet' ),
 								'choices'    => array(
 									'flex-start' => __( 'Top', 'kemet' ),

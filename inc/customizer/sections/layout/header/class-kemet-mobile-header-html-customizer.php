@@ -49,9 +49,18 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 						'design'  => array(
 							'title'   => __( 'Design', 'kemet' ),
 							'options' => array(
+								$prefix . '-typography' => array(
+									'type'      => 'kmt-typography',
+									'transport' => 'postMessage',
+									'label'     => __( 'Typography', 'kemet' ),
+									'preview'   => array(
+										'selector' => $selector,
+									),
+								),
 								$prefix . '-color'      => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
+									'divider'   => true,
 									'label'     => __( 'Text Color', 'kemet' ),
 									'pickers'   => array(
 										array(
@@ -89,14 +98,6 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 											'selector' => $selector,
 											'property' => '--linksHoverColor',
 										),
-									),
-								),
-								$prefix . '-typography' => array(
-									'type'      => 'kmt-typography',
-									'transport' => 'postMessage',
-									'label'     => __( 'Typography', 'kemet' ),
-									'preview'   => array(
-										'selector' => $selector,
 									),
 								),
 							),

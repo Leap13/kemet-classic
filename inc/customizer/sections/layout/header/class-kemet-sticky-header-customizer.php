@@ -56,19 +56,23 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					),
 				),
 				'enable-sticky-top'             => array(
-					'label' => __( 'Sticky Top Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Top Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-sticky-main'            => array(
-					'label' => __( 'Sticky Main Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Main Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-sticky-bottom'          => array(
-					'label' => __( 'Sticky Bottom Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Bottom Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-shrink-main'            => array(
 					'label'   => __( 'Enable Main Row Shrinking', 'kemet' ),
+					'divider' => true,
 					'type'    => 'kmt-switcher',
 					'context' => array(
 						array(
@@ -104,19 +108,23 @@ if ( ! class_exists( 'Kemet_Sticky_Header_Customizer' ) ) :
 					'label' => __( 'Mobile Sticky', 'kemet' ),
 				),
 				'enable-sticky-mobile-top'      => array(
-					'label' => __( 'Sticky Mobile Top Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Mobile Top Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-sticky-mobile-main'     => array(
-					'label' => __( 'Sticky Mobile Main Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Mobile Main Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-sticky-mobile-bottom'   => array(
-					'label' => __( 'Sticky Mobile Bottom Header', 'kemet' ),
-					'type'  => 'kmt-switcher',
+					'label'   => __( 'Sticky Mobile Bottom Header', 'kemet' ),
+					'divider' => true,
+					'type'    => 'kmt-switcher',
 				),
 				'enable-shrink-main-mobile'     => array(
 					'label'   => __( 'Enable Main Row Shrinking', 'kemet' ),
+					'divider' => true,
 					'type'    => 'kmt-switcher',
 					'context' => array(
 						array(

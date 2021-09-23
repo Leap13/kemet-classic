@@ -53,6 +53,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							),
 							self::$prefix . '-height' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Height', 'kemet' ),
 								'unit_choices' => array(
@@ -69,6 +70,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							),
 							self::$prefix . '-size'   => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
@@ -79,12 +81,13 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 									),
 								),
 								'preview'      => array(
-									'selector' => $selector,
+									'selector' => $selector . ' .kmt-svg-icon',
 									'property' => 'font-size',
 								),
 							),
 							self::$prefix . '-style'  => array(
 								'type'      => 'kmt-radio',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Style', 'kemet' ),
 								'choices'   => array(
@@ -100,6 +103,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							self::$prefix . '-label-visibility' => array(
 								'label'     => __( 'Label Visibility', 'Kemet' ),
 								'type'      => 'kmt-visibility',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'choices'   => array(
 									'desktop' => __( 'Desktop', 'kemet' ),
@@ -171,7 +175,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							),
 							self::$prefix . '-vertical-offset' => array(
 								'type'         => 'kmt-slider',
-								'default'      => 10,
+								'default'      => array(
+									'value' => 10,
+									'unit'  => '%',
+								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Vertical Offset', 'kemet' ),
 								'unit_choices' => array(
@@ -190,7 +197,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							),
 							self::$prefix . '-horizontal-offset' => array(
 								'type'         => 'kmt-slider',
-								'default'      => 10,
+								'default'      => array(
+									'value' => 10,
+									'unit'  => '%',
+								),
 								'transport'    => 'postMessage',
 								'label'        => __( 'Horizontal Offset', 'kemet' ),
 								'unit_choices' => array(
@@ -209,6 +219,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							),
 							self::$prefix . '-z-index'    => array(
 								'type'      => 'kmt-number',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Z-index', 'kemet' ),
 								'min'       => 1,
@@ -228,6 +239,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
@@ -284,6 +296,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 							self::$prefix . '-border-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(

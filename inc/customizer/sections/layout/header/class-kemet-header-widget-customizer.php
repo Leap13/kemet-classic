@@ -33,8 +33,17 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 			$selector       = '.kmt-' . $prefix . '-area';
 			$num            = explode( 'header-widget-', $prefix )[1];
 			$widget_options = array(
+				$prefix . '-typography'    => array(
+					'type'      => 'kmt-typography',
+					'transport' => 'postMessage',
+					'label'     => __( 'Typography', 'kemet' ),
+					'preview'   => array(
+						'selector' => $selector,
+					),
+				),
 				$prefix . '-content-color' => array(
 					'transport' => 'postMessage',
+					'divider'   => true,
 					'type'      => 'kmt-color',
 					'label'     => __( 'Content Color', 'kemet' ),
 					'pickers'   => array(
@@ -75,15 +84,6 @@ class Kemet_Header_Widget_Customizer extends Kemet_Customizer_Register {
 						),
 					),
 				),
-				$prefix . '-typography'    => array(
-					'type'      => 'kmt-typography',
-					'transport' => 'postMessage',
-					'label'     => __( 'Typography', 'kemet' ),
-					'preview'   => array(
-						'selector' => $selector,
-					),
-				),
-
 			);
 
 			$section_name   = kemet_has_widget_editor() ? 'kemet-sidebar-widgets-' . $prefix : 'sidebar-widgets-' . $prefix;

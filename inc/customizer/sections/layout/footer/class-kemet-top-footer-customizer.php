@@ -48,6 +48,7 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-layout'      => array(
 								'type'      => 'kmt-row-layout',
+								'divider'   => true,
 								'label'     => __( 'Layout', 'kemet' ),
 								'transport' => 'postMessage',
 								'row'       => 'top',
@@ -62,6 +63,7 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-min-height'  => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Min Height', 'kemet' ),
 								'unit_choices' => array(
@@ -82,22 +84,15 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							self::$prefix . '-row-padding' => array(
-								'type'           => 'kmt-spacing',
-								'transport'      => 'postMessage',
-								'responsive'     => true,
-								'label'          => __( 'Row Spacing', 'kemet' ),
-								'linked_choices' => true,
-								'unit_choices'   => array( 'px', 'em' ),
-								'choices'        => array(
-									'top'    => __( 'Top', 'kemet' ),
-									'bottom' => __( 'Bottom', 'kemet' ),
-								),
-								'preview'        => array(
-									'selector'   => $selector,
-									'property'   => '--padding',
-									'sides'      => true,
-									'responsive' => true,
+							self::$prefix . '-columns-direction' => array(
+								'default'   => 'row',
+								'divider'   => true,
+								'transport' => 'postMessage',
+								'type'      => 'kmt-radio',
+								'label'     => __( 'Column Direction', 'kemet' ),
+								'choices'   => array(
+									'row'    => __( 'Row', 'kemet' ),
+									'column' => __( 'Column', 'kemet' ),
 								),
 							),
 							self::$prefix . '-columns-padding' => array(
@@ -120,14 +115,23 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							self::$prefix . '-columns-direction' => array(
-								'default'   => 'row',
-								'transport' => 'postMessage',
-								'type'      => 'kmt-radio',
-								'label'     => __( 'Column Direction', 'kemet' ),
-								'choices'   => array(
-									'row'    => __( 'Row', 'kemet' ),
-									'column' => __( 'Column', 'kemet' ),
+							self::$prefix . '-row-padding' => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'divider'        => true,
+								'label'          => __( 'Row Spacing', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector,
+									'property'   => '--padding',
+									'sides'      => true,
+									'responsive' => true,
 								),
 							),
 						),

@@ -44,27 +44,33 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 								'label' => __( 'Show Current Location', 'kemet' ),
 							),
 							'disable-' . self::$prefix . '-in-archive' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Disable on Archive', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Disable on Archive', 'kemet' ),
 							),
 							'disable-' . self::$prefix . '-in-single-post' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Disable on Single Post', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Disable on Single Post', 'kemet' ),
 							),
 							'disable-' . self::$prefix . '-in-404-page' => array(
-								'type'  => 'kmt-switcher',
-								'label' => __( 'Disable on 404 Page', 'kemet' ),
+								'type'    => 'kmt-switcher',
+								'divider' => true,
+								'label'   => __( 'Disable on 404 Page', 'kemet' ),
 							),
 							self::$prefix . '-prefix'    => array(
-								'type'  => 'kmt-text',
-								'label' => __( 'Breadcrumbs Prefix Text', 'kemet' ),
+								'type'    => 'kmt-text',
+								'divider' => true,
+								'label'   => __( 'Breadcrumbs Prefix Text', 'kemet' ),
 							),
 							self::$prefix . '-separator' => array(
-								'type'  => 'kmt-text',
-								'label' => __( 'Custom Levels Divider', 'kemet' ),
+								'type'    => 'kmt-text',
+								'divider' => true,
+								'label'   => __( 'Custom Levels Divider', 'kemet' ),
 							),
 							self::$prefix . '-home-item' => array(
 								'type'    => 'kmt-select',
+								'divider' => true,
 								'label'   => __( 'Home Item', 'kemet' ),
 								'choices' => array(
 									'text' => esc_html__( 'Text', 'kemet' ),
@@ -73,6 +79,7 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-posts-taxonomy' => array(
 								'type'        => 'kmt-select',
+								'divider'     => true,
 								'label'       => __( 'Posts Taxonomy', 'kemet' ),
 								'choices'     => array(
 									'category' => esc_html__( 'Category', 'kemet' ),
@@ -96,6 +103,7 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-color'      => array(
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
@@ -138,6 +146,7 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-spacing'    => array(
 								'type'           => 'kmt-spacing',
+								'divider'        => true,
 								'transport'      => 'postMessage',
 								'label'          => __( 'Breadcrumbs Padding', 'kemet' ),
 								'responsive'     => true,

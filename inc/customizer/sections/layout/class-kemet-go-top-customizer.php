@@ -62,6 +62,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-position'    => array(
 								'type'    => 'kmt-radio',
+								'divider' => true,
 								'label'   => __( 'Go Top Position', 'kemet' ),
 								'choices' => array(
 									'left'  => __( 'Left', 'kemet' ),
@@ -76,6 +77,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-icon-size'   => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'label'        => __( 'Go Top Icon Size', 'kemet' ),
 								'transport'    => 'postMessage',
 								'responsive'   => true,
@@ -100,6 +102,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-side-offset' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'label'        => __( 'Side Offset', 'kemet' ),
 								'transport'    => 'postMessage',
 								'responsive'   => true,
@@ -125,6 +128,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-bottom-offset' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'label'        => __( 'Bottom Offset', 'kemet' ),
 								'transport'    => 'postMessage',
 								'responsive'   => true,
@@ -149,6 +153,7 @@ class Kemet_Go_Top_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-radius'      => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'label'        => __( 'Button Radius', 'kemet' ),
 								'transport'    => 'postMessage',
 								'responsive'   => true,

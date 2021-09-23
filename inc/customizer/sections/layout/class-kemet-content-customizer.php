@@ -24,8 +24,17 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'type'  => 'kmt-title',
 				'label' => __( 'Body Content Style', 'kemet' ),
 			),
+			'body-typography'           => array(
+				'type'      => 'kmt-typography',
+				'transport' => 'postMessage',
+				'label'     => __( 'Typography', 'kemet' ),
+				'preview'   => array(
+					'selector' => ':root',
+				),
+			),
 			'content-text-color'        => array(
 				'type'      => 'kmt-color',
+				'divider'   => true,
 				'transport' => 'postMessage',
 				'label'     => __( 'Font Color', 'kemet' ),
 				'pickers'   => array(
@@ -39,36 +48,6 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 						'selector' => '.entry-content',
 						'property' => '--textColor',
 					),
-				),
-			),
-			'body-typography'           => array(
-				'type'      => 'kmt-typography',
-				'transport' => 'postMessage',
-				'label'     => __( 'Typography', 'kemet' ),
-				'preview'   => array(
-					'selector' => ':root',
-				),
-			),
-			'para-margin-bottom'        => array(
-				'type'         => 'kmt-slider',
-				'transport'    => 'postMessage',
-				'label'        => __( 'Paragraph Margin Bottom', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 500,
-					),
-					'em' => array(
-						'min'  => 0.5,
-						'step' => 0.01,
-						'max'  => 12,
-					),
-				),
-				'preview'      => array(
-					'selector' => 'p, .entry-content p',
-					'property' => '--marginBottom',
-					'unit'     => 'em',
 				),
 			),
 			'content-link-color'        => array(
@@ -94,6 +73,29 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 						'selector' => '.entry-content a',
 						'property' => '--linksHoverColor',
 					),
+				),
+			),
+			'para-margin-bottom'        => array(
+				'type'         => 'kmt-slider',
+				'divider'      => true,
+				'transport'    => 'postMessage',
+				'label'        => __( 'Paragraph Margin Bottom', 'kemet' ),
+				'unit_choices' => array(
+					'px' => array(
+						'min'  => 1,
+						'step' => 1,
+						'max'  => 500,
+					),
+					'em' => array(
+						'min'  => 0.5,
+						'step' => 0.01,
+						'max'  => 12,
+					),
+				),
+				'preview'      => array(
+					'selector' => 'p, .entry-content p',
+					'property' => '--marginBottom',
+					'unit'     => 'em',
 				),
 			),
 			'kmt-heading-styling-title' => array(

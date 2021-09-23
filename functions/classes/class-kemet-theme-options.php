@@ -529,6 +529,31 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'go-top-side-offset'                   => 50,
 					'go-top-bottom-offset'                 => 50,
 					'go-top-style'                         => 'arrow-up-alt',
+					// Footer.
+					'top-footer-bottom-border-width'       => array(
+						'desktop'      => 0,
+						'tablet'       => 0,
+						'mobile'       => 0,
+						'desktop_unit' => 'px',
+						'tablet_unit'  => 'px',
+						'mobile_unit'  => 'px',
+					),
+					'main-footer-bottom-border-width'      => array(
+						'desktop'      => 0,
+						'tablet'       => 0,
+						'mobile'       => 0,
+						'desktop_unit' => 'px',
+						'tablet_unit'  => 'px',
+						'mobile_unit'  => 'px',
+					),
+					'bottom-footer-bottom-border-width'    => array(
+						'desktop'      => 0,
+						'tablet'       => 0,
+						'mobile'       => 0,
+						'desktop_unit' => 'px',
+						'tablet_unit'  => 'px',
+						'mobile_unit'  => 'px',
+					),
 				)
 			);
 		}

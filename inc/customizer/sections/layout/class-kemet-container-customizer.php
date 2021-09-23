@@ -38,6 +38,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'site-content-layout'         => array(
 				'type'    => 'kmt-select',
+				'divider' => true,
 				'label'   => __( 'Default Container', 'kemet' ),
 				'choices' => array(
 					'boxed-container'         => __( 'Boxed Layout', 'kemet' ),
@@ -48,6 +49,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'single-page-content-layout'  => array(
 				'type'    => 'kmt-select',
+				'divider' => true,
 				'label'   => __( 'Pages Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -59,6 +61,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'single-post-content-layout'  => array(
 				'type'    => 'kmt-select',
+				'divider' => true,
 				'label'   => __( 'Blog Posts Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -70,6 +73,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'archive-post-content-layout' => array(
 				'type'    => 'kmt-select',
+				'divider' => true,
 				'label'   => __( 'Blog Archives Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -109,6 +113,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 							),
 							'container-inner-spacing' => array(
 								'type'           => 'kmt-spacing',
+								'divider'        => true,
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Boxed Container Padding', 'kemet' ),
@@ -144,6 +149,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 							),
 							'site-boxed-inner-bg'        => array(
 								'type'       => 'kmt-background',
+								'divider'    => true,
 								'transport'  => 'postMessage',
 								'responsive' => true,
 								'label'      => __( 'Boxed Background', 'kemet' ),
@@ -154,6 +160,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 							),
 							'content-separator-color'    => array(
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Separator Color', 'kemet' ),
 								'pickers'   => array(

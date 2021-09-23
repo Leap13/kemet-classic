@@ -60,6 +60,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-input-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Search Box Width', 'kemet' ),
 								'unit_choices' => array(
@@ -77,6 +78,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-z-index'     => array(
 								'type'      => 'kmt-number',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Search Box Z-index', 'kemet' ),
 								'min'       => 1,
@@ -92,8 +94,17 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
+								'transport' => 'postMessage',
+								'label'     => __( 'Typography', 'kemet' ),
+								'preview'   => array(
+									'selector' => $selector,
+								),
+							),
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
+								'divider'   => true,
 								'type'      => 'kmt-color',
 								'label'     => __( 'Icon Colors', 'kemet' ),
 								'pickers'   => array(
@@ -182,14 +193,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 										'selector' => $selector,
 										'property' => '--inputFocusBackgroundColor',
 									),
-								),
-							),
-							self::$prefix . '-typography' => array(
-								'type'      => 'kmt-typography',
-								'transport' => 'postMessage',
-								'label'     => __( 'Typography', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
 								),
 							),
 						),

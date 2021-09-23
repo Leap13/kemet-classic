@@ -53,6 +53,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-height' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Height', 'kemet' ),
 								'unit_choices' => array(
@@ -69,6 +70,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-size'   => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
@@ -85,6 +87,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-style'  => array(
 								'type'      => 'kmt-radio',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Style', 'kemet' ),
 								'choices'   => array(
@@ -100,6 +103,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							self::$prefix . '-label-visibility' => array(
 								'label'     => __( 'Label Visibility', 'Kemet' ),
 								'type'      => 'kmt-visibility',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'choices'   => array(
 									'desktop' => __( 'Desktop', 'kemet' ),
@@ -215,6 +219,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							),
 							self::$prefix . '-z-index'    => array(
 								'type'      => 'kmt-number',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Z-index', 'kemet' ),
 								'min'       => 1,
@@ -234,6 +239,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							self::$prefix . '-icon-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
@@ -290,6 +296,7 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							self::$prefix . '-border-color' => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(

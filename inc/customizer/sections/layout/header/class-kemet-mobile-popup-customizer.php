@@ -36,6 +36,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 							),
 							'mobile-popup-slide-width'   => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
 								'unit_choices' => array(
@@ -54,6 +55,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 							),
 							'mobile-popup-slide-side'    => array(
 								'type'      => 'kmt-select',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Slide-Out Side', 'kemet' ),
 								'choices'   => array(
@@ -69,6 +71,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 							),
 							'mobile-popup-content-align' => array(
 								'type'      => 'kmt-select',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Align', 'kemet' ),
 								'choices'   => array(
@@ -102,6 +105,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 							),
 							'mobile-popup-close-btn-color' => array(
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Close Icon Color', 'kemet' ),
 								'pickers'   => array(

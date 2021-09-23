@@ -39,6 +39,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-icon-size' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
@@ -57,6 +58,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-width'     => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
 								'unit_choices' => array(
@@ -77,11 +79,21 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-icon-color' => array(
+							self::$prefix . '-typography' => array(
+								'type'      => 'kmt-typography',
 								'transport' => 'postMessage',
-								'type'      => 'kmt-color',
-								'label'     => __( 'Icon Color', 'kemet' ),
-								'pickers'   => array(
+								'label'     => __( 'Typography', 'kemet' ),
+								'preview'   => array(
+									'selector' => $selector,
+								),
+							),
+							self::$prefix . '-icon-color' => array(
+								'transport'  => 'postMessage',
+								'responsive' => true,
+								'divider'    => true,
+								'type'       => 'kmt-color',
+								'label'      => __( 'Icon Color', 'kemet' ),
+								'pickers'    => array(
 									array(
 										'title' => __( 'Text', 'kemet' ),
 										'id'    => 'initial',
@@ -91,7 +103,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'hover',
 									),
 								),
-								'preview'   => array(
+								'preview'    => array(
 									'initial' => array(
 										'selector' => $parent_selector . ' .kmt-search-box-form .icon-search',
 										'property' => '--iconColor',
@@ -100,32 +112,6 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 										'selector' => $parent_selector . ' .kemet-search-svg-icon-wrap:hover .icon-search',
 										'property' => '--iconColor',
 									),
-								),
-							),
-							self::$prefix . '-typography' => array(
-								'type'      => 'kmt-typography',
-								'transport' => 'postMessage',
-								'label'     => __( 'Typography', 'kemet' ),
-								'preview'   => array(
-									'selector' => $selector,
-								),
-							),
-							self::$prefix . '-border-width' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Border Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $selector,
-									'property'   => '--inputBorderWidth',
-									'responsive' => true,
 								),
 							),
 							self::$prefix . '-text-color' => array(
@@ -176,6 +162,25 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 										'selector' => $selector,
 										'property' => '--inputFocusBackgroundColor',
 									),
+								),
+							),
+							self::$prefix . '-border-width' => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'divider'      => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Border Size', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => '--inputBorderWidth',
+									'responsive' => true,
 								),
 							),
 							self::$prefix . '-border-color' => array(

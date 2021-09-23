@@ -306,6 +306,9 @@ add_action( 'kemet_header', 'kemet_header_markup' );
 function kemet_dropdown_icon_to_menu_link( $title, $item, $args ) {
 
 	$icon = '';
+	if ( 'footer-menu' === $args->menu ) {
+		return $title;
+	}
 
 	if ( isset( $args->container_class ) ) {
 		$icon = Kemet_Svg_Icons::get_icons( 'dropdown-menu' );

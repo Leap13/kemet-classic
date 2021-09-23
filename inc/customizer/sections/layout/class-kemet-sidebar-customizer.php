@@ -46,6 +46,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							),
 							'site-sidebar-layout'         => array(
 								'type'    => 'kmt-select',
+								'divider' => true,
 								'label'   => __( 'Default Layout', 'kemet' ),
 								'choices' => array(
 									'no-sidebar'    => __( 'No Sidebar', 'kemet' ),
@@ -55,6 +56,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							),
 							'single-page-sidebar-layout'  => array(
 								'type'    => 'kmt-select',
+								'divider' => true,
 								'label'   => __( 'Pages', 'kemet' ),
 								'choices' => array(
 									'default'       => __( 'Default', 'kemet' ),
@@ -65,6 +67,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							),
 							'single-post-sidebar-layout'  => array(
 								'type'    => 'kmt-select',
+								'divider' => true,
 								'label'   => __( 'Blog Posts', 'kemet' ),
 								'choices' => array(
 									'default'       => __( 'Default', 'kemet' ),
@@ -75,6 +78,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							),
 							'archive-post-sidebar-layout' => array(
 								'type'    => 'kmt-select',
+								'divider' => true,
 								'label'   => __( 'Blog Post Archives', 'kemet' ),
 								'choices' => array(
 									'default'       => __( 'Default', 'kemet' ),
@@ -85,6 +89,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							),
 							'sidebar-padding'             => array(
 								'type'           => 'kmt-spacing',
+								'divider'        => true,
 								'transport'      => 'postMessage',
 								'responsive'     => true,
 								'label'          => __( 'Sidebar Padding', 'kemet' ),
@@ -133,6 +138,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							'sidebar-text-color'        => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
+								'divider'   => true,
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
@@ -234,6 +240,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 			'sidebar-input-border-radius' => array(
 				'type'         => 'kmt-slider',
 				'responsive'   => true,
+				'divider'      => true,
 				'transport'    => 'postMessage',
 				'label'        => __( 'Input Field Border Radius', 'kemet' ),
 				'unit_choices' => array(
