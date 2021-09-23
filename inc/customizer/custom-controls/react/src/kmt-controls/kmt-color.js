@@ -31,6 +31,8 @@ const KemetColorComponent = props => {
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
 
+    console.log(value)
+
     const renderOperationButtons = () => {
         return <>
             <div className="kmt-color-btn-reset-wrap">
@@ -62,7 +64,7 @@ const KemetColorComponent = props => {
             colorValue[`${id}`] = color.hex;
         }
         setState({ ...value, ...colorValue })
-        props.onChange({ ...value, colorValue, flag: !props.value.flag });
+        props.onChange({ ...value, ...colorValue, flag: !props.value.flag });
     };
 
 

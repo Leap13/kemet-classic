@@ -18658,6 +18658,7 @@ var PickerModal = function PickerModal(_ref) {
       setRefresh(true);
     }
 
+    console.log(colorValue);
     onChange(colorValue);
   };
 
@@ -19393,6 +19394,8 @@ var KemetColorComponent = function KemetColorComponent(props) {
       device = _useState4[0],
       setDevice = _useState4[1];
 
+  console.log(value);
+
   var renderOperationButtons = function renderOperationButtons() {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "kmt-color-btn-reset-wrap"
@@ -19427,8 +19430,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
     }
 
     setState(_objectSpread(_objectSpread({}, value), colorValue));
-    props.onChange(_objectSpread(_objectSpread({}, value), {}, {
-      colorValue: colorValue,
+    props.onChange(_objectSpread(_objectSpread(_objectSpread({}, value), colorValue), {}, {
       flag: !props.value.flag
     }));
   };
@@ -22658,7 +22660,7 @@ var FontsList = function FontsList(_ref4) {
     _onScroll();
   }, [linearFontsList]);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react_window__WEBPACK_IMPORTED_MODULE_6__["FixedSizeList"], {
-    height: 360,
+    height: 290,
     itemCount: linearFontsList.length,
     itemSize: 85,
     ref: listRef,

@@ -112,7 +112,7 @@ const FontsList = ({
 
 	return (
 		<List
-			height={360}
+			height={290}
 			itemCount={linearFontsList.length}
 			itemSize={85}
 			ref={listRef}
