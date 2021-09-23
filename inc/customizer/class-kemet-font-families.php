@@ -45,6 +45,14 @@ if ( ! class_exists( 'Kemet_Font_Families' ) ) :
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
 				self::$system_fonts = array(
+					'System Default'=>array(
+					'fallback' => 'Verdana, Arial, sans-serif',
+					'variants' => array(
+										'300',
+										'400',
+										'700',
+							),
+					),
 					'Helvetica' => array(
 						'fallback' => 'Verdana, Arial, sans-serif',
 						'variants' => array(

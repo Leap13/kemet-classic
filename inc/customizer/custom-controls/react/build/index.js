@@ -22768,7 +22768,7 @@ var getDefaultFonts = function getDefaultFonts() {
     return {
       family: familyValue[0],
       variations: [],
-      all_variations: familyValue.variants
+      all_variations: ['n1', 'i1', 'n2', 'i2', 'n3', 'i3', 'n4', 'i4', 'n5', 'i5', 'n6', 'i6', 'n7', 'i7', 'n8', 'i8', 'n9', 'i9']
     };
   });
   var googleFonts = Object.entries(KmtFontFamilies["google"]).map(function (familyValue) {
@@ -22989,7 +22989,7 @@ var TypographyModal = function TypographyModal(_ref) {
       _ref$wrapperProps = _ref.wrapperProps,
       wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
 
-  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["useState"])(Object(_default_data__WEBPACK_IMPORTED_MODULE_6__["getDefaultFonts"])(option)),
+  var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["useState"])(Object(_default_data__WEBPACK_IMPORTED_MODULE_6__["getDefaultFonts"])()),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_3___default()(_useState, 2),
       typographyList = _useState2[0],
       setTypographyList = _useState2[1];

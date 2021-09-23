@@ -45,7 +45,7 @@ const TypographyModal = ({
     wrapperProps = {},
 
 }) => {
-    const [typographyList, setTypographyList] = useState(getDefaultFonts(option))
+    const [typographyList, setTypographyList] = useState(getDefaultFonts())
     const [searchTerm, setSearchTerm] = useState('')
     const direction = useMemo(() => {
         if (previousView === '_') {
