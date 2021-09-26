@@ -924,7 +924,6 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			 * - Variable Declaration
 			 */
 			$theme_color                  = kemet_get_sub_option( 'theme-color', 'initial' );
-			$headings_links_color         = kemet_get_sub_option( 'headings-links-color', 'initial' );
 			$text_meta_color              = kemet_get_sub_option( 'text-meta-color', 'initial' );
 			$global_border_color          = kemet_get_sub_option( 'global-border-color', 'initial' );
 			$global_bg_color              = kemet_get_sub_option( 'global-background-color', 'initial' );
@@ -977,7 +976,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'max-width' => kemet_get_css_value( ( 100 - $image_width['value'] ) - 3, '%' ),
 				),
 				'.woocommerce .woocommerce-message .button ,.woocommerce-info .button, .woocommerce-info a' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'ul.product_list_widget li ins .amount , ul.product_list_widget li > .amount' => array(
 					'color' => 'var(--themeColor)',
@@ -1037,7 +1036,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => 'var(--themeColor)',
 				),
 				'.woocommerce .woocommerce-message .button' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.woocommerce .woocommerce-message .button:hover' => array(
 					'color' => 'var(--themeColor)',
@@ -1071,24 +1070,24 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border' => 'none',
 				),
 				'.added_to_cart'                         => array(
-					'background-color'    => 'var(--buttonBackgroundColor)',
-					'--headingLinksColor' => 'var(--buttonColor)',
+					'background-color' => 'var(--buttonBackgroundColor)',
+					'--linksColor'     => 'var(--buttonColor)',
 				),
 				'.shop-grid .added_to_cart'              => array(
-					'--headingLinksColor' => 'var(--textColor)',
+					'--linksColor' => 'var(--textColor)',
 				),
 				'.added_to_cart:hover, .added_to_cart:focus' => array(
 					'background-color'  => 'var(--buttonBackgroundHoverColor)',
 					'--linksHoverColor' => 'var(--buttonHoverColor, var(--buttonColor))',
 				),
 				'.shop-grid ul.products li.product .button , .shop-grid ul.products li.product .added_to_cart' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.shop-grid ul.products li.product .button:hover , .woocommerce-info .button:hover, .woocommerce-info a:hover, .shop-grid ul.products li.product .added_to_cart:hover' => array(
 					'color' => 'var(--themeColor)',
 				),
 				'.single-product .product a.compare.button, .woocommerce .widget_shopping_cart a:not(.button)' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.widget_shopping_cart'                  => array(
 					'color' => 'var(--textColor)',
@@ -1106,7 +1105,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'border-top-color' => 'var(--borderColor)',
 				),
 				'.woocommerce-message::before,.woocommerce-info::before' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.woocommerce div.product p.price, .woocommerce div.product span.price, .widget_layered_nav_filters ul li.chosen a, .woocommerce-page ul.products li.product .kmt-woo-product-category, .wc-layered-nav-rating a' => array(
 					'color' => 'var(--textColor)',
@@ -1133,17 +1132,17 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => 'var(--themeColor)',
 				),
 				'.woocommerce div.product .woocommerce-tabs ul.tabs li.active:before' => array(
-					'background' => 'var(--headingLinksColor)',
+					'background' => 'var(--linksColor)',
 				),
 
 				/**
 				 * Cart in menu
 				 */
 				'.kmt-site-header-cart .widget_shopping_cart .total .woocommerce-Price-amount' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.woocommerce a.remove, .woocommerce-page a.remove' => array(
-					'color'        => 'var(--headingLinksColor)',
+					'color'        => 'var(--linksColor)',
 					'border-color' => 'var(--borderColor)',
 				),
 				'.woocommerce a.remove:hover, .woocommerce-page a.remove:hover' => array(
@@ -1160,8 +1159,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => 'var(--themeColor)',
 				),
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
-					'--headingLinksColor' => esc_attr( $product_title_font_color ),
-					'margin'              => kemet_responsive_spacing( $product_title_spacing, 'all', 'desktop' ),
+					'--headingColor' => esc_attr( $product_title_font_color ),
+					'margin'         => kemet_responsive_spacing( $product_title_spacing, 'all', 'desktop' ),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins' => array(
 					'color' => esc_attr( $product_price_font_color ),
@@ -1198,8 +1197,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 
 			$tablet_typography = array(
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
-					'--headingLinksColor' => esc_attr( $product_title_font_color ),
-					'margin'              => kemet_responsive_spacing( $product_title_spacing, 'all', 'tablet' ),
+					'--headingColor' => esc_attr( $product_title_font_color ),
+					'margin'         => kemet_responsive_spacing( $product_title_spacing, 'all', 'tablet' ),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price , ul.products li.product .price' => array(
 					'margin' => kemet_responsive_spacing( $product_price_spacing, 'all', 'tablet' ),
@@ -1213,8 +1212,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			$css_output       .= kemet_parse_css( $tablet_typography, '', '768' );
 			$mobile_typography = array(
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
-					'--headingLinksColor' => esc_attr( $product_title_font_color ),
-					'margin'              => kemet_responsive_spacing( $product_title_spacing, 'all', 'mobile' ),
+					'--headingColor' => esc_attr( $product_title_font_color ),
+					'margin'         => kemet_responsive_spacing( $product_title_spacing, 'all', 'mobile' ),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price , ul.products li.product .price' => array(
 					'margin' => kemet_responsive_spacing( $product_price_spacing, 'all', 'mobile' ),

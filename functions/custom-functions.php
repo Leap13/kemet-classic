@@ -1051,7 +1051,9 @@ function gutenberg_support() {
 
 	// Global Color.
 	$theme_color          = kemet_get_sub_option( 'theme-color', 'initial' );
-	$headings_links_color = kemet_get_sub_option( 'headings-links-color', 'initial' );
+	$headings_color       = kemet_get_sub_option( 'headings-color', 'initial' );
+	$global_links_color   = kemet_get_sub_option( 'links-color', 'initial' );
+	$global_links_h_color = kemet_get_sub_option( 'links-color', 'hover', $theme_color );
 	$text_meta_color      = kemet_get_sub_option( 'text-meta-color', 'initial' );
 	$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
 	$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
@@ -1071,8 +1073,18 @@ function gutenberg_support() {
 			),
 			array(
 				'name'  => __( 'Global Headings Color', 'kemet' ),
-				'slug'  => 'headings-links',
-				'color' => $headings_links_color,
+				'slug'  => 'headings',
+				'color' => $headings_color,
+			),
+			array(
+				'name'  => __( 'Global Links Color', 'kemet' ),
+				'slug'  => 'links',
+				'color' => $global_links_color,
+			),
+			array(
+				'name'  => __( 'Global Links Hover Color', 'kemet' ),
+				'slug'  => 'links-hover',
+				'color' => $global_links_h_color,
 			),
 			array(
 				'name'  => __( 'Global Text Color', 'kemet' ),

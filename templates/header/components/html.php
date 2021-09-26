@@ -13,7 +13,8 @@ $html = wp_parse_args(
 );
 $html = $html['type'];
 ?>
-<div class="kmt-header-item kmt-<?php echo esc_attr( $html ); ?>-item">
+<div class="kmt-header-item kmt-<?php echo esc_attr( $html ); ?>-item builder-item-focus" data-section="section-<?php echo esc_attr( $html ); ?>">
+	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**
 	 * Kemet Header Html

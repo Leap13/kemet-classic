@@ -26,7 +26,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 
 			// Global colors.
 			$theme_color          = kemet_get_sub_option( 'theme-color', 'initial' );
-			$headings_links_color = kemet_get_sub_option( 'headings-links-color', 'initial' );
+			$headings_color       = kemet_get_sub_option( 'headings-color', 'initial' );
+			$global_links_color   = kemet_get_sub_option( 'links-color', 'initial' );
+			$global_links_h_color = kemet_get_sub_option( 'links-color', 'hover', $theme_color );
 			$text_meta_color      = kemet_get_sub_option( 'text-meta-color', 'initial' );
 			$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
 			$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
@@ -49,7 +51,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			);
 			$box_bg_obj           = kemet_get_option( 'site-layout-outside-bg-obj', array( 'background-color' => $global_bg_color ) );
 			$content_text_color   = kemet_get_sub_option( 'content-text-color', 'initial', $text_meta_color );
-			$content_link_color   = kemet_get_sub_option( 'content-link-color', 'initial', $headings_links_color );
+			$content_link_color   = kemet_get_sub_option( 'content-link-color', 'initial', $global_links_color );
 			$content_link_h_color = kemet_get_sub_option( 'content-link-color', 'hover', $theme_color );
 			// Headings.
 			$single_post_title_font_size = kemet_get_option( 'font-size-entry-title' );
@@ -123,8 +125,9 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				':root'                                   => array(
 					'--themeColor'                 => esc_attr( $theme_color ),
 					'--textColor'                  => esc_attr( $text_meta_color ),
-					'--headingLinksColor'          => esc_attr( $headings_links_color ),
-					'--linksHoverColor'            => 'var(--themeColor)',
+					'--headingColor'               => esc_attr( $headings_color ),
+					'--linksColor'                 => esc_attr( $global_links_color ),
+					'--linksHoverColor'            => esc_attr( $global_links_h_color ),
 					'--borderColor'                => esc_attr( $global_border_color ),
 					'--globalBackgroundColor'      => esc_attr( $global_bg_color ),
 					'--buttonColor'                => esc_attr( $btn_text_color ),
@@ -179,10 +182,10 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'--padding'        => kemet_responsive_spacing( $input_spacing, 'all', 'desktop' ),
 				),
 				'.edit-post-visual-editor .block-editor-block-list__block a' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.edit-post-visual-editor blockquote a, .edit-post-visual-editor blockquote.block-editor-block-list__block a, .wp-block-freeform.block-library-rich-text__tinymce blockquote a' => array(
-					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
+					'color' => esc_attr( kemet_color_brightness( $global_links_color, 0.75, 'darken' ) ),
 				),
 				'.edit-post-visual-editor blockquote a:hover, .edit-post-visual-editor blockquote.block-editor-block-list__block a:hover, .wp-block-freeform.block-library-rich-text__tinymce blockquote a:hover' => array(
 					'color' => 'var(--themeColor)',
@@ -217,8 +220,8 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				$blocks_parent . ' hr'                    => array(
 					'border'           => esc_attr( 'none' ),
 					'border-bottom'    => esc_attr( '2px solid' ),
-					'border-color'     => 'var(--headingLinksColor)',
-					'background-color' => 'var(--headingLinksColor)',
+					'border-color'     => 'var(--headingColor)',
+					'background-color' => 'var(--headingColor)',
 				),
 				$blocks_parent . ' hr.is-style-wide'      => array(
 					'border-bottom-width' => esc_attr( '1px' ),
@@ -310,7 +313,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote code' => array(
 					'font'  => kemet_get_css_value( '15px Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
-					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
+					'color' => esc_attr( kemet_color_brightness( $global_links_color, 0.75, 'darken' ) ),
 				),
 				'.wp-block-freeform.block-library-rich-text__tinymce blockquote code, ' . $blocks_parent . ' code' => array(
 					'font-family' => kemet_get_css_value( 'Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace', 'font' ),
@@ -322,14 +325,14 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				 * Content base heading color.
 				 */
 				'.editor-post-title__block .editor-post-title__input, .wc-block-grid__product-title, .edit-post-visual-editor .block-editor-block-list__block h1, .edit-post-visual-editor .block-editor-block-list__block h2, .edit-post-visual-editor .block-editor-block-list__block h3, .edit-post-visual-editor .block-editor-block-list__block h4, .edit-post-visual-editor .block-editor-block-list__block h5, .edit-post-visual-editor .block-editor-block-list__block h6, .edit-post-visual-editor .wp-block-heading, .editor-post-title__block .editor-post-title__input' => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--headingColor)',
 				),
 				// Blockquote Text Color.
 				'.edit-post-visual-editor blockquote'     => array(
-					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
+					'color' => esc_attr( kemet_color_brightness( $global_links_color, 0.75, 'darken' ) ),
 				),
 				'.edit-post-visual-editor blockquote .editor-rich-text__tinymce a, .edit-post-visual-editor blockquote a, .edit-post-visual-editor blockquote p' => array(
-					'color' => esc_attr( kemet_color_brightness( $headings_links_color, 0.75, 'darken' ) ),
+					'color' => esc_attr( kemet_color_brightness( $global_links_color, 0.75, 'darken' ) ),
 				),
 				$blocks_parent . ' .wp-block-pullquote p' => array(
 					'font-size'     => esc_attr( '1.75em' ),
@@ -392,7 +395,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				 * WooCommerce Grid Products compatibility.
 				 */
 				'.wc-block-grid__product-title'           => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--headingColor)',
 				),
 				'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale' => array(
 					'background-color' => 'var(--themeColor)',

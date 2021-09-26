@@ -706,7 +706,7 @@ function toggle_button_css(buttons) {
     });
     wp.customize(settingName(prefix + "-label"), function (setting) {
       setting.bind(function (label) {
-        jQuery(selector + '.kmt-popup-label').text(label);
+        jQuery(selector + ' .kmt-popup-label').text(label);
       });
     });
     wp.customize(settingName(prefix + "-float-position"), function (value) {
@@ -1009,6 +1009,27 @@ function kemet_change_attr(control, selector, attr) {
 }
 
 (function ($) {
+  wp.customize.bind('preview-ready', function () {
+    setTimeout(() => {
+      $('.customize-partial-edit-shortcut:not(.kmt-custom-partial-edit-shortcut):not(.kmt-custom-partial-edit)').remove();
+    }, 0)
+    var defaultTarget = window.parent === window ? null : window.parent;
+    $(document).on(
+      'click',
+      '.site-builder-focus-item .item-customizer-focus, .builder-item-focus .edit-buidler-item',
+      function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var item = $(this).hasClass('item-customizer-focus') ? $(this).parents('.site-builder-focus-item') : $(this).parents('.builder-item-focus');
+        var section_id = item.attr('data-section') || '';
+        if (section_id) {
+          if (defaultTarget.wp.customize.section(section_id)) {
+            defaultTarget.wp.customize.section(section_id).focus();
+          }
+        }
+      }
+    );
+  });
   // Trigger.
   wp.customize.bind("preview-ready", function () {
     wp.customize.selectiveRefresh.bind(

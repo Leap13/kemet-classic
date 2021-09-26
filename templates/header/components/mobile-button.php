@@ -13,7 +13,8 @@ $button = wp_parse_args(
 );
 $button = $button['type'];
 ?>
-<div class="kmt-header-item kmt-mobile-button-item">
+<div class="kmt-header-item kmt-mobile-button-item builder-item-focus" data-section="section-mobile-toggle-button">
+	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**
 	 * Kemet Header Button

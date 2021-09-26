@@ -30,7 +30,8 @@ $bar_classes = apply_filters( 'kemet_header_' . $row . '_row_classes', array_map
 $layout = kemet_get_option( $row . '-header-layout' );
 ?>
 
-<div class="kmt-<?php echo esc_attr( $row ); ?>-header-wrap">
+<div class="kmt-<?php echo esc_attr( $row ); ?>-header-wrap site-builder-focus-item" data-section="section-<?php echo esc_attr( $row ); ?>-header-builder">
+	<?php Kemet_Builder_Helper::customizer_row_edit_link(); ?>
 	<div class="<?php echo esc_attr( $row ); ?>-header-bar <?php echo esc_attr( join( ' ', $bar_classes ) ); ?>">
 		<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap kmt-builder-grid-row-container kmt-container section-header-<?php echo esc_attr( $row ); ?>">
 			<div class="<?php echo esc_attr( $row ); ?>-header-inner<?php echo ( 'stretched' === $layout || 'boxed' === $layout ) ? ' header-bar-content' : ''; ?>">

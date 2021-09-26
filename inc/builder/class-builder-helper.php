@@ -150,6 +150,32 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 		}
 
 		/**
+		 * If in customizer output the editlink.
+		 */
+		public static function customizer_edit_link() {
+			if ( is_customize_preview() ) {
+				?>
+				<div class="customize-partial-edit-shortcut kmt-custom-partial-edit">
+					<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'kemet' ); ?>" title="<?php esc_attr_e( 'Click to edit this element.', 'kemet' ); ?>" class="customize-partial-edit-shortcut-button edit-buidler-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path></svg></button>
+				</div>
+				<?php
+			}
+		}
+
+		/**
+		 * If in customizer output the editlink.
+		 */
+		public static function customizer_row_edit_link() {
+			if ( is_customize_preview() ) {
+				?>
+				<div class="customize-partial-edit-shortcut kmt-custom-partial-edit-shortcut">
+					<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'kemet' ); ?>" title="<?php esc_attr_e( 'Click to edit this element.', 'kemet' ); ?>" class="customize-partial-edit-shortcut-button item-customizer-focus"><?php echo esc_html__( 'Edit', 'kemet' ); ?></button>
+				</div>
+				<?php
+			}
+		}
+
+		/**
 		 * Get custom HTML added by user.
 		 *
 		 * @param  string $option_name Option name.
@@ -162,7 +188,7 @@ if ( ! class_exists( 'Kemet_Builder_Helper' ) ) :
 			if ( ! empty( $custom_html_content ) ) {
 				$custom_html .= do_shortcode( $custom_html_content );
 			} elseif ( current_user_can( 'edit_theme_options' ) ) {
-				$custom_html .= '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . KEMET_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kemet' ) . '</a>';
+				$custom_html .= '<span>' . __( 'Add Custom HTML', 'kemet' ) . '</span>';
 			}
 			$custom_html .= '</div>';
 

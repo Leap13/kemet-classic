@@ -26,7 +26,8 @@ $zone        = 0;
 ?>
 
 <div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div class="kmt-builder-grid-row-container-inner">
+	<div class="kmt-builder-grid-row-container-inner site-builder-focus-item" data-section="section-<?php echo esc_attr( $row ); ?>-footer-builder">
+		<?php Kemet_Builder_Helper::customizer_row_edit_link(); ?>
 		<div class="kmt-container">
 			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap kmt-grid-row <?php echo esc_attr( implode( ' ', $row_classes ) ); ?>">
 				<?php while ( $zone++ < $columns ) { ?>

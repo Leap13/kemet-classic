@@ -303,7 +303,11 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'theme-color'                          => array( 'initial' => 'var(--paletteColor1)' ),
-					'headings-links-color'                 => array( 'initial' => 'var(--paletteColor2)' ),
+					'headings-color'                       => array( 'initial' => 'var(--paletteColor2)' ),
+					'links-color'                          => array(
+						'initial' => 'var(--paletteColor2)',
+						'hover'   => 'var(--paletteColor1)',
+					),
 					'text-meta-color'                      => array( 'initial' => 'var(--paletteColor3)' ),
 					'global-border-color'                  => array( 'initial' => 'var(--paletteColor4)' ),
 					'global-background-color'              => array( 'initial' => 'var(--paletteColor5)' ),

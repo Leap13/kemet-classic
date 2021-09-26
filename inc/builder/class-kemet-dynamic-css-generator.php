@@ -189,17 +189,11 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$btn_selector . '[data-label="right"]' => array(
 						'flex-direction' => 'row-reverse',
 					),
-					$btn_selector . '[data-label="bottom"]' => array(
-						'flex-direction' => 'column',
-					),
 					$btn_selector . '[data-label="right"] .kmt-popup-label' => array(
 						'margin-left' => '5px',
 					),
 					$btn_selector . '[data-label="left"] .kmt-popup-label' => array(
 						'margin-right' => '5px',
-					),
-					$btn_selector . '[data-label="bottom"] .kmt-popup-label' => array(
-						'margin-top' => '5px',
 					),
 					$btn_selector . ' .kmt-popup-label'    => array(
 						'--textTransform' => 'uppercase',

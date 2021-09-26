@@ -101,11 +101,10 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								),
 							),
 							self::$prefix . '-label-visibility' => array(
-								'label'     => __( 'Label Visibility', 'Kemet' ),
-								'type'      => 'kmt-visibility',
-								'divider'   => true,
-								'transport' => 'postMessage',
-								'choices'   => array(
+								'label'   => __( 'Label Visibility', 'Kemet' ),
+								'type'    => 'kmt-visibility',
+								'divider' => true,
+								'choices' => array(
 									'desktop' => __( 'Desktop', 'kemet' ),
 									'tablet'  => __( 'Tablet', 'kemet' ),
 									'mobile'  => __( 'Mobile', 'kemet' ),
@@ -116,9 +115,8 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								'transport' => 'postMessage',
 								'label'     => __( 'Label Position', 'kemet' ),
 								'choices'   => array(
-									'left'   => __( 'Left', 'kemet' ),
-									'right'  => __( 'Right', 'kemet' ),
-									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'  => __( 'Left', 'kemet' ),
+									'right' => __( 'Right', 'kemet' ),
 								),
 								'preview'   => array(
 									'selector' => $selector,

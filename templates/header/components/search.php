@@ -6,7 +6,8 @@
  */
 
 ?>
-<div class="kmt-header-item kmt-header-item-search">
+<div class="kmt-header-item kmt-header-item-search builder-item-focus" data-section="section-header-search">
+	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**
 	 * Kemet Header Search
