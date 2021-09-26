@@ -20,7 +20,7 @@ const PalettePreview = ({
 			)
 		}
 	}
-	const hundleChangeColor = (color, optionId) => {
+	const handleChangeColor = (color, optionId) => {
 		let newColor;
 		if (typeof color === 'string') {
 			newColor = color;
@@ -50,11 +50,11 @@ const PalettePreview = ({
 				onClick()
 			}}>
 			{renderBefore()}
-			<div className={`kmt-color-pallet-container`}>
+			<div className={`kmt-color-palette-container`}>
 				{pickers.map((picker) => (
 					<ColorComponent
 						picker={picker}
-						onChangeComplete={(color, id) => hundleChangeColor(color, picker[`id`])}
+						onChangeComplete={(color, id) => handleChangeColor(color, picker[`id`])}
 						value={currentPalette}
 						predefined={true}
 						className={'kmt-color-palette-modal'}

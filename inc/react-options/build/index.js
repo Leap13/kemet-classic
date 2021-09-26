@@ -13753,7 +13753,7 @@ var PalettePreview = function PalettePreview(_ref) {
     }
   }
 
-  var hundleChangeColor = function hundleChangeColor(color, optionId) {
+  var handleChangeColor = function handleChangeColor(color, optionId) {
     var newColor;
 
     if (typeof color === 'string') {
@@ -13785,12 +13785,12 @@ var PalettePreview = function PalettePreview(_ref) {
       _onClick();
     }
   }, renderBefore(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "kmt-color-pallet-container"
+    className: "kmt-color-palette-container"
   }, pickers.map(function (picker) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_2__["default"], {
       picker: picker,
       onChangeComplete: function onChangeComplete(color, id) {
-        return hundleChangeColor(color, picker["id"]);
+        return handleChangeColor(color, picker["id"]);
       },
       value: currentPalette,
       predefined: true,

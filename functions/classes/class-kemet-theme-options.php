@@ -209,7 +209,6 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'letter-spacing-entry-title'           => '',
 					'page-title-font-family'               => 'inherit',
 					// Kemet Colors.
-					// Kemet Colors.
 					'colorPalette'                         => array(
 						'color1'          => '#0085ba',
 						'color2'          => '#333333',
