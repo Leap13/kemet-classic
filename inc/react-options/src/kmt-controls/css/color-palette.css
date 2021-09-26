@@ -79,14 +79,14 @@
   border: none;
   background: transparent;
 }
-.kmt-palettes-preview:after {
+.kmt-palettes-preview span.kmt-button-open-palette::before {
   font-family: "dashicons";
   content: "\f347";
   font-size: 12px;
   opacity: 0.5;
   transition: opacity 0.15s ease;
 }
-.kmt-palettes-preview:hover:after {
+.kmt-palettes-preview span.kmt-button-open-palette:hover::before {
   opacity: 1;
 }
 .kmt-palettes-modal {
@@ -770,4 +770,17 @@
 }
 .kmt-color-palette-container {
   display: flex;
+}
+.kmt-button-palette {
+  display: block;
+  width: 85%;
+  margin: 10px 0px;
+  padding: 10px 8px;
+  cursor: pointer;
+}
+.kmt-Palette-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 12px;
 }

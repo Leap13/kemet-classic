@@ -51,7 +51,6 @@
 .kmt-typography header .kmt-btn-reset-wrap {
   position: absolute;
   left: 0;
-  top: 2px;
 }
 .kmt-typography:hover header .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
   opacity: 1;

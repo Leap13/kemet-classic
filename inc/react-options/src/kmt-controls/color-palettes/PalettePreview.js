@@ -14,11 +14,7 @@ const PalettePreview = ({
 	if (!currentPalette) {
 		currentPalette = value
 
-		if (value.palettes) {
-			currentPalette = value.palettes.find(
-				({ id }) => id === value.current_palette
-			)
-		}
+
 	}
 	const handleChangeColor = (color, optionId) => {
 		let newColor;

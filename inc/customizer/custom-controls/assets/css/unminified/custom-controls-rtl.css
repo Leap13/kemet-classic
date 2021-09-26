@@ -90,7 +90,7 @@
 	box-shadow: none;
 }
 
-.kmt-palettes-preview:after {
+.kmt-palettes-preview span.kmt-button-open-palette::before {
 	opacity: 0.5;
 	font-family: "dashicons";
 	font-size: 12px;
@@ -98,7 +98,7 @@
 	transition: opacity 0.15s ease;
 }
 
-.kmt-palettes-preview:hover:after {
+.kmt-palettes-preview span.kmt-button-open-palette:hover::before {
 	opacity: 1;
 }
 
@@ -912,6 +912,22 @@
 	display: flex;
 }
 
+.kmt-button-palette {
+	display: block;
+	width: 85%;
+	margin: 10px 0;
+	padding: 10px 8px;
+	cursor: pointer;
+}
+
+.kmt-Palette-title-container {
+	display: flex;
+	padding: 16px 12px;
+
+	align-items: baseline;
+	justify-content: space-between;
+}
+
 #customize-theme-controls
   ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
 	height: 100%;
@@ -1002,6 +1018,7 @@
 	position: relative;
 
 	align-items: center;
+	justify-content: center;
 }
 
 .components-circular-option-picker {
@@ -1430,7 +1447,6 @@
 	width: 34px;
 	height: 29px;
 	min-height: initial;
-	margin-top: 4px !important;
 	padding: 0;
 	border: none;
 	border-radius: 0;
@@ -1453,6 +1469,7 @@
 
 .kmt-background-btn-reset-wrap {
 	position: absolute;
+	top: calc(50% - 10px);
 	right: 0;
 }
 
@@ -7973,7 +7990,7 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
 	position: absolute;
-	top: 2px;
+	top: calc(50% - 10px);
 	right: 0;
 }
 
@@ -9435,7 +9452,6 @@ input[type="checkbox"]:focus {
 
 .kmt-typography header .kmt-btn-reset-wrap {
 	position: absolute;
-	top: 2px;
 	right: 0;
 }
 

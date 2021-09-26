@@ -52,13 +52,14 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( "Main menu links, and all other body links.", 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
-						'id'    => 'initial',
-					),
-					array(
 						'title' => __( 'Hover', 'kemet' ),
 						'id'    => 'hover',
 					),
+					array(
+						'title' => __( 'Color', 'kemet' ),
+						'id'    => 'initial',
+					)
+					
 				),
 			),
 			'text-meta-color'          => array(

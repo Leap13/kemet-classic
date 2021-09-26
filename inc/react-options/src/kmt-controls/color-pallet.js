@@ -1,11 +1,11 @@
 import { createPortal, useRef, useState } from '@wordpress/element'
 import PalettePreview from './color-palettes/PalettePreview'
+import AddPaletteContainer from './color-palettes/AddPaletteContainer'
 import ColorPalettesModal from './color-palettes/ColorPalettesModal'
 import usePopoverMaker from '../common/popover-component'
 import OutsideClickHandler from '../common/outside-component'
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
-const { __ } = wp.i18n;
 
 const ColorPalettes = ({ value, onChange, params }) => {
     const [state, setState] = useState(value)
@@ -54,19 +54,19 @@ const ColorPalettes = ({ value, onChange, params }) => {
     }
 
     const handleChangeComplete = (color, index) => {
-        let currentPalette = state.palettes.find(
-            ({ id }) => id === state.current_palette
-        )
-        let newValue = currentPalette;
+
+        let newValue = { ...state };
         newValue[index] = color;
-        let { id, ...colors } = newValue;
-        Object.values(newValue).map((item, index) => {
-            document.documentElement.style.setProperty('--paletteColor' + index, item);
+        let { current_palette, palettes, ...colors } = newValue;
+        Object.values(colors).map((item, index) => {
+            document.documentElement.style.setProperty(`--paletteColor${index + 1}`, item);
             return item;
         });
-        setState({ ...state, current_palette: id, ...colors });
-        onChange({ ...state, current_palette: id, ...colors, flag: !value.flag })
+        setState({ ...state, ...colors, current_palette, palettes });
+        onChange({ ...state, ...colors, flag: !value.flag, current_palette, palettes })
     }
+
+    const [currentView, setCurrentView] = useState('modal')
 
     return (
         <div>
@@ -89,10 +89,18 @@ const ColorPalettes = ({ value, onChange, params }) => {
             <OutsideClickHandler
                 disabled={!isOpen}
                 useCapture={false}
-                className="kmt-palettes-preview"
+                className="kmt-palettes-outside"
                 additionalRefs={[popoverProps.ref]}
-                onOutsideClick={() => {
-                    setIsOpen(false)
+                onOutsideClick={(e) => {
+                    if (
+                        e.target.closest('.kmt-color-picker-modal') ||
+                        e.target.classList.contains('kmt-color-picker-modal')
+                    ) {
+                        return
+                    } else {
+                        setIsOpen(false)
+                    }
+
                 }}
                 wrapperProps={{
                     ref: colorPalettesWrapper,
@@ -107,20 +115,33 @@ const ColorPalettes = ({ value, onChange, params }) => {
                         if (!state.palettes) {
                             return
                         }
-                        setIsOpen(true)
+                        setIsOpen(false)
+
                     },
                 }}>
-                <PalettePreview
-                    onClick={() => {
-                        if (!state.palettes) {
-                            return
-                        }
-                        setIsOpen(false)
-                    }}
-                    value={state}
-                    onChange={(v, id) => handleChangeComplete(v, id)}
-                    skipModal={false}
-                />
+                <div className={`kmt-palettes-preview`}>
+                    <PalettePreview
+                        onClick={() => {
+                            if (!state.palettes) {
+                                return
+                            }
+                            setIsOpen(false)
+
+                        }}
+                        value={state}
+                        onChange={(v, id) => handleChangeComplete(v, id)}
+                        skipModal={true}
+                    />
+                    <span
+                        className={`kmt-button-open-palette`}
+                        onClick={e => {
+                            e.preventDefault();
+                            setIsOpen(true)
+                            setCurrentView("modal")
+                        }}></span>
+                </div>
+
+
             </OutsideClickHandler>
 
             {
@@ -167,8 +188,28 @@ const ColorPalettes = ({ value, onChange, params }) => {
                             if (!item) {
                                 return null
                             }
-                            return (
-                                <ColorPalettesModal
+                            if (currentView === "add") {
+
+                                return <AddPaletteContainer
+                                    wrapperProps={{
+                                        style: {
+                                            ...style,
+                                            ...styles,
+                                        },
+                                        ...popoverProps,
+                                    }}
+                                    onChange={(val, id) => {
+
+
+                                        handleChangeComplete(val, id)
+                                    }}
+                                    value={state}
+                                    option={state}
+
+
+                                />
+                            } else {
+                                return <ColorPalettesModal
                                     wrapperProps={{
                                         style: {
                                             ...style,
@@ -183,12 +224,21 @@ const ColorPalettes = ({ value, onChange, params }) => {
                                     value={state}
                                     option={state}
                                 />
-                            )
+                            }
+
+
+
                         }}
                     </Transition>,
                     document.body
                 )
             }
+            <button className={`kmt-button-palette`} onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                setCurrentView('add')
+                setIsOpen(true)
+            }} > Create New Palette</button>
         </div >
     )
 }
