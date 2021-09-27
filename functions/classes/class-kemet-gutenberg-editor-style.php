@@ -457,7 +457,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
 					'--borderColor'      => esc_attr( $btn_border_color ),
-					'--borderWidth'      => kemet_slider( $btn_border_size ),
+					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 				),
 				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus, ' . $blocks_parent . ' .button:hover, ' . $blocks_parent . ' input[type=reset]:hover' => array(
@@ -619,7 +619,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 			$woo_global_button_css = array(
 				'.editor-styles-wrapper .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'border-color' => esc_attr( $btn_border_color ),
-					'border-width' => kemet_slider( $btn_border_size ),
+					'border-width' => kemet_spacing( $btn_border_size, 'all' ),
 				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover' => array(
 					'border-color' => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',

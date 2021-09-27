@@ -326,7 +326,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 					'button-text-color'                    => '',
 					'button-bg-color'                      => '',
 					'btn-border-color'                     => '',
-					'btn-border-size'                      => 0,
+					'btn-border-size'                      => '',
 					'button-radius'                        => '',
 					'button-spacing'                       => '',
 					'input-bg-color'                       => '',

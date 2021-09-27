@@ -96,7 +96,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Text Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(
@@ -121,7 +121,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Background Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(
@@ -140,13 +140,14 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 								),
-								$prefix . '-radius'       => array(
+								$prefix . '-border-width' => array(
 									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
-									'divider'        => true,
-									'label'          => __( 'Border Radius', 'kemet' ),
 									'linked_choices' => true,
-									'unit_choices'   => array( 'px', 'em', '%' ),
+									'divider'        => true,
+									'responsive'     => false,
+									'label'          => __( 'Border Size', 'kemet' ),
+									'unit_choices'   => array( 'px', 'em' ),
 									'choices'        => array(
 										'top'    => __( 'Top', 'kemet' ),
 										'right'  => __( 'Right', 'kemet' ),
@@ -155,24 +156,8 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									),
 									'preview'        => array(
 										'selector' => $selector,
-										'property' => '--borderRadius',
-										'sides'    => false,
-									),
-								),
-								$prefix . '-border-width' => array(
-									'type'         => 'kmt-slider',
-									'transport'    => 'postMessage',
-									'label'        => __( 'Border Size', 'kemet' ),
-									'unit_choices' => array(
-										'px' => array(
-											'min'  => 0,
-											'step' => 1,
-											'max'  => 50,
-										),
-									),
-									'preview'      => array(
-										'selector' => $selector,
 										'property' => '--borderWidth',
+										'sides'    => false,
 									),
 								),
 								$prefix . '-border-color' => array(
@@ -181,7 +166,7 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Border Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(
@@ -198,6 +183,24 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 											'selector' => $selector,
 											'property' => '--borderHoverColor',
 										),
+									),
+								),
+								$prefix . '-radius'       => array(
+									'type'           => 'kmt-spacing',
+									'transport'      => 'postMessage',
+									'label'          => __( 'Border Radius', 'kemet' ),
+									'linked_choices' => true,
+									'unit_choices'   => array( 'px', 'em', '%' ),
+									'choices'        => array(
+										'top'    => __( 'Top', 'kemet' ),
+										'right'  => __( 'Right', 'kemet' ),
+										'bottom' => __( 'Bottom', 'kemet' ),
+										'left'   => __( 'Left', 'kemet' ),
+									),
+									'preview'        => array(
+										'selector' => $selector,
+										'property' => '--borderRadius',
+										'sides'    => false,
 									),
 								),
 								$prefix . '-padding'      => array(
@@ -222,7 +225,6 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-margin'       => array(
 									'type'           => 'kmt-spacing',
 									'transport'      => 'postMessage',
-									'divider'        => true,
 									'label'          => __( 'Margin', 'kemet' ),
 									'linked_choices' => true,
 									'unit_choices'   => array( 'px', 'em', '%' ),

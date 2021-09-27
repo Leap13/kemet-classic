@@ -503,7 +503,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonBackgroundColor'      => esc_attr( $footer_button_bg_color ),
 					'--borderColor'                => esc_attr( $footer_button_border_color ),
 					'--buttonBorderRadius'         => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'desktop' ),
-					'--borderWidth'                => kemet_responsive_slider( $footer_button_border_width, 'desktop' ),
+					'--borderWidth'                => kemet_spacing( $footer_button_border_width, 'all' ),
 					'--buttonHoverColor'           => esc_attr( $footer_button_hover_color ),
 					'--buttonBackgroundHoverColor' => esc_attr( $footer_button_bg_h_color ),
 					'--borderHoverColor'           => esc_attr( $footer_button_border_h_color ),
@@ -540,7 +540,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderRadius'     => kemet_responsive_spacing( $btn_border_radius, 'all', 'desktop' ),
 					'--borderStyle'      => 'solid',
 					'--borderColor'      => esc_attr( $btn_border_color ),
-					'--borderWidth'      => kemet_slider( $btn_border_size ),
+					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 					'--buttonShadow'     => $btn_effect ? '2px 2px 10px -3px var(--buttonBackgroundColor)' : 'none',
 				),
@@ -884,7 +884,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Main Footer.
 				'.site-footer button, .site-footer .button, .site-footer a.button, .site-footer a.button:hover, .site-footer .kmt-button,.site-footer .button, .site-footer .button, .site-footer input#submit, .site-footer input[type=button], .site-footer input[type=submit], .site-footer input[type=reset]' => array(
 					'--buttonBorderRadius' => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'tablet' ),
-					'--borderWidth'        => kemet_responsive_slider( $footer_button_border_width, 'tablet' ),
 				),
 				'.site-content .kmt-pagination' => array(
 					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'tablet' ),
@@ -965,7 +964,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				// Main Footer.
 				'.site-footer button, .site-footer .button, .site-footer a.button, .site-footer a.button:hover, .site-footer .kmt-button,.site-footer .button, .site-footer .button, .site-footer input#submit, .site-footer input[type=button], .site-footer input[type=submit], .site-footer input[type=reset]' => array(
 					'--buttonBorderRadius' => kemet_responsive_spacing( $footer_button_border_radius, 'all', 'mobile' ),
-					'--buttonBorderWidth'  => kemet_responsive_slider( $footer_button_border_width, 'mobile' ),
 				),
 				'.kmt-single-post entry-header .entry-title, .page-title' => array(
 					'--fontSize'      => kemet_responsive_slider( $single_post_title_font_size, 'mobile' ),

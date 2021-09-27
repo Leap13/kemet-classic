@@ -145,7 +145,8 @@ if ( ! function_exists( 'kemet_spacing' ) ) {
 		if ( 'all' === $side && isset( $option['value'] ) ) {
 			$side_spacing = $option['value'];
 			$unit         = $option['unit'];
-			if ( array_filter( $side_spacing ) ) {
+
+			if ( is_array( $side_spacing ) && ! empty( $side_spacing ) ) {
 				array_walk(
 					$side_spacing,
 					function( &$value, $key, $unit ) {

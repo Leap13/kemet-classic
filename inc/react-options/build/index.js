@@ -14485,8 +14485,8 @@ var EditorComponent = function EditorComponent(props) {
     window.wp.oldEditor.initialize(editorId, {
       tinymce: {
         wpautop: true,
-        toolbar1: 'bold,italic,bullist,numlist,link',
-        toolbar2: ''
+        toolbar1: 'formatselect,styleselect,bold,italic,bullist,numlist,link,alignleft,aligncenter,alignright,wp_adv',
+        toolbar2: 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help'
       },
       quicktags: true,
       mediaButtons: true

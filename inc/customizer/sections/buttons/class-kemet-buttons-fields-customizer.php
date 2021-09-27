@@ -64,7 +64,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -90,7 +90,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'section'   => 'section-buttons-fields',
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -109,14 +109,14 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'button-radius'      => array(
+							'btn-border-size'    => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
-								'responsive'     => true,
-								'divider'        => true,
-								'label'          => __( 'Border Radius', 'kemet' ),
 								'linked_choices' => true,
-								'unit_choices'   => array( 'px', 'em', '%' ),
+								'divider'        => true,
+								'responsive'     => false,
+								'label'          => __( 'Border Size', 'kemet' ),
+								'unit_choices'   => array( 'px', 'em' ),
 								'choices'        => array(
 									'top'    => __( 'Top', 'kemet' ),
 									'right'  => __( 'Right', 'kemet' ),
@@ -124,26 +124,9 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 									'left'   => __( 'Left', 'kemet' ),
 								),
 								'preview'        => array(
-									'selector'   => $btn_selector,
-									'property'   => '--borderRadius',
-									'sides'      => false,
-									'responsive' => true,
-								),
-							),
-							'btn-border-size'    => array(
-								'type'         => 'kmt-slider',
-								'transport'    => 'postMessage',
-								'label'        => __( 'Border Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 10,
-									),
-								),
-								'preview'      => array(
 									'selector' => $btn_selector,
 									'property' => '--borderWidth',
+									'sides'    => false,
 								),
 							),
 							'btn-border-color'   => array(
@@ -152,7 +135,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -169,6 +152,26 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 										'selector' => $btn_hover_selector,
 										'property' => '--borderHoverColor',
 									),
+								),
+							),
+							'button-radius'      => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'responsive'     => true,
+								'label'          => __( 'Border Radius', 'kemet' ),
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $btn_selector,
+									'property'   => '--borderRadius',
+									'sides'      => false,
+									'responsive' => true,
 								),
 							),
 							'button-spacing'     => array(
@@ -216,7 +219,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Text Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -241,7 +244,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Background Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -266,7 +269,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Label Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -329,7 +332,7 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Border Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(

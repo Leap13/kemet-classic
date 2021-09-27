@@ -44,7 +44,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 					$selector => array(
 						'--buttonColor'                => esc_attr( $color ),
 						'--buttonBackgroundColor'      => esc_attr( $bg_color ),
-						'--borderWidth'                => kemet_slider( $border_width ),
+						'--borderWidth'                => kemet_spacing( $border_width, 'all' ),
 						'--borderColor'                => esc_attr( $border_color ),
 						'--buttonHoverColor'           => esc_attr( $hover_color ),
 						'--buttonBackgroundHoverColor' => esc_attr( $hover_bg_color ),
@@ -112,18 +112,15 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$color            = kemet_get_sub_option( $html . '-color', 'initial' );
 				$link_color       = kemet_get_sub_option( $html . '-link-color', 'initial' );
 				$link_hover_color = kemet_get_sub_option( $html . '-link-color', 'hover' );
-				$font_size        = kemet_get_option( $html . '-font-size' );
-				$line_height      = kemet_get_option( $html . '-line-height' );
-				$letter_spacing   = kemet_get_option( $html . '-letter-spacing' );
+				$margin           = kemet_get_option( $html . '-spacing' );
 
 				$css_output = array(
 					$selector => array(
+						'margin'              => 'var(--margin)',
 						'--textColor'         => esc_attr( $color ),
 						'--headingLinksColor' => esc_attr( $link_color ),
 						'--linksHoverColor'   => esc_attr( $link_hover_color ),
-						'--fontSize'          => kemet_slider( $font_size ),
-						'--letterSpacing'     => kemet_slider( $letter_spacing ),
-						'--lineHeight'        => kemet_slider( $line_height ),
+						'--margin'            => kemet_spacing( $margin, 'all' ),
 					),
 				);
 

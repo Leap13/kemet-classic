@@ -71,42 +71,23 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'footer-button-radius'       => array(
-				'type'           => 'kmt-spacing',
-				'transport'      => 'postMessage',
-				'responsive'     => true,
-				'divider'        => true,
-				'label'          => __( 'Border Radius', 'kemet' ),
-				'linked_choices' => true,
-				'unit_choices'   => array( 'px', 'em', '%' ),
-				'choices'        => array(
+			'footer-button-border-width' => array(
+				'type'         => 'kmt-spacing',
+				'divider'      => true,
+				'responsive'   => false,
+				'transport'    => 'postMessage',
+				'label'        => __( 'Border Size', 'kemet' ),
+				'unit_choices' => array( 'px', 'em' ),
+				'choices'      => array(
 					'top'    => __( 'Top', 'kemet' ),
 					'right'  => __( 'Right', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
-				'preview'        => array(
-					'selector'   => $btn_selector,
-					'property'   => '--borderRadius',
-					'sides'      => false,
-					'responsive' => true,
-				),
-			),
-			'footer-button-border-width' => array(
-				'type'         => 'kmt-slider',
-				'divider'      => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Border Size', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 10,
-					),
-				),
 				'preview'      => array(
 					'selector' => $btn_selector,
 					'property' => '--borderWidth',
+					'sides'    => false,
 				),
 			),
 			'footer-button-border-color' => array(
@@ -132,6 +113,26 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 						'selector' => $btn_selector,
 						'property' => '--borderHoverColor',
 					),
+				),
+			),
+			'footer-button-radius'       => array(
+				'type'           => 'kmt-spacing',
+				'transport'      => 'postMessage',
+				'responsive'     => true,
+				'label'          => __( 'Border Radius', 'kemet' ),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'kemet' ),
+					'right'  => __( 'Right', 'kemet' ),
+					'bottom' => __( 'Bottom', 'kemet' ),
+					'left'   => __( 'Left', 'kemet' ),
+				),
+				'preview'        => array(
+					'selector'   => $btn_selector,
+					'property'   => '--borderRadius',
+					'sides'      => false,
+					'responsive' => true,
 				),
 			),
 		);
