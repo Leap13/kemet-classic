@@ -60,7 +60,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-input-width' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
-								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Search Box Width', 'kemet' ),
 								'unit_choices' => array(
@@ -78,7 +77,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 							),
 							self::$prefix . '-z-index'     => array(
 								'type'      => 'kmt-number',
-								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Search Box Z-index', 'kemet' ),
 								'min'       => 1,
