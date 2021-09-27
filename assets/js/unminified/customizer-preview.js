@@ -1016,11 +1016,11 @@ function kemet_change_attr(control, selector, attr) {
     var defaultTarget = window.parent === window ? null : window.parent;
     $(document).on(
       'click',
-      '.site-builder-focus-item .item-customizer-focus, .builder-item-focus .edit-buidler-item',
+      '.site-builder-focus-item .item-customizer-focus, .kmt-item-focus .edit-buidler-item',
       function (e) {
         e.preventDefault();
         e.stopPropagation();
-        var item = $(this).hasClass('item-customizer-focus') ? $(this).parents('.site-builder-focus-item') : $(this).parents('.builder-item-focus');
+        var item = $(this).hasClass('item-customizer-focus') ? $(this).parents('.site-builder-focus-item') : $(this).parents('.kmt-item-focus');
         var section_id = item.attr('data-section') || '';
         if (section_id) {
           if (defaultTarget.wp.customize.section(section_id)) {

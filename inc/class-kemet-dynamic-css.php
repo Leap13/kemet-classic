@@ -660,7 +660,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-content .kmt-pagination'         => array(
 					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'desktop' ),
 				),
-				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
+				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
 					'border-color' => esc_attr( $single_content_separator_color ),
 				),
 				'.comments-area'                        => array(
@@ -1108,6 +1108,53 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					),
 				);
 				$parse_css        .= kemet_parse_css( $widget_list_style );
+			}
+
+			// Preview
+			$customizer_preview_css = array(
+				'.kmt-custom-partial-edit-shortcut.customize-partial-edit-shortcut button' => array(
+					'visibility'            => 'hidden;',
+					'top'                   => '0px;',
+					'left'                  => '0px;',
+					'width'                 => 'auto !important;',
+					'height'                => '28px;',
+					'padding'               => '0 13px;',
+					'font-size'             => '10px;',
+					'font-weight'           => '600;',
+					'letter-spacing'        => '0.03em;',
+					'text-transform'        => 'uppercase;',
+					'background'            => '#0085ba;',
+					'-webkit-border-radius' => '0 0 2px 0;',
+					'border-radius'         => '0 0 2px 0;',
+					'border'                => ' none !important;',
+					'-webkit-box-shadow'    => 'none;',
+					'box-shadow'            => 'none;',
+				),
+				'.kmt-custom-partial-edit.customize-partial-edit-shortcut button.edit-buidler-item' => array(
+					'visibility' => 'hidden;',
+				),
+				'.kmt-item-focus:hover .kmt-custom-partial-edit.customize-partial-edit-shortcut button.edit-buidler-item' => array(
+					'visibility' => 'visible;',
+				),
+				'.site-builder-focus-item'       => array(
+					'outline'            => '1px solid transparent;',
+					'position'           => 'relative;',
+					'-webkit-transition' => 'all 0.3s;',
+					'transition'         => 'all 0.3s;',
+				),
+				'.site-builder-focus-item:hover' => array(
+					'outline'            => '1px solid #0085ba !important;',
+					'-webkit-box-shadow' => '0 1px 1px #0085ba;',
+					'box-shadow'         => '0 1px 1px #0085ba;',
+					'z-index'            => '20;',
+				),
+				'.site-builder-focus-item:hover .kmt-custom-partial-edit-shortcut.customize-partial-edit-shortcut button' => array(
+					'visibility' => 'visible;',
+				),
+			);
+
+			if ( is_customize_preview() ) {
+				$parse_css .= kemet_parse_css( $customizer_preview_css );
 			}
 
 			$dynamic_css = $parse_css;

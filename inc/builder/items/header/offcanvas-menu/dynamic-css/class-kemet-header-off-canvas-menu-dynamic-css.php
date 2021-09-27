@@ -35,7 +35,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 					$selector => array(
 						'--backgroundColor'   => 'transparent',
 						'--borderBottomWidth' => kemet_responsive_slider( $link_border_width, 'desktop' ),
-						'--headingLinksColor' => kemet_responsive_color( $link_color, 'initial', 'desktop' ),
+						'--linksColor'        => kemet_responsive_color( $link_color, 'initial', 'desktop' ),
 						'--backgroundColor'   => 'transparent',
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'desktop' ),
 						'--linksHoverColor'   => kemet_responsive_color( $link_color, 'hover', 'desktop' ),
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 					$selector . ' li > .kmt-menu-item-wrap' => array(
 						'border-bottom-style' => 'var(--borderBottomStyle,solid)',
 						'color'               => 'var(--textColor)',
-						'--textColor'         => 'var(--headingLinksColor)',
+						'--textColor'         => 'var(--linksColor)',
 					),
 					$selector . ' li > .kmt-menu-item-wrap:hover' => array(
 						'--textColor' => 'var(--linksHoverColor)',
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'hover', 'desktop' ),
 					),
 					$selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' => array(
-						'--headingLinksColor' => kemet_responsive_color( $submenu_link_color, 'initial', 'desktop' ),
+						'--linksColor'        => kemet_responsive_color( $submenu_link_color, 'initial', 'desktop' ),
 						'--backgroundColor'   => kemet_responsive_color( $submenu_link_bg_color, 'initial', 'desktop' ),
 						'--borderBottomColor' => kemet_responsive_color( $submenu_link_border_color, 'initial', 'desktop' ),
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'desktop' ),
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				$tablet = array(
 					$selector => array(
 						'--borderBottomWidth' => kemet_responsive_slider( $link_border_width, 'tablet' ),
-						'--headingLinksColor' => kemet_responsive_color( $link_color, 'initial', 'tablet' ),
+						'--linksColor'        => kemet_responsive_color( $link_color, 'initial', 'tablet' ),
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'tablet' ),
 						'--linksHoverColor'   => kemet_responsive_color( $link_color, 'hover', 'tablet' ),
 					),
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'hover', 'tablet' ),
 					),
 					$selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' => array(
-						'--headingLinksColor' => kemet_responsive_color( $submenu_link_color, 'initial', 'tablet' ),
+						'--linksColor'        => kemet_responsive_color( $submenu_link_color, 'initial', 'tablet' ),
 						'--backgroundColor'   => kemet_responsive_color( $submenu_link_bg_color, 'initial', 'tablet' ),
 						'--borderBottomColor' => kemet_responsive_color( $submenu_link_border_color, 'initial', 'tablet' ),
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'tablet' ),
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 				$mobile = array(
 					$selector => array(
 						'--borderBottomWidth' => kemet_responsive_slider( $link_border_width, 'mobile' ),
-						'--headingLinksColor' => kemet_responsive_color( $link_color, 'initial', 'mobile' ),
+						'--linksColor'        => kemet_responsive_color( $link_color, 'initial', 'mobile' ),
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'mobile' ),
 						'--linksHoverColor'   => kemet_responsive_color( $link_color, 'hover', 'mobile' ),
 					),
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'hover', 'mobile' ),
 					),
 					$selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap' => array(
-						'--headingLinksColor' => kemet_responsive_color( $submenu_link_color, 'initial', 'mobile' ),
+						'--linksColor'        => kemet_responsive_color( $submenu_link_color, 'initial', 'mobile' ),
 						'--backgroundColor'   => kemet_responsive_color( $submenu_link_bg_color, 'initial', 'mobile' ),
 						'--borderBottomColor' => kemet_responsive_color( $submenu_link_border_color, 'initial', 'mobile' ),
 						'--linksHoverColor'   => kemet_responsive_color( $submenu_link_color, 'hover', 'mobile' ),

@@ -19,11 +19,11 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		$register_options = array(
-			'colorPalette' => array(
-					'label' => __( 'Global Color Palette', 'kemet' ),
-					'type'  => 'kmt-color-palettes',
-				
-				),
+			'colorPalette'             => array(
+				'label' => __( 'Global Color Palette', 'kemet' ),
+				'type'  => 'kmt-color-palettes',
+
+			),
 			'theme-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Primary Color', 'kemet' ),
@@ -35,7 +35,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'headings-color'     => array(
+			'headings-color'           => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Headings Color', 'kemet' ),
 				'description' => __( "Used for all titles from H1 to H6, widgets' title.", 'kemet' ),
@@ -46,13 +46,13 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'links-color'     => array(
+			'links-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Headings & Links Color', 'kemet' ),
-				'description' => __( "Main menu links, and all other body links.", 'kemet' ),
+				'description' => __( 'Main menu links, and all other body links.', 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(

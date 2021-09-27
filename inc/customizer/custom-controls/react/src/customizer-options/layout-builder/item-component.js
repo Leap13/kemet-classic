@@ -32,7 +32,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
             : ""}
         </span>
         <Button
-          className="kmt-builder-item-focus-icon kmt-builder-item-icon"
+          className="kmt-kmt-item-focus-icon kmt-builder-item-icon"
           aria-label={
             __("Settings for", "kemet") +
             " " +
@@ -45,7 +45,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
         </Button>
       </div>
       {KemetCustomizerData.has_widget_editor && item.includes('widget') && <Button
-        className="kmt-builder-item-focus-icon kmt-builder-item-icon"
+        className="kmt-kmt-item-focus-icon kmt-builder-item-icon"
         aria-label={
           __("Design for", "kemet") +
           " " +

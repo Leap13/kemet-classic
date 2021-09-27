@@ -68,12 +68,12 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 						),
 						'header-button-2' => array(
 							'name'    => __( 'Button 2', 'kemet' ),
-							'icon'    => 'admin-links',
+							'icon'    => 'button',
 							'section' => 'section-header-button-2',
 						),
 						'desktop-toggle'  => array(
 							'name'    => __( 'Trigger', 'kemet' ),
-							'icon'    => 'button',
+							'icon'    => 'admin-links',
 							'section' => 'section-desktop-toggle-button',
 						),
 						'header-html-1'   => array(
@@ -146,11 +146,6 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 							'name'    => __( 'Logo', 'kemet' ),
 							'icon'    => 'admin-appearance',
 							'section' => 'title_tagline',
-						),
-						'mobile-button'          => array(
-							'name'    => __( 'Button', 'kemet' ),
-							'icon'    => 'button',
-							'section' => 'section-mobile-header-button',
 						),
 						'search'                 => array(
 							'name'    => __( 'Search', 'kemet' ),

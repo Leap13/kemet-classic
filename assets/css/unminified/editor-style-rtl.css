@@ -2433,8 +2433,16 @@ textarea {
 	line-height: var(--lineHeight);
 }
 
-select,
-input {
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="reset"],
+input[type="search"],
+textarea,
+select {
 	--lineHeight: 1;
 }
 

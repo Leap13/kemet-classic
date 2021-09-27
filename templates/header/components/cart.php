@@ -6,7 +6,7 @@
  */
 
 ?>
-<div class="kmt-header-item kmt-header-item-cart builder-item-focus" data-section="section-woo-cart">
+<div class="kmt-header-item kmt-header-item-cart kmt-item-focus" data-section="section-woo-cart">
 	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**

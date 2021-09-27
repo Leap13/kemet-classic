@@ -880,7 +880,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin-left: 10px;
   margin-right: 5px;
 }
-.kmt-builder-item .kmt-builder-item-focus-icon.kmt-builder-item-icon .dashicon {
+.kmt-builder-item .kmt-kmt-item-focus-icon.kmt-builder-item-icon .dashicon {
   font-size: 14px;
   width: 14px;
   height: 14px;
@@ -1070,7 +1070,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   color: #777;
 }
 
-.kmt-builder-item .kmt-builder-item-icon.kmt-builder-item-focus-icon svg {
+.kmt-builder-item .kmt-builder-item-icon.kmt-kmt-item-focus-icon svg {
   width: 14px;
 }
 

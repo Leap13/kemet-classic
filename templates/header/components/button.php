@@ -13,7 +13,7 @@ $button = wp_parse_args(
 );
 $button = $button['type'];
 ?>
-<div class="kmt-header-item kmt-header-item-button builder-item-focus" data-section="section-<?php echo esc_attr( $button ); ?>">
+<div class="kmt-header-item kmt-header-item-button kmt-item-focus" data-section="section-<?php echo esc_attr( $button ); ?>">
 	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**

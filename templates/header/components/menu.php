@@ -13,7 +13,7 @@ $slug = wp_parse_args(
 );
 $slug = $slug['type'];
 ?>
-<div class="kmt-header-item kmt-header-item-menu builder-item-focus" data-section="section-header-<?php echo esc_attr( $slug ); ?>">
+<div class="kmt-header-item kmt-header-item-menu kmt-item-focus" data-section="section-header-<?php echo esc_attr( $slug ); ?>">
 	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**

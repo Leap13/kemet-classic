@@ -698,6 +698,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			}
 			?>
 			<a class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( implode( ' ', $classes ) ); ?>" rel="main-header-menu" data-target="#site-navigation" data-label="<?php echo esc_attr( $label_position ); ?>" data-style="<?php echo esc_attr( $style ); ?>" aria-controls='site-navigation' aria-expanded='false'>
+				<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 				<span class="kmt-popup-label <?php echo get_visibility_class( $visibility ); ?>"><?php echo esc_html( $toggle_title ); ?></span>
 				<?php echo Kemet_Svg_Icons::get_icons( 'menu' ); ?>
 			</a>

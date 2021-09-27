@@ -6,7 +6,7 @@
  */
 
 ?>
-<div class="kmt-footer-item kmt-footer-item-copyright builder-item-focus" data-section="section-footer-copyright">
+<div class="kmt-footer-item kmt-footer-item-copyright kmt-item-focus" data-section="section-footer-copyright">
 	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
 	<?php
 	/**
