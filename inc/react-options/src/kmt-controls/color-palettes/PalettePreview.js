@@ -37,16 +37,12 @@ const PalettePreview = ({
 		<div
 			className={classnames('kmt-single-palette', className)}
 			onClick={(e) => {
-				if (
-					e.target.closest('.kmt-color-picker-modal') ||
-					e.target.classList.contains('kmt-color-picker-modal')
-				) {
-					return
-				}
+
 				onClick()
 			}}>
 			{renderBefore()}
 			<div className={`kmt-color-palette-container`}>
+
 				{pickers.map((picker) => (
 					<ColorComponent
 						picker={picker}

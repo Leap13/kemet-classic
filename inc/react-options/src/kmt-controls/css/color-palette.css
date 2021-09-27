@@ -784,3 +784,18 @@
   align-items: baseline;
   padding: 16px 12px;
 }
+button.kmt-save-palette {
+  display: block;
+  margin: 13px auto;
+  padding: 12px 19px;
+  border: none;
+  color: #fff;
+  background-color: var(--primaryColor);
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}

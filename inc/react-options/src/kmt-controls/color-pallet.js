@@ -65,6 +65,17 @@ const ColorPalettes = ({ value, onChange, params }) => {
         setState({ ...state, ...colors, current_palette, palettes });
         onChange({ ...state, ...colors, flag: !value.flag, current_palette, palettes })
     }
+    const handleAddPalette = () => {
+        let { current_palette, palettes, ...colors } = { ...state };
+
+        let newPalette = {
+            'id': "salma",
+            ...colors,
+            'type': "custom",
+            'skin': 'light'
+        }
+        console.log(palettes)
+    }
 
     const [currentView, setCurrentView] = useState('modal')
 
@@ -100,22 +111,19 @@ const ColorPalettes = ({ value, onChange, params }) => {
                     } else {
                         setIsOpen(false)
                     }
+                    setCurrentView(" ")
 
                 }}
                 wrapperProps={{
                     ref: colorPalettesWrapper,
                     onClick: (e) => {
                         e.preventDefault()
-                        if (
-                            e.target.closest('.kmt-color-picker-modal') ||
-                            e.target.classList.contains('kmt-color-picker-modal')
-                        ) {
-                            return
-                        }
+
                         if (!state.palettes) {
                             return
                         }
-                        setIsOpen(false)
+                        setCurrentView("modal")
+                        setIsOpen(true)
 
                     },
                 }}>
@@ -138,6 +146,7 @@ const ColorPalettes = ({ value, onChange, params }) => {
                             e.preventDefault();
                             setIsOpen(true)
                             setCurrentView("modal")
+                            console.log("Modal")
                         }}></span>
                 </div>
 
@@ -198,15 +207,10 @@ const ColorPalettes = ({ value, onChange, params }) => {
                                         },
                                         ...popoverProps,
                                     }}
-                                    onChange={(val, id) => {
-
-
-                                        handleChangeComplete(val, id)
-                                    }}
+                                    onChange={(val, id) => { handleChangeComplete(val, id) }}
                                     value={state}
                                     option={state}
-
-
+                                    handleAddPalette={handleAddPalette}
                                 />
                             } else {
                                 return <ColorPalettesModal

@@ -222,6 +222,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'palettes'        => array(
 							array(
 								'id'     => 'palette-2',
+								'type'=>'system',
+								'skin'=>'light',
 								'color1' => '#0085ba',
 								'color2' => '#333333',
 								'color3' => '#444140',
@@ -232,6 +234,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-1',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#3eaf7c',
 								'color2' => '#33a370',
 								'color3' => '#415161',
@@ -242,6 +246,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-3',
+								'type'=>'system',
+								'skin'=>'light',
 								'color1' => '#FB7258',
 								'color2' => '#F74D67',
 								'color3' => '#6e6d76',
@@ -252,6 +258,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-4',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#98c1d9',
 								'color2' => '#E84855',
 								'color3' => '#475671',
@@ -262,6 +270,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-5',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#006466',
 								'color2' => '#065A60',
 								'color3' => '#7F8C9A',
@@ -272,6 +282,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-6',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#007f5f',
 								'color2' => '#55a630',
 								'color3' => '#365951',
@@ -282,6 +294,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-7',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#7456f1',
 								'color2' => '#5e3fde',
 								'color3' => '#4d5d6d',
@@ -292,6 +306,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							),
 							array(
 								'id'     => 'palette-8',
+								'type'=>'system',
+									'skin'=>'light',
 								'color1' => '#00509d',
 								'color2' => '#003f88',
 								'color3' => '#828487',
