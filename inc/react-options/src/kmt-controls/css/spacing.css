@@ -18,6 +18,7 @@
   text-align: center;
   user-select: none;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .customize-control-kmt-spacing

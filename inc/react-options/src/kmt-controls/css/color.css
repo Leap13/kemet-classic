@@ -59,8 +59,8 @@
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
   position: absolute;
-  top: 2px;
   left: 0;
+  top: calc(50% - 10px);
 }
 .kmt-color-control-wrap:hover
   .kmt-color-btn-reset-wrap
