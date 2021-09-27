@@ -36,26 +36,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-icon-size' => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
-								'divider'      => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Icon Size', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 5,
-										'step' => 1,
-										'max'  => 50,
-									),
-								),
-								'preview'      => array(
-									'selector'   => $parent_selector . ' .kmt-search-box-form .icon-search',
-									'property'   => '--fontSize',
-									'responsive' => true,
-								),
-							),
-							self::$prefix . '-width'     => array(
+							self::$prefix . '-width'  => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'divider'      => true,
@@ -71,6 +52,25 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								'preview'      => array(
 									'selector'   => $selector,
 									'property'   => 'width',
+									'responsive' => true,
+								),
+							),
+							self::$prefix . '-height' => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'divider'      => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Enter Height', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 10,
+										'step' => 1,
+										'max'  => 300,
+									),
+								),
+								'preview'      => array(
+									'selector'   => $selector,
+									'property'   => 'height',
 									'responsive' => true,
 								),
 							),
@@ -206,6 +206,26 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 										'selector' => $selector,
 										'property' => '--inputFocusBorderColor',
 									),
+								),
+							),
+							self::$prefix . '-radius'     => array(
+								'type'           => 'kmt-spacing',
+								'transport'      => 'postMessage',
+								'label'          => __( 'Border Radius', 'kemet' ),
+								'responsive'     => true,
+								'linked_choices' => true,
+								'unit_choices'   => array( 'px', 'em', '%' ),
+								'choices'        => array(
+									'top'    => __( 'Top', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+									'bottom' => __( 'Bottom', 'kemet' ),
+									'left'   => __( 'Left', 'kemet' ),
+								),
+								'preview'        => array(
+									'selector'   => $selector,
+									'property'   => '--borderRadius',
+									'responsive' => true,
+									'sides'      => false,
 								),
 							),
 						),

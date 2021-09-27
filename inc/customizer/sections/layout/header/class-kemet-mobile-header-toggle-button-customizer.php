@@ -368,7 +368,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 		$button_sections = array(
 			'section-' . self::$prefix => array(
 				'priority' => 85,
-				'title'    => __( 'Toggle Button', 'kemet' ),
+				'title'    => __( 'Trigger', 'kemet' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 		);
