@@ -1925,7 +1925,14 @@ a.wp-block-button__link:focus,
 }
 
 .wp-block-search .wp-block-search__input {
-	border-color: var(--borderColor) !important;
+	min-width: 3em;
+	border: 1px solid var(--borderColor) !important;
+
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+	-ms-flex-positive: 1;
 }
 
 .kmt-widget-area .wp-block-buttons > .wp-block-button {

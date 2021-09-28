@@ -107,7 +107,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Icon Colors', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -132,7 +132,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -149,7 +149,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -174,7 +174,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Input Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(

@@ -39,7 +39,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Font Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -56,7 +56,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Link Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -120,7 +120,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Font Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -149,7 +149,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'transport' => 'postMessage',
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -178,7 +178,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'transport' => 'postMessage',
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -207,7 +207,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Font Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -236,7 +236,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Font Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -265,7 +265,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 				'transport' => 'postMessage',
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),

@@ -1013,7 +1013,7 @@ function get_visibility_class( $option ) {
 		$class[] = 'hide-desktop';
 	}
 	if ( ! $option['tablet'] && ! $option['mobile'] ) {
-		$class[] = 'hide-mobile-tablet';
+		$class[] = 'hide-tablet-mobile';
 	} else {
 		if ( ! $option['tablet'] ) {
 			$class[] = 'hide-tablet';

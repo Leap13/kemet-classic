@@ -33,22 +33,13 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 			$selector       = '.kmt-' . $prefix . '-area';
 			$num            = explode( 'footer-widget-', $prefix )[1];
 			$widget_options = array(
-				$prefix . '-typography'    => array(
-					'type'      => 'kmt-typography',
-					'transport' => 'postMessage',
-					'label'     => __( 'Typography', 'kemet' ),
-					'preview'   => array(
-						'selector' => $selector,
-					),
-				),
 				$prefix . '-content-color' => array(
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'divider'   => true,
 					'label'     => __( 'Content Color', 'kemet' ),
 					'pickers'   => array(
 						array(
-							'title' => __( 'Text', 'kemet' ),
+							'title' => __( 'Initial', 'kemet' ),
 							'id'    => 'initial',
 						),
 					),
@@ -65,7 +56,7 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Link Color', 'kemet' ),
 					'pickers'   => array(
 						array(
-							'title' => __( 'Text', 'kemet' ),
+							'title' => __( 'Initial', 'kemet' ),
 							'id'    => 'initial',
 						),
 						array(
@@ -82,6 +73,27 @@ class Kemet_Footer_Widget_Customizer extends Kemet_Customizer_Register {
 							'selector' => $selector,
 							'property' => '--linksHoverColor',
 						),
+					),
+				),
+				$prefix . '-margin'        => array(
+					'type'           => 'kmt-spacing',
+					'transport'      => 'postMessage',
+					'label'          => __( 'Margin', 'kemet' ),
+					'responsive'     => true,
+					'divider'        => true,
+					'linked_choices' => true,
+					'unit_choices'   => array( 'px', 'em', '%' ),
+					'choices'        => array(
+						'top'    => __( 'Top', 'kemet' ),
+						'right'  => __( 'Right', 'kemet' ),
+						'bottom' => __( 'Bottom', 'kemet' ),
+						'left'   => __( 'Left', 'kemet' ),
+					),
+					'preview'        => array(
+						'selector'   => $selector,
+						'property'   => '--margin',
+						'responsive' => true,
+						'sides'      => false,
 					),
 				),
 			);

@@ -26,7 +26,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
 							'mobile-popup-layout'        => array(
-								'type'      => 'kmt-select',
+								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
 								'label'     => __( 'Layout', 'kemet' ),
 								'choices'   => array(
@@ -54,7 +54,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'mobile-popup-slide-side'    => array(
-								'type'      => 'kmt-select',
+								'type'      => 'kmt-radio',
 								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Slide-Out Side', 'kemet' ),
@@ -70,7 +70,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'mobile-popup-content-align' => array(
-								'type'      => 'kmt-select',
+								'type'      => 'kmt-radio',
 								'divider'   => true,
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Align', 'kemet' ),
@@ -81,7 +81,7 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							'mobile-popup-content-vertical-align' => array(
-								'type'      => 'kmt-select',
+								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
 								'label'     => __( 'Content Vertical Align', 'kemet' ),
 								'choices'   => array(
@@ -103,6 +103,24 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 									'selector' => '.kmt-mobile-popup-content',
 								),
 							),
+							'mobile-popup-text-color'      => array(
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'transport' => 'postMessage',
+								'label'     => __( 'Text Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => '.kmt-mobile-popup-content',
+										'property' => '--textColor',
+									),
+								),
+							),
 							'mobile-popup-close-btn-color' => array(
 								'type'      => 'kmt-color',
 								'divider'   => true,
@@ -110,14 +128,22 @@ class Kemet_Mobile_Popup_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Close Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Hover', 'kemet' ),
+										'id'    => 'hover',
 									),
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => ' #kmt-mobile-popup .toggle-button-close',
+										'selector' => ' #kmt-desktop-popup .toggle-button-close',
 										'property' => '--buttonColor',
+									),
+									'hover'   => array(
+										'selector' => ' #kmt-desktop-popup .toggle-button-close',
+										'property' => '--buttonHoverColor',
 									),
 								),
 							),

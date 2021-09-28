@@ -298,7 +298,7 @@ class Kemet_Header_Builder_Customizer extends Kemet_Customizer_Register {
 			),
 			'kemet-break-point'             => array(
 				'type'         => 'kmt-slider',
-				'label'        => __( 'Screen size to switch to mobile header', 'kemet' ),
+				'label'        => __( 'Show Mobile Header at Width', 'kemet' ),
 				'unit_choices' => array(
 					'px' => array(
 						'min'  => 0,

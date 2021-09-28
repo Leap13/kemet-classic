@@ -310,9 +310,8 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @return bool
 		 */
 		public static function is_empty_row( $row = 'main', $device = 'desktop' ) {
-			$items  = kemet_get_option( 'header-' . $device . '-items' );
 			$helper = new Kemet_Builder_Helper();
-			if ( $helper::column_has_items( 'left', $row ) || $helper::column_has_items( 'right', $row ) || $helper::column_has_items( 'left_center', $row ) || $helper::column_has_items( 'center', $row ) || $helper::column_has_items( 'right_center', $row ) ) {
+			if ( $helper::column_has_items( 'left', $row, 'header', $device ) || $helper::column_has_items( 'right', $row, 'header', $device ) || $helper::column_has_items( 'left_center', $row, 'header', $device ) || $helper::column_has_items( 'center', $row, 'header', $device ) || $helper::column_has_items( 'right_center', $row, 'header', $device ) ) {
 				return false;
 			}
 			return true;
@@ -491,7 +490,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 */
 		public function menu_markup( $menu ) {
 			$custom_header_section   = kemet_get_option( 'header-main-rt-section' );
-			$submenu_has_boxshadow   = kemet_get_option( 'submenu-box-shadow' ) ? ' submenu-box-shadow' : '';
+			$submenu_has_boxshadow   = kemet_get_option( $menu . '-box-shadow' ) ? ' submenu-box-shadow' : '';
 			$kemet_submenu_animation = kemet_get_option( 'sub-menu-animation' );
 			$kmt_submenu_classes     = array();
 			$kmt_submenu_classes[]   = $submenu_has_boxshadow;

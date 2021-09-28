@@ -110,7 +110,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Post Title Font Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -169,7 +169,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Post Meta Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

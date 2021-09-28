@@ -6,8 +6,7 @@
  */
 
 ?>
-<div class="kmt-header-item kmt-flex kmt-mobile-header-toggle kmt-item-focus" data-section="section-desktop-toggle-button">
-	<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
+<div class="kmt-header-item kmt-flex kmt-mobile-header-toggle kmt-item-focus" data-section="section-mobile-toggle-button">
 	<?php
 	/**
 	 * Kemet Mobile Toggle Button

@@ -257,7 +257,7 @@ class Kemet_Top_Footer_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

@@ -165,7 +165,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Content Separator Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

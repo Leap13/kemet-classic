@@ -26,7 +26,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Text Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -52,7 +52,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				'section'   => 'section-buttons-fields',
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -96,7 +96,7 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Border Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(

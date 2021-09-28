@@ -35,8 +35,21 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-layout'     => array(
+								'type'      => 'kmt-select',
+								'default'   => 'content',
+								'label'     => __( 'Container Layout', 'kemet' ),
+								'transport' => 'postMessage',
+								'choices'   => array(
+									'full'      => __( 'Full Width', 'kemet' ),
+									'content'   => __( 'Content Width', 'kemet' ),
+									'boxed'     => __( 'Boxed Content', 'kemet' ),
+									'stretched' => __( 'Stretched Content', 'kemet' ),
+								),
+							),
 							self::$prefix . '-min-height' => array(
 								'type'         => 'kmt-slider',
+								'divider'      => true,
 								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Min Height', 'kemet' ),
@@ -63,18 +76,6 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-layout'     => array(
-								'type'      => 'kmt-select',
-								'default'   => 'content',
-								'label'     => __( 'Container Layout', 'kemet' ),
-								'transport' => 'postMessage',
-								'choices'   => array(
-									'full'      => __( 'Full Width', 'kemet' ),
-									'content'   => __( 'Content Width', 'kemet' ),
-									'boxed'     => __( 'Boxed Content', 'kemet' ),
-									'stretched' => __( 'Stretched Content', 'kemet' ),
-								),
-							),
 							self::$prefix . '-layout-color' => array(
 								'type'      => 'kmt-color',
 								'divider'   => true,
@@ -160,7 +161,7 @@ class Kemet_Bottom_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

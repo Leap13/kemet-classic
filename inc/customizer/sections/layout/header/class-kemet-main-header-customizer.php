@@ -35,9 +35,22 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 					'general' => array(
 						'title'   => __( 'General', 'kemet' ),
 						'options' => array(
+							self::$prefix . '-layout'     => array(
+								'type'      => 'kmt-select',
+								'default'   => 'content',
+								'transport' => 'postMessage',
+								'label'     => __( 'Container Layout', 'kemet' ),
+								'choices'   => array(
+									'full'      => __( 'Full Width', 'kemet' ),
+									'content'   => __( 'Content Width', 'kemet' ),
+									'boxed'     => __( 'Boxed Content', 'kemet' ),
+									'stretched' => __( 'Stretched Content', 'kemet' ),
+								),
+							),
 							self::$prefix . '-min-height' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
+								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Min Height', 'kemet' ),
 								'unit_choices' => array(
@@ -63,18 +76,6 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-layout'     => array(
-								'type'      => 'kmt-select',
-								'default'   => 'content',
-								'transport' => 'postMessage',
-								'label'     => __( 'Container Layout', 'kemet' ),
-								'choices'   => array(
-									'full'      => __( 'Full Width', 'kemet' ),
-									'content'   => __( 'Content Width', 'kemet' ),
-									'boxed'     => __( 'Boxed Content', 'kemet' ),
-									'stretched' => __( 'Stretched Content', 'kemet' ),
-								),
-							),
 							self::$prefix . '-layout-color' => array(
 								'type'      => 'kmt-color',
 								'divider'   => true,
@@ -82,7 +83,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Content Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -160,7 +161,7 @@ class Kemet_Main_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

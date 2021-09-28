@@ -82,7 +82,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Site Title Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -204,7 +204,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Tagline Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),

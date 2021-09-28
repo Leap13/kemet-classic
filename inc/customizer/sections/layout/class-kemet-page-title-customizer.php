@@ -128,7 +128,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 									),
 								),
 								'preview'   => array(
@@ -151,7 +151,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 									),
 								),
 								'preview'   => array(
@@ -168,7 +168,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 									),
 								),
 								'preview'   => array(
@@ -257,7 +257,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 				'pickers'   => array(
 					array(
 						'id'    => 'initial',
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 					),
 				),
 				'preview'   => array(

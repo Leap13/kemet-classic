@@ -81,19 +81,40 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$link_color    = kemet_get_sub_option( $widget . '-link-color', 'initial' );
 				$content_color = kemet_get_sub_option( $widget . '-content-color', 'initial' );
 				$link_h_color  = kemet_get_sub_option( $widget . '-link-color', 'hover' );
+				$margin        = kemet_get_option( $widget . '-margin' );
 
 				$css_output = array(
 					$selector => array(
+						'margin'              => 'var(--margin)',
 						'font-family'         => 'var(--fontFamily)',
 						'--textColor'         => esc_attr( $content_color ),
 						'--headingLinksColor' => esc_attr( $link_color ),
 						'--linksHoverColor'   => esc_attr( $link_h_color ),
 						'color'               => 'var(--textColor)',
+						'--margin'            => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
 					),
 				);
 
-				$parse_css  = kemet_parse_css( $css_output );
-				$parse_css .= self::typography_css( $widget, $selector );
+				$parse_css = kemet_parse_css( $css_output );
+
+				$tablet = array(
+					$selector => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'tablet' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $tablet, '', '768' );
+
+				$mobile = array(
+					$selector => array(
+						'--margin' => kemet_responsive_spacing( $margin, 'all', 'mobile' ),
+					),
+				);
+
+				/* Parse CSS from array()*/
+				$parse_css .= kemet_parse_css( $mobile, '', '544' );
+
 				return $parse_css;
 			}
 		}
@@ -152,7 +173,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$btn_height        = kemet_get_option( $toggle_button . '-button-height' );
 				$btn_radius        = kemet_get_option( $toggle_button . '-button-border-radius' );
 				$toggle_design     = kemet_get_option( $toggle_button . '-toggle-button-design' );
-				$toggle_size       = kemet_get_option( $toggle_button . '-toggle-button-size' );
+				$toggle_size       = kemet_get_option( $toggle_button . '-button-size' );
 				$float_position    = kemet_get_option( $toggle_button . '-button-float-position' );
 				$float_vposition   = strpos( $float_position, 'top' ) !== false ? 'top' : 'bottom';
 				$float_hposition   = strpos( $float_position, 'left' ) !== false ? 'left' : 'right';
@@ -176,12 +197,12 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 						'background-color' => 'var(--backgroundColor, var(--borderColor))',
 						'border'           => 'var(--borderWidth, 1px) var(--borderStyle, solid) var(--borderColor)',
 						'border-radius'    => 'var(--borderRadius)',
-						'width'            => kemet_slider( $btn_width ),
-						'height'           => kemet_slider( $btn_height ),
-						'font-size'        => kemet_slider( $toggle_size ),
 						'--borderRadius'   => kemet_slider( $btn_radius ),
 						'--color'          => esc_attr( $icon_color ),
 						'--hoverColor'     => esc_attr( $icon_h_color ),
+					),
+					$btn_selector . ' .kmt-svg-icon'       => array(
+						'font-size' => kemet_slider( $toggle_size ),
 					),
 					$btn_selector . '[data-label="right"]' => array(
 						'flex-direction' => 'row-reverse',
@@ -223,17 +244,23 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 				$parse_css = kemet_parse_css( $btn_css_output );
 
 				// Popup Css.
-				$popup_selector      = ' #kmt-' . esc_attr( $device ) . '-popup';
-				$content_selector    = '.kmt-' . esc_attr( $device ) . '-popup-content';
-				$popup_width         = kemet_get_option( $device . '-popup-slide-width' );
-				$popup_bg            = kemet_get_option( $device . '-popup-background' );
-				$popup_icon_bg_color = kemet_get_sub_option( $device . '-popup-close-btn-color', 'initial' );
-				$popup_css_output    = array(
+				$popup_selector        = ' #kmt-' . esc_attr( $device ) . '-popup';
+				$content_selector      = '.kmt-' . esc_attr( $device ) . '-popup-content';
+				$popup_width           = kemet_get_option( $device . '-popup-slide-width' );
+				$popup_bg              = kemet_get_option( $device . '-popup-background' );
+				$popup_text_color      = kemet_get_sub_option( $device . '-popup-text-color', 'initial' );
+				$popup_icon_bg_color   = kemet_get_sub_option( $device . '-popup-close-btn-color', 'initial' );
+				$popup_icon_bg_h_color = kemet_get_sub_option( $device . '-popup-close-btn-color', 'hover' );
+				$popup_css_output      = array(
 					'.kmt-popup-left ' . $content_selector . ', .kmt-popup-right ' . $content_selector . '' => array(
 						'max-width' => kemet_slider( $popup_width ),
 					),
+					$content_selector => array(
+						'--textColor' => esc_attr( $popup_text_color ),
+					),
 					$popup_selector . ' .toggle-button-close' => array(
-						'--buttonColor' => esc_attr( $popup_icon_bg_color ),
+						'--buttonColor'      => esc_attr( $popup_icon_bg_color ),
+						'--buttonHoverColor' => esc_attr( $popup_icon_bg_h_color ),
 					),
 				);
 

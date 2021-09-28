@@ -129,7 +129,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Background Overlay', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -152,7 +152,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Link Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -179,7 +179,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Background Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -202,7 +202,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Link Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -229,7 +229,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Background Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Text', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -259,7 +259,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -284,7 +284,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -301,7 +301,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Input Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -318,7 +318,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -339,7 +339,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Icon Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -364,7 +364,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -381,7 +381,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -398,7 +398,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -420,7 +420,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Content Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -439,7 +439,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Link Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -470,7 +470,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Text', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -489,7 +489,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Link Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -520,7 +520,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Icon Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -539,7 +539,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'label'      => __( 'Background Color', 'kemet' ),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

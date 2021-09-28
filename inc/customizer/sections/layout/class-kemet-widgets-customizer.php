@@ -85,7 +85,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Widget Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -125,7 +125,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Separator Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),

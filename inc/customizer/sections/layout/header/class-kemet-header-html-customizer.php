@@ -64,7 +64,7 @@ class Kemet_Header_Html_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Text Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 									),
@@ -81,7 +81,7 @@ class Kemet_Header_Html_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Link Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(

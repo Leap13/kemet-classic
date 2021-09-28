@@ -38,24 +38,8 @@ if ( ! class_exists( 'Kemet_Header_Widget_Item' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
 			if ( ! is_admin() ) {
 				require_once KEMET_HEADER_WIDGET_DIR . 'dynamic-css/class-kemet-header-widget-dynamic-css.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
-			}
-		}
-
-		/**
-		 * Add Google Fonts
-		 */
-		public function add_fonts() {
-			$header_widgets = apply_filters( 'kemet_header_widget_items', array( 'header-widget-1', 'header-widget-2' ) );
-
-			foreach ( $header_widgets as $widget ) {
-				if ( ! Kemet_Builder_Helper::is_item_loaded( $widget, 'header', 'desktop' ) ) {
-					continue;
-				}
-				$typography = kemet_get_option( $widget . '-typography' );
-				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}
 	}

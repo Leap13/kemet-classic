@@ -69,7 +69,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Link Color', 'kemet' ),
 					'pickers'   => array(
 						array(
-							'title' => __( 'Text', 'kemet' ),
+							'title' => __( 'Initial', 'kemet' ),
 							'id'    => 'initial',
 						),
 						array(
@@ -161,7 +161,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'label'     => __( 'Link Hover Border Color', 'kemet' ),
 					'pickers'   => array(
 						array(
-							'title' => __( 'Text', 'kemet' ),
+							'title' => __( 'Initial', 'kemet' ),
 							'id'    => 'initial',
 						),
 					),
@@ -253,14 +253,14 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 										'selector' => $selector . ' > li ul > li > a',
 									),
 								),
-								$prefix . '-submenu-bg-color'  => array(
+								$prefix . '-submenu-bg-color' => array(
 									'transport' => 'postMessage',
 									'divider'   => true,
 									'type'      => 'kmt-color',
 									'label'     => __( 'Background Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(
@@ -285,7 +285,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Link Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 										array(
@@ -310,7 +310,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 									'label'     => __( 'Separator Color', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 									),
@@ -325,7 +325,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 									'type'         => 'kmt-slider',
 									'divider'      => true,
 									'transport'    => 'postMessage',
-									'label'        => __( 'Top Border Size', 'kemet' ),
+									'label'        => __( 'Border Width', 'kemet' ),
 									'unit_choices' => array(
 										'px' => array(
 											'min'  => 0,
@@ -341,11 +341,11 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-submenu-border-top-color' => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
-									'label'     => __( 'Border Top Color', 'kemet' ),
+									'label'     => __( 'Border Color', 'kemet' ),
 									'tab'       => __( 'Normal', 'kemet' ),
 									'pickers'   => array(
 										array(
-											'title' => __( 'Text', 'kemet' ),
+											'title' => __( 'Initial', 'kemet' ),
 											'id'    => 'initial',
 										),
 									),
@@ -355,6 +355,11 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 											'property' => '--borderTopColor',
 										),
 									),
+								),
+								$prefix . '-box-shadow' => array(
+									'type'    => 'kmt-switcher',
+									'divider' => true,
+									'label'   => __( 'Submenu Box Shadow', 'kemet' ),
 								),
 							),
 						),

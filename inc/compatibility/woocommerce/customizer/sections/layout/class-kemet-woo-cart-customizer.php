@@ -100,7 +100,7 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 									),
 								),
 								'preview'   => array(
@@ -133,7 +133,7 @@ class Kemet_Woo_Cart_Customizer extends Kemet_Customizer_Register {
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 									),
 								),
 								'preview'   => array(

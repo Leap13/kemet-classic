@@ -49,7 +49,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'divider'    => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -76,7 +76,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -123,7 +123,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -184,7 +184,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -211,7 +211,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -238,7 +238,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 				'responsive' => true,
 				'pickers'    => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(

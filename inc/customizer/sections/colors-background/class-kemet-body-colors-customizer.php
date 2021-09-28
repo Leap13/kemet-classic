@@ -30,7 +30,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( 'Used for buttons background (a darker shade from it used for mouseover), and hover color for links.', 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -67,7 +67,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( "Used for body text, meta color, and forms' input text color.", 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -78,7 +78,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( 'Used for all the borders and separators across the website.', 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -89,7 +89,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( "Used for the body background color, a tint from it used for the input, page title, and widgets' background.", 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -100,7 +100,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( 'Used for footer titles, and links. Darker shades from it are used for input fields background, footer buttons, and copyright area.', 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -111,7 +111,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 				'description' => __( 'Used for the footer background, and a darker shade from it is used for the input fields background, footer buttons, and copyright area.', 'kemet' ),
 				'pickers'     => array(
 					array(
-						'title' => __( 'Color', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),

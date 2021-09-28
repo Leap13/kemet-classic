@@ -163,7 +163,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 					'pickers' => array(
 						array(
 							'id'    => 'initial',
-							'title' => __( 'Color', 'kemet' ),
+							'title' => __( 'Initial', 'kemet' ),
 						),
 					),
 				),

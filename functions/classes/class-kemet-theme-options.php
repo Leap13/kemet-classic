@@ -129,6 +129,15 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'value' => 90,
 						'unit'  => '%',
 					),
+					'desktop-toggle-button-label-visibility' => array(
+						'desktop' => true,
+						'tablet'  => false,
+						'mobile'  => false,
+					),
+					'mobile-toggle-button-label-visibility' => array(
+						'tablet' => false,
+						'mobile' => false,
+					),
 					'header-button-label'                  => 'button',
 					'header-button-url'                    => '',
 					'header-button-open-new-tab'           => false,

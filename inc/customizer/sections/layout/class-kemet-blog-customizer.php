@@ -173,7 +173,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Title Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -198,7 +198,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Meta Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -223,7 +223,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Main Content Entry Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -305,7 +305,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Posts Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -347,7 +347,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Title & Meta Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -443,7 +443,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -468,7 +468,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								),
 								'pickers'    => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 								),
@@ -485,7 +485,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Text Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -516,7 +516,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Background Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(
@@ -601,7 +601,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'label'     => __( 'Border Color', 'kemet' ),
 								'pickers'   => array(
 									array(
-										'title' => __( 'Color', 'kemet' ),
+										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
 									),
 									array(

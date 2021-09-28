@@ -48,7 +48,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Background Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
@@ -65,7 +65,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Link Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 					array(
@@ -109,7 +109,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 				'label'     => __( 'Link Hover Border Color', 'kemet' ),
 				'pickers'   => array(
 					array(
-						'title' => __( 'Text', 'kemet' ),
+						'title' => __( 'Initial', 'kemet' ),
 						'id'    => 'initial',
 					),
 				),
