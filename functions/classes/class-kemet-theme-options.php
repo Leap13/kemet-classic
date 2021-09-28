@@ -271,7 +271,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							array(
 								'id'     => 'palette-5',
 								'type'=>'system',
-									'skin'=>'light',
+									'skin'=>'dark',
 								'color1' => '#006466',
 								'color2' => '#065A60',
 								'color3' => '#7F8C9A',
@@ -279,7 +279,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 								'color5' => '#1e2933',
 								'color6' => '#0F141A',
 								'color7' => '#141b22',
-							),
+							),   
 							array(
 								'id'     => 'palette-6',
 								'type'=>'system',

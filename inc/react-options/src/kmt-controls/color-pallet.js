@@ -7,12 +7,13 @@ import OutsideClickHandler from '../common/outside-component'
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
 
-const ColorPalettes = ({ value, onChange, params }) => {
+const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue } }) => {
     const [state, setState] = useState(value)
 
     const colorPalettesWrapper = useRef()
-    let defaultValue = params.default;
-    let { label } = params;
+
+    const [typeOfPalette, setTypeOfPalette] = useState('light')
+
 
     const [{ isOpen, isTransitioning }, setModalState] = useState({
         isOpen: false,
@@ -39,14 +40,13 @@ const ColorPalettes = ({ value, onChange, params }) => {
             isTransitioning: false,
         }))
 
-
-
     const handleChangePalette = (active) => {
         let currentPalette = active.palettes.find(
             ({ id }) => id === active.current_palette
         )
-        Object.values(currentPalette).map((item, index) => {
-            document.documentElement.style.setProperty('--paletteColor' + index, item);
+        let { id, skin, type, name, ...colors } = { ...currentPalette };
+        Object.values(colors).map((item, index) => {
+            document.documentElement.style.setProperty(`--paletteColor${index + 1}`, item);
             return item;
         });
         setState(active);
@@ -54,7 +54,6 @@ const ColorPalettes = ({ value, onChange, params }) => {
     }
 
     const handleChangeComplete = (color, index) => {
-
         let newValue = { ...state };
         newValue[index] = color;
         let { current_palette, palettes, ...colors } = newValue;
@@ -65,16 +64,26 @@ const ColorPalettes = ({ value, onChange, params }) => {
         setState({ ...state, ...colors, current_palette, palettes });
         onChange({ ...state, ...colors, flag: !value.flag, current_palette, palettes })
     }
-    const handleAddPalette = () => {
+
+    const handleAddPalette = (data) => {
         let { current_palette, palettes, ...colors } = { ...state };
 
         let newPalette = {
-            'id': "salma",
+            'id': palettes.length + 1,
             ...colors,
             'type': "custom",
-            'skin': 'light'
+            'skin': data.type,
+            'name': data.name
         }
-        console.log(palettes)
+        palettes.push(newPalette)
+        onChange(value)
+        setIsOpen(false)
+    }
+
+    const handleDeletePalette = (id) => {
+        const newPalette = value.palettes.filter(palette => { return palette.id !== id })
+        setState({ ...value, palettes: newPalette })
+        onChange({ ...value, palettes: newPalette })
     }
 
     const [currentView, setCurrentView] = useState('modal')
@@ -96,6 +105,10 @@ const ColorPalettes = ({ value, onChange, params }) => {
                     ></button>
                 </div>
                 <span className="customize-control-title kmt-control-title">{label}</span>
+                <div className={`kmt-type-control`}>
+                    <span onClick={() => { setTypeOfPalette("light") }}>Light</span>
+                    <span onClick={() => { setTypeOfPalette("dark") }}>Dark</span>
+                </div>
             </header>
             <OutsideClickHandler
                 disabled={!isOpen}
@@ -138,7 +151,7 @@ const ColorPalettes = ({ value, onChange, params }) => {
                         }}
                         value={state}
                         onChange={(v, id) => handleChangeComplete(v, id)}
-                        skipModal={true}
+                        skipModal={false}
                     />
                     <span
                         className={`kmt-button-open-palette`}
@@ -146,7 +159,6 @@ const ColorPalettes = ({ value, onChange, params }) => {
                             e.preventDefault();
                             setIsOpen(true)
                             setCurrentView("modal")
-                            console.log("Modal")
                         }}></span>
                 </div>
 
@@ -227,6 +239,8 @@ const ColorPalettes = ({ value, onChange, params }) => {
                                     }}
                                     value={state}
                                     option={state}
+                                    handleDeletePalette={(id) => handleDeletePalette(id)}
+                                    typeOfPalette={typeOfPalette}
                                 />
                             }
 

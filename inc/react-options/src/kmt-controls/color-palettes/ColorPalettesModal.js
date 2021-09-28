@@ -2,15 +2,14 @@ const { __, sprintf } = wp.i18n;
 import { animated } from '@react-spring/web'
 import { Fragment } from 'react';
 import PalettePreview from './PalettePreview'
-const ColorPalettesModal = ({ value, onChange, wrapperProps = {} }) => {
-	console.log(value)
+const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePalette, typeOfPalette }) => {
+	const paletteColors = value.palettes.filter(palette => { return palette.skin === typeOfPalette })
 	return (
 		<animated.div
 			className="kmt-option-modal kmt-palettes-modal"
 			{...wrapperProps}>
-			{value.palettes.map((palette, index) => (
+			{paletteColors.map((palette, index) => (
 				<Fragment>
-
 					<PalettePreview
 						currentPalette={palette}
 						className={
@@ -19,9 +18,13 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {} }) => {
 						renderBefore={() => (
 							<Fragment>
 								<label>
-									{sprintf(__('Palette #%s', 'Kemet'), index + 1)}
+									{palette.name ? palette.name : sprintf(__('Palette #%s', 'Kemet'), index + 1)}
 								</label>
-								{palette[`type`] === "custom" && <button>Delete</button>}
+								{palette[`type`] === "custom" && <button onClick={(e) => {
+									e.preventDefault();
+									e.stopPropagation();
+									handleDeletePalette(palette.id)
+								}}>Delete</button>}
 							</Fragment>
 						)}
 						onClick={() => {

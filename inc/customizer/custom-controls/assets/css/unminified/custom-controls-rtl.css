@@ -19,6 +19,20 @@
 	font-weight: 500;
 }
 
+.customize-control-kmt-color-palettes header {
+	display: flex;
+
+	align-items: baseline;
+	justify-content: space-between;
+}
+
+.customize-control-kmt-color-palettes header div.kmt-type-control {
+	display: flex;
+	width: 26%;
+
+	justify-content: space-between;
+}
+
 .customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
 	position: absolute;
 	top: 2px;
@@ -103,7 +117,7 @@
 }
 
 .kmt-palettes-modal {
-	overflow-y: scroll;
+	overflow-y: auto;
 	max-height: 450px;
 }
 
@@ -858,7 +872,7 @@
 }
 
 .kmt-palettes-modal {
-	overflow-y: scroll;
+	overflow-y: auto;
 	max-height: 450px;
 }
 
@@ -931,17 +945,22 @@
 button.kmt-save-palette {
 	display: block;
 	margin: 13px auto;
-	padding: 12px 19px;
+	padding: 10px 19px;
 	border: none;
 	color: #fff;
 	background-color: var(--primaryColor);
 	box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
+}
+
+button.kmt-save-palette:disabled {
+	opacity: 0.5;
+	cursor: no-drop;
 }
 
 #customize-theme-controls
