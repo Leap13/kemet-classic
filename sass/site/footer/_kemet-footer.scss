@@ -31,10 +31,10 @@
   padding-top: var(--padding-top, 25px);
   padding-bottom: var(--padding-bottom, 25px);
   background-color: var(--footerBackgroundColor);
-  border-top: var(--borderTopWidth) var(--borderTopStyle, solid)
-    var(--borderTopColor);
-  border-bottom: var(--borderBottomWidth) var(--borderBottomStyle, solid)
-    var(--borderBottomColor);
+  border-top: var(--rowBorderTopWidth) var(--borderTopStyle, solid)
+    var(--rowBorderTopColor);
+  border-bottom: var(--rowBorderBottomWidth) var(--borderBottomStyle, solid)
+    var(--rowBorderBottomColor);
   .site-footer-section {
     display: flex;
     position: relative;

@@ -157,7 +157,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.kemet-page-title',
-										'property' => '--headingLinksColor',
+										'property' => '--headingColor',
 									),
 								),
 							),
@@ -263,7 +263,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 				'preview'   => array(
 					'initial' => array(
 						'selector' => '.kemet-page-sub-title',
-						'property' => '--textColor',
+						'property' => '--headingColor',
 					),
 				),
 			),

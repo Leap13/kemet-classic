@@ -118,7 +118,7 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => $parent_selector . ' .kemet-search-icon',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'   => array(
 										'selector' => $parent_selector . ' .kemet-search-icon',

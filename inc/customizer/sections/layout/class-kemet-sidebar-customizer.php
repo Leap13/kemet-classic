@@ -170,7 +170,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.sidebar-main a',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'   => array(
 										'selector' => '.sidebar-main a',

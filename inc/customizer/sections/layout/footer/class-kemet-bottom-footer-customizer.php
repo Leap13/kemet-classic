@@ -149,6 +149,39 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
+							self::$prefix . '-font-color' => array(
+								'type'      => 'kmt-color',
+								'transport' => 'postMessage',
+								'label'     => __( 'Font Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Text Color', 'kemet' ),
+										'id'    => 'text',
+									),
+									array(
+										'title' => __( 'Links Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+									array(
+										'title' => __( 'Links Hover', 'kemet' ),
+										'id'    => 'hover',
+									),
+								),
+								'preview'   => array(
+									'text'    => array(
+										'selector' => $selector,
+										'property' => '--footerTextColor',
+									),
+									'initial' => array(
+										'selector' => $selector,
+										'property' => '--linksColor',
+									),
+									'hover'   => array(
+										'selector' => $selector,
+										'property' => '--linksHoverColor',
+									),
+								),
+							),
 							self::$prefix . '-row-title'  => array(
 								'type'  => 'kmt-title',
 								'label' => __( 'Row Settings', 'kemet' ),
@@ -172,7 +205,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'      => array(
 									'selector'   => $selector,
-									'property'   => '--borderTopWidth',
+									'property'   => '--rowBorderTopWidth',
 									'responsive' => true,
 								),
 							),
@@ -195,7 +228,7 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'      => array(
 									'selector'   => $selector,
-									'property'   => '--borderBottomWidth',
+									'property'   => '--rowBorderBottomWidth',
 									'responsive' => true,
 								),
 							),
@@ -216,11 +249,11 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'top'    => array(
 										'selector' => $selector,
-										'property' => '--borderTopColor',
+										'property' => '--rowBorderTopColor',
 									),
 									'bottom' => array(
 										'selector' => $selector,
-										'property' => '--borderBottomColor',
+										'property' => '--rowBorderBottomColor',
 									),
 								),
 							),

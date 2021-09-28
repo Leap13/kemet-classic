@@ -33,10 +33,10 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$selector                     => array(
-						'--backgroundColor'   => esc_attr( $bg_color ),
-						'--padding'           => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
-						'--headingLinksColor' => esc_attr( $link_color ),
-						'--linksHoverColor'   => esc_attr( $link_h_color ),
+						'--backgroundColor' => esc_attr( $bg_color ),
+						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
+						'--linksColor'      => esc_attr( $link_color ),
+						'--linksHoverColor' => esc_attr( $link_h_color ),
 					),
 					$selector . ' > li > a'       => array(
 						'font-family'         => 'var(--fontFamily)',

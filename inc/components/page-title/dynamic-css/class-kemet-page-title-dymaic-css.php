@@ -49,18 +49,19 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 			$breadcrumbs_link_color   = kemet_get_sub_option( $breadcrumbs_prefix . '-link-color', 'initial', $page_title_color );
 			$breadcrumbs_link_h_color = kemet_get_sub_option( $breadcrumbs_prefix . '-link-color', 'hover', $theme_color );
 			// Subtitle
-			$subtitle_color = apply_filters( 'sub_title_color', $page_title_color );
+			$subtitle_color = kemet_get_sub_option( 'sub-title-color', 'initial', $page_title_color );
+			$subtitle_color = apply_filters( 'sub_title_color', $subtitle_color );
 
 			$css_content = array(
 				$selector . ', .header-transparent ' . $selector . ',.merged-header-transparent ' . $selector => array(
 					'--padding' => kemet_responsive_spacing( $page_title_space, 'all', 'desktop' ),
 				),
 				'.kemet-page-title'                   => array(
-					'font-family'         => 'var(--fontFamily)',
-					'--headingLinksColor' => esc_attr( $page_title_color ),
+					'font-family'  => 'var(--fontFamily)',
+					'--linksColor' => esc_attr( $page_title_color ),
 				),
 				'.taxonomy-description'               => array(
-					'color' => 'var(--headingLinksColor)',
+					'color' => 'var(--linksColor)',
 				),
 				'.kmt-page-title.page-title-layout-1' => array(
 					'text-align' => esc_attr( $page_title_algin ),
@@ -74,14 +75,14 @@ if ( ! class_exists( 'Kemet_Page_Title_Dynamic_Css' ) ) {
 					'border-color' => esc_attr( $layout3_border_right_color ),
 				),
 				'.kemet-breadcrumb-trail'             => array(
-					'font-family'         => 'var(--fontFamily)',
-					'--padding'           => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'desktop' ),
-					'--headingLinksColor' => esc_attr( $breadcrumbs_link_color ),
-					'--linksHoverColor'   => esc_attr( $breadcrumbs_link_h_color ),
-					'--textColor'         => esc_attr( $breadcrumbs_color ),
+					'font-family'       => 'var(--fontFamily)',
+					'--padding'         => kemet_responsive_spacing( $breadcrumbs_spacing, 'all', 'desktop' ),
+					'--linksColor'      => esc_attr( $breadcrumbs_link_color ),
+					'--linksHoverColor' => esc_attr( $breadcrumbs_link_h_color ),
+					'--textColor'       => esc_attr( $breadcrumbs_color ),
 				),
 				'.kemet-page-sub-title'               => array(
-					'color' => esc_attr( $subtitle_color ),
+					'--headingColor' => esc_attr( $subtitle_color ),
 				),
 			);
 

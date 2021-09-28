@@ -174,7 +174,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'single-image',
 						'single-title-meta',
 					),
-
+					'blog-excerpt-length'                  => 50,
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
 					'blog-single-meta'                     => array(

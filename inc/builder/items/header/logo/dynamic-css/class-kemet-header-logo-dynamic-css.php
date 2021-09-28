@@ -41,10 +41,11 @@ if ( ! class_exists( 'Kemet_Header_Logo_Dynamic_Css' ) ) {
 						'display' => 'block',
 					),
 					'.site-title'                    => array(
-						'--fontSize'          => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
-						'--headingLinksColor' => esc_attr( $site_title_color ),
-						'--linksHoverColor'   => esc_attr( $site_title_h_color ),
-						'--letterSpacing'     => kemet_responsive_slider( $site_title_letter_spacing, 'desktop' ),
+						'--fontSize'        => kemet_responsive_slider( $site_title_font_size, 'desktop' ),
+						'--linksColor'      => esc_attr( $site_title_color ),
+						'--headingColor'    => esc_attr( $site_title_color ),
+						'--linksHoverColor' => esc_attr( $site_title_h_color ),
+						'--letterSpacing'   => kemet_responsive_slider( $site_title_letter_spacing, 'desktop' ),
 					),
 					'#sitehead .site-logo-img .custom-logo-link img' => array(
 						'--logoWidth' => kemet_responsive_slider( $header_logo_width, 'desktop' ),

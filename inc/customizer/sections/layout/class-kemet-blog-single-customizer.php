@@ -117,7 +117,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.kmt-single-post .entry-header .entry-title',
-										'property' => '--headingLinksColor',
+										'property' => '--headingColor',
 									),
 								),
 							),
@@ -176,7 +176,7 @@ class Kemet_Blog_Single_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.kmt-single-post .entry-meta,.kmt-single-post .entry-meta *',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 								),
 							),

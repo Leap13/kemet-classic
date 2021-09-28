@@ -23,21 +23,21 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 				$prefix                   = 'footer-copyright';
 				$selector                 = '.kmt-' . $prefix;
 				$global_footer_text_color = kemet_get_sub_option( 'global-footer-text-color', 'initial' );
-				$color                    = kemet_get_sub_option( $prefix . '-color', 'initial', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-				$link_color               = kemet_get_sub_option( $prefix . '-link-color', 'initial', $global_footer_text_color );
+				$color                    = kemet_get_sub_option( $prefix . '-color', 'initial' );
+				$link_color               = kemet_get_sub_option( $prefix . '-link-color', 'initial' );
 				$link_hover_color         = kemet_get_sub_option( $prefix . '-link-color', 'hover' );
 				$margin                   = kemet_get_option( $prefix . '-spacing' );
 
 				$css_output = array(
 					$selector => array(
-						'margin'              => 'var(--margin)',
-						'color'               => 'var(--footerTextColor)',
-						'--footerTextColor'   => esc_attr( $color ),
-						'--headingLinksColor' => esc_attr( $link_color ),
-						'--linksHoverColor'   => esc_attr( $link_hover_color ),
-						'--justifyContnet'    => kemet_get_sub_option( $prefix . '-horizontal-align', 'desktop' ),
-						'--alignItems'        => kemet_get_sub_option( $prefix . '-vertical-align', 'desktop' ),
-						'--margin'            => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
+						'margin'            => 'var(--margin)',
+						'color'             => 'var(--footerTextColor)',
+						'--footerTextColor' => esc_attr( $color ),
+						'--linksColor'      => esc_attr( $link_color ),
+						'--linksHoverColor' => esc_attr( $link_hover_color ),
+						'--justifyContnet'  => kemet_get_sub_option( $prefix . '-horizontal-align', 'desktop' ),
+						'--alignItems'      => kemet_get_sub_option( $prefix . '-vertical-align', 'desktop' ),
+						'--margin'          => kemet_responsive_spacing( $margin, 'all', 'desktop' ),
 					),
 				);
 

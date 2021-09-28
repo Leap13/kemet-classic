@@ -19,7 +19,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 	public function register_options( $options ) {
 		$blog_post_selector = '.blog-layout-2 .blog-post-layout-2 , body:not(.kmt-separate-container) .blog-layout-2 .kmt-article-post ';
 		$register_options   = array(
-			'blog-layouts'       => array(
+			'blog-layouts'            => array(
 				'label'   => __( 'Blog Layouts', 'kemet' ),
 				'type'    => 'kmt-radio-image',
 				'choices' => array(
@@ -45,7 +45,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'blog-controls-tabs' => array(
+			'blog-controls-tabs'      => array(
 				'type' => 'kmt-tabs',
 				'tabs' => array(
 					'general' => array(
@@ -156,12 +156,6 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-as-button'  => array(
-								'type'      => 'kmt-switcher',
-								'divider'   => true,
-								'transport' => 'postMessage',
-								'label'     => __( 'Enable Read More As Button', 'kemet' ),
-							),
 						),
 					),
 					'design'  => array(
@@ -184,7 +178,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => '.content-area .entry-title a',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'   => array(
 										'selector' => '.content-area .entry-title a',
@@ -479,7 +473,54 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-text-color'          => array(
+						),
+					),
+				),
+			),
+			'readmore-settings-title' => array(
+				'type'  => 'kmt-title',
+				'label' => __( 'Read More', 'kemet' ),
+			),
+			'readmore-tabs'           => array(
+				'type' => 'kmt-tabs',
+				'tabs' => array(
+					'general' => array(
+						'title'   => __( 'General', 'kemet' ),
+						'options' => array(
+							'readmore-as-button'    => array(
+								'type'      => 'kmt-switcher',
+								'transport' => 'postMessage',
+								'label'     => __( 'Enable Read More As Button', 'kemet' ),
+							),
+							'readmore-button-align' => array(
+								'type'      => 'kmt-radio',
+								'default'   => 'left',
+								'divider'   => true,
+
+								'transport' => 'postMessage',
+								'label'     => __( 'Read More Align', 'kemet' ),
+								'choices'   => array(
+									'left'   => __( 'Left', 'kemet' ),
+									'center' => __( 'Center', 'kemet' ),
+									'right'  => __( 'Right', 'kemet' ),
+								),
+								'preview'   => array(
+									'selector' => '.content-area .read-more',
+									'attr'     => 'data-align',
+								),
+								'context'   => array(
+									array(
+										'setting' => 'readmore-as-button',
+										'value'   => true,
+									),
+								),
+							),
+						),
+					),
+					'design'  => array(
+						'title'   => __( 'Design', 'kemet' ),
+						'options' => array(
+							'readmore-text-color'     => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Text Color', 'kemet' ),
@@ -510,7 +551,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-bg-color'            => array(
+							'readmore-bg-color'       => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Background Color', 'kemet' ),
@@ -541,39 +582,10 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'read-more-border-radius'      => array(
+							'read-more-border-size'   => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
 								'divider'      => true,
-								'transport'    => 'postMessage',
-								'label'        => __( 'Read More Border Radius', 'kemet' ),
-								'unit_choices' => array(
-									'px' => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-									'%'  => array(
-										'min'  => 0,
-										'step' => 1,
-										'max'  => 100,
-									),
-								),
-								'preview'      => array(
-									'selector'   => '.content-area .read-more a',
-									'property'   => '--borderRadius',
-									'responsive' => true,
-								),
-								'context'      => array(
-									array(
-										'setting' => 'readmore-as-button',
-										'value'   => true,
-									),
-								),
-							),
-							'read-more-border-size'        => array(
-								'type'         => 'kmt-slider',
-								'responsive'   => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Read More Border Size', 'kemet' ),
 								'unit_choices' => array(
@@ -595,7 +607,7 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-border-color'        => array(
+							'readmore-border-color'   => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
 								'label'     => __( 'Border Color', 'kemet' ),
@@ -626,7 +638,36 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 									),
 								),
 							),
-							'readmore-padding'             => array(
+							'read-more-border-radius' => array(
+								'type'         => 'kmt-slider',
+								'responsive'   => true,
+								'transport'    => 'postMessage',
+								'label'        => __( 'Read More Border Radius', 'kemet' ),
+								'unit_choices' => array(
+									'px' => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+									'%'  => array(
+										'min'  => 0,
+										'step' => 1,
+										'max'  => 100,
+									),
+								),
+								'preview'      => array(
+									'selector'   => '.content-area .read-more a',
+									'property'   => '--borderRadius',
+									'responsive' => true,
+								),
+								'context'      => array(
+									array(
+										'setting' => 'readmore-as-button',
+										'value'   => true,
+									),
+								),
+							),
+							'readmore-padding'        => array(
 								'type'           => 'kmt-spacing',
 								'transport'      => 'postMessage',
 								'responsive'     => true,

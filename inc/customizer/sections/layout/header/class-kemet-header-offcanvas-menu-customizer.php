@@ -88,7 +88,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 					'initial'    => array(
 						'selector' => $selector,
-						'property' => '--headingLinksColor',
+						'property' => '--linksColor',
 					),
 					'hover'      => array(
 						'selector' => $selector,
@@ -196,7 +196,7 @@ class Kemet_Header_Mobile_Menu_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 					'initial'    => array(
 						'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',
-						'property' => '--headingLinksColor',
+						'property' => '--linksColor',
 					),
 					'hover'      => array(
 						'selector' => $selector . ' > li ul > li > a, ' . $selector . ' > li ul > li > .kmt-menu-item-wrap',

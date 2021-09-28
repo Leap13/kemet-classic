@@ -61,7 +61,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
           );
         }}
       >
-        <Dashicon icon="admin-appearance" />
+        <Dashicon icon="edit" />
       </Button>}
       <Button
         className="kmt-builder-item-icon"

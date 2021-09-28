@@ -48,10 +48,10 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 
 				$css_output = array(
 					$selector                             => array(
-						'--backgroundColor'   => esc_attr( $bg_color ),
-						'--padding'           => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
-						'--headingLinksColor' => esc_attr( $link_color ),
-						'--linksHoverColor'   => esc_attr( $link_h_color ),
+						'--backgroundColor' => esc_attr( $bg_color ),
+						'--padding'         => kemet_responsive_spacing( $menu_spacing, 'all', 'desktop' ),
+						'--linksColor'      => esc_attr( $link_color ),
+						'--linksHoverColor' => esc_attr( $link_h_color ),
 					),
 					$selector . ' > li > a'               => array(
 						'font-family'         => 'var(--fontFamily)',
@@ -63,10 +63,10 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--borderBottomColor' => esc_attr( $link_h_border_color ),
 					),
 					$selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a' => array(
-						'--headingLinksColor' => esc_attr( $link_active_color ),
-						'--backgroundColor'   => esc_attr( $link_active_bg_color ),
-						'background-color'    => 'var(--backgroundColor)',
-						'border-radius'       => kemet_responsive_slider( $link_active_border_radius, 'desktop' ),
+						'--linksColor'      => esc_attr( $link_active_color ),
+						'--backgroundColor' => esc_attr( $link_active_bg_color ),
+						'background-color'  => 'var(--backgroundColor)',
+						'border-radius'     => kemet_responsive_slider( $link_active_border_radius, 'desktop' ),
 					),
 					$selector . ' > li ul'                => array(
 						'width'            => kemet_slider( $submenu_width ),
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'font-family'         => 'var(--fontFamily)',
 						'background-color'    => 'var(--backgroundColor)',
 						'--backgroundColor'   => esc_attr( $submenu_bg_color ),
-						'--headingLinksColor' => esc_attr( $submenu_link_color ),
+						'--linksColor'        => esc_attr( $submenu_link_color ),
 						'--borderBottomWidth' => esc_attr( '1px' ),
 						'padding'             => '0.75em 0.6em',
 						'--borderBottomColor' => esc_attr( $submenu_link_separator_color ),

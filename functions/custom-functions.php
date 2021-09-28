@@ -1198,8 +1198,11 @@ if ( ! function_exists( 'kemet_excerpt_more' ) ) {
 	function kemet_excerpt_more( $more ) {
 		$enable_read_more_button = kemet_get_option( 'readmore-as-button' );
 		$class                   = $enable_read_more_button ? ' button' : '';
+		$align                   = kemet_get_option( 'readmore-button-align', 'left' );
+		$align_attr              = $enable_read_more_button ? 'data-align="' . esc_attr( $align ) . '"' : '';
+
 		return sprintf(
-			'<p class="read-more"><a href="%1$s" class="kmt-read-more%2$s">%3$s</a></p>',
+			'<p class="read-more" ' . $align_attr . '><a href="%1$s" class="kmt-read-more%2$s">%3$s</a></p>',
 			esc_url( get_permalink( get_the_ID() ) ),
 			esc_attr( $class ),
 			sprintf( __( 'Read More »%s', 'kemet' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )

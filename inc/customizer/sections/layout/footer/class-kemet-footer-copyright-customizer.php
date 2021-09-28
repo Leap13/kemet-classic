@@ -113,7 +113,7 @@ class Kemet_Footer_Copyright_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => $selector,
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'   => array(
 										'selector' => $selector,

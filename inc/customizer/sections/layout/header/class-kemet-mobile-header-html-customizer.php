@@ -92,7 +92,7 @@ class Kemet_mobile_Header_Html_Customizer extends Kemet_Customizer_Register {
 									'preview'   => array(
 										'initial' => array(
 											'selector' => $selector,
-											'property' => '--headingLinksColor',
+											'property' => '--linksColor',
 										),
 										'hover'   => array(
 											'selector' => $selector,

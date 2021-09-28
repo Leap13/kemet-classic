@@ -164,7 +164,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $menu_selector . ' > li > a',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'      => array(
 										'selector' => $menu_selector . ' > li > a',
@@ -214,7 +214,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $menu_selector . ' > li ul > li > a',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'      => array(
 										'selector' => $menu_selector . ' > li ul > li > a',
@@ -270,7 +270,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'initial' => array(
 										'selector' => $search_selector . ' .kemet-search-icon',
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'   => array(
 										'selector' => $search_selector . ' .kemet-search-icon',
@@ -451,7 +451,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $widget_selector,
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'      => array(
 										'selector' => $widget_selector,
@@ -501,7 +501,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 									'initial'    => array(
 										'selector' => $html_selector,
-										'property' => '--headingLinksColor',
+										'property' => '--linksColor',
 									),
 									'hover'      => array(
 										'selector' => $html_selector,

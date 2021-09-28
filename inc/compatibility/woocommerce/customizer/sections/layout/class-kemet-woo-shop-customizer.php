@@ -139,7 +139,7 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 				'preview'   => array(
 					'initial' => array(
 						'selector' => '.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title',
-						'property' => '--headingLinksColor',
+						'property' => '--headingColor',
 					),
 				),
 			),

@@ -38,9 +38,9 @@ if ( ! class_exists( 'Kemet_Header_Search_Dynamic_Css' ) ) {
 						'background-color' => esc_attr( $bg_color ),
 					),
 					$parent_selector . ' .kemet-search-icon' => array(
-						'--headingLinksColor' => esc_attr( $icon_color ),
-						'--linksHoverColor'   => esc_attr( $icon_h_color ),
-						'--fontSize'          => kemet_responsive_slider( $icon_size, 'desktop' ),
+						'--linksColor'      => esc_attr( $icon_color ),
+						'--linksHoverColor' => esc_attr( $icon_h_color ),
+						'--fontSize'        => kemet_responsive_slider( $icon_size, 'desktop' ),
 					),
 					$selector                  => array(
 						'width'                       => kemet_responsive_slider( $input_width, 'desktop' ),

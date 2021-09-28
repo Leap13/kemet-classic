@@ -1185,7 +1185,11 @@ function kemet_change_attr(control, selector, attr) {
   wp.customize(settingName('readmore-as-button'), function (value) {
     value.bind(function (new_value) {
       $('.kmt-read-more').removeClass('button');
+      $('.kmt-read-more').parent().removeAttr('data-align');
       if (new_value) {
+        var alignControl = settingName("readmore-button-align"),
+          align = wp.customize._value[alignControl]._value;
+        $('.kmt-read-more').parent().attr('data-align', align);
         $('.kmt-read-more').addClass('button');
       }
     })

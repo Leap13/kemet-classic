@@ -170,11 +170,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$kemet_footer_widget_meta_color = kemet_get_option( 'footer-widget-meta-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 
 			// Footer Bar Colors.
-			$footer_bg_obj       = kemet_get_option( 'footer-bar-bg-obj', array( 'background-color' => kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) ) );
-			$footer_bar_spacing  = kemet_get_option( 'footer-bar-padding' );
-			$footer_color        = kemet_get_option( 'footer-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
-			$footer_link_color   = kemet_get_option( 'copyright-link-color', $global_footer_text_color );
-			$footer_link_h_color = kemet_get_option( 'copyright-link-h-color', $theme_color );
+			$footer_bg_obj      = kemet_get_option( 'footer-bar-bg-obj', array( 'background-color' => kemet_color_brightness( $global_footer_bg_color, 0.8, 'dark' ) ) );
+			$footer_bar_spacing = kemet_get_option( 'footer-bar-padding' );
+			$footer_color       = kemet_get_option( 'footer-color', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
 
 			// Footer Button color.
 			$footer_button_color          = kemet_get_sub_option( 'footer-button-color', 'initial', kemet_color_brightness( $global_footer_text_color, 0.8, 'dark' ) );
@@ -282,7 +280,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--linksHoverColor'            => esc_attr( $global_links_h_color ),
 					'--borderColor'                => esc_attr( $global_border_color ),
 					'--globalBackgroundColor'      => esc_attr( $global_bg_color ),
-					'--footerTextColor'            => esc_attr( $global_footer_text_color ),
+					'--footerTextColor'            => esc_attr( $footer_color ),
 					'--footerBackgroundColor'      => esc_attr( $global_footer_bg_color ),
 					'--buttonColor'                => esc_attr( $btn_text_color ),
 					'--buttonHoverColor'           => esc_attr( $btn_text_hover_color ),
@@ -758,7 +756,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$readmore_border_color   = kemet_get_sub_option( 'readmore-border-color', 'initial' );
 			$readmore_border_h_color = kemet_get_sub_option( 'readmore-border-color', 'hover' );
 			$readmore_style          = array(
-				'.content-area .read-more .button' => array(
+				'.content-area .read-more .button'     => array(
 					'--buttonColor'                => esc_attr( $readmore_text_color ),
 					'--buttonBackgroundColor'      => esc_attr( $readmore_bg_color ),
 					'--borderColor'                => esc_attr( $readmore_border_color ),
@@ -768,6 +766,18 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonBackgroundHoverColor' => esc_attr( $readmore_bg_h_color ),
 					'--borderHoverColor'           => esc_attr( $readmore_border_h_color ),
 					'--padding'                    => kemet_responsive_spacing( $readmore_padding, 'all', 'desktop' ),
+				),
+				'.content-area .read-more[data-align]' => array(
+					'display'         => 'flex',
+					'justify-content' => 'flex-start',
+				),
+				'.content-area .read-more[data-align="center"]' => array(
+					'display'         => 'flex',
+					'justify-content' => 'center',
+				),
+				'.content-area .read-more[data-align="right"]' => array(
+					'display'         => 'flex',
+					'justify-content' => 'flex-end',
 				),
 			);
 
@@ -1148,6 +1158,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'.site-builder-focus-item:hover .kmt-custom-partial-edit-shortcut.customize-partial-edit-shortcut button' => array(
 					'visibility' => 'visible;',
+				),
+				'.site-footer .customize-partial-edit-shortcut button:hover' => array(
+					'color' => '#fff;',
 				),
 			);
 

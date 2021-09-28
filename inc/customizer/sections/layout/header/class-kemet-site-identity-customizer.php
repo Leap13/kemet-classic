@@ -93,7 +93,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 				'preview'   => array(
 					'initial' => array(
 						'selector' => '.site-title',
-						'property' => '--headingLinksColor',
+						'property' => '--linksColor',
 					),
 					'hover'   => array(
 						'selector' => '.site-title',

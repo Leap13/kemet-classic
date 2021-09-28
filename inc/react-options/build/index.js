@@ -15802,6 +15802,15 @@ var SortableComponent = function SortableComponent(props) {
   var onSortEnd = function onSortEnd(_ref3) {
     var oldIndex = _ref3.oldIndex,
         newIndex = _ref3.newIndex;
+    var newValue = Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex);
+    newValue = newValue.map(function (subarray) {
+      return subarray[0] && value.includes(subarray[0]) && subarray[0];
+    });
+    newValue = newValue.filter(function (item) {
+      return item !== false;
+    });
+    setValue(newValue, newIndex);
+    props.onChange(newValue);
     setSortItems(Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex));
     setDragging(false);
   };

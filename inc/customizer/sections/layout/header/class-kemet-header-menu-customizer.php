@@ -84,7 +84,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 					'preview'   => array(
 						'initial' => array(
 							'selector' => $selector,
-							'property' => '--headingLinksColor',
+							'property' => '--linksColor',
 						),
 						'hover'   => array(
 							'selector' => $selector,
@@ -92,7 +92,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 						),
 						'active'  => array(
 							'selector' => $selector . ' > .current-menu-item > a, ' . $selector . ' > .current-menu-ancestor > a, ' . $selector . ' > .current_page_item > a',
-							'property' => '--headingLinksColor',
+							'property' => '--linksColor',
 						),
 					),
 				),
@@ -296,7 +296,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 									'preview'   => array(
 										'initial' => array(
 											'selector' => $selector . ' > li ul > li > a',
-											'property' => '--headingLinksColor',
+											'property' => '--linksColor',
 										),
 										'hover'   => array(
 											'selector' => $selector . ' > li ul > li > a:hover',
