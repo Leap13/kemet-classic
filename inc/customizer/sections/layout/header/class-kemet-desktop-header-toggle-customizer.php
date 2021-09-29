@@ -37,7 +37,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 						'options' => array(
 							self::$prefix . '-size'  => array(
 								'type'         => 'kmt-slider',
-								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(
@@ -74,14 +73,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								'transport'  => 'postMessage',
 								'label'      => __( 'Label Text', 'kemet' ),
 							),
-							self::$prefix . '-label-visibility' => array(
-								'label'   => __( 'Label Visibility', 'Kemet' ),
-								'type'    => 'kmt-visibility',
-								'divider' => true,
-								'choices' => array(
-									'desktop' => __( 'Desktop', 'kemet' ),
-								),
-							),
 							self::$prefix . '-label-position' => array(
 								'type'      => 'kmt-radio',
 								'transport' => 'postMessage',
@@ -96,9 +87,8 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 								'context'   => array(
 									array(
-										'setting'  => self::$prefix . '-label-visibility',
-										'operator' => 'object_contain',
-										'value'    => true,
+										'setting'  => self::$prefix . '-label',
+										'operator' => 'not_empty',
 									),
 								),
 							),

@@ -1009,7 +1009,7 @@ function kemet_change_attr(control, selector, attr) {
 }
 
 (function ($) {
-  wp.customize.bind('preview-ready', function () {
+  var editBtn = function () {
     setTimeout(() => {
       $('.customize-partial-edit-shortcut:not(.kmt-custom-partial-edit-shortcut):not(.kmt-custom-partial-edit)').remove();
     }, 0)
@@ -1029,6 +1029,12 @@ function kemet_change_attr(control, selector, attr) {
         }
       }
     );
+  }
+  wp.customize.bind('preview-ready', function () {
+    editBtn();
+  });
+  document.addEventListener("kmtPartialContentRendered", function () {
+    editBtn();
   });
   // Trigger.
   wp.customize.bind("preview-ready", function () {

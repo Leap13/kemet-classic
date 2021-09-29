@@ -1145,22 +1145,25 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'visibility' => 'visible;',
 				),
 				'.site-builder-focus-item'       => array(
-					'outline'            => '1px solid transparent;',
-					'position'           => 'relative;',
-					'-webkit-transition' => 'all 0.3s;',
-					'transition'         => 'all 0.3s;',
+					'outline'        => '1px solid transparent;',
+					'position'       => 'relative;',
+					'transition'     => 'outline 0.15s ease',
+					'outline-offset' => '-1px',
 				),
 				'.site-builder-focus-item:hover' => array(
-					'outline'            => '1px solid #0085ba !important;',
-					'-webkit-box-shadow' => '0 1px 1px #0085ba;',
-					'box-shadow'         => '0 1px 1px #0085ba;',
-					'z-index'            => '20;',
+					'outline' => '1px solid #0085ba !important;',
 				),
 				'.site-builder-focus-item:hover .kmt-custom-partial-edit-shortcut.customize-partial-edit-shortcut button' => array(
 					'visibility' => 'visible;',
 				),
 				'.site-footer .customize-partial-edit-shortcut button:hover' => array(
 					'color' => '#fff;',
+				),
+				'.kmt-item-focus'                => array(
+					'position' => 'relative;',
+				),
+				'.kmt-custom-partial-edit'       => array(
+					'left' => '26px',
 				),
 			);
 

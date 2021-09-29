@@ -242,17 +242,14 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 				),
 			),
-			'kmt-site-logo-settings'    => array(
-				'type'  => 'kmt-title',
-				'label' => __( 'Logo Settings', 'kemet' ),
-			),
 		);
 
 		$register_options = array(
 			'site-identity-options'       => array(
-				'section' => 'title_tagline',
-				'type'    => 'kmt-options',
-				'data'    => array(
+				'section'  => 'title_tagline',
+				'priority' => 80,
+				'type'     => 'kmt-options',
+				'data'     => array(
 					'options' => $register_options,
 				),
 			),

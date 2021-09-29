@@ -37,7 +37,6 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 						'options' => array(
 							self::$prefix . '-size'  => array(
 								'type'         => 'kmt-slider',
-								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Icon Size', 'kemet' ),
 								'unit_choices' => array(

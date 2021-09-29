@@ -3024,7 +3024,7 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 	position: relative;
 	margin: 0;
 	padding: var(--padding, 0);
-	background-color: var(--backgroundColor, var(--globalBackgroundColor));
+	background-color: var(--backgroundColor);
 	list-style: none;
 }
 

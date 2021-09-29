@@ -75,18 +75,6 @@ class Kemet_Header_Search_Customizer extends Kemet_Customizer_Register {
 									'responsive' => true,
 								),
 							),
-							self::$prefix . '-z-index'     => array(
-								'type'      => 'kmt-number',
-								'transport' => 'postMessage',
-								'label'     => __( 'Search Box Z-index', 'kemet' ),
-								'min'       => 1,
-								'step'      => 1,
-								'max'       => 99999,
-								'preview'   => array(
-									'selector' => '.kmt-search-menu-icon',
-									'property' => 'z-index',
-								),
-							),
 						),
 					),
 					'design'  => array(

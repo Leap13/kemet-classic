@@ -41,7 +41,6 @@ class Kemet_Header_Button_Customizer extends Kemet_Customizer_Register {
 							'options' => array(
 								$prefix . '-label'         => array(
 									'type'      => 'kmt-text',
-									'divider'   => true,
 									'default'   => __( 'Button', 'kemet' ),
 									'transport' => 'postMessage',
 									'label'     => __( 'Label', 'kemet' ),

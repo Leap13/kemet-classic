@@ -39,7 +39,6 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-width'  => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,
-								'divider'      => true,
 								'transport'    => 'postMessage',
 								'label'        => __( 'Enter Width', 'kemet' ),
 								'unit_choices' => array(

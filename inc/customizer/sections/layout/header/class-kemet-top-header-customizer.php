@@ -37,7 +37,6 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 						'options' => array(
 							self::$prefix . '-layout'     => array(
 								'type'      => 'kmt-select',
-								'divider'   => true,
 								'default'   => 'content',
 								'transport' => 'postMessage',
 								'label'     => __( 'Container Layout', 'kemet' ),

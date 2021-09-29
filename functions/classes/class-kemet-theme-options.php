@@ -197,6 +197,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'category',
 						'author',
 					),
+					'page-title-layouts'                   => 'disable',
 					'pagination-padding'                   => '',
 					'font-color-entry-title'               => '',
 					'comment-button-spacing'               => '',
