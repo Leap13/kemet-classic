@@ -30,7 +30,9 @@ const PickerModal = ({
     inline_modal,
     appendToBody,
     predefined,
-    className
+    className,
+    resetPalette,
+    onColorReset
 }) => {
 
     const getValueForPicker = useMemo(() => {
@@ -74,7 +76,14 @@ const PickerModal = ({
     useEffect(() => {
         onChange
     }, [value])
-
+    const onColorResetClick = () => {
+        if (refresh === true) {
+            setRefresh(false)
+        } else {
+            setRefresh(true)
+        }
+        onColorReset("salma");
+    }
     return (
         <Fragment>
             <div
@@ -140,6 +149,8 @@ const PickerModal = ({
                             color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
                         />
+                        {resetPalette && <button type="button" onClick={() => { onColorResetClick() }} className="ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small">{__('Reset', 'astra')}</button>
+                        }
                     </>
                 )}
                 {!refresh && (
@@ -148,6 +159,12 @@ const PickerModal = ({
                             color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
                         />
+                        {resetPalette && <button type="button" onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            onColorReset()
+                        }} className="is-secondary is-small">{__('Reset', 'kemet')}</button>
+                        }
                     </>
                 )}
 

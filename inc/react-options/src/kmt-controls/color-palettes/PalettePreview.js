@@ -9,7 +9,8 @@ const PalettePreview = ({
 	onClick,
 	currentPalette,
 	className,
-	skipModal
+	skipModal,
+	handleClickReset
 }) => {
 	if (!currentPalette) {
 		currentPalette = value
@@ -51,6 +52,8 @@ const PalettePreview = ({
 						predefined={true}
 						className={'kmt-color-palette-modal'}
 						skipModal={skipModal}
+						resetPalette={true}
+						onColorReset={(color) => handleClickReset(picker[`id`])}
 
 					/>
 				))}

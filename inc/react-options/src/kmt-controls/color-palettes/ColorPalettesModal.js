@@ -20,11 +20,11 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 								<label>
 									{palette.name ? palette.name : sprintf(__('Palette #%s', 'Kemet'), index + 1)}
 								</label>
-								{palette[`type`] === "custom" && <button onClick={(e) => {
+								{palette[`type`] === "custom" && <button className={`kmt-delete-palette`} onClick={(e) => {
 									e.preventDefault();
 									e.stopPropagation();
 									handleDeletePalette(palette.id)
-								}}>Delete</button>}
+								}}></button>}
 							</Fragment>
 						)}
 						onClick={() => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { animated } from '@react-spring/web'
-import PalettePreview from './PalettePreview'
+import classnames from "classnames";
 const { __ } = wp.i18n;
 
 
@@ -14,23 +14,18 @@ export default function AddPaletteContainer({ value, onChange, wrapperProps = {}
         <animated.div
             className="kmt-option-modal kmt-palettes-modal"
             {...wrapperProps}>
-            <PalettePreview
-                onClick={() => { }}
-                value={value}
-                onChange={(v, id) => onChange(v, id)}
-                skipModal={true}
-            />
-            <div className={`kmt-Palette-title-container`}>
-                <p for="title">{__('Name ')}</p>
-                <input type="text " name="title" id="title" onChange={(e) => setPaletteData({ ...data, name: e.target.value })} />
-            </div>
-            <div className={`kmt-Palette-type-container`}>
-                <p>Type</p>
-                <div>
-                    <span>Light</span>
-                    <input type="radio" id="javascript" name="fav_language" value="JavaScript" checked={data.type === "light"} onClick={() => setPaletteData({ ...data, type: "light" })} />
-                    <span>Dark</span>
-                    <input type="radio" id="javascript" name="fav_language" value="JavaScript" checked={data.type === "dark"} onClick={() => setPaletteData({ ...data, type: "dark" })} />
+            <div className={`kmt-palette-info`}>
+                <input type="text " className={`kmt-add-palette-title`} placeholder={__("Palette Title")} onChange={(e) => setPaletteData({ ...data, name: e.target.value })} />
+                <div className={`kmt-Palette-type-container`}>
+                    <p>{__("Type ")}</p>
+                    <div className={`kmt-Palette-type-wrapper`}>
+                        {['light', 'dark'].map((type) => (<button type="button" className={classnames(
+                            "kmt-button-palette-type components-button is-tertiary", {
+                            active: type === data.type
+                        })} onClick={(e) => { setPaletteData({ ...data, type: type }) }}>{type}</button>
+                        ))}
+
+                    </div>
                 </div>
             </div>
             <button className="kmt-save-palette" disabled={data.name === ""} onClick={(e) => {
@@ -38,6 +33,6 @@ export default function AddPaletteContainer({ value, onChange, wrapperProps = {}
                 e.stopPropagation();
                 handleAddPalette(data)
             }}>Save Palette</button>
-        </animated.div>
+        </animated.div >
     )
 }

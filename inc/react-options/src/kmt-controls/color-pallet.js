@@ -6,6 +6,7 @@ import usePopoverMaker from '../common/popover-component'
 import OutsideClickHandler from '../common/outside-component'
 import { Transition } from '@react-spring/web'
 import bezierEasing from 'bezier-easing'
+import classnames from "classnames";
 
 const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue } }) => {
     const [state, setState] = useState(value)
@@ -86,6 +87,18 @@ const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue
         onChange({ ...value, palettes: newPalette })
     }
 
+    const handleResetColor = (id) => {
+        let updateState = {
+            ...state,
+        };
+        let currentPalette = updateState.palettes.find(
+            ({ id }) => id === updateState.current_palette
+        );
+        let resetValue = value[id]
+
+
+    }
+
     const [currentView, setCurrentView] = useState('modal')
 
     return (
@@ -106,8 +119,8 @@ const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue
                 </div>
                 <span className="customize-control-title kmt-control-title">{label}</span>
                 <div className={`kmt-type-control`}>
-                    <span onClick={() => { setTypeOfPalette("light") }}>Light</span>
-                    <span onClick={() => { setTypeOfPalette("dark") }}>Dark</span>
+                    <span className={classnames({ active: typeOfPalette === "light" })} onClick={() => { setTypeOfPalette("light") }}>Light</span>
+                    <span className={classnames({ active: typeOfPalette === "dark" })} onClick={() => { setTypeOfPalette("dark") }}>Dark</span>
                 </div>
             </header>
             <OutsideClickHandler
@@ -147,11 +160,12 @@ const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue
                                 return
                             }
                             setIsOpen(false)
-
                         }}
                         value={state}
                         onChange={(v, id) => handleChangeComplete(v, id)}
                         skipModal={false}
+                        handleClickReset={(val) => { handleResetColor(val) }}
+
                     />
                     <span
                         className={`kmt-button-open-palette`}
@@ -237,6 +251,7 @@ const ColorPalettes = ({ value, onChange, params: { label, default: defaultValue
                                         setIsOpen(false)
                                         handleChangePalette(val)
                                     }}
+
                                     value={state}
                                     option={state}
                                     handleDeletePalette={(id) => handleDeletePalette(id)}
