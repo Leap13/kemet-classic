@@ -116,11 +116,14 @@ class Kemet_Woo_General_Customizer extends Kemet_Customizer_Register {
 				'label'       => __( 'Wishlist', 'kemet' ),
 				'description' => sprintf( '%s <a href="%s" target="%s">%s</a> %s', esc_html__( 'You need to activate the', 'kemet' ), esc_url( 'https://wordpress.org/plugins/yith-woocommerce-wishlist/' ), esc_attr( '_blank' ), esc_html__( 'YITH WooCommerce Wishlist', 'kemet' ), esc_html__( 'plugin to add a wishlist button and icon', 'kemet' ) ),
 			),
-			'wishlist-in-header'    => array(
+		);
+
+		if ( file_exists( WP_PLUGIN_DIR . '/yith-woocommerce-wishlist/init.php' ) ) {
+			$register_options['wishlist-in-header'] = array(
 				'type'  => 'kmt-switcher',
 				'label' => __( 'Add Wishlist Header', 'kemet' ),
-			),
-		);
+			);
+		}
 
 		$register_options = array(
 			self::$prefix . '-options' => array(

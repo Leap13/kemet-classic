@@ -1843,7 +1843,7 @@ dd {
 table,
 th,
 td {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid var(--borderColor);
 }
 
 table {
@@ -4662,8 +4662,8 @@ h4.widget-title {
 }
 
 .widget_calendar thead > tr > th {
-	border-top: 2px solid #eaeaea;
-	border-bottom: 2px solid #eaeaea;
+	border-top: 2px solid var(--borderColor);
+	border-bottom: 2px solid var(--borderColor);
 	line-height: 2.5em;
 }
 

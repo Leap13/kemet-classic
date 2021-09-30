@@ -1299,7 +1299,6 @@ p.demo_store a,
 .woocommerce-page ul.products li.product .woocommerce-loop-category__title {
 	margin: 0;
 	padding: 0.5em 0;
-	font-size: 1em;
 }
 
 .woocommerce ul.products li.product a,
@@ -2853,8 +2852,9 @@ p.demo_store a,
 	margin-top: 20px;
 	margin-bottom: 0.5em;
 	padding: 0;
-	font-size: 1em;
 	text-align: center;
+
+	--fontSize: 1em;
 }
 
 .woocommerce ul.products li.product .kmt-woo-product-category,
@@ -2862,8 +2862,9 @@ p.demo_store a,
 	display: block;
 	margin-bottom: 0.5em;
 	opacity: 0.6;
-	font-size: 0.85em;
 	line-height: 1.3;
+
+	--fontSize: 0.85em;
 }
 
 .woocommerce ul.products li.product .star-rating,
@@ -3678,11 +3679,6 @@ button.pswp__button--zoom:hover {
 	float: left;
 }
 
-.woocommerce h2,
-.woocommerce-account h2 {
-	font-size: 1.625rem;
-}
-
 .woocommerce .woocommerce-Addresses .woocommerce-Address-title,
 .woocommerce .woocommerce-Addresses .woocommerce-column__title,
 .woocommerce .woocommerce-customer-details .woocommerce-Address-title,
@@ -3766,10 +3762,7 @@ button.pswp__button--zoom:hover {
 	float: right;
 	box-sizing: border-box;
 	margin: 0 0 0 4px;
-	padding: 6px 6px 5px;
-	border: 1px solid #d3ced2;
 	outline: 0;
-	line-height: 1;
 }
 
 .woocommerce-cart table.cart input,
@@ -3899,7 +3892,7 @@ button.pswp__button--zoom:hover {
 .woocommerce-checkout .cart-collaterals .cart_totals tr th,
 #add_payment_method .cart-collaterals .cart_totals tr td,
 #add_payment_method .cart-collaterals .cart_totals tr th {
-	border-top: 1px solid #ebe9eb;
+	border-top: 1px solid var(--borderColor);
 }
 
 .woocommerce-cart .cart-collaterals .cross-sells ul.products li.product,
@@ -4445,7 +4438,7 @@ button.pswp__button--zoom:hover {
 .woocommerce-page.woocommerce-checkout #customer_details h3 {
 	margin: 0 0 20px;
 	padding: 20px 0 14px;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid var(--borderColor);
 	font-size: 1.2rem;
 }
 
@@ -4481,7 +4474,7 @@ button.pswp__button--zoom:hover {
 	padding: 0 2em;
 	border-width: 0 2px 2px;
 	border-style: solid;
-	border-color: #ebebeb;
+	border-color: var(--borderColor);
 }
 
 .woocommerce.woocommerce-checkout form #order_review table,
@@ -4493,7 +4486,7 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout form #order_review th,
 .woocommerce-page.woocommerce-checkout form #order_review td,
 .woocommerce-page.woocommerce-checkout form #order_review th {
-	border-color: #ebebeb;
+	border-color: var(--borderColor);
 }
 
 @media (min-width: 769px) {
@@ -5298,4 +5291,41 @@ ul.products li.product .yith-wcwl-add-to-wishlist .yith-wcwl-wishlistaddedbrowse
 
 .single-product div.product .entry-summary .yith-wcwl-add-to-wishlist .yith-wcwl-icon::before {
 	vertical-align: text-top;
+}
+
+.content-align-left .kemet-shop-thumbnail-wrap {
+	text-align: right;
+}
+
+.content-align-left .kemet-shop-thumbnail-wrap *:not(.onsale):not(.kmt-qv-icon):not(.kemet-view) {
+	text-align: right;
+}
+
+.content-align-left .kemet-shop-thumbnail-wrap .star-rating {
+	margin-right: 0;
+}
+
+.content-align-right .kemet-shop-thumbnail-wrap {
+	text-align: left;
+}
+
+.content-align-right .kemet-shop-thumbnail-wrap *:not(.onsale):not(.kmt-qv-icon):not(.kemet-view) {
+	text-align: left;
+}
+
+.content-align-right .kemet-shop-thumbnail-wrap .star-rating {
+	margin-right: auto;
+	margin-left: 0;
+}
+
+.content-align-center .kemet-shop-thumbnail-wrap {
+	text-align: center;
+}
+
+.content-align-center .kemet-shop-thumbnail-wrap *:not(.onsale):not(.kmt-qv-icon):not(.kemet-view) {
+	text-align: center;
+}
+
+.content-align-center .kemet-shop-thumbnail-wrap .star-rating {
+	margin: 0 auto;
 }

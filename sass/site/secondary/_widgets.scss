@@ -189,8 +189,8 @@ h4.widget-title {
     }
     > tr > th {
       line-height: 2.5em;
-      border-bottom: 2px solid $color-border-widget;
-      border-top: 2px solid $color-border-widget;
+      border-bottom: 2px solid var(--borderColor);
+      border-top: 2px solid var(--borderColor);
     }
   }
   tbody {

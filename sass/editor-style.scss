@@ -115,7 +115,7 @@ p {
 .mce-item-table th,
 .mce-item-table caption {
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.0980392);
+  border-color: var(--borderColor);
 }
 .mce-item-table td,
 .mce-item-table th {

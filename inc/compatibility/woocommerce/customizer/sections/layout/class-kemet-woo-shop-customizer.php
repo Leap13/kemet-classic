@@ -202,7 +202,7 @@ class Kemet_Woo_Shop_Customizer extends Kemet_Customizer_Register {
 			),
 			self::$prefix . '-price'                      => array(
 				'type'  => 'kmt-title',
-				'label' => __( 'Product Title Style', 'kemet' ),
+				'label' => __( 'Product Price Style', 'kemet' ),
 			),
 			self::$prefix . '-product-price-color'        => array(
 				'type'      => 'kmt-color',

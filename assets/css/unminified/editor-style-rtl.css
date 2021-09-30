@@ -1840,7 +1840,7 @@ dd {
 table,
 th,
 td {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid var(--borderColor);
 }
 
 table {
@@ -2575,7 +2575,7 @@ p {
 .mce-item-table th,
 .mce-item-table caption {
 	border-style: solid;
-	border-color: rgba(0, 0, 0, 0.0980392);
+	border-color: var(--borderColor);
 }
 
 .mce-item-table td,

@@ -117,6 +117,21 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 			add_filter( 'yith_wcwl_positions', array( $this, 'kemet_wishlist_position' ) );
 			add_filter( 'yith_wcwl_positions', array( $this, 'kemet_wishlist_position' ) );
 			add_filter( 'woocommerce_single_product_summary', array( $this, 'kemet_single_wishlist' ), 31 );
+			add_action( 'kemet_get_fonts', array( $this, 'add_fonts' ), 1 );
+		}
+
+		/**
+		 * Add Google Fonts
+		 */
+		public function add_fonts() {
+			$typography = kemet_get_option( 'woo-shop-product-title-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+
+			$typography = kemet_get_option( 'woo-shop-product-content-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
+
+			$typography = kemet_get_option( 'woo-shop-product-price-typography' );
+			Kemet_Fonts::add_font_form_typography( $typography );
 		}
 
 		/**
@@ -1160,6 +1175,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				),
 				'.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title, ul.products li.product .woocommerce-loop-product__title' => array(
 					'--headingColor' => esc_attr( $product_title_font_color ),
+					'font-family'    => 'var(--fontFamily)',
 					'margin'         => kemet_responsive_spacing( $product_title_spacing, 'all', 'desktop' ),
 				),
 				'.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,.woocommerce ul.products li.product .price ins' => array(
@@ -1252,6 +1268,9 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 				 * YITH WooCommerce Wishlist Style
 				 */
 				$yith_wcwl_main_style = array(
+					'table.wishlist_table tbody td, table.wishlist_table thead th' => array(
+						'border-color' => 'var(--borderColor)',
+					),
 					'.js_active .kmt-plain-container.kmt-single-post .entry-header' => array(
 						'margin-top' => esc_attr( '0' ),
 					),
@@ -1261,14 +1280,8 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'.woocommerce table.wishlist_table tbody td.product-name' => array(
 						'font-weight' => esc_attr( '700' ),
 					),
-					'.woocommerce table.wishlist_table thead th' => array(
-						'border-top' => esc_attr( '0' ),
-					),
 					'.woocommerce table.wishlist_table tr td.product-remove' => array(
 						'padding' => esc_attr( '.7em 1em' ),
-					),
-					'.woocommerce table.wishlist_table tbody td' => array(
-						'border-right' => esc_attr( '0' ),
 					),
 					'.woocommerce .wishlist_table td.product-add-to-cart a' => array(
 						'display' => esc_attr( 'inherit !important' ),
