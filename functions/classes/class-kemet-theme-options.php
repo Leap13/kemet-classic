@@ -100,6 +100,8 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'value' => 35,
 						'unit'  => '%',
 					),
+					'primary-menu-box-shadow'              => true,
+					'secondary-menu-box-shadow'            => true,
 					'header-mobile-items'                  => array(
 						'popup'  => array( 'popup_content' => array( 'offcanvas-menu' ) ),
 						'top'    =>

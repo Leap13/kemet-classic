@@ -170,7 +170,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 							'sidebar-link-color'        => array(
 								'transport' => 'postMessage',
 								'type'      => 'kmt-color',
-								'label'     => __( 'Link Color', 'kemet' ),
+								'label'     => __( 'Links Color', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),

@@ -53,7 +53,7 @@ class Kemet_Content_Customizer extends Kemet_Customizer_Register {
 			'content-link-color'        => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
-				'label'     => __( 'Content Link Color', 'kemet' ),
+				'label'     => __( 'Content Links Color', 'kemet' ),
 				'pickers'   => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),

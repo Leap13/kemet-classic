@@ -66,7 +66,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 				$prefix . '-link-color'                => array(
 					'transport' => 'postMessage',
 					'type'      => 'kmt-color',
-					'label'     => __( 'Link Color', 'kemet' ),
+					'label'     => __( 'Links Color', 'kemet' ),
 					'pickers'   => array(
 						array(
 							'title' => __( 'Initial', 'kemet' ),
@@ -282,7 +282,7 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 								$prefix . '-submenu-link-color' => array(
 									'transport' => 'postMessage',
 									'type'      => 'kmt-color',
-									'label'     => __( 'Link Color', 'kemet' ),
+									'label'     => __( 'Links Color', 'kemet' ),
 									'pickers'   => array(
 										array(
 											'title' => __( 'Initial', 'kemet' ),

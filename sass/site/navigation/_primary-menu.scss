@@ -146,7 +146,7 @@
   ul.children {
     border-top-style: solid;
     border-top-width: var(--borderTopWidth, 2px);
-    border-top-color: var(--borderTopColor);
+    border-top-color: var(--borderTopColor, var(--themeColor));
     ul.sub-menu,
     ul.children {
       top: 0px;

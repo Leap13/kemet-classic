@@ -170,7 +170,7 @@
     > a {
       border-bottom-style: var(--borderBottomStyle, solid);
       border-bottom-color: var(--borderBottomColor, transparent);
-      border-bottom-width: var(--borderBottomWidth, 1px);
+      border-bottom-width: var(--borderBottomWidth, 0);
     }
   }
 }

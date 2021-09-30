@@ -3152,7 +3152,7 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 .main-header-menu ul.children {
 	border-top-width: var(--borderTopWidth, 2px);
 	border-top-style: solid;
-	border-top-color: var(--borderTopColor);
+	border-top-color: var(--borderTopColor, var(--themeColor));
 }
 
 .main-header-menu ul.sub-menu ul.sub-menu,
@@ -3722,7 +3722,7 @@ body.search .page-content .search-form .kemet-search-svg-icon-wrap {
 
 .main-header-menu .menu-item > a,
 .main-header-menu .page_item > a {
-	border-bottom-width: var(--borderBottomWidth, 1px);
+	border-bottom-width: var(--borderBottomWidth, 0);
 	border-bottom-style: var(--borderBottomStyle, solid);
 	border-bottom-color: var(--borderBottomColor, transparent);
 }

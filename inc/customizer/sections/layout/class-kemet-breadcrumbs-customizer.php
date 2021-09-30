@@ -122,7 +122,7 @@ class Kemet_Breadcrumbs_Customizer extends Kemet_Customizer_Register {
 							self::$prefix . '-link-color' => array(
 								'type'      => 'kmt-color',
 								'transport' => 'postMessage',
-								'label'     => __( 'Link Color', 'kemet' ),
+								'label'     => __( 'Links Color', 'kemet' ),
 								'pickers'   => array(
 									array(
 										'id'    => 'initial',

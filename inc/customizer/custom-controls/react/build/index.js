@@ -5674,7 +5674,7 @@ var AvailableComponent = function AvailableComponent(props) {
     className: "kmt-control-field kmt-available-items"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-used-items-container"
-  }, Object.keys(choices).map(function (item) {
+  }, Object.keys(choices).sort().map(function (item) {
     return renderItems(item, "used");
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-title"
@@ -5682,7 +5682,7 @@ var AvailableComponent = function AvailableComponent(props) {
     className: "customize-control-title"
   }, __("Available Items", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-container"
-  }, Object.keys(choices).map(function (item) {
+  }, Object.keys(choices).sort().map(function (item) {
     return renderItems(item, "available");
   })));
 };
