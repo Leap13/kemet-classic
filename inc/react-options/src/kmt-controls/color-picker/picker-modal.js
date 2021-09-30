@@ -1,176 +1,186 @@
-import { useMemo, Fragment, useState, useEffect } from '@wordpress/element'
-import { ColorPicker } from '@wordpress/components'
-import classnames from 'classnames'
+import { useMemo, Fragment, useState, useEffect } from "@wordpress/element";
+import { ColorPicker } from "@wordpress/components";
+import classnames from "classnames";
 const { __ } = wp.i18n;
 
-
 const getLeftForEl = (modal, el) => {
-    if (!modal) return
-    if (!el) return
+  if (!modal) return;
+  if (!el) return;
 
-    let style = getComputedStyle(modal)
+  let style = getComputedStyle(modal);
 
-    let wrapperLeft = parseFloat(style.left)
+  let wrapperLeft = parseFloat(style.left);
 
-    el = el.firstElementChild.getBoundingClientRect()
+  el = el.firstElementChild.getBoundingClientRect();
 
-    return {
-        '--option-modal-arrow-position': `${el.left + el.width / 2 - wrapperLeft - 6
-            }px`,
-    }
-}
+  return {
+    "--option-modal-arrow-position": `${
+      el.left + el.width / 2 - wrapperLeft - 6
+    }px`,
+  };
+};
 
 const PickerModal = ({
-    el,
-    value,
-    picker,
-    onChange,
-    style,
-    wrapperProps = {},
-    inline_modal,
-    appendToBody,
-    predefined,
-    className,
-    resetPalette,
-    onColorReset
+  el,
+  value,
+  picker,
+  onChange,
+  style,
+  wrapperProps = {},
+  inline_modal,
+  appendToBody,
+  predefined,
+  className,
+  resetPalette,
+  onColorReset,
 }) => {
-
-    const getValueForPicker = useMemo(() => {
-        if ((value || '').indexOf('var') > -1) {
-            return {
-                key: 'var' + value,
-                color: getComputedStyle(document.documentElement)
-                    .getPropertyValue(
-                        value.replace(/var\(/, '').replace(/\)/, '')
-                    )
-                    .trim()
-                    .replace(/\s/g, ''),
-            }
-        }
-
-        return { key: 'color', color: value }
-    }, [value, picker])
-
-    const [refresh, setRefresh] = useState(false)
-
-    let valueToCheck = value
-
-    const arrowLeft = useMemo(
-        () =>
-            wrapperProps.ref &&
-            wrapperProps.ref.current &&
-            el &&
-            getLeftForEl(wrapperProps.ref.current, el.current),
-        [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
-    )
-
-    const handletoppart = (colorValue) => {
-        if (refresh) {
-            setRefresh(false)
-        } else {
-            setRefresh(true)
-        }
-        onChange(colorValue)
-
+  const getValueForPicker = useMemo(() => {
+    if ((value || "").indexOf("var") > -1) {
+      return {
+        key: "var" + value,
+        color: getComputedStyle(document.documentElement)
+          .getPropertyValue(value.replace(/var\(/, "").replace(/\)/, ""))
+          .trim()
+          .replace(/\s/g, ""),
+      };
     }
-    useEffect(() => {
-        onChange
-    }, [value])
-    const onColorResetClick = () => {
-        if (refresh === true) {
-            setRefresh(false)
-        } else {
-            setRefresh(true)
-        }
-        onColorReset("salma");
+
+    return { key: "color", color: value };
+  }, [value, picker]);
+
+  const [refresh, setRefresh] = useState(false);
+
+  let valueToCheck = value;
+
+  const arrowLeft = useMemo(
+    () =>
+      wrapperProps.ref &&
+      wrapperProps.ref.current &&
+      el &&
+      getLeftForEl(wrapperProps.ref.current, el.current),
+    [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
+  );
+
+  const handletoppart = (colorValue) => {
+    if (refresh) {
+      setRefresh(false);
+    } else {
+      setRefresh(true);
     }
-    return (
-        <Fragment>
-            <div
-                tabIndex="0"
-                className={classnames(
-                    `kmt-color-picker-modal`,
+    onChange(colorValue);
+  };
+  useEffect(() => {
+    onChange;
+  }, [value]);
+  const handleColorReset = () => {
+    if (refresh === true) {
+      setRefresh(false);
+    } else {
+      setRefresh(true);
+    }
+    onColorReset();
+  };
+  return (
+    <Fragment>
+      <div
+        tabIndex="0"
+        className={classnames(
+          `kmt-color-picker-modal`,
+          {
+            "kmt-option-modal": !inline_modal && appendToBody,
+          },
+          className
+        )}
+        style={{
+          ...arrowLeft,
+          ...(style ? style : {}),
+        }}
+        {...wrapperProps}
+      >
+        {!predefined && (
+          <div className="kmt-color-picker-top">
+            <ul className="kmt-color-picker-skins">
+              {[
+                "paletteColor1",
+                "paletteColor2",
+                "paletteColor3",
+                "paletteColor4",
+                "paletteColor5",
+                "paletteColor6",
+                "paletteColor7",
+              ].map((color, index) => (
+                <li
+                  key={color}
+                  style={{
+                    background: `var(--${color})`,
+                  }}
+                  className={classnames({
+                    active: valueToCheck === `var(--${color})`,
+                  })}
+                  onClick={() => handletoppart(`var(--${color})`)}
+                >
+                  <div className="kmt-tooltip-top">
                     {
-                        'kmt-option-modal': !inline_modal && appendToBody,
+                      {
+                        paletteColor1: "Color 1",
+                        paletteColor2: "Color 2",
+                        paletteColor3: "Color 3",
+                        paletteColor4: "Color 4",
+                        paletteColor5: "Color 5",
+                        paletteColor6: "Color 6",
+                        paletteColor7: "Color 7",
+                      }[color]
+                    }
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-
-                    },
-                    className
-                )}
-                style={{
-                    ...arrowLeft,
-                    ...(style ? style : {}),
+        {refresh && (
+          <>
+            <ColorPicker
+              color={getValueForPicker.color}
+              onChangeComplete={(color) => onChange(color)}
+            />
+            {resetPalette && (
+              <button
+                type="button"
+                onClick={() => {
+                  handleColorReset();
                 }}
-                {...wrapperProps}>
-                {!predefined && <div className="kmt-color-picker-top">
-                    <ul className="kmt-color-picker-skins">
-                        {['paletteColor1',
-                            'paletteColor2',
-                            'paletteColor3',
-                            'paletteColor4',
-                            'paletteColor5',
-                            'paletteColor6',
-                            'paletteColor7',
-                        ].map((color, index) => (
-                            <li
-                                key={color}
-                                style={{
-                                    background: `var(--${color})`,
-                                }}
-                                className={classnames({
-                                    active:
-                                        valueToCheck === `var(--${color})`,
-                                })}
-                                onClick={() =>
-                                    handletoppart(`var(--${color})`)
-                                }>
-                                <div className="kmt-tooltip-top">
-                                    {
-                                        {
-                                            paletteColor1: 'Color 1',
-                                            paletteColor2: 'Color 2',
-                                            paletteColor3: 'Color 3',
-                                            paletteColor4: 'Color 4',
-                                            paletteColor5: 'Color 5',
-                                            paletteColor6: 'Color 6',
-                                            paletteColor7: 'Color 7',
-                                        }[color]
-                                    }
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>}
+                className=" kmt-btn-reset__color is-secondary is-small"
+              >
+                {__("Reset", "kemet")}
+              </button>
+            )}
+          </>
+        )}
+        {!refresh && (
+          <>
+            <ColorPicker
+              color={getValueForPicker.color}
+              onChangeComplete={(color) => onChange(color)}
+            />
+            {resetPalette && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleColorReset();
+                }}
+                className=" kmt-btn-reset__color is-secondary is-small"
+              >
+                {__("Reset", "kemet")}
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    </Fragment>
+  );
+};
 
-
-                {refresh && (
-                    <>
-                        <ColorPicker
-                            color={getValueForPicker.color}
-                            onChangeComplete={(color) => onChange(color)}
-                        />
-                        {resetPalette && <button type="button" onClick={() => { onColorResetClick() }} className="ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small">{__('Reset', 'astra')}</button>
-                        }
-                    </>
-                )}
-                {!refresh && (
-                    <>
-                        <ColorPicker
-                            color={getValueForPicker.color}
-                            onChangeComplete={(color) => onChange(color)}
-                        />
-                        {resetPalette && <button type="button" onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            onColorReset()
-                        }} className="is-secondary is-small">{__('Reset', 'kemet')}</button>
-                        }
-                    </>
-                )}
-
-            </div>
-        </Fragment >
-    )
-}
-
-export default PickerModal
+export default PickerModal;

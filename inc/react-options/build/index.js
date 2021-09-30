@@ -13858,7 +13858,7 @@ var PalettePreview = function PalettePreview(_ref) {
   var handleChangeColor = function handleChangeColor(color, optionId) {
     var newColor;
 
-    if (typeof color === 'string') {
+    if (typeof color === "string") {
       newColor = color;
     } else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
       newColor = "rgba(".concat(color.rgb.r, ",").concat(color.rgb.g, ",").concat(color.rgb.b, ",").concat(color.rgb.a, ")");
@@ -13870,7 +13870,7 @@ var PalettePreview = function PalettePreview(_ref) {
   };
 
   var pickers = Object.keys(currentPalette).filter(function (k) {
-    return k.indexOf('color') === 0;
+    return k.indexOf("color") === 0;
   }).map(function (key, index) {
     return {
       title: "Color ".concat(index + 1),
@@ -13878,8 +13878,12 @@ var PalettePreview = function PalettePreview(_ref) {
     };
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('kmt-single-palette', className),
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("kmt-single-palette", className),
     onClick: function onClick(e) {
+      if (e.target.closest(".kmt-color-picker-modal") || e.target.classList.contains("kmt-color-picker-modal")) {
+        return;
+      }
+
       _onClick();
     }
   }, renderBefore(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -13892,7 +13896,7 @@ var PalettePreview = function PalettePreview(_ref) {
       },
       value: currentPalette,
       predefined: true,
-      className: 'kmt-color-palette-modal',
+      className: "kmt-color-palette-modal",
       skipModal: skipModal,
       resetPalette: true,
       onColorReset: function onColorReset(color) {
@@ -13969,7 +13973,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
 
   var colorPalettesWrapper = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useRef"])();
 
-  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])('light'),
+  var _useState3 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])("light"),
       _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState3, 2),
       typeOfPalette = _useState4[0],
       setTypeOfPalette = _useState4[1];
@@ -14063,11 +14067,11 @@ var ColorPalettes = function ColorPalettes(_ref) {
         colors = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0___default()(_state, _excluded3);
 
     var newPalette = _objectSpread(_objectSpread({
-      'id': palettes.length + 1
+      id: palettes.length + 1
     }, colors), {}, {
-      'type': "custom",
-      'skin': data.type,
-      'name': data.name
+      type: "custom",
+      skin: data.type,
+      name: data.name
     });
 
     palettes.push(newPalette);
@@ -14094,26 +14098,16 @@ var ColorPalettes = function ColorPalettes(_ref) {
       var id = _ref3.id;
       return id === updateState.current_palette;
     });
-    var resetValue = value[id];
+    var resetColor = currentPalette[id];
+    handleChangeComplete(resetColor, id);
   };
 
-  var _useState7 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])('modal'),
+  var _useState7 = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useState"])(""),
       _useState8 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState7, 2),
       currentView = _useState8[0],
       setCurrentView = _useState8[1];
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      handleChangePalette(defaultValue);
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    className: "customize-control-title kmt-control-title"
-  }, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-type-control"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: classnames__WEBPACK_IMPORTED_MODULE_11___default()({
@@ -14129,18 +14123,24 @@ var ColorPalettes = function ColorPalettes(_ref) {
     onClick: function onClick() {
       setTypeOfPalette("dark");
     }
-  }, "Dark"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, "Dark")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "kmt-reset-btn ",
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    onClick: function onClick(e) {
+      e.preventDefault();
+      handleChangePalette(defaultValue);
+    }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+    className: "customize-control-title kmt-control-title"
+  }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: !isOpen,
     useCapture: false,
     className: "kmt-palettes-outside",
     additionalRefs: [popoverProps.ref],
     onOutsideClick: function onOutsideClick(e) {
-      if (e.target.closest('.kmt-color-picker-modal') || e.target.classList.contains('kmt-color-picker-modal')) {
-        return;
-      } else {
-        setIsOpen(false);
-      }
-
+      setIsOpen(false);
       setCurrentView(" ");
     },
     wrapperProps: {
@@ -14148,11 +14148,14 @@ var ColorPalettes = function ColorPalettes(_ref) {
       onClick: function onClick(e) {
         e.preventDefault();
 
+        if (e.target.closest(".kmt-color-picker-modal") || e.target.classList.contains("kmt-color-picker-modal")) {
+          return;
+        }
+
         if (!state.palettes) {
           return;
         }
 
-        setCurrentView("modal");
         setIsOpen(true);
       }
     }
@@ -14191,19 +14194,19 @@ var ColorPalettes = function ColorPalettes(_ref) {
       easing: bezier_easing__WEBPACK_IMPORTED_MODULE_10___default()(0.25, 0.1, 0.25, 1.0)
     },
     from: isOpen ? {
-      transform: 'scale3d(0.95, 0.95, 1)',
+      transform: "scale3d(0.95, 0.95, 1)",
       opacity: 0
     } : {
       opacity: 1
     },
     enter: isOpen ? {
-      transform: 'scale3d(1, 1, 1)',
+      transform: "scale3d(1, 1, 1)",
       opacity: 1
     } : {
       opacity: 1
     },
     leave: !isOpen ? {
-      transform: 'scale3d(0.95, 0.95, 1)',
+      transform: "scale3d(0.95, 0.95, 1)",
       opacity: 0
     } : {
       opacity: 1
@@ -14247,10 +14250,10 @@ var ColorPalettes = function ColorPalettes(_ref) {
     onClick: function onClick(e) {
       e.stopPropagation();
       e.preventDefault();
-      setCurrentView('add');
+      setCurrentView("add");
       setIsOpen(true);
     }
-  }, " Create New Palette"));
+  }, " ", "Create New Palette"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ColorPalettes);
@@ -14299,7 +14302,7 @@ var getLeftForEl = function getLeftForEl(modal, el) {
   var wrapperLeft = parseFloat(style.left);
   el = el.firstElementChild.getBoundingClientRect();
   return {
-    '--option-modal-arrow-position': "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
+    "--option-modal-arrow-position": "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
   };
 };
 
@@ -14318,15 +14321,15 @@ var PickerModal = function PickerModal(_ref) {
       resetPalette = _ref.resetPalette,
       onColorReset = _ref.onColorReset;
   var getValueForPicker = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
-    if ((value || '').indexOf('var') > -1) {
+    if ((value || "").indexOf("var") > -1) {
       return {
-        key: 'var' + value,
-        color: getComputedStyle(document.documentElement).getPropertyValue(value.replace(/var\(/, '').replace(/\)/, '')).trim().replace(/\s/g, '')
+        key: "var" + value,
+        color: getComputedStyle(document.documentElement).getPropertyValue(value.replace(/var\(/, "").replace(/\)/, "")).trim().replace(/\s/g, "")
       };
     }
 
     return {
-      key: 'color',
+      key: "color",
       color: value
     };
   }, [value, picker]);
@@ -14355,27 +14358,27 @@ var PickerModal = function PickerModal(_ref) {
     onChange;
   }, [value]);
 
-  var onColorResetClick = function onColorResetClick() {
+  var handleColorReset = function handleColorReset() {
     if (refresh === true) {
       setRefresh(false);
     } else {
       setRefresh(true);
     }
 
-    onColorReset("salma");
+    onColorReset();
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     tabIndex: "0",
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-color-picker-modal", {
-      'kmt-option-modal': !inline_modal && appendToBody
+      "kmt-option-modal": !inline_modal && appendToBody
     }, className),
     style: _objectSpread(_objectSpread({}, arrowLeft), style ? style : {})
   }, wrapperProps), !predefined && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-color-picker-top"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
     className: "kmt-color-picker-skins"
-  }, ['paletteColor1', 'paletteColor2', 'paletteColor3', 'paletteColor4', 'paletteColor5', 'paletteColor6', 'paletteColor7'].map(function (color, index) {
+  }, ["paletteColor1", "paletteColor2", "paletteColor3", "paletteColor4", "paletteColor5", "paletteColor6", "paletteColor7"].map(function (color, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("li", {
       key: color,
       style: {
@@ -14390,13 +14393,13 @@ var PickerModal = function PickerModal(_ref) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
       className: "kmt-tooltip-top"
     }, {
-      paletteColor1: 'Color 1',
-      paletteColor2: 'Color 2',
-      paletteColor3: 'Color 3',
-      paletteColor4: 'Color 4',
-      paletteColor5: 'Color 5',
-      paletteColor6: 'Color 6',
-      paletteColor7: 'Color 7'
+      paletteColor1: "Color 1",
+      paletteColor2: "Color 2",
+      paletteColor3: "Color 3",
+      paletteColor4: "Color 4",
+      paletteColor5: "Color 5",
+      paletteColor6: "Color 6",
+      paletteColor7: "Color 7"
     }[color]));
   }))), refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
     color: getValueForPicker.color,
@@ -14406,10 +14409,10 @@ var PickerModal = function PickerModal(_ref) {
   }), resetPalette && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
     onClick: function onClick() {
-      onColorResetClick();
+      handleColorReset();
     },
-    className: "ast-reset-btn-inside-picker components-button common components-circular-option-picker__reset is-secondary is-small"
-  }, __('Reset', 'astra'))), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
+    className: " kmt-btn-reset__color is-secondary is-small"
+  }, __("Reset", "kemet"))), !refresh && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["ColorPicker"], {
     color: getValueForPicker.color,
     onChangeComplete: function onChangeComplete(color) {
       return onChange(color);
@@ -14419,10 +14422,10 @@ var PickerModal = function PickerModal(_ref) {
     onClick: function onClick(e) {
       e.preventDefault();
       e.stopPropagation();
-      onColorReset();
+      handleColorReset();
     },
-    className: "is-secondary is-small"
-  }, __('Reset', 'kemet')))));
+    className: " kmt-btn-reset__color is-secondary is-small"
+  }, __("Reset", "kemet")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PickerModal);

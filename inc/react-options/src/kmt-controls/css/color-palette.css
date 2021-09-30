@@ -20,40 +20,37 @@
   align-items: baseline;
   justify-content: space-between;
 }
-.customize-control-kmt-color-palettes header div.kmt-type-control {
+div.kmt-type-control {
   display: flex;
   overflow-x: hidden;
   margin: 0;
   flex: 0 0 100px;
+  margin-bottom: 10px;
 }
-.customize-control-kmt-color-palettes header div.kmt-type-control span {
+div.kmt-type-control span {
   display: flex;
   box-sizing: border-box;
   min-height: 100%;
   text-transform: capitalize;
   margin: 0;
-  border-bottom: 1px solid #eee;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
   align-items: center;
   flex: 1;
   justify-content: center;
+  height: 40px;
+  border: 1px solid #ddd;
 }
-.customize-control-kmt-color-palettes header div.kmt-type-control span.active {
+div.kmt-type-control span.active {
   position: relative;
 }
 
-.customize-control-kmt-color-palettes
-  header
-  div.kmt-type-control
-  span:not(:last-child) {
-  border-right: 1px solid #eee;
+div.kmt-type-control span:not(:first-child) {
+  margin-left: -1px;
 }
-.customize-control-kmt-color-palettes
-  header
-  div.kmt-type-control
-  span.active::after {
+
+div.kmt-type-control span.active::after {
   position: absolute;
   bottom: -1px;
   left: -1px;
@@ -919,4 +916,10 @@ button.kmt-delete-palette::before {
 }
 .kmt-palettes-modal .kmt-single-palette:hover button.kmt-delete-palette {
   display: inline-block;
+}
+button.kmt-btn-reset__color {
+  margin: 5px 20px 20px 15px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  line-height: 22px;
 }
