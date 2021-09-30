@@ -21,6 +21,7 @@
 
 .customize-control-kmt-color-palettes header {
 	display: flex;
+	position: relative;
 
 	align-items: baseline;
 	justify-content: space-between;
@@ -72,7 +73,7 @@ div.kmt-type-control span.active::after {
 
 .customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
 	position: absolute;
-	top: 2px;
+	top: calc(50% - 10px);
 	right: 0;
 }
 
@@ -971,25 +972,9 @@ div.kmt-type-control span.active::after {
 	cursor: pointer;
 }
 
-button.kmt-save-palette {
-	display: block;
-	margin: 13px auto;
-	padding: 10px 19px;
-	border: none;
-	color: #fff;
-	background-color: var(--primaryColor);
-	box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-	font-size: 14px;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	-webkit-transition-duration: 0.4s;
-	transition-duration: 0.4s;
-}
-
-button.kmt-save-palette:disabled {
-	opacity: 0.5;
-	cursor: no-drop;
+.kmt-palettes-modal button.kmt-save-palette {
+	display: block !important;
+	margin: 13px auto !important;
 }
 
 .kmt-palette-info {
@@ -1054,6 +1039,12 @@ button.kmt-save-palette:disabled {
 	background-color: var(--primaryColor);
 }
 
+.kmt-palette-info .kmt-Palette-type-wrapper button:focus,
+.kmt-palette-info .kmt-Palette-type-wrapper button:active {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 button.kmt-delete-palette {
 	display: none;
 	position: absolute;
@@ -1084,6 +1075,7 @@ button.kmt-btn-reset__color {
 	padding: 4px 8px;
 	border: 1px solid #ccc;
 	line-height: 22px;
+	cursor: pointer;
 }
 
 #customize-theme-controls

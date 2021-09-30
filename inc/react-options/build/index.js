@@ -13689,8 +13689,8 @@ function AddPaletteContainer(_ref) {
       handleAddPalette = _ref.handleAddPalette;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])({
-    name: '',
-    type: 'light'
+    name: "",
+    type: "light"
   }),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_2___default()(_useState, 2),
       data = _useState2[0],
@@ -13713,7 +13713,7 @@ function AddPaletteContainer(_ref) {
     className: "kmt-Palette-type-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", null, __("Type ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-Palette-type-wrapper"
-  }, ['light', 'dark'].map(function (type) {
+  }, ["light", "dark"].map(function (type) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
       type: "button",
       className: classnames__WEBPACK_IMPORTED_MODULE_6___default()("kmt-button-palette-type components-button is-tertiary", {
@@ -13726,7 +13726,7 @@ function AddPaletteContainer(_ref) {
       }
     }, type);
   })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-save-palette",
+    className: "button button-primary save  kmt-save-palette",
     disabled: data.name === "",
     onClick: function onClick(e) {
       e.preventDefault();
