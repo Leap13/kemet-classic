@@ -87,6 +87,20 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 									'right-sidebar' => __( 'Right Sidebar', 'kemet' ),
 								),
 							),
+							'enable-sticky-sidebar'       => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Enable Sticky Sidebar', 'kemet' ),
+							),
+							'only-stick-last-widget'      => array(
+								'type'    => 'kmt-switcher',
+								'label'   => __( 'Only Stick Last Widget', 'kemet' ),
+								'context' => array(
+									array(
+										'setting' => 'enable-sticky-sidebar',
+										'value'   => true,
+									),
+								),
+							),
 							'sidebar-padding'             => array(
 								'type'           => 'kmt-spacing',
 								'divider'        => true,

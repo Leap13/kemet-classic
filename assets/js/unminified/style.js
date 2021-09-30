@@ -1781,3 +1781,56 @@ var toggleClass = function (el, className) {
     });
   }
 })();
+/**
+ * Sticky Sidebar
+ */
+(function () {
+  function stickySidebar() {
+    var $body = document.body,
+      offsetTop = 0;
+    if (
+      $body.classList.contains("kmt-sticky-sidebar") ||
+      $body.classList.contains("kmt-sticky-sidebar-widget")
+    ) {
+      var primaryHeight = $body.querySelector("#primary").offsetHeight;
+      var secondary = $body.querySelector("#secondary");
+
+      if (secondary.offsetHeight < primaryHeight) {
+        secondary.style.height = primaryHeight + "px";
+      }
+
+      if ($body.classList.contains("admin-bar")) {
+        offsetTop += 32;
+      }
+      var header = $body.querySelector("#sitehead");
+      if (header.classList.contains("kmt-sticky-header")) {
+        offsetTop += header.offsetHeight;
+      }
+
+      if ($body.classList.contains("kmt-sticky-sidebar")) {
+        var sidebar = $body.querySelector("#secondary .sidebar-main");
+        if (sidebar) {
+          sidebar.style.top = Math.floor(offsetTop) + "px";
+          sidebar.style.maxHeight =
+            "calc( 100vh - " + Math.floor(offsetTop) + "px )";
+        }
+      }
+
+      if ($body.classList.contains("kmt-sticky-sidebar-widget")) {
+        var lastWidget = $body.querySelector(
+          "#secondary .sidebar-main .widget:last-child"
+        );
+        if (lastWidget) {
+          lastWidget.style.top = Math.floor(offsetTop) + "px";
+          lastWidget.style.maxHeight =
+            "calc( 100vh - " + Math.floor(offsetTop) + "px )";
+        }
+      }
+    }
+  }
+
+  document.addEventListener("scroll", function (e) {
+    stickySidebar();
+  });
+  stickySidebar();
+})();

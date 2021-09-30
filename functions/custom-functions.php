@@ -88,6 +88,16 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 			$classes[] = 'kmt-sticky-footer';
 		}
 
+		// Sticky sidebar.
+		$kemet_sticky_sidebar        = kemet_get_option( 'enable-sticky-sidebar' );
+		$kemet_sticky_sidebar_widget = kemet_get_option( 'only-stick-last-widget' );
+		if ( $kemet_sticky_sidebar && ! $kemet_sticky_sidebar_widget ) {
+			$classes[] = 'kmt-sticky-sidebar';
+		}
+		if ( $kemet_sticky_sidebar_widget && $kemet_sticky_sidebar ) {
+			$classes[] = 'kmt-sticky-sidebar-widget';
+		}
+
 		return $classes;
 	}
 }

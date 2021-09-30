@@ -232,3 +232,31 @@ h4.widget-title {
     }
   }
 }
+@media (min-width: $col-lg) {
+  .kmt-sticky-sidebar {
+    overflow: visible;
+    #secondary {
+      overflow: visible;
+      .sidebar-main {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+        overflow-y: auto;
+      }
+    }
+  }
+  .kmt-sticky-sidebar-widget {
+    overflow: visible;
+    #secondary {
+      overflow: visible;
+      .sidebar-main {
+        height: 100%;
+        .widget:last-child {
+          position: sticky;
+          top: 20px;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
+}
