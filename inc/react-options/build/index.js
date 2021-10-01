@@ -14930,7 +14930,7 @@ var NumberComponent = function NumberComponent(_ref) {
       max = params.max,
       label = params.label;
   var step = 1;
-  var defaultValue = '';
+  var defaultValue = "";
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -14946,14 +14946,14 @@ var NumberComponent = function NumberComponent(_ref) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-option-number", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(min))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-minus", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-disabled", parseFloat(parsedValue) === parseInt(min))),
     onClick: function onClick() {
       return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) - parseFloat(step), min), max)));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(max))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-plus", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-disabled", parseFloat(parsedValue) === parseInt(max))),
     onClick: function onClick() {
       return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) + parseFloat(step), min), max)));
     }
