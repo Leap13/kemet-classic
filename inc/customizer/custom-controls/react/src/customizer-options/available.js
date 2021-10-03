@@ -113,7 +113,7 @@ const AvailableComponent = (props) => {
   return (
     <div className="kmt-control-field kmt-available-items">
       <div className="kmt-used-items-container">
-        {Object.keys(choices).sort().map((item) => {
+        {Object.keys(choices).map((item) => {
           return renderItems(item, "used");
         })}
       </div>
@@ -123,7 +123,7 @@ const AvailableComponent = (props) => {
         </span>
       </div>
       <div className="kmt-available-items-container">
-        {Object.keys(choices).sort().map((item) => {
+        {Object.keys(choices).map((item) => {
           return renderItems(item, "available");
         })}
       </div>

@@ -5674,7 +5674,7 @@ var AvailableComponent = function AvailableComponent(props) {
     className: "kmt-control-field kmt-available-items"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-used-items-container"
-  }, Object.keys(choices).sort().map(function (item) {
+  }, Object.keys(choices).map(function (item) {
     return renderItems(item, "used");
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-title"
@@ -5682,7 +5682,7 @@ var AvailableComponent = function AvailableComponent(props) {
     className: "customize-control-title"
   }, __("Available Items", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-available-items-container"
-  }, Object.keys(choices).sort().map(function (item) {
+  }, Object.keys(choices).map(function (item) {
     return renderItems(item, "available");
   })));
 };
@@ -5914,7 +5914,7 @@ var AddComponent = function AddComponent(props) {
     className: "kmt-popover-builder-list"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(ButtonGroup, {
     className: "kmt-radio-container-control"
-  }, Object.keys(choices).sort().map(function (item) {
+  }, Object.keys(choices).map(function (item) {
     return renderItems(item, row, column);
   })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(Button, {
     className: "kmt-builder-item-add-icon",
