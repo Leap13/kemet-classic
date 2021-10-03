@@ -15126,7 +15126,14 @@ var __ = wp.i18n.__;
 
 
 var RadioImageComponent = function RadioImageComponent(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.value),
+  console.log(props.params);
+  var _props$params = props.params,
+      defaultValue = _props$params.default,
+      optionValue = _props$params.value;
+  optionValue = props.value ? props.value : defaultValue;
+  console.log(defaultValue, optionValue);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(optionValue),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
@@ -15136,14 +15143,14 @@ var RadioImageComponent = function RadioImageComponent(props) {
     props.onChange(value);
   };
 
-  var _props$params = props.params,
-      label = _props$params.label,
-      description = _props$params.description,
-      id = _props$params.id,
-      choices = _props$params.choices,
-      inputAttrs = _props$params.inputAttrs,
-      link = _props$params.link,
-      labelStyle = _props$params.labelStyle;
+  var _props$params2 = props.params,
+      label = _props$params2.label,
+      description = _props$params2.description,
+      id = _props$params2.id,
+      choices = _props$params2.choices,
+      inputAttrs = _props$params2.inputAttrs,
+      link = _props$params2.link,
+      labelStyle = _props$params2.labelStyle;
   var inputContent = [];
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"

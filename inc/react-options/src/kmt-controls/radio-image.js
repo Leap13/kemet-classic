@@ -3,7 +3,11 @@ import { Fragment } from "react";
 const { __ } = wp.i18n;
 import { useState } from 'react';
 const RadioImageComponent = (props) => {
-    const [props_value, setPropsValue] = useState(props.value);
+    console.log(props.params);
+    let { default: defaultValue, value: optionValue } = props.params;
+    optionValue = props.value ? props.value : defaultValue;
+    console.log(defaultValue, optionValue)
+    const [props_value, setPropsValue] = useState(optionValue);
 
     const onLayoutChange = (value) => {
         setPropsValue(value);

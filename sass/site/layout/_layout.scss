@@ -2,10 +2,7 @@
 .hidden {
   display: none !important;
 }
-// Custom Html
-.kmt-custom-html {
-  color: var(--textColor);
-}
+
 // Page alignment
 #page {
   display: block;
@@ -337,6 +334,8 @@ body:not(.kmt-separate-container) {
       border-style: solid;
     }
     #secondary {
+      border-left-width: 1px;
+      border-style: solid;
       margin-left: -1px;
     }
   }
@@ -345,6 +344,7 @@ body:not(.kmt-separate-container) {
       border-left: 1px solid;
     }
     #secondary {
+      border-right: 1px solid;
       margin-right: -1px;
     }
   }
@@ -372,28 +372,6 @@ body:not(.kmt-separate-container) {
           padding-right: $space-between-primary-seconday;
           padding-left: 0;
         }
-      }
-    }
-  }
-}
-body.search {
-  .page-content {
-    .search-form {
-      position: relative;
-      label {
-        width: 100%;
-        display: inline-block;
-      }
-      .search-field {
-        width: 100%;
-        margin-bottom: 15px;
-      }
-      .search-submit {
-        float: right;
-      }
-      .kemet-search-svg-icon-wrap {
-        position: absolute;
-        top: -5px;
       }
     }
   }

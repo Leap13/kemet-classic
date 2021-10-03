@@ -49,7 +49,6 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'single-page-content-layout'  => array(
 				'type'    => 'kmt-select',
-				'divider' => true,
 				'label'   => __( 'Pages Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -61,7 +60,6 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'single-post-content-layout'  => array(
 				'type'    => 'kmt-select',
-				'divider' => true,
 				'label'   => __( 'Blog Posts Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -73,7 +71,6 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 			),
 			'archive-post-content-layout' => array(
 				'type'    => 'kmt-select',
-				'divider' => true,
 				'label'   => __( 'Blog Archives Container', 'kemet' ),
 				'choices' => array(
 					'default'                 => __( 'Default', 'kemet' ),
@@ -171,7 +168,7 @@ class Kemet_Container_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => 'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary',
+										'selector' => 'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary',
 										'property' => 'border-color',
 									),
 								),

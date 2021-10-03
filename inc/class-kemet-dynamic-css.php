@@ -658,7 +658,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'.site-content .kmt-pagination'         => array(
 					'--padding' => kemet_responsive_spacing( $pagination_padding, 'all', 'desktop' ),
 				),
-				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
+				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
 					'border-color' => esc_attr( $single_content_separator_color ),
 				),
 				'.comments-area'                        => array(
@@ -731,7 +731,17 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			);
 
 			/* Parse CSS from array() */
-			$parse_css = kemet_parse_css( $css_output );
+			$parse_css                = kemet_parse_css( $css_output );
+			$enable_sidebar_separator = kemet_get_option( 'enable-sidebar-seperator' );
+			if ( ! $enable_sidebar_separator ) {
+				$sidebar_seperator = array(
+					'body #primary,body #secondary, .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
+						'border' => '0 !important;',
+					),
+				);
+				$parse_css        .= kemet_parse_css( $sidebar_seperator );
+			}
+
 			// Typography.
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'body', ':root' );
 			$parse_css .= Kemet_Dynamic_Css_Generator::typography_css( 'headings', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a' );

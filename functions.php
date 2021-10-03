@@ -41,6 +41,7 @@ require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-svg-icons.php';
 /**
  * Functions.
  */
+require_once KEMET_THEME_DIR . 'functions/classes/plugins-manager/class-kemet-plugins-manager.php';
 require_once KEMET_THEME_DIR . 'functions/helper-options-functions.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-enqueue-scripts.php';
 require_once KEMET_THEME_DIR . 'inc/class-kemet-dynamic-css.php';

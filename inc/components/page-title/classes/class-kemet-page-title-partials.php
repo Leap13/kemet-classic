@@ -70,7 +70,7 @@ if ( ! class_exists( 'Kemet_Page_Title_Partials' ) ) {
 		public function theme_defaults( $defaults ) {
 			$prefix = 'page-title';
 			// Page title Options.
-			$defaults[ $prefix . '-layouts' ]           = 'page-title-layout-1';
+			$defaults[ $prefix . '-layouts' ]           = 'disable';
 			$defaults[ $prefix . '-alignment' ]         = 'center';
 			$defaults[ $prefix . '-background' ]        = '';
 			$defaults[ $prefix . '-merge-with-header' ] = false;
