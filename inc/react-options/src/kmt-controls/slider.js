@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import Responsive from '../common/responsive';
 const { RangeControl } = wp.components;
 const { Component, Fragment } = wp.element;
+import OnlyNumberValue from '../common/OnlyNumber'
+
 class ResponsiveSliderComponent extends Component {
     constructor() {
         super(...arguments);
@@ -109,24 +111,6 @@ class ResponsiveSliderComponent extends Component {
             </li>)
 
         })
-        const onChangeInput = (event) => {
-            if (event.target.value === '') {
-                this.updateValues(undefined);
-                return;
-            }
-            const newValue = Number(event.target.value);
-            if (newValue === '') {
-                this.updateValues(undefined);
-                return;
-            }
-            if (dataAttributes.min < -0.1) {
-                (newValue > dataAttributes.max) ? this.updateValues(dataAttributes.max) : (newValue < dataAttributes.min && newValue !== '-') ? this.updateValues(dataAttributes.min) : this.updateValues(newValue);
-
-            } else {
-                (newValue > dataAttributes.max) ? this.updateValues(dataAttributes.max) : (newValue < -0.1) ? this.updateValues(dataAttributes.min) : this.updateValues(newValue);
-
-            }
-        }
         let sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState[`value`]
         return (
             <Fragment>
@@ -151,13 +135,26 @@ class ResponsiveSliderComponent extends Component {
                             withInputField={false}
                         />
                         <div className="kemet_range_value">
-                            <input type="number" className="kmt-range-value__input" value={sliderValue} min={`${dataAttributes.min}`} max={`${dataAttributes.max}`} step={`${dataAttributes.step}`} onChange={onChangeInput} />
+                            <OnlyNumberValue
+                                classNames="kmt-range-value__input"
+                                value={sliderValue}
+                                step={dataAttributes.step}
+                                onChange={(val) => this.updateValues(
+                                    _.isNumber(parseFloat(val)) ? Math.min(
+                                        Math.max(
+                                            parseFloat(val).toFixed(1),
+                                            dataAttributes.min
+                                        ),
+                                        dataAttributes.max
+                                    ) : parseFloat(val).toFixed(1)
+                                )} />
+
                             {suffixContent}
                         </div>
 
                     </div>
 
-                    <button className="kmt-slider-reset" disabled={this.state.initialState === this.state.defaultVal ? true : false} onClick={e => {
+                    <button className="kmt-slider-reset" disabled={JSON.stringify(this.state.initialState) === JSON.stringify(this.state.defaultVal)} onClick={e => {
                         e.preventDefault()
                         this.props.onChange({ ...this.state.defaultVal });
                         this.setState({ initialState: { ...this.state.defaultVal } });

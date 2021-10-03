@@ -16,6 +16,7 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
         <OutsideClickHandler
             useCapture={false}
             display="inline-block"
+            className="kmt-color-wrapper"
             disabled={!isPicking}
             wrapperProps={{
                 ref: containerRef,

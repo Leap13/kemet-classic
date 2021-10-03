@@ -3,6 +3,7 @@ import { __ } from "@wordpress/i18n";
 import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import Responsive from "../common/responsive";
+import OnlyNumberValue from '../common/OnlyNumber'
 
 const SpacingComponent = (props) => {
     let value = props.value;
@@ -60,7 +61,7 @@ const SpacingComponent = (props) => {
         event.target.parentElement.classList.toggle("disconnected");
     };
 
-    const onSpacingChange = (device, choiceID) => {
+    const onSpacingChange = (v, choiceID) => {
         const { choices } = props.params;
         let updateState = {
             ...state,
@@ -75,10 +76,10 @@ const SpacingComponent = (props) => {
             };
 
         if (!event.target.classList.contains("connected")) {
-            deviceUpdateState[choiceID] = event.target.value;
+            deviceUpdateState[choiceID] = v;
         } else {
             for (let choiceID in choices) {
-                deviceUpdateState[choiceID] = event.target.value;
+                deviceUpdateState[choiceID] = v;
             }
         }
         responsive
@@ -118,13 +119,13 @@ const SpacingComponent = (props) => {
                         {...inputAttrs}
                         className="kmt-spacing-input-item"
                     >
-                        <input
-                            type="number"
-                            className={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
-                            data-id={choiceID}
+                        <OnlyNumberValue
+                            classNames={`kmt-spacing-input kmt-spacing-${device} ${connectedClass}`}
+                            choiceID={choiceID}
                             value={inputValue}
-                            onChange={() => onSpacingChange(device, choiceID)}
-                            data-element-connect={id}
+                            onChange={(v) => onSpacingChange(v, choiceID)}
+                            id={id}
+                            step={1}
                         />
                         <span className="kmt-spacing-title">
                             {choices[choiceID]}
@@ -219,7 +220,6 @@ const SpacingComponent = (props) => {
             </span>
         ) : null;
     inputHtml = <Fragment>{renderInputHtml(device, "active")}</Fragment>;
-
     return (
         <div key={"kmt-spacing-responsive"} className="kmt-spacing-responsive">
             <header>

@@ -12537,6 +12537,74 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 /***/ }),
 
+/***/ "./src/common/OnlyNumber.js":
+/*!**********************************!*\
+  !*** ./src/common/OnlyNumber.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var OnlyNumberValue = function OnlyNumberValue(_ref) {
+  var classNames = _ref.classNames,
+      value = _ref.value,
+      _onChange = _ref.onChange,
+      step = _ref.step,
+      choiceID = _ref.choiceID,
+      id = _ref.id;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+    type: "text",
+    value: value,
+    className: classNames,
+    "data-id": choiceID,
+    "data-element-connect": id,
+    onKeyDown: function onKeyDown(e) {
+      if ([46, 8, 9, 27, 13, 110, 190, 27].indexOf(e.keyCode) > -1 || e.keyCode == 65 && e.ctrlKey === true || e.keyCode == 109 || e.keyCode == 189 || e.keyCode == 173 || e.keyCode == 67 && e.ctrlKey === true || e.keyCode == 88 && e.ctrlKey === true || e.keyCode >= 35 && e.keyCode <= 39 && e.keyCode !== 38 && e.keyCode !== 40) {
+        return;
+      }
+
+      var valueForComputation = '';
+
+      if (value.toString().trim().length === 0) {
+        valueForComputation = 0;
+      } else {
+        var maybeValue = parseFloat(value);
+
+        if (maybeValue || maybeValue === 0) {
+          valueForComputation = maybeValue;
+        }
+      }
+
+      var actualStep = e.shiftKey ? step * 10 : step;
+
+      if (e.keyCode === 38 && value !== '') {
+        _onChange(valueForComputation + actualStep, true);
+      }
+
+      if (e.keyCode === 40 && value !== '') {
+        _onChange(valueForComputation - actualStep, true);
+      }
+
+      if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
+        e.preventDefault();
+      }
+    },
+    onChange: function onChange(_ref2) {
+      var value = _ref2.target.value;
+      return _onChange(value);
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (OnlyNumberValue);
+
+/***/ }),
+
 /***/ "./src/common/outside-component.js":
 /*!*****************************************!*\
   !*** ./src/common/outside-component.js ***!
@@ -14376,6 +14444,7 @@ var ColorComponent = function ColorComponent(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_4__["default"], {
     useCapture: false,
     display: "inline-block",
+    className: "kmt-color-wrapper",
     disabled: !isPicking,
     wrapperProps: {
       ref: containerRef
@@ -15458,6 +15527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _common_OnlyNumber__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/OnlyNumber */ "./src/common/OnlyNumber.js");
 
 
 
@@ -15482,6 +15552,7 @@ var RangeControl = wp.components.RangeControl;
 var _wp$element = wp.element,
     Component = _wp$element.Component,
     Fragment = _wp$element.Fragment;
+
 
 var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(ResponsiveSliderComponent, _Component);
@@ -15624,29 +15695,6 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
           }
         }, "".concat(unit)));
       });
-
-      var onChangeInput = function onChangeInput(event) {
-        if (event.target.value === '') {
-          _this2.updateValues(undefined);
-
-          return;
-        }
-
-        var newValue = Number(event.target.value);
-
-        if (newValue === '') {
-          _this2.updateValues(undefined);
-
-          return;
-        }
-
-        if (dataAttributes.min < -0.1) {
-          newValue > dataAttributes.max ? _this2.updateValues(dataAttributes.max) : newValue < dataAttributes.min && newValue !== '-' ? _this2.updateValues(dataAttributes.min) : _this2.updateValues(newValue);
-        } else {
-          newValue > dataAttributes.max ? _this2.updateValues(dataAttributes.max) : newValue < -0.1 ? _this2.updateValues(dataAttributes.min) : _this2.updateValues(newValue);
-        }
-      };
-
       var sliderValue = this.responsive ? this.state.initialState[this.state.currentDevice] : this.state.initialState["value"];
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "kmt-slider-title-wrap"
@@ -15668,17 +15716,16 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
         withInputField: false
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("div", {
         className: "kemet_range_value"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("input", {
-        type: "number",
-        className: "kmt-range-value__input",
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        classNames: "kmt-range-value__input",
         value: sliderValue,
-        min: "".concat(dataAttributes.min),
-        max: "".concat(dataAttributes.max),
-        step: "".concat(dataAttributes.step),
-        onChange: onChangeInput
+        step: dataAttributes.step,
+        onChange: function onChange(val) {
+          return _this2.updateValues(_.isNumber(parseFloat(val)) ? Math.min(Math.max(parseFloat(val).toFixed(1), dataAttributes.min), dataAttributes.max) : parseFloat(val).toFixed(1));
+        }
       }), suffixContent)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_8__["createElement"])("button", {
         className: "kmt-slider-reset",
-        disabled: this.state.initialState === this.state.defaultVal ? true : false,
+        disabled: JSON.stringify(this.state.initialState) === JSON.stringify(this.state.defaultVal),
         onClick: function onClick(e) {
           e.preventDefault();
 
@@ -15872,6 +15919,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _common_responsive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/responsive */ "./src/common/responsive.js");
+/* harmony import */ var _common_OnlyNumber__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/OnlyNumber */ "./src/common/OnlyNumber.js");
 
 
 
@@ -15880,6 +15928,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -15941,7 +15990,7 @@ var SpacingComponent = function SpacingComponent(props) {
     event.target.parentElement.classList.toggle("disconnected");
   };
 
-  var onSpacingChange = function onSpacingChange(device, choiceID) {
+  var onSpacingChange = function onSpacingChange(v, choiceID) {
     var choices = props.params.choices;
 
     var updateState = _objectSpread({}, state);
@@ -15949,10 +15998,10 @@ var SpacingComponent = function SpacingComponent(props) {
     var deviceUpdateState = responsive ? _objectSpread({}, updateState[device]) : _objectSpread({}, updateState["value"]);
 
     if (!event.target.classList.contains("connected")) {
-      deviceUpdateState[choiceID] = event.target.value;
+      deviceUpdateState[choiceID] = v;
     } else {
       for (var _choiceID in choices) {
-        deviceUpdateState[_choiceID] = event.target.value;
+        deviceUpdateState[_choiceID] = v;
       }
     }
 
@@ -15991,15 +16040,15 @@ var SpacingComponent = function SpacingComponent(props) {
           key: choiceID
         }, inputAttrs, {
           className: "kmt-spacing-input-item"
-        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
-          type: "number",
-          className: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
-          "data-id": choiceID,
+        }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          classNames: "kmt-spacing-input kmt-spacing-".concat(device, " ").concat(connectedClass),
+          choiceID: choiceID,
           value: inputValue,
-          onChange: function onChange() {
-            return onSpacingChange(device, choiceID);
+          onChange: function onChange(v) {
+            return onSpacingChange(v, choiceID);
           },
-          "data-element-connect": id
+          id: id,
+          step: 1
         }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
           className: "kmt-spacing-title"
         }, choices[choiceID]));
@@ -16508,7 +16557,7 @@ var Typography = function Typography(_ref) {
       setCurrentViewCache("fonts:_");
       setIsOpen("fonts");
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === "Default" ? "Default Family" : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyForDisplay"])(value.family))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, value.family === "Default" ? "Default Family" : Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["familyToDisplay"])(value.family))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: classnames__WEBPACK_IMPORTED_MODULE_3___default()('kmt-size', {
       active: currentView === "options"
     }),
@@ -16540,7 +16589,7 @@ var Typography = function Typography(_ref) {
       setCurrentViewCache("variations:_");
       setIsOpen("variations");
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["humanizeVariations"])(value.variation))))), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_6__["Transition"], {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", null, Object(_typography_helpers__WEBPACK_IMPORTED_MODULE_9__["convertVariations"])(value.variation))))), (isTransitioning || isOpen) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createPortal"])(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_6__["Transition"], {
     items: isOpen,
     onRest: function onRest(isOpen) {
       stopTransitioning();
@@ -16853,7 +16902,7 @@ var SingleFont = function SingleFont(_ref3) {
     className: "kmt-font-name"
   }, family.family), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     style: {
-      fontFamily: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["fontFamilyToCSSFamily"])(family)
+      fontFamily: Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["fontFamilytoCss"])(family)
     },
     className: "kmt-font-preview"
   }, "Simply dummy text"));
@@ -16968,7 +17017,7 @@ var VariationsList = function VariationsList(_ref) {
       onChange = _ref.onChange,
       typographyList = _ref.typographyList,
       props = _ref.props;
-  var selectedFontFamily = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["findSelectedFontFamily"])(value.family, typographyList);
+  var selectedFontFamily = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["findFontFamily"])(value.family, typographyList);
   var parentElement = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null);
   Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     if (!selectedFontFamily) {
@@ -16995,7 +17044,7 @@ var VariationsList = function VariationsList(_ref) {
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
       className: "kmt-variation-name",
       "data-variation": variation
-    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["humanizeVariations"])(variation)));
+    }, Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["convertVariations"])(variation)));
   }));
 };
 
@@ -17037,19 +17086,19 @@ var getDefaultFonts = function getDefaultFonts() {
 /*!************************************************!*\
   !*** ./src/kmt-controls/typography/helpers.js ***!
   \************************************************/
-/*! exports provided: fontFamilyToCSSFamily, findSourceTypeFor, findSelectedFontFamily, decideVariationToSelect, humanizeVariationsShort, humanizeVariations, familyForDisplay */
+/*! exports provided: fontFamilytoCss, findSourceTypeFor, findFontFamily, decideVariation, humanizeVariationsShort, convertVariations, familyToDisplay */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontFamilyToCSSFamily", function() { return fontFamilyToCSSFamily; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fontFamilytoCss", function() { return fontFamilytoCss; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findSourceTypeFor", function() { return findSourceTypeFor; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findSelectedFontFamily", function() { return findSelectedFontFamily; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideVariationToSelect", function() { return decideVariationToSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findFontFamily", function() { return findFontFamily; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "decideVariation", function() { return decideVariation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanizeVariationsShort", function() { return humanizeVariationsShort; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "humanizeVariations", function() { return humanizeVariations; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "familyForDisplay", function() { return familyForDisplay; });
-var fontFamilyToCSSFamily = function fontFamilyToCSSFamily(family) {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "convertVariations", function() { return convertVariations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "familyToDisplay", function() { return familyToDisplay; });
+var fontFamilytoCss = function fontFamilytoCss(family) {
   if (family === 'System Default') {
     return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'";
   }
@@ -17071,7 +17120,7 @@ var findSourceTypeFor = function findSourceTypeFor(font_family, fonts_list) {
   if (!source) return false;
   return source.type;
 };
-var findSelectedFontFamily = function findSelectedFontFamily(font_family, fonts_list) {
+var findFontFamily = function findFontFamily(font_family, fonts_list) {
   var source = findSourceTypeSettingsFor(font_family, fonts_list);
 
   if (!source) {
@@ -17083,7 +17132,7 @@ var findSelectedFontFamily = function findSelectedFontFamily(font_family, fonts_
     return family === font_family;
   });
 };
-var decideVariationToSelect = function decideVariationToSelect(newValue, oldValue) {
+var decideVariation = function decideVariation(newValue, oldValue) {
   if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
     return oldValue.variation;
   }
@@ -17118,7 +17167,7 @@ var humanizeVariationsShort = function humanizeVariationsShort(variation) {
   };
   return all[variation];
 };
-var humanizeVariations = function humanizeVariations(variation) {
+var convertVariations = function convertVariations(variation) {
   var all = {
     n1: 'Thin 100',
     i1: 'Thin 100 Italic',
@@ -17142,7 +17191,7 @@ var humanizeVariations = function humanizeVariations(variation) {
   };
   return all[variation];
 };
-var familyForDisplay = function familyForDisplay(family) {
+var familyToDisplay = function familyToDisplay(family) {
   return family;
 };
 
@@ -17298,7 +17347,7 @@ var TypographyModal = function TypographyModal(_ref) {
   var pickFontFamily = function pickFontFamily(family) {
     _onChange(_objectSpread(_objectSpread({}, value), {}, {
       family: family.family,
-      variation: Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["decideVariationToSelect"])(family, value)
+      variation: Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["decideVariation"])(family, value)
     }));
   };
 
@@ -17319,7 +17368,7 @@ var TypographyModal = function TypographyModal(_ref) {
       setCurrentView(currentView === 'fonts' ? 'search' : 'fonts');
       setSearchTerm('');
     }
-  }, currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("span", null, Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["familyForDisplay"])(value.family)), currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("input", {
+  }, currentView !== 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("span", null, Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["familyToDisplay"])(value.family)), currentView === 'search' && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("input", {
     onClick: function onClick(e) {
       return e.stopPropagation();
     },
