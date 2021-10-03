@@ -12,7 +12,7 @@ import PopoverComponent from "../common/popover-component";
 import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 import { __ } from "@wordpress/i18n";
-import { humanizeVariations, familyForDisplay } from "./typography/helpers";
+import { convertVariations, familyToDisplay } from "./typography/helpers";
 
 import TypographyModal from "./typography/typo-modal";
 
@@ -216,7 +216,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                         >
                             {value.family === "Default"
                                 ? "Default Family"
-                                : familyForDisplay(value.family)}
+                                : familyToDisplay(value.family)}
                         </span>
                     </span>
 
@@ -265,7 +265,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                     >
                         <span
 
-                        >{humanizeVariations(value.variation)}</span>
+                        >{convertVariations(value.variation)}</span>
                     </span>
                 </div>
 

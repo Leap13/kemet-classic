@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from '@wordpress/element'
 import classnames from 'classnames'
-import { humanizeVariations, fontFamilyToCSSFamily } from './helpers'
+import { fontFamilytoCss } from './helpers'
 import { FixedSizeList as List } from 'react-window'
 import WebFontLoader from 'webfontloader'
 
@@ -52,7 +52,7 @@ const SingleFont = ({
 			</span>
 			<span
 				style={{
-					fontFamily: fontFamilyToCSSFamily(family),
+					fontFamily: fontFamilytoCss(family),
 				}}
 				className="kmt-font-preview">
 				Simply dummy text
