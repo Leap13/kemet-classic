@@ -16,7 +16,7 @@
   justify-content: flex-end;
   transition: transform 0.1s ease;
   align-self: flex-start;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .kmt-color-picker-top {
@@ -299,7 +299,9 @@
   display: flex;
   justify-content: flex-end;
 }
-.kmt-color-picker-single {
+.kmt-color-picker-container
+  .kmt-color-wrapper:not(:last-child)
+  .kmt-color-picker-single {
   margin-right: 6px;
 }
 .kmt-color-picker-single > span {

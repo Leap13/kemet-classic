@@ -76,6 +76,7 @@
 
 .customize-control-kmt-slider .input-field-wrapper.active {
   display: flex;
+  align-items: flex-start;
 }
 
 /**
@@ -85,6 +86,7 @@
 .customize-control-kmt-slider .kmt-slider-units {
   font-size: 11px;
   text-transform: uppercase;
+  margin-right: 6px;
 }
 
 .customize-control-kmt-slider .kmt-slider-units li.single-unit {
