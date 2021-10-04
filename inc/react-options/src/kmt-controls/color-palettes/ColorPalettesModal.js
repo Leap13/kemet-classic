@@ -8,6 +8,7 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 		<animated.div
 			className="kmt-option-modal kmt-palettes-modal"
 			{...wrapperProps}>
+
 			{paletteColors.map((palette, index) => (
 				<Fragment>
 					<PalettePreview
