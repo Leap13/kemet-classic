@@ -159,7 +159,7 @@ class ResponsiveSliderComponent extends Component {
                         this.props.onChange({ ...this.state.defaultVal });
                         this.setState({ initialState: { ...this.state.defaultVal } });
                     }}  >
-                        <span className="dashicons dashicons-image-rotate"></span>
+
                     </button>
                 </div>
                 {descriptionContent}

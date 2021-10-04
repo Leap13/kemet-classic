@@ -47,20 +47,7 @@ const BackgroundComponent = (props) => {
     const renderReset = () => {
         return (
             <header >
-                <div className="kmt-background-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn "
-                        disabled={
-                            JSON.stringify(props_value) ===
-                            JSON.stringify(defaultVals)
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            updateValue(defaultVals);
-                        }}
-                    >
-                    </button>
-                </div>
+
                 <label>
                     {labelHtml}
                     {descriptionHtml}
@@ -225,6 +212,20 @@ const BackgroundComponent = (props) => {
         <div className="background-container">
             {renderReset()}
             {renderSettings()}
+            <div className="kmt-background-btn-reset-wrap">
+                <button
+                    className="kmt-reset-btn "
+                    disabled={
+                        JSON.stringify(props_value) ===
+                        JSON.stringify(defaultVals)
+                    }
+                    onClick={(e) => {
+                        e.preventDefault();
+                        updateValue(defaultVals);
+                    }}
+                >
+                </button>
+            </div>
         </div>
     );
 

@@ -35,22 +35,36 @@
   text-align: center;
 }
 .customize-control-kmt-slider .kmt-slider-reset {
-  color: rgba(0, 0, 0, 0.2);
-  display: block;
-  margin-left: 5px;
-  background: 0 0;
-  box-shadow: none;
-}
-
-.customize-control-kmt-slider .kmt-slider-reset span {
+  display: flex;
   width: 12px;
   height: 12px;
+  padding: 0;
+  border: 0;
+  border: none;
+  outline: 0;
+  color: #006ba1;
+  background: 0 0;
+  background: 0 0;
+  box-shadow: none;
+  font-family: dashicons;
   font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.customize-control-kmt-slider .kmt-slider-reset:disabled {
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+.customize-control-kmt-slider .kmt-slider-reset::before {
+  content: "\f531";
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
 }
 
-.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover,
-.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):focus {
-  color: #057bb6;
+.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover ::before {
+  transform: rotate(-45deg);
 }
 .input-field-wrapper .components-range-control.kmt-range-value-input {
   flex-grow: 1;

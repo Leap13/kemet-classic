@@ -409,44 +409,38 @@
 .kmt-image-actions .actions .components-button.edit-image::before {
   content: "\f464";
 }
-.kmt-background-btn-reset-wrap {
-  position: absolute;
-  left: 0;
-  top: calc(50% - 10px);
-}
-.background-container:hover
-  .kmt-background-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled) {
-  opacity: 1;
-}
+
 .kmt-background-btn-reset-wrap .kmt-reset-btn {
-  color: #006ba1;
-  font-size: 10px;
-  padding: 0px 6px;
-  background: transparent;
-  box-shadow: none;
-  transform: translate3d(-17px, 0, 0);
-  outline: 0;
-  border: 0;
-  width: 18px;
-  height: 18px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: dashicons;
+  width: 12px;
+  height: 12px;
+  padding: 0 6px;
   padding: 0;
-  opacity: 0;
+  border: 0;
   border: none;
-  background: transparent;
+  outline: 0;
+  opacity: 1;
+  color: #006ba1;
+  background: 0 0;
+  box-shadow: none;
+  font-family: dashicons;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
+  transform: translate3d(9px, 0, 0);
+  align-items: center;
+  justify-content: center;
+}
+.kmt-background-btn-reset-wrap .kmt-reset-btn:disabled {
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
   transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.kmt-background-btn-reset-wrap .kmt-reset-btn:hover::before {
+.kmt-background-btn-reset-wrap .kmt-reset-btn:hover:not(:disabled):before {
   transform: rotate(-45deg);
 }
 .kmt-background {
@@ -462,6 +456,7 @@
     linear-gradient(-45deg, #ddd 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #ddd 75%),
     linear-gradient(-45deg, transparent 75%, #ddd 75%);
+  margin-right: -5px;
 }
 .kmt-background-preview {
   display: flex;

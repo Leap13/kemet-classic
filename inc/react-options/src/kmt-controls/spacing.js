@@ -223,20 +223,7 @@ const SpacingComponent = (props) => {
     return (
         <div key={"kmt-spacing-responsive"} className="kmt-spacing-responsive">
             <header>
-                <div className="kmt-spacing-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn "
-                        disabled={
-                            JSON.stringify(state) ===
-                            JSON.stringify(defaultVals)
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            props.onChange(defaultVals);
-                            setState(defaultVals);
-                        }}
-                    ></button>
-                </div>
+
                 <span className="customize-control-title kmt-control-title">{label}</span>
                 {responsive ? (
                     <Responsive
@@ -251,6 +238,20 @@ const SpacingComponent = (props) => {
             <div className="kmt-spacing-responsive-outer-wrapper">
                 <div className="input-wrapper kmt-spacing-responsive-wrapper">
                     {inputHtml}
+                </div>
+                <div className="kmt-spacing-btn-reset-wrap">
+                    <button
+                        className="kmt-reset-btn "
+                        disabled={
+                            JSON.stringify(state) ===
+                            JSON.stringify(defaultVals)
+                        }
+                        onClick={(e) => {
+                            e.preventDefault();
+                            props.onChange(defaultVals);
+                            setState(defaultVals);
+                        }}
+                    ></button>
                 </div>
             </div>
         </div>

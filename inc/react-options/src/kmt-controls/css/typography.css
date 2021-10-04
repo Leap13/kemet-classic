@@ -48,59 +48,79 @@
   align-items: center;
   margin-bottom: 5px;
 }
-.kmt-typography header .kmt-btn-reset-wrap {
-  position: absolute;
-  left: 0;
-  top: 2px;
-}
-.kmt-typography:hover header .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
+
+.kmt-typography:hover
+  .kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:not(:disabled) {
   opacity: 1;
 }
-.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn {
+.kmt-typography .kmt-typography-wrapper {
+  display: flex;
+  align-items: center;
+}
+.kmt-typography .kmt-typography-wrapper .kmt-btn-reset-wrap .kmt-reset-btn {
   color: var(--primaryColor);
-  font-size: 10px;
+  font-size: 12px;
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-17px, 0, 0);
   outline: 0;
   border: 0;
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: dashicons;
   padding: 0;
-  opacity: 0;
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
 }
-.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+.kmt-typography
+  .kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:disabled {
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+.kmt-typography
+  .kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn::before {
   content: "\f531";
-  transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
+.kmt-typography
+  .kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover:not(:disabled):before {
   transform: rotate(-45deg);
 }
 
-.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:hover,
-.kmt-typography header .kmt-btn-reset-wrap .kmt-reset-btn:focus {
+.kmt-typography
+  .kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover,
+.kmt-typography.kmt-typography-wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:focus {
   box-shadow: none;
   border: none;
   background: transparent;
 }
 .kmt-typohraphy-value {
   display: flex;
+  border-radius: 3px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.1s linear;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
-  background: #fff;
-  border-radius: 3px;
-  transition: border-color 0.1s linear;
+  width: 96%;
+  margin-right: 6px;
 }
 .kmt-typohraphy-value:hover {
   border-color: #0e8ecc;
@@ -115,7 +135,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: #fff;
   height: 35px;
 }
 

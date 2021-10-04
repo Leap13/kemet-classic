@@ -1,13 +1,18 @@
 import classnames from 'classnames'
+import OnlyNumberValue from '../common/OnlyNumber'
+import _ from 'underscore'
 
 const round = (value) => Math.round(value * 10) / 10
 
 const NumberComponent = ({ value, params, onChange }) => {
-    const parsedValue = value
+    let parsedValue;
+
     let { min, max, label } = params
     let step = 1;
-    let defaultValue = ''
-
+    let defaultValue = 1
+    if (value.toString().trim().length === 0) {
+        parsedValue = 0
+    }
     return (
         <div className={`kmt-number-container`}>
             <header>
@@ -59,26 +64,22 @@ const NumberComponent = ({ value, params, onChange }) => {
                     })}
                     onClick={() =>
                         onChange(
-                            round(
-                                Math.min(
-                                    Math.max(
-                                        parseFloat(parsedValue) + parseFloat(step),
-                                        min
-                                    ),
-                                    max
-                                )
+
+                            Math.min(
+                                Math.max(
+                                    parseFloat(parsedValue) + parseFloat(step),
+                                    min
+                                ),
+                                max
                             )
+
                         )
                     }
                 />
-                <input type="number"
+                <OnlyNumberValue
                     value={value}
                     step={step}
-                    max={max}
-                    min={min}
-                    onChange={({ target: { value: value } }) =>
-                        onChange(value)
-                    } />
+                    onChange={(val) => onChange(val)} />
             </div>
         </div >
     )

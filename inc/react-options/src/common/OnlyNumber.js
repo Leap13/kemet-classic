@@ -35,7 +35,7 @@ const OnlyNumberValue = ({
                 return
             }
 
-            let valueForComputation = ''
+            let valueForComputation = "undeclared"
 
             if (value.toString().trim().length === 0) {
                 valueForComputation = 0
@@ -49,11 +49,12 @@ const OnlyNumberValue = ({
 
             let actualStep = e.shiftKey ? step * 10 : step
 
-            if (e.keyCode === 38 && value !== '') {
+
+            if (e.keyCode === 38 && value !== "undeclared") {
                 onChange(valueForComputation + actualStep, true)
             }
 
-            if (e.keyCode === 40 && value !== '') {
+            if (e.keyCode === 40 && value !== "undeclared") {
                 onChange(valueForComputation - actualStep, true)
 
             }
