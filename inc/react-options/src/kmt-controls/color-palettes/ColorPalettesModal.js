@@ -1,14 +1,36 @@
+
 const { __, sprintf } = wp.i18n;
 import { animated } from '@react-spring/web'
 import { Fragment } from 'react';
 import PalettePreview from './PalettePreview'
-const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePalette, typeOfPalette }) => {
+import classnames from "classnames";
+import { useState } from 'react';
+
+const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePalette }) => {
+	const [typeOfPalette, setTypeOfPalette] = useState("light");
 	const paletteColors = value.palettes.filter(palette => { return palette.skin === typeOfPalette })
 	return (
 		<animated.div
 			className="kmt-option-modal kmt-palettes-modal"
 			{...wrapperProps}>
-
+			<div className={`kmt-type-control`}>
+				<span
+					className={classnames({ active: typeOfPalette === "light" })}
+					onClick={() => {
+						setTypeOfPalette("light");
+					}}
+				>
+					Light
+        </span>
+				<span
+					className={classnames({ active: typeOfPalette === "dark" })}
+					onClick={() => {
+						setTypeOfPalette("dark");
+					}}
+				>
+					Dark
+        </span>
+			</div>
 			{paletteColors.map((palette, index) => (
 				<Fragment>
 					<PalettePreview

@@ -6,7 +6,8 @@ import usePopoverMaker from "../common/popover-component";
 import OutsideClickHandler from "../common/outside-component";
 import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
-import classnames from "classnames";
+const { __, sprintf } = wp.i18n;
+
 
 const ColorPalettes = ({
   value,
@@ -17,7 +18,6 @@ const ColorPalettes = ({
 
   const colorPalettesWrapper = useRef();
 
-  const [typeOfPalette, setTypeOfPalette] = useState("light");
 
   const [{ isOpen, isTransitioning }, setModalState] = useState({
     isOpen: false,
@@ -91,7 +91,7 @@ const ColorPalettes = ({
       skin: data.type,
       name: data.name,
     };
-    palettes.push(newPalette);
+    palettes.unshift(newPalette);
     onChange(value);
     setIsOpen(false);
   };
@@ -119,24 +119,7 @@ const ColorPalettes = ({
 
   return (
     <div>
-      <div className={`kmt-type-control`}>
-        <span
-          className={classnames({ active: typeOfPalette === "light" })}
-          onClick={() => {
-            setTypeOfPalette("light");
-          }}
-        >
-          Light
-        </span>
-        <span
-          className={classnames({ active: typeOfPalette === "dark" })}
-          onClick={() => {
-            setTypeOfPalette("dark");
-          }}
-        >
-          Dark
-        </span>
-      </div>
+
       <header>
         <div className="kmt-btn-reset-wrap">
           <button
@@ -194,14 +177,19 @@ const ColorPalettes = ({
               handleResetColor(val);
             }}
           />
-          <span
-            className={`kmt-button-open-palette`}
-            onClick={(e) => {
-              e.preventDefault();
-              setIsOpen(true);
-              setCurrentView("modal");
-            }}
-          ></span>
+          <div className={`kmt-palette-toggle-modal `}>
+            <haader>
+              {__(`Select Another Palette`)}
+            </haader>
+            <span
+              className={`kmt-button-open-palette`}
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpen(true);
+                setCurrentView("modal");
+              }}
+            ></span>
+          </div>
         </div>
       </OutsideClickHandler>
 
@@ -219,30 +207,30 @@ const ColorPalettes = ({
             from={
               isOpen
                 ? {
-                    transform: "scale3d(0.95, 0.95, 1)",
-                    opacity: 0,
-                  }
+                  transform: "scale3d(0.95, 0.95, 1)",
+                  opacity: 0,
+                }
                 : { opacity: 1 }
             }
             enter={
               isOpen
                 ? {
-                    transform: "scale3d(1, 1, 1)",
-                    opacity: 1,
-                  }
+                  transform: "scale3d(1, 1, 1)",
+                  opacity: 1,
+                }
                 : {
-                    opacity: 1,
-                  }
+                  opacity: 1,
+                }
             }
             leave={
               !isOpen
                 ? {
-                    transform: "scale3d(0.95, 0.95, 1)",
-                    opacity: 0,
-                  }
+                  transform: "scale3d(0.95, 0.95, 1)",
+                  opacity: 0,
+                }
                 : {
-                    opacity: 1,
-                  }
+                  opacity: 1,
+                }
             }
           >
             {(style, item) => {
@@ -284,7 +272,7 @@ const ColorPalettes = ({
                     value={state}
                     option={state}
                     handleDeletePalette={(id) => handleDeletePalette(id)}
-                    typeOfPalette={typeOfPalette}
+
                   />
                 );
               }
