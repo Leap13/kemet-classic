@@ -83,6 +83,11 @@ if ( ! function_exists( 'kemet_body_classes' ) ) {
 
 		// Footer.
 		$kemet_sticky_footer = kemet_get_option( 'enable-sticky-footer' );
+		$keep_footer_bottom  = kemet_get_option( 'keep-footer-bottom' );
+
+		if ( $keep_footer_bottom ) {
+			$classes[] = 'kmt-footer-bottom';
+		}
 
 		if ( $kemet_sticky_footer ) {
 			$classes[] = 'kmt-sticky-footer';

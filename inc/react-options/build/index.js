@@ -16256,7 +16256,7 @@ var ToggleControlComponent = function ToggleControlComponent(_ref) {
       onChange = _ref.onChange;
   var defaultValue = params.default,
       label = params.label;
-  value = value ? value : defaultValue;
+  value = value !== undefined && value !== null && value !== '' ? value : defaultValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),

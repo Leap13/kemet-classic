@@ -4,6 +4,16 @@
 }
 
 // Page alignment
+.kmt-footer-bottom {
+  #page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  #content {
+    flex: 1 0 auto;
+  }
+}
 #page {
   display: block;
 }

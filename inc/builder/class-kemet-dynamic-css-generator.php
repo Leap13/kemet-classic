@@ -137,6 +137,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$css_output = array(
 					$selector => array(
+						'color'             => 'var(--textColor)',
 						'margin'            => 'var(--margin)',
 						'--textColor'       => esc_attr( $color ),
 						'--linksColor'      => esc_attr( $link_color ),

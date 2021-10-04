@@ -7102,6 +7102,8 @@ TabsComponent.propTypes = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options/options-component */ "./src/options/options-component.js");
+/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/responsive-helper */ "./src/common/responsive-helper.js");
+
 
 
 (function ($, api) {
@@ -7124,7 +7126,14 @@ __webpack_require__.r(__webpack_exports__);
     }; // Refresh all responsive elements when previewedDevice is changed.
 
 
-    api.previewedDevice.bind(setBuilderResponsiveDisplay); // Refresh all responsive elements when any section is expanded.
+    api.previewedDevice.bind(setBuilderResponsiveDisplay); // Controls preivew
+
+    var setOptionsResponsiveButtons = function setOptionsResponsiveButtons() {
+      Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_1__["kemetGetResponsiveJs"])();
+    }; // Refresh all responsive elements when previewedDevice is changed.
+
+
+    api.previewedDevice.bind(setOptionsResponsiveButtons); // Refresh all responsive elements when any section is expanded.
     // This is required to set responsive elements on newly added controls inside the section.
 
     api.section.each(function (section) {

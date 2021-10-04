@@ -5,7 +5,7 @@ import { ToggleControl } from "@wordpress/components";
 
 const ToggleControlComponent = ({ params, value, onChange }) => {
   const { default: defaultValue, label } = params;
-  value = value ? value : defaultValue;
+  value = value !== undefined && value !== null && value !== '' ? value : defaultValue;
   const [props_value, setPropsValue] = useState(value);
   let labelContent = label ? (
     <span className="toggle-control-label">{label}</span>

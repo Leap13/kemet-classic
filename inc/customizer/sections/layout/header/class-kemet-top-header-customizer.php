@@ -75,35 +75,9 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							self::$prefix . '-layout-color' => array(
-								'type'      => 'kmt-color',
-								'divider'   => true,
-								'transport' => 'postMessage',
-								'label'     => __( 'Content Color', 'kemet' ),
-								'pickers'   => array(
-									array(
-										'title' => __( 'Initial', 'kemet' ),
-										'id'    => 'initial',
-									),
-								),
-								'preview'   => array(
-									'initial' => array(
-										'selector' => $selector . ' .header-bar-content',
-										'property' => '--backgroundColor',
-									),
-								),
-								'context'   => array(
-									array(
-										'setting'  => self::$prefix . '-layout',
-										'operator' => 'in_array',
-										'value'    => array( 'boxed', 'stretched' ),
-									),
-								),
-							),
 							self::$prefix . '-background' => array(
 								'type'       => 'kmt-background',
 								'transport'  => 'postMessage',
-								'divider'    => true,
 								'label'      => __( 'Background', 'kemet' ),
 								'responsive' => true,
 								'preview'    => array(
@@ -131,6 +105,31 @@ class Kemet_Top_Header_Customizer extends Kemet_Customizer_Register {
 										'value'   => true,
 									),
 									'relation' => 'OR',
+								),
+							),
+							self::$prefix . '-layout-color' => array(
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'transport' => 'postMessage',
+								'label'     => __( 'Content Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => $selector . ' .header-bar-content',
+										'property' => '--backgroundColor',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting'  => self::$prefix . '-layout',
+										'operator' => 'in_array',
+										'value'    => array( 'boxed', 'stretched' ),
+									),
 								),
 							),
 							self::$prefix . '-border-width' => array(

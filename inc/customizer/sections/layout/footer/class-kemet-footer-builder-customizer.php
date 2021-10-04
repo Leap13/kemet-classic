@@ -128,6 +128,11 @@ class Kemet_Footer_Builder_Customizer extends Kemet_Customizer_Register {
 					'section' => 'section-footer-buttons',
 				),
 			),
+			'keep-footer-bottom'           => array(
+				'type'    => 'kmt-switcher',
+				'divider' => true,
+				'label'   => __( 'Keep footer on bottom of screen', 'kemet' ),
+			),
 		);
 
 		$layout_options = array(

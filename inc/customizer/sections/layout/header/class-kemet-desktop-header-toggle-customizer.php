@@ -70,7 +70,6 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 							self::$prefix . '-label' => array(
 								'type'       => 'kmt-text',
 								'responsive' => true,
-								'transport'  => 'postMessage',
 								'label'      => __( 'Label Text', 'kemet' ),
 							),
 							self::$prefix . '-label-position' => array(

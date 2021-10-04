@@ -258,8 +258,15 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-columns-title' => array(
-								'type'  => 'kmt-title',
-								'label' => __( 'Columns Settings', 'kemet' ),
+								'type'    => 'kmt-title',
+								'label'   => __( 'Columns Settings', 'kemet' ),
+								'context' => array(
+									array(
+										'setting'  => self::$prefix . '-columns',
+										'operator' => '!=',
+										'value'    => '1',
+									),
+								),
 							),
 							self::$prefix . '-columns-border-width' => array(
 								'type'         => 'kmt-slider',
@@ -278,6 +285,13 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 										'max'  => 12,
 									),
 								),
+								'context'      => array(
+									array(
+										'setting'  => self::$prefix . '-columns',
+										'operator' => '!=',
+										'value'    => '1',
+									),
+								),
 								'preview'      => array(
 									'selector'   => $selector . ' .site-' . self::$prefix . '-inner-wrap > .site-footer-section',
 									'property'   => '--borderLeftWidth',
@@ -292,6 +306,13 @@ class Kemet_Bottom_Footer_Customizer extends Kemet_Customizer_Register {
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
+									),
+								),
+								'context'   => array(
+									array(
+										'setting'  => self::$prefix . '-columns',
+										'operator' => '!=',
+										'value'    => '1',
 									),
 								),
 								'preview'   => array(

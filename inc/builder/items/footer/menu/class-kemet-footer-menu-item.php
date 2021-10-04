@@ -49,11 +49,8 @@ if ( ! class_exists( 'Kemet_Footer_Menu_Item' ) ) {
 		 */
 		public function add_fonts() {
 			$prefix = 'footer-menu';
-			if ( Kemet_Builder_Helper::is_item_loaded( $prefix, 'footer', 'all' ) ) {
+			if ( Kemet_Builder_Helper::is_item_loaded( $prefix, 'footer' ) ) {
 				$typography = kemet_get_option( $prefix . '-typography' );
-				Kemet_Fonts::add_font_form_typography( $typography );
-
-				$typography = kemet_get_option( $prefix . '-submenu-typography' );
 				Kemet_Fonts::add_font_form_typography( $typography );
 			}
 		}

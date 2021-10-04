@@ -29,11 +29,11 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 		self::$prefix     = 'footer-menu';
 		$selector         = '#' . self::$prefix;
 		$register_options = array(
-			self::$prefix . '-title'               => array(
+			self::$prefix . '-title'        => array(
 				'type'  => 'kmt-title',
 				'label' => __( 'Menu Settings', 'kemet' ),
 			),
-			self::$prefix . '-typography'          => array(
+			self::$prefix . '-typography'   => array(
 				'type'      => 'kmt-typography',
 				'label'     => __( 'Typography', 'kemet' ),
 				'transport' => 'postMessage',
@@ -41,7 +41,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 					'selector' => $selector . ' > li > a',
 				),
 			),
-			self::$prefix . '-bg-color'            => array(
+			self::$prefix . '-bg-color'     => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'divider'   => true,
@@ -59,7 +59,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-link-color'          => array(
+			self::$prefix . '-link-color'   => array(
 				'transport' => 'postMessage',
 				'type'      => 'kmt-color',
 				'label'     => __( 'Links Color', 'kemet' ),
@@ -84,43 +84,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			self::$prefix . '-link-bottom-border-width-hover' => array(
-				'type'         => 'kmt-slider',
-				'responsive'   => true,
-				'divider'      => true,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Link Bottom Border Size on Hover', 'kemet' ),
-				'unit_choices' => array(
-					'px' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 100,
-					),
-				),
-				'preview'      => array(
-					'selector'   => $selector . ' > li > a',
-					'property'   => '--borderBottomWidth',
-					'responsive' => true,
-				),
-			),
-			self::$prefix . '-link-h-border-color' => array(
-				'transport' => 'postMessage',
-				'type'      => 'kmt-color',
-				'label'     => __( 'Link Hover Border Color', 'kemet' ),
-				'pickers'   => array(
-					array(
-						'title' => __( 'Initial', 'kemet' ),
-						'id'    => 'initial',
-					),
-				),
-				'preview'   => array(
-					'initial' => array(
-						'selector' => $selector . ' > li > a:hover',
-						'property' => '--borderBottomColor',
-					),
-				),
-			),
-			self::$prefix . '-spacing'             => array(
+			self::$prefix . '-spacing'      => array(
 				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
 				'responsive'     => true,
@@ -141,7 +105,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 					'responsive' => true,
 				),
 			),
-			self::$prefix . '-item-spacing'        => array(
+			self::$prefix . '-item-spacing' => array(
 				'type'           => 'kmt-spacing',
 				'transport'      => 'postMessage',
 				'label'          => __( 'Menu Item Padding', 'kemet' ),

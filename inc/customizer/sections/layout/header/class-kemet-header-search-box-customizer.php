@@ -87,12 +87,11 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-icon-color' => array(
-								'transport'  => 'postMessage',
-								'responsive' => true,
-								'divider'    => true,
-								'type'       => 'kmt-color',
-								'label'      => __( 'Icon Color', 'kemet' ),
-								'pickers'    => array(
+								'transport' => 'postMessage',
+								'divider'   => true,
+								'type'      => 'kmt-color',
+								'label'     => __( 'Icon Color', 'kemet' ),
+								'pickers'   => array(
 									array(
 										'title' => __( 'Initial', 'kemet' ),
 										'id'    => 'initial',
@@ -102,7 +101,7 @@ class Kemet_Header_Search_Box_Customizer extends Kemet_Customizer_Register {
 										'id'    => 'hover',
 									),
 								),
-								'preview'    => array(
+								'preview'   => array(
 									'initial' => array(
 										'selector' => $parent_selector . ' .kmt-search-box-form .icon-search',
 										'property' => '--iconColor',

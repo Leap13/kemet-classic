@@ -2563,6 +2563,32 @@ select {
 	display: none !important;
 }
 
+.kmt-footer-bottom #page {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	-js-display: flex;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+}
+
+.kmt-footer-bottom #content {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
 #page {
 	display: block;
 }
@@ -4040,6 +4066,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-popup-main {
+	visibility: hidden;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -4057,6 +4084,7 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-popup-main.active {
+	visibility: visible;
 	z-index: 100000;
 	opacity: 1;
 	-webkit-transition: opacity 0.25s ease-out;
@@ -4171,6 +4199,14 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	transform: translateX(100%);
 }
 
+.kmt-popup-align-left #offcanvas-menu .kmt-menu-item-wrap {
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-ms-flex-pack: start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+
 .kmt-popup-align-left .kmt-header-item {
 	-webkit-box-pack: start;
 	-moz-box-pack: start;
@@ -4181,6 +4217,14 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 
 .kmt-popup-align-left .kmt-popup-body-content {
 	text-align: left;
+}
+
+.kmt-popup-align-right #offcanvas-menu .kmt-menu-item-wrap {
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .kmt-popup-align-right .kmt-header-item {
@@ -4196,6 +4240,14 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 }
 
 .kmt-popup-align-center .kmt-header-item {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.kmt-popup-align-center #offcanvas-menu .kmt-menu-item-wrap {
 	-webkit-box-pack: center;
 	-moz-box-pack: center;
 	-ms-flex-pack: center;

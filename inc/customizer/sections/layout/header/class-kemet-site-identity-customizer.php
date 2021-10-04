@@ -245,7 +245,7 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 		);
 
 		$register_options = array(
-			'site-identity-options'       => array(
+			'site-identity-options'              => array(
 				'section'  => 'title_tagline',
 				'priority' => 80,
 				'type'     => 'kmt-options',
@@ -253,16 +253,55 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 					'options' => $register_options,
 				),
 			),
-			'kmt-header-retina-logo'      => array(
+			'kmt-header-retina-logo'             => array(
 				'type'     => 'image',
 				'section'  => 'title_tagline',
 				'priority' => 65,
 				'label'    => __( 'Retina Logo', 'kemet' ),
 			),
-			'site-identity-logo-settings' => array(
+			'different-logo-for-mobile-settings' => array(
 				'section'  => 'title_tagline',
 				'type'     => 'kmt-options',
 				'priority' => 70,
+				'data'     => array(
+					'options' => array(
+						'different-logo-for-mobile' => array(
+							'type'      => 'kmt-switcher',
+							'divider'   => true,
+							'transport' => 'postMessage',
+							'label'     => __( 'Different Logo for Mobile?', 'kemet' ),
+							'context'   => array(
+								array(
+									'setting'  => 'device',
+									'operator' => 'in_array',
+									'value'    => array( 'tablet', 'mobile' ),
+								),
+							),
+						),
+					),
+				),
+			),
+			'kmt-header-mobile-logo'             => array(
+				'type'     => 'image',
+				'section'  => 'title_tagline',
+				'priority' => 70,
+				'label'    => __( 'Mobile Logo', 'kemet' ),
+				'context'  => array(
+					array(
+						'setting'  => 'device',
+						'operator' => 'in_array',
+						'value'    => array( 'tablet', 'mobile' ),
+					),
+					array(
+						'setting' => 'different-logo-for-mobile',
+						'value'   => true,
+					),
+				),
+			),
+			'site-identity-logo-settings'        => array(
+				'section'  => 'title_tagline',
+				'type'     => 'kmt-options',
+				'priority' => 75,
 				'data'     => array(
 					'options' => array(
 						'kmt-header-responsive-logo-width' => array(
@@ -306,36 +345,6 @@ class Kemet_Site_Identity_Customizer extends Kemet_Customizer_Register {
 								'responsive' => true,
 							),
 						),
-						'different-logo-for-mobile'        => array(
-							'type'      => 'kmt-switcher',
-							'transport' => 'postMessage',
-							'divider'   => true,
-							'label'     => __( 'Different Logo for Mobile?', 'kemet' ),
-							'context'   => array(
-								array(
-									'setting'  => 'device',
-									'operator' => 'in_array',
-									'value'    => array( 'tablet', 'mobile' ),
-								),
-							),
-						),
-					),
-				),
-			),
-			'kmt-header-mobile-logo'      => array(
-				'type'     => 'image',
-				'section'  => 'title_tagline',
-				'priority' => 75,
-				'label'    => __( 'Mobile Logo', 'kemet' ),
-				'context'  => array(
-					array(
-						'setting'  => 'device',
-						'operator' => 'in_array',
-						'value'    => array( 'tablet', 'mobile' ),
-					),
-					array(
-						'setting' => 'different-logo-for-mobile',
-						'value'   => true,
 					),
 				),
 			),
