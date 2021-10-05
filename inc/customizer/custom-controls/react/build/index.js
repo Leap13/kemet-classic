@@ -6524,15 +6524,17 @@ var ItemComponent = function ItemComponent(_ref) {
       choices = _ref.choices,
       removeItem = _ref.removeItem,
       focusSection = _ref.focusSection;
+  var mainSection = KemetCustomizerData.has_widget_editor && item.includes('widget') ? 'kemet-' + choices[item].section : choices[item].section;
+  console.log(mainSection);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-builder-item",
     "data-id": item,
-    "data-section": undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "",
+    "data-section": undefined !== choices[item] && undefined !== choices[item].section ? mainSection : "",
     key: item
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-builder-item-actions",
     onClick: function onClick() {
-      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
+      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? mainSection : "");
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "kmt-builder-item-icon kmt-move-icon"
@@ -6542,14 +6544,14 @@ var ItemComponent = function ItemComponent(_ref) {
     className: "kmt-builder-item-text"
   }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
-    "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : "")
+    "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? mainSection : "")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
   }))), KemetCustomizerData.has_widget_editor && item.includes('widget') && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
     className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
     "aria-label": __("Design for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
     onClick: function onClick() {
-      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? 'kemet-' + choices[item].section : "");
+      focusSection(undefined !== choices[item] && undefined !== choices[item].section ? choices[item].section : "");
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "edit"

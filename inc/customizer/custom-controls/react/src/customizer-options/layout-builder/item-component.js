@@ -2,13 +2,15 @@ const { Dashicon, Button } = wp.components;
 const { __ } = wp.i18n;
 
 const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
+  const mainSection = KemetCustomizerData.has_widget_editor && item.includes('widget') ? 'kemet-' + choices[item].section : choices[item].section;
+  console.log(mainSection);
   return (
     <div
       className="kmt-builder-item"
       data-id={item}
       data-section={
         undefined !== choices[item] && undefined !== choices[item].section
-          ? choices[item].section
+          ? mainSection
           : ""
       }
       key={item}
@@ -18,7 +20,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
         onClick={() => {
           focusSection(
             undefined !== choices[item] && undefined !== choices[item].section
-              ? choices[item].section
+              ? mainSection
               : ""
           );
         }}
@@ -37,7 +39,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
             __("Settings for", "kemet") +
             " " +
             (undefined !== choices[item] && undefined !== choices[item].name
-              ? choices[item].name
+              ? mainSection
               : "")
           }
         >
@@ -56,7 +58,7 @@ const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
         onClick={() => {
           focusSection(
             undefined !== choices[item] && undefined !== choices[item].section
-              ? 'kemet-' + choices[item].section
+              ? choices[item].section
               : ""
           );
         }}

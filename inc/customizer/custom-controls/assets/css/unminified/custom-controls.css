@@ -2920,9 +2920,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 }
 
 .kmt-builder-item .kmt-builder-item-focus-icon.kmt-builder-item-icon .dashicon {
-	width: 14px;
-	height: 14px;
-	font-size: 14px;
+	width: auto;
+	height: auto;
+	font-size: 17px;
 }
 
 .active-builder-row .components-button.kmt-row-actions {
