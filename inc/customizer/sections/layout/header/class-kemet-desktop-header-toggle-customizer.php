@@ -67,10 +67,20 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 									'attr'     => 'data-style',
 								),
 							),
+							self::$prefix . '-enable-label' => array(
+								'type'  => 'kmt-switcher',
+								'label' => __( 'Enable Label', 'kemet' ),
+							),
 							self::$prefix . '-label' => array(
-								'type'       => 'kmt-text',
-								'responsive' => true,
-								'label'      => __( 'Label Text', 'kemet' ),
+								'type'      => 'kmt-text',
+								'transport' => 'postMessage',
+								'label'     => __( 'Label Text', 'kemet' ),
+								'context'   => array(
+									array(
+										'setting' => self::$prefix . '-enable-label',
+										'value'   => true,
+									),
+								),
 							),
 							self::$prefix . '-label-position' => array(
 								'type'      => 'kmt-radio',
@@ -86,8 +96,8 @@ class Kemet_Desktop_Header_Toggle_Button_Customizer extends Kemet_Customizer_Reg
 								),
 								'context'   => array(
 									array(
-										'setting'  => self::$prefix . '-label',
-										'operator' => 'not_empty',
+										'setting' => self::$prefix . '-enable-label',
+										'value'   => true,
 									),
 								),
 							),

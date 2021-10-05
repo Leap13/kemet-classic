@@ -681,6 +681,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 		 * @param string $device device type.
 		 */
 		public function get_toggle_button( $device ) {
+			$enable_label   = kemet_get_option( $device . '-toggle-button-enable-label' );
 			$toggle_title   = trim( apply_filters( 'kemet_' . $device . '_toggle_label', kemet_get_option( $device . '-toggle-button-label' ) ) );
 			$toggle_icon    = apply_filters( 'kemet_' . $device . '_toggle_icon', 'toggle-button-icon' );
 			$design         = kemet_get_option( $device . '-toggle-button-design' );
@@ -698,7 +699,7 @@ if ( ! class_exists( 'Kemet_Header_Markup' ) ) :
 			?>
 			<a class="<?php echo esc_attr( $device ); ?>-toggle-button toggle-button header-toggle-button <?php echo esc_attr( implode( ' ', $classes ) ); ?>" rel="main-header-menu" data-target="#site-navigation" data-label="<?php echo esc_attr( $label_position ); ?>" data-style="<?php echo esc_attr( $style ); ?>" aria-controls='site-navigation' aria-expanded='false'>
 				<?php Kemet_Builder_Helper::customizer_edit_link(); ?>
-				<?php if ( '' !== $toggle_title ) { ?>
+				<?php if ( $enable_label ) { ?>
 					<span class="kmt-popup-label <?php echo get_visibility_class( $visibility ); ?>"><?php echo esc_html( $toggle_title ); ?></span>
 				<?php } ?>
 				<?php echo Kemet_Svg_Icons::get_icons( 'menu' ); ?>
