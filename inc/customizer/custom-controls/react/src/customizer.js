@@ -1,5 +1,4 @@
 import { isDisplay, getSetting, getSettingId } from './options/options-component'
-import { kemetGetResponsiveJs } from './common/responsive-helper';
 (function ($, api) {
   var $window = $(window),
     $body = $("body");
@@ -29,12 +28,6 @@ import { kemetGetResponsiveJs } from './common/responsive-helper';
     // Refresh all responsive elements when previewedDevice is changed.
     api.previewedDevice.bind(setBuilderResponsiveDisplay);
 
-    // Controls preivew
-    var setOptionsResponsiveButtons = function () {
-      kemetGetResponsiveJs();
-    }
-    // Refresh all responsive elements when previewedDevice is changed.
-    api.previewedDevice.bind(setOptionsResponsiveButtons);
     // Refresh all responsive elements when any section is expanded.
     // This is required to set responsive elements on newly added controls inside the section.
     api.section.each(function (section) {

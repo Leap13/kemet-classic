@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  justify-content: center;
 }
 .components-circular-option-picker {
   display: inline-block;
@@ -397,7 +398,6 @@
   border: none;
   border-radius: 0;
   background: transparent;
-  margin-top: 4px !important;
 }
 .kmt-image-actions .actions button::before {
   font-family: "dashicons";
@@ -412,6 +412,7 @@
 .kmt-background-btn-reset-wrap {
   position: absolute;
   left: 0;
+  top: calc(50% - 10px);
 }
 .background-container:hover
   .kmt-background-btn-reset-wrap

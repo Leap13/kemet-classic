@@ -14485,8 +14485,8 @@ var EditorComponent = function EditorComponent(props) {
     window.wp.oldEditor.initialize(editorId, {
       tinymce: {
         wpautop: true,
-        toolbar1: 'formatselect,styleselect,bold,italic,bullist,numlist,link,alignleft,aligncenter,alignright,wp_adv',
-        toolbar2: 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help'
+        toolbar1: 'bold,italic,bullist,numlist,link',
+        toolbar2: ''
       },
       quicktags: true,
       mediaButtons: true
@@ -14930,7 +14930,7 @@ var NumberComponent = function NumberComponent(_ref) {
       max = params.max,
       label = params.label;
   var step = 1;
-  var defaultValue = '';
+  var defaultValue = "";
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -14946,14 +14946,14 @@ var NumberComponent = function NumberComponent(_ref) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-option-number", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(min))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-minus", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-disabled", parseFloat(parsedValue) === parseInt(min))),
     onClick: function onClick() {
       return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) - parseFloat(step), min), max)));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(max))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("kmt-plus", _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-disabled", parseFloat(parsedValue) === parseInt(max))),
     onClick: function onClick() {
       return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) + parseFloat(step), min), max)));
     }
@@ -15126,14 +15126,7 @@ var __ = wp.i18n.__;
 
 
 var RadioImageComponent = function RadioImageComponent(props) {
-  console.log(props.params);
-  var _props$params = props.params,
-      defaultValue = _props$params.default,
-      optionValue = _props$params.value;
-  optionValue = props.value ? props.value : defaultValue;
-  console.log(defaultValue, optionValue);
-
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(optionValue),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(props.value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
@@ -15143,14 +15136,14 @@ var RadioImageComponent = function RadioImageComponent(props) {
     props.onChange(value);
   };
 
-  var _props$params2 = props.params,
-      label = _props$params2.label,
-      description = _props$params2.description,
-      id = _props$params2.id,
-      choices = _props$params2.choices,
-      inputAttrs = _props$params2.inputAttrs,
-      link = _props$params2.link,
-      labelStyle = _props$params2.labelStyle;
+  var _props$params = props.params,
+      label = _props$params.label,
+      description = _props$params.description,
+      id = _props$params.id,
+      choices = _props$params.choices,
+      inputAttrs = _props$params.inputAttrs,
+      link = _props$params.link,
+      labelStyle = _props$params.labelStyle;
   var inputContent = [];
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
@@ -15809,15 +15802,6 @@ var SortableComponent = function SortableComponent(props) {
   var onSortEnd = function onSortEnd(_ref3) {
     var oldIndex = _ref3.oldIndex,
         newIndex = _ref3.newIndex;
-    var newValue = Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex);
-    newValue = newValue.map(function (subarray) {
-      return subarray[0] && value.includes(subarray[0]) && subarray[0];
-    });
-    newValue = newValue.filter(function (item) {
-      return item !== false;
-    });
-    setValue(newValue, newIndex);
-    props.onChange(newValue);
     setSortItems(Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex));
     setDragging(false);
   };
@@ -16256,7 +16240,7 @@ var ToggleControlComponent = function ToggleControlComponent(_ref) {
       onChange = _ref.onChange;
   var defaultValue = params.default,
       label = params.label;
-  value = value !== undefined && value !== null && value !== '' ? value : defaultValue;
+  value = value ? value : defaultValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),

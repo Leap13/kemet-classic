@@ -1002,6 +1002,7 @@
 	position: relative;
 
 	align-items: center;
+	justify-content: center;
 }
 
 .components-circular-option-picker {
@@ -1430,7 +1431,6 @@
 	width: 34px;
 	height: 29px;
 	min-height: initial;
-	margin-top: 4px !important;
 	padding: 0;
 	border: none;
 	border-radius: 0;
@@ -1453,6 +1453,7 @@
 
 .kmt-background-btn-reset-wrap {
 	position: absolute;
+	top: calc(50% - 10px);
 	left: 0;
 }
 
@@ -2918,10 +2919,10 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 	margin-left: 10px;
 }
 
-.kmt-builder-item .kmt-kmt-item-focus-icon.kmt-builder-item-icon .dashicon {
-	width: auto;
-	height: auto;
-	font-size: 17px;
+.kmt-builder-item .kmt-builder-item-focus-icon.kmt-builder-item-icon .dashicon {
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
 }
 
 .active-builder-row .components-button.kmt-row-actions {
@@ -3111,7 +3112,7 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 	background: #fff;
 }
 
-.kmt-builder-item .kmt-builder-item-icon.kmt-kmt-item-focus-icon svg {
+.kmt-builder-item .kmt-builder-item-icon.kmt-builder-item-focus-icon svg {
 	width: 14px;
 }
 
@@ -7779,6 +7780,7 @@ i.fipicon-angle-left:before {
 	margin-left: 6px;
 	opacity: 0.7;
 	text-align: center;
+	cursor: pointer;
 	user-select: none;
 }
 
@@ -7973,7 +7975,7 @@ i.fipicon-angle-left:before {
 /* Reset Button CSS */
 .kmt-color-btn-reset-wrap {
 	position: absolute;
-	top: 2px;
+	top: calc(50% - 10px);
 	left: 0;
 }
 
@@ -8997,6 +8999,7 @@ i.fipicon-angle-left:before {
 	margin-left: 6px;
 	opacity: 0.7;
 	text-align: center;
+	cursor: pointer;
 	user-select: none;
 }
 
@@ -9252,8 +9255,6 @@ input[type="checkbox"]:focus {
 .components-form-toggle .components-form-toggle__track {
 	display: inline-block;
 	box-sizing: border-box;
-	width: 34px;
-	height: 21px !important;
 	border: 1px solid #9c9c9c;
 	border-radius: 11px;
 	background-color: #fff;
@@ -9265,11 +9266,7 @@ input[type="checkbox"]:focus {
 .components-form-toggle .components-form-toggle__thumb {
 	display: block;
 	position: absolute;
-	top: 3px;
-	left: 3px;
 	box-sizing: border-box;
-	width: 14px;
-	height: 15px;
 	border: 0 !important;
 	border-radius: 50%;
 	background-color: #838383;

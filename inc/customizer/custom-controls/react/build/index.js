@@ -6541,12 +6541,12 @@ var ItemComponent = function ItemComponent(_ref) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("span", {
     className: "kmt-builder-item-text"
   }, undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
-    className: "kmt-kmt-item-focus-icon kmt-builder-item-icon",
+    className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
     "aria-label": __("Settings for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : "")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Dashicon, {
     icon: "admin-generic"
   }))), KemetCustomizerData.has_widget_editor && item.includes('widget') && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Button, {
-    className: "kmt-kmt-item-focus-icon kmt-builder-item-icon",
+    className: "kmt-builder-item-focus-icon kmt-builder-item-icon",
     "aria-label": __("Design for", "kemet") + " " + (undefined !== choices[item] && undefined !== choices[item].name ? choices[item].name : ""),
     onClick: function onClick() {
       focusSection(undefined !== choices[item] && undefined !== choices[item].section ? 'kemet-' + choices[item].section : "");
@@ -7102,8 +7102,6 @@ TabsComponent.propTypes = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _options_options_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options/options-component */ "./src/options/options-component.js");
-/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/responsive-helper */ "./src/common/responsive-helper.js");
-
 
 
 (function ($, api) {
@@ -7126,14 +7124,7 @@ __webpack_require__.r(__webpack_exports__);
     }; // Refresh all responsive elements when previewedDevice is changed.
 
 
-    api.previewedDevice.bind(setBuilderResponsiveDisplay); // Controls preivew
-
-    var setOptionsResponsiveButtons = function setOptionsResponsiveButtons() {
-      Object(_common_responsive_helper__WEBPACK_IMPORTED_MODULE_1__["kemetGetResponsiveJs"])();
-    }; // Refresh all responsive elements when previewedDevice is changed.
-
-
-    api.previewedDevice.bind(setOptionsResponsiveButtons); // Refresh all responsive elements when any section is expanded.
+    api.previewedDevice.bind(setBuilderResponsiveDisplay); // Refresh all responsive elements when any section is expanded.
     // This is required to set responsive elements on newly added controls inside the section.
 
     api.section.each(function (section) {
