@@ -11,8 +11,7 @@
   border-radius: 100px;
 }
 .customize-control-kmt-color-palettes header span {
-  font-size: 13px;
-  font-weight: 500;
+  margin-left: -10px;
 }
 .customize-control-kmt-color-palettes header {
   display: flex;
@@ -30,34 +29,25 @@ div.kmt-type-control {
 div.kmt-type-control span {
   display: flex;
   box-sizing: border-box;
+  height: 40px;
   min-height: 100%;
-  text-transform: capitalize;
   margin: 0;
-  font-size: 13px;
-  font-weight: 500;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 600;
   cursor: pointer;
   align-items: center;
   flex: 1;
   justify-content: center;
-  height: 40px;
-  border: 1px solid #ddd;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
 }
 div.kmt-type-control span.active {
-  position: relative;
+  color: var(--primaryColor);
 }
 
 div.kmt-type-control span:not(:first-child) {
   margin-left: -1px;
-}
-
-div.kmt-type-control span.active::after {
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  width: calc(100% + 2px);
-  height: 2px;
-  background: var(--primaryColor);
-  content: "";
 }
 
 .customize-control-kmt-color-palettes header .kmt-btn-reset-wrap {
@@ -125,29 +115,33 @@ div.kmt-type-control span.active::after {
   background: transparent;
 }
 .kmt-palettes-preview span.kmt-button-open-palette::before {
-  font-family: "dashicons";
+  font-family: dashicons;
+  font-size: 19px;
   content: "\f347";
-  font-size: 12px;
-  opacity: 0.5;
+  color: #2282bc;
   transition: opacity 0.15s ease;
+  font-weight: 100;
+  line-height: 19;
 }
 .customize-control-kmt-color-palettes .kmt-palettes-outside {
-  background-color: #fff;
+  margin: 0 -12px 0px -7px;
   padding: 10px 12px;
+  background-color: #fff;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal {
   display: flex;
+  height: 30px;
+  padding: 3px 10px;
   align-items: center;
   justify-content: space-between;
-  height: 30px;
-  padding: 14px 0px;
-  background-color: #fff;
+  border-top: 1px solid #eaeaea;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal header {
   font-size: 13px;
-  font-weight: 700;
   text-transform: uppercase;
-  color: #2f2f2f96;
+  color: #737476;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 .kmt-palettes-preview span.kmt-button-open-palette:hover::before {
   opacity: 1;
@@ -167,10 +161,7 @@ div.kmt-type-control span.active::after {
 .kmt-palettes-modal .kmt-single-palette:not(:last-child) {
   border-bottom: 1px dashed #eee;
 }
-.kmt-palettes-modal .kmt-single-palette.kmt-active label:after {
-  content: "\f147";
-  font: 400 17px/17px dashicons;
-}
+
 .kmt-palettes-modal .kmt-single-palette:hover,
 .kmt-palettes-modal .kmt-single-palette.kmt-active {
   background: rgba(0, 0, 0, 0.02);
@@ -805,10 +796,7 @@ div.kmt-type-control span.active::after {
 .kmt-palettes-modal .kmt-single-palette:not(:last-child) {
   border-bottom: 1px dashed #eee;
 }
-.kmt-palettes-modal .kmt-single-palette.kmt-active label:after {
-  content: "\f147";
-  font: 400 17px/17px dashicons;
-}
+
 .kmt-palettes-modal .kmt-single-palette:hover,
 .kmt-palettes-modal .kmt-single-palette.kmt-active {
   background: rgba(0, 0, 0, 0.02);
@@ -833,29 +821,87 @@ div.kmt-type-control span.active::after {
 }
 .kmt-color-palette-container {
   display: flex;
+  padding: 17px 20px;
+  align-items: center;
+  justify-content: center;
+}
+.kmt-color-palette-container div .kmt-color-picker-single {
+  margin-right: -3px;
+}
+.kmt-palettes-preview
+  .kmt-single-palette
+  .kmt-color-palette-container
+  div
+  .kmt-color-picker-single
+  span {
+  width: 32px !important;
+  height: 32px !important;
+}
+.kmt-palettes-modal
+  .kmt-single-palette
+  .kmt-color-palette-container
+  div
+  .kmt-color-picker-single
+  span {
+  width: 29px !important;
+  height: 29px !important;
 }
 .kmt-button-palette {
   display: block;
-  width: 85%;
-  margin: 10px 0px;
-  padding: 10px 8px;
+  width: 106%;
+  margin: 10px -10px;
+  padding: 8px 8px;
+  border: 1px solid #d1d0d0;
+  color: #515256;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
   cursor: pointer;
 }
 
 .kmt-palettes-modal button.kmt-save-palette {
   display: block !important;
-  margin: 13px auto !important;
+  width: 100%;
+  height: 35px;
+  margin: 13px 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  background-color: var(--primaryColor);
+  color: #fff;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  word-spacing: 2px;
+  cursor: pointer;
 }
-
+.kmt-palettes-modal button.kmt-save-palette:disabled {
+  color: #a7aaad !important;
+  background: #f6f7f7 !important;
+  border-color: #dcdcde !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  cursor: default;
+}
 .kmt-palette-info {
   padding: 8px 12px;
 }
-.kmt-palette-info input {
+.kmt-palette-info .kmt-palette-type-label {
+  color: #5d5e60;
+  font-size: 13px;
+  margin: 6px 0px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 500;
+}
+.kmt-palette-info input[type="text"] {
   width: 100%;
   min-height: 30px;
   padding: 0 8px;
   line-height: 2;
   margin: 0;
+  border-radius: 0px;
 }
 .kmt-palette-info .kmt-Palette-type-container {
   display: flex;
@@ -868,7 +914,7 @@ div.kmt-type-control span.active::after {
   border: 0;
   background: 0 0;
   width: 52%;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .kmt-palette-info .kmt-Palette-type-wrapper button {
   display: flex;
@@ -876,8 +922,8 @@ div.kmt-type-control span.active::after {
   margin: 0;
   padding: 12px 4px;
   border: none;
-  color: #4a5568;
-  background: 0 0;
+  color: #fff;
+  background: var(--primaryColor);
   box-shadow: none;
   font-size: 11px;
   font-weight: 600;
@@ -892,13 +938,7 @@ div.kmt-type-control span.active::after {
   box-shadow: inset 0 0 0 1px #ddd;
   transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.kmt-palette-info .kmt-Palette-type-wrapper button:not(:first-child) {
-  margin-left: -1px;
-}
-.kmt-palette-info .kmt-Palette-type-wrapper button.active {
-  background-color: var(--primaryColor);
-  color: #fff;
-}
+
 .kmt-palette-info .kmt-Palette-type-wrapper button:focus,
 .kmt-palette-info .kmt-Palette-type-wrapper button:active {
   outline: none !important;
@@ -933,4 +973,19 @@ button.kmt-btn-reset__color {
   border: 1px solid #ccc;
   line-height: 22px;
   cursor: pointer;
+}
+.kmt-add-palette-container {
+  position: relative;
+  padding: 10px 2px;
+}
+.kmt-add-palette-container .button-close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: 800;
+  border: 0;
+  background: 0 0;
+  cursor: pointer;
+  font-size: 15px;
+  color: #909090;
 }
