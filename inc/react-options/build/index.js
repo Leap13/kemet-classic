@@ -13680,6 +13680,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var __ = wp.i18n.__;
 function AddPaletteContainer(_ref) {
   var value = _ref.value,
@@ -13699,9 +13700,19 @@ function AddPaletteContainer(_ref) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_5__["animated"].div, _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     className: "kmt-option-modal kmt-palettes-modal"
   }, wrapperProps), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-add-palette-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "button-close-modal",
+    onClick: function onClick(e) {
+      e.preventDefault();
+      console.log("close");
+    }
+  }, "X"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-palette-info"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
-    type: "text ",
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
+    className: "kmt-palette-type-label"
+  }, __("palette name")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+    type: "text",
     className: "kmt-add-palette-title",
     placeholder: __("Palette Title"),
     onChange: function onChange(e) {
@@ -13711,29 +13722,35 @@ function AddPaletteContainer(_ref) {
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-Palette-type-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", null, __("Type ")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
+    className: "kmt-palette-type-label"
+  }, __("palette type")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-Palette-type-wrapper"
-  }, ["light", "dark"].map(function (type) {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-      type: "button",
-      className: classnames__WEBPACK_IMPORTED_MODULE_6___default()("kmt-button-palette-type components-button is-tertiary", {
-        active: type === data.type
-      }),
-      onClick: function onClick(e) {
-        setPaletteData(_objectSpread(_objectSpread({}, data), {}, {
-          type: type
-        }));
-      }
-    }, type);
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "button button-primary save  kmt-save-palette",
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+    type: "radio",
+    name: "type",
+    onChange: function onChange() {
+      return setPaletteData(_objectSpread(_objectSpread({}, data), {}, {
+        type: 'light'
+      }));
+    }
+  }), "Light"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", null, " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+    type: "radio",
+    name: "type",
+    onChange: function onChange() {
+      return setPaletteData(_objectSpread(_objectSpread({}, data), {}, {
+        type: 'dark'
+      }));
+    }
+  }), " Dark "))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: " kmt-save-palette",
     disabled: data.name === "",
     onClick: function onClick(e) {
       e.preventDefault();
       e.stopPropagation();
       handleAddPalette(data);
     }
-  }, "Save Palette"));
+  }, "Save Palette"))));
 }
 
 /***/ }),
@@ -14130,16 +14147,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
       currentView = _useState6[0],
       setCurrentView = _useState6[1];
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      handleChangePalette(defaultValue);
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_8__["default"], {
     disabled: !isOpen,
@@ -14186,7 +14194,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-palette-toggle-modal "
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("haader", null, __("Select Another Palette")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, __("Select Another Palette")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "kmt-button-open-palette",
     onClick: function onClick(e) {
       e.preventDefault();

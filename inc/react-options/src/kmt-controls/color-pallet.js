@@ -119,18 +119,7 @@ const ColorPalettes = ({
 
   return (
     <div>
-
       <header>
-        <div className="kmt-btn-reset-wrap">
-          <button
-            className="kmt-reset-btn "
-            disabled={JSON.stringify(defaultValue) === JSON.stringify(value)}
-            onClick={(e) => {
-              e.preventDefault();
-              handleChangePalette(defaultValue);
-            }}
-          ></button>
-        </div>
         <span className="customize-control-title kmt-control-title">
           {label}
         </span>
@@ -142,7 +131,6 @@ const ColorPalettes = ({
         additionalRefs={[popoverProps.ref]}
         onOutsideClick={(e) => {
           setIsOpen(false);
-
           setCurrentView(" ");
         }}
         wrapperProps={{
@@ -178,9 +166,9 @@ const ColorPalettes = ({
             }}
           />
           <div className={`kmt-palette-toggle-modal `}>
-            <haader>
+            <header>
               {__(`Select Another Palette`)}
-            </haader>
+            </header>
             <span
               className={`kmt-button-open-palette`}
               onClick={(e) => {
@@ -253,6 +241,7 @@ const ColorPalettes = ({
                     value={state}
                     option={state}
                     handleAddPalette={handleAddPalette}
+
                   />
                 );
               } else {
