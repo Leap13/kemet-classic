@@ -30,10 +30,19 @@ const PalettePreview = ({
     }
     onChange(newColor, optionId);
   };
+  const Title = [
+    'Buttons Background Color & Hover Link Color',
+    'Headings & Links Color',
+    'Body Text & Meta Color',
+    'Borders Color',
+    'Body & tint from it for input, page title, and widgets background',
+    'Footer text color',
+    'Footer Background Color'
+  ]
   const pickers = Object.keys(currentPalette)
     .filter((k) => k.indexOf("color") === 0)
     .map((key, index) => ({
-      title: `Color ${index + 1}`,
+      title: Title[index],
       id: key,
     }));
   return (

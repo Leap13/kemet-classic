@@ -218,7 +218,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						'color6'          => '#fbfbfb',
 						'color7'          => '#222222',
 						'current_palette' => 'palette-2',
-						'type'=>'light',
+						
 						'palettes'        => array(
 							array(
 								'id'     => 'palette-2',

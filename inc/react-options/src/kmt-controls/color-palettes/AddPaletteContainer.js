@@ -6,7 +6,7 @@ const { __ } = wp.i18n;
 
 export default function AddPaletteContainer({
   value,
-  onChange,
+  handleCloseModal,
   wrapperProps = {},
   handleAddPalette,
 }) {
@@ -23,22 +23,24 @@ export default function AddPaletteContainer({
       <div className={`kmt-add-palette-container`}>
         <button className={`button-close-modal`} onClick={(e) => {
           e.preventDefault();
-          console.log("close")
+          handleCloseModal()
 
-        }}>X</button>
+        }}></button>
         <div className={`kmt-palette-info`}>
-          <p className={`kmt-palette-type-label`}>{__("palette name")}</p>
-          <input
-            type="text"
-            className={`kmt-add-palette-title`}
-            placeholder={__("Palette Title")}
-            onChange={(e) => setPaletteData({ ...data, name: e.target.value })}
-          />
+          <div className={`kmt-palette-name`}>
+            <p className={`kmt-palette-type-label`}>{__("palette name")}</p>
+            <input
+              type="text"
+              className={`kmt-add-palette-title`}
+              placeholder={__("name your palette")}
+              onChange={(e) => setPaletteData({ ...data, name: e.target.value })}
+            />
+          </div>
           <div className={`kmt-Palette-type-container`}>
             <p className={`kmt-palette-type-label`}>{__("palette type")}</p>
             <div className={`kmt-Palette-type-wrapper`}>
               <span><input type="radio" name="type" onChange={() => setPaletteData({ ...data, type: 'light' })} />Light</span>
-              <span> <input type="radio" name="type" onChange={() => setPaletteData({ ...data, type: 'dark' })} /> Dark </span>
+              <span> <input type="radio" name="type" onChange={() => setPaletteData({ ...data, type: 'dark' })} />Dark </span>
             </div>
           </div>
           <button

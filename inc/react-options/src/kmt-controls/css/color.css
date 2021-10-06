@@ -48,11 +48,6 @@
   margin: 0 10px !important;
 }
 
-.components-circular-option-picker__option-wrapper
-  .components-circular-option-picker__option:focus::after {
-  width: 27px;
-  height: 27px;
-}
 .kmt-color-palette .components-circular-option-picker__option-wrapper {
   margin-right: 6px;
 }
@@ -114,42 +109,6 @@
   padding: 15px 12px;
   box-sizing: border-box;
   width: 100%;
-}
-
-@media (max-width: 1845px) {
-  /** Responsive Devices - Compatibility CSS */
-  .kmt-color-palette .components-circular-option-picker__option-wrapper {
-    height: 23px;
-    width: 23px;
-  }
-  .kmt-color-palette
-    .components-circular-option-picker__option-wrapper
-    .components-circular-option-picker__option {
-    padding: 6px 10px;
-  }
-  .kmt-color-palette
-    .components-circular-option-picker__option.is-pressed
-    + svg {
-    width: 18px;
-    left: 4px;
-    top: 1px;
-  }
-  .kmt-color-palette
-    .components-circular-option-picker__option-wrapper
-    .components-circular-option-picker__option:focus::after {
-    width: 24px;
-    height: 24px;
-  }
-
-  .kemet-typography-control
-    .typography-button-wrap
-    > button.components-button.kemet-typography-preview-indicate {
-    padding: 0 2px;
-  }
-  .kemet-typography-control .typography-button-wrap > button.components-button {
-    padding: 0 4px;
-  }
-  /** Modal Popup */
 }
 
 .components-color-picker__saturation-pointer {

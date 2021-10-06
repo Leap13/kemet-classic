@@ -7,28 +7,31 @@ import OutsideClickHandler from "../common/outside-component";
 import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 const { __, sprintf } = wp.i18n;
+import { Button, Modal } from '@wordpress/components';
 
 
 const ColorPalettes = ({
   value,
   onChange,
-  params: { label, default: defaultValue },
+  params: { label },
 }) => {
   const [state, setState] = useState(value);
-
   const colorPalettesWrapper = useRef();
-
+  const buttonRef = useRef();
 
   const [{ isOpen, isTransitioning }, setModalState] = useState({
     isOpen: false,
     isTransitioning: false,
   });
-
+  const [currentView, setCurrentView] = useState("");
+  const [openModal, setOpenModal] = useState(false)
+  const [delPalette, setDelPalette] = useState()
   const { styles, popoverProps } = usePopoverMaker({
-    ref: colorPalettesWrapper,
+    ref: currentView === "add" ? buttonRef : colorPalettesWrapper,
     defaultHeight: 430,
     shouldCalculate: isTransitioning || isOpen,
   });
+
 
   const setIsOpen = (isOpen) => {
     setModalState((state) => ({
@@ -97,12 +100,20 @@ const ColorPalettes = ({
   };
 
   const handleDeletePalette = (id) => {
-    const newPalette = value.palettes.filter((palette) => {
-      return palette.id !== id;
+    setOpenModal(true)
+    const deletePalette = value.palettes.filter((palette) => {
+      return palette.id === id;
+    });
+    setDelPalette(deletePalette)
+  };
+  const ConfirmDelete = () => {
+    let newPalette = value.palettes.filter((palette) => {
+      return palette.id !== delPalette[0].id;
     });
     setState({ ...value, palettes: newPalette });
     onChange({ ...value, palettes: newPalette });
-  };
+    setOpenModal(false)
+  }
 
   const handleResetColor = (id) => {
     let updateState = {
@@ -115,14 +126,13 @@ const ColorPalettes = ({
     handleChangeComplete(resetColor, id);
   };
 
-  const [currentView, setCurrentView] = useState("");
-
   return (
     <div>
       <header>
         <span className="customize-control-title kmt-control-title">
           {label}
         </span>
+        <a href="#"> </a>
       </header>
       <OutsideClickHandler
         disabled={!isOpen}
@@ -180,7 +190,45 @@ const ColorPalettes = ({
           </div>
         </div>
       </OutsideClickHandler>
+      <OutsideClickHandler
+        disabled={!isOpen}
+        useCapture={false}
+        className="kmt-button-palettes-outside"
+        additionalRefs={[popoverProps.ref]}
+        onOutsideClick={(e) => {
+          setIsOpen(false);
+          setCurrentView(" ");
+        }}
+        wrapperProps={{
+          ref: buttonRef,
+          onClick: (e) => {
+            e.preventDefault();
+            if (
+              e.target.closest(".kmt-color-picker-modal") ||
+              e.target.classList.contains("kmt-color-picker-modal")
+            ) {
+              return;
+            }
+            if (!state.palettes) {
+              return;
+            }
+            setIsOpen(true);
+          },
+        }}
+      >
+        <button
+          className={`kmt-button-palette`}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            setCurrentView("add");
+            setIsOpen(true);
+          }}
+        >
 
+          Save New Palette
+      </button>
+      </OutsideClickHandler>
       {(isTransitioning || isOpen) &&
         createPortal(
           <Transition
@@ -241,10 +289,11 @@ const ColorPalettes = ({
                     value={state}
                     option={state}
                     handleAddPalette={handleAddPalette}
+                    handleCloseModal={() => { setCurrentView("") }}
 
                   />
                 );
-              } else {
+              } else if (currentView === "modal") {
                 return (
                   <ColorPalettesModal
                     wrapperProps={{
@@ -265,23 +314,34 @@ const ColorPalettes = ({
                   />
                 );
               }
+              else {
+                return
+              }
             }}
           </Transition>,
           document.body
         )}
-      <button
-        className={`kmt-button-palette`}
-        onClick={(e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          setCurrentView("add");
-          setIsOpen(true);
-        }}
+
+      {openModal && <Modal title={__(`Are you sure you want to delete the ${delPalette[0].name} palette?
+`)}
+
+        className={`kmt-color-palette-confrim__delete`}
+        isDismissible={true}
       >
-        {" "}
-        Create New Palette
-      </button>
-    </div>
+        < p className={__(`kmt-paltette-popup-content`)}>
+          {__(`If this is the currently active palette, the current palette will be switched to the Base one`)}
+        </p>
+        <div className={__(`kmt-paltette-popup-action`)}>
+          <button type="button" class="components-button is-primary has-text has-icon" onClick={(e) => {
+            e.preventDefault();
+            ConfirmDelete()
+          }}><span class="dashicon dashicons dashicons-trash"></span>Delete</button>
+          <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>Cancel</button>
+        </div>
+      </Modal>
+      }
+
+    </div >
   );
 };
 
