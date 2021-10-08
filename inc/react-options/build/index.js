@@ -13916,7 +13916,7 @@ var PalettePreview = function PalettePreview(_ref) {
     onChange(newColor, optionId);
   };
 
-  var Title = ['Buttons Background Color & Hover Link Color', 'Headings & Links Color', 'Body Text & Meta Color', 'Borders Color', 'Body & tint from it for input, page title, and widgets background', 'Footer text color', 'Footer Background Color'];
+  var Title = [__("Buttons Background Color & Hover Link Color", "kemet"), __("Headings & Links Color", "kemet"), __("Body Text & Meta Color", "kemet"), __("Borders Color", "kemet"), __("Body & tint from it for input, page title, and widgets background", "kemet"), __("Footer text color", "kemet"), __("Footer Background Color", "kemet")];
   var pickers = Object.keys(currentPalette).filter(function (k) {
     return k.indexOf("color") === 0;
   }).map(function (key, index) {

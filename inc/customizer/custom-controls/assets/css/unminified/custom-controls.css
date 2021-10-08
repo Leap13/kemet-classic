@@ -20,7 +20,7 @@
 .customize-control-kmt-color-palettes header a::before {
 	display: inline-block;
 	margin: 0 1px;
-	color: #000;
+	color: #858080;
 	font-family: dashicons;
 	font-size: 14px;
 	text-decoration: none;
@@ -28,7 +28,10 @@
 }
 
 .customize-control-kmt-color-palettes header {
+	display: flex;
 	position: relative;
+
+	align-items: center;
 }
 
 div.kmt-type-control {
@@ -151,7 +154,7 @@ div.kmt-type-control span:not(:first-child) {
 }
 
 .customize-control-kmt-color-palettes .kmt-palettes-outside {
-	margin: 0 -12px 0 -8px;
+	margin: 0 -8px 0 -8px;
 	background-color: #fff;
 }
 
@@ -997,6 +1000,10 @@ div.kmt-type-control span:not(:first-child) {
 	margin-right: -3px;
 }
 
+.kmt-color-palette-container div .kmt-color-picker-single:last-child {
+	margin-left: -5px;
+}
+
 .kmt-palettes-preview
   .kmt-single-palette
   .kmt-color-palette-container
@@ -1020,8 +1027,8 @@ div.kmt-type-control span:not(:first-child) {
 .kmt-button-palette {
 	display: block;
 	width: 107%;
-	margin: 10px -9px 10px -8px;
-	padding: 8px 8px;
+	margin: 10px -8px 10px -8px;
+	padding: 8px 1px;
 	border: 1px solid #d1d0d0;
 	color: #515256;
 	font-size: 14px;
