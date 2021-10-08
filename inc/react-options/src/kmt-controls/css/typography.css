@@ -393,6 +393,8 @@
   li.customize-control-kmt-slider
   .kmt-range-value__input {
   width: 100%;
+  border: 1px solid #dcdddf !important;
+  border-radius: 0 !important;
 }
 .kmt-typography-options > li:not(.kmt-typography-variant) {
   height: 95px;

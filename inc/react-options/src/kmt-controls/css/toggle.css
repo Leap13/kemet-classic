@@ -27,23 +27,13 @@ input[type="checkbox"]:focus {
   box-shadow: none !important;
 }
 .components-form-toggle .components-form-toggle__track {
-  display: inline-block;
-  box-sizing: border-box;
   border: 1px solid #9c9c9c;
-  border-radius: 11px;
   background-color: #fff;
-  vertical-align: top;
-  content: “”;
-  transition: background 0.2s ease;
 }
 .components-form-toggle .components-form-toggle__thumb {
-  display: block;
-  position: absolute;
-  box-sizing: border-box;
-  border: 0 !important;
-  border-radius: 50%;
   background-color: #838383;
   transition: transform 0.1s ease;
+  border: 0;
 }
 
 .components-form-toggle.is-checked .components-form-toggle__track {

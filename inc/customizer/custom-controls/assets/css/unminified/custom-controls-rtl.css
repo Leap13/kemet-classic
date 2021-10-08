@@ -7784,7 +7784,6 @@ i.fipicon-angle-left:before {
  */
 
 .customize-control-kmt-slider .kmt-slider-units {
-	margin-left: 6px;
 	font-size: 11px;
 	text-transform: uppercase;
 }
@@ -7868,11 +7867,25 @@ i.fipicon-angle-left:before {
 }
 
 .customize-control-kmt-slider .kmt-slider-reset {
-	display: inline-block;
+	display: flex;
+	width: 12px;
+	height: 12px;
 	margin-right: 7px;
+	padding: 0;
 	border: 0;
+	border: none;
 	outline: 0;
-	color: rgba(0, 0, 0, 0.2);
+	color: #006ba1;
+	background: 100% 0;
+	background: 100% 0;
+	box-shadow: none;
+	font-family: dashicons;
+	font-size: 12px;
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+
+	align-items: center;
+	justify-content: center;
 }
 
 .kemet_range_value .kmt-range-unit {
@@ -9249,22 +9262,11 @@ input[type="checkbox"]:focus {
 }
 
 .components-form-toggle .components-form-toggle__track {
-	display: inline-block;
-	box-sizing: border-box;
 	border: 1px solid #9c9c9c;
-	border-radius: 11px;
 	background-color: #fff;
-	vertical-align: top;
-	content: “”;
-	transition: background 0.2s ease;
 }
 
 .components-form-toggle .components-form-toggle__thumb {
-	display: block;
-	position: absolute;
-	box-sizing: border-box;
-	border: 0 !important;
-	border-radius: 50%;
 	background-color: #838383;
 	transition: transform 0.1s ease;
 }
@@ -9820,6 +9822,8 @@ input[type="checkbox"]:focus {
   li.customize-control-kmt-slider
   .kmt-range-value__input {
 	width: 100%;
+	border: 1px solid #dcdddf !important;
+	border-radius: 0 !important;
 }
 
 .kmt-typography-options > li:not(.kmt-typography-variant) {

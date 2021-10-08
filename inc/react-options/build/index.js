@@ -18227,18 +18227,13 @@ var OnlyNumberValue = function OnlyNumberValue(_ref) {
       }
 
       var actualStep = e.shiftKey ? step * 10 : step;
-      console.log(valueForComputation, actualStep, "Console Statements");
 
       if (e.keyCode === 38 && value !== "undeclared") {
         _onChange(valueForComputation + actualStep, true);
-
-        console.log(value, valueForComputation, actualStep, "Console Statements");
       }
 
       if (e.keyCode === 40 && value !== "undeclared") {
         _onChange(valueForComputation - actualStep, true);
-
-        console.log(value, valueForComputation, actualStep, "Console Statements");
       }
 
       if ((e.shiftKey || e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105)) {
