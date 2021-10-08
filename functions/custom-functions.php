@@ -319,7 +319,7 @@ add_action( 'kemet_header', 'kemet_header_markup' );
  * @since 1.2
  */
 function kemet_dropdown_icon_to_menu_link( $title, $item, $args ) {
-
+	error_log( $args );
 	$icon = '';
 	if ( 'footer-menu' === $args->menu ) {
 		return $title;
@@ -337,7 +337,14 @@ function kemet_dropdown_icon_to_menu_link( $title, $item, $args ) {
 
 }
 
-add_filter( 'nav_menu_item_title', 'kemet_dropdown_icon_to_menu_link', 10, 4 );
+add_filter( 'nav_menu_item_title', 'kemet_dropdown_icon_to_menu_link', 10, 3 );
+
+function kemet_test( $menu, $args ) {
+	error_log( wp_json_encode( $menu ) );
+	error_log( wp_json_encode( $args ) );
+}
+add_filter( 'wp_get_nav_menu_items', 'kemet_test', 10, 2 );
+
 
 /**
  * Function to get Header Breakpoint

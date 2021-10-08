@@ -25,9 +25,9 @@ if ( ! class_exists( 'Kemet_Overlay_Header_Dynamic_Css' ) ) {
 			if ( $overlay_header ) {
 				$enable_device = kemet_get_option( $prefix . '-enable-device' );
 				$selector      = '.kmt-' . $prefix;
-				if ( 'desktop' === $enable_device ) {
+				if ( $enable_device['desktop'] && ! $enable_device['mobile'] ) {
 					$selector = $selector . ':not(.kmt-header-break-point)';
-				} elseif ( 'mobile' === $enable_device ) {
+				} elseif ( ! $enable_device['desktop'] && $enable_device['mobile'] ) {
 					$selector = $selector . '.kmt-header-break-point';
 				}
 				$selector   = $selector . ' #sitehead';

@@ -14485,8 +14485,8 @@ var EditorComponent = function EditorComponent(props) {
     window.wp.oldEditor.initialize(editorId, {
       tinymce: {
         wpautop: true,
-        toolbar1: 'bold,italic,bullist,numlist,link',
-        toolbar2: ''
+        toolbar1: 'formatselect,styleselect,bold,italic,bullist,numlist,link,alignleft,aligncenter,alignright,wp_adv',
+        toolbar2: 'strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help'
       },
       quicktags: true,
       mediaButtons: true
@@ -14928,8 +14928,9 @@ var NumberComponent = function NumberComponent(_ref) {
   var parsedValue = value;
   var min = params.min,
       max = params.max,
-      label = params.label;
-  var step = 1;
+      label = params.label,
+      step = params.step;
+  step = step ? step : 1;
   var defaultValue = "";
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-container"
@@ -15802,6 +15803,15 @@ var SortableComponent = function SortableComponent(props) {
   var onSortEnd = function onSortEnd(_ref3) {
     var oldIndex = _ref3.oldIndex,
         newIndex = _ref3.newIndex;
+    var newValue = Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex);
+    newValue = newValue.map(function (subarray) {
+      return subarray[0] && value.includes(subarray[0]) && subarray[0];
+    });
+    newValue = newValue.filter(function (item) {
+      return item !== false;
+    });
+    setValue(newValue, newIndex);
+    props.onChange(newValue);
     setSortItems(Object(array_move__WEBPACK_IMPORTED_MODULE_6__["arrayMoveImmutable"])(sortItems, oldIndex, newIndex));
     setDragging(false);
   };
@@ -16240,7 +16250,7 @@ var ToggleControlComponent = function ToggleControlComponent(_ref) {
       onChange = _ref.onChange;
   var defaultValue = params.default,
       label = params.label;
-  value = value ? value : defaultValue;
+  value = value !== undefined && value !== null && value !== '' ? value : defaultValue;
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
       _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),

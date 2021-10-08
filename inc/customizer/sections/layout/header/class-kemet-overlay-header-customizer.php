@@ -101,14 +101,12 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-enable-device' => array(
-								'type'    => 'kmt-radio',
+								'label'   => __( 'Visibility', 'Kemet' ),
 								'divider' => true,
-								'default' => 'desktop_mobile',
-								'label'   => __( 'Enable For', 'kemet' ),
+								'type'    => 'kmt-visibility',
 								'choices' => array(
-									'desktop'        => __( 'Desktop', 'kemet' ),
-									'mobile'         => __( 'Mobile', 'kemet' ),
-									'desktop_mobile' => __( 'Desktop & Mobile', 'kemet' ),
+									'desktop' => __( 'Desktop', 'kemet' ),
+									'mobile'  => __( 'Mobile', 'kemet' ),
 								),
 								'context' => array(
 									array(

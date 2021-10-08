@@ -1283,12 +1283,14 @@ var toggleClass = function (el, className) {
 
             var link = parentList[i].querySelector("a");
             var arrow = parentList[i].querySelector(".kmt-svg-icon.icon-dropdown-menu");
-            var wrap = document.createElement("div");
-            wrap.setAttribute("class", "kmt-menu-item-wrap");
-            parentList[i].insertBefore(wrap, parentList[i].childNodes[0]);
-            wrap.appendChild(link);
-            toggleButton.appendChild(arrow);
-            wrap.appendChild(toggleButton);
+            if (arrow) {
+              var wrap = document.createElement("div");
+              wrap.setAttribute("class", "kmt-menu-item-wrap");
+              parentList[i].insertBefore(wrap, parentList[i].childNodes[0]);
+              wrap.appendChild(link);
+              toggleButton.appendChild(arrow);
+              wrap.appendChild(toggleButton);
+            }
           }
         }
       }

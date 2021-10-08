@@ -148,6 +148,9 @@ class Kemet_Blog_Customizer extends Kemet_Customizer_Register {
 							'blog-excerpt-length' => array(
 								'type'    => 'kmt-number',
 								'divider' => true,
+								'min'     => 1,
+								'step'    => 1,
+								'max'     => 500,
 								'label'   => __( 'Excerpt Length', 'kemet' ),
 								'context' => array(
 									array(

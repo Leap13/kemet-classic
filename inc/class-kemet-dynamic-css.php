@@ -732,7 +732,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css                = kemet_parse_css( $css_output );
-			$enable_sidebar_separator = kemet_get_option( 'enable-sidebar-seperator' );
+			$enable_sidebar_separator = kemet_get_option( 'enable-sidebar-separator' );
 			if ( ! $enable_sidebar_separator ) {
 				$sidebar_seperator = array(
 					'body #primary,body #secondary, .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(

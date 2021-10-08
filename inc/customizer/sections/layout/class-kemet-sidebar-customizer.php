@@ -126,7 +126,7 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 					'design'  => array(
 						'title'   => __( 'Design', 'kemet' ),
 						'options' => array(
-							'enable-sidebar-seperator'  => array(
+							'enable-sidebar-separator'  => array(
 								'type'  => 'kmt-switcher',
 								'label' => __( 'Enable Sidebar Separator', 'kemet' ),
 							),

@@ -4,8 +4,8 @@ const round = (value) => Math.round(value * 10) / 10;
 
 const NumberComponent = ({ value, params, onChange }) => {
   const parsedValue = value;
-  let { min, max, label } = params;
-  let step = 1;
+  let { min, max, label, step } = params;
+  step = step ? step : 1;
   let defaultValue = "";
 
   return (

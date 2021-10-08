@@ -72,19 +72,20 @@ class Kemet_Footer_Buttons_Customizer extends Kemet_Customizer_Register {
 				),
 			),
 			'footer-button-border-width' => array(
-				'type'         => 'kmt-spacing',
-				'divider'      => true,
-				'responsive'   => false,
-				'transport'    => 'postMessage',
-				'label'        => __( 'Border Size', 'kemet' ),
-				'unit_choices' => array( 'px', 'em' ),
-				'choices'      => array(
+				'type'           => 'kmt-spacing',
+				'divider'        => true,
+				'linked_choices' => true,
+				'responsive'     => false,
+				'transport'      => 'postMessage',
+				'label'          => __( 'Border Size', 'kemet' ),
+				'unit_choices'   => array( 'px', 'em' ),
+				'choices'        => array(
 					'top'    => __( 'Top', 'kemet' ),
 					'right'  => __( 'Right', 'kemet' ),
 					'bottom' => __( 'Bottom', 'kemet' ),
 					'left'   => __( 'Left', 'kemet' ),
 				),
-				'preview'      => array(
+				'preview'        => array(
 					'selector' => $btn_selector,
 					'property' => '--borderWidth',
 					'sides'    => false,
