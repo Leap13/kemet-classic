@@ -17,6 +17,10 @@
 	margin-left: -10px;
 }
 
+.customize-control-kmt-color-palettes header a {
+	margin-bottom: -2px;
+}
+
 .customize-control-kmt-color-palettes header a::before {
 	display: inline-block;
 	margin: 0 1px;
@@ -144,6 +148,7 @@ div.kmt-type-control span:not(:first-child) {
 }
 
 .kmt-palettes-preview span.kmt-button-open-palette::before {
+	margin-left: 27px;
 	opacity: 0.5;
 	font-family: dashicons;
 	font-size: 18px;
@@ -174,6 +179,10 @@ div.kmt-type-control span:not(:first-child) {
 	font-weight: 500;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
+}
+
+.kmt-palettes-preview .kmt-palette-toggle-modal span {
+	width: 44px;
 }
 
 .kmt-palettes-preview span.kmt-button-open-palette:hover::before {
@@ -1024,10 +1033,13 @@ div.kmt-type-control span:not(:first-child) {
 	height: 31px !important;
 }
 
+.kmt-button-palettes-outside {
+	margin: 13px -8px 10px -8px;
+}
+
 .kmt-button-palette {
 	display: block;
-	width: 107%;
-	margin: 10px -8px 10px -8px;
+	width: 100%;
 	padding: 8px 1px;
 	border: 1px solid #d1d0d0;
 	color: #515256;

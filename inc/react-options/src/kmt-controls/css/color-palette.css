@@ -13,6 +13,9 @@
 .customize-control-kmt-color-palettes header span {
   margin-left: -10px;
 }
+.customize-control-kmt-color-palettes header a {
+  margin-bottom: -2px;
+}
 .customize-control-kmt-color-palettes header a::before {
   content: "\f348";
   margin: 0px 1px;
@@ -132,6 +135,7 @@ div.kmt-type-control span:not(:first-child) {
   line-height: 18;
   content: "\f347";
   transition: opacity 0.15s ease;
+  margin-left: 27px;
 }
 .customize-control-kmt-color-palettes .kmt-palettes-outside {
   margin: 0 -8px 0 -8px;
@@ -151,6 +155,9 @@ div.kmt-type-control span:not(:first-child) {
   color: #737476;
   letter-spacing: 0.5px;
   font-weight: 500;
+}
+.kmt-palettes-preview .kmt-palette-toggle-modal span {
+  width: 44px;
 }
 .kmt-palettes-preview span.kmt-button-open-palette:hover::before {
   opacity: 1;
@@ -868,10 +875,12 @@ div.kmt-type-control span:not(:first-child) {
   width: 31px !important;
   height: 31px !important;
 }
+.kmt-button-palettes-outside {
+  margin: 13px -8px 10px -8px;
+}
 .kmt-button-palette {
   display: block;
-  width: 107%;
-  margin: 10px -8px 10px -8px;
+  width: 100%;
   padding: 8px 1px;
   border: 1px solid #d1d0d0;
   color: #515256;
