@@ -59,11 +59,10 @@
 }
 .customize-control-kmt-slider .kmt-slider-reset::before {
   content: "\f531";
-  transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
 
-.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover ::before {
+.customize-control-kmt-slider .kmt-slider-reset:hover:not(:disabled)::before {
   transform: rotate(-45deg);
 }
 .input-field-wrapper .components-range-control.kmt-range-value-input {

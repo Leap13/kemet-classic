@@ -49,12 +49,6 @@
   margin-bottom: 5px;
 }
 
-.kmt-typography:hover
-  .kmt-typography-wrapper
-  .kmt-btn-reset-wrap
-  .kmt-reset-btn:not(:disabled) {
-  opacity: 1;
-}
 .kmt-typography .kmt-typography-wrapper {
   display: flex;
   align-items: center;
@@ -92,6 +86,7 @@
   .kmt-reset-btn::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-typography
   .kmt-typography-wrapper

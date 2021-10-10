@@ -110,6 +110,7 @@
   border: 1px solid #dcdddf;
   background-color: #fff;
   font-size: 12px;
+  cursor: pointer;
 }
 .customize-control-kmt-spacing
   .input-wrapper
@@ -160,6 +161,7 @@ input[type="number"] {
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover:not(:disabled):before {
   transform: rotate(-45deg);

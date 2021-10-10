@@ -80,6 +80,7 @@
 .kmt-color-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-color-btn-reset-wrap .kmt-reset-btn:disabled {
   color: rgba(0, 0, 0, 0.2);

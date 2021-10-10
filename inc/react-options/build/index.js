@@ -20644,17 +20644,11 @@ var NumberComponent = function NumberComponent(_ref) {
   var value = _ref.value,
       params = _ref.params,
       _onChange = _ref.onChange;
-  var parsedValue;
   var min = params.min,
       max = params.max,
       label = params.label;
   var step = 1;
   var defaultValue = 1;
-
-  if (value.toString().trim().length === 0) {
-    parsedValue = 0;
-  }
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -20670,22 +20664,22 @@ var NumberComponent = function NumberComponent(_ref) {
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(value) === parseInt(min) || parseFloat(value) === parseInt(max)))
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(min))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(min))),
     onClick: function onClick() {
-      return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) - parseFloat(step), min), max)));
+      return _onChange(round(Math.min(Math.max(parseFloat(value) - parseFloat(step), min), max)));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(max))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(max))),
     onClick: function onClick() {
-      return _onChange(Math.min(Math.max(parseFloat(parsedValue) + parseFloat(step), min), max));
+      return _onChange(Math.min(Math.max(parseFloat(value) + parseFloat(step), min), max));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: value,
     step: step,
     onChange: function onChange(val) {
-      return _onChange(val);
+      return _onChange(Math.min(Math.max(parseFloat(val), min), max));
     }
   })));
 };
