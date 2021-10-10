@@ -27,7 +27,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'theme-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Primary Color', 'kemet' ),
-				'description' => __( 'Used for buttons background (a darker shade from it used for mouseover), and hover color for links.', 'kemet' ),
+				'description' => __( 'Buttons background and a hover color for links.', 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -35,21 +35,10 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
-			'headings-color'           => array(
-				'type'        => 'kmt-color',
-				'label'       => __( 'Headings Color', 'kemet' ),
-				'description' => __( "Used for all titles from H1 to H6, widgets' title.", 'kemet' ),
-				'pickers'     => array(
-					array(
-						'title' => __( 'Color', 'kemet' ),
-						'id'    => 'initial',
-					),
-				),
-			),
 			'links-color'              => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Headings & Links Color', 'kemet' ),
-				'description' => __( 'Main menu links, and all other body links.', 'kemet' ),
+				'description' => __( 'Main menu links and all other body links.', 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -61,10 +50,21 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 					),
 				),
 			),
+			'headings-color'           => array(
+				'type'        => 'kmt-color',
+				'label'       => __( 'Headings Color', 'kemet' ),
+				'description' => __( "All Headings from H1 to H6 and including widgets' title.", 'kemet' ),
+				'pickers'     => array(
+					array(
+						'title' => __( 'Color', 'kemet' ),
+						'id'    => 'initial',
+					),
+				),
+			),
 			'text-meta-color'          => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Body Text & Meta Color', 'kemet' ),
-				'description' => __( "Used for body text, meta color, and forms' input text color.", 'kemet' ),
+				'description' => __( "Body text, meta color, and forms' input text color.", 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -75,7 +75,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'global-border-color'      => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Border & Separator Color', 'kemet' ),
-				'description' => __( 'Used for all the borders and separators across the website.', 'kemet' ),
+				'description' => __( 'All the borders and separators across the website.', 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -86,7 +86,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'global-background-color'  => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Background Color', 'kemet' ),
-				'description' => __( "Used for the body background color, a tint from it used for the input, page title, and widgets' background.", 'kemet' ),
+				'description' => __( "Body background color and a tint from it used for the input, page title and widgets' background.", 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -97,7 +97,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'global-footer-text-color' => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Footer Text Color', 'kemet' ),
-				'description' => __( 'Used for footer titles, and links. Darker shades from it are used for input fields background, footer buttons, and copyright area.', 'kemet' ),
+				'description' => __( 'Footer titles and links.', 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
@@ -108,7 +108,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'global-footer-bg-color'   => array(
 				'type'        => 'kmt-color',
 				'label'       => __( 'Footer Background Color', 'kemet' ),
-				'description' => __( 'Used for the footer background, and a darker shade from it is used for the input fields background, footer buttons, and copyright area.', 'kemet' ),
+				'description' => __( 'Footer background, and a darker shade from it is used for the input fields background, footer buttons and copyright area background.', 'kemet' ),
 				'pickers'     => array(
 					array(
 						'title' => __( 'Initial', 'kemet' ),
