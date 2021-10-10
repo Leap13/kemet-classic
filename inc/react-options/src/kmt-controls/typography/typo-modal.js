@@ -1,7 +1,7 @@
 import { useRef, useEffect, useMemo, useState } from '@wordpress/element'
 import classnames from 'classnames'
 import { getDefaultFonts } from './default-data'
-import { humanizeVariationsShort, decideVariationToSelect, familyForDisplay } from './helpers'
+import { decideVariation, familyToDisplay } from './helpers'
 import { __ } from '@wordpress/i18n';
 import bezierEasing from 'bezier-easing'
 import { Transition, animated } from '@react-spring/web'
@@ -114,7 +114,7 @@ const TypographyModal = ({
         onChange({
             ...value,
             family: family.family,
-            variation: decideVariationToSelect(family, value),
+            variation: decideVariation(family, value),
         })
     }
 
@@ -142,7 +142,7 @@ const TypographyModal = ({
                             setSearchTerm('')
                         }}>
                         {currentView !== 'search' && (
-                            <span>{familyForDisplay(value.family)}</span>
+                            <span>{familyToDisplay(value.family)}</span>
                         )}
 
                         {currentView === 'search' && (

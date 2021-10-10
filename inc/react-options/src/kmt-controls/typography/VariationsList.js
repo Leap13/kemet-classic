@@ -1,10 +1,10 @@
 import { useRef, useEffect } from '@wordpress/element'
 import classnames from 'classnames'
-import { humanizeVariations, findSelectedFontFamily } from './helpers'
+import { convertVariations, findFontFamily } from './helpers'
 import { animated } from '@react-spring/web'
 
 const VariationsList = ({ option, value, onChange, typographyList, props }) => {
-	const selectedFontFamily = findSelectedFontFamily(
+	const selectedFontFamily = findFontFamily(
 		value.family,
 		typographyList
 	)
@@ -51,7 +51,7 @@ const VariationsList = ({ option, value, onChange, typographyList, props }) => {
 							data-variation={variation}
 
 						>
-							{humanizeVariations(variation)}
+							{convertVariations(variation)}
 						</span>
 
 					</li>

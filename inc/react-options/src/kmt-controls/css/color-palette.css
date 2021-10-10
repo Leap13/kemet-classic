@@ -130,11 +130,13 @@
 .kmt-palettes-modal .kmt-tooltip-top {
   display: none;
 }
-.kmt-color-picker-container {
+.kmt-color-pallet-container {
   display: flex;
   justify-content: flex-end;
 }
-.kmt-color-picker-single {
+.kmt-color-pallet-container
+  .kmt-color-wrapper:not(:last-child)
+  .kmt-color-picker-single {
   margin-right: 6px;
 }
 .kmt-color-picker-single > span {

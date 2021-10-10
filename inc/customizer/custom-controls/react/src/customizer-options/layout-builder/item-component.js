@@ -3,7 +3,7 @@ const { __ } = wp.i18n;
 
 const ItemComponent = ({ item, choices, removeItem, focusSection }) => {
   const mainSection = KemetCustomizerData.has_widget_editor && item.includes('widget') ? 'kemet-' + choices[item].section : choices[item].section;
-  console.log(mainSection);
+
   return (
     <div
       className="kmt-builder-item"

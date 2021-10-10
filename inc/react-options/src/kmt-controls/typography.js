@@ -12,7 +12,7 @@ import PopoverComponent from "../common/popover-component";
 import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 import { __ } from "@wordpress/i18n";
-import { humanizeVariations, familyForDisplay } from "./typography/helpers";
+import { convertVariations, familyToDisplay } from "./typography/helpers";
 
 import TypographyModal from "./typography/typo-modal";
 
@@ -155,6 +155,174 @@ const Typography = ({ value, onChange, params: { label } }) => {
     return (
         <div className={classnames("kmt-typography", {})}>
             <header>
+                <span className="customize-control-title kmt-control-title">{label}</span>
+            </header>
+            <div className={`kmt-typography-wrapper`}>
+                <OutsideComponent
+                    disabled={!isOpen}
+                    useCapture={false}
+                    className="kmt-typohraphy-value"
+                    additionalRefs={[popoverProps.ref]}
+                    onOutsideClick={() => {
+                        setIsOpen(false);
+                        setCurrentView('')
+                    }}
+                    wrapperProps={{
+                        ref: typographyWrapper,
+                        onClick: (e) => {
+                            e.preventDefault();
+
+                        },
+                    }}
+                >
+                    <div className={`kmt-typography-title-container`}>
+                        <span
+                            className={classnames("kmt-font", {
+                                active: currentView === "fonts"
+                            })}
+                            ref={fontFamilyRef}
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("fonts");
+                                    return;
+                                }
+                                setCurrentViewCache("fonts:_");
+                                setIsOpen("fonts");
+                            }}
+                        >
+                            <span
+
+                            >
+                                {value.family === "Default"
+                                    ? "Default Family"
+                                    : familyToDisplay(value.family)}
+                            </span>
+                        </span>
+
+                        <span
+                            className={classnames('kmt-size', {
+                                active: currentView === "options",
+                            })}
+                            ref={fontSizeRef}
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("options");
+                                    return;
+                                }
+                                setCurrentViewCache("options:_");
+                                setIsOpen("font_size");
+                            }}
+
+
+                        >
+                            <span
+
+                            >
+                                {`${value.size[device]}${value.size[`${device}-unit`]
+                                    } `}
+                            </span>
+                        </span>
+
+                        <span
+                            ref={fontWeightRef}
+                            className={classnames('kmt-weight', {
+                                active: currentView === "variations"
+                            })}
+
+                            onClick={(e) => {
+                                e.stopPropagation();
+
+                                if (isOpen) {
+                                    setCurrentView("variations");
+                                    return;
+                                }
+                                setCurrentViewCache("variations:_");
+                                setIsOpen("variations");
+                            }}
+                        >
+                            <span
+
+                            >{convertVariations(value.variation)}</span>
+                        </span>
+                    </div>
+
+
+                </OutsideComponent>
+                {(isTransitioning || isOpen) &&
+                    createPortal(
+                        <Transition
+                            items={isOpen}
+                            onRest={(isOpen) => {
+                                stopTransitioning();
+                            }}
+                            config={{
+                                duration: 100,
+                                easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
+                            }}
+                            from={
+                                isOpen
+                                    ? {
+                                        transform: "scale3d(0.95, 0.95, 1)",
+                                        opacity: 0,
+                                    }
+                                    : { opacity: 1 }
+                            }
+                            enter={
+                                isOpen
+                                    ? {
+                                        transform: "scale3d(1, 1, 1)",
+                                        opacity: 1,
+                                    }
+                                    : {
+                                        opacity: 1,
+                                    }
+                            }
+                            leave={
+                                !isOpen
+                                    ? {
+                                        transform: "scale3d(0.95, 0.95, 1)",
+                                        opacity: 0,
+                                    }
+                                    : {
+                                        opacity: 1,
+                                    }
+                            }
+                        >
+                            {(style, item) => {
+                                if (!item) {
+                                    return null;
+                                }
+
+                                return (
+                                    <TypographyModal
+                                        wrapperProps={{
+                                            style: {
+                                                ...style,
+                                                ...styles,
+                                                ...arrowLeft,
+                                            },
+                                            ...popoverProps,
+                                        }}
+                                        onChange={onChange}
+                                        value={value}
+                                        initialView={item}
+                                        setInititialView={(initialView) =>
+                                            setIsOpen(initialView)
+                                        }
+                                        currentView={currentView}
+                                        previousView={previousView}
+                                        setCurrentView={setCurrentView}
+                                    />
+                                );
+                            }}
+                        </Transition>,
+                        document.body
+                    )}
+
                 <div className={`kmt-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
@@ -175,172 +343,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                         }}
                     ></button>
                 </div>
-                <span className="customize-control-title kmt-control-title">{label}</span>
-            </header>
-            <OutsideComponent
-                disabled={!isOpen}
-                useCapture={false}
-                className="kmt-typohraphy-value"
-                additionalRefs={[popoverProps.ref]}
-                onOutsideClick={() => {
-                    setIsOpen(false);
-                    setCurrentView('')
-                }}
-                wrapperProps={{
-                    ref: typographyWrapper,
-                    onClick: (e) => {
-                        e.preventDefault();
-
-                    },
-                }}
-            >
-                <div className={`kmt-typography-title-container`}>
-                    <span
-                        className={classnames("kmt-font", {
-                            active: currentView === "fonts"
-                        })}
-                        ref={fontFamilyRef}
-                        onClick={(e) => {
-                            e.stopPropagation();
-
-                            if (isOpen) {
-                                setCurrentView("fonts");
-                                return;
-                            }
-                            setCurrentViewCache("fonts:_");
-                            setIsOpen("fonts");
-                        }}
-                    >
-                        <span
-
-                        >
-                            {value.family === "Default"
-                                ? "Default Family"
-                                : familyForDisplay(value.family)}
-                        </span>
-                    </span>
-
-                    <span
-                        className={classnames('kmt-size', {
-                            active: currentView === "options",
-                        })}
-                        ref={fontSizeRef}
-                        onClick={(e) => {
-                            e.stopPropagation();
-
-                            if (isOpen) {
-                                setCurrentView("options");
-                                return;
-                            }
-                            setCurrentViewCache("options:_");
-                            setIsOpen("font_size");
-                        }}
-
-
-                    >
-                        <span
-
-                        >
-                            {`${value.size[device]}${value.size[`${device}-unit`]
-                                } `}
-                        </span>
-                    </span>
-
-                    <span
-                        ref={fontWeightRef}
-                        className={classnames('kmt-weight', {
-                            active: currentView === "variations"
-                        })}
-
-                        onClick={(e) => {
-                            e.stopPropagation();
-
-                            if (isOpen) {
-                                setCurrentView("variations");
-                                return;
-                            }
-                            setCurrentViewCache("variations:_");
-                            setIsOpen("variations");
-                        }}
-                    >
-                        <span
-
-                        >{humanizeVariations(value.variation)}</span>
-                    </span>
-                </div>
-
-
-            </OutsideComponent>
-            {(isTransitioning || isOpen) &&
-                createPortal(
-                    <Transition
-                        items={isOpen}
-                        onRest={(isOpen) => {
-                            stopTransitioning();
-                        }}
-                        config={{
-                            duration: 100,
-                            easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
-                        }}
-                        from={
-                            isOpen
-                                ? {
-                                    transform: "scale3d(0.95, 0.95, 1)",
-                                    opacity: 0,
-                                }
-                                : { opacity: 1 }
-                        }
-                        enter={
-                            isOpen
-                                ? {
-                                    transform: "scale3d(1, 1, 1)",
-                                    opacity: 1,
-                                }
-                                : {
-                                    opacity: 1,
-                                }
-                        }
-                        leave={
-                            !isOpen
-                                ? {
-                                    transform: "scale3d(0.95, 0.95, 1)",
-                                    opacity: 0,
-                                }
-                                : {
-                                    opacity: 1,
-                                }
-                        }
-                    >
-                        {(style, item) => {
-                            if (!item) {
-                                return null;
-                            }
-
-                            return (
-                                <TypographyModal
-                                    wrapperProps={{
-                                        style: {
-                                            ...style,
-                                            ...styles,
-                                            ...arrowLeft,
-                                        },
-                                        ...popoverProps,
-                                    }}
-                                    onChange={onChange}
-                                    value={value}
-                                    initialView={item}
-                                    setInititialView={(initialView) =>
-                                        setIsOpen(initialView)
-                                    }
-                                    currentView={currentView}
-                                    previousView={previousView}
-                                    setCurrentView={setCurrentView}
-                                />
-                            );
-                        }}
-                    </Transition>,
-                    document.body
-                )}
+            </div>
         </div>
     );
 };

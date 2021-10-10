@@ -6525,7 +6525,6 @@ var ItemComponent = function ItemComponent(_ref) {
       removeItem = _ref.removeItem,
       focusSection = _ref.focusSection;
   var mainSection = KemetCustomizerData.has_widget_editor && item.includes('widget') ? 'kemet-' + choices[item].section : choices[item].section;
-  console.log(mainSection);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "kmt-builder-item",
     "data-id": item,

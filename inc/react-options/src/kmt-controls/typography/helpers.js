@@ -1,4 +1,4 @@
-export const fontFamilyToCSSFamily = (family) => {
+export const fontFamilytoCss = (family) => {
 	if (family === 'System Default') {
 		return "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
 	}
@@ -20,7 +20,7 @@ export const findSourceTypeFor = (font_family, fonts_list) => {
 	return source.type
 }
 
-export const findSelectedFontFamily = (font_family, fonts_list) => {
+export const findFontFamily = (font_family, fonts_list) => {
 	let source = findSourceTypeSettingsFor(font_family, fonts_list)
 
 	if (!source) {
@@ -30,7 +30,7 @@ export const findSelectedFontFamily = (font_family, fonts_list) => {
 	return source.find(({ family }) => family === font_family)
 }
 
-export const decideVariationToSelect = (newValue, oldValue) => {
+export const decideVariation = (newValue, oldValue) => {
 	if (newValue.all_variations.indexOf(oldValue.variation) > -1) {
 		return oldValue.variation
 	}
@@ -69,7 +69,7 @@ export const humanizeVariationsShort = (variation) => {
 	return all[variation]
 }
 
-export const humanizeVariations = (variation) => {
+export const convertVariations = (variation) => {
 	var all = {
 		n1: 'Thin 100',
 		i1: 'Thin 100 Italic',
@@ -95,7 +95,7 @@ export const humanizeVariations = (variation) => {
 	return all[variation]
 }
 
-export const familyForDisplay = (family) => {
+export const familyToDisplay = (family) => {
 
 
 	return family

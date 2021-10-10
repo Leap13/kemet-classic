@@ -105,12 +105,12 @@ const KemetColorComponent = props => {
     return <div className="kmt-control-wrap kmt-color-control-wrap">
         <div className={`kmt-color-container`}>
             <header>
-                {renderOperationButtons()}
                 {labelHtml}
                 {responsiveHtml}
             </header>
             <div className={`kmt-color-picker-container`}>
                 {optionsHtml}
+                {renderOperationButtons()}
             </div>
         </div>
         {descriptionHtml}
