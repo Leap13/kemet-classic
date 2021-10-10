@@ -1108,7 +1108,7 @@ if ( ! class_exists( 'Kemet_Woocommerce' ) ) :
 					'color' => 'var(--textColor)',
 				),
 				'.kemet-footer .widget_shopping_cart'    => array(
-					'color' => 'var(--footerTextColor)',
+					'color' => 'var(--textColor)',
 				),
 				'.single-product .product a.compare.button:hover, .woocommerce .widget_shopping_cart a:not(.button):hover' => array(
 					'color' => 'var(--themeColor)',

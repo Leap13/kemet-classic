@@ -130,6 +130,24 @@ class Kemet_Sidebar_Customizer extends Kemet_Customizer_Register {
 								'type'  => 'kmt-switcher',
 								'label' => __( 'Enable Sidebar Separator', 'kemet' ),
 							),
+							'sidebar-separator-color'   => array(
+								'transport' => 'postMessage',
+								'type'      => 'kmt-color',
+								'divider'   => true,
+								'label'     => __( 'Separator Color', 'kemet' ),
+								'pickers'   => array(
+									array(
+										'title' => __( 'Initial', 'kemet' ),
+										'id'    => 'initial',
+									),
+								),
+								'preview'   => array(
+									'initial' => array(
+										'selector' => 'body #primary,body #secondary, .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary',
+										'property' => 'border-color',
+									),
+								),
+							),
 							'sidebar-content-font-size' => array(
 								'type'         => 'kmt-slider',
 								'responsive'   => true,

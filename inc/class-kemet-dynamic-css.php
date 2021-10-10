@@ -122,6 +122,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 			$container_inner_spacing        = kemet_get_option( 'container-inner-spacing' );
 			$content_padding                = apply_filters( 'kemet_content_padding', kemet_get_option( 'content-padding' ) );
 			$single_content_separator_color = kemet_get_sub_option( 'content-separator-color', 'initial', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
+			$sidebar_separator_color        = kemet_get_sub_option( 'sidebar-separator-color', 'initial', kemet_color_brightness( $global_border_color, 0.955, 'dark' ) );
 
 			// Typography.
 			$body_typography                  = kemet_get_option( 'body-typography' );
@@ -280,7 +281,6 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--linksHoverColor'            => esc_attr( $global_links_h_color ),
 					'--borderColor'                => esc_attr( $global_border_color ),
 					'--globalBackgroundColor'      => esc_attr( $global_bg_color ),
-					'--footerTextColor'            => esc_attr( $footer_color ),
 					'--footerBackgroundColor'      => esc_attr( $global_footer_bg_color ),
 					'--buttonColor'                => esc_attr( $btn_text_color ),
 					'--buttonHoverColor'           => esc_attr( $btn_text_hover_color ),
@@ -507,7 +507,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--borderHoverColor'           => esc_attr( $footer_button_border_h_color ),
 				),
 				'.site-footer'                          => array(
-					'color' => 'var(--footerTextColor)',
+					'color'       => 'var(--textColor)',
+					'--textColor' => esc_attr( $footer_color ),
 				),
 				'.site-footer input[type="text"], .site-footer input[type="email"], .site-footer input[type="url"], .site-footer input[type="password"], .site-footer input[type="reset"], .site-footer input[type="search"], .site-footer textarea, .site-footer select, .site-footer .wpcf7 form input:not([type=submit])' => array(
 					'--inputColor'                => esc_attr( $footer_input_color ),
@@ -598,7 +599,7 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				'#secondary .sidebar-main'              => array(
 					'--fontSize' => kemet_responsive_slider( $sidebar_content_font_size, 'desktop' ),
 				),
-				'.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget' => array(
+				'.kmt-separate-container.kmt-two-container #secondary div.widget, #secondary div.widget' => array(
 					'background-color' => esc_attr( $widget_bg_color ),
 				),
 				// sidebar input style.
@@ -660,6 +661,9 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				'body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div,.kmt-separate-container .kmt-article-post ,body #primary,body #secondary, .single-post:not(.kmt-separate-container) .post-navigation ,.single-post:not(.kmt-separate-container) .comments-area ,.single-post:not(.kmt-separate-container) .kmt-author-box-info , .single-post:not(.kmt-separate-container) .comments-area .kmt-comment , .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
 					'border-color' => esc_attr( $single_content_separator_color ),
+				),
+				'body #primary,body #secondary, .kmt-left-sidebar #secondary , .kmt-left-sidebar #primary' => array(
+					'border-color' => esc_attr( $sidebar_separator_color ),
 				),
 				'.comments-area'                        => array(
 					'border-top-color' => esc_attr( $global_border_color ),

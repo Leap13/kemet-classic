@@ -31,8 +31,8 @@ if ( ! class_exists( 'Kemet_Footer_Copyright_Dynamic_Css' ) ) {
 				$css_output = array(
 					$selector => array(
 						'margin'            => 'var(--margin)',
-						'color'             => 'var(--footerTextColor)',
-						'--footerTextColor' => esc_attr( $color ),
+						'color'             => 'var(--textColor)',
+						'--textColor'       => esc_attr( $color ),
 						'--linksColor'      => esc_attr( $link_color ),
 						'--linksHoverColor' => esc_attr( $link_hover_color ),
 						'--justifyContnet'  => kemet_get_sub_option( $prefix . '-horizontal-align', 'desktop' ),

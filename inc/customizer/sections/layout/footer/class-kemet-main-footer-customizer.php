@@ -170,7 +170,7 @@ class Kemet_Main_Footer_Customizer extends Kemet_Customizer_Register {
 								'preview'   => array(
 									'text'    => array(
 										'selector' => $selector,
-										'property' => '--footerTextColor',
+										'property' => '--textColor',
 									),
 									'initial' => array(
 										'selector' => $selector,

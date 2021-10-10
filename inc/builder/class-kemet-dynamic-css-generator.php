@@ -474,7 +474,7 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 
 				$css_output = array(
 					$selector                    => array(
-						'--footerTextColor'      => esc_attr( $text_color ),
+						'--textColor'            => esc_attr( $text_color ),
 						'--linksColor'           => esc_attr( $links_color ),
 						'--linksHoverColor'      => esc_attr( $links_h_color ),
 						'--rowBorderTopWidth'    => kemet_responsive_slider( $row_top_border, 'desktop' ),

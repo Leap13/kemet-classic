@@ -80,7 +80,7 @@ class Kemet_Widgets_Customizer extends Kemet_Customizer_Register {
 								),
 								'preview'   => array(
 									'initial' => array(
-										'selector' => '.kmt-separate-container.kmt-two-container #secondary div.widget , div.widget',
+										'selector' => '.kmt-separate-container.kmt-two-container #secondary div.widget, #secondary div.widget',
 										'property' => 'background-color',
 									),
 								),
