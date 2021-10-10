@@ -26,7 +26,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 					continue;
 				}
 				$prefix                       = $menu;
-				$selector                     = '#' . $prefix;
+				$selector                     = has_nav_menu( $menu ) ? '#' . $prefix : '#' . $prefix . ' > ul';
 				$bg_color                     = kemet_get_sub_option( $prefix . '-bg-color', 'initial' );
 				$link_color                   = kemet_get_sub_option( $prefix . '-link-color', 'initial' );
 				$link_h_color                 = kemet_get_sub_option( $prefix . '-link-color', 'hover' );

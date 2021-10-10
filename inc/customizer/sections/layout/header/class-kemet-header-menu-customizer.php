@@ -29,9 +29,10 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 		self::$menu_items = apply_filters( 'kemet_header_menu_items', array( 'primary-menu', 'secondary-menu' ) );
 		$register_options = array();
 		foreach ( self::$menu_items as $menu ) {
-			$prefix       = $menu;
-			$title        = ucfirst( explode( '-', $prefix )[0] );
-			$selector     = '#' . $prefix;
+			$prefix   = $menu;
+			$title    = ucfirst( explode( '-', $prefix )[0] );
+			$selector = has_nav_menu( $menu ) ? '#' . $prefix : '#' . $prefix . ' > ul';
+
 			$menu_options = array(
 				$prefix . '-title'                     => array(
 					'type'  => 'kmt-title',

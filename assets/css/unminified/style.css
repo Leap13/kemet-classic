@@ -4528,12 +4528,18 @@ h4.widget-title {
 	max-width: 100%;
 }
 
-.widget ul {
+.widget .wp-block-latest-posts__list,
+.widget .wp-block-latest-comments,
+.widget .wp-block-archives-list,
+.widget .wp-block-categories-list {
 	margin: 0;
 	list-style-type: none;
 }
 
-.widget ul > li:last-child {
+.widget .wp-block-latest-posts__list > li:last-child,
+.widget .wp-block-latest-comments > li:last-child,
+.widget .wp-block-archives-list > li:last-child,
+.widget .wp-block-categories-list > li:last-child {
 	border: none;
 }
 

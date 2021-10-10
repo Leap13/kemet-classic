@@ -27,7 +27,7 @@ class Kemet_Footer_Menu_Customizer extends Kemet_Customizer_Register {
 	 */
 	public function register_options( $options ) {
 		self::$prefix     = 'footer-menu';
-		$selector         = '#' . self::$prefix;
+		$selector         = has_nav_menu( self::$prefix ) ? '#' . self::$prefix : '#' . self::$prefix . ' > ul';
 		$register_options = array(
 			self::$prefix . '-title'        => array(
 				'type'  => 'kmt-title',
