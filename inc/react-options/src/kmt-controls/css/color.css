@@ -693,7 +693,7 @@
 .components-color-picker__inputs-wrapper .components-base-control__field label {
   position: absolute;
   top: 2px;
-  left: 1px;
+  left: 2px;
   bottom: 1px;
   display: flex;
   align-items: center;

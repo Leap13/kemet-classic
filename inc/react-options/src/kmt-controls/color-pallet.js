@@ -107,10 +107,13 @@ const ColorPalettes = ({
     const deletePalette = value.palettes.filter((palette) => {
       return palette.id === id;
     });
-    setDelPalette(deletePalette)
+
+    setDelPalette({ ...deletePalette })
+
   };
 
   const ConfirmDelete = () => {
+
     let newPalette = value.palettes.filter((palette) => {
       return palette.id !== delPalette[0].id;
     });

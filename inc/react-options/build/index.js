@@ -13918,7 +13918,7 @@ var PalettePreview = function PalettePreview(_ref) {
     onChange(newColor, optionId);
   };
 
-  var Title = [__("Buttons Background Color & " + Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("br", null) + " Hover Link Color", "kemet"), __("Headings & Links Color", "kemet"), __("Body Text & Meta Color", "kemet"), __("Borders Color", "kemet"), __("Body & tint from it for input, page title, and widgets background", "kemet"), __("Footer text color", "kemet"), __("Footer Background Color", "kemet")];
+  var Title = [__("Buttons Background Color & Hover Link Color", "kemet"), __("Headings & Links Color", "kemet"), __("Body Text & Meta Color", "kemet"), __("Borders Color", "kemet"), __("Body & tint from it for input," + "page title, and widgets background", "kemet"), __("Footer text color", "kemet"), __("Footer Background Color", "kemet")];
   var pickers = Object.keys(currentPalette).filter(function (k) {
     return k.indexOf("color") === 0;
   }).map(function (key, index) {
@@ -14150,7 +14150,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
     var deletePalette = value.palettes.filter(function (palette) {
       return palette.id === id;
     });
-    setDelPalette(deletePalette);
+    setDelPalette(_objectSpread({}, deletePalette));
   };
 
   var ConfirmDelete = function ConfirmDelete() {
