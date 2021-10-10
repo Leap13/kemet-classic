@@ -7,13 +7,13 @@ import OutsideClickHandler from "../common/outside-component";
 import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 const { __, sprintf } = wp.i18n;
-import { Button, Modal } from '@wordpress/components';
+import { Modal } from '@wordpress/components';
 
 
 const ColorPalettes = ({
   value,
   onChange,
-  params: { label },
+  params: { label, link },
 }) => {
   const [state, setState] = useState(value);
   const colorPalettesWrapper = useRef();
@@ -95,7 +95,10 @@ const ColorPalettes = ({
       name: data.name,
     };
     palettes.unshift(newPalette);
-    onChange(value);
+    onChange({
+      ...value,
+      flag: !value.flag,
+    });
     setIsOpen(false);
   };
 
@@ -106,6 +109,7 @@ const ColorPalettes = ({
     });
     setDelPalette(deletePalette)
   };
+
   const ConfirmDelete = () => {
     let newPalette = value.palettes.filter((palette) => {
       return palette.id !== delPalette[0].id;
@@ -132,7 +136,7 @@ const ColorPalettes = ({
         <span className="customize-control-title kmt-control-title">
           {label}
         </span>
-        <a href="#"> </a>
+        {label && <a href={link}> </a>}
       </header>
       <OutsideClickHandler
         disabled={!isOpen}
@@ -140,6 +144,9 @@ const ColorPalettes = ({
         className="kmt-palettes-outside"
         additionalRefs={[popoverProps.ref]}
         onOutsideClick={(e) => {
+          if (e.target.closest(".kmt-color-palette-confrim__delete")) {
+            return;
+          }
           setIsOpen(false);
           setCurrentView(" ");
         }}
@@ -175,17 +182,18 @@ const ColorPalettes = ({
               handleResetColor(val);
             }}
           />
-          <div className={`kmt-palette-toggle-modal `}>
+          <div className={`kmt-palette-toggle-modal `}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpen(true);
+              setCurrentView("modal");
+            }}
+          >
             <header>
               {__(`Select Another Palette`)}
             </header>
             <span
               className={`kmt-button-open-palette`}
-              onClick={(e) => {
-                e.preventDefault();
-                setIsOpen(true);
-                setCurrentView("modal");
-              }}
             ></span>
           </div>
         </div>

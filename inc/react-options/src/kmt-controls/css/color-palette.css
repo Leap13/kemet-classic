@@ -22,7 +22,7 @@
   font-family: dashicons;
   display: inline-block;
   font-size: 14px;
-  color: #858080;
+  color: #020202;
   text-decoration: none;
 }
 .customize-control-kmt-color-palettes header {
@@ -1042,4 +1042,10 @@ button.kmt-btn-reset__color {
 }
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
   margin-left: 10px;
+}
+.kmt-color-palette-confrim__delete
+  .kmt-paltette-popup-action
+  .components-button.has-icon.has-text
+  .dashicon {
+  margin-right: 2px;
 }

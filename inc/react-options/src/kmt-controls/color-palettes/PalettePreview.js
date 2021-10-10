@@ -31,7 +31,8 @@ const PalettePreview = ({
     onChange(newColor, optionId);
   };
   const Title = [
-    __("Buttons Background Color & Hover Link Color", "kemet"),
+    __(`Buttons Background Color & `
+      + <br /> + ` Hover Link Color`, "kemet"),
     __("Headings & Links Color", "kemet"),
     __("Body Text & Meta Color", "kemet"),
     __("Borders Color", "kemet"),

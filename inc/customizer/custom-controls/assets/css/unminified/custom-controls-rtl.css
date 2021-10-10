@@ -24,7 +24,7 @@
 .customize-control-kmt-color-palettes header a::before {
 	display: inline-block;
 	margin: 0 1px;
-	color: #858080;
+	color: #020202;
 	font-family: dashicons;
 	font-size: 14px;
 	text-decoration: none;
@@ -1222,6 +1222,13 @@ button.kmt-btn-reset__color {
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
 	margin-right: 10px;
+}
+
+.kmt-color-palette-confrim__delete
+  .kmt-paltette-popup-action
+  .components-button.has-icon.has-text
+  .dashicon {
+	margin-left: 2px;
 }
 
 #customize-theme-controls

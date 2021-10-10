@@ -46,7 +46,7 @@ export default function AddPaletteContainer({
               <span>
                 <input
                   type="radio"
-                  checked={data.type === "light"}
+                  checked={data.type === "light" ? true : false}
                   name="type"
                   onChange={() => setPaletteData({ ...data, type: "light" })}
                 />
@@ -56,7 +56,7 @@ export default function AddPaletteContainer({
                 {" "}
                 <input
                   type="radio"
-                  checked={data.type === "dark"}
+                  checked={data.type === "dark" ? true : false}
                   name="type"
                   onChange={() => setPaletteData({ ...data, type: "dark" })}
                 />
