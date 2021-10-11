@@ -12995,7 +12995,7 @@ var usePopoverMaker = function usePopoverMaker() {
     styles: _objectSpread({
       '--modal-y-offset': "".concat(yOffset, "px"),
       '--modal-x-offset': "".concat(right, "px"),
-      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 20 : 270, "px")
+      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 24 : 270, "px")
     }, otherStyles),
     position: position,
     popoverProps: _objectSpread({
@@ -13918,7 +13918,7 @@ var PalettePreview = function PalettePreview(_ref) {
     onChange(newColor, optionId);
   };
 
-  var Title = [__("Buttons Background Color & Hover Link Color", "kemet"), __("Headings & Links Color", "kemet"), __("Body Text & Meta Color", "kemet"), __("Borders Color", "kemet"), __("Body & tint from it for input," + "page title, and widgets background", "kemet"), __("Footer text color", "kemet"), __("Footer Background Color", "kemet")];
+  var Title = [__("Buttons Background  \n Color  & Hover Link Color", "kemet"), __("Headings & Links Color", "kemet"), __("Body Text & Meta Color", "kemet"), __("Borders Color", "kemet"), __("Body & tint from it for input, \n page title, and widgets background", "kemet"), __("Footer text color", "kemet"), __("Footer Background Color", "kemet")];
   var pickers = Object.keys(currentPalette).filter(function (k) {
     return k.indexOf("color") === 0;
   }).map(function (key, index) {
@@ -14746,6 +14746,7 @@ var ColorComponent = function ColorComponent(_ref) {
     wrapperProps: {
       ref: containerRef
     },
+    className: "kmt-color-Wrapper",
     additionalRefs: [modalRef],
     onOutsideClick: function onOutsideClick() {
       setState(function (_ref2) {

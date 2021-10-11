@@ -21,6 +21,10 @@
 	margin-bottom: -2px;
 }
 
+.customize-control-kmt-color-palettes header a:focus {
+	box-shadow: none;
+}
+
 .customize-control-kmt-color-palettes header a::before {
 	display: inline-block;
 	margin: 0 1px;
@@ -153,7 +157,7 @@ div.kmt-type-control span:not(:first-child) {
 	font-family: dashicons;
 	font-size: 18px;
 	font-weight: lighter;
-	line-height: 18;
+	line-height: 26px;
 	content: "\f347";
 	transition: opacity 0.15s ease;
 }
@@ -183,6 +187,7 @@ div.kmt-type-control span:not(:first-child) {
 
 .kmt-palettes-preview .kmt-palette-toggle-modal span {
 	width: 44px;
+	height: 24px;
 }
 
 .kmt-palettes-preview span.kmt-button-open-palette:hover::before {
@@ -999,7 +1004,7 @@ div.kmt-type-control span:not(:first-child) {
 
 .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container {
 	display: flex;
-	padding: 17px 20px;
+	padding: 14px 20px;
 
 	align-items: center;
 	justify-content: center;
@@ -1231,6 +1236,10 @@ button.kmt-btn-reset__color {
 	margin-left: 2px;
 }
 
+.kmt-color-picker-modal.kmt-color-palette-modal {
+	box-shadow: -5px 5px 15px 2px #bbb9b9;
+}
+
 #customize-theme-controls
   ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
 	height: 100%;
@@ -1286,6 +1295,11 @@ button.kmt-btn-reset__color {
 	margin-bottom: 25px;
 	border-bottom: 1px solid #dcdcde;
 	content: "";
+}
+
+.kmt-option-modal input[type="text"] {
+	border: 1px solid #dcdddf !important;
+	border-radius: 0 !important;
 }
 
 :root {
@@ -8367,7 +8381,7 @@ i.fipicon-angle-left:before {
 	position: absolute;
 	z-index: 200;
 	width: auto;
-	height: 26px;
+	height: 35px;
 	padding: 0 8px;
 	border-radius: 3px;
 	opacity: 0;
@@ -8377,7 +8391,7 @@ i.fipicon-angle-left:before {
 	font-weight: normal;
 	font-style: italic;
 	-webkit-font-smoothing: antialiased;
-	white-space: nowrap;
+	white-space: pre;
 	letter-spacing: initial;
 	text-transform: initial;
 	-webkit-user-select: none;

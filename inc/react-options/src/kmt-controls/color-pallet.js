@@ -32,7 +32,6 @@ const ColorPalettes = ({
     shouldCalculate: isTransitioning || isOpen,
   });
 
-
   const setIsOpen = (isOpen) => {
     setModalState((state) => ({
       ...state,

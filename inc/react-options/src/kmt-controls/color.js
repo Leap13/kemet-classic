@@ -20,6 +20,7 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
             wrapperProps={{
                 ref: containerRef,
             }}
+            className={`kmt-color-Wrapper`}
             additionalRefs={[modalRef]}
             onOutsideClick={() => {
                 setState(({ isPicking }) => ({

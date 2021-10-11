@@ -128,7 +128,7 @@
   position: absolute;
   z-index: 200;
   width: auto;
-  height: 26px;
+  height: 35px;
   padding: 0 8px;
   font-size: 12px;
   font-style: italic;
@@ -140,7 +140,7 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  white-space: nowrap;
+  white-space: pre;
   border-radius: 3px;
   pointer-events: none;
   background: #363f42;

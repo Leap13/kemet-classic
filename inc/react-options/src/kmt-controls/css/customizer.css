@@ -48,3 +48,7 @@
   margin-bottom: 25px;
   border-bottom: 1px solid #dcdcde;
 }
+.kmt-option-modal input[type="text"] {
+  border: 1px solid #dcdddf !important;
+  border-radius: 0 !important;
+}
