@@ -1881,7 +1881,7 @@ a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
 	display: inline-block;
 	padding: var(--padding, 0.6em 1em);
-	border-width: var(--borderWidth, 1px);
+	border-width: var(--borderWidth, 0);
 	border-style: var(--borderStyle, solid);
 	border-color: var(--borderColor);
 	-webkit-border-radius: var(--borderRadius, 0);

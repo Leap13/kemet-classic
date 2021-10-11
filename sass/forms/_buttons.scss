@@ -7,7 +7,7 @@ input[type="submit"],
 .wp-block-button__link,
 a.wp-block-button__link,
 .wp-block-search button.wp-block-search__button {
-  border-width: var(--borderWidth, 1px);
+  border-width: var(--borderWidth, 0);
   border-style: var(--borderStyle, solid);
   border-color: var(--borderColor);
   border-radius: var(--borderRadius, 0);

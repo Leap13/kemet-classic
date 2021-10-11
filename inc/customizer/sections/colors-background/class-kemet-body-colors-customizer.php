@@ -22,7 +22,7 @@ class Kemet_Body_Color_Customizer extends Kemet_Customizer_Register {
 			'colorPalette'             => array(
 				'label' => __( 'Global Color Palette', 'kemet' ),
 				'type'  => 'kmt-color-palettes',
-
+				'link'  => '',
 			),
 			'theme-color'              => array(
 				'type'        => 'kmt-color',
