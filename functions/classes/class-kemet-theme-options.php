@@ -458,7 +458,7 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 						),
 					),
 					'h1-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 48,
 							'tablet'       => '',
 							'mobile'       => '',
@@ -466,9 +466,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
+						'line-height' => array(
+							'desktop'      => 1.7,
+							'tablet'       => 1.7,
+							'mobile'       => 1.7,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h2-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 42,
 							'tablet'       => '',
 							'mobile'       => '',
@@ -476,9 +484,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
+						'line-height' => array(
+							'desktop'      => 1.6,
+							'tablet'       => 1.6,
+							'mobile'       => 1.6,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h3-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 30,
 							'tablet'       => '',
 							'mobile'       => '',
@@ -486,9 +502,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
+						'line-height' => array(
+							'desktop'      => 1.5,
+							'tablet'       => 1.5,
+							'mobile'       => 1.5,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h4-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 20,
 							'tablet'       => '',
 							'mobile'       => '',
@@ -496,9 +520,17 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
+						'line-height' => array(
+							'desktop'      => 1.4,
+							'tablet'       => 1.4,
+							'mobile'       => 1.4,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h5-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 18,
 							'tablet'       => '',
 							'mobile'       => '',
@@ -506,15 +538,31 @@ if ( ! class_exists( 'Kemet_Theme_Options' ) ) {
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
 						),
+						'line-height' => array(
+							'desktop'      => 1.3,
+							'tablet'       => 1.3,
+							'mobile'       => 1.3,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
+						),
 					),
 					'h6-typography'                        => array(
-						'size' => array(
+						'size'        => array(
 							'desktop'      => 15,
 							'tablet'       => '',
 							'mobile'       => '',
 							'desktop-unit' => 'px',
 							'tablet-unit'  => 'px',
 							'mobile-unit'  => 'px',
+						),
+						'line-height' => array(
+							'desktop'      => 1.2,
+							'tablet'       => 1.2,
+							'mobile'       => 1.2,
+							'desktop-unit' => 'em',
+							'tablet-unit'  => 'em',
+							'mobile-unit'  => 'em',
 						),
 					),
 					// Content.
