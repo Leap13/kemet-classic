@@ -6,6 +6,9 @@
   flex-grow: 2;
   justify-content: space-between;
 }
+span.kmt-color-description {
+  width: 75%;
+}
 .kmt-color-container header {
   position: relative;
   display: flex;
@@ -254,8 +257,8 @@
 }
 .kmt-color-picker-single > span {
   display: flex;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   background-size: 10px 10px;
@@ -388,31 +391,14 @@
   box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
   right: var(--modal-x-offset);
   border-radius: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
 }
-.kmt-option-modal:before {
-  position: absolute;
-  content: "";
-  left: var(--option-modal-arrow-position, calc(100% - 55px));
-  border-style: solid;
-}
-.kmt-option-modal[data-position="bottom"] {
-  top: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
-  transform-origin: center top;
-}
-.kmt-option-modal[data-position="bottom"]:before {
-  top: -7px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
+
 .kmt-option-modal[data-position="top"] {
   bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
   transform-origin: center bottom;
 }
-.kmt-option-modal[data-position="top"]:before {
-  bottom: -7px;
-  border-width: 7px 6px 0 6px;
-  border-color: #ffffff transparent transparent transparent;
-}
+
 .wp-customizer .kmt-option-modal {
   z-index: 500000;
 }
@@ -746,34 +732,7 @@
 .components-color-picker__inputs-toggle span {
   display: none;
 }
-[class*="kmt-tooltip"] {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  z-index: 200;
-  width: auto;
-  height: 26px;
-  padding: 0 8px;
-  font-size: 12px;
-  font-style: italic;
-  font-weight: normal;
-  letter-spacing: initial;
-  text-transform: initial;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space: nowrap;
-  border-radius: 3px;
-  pointer-events: none;
-  background: #363f42;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
-    transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
-    visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
+
 [class*="kmt-tooltip"]:before,
 [class*="kmt-tooltip"]:after {
   content: "";

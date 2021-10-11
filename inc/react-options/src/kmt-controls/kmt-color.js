@@ -97,7 +97,7 @@ const KemetColorComponent = props => {
         : null;
     let descriptionHtml =
         description !== "" && description ? (
-            <span className="description customize-control-description">
+            <span className="description kmt-color-description customize-control-description">
                 {description}
             </span>
         ) : null;

@@ -16,21 +16,7 @@ import { convertVariations, familyToDisplay } from "./typography/helpers";
 
 import TypographyModal from "./typography/typo-modal";
 
-const getLeftForEl = (modal, el) => {
-    if (!modal) return;
-    if (!el) return;
 
-    let style = getComputedStyle(modal);
-
-    let wrapperLeft = parseFloat(style.left);
-
-    el = el.getBoundingClientRect();
-
-    return {
-        "--option-modal-arrow-position": `${el.left + el.width / 2 - wrapperLeft - 6
-            }px`,
-    };
-};
 
 const Typography = ({ value, onChange, params: { label } }) => {
 
@@ -121,32 +107,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
     const fontFamilyRef = useRef();
     const fontSizeRef = useRef();
     const fontWeightRef = useRef();
-    const arrowLeft = useMemo(() => {
-        const view = currentView;
 
-        const futureRef =
-            view === "options"
-                ? fontSizeRef.current
-                : view === "fonts"
-                    ? fontFamilyRef.current
-                    : view === "variations"
-                        ? fontWeightRef.current
-                        : fontSizeRef.current;
-
-        return (
-            popoverProps.ref &&
-            popoverProps.ref.current &&
-            getLeftForEl(popoverProps.ref.current, futureRef)
-        );
-    }, [
-        isOpen,
-        currentView,
-        popoverProps.ref,
-        popoverProps.ref && popoverProps.ref.current,
-        fontFamilyRef && fontFamilyRef.current,
-        fontWeightRef && fontFamilyRef.current,
-        fontSizeRef && fontFamilyRef.current,
-    ]);
 
     const updateValues = (obj) => {
         onChange(obj);
@@ -303,7 +264,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                                             style: {
                                                 ...style,
                                                 ...styles,
-                                                ...arrowLeft,
+
                                             },
                                             ...popoverProps,
                                         }}

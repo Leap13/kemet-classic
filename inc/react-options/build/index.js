@@ -19692,7 +19692,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _color_palettes_PalettePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./color-palettes/PalettePreview */ "./src/kmt-controls/color-palettes/PalettePreview.js");
-/* harmony import */ var _color_palettes_AddPaletteContainer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./color-palettes/AddPaletteContainer */ "./src/kmt-controls/color-palettes/AddPaletteContainer.js");
+/* harmony import */ var _color_palettes_AddPaletteContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./color-palettes/AddPaletteContainer */ "./src/kmt-controls/color-palettes/AddPaletteContainer.js");
 /* harmony import */ var _color_palettes_ColorPalettesModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color-palettes/ColorPalettesModal */ "./src/kmt-controls/color-palettes/ColorPalettesModal.js");
 /* harmony import */ var _common_popover_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/popover-component */ "./src/common/popover-component.js");
 /* harmony import */ var _common_outside_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/outside-component */ "./src/common/outside-component.js");
@@ -20017,7 +20017,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
     }
 
     if (currentView === "add") {
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_AddPaletteContainer__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color_palettes_AddPaletteContainer__WEBPACK_IMPORTED_MODULE_5__["default"], {
         wrapperProps: _objectSpread({
           style: _objectSpread(_objectSpread({}, style), styles)
         }, popoverProps),
@@ -20114,17 +20114,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var __ = wp.i18n.__;
 
-var getLeftForEl = function getLeftForEl(modal, el) {
-  if (!modal) return;
-  if (!el) return;
-  var style = getComputedStyle(modal);
-  var wrapperLeft = parseFloat(style.left);
-  el = el.firstElementChild.getBoundingClientRect();
-  return {
-    '--option-modal-arrow-position': "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
-  };
-};
-
 var PickerModal = function PickerModal(_ref) {
   var el = _ref.el,
       value = _ref.value,
@@ -20157,9 +20146,6 @@ var PickerModal = function PickerModal(_ref) {
       setRefresh = _useState2[1];
 
   var valueToCheck = value;
-  var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
-    return wrapperProps.ref && wrapperProps.ref.current && el && getLeftForEl(wrapperProps.ref.current, el.current);
-  }, [wrapperProps.ref && wrapperProps.ref.current, el && el.current]);
 
   var handletoppart = function handletoppart(colorValue) {
     if (refresh) {
@@ -20179,7 +20165,7 @@ var PickerModal = function PickerModal(_ref) {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-color-picker-modal", {
       'kmt-option-modal': !inline_modal && appendToBody
     }, className),
-    style: _objectSpread(_objectSpread({}, arrowLeft), style ? style : {})
+    style: _objectSpread({}, style ? style : {})
   }, wrapperProps), !predefined && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-color-picker-top"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("ul", {
@@ -20926,7 +20912,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
     className: "customize-control-title kmt-control-title"
   }, label) : null;
   var descriptionHtml = description !== "" && description ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "description customize-control-description"
+    className: "description kmt-color-description customize-control-description"
   }, description) : null;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-control-wrap kmt-color-control-wrap"
@@ -22347,17 +22333,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-var getLeftForEl = function getLeftForEl(modal, el) {
-  if (!modal) return;
-  if (!el) return;
-  var style = getComputedStyle(modal);
-  var wrapperLeft = parseFloat(style.left);
-  el = el.getBoundingClientRect();
-  return {
-    "--option-modal-arrow-position": "".concat(el.left + el.width / 2 - wrapperLeft - 6, "px")
-  };
-};
-
 var Typography = function Typography(_ref) {
   var value = _ref.value,
       onChange = _ref.onChange,
@@ -22474,11 +22449,6 @@ var Typography = function Typography(_ref) {
   var fontFamilyRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var fontSizeRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var fontWeightRef = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
-  var arrowLeft = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useMemo"])(function () {
-    var view = currentView;
-    var futureRef = view === "options" ? fontSizeRef.current : view === "fonts" ? fontFamilyRef.current : view === "variations" ? fontWeightRef.current : fontSizeRef.current;
-    return popoverProps.ref && popoverProps.ref.current && getLeftForEl(popoverProps.ref.current, futureRef);
-  }, [isOpen, currentView, popoverProps.ref, popoverProps.ref && popoverProps.ref.current, fontFamilyRef && fontFamilyRef.current, fontWeightRef && fontFamilyRef.current, fontSizeRef && fontFamilyRef.current]);
 
   var updateValues = function updateValues(obj) {
     onChange(obj);
@@ -22589,7 +22559,7 @@ var Typography = function Typography(_ref) {
 
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_typography_typo_modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
       wrapperProps: _objectSpread({
-        style: _objectSpread(_objectSpread(_objectSpread({}, style), styles), arrowLeft)
+        style: _objectSpread(_objectSpread({}, style), styles)
       }, popoverProps),
       onChange: onChange,
       value: value,

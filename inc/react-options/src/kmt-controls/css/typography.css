@@ -21,11 +21,7 @@
   top: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
   transform-origin: center top;
 }
-.kmt-option-modal[data-position="bottom"]:before {
-  top: -7px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
+
 .kmt-option-modal[data-position="top"] {
   bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
   transform-origin: center bottom;
