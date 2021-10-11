@@ -113,7 +113,10 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				kemet_get_option(
 					'site-boxed-inner-bg',
 					array(
-						'desktop' => array( 'background-color' => kemet_color_brightness( $global_bg_color, 0.97, 'dark' ) ),
+						'desktop' => array(
+							'background-type'  => 'color',
+							'background-color' => $global_border_color,
+						),
 						'tablet'  => array(),
 						'mobile'  => array(),
 					)
