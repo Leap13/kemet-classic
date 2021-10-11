@@ -58,6 +58,17 @@
   font-weight: bold;
 }
 
+.kmt-builder-tab-toggle {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.kmt-builder-tab-toggle span.dashicons {
+  width: auto;
+  height: auto;
+}
+
 .kmt-header-builder-active.kmt-builder-hide .kmt-builder-show-action,
 .kmt-footer-builder-active.kmt-builder-hide .kmt-builder-show-action {
   display: block;

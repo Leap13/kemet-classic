@@ -3874,6 +3874,11 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	--minHeight: 70px;
 }
 
+.kmt-top-header-wrap .kmt-grid-row,
+.kmt-bottom-header-wrap .kmt-grid-row {
+	--minHeight: 70px;
+}
+
 [class*="-header-wrap"] [class*="-header-bar"] {
 	border-width: var(--borderWidth, 0 0 1px 0);
 	border-color: var(--borderColor);

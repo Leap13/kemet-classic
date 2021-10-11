@@ -296,6 +296,12 @@
     --minHeight: 70px;
   }
 }
+.kmt-top-header-wrap,
+.kmt-bottom-header-wrap {
+  .kmt-grid-row {
+    --minHeight: 70px;
+  }
+}
 [class*="-header-wrap"] {
   [class*="-header-bar"] {
     border-color: var(--borderColor);
