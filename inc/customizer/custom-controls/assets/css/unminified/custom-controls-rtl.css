@@ -10418,6 +10418,10 @@ input[type="checkbox"]:focus {
 	display: none !important;
 }
 
+.components-button.is-pressed .kmt-sidebar-icon {
+	color: #fff;
+}
+
 .kmt-number-container header {
 	position: relative;
 }

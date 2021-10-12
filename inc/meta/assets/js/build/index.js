@@ -683,7 +683,8 @@ var kemetPageOptions = function kemetPageOptions(props) {
       xmlns: "http://www.w3.org/2000/svg",
       width: "20",
       height: "20",
-      viewBox: "0 0 23 58.04"
+      viewBox: "0 0 23 58.04",
+      className: "kmt-sidebar-icon"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("path", {
       d: "M1,28V44H2.59c7.46,0,12.71-7.16,14.79-20.15l.3-1.85H1v3H13.15C12,30.68,9.54,38.37,4,39.55V28Z",
       transform: "translate(-1 0.04)"
