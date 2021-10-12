@@ -58,6 +58,7 @@
 .customize-control-kmt-slider .kmt-slider-reset::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 
 .customize-control-kmt-slider .kmt-slider-reset:hover:not(:disabled):before {
@@ -117,7 +118,6 @@
 
 .description.customize-control-description {
   margin-bottom: 20px;
-  margin-top: 10px;
   color: #848484 !important;
   font-size: 12px;
 }
