@@ -18709,7 +18709,7 @@ var usePopoverMaker = function usePopoverMaker() {
     styles: _objectSpread({
       '--modal-y-offset': "".concat(yOffset, "px"),
       '--modal-x-offset': "".concat(right, "px"),
-      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 24 : 270, "px")
+      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 38 : 270, "px")
     }, otherStyles),
     position: position,
     popoverProps: _objectSpread({
@@ -19412,7 +19412,7 @@ function AddPaletteContainer(_ref) {
       setPaletteData = _useState2[1];
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_react_spring_web__WEBPACK_IMPORTED_MODULE_5__["animated"].div, _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    className: "kmt-option-modal kmt-palettes-modal"
+    className: "kmt-option-modal  kmt-add-palettes-modal"
   }, wrapperProps), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-add-palette-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
@@ -20050,9 +20050,9 @@ var ColorPalettes = function ColorPalettes(_ref) {
       return;
     }
   }), document.body), openModal && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Modal"], {
-    title: __("Are you sure you want to delete the ".concat(delPalette[0].name, " palette?\n")),
+    title: __("Are you sure you want to delete the ".concat(delPalette[0].name, " palette?")),
     className: "kmt-color-palette-confrim__delete",
-    isDismissible: true
+    isDismissible: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: __("kmt-paltette-popup-content")
   }, __("If this is the currently active palette, the current palette will be switched to the Base one")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
@@ -23487,7 +23487,15 @@ var Visibility = function Visibility(_ref3) {
   };
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-visibility-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+    className: "customize-control-title kmt-control-title"
+  }, params.label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-visibility-wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(InlineVisibility, {
+    value: value,
+    onChange: onChange,
+    choices: params.choices
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-btn-reset-wrap"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
     className: "kmt-reset-btn ",
@@ -23502,13 +23510,7 @@ var Visibility = function Visibility(_ref3) {
 
       onChange(resetValue);
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
-    className: "customize-control-title kmt-control-title"
-  }, params.label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(InlineVisibility, {
-    value: value,
-    onChange: onChange,
-    choices: params.choices
-  }));
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Visibility);

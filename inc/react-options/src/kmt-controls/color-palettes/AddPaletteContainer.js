@@ -17,7 +17,7 @@ export default function AddPaletteContainer({
 
   return (
     <animated.div
-      className="kmt-option-modal kmt-palettes-modal"
+      className="kmt-option-modal  kmt-add-palettes-modal"
       {...wrapperProps}
     >
       <div className={`kmt-add-palette-container`}>
