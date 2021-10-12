@@ -332,11 +332,9 @@ const ColorPalettes = ({
                     document.body
                 )}
 
-            {openModal && <Modal title={__(`Are you sure you want to delete the ${delPalette[0].name} palette?
-`)}
-
+            {openModal && <Modal title={__(`Are you sure you want to delete the ${delPalette[0].name} palette?`)}
                 className={`kmt-color-palette-confrim__delete`}
-                isDismissible={true}
+                isDismissible={false}
             >
                 < p className={__(`kmt-paltette-popup-content`)}>
                     {__(`If this is the currently active palette, the current palette will be switched to the Base one`)}
