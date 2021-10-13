@@ -694,7 +694,7 @@ div.kmt-type-control span:not(:first-child) {
 }
 
 .kmt-color-palette-container div .kmt-color-picker-single:last-child {
-	margin-right: -5px;
+	margin-right: -7px;
 }
 
 .kmt-palettes-preview
