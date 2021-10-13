@@ -3644,6 +3644,8 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 	border-radius: 2px;
 	color: transparent;
 	background: 100% 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 	-webkit-transform: translate(0, -50%);
 	-ms-transform: translate(0, -50%);
 	transform: translate(0, -50%);

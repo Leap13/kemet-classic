@@ -43,7 +43,7 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 					$selector . ' li > .kmt-menu-item-wrap' => array(
 						'border-bottom-width' => 'var(--borderBottomWidth)',
 						'border-bottom-style' => 'var(----borderBottomStyle, solid)',
-						'border-bottom-color' => 'var(--borderBottomColor)',
+						'border-bottom-color' => 'var(--borderBottomColor, var(--borderColor))',
 					),
 					$selector . ' li > .kmt-menu-item-wrap' => array(
 						'border-bottom-style' => 'var(--borderBottomStyle,solid)',
@@ -61,11 +61,12 @@ if ( ! class_exists( 'Kemet_Header_Off_Canvas_Menu_Dynamic_Css' ) ) {
 						'--padding'           => kemet_responsive_spacing( $link_spacing, 'all', 'desktop' ),
 						'--backgroundColor'   => kemet_responsive_color( $link_bg_color, 'initial', 'desktop' ),
 						'border-bottom-width' => 'var(--borderBottomWidth)',
-						'border-bottom-color' => 'var(--borderBottomColor)',
+						'border-bottom-color' => 'var(--borderBottomColor, var(--borderColor))',
 						'background-color'    => 'var(--backgroundColor)',
 						'padding'             => 'var(--padding)',
 					),
 					$selector . ' li > a:hover, ' . $selector . ' li > .kmt-menu-item-wrap:hover' => array(
+						'border-bottom-color' => 'var(--borderBottomColor, var(--themeColor))',
 						'--backgroundColor'   => kemet_responsive_color( $link_bg_color, 'hover', 'desktop' ),
 						'--borderBottomColor' => kemet_responsive_color( $link_border_color, 'hover', 'desktop' ),
 					),

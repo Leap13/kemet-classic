@@ -176,7 +176,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'color'            => 'var(--inputColor)',
 					'background-color' => 'var(--inputBackgroundColor)',
 					'border-color'     => 'var(--inputBorderColor)',
-					'border-radius'    => 'var(--inputBorderRadius, 2px)',
+					'border-radius'    => 'var(--inputBorderRadius)',
 					'border-width'     => 'var(--inputBorderWidth, 1px)',
 					'border-style'     => 'var(--inputBorderStyle, solid)',
 					'--padding'        => kemet_responsive_spacing( $input_spacing, 'all', 'desktop' ),
@@ -450,7 +450,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 				$blocks_parent . ' input[type=reset].button' => array(
 					'padding' => esc_attr( '.6em 1em' ),
 				),
-				'.wp-block-button .wp-block-button__link, .edit-post-visual-editor .block-editor-block-list__block .wp-block-search__button, ' . $blocks_parent . ' .button, ' . $blocks_parent . ' input[type=reset].button' => array(
+				'.wp-block-button .wp-block-button__link, .edit-post-visual-editor .block-editor-block-list__block .wp-block-search__button, ' . $blocks_parent . ' .button:not(#elementor-editor-button), ' . $blocks_parent . ' input[type=reset].button' => array(
 					'color'              => 'var(--buttonColor)',
 					'background-color'   => 'var(--buttonBackgroundColor)',
 					'--borderHoverColor' => esc_attr( $btn_border_h_color ),
@@ -460,7 +460,7 @@ if ( ! class_exists( 'Kemet_Gutenberg_Editor_Style' ) ) {
 					'--borderWidth'      => kemet_spacing( $btn_border_size, 'all' ),
 					'--padding'          => kemet_responsive_spacing( $btn_padding, 'all', 'desktop' ),
 				),
-				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus, ' . $blocks_parent . ' .button:hover, ' . $blocks_parent . ' input[type=reset]:hover' => array(
+				'.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .wp-block-button:not(.is-style-outline) .wp-block-button__link:focus, ' . $blocks_parent . ' .button:not(#elementor-editor-button):hover, ' . $blocks_parent . ' input[type=reset]:hover' => array(
 					'color'            => 'var(--buttonHoverColor, var(--buttonColor))',
 					'background-color' => 'var(--buttonBackgroundHoverColor, var(--buttonBackgroundColor))',
 					'border-color'     => 'var(--borderHoverColor)',

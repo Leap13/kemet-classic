@@ -916,6 +916,30 @@ if ( ! function_exists( 'kemet_hex2rgba' ) ) {
 	}
 }
 
+if ( ! function_exists( 'get_hex_from_color_pallets' ) ) {
+
+	/**
+	 * get_hex_from_color_pallets
+	 *
+	 * @param  string $color_var
+	 * @return string
+	 */
+	function get_hex_from_color_pallets( $color_var ) {
+		$color_pallet = kemet_get_option( 'colorPalette' );
+		$array_values = array(
+			'var(--paletteColor1)' => $color_pallet['color1'],
+			'var(--paletteColor2)' => $color_pallet['color2'],
+			'var(--paletteColor3)' => $color_pallet['color3'],
+			'var(--paletteColor4)' => $color_pallet['color4'],
+			'var(--paletteColor5)' => $color_pallet['color5'],
+			'var(--paletteColor6)' => $color_pallet['color6'],
+			'var(--paletteColor7)' => $color_pallet['color7'],
+		);
+
+		return isset( $array_values[ $color_var ] ) ? $array_values[ $color_var ] : false;
+	}
+}
+
 if ( ! function_exists( 'kemet_color_brightness' ) ) {
 
 	/**
@@ -927,9 +951,10 @@ if ( ! function_exists( 'kemet_color_brightness' ) ) {
 	 * @return string the new generated color hex.
 	 */
 	function kemet_color_brightness( $hex, $percent, $brightness = 'light' ) {
-		if ( substr( $hex, 0, 5 ) === 'var(-' ) {
+		if ( substr( $hex, 0, 5 ) === 'var(-' && ! get_hex_from_color_pallets( $hex ) ) {
 			return $hex;
 		}
+		$hex = get_hex_from_color_pallets( $hex ) ? get_hex_from_color_pallets( $hex ) : $hex;
 		if ( '' != $hex ) {
 			if ( 'dark' == $brightness ) {
 				$percent = $percent * -1;
@@ -1065,51 +1090,45 @@ function gutenberg_support() {
 	add_editor_style( 'style-editor.css' );
 
 	// Global Color.
-	$theme_color          = kemet_get_sub_option( 'theme-color', 'initial' );
-	$headings_color       = kemet_get_sub_option( 'headings-color', 'initial' );
-	$global_links_color   = kemet_get_sub_option( 'links-color', 'initial' );
-	$global_links_h_color = kemet_get_sub_option( 'links-color', 'hover', $theme_color );
-	$text_meta_color      = kemet_get_sub_option( 'text-meta-color', 'initial' );
-	$global_border_color  = kemet_get_sub_option( 'global-border-color', 'initial' );
-	$global_bg_color      = kemet_get_sub_option( 'global-background-color', 'initial' );
+	$color_pallet = kemet_get_option( 'colorPalette' );
 
 	add_theme_support(
 		'editor-color-palette',
 		array(
 			array(
-				'name'  => __( 'Global Color', 'kemet' ),
-				'slug'  => 'global',
-				'color' => $theme_color,
+				'name'  => __( 'Color1', 'kemet' ),
+				'slug'  => 'primary',
+				'color' => $color_pallet['color1'],
 			),
 			array(
-				'name'  => __( 'Global Background Color', 'kemet' ),
-				'slug'  => 'global-bg',
-				'color' => $global_bg_color,
+				'name'  => __( 'Color2', 'kemet' ),
+				'slug'  => 'headings-links',
+				'color' => $color_pallet['color2'],
 			),
 			array(
-				'name'  => __( 'Global Headings Color', 'kemet' ),
-				'slug'  => 'headings',
-				'color' => $headings_color,
-			),
-			array(
-				'name'  => __( 'Global Links Color', 'kemet' ),
-				'slug'  => 'links',
-				'color' => $global_links_color,
-			),
-			array(
-				'name'  => __( 'Global Links Hover Color', 'kemet' ),
-				'slug'  => 'links-hover',
-				'color' => $global_links_h_color,
-			),
-			array(
-				'name'  => __( 'Global Text Color', 'kemet' ),
+				'name'  => __( 'Color3', 'kemet' ),
 				'slug'  => 'text-meta',
-				'color' => $text_meta_color,
+				'color' => $color_pallet['color3'],
 			),
 			array(
-				'name'  => __( 'Global Border Color', 'kemet' ),
+				'name'  => __( 'Color4', 'kemet' ),
 				'slug'  => 'global-border',
-				'color' => $global_border_color,
+				'color' => $color_pallet['color4'],
+			),
+			array(
+				'name'  => __( 'Color5', 'kemet' ),
+				'slug'  => 'global-bg',
+				'color' => $color_pallet['color5'],
+			),
+			array(
+				'name'  => __( 'Color6', 'kemet' ),
+				'slug'  => 'footer-text',
+				'color' => $color_pallet['color6'],
+			),
+			array(
+				'name'  => __( 'Color7', 'kemet' ),
+				'slug'  => 'footer-bg',
+				'color' => $color_pallet['color7'],
 			),
 		)
 	);

@@ -164,10 +164,10 @@ if ( ! class_exists( 'Kemet_Dynamic_Css_Generator' ) ) :
 			if ( Kemet_Builder_Helper::is_item_loaded( $toggle_button, 'header', $device ) ) {
 				// Toggle Button Css.
 				$btn_selector      = '.' . $toggle_button . '-button';
-				$icon_color        = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'initial' );
+				$icon_color        = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'initial', 'var(--linksColor)' );
 				$border_color      = kemet_get_sub_option( $toggle_button . '-button-border-color', 'initial' );
 				$icon_bg_color     = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'initial' );
-				$icon_h_color      = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover' );
+				$icon_h_color      = kemet_get_sub_option( $toggle_button . '-button-icon-color', 'hover', 'var(--linksHoverColor)' );
 				$icon_bg_h_color   = kemet_get_sub_option( $toggle_button . '-button-icon-bg-color', 'hover' );
 				$border_h_color    = kemet_get_sub_option( $toggle_button . '-button-border-color', 'hover' );
 				$btn_width         = kemet_get_option( $toggle_button . '-button-width' );

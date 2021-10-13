@@ -91,6 +91,7 @@
   &:focus,
   &.kmt-search-box-form {
     .search-submit {
+      box-shadow: none;
       position: absolute;
       z-index: 2;
       top: 50%;

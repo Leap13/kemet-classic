@@ -2840,9 +2840,9 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 	background: #f9f9f9;
 }
 
-.nav-tab-active,
-.nav-tab-active:focus,
-.nav-tab-active:focus:active {
+.kmt-build-tabs .nav-tab-active,
+.kmt-build-tabs .nav-tab-active:focus,
+.kmt-build-tabs .nav-tab-active:focus:active {
 	border-bottom: 4px solid var(--primaryColor);
 }
 
