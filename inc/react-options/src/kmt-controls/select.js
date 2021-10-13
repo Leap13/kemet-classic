@@ -13,7 +13,7 @@ const SelectComponent = ({ onChange, params, value }) => {
         select.current.addEventListener('onCustomChange', function (e) {
             HandleChange(e.detail.value);
         })
-    });
+    }, []);
 
     const {
         label,
@@ -23,22 +23,35 @@ const SelectComponent = ({ onChange, params, value }) => {
         description,
         class: customClass
     } = params;
-    const select = useRef(null);
 
+    let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
+    const select = useRef(null);
+    let optionsHtml = Object.entries(choices).map(key => {
+        let html;
+        if (typeof key[1] === 'object') {
+            html = <optgroup label={key[0]}>
+                {Object.entries(key[1]).map(key => {
+                    let html = <option key={key[0]} value={key[0]} dangerouslySetInnerHTML={{
+                        __html: key[1]
+                    }}></option>;
+                    return html;
+                })}
+            </optgroup>
+        } else {
+            html = <option key={key[0]} value={key[0]}>{key[1]}</option>;
+        }
+        return html;
+    });
     return <>
-        {label ? <span className="customize-control-title kmt-control-title">{label}</span> : null}
+        {labelContent}
         <div className="customize-control-content">
             <select ref={select} className={`kmt-select-input${customClass ? ' ' + customClass : ''}`} data-name={name} data-value={props_value} value={props_value}
-                onChange={({ target: { value: item } }) => {
-                    HandleChange(item);
-                }}
-                multiple={multiple ? true : false}>
-                {Object.entries(choices).map(([value, key]) => <option key={key} value={value} dangerouslySetInnerHTML={{
-                    __html: key
-                }}></option>
-                )}
+                onChange={() => {
+                    HandleChange(event.target.value);
+                }} multiple={multiple ? true : false}>
+                {optionsHtml}
             </select>
-            {(description && "" !== description) && <p className="description customize-control-description" >{description}</p>}
+            {description && <p className="description customize-control-description" >{description}</p>}
         </div>
     </>;
 

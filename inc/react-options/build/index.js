@@ -21059,7 +21059,7 @@ var NumberComponent = function NumberComponent(_ref) {
   var step = 1;
   var defaultValue = 1;
 
-  if (value.toString().trim().length === 0) {
+  if (value && value.toString().trim().length === 0) {
     parsedValue = 0;
   }
 
@@ -21479,14 +21479,17 @@ RadioComponent.propTypes = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -21497,8 +21500,8 @@ var SelectComponent = function SelectComponent(_ref) {
       params = _ref.params,
       value = _ref.value;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
-      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_useState, 2),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_4__["useState"])(value),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
       props_value = _useState2[0],
       setPropsValue = _useState2[1];
 
@@ -21507,52 +21510,65 @@ var SelectComponent = function SelectComponent(_ref) {
     onChange(value);
   };
 
-  Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
     select.current.addEventListener('onCustomChange', function (e) {
       HandleChange(e.detail.value);
     });
-  });
+  }, []);
   var label = params.label,
       name = params.name,
       choices = params.choices,
       multiple = params.multiple,
       description = params.description,
       customClass = params.class;
-  var select = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(null);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
+  var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
-  }, label) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  }, label) : null;
+  var select = Object(react__WEBPACK_IMPORTED_MODULE_4__["useRef"])(null);
+  var optionsHtml = Object.entries(choices).map(function (key) {
+    var html;
+
+    if (_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(key[1]) === 'object') {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("optgroup", {
+        label: key[0]
+      }, Object.entries(key[1]).map(function (key) {
+        var html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("option", {
+          key: key[0],
+          value: key[0],
+          dangerouslySetInnerHTML: {
+            __html: key[1]
+          }
+        });
+        return html;
+      }));
+    } else {
+      html = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("option", {
+        key: key[0],
+        value: key[0]
+      }, key[1]);
+    }
+
+    return html;
+  });
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("select", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("select", {
     ref: select,
     className: "kmt-select-input".concat(customClass ? ' ' + customClass : ''),
     "data-name": name,
     "data-value": props_value,
     value: props_value,
-    onChange: function onChange(_ref2) {
-      var item = _ref2.target.value;
-      HandleChange(item);
+    onChange: function onChange() {
+      HandleChange(event.target.value);
     },
     multiple: multiple ? true : false
-  }, Object.entries(choices).map(function (_ref3) {
-    var _ref4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0___default()(_ref3, 2),
-        value = _ref4[0],
-        key = _ref4[1];
-
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("option", {
-      key: key,
-      value: value,
-      dangerouslySetInnerHTML: {
-        __html: key
-      }
-    });
-  })), description && "" !== description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
+  }, optionsHtml), description && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("p", {
     className: "description customize-control-description"
   }, description)));
 };
 
 SelectComponent.propTypes = {
-  control: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.object.isRequired
+  control: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (React.memo(SelectComponent));
 
@@ -21673,7 +21689,7 @@ var ResponsiveSliderComponent = /*#__PURE__*/function (_Component) {
     _value = _value ? _objectSpread(_objectSpread({}, defaultVals), _value) : defaultVals;
     _this.state = {
       initialState: _value,
-      currentDevice: wp.customize.previewedDevice(),
+      currentDevice: wp.customize && wp.customize.previewedDevice(),
       defaultVal: defaultVals
     };
     _this.updateValues = _this.updateValues.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
