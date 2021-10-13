@@ -152,7 +152,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 85px;
   display: inline-block;
   text-transform: capitalize;
 }

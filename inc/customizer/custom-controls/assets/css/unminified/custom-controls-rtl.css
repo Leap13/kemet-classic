@@ -750,7 +750,7 @@ div.kmt-type-control span:not(:first-child) {
 	padding: 8px 1px;
 	border: 1px solid #d1d0d0;
 	color: #515256;
-	font-size: 14px;
+	font-size: 13px;
 	font-weight: 500;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -8759,7 +8759,7 @@ input[type="checkbox"]:focus {
 .kmt-typohraphy-value .kmt-font span {
 	display: inline-block;
 	overflow: hidden;
-	max-width: 100px;
+	max-width: 85px;
 	white-space: nowrap;
 	text-transform: capitalize;
 	text-overflow: ellipsis;
