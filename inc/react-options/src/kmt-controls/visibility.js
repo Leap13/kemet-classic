@@ -59,7 +59,6 @@ const Visibility = ({
     return (
         <div className={`kmt-visibility-container`}>
             <header>
-
                 <span className="customize-control-title kmt-control-title">{params.label}</span>
             </header>
             <div className={`kmt-visibility-wrapper`}>

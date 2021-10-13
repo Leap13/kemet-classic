@@ -236,7 +236,7 @@ const ColorPalettes = ({
                     }}
                 >
 
-                    Save New Palette
+                    {__('Save New Palette', "kemet")}
                 </button>
             </OutsideClickHandler>
             {(isTransitioning || isOpen) &&
@@ -343,8 +343,8 @@ const ColorPalettes = ({
                     <button type="button" class="components-button is-primary has-text has-icon" onClick={(e) => {
                         e.preventDefault();
                         ConfirmDelete()
-                    }}><span class="dashicon dashicons dashicons-trash"></span>Delete</button>
-                    <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>Cancel</button>
+                    }}><span class="dashicon dashicons dashicons-trash"></span>{__("Delete", "kemet")}</button>
+                    <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>{__('Cancel', "kemet")}</button>
                 </div>
             </Modal>
             }

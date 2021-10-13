@@ -347,12 +347,6 @@
   transform-origin: top center !important;
 }
 
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-  --cpm-pv: 16px;
-}
 .kmt-gradient-tab .components-custom-gradient-picker__remove-control-point {
   margin-bottom: 15px;
 }
@@ -569,12 +563,6 @@
 }
 .kmt-gradient-tab .components-popover .components-popover__content > div {
   padding: 0;
-}
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-  --cpm-pv: 16px;
 }
 
 .kmt-gradient-tab
