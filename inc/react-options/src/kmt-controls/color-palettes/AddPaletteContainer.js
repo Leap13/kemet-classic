@@ -17,7 +17,7 @@ export default function AddPaletteContainer({
 
   return (
     <animated.div
-      className="kmt-option-modal kmt-palettes-modal"
+      className="kmt-option-modal  kmt-add-palettes-modal"
       {...wrapperProps}
     >
       <div className={`kmt-add-palette-container`}>
@@ -50,7 +50,7 @@ export default function AddPaletteContainer({
                   name="type"
                   onChange={() => setPaletteData({ ...data, type: "light" })}
                 />
-                Light
+                {__('Light', "kemet")}
               </span>
               <span>
                 {" "}
@@ -60,7 +60,7 @@ export default function AddPaletteContainer({
                   name="type"
                   onChange={() => setPaletteData({ ...data, type: "dark" })}
                 />
-                Dark{" "}
+                {__('Dark', "kemet")}
               </span>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function AddPaletteContainer({
               handleAddPalette(data);
             }}
           >
-            Save Palette
+            {__('Save Palette', "kemet")}
           </button>
         </div>
       </div>

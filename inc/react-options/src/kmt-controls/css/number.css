@@ -1,19 +1,17 @@
 .kmt-number-container header {
   position: relative;
 }
-
-.kmt-number-container header .kmt-btn-reset-wrap {
-  position: absolute;
-  top: 2px;
-  left: 0px;
+.kmt-number-control__Wrapper {
+  display: flex;
+  justify-content: normal;
+  align-items: center;
 }
-.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn {
+.kmt-number-control__Wrapper .kmt-btn-reset-wrap .kmt-reset-btn {
   color: #006ba1;
-  font-size: 10px;
+  font-size: 12px;
   padding: 0px 6px;
   background: transparent;
   box-shadow: none;
-  transform: translate3d(-17px, 0, 0);
   outline: 0;
   border: 0;
   width: 18px;
@@ -23,21 +21,32 @@
   justify-content: center;
   font-family: dashicons;
   padding: 0;
-  opacity: 0;
+  opacity: 1;
   border: none;
   background: transparent;
   -webkit-font-smoothing: antialiased;
 }
-.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+.kmt-number-control__Wrapper .kmt-btn-reset-wrap .kmt-reset-btn:disabled {
+  color: rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+.kmt-number-control__Wrapper .kmt-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
   transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.kmt-number-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before {
+.kmt-number-control__Wrapper
+  .kmt-btn-reset-wrap
+  .kmt-reset-btn:hover:not(:disabled)::before {
   transform: rotate(-45deg);
 }
-.kmt-number-container:hover .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
-  opacity: 1;
+
+.kmt-number-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 2;
+  margin-right: 8px;
 }
 .kmt-option-number {
   display: flex;

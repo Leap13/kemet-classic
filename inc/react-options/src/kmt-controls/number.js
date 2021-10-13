@@ -14,74 +14,76 @@ const NumberComponent = ({ value, params, onChange }) => {
         parsedValue = 0
     }
     return (
-        <div className={`kmt-number-container`}>
-            <header>
-                <div className="kmt-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn "
-                        disabled={
-                            JSON.stringify(value) ===
-                            JSON.stringify(defaultValue)
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            onChange(defaultValue);
-                        }}
-                    ></button>
-                </div>
-                <span className="customize-control-title kmt-control-title">{label}</span>
-            </header>
-            <div
-                className={classnames('kmt-option-number', {
-                    [`kmt-reached-limits`]:
-                        parseFloat(parsedValue) === parseInt(min) ||
-                        parseFloat(parsedValue) === parseInt(max),
-                })}
-            >
-                <a
-                    className={classnames('kmt-minus', {
-                        ['kmt-disabled']:
-                            parseFloat(parsedValue) === parseInt(min),
+        <div className={`kmt-number-control__Wrapper`}>
+            <div className={`kmt-number-container`}>
+                <header>
+                    <span className="customize-control-title kmt-control-title">{label}</span>
+                </header>
+                <div
+                    className={classnames('kmt-option-number', {
+                        [`kmt-reached-limits`]:
+                            parseFloat(parsedValue) === parseInt(min) ||
+                            parseFloat(parsedValue) === parseInt(max),
                     })}
-                    onClick={() =>
-                        onChange(
-                            round(
+                >
+                    <a
+                        className={classnames('kmt-minus', {
+                            ['kmt-disabled']:
+                                parseFloat(parsedValue) === parseInt(min),
+                        })}
+                        onClick={() =>
+                            onChange(
+                                round(
+                                    Math.min(
+                                        Math.max(
+                                            parseFloat(parsedValue) - parseFloat(step),
+                                            min
+                                        ),
+                                        max
+                                    )
+                                )
+                            )
+                        }
+                    />
+                    <a
+                        className={classnames('kmt-plus', {
+                            ['kmt-disabled']:
+                                parseFloat(parsedValue) === parseInt(max),
+                        })}
+                        onClick={() =>
+                            onChange(
+
                                 Math.min(
                                     Math.max(
-                                        parseFloat(parsedValue) - parseFloat(step),
+                                        parseFloat(parsedValue) + parseFloat(step),
                                         min
                                     ),
                                     max
                                 )
-                            )
-                        )
-                    }
-                />
-                <a
-                    className={classnames('kmt-plus', {
-                        ['kmt-disabled']:
-                            parseFloat(parsedValue) === parseInt(max),
-                    })}
-                    onClick={() =>
-                        onChange(
 
-                            Math.min(
-                                Math.max(
-                                    parseFloat(parsedValue) + parseFloat(step),
-                                    min
-                                ),
-                                max
                             )
-
-                        )
+                        }
+                    />
+                    <OnlyNumberValue
+                        value={value}
+                        step={step}
+                        onChange={(val) => onChange(val)} />
+                </div>
+            </div >
+            <div className="kmt-btn-reset-wrap">
+                <button
+                    className="kmt-reset-btn "
+                    disabled={
+                        JSON.stringify(value) ===
+                        JSON.stringify(defaultValue)
                     }
-                />
-                <OnlyNumberValue
-                    value={value}
-                    step={step}
-                    onChange={(val) => onChange(val)} />
+                    onClick={(e) => {
+                        e.preventDefault();
+                        onChange(defaultValue);
+                    }}
+                ></button>
             </div>
-        </div >
+        </div>
     )
 }
 

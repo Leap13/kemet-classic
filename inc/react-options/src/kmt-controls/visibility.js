@@ -59,6 +59,14 @@ const Visibility = ({
     return (
         <div className={`kmt-visibility-container`}>
             <header>
+                <span className="customize-control-title kmt-control-title">{params.label}</span>
+            </header>
+            <div className={`kmt-visibility-wrapper`}>
+                <InlineVisibility
+                    value={value}
+                    onChange={onChange}
+                    choices={params.choices}
+                />
                 <div className={`kmt-btn-reset-wrap`}>
                     <button
                         className="kmt-reset-btn "
@@ -78,13 +86,7 @@ const Visibility = ({
                         }}
                     ></button>
                 </div>
-                <span className="customize-control-title kmt-control-title">{params.label}</span>
-            </header>
-            <InlineVisibility
-                value={value}
-                onChange={onChange}
-                choices={params.choices}
-            />
+            </div>
         </div>
     )
 

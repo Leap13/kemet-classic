@@ -46,6 +46,13 @@
 .customize-control-kmt-spacing
   .input-wrapper
   .kmt-spacing-wrapper
+  li:first-child {
+  margin: 0 2px 0 0;
+}
+
+.customize-control-kmt-spacing
+  .input-wrapper
+  .kmt-spacing-wrapper
   li
   input.kmt-spacing-input {
   text-align: center;
@@ -160,6 +167,7 @@ input[type="number"] {
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-spacing-btn-reset-wrap .kmt-reset-btn:hover:not(:disabled):before {
   transform: rotate(-45deg);

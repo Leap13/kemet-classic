@@ -19,7 +19,8 @@ const SinglePicker = ({
     isPicking,
     predefined,
     className,
-    skipModal
+    skipModal, resetPalette,
+    onColorReset
 }) => {
     const el = useRef()
 
@@ -94,6 +95,8 @@ const SinglePicker = ({
                             appendToBody={appendToBody}
                             predefined={predefined}
                             className={className}
+                            resetPalette={resetPalette}
+                            onColorReset={(color) => onColorReset(color)}
                         />
                     ))
                 }

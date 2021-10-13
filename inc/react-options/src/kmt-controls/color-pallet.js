@@ -8,7 +8,7 @@ import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 const { __, sprintf } = wp.i18n;
 import { Modal } from '@wordpress/components';
-
+import classnames from "classnames";
 
 const ColorPalettes = ({
     value,
@@ -195,7 +195,7 @@ const ColorPalettes = ({
                             {__(`Select Another Palette`)}
                         </header>
                         <span
-                            className={`kmt-button-open-palette`}
+                            className={classnames(`kmt-button-open-palette`, { active: currentView === "modal" })}
                         ></span>
                     </div>
                 </div>
@@ -236,7 +236,7 @@ const ColorPalettes = ({
                     }}
                 >
 
-                    Save New Palette
+                    {__('Save New Palette', "kemet")}
                 </button>
             </OutsideClickHandler>
             {(isTransitioning || isOpen) &&
@@ -332,21 +332,19 @@ const ColorPalettes = ({
                     document.body
                 )}
 
-            {openModal && <Modal title={__(`Are you sure you want to delete the ${delPalette[0].name} palette?
-`)}
-
+            {openModal && <Modal title={__(`Are you sure you want to delete the ${delPalette[0].name} palette?`)}
                 className={`kmt-color-palette-confrim__delete`}
-                isDismissible={true}
+                isDismissible={false}
             >
                 < p className={__(`kmt-paltette-popup-content`)}>
                     {__(`If this is the currently active palette, the current palette will be switched to the Base one`)}
                 </p>
                 <div className={__(`kmt-paltette-popup-action`)}>
-                    <button type="button" class="components-button is-primary has-text has-icon" onClick={(e) => {
+                    <button type="button" class="button button-primary save has-next-sibling" onClick={(e) => {
                         e.preventDefault();
                         ConfirmDelete()
-                    }}><span class="dashicon dashicons dashicons-trash"></span>Delete</button>
-                    <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>Cancel</button>
+                    }}>{__("Delete", "kemet")}<span class="dashicon dashicons dashicons-trash kmt-button-trash"></span></button>
+                    <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>{__('Cancel', "kemet")}</button>
                 </div>
             </Modal>
             }

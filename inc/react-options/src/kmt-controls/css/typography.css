@@ -1,44 +1,3 @@
-.wp-customizer .kmt-option-modal {
-  left: 12px;
-}
-.kmt-option-modal {
-  position: fixed;
-  z-index: 100000;
-  background: #fff;
-  border-radius: 6px;
-  box-sizing: border-box;
-  box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
-  right: var(--modal-x-offset);
-  border-radius: 0px;
-}
-.kmt-option-modal:before {
-  position: absolute;
-  content: "";
-  left: var(--option-modal-arrow-position, calc(100% - 55px));
-  border-style: solid;
-}
-.kmt-option-modal[data-position="bottom"] {
-  top: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
-  transform-origin: center top;
-}
-.kmt-option-modal[data-position="bottom"]:before {
-  top: -7px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
-.kmt-option-modal[data-position="top"] {
-  bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
-  transform-origin: center bottom;
-}
-.kmt-option-modal[data-position="top"]:before {
-  bottom: -7px;
-  border-width: 7px 6px 0 6px;
-  border-color: #ffffff transparent transparent transparent;
-}
-.wp-customizer .kmt-option-modal {
-  z-index: 500000;
-}
-
 .kmt-typography {
   position: relative;
 }
@@ -92,6 +51,7 @@
   .kmt-reset-btn::before {
   content: "\f531";
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-typography
   .kmt-typography-wrapper
@@ -120,7 +80,7 @@
   align-items: center;
   justify-content: space-between;
   width: 96%;
-  margin-right: 6px;
+  margin-right: 8px;
 }
 .kmt-typohraphy-value:hover {
   border-color: #0e8ecc;
@@ -174,7 +134,7 @@
   text-overflow: ellipsis;
   display: inline-block;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 85px;
   text-transform: capitalize;
 }
 
@@ -192,7 +152,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 85px;
   display: inline-block;
   text-transform: capitalize;
 }
@@ -224,7 +184,7 @@
   padding: 0 20px;
   margin: 0;
   box-sizing: border-box;
-  border-bottom: 1px dashed #eee;
+  border-bottom: 1px solid var(--optionBorderColor);
 }
 
 .kmt-typography-top.kmt-static > * {
@@ -505,7 +465,7 @@
 }
 .kmt-typography-single-font:not(:first-child),
 .kmt-typography-variations li:not(:first-child) {
-  border-top: 1px dashed #eee;
+  border-top: 1px solid var(--optionBorderColor);
 }
 .kmt-typography-single-font:hover,
 .kmt-typography-single-font.active,

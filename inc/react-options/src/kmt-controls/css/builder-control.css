@@ -291,7 +291,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   position: relative;
   white-space: nowrap;
   cursor: grab;
-  margin: 0 4px;
   padding: 0 12px;
   border-radius: 3px;
   border: none;
@@ -475,10 +474,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   box-sizing: content-box;
   border-bottom: 4px solid #ddd;
   border-radius: 0;
-}
-
-.kmt-build-tabs-button span {
-  padding-bottom: 4px;
 }
 
 .kmt-build-tabs .nav-tab .dashicons.dashicons-desktop {
@@ -892,9 +887,11 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
   margin-right: 5px;
 }
 .kmt-builder-item .kmt-builder-item-focus-icon.kmt-builder-item-icon .dashicon {
-  font-size: 17px;
   width: auto;
   height: auto;
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: -1px;
 }
 
 .active-builder-row .components-button.kmt-row-actions {
