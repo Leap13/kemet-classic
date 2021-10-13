@@ -31,16 +31,16 @@ const PalettePreview = ({
     onChange(newColor, optionId);
   };
   const Title = [
-    __(`Buttons Background  \n Color  & Hover Link Color`, "kemet"),
-    __("Headings & Links Color", "kemet"),
-    __("Body Text & Meta Color", "kemet"),
-    __("Borders Color", "kemet"),
+    __(`Buttons background  Color,\nHover link color`, "kemet"),
+    __("Headings,Links color", "kemet"),
+    __("Body text & Meta color", "kemet"),
+    __("Borders color", "kemet"),
     __(
-      "Body & tint from it for input, \n page title, and widgets background",
+      "Body, a tint for Input fields,\n Page title, Widgets background",
       "kemet"
     ),
     __("Footer text color", "kemet"),
-    __("Footer Background Color", "kemet"),
+    __("Footer background color", "kemet"),
   ];
   const pickers = Object.keys(currentPalette)
     .filter((k) => k.indexOf("color") === 0)

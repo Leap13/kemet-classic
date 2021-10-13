@@ -76,31 +76,32 @@ span.kmt-color-description {
 
 [class*="kmt-tooltip"] {
   display: flex;
-  align-items: center;
+  visibility: hidden;
   position: absolute;
   z-index: 200;
+  top: -10px;
   width: auto;
   height: 35px;
-  padding: 0 8px;
+  padding: 6px 6px;
+  border-radius: 3px;
+  opacity: 0;
+  color: #fff;
+  background: #363f42;
   font-size: 12px;
+  font-weight: 400;
   font-style: italic;
-  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  white-space: pre;
   letter-spacing: initial;
   text-transform: initial;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  white-space: pre;
-  border-radius: 3px;
-  pointer-events: none;
-  background: #363f42;
-  opacity: 0;
-  visibility: hidden;
   transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
     transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
     visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  pointer-events: none;
+  align-items: center;
 }
 .kmt-tooltip-top {
   transform: translate3d(0px, -35px, 0px);

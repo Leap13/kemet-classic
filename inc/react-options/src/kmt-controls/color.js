@@ -2,7 +2,7 @@ import { useRef, useState, } from '@wordpress/element'
 import SinglePicker from './color-picker/single-picker'
 import OutsideClickHandler from '../common/outside-component'
 
-const ColorComponent = ({ picker, onChangeComplete, value, predefined, className, skipModal }) => {
+const ColorComponent = ({ picker, onChangeComplete, value, predefined, className, skipModal, resetPalette, onColorReset }) => {
     const [{ isPicking, isTransitioning }, setState] = useState({
         isPicking: null,
         isTransitioning: null,
@@ -16,11 +16,11 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
         <OutsideClickHandler
             useCapture={false}
             display="inline-block"
-            className="kmt-color-wrapper"
             disabled={!isPicking}
             wrapperProps={{
                 ref: containerRef,
             }}
+            className={`kmt-color-Wrapper`}
             additionalRefs={[modalRef]}
             onOutsideClick={() => {
                 setState(({ isPicking }) => ({
@@ -53,6 +53,8 @@ const ColorComponent = ({ picker, onChangeComplete, value, predefined, className
                 predefined={predefined}
                 className={className}
                 skipModal={skipModal}
+                resetPalette={resetPalette}
+                onColorReset={(color) => onColorReset(color)}
             />
 
         </OutsideClickHandler>

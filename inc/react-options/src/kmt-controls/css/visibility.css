@@ -10,7 +10,7 @@
 }
 .kmt-visibility-container .kmt-visibility-wrapper .kmt-buttons-group {
   flex-grow: 2;
-  margin-right: 6px;
+  margin-right: 8px;
 }
 .kmt-visibility-container .kmt-btn-reset-wrap .kmt-reset-btn {
   color: var(--primaryColor);

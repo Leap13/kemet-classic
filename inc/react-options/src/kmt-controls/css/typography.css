@@ -80,7 +80,7 @@
   align-items: center;
   justify-content: space-between;
   width: 96%;
-  margin-right: 6px;
+  margin-right: 8px;
 }
 .kmt-typohraphy-value:hover {
   border-color: #0e8ecc;
@@ -134,7 +134,7 @@
   text-overflow: ellipsis;
   display: inline-block;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 85px;
   text-transform: capitalize;
 }
 

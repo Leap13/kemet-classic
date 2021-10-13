@@ -8,7 +8,7 @@ import { Transition } from "@react-spring/web";
 import bezierEasing from "bezier-easing";
 const { __, sprintf } = wp.i18n;
 import { Modal } from '@wordpress/components';
-
+import classnames from "classnames";
 
 const ColorPalettes = ({
     value,
@@ -195,7 +195,7 @@ const ColorPalettes = ({
                             {__(`Select Another Palette`)}
                         </header>
                         <span
-                            className={`kmt-button-open-palette`}
+                            className={classnames(`kmt-button-open-palette`, { active: currentView === "modal" })}
                         ></span>
                     </div>
                 </div>
