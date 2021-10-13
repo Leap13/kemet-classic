@@ -950,7 +950,7 @@ button.kmt-delete-palette::before {
 
 .kmt-color-palette-confrim__delete
   .kmt-paltette-popup-action
-  .kmt-button-trash {
+  button:first-child {
 	display: flex;
 
 	align-items: center;
