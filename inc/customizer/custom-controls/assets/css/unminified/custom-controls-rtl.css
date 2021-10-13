@@ -948,8 +948,17 @@ button.kmt-delete-palette::before {
 	justify-content: flex-end;
 }
 
+.kmt-color-palette-confrim__delete
+  .kmt-paltette-popup-action
+  .kmt-button-trash {
+	display: flex;
+
+	align-items: center;
+}
+
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
 	margin-right: 10px;
+	border-radius: 0;
 }
 
 .kmt-color-palette-confrim__delete

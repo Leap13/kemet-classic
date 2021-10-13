@@ -340,10 +340,10 @@ const ColorPalettes = ({
                     {__(`If this is the currently active palette, the current palette will be switched to the Base one`)}
                 </p>
                 <div className={__(`kmt-paltette-popup-action`)}>
-                    <button type="button" class="components-button is-primary has-text has-icon" onClick={(e) => {
+                    <button type="button" class="button button-primary save has-next-sibling" onClick={(e) => {
                         e.preventDefault();
                         ConfirmDelete()
-                    }}><span class="dashicon dashicons dashicons-trash"></span>{__("Delete", "kemet")}</button>
+                    }}>{__("Delete", "kemet")}<span class="dashicon dashicons dashicons-trash kmt-button-trash"></span></button>
                     <button type="button" class="components-button is-secondary" onClick={() => { setOpenModal(false) }}>{__('Cancel', "kemet")}</button>
                 </div>
             </Modal>

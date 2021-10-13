@@ -590,7 +590,7 @@ div.kmt-type-control span:not(:first-child) {
   margin-right: -3px;
 }
 .kmt-color-palette-container div .kmt-color-picker-single:last-child {
-  margin-left: -5px;
+  margin-left: -7px;
 }
 .kmt-palettes-preview
   .kmt-single-palette
@@ -813,8 +813,15 @@ button.kmt-delete-palette::before {
   justify-content: flex-end;
   margin-top: 20px;
 }
+.kmt-color-palette-confrim__delete
+  .kmt-paltette-popup-action
+  .kmt-button-trash {
+  display: flex;
+  align-items: center;
+}
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
   margin-left: 10px;
+  border-radius: 0px;
 }
 .kmt-color-palette-confrim__delete
   .kmt-paltette-popup-action
