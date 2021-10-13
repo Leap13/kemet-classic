@@ -13,127 +13,6 @@
   position: relative;
   justify-content: center;
 }
-.components-circular-option-picker {
-  display: inline-block;
-  width: 100%;
-  min-width: 188px;
-  margin: 0;
-  padding: 20px 14px 20px 14px;
-  box-sizing: border-box;
-}
-
-.customize-control-kmt-background
-  .wp-picker-container
-  input[type="text"].wp-color-picker {
-  max-width: 65px !important;
-}
-
-.customize-control-kmt-background .screen-reader-text {
-  top: initial;
-}
-
-.customize-control-kmt-background .background-attachment h4,
-.customize-control-kmt-background .background-color h4,
-.customize-control-kmt-background .background-position h4,
-.customize-control-kmt-background .background-repeat h4,
-.customize-control-kmt-background .background-size h4 {
-  margin-bottom: 5px;
-  margin-top: 10px;
-}
-
-.customize-control-kmt-background .wp-picker-container .wp-color-result.button {
-  min-height: 24px;
-}
-
-.customize-control-kmt-background .background-repeat {
-  margin: 15px 0 8px 0;
-}
-
-.customize-control-kmt-background .background-attachment .buttonset,
-.customize-control-kmt-background .background-size .buttonset {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.customize-control-kmt-background
-  .background-attachment
-  .buttonset
-  .switch-label,
-.customize-control-kmt-background .background-size .buttonset .switch-label {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #555;
-  padding: 4px;
-  margin: 0;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.customize-control-kmt-background
-  .background-attachment
-  .buttonset
-  .switch-input:checked
-  + .switch-label,
-.customize-control-kmt-background
-  .background-size
-  .buttonset
-  .switch-input:checked
-  + .switch-label {
-  background-color: #298cbe;
-  color: #fff;
-}
-
-.wp-core-ui .button-group.button-small .button,
-.wp-core-ui .button.button-small {
-  margin-left: 6px;
-  min-height: 29px;
-  line-height: 1.18181818;
-}
-.wp-customizer .wp-picker-input-wrap .button.wp-picker-default,
-.wp-picker-input-wrap .button.wp-picker-default {
-  line-height: 1.54545455;
-  min-height: 29px;
-}
-.kmt-control:not(:last-child) {
-  border-bottom: 1px dashed #eee;
-}
-
-.kmt-buttons-group {
-  display: flex;
-  margin: 0;
-}
-.kmt-control:last-child {
-  padding: 0 14px 7px 14px;
-}
-.kmt-buttons-group li {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-size: 13px;
-  cursor: pointer;
-  height: 30px;
-  min-width: 40px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0px 0px 0px 1px #ddd;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.kmt-buttons-group li.active {
-  z-index: 1;
-  color: #fff;
-  background: #298cbe;
-  box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-}
-.kmt-buttons-group li:first-child {
-  border-radius: 3px 0 0 3px;
-}
-.kmt-radio-option li svg {
-  width: 13px;
-  height: 13px;
-  fill: currentColor;
-}
 .kmt-gradient-swatches {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -156,24 +35,7 @@
   background-image: var(--background-image);
   transition: box-shadow 0.1s ease;
 }
-.kmt-patterns-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  border-bottom: 1px dashed #eee;
-  margin: 25px 0 0 0;
-  padding: 0 14px 25px 14px;
-}
-.kmt-patterns-list li {
-  cursor: pointer;
-  margin: 0;
-  min-height: 71.6px;
-  padding: 2px;
-  border-radius: 3px;
-  box-sizing: border-box;
-  border: 2px solid #e0e0e0;
-}
+
 .components-tab-panel__tabs {
   display: flex;
   overflow-x: hidden;
@@ -310,36 +172,7 @@
   align-items: center;
   cursor: pointer;
 }
-.background-container
-  .color-button-wrap
-  .kemet-color-picker-wrap
-  .kemet-popover-color::before {
-  position: absolute;
-  content: "";
-  left: calc(100% - 32px);
-  border-style: solid;
-  top: 3px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
-#tab-panel-0-image-view > .kmt-control + * {
-  padding-top: 20px;
-  border-top: 1px dashed #eee;
-}
-.background-container .color-button-wrap {
-  display: inline-block;
-  margin-left: 10px;
-  height: 38px;
-  width: 38px;
-  background: linear-gradient(45deg, #ddd 25%, transparent 0),
-    linear-gradient(-45deg, #ddd 25%, transparent 0),
-    linear-gradient(45deg, transparent 75%, #ddd 0),
-    linear-gradient(-45deg, transparent 75%, #ddd 0);
-  border: 1px solid #dadada;
-  background-size: 10px 10px;
-  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
-  border-radius: 50%;
-}
+
 .background-container .kemet-color-icon-indicate.components-button {
   width: 38px;
   height: 38px;
@@ -373,11 +206,7 @@
   justify-content: initial;
   margin-left: 8px;
 }
-.color-button-wrap .kemet-image-indicate {
-  height: 38px;
-  width: 38px;
-  border-radius: 50%;
-}
+
 .kmt-image-actions .actions {
   position: absolute;
   top: 17px;
@@ -420,14 +249,13 @@
   border: none;
   outline: 0;
   opacity: 1;
-  color: #006ba1;
+  color: var(--primaryColor);
   background: 0 0;
   box-shadow: none;
   font-family: dashicons;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
-  transform: translate3d(9px, 0, 0);
   align-items: center;
   justify-content: center;
 }
@@ -437,15 +265,15 @@
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn::before {
   content: "\f531";
-  transform: rotate(45deg);
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 .kmt-background-btn-reset-wrap .kmt-reset-btn:hover:not(:disabled):before {
   transform: rotate(-45deg);
 }
 .kmt-background {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   border-radius: 100%;
   margin-left: auto;
@@ -456,7 +284,7 @@
     linear-gradient(-45deg, #ddd 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #ddd 75%),
     linear-gradient(-45deg, transparent 75%, #ddd 75%);
-  margin-right: -5px;
+  margin-right: 6px;
 }
 .kmt-background-preview {
   display: flex;
@@ -487,9 +315,7 @@
   visibility: visible;
   transform: translate3d(0px, -45px, 0px);
 }
-.kmt-background-modal .kmt-color-picker-modal .kmt-color-picker-top {
-  padding: 20px 14px;
-}
+
 .kmt-background-modal .kmt-color-picker-modal .components-color-picker {
   --cpm-ph: 14px;
 }
@@ -521,12 +347,6 @@
   transform-origin: top center !important;
 }
 
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-  --cpm-pv: 16px;
-}
 .kmt-gradient-tab .components-custom-gradient-picker__remove-control-point {
   margin-bottom: 15px;
 }
@@ -534,15 +354,6 @@
   .components-custom-gradient-picker__inserter
   .components-popover {
   margin-top: 10px;
-}
-.kmt-gradient-swatches {
-  display: grid;
-  margin: 0;
-  padding: 1.5em 0.8em;
-  border-top: 1px dashed #eee;
-  grid-column-gap: 19px;
-  grid-row-gap: 19px;
-  grid-template-columns: repeat(5, 1fr);
 }
 .kmt-gradient-swatches li {
   display: flex;
@@ -590,34 +401,10 @@
   padding-top: 20px;
   border-top: 1px dashed #eee;
 }
-.kmt-image-tab .kmt-color-picker-modal {
-  position: relative;
-  margin: 20px -14px 0 -14px;
-  border-radius: 0;
-  border-top: 1px solid #eee;
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
-}
-.kmt-image-tab .kmt-color-picker-modal:before {
-  position: absolute;
-  content: "";
-  top: -7px;
-  right: 20px;
-  width: 12px;
-  height: 12px;
-  background: #fff;
-  border-top: 1px solid #e6e6e6;
-  border-left: 1px solid #e6e6e6;
-  transform: rotate(45deg);
-}
-.kmt-image-tab .kmt-color-picker-modal .components-color-picker {
-  padding-bottom: 0;
-}
+
 .kmt-image-tab .kmt-tooltip-top {
   display: none;
 }
-
 .kmt-background-modal {
   display: flex;
   flex-direction: column;
@@ -627,7 +414,6 @@
   visibility: hidden;
   transform: scale3d(0.95, 0.95, 1);
   transition: opacity 0.1s ease, visibility 0.1s ease, transform 0.1s ease-out;
-  --option-modal-arrow-position: calc(100% - 38px);
 }
 .kmt-background-modal.active {
   opacity: 1;
@@ -644,43 +430,19 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
-.kmt-option-modal {
-  position: fixed;
-  z-index: 100000;
-  background: #fff;
-  border-radius: 6px;
-  box-sizing: border-box;
-  box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
-  right: var(--modal-x-offset);
-  border-radius: 0px;
+.kmt-buttons-group {
+  display: flex;
+  margin: 0;
 }
-.kmt-option-modal:before {
-  position: absolute;
-  content: "";
-  left: var(--option-modal-arrow-position, calc(100% - 55px));
-  border-style: solid;
+.kmt-control:last-child {
+  padding: 0 14px 7px 14px;
 }
-.kmt-option-modal[data-position="bottom"] {
-  top: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
-  transform-origin: center top;
+.kmt-radio-option li svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
 }
-.kmt-option-modal[data-position="bottom"]:before {
-  top: -7px;
-  border-width: 0 6px 7px 6px;
-  border-color: transparent transparent #ffffff transparent;
-}
-.kmt-option-modal[data-position="top"] {
-  bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
-  transform-origin: center bottom;
-}
-.kmt-option-modal[data-position="top"]:before {
-  bottom: -7px;
-  border-width: 7px 6px 0 6px;
-  border-color: #ffffff transparent transparent transparent;
-}
-.kmt-option-modal {
-  z-index: 500000;
-}
+
 .kmt-modal-tabs {
   flex: 0 0 43px;
   height: 43px;
@@ -801,12 +563,6 @@
 }
 .kmt-gradient-tab .components-popover .components-popover__content > div {
   padding: 0;
-}
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-  --cpm-pv: 16px;
 }
 
 .kmt-gradient-tab

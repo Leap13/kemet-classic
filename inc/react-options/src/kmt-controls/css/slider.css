@@ -35,7 +35,6 @@
   text-align: center;
 }
 .customize-control-kmt-slider .kmt-slider-reset {
-  display: flex;
   width: 12px;
   height: 12px;
   padding: 0;
@@ -50,8 +49,7 @@
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  margin-top: -4px;
 }
 .customize-control-kmt-slider .kmt-slider-reset:disabled {
   color: rgba(0, 0, 0, 0.2);
@@ -59,11 +57,11 @@
 }
 .customize-control-kmt-slider .kmt-slider-reset::before {
   content: "\f531";
-  transform: rotate(45deg);
   transition: transform 0.3s ease;
+  transform: rotate(45deg);
 }
 
-.customize-control-kmt-slider .kmt-slider-reset:not(:disabled):hover ::before {
+.customize-control-kmt-slider .kmt-slider-reset:hover:not(:disabled):before {
   transform: rotate(-45deg);
 }
 .input-field-wrapper .components-range-control.kmt-range-value-input {
@@ -120,7 +118,6 @@
 
 .description.customize-control-description {
   margin-bottom: 20px;
-  margin-top: 10px;
   color: #848484 !important;
   font-size: 12px;
 }
