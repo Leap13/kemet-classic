@@ -1475,13 +1475,6 @@ button.kmt-delete-palette::before {
 	animation: none !important;
 }
 
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-	--cpm-pv: 16px;
-}
-
 .kmt-gradient-tab .components-custom-gradient-picker__remove-control-point {
 	margin-bottom: 15px;
 }
@@ -1736,13 +1729,6 @@ button.kmt-delete-palette::before {
 
 .kmt-gradient-tab .components-popover .components-popover__content > div {
 	padding: 0;
-}
-
-.kmt-gradient-tab
-  .components-popover
-  .components-popover__content
-  .components-color-picker {
-	--cpm-pv: 16px;
 }
 
 .kmt-gradient-tab
@@ -2105,7 +2091,6 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 	position: relative;
 	min-width: 90px;
 	height: auto;
-	margin: 0 4px;
 	padding: 0 12px;
 	border: none;
 	border-radius: 3px;
