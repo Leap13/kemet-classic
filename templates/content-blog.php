@@ -15,7 +15,7 @@
 <article itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php kemet_entry_top(); ?>
-
+	
 	<?php kemet_entry_content_blog(); ?>
 
 	<?php kemet_entry_bottom(); ?>

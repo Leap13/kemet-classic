@@ -19,15 +19,15 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 					onClick={() => {
 						setTypeOfPalette("light");
 					}}>Light
-                </span>
+				</span>
 				<span className={classnames({ active: typeOfPalette === "dark" })}
 					onClick={() => {
 						setTypeOfPalette("dark");
 					}}
 				>	Dark
-                </span>
+				</span>
 			</div>
-			{ customPaletteColors.length > 0 && <div className={`kmt_label_type__palette`}>{__(`my palettes`)}</div>}
+			{customPaletteColors.length > 0 && <div className={`kmt_label_type__palette`}>{__(`my palettes`)}</div>}
 			{customPaletteColors.map((palette, index) => (
 				<Fragment>
 					<PalettePreview
@@ -39,7 +39,7 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 						renderBefore={() => (
 							<Fragment>
 								<label>
-									{palette.name ? palette.name : sprintf(__('Palette #%s', 'Kemet'), index + 1)}
+									{palette.name ? palette.name : sprintf(__('Palette #%s', 'kemet'), index + 1)}
 								</label>
 								<button className={`kmt-delete-palette`} onClick={(e) => {
 									e.preventDefault();
@@ -73,7 +73,7 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 						}
 						renderBefore={() => (
 							<label>
-								{palette.name ? palette.name : sprintf(__('Palette #%s', 'Kemet'), index + 1)}
+								{palette.name ? palette.name : sprintf(__('Palette #%s', 'kemet'), index + 1)}
 							</label>
 						)}
 						onClick={() => {

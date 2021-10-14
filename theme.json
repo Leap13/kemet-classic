@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "Color 1",
+          "slug": "primary",
+          "color": "var(--paletteColor1)"
+        },
+        {
+          "name": "Color 2",
+          "slug": "headings-links",
+          "color": "var(--paletteColor2)"
+        },
+        {
+          "name": "Color 3",
+          "slug": "text-meta",
+          "color": "var(--paletteColor3)"
+        },
+        {
+          "name": "Color 4",
+          "slug": "global-border",
+          "color": "var(--paletteColor4)"
+        },
+        {
+          "name": "Color 5",
+          "slug": "global-bg",
+          "color": "var(--paletteColor5)"
+        },
+        {
+          "name": "Color 6",
+          "slug": "footer-text",
+          "color": "var(--paletteColor6)"
+        },
+        {
+          "name": "Color 7",
+          "slug": "footer-bg",
+          "color": "var(--paletteColor7)"
+        }
+      ]
+    },
+    "layout": {
+      "wideSize": "1200px",
+      "fullSize": "none"
+    }
+  }
+}

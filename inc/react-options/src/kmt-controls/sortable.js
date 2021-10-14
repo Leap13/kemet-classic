@@ -40,6 +40,13 @@ const SortableComponent = props => {
     let descriptionHtml = description ? <span className="description customize-control-description">{description}</span> : null;
 
     const onSortEnd = ({ oldIndex, newIndex }) => {
+        let newValue = arrayMoveImmutable(sortItems, oldIndex, newIndex);
+        newValue = newValue.map(subarray => subarray[0] && value.includes(subarray[0]) && subarray[0]);
+        newValue = newValue.filter((item) => {
+            return item !== false
+        })
+        setValue(newValue, newIndex);
+        props.onChange(newValue)
         setSortItems(arrayMoveImmutable(sortItems, oldIndex, newIndex));
         setDragging(false)
     };

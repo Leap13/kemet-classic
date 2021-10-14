@@ -275,7 +275,7 @@ if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
 			$theme_author = apply_filters(
 				'kemet_theme_author',
 				array(
-					'theme_name'       => __( 'Kemet', 'kemet' ),
+					'theme_name'       => __( 'kemet', 'kemet' ),
 					'theme_author_url' => 'https://kemet.io/',
 				)
 			);
@@ -1134,7 +1134,9 @@ function gutenberg_support() {
 	);
 }
 
-add_action( 'after_setup_theme', 'gutenberg_support', 10 );
+if ( ! file_exists( KEMET_THEME_DIR . '/theme.json' ) || version_compare( substr( get_bloginfo( 'version' ), 0, 3 ), '5.8', '<' ) ) {
+	add_action( 'after_setup_theme', 'gutenberg_support', 10 );
+}
 
 if ( ! function_exists( 'kemet_wrap_embed_media' ) ) {
 	/**
