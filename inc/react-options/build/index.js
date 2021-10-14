@@ -20082,12 +20082,19 @@ var ColorPalettes = function ColorPalettes(_ref) {
       return;
     }
   }), document.body), openModal && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__["Modal"], {
-    title: __("Are you sure you want to delete the ".concat(delPalette[0].name, " palette?")),
+    title: Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+      className: "kmt-popup-modal__header"
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+      class: "dashicons dashicons-bell"
+    }), " ", __("Warning")),
     className: "kmt-color-palette-confrim__delete",
-    isDismissible: false
+    isDismissible: true,
+    onRequestClose: function onRequestClose() {
+      setOpenModal(false);
+    }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
-    className: __("kmt-paltette-popup-content")
-  }, __("If this is the currently active palette, the current palette will be switched to the Base one")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: __("kmt-palette-popup-content")
+  }, __("You are about to delete \"".concat(delPalette[0].name, "\" . This palette cannot be restored ,are you sure you want to delete it"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: __("kmt-paltette-popup-action")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
@@ -20096,15 +20103,13 @@ var ColorPalettes = function ColorPalettes(_ref) {
       e.preventDefault();
       ConfirmDelete();
     }
-  }, __("Delete", "kemet"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
-    class: "dashicon dashicons dashicons-trash kmt-button-trash"
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+  }, __("No", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
-    class: "components-button is-secondary",
+    class: "components-button  kmt-button__delete__palette",
     onClick: function onClick() {
       setOpenModal(false);
     }
-  }, __('Cancel', "kemet")))));
+  }, __('Yes', "kemet")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ColorPalettes);

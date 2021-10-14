@@ -117,6 +117,7 @@
   border: 1px solid #dcdddf;
   background-color: #fff;
   font-size: 12px;
+  cursor: pointer;
 }
 .customize-control-kmt-spacing
   .input-wrapper

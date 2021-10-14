@@ -206,7 +206,35 @@
   justify-content: initial;
   margin-left: 8px;
 }
-
+.components-circular-option-picker.kmt-gradient-color-picker
+  .components-circular-option-picker__custom-clear-wrapper
+  button {
+  font-size: 11px;
+  height: 34px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  line-height: 22px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  color: #000;
+  background-color: #f0f0f0;
+}
+.components-circular-option-picker.kmt-gradient-color-picker
+  .components-circular-option-picker__custom-clear-wrapper
+  button:hover {
+  color: #000;
+  box-shadow: none;
+  outline: none;
+}
+.kmt-gradient-tab
+  .css-c3bpo-BackdropUI.css-c3bpo-BackdropUI.css-c3bpo-BackdropUI {
+  border: 1px solid #dcdddf !important;
+}
+.kmt-gradient-tab
+  .css-17gbp9p-BackdropUI.css-17gbp9p-BackdropUI.css-17gbp9p-BackdropUI {
+  box-shadow: none;
+}
 .kmt-image-actions .actions {
   position: absolute;
   top: 17px;
@@ -546,7 +574,7 @@
   .components-input-control__label {
   display: none !important;
 }
-.kmt-gradient-tab .components-circular-option-picker__custom-clear-wrapper {
+.kmt-gradient-tab .components-circular-option-picker__custom-clear-wrappe r {
   justify-content: initial;
   margin-left: 8px;
 }
