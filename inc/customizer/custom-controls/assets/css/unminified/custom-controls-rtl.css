@@ -1039,6 +1039,16 @@ button.kmt-delete-palette::before {
 	box-shadow: none;
 }
 
+.kmt-color-palette-confrim__delete .kmt-palette-popup-content {
+	margin: 1em 0;
+	font-size: 13px;
+	line-height: 1.5;
+	text-align: justify;
+	text-indent: unset;
+	letter-spacing: 0.4px;
+	word-spacing: 0.4px;
+}
+
 .kmt-color-palette-confrim__delete
   .kmt-paltette-popup-action
   .components-button.has-icon.has-text
@@ -1180,8 +1190,7 @@ button.kmt-delete-palette::before {
 .kmt-options input[type="time"],
 .kmt-options input[type="url"],
 .kmt-options input[type="week"],
-.kmt-options select,
-.kmt-options textarea {
+.kmt-options select {
 	border: 1px solid #dcdddf !important;
 	border-radius: 0 !important;
 }

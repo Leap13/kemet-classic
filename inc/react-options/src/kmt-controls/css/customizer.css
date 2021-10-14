@@ -17,8 +17,7 @@
 .kmt-options input[type="time"],
 .kmt-options input[type="url"],
 .kmt-options input[type="week"],
-.kmt-options select,
-.kmt-options textarea {
+.kmt-options select {
   border: 1px solid #dcdddf !important;
   border-radius: 0 !important;
 }
