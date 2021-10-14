@@ -10,7 +10,7 @@ const NumberComponent = ({ value, params, onChange }) => {
     let { min, max, label } = params
     let step = 1;
     let defaultValue = 1
-    if (value.toString().trim().length === 0) {
+    if (value && value.toString().trim().length === 0) {
         parsedValue = 0
     }
     return (

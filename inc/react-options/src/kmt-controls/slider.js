@@ -44,7 +44,7 @@ class ResponsiveSliderComponent extends Component {
 
         this.state = {
             initialState: value,
-            currentDevice: wp.customize.previewedDevice(),
+            currentDevice: wp.customize && wp.customize.previewedDevice(),
             defaultVal: defaultVals
         }
 
