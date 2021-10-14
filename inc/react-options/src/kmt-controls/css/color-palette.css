@@ -43,7 +43,7 @@ div.kmt-type-control span {
   height: 40px;
   min-height: 100%;
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   align-items: center;
@@ -74,13 +74,12 @@ div.kmt-type-control span:not(:first-child) {
 /*   */
 
 .kmt-palettes-preview span.kmt-button-open-palette::before {
-  font-family: dashicons;
-  font-size: 18px;
-  font-weight: lighter;
-  line-height: 26px;
-  content: "\f347";
-  transition: opacity 0.15s ease;
-  margin-left: 27px;
+ font-family: dashicons;
+    font-size: 15px;
+    font-weight: lighter;
+    line-height: 26px;
+    content: "\f347";
+    transition: opacity .15s ease;
 }
 .customize-control-kmt-color-palettes .kmt-palettes-outside {
   background-color: #fff;
@@ -95,17 +94,17 @@ div.kmt-type-control span:not(:first-child) {
   justify-content: space-between;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal header {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   color: #575f6c;
   letter-spacing: 0.5px;
   font-weight: 500;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal span {
-  width: 44px;
-  color: #2e2e2e;
-  height: 24px;
-  cursor: pointer;
+     width: 11px;
+    height: 24px;
+    color: #2e2e2e;
+    cursor: pointer;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal span.active {
   color: var(--primaryColor);
@@ -133,8 +132,8 @@ div.kmt-type-control span:not(:first-child) {
 
 .kmt-palettes-modal label {
   display: flex;
-  margin-bottom: 10px;
-  color: #7d838d;
+  margin-bottom: 7px;
+  color: #565e6b;
   font-size: 12px;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
@@ -716,8 +715,9 @@ button.kmt-save-palette:disabled {
   justify-content: space-between;
 }
 .kmt-palette-info .kmt-Palette-type-wrapper span {
-  font-size: 12px;
-  color: #2d3747;
+    color: #2d3747;
+    font-size: 12px;
+    font-weight: 500;
 }
 .kmt-palette-info .kmt-Palette-type-wrapper button {
   display: flex;
@@ -873,4 +873,25 @@ button.kmt-delete-palette::before {
   align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.3px;
+}
+@media (max-width: 1400px){
+.kmt-palettes-preview
+  .kmt-single-palette
+  .kmt-color-palette-container
+  div
+  .kmt-color-picker-single
+  span {
+  width: 38px !important;
+  height: 38px !important;
+}
+.kmt-palettes-modal
+  .kmt-single-palette
+  .kmt-color-palette-container
+  div
+  .kmt-color-picker-single
+  span {
+  width: 32px !important;
+  height: 32px !important;
+}
+
 }
