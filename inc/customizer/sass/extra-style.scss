@@ -1,0 +1,64 @@
+.interface-complementary-area .components-panel {
+  padding: 17px;
+}
+
+.kmt-post-options .kmt-options {
+  > div {
+    &:first-child {
+      margin-top: 25px;
+    }
+
+    &.customize-control-kmt-title {
+      margin: 0 -17px;
+    }
+  }
+
+  padding-bottom: 25px;
+}
+
+.interface-interface-skeleton__sidebar {
+  overflow-y: scroll;
+}
+
+.kmt-post-options {
+  .customize-control-title {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.75;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .customize-control-kmt-text input {
+    padding: 0 8px;
+    line-height: 2;
+    min-height: 30px;
+    width: 100%;
+  }
+
+  .kmt-options .customize-control-kmt-title {
+    padding: 0;
+  }
+
+  .customize-control-kmt-title .customize-control-title {
+    width: 100%;
+    margin: 0;
+    background-color: #eaeaea;
+  }
+
+  .customize-control-kmt-spacing
+    .input-wrapper
+    .kmt-spacing-wrapper
+    .kmt-spacing-input-item-link
+    span {
+    height: 32px;
+  }
+}
+
+.theme-kemet .interface-complementary-area-header .components-button.has-icon {
+  display: none !important;
+}
+
+.components-button.is-pressed .kmt-sidebar-icon {
+  color: #fff;
+}

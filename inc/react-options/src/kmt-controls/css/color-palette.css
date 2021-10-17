@@ -71,8 +71,6 @@ div.kmt-type-control span:not(:first-child) {
   left: 0;
 }
 
-/*   */
-
 .kmt-palettes-preview span.kmt-button-open-palette::before {
   font-family: dashicons;
   font-size: 15px;

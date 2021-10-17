@@ -1,0 +1,57 @@
+.customize-control-kmt-sortable .kmt-sortable ul {
+  cursor: default;
+}
+
+.sortable-list-tab {
+  cursor: default;
+  visibility: visible !important;
+  z-index: 99999999;
+  list-style-type: none;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  background: #fff;
+}
+
+.customize-control-kmt-sortable .kmt-sortable ul {
+  .dashicons-visibility {
+    cursor: pointer;
+  }
+
+  li {
+    padding: 5px 10px;
+    border: 1px solid #333;
+    background: #fff;
+    cursor: move;
+  }
+}
+
+.sortable-list-tab {
+  padding: 5px 10px;
+  border: 1px solid #333;
+  background: #fff;
+  cursor: move;
+}
+
+.customize-control-kmt-sortable .kmt-sortable ul li i.dashicons.dashicons-menu,
+.sortable-list-tab i.dashicons.dashicons-menu {
+  float: right;
+}
+
+.customize-control-kmt-sortable .kmt-sortable ul li .dashicons.visibility,
+.sortable-list-tab .dashicons.visibility {
+  margin-right: 10px;
+}
+
+.customize-control-kmt-sortable .kmt-sortable ul li.invisible,
+.sortable-list-tab.invisible {
+  color: #aaa;
+  border: 1px dashed #aaa;
+}
+
+.customize-control-kmt-sortable
+  .kmt-sortable
+  ul
+  li.invisible
+  .dashicons.visibility {
+  color: #aaa;
+}

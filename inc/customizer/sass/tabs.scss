@@ -1,0 +1,79 @@
+.customize-control-kmt-tabs {
+  > {
+    ul {
+      &.tabs {
+        display: flex;
+        margin: 0 21px;
+      }
+
+      > li {
+        &:not(.active):hover {
+          background: #fff;
+          color: #444;
+        }
+
+        &:not(:first-child) {
+          margin-left: 7px;
+        }
+
+        &.active {
+          position: relative;
+          color: #3c4248;
+          background: transparent !important;
+        }
+
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        height: 42px;
+        margin: 0;
+        padding: 0px 10px 0 10px;
+        cursor: pointer;
+        border: 1px solid #d6d6d6;
+        box-sizing: border-box;
+        color: #555;
+        background: #eaeaec;
+      }
+    }
+
+    .current-tab-options {
+      margin-top: -1px;
+      padding: 0;
+      padding: 20px 20px 0 20px;
+      border-top: 1px solid #d6d6d6;
+    }
+
+    ul > li.active:before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -1px;
+      right: -1px;
+      height: 2px;
+      background: var(--primaryColor);
+    }
+  }
+
+  .current-tab-options > div {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    position: relative;
+    margin-top: 25px;
+  }
+
+  > ul > li {
+    &.active {
+      background: #f0f0f1 !important;
+      border-bottom: 0px;
+    }
+
+    font-weight: 400;
+  }
+
+  margin: 0 -20px 0 -20px;
+}

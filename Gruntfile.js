@@ -82,6 +82,8 @@ module.exports = function (grunt) {
 
           /* Editor Style */
           {
+            "inc/customizer/sass/style.css":
+              "inc/customizer/sass/style.scss",
             "assets/css/unminified/editor-style.css": "sass/editor-style.scss",
             "inc/customizer/custom-controls/responsive/responsive.css":
               "inc/customizer/custom-controls/responsive/responsive.scss",
@@ -373,28 +375,7 @@ module.exports = function (grunt) {
     },
     concat: {
       css: {
-        src: [
-          "inc/react-options/src/kmt-controls/css/color-palette.css",
-          "inc/react-options/src/kmt-controls/css/customizer.css",
-          "inc/react-options/src/kmt-controls/css/root.css",
-          "inc/react-options/src/kmt-controls/css/select.css",
-          "inc/react-options/src/kmt-controls/css/background.css",
-          "inc/react-options/src/kmt-controls/css/tabs.css",
-          "inc/react-options/src/kmt-controls/css/builder-control.css",
-          "inc/react-options/src/kmt-controls/css/slider.css",
-          "inc/react-options/src/kmt-controls/css/color.css",
-          "inc/react-options/src/kmt-controls/css/icon-select.css",
-          "inc/react-options/src/kmt-controls/css/sortable.css",
-          "inc/react-options/src/kmt-controls/css/spacing.css",
-          "inc/react-options/src/kmt-controls/css/title.css",
-          "inc/react-options/src/kmt-controls/css/toggle.css",
-          "inc/react-options/src/kmt-controls/css/radio-image.css",
-          "inc/react-options/src/kmt-controls/css/radio.css",
-          "inc/react-options/src/kmt-controls/css/typography.css",
-          "inc/react-options/src/kmt-controls/css/extra-style.css",
-          "inc/react-options/src/kmt-controls/css/number.css",
-          "inc/react-options/src/kmt-controls/css/visibility.css",
-        ],
+        src: "inc/customizer/sass/style.css",
         dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
       },
 

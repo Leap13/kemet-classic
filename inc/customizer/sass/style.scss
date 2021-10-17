@@ -1,0 +1,26 @@
+:root {
+  --primaryColor: #007cba;
+  --accentColorHover: #135e96;
+  --optionBorderColor: #e1e1e1;
+  --inputBorderColor: #dcdddf;
+}
+
+@import "background";
+@import "color-palette";
+@import "color";
+@import "customizer";
+@import "extra-style";
+@import "icon-select";
+@import "number";
+@import "radio-image";
+@import "radio";
+@import "select";
+@import "slider";
+@import "sortable";
+@import "spacing";
+@import "tabs";
+@import "title";
+@import "toggle";
+@import "toggle";
+@import "typography";
+@import "visibility";
