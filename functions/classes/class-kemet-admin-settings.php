@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kemet_Admin_Settings' ) ) {
 		 */
 		function register_kemet_custom_menu_page() {
 			if ( apply_filters( 'enable_kemet_admin_menu_item', false ) ) {
-				add_menu_page( __( 'Kemet Panel', 'kemet' ), __( 'kemet', 'kemet' ), 'manage_options', 'kemet_panel', null, KEMET_THEME_URI . 'assets/images/logo.svg' );
+				add_menu_page( __( 'Kemet Panel', 'kemet' ), __( 'Kemet', 'kemet' ), 'manage_options', 'kemet_panel', null, KEMET_THEME_URI . 'assets/images/logo.svg' );
 			}
 		}
 	}

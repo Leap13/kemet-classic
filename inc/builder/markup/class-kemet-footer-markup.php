@@ -123,7 +123,7 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 				$theme_author = apply_filters(
 					'kemet_theme_author',
 					array(
-						'theme_name'       => __( 'kemet', 'kemet' ),
+						'theme_name'       => __( 'Kemet', 'kemet' ),
 						'theme_author_url' => 'https://kemet.io/',
 					)
 				);

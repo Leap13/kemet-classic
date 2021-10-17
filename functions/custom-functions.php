@@ -255,39 +255,6 @@ if ( ! function_exists( 'kemet_custom_logo' ) ) {
 add_filter( 'get_custom_logo', 'kemet_custom_logo', 10, 2 );
 
 /**
- * Function to get Small Footer Custom Text
- */
-if ( ! function_exists( 'kemet_get_copyright_footer_custom_text' ) ) {
-
-	/**
-	 * Function to get Small Footer Custom Text
-	 *
-	 * @param string $option Custom text option name.
-	 * @return mixed         Markup of custom text option.
-	 */
-	function kemet_get_copyright_footer_custom_text( $option = '' ) {
-		$output = $option;
-
-		if ( '' != $option ) {
-			$output = kemet_get_option( $option );
-			$output = str_replace( '[site_title]', '<span class="kmt-footer-site-title">' . get_bloginfo( 'name' ) . '</span>', $output );
-
-			$theme_author = apply_filters(
-				'kemet_theme_author',
-				array(
-					'theme_name'       => __( 'kemet', 'kemet' ),
-					'theme_author_url' => 'https://kemet.io/',
-				)
-			);
-
-			$output = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '">' . $theme_author['theme_name'] . '</a>', $output );
-		}
-
-		return do_shortcode( $output );
-	}
-}
-
-/**
  * Function to get site Header
  */
 if ( ! function_exists( 'kemet_header_markup' ) ) {
