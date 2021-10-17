@@ -245,6 +245,7 @@ module.exports = function (grunt) {
         },
         src: [
           "**",
+          "!vendor/**",
           "!node_modules/**",
           "!nbproject/**",
           "!private/**",
