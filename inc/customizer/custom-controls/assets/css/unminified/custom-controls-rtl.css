@@ -952,7 +952,7 @@ button.kmt-delete-palette::before {
 }
 
 .kmt-add-palette-container .button-close-modal svg {
-	color: #848484;
+	fill: #848484;
 }
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
