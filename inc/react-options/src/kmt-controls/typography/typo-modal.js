@@ -42,6 +42,7 @@ const TypographyModal = ({
     setCurrentView,
     setInititialView,
     onChange,
+    defaults,
     wrapperProps = {},
 
 }) => {
@@ -213,6 +214,7 @@ const TypographyModal = ({
                                     onChange={onChange}
                                     props={props}
                                     currentView={currentView}
+                                    defaults={defaults}
                                 />
                             )
                         }

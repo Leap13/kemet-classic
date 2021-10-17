@@ -123,7 +123,7 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 				$theme_author = apply_filters(
 					'kemet_theme_author',
 					array(
-						'theme_name'       => __( 'Kemet', 'kemet' ),
+						'theme_name'       => __( 'kemet', 'kemet' ),
 						'theme_author_url' => 'https://kemet.io/',
 					)
 				);
@@ -149,7 +149,7 @@ if ( ! class_exists( 'Kemet_Footer_Markup' ) ) :
 					apply_filters(
 						'kemet_header_widgets_' . $num,
 						array(
-							'name'          => __( 'Footer Widget ' . $num, 'kemet' ),
+							'name'          => __( 'Footer Widget ', 'kemet' ) . esc_attr( $num ),
 							'id'            => $widget,
 							'before_widget' => '<div id="%1$s" class="widget %2$s">',
 							'after_widget'  => '</div>',

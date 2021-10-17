@@ -84,7 +84,7 @@ class Kemet_Mobile_Header_Toggle_Button_Customizer extends Kemet_Customizer_Regi
 								),
 							),
 							self::$prefix . '-label-visibility' => array(
-								'label'   => __( 'Label Visibility', 'Kemet' ),
+								'label'   => __( 'Label Visibility', 'kemet' ),
 								'type'    => 'kmt-visibility',
 								'divider' => true,
 								'choices' => array(

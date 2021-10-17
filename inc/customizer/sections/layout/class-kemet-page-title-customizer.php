@@ -88,7 +88,7 @@ class Kemet_Page_Title_Customizer extends Kemet_Customizer_Register {
 								'label'   => __( 'Merge/Combine Page Title With Main Header', 'kemet' ),
 							),
 							self::$prefix . '-responsive' => array(
-								'label'   => __( 'Visibility', 'Kemet' ),
+								'label'   => __( 'Visibility', 'kemet' ),
 								'divider' => true,
 								'type'    => 'kmt-visibility',
 								'choices' => array(

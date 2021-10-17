@@ -10,7 +10,7 @@ import { animated } from '@react-spring/web'
 
 import ResponsiveSliderComponent from '../slider'
 
-const FontOptions = ({ value, onChange, props }) => {
+const FontOptions = ({ value, defaults, onChange, props }) => {
 	useEffect(() => {
 		document.dispatchEvent(new CustomEvent("kmtSubOptionsReady"));
 	}, []);
@@ -31,6 +31,7 @@ const FontOptions = ({ value, onChange, props }) => {
 						label: __('Font Size', 'kemet'),
 						value: 35,
 						responsive: true,
+						default: defaults.size ? defaults.size : '',
 						unit_choices: {
 							'px': {
 								min: 0,
@@ -59,8 +60,9 @@ const FontOptions = ({ value, onChange, props }) => {
 					id='line-height'
 					params={{
 						id: 'size',
-						label: __('Line Height', 'Kemet'),
+						label: __('Line Height', 'kemet'),
 						value: 35,
+						default: defaults['line-height'] ? defaults['line-height'] : '',
 						responsive: true,
 						unit_choices: {
 
@@ -94,7 +96,7 @@ const FontOptions = ({ value, onChange, props }) => {
 						label: __('Letter Spacing', 'kemet'),
 						value: 35,
 						responsive: true,
-
+						default: defaults['letter-spacing'] ? defaults['letter-spacing'] : '',
 						unit_choices: {
 
 							'px': {

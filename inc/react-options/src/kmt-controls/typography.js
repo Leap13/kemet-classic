@@ -18,7 +18,7 @@ import TypographyModal from "./typography/typo-modal";
 
 
 
-const Typography = ({ value, onChange, params: { label } }) => {
+const Typography = ({ value, onChange, params: { label, default: optionDefault } }) => {
 
     let defaultValue = {
         family: "System Default",
@@ -57,6 +57,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
     const getInitialDevice = () => {
         return wp.customize.previewedDevice();
     };
+    defaultValue = optionDefault ? { ...defaultValue, ...optionDefault } : defaultValue
     value = value ? { ...defaultValue, ...value } : defaultValue;
     const [currentViewCache, setCurrentViewCache] = useState("_:_");
     const [device, setInnerDevice] = useState(getInitialDevice());
@@ -277,6 +278,7 @@ const Typography = ({ value, onChange, params: { label } }) => {
                                         currentView={currentView}
                                         previousView={previousView}
                                         setCurrentView={setCurrentView}
+                                        defaults={defaultValue}
                                     />
                                 );
                             }}

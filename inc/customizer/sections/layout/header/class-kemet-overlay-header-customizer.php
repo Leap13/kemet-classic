@@ -101,7 +101,7 @@ class Kemet_Overlay_Header_Customizer extends Kemet_Customizer_Register {
 								),
 							),
 							self::$prefix . '-enable-device' => array(
-								'label'   => __( 'Visibility', 'Kemet' ),
+								'label'   => __( 'Visibility', 'kemet' ),
 								'divider' => true,
 								'type'    => 'kmt-visibility',
 								'choices' => array(
