@@ -938,11 +938,11 @@ button.kmt-delete-palette::before {
 .kmt-color-palette-container .kmt-color-Wrapper:nth-child(7) {
   z-index: 4;
 }
-.kmt-option-modal.kmt-palettes-modal[data-position="bottom"] {
+.kmt-option-modal.kmt-add-palettes-modal[data-position="bottom"] {
   top: var(--modal-y-offset);
   transform-origin: center top;
 }
-.kmt-option-modal.kmt-palettes-modal[data-position="top"] {
+.kmt-option-modal.kmt-add-palettes-modal[data-position="top"] {
   bottom: var(--modal-y-offset);
   transform-origin: center bottom;
 }

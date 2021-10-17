@@ -1088,12 +1088,12 @@ button.kmt-delete-palette::before {
 	z-index: 4;
 }
 
-.kmt-option-modal.kmt-palettes-modal[data-position="bottom"] {
+.kmt-option-modal.kmt-add-palettes-modal[data-position="bottom"] {
 	top: var(--modal-y-offset);
 	transform-origin: center top;
 }
 
-.kmt-option-modal.kmt-palettes-modal[data-position="top"] {
+.kmt-option-modal.kmt-add-palettes-modal[data-position="top"] {
 	bottom: var(--modal-y-offset);
 	transform-origin: center bottom;
 }
@@ -2192,6 +2192,34 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .menu-toggle-open .customize-partial-edit-shortcut,
 .mobile-menu-container .customize-partial-edit-shortcut {
 	display: none;
+}
+
+.site-builder-focus-item {
+	position: relative;
+	outline: 2px solid transparent;
+	box-shadow: 0 2px 1px rgba(46, 68, 83, 0);
+	transition: all 0.3s;
+}
+
+.site-builder-focus-item .customize-partial-edit-shortcut {
+	left: 0;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.site-builder-focus-item .customize-partial-edit-shortcut button {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.site-builder-focus-item:hover {
+	outline: 2px solid #0085ba !important;
+	box-shadow: 0 2px 1px rgba(46, 68, 83, 0.15);
+}
+
+.site-builder-focus-item:hover > * > .customize-partial-edit-shortcut {
+	opacity: 1;
 }
 
 .site-footer-focus-item {
@@ -8229,6 +8257,10 @@ span.kmt-color-description {
 	border-radius: 0;
 	background: #fff;
 	box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
+}
+
+.kmt-option-modal.kmt-palettes-modal {
+	position: absolute !important;
 }
 
 .kmt-option-modal[data-position="bottom"] {
