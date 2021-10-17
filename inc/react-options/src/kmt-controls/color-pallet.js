@@ -192,7 +192,7 @@ const ColorPalettes = ({
                         }}
                     >
                         <header>
-                            {__(`Select Another Palette`)}
+                            {__(`Select Another Palette`, "kemet")}
                         </header>
                         <span
                             className={classnames(`kmt-button-open-palette`, { active: currentView === "modal" })}
@@ -332,13 +332,13 @@ const ColorPalettes = ({
                     document.body
                 )}
 
-            {openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><span class="dashicons dashicons-bell"></span> {__("Warning")}</div>)}
+            {openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><span class="dashicons dashicons-bell"></span> {__("Warning", "kemet")}</div>)}
                 className={`kmt-color-palette-confrim__delete`}
                 isDismissible={true}
                 onRequestClose={() => { setOpenModal(false) }}
             >
                 < p className={__(`kmt-palette-popup-content`)}>
-                    {__(`You are about to delete "${delPalette[0].name}" . This palette cannot be restored ,are you sure you want to delete it`)}
+                    {__(`You are about to delete "${delPalette[0].name}" . This palette cannot be restored ,are you sure you want to delete it`, "kemet")}
                 </p>
                 <div className={__(`kmt-paltette-popup-action`)}>
                     <button type="button" class="button button-primary save has-next-sibling" onClick={(e) => {

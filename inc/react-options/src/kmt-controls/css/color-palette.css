@@ -105,6 +105,7 @@ div.kmt-type-control span:not(:first-child) {
   height: 24px;
   color: #2e2e2e;
   cursor: pointer;
+  margin-right: 2px;
 }
 .kmt-palettes-preview .kmt-palette-toggle-modal span.active {
   color: var(--primaryColor);
@@ -809,7 +810,7 @@ button.kmt-delete-palette::before {
 .kmt-add-palette-container .button-close-modal {
   position: absolute;
   top: 10px;
-  right: 3px;
+  right: 0px;
   border: 0;
   color: #848484;
   background: 0 0;
@@ -817,9 +818,8 @@ button.kmt-delete-palette::before {
   font-weight: 400;
   cursor: pointer;
 }
-.kmt-add-palette-container .button-close-modal::before {
-  content: "\f158";
-  font-family: dashicons;
+.kmt-add-palette-container .button-close-modal svg {
+  color: #848484;
 }
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
   display: flex;
@@ -891,6 +891,9 @@ button.kmt-delete-palette::before {
 .components-modal__header .components-button:focus {
   box-shadow: none;
   outline: none;
+}
+.kmt-color-palette-confrim__delete .components-modal__content {
+  padding: 0 25px 24px;
 }
 .kmt-color-palette-confrim__delete .kmt-palette-popup-content {
   font-size: 13px;

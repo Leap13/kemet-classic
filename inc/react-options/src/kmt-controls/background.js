@@ -198,7 +198,7 @@ const BackgroundComponent = (props) => {
 
     let labelHtml = (
         <span className="customize-control-title kmt-control-title">
-            {label ? label : __("Background")}
+            {label ? label : __("Background", "kemet")}
         </span>
     );
     let descriptionHtml = (description && description !== "") ? (

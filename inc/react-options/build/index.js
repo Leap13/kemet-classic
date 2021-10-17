@@ -19027,7 +19027,7 @@ var BackgroundModal = function BackgroundModal(props) {
       }
     })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "kmt-control"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Repeat"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Repeat", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
       className: "kmt-radio-option kmt-buttons-group"
     }, Object.keys(repeat).map(function (item) {
       var classActive = "";
@@ -19045,7 +19045,7 @@ var BackgroundModal = function BackgroundModal(props) {
       }, repeat[item] && repeat[item]);
     })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "kmt-control"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Size"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Size", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
       className: "kmt-radio-option kmt-buttons-group"
     }, ["auto", "cover", "contain"].map(function (item) {
       var classActive = "";
@@ -19063,7 +19063,7 @@ var BackgroundModal = function BackgroundModal(props) {
       }, item);
     })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
       className: "kmt-control"
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Attachment"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
+    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, __("Background Attachment", "kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("ul", {
       className: "kmt-radio-option kmt-buttons-group"
     }, ["fixed", "scroll", "inherit"].map(function (item) {
       var classActive = "";
@@ -19332,7 +19332,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       description = _props$params.description;
   var labelHtml = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
-  }, label ? label : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background"));
+  }, label ? label : Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background", "kemet"));
   var descriptionHtml = description && description !== "" ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "description customize-control-description"
   }, description) : null;
@@ -19421,16 +19421,26 @@ function AddPaletteContainer(_ref) {
       e.preventDefault();
       handleCloseModal();
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("svg", {
+    width: "24",
+    height: "24",
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    role: "img",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("path", {
+    d: "M12 13.06l3.712 3.713 1.061-1.06L13.061 12l3.712-3.712-1.06-1.06L12 10.938 8.288 7.227l-1.061 1.06L10.939 12l-3.712 3.712 1.06 1.061L12 13.061z"
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-palette-info"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-palette-name"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: "kmt-palette-type-label"
-  }, __("palette name")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
+  }, __("palette name", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
     type: "text",
     className: "kmt-add-palette-title",
-    placeholder: __("name your palette"),
+    placeholder: __("name your palette", "kemet"),
     onChange: function onChange(e) {
       return setPaletteData(_objectSpread(_objectSpread({}, data), {}, {
         name: e.target.value
@@ -19440,7 +19450,7 @@ function AddPaletteContainer(_ref) {
     className: "kmt-Palette-type-container"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: "kmt-palette-type-label"
-  }, __("palette type")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, __("palette type", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-Palette-type-wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("input", {
     type: "radio",
@@ -19557,7 +19567,7 @@ var ColorPalettesModal = function ColorPalettesModal(_ref) {
     }
   }, " Dark")), customPaletteColors.length > 0 && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("div", {
     className: "kmt_label_type__palette"
-  }, __("my palettes")), customPaletteColors.map(function (palette, index) {
+  }, __("my palettes", "kemet")), customPaletteColors.map(function (palette, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_PalettePreview__WEBPACK_IMPORTED_MODULE_7__["default"], {
       currentPalette: palette,
       className: classnames__WEBPACK_IMPORTED_MODULE_8___default()("kmt-custom-palette__container", {
@@ -19585,7 +19595,7 @@ var ColorPalettesModal = function ColorPalettesModal(_ref) {
     }));
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])("div", {
     className: "kmt_label_type__palette"
-  }, __("kemet palettes")), kemetPaletteColors.map(function (palette, index) {
+  }, __("kemet palettes", "kemet")), kemetPaletteColors.map(function (palette, index) {
     return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(react__WEBPACK_IMPORTED_MODULE_6__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__["createElement"])(_PalettePreview__WEBPACK_IMPORTED_MODULE_7__["default"], {
       currentPalette: palette,
       className: value.current_palette === palette.id ? 'kmt-active' : '',
@@ -19979,7 +19989,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
       setIsOpen(true);
       setCurrentView("modal");
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, __("Select Another Palette")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, __("Select Another Palette", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: classnames__WEBPACK_IMPORTED_MODULE_12___default()("kmt-button-open-palette", {
       active: currentView === "modal"
     })
@@ -20086,7 +20096,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
       className: "kmt-popup-modal__header"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
       class: "dashicons dashicons-bell"
-    }), " ", __("Warning")),
+    }), " ", __("Warning", "kemet")),
     className: "kmt-color-palette-confrim__delete",
     isDismissible: true,
     onRequestClose: function onRequestClose() {
@@ -20094,7 +20104,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: __("kmt-palette-popup-content")
-  }, __("You are about to delete \"".concat(delPalette[0].name, "\" . This palette cannot be restored ,are you sure you want to delete it"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, __("You are about to delete \"".concat(delPalette[0].name, "\" . This palette cannot be restored ,are you sure you want to delete it"), "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: __("kmt-paltette-popup-action")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
@@ -21057,17 +21067,11 @@ var NumberComponent = function NumberComponent(_ref) {
   var value = _ref.value,
       params = _ref.params,
       _onChange = _ref.onChange;
-  var parsedValue;
   var min = params.min,
       max = params.max,
       label = params.label;
   var step = 1;
   var defaultValue = 1;
-
-  if (value && value.toString().trim().length === 0) {
-    parsedValue = 0;
-  }
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "kmt-number-control__Wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
@@ -21075,16 +21079,16 @@ var NumberComponent = function NumberComponent(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(parsedValue) === parseInt(min) || parseFloat(parsedValue) === parseInt(max)))
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-option-number', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, "kmt-reached-limits", parseFloat(value) === parseInt(min) || parseFloat(value) === parseInt(max)))
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(min))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-minus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(min))),
     onClick: function onClick() {
-      return _onChange(round(Math.min(Math.max(parseFloat(parsedValue) - parseFloat(step), min), max)));
+      return _onChange(round(Math.min(Math.max(parseFloat(value) - parseFloat(step), min), max)));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("a", {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(parsedValue) === parseInt(max))),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('kmt-plus', _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, 'kmt-disabled', parseFloat(value) === parseInt(max))),
     onClick: function onClick() {
-      return _onChange(Math.min(Math.max(parseFloat(parsedValue) + parseFloat(step), min), max));
+      return _onChange(Math.min(Math.max(parseFloat(value) + parseFloat(step), min), max));
     }
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_common_OnlyNumber__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: value,

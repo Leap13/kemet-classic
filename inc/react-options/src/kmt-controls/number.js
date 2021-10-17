@@ -5,14 +5,10 @@ import _ from 'underscore'
 const round = (value) => Math.round(value * 10) / 10
 
 const NumberComponent = ({ value, params, onChange }) => {
-    let parsedValue;
-
     let { min, max, label } = params
     let step = 1;
     let defaultValue = 1
-    if (value && value.toString().trim().length === 0) {
-        parsedValue = 0
-    }
+
     return (
         <div className={`kmt-number-control__Wrapper`}>
             <div className={`kmt-number-container`}>
@@ -22,21 +18,21 @@ const NumberComponent = ({ value, params, onChange }) => {
                 <div
                     className={classnames('kmt-option-number', {
                         [`kmt-reached-limits`]:
-                            parseFloat(parsedValue) === parseInt(min) ||
-                            parseFloat(parsedValue) === parseInt(max),
+                            parseFloat(value) === parseInt(min) ||
+                            parseFloat(value) === parseInt(max),
                     })}
                 >
                     <a
                         className={classnames('kmt-minus', {
                             ['kmt-disabled']:
-                                parseFloat(parsedValue) === parseInt(min),
+                                parseFloat(value) === parseInt(min),
                         })}
                         onClick={() =>
                             onChange(
                                 round(
                                     Math.min(
                                         Math.max(
-                                            parseFloat(parsedValue) - parseFloat(step),
+                                            parseFloat(value) - parseFloat(step),
                                             min
                                         ),
                                         max
@@ -48,14 +44,14 @@ const NumberComponent = ({ value, params, onChange }) => {
                     <a
                         className={classnames('kmt-plus', {
                             ['kmt-disabled']:
-                                parseFloat(parsedValue) === parseInt(max),
+                                parseFloat(value) === parseInt(max),
                         })}
                         onClick={() =>
                             onChange(
 
                                 Math.min(
                                     Math.max(
-                                        parseFloat(parsedValue) + parseFloat(step),
+                                        parseFloat(value) + parseFloat(step),
                                         min
                                     ),
                                     max

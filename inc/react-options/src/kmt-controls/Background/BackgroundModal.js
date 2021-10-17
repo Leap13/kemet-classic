@@ -90,7 +90,7 @@ const BackgroundModal = (props) => {
                 </div>
                 <div className="kmt-control">
                     <header>
-                        <label>{__("Background Repeat")}</label>
+                        <label>{__("Background Repeat", "kemet")}</label>
                     </header>
                     <section>
                         <ul className="kmt-radio-option kmt-buttons-group">
@@ -120,7 +120,7 @@ const BackgroundModal = (props) => {
                 </div>
                 <div className="kmt-control">
                     <header>
-                        <label>{__("Background Size")}</label>
+                        <label>{__("Background Size", "kemet")}</label>
                     </header>
                     <section>
                         <ul className="kmt-radio-option kmt-buttons-group">
@@ -150,7 +150,7 @@ const BackgroundModal = (props) => {
 
                 <div className="kmt-control">
                     <header>
-                        <label>{__("Background Attachment")}</label>
+                        <label>{__("Background Attachment", "kemet")}</label>
                     </header>
                     <section>
                         <ul className="kmt-radio-option kmt-buttons-group">

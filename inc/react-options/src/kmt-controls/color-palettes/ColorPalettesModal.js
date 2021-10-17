@@ -27,7 +27,7 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 				>	Dark
                 </span>
 			</div>
-			{ customPaletteColors.length > 0 && <div className={`kmt_label_type__palette`}>{__(`my palettes`)}</div>}
+			{ customPaletteColors.length > 0 && <div className={`kmt_label_type__palette`}>{__(`my palettes`, "kemet")}</div>}
 			{customPaletteColors.map((palette, index) => (
 				<Fragment>
 					<PalettePreview
@@ -63,7 +63,7 @@ const ColorPalettesModal = ({ value, onChange, wrapperProps = {}, handleDeletePa
 
 			))
 			}
-			<div className={`kmt_label_type__palette`}>{__(`kemet palettes`)}</div>
+			<div className={`kmt_label_type__palette`}>{__(`kemet palettes`, "kemet")}</div>
 			{kemetPaletteColors.map((palette, index) => (
 				<Fragment>
 					<PalettePreview
