@@ -5,10 +5,13 @@
   "main": "src/options.js",
   "dependencies": {
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
+    "@reach/component-component": "^0.16.0",
+    "@reach/utils": "^0.16.0",
     "@react-spring/web": "^9.0.0-rc.2",
     "array-move": "^4.0.0",
     "bezier-easing": "^2.1.0",
     "classnames": "^2.2.6",
+    "focus-trap": "^6.6.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-color": "^2.19.3",

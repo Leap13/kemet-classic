@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-document.addEventListener('kmtExpandedBuilder', (\) => {
+document.addEventListener('kmtExpandedBuilder', ({ detail: { control, isExpanded } }) => {
     if (isExpanded) {
         renderOptions(control)
         return
