@@ -973,7 +973,7 @@ button.kmt-delete-palette::before {
   animation-fill-mode: forwards;
   height: 197px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1700px) {
   .kmt-palettes-preview
     .kmt-single-palette
     .kmt-color-palette-container

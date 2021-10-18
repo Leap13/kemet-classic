@@ -19394,7 +19394,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-
 var __ = wp.i18n.__;
 function AddPaletteContainer(_ref) {
   var value = _ref.value,
