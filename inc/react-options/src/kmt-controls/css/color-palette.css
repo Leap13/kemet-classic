@@ -849,7 +849,7 @@ button.kmt-delete-palette::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 165px;
+  width: 170px;
   height: 28px;
   font-size: 13px;
   font-weight: 500;
@@ -903,6 +903,10 @@ button.kmt-delete-palette::before {
   text-align: justify;
   word-spacing: 0.4px;
   text-indent: unset;
+}
+.kmt-color-palette-confrim__delete .kmt-palette-popup-content q {
+  text-transform: capitalize;
+  font-style: italic;
 }
 .kmt-color-palette-confrim__delete
   .kmt-paltette-popup-action
@@ -969,7 +973,7 @@ button.kmt-delete-palette::before {
   animation-fill-mode: forwards;
   height: 197px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1700px) {
   .kmt-palettes-preview
     .kmt-single-palette
     .kmt-color-palette-container

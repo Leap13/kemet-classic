@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { animated } from "@react-spring/web";
 import classnames from "classnames";
-import { Fragment } from "react";
+
 const { __ } = wp.i18n;
 
 export default function AddPaletteContainer({

@@ -984,7 +984,7 @@ button.kmt-delete-palette::before {
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
 	display: flex;
-	width: 165px;
+	width: 170px;
 	height: 28px;
 	border-radius: 0;
 	font-size: 13px;
@@ -1051,6 +1051,11 @@ button.kmt-delete-palette::before {
 	text-indent: unset;
 	letter-spacing: 0.4px;
 	word-spacing: 0.4px;
+}
+
+.kmt-color-palette-confrim__delete .kmt-palette-popup-content q {
+	font-style: italic;
+	text-transform: capitalize;
 }
 
 .kmt-color-palette-confrim__delete
@@ -1125,7 +1130,7 @@ button.kmt-delete-palette::before {
 	animation-fill-mode: forwards;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1700px) {
 	.kmt-palettes-preview
 	.kmt-single-palette
 	.kmt-color-palette-container
@@ -2192,6 +2197,34 @@ span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header-desk
 .menu-toggle-open .customize-partial-edit-shortcut,
 .mobile-menu-container .customize-partial-edit-shortcut {
 	display: none;
+}
+
+.site-builder-focus-item {
+	position: relative;
+	outline: 2px solid transparent;
+	box-shadow: 0 2px 1px rgba(46, 68, 83, 0);
+	transition: all 0.3s;
+}
+
+.site-builder-focus-item .customize-partial-edit-shortcut {
+	left: 0;
+	opacity: 0;
+	transition: all 0.3s;
+}
+
+.site-builder-focus-item .customize-partial-edit-shortcut button {
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.site-builder-focus-item:hover {
+	outline: 2px solid #0085ba !important;
+	box-shadow: 0 2px 1px rgba(46, 68, 83, 0.15);
+}
+
+.site-builder-focus-item:hover > * > .customize-partial-edit-shortcut {
+	opacity: 1;
 }
 
 .site-footer-focus-item {
@@ -8277,6 +8310,11 @@ span.kmt-color-description {
 
 .wp-customizer .kmt-option-modal {
 	left: 19px;
+}
+
+.kmt-option-modal.kmt-palettes-modal {
+	position: absolute;
+	left: 0;
 }
 
 .customize-control-kmt-icon-select .icon-select {
