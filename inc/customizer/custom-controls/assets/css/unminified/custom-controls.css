@@ -984,7 +984,7 @@ button.kmt-delete-palette::before {
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
 	display: flex;
-	width: 165px;
+	width: 170px;
 	height: 28px;
 	border-radius: 0;
 	font-size: 13px;
@@ -1051,6 +1051,11 @@ button.kmt-delete-palette::before {
 	text-indent: unset;
 	letter-spacing: 0.4px;
 	word-spacing: 0.4px;
+}
+
+.kmt-color-palette-confrim__delete .kmt-palette-popup-content q {
+	font-style: italic;
+	text-transform: capitalize;
 }
 
 .kmt-color-palette-confrim__delete

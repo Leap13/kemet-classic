@@ -19941,7 +19941,9 @@ var ColorPalettes = function ColorPalettes(_ref) {
     className: "kmt-palettes-outside",
     additionalRefs: [popoverProps.ref],
     onOutsideClick: function onOutsideClick(e) {
-      if (e.target.closest(".kmt-color-palette-confrim__delete")) {
+      console.log("outclick");
+
+      if (e.target.closest(".kmt-color-picker-modal") || e.target.classList.contains("kmt-color-picker-modal") || e.target.closest(".kmt-option-modal")) {
         return;
       }
 
@@ -19952,10 +19954,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
       ref: colorPalettesWrapper,
       onClick: function onClick(e) {
         e.preventDefault();
-
-        if (e.target.closest(".kmt-color-picker-modal") || e.target.classList.contains("kmt-color-picker-modal")) {
-          return;
-        }
+        console.log("wrapperProps");
 
         if (!state.palettes) {
           return;
@@ -20000,6 +19999,7 @@ var ColorPalettes = function ColorPalettes(_ref) {
     onChange: function onChange(val) {
       setIsOpen(false);
       handleChangePalette(val);
+      setCurrentView("");
     },
     value: state,
     option: state,
@@ -20012,6 +20012,10 @@ var ColorPalettes = function ColorPalettes(_ref) {
     className: "kmt-button-palettes-outside",
     additionalRefs: [popoverProps.ref],
     onOutsideClick: function onOutsideClick(e) {
+      if (e.target.closest(".kmt-color-picker-modal") || e.target.classList.contains("kmt-color-picker-modal") || e.target.closest(".kmt-option-modal")) {
+        return;
+      }
+
       setIsOpen(false);
       setCurrentView(" ");
     },
@@ -20097,20 +20101,20 @@ var ColorPalettes = function ColorPalettes(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: __("kmt-palette-popup-content")
-  }, __("You are about to delete \"".concat(delPalette[0].name, "\" . This palette cannot be restored ,are you sure you want to delete it"), "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, __("You are about to delete ", "kemet"), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("q", null, "\"", delPalette[0].name, "\""), " ", __(".This palette cannot be restored, are you sure you want to delete it", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: __("kmt-paltette-popup-action")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
     class: "button button-primary save has-next-sibling",
-    onClick: function onClick(e) {
-      e.preventDefault();
-      ConfirmDelete();
+    onClick: function onClick() {
+      setOpenModal(false);
     }
   }, __("No", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",
     class: "components-button  kmt-button__delete__palette",
-    onClick: function onClick() {
-      setOpenModal(false);
+    onClick: function onClick(e) {
+      e.preventDefault();
+      ConfirmDelete();
     }
   }, __('Yes', "kemet")))));
 };
