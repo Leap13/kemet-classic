@@ -32,6 +32,7 @@ const ColorPalettes = ({
         shouldCalculate: isTransitioning || isOpen,
     });
 
+
     const setIsOpen = (isOpen) => {
         setModalState((state) => ({
             ...state,
@@ -198,7 +199,26 @@ const ColorPalettes = ({
                             className={classnames(`kmt-button-open-palette`, { active: currentView === "modal" })}
                         ></span>
                     </div>
+
                 </div>
+                {(isTransitioning || isOpen) && currentView === "modal" &&
+                    <ColorPalettesModal
+                        wrapperProps={{
+                            style: {
+
+                                ...styles
+                            },
+
+                        }}
+                        onChange={(val) => {
+                            setIsOpen(false);
+                            handleChangePalette(val);
+                        }}
+                        value={state}
+                        option={state}
+                        handleDeletePalette={(id) => handleDeletePalette(id)}
+
+                    />}
             </OutsideClickHandler>
             <OutsideClickHandler
                 disabled={!isOpen}
@@ -233,13 +253,14 @@ const ColorPalettes = ({
                         e.preventDefault();
                         setCurrentView("add");
                         setIsOpen(true);
+                        console.log(currentView)
                     }}
                 >
 
                     {__('Save New Palette', "kemet")}
                 </button>
             </OutsideClickHandler>
-            {(isTransitioning || isOpen) &&
+            {(isTransitioning || isOpen) && currentView === "add" &&
                 createPortal(
                     <Transition
                         items={isOpen}
@@ -280,10 +301,10 @@ const ColorPalettes = ({
                         }
                     >
                         {(style, item) => {
+
                             if (!item) {
                                 return null;
-                            }
-                            if (currentView === "add") {
+                            } else
                                 return (
                                     <AddPaletteContainer
                                         wrapperProps={{
@@ -303,30 +324,6 @@ const ColorPalettes = ({
 
                                     />
                                 );
-                            } else if (currentView === "modal") {
-                                return (
-                                    <ColorPalettesModal
-                                        wrapperProps={{
-                                            style: {
-                                                ...style,
-                                                ...styles,
-                                            },
-                                            ...popoverProps,
-                                        }}
-                                        onChange={(val) => {
-                                            setIsOpen(false);
-                                            handleChangePalette(val);
-                                        }}
-                                        value={state}
-                                        option={state}
-                                        handleDeletePalette={(id) => handleDeletePalette(id)}
-
-                                    />
-                                );
-                            }
-                            else {
-                                return
-                            }
                         }}
                     </Transition>,
                     document.body

@@ -312,3 +312,7 @@ span.kmt-color-description {
   left: 19px;
 }
 
+.kmt-option-modal.kmt-palettes-modal {
+  position: absolute;
+  left: 0px;
+}
