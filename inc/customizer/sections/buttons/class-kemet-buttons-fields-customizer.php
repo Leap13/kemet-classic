@@ -23,17 +23,6 @@ class Kemet_Buttons_Fields_Customizer extends Kemet_Customizer_Register {
 		$input_selector       = 'input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="reset"], input[type="search"], textarea, select, .wpcf7 form input:not([type=submit])';
 		$input_focus_selector = 'input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus, select:focus, .wpcf7 form input:not([type=submit]):focus';
 		$register_options     = array(
-			'menu_item_icon'     => array(
-				'type'  => 'icon-picker',
-				'label' => __( 'Icon', 'kemet' ),
-				'value' => array(
-					'icon' => '',
-				),
-			),
-			'button_upload_font' => array(
-				'type'  => 'font-upload',
-				'label' => __( 'Font Upload', 'kemet' ),
-			),
 			'kmt-buttons'        => array(
 				'type'     => 'kmt-title',
 				'label'    => __( 'Buttons Style', 'kemet' ),
