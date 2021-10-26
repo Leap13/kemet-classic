@@ -17,7 +17,7 @@ const IconPicker = ({ value, onChange, params }) => {
     let { label } = params;
     const el = useRef();
     let defaultValue = {
-        icon: "",
+        icon: null,
     };
     const [searchString, setSearchString] = useState("");
 
@@ -29,103 +29,109 @@ const IconPicker = ({ value, onChange, params }) => {
     return (
         <div className={`kmt-icon-container `}>
             <header>
-                <div className="kmt-btn-reset-wrap">
-                    <button
-                        className="kmt-reset-btn "
-                        disabled={
-                            JSON.stringify(defaultValue) ===
-                            JSON.stringify(value)
-                        }
-                        onClick={(e) => {
-                            e.preventDefault();
-                            onChange({ ...defaultValue });
-                        }}
-                    ></button>
-                </div>
+
                 <span className="customize-control-title">{label}</span>
             </header>
             <div ref={el}>
-                <OutsideComponent
-                    useCapture={false}
-                    disabled={!isPicking}
-                    className="kmt-icon-picker-value"
-                    additionalRefs={[]}
-                    onOutsideClick={(e) => {
-                        if (!isPicking) {
-                            return;
-                        }
-                        if (e.target.closest(".media-modal-content")) {
-                            return;
-                        }
-                        setAnimationState({
-                            isTransitioning: isPicking.split(":")[0],
-                            isPicking: null,
-                        });
-                    }}
-                    wrapperProps={{
-                        onClick: (e) => {
-                            e.preventDefault();
-
-                            let futureIsPicking = isPicking
-                                ? isPicking.split(":")[0] === "opts"
-                                    ? null
-                                    : `opts:${isPicking.split(":")[0]}`
-                                : "opts";
-
+                <div className={`kmt-icon__Wrapper`}>
+                    <OutsideComponent
+                        useCapture={false}
+                        disabled={!isPicking}
+                        className="kmt-icon-picker-value"
+                        additionalRefs={[]}
+                        onOutsideClick={(e) => {
+                            if (!isPicking) {
+                                return;
+                            }
+                            if (e.target.closest(".media-modal-content")) {
+                                return;
+                            }
                             setAnimationState({
-                                isTransitioning: "opts",
-                                isPicking: futureIsPicking,
+                                isTransitioning: isPicking.split(":")[0],
+                                isPicking: null,
                             });
+                        }}
+                        wrapperProps={{
+                            onClick: (e) => {
+                                e.preventDefault();
 
-                            setSearchString("");
-                        },
-                    }}
-                >
-                    {correctIcon ? (
-                        <Fragment>
-                            {value.source !== "attachment" && (
-                                <i
-                                    className={`kmt-icon-preview ${value.icon}`}
-                                />
-                            )}
+                                let futureIsPicking = isPicking
+                                    ? isPicking.split(":")[0] === "opts"
+                                        ? null
+                                        : `opts:${isPicking.split(":")[0]}`
+                                    : "opts";
 
-                            {value.source === "attachment" && (
-                                <i className="kmt-icon-preview">
-                                    <img src={value.url} />
-                                </i>
-                            )}
+                                setAnimationState({
+                                    isTransitioning: "opts",
+                                    isPicking: futureIsPicking,
+                                });
 
-                            <div>
-                                <span className="kmt-edit">
-                                    <span className="kmt-tooltip-top">
-                                        {__("Change Icon", "Kemet")}
+                                setSearchString("");
+                            },
+                        }}
+                    >
+
+                        {correctIcon ? (
+                            <Fragment>
+                                {value.source !== "attachment" && (
+                                    <i
+                                        className={`kmt-icon-preview ${value.icon}`}
+                                    />
+                                )}
+
+                                {value.source === "attachment" && (
+                                    <i className="kmt-icon-preview">
+                                        <img src={value.url} />
+                                    </i>
+                                )}
+
+                                <div>
+                                    <span className="kmt-edit">
+                                        <span className="kmt-tooltip-top">
+                                            {__("Change Icon", "Kemet")}
+                                        </span>
                                     </span>
-                                </span>
 
-                                <i className="divider"></i>
+                                    <i className="divider"></i>
 
-                                <span
-                                    className="kmt-remove"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        onChange({
-                                            ...value,
-                                            icon: "",
-                                        });
-                                    }}
-                                >
-                                    <span className="kmt-tooltip-top">
-                                        {__("Remove Icon", "Kemet")}
+                                    <span
+                                        className="kmt-remove"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            onChange({
+                                                ...value,
+                                                icon: "",
+                                            });
+                                        }}
+                                    >
+                                        <span className="kmt-tooltip-top">
+                                            {__("Remove Icon", "Kemet")}
+                                        </span>
                                     </span>
-                                </span>
-                            </div>
-                        </Fragment>
-                    ) : (
-                        <div>{__("Select", "Kemet")}</div>
-                    )}
-                </OutsideComponent>
+                                </div>
+                            </Fragment>
+                        ) : (
+                            <div >{__("Select", "Kemet")}</div>
+                        )}
 
+
+
+                    </OutsideComponent>
+                    <div className="kmt-btn-reset-wrap">
+                        <button
+                            className="kmt-reset-btn "
+                            disabled={
+                                JSON.stringify(defaultValue) ===
+                                JSON.stringify(value)
+                            }
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onChange({ ...defaultValue });
+                            }}
+                        ></button>
+                    </div>
+                </div>
                 <IconPickerModal
                     el={el}
                     value={value}
