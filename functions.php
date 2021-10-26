@@ -51,6 +51,7 @@ require_once KEMET_THEME_DIR . 'inc/widgets.php';
 require_once KEMET_THEME_DIR . 'functions/theme-hooks.php';
 require_once KEMET_THEME_DIR . 'functions/sidebar-manager.php';
 require_once KEMET_THEME_DIR . 'functions/custom-functions.php';
+require_once KEMET_THEME_DIR . 'inc/class-kemet-preformance.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog-config.php';
 require_once KEMET_THEME_DIR . 'inc/blog/blog.php';
 require_once KEMET_THEME_DIR . 'inc/blog/single-blog.php';
@@ -62,6 +63,7 @@ require_once KEMET_THEME_DIR . 'functions/template-parts.php';
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-loop.php';
 
 require_once KEMET_THEME_DIR . 'inc/class-kemet-after-setup-theme.php';
+
 
 // Required files.
 require_once KEMET_THEME_DIR . 'functions/classes/class-kemet-admin-helper.php';
