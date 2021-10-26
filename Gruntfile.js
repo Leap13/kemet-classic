@@ -59,9 +59,9 @@ module.exports = function (grunt) {
           },
           {
             expand: true,
-            cwd: "inc/customizer/custom-controls/assets/css/unminified/",
+            cwd: "inc/react-options/css/unminified/",
             src: ["*.css", "!*-rtl.css"],
-            dest: "inc/customizer/custom-controls/assets/css/unminified/",
+            dest: "inc/react-options/css/unminified/",
             ext: "-rtl.css",
           },
         ],
@@ -82,23 +82,8 @@ module.exports = function (grunt) {
 
           /* Editor Style */
           {
-            "assets/css/unminified/editor-style.css": "sass/editor-style.scss",
-            "inc/customizer/custom-controls/responsive/responsive.css":
-              "inc/customizer/custom-controls/responsive/responsive.scss",
-            "inc/customizer/custom-controls/divider/divider.css":
-              "inc/customizer/custom-controls/divider/divider.scss",
-            "inc/customizer/custom-controls/description/description.css":
-              "inc/customizer/custom-controls/description/description.scss",
-            "inc/customizer/custom-controls/slider/slider.css":
-              "inc/customizer/custom-controls/slider/slider.scss",
-            "inc/customizer/custom-controls/sortable/sortable.css":
-              "inc/customizer/custom-controls/sortable/sortable.scss",
-            "inc/customizer/custom-controls/spacing/spacing.css":
-              "inc/customizer/custom-controls/spacing/spacing.scss",
-            "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.css":
-              "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.scss",
-            "inc/customizer/custom-controls/background/background.css":
-              "inc/customizer/custom-controls/background/background.scss",
+            "inc/react-options/css/unminified/style.css":
+              "inc/react-options/sass/style.scss",
           },
 
           /* Common Style */
@@ -187,12 +172,12 @@ module.exports = function (grunt) {
             ext: ".min.css",
           },
           {
-            src: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
-            dest: "inc/customizer/custom-controls/assets/css/minified/custom-controls.min.css",
+            src: "inc/react-options/css/unminified/style.css",
+            dest: "inc/react-options/css/minified/style.min.css",
           },
           {
-            src: "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
-            dest: "inc/customizer/custom-controls/assets/css/minified/custom-controls-rtl.min.css",
+            src: "inc/react-options/css/unminified/style-rtl.css",
+            dest: "inc/react-options/css/minified/style-rtl.min.css",
           },
           // Generating RTL files from '/unminified/' into '/minified/'
           // NOTE: Not possible to generate bulk .min-rtl.css files from '.min.css'
@@ -372,54 +357,17 @@ module.exports = function (grunt) {
         ],
       },
     },
-    concat: {
-      css: {
-        src: [
-          "inc/react-options/src/kmt-controls/css/color-palette.css",
-          "inc/react-options/src/kmt-controls/css/customizer.css",
-          "inc/react-options/src/kmt-controls/css/root.css",
-          "inc/react-options/src/kmt-controls/css/select.css",
-          "inc/react-options/src/kmt-controls/css/background.css",
-          "inc/react-options/src/kmt-controls/css/tabs.css",
-          "inc/react-options/src/kmt-controls/css/builder-control.css",
-          "inc/react-options/src/kmt-controls/css/slider.css",
-          "inc/react-options/src/kmt-controls/css/color.css",
-          "inc/react-options/src/kmt-controls/css/icon-select.css",
-          "inc/react-options/src/kmt-controls/css/sortable.css",
-          "inc/react-options/src/kmt-controls/css/spacing.css",
-          "inc/react-options/src/kmt-controls/css/title.css",
-          "inc/react-options/src/kmt-controls/css/toggle.css",
-          "inc/react-options/src/kmt-controls/css/radio-image.css",
-          "inc/react-options/src/kmt-controls/css/radio.css",
-          "inc/react-options/src/kmt-controls/css/typography.css",
-          "inc/react-options/src/kmt-controls/css/extra-style.css",
-          "inc/react-options/src/kmt-controls/css/number.css",
-          "inc/react-options/src/kmt-controls/css/visibility.css",
-          "inc/react-options/src/kmt-controls/css/border.css",
-          "inc/react-options/src/kmt-controls/css/icon-control.css",
-          "inc/react-options/src/kmt-controls/css/uploadFont.css",
-        ],
-        dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
-      },
+    // concat: {
+    //   css: {
+    //     src: "inc/customizer/sass/style.css",
+    //     dest: "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
+    //   },
 
-      js: {
-        src: [
-          // "inc/customizer/custom-controls/sortable/sortable.js",
-          // "inc/customizer/custom-controls/slider/slider.js",
-          // "inc/customizer/custom-controls/color/color.js",
-          // "inc/customizer/custom-controls/icon-select/icon-select.js",
-          // "inc/customizer/custom-controls/responsive/responsive.js",
-          // "inc/customizer/custom-controls/responsive-select/responsive-select.js",
-          // "inc/customizer/custom-controls/responsive-slider/responsive-slider.js",
-          // "inc/customizer/custom-controls/responsive-spacing/responsive-spacing.js",
-          // "inc/customizer/custom-controls/title/title.js",
-          // "inc/customizer/custom-controls/responsive-icon-select/responsive-icon-select.js",
-          // "inc/customizer/custom-controls/responsive-color/responsive-color.js",
-          // "inc/customizer/custom-controls/group/group.js",
-        ],
-        dest: "inc/customizer/custom-controls/assets/js/unminified/custom-controls.js",
-      },
-    },
+    //   js: {
+    //     src: [],
+    //     dest: '',
+    //   },
+    // },
     charset: {
       dist: {
         options: {
@@ -450,10 +398,6 @@ module.exports = function (grunt) {
           commentSpacing: true, // Whether to clean up newlines around comments between CSS rules.
         },
         files: {
-          "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css":
-            "inc/customizer/custom-controls/assets/css/unminified/custom-controls.css",
-          "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css":
-            "inc/customizer/custom-controls/assets/css/unminified/custom-controls-rtl.css",
           "assets/css/unminified/compatibility/woocommerce/woocommerce.css":
             "assets/css/unminified/compatibility/woocommerce/woocommerce.css",
           "assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css":

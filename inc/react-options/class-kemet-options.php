@@ -78,7 +78,7 @@ if ( ! class_exists( 'Kemet_Options' ) ) {
 				true
 			);
 
-			wp_enqueue_style( 'kemet-custom-control-css', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix, array( 'wp-components' ), KEMET_THEME_VERSION );
+			wp_enqueue_style( 'kemet-custom-control-css', KEMET_THEME_URI . 'inc/react-options/css/' . $dir . '/style' . $css_prefix, array( 'wp-components' ), KEMET_THEME_VERSION );
 			/**
 			 * Inline styles
 			 */

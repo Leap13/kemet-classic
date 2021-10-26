@@ -1,0 +1,63 @@
+#customize-theme-controls
+  ul.customize-pane-child.accordion-section-content.accordion-section.control-section.control-section-kmt_section.open {
+  height: 100%;
+  padding: 12px 20px 12px 20px !important;
+}
+
+.kmt-options {
+  input {
+    &[type="color"],
+    &[type="date"],
+    &[type="datetime-local"],
+    &[type="datetime"],
+    &[type="email"],
+    &[type="month"],
+    &[type="number"],
+    &[type="password"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="time"],
+    &[type="url"],
+    &[type="week"] {
+      border: 1px solid #dcdddf !important;
+      border-radius: 0 !important;
+    }
+  }
+
+  select {
+    border: 1px solid #dcdddf !important;
+    border-radius: 0 !important;
+  }
+}
+
+.customize-section-title {
+  margin: -12px -20px 0 -20px !important;
+}
+
+#customize-theme-controls .customize-pane-child.accordion-section-content {
+  padding: 12px 20px 25px 20px;
+}
+
+.customize-control-kmt-focus-button {
+  margin-top: 0px !important;
+}
+
+[class*="kmt-control-title"] {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  letter-spacing: 0.1px;
+}
+
+.components-popover__content {
+  border-radius: 0px !important;
+}
+
+.kmt-customize-control.has-divider::before {
+  content: "";
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #dcdcde;
+}

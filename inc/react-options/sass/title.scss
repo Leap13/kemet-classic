@@ -1,0 +1,42 @@
+.customize-control-kmt-title {
+  .customize-control-title {
+    font-size: 13px;
+    background-color: #ffffff;
+    color: #525252;
+    margin: 0px -22px;
+    display: block;
+    padding: 10px 21px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .description.customize-control-description {
+    padding: 7px 0;
+    margin-bottom: 0px;
+    color: #848484 !important;
+    font-size: 12px;
+  }
+}
+
+.description.customize-control-description > * {
+  font-size: 12px;
+}
+
+.customize-control-kmt-row-layout .customize-control-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.customize-control-kmt-text .customize-control-title,
+.customize-control-image .customize-control-title,
+.customize-control-cropped_image .customize-control-title,
+.customize-control-site_icon .customize-control-title {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
