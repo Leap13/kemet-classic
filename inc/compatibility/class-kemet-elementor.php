@@ -50,6 +50,86 @@ if ( ! class_exists( 'Kemet_Elementor' ) ) :
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'elementor_overlay_zindex' ) );
 			add_action( 'elementor/preview/enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 			add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'enqueue_elementor_compatibility_styles' ) );
+			add_action( 'rest_request_after_callbacks', array( $this, 'theme_color_support' ), 999, 3 );
+			add_filter( 'kemet_dynamic_css', array( $this, 'dynamic_css' ) );
+		}
+
+		public function dynamic_css( $dynamic_css ) {
+			$css_content = array(
+				':root' => array(
+					'--e-global-color-kemet_color1' => 'var(--paletteColor1)',
+					'--e-global-color-kemet_color2' => 'var(--paletteColor2)',
+					'--e-global-color-kemet_color3' => 'var(--paletteColor3)',
+					'--e-global-color-kemet_color4' => 'var(--paletteColor4)',
+					'--e-global-color-kemet_color5' => 'var(--paletteColor5)',
+					'--e-global-color-kemet_color6' => 'var(--paletteColor6)',
+					'--e-global-color-kemet_color7' => 'var(--paletteColor7)',
+				),
+			);
+
+			$parse_css = kemet_parse_css( $css_content );
+
+			return $dynamic_css . $parse_css;
+		}
+		public function theme_color_support( $response, $handler, $request ) {
+			$route   = $request->get_route();
+			$rest_id = substr( $route, strrpos( $route, '/' ) + 1 );
+
+			$color_pallets = array(
+				'kemet_color1' => array(
+					'id'    => 'kemet_color1',
+					'title' => __( 'Theme Color Palette 1', 'kemet' ),
+					'value' => 'var(--paletteColor1)',
+				),
+				'kemet_color2' => array(
+					'id'    => 'kemet_color2',
+					'title' => __( 'Theme Color Palette 2', 'kemet' ),
+					'value' => 'var(--paletteColor2)',
+				),
+				'kemet_color3' => array(
+					'id'    => 'kemet_color3',
+					'title' => __( 'Theme Color Palette 3', 'kemet' ),
+					'value' => 'var(--paletteColor3)',
+				),
+				'kemet_color4' => array(
+					'id'    => 'kemet_color4',
+					'title' => __( 'Theme Color Palette 4', 'kemet' ),
+					'value' => 'var(--paletteColor4)',
+				),
+				'kemet_color5' => array(
+					'id'    => 'kemet_color5',
+					'title' => __( 'Theme Color Palette 5', 'kemet' ),
+					'value' => 'var(--paletteColor5)',
+				),
+				'kemet_color6' => array(
+					'id'    => 'kemet_color6',
+					'title' => __( 'Theme Color Palette 6', 'kemet' ),
+					'value' => 'var(--paletteColor6)',
+				),
+				'kemet_color7' => array(
+					'id'    => 'kemet_color7',
+					'title' => __( 'Theme Color Palette 7', 'kemet' ),
+					'value' => 'var(--paletteColor7)',
+				),
+			);
+
+			if ( isset( $color_pallets[ $rest_id ] ) ) {
+				return new \WP_REST_Response( $color_pallets[ $rest_id ] );
+			}
+
+			if ( '/elementor/v1/globals' === $route ) {
+				$data         = $response->get_data();
+				$color_pallet = kemet_get_option( 'colorPalette' );
+				foreach ( $color_pallets as $key => $value ) {
+					$color_key      = str_replace( 'kemet_', '', $key );
+					$value['value'] = $color_pallet[ $color_key ];
+
+					$data['colors'][ $key ] = $value;
+				}
+				$response->set_data( $data );
+			}
+
+			return $response;
 		}
 
 		/**
