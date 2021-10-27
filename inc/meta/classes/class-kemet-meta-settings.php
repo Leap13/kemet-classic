@@ -218,20 +218,7 @@ if ( ! class_exists( 'Kemet_Meta_Settings' ) ) {
 			} else {
 				$post_type_name = $post_type;
 			}
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
-			if ( SCRIPT_DEBUG ) {
-				$css_prefix = '.css';
-				$dir        = 'unminified';
-			}
 
-			if ( is_rtl() ) {
-				$css_prefix = '-rtl.min.css';
-				if ( SCRIPT_DEBUG ) {
-					$css_prefix = '-rtl.css';
-				}
-			}
-			wp_enqueue_style( 'kemet-meta', KEMET_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir . '/custom-controls' . $css_prefix, array( 'wp-components' ), KEMET_THEME_VERSION );
 			wp_enqueue_script(
 				'kemet-meta',
 				KEMET_THEME_URI . 'inc/meta/assets/js/build/index.js',
