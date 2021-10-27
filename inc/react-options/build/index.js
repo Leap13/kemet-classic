@@ -23957,7 +23957,7 @@ var IconPicker = function IconPicker(_ref) {
   var label = params.label;
   var el = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useRef"])();
   var defaultValue = {
-    icon: ""
+    icon: null
   };
 
   var _useState = Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["useState"])(""),
@@ -23977,19 +23977,12 @@ var IconPicker = function IconPicker(_ref) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-icon-container "
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
-    className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      onChange(_objectSpread({}, defaultValue));
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     ref: el
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-icon__Wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_common_outside_component__WEBPACK_IMPORTED_MODULE_3__["default"], {
     useCapture: false,
     disabled: !isPicking,
@@ -24043,7 +24036,16 @@ var IconPicker = function IconPicker(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
-  }, __("Remove Icon", "Kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "Kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_Icon_control_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, __("Remove Icon", "Kemet"))))) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", null, __("Select", "Kemet"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    className: "kmt-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
+    className: "kmt-reset-btn ",
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    onClick: function onClick(e) {
+      e.preventDefault();
+      onChange(_objectSpread({}, defaultValue));
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_Icon_control_Modal__WEBPACK_IMPORTED_MODULE_5__["default"], {
     el: el,
     value: value,
     onChange: onChange,
