@@ -64,6 +64,8 @@ if ( ! class_exists( 'Kemet_Options' ) ) {
 				}
 			}
 
+			wp_enqueue_media();
+
 			wp_enqueue_script(
 				'kemet-react-custom-control-script',
 				KEMET_THEME_URI . 'inc/react-options/build/index.js',
