@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { useState, useEffect } from 'react';
 
 const EditorComponent = props => {
@@ -70,7 +71,7 @@ const EditorComponent = props => {
 
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
-    return <>
+    return <Fragment>
         {labelContent}
         <div className="customize-control-content">
             <textarea
@@ -82,7 +83,7 @@ const EditorComponent = props => {
                 }}
             />
         </div>
-    </>;
+    </Fragment>;
 
 };
 

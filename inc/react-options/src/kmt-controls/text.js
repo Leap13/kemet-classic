@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { useState } from 'react';
 
 const TextComponent = ({ onChange, value, params }) => {
@@ -8,7 +9,7 @@ const TextComponent = ({ onChange, value, params }) => {
 
     let labelContent = label ? <span className="customize-control-title kmt-control-title">{label}</span> : null;
 
-    return <>
+    return <Fragment>
         {labelContent}
         <div className="customize-control-content">
             <input type='text' value={props_value} onChange={({ target: { value: input } }) => {
@@ -17,7 +18,7 @@ const TextComponent = ({ onChange, value, params }) => {
             }}
             />
         </div>
-    </>;
+    </Fragment>;
 
 };
 

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import ColorComponent from './color';
 import { useEffect, useState } from 'react';
 import Responsive from '../common/responsive'
+import { Fragment } from 'react';
 const { __ } = wp.i18n;
 
 const KemetColorComponent = props => {
@@ -31,7 +32,7 @@ const KemetColorComponent = props => {
     const [state, setState] = useState(value);
     const [device, setDevice] = useState('desktop');
     const renderOperationButtons = () => {
-        return <>
+        return <Fragment>
             <div className="kmt-color-btn-reset-wrap">
                 <button
                     className="kmt-reset-btn"
@@ -47,7 +48,7 @@ const KemetColorComponent = props => {
                     }}>
                 </button>
             </div>
-        </>;
+        </Fragment>;
     };
 
     const handleChangeComplete = (color, id) => {
@@ -82,10 +83,10 @@ const KemetColorComponent = props => {
                 onChangeComplete={(color) => handleChangeComplete(color, picker[`id`])}
             />
     );
-    let optionsHtml = responsive ? <>{renderInputHtml(device, 'active')} </> :
-        <>
+    let optionsHtml = responsive ? <Fragment>{renderInputHtml(device, 'active')} </Fragment> :
+        <Fragment>
             {renderInputHtml('')}
-        </>;
+        </Fragment>;
 
 
     const {

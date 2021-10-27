@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 import { useState, useEffect, useRef } from 'react';
 const SelectComponent = ({ onChange, params, value }) => {
 
@@ -42,7 +43,7 @@ const SelectComponent = ({ onChange, params, value }) => {
         }
         return html;
     });
-    return <>
+    return <Fragment>
         {labelContent}
         <div className="customize-control-content">
             <select ref={select} className={`kmt-select-input${customClass ? ' ' + customClass : ''}`} data-name={name} data-value={props_value} value={props_value}
@@ -53,7 +54,7 @@ const SelectComponent = ({ onChange, params, value }) => {
             </select>
             {description && <p className="description customize-control-description" >{description}</p>}
         </div>
-    </>;
+    </Fragment>;
 
 };
 

@@ -19,6 +19,7 @@ const IconPicker = ({ value, onChange, params }) => {
     let defaultValue = {
         icon: null,
     };
+
     const [searchString, setSearchString] = useState("");
 
     const [{ isPicking, isTransitioning }, setAnimationState] = useState({

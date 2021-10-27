@@ -138,7 +138,7 @@ const PickerModal = ({
                 )}
 
                 {refresh && (
-                    <>
+                    <Fragment>
                         <ColorPicker
                             color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
@@ -157,10 +157,10 @@ const PickerModal = ({
                                 <p className={`kmt-reset__description`}>{__(`This will reset the current color to the default one.`, "kemet")}</p>
                             </div>
                         )}
-                    </>
+                    </Fragment>
                 )}
                 {!refresh && (
-                    <>
+                    <Fragment>
                         <ColorPicker
                             color={getValueForPicker.color}
                             onChangeComplete={(color) => onChange(color)}
@@ -179,7 +179,7 @@ const PickerModal = ({
                                 <p className={`kmt-reset__description`}>{__(`This will reset the current color to the default one.`, "kemet")}</p>
                             </div>
                         )}
-                    </>
+                    </Fragment>
                 )}
             </div>
         </Fragment >

@@ -21447,7 +21447,7 @@ var Responsive = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var label = this.props.label;
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Fragment, null, label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
         className: "customize-control-title kmt-control-title"
       }, label) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("ul", {
         className: "kmt-responsive-control-btns kmt-responsive-slider-btns"
@@ -21823,6 +21823,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_media_utils__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -21831,6 +21833,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var __ = wp.i18n.__;
+
 
 
 
@@ -21852,7 +21855,7 @@ var CustomIcon = function CustomIcon(_ref) {
     value: value.icon ? value.icon : "",
     render: function render(_ref2) {
       var open = _ref2.open;
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, !value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, !value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         className: "upload-button button-add-media",
         isDefault: true,
         onClick: function onClick() {
@@ -22144,6 +22147,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var BackgroundComponent = function BackgroundComponent(props) {
   var value = props.value;
   var responsive = props.params.responsive;
@@ -22227,7 +22231,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
 
   var renderSettings = function renderSettings() {
     var renderBackground = responsive ? props_value[device] : props_value;
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_kmt_background__WEBPACK_IMPORTED_MODULE_5__["default"], {
       text: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__["__"])("Background", "Kemet"),
       onSelect: function onSelect(type) {
         return onSelectType(type);
@@ -22309,7 +22313,7 @@ var BackgroundComponent = function BackgroundComponent(props) {
       updateValue(defaultVals);
     }
   })));
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, inputHtml);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, inputHtml);
 };
 
 BackgroundComponent.propTypes = {
@@ -22340,6 +22344,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./color */ "./src/kmt-controls/color.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -22348,6 +22354,7 @@ __webpack_require__.r(__webpack_exports__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 
 
 
@@ -22476,7 +22483,7 @@ var Border = function Border(_ref) {
         "data-style": style
       }, style === "none" ? __("None", "Kemet") : null);
     }));
-  })))), value.style !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  })))), value.style !== "none" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(react__WEBPACK_IMPORTED_MODULE_7__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])(_color__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onChangeComplete: function onChangeComplete(colorValue) {
       return handleChangeComplete(colorValue, 'color');
     },
@@ -23734,6 +23741,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var EditorComponent = function EditorComponent(props) {
   var editorId = props.id + 'editor';
 
@@ -23811,7 +23819,7 @@ var EditorComponent = function EditorComponent(props) {
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label) : null;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("textarea", {
     className: "kmt-control-tinymce-editor wp-editor-area",
@@ -24215,6 +24223,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var __ = wp.i18n.__;
 
 var KemetColorComponent = function KemetColorComponent(props) {
@@ -24255,7 +24264,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
       setDevice = _useState4[1];
 
   var renderOperationButtons = function renderOperationButtons() {
-    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+    return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
       className: "kmt-color-btn-reset-wrap"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("button", {
       className: "kmt-reset-btn",
@@ -24322,7 +24331,7 @@ var KemetColorComponent = function KemetColorComponent(props) {
     });
   };
 
-  var optionsHtml = responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml(device, 'active'), " ") : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, renderInputHtml(''));
+  var optionsHtml = responsive ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, renderInputHtml(device, 'active'), " ") : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_5__["Fragment"], null, renderInputHtml(''));
   var _props$params2 = props.params,
       label = _props$params2.label,
       description = _props$params2.description;
@@ -24834,6 +24843,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var SelectComponent = function SelectComponent(_ref) {
   var onChange = _ref.onChange,
       params = _ref.params,
@@ -24889,7 +24899,7 @@ var SelectComponent = function SelectComponent(_ref) {
 
     return html;
   });
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(react__WEBPACK_IMPORTED_MODULE_4__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "customize-control-content"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("select", {
     ref: select,
@@ -25601,6 +25611,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var TextComponent = function TextComponent(_ref) {
   var _onChange = _ref.onChange,
       value = _ref.value,
@@ -25615,7 +25626,7 @@ var TextComponent = function TextComponent(_ref) {
   var labelContent = label ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("span", {
     className: "customize-control-title kmt-control-title"
   }, label) : null;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(react__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, labelContent, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "customize-control-content"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
     type: "text",

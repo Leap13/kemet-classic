@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Background from "./kmt-background";
 import { __ } from "@wordpress/i18n";
 import Responsive from "../common/responsive";
+import { Fragment } from "react";
 
 const BackgroundComponent = (props) => {
     let value = props.value;
@@ -87,7 +88,7 @@ const BackgroundComponent = (props) => {
         let renderBackground = responsive ? props_value[device] : props_value;
 
         return (
-            <>
+            <Fragment >
                 <Background
                     text={__("Background", "Kemet")}
                     onSelect={(type) => onSelectType(type)}
@@ -155,7 +156,7 @@ const BackgroundComponent = (props) => {
                             : "color"
                     }
                 />
-            </>
+            </Fragment>
         );
     };
     const handleChangeGradient = (gradient) => {
@@ -228,7 +229,7 @@ const BackgroundComponent = (props) => {
         </div>
     );
 
-    return <>{inputHtml}</>;
+    return <Fragment>{inputHtml}</Fragment>;
 };
 
 BackgroundComponent.propTypes = {

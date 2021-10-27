@@ -2,6 +2,7 @@ import { useState } from "@wordpress/element";
 import OutsideClickHandler from "../common/outside-component";
 import classnames from "classnames";
 import ColorComponent from "./color";
+import { Fragment } from "react";
 const { __ } = wp.i18n;
 const clamp = (min, max, value) => Math.max(min, Math.min(max, value));
 const Border = ({ value, onChange, params }) => {
@@ -145,7 +146,7 @@ const Border = ({ value, onChange, params }) => {
                         </ul>
                     </OutsideClickHandler>
                 </div>
-                {value.style !== "none" && <>
+                {value.style !== "none" && <Fragment>
                     <ColorComponent
                         onChangeComplete={(colorValue) =>
                             handleChangeComplete(colorValue, 'color')
@@ -169,7 +170,7 @@ const Border = ({ value, onChange, params }) => {
                             value={{ default: value.secondColor }}
                         />
                     )}
-                </>}
+                </Fragment>}
             </div>
         </div>
     );

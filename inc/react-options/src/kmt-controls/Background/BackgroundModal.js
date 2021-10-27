@@ -45,7 +45,7 @@ const BackgroundModal = (props) => {
 
 
         return (
-            <>
+            <Fragment>
                 <div className='kmt-control kmt-image-actions'>
                     <MediaUpload
                         title={__("Select Background Image", 'kemet')}
@@ -53,7 +53,7 @@ const BackgroundModal = (props) => {
                         allowedTypes={["image"]}
                         value={(props.media && props.media ? props.media : '')}
                         render={({ open }) => (
-                            <>
+                            <Fragment>
                                 {!props.media &&
                                     <div className="kmt-control kmt-image-actions">
                                         < Button className="upload-button button-add-media" isDefault onClick={() => open(open)}>
@@ -71,11 +71,11 @@ const BackgroundModal = (props) => {
                                         <Button type="button" className="button edit-image" onClick={() => open(open)}>
                                         </Button>
                                     </div>}
-                            </>
+                            </Fragment>
                         )}
                     />
                     {(props.media && props.backgroundType === "image") &&
-                        <>
+                        <Fragment>
                             <div className={`thumbnail thumbnail-image`}>
                                 <FocalPointPicker
                                     url={(props.media.url) ? props.media.url : props.backgroundImage}
@@ -85,7 +85,7 @@ const BackgroundModal = (props) => {
                                 />
 
                             </div>
-                        </>
+                        </Fragment>
                     }
                 </div>
                 <div className="kmt-control">
@@ -178,7 +178,7 @@ const BackgroundModal = (props) => {
                         </ul>
                     </section>
                 </div>
-            </>
+            </Fragment>
         );
     };
     const allGradients = [
