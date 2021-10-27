@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Fragment } from 'react';
 const { __ } = wp.i18n;
 
 
