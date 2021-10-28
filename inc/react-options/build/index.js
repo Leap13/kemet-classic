@@ -21368,7 +21368,7 @@ var usePopoverMaker = function usePopoverMaker() {
     styles: _objectSpread({
       '--modal-y-offset': "".concat(yOffset, "px"),
       '--modal-x-offset': "".concat(right, "px"),
-      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 39 : 270, "px")
+      '--modalWidth': "".concat(modalWidth - 39 > 240 ? modalWidth - 39 : 270, "px")
     }, otherStyles),
     position: position,
     popoverProps: _objectSpread({
