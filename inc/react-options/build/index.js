@@ -21368,7 +21368,7 @@ var usePopoverMaker = function usePopoverMaker() {
     styles: _objectSpread({
       '--modal-y-offset': "".concat(yOffset, "px"),
       '--modal-x-offset': "".concat(right, "px"),
-      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 38 : 270, "px")
+      '--modalWidth': "".concat(modalWidth > 200 ? modalWidth - 39 : 270, "px")
     }, otherStyles),
     position: position,
     popoverProps: _objectSpread({
@@ -21846,7 +21846,7 @@ var CustomIcon = function CustomIcon(_ref) {
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_media_utils__WEBPACK_IMPORTED_MODULE_2__["MediaUpload"], {
     title: __("Select Icon", "Kemet"),
     onSelect: function onSelect(data) {
-      onChange(_objectSpread(_objectSpread({}, value), data));
+      onChange(_objectSpread(_objectSpread({}, data), value));
     },
     allowedTypes: ["image/svg+xml"],
     value: value.icon ? value.icon : "",
@@ -21858,7 +21858,7 @@ var CustomIcon = function CustomIcon(_ref) {
         onClick: function onClick() {
           return openSelect(open);
         }
-      }, __("Select Background Image", "Kemet")), value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+      }, __("Upload Icon", "Kemet")), value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
         class: "attachment-media-view "
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
         class: "thumbnail thumbnail-image"
@@ -23586,7 +23586,7 @@ var SinglePicker = function SinglePicker(_ref) {
       onPickingChange(futureIsPicking);
     },
     style: {
-      backgroundColor: value
+      background: "".concat(value, " none repeat scroll 0% 0%")
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("i", {
     className: "kmt-tooltip-top"
@@ -23975,6 +23975,16 @@ var IconPicker = function IconPicker(_ref) {
       isTransitioning = _useState4$.isTransitioning,
       setAnimationState = _useState4[1];
 
+  console.log(value);
+
+  var handleRemoveIcon = function handleRemoveIcon() {
+    value.source !== "attachment" ? onChange(_objectSpread(_objectSpread({}, value), {}, {
+      icon: ''
+    })) : onChange(_objectSpread(_objectSpread({}, value), {}, {
+      url: ''
+    }));
+  };
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
     className: "kmt-icon-container "
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
@@ -24015,7 +24025,7 @@ var IconPicker = function IconPicker(_ref) {
     }
   }, correctIcon ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, value.source !== "attachment" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
     className: "kmt-icon-preview ".concat(value.icon)
-  }), value.source === "attachment" && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
+  }), value.source === "attachment" && value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("i", {
     className: "kmt-icon-preview"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("img", {
     src: value.url
@@ -24030,9 +24040,7 @@ var IconPicker = function IconPicker(_ref) {
     onClick: function onClick(e) {
       e.preventDefault();
       e.stopPropagation();
-      onChange(_objectSpread(_objectSpread({}, value), {}, {
-        icon: ""
-      }));
+      handleRemoveIcon();
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("span", {
     className: "kmt-tooltip-top"
@@ -24069,12 +24077,6 @@ var IconPicker = function IconPicker(_ref) {
       });
     }
   })));
-};
-
-IconPicker.ControlEnd = function () {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__["createElement"])("div", {
-    className: "kmt-color-modal-wrapper"
-  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IconPicker);

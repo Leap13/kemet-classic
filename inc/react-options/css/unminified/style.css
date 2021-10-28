@@ -741,6 +741,7 @@ div.kmt-type-control span:not(:first-child) {
   border: 1px solid #eaeaeb;
   background-color: #fbfbfb;
   justify-content: space-between;
+  margin: 0px 1px;
 }
 
 .kmt-palettes-preview .kmt-palette-toggle-modal header {
@@ -794,6 +795,7 @@ div.kmt-type-control span:not(:first-child) {
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
   justify-content: space-between;
+  margin-left: -5px;
 }
 
 .kmt-palettes-modal .kmt-tooltip-top {
@@ -823,6 +825,7 @@ div.kmt-type-control span:not(:first-child) {
   text-decoration: none;
   border-radius: inherit;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transform: scale(1.04);
 }
 
 .kmt-edit-palette {
@@ -1549,6 +1552,7 @@ button.kmt-delete-palette::before {
 
 .kmt-color-palette-container .kmt-color-Wrapper:first-child {
   z-index: 10;
+  margin-right: 4px;
 }
 
 .kmt-color-palette-container .kmt-color-Wrapper:nth-child(2) {
@@ -1588,7 +1592,7 @@ button.kmt-delete-palette::before {
 .kmt-palettes-modal .kmt_label_type__palette {
   background-color: #efeff1;
   height: 30px;
-  padding: 6px 15px;
+  padding: 6px 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
@@ -1632,6 +1636,11 @@ button.kmt-delete-palette::before {
     padding: 5px;
     margin: 5px;
   }
+}
+
+.kmt-option-modal.kmt-palettes-modal {
+  position: absolute;
+  left: -1px !important;
 }
 
 .customize-control-kmt-color {
@@ -1812,7 +1821,7 @@ span.kmt-color-description {
   display: flex;
   width: 28px;
   height: 28px;
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
   background-size: 10px 10px;
   background-position: 0 0, 0 5px, 5px -5px, -5px 0;
@@ -1907,7 +1916,6 @@ span.kmt-color-description {
   right: var(--modal-x-offset);
   border-radius: 0px;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  z-index: 500000;
 }
 
 .kmt-option-modal[data-position="bottom"] {
@@ -1918,6 +1926,10 @@ span.kmt-color-description {
 .kmt-option-modal[data-position="top"] {
   bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
   transform-origin: center bottom;
+}
+
+.wp-customizer .kmt-option-modal {
+  z-index: 500000;
 }
 
 .block-editor-page .kmt-option-modal {
@@ -4448,7 +4460,7 @@ input[type="checkbox"]:focus {
   border: var 1px solid #ddd !important;
   border-radius: 3px !important;
   box-shadow: 0 0 0 0 transparent;
-  transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
+  transition: box-shadow 0.1s linear, background 0.1s linear, border-radius 0.1s linear, border-color 0.1s linear;
 }
 
 .kmt-upload-icon-container {
@@ -6986,7 +6998,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 }
 
 .rfipbtn {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.71429;
   vertical-align: baseline;
@@ -7033,7 +7045,7 @@ span.kmt-svg-iconset.svg-baseline svg circle {
 }
 
 .rfipdropdown {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   line-height: 1.71429;
   vertical-align: baseline;
