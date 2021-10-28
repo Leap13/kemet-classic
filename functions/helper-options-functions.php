@@ -260,6 +260,43 @@ if ( ! function_exists( 'kemet_slider' ) ) {
 }
 
 /**
+ * Get Slider
+ */
+if ( ! function_exists( 'kemet_border' ) ) {
+
+	/**
+	 * Get Spacing value
+	 *
+	 * @param  array  $option    CSS value.
+	 * @param  string $device  CSS device.
+	 * @param  string $default Default value.
+	 * @return mixed
+	 */
+	function kemet_border( $option, $default = array() ) {
+		if ( ! is_array( $option ) || ( '' == $option && empty( $default ) ) ) {
+			return '';
+		}
+
+		$default_value = array(
+			'style' => 'none',
+			'width' => 1,
+			'color' => 'var(--borderColor)',
+		);
+		$default       = array_merge( $default_value, $default );
+		$value         = $option;
+		if ( 'none' === $value['style'] ) {
+			return 'none';
+		}
+		$style  = $value['style'] ? $value['style'] : $default['style'];
+		$width  = $value['width'] ? $value['width'] : $default['width'];
+		$color  = $value['color'] ? $value['color'] : $default['color'];
+		$border = $width . 'px ' . $style . ' ' . $color;
+
+		return $border;
+	}
+}
+
+/**
  * Get Font Size value
  */
 if ( ! function_exists( 'kemet_get_font_css_value' ) ) {
