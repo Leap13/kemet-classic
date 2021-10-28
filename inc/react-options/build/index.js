@@ -22405,20 +22405,11 @@ var Border = function Border(_ref) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-border-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      setState(_objectSpread({}, defaultValue));
-
-      _onChange(_objectSpread({}, defaultValue));
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-border__wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-option-border")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-value-changer", (_classnames = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "active", isOpen), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "kmt-disabled", value.style === "none"), _classnames))
@@ -22497,6 +22488,17 @@ var Border = function Border(_ref) {
     },
     value: {
       default: value.secondColor
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "kmt-reset-btn ",
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    onClick: function onClick(e) {
+      e.preventDefault();
+      setState(_objectSpread({}, defaultValue));
+
+      _onChange(_objectSpread({}, defaultValue));
     }
   }))));
 };

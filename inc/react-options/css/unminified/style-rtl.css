@@ -10933,3 +10933,282 @@ i.fipicon-angle-left:before {
     font-size: 7px;
   }
 }
+
+.kmt-border-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kmt-border-container header .customize-control-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn {
+  color: #006ba1;
+  font-size: 10px;
+  padding: 0px 6px;
+  background: transparent;
+  box-shadow: none;
+  outline: 0;
+  border: 0;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: dashicons;
+  padding: 0;
+  opacity: 1;
+  border: none;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn::before {
+  content: "\f531";
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease;
+}
+
+.kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover::before .kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn:hover:not(:disabled):before {
+  transform: rotate(45deg);
+}
+
+.kmt-border-container header .kmt-btn-reset-wrap .kmt-reset-btn:focus {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.kmt-border-container:hover header .kmt-btn-reset-wrap .kmt-reset-btn:not(:disabled) {
+  opacity: 1;
+}
+
+.kmt-border-container .kmt-option-border {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 8px;
+}
+
+.kmt-border-container .kmt-option-border > *:first-child {
+  order: 2;
+  margin-right: 10px;
+}
+
+.kmt-border-container .kmt-option-border .kmt-disabled {
+  justify-content: center;
+}
+
+.kmt-border-container .kmt-option-border [data-style]:before {
+  content: "";
+  width: 22px;
+  border-bottom-width: 2px;
+  border-bottom-color: currentColor;
+}
+
+.kmt-border-container .kmt-option-border [data-style="dotted"]:before {
+  border-bottom-style: dotted;
+}
+
+.kmt-border-container .kmt-option-border [data-style="solid"]:before {
+  border-bottom-style: solid;
+}
+
+.kmt-border-container .kmt-option-border [data-style="dashed"]:before {
+  border-bottom-style: dashed;
+}
+
+.kmt-border-container .kmt-option-border [data-style="none"] {
+  font-size: 9px;
+}
+
+.kmt-border-container .kmt-option-border [data-style="none"]:before {
+  display: none;
+}
+
+.kmt-option-border .kmt-disabled input {
+  display: none;
+}
+
+.kmt-option-border .kmt-disabled .kmt-value-divider {
+  display: none;
+}
+
+.kmt-option-border .kmt-disabled ~ .kmt-color-picker-container {
+  display: none;
+}
+
+.kmt-option-border .kmt-color-picker-container:not(:last-child) {
+  margin-left: 10px;
+}
+
+.kmt-value-changer {
+  display: flex;
+  align-items: center;
+  min-width: 75px;
+  height: 30px;
+  padding: 1px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: background 0.1s ease, border-color 0.1s ease;
+  position: relative;
+}
+
+.kmt-value-changer input[type="number"] {
+  width: 38px;
+  padding: 0 0 1px 0;
+  margin: -1px -2px -1px -1px;
+  font-size: 11px;
+  border-color: transparent;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.kmt-value-changer input[type="number"]:focus {
+  --background: #fff;
+}
+
+.kmt-value-changer input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.kmt-value-changer input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.kmt-value-changer:not(.no-unit-list) .kmt-current-value {
+  cursor: pointer;
+}
+
+.kmt-value-changer:not(.no-unit-list) .kmt-current-value:hover {
+  color: var(--primaryColor);
+}
+
+.kmt-value-changer ul {
+  position: absolute;
+  z-index: 3;
+  top: -1px;
+  right: -1px;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% + 2px);
+  padding: 2px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: var(--option-modal-shadown, 0 15px 15px rgba(0, 0, 0, 0.08));
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: center top;
+  transform: scale3d(0.95, 0.95, 1);
+  transition: opacity 0.1s ease, visibility 0.1s ease, transform 0.1s ease-out;
+}
+
+.kmt-value-changer ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kmt-value-changer ul li:not(:last-child) {
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px dashed #eee;
+}
+
+.kmt-value-changer ul li:last-child {
+  margin-bottom: 0;
+}
+
+.kmt-value-changer ul li span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #555d66;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.kmt-value-changer ul li span:first-child {
+  width: calc(50% - 3px);
+}
+
+.kmt-value-changer ul li span:last-child {
+  width: calc(50% - 2px);
+}
+
+.kmt-value-changer ul li span:hover {
+  color: #fff;
+  background: var(--primaryColor);
+}
+
+.kmt-value-changer ul:after {
+  position: absolute;
+  content: "";
+  top: 3px;
+  right: 0px;
+  left: 0;
+  margin: 0 auto;
+  width: 1px;
+  height: calc(100% - 6px);
+  border-right: 1px dashed #eee;
+}
+
+.kmt-value-divider {
+  height: 50%;
+  border-right: 1px solid #ccc;
+}
+
+.kmt-current-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 100%;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: color 0.1s ease, font-weight 0.1s ease;
+}
+
+.kmt-value-changer.active {
+  background: transparent;
+}
+
+.kmt-value-changer.active ul {
+  opacity: 1;
+  visibility: visible;
+  transform: scale3d(1, 1, 1);
+}
+
+.kmt-border__wrapper {
+  display: flex;
+  align-items: center;
+}
