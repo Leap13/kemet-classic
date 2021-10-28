@@ -22405,20 +22405,11 @@ var Border = function Border(_ref) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: "kmt-border-container"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
-    className: "kmt-btn-reset-wrap"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
-    className: "kmt-reset-btn ",
-    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
-    onClick: function onClick(e) {
-      e.preventDefault();
-      setState(_objectSpread({}, defaultValue));
-
-      _onChange(_objectSpread({}, defaultValue));
-    }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("header", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("span", {
     className: "customize-control-title"
   }, label)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-border__wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-option-border")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("kmt-value-changer", (_classnames = {}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "active", isOpen), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_classnames, "kmt-disabled", value.style === "none"), _classnames))
@@ -22497,6 +22488,17 @@ var Border = function Border(_ref) {
     },
     value: {
       default: value.secondColor
+    }
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+    className: "kmt-btn-reset-wrap"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
+    className: "kmt-reset-btn ",
+    disabled: JSON.stringify(defaultValue) === JSON.stringify(value),
+    onClick: function onClick(e) {
+      e.preventDefault();
+      setState(_objectSpread({}, defaultValue));
+
+      _onChange(_objectSpread({}, defaultValue));
     }
   }))));
 };
@@ -23246,7 +23248,9 @@ var ColorPalettes = function ColorPalettes(_ref) {
     }
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("p", {
     className: __("kmt-palette-popup-content")
-  }, __("You are about to delete ", "kemet"), " ", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("q", null, "\"", delPalette[0].name, "\""), " ", __(".This palette cannot be restored, are you sure you want to delete it", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
+  }, __("You are about to delete", "kemet"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("q", {
+    className: "kmt-deleted-palette__name"
+  }, "\"", delPalette[0].name, "\""), __(". This palette cannot be restored, are you sure you want to delete it ?", "kemet")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("div", {
     className: __("kmt-paltette-popup-action")
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_3__["createElement"])("button", {
     type: "button",

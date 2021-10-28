@@ -37,6 +37,127 @@ const Border = ({ value, onChange, params }) => {
     return (
         <div className={`kmt-border-container`}>
             <header>
+                <span className="customize-control-title">{label}</span>
+            </header>
+            <div className={`kmt-border__wrapper`}>
+                <div className={classnames("kmt-option-border")}>
+                    <div
+                        className={classnames("kmt-value-changer", {
+                            ["active"]: isOpen,
+                            ["kmt-disabled"]: value.style === "none",
+                        })}
+                    >
+                        <input
+                            type="number"
+                            value={value.width}
+                            onChange={({ target: { value: width } }) => {
+                                setState({
+                                    ...value,
+                                    width: width,
+                                });
+                                onChange({
+                                    ...value,
+                                    width: width,
+                                });
+                            }}
+                        />
+
+                        <span className="kmt-value-divider"></span>
+
+                        <span
+                            className="kmt-current-value"
+                            data-style={value.inherit ? "none" : value.style}
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            {value.style === "none" ? value.style : null}
+                        </span>
+                        <OutsideClickHandler
+                            disabled={!isOpen}
+                            onOutsideClick={() => {
+                                if (!isOpen) return;
+                                setIsOpen(false);
+                            }}
+                        >
+                            <ul className="kmt-styles-list">
+                                {["solid", "dashed", "dotted", "none"]
+                                    .reduce(
+                                        (current, el, index) => [
+                                            ...current.slice(
+                                                0,
+                                                index % 2 === 0 ? undefined : -1
+                                            ),
+                                            ...(index % 2 === 0
+                                                ? [[el]]
+                                                : [
+                                                    [
+                                                        current[
+                                                        current.length - 1
+                                                        ][0],
+                                                        el,
+                                                    ],
+                                                ]),
+                                        ],
+                                        []
+                                    )
+                                    .map((group) =>
+                                    (
+                                        <li key={group[0]}>
+                                            {group.map((style) => (
+                                                <span
+                                                    className={classnames({
+                                                        active:
+                                                            style === value.style,
+                                                    })}
+                                                    key={style}
+                                                    onClick={() => {
+                                                        setState({
+                                                            ...value,
+                                                            style,
+                                                        });
+                                                        onChange({
+                                                            ...value,
+                                                            style,
+                                                        });
+                                                        setIsOpen(false);
+                                                    }}
+                                                    data-style={style}
+                                                >
+                                                    {style === "none"
+                                                        ? __("None", "Kemet")
+                                                        : null}
+                                                </span>
+                                            ))}
+                                        </li>
+                                    ))}
+                            </ul>
+                        </OutsideClickHandler>
+                    </div>
+                    {value.style !== "none" && <>
+                        <ColorComponent
+                            onChangeComplete={(colorValue) =>
+                                handleChangeComplete(colorValue, 'color')
+                            }
+                            picker={{
+                                id: "default",
+                                title: __("Initial", "kemet"),
+                            }}
+                            value={{ default: value.color }}
+                        />
+
+                        {secondColor && (
+                            <ColorComponent
+                                onChangeComplete={(colorValue) =>
+                                    handleChangeComplete(colorValue, 'secondColor')
+                                }
+                                picker={{
+                                    id: "default",
+                                    title: __("Hover", "kemet"),
+                                }}
+                                value={{ default: value.secondColor }}
+                            />
+                        )}
+                    </>}
+                </div>
                 <div className="kmt-btn-reset-wrap">
                     <button
                         className="kmt-reset-btn "
@@ -51,125 +172,6 @@ const Border = ({ value, onChange, params }) => {
                         }}
                     ></button>
                 </div>
-                <span className="customize-control-title">{label}</span>
-            </header>
-            <div className={classnames("kmt-option-border")}>
-                <div
-                    className={classnames("kmt-value-changer", {
-                        ["active"]: isOpen,
-                        ["kmt-disabled"]: value.style === "none",
-                    })}
-                >
-                    <input
-                        type="number"
-                        value={value.width}
-                        onChange={({ target: { value: width } }) => {
-                            setState({
-                                ...value,
-                                width: width,
-                            });
-                            onChange({
-                                ...value,
-                                width: width,
-                            });
-                        }}
-                    />
-
-                    <span className="kmt-value-divider"></span>
-
-                    <span
-                        className="kmt-current-value"
-                        data-style={value.inherit ? "none" : value.style}
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {value.style === "none" ? value.style : null}
-                    </span>
-                    <OutsideClickHandler
-                        disabled={!isOpen}
-                        onOutsideClick={() => {
-                            if (!isOpen) return;
-                            setIsOpen(false);
-                        }}
-                    >
-                        <ul className="kmt-styles-list">
-                            {["solid", "dashed", "dotted", "none"]
-                                .reduce(
-                                    (current, el, index) => [
-                                        ...current.slice(
-                                            0,
-                                            index % 2 === 0 ? undefined : -1
-                                        ),
-                                        ...(index % 2 === 0
-                                            ? [[el]]
-                                            : [
-                                                [
-                                                    current[
-                                                    current.length - 1
-                                                    ][0],
-                                                    el,
-                                                ],
-                                            ]),
-                                    ],
-                                    []
-                                )
-                                .map((group) =>
-                                (
-                                    <li key={group[0]}>
-                                        {group.map((style) => (
-                                            <span
-                                                className={classnames({
-                                                    active:
-                                                        style === value.style,
-                                                })}
-                                                key={style}
-                                                onClick={() => {
-                                                    setState({
-                                                        ...value,
-                                                        style,
-                                                    });
-                                                    onChange({
-                                                        ...value,
-                                                        style,
-                                                    });
-                                                    setIsOpen(false);
-                                                }}
-                                                data-style={style}
-                                            >
-                                                {style === "none"
-                                                    ? __("None", "Kemet")
-                                                    : null}
-                                            </span>
-                                        ))}
-                                    </li>
-                                ))}
-                        </ul>
-                    </OutsideClickHandler>
-                </div>
-                {value.style !== "none" && <>
-                    <ColorComponent
-                        onChangeComplete={(colorValue) =>
-                            handleChangeComplete(colorValue, 'color')
-                        }
-                        picker={{
-                            id: "default",
-                            title: __("Initial", "kemet"),
-                        }}
-                        value={{ default: value.color }}
-                    />
-
-                    {secondColor && (
-                        <ColorComponent
-                            onChangeComplete={(colorValue) =>
-                                handleChangeComplete(colorValue, 'secondColor')
-                            }
-                            picker={{
-                                id: "default",
-                                title: __("Hover", "kemet"),
-                            }}
-                            value={{ default: value.secondColor }}
-                        />
-                    )}
-                </>}
             </div>
         </div>
     );

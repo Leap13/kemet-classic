@@ -229,8 +229,7 @@ const usePopoverMaker = ({
             '--modalWidth': `${modalWidth - 39 > 240 ? modalWidth - 39 : 270}px`,
 
             ...otherStyles,
-            // [position === 'bottom' ? 'top' : 'bottom']: `${yOffset}px`,
-            // right: `${right}px`,
+
         },
 
         position,
