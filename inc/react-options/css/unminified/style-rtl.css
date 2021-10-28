@@ -1504,6 +1504,7 @@ button.kmt-delete-palette::before {
   padding: 8px 1px;
   border: 1px solid #d1d0d0;
   color: #515256;
+  height: 28px;
 }
 
 .kmt-color-palette-confrim__delete .kmt-pop-modal__header {
