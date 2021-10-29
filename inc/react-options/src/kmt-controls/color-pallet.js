@@ -344,13 +344,12 @@ const ColorPalettes = ({
                 onRequestClose={() => { setOpenModal(false) }}
             >
                 < p className={__(`kmt-palette-popup-content`)}>
-                    {__(`You are about to delete `, "kemet")} <q>"{delPalette[0].name}"</q> {__(`.This palette cannot be restored, are you sure you want to delete it`, "kemet")}
+                    {__(`You are about to delete`, "kemet")}<q className={`kmt-deleted-palette__name`}>"{delPalette[0].name}"</q>{__(`. This palette cannot be restored, are you sure you want to delete it ?`, "kemet")}
                 </p>
                 <div className={__(`kmt-paltette-popup-action`)}>
                     <button type="button" class="button button-primary save has-next-sibling" onClick={() => {
                         setOpenModal(false)
                     }
-
                     }>{__("No", "kemet")}</button>
                     <button type="button" class="components-button  kmt-button__delete__palette" onClick={(e) => {
                         e.preventDefault();

@@ -11,8 +11,9 @@ const CustomIcon = ({ onChange, value }) => {
                 title={__("Select Icon", "Kemet")}
                 onSelect={(data) => {
                     onChange({
-                        ...value,
+
                         ...data,
+                        ...value
                     });
                 }}
                 allowedTypes={["image/svg+xml"]}
@@ -25,7 +26,7 @@ const CustomIcon = ({ onChange, value }) => {
                                 isDefault
                                 onClick={() => openSelect(open)}
                             >
-                                {__("Select Background Image", "Kemet")}
+                                {__("Upload Icon", "Kemet")}
                             </Button>
                         )}
                         {value.url && (

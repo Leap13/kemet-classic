@@ -136,7 +136,7 @@ const SinglePicker = ({
                         onPickingChange(futureIsPicking)
                     }}
 
-                    style={{ backgroundColor: value }}
+                    style={{ background: `${value} none repeat scroll 0% 0%` }}
                 >
                     <i className="kmt-tooltip-top">
                         {picker.title}

@@ -642,7 +642,7 @@
   margin-top: 10px;
 }
 
-.customize-control-kmt-color-palettes header, div.kmt-type-control span, .kmt-palettes-preview .kmt-palette-toggle-modal, .kmt-palettes-modal label, .kmt-color-picker-container, .kmt-color-picker-single > span span, .kmt-edit-palette, .kmt-color-picker-modal .components-color-picker__controls, .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field label, .kmt-color-picker-modal .components-color-picker__inputs-toggle, .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container, .kmt-palette-info .kmt-Palette-type-container, .kmt-palette-info .kmt-Palette-type-wrapper button, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action, .components-modal__header, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action button, .kmt-color-palette-confrim__delete .kmt-pop-modal__header, .components-modal__header .components-modal__header-heading .kmt-popup-modal__header, .kmt-palettes-modal .kmt_label_type__palette {
+.customize-control-kmt-color-palettes header, div.kmt-type-control span, .kmt-palettes-preview .kmt-palette-toggle-modal, .kmt-palettes-modal label, .kmt-color-picker-container, .kmt-color-picker-single > span span, .kmt-edit-palette, .kmt-color-picker-modal .components-color-picker__controls, .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field label, .kmt-color-picker-modal .components-color-picker__inputs-toggle, .kmt-palettes-preview .kmt-single-palette .kmt-color-palette-container, .kmt-palette-info .kmt-Palette-type-container, .kmt-palette-info .kmt-Palette-type-wrapper button, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action, .components-modal__header, .kmt-color-palette-confrim__delete .kmt-paltette-popup-action > *, .kmt-color-palette-confrim__delete .kmt-pop-modal__header, .components-modal__header .components-modal__header-heading .kmt-popup-modal__header, .kmt-palettes-modal .kmt_label_type__palette {
   display: flex;
   align-items: center;
 }
@@ -741,6 +741,7 @@ div.kmt-type-control span:not(:first-child) {
   border: 1px solid #eaeaeb;
   background-color: #fbfbfb;
   justify-content: space-between;
+  margin: 0px 1px;
 }
 
 .kmt-palettes-preview .kmt-palette-toggle-modal header {
@@ -794,6 +795,7 @@ div.kmt-type-control span:not(:first-child) {
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
   justify-content: space-between;
+  margin-left: -5px;
 }
 
 .kmt-palettes-modal .kmt-tooltip-top {
@@ -823,6 +825,7 @@ div.kmt-type-control span:not(:first-child) {
   text-decoration: none;
   border-radius: inherit;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transform: scale(1.04);
 }
 
 .kmt-edit-palette {
@@ -1317,8 +1320,7 @@ button.kmt-save-palette:disabled {
 }
 
 .kmt-palette-info {
-  padding: 5px 15px;
-  margin: 10px;
+  padding: 0px 15px 10px 15px;
 }
 
 .kmt-palette-info .kmt-palette-type-label {
@@ -1465,7 +1467,7 @@ button.kmt-delete-palette::before {
 }
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action {
-  margin-top: 20px;
+  margin-top: 0px;
   justify-content: space-between;
   width: 100%;
 }
@@ -1473,26 +1475,24 @@ button.kmt-delete-palette::before {
 .components-modal__header {
   box-sizing: border-box;
   border-bottom: 1px dashed #a2a3a3;
-  padding: 0 25px;
+  padding: 0 23px;
   flex-direction: row;
   justify-content: space-between;
   background: #fff;
-  height: 60px;
+  height: 45px;
   z-index: 10;
-  position: relative;
   position: sticky;
   top: 0;
-  margin: 0 -25px 24px;
+  margin: 0 -25px 20px;
 }
 
-.kmt-color-palette-confrim__delete .kmt-paltette-popup-action button {
+.kmt-color-palette-confrim__delete .kmt-paltette-popup-action > * {
   border-radius: 0px;
   justify-content: center;
-  width: 165px;
+  width: 169px;
   height: 28px;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
 }
@@ -1504,6 +1504,7 @@ button.kmt-delete-palette::before {
   padding: 8px 1px;
   border: 1px solid #d1d0d0;
   color: #515256;
+  height: 28px;
 }
 
 .kmt-color-palette-confrim__delete .kmt-pop-modal__header {
@@ -1514,10 +1515,16 @@ button.kmt-delete-palette::before {
 }
 
 .components-modal__header .components-modal__header-heading .kmt-popup-modal__header {
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+.components-modal__header span {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
 }
 
 .components-modal__header .components-button {
@@ -1536,11 +1543,12 @@ button.kmt-delete-palette::before {
 .kmt-color-palette-confrim__delete .kmt-palette-popup-content {
   font-size: 13px;
   line-height: 1.5;
-  margin: 1em 0;
-  letter-spacing: 0.4px;
-  text-align: justify;
-  word-spacing: 0.4px;
+  margin: 20px 0px;
   text-indent: unset;
+}
+
+.kmt-color-palette-confrim__delete .kmt-palette-popup-content .kmt-deleted-palette__name {
+  font-style: italic;
 }
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action .components-button.has-icon.has-text .dashicon {
@@ -1549,6 +1557,7 @@ button.kmt-delete-palette::before {
 
 .kmt-color-palette-container .kmt-color-Wrapper:first-child {
   z-index: 10;
+  margin-right: 4px;
 }
 
 .kmt-color-palette-container .kmt-color-Wrapper:nth-child(2) {
@@ -1588,7 +1597,7 @@ button.kmt-delete-palette::before {
 .kmt-palettes-modal .kmt_label_type__palette {
   background-color: #efeff1;
   height: 30px;
-  padding: 6px 15px;
+  padding: 6px 13px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
@@ -1632,6 +1641,16 @@ button.kmt-delete-palette::before {
     padding: 5px;
     margin: 5px;
   }
+}
+
+.kmt-option-modal.kmt-palettes-modal {
+  position: absolute;
+  left: -1px !important;
+}
+
+.components-modal__frame {
+  width: 398px !important;
+  height: 173px !important;
 }
 
 .customize-control-kmt-color {
@@ -1812,7 +1831,7 @@ span.kmt-color-description {
   display: flex;
   width: 28px;
   height: 28px;
-  border-radius: 100%;
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.8);
   background-size: 10px 10px;
   background-position: 0 0, 0 5px, 5px -5px, -5px 0;
@@ -1907,7 +1926,6 @@ span.kmt-color-description {
   right: var(--modal-x-offset);
   border-radius: 0px;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  z-index: 500000;
 }
 
 .kmt-option-modal[data-position="bottom"] {
@@ -1918,6 +1936,10 @@ span.kmt-color-description {
 .kmt-option-modal[data-position="top"] {
   bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
   transform-origin: center bottom;
+}
+
+.wp-customizer .kmt-option-modal {
+  z-index: 500000;
 }
 
 .block-editor-page .kmt-option-modal {

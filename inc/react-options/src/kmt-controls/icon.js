@@ -26,11 +26,12 @@ const IconPicker = ({ value, onChange, params }) => {
         isPicking: null,
         isTransitioning: null,
     });
-
+    const handleRemoveIcon = () => {
+        value.source !== "attachment" ? onChange({ ...value, icon: '' }) : onChange({ ...value, url: '' });
+    }
     return (
         <div className={`kmt-icon-container `}>
             <header>
-
                 <span className="customize-control-title">{label}</span>
             </header>
             <div ref={el}>
@@ -71,7 +72,6 @@ const IconPicker = ({ value, onChange, params }) => {
                             },
                         }}
                     >
-
                         {correctIcon ? (
                             <Fragment>
                                 {value.source !== "attachment" && (
@@ -79,8 +79,7 @@ const IconPicker = ({ value, onChange, params }) => {
                                         className={`kmt-icon-preview ${value.icon}`}
                                     />
                                 )}
-
-                                {value.source === "attachment" && (
+                                {value.source === "attachment" && value.url && (
                                     <i className="kmt-icon-preview">
                                         <img src={value.url} />
                                     </i>
@@ -92,18 +91,13 @@ const IconPicker = ({ value, onChange, params }) => {
                                             {__("Change Icon", "Kemet")}
                                         </span>
                                     </span>
-
                                     <i className="divider"></i>
-
                                     <span
                                         className="kmt-remove"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             e.stopPropagation();
-                                            onChange({
-                                                ...value,
-                                                icon: "",
-                                            });
+                                            handleRemoveIcon()
                                         }}
                                     >
                                         <span className="kmt-tooltip-top">
@@ -162,8 +156,5 @@ const IconPicker = ({ value, onChange, params }) => {
     );
 };
 
-IconPicker.ControlEnd = () => {
-    return <div className="kmt-color-modal-wrapper" />;
-};
 
 export default IconPicker;

@@ -184,7 +184,7 @@ span.kmt-color-description {
     display: flex;
     width: 28px;
     height: 28px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.8);
     background-size: 10px 10px;
     background-position: 0 0, 0 5px, 5px -5px, -5px 0;
@@ -293,7 +293,8 @@ span.kmt-color-description {
     bottom: calc(var(--modal-y-offset) + var(--modal-y-offset-plus, 13px));
     transform-origin: center bottom;
   }
-
+}
+.wp-customizer .kmt-option-modal {
   z-index: 500000;
 }
 .block-editor-page .kmt-option-modal {
