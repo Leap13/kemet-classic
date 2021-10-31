@@ -45,6 +45,7 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 				$submenu_bg_h_color           = kemet_get_sub_option( $prefix . '-submenu-bg-color', 'hover' );
 				$submenu_link_separator_color = kemet_get_sub_option( $prefix . '-submenu-link-separator-color', 'initial' );
 				$submenu_border_top_width     = kemet_get_option( $prefix . '-submenu-border-top-width' );
+				$submenu_items_border         = kemet_get_option( $prefix . '-submenu-link-border' );
 
 				$css_output = array(
 					$selector                             => array(
@@ -75,14 +76,13 @@ if ( ! class_exists( 'Kemet_Header_Menu_Dynamic_Css' ) ) {
 						'--padding'        => '0',
 					),
 					$selector . ' > li ul > li > a'       => array(
-						'font-family'         => 'var(--fontFamily)',
-						'background-color'    => 'var(--backgroundColor, var(--globalBackgroundColor))',
-						'--backgroundColor'   => esc_attr( $submenu_bg_color ),
-						'--linksColor'        => esc_attr( $submenu_link_color ),
-						'--borderBottomWidth' => esc_attr( '1px' ),
-						'padding'             => '0.75em 0.6em',
-						'--borderBottomColor' => esc_attr( $submenu_link_separator_color ),
-						'--linksHoverColor'   => esc_attr( $submenu_link_h_color ),
+						'font-family'       => 'var(--fontFamily)',
+						'background-color'  => 'var(--backgroundColor, var(--globalBackgroundColor))',
+						'--backgroundColor' => esc_attr( $submenu_bg_color ),
+						'--linksColor'      => esc_attr( $submenu_link_color ),
+						'--borderBottom'    => kemet_border( $submenu_items_border ),
+						'padding'           => '0.75em 0.6em',
+						'--linksHoverColor' => esc_attr( $submenu_link_h_color ),
 					),
 					$selector . ' > li ul > li > a:hover' => array(
 						'color'             => 'var(--linksHoverColor)',

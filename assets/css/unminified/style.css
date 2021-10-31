@@ -3722,13 +3722,16 @@ body:not(.kmt-separate-container) .kmt-article-post:not(.product) > div {
 .main-header-menu > .menu-item > a,
 .main-header-menu > .page_item > a {
 	padding: var(--padding);
-}
-
-.main-header-menu .menu-item > a,
-.main-header-menu .page_item > a {
 	border-bottom-width: var(--borderBottomWidth, 0);
 	border-bottom-style: var(--borderBottomStyle, solid);
 	border-bottom-color: var(--borderBottomColor, transparent);
+}
+
+.main-header-menu ul.sub-menu > .menu-item > a,
+.main-header-menu ul.sub-menu > .page_item > a,
+.main-header-menu ul.children > .menu-item > a,
+.main-header-menu ul.children > .page_item > a {
+	border-bottom: var(--borderBottom);
 }
 
 .kmt-header-break-point {

@@ -631,6 +631,27 @@ function kemet_typography_css(control, selector) {
   })
 }
 
+function kemet_border_css(control, css_property, selector) {
+  wp.customize(control, function (value) {
+    value.bind(function (value) {
+      if (!value || value === '' || !value.style) {
+        return
+      }
+      var dynamicStyle = '';
+      if (value.style === 'none') {
+        dynamicStyle = selector + '{' + css_property + ': ' + value.style + '}';
+      } else {
+        var width = value.width ? value.width + 'px' : '1px',
+          style = value.style,
+          color = value.color ? value.color : 'var(--borderColor)';
+
+        dynamicStyle = selector + '{' + css_property + ': ' + width + ' ' + style + ' ' + color + '}';
+      }
+      kemet_add_dynamic_css(control, dynamicStyle);
+    })
+  })
+}
+
 function settingName(settingName) {
   var setting = previewData.setting.replace("setting_name", settingName);
 
@@ -1128,6 +1149,9 @@ function kemet_change_attr(control, selector, attr) {
         break;
       case "kmt-number":
         kemet_css(control, data.property, data.selector);
+        break;
+      case "kmt-border":
+        kemet_border_css(control, data.property, data.selector);
         break;
       case "kmt-spacing":
         if (data.responsive) {

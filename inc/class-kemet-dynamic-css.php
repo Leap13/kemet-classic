@@ -302,6 +302,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 					'--buttonShadow'               => 'none',
 					'--overlayColor'               => esc_attr( $overlay_color ),
 					'--overlayIconColor'           => esc_attr( $overlay_icon_color ),
+					'--selectionColor'             => 'var(--globalBackgroundColor)',
+					'--selectionBackgroundColor'   => kemet_color_brightness( $theme_color, 0.7 ),
 				),
 				// Gutenberg Support.
 				'.kmt-single-post .has-primary-color'     => array(
@@ -452,8 +454,8 @@ if ( ! class_exists( 'Kemet_Dynamic_CSS' ) ) {
 				),
 				// Global CSS.
 				'::selection'                             => array(
-					'background-color' => 'var(--linksColor)',
-					'color'            => esc_attr( $color_pallet['color2'] ),
+					'background-color' => 'var(--selectionBackgroundColor)',
+					'color'            => 'var(--selectionColor)',
 				),
 				'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' => array(
 					'color' => 'var(--headingColor)',

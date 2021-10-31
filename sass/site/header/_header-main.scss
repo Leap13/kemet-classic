@@ -164,14 +164,18 @@
   > .page_item {
     > a {
       padding: var(--padding);
-    }
-  }
-  .menu-item,
-  .page_item {
-    > a {
       border-bottom-style: var(--borderBottomStyle, solid);
       border-bottom-color: var(--borderBottomColor, transparent);
       border-bottom-width: var(--borderBottomWidth, 0);
+    }
+  }
+  ul.sub-menu,
+  ul.children {
+    > .menu-item,
+    > .page_item {
+      > a {
+        border-bottom: var(--borderBottom);
+      }
     }
   }
 }

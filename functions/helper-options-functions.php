@@ -290,7 +290,7 @@ if ( ! function_exists( 'kemet_border' ) ) {
 		$style  = $value['style'] ? $value['style'] : $default['style'];
 		$width  = $value['width'] ? $value['width'] : $default['width'];
 		$color  = $value['color'] ? $value['color'] : $default['color'];
-		$border = $width . 'px ' . $style . ' ' . $color;
+		$border = kemet_get_css_value( $width, 'px' ) . ' ' . $style . ' ' . $color;
 
 		return $border;
 	}

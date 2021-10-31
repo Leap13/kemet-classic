@@ -357,6 +357,16 @@ class Kemet_Header_Primary_Menu_Customizer extends Kemet_Customizer_Register {
 										),
 									),
 								),
+								$prefix . '-submenu-link-border' => array(
+									'transport' => 'postMessage',
+									'divider'   => true,
+									'type'      => 'kmt-border',
+									'label'     => __( 'Items Border', 'kemet' ),
+									'preview'   => array(
+										'selector' => $selector . ' > li ul > li > a',
+										'property' => '--borderBottom',
+									),
+								),
 								$prefix . '-box-shadow' => array(
 									'type'    => 'kmt-switcher',
 									'divider' => true,
