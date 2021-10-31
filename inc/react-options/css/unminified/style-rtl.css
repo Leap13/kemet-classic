@@ -795,7 +795,7 @@ div.kmt-type-control span:not(:first-child) {
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
   justify-content: space-between;
-  margin-right: -5px;
+  margin-right: -7px;
 }
 
 .kmt-palettes-modal .kmt-tooltip-top {
@@ -1144,7 +1144,7 @@ div.kmt-type-control span:not(:first-child) {
 
 .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field label {
   position: absolute;
-  top: 2px;
+  top: 0px;
   right: 2px;
   bottom: 1px;
   justify-content: center;
@@ -1154,7 +1154,7 @@ div.kmt-type-control span:not(:first-child) {
   min-width: 18px;
   margin: 0;
   background: rgba(238, 238, 238, 0.65);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0px;
 }
 
 .kmt-color-picker-modal .components-color-picker__inputs-wrapper .components-base-control__field input[type="number"] {
@@ -1479,11 +1479,11 @@ button.kmt-delete-palette::before {
   flex-direction: row;
   justify-content: space-between;
   background: #fff;
-  height: 45px;
+  height: 50px;
   z-index: 10;
   position: sticky;
   top: 0;
-  margin: 0 -25px 20px;
+  margin: 0 -25px 0px;
 }
 
 .kmt-color-palette-confrim__delete .kmt-paltette-popup-action > * {
@@ -1501,10 +1501,9 @@ button.kmt-delete-palette::before {
   background-color: #e4e4e4;
   border: 0;
   box-shadow: none;
-  padding: 8px 1px;
   border: 1px solid #d1d0d0;
   color: #515256;
-  height: 28px;
+  height: 30px;
 }
 
 .kmt-color-palette-confrim__delete .kmt-pop-modal__header {
@@ -1521,10 +1520,14 @@ button.kmt-delete-palette::before {
   font-weight: bold;
 }
 
-.components-modal__header span {
+.components-modal__header i {
   font-size: 16px;
   height: 16px;
   width: 16px;
+}
+
+.components-modal__header span {
+  display: none;
 }
 
 .components-modal__header .components-button {
@@ -1537,13 +1540,13 @@ button.kmt-delete-palette::before {
 }
 
 .kmt-color-palette-confrim__delete .components-modal__content {
-  padding: 0 25px 24px;
+  padding: 0 25px 25px;
 }
 
 .kmt-color-palette-confrim__delete .kmt-palette-popup-content {
   font-size: 13px;
   line-height: 1.5;
-  margin: 20px 0px;
+  margin: 25px 0px;
   text-indent: unset;
 }
 
@@ -1650,7 +1653,7 @@ button.kmt-delete-palette::before {
 
 .components-modal__frame {
   width: 398px !important;
-  height: 173px !important;
+  height: 193px !important;
 }
 
 .customize-control-kmt-color {
@@ -2909,7 +2912,7 @@ input[type="number"] {
 }
 
 .customize-control-kmt-title .customize-control-title:hover {
-  cursor: pointer;
+  cursor: default;
 }
 
 .customize-control-kmt-title .description.customize-control-description {
@@ -4188,7 +4191,6 @@ input[type="checkbox"]:focus {
   padding: 10px;
   margin: 0 -10px;
   border-radius: 3px;
-  background: rgba(238, 238, 238, 0.5);
 }
 
 .kmt-font-name .kmt-font-name {

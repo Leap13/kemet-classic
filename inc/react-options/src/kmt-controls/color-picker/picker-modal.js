@@ -3,22 +3,6 @@ import { ColorPicker } from "@wordpress/components";
 import classnames from "classnames";
 const { __ } = wp.i18n;
 
-const getLeftForEl = (modal, el) => {
-    if (!modal) return;
-    if (!el) return;
-
-    let style = getComputedStyle(modal);
-
-    let wrapperLeft = parseFloat(style.left);
-
-    el = el.firstElementChild.getBoundingClientRect();
-
-    return {
-        "--option-modal-arrow-position": `${el.left + el.width / 2 - wrapperLeft - 6
-            }px`,
-    };
-};
-
 const PickerModal = ({
     el,
     value,
@@ -51,14 +35,7 @@ const PickerModal = ({
 
     let valueToCheck = value;
 
-    const arrowLeft = useMemo(
-        () =>
-            wrapperProps.ref &&
-            wrapperProps.ref.current &&
-            el &&
-            getLeftForEl(wrapperProps.ref.current, el.current),
-        [wrapperProps.ref && wrapperProps.ref.current, el && el.current]
-    );
+
 
     const handletoppart = (colorValue) => {
         if (refresh) {
@@ -91,7 +68,6 @@ const PickerModal = ({
                     className
                 )}
                 style={{
-                    ...arrowLeft,
                     ...(style ? style : {}),
                 }}
                 {...wrapperProps}

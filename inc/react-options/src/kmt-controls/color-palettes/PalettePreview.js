@@ -31,12 +31,12 @@ const PalettePreview = ({
     onChange(newColor, optionId);
   };
   const Title = [
-    __(`Buttons background  Color,\nHover link color`, "kemet"),
-    __("Headings,Links color", "kemet"),
+    __(`Buttons background color \n& Links hover color`, "kemet"),
+    __("Headings & Links color", "kemet"),
     __("Body text & Meta color", "kemet"),
     __("Borders color", "kemet"),
     __(
-      "Body, a tint for Input fields,\n Page title, Widgets background",
+      "Body background, a tint for Input fields,\nPage titles, Widgets background",
       "kemet"
     ),
     __("Footer text color", "kemet"),

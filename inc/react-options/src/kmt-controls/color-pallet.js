@@ -23,6 +23,7 @@ const ColorPalettes = ({
         isOpen: false,
         isTransitioning: false,
     });
+
     const [currentView, setCurrentView] = useState("");
     const [openModal, setOpenModal] = useState(false)
     const [delPalette, setDelPalette] = useState()
@@ -33,19 +34,7 @@ const ColorPalettes = ({
     });
 
 
-    const setIsOpen = (isOpen) => {
-        setModalState((state) => ({
-            ...state,
-            isOpen,
-            isTransitioning: true,
-        }));
-    };
 
-    const stopTransitioning = () =>
-        setModalState((state) => ({
-            ...state,
-            isTransitioning: false,
-        }));
 
     const handleChangePalette = (active) => {
         let currentPalette = active.palettes.find(
@@ -99,7 +88,10 @@ const ColorPalettes = ({
             ...value,
             flag: !value.flag,
         });
-        setIsOpen(false);
+        setModalState(() => ({
+            isOpen: null,
+            isTransitioning: false,
+        }))
     };
 
     const handleDeletePalette = (id) => {
@@ -147,7 +139,7 @@ const ColorPalettes = ({
                 className="kmt-palettes-outside"
                 additionalRefs={[popoverProps.ref]}
                 onOutsideClick={(e) => {
-                    console.log("outclick")
+
                     if (
                         e.target.closest(".kmt-color-picker-modal") ||
                         e.target.classList.contains("kmt-color-picker-modal") ||
@@ -155,20 +147,15 @@ const ColorPalettes = ({
                     ) {
                         return;
                     }
-                    setIsOpen(false);
+                    setModalState(() => ({
+                        isOpen: null,
+                        isTransitioning: null,
+                    }))
                     setCurrentView(" ");
                 }}
                 wrapperProps={{
                     ref: colorPalettesWrapper,
-                    onClick: (e) => {
-                        e.preventDefault();
-                        console.log("wrapperProps")
 
-                        if (!state.palettes) {
-                            return;
-                        }
-                        setIsOpen(true);
-                    },
                 }}
             >
                 <div className={`kmt-palettes-preview`}>
@@ -177,7 +164,10 @@ const ColorPalettes = ({
                             if (!state.palettes) {
                                 return;
                             }
-                            setIsOpen(false);
+                            setModalState(() => ({
+                                isOpen: null,
+                                isTransitioning: null,
+                            }))
                         }}
                         value={state}
                         onChange={(v, id) => handleChangeComplete(v, id)}
@@ -189,7 +179,10 @@ const ColorPalettes = ({
                     <div className={`kmt-palette-toggle-modal `}
                         onClick={(e) => {
                             e.preventDefault();
-                            setIsOpen(true);
+                            setModalState(() => ({
+                                isOpen: !isOpen,
+                                isTransitioning: null,
+                            }))
                             setCurrentView("modal");
                         }}
                     >
@@ -202,7 +195,7 @@ const ColorPalettes = ({
                     </div>
 
                 </div>
-                {(isTransitioning || isOpen) && currentView === "modal" &&
+                {isOpen && currentView === "modal" &&
                     <ColorPalettesModal
                         wrapperProps={{
                             style: {
@@ -212,7 +205,10 @@ const ColorPalettes = ({
 
                         }}
                         onChange={(val) => {
-                            setIsOpen(false);
+                            setModalState(() => ({
+                                isOpen: false,
+                                isTransitioning: null,
+                            }))
                             handleChangePalette(val);
                             setCurrentView("")
                         }}
@@ -223,7 +219,7 @@ const ColorPalettes = ({
                     />}
             </OutsideClickHandler>
             <OutsideClickHandler
-                disabled={!isOpen}
+                disabled={!isTransitioning}
                 useCapture={false}
                 className="kmt-button-palettes-outside"
                 additionalRefs={[popoverProps.ref]}
@@ -235,7 +231,10 @@ const ColorPalettes = ({
                     ) {
                         return;
                     }
-                    setIsOpen(false);
+                    setModalState(() => ({
+                        isOpen: null,
+                        isTransitioning: null,
+                    }))
                     setCurrentView(" ");
                 }}
                 wrapperProps={{
@@ -251,7 +250,10 @@ const ColorPalettes = ({
                         if (!state.palettes) {
                             return;
                         }
-                        setIsOpen(true);
+                        setModalState(() => ({
+                            isOpen: null,
+                            isTransitioning: true,
+                        }))
                     },
                 }}
             >
@@ -261,27 +263,30 @@ const ColorPalettes = ({
                         e.stopPropagation();
                         e.preventDefault();
                         setCurrentView("add");
-                        setIsOpen(true);
-                        console.log(currentView)
+                        setModalState(() => ({
+                            isOpen: null,
+                            isTransitioning: true,
+                        }))
+
                     }}
                 >
 
                     {__('Save New Palette', "kemet")}
                 </button>
             </OutsideClickHandler>
-            {(isTransitioning || isOpen) && currentView === "add" &&
+            {isTransitioning && currentView === "add" &&
                 createPortal(
                     <Transition
-                        items={isOpen}
-                        onRest={(isOpen) => {
-                            stopTransitioning();
-                        }}
+                        items={isTransitioning}
+                        // onRest={(isOpen) => {
+                        //     stopTransitioning();
+                        // }}
                         config={{
                             duration: 100,
                             easing: bezierEasing(0.25, 0.1, 0.25, 1.0),
                         }}
                         from={
-                            isOpen
+                            isTransitioning
                                 ? {
                                     transform: "scale3d(0.95, 0.95, 1)",
                                     opacity: 0,
@@ -289,7 +294,7 @@ const ColorPalettes = ({
                                 : { opacity: 1 }
                         }
                         enter={
-                            isOpen
+                            isTransitioning
                                 ? {
                                     transform: "scale3d(1, 1, 1)",
                                     opacity: 1,
@@ -299,7 +304,7 @@ const ColorPalettes = ({
                                 }
                         }
                         leave={
-                            !isOpen
+                            !isTransitioning
                                 ? {
                                     transform: "scale3d(0.95, 0.95, 1)",
                                     opacity: 0,
@@ -338,13 +343,13 @@ const ColorPalettes = ({
                     document.body
                 )}
 
-            {openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><span class="dashicons dashicons-bell"></span> {__("Warning", "kemet")}</div>)}
+            {openModal && <Modal title={(<div className={`kmt-popup-modal__header`}><i className="dashicons dashicons-bell"></i> {__("Warning", "kemet")}</div>)}
                 className={`kmt-color-palette-confrim__delete`}
                 isDismissible={true}
                 onRequestClose={() => { setOpenModal(false) }}
             >
                 < p className={__(`kmt-palette-popup-content`)}>
-                    {__(`You are about to delete`, "kemet")}<q className={`kmt-deleted-palette__name`}>"{delPalette[0].name}"</q>{__(`. This palette cannot be restored, are you sure you want to delete it ?`, "kemet")}
+                    {__(`You are about to delete `, "kemet")}<q className={`kmt-deleted-palette__name`}>"{delPalette[0].name}"</q>{__(`. This palette cannot be restored, are you sure you want to delete it?`, "kemet")}
                 </p>
                 <div className={__(`kmt-paltette-popup-action`)}>
                     <button type="button" class="button button-primary save has-next-sibling" onClick={() => {
