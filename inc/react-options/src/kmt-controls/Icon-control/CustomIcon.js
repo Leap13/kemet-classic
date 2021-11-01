@@ -1,6 +1,7 @@
 const { __ } = wp.i18n;
 import { MediaUpload } from "@wordpress/media-utils";
 import { Button } from "@wordpress/components";
+import { Fragment } from "react";
 const openSelect = (open) => {
     open();
 };
@@ -18,7 +19,7 @@ const CustomIcon = ({ onChange, value }) => {
                     })
                 }}
                 render={({ open }) => (
-                    <>
+                    <Fragment>
                         {!value.url && (
                             <Button
                                 className="upload-button button-add-media"
@@ -58,7 +59,7 @@ const CustomIcon = ({ onChange, value }) => {
                                 </div>
                             </div>
                         )}
-                    </>
+                    </Fragment>
                 )}
             />
             <p className="kmt-option-description">

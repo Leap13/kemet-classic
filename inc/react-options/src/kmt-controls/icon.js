@@ -2,7 +2,7 @@ import { Fragment, useMemo, useRef, useState } from "@wordpress/element";
 import OutsideComponent from "../common/outside-component";
 const { __ } = wp.i18n;
 
-import { Dashicons } from "../common/iconList";
+import Dashicons from "../common/iconList";
 import IconPickerModal from "./Icon-control/Modal";
 
 export const packs = Dashicons;

@@ -2,6 +2,7 @@ import { useState } from "@wordpress/element";
 import OutsideClickHandler from "../common/outside-component";
 import classnames from "classnames";
 import ColorComponent from "./color";
+import { Fragment } from "react";
 const { __ } = wp.i18n;
 const clamp = (min, max, value) => Math.max(min, Math.min(max, value));
 const Border = ({ value, onChange, params }) => {
@@ -19,17 +20,17 @@ const Border = ({ value, onChange, params }) => {
     const [state, setState] = useState(value);
     const handleChangeComplete = (color, id) => {
         let colorValue = state;
-        if (typeof color === "string") {
-            colorValue[id] = color;
-        } else if (
-            undefined !== color.rgb &&
-            undefined !== color.rgb.a &&
-            1 !== color.rgb.a
-        ) {
-            colorValue[id] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`;
-        } else {
-            colorValue[id] = color.hex;
-        }
+        (typeof color === "string") ?
+            colorValue[id] = color
+            : (
+                undefined !== color.rgb &&
+                undefined !== color.rgb.a &&
+                1 !== color.rgb.a
+            ) ?
+                colorValue[id] = `rgba(${color.rgb.r},${color.rgb.g},${color.rgb.b},${color.rgb.a})`
+                :
+                colorValue[id] = color.hex
+
         setState(colorValue);
         onChange({ ...colorValue });
     };
@@ -132,7 +133,7 @@ const Border = ({ value, onChange, params }) => {
                             </ul>
                         </OutsideClickHandler>
                     </div>
-                    {value.style !== "none" && <>
+                    {value.style !== "none" && <Fragment>
                         <ColorComponent
                             onChangeComplete={(colorValue) =>
                                 handleChangeComplete(colorValue, 'color')
@@ -156,7 +157,7 @@ const Border = ({ value, onChange, params }) => {
                                 value={{ default: value.secondColor }}
                             />
                         )}
-                    </>}
+                    </Fragment>}
                 </div>
                 <div className="kmt-btn-reset-wrap">
                     <button
