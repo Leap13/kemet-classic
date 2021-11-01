@@ -24,6 +24,7 @@ const CustomIcon = ({ onChange, value }) => {
                             <Button
                                 className="upload-button button-add-media"
                                 onClick={() => openSelect(open)}
+                                isSecondary
                             >
                                 {__("Upload Icon", "kemet")}
                             </Button>

@@ -21859,7 +21859,8 @@ var CustomIcon = function CustomIcon(_ref) {
         className: "upload-button button-add-media",
         onClick: function onClick() {
           return openSelect(open);
-        }
+        },
+        isSecondary: true
       }, __("Upload Icon", "kemet")), value.url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
         class: "attachment-media-view kmt-attachment "
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
